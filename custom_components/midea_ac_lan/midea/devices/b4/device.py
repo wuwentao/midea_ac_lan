@@ -7,7 +7,7 @@ try:
     from enum import StrEnum
 except ImportError:
     from ...backports.enum import StrEnum
-from ...core.device import MiedaDevice
+from ...core.device import MideaDevice
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -22,7 +22,7 @@ class DeviceAttributes(StrEnum):
     water_shortage = "water_shortage"
 
 
-class MideaB4Device(MiedaDevice):
+class MideaB4Device(MideaDevice):
     _status = {
         0x01: "Standby", 0x02: "Idle", 0x03: "Working",
         0x04: "Finished", 0x05: "Delay", 0x06: "Paused"

@@ -7,7 +7,7 @@ try:
     from enum import StrEnum
 except ImportError:
     from ...backports.enum import StrEnum
-from ...core.device import MiedaDevice
+from ...core.device import MideaDevice
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -23,7 +23,7 @@ class DeviceAttributes(StrEnum):
     with_pressure = "with_pressure"
 
 
-class MideaECDevice(MiedaDevice):
+class MideaECDevice(MideaDevice):
     _mode_list = [
         "smart", "reserve", "cook_rice", "fast_cook_rice", "standard_cook_rice",
         "gruel", "cook_congee", "stew_soup", "stewing", "heat_rice", "make_cake",

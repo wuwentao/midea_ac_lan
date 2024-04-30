@@ -11,7 +11,7 @@ try:
     from enum import StrEnum
 except ImportError:
     from ...backports.enum import StrEnum
-from ...core.device import MiedaDevice
+from ...core.device import MideaDevice
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -30,7 +30,7 @@ class DeviceAttributes(StrEnum):
     heating_power = "heating_power"
 
 
-class MideaE2Device(MiedaDevice):
+class MideaE2Device(MideaDevice):
     def __init__(
             self,
             name: str,

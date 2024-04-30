@@ -37,7 +37,7 @@ import homeassistant.helpers.config_validation as cv
 from homeassistant.helpers.aiohttp_client import async_create_clientsession
 from .midea.core.discover import discover
 from .midea.core.cloud import get_midea_cloud
-from .midea.core.device import MiedaDevice
+from .midea.core.device import MideaDevice
 from .midea_devices import MIDEA_DEVICES
 
 _LOGGER = logging.getLogger(__name__)
@@ -264,7 +264,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                             return await self.async_step_auto(error="preset_account")
                     keys = await self.cloud.get_keys(user_input[CONF_DEVICE])
                     for method, key in keys.items():
-                        dm = MiedaDevice(
+                        dm = MideaDevice(
                             name="",
                             device_id=device_id,
                             device_type=device.get(CONF_TYPE),
@@ -314,7 +314,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 return await self.async_step_manually(error="invalid_token")
             if user_input[CONF_PROTOCOL] == 3 and (len(user_input[CONF_TOKEN]) == 0 or len(user_input[CONF_KEY]) == 0):
                 return await self.async_step_manually(error="invalid_token")
-            dm = MiedaDevice(
+            dm = MideaDevice(
                 name="",
                 device_id=user_input[CONF_DEVICE_ID],
                 device_type=user_input[CONF_TYPE],

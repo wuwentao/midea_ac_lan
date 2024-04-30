@@ -9,7 +9,7 @@ try:
     from enum import StrEnum
 except ImportError:
     from ...backports.enum import StrEnum
-from ...core.device import MiedaDevice
+from ...core.device import MideaDevice
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -25,7 +25,7 @@ class DeviceAttributes(StrEnum):
     oscillation_mode = "oscillation_mode"
 
 
-class MideaFADevice(MiedaDevice):
+class MideaFADevice(MideaDevice):
     _oscillation_angles = [
         "Off", "30", "60", "90", "120", "180", "360"
     ]
