@@ -1,13 +1,34 @@
-from homeassistant.components.climate import *
-from homeassistant.components.climate.const import *
+from homeassistant.components.climate import (
+    ATTR_HVAC_MODE,
+    ClimateEntity,
+    ClimateEntityFeature,
+    FAN_AUTO,
+    FAN_HIGH,
+    FAN_LOW,
+    FAN_MEDIUM,
+    HVACMode,
+    PRESET_AWAY,
+    PRESET_BOOST,
+    PRESET_COMFORT,
+    PRESET_ECO,
+    PRESET_NONE,
+    PRESET_SLEEP,
+    SWING_BOTH,
+    SWING_HORIZONTAL,
+    SWING_OFF,
+    SWING_ON,
+    SWING_VERTICAL,
+)
 from homeassistant.const import (
+    MAJOR_VERSION,
+    MINOR_VERSION,
     Platform,
-    TEMP_CELSIUS,
+    UnitOfTemperature,
     PRECISION_WHOLE,
     PRECISION_HALVES,
     ATTR_TEMPERATURE,
     CONF_DEVICE_ID,
-    CONF_SWITCHES
+    CONF_SWITCHES,
 )
 
 from .const import (
@@ -56,16 +77,24 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
 
 
 class MideaClimate(MideaEntity, ClimateEntity):
+
+    # https://developers.home-assistant.io/blog/2024/01/24/climate-climateentityfeatures-expanded
+    _enable_turn_on_off_backwards_compatibility: bool = False  # maybe remove after 2025.1
+
     def __init__(self, device, entity_key):
         super().__init__(device, entity_key)
 
     @property
     def supported_features(self):
-        return ClimateEntityFeature.TARGET_TEMPERATURE | \
-               ClimateEntityFeature.FAN_MODE | \
-               ClimateEntityFeature.PRESET_MODE | \
-               ClimateEntityFeature.SWING_MODE | \
-               ClimateEntityFeature.AUX_HEAT
+        features = (
+            ClimateEntityFeature.TARGET_TEMPERATURE |
+            ClimateEntityFeature.FAN_MODE |
+            ClimateEntityFeature.PRESET_MODE |
+            ClimateEntityFeature.SWING_MODE
+        )
+        if (MAJOR_VERSION, MINOR_VERSION) >= (2024, 2):
+            features |= ClimateEntityFeature.TURN_OFF | ClimateEntityFeature.TURN_ON
+        return features
 
     @property
     def min_temp(self):
@@ -77,7 +106,7 @@ class MideaClimate(MideaEntity, ClimateEntity):
 
     @property
     def temperature_unit(self):
-        return TEMP_CELSIUS
+        return UnitOfTemperature.CELSIUS
 
     @property
     def target_temperature_low(self):
@@ -113,10 +142,6 @@ class MideaClimate(MideaEntity, ClimateEntity):
     @property
     def current_temperature(self):
         return self._device.get_attribute("indoor_temperature")
-
-    @property
-    def is_aux_heat(self):
-        return self._device.get_attribute("aux_heating")
 
     @property
     def preset_modes(self):
@@ -199,12 +224,6 @@ class MideaClimate(MideaEntity, ClimateEntity):
             self.schedule_update_ha_state()
         except Exception as e:
             _LOGGER.debug(f"Entity {self.entity_id} update_state {repr(e)}, status = {status}")
-
-    def turn_aux_heat_on(self) -> None:
-        self._device.set_attribute(attr="aux_heating", value=True)
-
-    def turn_aux_heat_off(self) -> None:
-        self._device.set_attribute(attr="aux_heating", value=False)
 
 
 class MideaACClimate(MideaClimate):
@@ -316,7 +335,10 @@ class MideaCFClimate(MideaClimate):
 
     @property
     def supported_features(self):
-        return ClimateEntityFeature.TARGET_TEMPERATURE | ClimateEntityFeature.AUX_HEAT
+        features = ClimateEntityFeature.TARGET_TEMPERATURE
+        if (MAJOR_VERSION, MINOR_VERSION) >= (2024, 2):
+            features |= ClimateEntityFeature.TURN_OFF | ClimateEntityFeature.TURN_ON
+        return features
 
     @property
     def target_temperature_step(self):
@@ -357,7 +379,10 @@ class MideaC3Climate(MideaClimate):
 
     @property
     def supported_features(self):
-        return ClimateEntityFeature.TARGET_TEMPERATURE
+        features = ClimateEntityFeature.TARGET_TEMPERATURE
+        if (MAJOR_VERSION, MINOR_VERSION) >= (2024, 2):
+            features |= ClimateEntityFeature.TURN_OFF | ClimateEntityFeature.TURN_ON
+        return features
 
     @property
     def target_temperature_step(self):
@@ -432,7 +457,10 @@ class MideaFBClimate(MideaClimate):
 
     @property
     def supported_features(self):
-        return ClimateEntityFeature.TARGET_TEMPERATURE | ClimateEntityFeature.PRESET_MODE
+        features = ClimateEntityFeature.TARGET_TEMPERATURE | ClimateEntityFeature.PRESET_MODE
+        if (MAJOR_VERSION, MINOR_VERSION) >= (2024, 2):
+            features |= ClimateEntityFeature.TURN_OFF | ClimateEntityFeature.TURN_ON
+        return features
 
     @property
     def target_temperature_step(self):

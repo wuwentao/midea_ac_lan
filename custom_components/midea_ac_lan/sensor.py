@@ -1,7 +1,7 @@
 from .midea_entity import MideaEntity
 from .midea_devices import MIDEA_DEVICES
 from homeassistant.components.sensor import SensorEntity
-from homeassistant.const import(
+from homeassistant.const import (
     Platform,
     CONF_DEVICE_ID,
     CONF_SENSORS

@@ -5,7 +5,6 @@
 - Supports fan mode
 - Supports swing mode
 - Supports preset mode
-- Supports auxiliary heating
 - Supports build-in fresh air system
 
 ### Supported Run-Modes

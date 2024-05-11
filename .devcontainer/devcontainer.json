@@ -1,0 +1,40 @@
+{
+	"name": "midea_ac_lan",
+	"image": "mcr.microsoft.com/devcontainers/python:3.12-bullseye",
+	"postCreateCommand": "scripts/setup.sh",
+	"forwardPorts": [
+		8123
+	],
+	"portsAttributes": {
+		"8123": {
+			"label": "Home Assistant",
+			"onAutoForward": "notify"
+		}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-python.python",
+				"ryanluker.vscode-coverage-gutters",
+				"ms-python.vscode-pylance"
+			],
+			"settings": {
+				"files.eol": "\n",
+				"editor.tabSize": 4,
+				"python.pythonPath": "/usr/bin/python3",
+				"python.analysis.autoSearchPaths": false,
+				"python.formatting.provider": "black",
+				"python.formatting.blackPath": "/usr/local/py-utils/bin/black",
+				"editor.formatOnPaste": false,
+				"editor.formatOnSave": true,
+				"editor.formatOnType": true
+			}
+		}
+	},
+	"remoteUser": "vscode",
+	"features": {
+		"ghcr.io/devcontainers/features/python:1": {
+			"version": "3.12"
+		}
+	}
+}

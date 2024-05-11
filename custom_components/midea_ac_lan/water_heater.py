@@ -1,8 +1,12 @@
+import functools as ft
 
-from homeassistant.components.water_heater import *
+from homeassistant.components.water_heater import (
+    WaterHeaterEntity,
+    WaterHeaterEntityFeature,
+)
 from homeassistant.const import (
     Platform,
-    TEMP_CELSIUS,
+    UnitOfTemperature,
     PRECISION_WHOLE,
     PRECISION_HALVES,
     ATTR_TEMPERATURE,
@@ -90,7 +94,7 @@ class MideaWaterHeater(MideaEntity, WaterHeaterEntity):
 
     @property
     def temperature_unit(self):
-        return TEMP_CELSIUS
+        return UnitOfTemperature.CELSIUS
 
     @property
     def current_operation(self):

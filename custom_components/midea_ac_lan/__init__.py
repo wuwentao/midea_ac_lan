@@ -27,7 +27,7 @@ from homeassistant.const import (
     CONF_TYPE,
     CONF_CUSTOMIZE,
 )
-from .midea.devices import device_selector
+from .midea.devices import async_device_selector
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -145,7 +145,8 @@ async def async_setup_entry(hass: HomeAssistant, config_entry):
     if protocol == 3 and (key is None or key is None):
         _LOGGER.error("For V3 devices, the key and the token is required.")
         return False
-    device = device_selector(
+    device = await async_device_selector(
+        hass=hass,
         name=name,
         device_id=device_id,
         device_type=device_type,
