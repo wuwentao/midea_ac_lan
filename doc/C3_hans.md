@@ -1,10 +1,14 @@
 # 热泵空调Wi-Fi线控器
+
 ## 特性
+
 - 支持目标温度设定
 - 支持运行模式设定
 
 ## 生成实体
+
 ### 默认生成实体
+
 | 实体ID                                 | 类型           | 描述       |
 |--------------------------------------|--------------|----------|
 | climate.{DEVICEID}_climate_zone1     | climate      | 区域1恒温器实体 |
@@ -20,7 +24,7 @@
 | binary_sensor.{DEVICEID}_zone1_room_temp_mode  | binary_sensor | Zone1 Room Temperature Mode  | 区域1室温模式                              |
 | binary_sensor.{DEVICEID}_zone2_room_temp_mode  | binary_sensor | Zone2 Room Temperature Mode  | 区域2室温模式                              |
 | binary_sensor.{DEVICEID}_status_dhw            | binary_sensor | DHW Status                   | DHW状态                                |
-| binary_sensor.{DEVICEID}_status_tbh            | binary_sensor | TBH Status                   | TBH状态                                |                                  
+| binary_sensor.{DEVICEID}_status_tbh            | binary_sensor | TBH Status                   | TBH状态                                |
 | binary_sensor.{DEVICEID}_status_ibh            | binary_sensor | IBH Status                   | IBH状态                                |
 | binary_sensor.{DEVICEID}_status_heating        | binary_sensor | Heating Status               | 加热状态                                 |
 | sensor.{DEVICEID}_error_code                   | sensor        | Error Code                   | 错误码                                  |
@@ -54,6 +58,7 @@
 | value     | true 或 false                                                                                                       |
 
 示例
+
 ```yaml
 service: midea_ac_lan.set_attribute
 data:

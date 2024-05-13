@@ -280,7 +280,7 @@ class MeijuCloud(MideaCloud):
                             "sn": self._security.aes_decrypt(appliance.get("sn")) if appliance.get("sn") else "",
                             "sn8": appliance.get("sn8", "00000000"),
                             "model_number": model_number,
-                            "manufacturer_code":appliance.get("enterpriseCode", "0000"),
+                            "manufacturer_code": appliance.get("enterpriseCode", "0000"),
                             "model": appliance.get("productModel"),
                             "online": appliance.get("onlineStatus") == "1",
                         }
@@ -464,7 +464,7 @@ class MSmartHomeCloud(MideaCloud):
                     "sn": self._security.aes_decrypt(appliance.get("sn")) if appliance.get("sn") else "",
                     "sn8": "",
                     "model_number": model_number,
-                    "manufacturer_code":appliance.get("enterpriseCode", "0000"),
+                    "manufacturer_code": appliance.get("enterpriseCode", "0000"),
                     "model": "",
                     "online": appliance.get("onlineStatus") == "1",
                 }
@@ -624,7 +624,7 @@ class MideaAirCloud(MideaCloud):
                     "sn": appliance.get("sn"),
                     "sn8": "",
                     "model_number": model_number,
-                    "manufacturer_code":appliance.get("enterpriseCode", "0000"),
+                    "manufacturer_code": appliance.get("enterpriseCode", "0000"),
                     "model": "",
                     "online": appliance.get("onlineStatus") == "1",
                 }

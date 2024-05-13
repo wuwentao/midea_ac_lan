@@ -1,3 +1,4 @@
+---
 name: 错误报告
 description: 集成或实体无法正常工作
 labels: ["bug"]
@@ -5,13 +6,13 @@ body:
   - type: input
     attributes:
       label: HA版本
-      placeholder: 2023.4.2
+      placeholder: 2024.5.3
   - type: input
     validations:
       required: true
     attributes:
       label: 集成版本
-      placeholder: 0.3.18
+      placeholder: 0.3.23
   - type: input
     validations:
       required: true

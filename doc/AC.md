@@ -1,5 +1,7 @@
 # Air Conditioner
+
 ## Features
+
 - Supports target temperature
 - Supports run mode
 - Supports fan mode
@@ -8,6 +10,7 @@
 - Supports build-in fresh air system
 
 ### Supported Run-Modes
+
 - Comfort Mode
 - ECO Mode
 - Boost Mode
@@ -22,16 +25,18 @@
 
 - Power consumption analysis method (1 by default)
 
-  There are 3 different methods to analyze the power consumption of an AC, but I don’t know which is right for your device. 
-  If the power consumption data looks incorrect, try another method and see if they are correct. 
+  There are 3 different methods to analyze the power consumption of an AC, but I don’t know which is right for your device.
+  If the power consumption data looks incorrect, try another method and see if they are correct.
   The options include 1, 2, and 3.
-  
+
 ```json
 {"power_analysis_method": 2}
 ```
 
 ## Entities
+
 ### Default entity
+
 | EntityID                   | Class   | Description    |
 |----------------------------|---------|----------------|
 | climate.{DEVICEID}_climate | climate | Climate entity |
@@ -89,6 +94,7 @@ Set the attribute of appliance. Service data:
 | value     | Range 1 to 100 or "auto"                    |
 
 Example
+
 ```yaml
 service: midea_ac_lan.set_attribute
 data:

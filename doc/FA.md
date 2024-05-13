@@ -1,5 +1,7 @@
 # Fan
+
 ## Features
+
 - Supports fan speed
 - Supports preset mode
 - Supports oscillation
@@ -14,7 +16,9 @@ Set the levels of the fan device except "Off" (3 by default).
 ```
 
 ## Entities
+
 ### Default entity
+
 | EntityID           | Class | Description |
 |--------------------|-------|-------------|
 | fan.{DEVICEID}_fan | fan   | Fan entity  |
@@ -63,6 +67,7 @@ Set the attribute of appliance. Service data:
 | value     | "Off"<br/>"30"<br/>"60"<br/>"90"<br/>"120"<br/>"180"<br/>"360"<br/>"+60"<br/>"-60"<br/>"40" |
 
 Example
+
 ```
 service: midea_ac_lan.set_attribute
 data:

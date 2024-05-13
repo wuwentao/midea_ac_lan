@@ -1,11 +1,15 @@
 # 加湿器
+
 ## 特性
+
 - 支持运行模式
 - 支持风扇模式设定
 - 支持湿度设定
 
 ## 生成实体
+
 ### 默认生成实体
+
 | 实体ID                             | 类型         | 描述    |
 |----------------------------------|------------|-------|
 | humidifier.{DEVICEID}_humidifier | humidifier | 加湿器实体 |
@@ -49,6 +53,7 @@
 | value     | "Bright"<br/>"Dim"<br/>"Off" |
 
 示例
+
 ```yaml
 service: midea_ac_lan.set_attribute
 data:

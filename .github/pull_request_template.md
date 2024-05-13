@@ -1,16 +1,14 @@
-## PR Brief Description:
+# PR Brief Description
 
+## Reason & Detail
 
-## Changes Detail or Reason:
-
-
-## Releted issue:
+## Releted issue
 
 fix #X
 
 <!--
 please change X to issue id, it will auto close this issue once PR closed
-Example: 
+Example:
 fix #1
 it will auto close issue #1 once PR closed
 -->
