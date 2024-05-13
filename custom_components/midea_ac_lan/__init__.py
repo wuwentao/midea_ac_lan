@@ -9,9 +9,7 @@ from .const import (
     CONF_SUBTYPE,
     CONF_REFRESH_INTERVAL,
     DEVICES,
-    EXTRA_SENSOR,
     EXTRA_SWITCH,
-    EXTRA_CONTROL,
     ALL_PLATFORM,
 )
 from .midea_devices import MIDEA_DEVICES

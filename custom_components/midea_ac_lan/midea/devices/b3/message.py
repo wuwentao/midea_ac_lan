@@ -138,4 +138,3 @@ class MessageB3Response(MessageResponse):
         elif self.message_type == MessageType.set and self.body_type == 0x24:
             self.set_body(B3MessageBody21(super().body))
         self.set_attr()
-

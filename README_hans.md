@@ -22,7 +22,11 @@
 
 ## 已支持的品牌
 
-![beverly](brands/beverly.png) ![bugu](brands/bugu.png) ![carrier](brands/carrier.png)  ![colmo](brands/colmo.png) ![comfee](brands/comfee.png) ![electrolux](brands/electrolux.png) ![invertor](brands/invertor.png) ![littleswan](brands/littleswan.png) ![midea](brands/midea.png) ![netsu](brands/netsu.png) ![ProBreeze](brands/probreeze.png) ![rotenso](brands/rotenso.png) ![toshiba](brands/toshiba.png) ![vandelo](brands/vandelo.png) ![wahin](brands/wahin.png)
+![beverly](brands/beverly.png) ![bugu](brands/bugu.png) ![carrier](brands/carrier.png) \
+![colmo](brands/colmo.png) ![comfee](brands/comfee.png) ![electrolux](brands/electrolux.png) \
+![invertor](brands/invertor.png) ![littleswan](brands/littleswan.png) ![midea](brands/midea.png) \
+![netsu](brands/netsu.png) ![ProBreeze](brands/probreeze.png) ![rotenso](brands/rotenso.png) \
+![toshiba](brands/toshiba.png) ![vandelo](brands/vandelo.png) ![wahin](brands/wahin.png)
 
 以及更多。
 

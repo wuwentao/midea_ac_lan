@@ -207,7 +207,7 @@ class MessageSubProtocolSet(MessageSubProtocol):
         prompt_tone = 0x01 if self.prompt_tone else 0
         timer = 0x04 if (self.sn8_flag and self.timer) else 0
         return bytearray([
-            0x02 | boost_mode | power | dry,  aux_heating, sleep_mode, 0x00,
+            0x02 | boost_mode | power | dry, aux_heating, sleep_mode, 0x00,
             0x00, mode, target_temperature, fan_speed,
             0x32, 0x00, 0x00, 0x00,
             0x00, 0x00, 0x00, 0x01,
@@ -256,9 +256,7 @@ class MessageGeneralSet(MessageACBase):
         # Byte 3, fan_speed
         fan_speed = self.fan_speed & 0x7f
         # Byte 7, swing_mode
-        swing_mode = 0x30 | \
-                     (0x0c if self.swing_vertical else 0) | \
-                     (0x03 if self.swing_horizontal else 0)
+        swing_mode = 0x30 | (0x0c if self.swing_vertical else 0) | (0x03 if self.swing_horizontal else 0)
         # Byte 8, turbo
         boost_mode = 0x20 if self.boost_mode else 0
         # Byte 9 aux_heating eco_mode

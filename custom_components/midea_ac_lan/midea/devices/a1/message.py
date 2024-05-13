@@ -8,6 +8,7 @@ from ...core.message import (
     NewProtocolMessageBody
 )
 
+
 class NewProtocolTags(IntEnum):
     light = 0x005B
 

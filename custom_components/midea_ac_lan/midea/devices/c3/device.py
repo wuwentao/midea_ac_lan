@@ -207,7 +207,9 @@ class MideaC3Device(MiedaDevice):
         return message
 
     def set_attribute(self, attr, value):
-        message= None
+
+        message = None
+
         if attr in [
             DeviceAttributes.zone1_power,
             DeviceAttributes.zone2_power,

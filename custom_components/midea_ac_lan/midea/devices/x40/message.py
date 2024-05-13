@@ -114,7 +114,7 @@ class Message40Body(MessageBody):
         self.fields["LIGHT_INTENSITY_THRESHOLD"] = body[7]
         self.fields["RADAR_SENSITIVITY"] = body[8]
         self.fields["HEATING_ENABLE"] = body[9]
-        self.fields["HEATING_TEMPERATURE"]= body[10]
+        self.fields["HEATING_TEMPERATURE"] = body[10]
         self.fields["HEATING_SPEED"] = body[11]
         self.fields["HEATING_DIRECTION"] = body[12]
         self.fields["BATH_ENABLE"] = body[13] > 0
@@ -160,4 +160,3 @@ class Message40Response(MessageResponse):
         if self.message_type in [MessageType.set, MessageType.notify1, MessageType.query] and self.body_type == 0x01:
             self.set_body(Message40Body(super().body))
         self.set_attr()
-

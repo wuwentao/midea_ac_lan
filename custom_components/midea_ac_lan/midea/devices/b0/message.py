@@ -7,7 +7,7 @@ from ...core.message import (
 
 
 class MessageB0Base(MessageRequest):
-    def __init__(self,  protocol_version, message_type, body_type):
+    def __init__(self, protocol_version, message_type, body_type):
         super().__init__(
             device_type=0xB0,
             protocol_version=protocol_version,
@@ -82,4 +82,3 @@ class MessageB0Response(MessageResponse):
             else:
                 self.set_body(B0MessageBody(super().body))
         self.set_attr()
-

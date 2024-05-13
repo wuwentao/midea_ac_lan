@@ -26,7 +26,12 @@ Thanks also to [@NeoAcheron](https://github.com/NeoAcheron/midea-ac-py).
 
 ## Supported brands
 
-![ariston](brands/ariston.png) ![beverly](brands/beverly.png) ![bugu](brands/bugu.png) ![carrier](brands/carrier.png)  ![colmo](brands/colmo.png) ![comfee](brands/comfee.png) ![electrolux](brands/electrolux.png) ![invertor](brands/invertor.png) ![littleswan](brands/littleswan.png) ![midea](brands/midea.png) ![netsu](brands/netsu.png) ![ProBreeze](brands/probreeze.png) ![rotenso](brands/rotenso.png) ![toshiba](brands/toshiba.png) ![vandelo](brands/vandelo.png) ![wahin](brands/wahin.png)
+![ariston](brands/ariston.png) ![beverly](brands/beverly.png) ![bugu](brands/bugu.png) \
+![carrier](brands/carrier.png)  ![colmo](brands/colmo.png) ![comfee](brands/comfee.png) \
+![electrolux](brands/electrolux.png) ![invertor](brands/invertor.png) ![littleswan](brands/littleswan.png) \
+![midea](brands/midea.png) ![netsu](brands/netsu.png) ![ProBreeze](brands/probreeze.png) \
+![rotenso](brands/rotenso.png) ![toshiba](brands/toshiba.png) ![vandelo](brands/vandelo.png) \
+![wahin](brands/wahin.png)
 
 And more.
 
@@ -126,7 +131,11 @@ Set the IP address of device. You can reset this when your device IP is changed.
 ### Refresh interval
 
 Set the interval for actively refreshing the status of a single device (the unit is second) (30 by default and 0 means not refresh actively)
-Mostly the status update of Midea devices relies on the active information notification of the device, in which condition the status update in HA still works normally even if the refresh interval is set to be “0”. This component will also actively query the device status at regular intervals, and the default time is 30 seconds. Some devices do not have active information notifications when their status changed, so synchronization with the status in HA will be slower. If you are very concerned about the synchronization speed of the status, you can try to set a shorter status refresh interval.
+Mostly the status update of Midea devices relies on the active information notification of the device, \
+in which condition the status update in HA still works normally even if the refresh interval is set to be "0". \
+This component will also actively query the device status at regular intervals, and the default time is 30 seconds. \
+Some devices do not have active information notifications when their status changed, so synchronization with the status in HA will be slower. \
+If you are very concerned about the synchronization speed of the status, you can try to set a shorter status refresh interval.
 
 ***❗Note: shorter refresh interval may mean more power consumption***
 

@@ -51,7 +51,6 @@ class MessageE8Response(MessageResponse):
         if len(super().body) > 6:
             sub_cmd = super().body[6]
             if ((self.message_type == MessageType.set and sub_cmd in [0x02, 0x04, 0x06]) or
-                    self.message_type in [MessageType.query, MessageType.notify1] and sub_cmd ==2):
+                    self.message_type in [MessageType.query, MessageType.notify1] and sub_cmd == 2):
                 self.set_body(E8MessageBody(super().body))
         self.set_attr()
-

@@ -21,7 +21,7 @@ class MessageCDBase(MessageRequest):
 
 
 class MessageQuery(MessageCDBase):
-    def __init__(self,protocol_version):
+    def __init__(self, protocol_version):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.query,
@@ -33,7 +33,7 @@ class MessageQuery(MessageCDBase):
 
 
 class MessageSet(MessageCDBase):
-    def __init__(self,protocol_version):
+    def __init__(self, protocol_version):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.set,
@@ -82,6 +82,7 @@ class CDGeneralMessageBody(MessageBody):
         self.compressor_status = (body[27] & 0x08) > 0
         if (body[28] & 0x20) > 0:
             self.mode = 3
+
 
 class CD02MessageBody(MessageBody):
     def __init__(self, body):

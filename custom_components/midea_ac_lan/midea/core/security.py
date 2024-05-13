@@ -173,7 +173,7 @@ class LocalSecurity:
     def aes_decrypt(self, raw):
         try:
             return unpad(AES.new(self.aes_key, AES.MODE_ECB).decrypt(bytearray(raw)), 16)
-        except ValueError as e:
+        except ValueError:
             return bytearray(0)
 
     def aes_encrypt(self, raw):

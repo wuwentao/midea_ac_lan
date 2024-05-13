@@ -107,7 +107,7 @@ class MessageEAResponse(MessageResponse):
             elif self.message_type == MessageType.notify1 and super().body[5] == 0x3d:  # 463
                 self.set_body(EABody1(super().body))
         else:
-            if(self.message_type == MessageType.set and super().body[3] == 0x02) or \
+            if (self.message_type == MessageType.set and super().body[3] == 0x02) or \
                     (self.message_type == MessageType.query and super().body[3] == 0x03) or \
                     (self.message_type == MessageType.notify1 and super().body[3] == 0x04):  # 351
                 self.set_body(EABody3(super().body))

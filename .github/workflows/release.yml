@@ -26,15 +26,15 @@ jobs:
       - name: Show Output Directory For Debug Purpose
         run: |
           apt update && apt install zip || exit 1
-          echo “show runner hostname”
+          echo "show runner hostname"
           hostname
-          echo “show runner user”
+          echo "show runner user"
           whoami
-          echo “show runner pwd”
+          echo "show runner pwd"
           pwd
-          echo “show runner kernel”
+          echo "show runner kernel"
           uname -a
-          echo “show runner pwd file list”
+          echo "show runner pwd file list"
           ls
           ls -alht custom_components/midea_ac_lan/ || exit 1
           echo "show manifest.json for debug"
@@ -60,7 +60,6 @@ jobs:
     if: ${{ startsWith(github.ref, 'refs/tags/v') }}
     runs-on: ubuntu-latest
     steps:
-
       - name: Download All Artifacts
         uses: actions/download-artifact@v4
         with:
@@ -73,18 +72,18 @@ jobs:
 
       - name: Show Working Directory For Debug Purpose
         run: |
-          echo “show runner hostname”
+          echo "show runner hostname"
           hostname
-          echo “show runner user”
+          echo "show runner user"
           whoami
-          echo “show runner pwd”
+          echo "show runner pwd"
           pwd
-          echo “show runner kernel”
+          echo "show runner kernel”
           uname -a
-          echo “show runner pwd file list”
+          echo "show runner pwd file list”
           ls
           ls -alht
-          echo “show runner artifacts”
+          echo "show runner artifacts”
           ls -alht artifacts || exit 0
           echo "github.ref: ${{github.ref}} "
 

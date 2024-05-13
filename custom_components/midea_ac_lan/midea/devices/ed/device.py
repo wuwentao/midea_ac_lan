@@ -70,7 +70,7 @@ class MideaEDDevice(MiedaDevice):
         self._device_class = 0
 
     def _use_new_set(self):
-        return True # if (self.sub_type > 342 or self.sub_type == 340) else False
+        return True    # if (self.sub_type > 342 or self.sub_type == 340) else False
 
     def build_query(self):
         return [

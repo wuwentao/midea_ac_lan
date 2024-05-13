@@ -254,7 +254,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                     self.found_device[CONF_SUBTYPE] = device_info.get("model_number")
                 if device.get(CONF_PROTOCOL) == 3:
                     if self.account[CONF_SERVER] == "美的美居":
-                        _LOGGER.debug(f"Try to get the Token and the Key use the preset MSmartHome account")
+                        _LOGGER.debug("Try to get the Token and the Key use the preset MSmartHome account")
                         self.cloud = get_midea_cloud(
                             "MSmartHome",
                             self.session,
@@ -426,7 +426,7 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
         sensors = {}
         switches = {}
         for attribute, attribute_config in MIDEA_DEVICES.get(self._device_type).get("entities").items():
-            attribute_name = attribute if type(attribute) is str else attribute.value
+            attribute_name = attribute if isinstance(attribute, str) else attribute.value
             if attribute_config.get("type") in EXTRA_SENSOR:
                 sensors[attribute_name] = attribute_config.get("name")
             elif attribute_config.get("type") in EXTRA_CONTROL and not attribute_config.get("default"):

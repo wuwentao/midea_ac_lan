@@ -82,8 +82,7 @@ class MideaE3Device(MiedaDevice):
         new_status = {}
         for status in self._attributes.keys():
             if hasattr(message, str(status)):
-                if self._precision_halves and status in [DeviceAttributes.current_temperature,
-                                                             DeviceAttributes.target_temperature]:
+                if self._precision_halves and status in [DeviceAttributes.current_temperature, DeviceAttributes.target_temperature]:
                     self._attributes[status] = getattr(message, str(status)) / 2
                 else:
                     self._attributes[status] = getattr(message, str(status))

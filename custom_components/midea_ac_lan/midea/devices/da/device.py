@@ -32,7 +32,7 @@ class DeviceAttributes(StrEnum):
     wash_strength = "wash_strength"
     softener = "softener"
     detergent = "detergent"
-    
+
 
 class MideaDADevice(MiedaDevice):
     def __init__(
@@ -93,10 +93,8 @@ class MideaDADevice(MiedaDevice):
                    "Stir", "Mute", "Bucket Self Clean", "Air Dry"]
         speed = ["-", "Low", "Medium", "High"]
         strength = ["-", "Week", "Medium", "Strong"]
-        detergent = ["No", "Less", "Medium", "More", "4",
-                    "5", "6", "7", "8", "Insufficient"]
-        softener = ["No", "Intelligent", "Programed", "3", "4",
-                    "5", "6", "7", "8", "Insufficient"]
+        detergent = ["No", "Less", "Medium", "More", "4", "5", "6", "7", "8", "Insufficient"]
+        softener = ["No", "Intelligent", "Programed", "3", "4", "5", "6", "7", "8", "Insufficient"]
         for status in self._attributes.keys():
             if hasattr(message, str(status)):
                 if status == DeviceAttributes.progress:
@@ -136,6 +134,7 @@ class MideaDADevice(MiedaDevice):
             message.start = value
             message.washing_data = self._attributes[DeviceAttributes.washing_data]
             self.build_send(message)
+
 
 class MideaAppliance(MideaDADevice):
     pass

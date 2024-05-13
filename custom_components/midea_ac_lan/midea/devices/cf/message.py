@@ -82,4 +82,3 @@ class MessageCFResponse(MessageResponse):
         elif self.message_type in [MessageType.notify1, MessageType.notify2]:
             self.set_body(CFMessageBody(super().body, data_offset=0))
         self.set_attr()
-
