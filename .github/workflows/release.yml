@@ -1,0 +1,93 @@
+name: Release
+
+on:
+  release:
+    types: [released]
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  generate_zip:
+    name: Generate release zip
+    runs-on: [ubuntu-latest]
+    timeout-minutes: 60
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          clean: true
+
+      - name: Show Output Directory For Debug Purpose
+        run: |
+          apt update && apt install zip || exit 1
+          echo “show runner hostname”
+          hostname
+          echo “show runner user”
+          whoami
+          echo “show runner pwd”
+          pwd
+          echo “show runner kernel”
+          uname -a
+          echo “show runner pwd file list”
+          ls
+          ls -alht custom_components/midea_ac_lan/ || exit 1
+          echo "show manifest.json for debug"
+          cat custom_components/midea_ac_lan/manifest.json || exit 1
+          sudo mkdir -p /github/workspace/artifacts || exit 1
+          sudo chown -R $(id -u):$(id -g) /github/workspace/artifacts || exit 1
+          sudo chmod -R 755 /github/workspace/artifacts || exit 1
+          cd custom_components/midea_ac_lan/ || exit 1
+          zip -r ../midea_ac_lan.zip ./* || exit 1
+          cp ../midea_ac_lan.zip /github/workspace/artifacts/midea_ac_lan.zip || exit 1
+          ls -alht /github/workspace/artifacts/ || exit 1
+        shell: bash
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: midea_ac_lan.zip
+          path: /github/workspace/artifacts
+
+  upload_release:
+    needs: generate_zip
+    name: Publish release
+    if: ${{ startsWith(github.ref, 'refs/tags/v') }}
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Download All Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+          pattern: midea_ac_lan.zip
+          merge-multiple: true
+
+      - name: Display Structure of Artifacts Files
+        run: ls -R
+
+      - name: Show Working Directory For Debug Purpose
+        run: |
+          echo “show runner hostname”
+          hostname
+          echo “show runner user”
+          whoami
+          echo “show runner pwd”
+          pwd
+          echo “show runner kernel”
+          uname -a
+          echo “show runner pwd file list”
+          ls
+          ls -alht
+          echo “show runner artifacts”
+          ls -alht artifacts || exit 0
+          echo "github.ref: ${{github.ref}} "
+
+      - name: Upload images to Release Asset
+        uses: softprops/action-gh-release@v2
+        with:
+          files: artifacts/midea_ac_lan.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
