@@ -90,4 +90,4 @@ jobs:
         with:
           files: artifacts/midea_ac_lan.zip
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
