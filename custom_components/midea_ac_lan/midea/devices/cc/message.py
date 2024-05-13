@@ -1,9 +1,4 @@
-from ...core.message import (
-    MessageType,
-    MessageRequest,
-    MessageResponse,
-    MessageBody,
-)
+from ...core.message import MessageBody, MessageRequest, MessageResponse, MessageType
 
 
 class MessageCCBase(MessageRequest):
@@ -12,7 +7,7 @@ class MessageCCBase(MessageRequest):
             device_type=0xCC,
             protocol_version=protocol_version,
             message_type=message_type,
-            body_type=body_type
+            body_type=body_type,
         )
 
     @property
@@ -25,7 +20,8 @@ class MessageQuery(MessageCCBase):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.query,
-            body_type=0x01)
+            body_type=0x01,
+        )
 
     @property
     def _body(self):
@@ -37,7 +33,8 @@ class MessageSet(MessageCCBase):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.set,
-            body_type=0xC3)
+            body_type=0xC3,
+        )
         self.power = False
         self.mode = 4
         self.fan_speed = 0x80
@@ -73,23 +70,38 @@ class MessageSet(MessageCCBase):
         sleep_mode = 0x10 if self.sleep_mode else 0
         night_light = 0x08 if self.night_light else 0
         # Byte11 Dot of target_temperature
-        temperature_dot = int((self.target_temperature - temperature_integer) * 10) & 0xFF
-        return bytearray([
-            power | mode,
-            fan_speed,
-            temperature_integer,
-            # timer
-            0x00, 0x00,
-            eco_mode | ventilation | swing | aux_heating,
-            # non-stepless fan speed
-            0xFF,
-            sleep_mode | night_light,
-            0x00, 0x00,
-            temperature_dot,
-            0x00, 0x00, 0x00, 0x00,
-            0x00, 0x00, 0x00, 0x00,
-            0x00, 0x00, 0x00, 0x00
-        ])
+        temperature_dot = (
+            int((self.target_temperature - temperature_integer) * 10) & 0xFF
+        )
+        return bytearray(
+            [
+                power | mode,
+                fan_speed,
+                temperature_integer,
+                # timer
+                0x00,
+                0x00,
+                eco_mode | ventilation | swing | aux_heating,
+                # non-stepless fan speed
+                0xFF,
+                sleep_mode | night_light,
+                0x00,
+                0x00,
+                temperature_dot,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+            ]
+        )
 
 
 class CCGeneralMessageBody(MessageBody):
@@ -119,8 +131,13 @@ class CCGeneralMessageBody(MessageBody):
 class MessageCCResponse(MessageResponse):
     def __init__(self, message):
         super().__init__(message)
-        if (self.message_type == MessageType.query and self.body_type == 0x01) or \
-                (self.message_type in [MessageType.notify1, MessageType.notify2] and self.body_type == 0x01) or \
-                (self.message_type == MessageType.set and self.body_type == 0xC3):
+        if (
+            (self.message_type == MessageType.query and self.body_type == 0x01)
+            or (
+                self.message_type in [MessageType.notify1, MessageType.notify2]
+                and self.body_type == 0x01
+            )
+            or (self.message_type == MessageType.set and self.body_type == 0xC3)
+        ):
             self.set_body(CCGeneralMessageBody(super().body))
         self.set_attr()

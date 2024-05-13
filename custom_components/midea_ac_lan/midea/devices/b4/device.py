@@ -1,12 +1,12 @@
 import logging
-from .message import (
-    MessageQuery,
-    MessageB4Response
-)
+
+from .message import MessageB4Response, MessageQuery
+
 try:
     from enum import StrEnum
 except ImportError:
     from ...backports.enum import StrEnum
+
 from ...core.device import MiedaDevice
 
 _LOGGER = logging.getLogger(__name__)
@@ -24,22 +24,26 @@ class DeviceAttributes(StrEnum):
 
 class MideaB4Device(MiedaDevice):
     _status = {
-        0x01: "Standby", 0x02: "Idle", 0x03: "Working",
-        0x04: "Finished", 0x05: "Delay", 0x06: "Paused"
+        0x01: "Standby",
+        0x02: "Idle",
+        0x03: "Working",
+        0x04: "Finished",
+        0x05: "Delay",
+        0x06: "Paused",
     }
 
     def __init__(
-            self,
-            name: str,
-            device_id: int,
-            ip_address: str,
-            port: int,
-            token: str,
-            key: str,
-            protocol: int,
-            model: str,
-            subtype: int,
-            customize: str
+        self,
+        name: str,
+        device_id: int,
+        ip_address: str,
+        port: int,
+        token: str,
+        key: str,
+        protocol: int,
+        model: str,
+        subtype: int,
+        customize: str,
     ):
         super().__init__(
             name=name,
@@ -60,7 +64,8 @@ class MideaB4Device(MiedaDevice):
                 DeviceAttributes.tank_ejected: False,
                 DeviceAttributes.water_change_reminder: False,
                 DeviceAttributes.water_shortage: False,
-            })
+            },
+        )
 
     def build_query(self):
         return [MessageQuery(self._protocol_version)]
@@ -74,7 +79,9 @@ class MideaB4Device(MiedaDevice):
                 value = getattr(message, str(status))
                 if status == DeviceAttributes.status:
                     if value in MideaB4Device._status.keys():
-                        self._attributes[DeviceAttributes.status] = MideaB4Device._status.get(value)
+                        self._attributes[DeviceAttributes.status] = (
+                            MideaB4Device._status.get(value)
+                        )
                     else:
                         self._attributes[DeviceAttributes.status] = None
                 else:

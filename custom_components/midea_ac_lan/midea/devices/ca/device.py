@@ -1,12 +1,12 @@
 import logging
-from .message import (
-    MessageQuery,
-    MessageCAResponse
-)
+
+from .message import MessageCAResponse, MessageQuery
+
 try:
     from enum import StrEnum
 except ImportError:
     from ...backports.enum import StrEnum
+
 from ...core.device import MiedaDevice
 
 _LOGGER = logging.getLogger(__name__)
@@ -35,17 +35,17 @@ class DeviceAttributes(StrEnum):
 
 class MideaCADevice(MiedaDevice):
     def __init__(
-            self,
-            name: str,
-            device_id: int,
-            ip_address: str,
-            port: int,
-            token: str,
-            key: str,
-            protocol: int,
-            model: str,
-            subtype: int,
-            customize: str
+        self,
+        name: str,
+        device_id: int,
+        ip_address: str,
+        port: int,
+        token: str,
+        key: str,
+        protocol: int,
+        model: str,
+        subtype: int,
+        customize: str,
     ):
         super().__init__(
             name=name,
@@ -75,8 +75,9 @@ class MideaCADevice(MiedaDevice):
                 DeviceAttributes.refrigerator_door: False,
                 DeviceAttributes.freezer_door: False,
                 DeviceAttributes.bar_door: False,
-                DeviceAttributes.flex_zone_door: False
-            })
+                DeviceAttributes.flex_zone_door: False,
+            },
+        )
         self._modes = [""]
 
     def build_query(self):

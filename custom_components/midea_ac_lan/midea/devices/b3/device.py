@@ -1,12 +1,12 @@
 import logging
-from .message import (
-    MessageQuery,
-    MessageB3Response
-)
+
+from .message import MessageB3Response, MessageQuery
+
 try:
     from enum import StrEnum
 except ImportError:
     from ...backports.enum import StrEnum
+
 from ...core.device import MiedaDevice
 
 _LOGGER = logging.getLogger(__name__)
@@ -39,22 +39,25 @@ class DeviceAttributes(StrEnum):
 
 class MideaB2Device(MiedaDevice):
     _status = {
-        0x00: "Off", 0x01: "Standby", 0x02: "Working",
-        0x03: "Delay", 0x04: "Finished"
+        0x00: "Off",
+        0x01: "Standby",
+        0x02: "Working",
+        0x03: "Delay",
+        0x04: "Finished",
     }
 
     def __init__(
-            self,
-            name: str,
-            device_id: int,
-            ip_address: str,
-            port: int,
-            token: str,
-            key: str,
-            protocol: int,
-            model: str,
-            subtype: int,
-            customize: str
+        self,
+        name: str,
+        device_id: int,
+        ip_address: str,
+        port: int,
+        token: str,
+        key: str,
+        protocol: int,
+        model: str,
+        subtype: int,
+        customize: str,
     ):
         super().__init__(
             name=name,
@@ -90,7 +93,8 @@ class MideaB2Device(MiedaDevice):
                 DeviceAttributes.bottom_compartment_preheating: False,
                 DeviceAttributes.bottom_compartment_cooling: False,
                 DeviceAttributes.lock: False,
-            })
+            },
+        )
 
     def build_query(self):
         return [MessageQuery(self._protocol_version)]
@@ -105,7 +109,7 @@ class MideaB2Device(MiedaDevice):
                 if status in [
                     DeviceAttributes.top_compartment_status,
                     DeviceAttributes.middle_compartment_status,
-                    DeviceAttributes.bottom_compartment_status
+                    DeviceAttributes.bottom_compartment_status,
                 ]:
                     if value in MideaB2Device._status.keys():
                         self._attributes[status] = MideaB2Device._status.get(value)

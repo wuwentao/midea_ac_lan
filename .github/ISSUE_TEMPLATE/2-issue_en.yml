@@ -19,7 +19,8 @@ body:
     attributes:
       label: Device type and model
       placeholder: Air Conditioner 22012225
-      description: Can be found in Settings -> Devices & Services -> Midea AC LAN -> Devices -> Device Info
+      description: Can be found in Settings -> Devices & Services -> \
+        Midea AC LAN -> Devices -> Device Info
   - type: input
     validations:
       required: true
@@ -35,4 +36,5 @@ body:
   - type: textarea
     attributes:
       label: The logs
-      description: Should enable the debug log of Midea AC LAN, and post or upload the log when the error occurs to here
+      description: Should enable the debug log of Midea AC LAN, and post or \
+        upload the log when the error occurs to here

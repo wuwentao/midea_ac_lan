@@ -1,9 +1,4 @@
-from ...core.message import (
-    MessageType,
-    MessageRequest,
-    MessageResponse,
-    MessageBody
-)
+from ...core.message import MessageBody, MessageRequest, MessageResponse, MessageType
 
 
 class MessageB4Base(MessageRequest):
@@ -12,7 +7,7 @@ class MessageB4Base(MessageRequest):
             device_type=0xB4,
             protocol_version=protocol_version,
             message_type=message_type,
-            body_type=body_type
+            body_type=body_type,
         )
 
     @property
@@ -25,7 +20,8 @@ class MessageQuery(MessageB4Base):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.query,
-            body_type=0x01)
+            body_type=0x01,
+        )
 
     @property
     def _body(self):
@@ -35,9 +31,11 @@ class MessageQuery(MessageB4Base):
 class B4MessageBody(MessageBody):
     def __init__(self, body):
         super().__init__(body)
-        self.time_remaining = (0 if body[22] == 0xFF else body[22]) * 3600 + \
-                              (0 if body[23] == 0xFF else body[23]) * 60 + \
-                              (0 if body[24] == 0xFF else body[24])
+        self.time_remaining = (
+            (0 if body[22] == 0xFF else body[22]) * 3600
+            + (0 if body[23] == 0xFF else body[23]) * 60
+            + (0 if body[24] == 0xFF else body[24])
+        )
         self.current_temperature = (body[25] << 8) + body[26]
         if self.current_temperature == 0:
             self.current_temperature = (body[27] << 8) + body[28]
@@ -51,7 +49,11 @@ class B4MessageBody(MessageBody):
 class MessageB4Response(MessageResponse):
     def __init__(self, message):
         super().__init__(message)
-        if self.message_type in [MessageType.notify1, MessageType.query, MessageType.set]:
+        if self.message_type in [
+            MessageType.notify1,
+            MessageType.query,
+            MessageType.set,
+        ]:
             if self.body_type == 0x01:
                 self.set_body(B4MessageBody(super().body))
         self.set_attr()

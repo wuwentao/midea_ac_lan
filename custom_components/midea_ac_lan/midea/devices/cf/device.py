@@ -1,13 +1,12 @@
 import logging
-from .message import (
-    MessageQuery,
-    MessageCFResponse,
-    MessageSet
-)
+
+from .message import MessageCFResponse, MessageQuery, MessageSet
+
 try:
     from enum import StrEnum
 except ImportError:
     from ...backports.enum import StrEnum
+
 from ...core.device import MiedaDevice
 
 _LOGGER = logging.getLogger(__name__)
@@ -25,17 +24,17 @@ class DeviceAttributes(StrEnum):
 
 class MideaCFDevice(MiedaDevice):
     def __init__(
-            self,
-            name: str,
-            device_id: int,
-            ip_address: str,
-            port: int,
-            token: str,
-            key: str,
-            protocol: int,
-            model: str,
-            subtype: int,
-            customize: str
+        self,
+        name: str,
+        device_id: int,
+        ip_address: str,
+        port: int,
+        token: str,
+        key: str,
+        protocol: int,
+        model: str,
+        subtype: int,
+        customize: str,
     ):
         super().__init__(
             name=name,
@@ -55,8 +54,9 @@ class MideaCFDevice(MiedaDevice):
                 DeviceAttributes.aux_heating: False,
                 DeviceAttributes.current_temperature: 0,
                 DeviceAttributes.max_temperature: 55,
-                DeviceAttributes.min_temperature: 5
-            })
+                DeviceAttributes.min_temperature: 5,
+            },
+        )
 
     def build_query(self):
         return [MessageQuery(self._protocol_version)]

@@ -1,17 +1,11 @@
-from ...core.message import (
-    MessageType,
-    MessageRequest,
-    MessageResponse,
-    MessageBody,
-)
-
+from ...core.message import MessageBody, MessageRequest, MessageResponse, MessageType
 
 NEW_PROTOCOL_PARAMS = {
     "zero_cold_water": 0x03,
     # "zero_cold_master": 0x12,
     "zero_cold_pulse": 0x04,
     "smart_volume": 0x07,
-    "target_temperature": 0x08
+    "target_temperature": 0x08,
 }
 
 
@@ -21,7 +15,7 @@ class MessageE3Base(MessageRequest):
             device_type=0xE3,
             protocol_version=protocol_version,
             message_type=message_type,
-            body_type=body_type
+            body_type=body_type,
         )
 
     @property
@@ -34,7 +28,8 @@ class MessageQuery(MessageE3Base):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.query,
-            body_type=0x01)
+            body_type=0x01,
+        )
 
     @property
     def _body(self):
@@ -46,7 +41,8 @@ class MessagePower(MessageE3Base):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.set,
-            body_type=0x02)
+            body_type=0x02,
+        )
         self.power = False
 
     @property
@@ -63,7 +59,8 @@ class MessageSet(MessageE3Base):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.set,
-            body_type=0x04)
+            body_type=0x04,
+        )
 
         self.target_temperature = 0
         self.zero_cold_water = False
@@ -83,17 +80,24 @@ class MessageSet(MessageE3Base):
         # Byte 5 target_temperature
         target_temperature = self.target_temperature & 0xFF
 
-        return bytearray([
-            0x01,
-            zero_cold_water | 0x02,
-            protection | zero_cold_pulse | smart_volume,
-            0x00,
-            target_temperature,
-            0x00, 0x00, 0x00, 0x00,
-            0x00, 0x00, 0x00, 0x00,
-            0x00,
-
-        ])
+        return bytearray(
+            [
+                0x01,
+                zero_cold_water | 0x02,
+                protection | zero_cold_pulse | smart_volume,
+                0x00,
+                target_temperature,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+            ]
+        )
 
 
 class MessageNewProtocolSet(MessageE3Base):
@@ -101,7 +105,8 @@ class MessageNewProtocolSet(MessageE3Base):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.set,
-            body_type=0x14)
+            body_type=0x14,
+        )
         self.key = None
         self.value = None
 
@@ -112,14 +117,29 @@ class MessageNewProtocolSet(MessageE3Base):
             value = self.value
         else:
             value = 0x01 if self.value else 0x00
-        return bytearray([
-            key, value,
-            0x00, 0x00, 0x00, 0x00,
-            0x00, 0x00, 0x00, 0x00,
-            0x00, 0x00, 0x00, 0x00,
-            0x00, 0x00, 0x00, 0x00,
-            0x00
-        ])
+        return bytearray(
+            [
+                key,
+                value,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+            ]
+        )
 
 
 class E3GeneralMessageBody(MessageBody):
@@ -138,8 +158,16 @@ class E3GeneralMessageBody(MessageBody):
 class MessageE3Response(MessageResponse):
     def __init__(self, message):
         super().__init__(message)
-        if (self.message_type == MessageType.query and self.body_type == 0x01) or \
-                (self.message_type == MessageType.set and self.body_type in [0x01, 0x02, 0x04, 0x14]) or \
-                (self.message_type == MessageType.notify1 and self.body_type in [0x00, 0x01]):
+        if (
+            (self.message_type == MessageType.query and self.body_type == 0x01)
+            or (
+                self.message_type == MessageType.set
+                and self.body_type in [0x01, 0x02, 0x04, 0x14]
+            )
+            or (
+                self.message_type == MessageType.notify1
+                and self.body_type in [0x00, 0x01]
+            )
+        ):
             self.set_body(E3GeneralMessageBody(super().body))
         self.set_attr()

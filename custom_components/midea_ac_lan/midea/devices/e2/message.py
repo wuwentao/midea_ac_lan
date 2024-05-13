@@ -1,9 +1,4 @@
-from ...core.message import (
-    MessageType,
-    MessageRequest,
-    MessageResponse,
-    MessageBody,
-)
+from ...core.message import MessageBody, MessageRequest, MessageResponse, MessageType
 
 
 class MessageE2Base(MessageRequest):
@@ -12,7 +7,7 @@ class MessageE2Base(MessageRequest):
             device_type=0xE2,
             protocol_version=protocol_version,
             message_type=message_type,
-            body_type=body_type
+            body_type=body_type,
         )
 
     @property
@@ -25,7 +20,8 @@ class MessageQuery(MessageE2Base):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.query,
-            body_type=0x01)
+            body_type=0x01,
+        )
 
     @property
     def _body(self):
@@ -37,7 +33,8 @@ class MessagePower(MessageE2Base):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.set,
-            body_type=0x02)
+            body_type=0x02,
+        )
         self.power = False
 
     @property
@@ -54,7 +51,8 @@ class MessageNewProtocolSet(MessageE2Base):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.set,
-            body_type=0x14)
+            body_type=0x14,
+        )
         self.target_temperature = None
         self.variable_heating = None
         self.whole_tank_heating = None
@@ -80,7 +78,8 @@ class MessageSet(MessageE2Base):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.set,
-            body_type=0x04)
+            body_type=0x04,
+        )
         self.target_temperature = 0
         self.variable_heating = False
         self.whole_tank_heating = False
@@ -95,18 +94,28 @@ class MessageSet(MessageE2Base):
         target_temperature = self.target_temperature & 0xFF
         # Byte 9 variable_heating
         variable_heating = 0x10 if self.variable_heating else 0x00
-        return bytearray([
-            0x01,
-            0x00,
-            0x80,
-            whole_tank_heating | protection,
-            target_temperature,
-            0x00, 0x00, 0x00,
-            variable_heating,
-            0x00, 0x00, 0x00, 0x00,
-            0x00, 0x00, 0x00, 0x00,
-            0x00
-        ])
+        return bytearray(
+            [
+                0x01,
+                0x00,
+                0x80,
+                whole_tank_heating | protection,
+                target_temperature,
+                0x00,
+                0x00,
+                0x00,
+                variable_heating,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+            ]
+        )
 
 
 class E2GeneralMessageBody(MessageBody):
@@ -130,7 +139,12 @@ class E2GeneralMessageBody(MessageBody):
 class MessageE2Response(MessageResponse):
     def __init__(self, message):
         super().__init__(message)
-        if (self.message_type in [MessageType.query, MessageType.notify1] and self.body_type == 0x01) or \
-                (self.message_type == MessageType.set and self.body_type in [0x01, 0x02, 0x04, 0x14]):
+        if (
+            self.message_type in [MessageType.query, MessageType.notify1]
+            and self.body_type == 0x01
+        ) or (
+            self.message_type == MessageType.set
+            and self.body_type in [0x01, 0x02, 0x04, 0x14]
+        ):
             self.set_body(E2GeneralMessageBody(super().body))
         self.set_attr()

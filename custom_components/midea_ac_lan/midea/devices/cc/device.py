@@ -1,13 +1,12 @@
 import logging
-from .message import (
-    MessageQuery,
-    MessageSet,
-    MessageCCResponse
-)
+
+from .message import MessageCCResponse, MessageQuery, MessageSet
+
 try:
     from enum import StrEnum
 except ImportError:
     from ...backports.enum import StrEnum
+
 from ...core.device import MiedaDevice
 
 _LOGGER = logging.getLogger(__name__)
@@ -34,26 +33,29 @@ class DeviceAttributes(StrEnum):
 
 class MideaCCDevice(MiedaDevice):
     _fan_speeds_7level = {
-        0x01: "Level 1", 0x02: "Level 2", 0x04: "Level 3",
-        0x08: "Level 4", 0x10: "Level 5", 0x20: "Level 6",
-        0x40: "Level 7", 0x80: "Auto",
+        0x01: "Level 1",
+        0x02: "Level 2",
+        0x04: "Level 3",
+        0x08: "Level 4",
+        0x10: "Level 5",
+        0x20: "Level 6",
+        0x40: "Level 7",
+        0x80: "Auto",
     }
-    _fan_speeds_3level = {
-        0x01: "Low", 0x08: "Medium", 0x40: "High", 0x80: "Auto"
-    }
+    _fan_speeds_3level = {0x01: "Low", 0x08: "Medium", 0x40: "High", 0x80: "Auto"}
 
     def __init__(
-            self,
-            name: str,
-            device_id: int,
-            ip_address: str,
-            port: int,
-            token: str,
-            key: str,
-            protocol: int,
-            model: str,
-            subtype: int,
-            customize: str
+        self,
+        name: str,
+        device_id: int,
+        ip_address: str,
+        port: int,
+        token: str,
+        key: str,
+        protocol: int,
+        model: str,
+        subtype: int,
+        customize: str,
     ):
         super().__init__(
             name=name,
@@ -82,8 +84,9 @@ class MideaCCDevice(MiedaDevice):
                 DeviceAttributes.fan_speed_level: None,
                 DeviceAttributes.indoor_temperature: None,
                 DeviceAttributes.temperature_precision: 1,
-                DeviceAttributes.temp_fahrenheit: False
-            })
+                DeviceAttributes.temp_fahrenheit: False,
+            },
+        )
         self._fan_speeds = None
 
     @property
@@ -106,32 +109,46 @@ class MideaCCDevice(MiedaDevice):
                 else:
                     self._attributes[status] = getattr(message, str(status))
                     new_status[str(status)] = getattr(message, str(status))
-        if fan_speed is not None and self._attributes[DeviceAttributes.fan_speed_level] is not None:
+        if (
+            fan_speed is not None
+            and self._attributes[DeviceAttributes.fan_speed_level] is not None
+        ):
             if self._fan_speeds is None:
                 if self._attributes[DeviceAttributes.fan_speed_level]:
                     self._fan_speeds = MideaCCDevice._fan_speeds_3level
                 else:
                     self._fan_speeds = MideaCCDevice._fan_speeds_7level
             if fan_speed in self._fan_speeds.keys():
-                self._attributes[DeviceAttributes.fan_speed] = self._fan_speeds.get(fan_speed)
+                self._attributes[DeviceAttributes.fan_speed] = self._fan_speeds.get(
+                    fan_speed
+                )
             else:
                 self._attributes[DeviceAttributes.fan_speed] = None
-            new_status[DeviceAttributes.fan_speed.value] = self._attributes[DeviceAttributes.fan_speed]
-        aux_heating = \
-            self._attributes[DeviceAttributes.aux_heat_status] == 1 or \
-            self._attributes[DeviceAttributes.auto_aux_heat_running]
+            new_status[DeviceAttributes.fan_speed.value] = self._attributes[
+                DeviceAttributes.fan_speed
+            ]
+        aux_heating = (
+            self._attributes[DeviceAttributes.aux_heat_status] == 1
+            or self._attributes[DeviceAttributes.auto_aux_heat_running]
+        )
         if self._attributes[DeviceAttributes.aux_heating] != aux_heating:
             self._attributes[DeviceAttributes.aux_heating] = aux_heating
-            new_status[DeviceAttributes.aux_heating.value] = self._attributes[DeviceAttributes.aux_heating]
+            new_status[DeviceAttributes.aux_heating.value] = self._attributes[
+                DeviceAttributes.aux_heating
+            ]
         return new_status
 
     def make_message_set(self):
         message = MessageSet(self._protocol_version)
         message.power = self._attributes[DeviceAttributes.power]
         message.mode = self._attributes[DeviceAttributes.mode]
-        message.target_temperature = self._attributes[DeviceAttributes.target_temperature]
+        message.target_temperature = self._attributes[
+            DeviceAttributes.target_temperature
+        ]
         message.fan_speed = list(self._fan_speeds.keys())[
-            list(self._fan_speeds.values()).index(self._attributes[DeviceAttributes.fan_speed])
+            list(self._fan_speeds.values()).index(
+                self._attributes[DeviceAttributes.fan_speed]
+            )
         ]
         message.eco_mode = self._attributes[DeviceAttributes.eco_mode]
         message.sleep_mode = self._attributes[DeviceAttributes.sleep_mode]
@@ -150,11 +167,13 @@ class MideaCCDevice(MiedaDevice):
 
     def set_attribute(self, attr, value):
         # if nat a sensor
-        if attr not in [DeviceAttributes.indoor_temperature,
-                        DeviceAttributes.temperature_precision,
-                        DeviceAttributes.fan_speed_level,
-                        DeviceAttributes.aux_heat_status,
-                        DeviceAttributes.auto_aux_heat_running]:
+        if attr not in [
+            DeviceAttributes.indoor_temperature,
+            DeviceAttributes.temperature_precision,
+            DeviceAttributes.fan_speed_level,
+            DeviceAttributes.aux_heat_status,
+            DeviceAttributes.auto_aux_heat_running,
+        ]:
             message = self.make_message_set()
             if attr == DeviceAttributes.fan_speed:
                 if value in self._fan_speeds.values():
