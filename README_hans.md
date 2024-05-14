@@ -71,9 +71,23 @@
 
 ## 安装
 
-在HACS中搜索'Midea AC LAN'并安装, 或者从[Latest release](https://github.com/georgezhao2010/midea_ac_lan/releases/latest)下载最新的Release版本, 将其中的`custom_components/midea_ac_lan`放到你的Home Assistant的`custom_components/midea_ac_lan`中。
+**在HACS中搜索'Midea AC LAN'并安装的方式当前还不可用**，请耐心等待HACS审核和处理流程。
 
-重启Home Assistant
+请先使用以下二种方式手工安装:
+
+方式1:
+
+1. 确保Home Assistant中已安装HACS [HACS install docs](https://hacs.xyz/docs/setup/download)
+2. 打开HACS, 点击[Custom repositories], Repository 输入: `https://github.com/wuwentao/midea_ac_lan`,  Category 选择 [Integration]
+3. **重启Home Assistant**.
+
+方式2:
+
+1. Download midea_ac_lan.zip from [Latest Release](https://github.com/wuwentao/midea_ac_lan/releases/latest)
+2. copy midea_ac_lan.zip to  `/custom_components/midea_ac_lan` in Home Assistant.
+3. **Restart Home Assistant**.
+
+Once it done, open [Settings], [Device & services], [Integrations], [Midea AC Lan], do init config and add all your devices.
 
 ## 添加设备
 

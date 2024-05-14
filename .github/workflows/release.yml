@@ -24,29 +24,28 @@ jobs:
           clean: true
       - name: Zip release file
         run: |
-          apt update && apt install zip || exit 1
-          echo 'show runner hostname'
+          apt-get update && apt-get install zip || exit 1
+          echo "show runner hostname"
           hostname
-          echo 'show runner user'
+          echo "show runner user"
           whoami
-          echo 'show runner pwd'
+          echo "show runner pwd"
           pwd
-          echo 'show runner kernel'
+          echo "show runner kernel"
           uname -a
-          echo 'show runner pwd file list'
+          echo "show runner pwd file list"
           ls
           ls -alht "custom_components/midea_ac_lan/" || exit 1
-          echo 'show manifest.json for debug'
+          echo "show manifest.json for debug"
           cat "custom_components/midea_ac_lan/manifest.json" || exit 1
           dst_dir="/github/workspace/artifacts"
           sudo mkdir -p "$dst_dir" || exit 1
           sudo chown -R $(id -u):$(id -g) "$dst_dir" || exit 1
           sudo chmod -R 755 "$dst_dir" || exit 1
           cd "custom_components/midea_ac_lan/" || exit 1
-          zip -r ../midea_ac_lan.zip ./* || exit 1
-          cp ../midea_ac_lan.zip "$dst_dir/midea_ac_lan.zip" || exit 1
+          zip -r "../midea_ac_lan.zip" "./*" || exit 1
+          cp "../midea_ac_lan.zip" "$dst_dir/midea_ac_lan.zip" || exit 1
           ls -alht "$dst_dir" || exit 1
-        shell: bash
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -71,20 +70,20 @@ jobs:
 
       - name: Show Working Directory For Debug Purpose
         run: |
-          echo 'show runner hostname'
+          echo "show runner hostname"
           hostname
-          echo 'show runner user'
+          echo "show runner user"
           whoami
-          echo 'show runner disk usage'
+          echo "show runner disk usage"
           df -h
-          echo 'show runner pwd'
+          echo "show runner pwd"
           pwd
-          echo 'show runner kernel'
+          echo "show runner kernel"
           uname -a
-          echo 'show runner pwd file list'
+          echo "show runner pwd file list"
           ls
           ls -alht
-          echo 'show runner artifacts'
+          echo "show runner artifacts"
           ls -alht artifacts || exit 0
           echo "github.ref: ${{github.ref}}"
 

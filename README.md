@@ -5,8 +5,7 @@
 [![Stable](https://img.shields.io/github/v/release/CyrielRct/midea_ac_lan)](https://github.com/CyrielRct/midea_ac_lan/releases/latest)
 [![Super-Linter](https://github.com/<OWNER>/<REPOSITORY>/actions/workflows/<WORKFLOW_FILE_NAME>/badge.svg)](https://github.com/marketplace/actions/super-linter)
 
-> :warning: **This is a fork of midea_ac_lan done by Georgezhao**: As the project is in a vegetative state we have done a fork and merged some pending fixes.
-I'm trying to get in touch with the maintainer at the moment to find a solution, and at the same time we're looking for people available to maintain the project, which is actively used by the community. please contact me if you can help !
+> :warning: **This is a fork of midea_ac_lan done by Georgezhao**
 
 English | [简体中文](README_hans.md)
 
@@ -76,9 +75,23 @@ And more.
 
 ## Installation
 
-Search 'Midea AC LAN' in HACS and install, or copy all files in `custom_components/midea_ac_lan` from [Latest Release](https://github.com/georgezhao2010/midea_ac_lan/releases/latest) to your `/custom_components/midea_ac_lan` in Home Assistant manually.
+**Search `Midea AC LAN` in HACS not available now, it will be ready later**
 
-Restart Home Assistant.
+Please use manual install as below:
+
+Option 1:
+
+1. make sure you have installed HACS to Home Assistant [HACS install guide](https://hacs.xyz/docs/setup/download)
+2. open HACS, click [Custom repositories], Repository input: `https://github.com/wuwentao/midea_ac_lan`,  Category select [Integration]
+3. **Restart Home Assistant**.
+
+Option 2:
+
+1. Download `midea_ac_lan.zip` from [Latest Release](https://github.com/wuwentao/midea_ac_lan/releases/latest)
+2. copy `midea_ac_lan.zip` to  `/custom_components/midea_ac_lan` in Home Assistant.
+3. **Restart Home Assistant**.
+
+Once it done, open `[Settings]`, `[Device & services]`, `[Integrations]`, `[Midea AC Lan]`, do init config and add all your devices.
 
 ## Add device
 

@@ -1,3 +1,6 @@
+"""
+climate.py
+"""
 import logging
 
 from homeassistant.components.climate import (
@@ -357,16 +360,15 @@ class MideaACClimate(MideaClimate):
         fan_speed = self._device.get_attribute(ACAttributes.fan_speed)
         if fan_speed > 100:
             return FAN_AUTO.capitalize()
-        elif fan_speed > 80:
+        if fan_speed > 80:
             return FAN_FULL_SPEED.capitalize()
-        elif fan_speed > 60:
+        if fan_speed > 60:
             return FAN_HIGH.capitalize()
-        elif fan_speed > 40:
+        if fan_speed > 40:
             return FAN_MEDIUM.capitalize()
-        elif fan_speed > 20:
+        if fan_speed > 20:
             return FAN_LOW.capitalize()
-        else:
-            return FAN_SILENT.capitalize()
+        return FAN_SILENT.capitalize()
 
     @property
     def target_temperature_step(self):
@@ -635,8 +637,7 @@ class MideaC3Climate(MideaClimate):
         """
         if self._device.get_attribute(self._power_attr):
             return self._modes[self._device.get_attribute(C3Attributes.mode)]
-        else:
-            return HVACMode.OFF
+        return HVACMode.OFF
 
     @property
     def target_temperature(self):

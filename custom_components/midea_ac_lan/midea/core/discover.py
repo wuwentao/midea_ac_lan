@@ -1,3 +1,6 @@
+"""
+discover.py
+"""
 import logging
 import socket
 from ipaddress import IPv4Network
@@ -153,6 +156,9 @@ DEVICE_INFO_MSG = bytearray(
 
 
 def discover(discover_type=None, ip_address=None):
+    """
+    discover
+    """
     if discover_type is None:
         discover_type = []
     security = LocalSecurity()
@@ -242,17 +248,22 @@ def discover(discover_type=None, ip_address=None):
 
 
 def get_id_from_response(response):
+    """
+    get_id_from_response
+    """
     if response[64:-16][:6].hex() == "3c3f786d6c20":
         xml = response[64:-16]
         root = ET.fromstring(xml.decode(encoding="utf-8", errors="replace"))
         child = root.find("smartDevice")
         m = child.attrib
         return int.from_bytes(bytearray.fromhex(m["devId"]), "little")
-    else:
-        return 0
+    return 0
 
 
 def bytes2port(paramArrayOfbyte):
+    """
+    bytes2port
+    """
     if paramArrayOfbyte is None:
         return 0
     b, i = 0, 0
@@ -267,6 +278,9 @@ def bytes2port(paramArrayOfbyte):
 
 
 def get_device_info(device_ip, device_port: int):
+    """
+    get_device_info
+    """
     response = bytearray(0)
     try:
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
@@ -289,6 +303,9 @@ def get_device_info(device_ip, device_port: int):
 
 
 def enum_all_broadcast():
+    """
+    enum_all_broadcast
+    """
     nets = []
     adapters = ifaddr.get_adapters()
     for adapter in adapters:

@@ -3,6 +3,7 @@ config_flow.py
 """
 
 import os
+import logging
 
 import voluptuous as vol
 
@@ -10,8 +11,6 @@ try:
     from homeassistant.helpers.json import save_json
 except ImportError:
     from homeassistant.util.json import save_json
-
-import logging
 
 import homeassistant.helpers.config_validation as cv
 from homeassistant import config_entries
@@ -177,11 +176,10 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         if user_input is not None:
             if user_input["action"] == "discovery":
                 return await self.async_step_discovery()
-            elif user_input["action"] == "manually":
+            if user_input["action"] == "manually":
                 self.found_device = {}
                 return await self.async_step_manually()
-            else:
-                return await self.async_step_list()
+            return await self.async_step_list()
         return self.async_show_form(
             step_id="user",
             data_schema=vol.Schema(
@@ -212,8 +210,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 }
                 self._save_account(self.account)
                 return await self.async_step_auto()
-            else:
-                return await self.async_step_login(error="login_failed")
+            return await self.async_step_login(error="login_failed")
         return self.async_show_form(
             step_id="login",
             data_schema=vol.Schema(
@@ -268,8 +265,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                     )
             if len(self.available_device) > 0:
                 return await self.async_step_auto()
-            else:
-                return await self.async_step_discovery(error="no_devices")
+            return await self.async_step_discovery(error="no_devices")
         return self.async_show_form(
             step_id="discovery",
             data_schema=vol.Schema(
@@ -303,73 +299,71 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                     f"Loaded configuration for device {device_id} from storage"
                 )
                 return await self.async_step_manually()
-            else:
+            if CONF_ACCOUNT not in self.account.keys():
+                self.account = self._load_account()
                 if CONF_ACCOUNT not in self.account.keys():
-                    self.account = self._load_account()
-                    if CONF_ACCOUNT not in self.account.keys():
-                        return await self.async_step_login()
-                if self.session is None:
-                    self.session = async_create_clientsession(self.hass)
-                if self.cloud is None:
-                    self.cloud = get_midea_cloud(
-                        self.account[CONF_SERVER],
-                        self.session,
-                        self.account[CONF_ACCOUNT],
-                        self.account[CONF_PASSWORD],
-                    )
-                if not await self.cloud.login():
                     return await self.async_step_login()
-                self.found_device = {
-                    CONF_DEVICE_ID: device_id,
-                    CONF_TYPE: device.get(CONF_TYPE),
-                    CONF_PROTOCOL: device.get(CONF_PROTOCOL),
-                    CONF_IP_ADDRESS: device.get(CONF_IP_ADDRESS),
-                    CONF_PORT: device.get(CONF_PORT),
-                    CONF_MODEL: device.get(CONF_MODEL),
-                }
-                if device_info := await self.cloud.get_device_info(device_id):
-                    self.found_device[CONF_NAME] = device_info.get("name")
-                    self.found_device[CONF_SUBTYPE] = device_info.get("model_number")
-                if device.get(CONF_PROTOCOL) == 3:
-                    if self.account[CONF_SERVER] == "美的美居":
-                        _LOGGER.debug(
-                            "Try to get the Token and the Key use the preset MSmartHome account"
-                        )
-                        self.cloud = get_midea_cloud(
-                            "MSmartHome",
-                            self.session,
-                            bytes.fromhex(
-                                format((PRESET_ACCOUNT[0] ^ PRESET_ACCOUNT[1]), "X")
-                            ).decode("ASCII"),
-                            bytes.fromhex(
-                                format((PRESET_ACCOUNT[0] ^ PRESET_ACCOUNT[2]), "X")
-                            ).decode("ASCII"),
-                        )
-                        if not await self.cloud.login():
-                            return await self.async_step_auto(error="preset_account")
-                    keys = await self.cloud.get_keys(user_input[CONF_DEVICE])
-                    for method, key in keys.items():
-                        dm = MiedaDevice(
-                            name="",
-                            device_id=device_id,
-                            device_type=device.get(CONF_TYPE),
-                            ip_address=device.get(CONF_IP_ADDRESS),
-                            port=device.get(CONF_PORT),
-                            token=key["token"],
-                            key=key["key"],
-                            protocol=3,
-                            model=device.get(CONF_MODEL),
-                            subtype=0,
-                            attributes={},
-                        )
-                        if dm.connect(refresh_status=False):
-                            dm.close_socket()
-                            self.found_device[CONF_TOKEN] = key["token"]
-                            self.found_device[CONF_KEY] = key["key"]
-                            return await self.async_step_manually()
-                    return await self.async_step_auto(error="connect_error")
-                else:
-                    return await self.async_step_manually()
+            if self.session is None:
+                self.session = async_create_clientsession(self.hass)
+            if self.cloud is None:
+                self.cloud = get_midea_cloud(
+                    self.account[CONF_SERVER],
+                    self.session,
+                    self.account[CONF_ACCOUNT],
+                    self.account[CONF_PASSWORD],
+                )
+            if not await self.cloud.login():
+                return await self.async_step_login()
+            self.found_device = {
+                CONF_DEVICE_ID: device_id,
+                CONF_TYPE: device.get(CONF_TYPE),
+                CONF_PROTOCOL: device.get(CONF_PROTOCOL),
+                CONF_IP_ADDRESS: device.get(CONF_IP_ADDRESS),
+                CONF_PORT: device.get(CONF_PORT),
+                CONF_MODEL: device.get(CONF_MODEL),
+            }
+            if device_info := await self.cloud.get_device_info(device_id):
+                self.found_device[CONF_NAME] = device_info.get("name")
+                self.found_device[CONF_SUBTYPE] = device_info.get("model_number")
+            if device.get(CONF_PROTOCOL) == 3:
+                if self.account[CONF_SERVER] == "美的美居":
+                    _LOGGER.debug(
+                        "Try to get the Token and the Key use the preset MSmartHome account"
+                    )
+                    self.cloud = get_midea_cloud(
+                        "MSmartHome",
+                        self.session,
+                        bytes.fromhex(
+                            format((PRESET_ACCOUNT[0] ^ PRESET_ACCOUNT[1]), "X")
+                        ).decode("ASCII"),
+                        bytes.fromhex(
+                            format((PRESET_ACCOUNT[0] ^ PRESET_ACCOUNT[2]), "X")
+                        ).decode("ASCII"),
+                    )
+                    if not await self.cloud.login():
+                        return await self.async_step_auto(error="preset_account")
+                keys = await self.cloud.get_keys(user_input[CONF_DEVICE])
+                for method, key in keys.items():
+                    dm = MiedaDevice(
+                        name="",
+                        device_id=device_id,
+                        device_type=device.get(CONF_TYPE),
+                        ip_address=device.get(CONF_IP_ADDRESS),
+                        port=device.get(CONF_PORT),
+                        token=key["token"],
+                        key=key["key"],
+                        protocol=3,
+                        model=device.get(CONF_MODEL),
+                        subtype=0,
+                        attributes={},
+                    )
+                    if dm.connect(refresh_status=False):
+                        dm.close_socket()
+                        self.found_device[CONF_TOKEN] = key["token"]
+                        self.found_device[CONF_KEY] = key["key"]
+                        return await self.async_step_manually()
+                return await self.async_step_auto(error="connect_error")
+            return await self.async_step_manually()
 
         return self.async_show_form(
             step_id="auto",
@@ -438,8 +432,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 return self.async_create_entry(
                     title=f"{user_input[CONF_NAME]}", data=data
                 )
-            else:
-                return await self.async_step_manually(error="config_incorrect")
+            return await self.async_step_manually(error="config_incorrect")
         return self.async_show_form(
             step_id="manually",
             data_schema=vol.Schema(
