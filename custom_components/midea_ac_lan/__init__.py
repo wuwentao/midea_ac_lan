@@ -58,10 +58,14 @@ async def update_listener(hass, config_entry):
             dev.set_refresh_interval(refresh_interval)
 
 
-async def async_setup(hass: HomeAssistant):
+async def async_setup(hass: HomeAssistant, config: dict):
     """
     async_setup
     """
+    if config.get(DOMAIN) is None:
+        # We get her if the integration is set up using config flow
+        return True
+
     hass.data.setdefault(DOMAIN, {})
     attributes = []
     for device_entities in MIDEA_DEVICES.values():
