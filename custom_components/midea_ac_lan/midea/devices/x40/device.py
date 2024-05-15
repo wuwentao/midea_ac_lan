@@ -6,7 +6,7 @@ from .message import Message40Response, MessageQuery, MessageSet
 try:
     from enum import StrEnum
 except ImportError:
-    from ...backports.enum import StrEnum
+    from ...backports.myenum import StrEnum
 
 from ...core.device import MiedaDevice
 

@@ -5,7 +5,7 @@ on:
   release:
     types: [released]
 
-permissions: { }
+permissions: {}
 
 defaults:
   run:
@@ -24,7 +24,8 @@ jobs:
           clean: true
       - name: Zip release file
         run: |
-          apt-get update && apt-get install zip || exit 1
+          apt-get update || exit 1
+          apt-get install zip || exit 1
           echo "show runner hostname"
           hostname
           echo "show runner user"
@@ -40,7 +41,7 @@ jobs:
           cat "custom_components/midea_ac_lan/manifest.json" || exit 1
           dst_dir="/github/workspace/artifacts"
           sudo mkdir -p "$dst_dir" || exit 1
-          sudo chown -R $(id -u):$(id -g) "$dst_dir" || exit 1
+          sudo chown -R "$(id -u):$(id -g)" "$dst_dir" || exit 1
           sudo chmod -R 755 "$dst_dir" || exit 1
           cd "custom_components/midea_ac_lan/" || exit 1
           zip -r "../midea_ac_lan.zip" "./*" || exit 1

@@ -3,7 +3,7 @@ import threading
 try:
     from enum import StrEnum
 except ImportError:
-    from ..backports.enum import StrEnum
+    from ..backports.myenum import StrEnum
 
 import logging
 import socket

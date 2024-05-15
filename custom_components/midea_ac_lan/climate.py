@@ -1,6 +1,7 @@
 """
 climate.py
 """
+
 import logging
 
 from homeassistant.components.climate import (
@@ -242,7 +243,14 @@ class MideaClimate(MideaEntity, ClimateEntity):
         """
         if ATTR_TEMPERATURE not in kwargs:
             return
-        temperature = float(int((float(kwargs.get(ATTR_TEMPERATURE)) * 2) + 0.5)) / 2
+        # get temperature_value
+        temperature_value = kwargs.get(ATTR_TEMPERATURE)
+        # check temperature_value is not None
+        if temperature_value is not None:
+            temperature = float(int((float(temperature_value) * 2) + 0.5)) / 2
+        else:
+            # if temperature_value None，set default value to 0.0
+            temperature = 0.0
         hvac_mode = kwargs.get(ATTR_HVAC_MODE)
         if hvac_mode == HVACMode.OFF:
             self.turn_off()
@@ -659,7 +667,14 @@ class MideaC3Climate(MideaClimate):
         """
         if ATTR_TEMPERATURE not in kwargs:
             return
-        temperature = float(int((float(kwargs.get(ATTR_TEMPERATURE)) * 2) + 0.5)) / 2
+        # get temperature_value
+        temperature_value = kwargs.get(ATTR_TEMPERATURE)
+        # check temperature_value is not None
+        if temperature_value is not None:
+            temperature = float(int((float(temperature_value) * 2) + 0.5)) / 2
+        else:
+            # if temperature_value None，set default value to 0.0
+            temperature = 0.0
         hvac_mode = kwargs.get(ATTR_HVAC_MODE)
         if hvac_mode == HVACMode.OFF:
             self.turn_off()
@@ -781,7 +796,14 @@ class MideaFBClimate(MideaClimate):
         """
         if ATTR_TEMPERATURE not in kwargs:
             return
-        temperature = float(int((float(kwargs.get(ATTR_TEMPERATURE)) * 2) + 0.5)) / 2
+        # get temperature_value
+        temperature_value = kwargs.get(ATTR_TEMPERATURE)
+        # check temperature_value is not None
+        if temperature_value is not None:
+            temperature = float(int((float(temperature_value) * 2) + 0.5)) / 2
+        else:
+            # if temperature_value None，set default value to 0.0
+            temperature = 0.0
         hvac_mode = kwargs.get(ATTR_HVAC_MODE)
         if hvac_mode == HVACMode.OFF:
             self.turn_off()

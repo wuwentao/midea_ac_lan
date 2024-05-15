@@ -1,6 +1,7 @@
 """
 discover.py
 """
+
 import logging
 import socket
 from ipaddress import IPv4Network

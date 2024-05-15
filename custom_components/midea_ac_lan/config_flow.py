@@ -2,8 +2,9 @@
 config_flow.py
 """
 
-import os
 import logging
+import os
+from typing import Any, Dict, List
 
 import voluptuous as vol
 
@@ -78,12 +79,12 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     ConfigFlow
     """
 
-    available_device = []
-    devices = {}
-    found_device = {}
-    supports = {}
-    unsorted = {}
-    account = {}
+    available_device: List[Any] = []
+    devices: Dict[Any, Any] = {}
+    found_device: Dict[Any, Any] = {}
+    supports: Dict[Any, Any] = {}
+    unsorted: Dict[Any, Any] = {}
+    account: Dict[Any, Any] = {}
     cloud = None
     session = None
     for device_type, device_info in MIDEA_DEVICES.items():

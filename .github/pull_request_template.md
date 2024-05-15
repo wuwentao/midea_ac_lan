@@ -1,4 +1,4 @@
-# PR Brief Description
+# PR Description
 
 ## Reason & Detail
 

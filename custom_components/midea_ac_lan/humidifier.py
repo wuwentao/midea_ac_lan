@@ -1,6 +1,7 @@
 """
 humidifier.py
 """
+
 import logging
 
 from homeassistant.components.humidifier import (

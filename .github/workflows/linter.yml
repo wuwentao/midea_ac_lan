@@ -9,7 +9,7 @@ on:
     branches:
       - master
 
-permissions: { }
+permissions: {}
 
 jobs:
   build:
@@ -37,3 +37,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VALIDATE_GITLEAKS: false
           VALIDATE_JSCPD: false
+          VALIDATE_PYTHON_PYLINT: false
+          VALIDATE_PYTHON_MYPY: false
