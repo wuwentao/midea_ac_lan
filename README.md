@@ -3,7 +3,7 @@
 [![Donate](https://img.shields.io/badge/donate-BuyMeCoffee-yellow.svg)](https://www.buymeacoffee.com/georgezhao2010)
 [![Stable](https://img.shields.io/github/v/release/wuwentao/midea_ac_lan)](https://github.com/wuwentao/midea_ac_lan/releases/latest)
 
-> :warning: **This is a fork of Midea_ac_lan done by Georgezhao  **: As the project is in a vegetative state we have done a fork and merged some pending fixes. 
+> :warning: **This is a fork of Midea_ac_lan done by Georgezhao  **: As the project is in a vegetative state we have done a fork and merged some pending fixes.
 I'm trying to get in touch with the maintainer at the moment to find a solution, and at the same time we're looking for people available to maintain the project, which is actively used by the community. please contact me if you can help !
 
 English | [简体中文](README_hans.md)
@@ -68,7 +68,7 @@ And more.
 | FD   | Humidifier                 | [FD.md](doc/FD.md) |
 
 # Installation
-Search 'Midea AC LAN' in HACS and install, or copy all files in `custom_components/midea_ac_lan` from [Latest Release](https://github.com/georgezhao2010/midea_ac_lan/releases/latest) to your `/custom_components/midea_ac_lan` in Home Assistant manually. 
+Search 'Midea AC LAN' in HACS and install, or copy all files in `custom_components/midea_ac_lan` from [Latest Release](https://github.com/georgezhao2010/midea_ac_lan/releases/latest) to your `/custom_components/midea_ac_lan` in Home Assistant manually.
 
 Restart Home Assistant.
 
@@ -145,7 +145,7 @@ logger:
     custom_components.midea_ac_lan: debug
 ```
 
-# Support my works 
+# Support my works
 
 If you like this integration, why do not you support my works by buying me a coffee?
 

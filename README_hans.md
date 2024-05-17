@@ -21,7 +21,7 @@
 
 # 已支持的品牌
 
-![beverly](brands/beverly.png) ![bugu](brands/bugu.png) ![carrier](brands/carrier.png)  ![colmo](brands/colmo.png) ![comfee](brands/comfee.png) ![electrolux](brands/electrolux.png) ![invertor](brands/invertor.png) ![littleswan](brands/littleswan.png) ![midea](brands/midea.png) ![netsu](brands/netsu.png) ![ProBreeze](brands/probreeze.png) ![rotenso](brands/rotenso.png) ![toshiba](brands/toshiba.png) ![vandelo](brands/vandelo.png) ![wahin](brands/wahin.png) 
+![beverly](brands/beverly.png) ![bugu](brands/bugu.png) ![carrier](brands/carrier.png)  ![colmo](brands/colmo.png) ![comfee](brands/comfee.png) ![electrolux](brands/electrolux.png) ![invertor](brands/invertor.png) ![littleswan](brands/littleswan.png) ![midea](brands/midea.png) ![netsu](brands/netsu.png) ![ProBreeze](brands/probreeze.png) ![rotenso](brands/rotenso.png) ![toshiba](brands/toshiba.png) ![vandelo](brands/vandelo.png) ![wahin](brands/wahin.png)
 
 以及更多。
 
@@ -121,7 +121,7 @@
 配置完成后, 可能会默认生成一个或几个主要实体(比如climate实体)。如果需要其它属性生成为扩展的传感器及开关实体, 在Midea AC LAN集成卡片上点击'选项', 并选择要生成的传感器及开关(如果你的设备支持该属性)。
 
 ## 自定义
-某些类型的设备有它们自己的自定义项, 可以通过自定义项定制设备的特点。如果你的设备无法正常工作, 也许你需要自定义它。请参阅设备文档以获取具体信息。 
+某些类型的设备有它们自己的自定义项, 可以通过自定义项定制设备的特点。如果你的设备无法正常工作, 也许你需要自定义它。请参阅设备文档以获取具体信息。
 
 自定义的格式必须是JSON。
 
@@ -144,4 +144,4 @@ logger:
 # 支持我的工作
 如果喜欢这个集成, 可以使用支付宝或者微信支付赞助我来支持我的工作。
 
-![alipay](doc/images/alipay.png) ![wechatpay](doc/images/wechatpay.png) 
+![alipay](doc/images/alipay.png) ![wechatpay](doc/images/wechatpay.png)

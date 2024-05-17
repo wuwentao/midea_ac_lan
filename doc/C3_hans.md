@@ -20,7 +20,7 @@
 | binary_sensor.{DEVICEID}_zone1_room_temp_mode  | binary_sensor | Zone1 Room Temperature Mode  | 区域1室温模式                              |
 | binary_sensor.{DEVICEID}_zone2_room_temp_mode  | binary_sensor | Zone2 Room Temperature Mode  | 区域2室温模式                              |
 | binary_sensor.{DEVICEID}_status_dhw            | binary_sensor | DHW Status                   | DHW状态                                |
-| binary_sensor.{DEVICEID}_status_tbh            | binary_sensor | TBH Status                   | TBH状态                                |                                  
+| binary_sensor.{DEVICEID}_status_tbh            | binary_sensor | TBH Status                   | TBH状态                                |
 | binary_sensor.{DEVICEID}_status_ibh            | binary_sensor | IBH Status                   | IBH状态                                |
 | binary_sensor.{DEVICEID}_status_heating        | binary_sensor | Heating Status               | 加热状态                                 |
 | sensor.{DEVICEID}_error_code                   | sensor        | Error Code                   | 错误码                                  |

@@ -32,7 +32,7 @@ class DeviceAttributes(StrEnum):
     wash_strength = "wash_strength"
     softener = "softener"
     detergent = "detergent"
-    
+
 
 class MideaDADevice(MiedaDevice):
     def __init__(
