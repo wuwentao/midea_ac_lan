@@ -18,6 +18,7 @@ class MideaEntity(Entity):
         self.entity_id = self._unique_id
         self._device_name = self._device.name
 
+
     @property
     def device(self):
         return self._device
