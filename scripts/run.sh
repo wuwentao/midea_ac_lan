@@ -6,8 +6,8 @@ cd "$(dirname "$0")/.."
 
 # Create config dir if not present
 if [[ ! -d "${PWD}/config" ]]; then
-	mkdir -p "${PWD}/config"
-	hass --config "${PWD}/config" --script ensure_config
+    mkdir -p "${PWD}/config"
+    hass --config "${PWD}/config" --script ensure_config
 fi
 
 # Set the path to custom_components

@@ -1,9 +1,7 @@
 # 壁挂炉
 
 ## 生成实体
-
 ### 默认实体
-
 | 实体ID                                         | 类型           | 描述      |
 |----------------------------------------------|--------------|---------|
 | water_heater.{DEVICEID}_water_heater_heating | water_heater | 取暖热水器实体 |
@@ -35,7 +33,6 @@
 | value     | true or false                     |
 
 示例
-
 ```yaml
 service: midea_ac_lan.set_attribute
 data:

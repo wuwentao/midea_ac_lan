@@ -1,7 +1,5 @@
 # 燃气热水器
-
 ## 特性
-
 - 支持温度设定
 
 ## 自定义
@@ -15,9 +13,7 @@
 ```
 
 ## 生成实体
-
 ### 默认生成实体
-
 | 实体ID                                 | 类型           | 描述    |
 |--------------------------------------|--------------|-------|
 | water_heater.{DEVICEID}_water_heater | water_heater | 热水器实体 |
@@ -49,7 +45,6 @@
 | value     | true or false                                                                               |
 
 示例
-
 ```yaml
 service: midea_ac_lan.set_attribute
 data:

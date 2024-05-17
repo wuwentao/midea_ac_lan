@@ -1,9 +1,7 @@
 # Water Drinking Appliance
 
 ## Entities
-
 ### Default entity
-
 No default entity.
 
 ### Extra entities
@@ -23,5 +21,4 @@ No default entity.
 | switch.{DEVICEID}_power             | switch | Power                  |
 
 ## Service
-
 No services.

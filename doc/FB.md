@@ -1,14 +1,11 @@
 # Electric Heater
 
 ## Features
-
 - Supports target temperature
 - Supports preset mode
 
 ## Entities
-
 ### Default entity
-
 | EntityID                   | Class   | Description    |
 |----------------------------|---------|----------------|
 | climate.{DEVICEID}_climate | climate | Climate entity |
@@ -43,7 +40,6 @@ Set the attribute of appliance. Service data:
 | value     | 1 - 10                                      |
 
 Example
-
 ```yaml
 service: midea_ac_lan.set_attribute
 data:

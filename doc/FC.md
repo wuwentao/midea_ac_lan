@@ -9,9 +9,7 @@ Set the high/low value of PM2.5 to automatically turn standby mode on or off.
 ```
 
 ## Entities
-
 ### Default entity
-
 No default entity.
 
 ### Extra entities
@@ -34,6 +32,7 @@ No default entity.
 | select.{DEVICEID}_screen_display | select | Screen Display     |
 
 ## Service
+
 
 ### midea_ac_lan.set_attribute
 
@@ -72,7 +71,6 @@ Set the attribute of appliance. Service data:
 | value     | "Bright"<br/>"Dim"<br/>"Off"                |
 
 Example
-
 ```yaml
 service: midea_ac_lan.set_attribute
 data:

@@ -1,9 +1,7 @@
 # 电压力锅
 
 ## 生成实体
-
 ### 默认实体
-
 无默认实体
 
 ### 额外生成实体
@@ -20,5 +18,4 @@
 | sensor.{DEVICEID}_top_temperature      | sensor        | Top Temperature    | 顶部温度 |
 
 ## 服务
-
 无服务

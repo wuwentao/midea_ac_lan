@@ -1,9 +1,7 @@
 # Electric Rice Cooker
 
 ## Entities
-
 ### Default entity
-
 No default entity.
 
 ### Extra entities
@@ -20,5 +18,4 @@ No default entity.
 | sensor.{DEVICEID}_top_temperature    | sensor        | Top Temperature    |
 
 ## Service
-
 No services.
