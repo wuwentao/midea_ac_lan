@@ -9,7 +9,7 @@ from .message import (
 try:
     from enum import StrEnum
 except ImportError:
-    from ...backports.enum import StrEnum
+    from ...backports.myenum import StrEnum
 from ...core.device import MiedaDevice
 
 _LOGGER = logging.getLogger(__name__)

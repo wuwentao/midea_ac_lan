@@ -47,7 +47,7 @@ class MessagePower(MessageDABase):
             power, 0xFF
         ])
 
-        
+
 class MessageStart(MessageDABase):
     def __init__(self, protocol_version):
         super().__init__(
