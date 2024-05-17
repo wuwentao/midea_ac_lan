@@ -1,13 +1,14 @@
-import json
 import logging
-
-from .message import MessageCDResponse, MessageQuery, MessageSet
-
+import json
+from .message import (
+    MessageQuery,
+    MessageSet,
+    MessageCDResponse
+)
 try:
     from enum import StrEnum
 except ImportError:
     from ...backports.myenum import StrEnum
-
 from ...core.device import MiedaDevice
 
 _LOGGER = logging.getLogger(__name__)
@@ -30,17 +31,17 @@ class MideaCDDevice(MiedaDevice):
     _modes = ["Energy-save", "Standard", "Dual", "Smart"]
 
     def __init__(
-        self,
-        name: str,
-        device_id: int,
-        ip_address: str,
-        port: int,
-        token: str,
-        key: str,
-        protocol: int,
-        model: str,
-        subtype: int,
-        customize: str,
+            self,
+            name: str,
+            device_id: int,
+            ip_address: str,
+            port: int,
+            token: str,
+            key: str,
+            protocol: int,
+            model: str,
+            subtype: int,
+            customize: str
     ):
         super().__init__(
             name=name,
@@ -63,9 +64,8 @@ class MideaCDDevice(MiedaDevice):
                 DeviceAttributes.outdoor_temperature: None,
                 DeviceAttributes.condenser_temperature: None,
                 DeviceAttributes.compressor_temperature: None,
-                DeviceAttributes.compressor_status: None,
-            },
-        )
+                DeviceAttributes.compressor_status: None
+            })
         self._fields = {}
         self._temperature_step = None
         self._default_temperature_step = 1
@@ -99,20 +99,12 @@ class MideaCDDevice(MiedaDevice):
         return new_status
 
     def set_attribute(self, attr, value):
-        if attr in [
-            DeviceAttributes.mode,
-            DeviceAttributes.power,
-            DeviceAttributes.target_temperature,
-        ]:
+        if attr in [DeviceAttributes.mode, DeviceAttributes.power, DeviceAttributes.target_temperature]:
             message = MessageSet(self._protocol_version)
             message.fields = self._fields
-            message.mode = MideaCDDevice._modes.index(
-                self._attributes[DeviceAttributes.mode]
-            )
+            message.mode = MideaCDDevice._modes.index(self._attributes[DeviceAttributes.mode])
             message.power = self._attributes[DeviceAttributes.power]
-            message.target_temperature = self._attributes[
-                DeviceAttributes.target_temperature
-            ]
+            message.target_temperature = self._attributes[DeviceAttributes.target_temperature]
             if attr == DeviceAttributes.mode:
                 if value in MideaCDDevice._modes:
                     setattr(message, str(attr), MideaCDDevice._modes.index(value))

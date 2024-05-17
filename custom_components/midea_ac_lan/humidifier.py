@@ -1,32 +1,33 @@
-"""
-humidifier.py
-"""
-
-import logging
-
 from homeassistant.components.humidifier import (
     HumidifierDeviceClass,
     HumidifierEntity,
     HumidifierEntityFeature,
 )
-from homeassistant.const import CONF_DEVICE_ID, CONF_SWITCHES, Platform
-
-from .const import DEVICES, DOMAIN
+from homeassistant.const import (
+    Platform,
+    CONF_DEVICE_ID,
+    CONF_SWITCHES,
+)
+from .const import (
+    DOMAIN,
+    DEVICES,
+)
 from .midea_devices import MIDEA_DEVICES
 from .midea_entity import MideaEntity
 
+import logging
 _LOGGER = logging.getLogger(__name__)
 
 
 async def async_setup_entry(hass, config_entry, async_add_entities):
     device_id = config_entry.data.get(CONF_DEVICE_ID)
     device = hass.data[DOMAIN][DEVICES].get(device_id)
-    extra_switches = config_entry.options.get(CONF_SWITCHES, [])
+    extra_switches = config_entry.options.get(
+        CONF_SWITCHES, []
+    )
     devs = []
     for entity_key, config in MIDEA_DEVICES[device.device_type]["entities"].items():
-        if config["type"] == Platform.HUMIDIFIER and (
-            config.get("default") or entity_key in extra_switches
-        ):
+        if config["type"] == Platform.HUMIDIFIER and (config.get("default") or entity_key in extra_switches):
             if device.device_type == 0xA1:
                 devs.append(MideaA1Humidifier(device, entity_key))
             if device.device_type == 0xFD:
@@ -78,9 +79,7 @@ class MideaHumidifier(MideaEntity, HumidifierEntity):
         try:
             self.schedule_update_ha_state()
         except Exception as e:
-            _LOGGER.debug(
-                f"Entity {self.entity_id} update_state {repr(e)}, status = {status}"
-            )
+            _LOGGER.debug(f"Entity {self.entity_id} update_state {repr(e)}, status = {status}")
 
 
 class MideaA1Humidifier(MideaHumidifier):

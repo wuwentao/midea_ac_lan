@@ -1,10 +1,8 @@
-import logging
-
 from homeassistant.helpers.entity import Entity
-
 from .const import DOMAIN
 from .midea_devices import MIDEA_DEVICES
 
+import logging
 _LOGGER = logging.getLogger(__name__)
 
 
@@ -18,7 +16,6 @@ class MideaEntity(Entity):
         self.entity_id = self._unique_id
         self._device_name = self._device.name
 
-
     @property
     def device(self):
         return self._device
@@ -28,10 +25,10 @@ class MideaEntity(Entity):
         return {
             "manufacturer": "Midea",
             "model": f"{MIDEA_DEVICES[self._device.device_type]['name']} "
-            f"{self._device.model}"
-            f" ({self._device.subtype})",
+                     f"{self._device.model}"
+                     f" ({self._device.subtype})",
             "identifiers": {(DOMAIN, self._device.device_id)},
-            "name": self._device_name,
+            "name": self._device_name
         }
 
     @property
@@ -44,11 +41,8 @@ class MideaEntity(Entity):
 
     @property
     def name(self):
-        return (
-            f"{self._device_name} {self._config.get('name')}"
-            if "name" in self._config
+        return f"{self._device_name} {self._config.get('name')}" if "name" in self._config \
             else self._device_name
-        )
 
     @property
     def available(self):
@@ -63,6 +57,4 @@ class MideaEntity(Entity):
             try:
                 self.schedule_update_ha_state()
             except Exception as e:
-                _LOGGER.debug(
-                    f"Entity {self.entity_id} update_state {repr(e)}, status = {status}"
-                )
+                _LOGGER.debug(f"Entity {self.entity_id} update_state {repr(e)}, status = {status}")

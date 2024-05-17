@@ -1,4 +1,9 @@
-from ...core.message import MessageBody, MessageRequest, MessageResponse, MessageType
+from ...core.message import (
+    MessageType,
+    MessageRequest,
+    MessageResponse,
+    MessageBody,
+)
 
 
 class MessageC3Base(MessageRequest):
@@ -7,7 +12,7 @@ class MessageC3Base(MessageRequest):
             device_type=0xC3,
             protocol_version=protocol_version,
             message_type=message_type,
-            body_type=body_type,
+            body_type=body_type
         )
 
     @property
@@ -20,8 +25,7 @@ class MessageQuery(MessageC3Base):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.query,
-            body_type=0x01,
-        )
+            body_type=0x01)
 
     @property
     def _body(self):
@@ -33,8 +37,7 @@ class MessageSet(MessageC3Base):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.set,
-            body_type=0x01,
-        )
+            body_type=0x01)
         self.zone1_power = False
         self.zone2_power = False
         self.dhw_power = False
@@ -63,17 +66,12 @@ class MessageSet(MessageC3Base):
         zone1_target_temp = int(self.zone_target_temp[0])
         zone2_target_temp = int(self.zone_target_temp[1])
         dhw_target_temp = int(self.dhw_target_temp)
-        return bytearray(
-            [
-                zone1_power | zone2_power | dhw_power,
-                self.mode,
-                zone1_target_temp,
-                zone2_target_temp,
-                dhw_target_temp,
-                room_target_temp,
-                zone1_curve | zone2_curve | disinfect | fast_dhw,
-            ]
-        )
+        return bytearray([
+            zone1_power | zone2_power | dhw_power,
+            self.mode, zone1_target_temp, zone2_target_temp,
+            dhw_target_temp, room_target_temp,
+            zone1_curve | zone2_curve | disinfect | fast_dhw
+        ])
 
 
 class MessageSetSilent(MessageC3Base):
@@ -81,8 +79,7 @@ class MessageSetSilent(MessageC3Base):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.set,
-            body_type=0x05,
-        )
+            body_type=0x05)
         self.silent_mode = False
         self.super_silent = False
 
@@ -91,9 +88,11 @@ class MessageSetSilent(MessageC3Base):
         silent_mode = 0x01 if self.silent_mode else 0
         super_silent = 0x02 if self.super_silent else 0
 
-        return bytearray(
-            [silent_mode | super_silent, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00]
-        )
+        return bytearray([
+            silent_mode | super_silent,
+            0x00, 0x00, 0x00, 0x00,
+            0x00, 0x00, 0x00, 0x00
+        ])
 
 
 class MessageSetECO(MessageC3Base):
@@ -101,15 +100,18 @@ class MessageSetECO(MessageC3Base):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.set,
-            body_type=0x07,
-        )
+            body_type=0x07)
         self.eco_mode = False
 
     @property
     def _body(self):
         eco_mode = 0x01 if self.eco_mode else 0
 
-        return bytearray([eco_mode, 0x00, 0x00, 0x00, 0x00, 0x00])
+        return bytearray([
+            eco_mode,
+            0x00, 0x00, 0x00, 0x00,
+            0x00
+        ])
 
 
 class C3MessageBody(MessageBody):
@@ -125,19 +127,34 @@ class C3MessageBody(MessageBody):
         self.fast_dhw = body[data_offset + 0] & 0x40 > 0
         self.zone_temp_type = [
             body[data_offset + 1] & 0x10 > 0,
-            body[data_offset + 1] & 0x20 > 0,
+            body[data_offset + 1] & 0x20 > 0
         ]
         self.silent_mode = body[data_offset + 2] & 0x02 > 0
         self.eco_mode = body[data_offset + 2] & 0x08 > 0
         self.mode = body[data_offset + 3]
         self.mode_auto = body[data_offset + 4]
-        self.zone_target_temp = [body[data_offset + 5], body[data_offset + 6]]
+        self.zone_target_temp = [
+            body[data_offset + 5],
+            body[data_offset + 6]
+        ]
         self.dhw_target_temp = body[data_offset + 7]
         self.room_target_temp = body[data_offset + 8] / 2
-        self.zone_heating_temp_max = [body[data_offset + 9], body[data_offset + 13]]
-        self.zone_heating_temp_min = [body[data_offset + 10], body[data_offset + 14]]
-        self.zone_cooling_temp_max = [body[data_offset + 11], body[data_offset + 15]]
-        self.zone_cooling_temp_min = [body[data_offset + 12], body[data_offset + 16]]
+        self.zone_heating_temp_max = [
+            body[data_offset + 9],
+            body[data_offset + 13]
+        ]
+        self.zone_heating_temp_min = [
+            body[data_offset + 10],
+            body[data_offset + 14]
+        ]
+        self.zone_cooling_temp_max = [
+            body[data_offset + 11],
+            body[data_offset + 15]
+        ]
+        self.zone_cooling_temp_min = [
+            body[data_offset + 12],
+            body[data_offset + 16]
+        ]
         self.room_temp_max = body[data_offset + 17] / 2
         self.room_temp_min = body[data_offset + 18] / 2
         self.dhw_temp_max = body[data_offset + 19]
@@ -156,29 +173,24 @@ class C3Notify1MessageBody(MessageBody):
         self.status_heating = (status_byte & 0x01) > 0
 
         self.total_energy_consumption = (
-            (body[data_offset + 1] << 32)
-            + (body[data_offset + 2] << 16)
-            + (body[data_offset + 3] << 8)
-            + (body[data_offset + 4])
-        )
+            (body[data_offset + 1] << 32) +
+            (body[data_offset + 2] << 16) +
+            (body[data_offset + 3] << 8) +
+            (body[data_offset + 4]))
 
         self.total_produced_energy = (
-            (body[data_offset + 5] << 32)
-            + (body[data_offset + 6] << 16)
-            + (body[data_offset + 7] << 8)
-            + (body[data_offset + 8])
-        )
+            (body[data_offset + 5] << 32) +
+            (body[data_offset + 6] << 16) +
+            (body[data_offset + 7] << 8) +
+            (body[data_offset + 8]))
         self.outdoor_temperature = int(body[data_offset + 9])
 
 
 class MessageC3Response(MessageResponse):
     def __init__(self, message):
         super().__init__(message)
-        if (
-            self.message_type
-            in [MessageType.set, MessageType.notify1, MessageType.query]
-            and self.body_type == 0x01
-        ) or self.message_type == MessageType.notify2:
+        if (self.message_type in [MessageType.set, MessageType.notify1, MessageType.query]
+                and self.body_type == 0x01) or self.message_type == MessageType.notify2:
             self.set_body(C3MessageBody(super().body, data_offset=1))
         elif self.message_type == MessageType.notify1 and self.body_type == 0x04:
             self.set_body(C3Notify1MessageBody(super().body, data_offset=1))

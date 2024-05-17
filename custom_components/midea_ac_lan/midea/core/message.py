@@ -18,12 +18,12 @@ class MessageCheckSumError(Exception):
 
 
 class MessageType(IntEnum):
-    set = (0x02,)
-    query = (0x03,)
-    notify1 = (0x04,)
-    notify2 = (0x05,)
-    exception = (0x06,)
-    exception2 = (0x0A,)
+    set = 0x02,
+    query = 0x03,
+    notify1 = 0x04,
+    notify2 = 0x05,
+    exception = 0x06,
+    exception2 = 0x0A,
     query_appliance = 0xA0
 
 
@@ -38,7 +38,7 @@ class MessageBase(ABC):
 
     @staticmethod
     def checksum(data):
-        return (~sum(data) + 1) & 0xFF
+        return (~ sum(data) + 1) & 0xff
 
     @property
     def header(self):
@@ -85,9 +85,7 @@ class MessageBase(ABC):
             "header": self.header.hex(),
             "body": self.body.hex(),
             "message type": "%02x" % self._message_type,
-            "body type": (
-                ("%02x" % self._body_type) if self._body_type is not None else "None"
-            ),
+            "body type": ("%02x" % self._body_type) if self._body_type is not None else "None"
         }
         return str(output)
 
@@ -103,29 +101,26 @@ class MessageRequest(MessageBase):
     @property
     def header(self):
         length = self.HEADER_LENGTH + len(self.body)
-        return bytearray(
-            [
-                # flag
-                0xAA,
-                # length
-                length,
-                # device type
-                self.device_type,
-                # frame checksum
-                0x00,  # self._device_type ^ length,
-                # unused
-                0x00,
-                0x00,
-                # frame ID
-                0x00,
-                # frame protocol version
-                0x00,
-                # device protocol version
-                self.protocol_version,
-                # frame type
-                self.message_type,
-            ]
-        )
+        return bytearray([
+            # flag
+            0xAA,
+            # length
+            length,
+            # device type
+            self.device_type,
+            # frame checksum
+            0x00,  # self._device_type ^ length,
+            # unused
+            0x00, 0x00,
+            # frame ID
+            0x00,
+            # frame protocol version
+            0x00,
+            # device protocol version
+            self.protocol_version,
+            # frame type
+            self.message_type
+        ])
 
     @property
     def _body(self):
@@ -152,8 +147,7 @@ class MessageQuestCustom(MessageRequest):
             device_type=device_type,
             protocol_version=protocol_version,
             message_type=cmd_type,
-            body_type=None,
-        )
+            body_type=None)
         self._cmd_body = cmd_body
 
     @property
@@ -171,8 +165,7 @@ class MessageQueryAppliance(MessageRequest):
             device_type=device_type,
             protocol_version=0,
             message_type=MessageType.query_appliance,
-            body_type=None,
-        )
+            body_type=None)
 
     @property
     def _body(self):
@@ -203,7 +196,7 @@ class MessageBody:
 class NewProtocolMessageBody(MessageBody):
     def __init__(self, body, bt):
         super().__init__(body)
-        if bt == 0xB5:
+        if bt == 0xb5:
             self._pack_len = 4
         else:
             self._pack_len = 5
@@ -227,9 +220,9 @@ class NewProtocolMessageBody(MessageBody):
                     pos += 1
                 length = self.data[pos + 2]
                 if length > 0:
-                    value = self.data[pos + 3 : pos + 3 + length]
+                    value = self.data[pos + 3: pos + 3 + length]
                     result[param] = value
-                pos += 3 + length
+                pos += (3 + length)
         except IndexError:
             # Some device used non-standard new-protocol(美的乐享三代中央空调?)
             _LOGGER.debug(f"Non-standard new-protocol {self.data.hex()}")
@@ -241,11 +234,11 @@ class MessageResponse(MessageBase):
         super().__init__()
         if message is None or len(message) < self.HEADER_LENGTH + 1:
             raise MessageLenError
-        self._header = message[: self.HEADER_LENGTH]
+        self._header = message[:self.HEADER_LENGTH]
         self.protocol_version = self._header[-2]
         self.message_type = self._header[-1]
         self.device_type = self._header[2]
-        body = message[self.HEADER_LENGTH : -1]
+        body = message[self.HEADER_LENGTH: -1]
         self._body = MessageBody(body)
         self.body_type = self._body.body_type
 

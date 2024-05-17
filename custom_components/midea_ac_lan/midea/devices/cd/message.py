@@ -1,4 +1,9 @@
-from ...core.message import MessageBody, MessageRequest, MessageResponse, MessageType
+from ...core.message import (
+    MessageType,
+    MessageRequest,
+    MessageResponse,
+    MessageBody,
+)
 
 
 class MessageCDBase(MessageRequest):
@@ -7,7 +12,7 @@ class MessageCDBase(MessageRequest):
             device_type=0xCD,
             protocol_version=protocol_version,
             message_type=message_type,
-            body_type=body_type,
+            body_type=body_type
         )
 
     @property
@@ -16,12 +21,11 @@ class MessageCDBase(MessageRequest):
 
 
 class MessageQuery(MessageCDBase):
-    def __init__(self, protocol_version):
+    def __init__(self,protocol_version):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.query,
-            body_type=0x01,
-        )
+            body_type=0x01)
 
     @property
     def _body(self):
@@ -29,12 +33,11 @@ class MessageQuery(MessageCDBase):
 
 
 class MessageSet(MessageCDBase):
-    def __init__(self, protocol_version):
+    def __init__(self,protocol_version):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.set,
-            body_type=0x01,
-        )
+            body_type=0x01)
         self.power = False
         self.target_temperature = 0
         self.aux_heating = False
@@ -50,18 +53,13 @@ class MessageSet(MessageCDBase):
         power = 0x01 if self.power else 0x00
         mode = self.mode + 1
         target_temperature = round(self.target_temperature * 2 + 30)
-        return bytearray(
-            [
-                0x01,
-                power,
-                mode,
-                target_temperature,
-                self.read_field("trValue"),
-                self.read_field("openPTC"),
-                self.read_field("ptcTemp"),
-                0,  # self.read_field("byte8")
-            ]
-        )
+        return bytearray([
+            0x01, power, mode, target_temperature,
+            self.read_field("trValue"),
+            self.read_field("openPTC"),
+            self.read_field("ptcTemp"),
+            0  # self.read_field("byte8")
+        ])
 
 
 class CDGeneralMessageBody(MessageBody):
@@ -84,7 +82,6 @@ class CDGeneralMessageBody(MessageBody):
         self.compressor_status = (body[27] & 0x08) > 0
         if (body[28] & 0x20) > 0:
             self.mode = 3
-
 
 class CD02MessageBody(MessageBody):
     def __init__(self, body):

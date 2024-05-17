@@ -1,4 +1,9 @@
-from ...core.message import MessageBody, MessageRequest, MessageResponse, MessageType
+from ...core.message import (
+    MessageType,
+    MessageRequest,
+    MessageResponse,
+    MessageBody,
+)
 
 
 class MessageE1Base(MessageRequest):
@@ -7,7 +12,7 @@ class MessageE1Base(MessageRequest):
             device_type=0xE1,
             protocol_version=protocol_version,
             message_type=message_type,
-            body_type=body_type,
+            body_type=body_type
         )
 
     @property
@@ -20,14 +25,16 @@ class MessagePower(MessageE1Base):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.set,
-            body_type=0x08,
-        )
+            body_type=0x08)
         self.power = False
 
     @property
     def _body(self):
         power = 0x01 if self.power else 0x00
-        return bytearray([power, 0x00, 0x00, 0x00])
+        return bytearray([
+            power,
+            0x00, 0x00, 0x00
+        ])
 
 
 class MessageLock(MessageE1Base):
@@ -35,8 +42,7 @@ class MessageLock(MessageE1Base):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.set,
-            body_type=0x83,
-        )
+            body_type=0x83)
         self.lock = False
 
     @property
@@ -50,18 +56,14 @@ class MessageStorage(MessageE1Base):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.set,
-            body_type=0x81,
-        )
+            body_type=0x81)
         self.storage = False
 
     @property
     def _body(self):
         storage = 0x01 if self.storage else 0x00
-        return (
-            bytearray([0x00, 0x00, 0x00, storage])
-            + bytearray([0xFF] * 6)
-            + bytearray([0x00] * 27)
-        )
+        return bytearray([0x00, 0x00, 0x00, storage]) + \
+            bytearray([0xff] * 6) + bytearray([0x00] * 27)
 
 
 class MessageQuery(MessageE1Base):
@@ -69,8 +71,7 @@ class MessageQuery(MessageE1Base):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.query,
-            body_type=0x00,
-        )
+            body_type=0x00)
 
     @property
     def _body(self):
@@ -84,9 +85,9 @@ class E1GeneralMessageBody(MessageBody):
         self.status = body[1]
         self.mode = body[2]
         self.additional = body[3]
-        self.door = (body[5] & 0x01) == 0  # 0 - open, 1 - close
-        self.rinse_aid = (body[5] & 0x02) > 0  # 0 - enough, 1 - shortage
-        self.salt = (body[5] & 0x04) > 0  # 0 - enough, 1 - shortage
+        self.door = (body[5] & 0x01) == 0       # 0 - open, 1 - close
+        self.rinse_aid = (body[5] & 0x02) > 0   # 0 - enough, 1 - shortage
+        self.salt = (body[5] & 0x04) > 0        # 0 - enough, 1 - shortage
         start_pause = (body[5] & 0x08) > 0
         if start_pause:
             self.start = True
@@ -114,9 +115,7 @@ class E1GeneralMessageBody(MessageBody):
 class MessageE1Response(MessageResponse):
     def __init__(self, message):
         super().__init__(message)
-        if (self.message_type == MessageType.set and 0 <= self.body_type <= 7) or (
-            self.message_type in [MessageType.query, MessageType.notify1]
-            and self.body_type == 0
-        ):
+        if (self.message_type == MessageType.set and 0 <= self.body_type <= 7) or \
+                (self.message_type in [MessageType.query, MessageType.notify1] and self.body_type == 0):
             self.set_body(E1GeneralMessageBody(super().body))
         self.set_attr()

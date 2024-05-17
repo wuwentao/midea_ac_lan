@@ -1,5 +1,10 @@
 from ...core.crc8 import calculate
-from ...core.message import MessageBody, MessageRequest, MessageResponse, MessageType
+from ...core.message import (
+    MessageType,
+    MessageRequest,
+    MessageResponse,
+    MessageBody,
+)
 
 
 class MessageFCBase(MessageRequest):
@@ -10,7 +15,7 @@ class MessageFCBase(MessageRequest):
             device_type=0xFC,
             protocol_version=protocol_version,
             message_type=message_type,
-            body_type=body_type,
+            body_type=body_type
         )
         MessageFCBase._message_serial += 1
         if MessageFCBase._message_serial >= 254:
@@ -33,34 +38,17 @@ class MessageQuery(MessageFCBase):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.query,
-            body_type=0x41,
-        )
+            body_type=0x41)
 
     @property
     def _body(self):
-        return bytearray(
-            [
-                0x00,
-                0x00,
-                0xFF,
-                0x03,
-                0x00,
-                0x00,
-                0x02,
-                0x00,
-                0x00,
-                0x00,
-                0x00,
-                0x00,
-                0x00,
-                0x00,
-                0x00,
-                0x00,
-                0x00,
-                0x00,
-                0x00,
-            ]
-        )
+        return bytearray([
+            0x00, 0x00, 0xFF, 0x03,
+            0x00, 0x00, 0x02, 0x00,
+            0x00, 0x00, 0x00, 0x00,
+            0x00, 0x00, 0x00, 0x00,
+            0x00, 0x00, 0x00
+        ])
 
 
 class MessageSet(MessageFCBase):
@@ -68,8 +56,7 @@ class MessageSet(MessageFCBase):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.set,
-            body_type=0x48,
-        )
+            body_type=0x48)
         self.power = False
         self.mode = 0
         self.fan_speed = 0
@@ -104,30 +91,16 @@ class MessageSet(MessageFCBase):
             standby = 0x08
             standby_detect_high = 0
             standby_detect_low = 0
-        return bytearray(
-            [
-                power | prompt_tone | detect | 0x02,
-                self.mode,
-                self.fan_speed,
-                0x00,
-                0x00,
-                0x00,
-                0x00,
-                child_lock,
-                self.screen_display,
-                anion,
-                0x00,
-                0x00,
-                0x00,
-                detect_mode,
-                standby,
-                standby_detect_high,
-                standby_detect_low,
-                0x00,
-                0x00,
-                0x00,
-            ]
-        )
+        return bytearray([
+            power | prompt_tone | detect | 0x02,
+            self.mode,
+            self.fan_speed,
+            0x00, 0x00, 0x00, 0x00,
+            child_lock, self.screen_display, anion,
+            0x00, 0x00, 0x00, detect_mode,
+            standby, standby_detect_high, standby_detect_low,
+            0x00, 0x00, 0x00,
+        ])
 
 
 class FCGeneralMessageBody(MessageBody):
@@ -198,11 +171,8 @@ class MessageFCResponse(MessageResponse):
         if self.body_type in [0xB0, 0xB1]:
             pass
         else:
-            if (
-                self.message_type
-                in [MessageType.query, MessageType.set, MessageType.notify1]
-                and self.body_type == 0xC8
-            ):
+            if self.message_type in [MessageType.query, MessageType.set, MessageType.notify1] and \
+                    self.body_type == 0xC8:
                 self.set_body(FCGeneralMessageBody(super().body))
             elif self.message_type == MessageType.notify1 and self.body_type == 0xA0:
                 self.set_body(FCNotifyMessageBody(super().body))

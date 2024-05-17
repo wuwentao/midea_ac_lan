@@ -1,12 +1,14 @@
 import logging
-
-from .message import MessageDAResponse, MessagePower, MessageQuery, MessageStart
-
+from .message import (
+    MessageQuery,
+    MessagePower,
+    MessageStart,
+    MessageDAResponse
+)
 try:
     from enum import StrEnum
 except ImportError:
     from ...backports.myenum import StrEnum
-
 from ...core.device import MiedaDevice
 
 _LOGGER = logging.getLogger(__name__)
@@ -34,17 +36,17 @@ class DeviceAttributes(StrEnum):
 
 class MideaDADevice(MiedaDevice):
     def __init__(
-        self,
-        name: str,
-        device_id: int,
-        ip_address: str,
-        port: int,
-        token: str,
-        key: str,
-        protocol: int,
-        model: str,
-        subtype: int,
-        customize: str,
+            self,
+            name: str,
+            device_id: int,
+            ip_address: str,
+            port: int,
+            token: str,
+            key: str,
+            protocol: int,
+            model: str,
+            subtype: int,
+            customize: str
     ):
         super().__init__(
             name=name,
@@ -74,9 +76,8 @@ class MideaDADevice(MiedaDevice):
                 DeviceAttributes.wash_level: None,
                 DeviceAttributes.wash_strength: None,
                 DeviceAttributes.softener: None,
-                DeviceAttributes.detergent: None,
-            },
-        )
+                DeviceAttributes.detergent: None
+            })
 
     def build_query(self):
         return [MessageQuery(self._protocol_version)]
@@ -85,47 +86,17 @@ class MideaDADevice(MiedaDevice):
         message = MessageDAResponse(msg)
         _LOGGER.debug(f"[{self.device_id}] Received: {message}")
         new_status = {}
-        progress = ["Idle", "Spin", "Rinse", "Wash", "Weight", "Unknown", "Dry", "Soak"]
-        program = [
-            "Standard",
-            "Fast",
-            "Blanket",
-            "Wool",
-            "embathe",
-            "Memory",
-            "Child",
-            "Down Jacket",
-            "Stir",
-            "Mute",
-            "Bucket Self Clean",
-            "Air Dry",
-        ]
+        progress = ["Idle", "Spin", "Rinse", "Wash",
+                    "Weight", "Unknown", "Dry", "Soak"]
+        program = ["Standard", "Fast", "Blanket", "Wool",
+                   "embathe", "Memory", "Child", "Down Jacket",
+                   "Stir", "Mute", "Bucket Self Clean", "Air Dry"]
         speed = ["-", "Low", "Medium", "High"]
         strength = ["-", "Week", "Medium", "Strong"]
-        detergent = [
-            "No",
-            "Less",
-            "Medium",
-            "More",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "Insufficient",
-        ]
-        softener = [
-            "No",
-            "Intelligent",
-            "Programed",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "Insufficient",
-        ]
+        detergent = ["No", "Less", "Medium", "More", "4",
+                    "5", "6", "7", "8", "Insufficient"]
+        softener = ["No", "Intelligent", "Programed", "3", "4",
+                    "5", "6", "7", "8", "Insufficient"]
         for status in self._attributes.keys():
             if hasattr(message, str(status)):
                 if status == DeviceAttributes.progress:
@@ -165,7 +136,6 @@ class MideaDADevice(MiedaDevice):
             message.start = value
             message.washing_data = self._attributes[DeviceAttributes.washing_data]
             self.build_send(message)
-
 
 class MideaAppliance(MideaDADevice):
     pass

@@ -1,12 +1,14 @@
 import logging
-
-from .message import MessageEDResponse, MessageNewSet, MessageOldSet, MessageQuery
-
+from .message import (
+    MessageQuery,
+    MessageEDResponse,
+    MessageNewSet,
+    MessageOldSet
+)
 try:
     from enum import StrEnum
 except ImportError:
     from ...backports.myenum import StrEnum
-
 from ...core.device import MiedaDevice
 
 _LOGGER = logging.getLogger(__name__)
@@ -29,17 +31,17 @@ class DeviceAttributes(StrEnum):
 class MideaEDDevice(MiedaDevice):
 
     def __init__(
-        self,
-        name: str,
-        device_id: int,
-        ip_address: str,
-        port: int,
-        token: str,
-        key: str,
-        protocol: int,
-        model: str,
-        subtype: int,
-        customize: str,
+            self,
+            name: str,
+            device_id: int,
+            ip_address: str,
+            port: int,
+            token: str,
+            key: str,
+            protocol: int,
+            model: str,
+            subtype: int,
+            customize: str
     ):
         super().__init__(
             name=name,
@@ -63,16 +65,17 @@ class MideaEDDevice(MiedaDevice):
                 DeviceAttributes.life1: None,
                 DeviceAttributes.life2: None,
                 DeviceAttributes.life3: None,
-                DeviceAttributes.child_lock: False,
-            },
-        )
+                DeviceAttributes.child_lock: False
+            })
         self._device_class = 0
 
     def _use_new_set(self):
-        return True  # if (self.sub_type > 342 or self.sub_type == 340) else False
+        return True # if (self.sub_type > 342 or self.sub_type == 340) else False
 
     def build_query(self):
-        return [MessageQuery(self._protocol_version, self._device_class)]
+        return [
+            MessageQuery(self._protocol_version, self._device_class)
+        ]
 
     def process_message(self, msg):
         message = MessageEDResponse(msg)
@@ -89,7 +92,10 @@ class MideaEDDevice(MiedaDevice):
     def set_attribute(self, attr, value):
         message = None
         if self._use_new_set():
-            if attr in [DeviceAttributes.power, DeviceAttributes.child_lock]:
+            if attr in [
+                DeviceAttributes.power,
+                DeviceAttributes.child_lock
+            ]:
                 message = MessageNewSet(self._protocol_version)
         else:
             if attr in []:

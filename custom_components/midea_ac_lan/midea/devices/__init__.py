@@ -1,8 +1,6 @@
+from homeassistant.core import HomeAssistant
 from importlib import import_module
 from types import ModuleType
-
-from homeassistant.core import HomeAssistant
-
 
 async def async_device_selector(
     hass: HomeAssistant,
@@ -16,7 +14,7 @@ async def async_device_selector(
     protocol: int,
     model: str,
     subtype: int,
-    customize: str,
+    customize: str
 ):
     try:
 
@@ -26,11 +24,9 @@ async def async_device_selector(
             device_path = f".{'%02x' % device_type}.device"
 
         modules: list[ModuleType] = []
-
         def _load_device_module() -> None:
             """Load all service modules."""
             modules.append(import_module(device_path, __package__))
-
         await hass.async_add_import_executor_job(_load_device_module)
 
         device = modules[0].MideaAppliance(
@@ -43,7 +39,7 @@ async def async_device_selector(
             protocol=protocol,
             model=model,
             subtype=subtype,
-            customize=customize,
+            customize=customize
         )
     except ModuleNotFoundError:
         device = None

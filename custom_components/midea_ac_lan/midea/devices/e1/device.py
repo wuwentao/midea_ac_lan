@@ -1,18 +1,15 @@
 import logging
-
 from .message import (
-    MessageE1Response,
-    MessageLock,
-    MessagePower,
     MessageQuery,
+    MessagePower,
     MessageStorage,
+    MessageLock,
+    MessageE1Response
 )
-
 try:
     from enum import StrEnum
 except ImportError:
     from ...backports.myenum import StrEnum
-
 from ...core.device import MiedaDevice
 
 _LOGGER = logging.getLogger(__name__)
@@ -47,17 +44,17 @@ class DeviceAttributes(StrEnum):
 
 class MideaE1Device(MiedaDevice):
     def __init__(
-        self,
-        name: str,
-        device_id: int,
-        ip_address: str,
-        port: int,
-        token: str,
-        key: str,
-        protocol: int,
-        model: str,
-        subtype: int,
-        customize: str,
+            self,
+            name: str,
+            device_id: int,
+            ip_address: str,
+            port: int,
+            token: str,
+            key: str,
+            protocol: int,
+            model: str,
+            subtype: int,
+            customize: str
     ):
         super().__init__(
             name=name,
@@ -94,32 +91,31 @@ class MideaE1Device(MiedaDevice):
                 DeviceAttributes.error_code: None,
                 DeviceAttributes.softwater: 0,
                 DeviceAttributes.wrong_operation: None,
-                DeviceAttributes.bright: 0,
-            },
-        )
+                DeviceAttributes.bright: 0
+            })
         self._modes = {
-            0x0: "Neutral Gear",  # BYTE_MODE_NEUTRAL_GEAR
-            0x1: "Auto",  # BYTE_MODE_AUTO_WASH
-            0x2: "Heavy",  # BYTE_MODE_STRONG_WASH
-            0x3: "Normal",  # BYTE_MODE_STANDARD_WASH
-            0x4: "Energy Saving",  # BYTE_MODE_ECO_WASH
-            0x5: "Delicate",  # BYTE_MODE_GLASS_WASH
-            0x6: "Hour",  # BYTE_MODE_HOUR_WASH
-            0x7: "Quick",  # BYTE_MODE_FAST_WASH
-            0x8: "Rinse",  # BYTE_MODE_SOAK_WASH
-            0x9: "90min",  # BYTE_MODE_90MIN_WASH
-            0xA: "Self Clean",  # BYTE_MODE_SELF_CLEAN
-            0xB: "Fruit Wash",  # BYTE_MODE_FRUIT_WASH
-            0xC: "Self Define",  # BYTE_MODE_SELF_DEFINE
-            0xD: "Germ",  # BYTE_MODE_GERM ???
-            0xE: "Bowl Wash",  # BYTE_MODE_BOWL_WASH
-            0xF: "Kill Germ",  # BYTE_MODE_KILL_GERM
-            0x10: "Sea Food Wash",  # BYTE_MODE_SEA_FOOD_WASH
-            0x12: "Hot Pot Wash",  # BYTE_MODE_HOT_POT_WASH
-            0x13: "Quiet",  # BYTE_MODE_QUIET_NIGHT_WASH
-            0x14: "Less Wash",  # BYTE_MODE_LESS_WASH
-            0x16: "Oil Net Wash",  # BYTE_MODE_OIL_NET_WASH
-            0x19: "Cloud Wash",  # BYTE_MODE_CLOUD_WASH
+            0x0: "Neutral Gear",        # BYTE_MODE_NEUTRAL_GEAR
+            0x1: "Auto",                # BYTE_MODE_AUTO_WASH
+            0x2: "Heavy",               # BYTE_MODE_STRONG_WASH
+            0x3: "Normal",              # BYTE_MODE_STANDARD_WASH
+            0x4: "Energy Saving",       # BYTE_MODE_ECO_WASH
+            0x5: "Delicate",            # BYTE_MODE_GLASS_WASH
+            0x6: "Hour",                # BYTE_MODE_HOUR_WASH
+            0x7: "Quick",               # BYTE_MODE_FAST_WASH
+            0x8: "Rinse",               # BYTE_MODE_SOAK_WASH
+            0x9: "90min",               # BYTE_MODE_90MIN_WASH
+            0xA: "Self Clean",          # BYTE_MODE_SELF_CLEAN
+            0xB: "Fruit Wash",          # BYTE_MODE_FRUIT_WASH
+            0xC: "Self Define",         # BYTE_MODE_SELF_DEFINE
+            0xD: "Germ",                # BYTE_MODE_GERM ???
+            0xE: "Bowl Wash",           # BYTE_MODE_BOWL_WASH
+            0xF: "Kill Germ",           # BYTE_MODE_KILL_GERM
+            0x10: "Sea Food Wash",      # BYTE_MODE_SEA_FOOD_WASH
+            0x12: "Hot Pot Wash",       # BYTE_MODE_HOT_POT_WASH
+            0x13: "Quiet",              # BYTE_MODE_QUIET_NIGHT_WASH
+            0x14: "Less Wash",          # BYTE_MODE_LESS_WASH
+            0x16: "Oil Net Wash",       # BYTE_MODE_OIL_NET_WASH
+            0x19: "Cloud Wash"          # BYTE_MODE_CLOUD_WASH
         }
         self._status = ["Off", "Idle", "Delay", "Running", "Error"]
         self._progress = ["Idle", "Pre-wash", "Wash", "Rinse", "Dry", "Complete"]

@@ -1,5 +1,10 @@
 from ...core.crc8 import calculate
-from ...core.message import MessageBody, MessageRequest, MessageResponse, MessageType
+from ...core.message import (
+    MessageType,
+    MessageRequest,
+    MessageResponse,
+    MessageBody,
+)
 
 
 class MessageFDBase(MessageRequest):
@@ -10,7 +15,7 @@ class MessageFDBase(MessageRequest):
             device_type=0xFD,
             protocol_version=protocol_version,
             message_type=message_type,
-            body_type=body_type,
+            body_type=body_type
         )
         MessageFDBase._message_serial += 1
         if MessageFDBase._message_serial >= 254:
@@ -33,34 +38,17 @@ class MessageQuery(MessageFDBase):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.query,
-            body_type=0x41,
-        )
+            body_type=0x41)
 
     @property
     def _body(self):
-        return bytearray(
-            [
-                0x81,
-                0x00,
-                0xFF,
-                0x03,
-                0x00,
-                0x00,
-                0x02,
-                0x00,
-                0x00,
-                0x00,
-                0x00,
-                0x00,
-                0x00,
-                0x00,
-                0x00,
-                0x00,
-                0x00,
-                0x00,
-                0x00,
-            ]
-        )
+        return bytearray([
+            0x81, 0x00, 0xFF, 0x03,
+            0x00, 0x00, 0x02, 0x00,
+            0x00, 0x00, 0x00, 0x00,
+            0x00, 0x00, 0x00, 0x00,
+            0x00, 0x00, 0x00
+        ])
 
 
 class MessageSet(MessageFDBase):
@@ -68,8 +56,7 @@ class MessageSet(MessageFDBase):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.set,
-            body_type=0x48,
-        )
+            body_type=0x48)
         self.power = False
         self.fan_speed = 0
         self.target_humidity = 50
@@ -83,31 +70,20 @@ class MessageSet(MessageFDBase):
         power = 0x01 if self.power else 0x00
         prompt_tone = 0x40 if self.prompt_tone else 0x00
         disinfect = 0 if self.disinfect is None else (1 if self.disinfect else 2)
-        return bytearray(
-            [
-                power | prompt_tone | 0x02,
-                0x00,
-                self.fan_speed,
-                0x00,
-                0x00,
-                0x00,
-                self.target_humidity,
-                0x00,
-                self.screen_display,
-                self.mode,
-                0x00,
-                0x00,
-                0x00,
-                0x00,
-                disinfect,
-                0x00,
-                0x00,
-                0x00,
-                0x00,
-                0x00,
-                0x00,
-            ]
-        )
+        return bytearray([
+            power | prompt_tone | 0x02,
+            0x00,
+            self.fan_speed,
+            0x00, 0x00, 0x00,
+            self.target_humidity,
+            0x00,
+            self.screen_display,
+            self.mode,
+            0x00, 0x00, 0x00, 0x00,
+            disinfect,
+            0x00, 0x00, 0x00, 0x00,
+            0x00, 0x00
+        ])
 
 
 class FDC8MessageBody(MessageBody):
@@ -151,11 +127,7 @@ class FDA0MessageBody(MessageBody):
 class MessageFDResponse(MessageResponse):
     def __init__(self, message):
         super().__init__(message)
-        if self.message_type in [
-            MessageType.query,
-            MessageType.set,
-            MessageType.notify1,
-        ]:
+        if self.message_type in [MessageType.query, MessageType.set, MessageType.notify1]:
             if self.body_type in [0xB0, 0xB1]:
                 pass
             elif self.body_type == 0xA0:
@@ -163,9 +135,5 @@ class MessageFDResponse(MessageResponse):
             elif self.body_type == 0xC8:
                 self.set_body(FDC8MessageBody(super().body))
         self.set_attr()
-        if (
-            hasattr(self, "fan_speed")
-            and self.fan_speed is not None
-            and self.fan_speed < 5
-        ):
+        if hasattr(self, "fan_speed") and self.fan_speed is not None and self.fan_speed < 5:
             self.fan_speed = 1

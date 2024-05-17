@@ -1,4 +1,9 @@
-from ...core.message import MessageBody, MessageRequest, MessageResponse, MessageType
+from ...core.message import (
+    MessageType,
+    MessageRequest,
+    MessageResponse,
+    MessageBody
+)
 
 
 class MessageE8Base(MessageRequest):
@@ -7,7 +12,7 @@ class MessageE8Base(MessageRequest):
             device_type=0xE8,
             protocol_version=protocol_version,
             message_type=message_type,
-            body_type=body_type,
+            body_type=body_type
         )
 
     @property
@@ -20,8 +25,7 @@ class MessageQuery(MessageE8Base):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.query,
-            body_type=0xAA,
-        )
+            body_type=0xAA)
 
     @property
     def _body(self):
@@ -46,10 +50,8 @@ class MessageE8Response(MessageResponse):
         super().__init__(message)
         if len(super().body) > 6:
             sub_cmd = super().body[6]
-            if (
-                (self.message_type == MessageType.set and sub_cmd in [0x02, 0x04, 0x06])
-                or self.message_type in [MessageType.query, MessageType.notify1]
-                and sub_cmd == 2
-            ):
+            if ((self.message_type == MessageType.set and sub_cmd in [0x02, 0x04, 0x06]) or
+                    self.message_type in [MessageType.query, MessageType.notify1] and sub_cmd ==2):
                 self.set_body(E8MessageBody(super().body))
         self.set_attr()
+

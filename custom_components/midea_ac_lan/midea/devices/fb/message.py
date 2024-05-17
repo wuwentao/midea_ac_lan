@@ -1,4 +1,9 @@
-from ...core.message import MessageBody, MessageRequest, MessageResponse, MessageType
+from ...core.message import (
+    MessageType,
+    MessageRequest,
+    MessageResponse,
+    MessageBody,
+)
 
 
 class MessageFBBase(MessageRequest):
@@ -7,7 +12,7 @@ class MessageFBBase(MessageRequest):
             device_type=0xFB,
             protocol_version=protocol_version,
             message_type=message_type,
-            body_type=body_type,
+            body_type=body_type
         )
 
     @property
@@ -20,8 +25,7 @@ class MessageQuery(MessageFBBase):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.query,
-            body_type=None,
-        )
+            body_type=None)
 
     @property
     def body(self):
@@ -37,8 +41,7 @@ class MessageSet(MessageFBBase):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.set,
-            body_type=0x00,
-        )
+            body_type=0x00)
         self._subtype = subtype
         self.power = None
         self.mode = None
@@ -50,52 +53,24 @@ class MessageSet(MessageFBBase):
     def body(self):
         power = 0 if self.power is None else (0x01 if self.power else 0x02)
         mode = 0 if self.mode is None else self.mode
-        heating_level = (
-            0
-            if self.heating_level is None
-            else (
-                int(self.heating_level if 1 <= self.heating_level <= 10 else 0) & 0xFF
-            )
-        )
-        target_temperature = (
-            0
-            if self.target_temperature is None
-            else (
-                int(
-                    (self.target_temperature + 41)
-                    if -40 <= self.target_temperature <= 50
-                    else (0x80 if self.target_temperature in [0x80, 87] else 0)
-                )
-                & 0xFF
-            )
-        )
-        child_lock = (
-            0xFF if self.child_lock is None else (0x01 if self.child_lock else 0x00)
-        )
-        _return_body = bytearray(
-            [
-                power,
-                0x00,
-                0x00,
-                0x00,
-                mode,
-                heating_level,
-                target_temperature,
-                0x00,
-                0x00,
-                0x00,
-                0x00,
-                0x00,
-                0x00,
-                0x00,
-                0x00,
-                0x00,
-                0x00,
-                0x00,
-                child_lock,
-                0x00,
-            ]
-        )
+        heating_level = 0 if self.heating_level is None else \
+            (int(self.heating_level if 1 <= self.heating_level <= 10 else 0) & 0xFF)
+        target_temperature = 0 if self.target_temperature is None else \
+            (int((self.target_temperature + 41) if -40 <= self.target_temperature <= 50 else
+             (0x80 if self.target_temperature in [0x80, 87] else 0)) & 0xFF)
+        child_lock = 0xFF if self.child_lock is None else (0x01 if self.child_lock else 0x00)
+        _return_body = bytearray([
+            power,
+            0x00, 0x00, 0x00,
+            mode,
+            heating_level,
+            target_temperature,
+            0x00, 0x00, 0x00, 0x00,
+            0x00, 0x00, 0x00, 0x00,
+            0x00, 0x00, 0x00,
+            child_lock,
+            0x00
+        ])
         if self._subtype > 5:
             _return_body += bytearray([0x00, 0x00, 0x00])
         return _return_body
@@ -125,10 +100,6 @@ class FBGeneralMessageBody(MessageBody):
 class MessageFBResponse(MessageResponse):
     def __init__(self, message):
         super().__init__(message)
-        if self.message_type in [
-            MessageType.query,
-            MessageType.set,
-            MessageType.notify1,
-        ]:
+        if self.message_type in [MessageType.query, MessageType.set, MessageType.notify1]:
             self.set_body(FBGeneralMessageBody(super().body))
         self.set_attr()

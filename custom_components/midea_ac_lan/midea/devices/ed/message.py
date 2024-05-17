@@ -1,6 +1,10 @@
 from enum import IntEnum
-
-from ...core.message import MessageBody, MessageRequest, MessageResponse, MessageType
+from ...core.message import (
+    MessageType,
+    MessageRequest,
+    MessageResponse,
+    MessageBody,
+)
 
 
 class NewSetTags(IntEnum):
@@ -11,9 +15,7 @@ class NewSetTags(IntEnum):
 class EDNewSetParamPack:
     @staticmethod
     def pack(param, value, addition=0):
-        return bytearray(
-            [param & 0xFF, param >> 8, value, addition & 0xFF, addition >> 8]
-        )
+        return bytearray([param & 0xFF, param >> 8, value, addition & 0xFF, addition >> 8])
 
 
 class MessageEDBase(MessageRequest):
@@ -22,7 +24,7 @@ class MessageEDBase(MessageRequest):
             device_type=0xED,
             protocol_version=protocol_version,
             message_type=message_type,
-            body_type=body_type,
+            body_type=body_type
         )
 
     @property
@@ -35,8 +37,7 @@ class MessageQuery(MessageEDBase):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.query,
-            body_type=device_class,
-        )
+            body_type=device_class)
 
     @property
     def _body(self):
@@ -48,8 +49,7 @@ class MessageNewSet(MessageEDBase):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.set,
-            body_type=0x15,
-        )
+            body_type=0x15)
         self.power = None
         self.lock = None
 
@@ -61,14 +61,16 @@ class MessageNewSet(MessageEDBase):
             pack_count += 1
             payload.extend(
                 EDNewSetParamPack.pack(
-                    param=NewSetTags.power, value=0x01 if self.power else 0x00  # power
+                    param=NewSetTags.power,  # power
+                    value=0x01 if self.power else 0x00
                 )
             )
         if self.lock is not None:
             pack_count += 1
             payload.extend(
                 EDNewSetParamPack.pack(
-                    param=NewSetTags.lock, value=0x01 if self.lock else 0x00  # lock
+                    param=NewSetTags.lock,  # lock
+                    value=0x01 if self.lock else 0x00
                 )
             )
         payload[1] = pack_count
@@ -80,8 +82,7 @@ class MessageOldSet(MessageEDBase):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.set,
-            body_type=None,
-        )
+            body_type=None)
 
     @property
     def body(self):
@@ -156,17 +157,10 @@ class EDMessageBodyFF(MessageBody):
                 self.child_lock = (body[data_offset + 5] & 0x01) > 0
                 self.power = (body[data_offset + 6] & 0x01) > 0
             elif attr == 0x011:
-                self.water_consumption = (
-                    float(
-                        (
-                            body[data_offset + 3]
-                            + (body[data_offset + 4] << 8)
-                            + (body[data_offset + 5] << 16)
-                            + (body[data_offset + 6] << 24)
-                        )
-                    )
-                    / 1000
-                )
+                self.water_consumption = float((body[data_offset + 3] +
+                                                (body[data_offset + 4] << 8) +
+                                                (body[data_offset + 5] << 16) +
+                                                (body[data_offset + 6] << 24))) / 1000
             elif attr == 0x013:
                 self.in_tds = body[data_offset + 3] + (body[data_offset + 4] << 8)
                 self.out_tds = body[data_offset + 5] + (body[data_offset + 6] << 8)

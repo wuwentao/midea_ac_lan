@@ -1,15 +1,23 @@
-from homeassistant.components.number import NumberEntity
-from homeassistant.const import CONF_DEVICE_ID, CONF_SWITCHES, Platform
-
-from .const import DEVICES, DOMAIN
-from .midea_devices import MIDEA_DEVICES
 from .midea_entity import MideaEntity
+from .midea_devices import MIDEA_DEVICES
+from homeassistant.components.number import NumberEntity
+from homeassistant.const import (
+    Platform,
+    CONF_DEVICE_ID,
+    CONF_SWITCHES
+)
+from .const import (
+    DOMAIN,
+    DEVICES,
+)
 
 
 async def async_setup_entry(hass, config_entry, async_add_entities):
     device_id = config_entry.data.get(CONF_DEVICE_ID)
     device = hass.data[DOMAIN][DEVICES].get(device_id)
-    extra_switches = config_entry.options.get(CONF_SWITCHES, [])
+    extra_switches = config_entry.options.get(
+        CONF_SWITCHES, []
+    )
     numbers = []
     for entity_key, config in MIDEA_DEVICES[device.device_type]["entities"].items():
         if config["type"] == Platform.NUMBER and entity_key in extra_switches:
@@ -27,39 +35,24 @@ class MideaNumber(MideaEntity, NumberEntity):
 
     @property
     def native_min_value(self):
-        return (
-            self._min_value
-            if isinstance(self._min_value, int)
-            else (
-                self._device.get_attribute(attr=self._min_value)
-                if self._device.get_attribute(attr=self._min_value)
-                else getattr(self._device, self._min_value)
-            )
-        )
+        return self._min_value if (type(self._min_value) is int) else \
+            self._device.get_attribute(attr=self._min_value) \
+            if self._device.get_attribute(attr=self._min_value) else \
+            getattr(self._device, self._min_value)
 
     @property
     def native_max_value(self):
-        return (
-            self._max_value
-            if isinstance(self._max_value, int)
-            else (
-                self._device.get_attribute(attr=self._max_value)
-                if self._device.get_attribute(attr=self._max_value)
-                else getattr(self._device, self._max_value)
-            )
-        )
+        return self._max_value if (type(self._max_value) is int) else \
+            self._device.get_attribute(attr=self._max_value) \
+            if self._device.get_attribute(attr=self._max_value) else \
+            getattr(self._device, self._max_value)
 
     @property
     def native_step(self):
-        return (
-            self._step_value
-            if isinstance(self._step_value, int)
-            else (
-                self._device.get_attribute(attr=self._step_value)
-                if self._device.get_attribute(attr=self._step_value)
-                else getattr(self._device, self._step_value)
-            )
-        )
+        return self._step_value if (type(self._step_value) is int) else \
+            self._device.get_attribute(attr=self._step_value) \
+            if self._device.get_attribute(attr=self._step_value) else \
+            getattr(self._device, self._step_value)
 
     @property
     def native_value(self):

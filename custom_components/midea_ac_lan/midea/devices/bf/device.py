@@ -1,12 +1,12 @@
 import logging
-
-from .message import MessageBFResponse, MessageQuery
-
+from .message import (
+    MessageQuery,
+    MessageBFResponse
+)
 try:
     from enum import StrEnum
 except ImportError:
     from ...backports.myenum import StrEnum
-
 from ...core.device import MiedaDevice
 
 _LOGGER = logging.getLogger(__name__)
@@ -24,26 +24,22 @@ class DeviceAttributes(StrEnum):
 
 class MideaBFDevice(MiedaDevice):
     _status = {
-        0x01: "PowerSave",
-        0x02: "Standby",
-        0x03: "Working",
-        0x04: "Finished",
-        0x05: "Delay",
-        0x06: "Paused",
+        0x01: "PowerSave", 0x02: "Standby", 0x03: "Working",
+        0x04: "Finished", 0x05: "Delay", 0x06: "Paused"
     }
 
     def __init__(
-        self,
-        name: str,
-        device_id: int,
-        ip_address: str,
-        port: int,
-        token: str,
-        key: str,
-        protocol: int,
-        model: str,
-        subtype: int,
-        customize: str,
+            self,
+            name: str,
+            device_id: int,
+            ip_address: str,
+            port: int,
+            token: str,
+            key: str,
+            protocol: int,
+            model: str,
+            subtype: int,
+            customize: str
     ):
         super().__init__(
             name=name,
@@ -64,8 +60,7 @@ class MideaBFDevice(MiedaDevice):
                 DeviceAttributes.tank_ejected: None,
                 DeviceAttributes.water_change_reminder: None,
                 DeviceAttributes.water_shortage: None,
-            },
-        )
+            })
 
     def build_query(self):
         return [MessageQuery(self._protocol_version)]
@@ -79,9 +74,7 @@ class MideaBFDevice(MiedaDevice):
                 value = getattr(message, str(status))
                 if status == DeviceAttributes.status:
                     if value in MideaBFDevice._status.keys():
-                        self._attributes[DeviceAttributes.status] = (
-                            MideaBFDevice._status.get(value)
-                        )
+                        self._attributes[DeviceAttributes.status] = MideaBFDevice._status.get(value)
                     else:
                         self._attributes[DeviceAttributes.status] = "Unknown"
                 else:

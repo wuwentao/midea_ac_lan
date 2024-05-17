@@ -1,13 +1,14 @@
-import json
 import logging
-
-from .message import MessageCEResponse, MessageQuery, MessageSet
-
+import json
+from .message import (
+    MessageQuery,
+    MessageCEResponse,
+    MessageSet
+)
 try:
     from enum import StrEnum
 except ImportError:
     from ...backports.myenum import StrEnum
-
 from ...core.device import MiedaDevice
 
 _LOGGER = logging.getLogger(__name__)
@@ -35,20 +36,22 @@ class DeviceAttributes(StrEnum):
 
 
 class MideaCEDevice(MiedaDevice):
-    _modes = ["Normal", "Sleep mode", "ECO mode"]
+    _modes = [
+        "Normal", "Sleep mode", "ECO mode"
+    ]
 
     def __init__(
-        self,
-        name: str,
-        device_id: int,
-        ip_address: str,
-        port: int,
-        token: str,
-        key: str,
-        protocol: int,
-        model: str,
-        subtype: int,
-        customize: str,
+            self,
+            name: str,
+            device_id: int,
+            ip_address: str,
+            port: int,
+            token: str,
+            key: str,
+            protocol: int,
+            model: str,
+            subtype: int,
+            customize: str
     ):
         super().__init__(
             name=name,
@@ -79,9 +82,8 @@ class MideaCEDevice(MiedaDevice):
                 DeviceAttributes.powerful_purify: False,
                 DeviceAttributes.filter_cleaning_reminder: False,
                 DeviceAttributes.filter_change_reminder: False,
-                DeviceAttributes.error_code: 0,
-            },
-        )
+                DeviceAttributes.error_code: 0
+            })
         self._default_speed_count = 7
         self._speed_count = self._default_speed_count
         self.set_customize(customize)
@@ -112,9 +114,7 @@ class MideaCEDevice(MiedaDevice):
             self._attributes[DeviceAttributes.mode] = "ECO mode"
         else:
             self._attributes[DeviceAttributes.mode] = "None"
-        new_status[DeviceAttributes.mode.value] = self._attributes[
-            DeviceAttributes.mode
-        ]
+        new_status[DeviceAttributes.mode.value] = self._attributes[DeviceAttributes.mode]
         return new_status
 
     def make_message_set(self):

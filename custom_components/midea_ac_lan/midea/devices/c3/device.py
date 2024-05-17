@@ -1,18 +1,15 @@
 import logging
-
 from .message import (
-    MessageC3Response,
     MessageQuery,
-    MessageSet,
-    MessageSetECO,
     MessageSetSilent,
+    MessageSetECO,
+    MessageC3Response,
+    MessageSet
 )
-
 try:
     from enum import StrEnum
 except ImportError:
     from ...backports.myenum import StrEnum
-
 from ...core.device import MiedaDevice
 
 _LOGGER = logging.getLogger(__name__)
@@ -63,17 +60,17 @@ class DeviceAttributes(StrEnum):
 
 class MideaC3Device(MiedaDevice):
     def __init__(
-        self,
-        name: str,
-        device_id: int,
-        ip_address: str,
-        port: int,
-        token: str,
-        key: str,
-        protocol: int,
-        model: str,
-        subtype: int,
-        customize: str,
+            self,
+            name: str,
+            device_id: int,
+            ip_address: str,
+            port: int,
+            token: str,
+            key: str,
+            protocol: int,
+            model: str,
+            subtype: int,
+            customize: str
     ):
         super().__init__(
             name=name,
@@ -126,9 +123,8 @@ class MideaC3Device(MiedaDevice):
                 DeviceAttributes.status_ibh: None,
                 DeviceAttributes.total_produced_energy: None,
                 DeviceAttributes.outdoor_temperature: None,
-                DeviceAttributes.error_code: 0,
-            },
-        )
+                DeviceAttributes.error_code: 0
+            })
 
     def build_query(self):
         return [MessageQuery(self._protocol_version)]
@@ -141,48 +137,28 @@ class MideaC3Device(MiedaDevice):
             if hasattr(message, str(status)):
                 self._attributes[status] = getattr(message, str(status))
                 new_status[str(status)] = getattr(message, str(status))
-        if "zone_temp_type" in new_status:
+        if 'zone_temp_type' in new_status:
             for zone in [0, 1]:
-                if self._attributes[DeviceAttributes.zone_temp_type][
-                    zone
-                ]:  # Water temp mode
-                    self._attributes[DeviceAttributes.target_temperature][zone] = (
+                if self._attributes[DeviceAttributes.zone_temp_type][zone]:  # Water temp mode
+                    self._attributes[DeviceAttributes.target_temperature][zone] = \
                         self._attributes[DeviceAttributes.zone_target_temp][zone]
-                    )
-                    if (
-                        self._attributes[DeviceAttributes.mode_auto] == 2
-                    ):  # cooling mode
-                        self._attributes[DeviceAttributes.temperature_max][zone] = (
-                            self._attributes[DeviceAttributes.zone_cooling_temp_max][
-                                zone
-                            ]
-                        )
-                        self._attributes[DeviceAttributes.temperature_min][zone] = (
-                            self._attributes[DeviceAttributes.zone_cooling_temp_min][
-                                zone
-                            ]
-                        )
+                    if self._attributes[DeviceAttributes.mode_auto] == 2:  # cooling mode
+                        self._attributes[DeviceAttributes.temperature_max][zone] = \
+                            self._attributes[DeviceAttributes.zone_cooling_temp_max][zone]
+                        self._attributes[DeviceAttributes.temperature_min][zone] = \
+                            self._attributes[DeviceAttributes.zone_cooling_temp_min][zone]
                     elif self._attributes[DeviceAttributes.mode] == 3:  # heating mode
-                        self._attributes[DeviceAttributes.temperature_max][zone] = (
-                            self._attributes[DeviceAttributes.zone_heating_temp_max][
-                                zone
-                            ]
-                        )
-                        self._attributes[DeviceAttributes.temperature_min][zone] = (
-                            self._attributes[DeviceAttributes.zone_heating_temp_min][
-                                zone
-                            ]
-                        )
+                        self._attributes[DeviceAttributes.temperature_max][zone] = \
+                            self._attributes[DeviceAttributes.zone_heating_temp_max][zone]
+                        self._attributes[DeviceAttributes.temperature_min][zone] = \
+                            self._attributes[DeviceAttributes.zone_heating_temp_min][zone]
                 else:  # Room temp mode
-                    self._attributes[DeviceAttributes.target_temperature][zone] = (
+                    self._attributes[DeviceAttributes.target_temperature][zone] = \
                         self._attributes[DeviceAttributes.room_target_temp]
-                    )
-                    self._attributes[DeviceAttributes.temperature_max][zone] = (
+                    self._attributes[DeviceAttributes.temperature_max][zone] = \
                         self._attributes[DeviceAttributes.room_temp_max]
-                    )
-                    self._attributes[DeviceAttributes.temperature_min][zone] = (
+                    self._attributes[DeviceAttributes.temperature_min][zone] = \
                         self._attributes[DeviceAttributes.room_temp_min]
-                    )
             if self._attributes[DeviceAttributes.zone1_power]:
                 if self._attributes[DeviceAttributes.zone_temp_type][zone]:
                     self._attributes[DeviceAttributes.zone1_water_temp_mode] = True
@@ -203,18 +179,14 @@ class MideaC3Device(MiedaDevice):
             else:
                 self._attributes[DeviceAttributes.zone2_water_temp_mode] = False
                 self._attributes[DeviceAttributes.zone2_room_temp_mode] = False
-            new_status[DeviceAttributes.zone1_water_temp_mode.value] = self._attributes[
-                DeviceAttributes.zone1_water_temp_mode
-            ]
-            new_status[DeviceAttributes.zone2_water_temp_mode.value] = self._attributes[
-                DeviceAttributes.zone2_water_temp_mode
-            ]
-            new_status[DeviceAttributes.zone1_room_temp_mode.value] = self._attributes[
-                DeviceAttributes.zone1_room_temp_mode
-            ]
-            new_status[DeviceAttributes.zone2_room_temp_mode.value] = self._attributes[
-                DeviceAttributes.zone2_room_temp_mode
-            ]
+            new_status[DeviceAttributes.zone1_water_temp_mode.value] = \
+                self._attributes[DeviceAttributes.zone1_water_temp_mode]
+            new_status[DeviceAttributes.zone2_water_temp_mode.value] = \
+                self._attributes[DeviceAttributes.zone2_water_temp_mode]
+            new_status[DeviceAttributes.zone1_room_temp_mode.value] = \
+                self._attributes[DeviceAttributes.zone1_room_temp_mode]
+            new_status[DeviceAttributes.zone2_room_temp_mode.value] = \
+                self._attributes[DeviceAttributes.zone2_room_temp_mode]
 
         return new_status
 
@@ -235,9 +207,7 @@ class MideaC3Device(MiedaDevice):
         return message
 
     def set_attribute(self, attr, value):
-
-        message = None
-
+        message= None
         if attr in [
             DeviceAttributes.zone1_power,
             DeviceAttributes.zone2_power,
@@ -247,7 +217,7 @@ class MideaC3Device(MiedaDevice):
             DeviceAttributes.disinfect,
             DeviceAttributes.fast_dhw,
             DeviceAttributes.dhw_target_temp,
-            DeviceAttributes.tbh,
+            DeviceAttributes.tbh
         ]:
             message = self.make_message_set()
             setattr(message, str(attr), value)

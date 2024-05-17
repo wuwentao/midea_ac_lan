@@ -1,12 +1,14 @@
 import logging
-
-from .message import MessageDCResponse, MessagePower, MessageQuery, MessageStart
-
+from .message import (
+    MessageQuery,
+    MessagePower,
+    MessageStart,
+    MessageDCResponse
+)
 try:
     from enum import StrEnum
 except ImportError:
     from ...backports.myenum import StrEnum
-
 from ...core.device import MiedaDevice
 
 _LOGGER = logging.getLogger(__name__)
@@ -22,17 +24,17 @@ class DeviceAttributes(StrEnum):
 
 class MideaDADevice(MiedaDevice):
     def __init__(
-        self,
-        name: str,
-        device_id: int,
-        ip_address: str,
-        port: int,
-        token: str,
-        key: str,
-        protocol: int,
-        model: str,
-        subtype: int,
-        customize: str,
+            self,
+            name: str,
+            device_id: int,
+            ip_address: str,
+            port: int,
+            token: str,
+            key: str,
+            protocol: int,
+            model: str,
+            subtype: int,
+            customize: str
     ):
         super().__init__(
             name=name,
@@ -50,9 +52,8 @@ class MideaDADevice(MiedaDevice):
                 DeviceAttributes.start: False,
                 DeviceAttributes.washing_data: bytearray([]),
                 DeviceAttributes.progress: "Unknown",
-                DeviceAttributes.time_remaining: None,
-            },
-        )
+                DeviceAttributes.time_remaining: None
+            })
 
     def build_query(self):
         return [MessageQuery(self._protocol_version)]
@@ -61,16 +62,8 @@ class MideaDADevice(MiedaDevice):
         message = MessageDCResponse(msg)
         _LOGGER.debug(f"[{self.device_id}] Received: {message}")
         new_status = {}
-        progress = [
-            "Prog0",
-            "Prog1",
-            "Prog2",
-            "Prog3",
-            "Prog4",
-            "Prog5",
-            "Prog6",
-            "Prog7",
-        ]
+        progress = ["Prog0", "Prog1", "Prog2", "Prog3",
+                    "Prog4", "Prog5", "Prog6", "Prog7"]
         for status in self._attributes.keys():
             if hasattr(message, str(status)):
                 if status == DeviceAttributes.progress:

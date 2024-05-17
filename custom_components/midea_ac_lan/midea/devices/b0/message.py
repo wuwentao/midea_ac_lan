@@ -1,13 +1,18 @@
-from ...core.message import MessageBody, MessageRequest, MessageResponse, MessageType
+from ...core.message import (
+    MessageType,
+    MessageRequest,
+    MessageResponse,
+    MessageBody
+)
 
 
 class MessageB0Base(MessageRequest):
-    def __init__(self, protocol_version, message_type, body_type):
+    def __init__(self,  protocol_version, message_type, body_type):
         super().__init__(
             device_type=0xB0,
             protocol_version=protocol_version,
             message_type=message_type,
-            body_type=body_type,
+            body_type=body_type
         )
 
     @property
@@ -20,8 +25,7 @@ class MessageQuery00(MessageB0Base):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.query,
-            body_type=0x00,
-        )
+            body_type=0x00)
 
     @property
     def _body(self):
@@ -33,8 +37,7 @@ class MessageQuery01(MessageB0Base):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.query,
-            body_type=0x01,
-        )
+            body_type=0x01)
 
     @property
     def _body(self):
@@ -57,11 +60,9 @@ class B0Message01Body(MessageBody):
         if len(body) > 15:
             self.door = (body[32] & 0x02) > 0
             self.status = body[31]
-            self.time_remaining = (
-                (0 if body[22] == 0xFF else body[22]) * 3600
-                + (0 if body[23] == 0xFF else body[23]) * 60
-                + (0 if body[24] == 0xFF else body[24])
-            )
+            self.time_remaining = (0 if body[22] == 0xFF else body[22]) * 3600 + \
+                                  (0 if body[23] == 0xFF else body[23]) * 60 + \
+                                  (0 if body[24] == 0xFF else body[24])
             self.current_temperature = (body[25] << 8) + (body[26])
             if self.current_temperature == 0:
                 self.current_temperature = (body[27] << 8) + body[28]
@@ -81,3 +82,4 @@ class MessageB0Response(MessageResponse):
             else:
                 self.set_body(B0MessageBody(super().body))
         self.set_attr()
+

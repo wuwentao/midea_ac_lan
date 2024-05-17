@@ -1,13 +1,14 @@
 import logging
 import math
-
-from .message import Message40Response, MessageQuery, MessageSet
-
+from .message import (
+    MessageQuery,
+    MessageSet,
+    Message40Response
+)
 try:
     from enum import StrEnum
 except ImportError:
     from ...backports.myenum import StrEnum
-
 from ...core.device import MiedaDevice
 
 _LOGGER = logging.getLogger(__name__)
@@ -26,17 +27,17 @@ class Midea40Device(MiedaDevice):
     _directions = ["60", "70", "80", "90", "100", "Oscillate"]
 
     def __init__(
-        self,
-        name: str,
-        device_id: int,
-        ip_address: str,
-        port: int,
-        token: str,
-        key: str,
-        protocol: int,
-        model: str,
-        subtype: int,
-        customize: str,
+            self,
+            name: str,
+            device_id: int,
+            ip_address: str,
+            port: int,
+            token: str,
+            key: str,
+            protocol: int,
+            model: str,
+            subtype: int,
+            customize: str
     ):
         super().__init__(
             name=name,
@@ -55,9 +56,8 @@ class Midea40Device(MiedaDevice):
                 DeviceAttributes.direction: False,
                 DeviceAttributes.ventilation: False,
                 DeviceAttributes.smelly_sensor: False,
-                DeviceAttributes.current_temperature: None,
-            },
-        )
+                DeviceAttributes.current_temperature: None
+            })
         self._fields = {}
 
     @property
@@ -69,11 +69,8 @@ class Midea40Device(MiedaDevice):
         if direction == "Oscillate":
             result = 0xFD
         else:
-            result = (
-                Midea40Device._directions.index(direction) * 10 + 60
-                if direction in Midea40Device._directions
-                else 0xFD
-            )
+            result = Midea40Device._directions.index(direction) * 10 + 60 \
+                if direction in Midea40Device._directions else 0xFD
         return result
 
     @staticmethod
@@ -105,22 +102,18 @@ class Midea40Device(MiedaDevice):
         return new_status
 
     def set_attribute(self, attr, value):
-        if attr in [
-            DeviceAttributes.light,
-            DeviceAttributes.fan_speed,
-            DeviceAttributes.direction,
-            DeviceAttributes.ventilation,
-            DeviceAttributes.smelly_sensor,
-        ]:
+        if attr in [DeviceAttributes.light,
+                    DeviceAttributes.fan_speed,
+                    DeviceAttributes.direction,
+                    DeviceAttributes.ventilation,
+                    DeviceAttributes.smelly_sensor]:
             message = MessageSet(self._protocol_version)
             message.fields = self._fields
             message.light = self._attributes[DeviceAttributes.light]
             message.ventilation = self._attributes[DeviceAttributes.ventilation]
             message.smelly_sensor = self._attributes[DeviceAttributes.smelly_sensor]
             message.fan_speed = self._attributes[DeviceAttributes.fan_speed]
-            message.direction = self._convert_to_midea_direction(
-                self._attributes[DeviceAttributes.direction]
-            )
+            message.direction = self._convert_to_midea_direction(self._attributes[DeviceAttributes.direction])
             if attr == DeviceAttributes.direction:
                 message.direction = self._convert_to_midea_direction(value)
             elif attr == DeviceAttributes.ventilation and message.fan_speed == 2:

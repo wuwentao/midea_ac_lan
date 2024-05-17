@@ -1,4 +1,9 @@
-from ...core.message import MessageBody, MessageRequest, MessageResponse, MessageType
+from ...core.message import (
+    MessageType,
+    MessageRequest,
+    MessageResponse,
+    MessageBody,
+)
 
 
 class MessageDABase(MessageRequest):
@@ -7,7 +12,7 @@ class MessageDABase(MessageRequest):
             device_type=0xDA,
             protocol_version=protocol_version,
             message_type=message_type,
-            body_type=body_type,
+            body_type=body_type
         )
 
     @property
@@ -20,8 +25,7 @@ class MessageQuery(MessageDABase):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.query,
-            body_type=0x03,
-        )
+            body_type=0x03)
 
     @property
     def _body(self):
@@ -33,14 +37,15 @@ class MessagePower(MessageDABase):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.set,
-            body_type=0x02,
-        )
+            body_type=0x02)
         self.power = False
 
     @property
     def _body(self):
         power = 0x01 if self.power else 0x00
-        return bytearray([power, 0xFF])
+        return bytearray([
+            power, 0xFF
+        ])
 
 
 class MessageStart(MessageDABase):
@@ -48,18 +53,21 @@ class MessageStart(MessageDABase):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.set,
-            body_type=0x02,
-        )
+            body_type=0x02)
         self.start = False
         self.washing_data = bytearray([])
 
     @property
     def _body(self):
         if self.start:
-            return bytearray([0xFF, 0x01]) + self.washing_data
+            return bytearray([
+                0xFF, 0x01
+            ]) + self.washing_data
         else:
             # Stop
-            return bytearray([0xFF, 0x00])
+            return bytearray([
+                0xFF, 0x00
+            ])
 
 
 class DAGeneralMessageBody(MessageBody):
@@ -71,14 +79,14 @@ class DAGeneralMessageBody(MessageBody):
         self.program = body[4]
         self.wash_time = body[9]
         self.soak_time = body[12]
-        self.dehydration_time = (body[10] & 0xF0) >> 4
-        self.dehydration_speed = (body[6] & 0xF0) >> 4
-        self.rinse_count = body[10] & 0xF
-        self.rinse_level = (body[5] & 0xF0) >> 4
-        self.wash_level = body[5] & 0xF
-        self.wash_strength = body[6] & 0xF
-        self.softener = (body[8] & 0xF0) >> 4
-        self.detergent = body[8] & 0x0F
+        self.dehydration_time = (body[10] & 0xf0) >> 4
+        self.dehydration_speed = (body[6] & 0xf0) >> 4
+        self.rinse_count = body[10] & 0xf
+        self.rinse_level = (body[5] & 0xf0) >> 4
+        self.wash_level = body[5] & 0xf
+        self.wash_strength = body[6] & 0xf
+        self.softener = (body[8] & 0xf0) >> 4
+        self.detergent = body[8] & 0x0f
         self.washing_data = body[3:15]
         self.progress = 0
         for i in range(1, 7):
@@ -94,8 +102,7 @@ class DAGeneralMessageBody(MessageBody):
 class MessageDAResponse(MessageResponse):
     def __init__(self, message):
         super().__init__(message)
-        if self.message_type in [MessageType.query, MessageType.set] or (
-            self.message_type == MessageType.notify1 and self.body_type == 0x04
-        ):
+        if self.message_type in [MessageType.query, MessageType.set] or \
+                (self.message_type == MessageType.notify1 and self.body_type == 0x04):
             self.set_body(DAGeneralMessageBody(super().body))
         self.set_attr()
