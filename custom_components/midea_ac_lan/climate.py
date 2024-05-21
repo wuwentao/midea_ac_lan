@@ -516,4 +516,4 @@ class MideaFBClimate(MideaClimate):
             self.turn_on()
 
     def set_preset_mode(self, preset_mode: str) -> None:
-        self._device.set_attribute(attr=FBAttributes.mode,value=preset_mode)
+        self._device.set_attribute(attr=FBAttributes.mode, value=preset_mode)

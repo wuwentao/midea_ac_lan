@@ -82,4 +82,3 @@ class MessageB0Response(MessageResponse):
             else:
                 self.set_body(B0MessageBody(super().body))
         self.set_attr()
-

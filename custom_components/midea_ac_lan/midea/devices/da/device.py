@@ -94,7 +94,7 @@ class MideaDADevice(MiedaDevice):
         speed = ["-", "Low", "Medium", "High"]
         strength = ["-", "Week", "Medium", "Strong"]
         detergent = ["No", "Less", "Medium", "More", "4",
-                    "5", "6", "7", "8", "Insufficient"]
+                     "5", "6", "7", "8", "Insufficient"]
         softener = ["No", "Intelligent", "Programed", "3", "4",
                     "5", "6", "7", "8", "Insufficient"]
         for status in self._attributes.keys():
@@ -136,6 +136,7 @@ class MideaDADevice(MiedaDevice):
             message.start = value
             message.washing_data = self._attributes[DeviceAttributes.washing_data]
             self.build_send(message)
+
 
 class MideaAppliance(MideaDADevice):
     pass

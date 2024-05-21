@@ -71,7 +71,7 @@ class MessageECResponse(MessageResponse):
         super().__init__(message)
         if self.message_type == MessageType.notify1 and super().body[3] == 0x01:
             self.set_body(ECBodyNew(super().body))
-        elif(self.message_type == MessageType.set and super().body[3] == 0x02) or \
+        elif (self.message_type == MessageType.set and super().body[3] == 0x02) or \
                 (self.message_type == MessageType.query and super().body[3] == 0x03) or \
                 (self.message_type == MessageType.notify1 and super().body[3] == 0x04) or \
                 (self.message_type == MessageType.notify1 and super().body[3] == 0x3d):

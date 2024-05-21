@@ -1,13 +1,9 @@
 ---
-name: Linter
+name: Lint
 
-on:
-  push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - master
+on:  # yamllint disable-line rule:truthy
+  push: null
+  pull_request: null
 
 permissions: {}
 

@@ -38,7 +38,7 @@ class B4MessageBody(MessageBody):
         self.time_remaining = (0 if body[22] == 0xFF else body[22]) * 3600 + \
                               (0 if body[23] == 0xFF else body[23]) * 60 + \
                               (0 if body[24] == 0xFF else body[24])
-        self.current_temperature = (body[25] << 8 ) + body[26]
+        self.current_temperature = (body[25] << 8) + body[26]
         if self.current_temperature == 0:
             self.current_temperature = (body[27] << 8) + body[28]
         self.status = body[31]
@@ -55,4 +55,3 @@ class MessageB4Response(MessageResponse):
             if self.body_type == 0x01:
                 self.set_body(B4MessageBody(super().body))
         self.set_attr()
-

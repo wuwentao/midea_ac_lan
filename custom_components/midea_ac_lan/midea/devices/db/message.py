@@ -64,7 +64,7 @@ class MessageStart(MessageDBBase):
 
     @property
     def _body(self):
-        if self.start: # Pause
+        if self.start:     # Pause
             return bytearray([
                 0xFF, 0x01
             ]) + self.washing_data

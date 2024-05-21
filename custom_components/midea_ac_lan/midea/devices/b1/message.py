@@ -52,4 +52,3 @@ class MessageB1Response(MessageResponse):
         if self.message_type in [MessageType.notify1, MessageType.query]:
             self.set_body(B1MessageBody(super().body))
         self.set_attr()
-

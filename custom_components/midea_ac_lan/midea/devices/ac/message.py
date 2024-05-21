@@ -256,9 +256,8 @@ class MessageGeneralSet(MessageACBase):
         # Byte 3, fan_speed
         fan_speed = self.fan_speed & 0x7f
         # Byte 7, swing_mode
-        swing_mode = 0x30 | \
-                     (0x0c if self.swing_vertical else 0) | \
-                     (0x03 if self.swing_horizontal else 0)
+        swing_mode = 0x30 | (0x0c if self.swing_vertical else 0) \
+            | (0x03 if self.swing_horizontal else 0)
         # Byte 8, turbo
         boost_mode = 0x20 if self.boost_mode else 0
         # Byte 9 aux_heating eco_mode
