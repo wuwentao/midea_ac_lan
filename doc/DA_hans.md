@@ -1,7 +1,9 @@
 # 波轮洗衣机
 
 ## 生成实体
+
 ### 默认实体
+
 无默认实体
 
 ### 额外生成实体
@@ -14,6 +16,7 @@
 | switch.{DEVICEID}_start          | switch | Start          | 启动暂停 |
 
 ## 服务
+
 生成以下扩展服务
 
 ### midea_ac_lan.set_attribute
@@ -29,6 +32,7 @@
 | value     | true 或 false        |
 
 示例
+
 ```yaml
 service: midea_ac_lan.set_attribute
 data:

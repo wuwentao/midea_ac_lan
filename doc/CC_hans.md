@@ -1,5 +1,7 @@
 # 中央空调Wi-Fi线控器
+
 ## 特性
+
 - 支持目标温度设定
 - 支持运行模式设定
 - 支持风扇模式设定
@@ -7,11 +9,14 @@
 - 支持电辅热
 
 ### 支持的模式
+
 - 睡眠模式
 - 节能模式
 
 ## 生成实体
+
 ### 默认生成实体
+
 | 实体ID                       | 类型      | 描述    |
 |----------------------------|---------|-------|
 | climate.{DEVICEID}_climate | climate | 恒温器实体 |
@@ -29,6 +34,7 @@
 | switch.{DEVICEID}_swing              | switch | Swing              | 摆风    |
 
 ## 服务
+
 生成以下扩展服务
 
 ### midea_ac_lan.set_attribute
@@ -44,6 +50,7 @@
 | value     | true 或 false                                                                             |
 
 示例
+
 ```yaml
 service: midea_ac_lan.set_attribute
 data:
