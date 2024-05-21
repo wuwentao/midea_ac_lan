@@ -70,7 +70,7 @@ class Midea13Device(MiedaDevice):
 
     def kelvin_to_midea(self, kelvin):
         return round((kelvin - self._color_temp_range[0]) /
-        (self._color_temp_range[1] - self._color_temp_range[0]) * 255)
+                     (self._color_temp_range[1] - self._color_temp_range[0]) * 255)
 
     def midea_to_kelvin(self, midea):
         return round((self._color_temp_range[1] - self._color_temp_range[0]) / 255 * midea) + \

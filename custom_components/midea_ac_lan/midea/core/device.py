@@ -254,7 +254,7 @@ class MiedaDevice(threading.Thread):
                             else:
                                 _LOGGER.debug(f"[{self._device_id}] Unidentified protocol")
                     except Exception as e:
-                        _LOGGER.error(f"[{self._device_id}] Error in process message, msg = {decrypted.hex()}")
+                        _LOGGER.error(f"[{self._device_id}] Error in process message: {e}, msg = {decrypted.hex()}")
                 else:
                     _LOGGER.warning(
                         f"[{self._device_id}] Illegal payload, "

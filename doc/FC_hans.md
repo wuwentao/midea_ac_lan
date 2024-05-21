@@ -72,6 +72,7 @@
 | value     | "Bright"<br/>"Dim"<br/>"Off" |
 
 示例
+
 ```yaml
 service: midea_ac_lan.set_attribute
 data:

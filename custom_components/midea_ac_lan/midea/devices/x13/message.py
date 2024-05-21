@@ -84,6 +84,7 @@ class MessageMainLightResponseBody(MessageBody):
         super().__init__(body)
         self.control_success = body[1] > 0
 
+
 class Message13Response(MessageResponse):
     def __init__(self, message):
         super().__init__(message)
@@ -92,4 +93,3 @@ class Message13Response(MessageResponse):
         elif self.message_type == MessageType.set and self.body_type > 0x80:
             self.set_body(MessageMainLightResponseBody(super().body))
         self.set_attr()
-

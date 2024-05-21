@@ -107,7 +107,7 @@ class Message26Body(MessageBody):
         self.fields["LIGHT_INTENSITY_THRESHOLD"] = self.read_byte(body, 7)
         self.fields["RADAR_SENSITIVITY"] = self.read_byte(body, 8)
         heat_mode = self.read_byte(body, 9) > 0
-        heat_temperature =  self.read_byte(body, 10)
+        heat_temperature = self.read_byte(body, 10)
         self.fields["HEATING_SPEED"] = self.read_byte(body, 11)
         heat_direction = self.read_byte(body, 12)
         bath_mode = self.read_byte(body, 13) > 0
@@ -171,4 +171,3 @@ class Message26Response(MessageResponse):
         if self.message_type in [MessageType.set, MessageType.notify1, MessageType.query] and self.body_type == 0x01:
             self.set_body(Message26Body(super().body))
         self.set_attr()
-

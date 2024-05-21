@@ -2,6 +2,7 @@ from homeassistant.core import HomeAssistant
 from importlib import import_module
 from types import ModuleType
 
+
 async def async_device_selector(
     hass: HomeAssistant,
     name: str,
@@ -24,6 +25,7 @@ async def async_device_selector(
             device_path = f".{'%02x' % device_type}.device"
 
         modules: list[ModuleType] = []
+
         def _load_device_module() -> None:
             """Load all service modules."""
             modules.append(import_module(device_path, __package__))

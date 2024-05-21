@@ -59,6 +59,7 @@ class MessagePower(MessageC2Base):
             message_type=MessageType.set,
             body_type=0x00)
         self.power = False
+
     @property
     def _body(self):
         if self.power:

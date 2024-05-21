@@ -35,21 +35,21 @@ class MideaNumber(MideaEntity, NumberEntity):
 
     @property
     def native_min_value(self):
-        return self._min_value if (type(self._min_value) is int) else \
+        return self._min_value if isinstance(self._min_value, int) else \
             self._device.get_attribute(attr=self._min_value) \
             if self._device.get_attribute(attr=self._min_value) else \
             getattr(self._device, self._min_value)
 
     @property
     def native_max_value(self):
-        return self._max_value if (type(self._max_value) is int) else \
+        return self._max_value if isinstance(self._max_value, int) else \
             self._device.get_attribute(attr=self._max_value) \
             if self._device.get_attribute(attr=self._max_value) else \
             getattr(self._device, self._max_value)
 
     @property
     def native_step(self):
-        return self._step_value if (type(self._step_value) is int) else \
+        return self._step_value if isinstance(self._step_value, int) else \
             self._device.get_attribute(attr=self._step_value) \
             if self._device.get_attribute(attr=self._step_value) else \
             getattr(self._device, self._step_value)

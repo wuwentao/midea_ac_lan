@@ -1,7 +1,9 @@
 # 洗碗机
 
 ## 生成实体
+
 ### 默认实体
+
 无默认实体
 
 ### 额外生成实体
@@ -26,6 +28,7 @@
 | switch.{DEVICEID}_storage           | switch        | Storage                | 保管开关   |
 
 ## 服务
+
 生成以下扩展服务
 
 ### midea_ac_lan.set_attribute
@@ -41,6 +44,7 @@
 | value     | true 或 false                              |
 
 示例
+
 ```yaml
 service: midea_ac_lan.set_attribute
 data:
