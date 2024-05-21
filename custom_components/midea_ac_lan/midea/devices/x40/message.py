@@ -160,4 +160,3 @@ class Message40Response(MessageResponse):
         if self.message_type in [MessageType.set, MessageType.notify1, MessageType.query] and self.body_type == 0x01:
             self.set_body(Message40Body(super().body))
         self.set_attr()
-
