@@ -3,6 +3,7 @@
 ***注意:部分美的的"中央新风机"产品，其实使用了空调的协议。如果你的新风机被识别为空调，参阅[内置新风系统](AC_hans.md#%E5%86%85%E7%BD%AE%E6%96%B0%E9%A3%8E%E7%B3%BB%E7%BB%9F)***
 
 ## 特性
+
 - 支持风速调节
 - 支持预设模式
 
@@ -15,7 +16,9 @@
 ```
 
 ## 生成实体
+
 ### 默认生成实体
+
 | 实体ID               | 类型  | 描述   |
 |--------------------|-----|------|
 | fan.{DEVICEID}_fan | fan | 风扇实体 |
@@ -40,6 +43,7 @@
 | switch.{DEVICEID}_sleep_mode                      | switch        | Sleep Mode               | 睡眠模式开关 |
 
 ## 服务
+
 生成以下扩展服务
 
 ### midea_ac_lan.set_attribute
@@ -55,6 +59,7 @@
 | value     | true 或 false                                                                                                      |
 
 示例
+
 ```yaml
 service: midea_ac_lan.set_attribute
 data:

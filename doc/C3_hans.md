@@ -1,10 +1,14 @@
 # 热泵空调Wi-Fi线控器
+
 ## 特性
+
 - 支持目标温度设定
 - 支持运行模式设定
 
 ## 生成实体
+
 ### 默认生成实体
+
 | 实体ID                                 | 类型           | 描述       |
 |--------------------------------------|--------------|----------|
 | climate.{DEVICEID}_climate_zone1     | climate      | 区域1恒温器实体 |
@@ -54,6 +58,7 @@
 | value     | true 或 false                                                                                                       |
 
 示例
+
 ```yaml
 service: midea_ac_lan.set_attribute
 data:

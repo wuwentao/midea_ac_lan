@@ -9,7 +9,9 @@
 ```
 
 ## 生成实体
+
 ### 默认生成实体
+
 无默认实体
 
 ### 额外生成实体
@@ -70,6 +72,7 @@
 | value     | "Bright"<br/>"Dim"<br/>"Off" |
 
 示例
+
 ```yaml
 service: midea_ac_lan.set_attribute
 data:

@@ -1,7 +1,9 @@
 # 慢炖锅
 
 ## 实体
+
 ### 默认实体
+
 无默认实体
 
 ### 扩展实体
@@ -17,6 +19,6 @@
 | sensor.{DEVICEID}_target_temperature    | sensor        | Target Temperature               | 设定温度 |
 | sensor.{DEVICEID}_current_temperature   | sensor        | Current Temperature              | 当前温度 |
 
-
 ## 服务
+
 无服务

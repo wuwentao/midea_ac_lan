@@ -1,7 +1,9 @@
 # 冰箱
 
 ## 生成实体
+
 ### 默认实体
+
 无默认实体
 
 ### 额外生成实体
@@ -27,4 +29,5 @@
 | sensor.{DEVICEID}_right_flex_zone_setting_temp      | sensor        | Right Flex-zone Setting Temperature | 右变温区设置温度 |
 
 ## 服务
+
 无服务

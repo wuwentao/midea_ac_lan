@@ -1,7 +1,9 @@
 # Top Load Washer
 
 ## Entities
+
 ### Default entity
+
 No default entity
 
 ### Extra entities
@@ -14,7 +16,6 @@ No default entity
 | switch.{DEVICEID}_start          | switch | Start          |
 
 ## Service
-
 
 ### midea_ac_lan.set_attribute
 
@@ -29,6 +30,7 @@ Set the attribute of appliance. Service data:
 | value     | true or false                               |
 
 Example
+
 ```yaml
 service: midea_ac_lan.set_attribute
 data:

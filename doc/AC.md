@@ -1,5 +1,7 @@
 # Air Conditioner
+
 ## Features
+
 - Supports target temperature
 - Supports run mode
 - Supports fan mode
@@ -8,6 +10,7 @@
 - Supports build-in fresh air system
 
 ### Supported Run-Modes
+
 - Comfort Mode
 - ECO Mode
 - Boost Mode
@@ -31,7 +34,9 @@
 ```
 
 ## Entities
+
 ### Default entity
+
 | EntityID                   | Class   | Description    |
 |----------------------------|---------|----------------|
 | climate.{DEVICEID}_climate | climate | Climate entity |
@@ -89,6 +94,7 @@ Set the attribute of appliance. Service data:
 | value     | Range 1 to 100 or "auto"                    |
 
 Example
+
 ```yaml
 service: midea_ac_lan.set_attribute
 data:

@@ -1,7 +1,9 @@
 # Refrigerator
 
 ## Entities
+
 ### Default entity
+
 No default entity.
 
 ### Extra entities
@@ -27,4 +29,5 @@ No default entity.
 | sensor.{DEVICEID}_right_flex_zone_setting_temp      | sensor        | Right Flex-zone Setting Temperature |
 
 ## Service
+
 No services.
