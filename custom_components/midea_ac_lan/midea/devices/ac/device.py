@@ -1,10 +1,17 @@
 import json
 import logging
 
-from .message import (MessageACResponse, MessageGeneralSet,
-                      MessageNewProtocolQuery, MessageNewProtocolSet,
-                      MessagePowerQuery, MessageQuery, MessageSubProtocolQuery,
-                      MessageSubProtocolSet, MessageToggleDisplay)
+from .message import (
+    MessageACResponse,
+    MessageGeneralSet,
+    MessageNewProtocolQuery,
+    MessageNewProtocolSet,
+    MessagePowerQuery,
+    MessageQuery,
+    MessageSubProtocolQuery,
+    MessageSubProtocolSet,
+    MessageToggleDisplay,
+)
 
 try:
     from enum import StrEnum

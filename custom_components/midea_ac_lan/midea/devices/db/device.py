@@ -1,7 +1,6 @@
 import logging
 
-from .message import (MessageDBResponse, MessagePower, MessageQuery,
-                      MessageStart)
+from .message import MessageDBResponse, MessagePower, MessageQuery, MessageStart
 
 try:
     from enum import StrEnum

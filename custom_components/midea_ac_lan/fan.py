@@ -2,8 +2,13 @@ import logging
 from typing import Any
 
 from homeassistant.components.fan import FanEntity, FanEntityFeature
-from homeassistant.const import (CONF_DEVICE_ID, CONF_SWITCHES, STATE_OFF,
-                                 STATE_ON, Platform)
+from homeassistant.const import (
+    CONF_DEVICE_ID,
+    CONF_SWITCHES,
+    STATE_OFF,
+    STATE_ON,
+    Platform,
+)
 
 from .const import DEVICES, DOMAIN
 from .midea.devices.ac.device import DeviceAttributes as ACAttributes

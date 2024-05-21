@@ -1,12 +1,21 @@
 import functools as ft
 import logging
 
-from homeassistant.components.water_heater import (WaterHeaterEntity,
-                                                   WaterHeaterEntityFeature)
-from homeassistant.const import (ATTR_TEMPERATURE, CONF_DEVICE_ID,
-                                 CONF_SWITCHES, PRECISION_HALVES,
-                                 PRECISION_WHOLE, STATE_OFF, STATE_ON,
-                                 Platform, UnitOfTemperature)
+from homeassistant.components.water_heater import (
+    WaterHeaterEntity,
+    WaterHeaterEntityFeature,
+)
+from homeassistant.const import (
+    ATTR_TEMPERATURE,
+    CONF_DEVICE_ID,
+    CONF_SWITCHES,
+    PRECISION_HALVES,
+    PRECISION_WHOLE,
+    STATE_OFF,
+    STATE_ON,
+    Platform,
+    UnitOfTemperature,
+)
 
 from .const import DEVICES, DOMAIN
 from .midea.devices.c3.device import DeviceAttributes as C3Attributes

@@ -1,6 +1,5 @@
 from ...core.crc8 import calculate
-from ...core.message import (MessageBody, MessageRequest, MessageResponse,
-                             MessageType)
+from ...core.message import MessageBody, MessageRequest, MessageResponse, MessageType
 
 
 class MessageFDBase(MessageRequest):

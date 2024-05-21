@@ -1,8 +1,13 @@
 from enum import IntEnum
 
 from ...core.crc8 import calculate
-from ...core.message import (MessageBody, MessageRequest, MessageResponse,
-                             MessageType, NewProtocolMessageBody)
+from ...core.message import (
+    MessageBody,
+    MessageRequest,
+    MessageResponse,
+    MessageType,
+    NewProtocolMessageBody,
+)
 
 BB_AC_MODES = [0, 3, 1, 2, 4, 5]
 

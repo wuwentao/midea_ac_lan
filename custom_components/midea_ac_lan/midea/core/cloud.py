@@ -8,8 +8,12 @@ from threading import Lock
 
 from aiohttp import ClientSession
 
-from .security import (CloudSecurity, MeijuCloudSecurity, MideaAirSecurity,
-                       MSmartCloudSecurity)
+from .security import (
+    CloudSecurity,
+    MeijuCloudSecurity,
+    MideaAirSecurity,
+    MSmartCloudSecurity,
+)
 
 _LOGGER = logging.getLogger(__name__)
 

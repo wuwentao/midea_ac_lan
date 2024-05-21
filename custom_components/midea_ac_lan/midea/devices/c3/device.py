@@ -1,7 +1,12 @@
 import logging
 
-from .message import (MessageC3Response, MessageQuery, MessageSet,
-                      MessageSetECO, MessageSetSilent)
+from .message import (
+    MessageC3Response,
+    MessageQuery,
+    MessageSet,
+    MessageSetECO,
+    MessageSetSilent,
+)
 
 try:
     from enum import StrEnum

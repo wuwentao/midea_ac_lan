@@ -1,9 +1,16 @@
 from homeassistant.components.binary_sensor import BinarySensorDeviceClass
 from homeassistant.components.sensor import SensorDeviceClass, SensorStateClass
-from homeassistant.const import (CONCENTRATION_MICROGRAMS_PER_CUBIC_METER,
-                                 CONCENTRATION_PARTS_PER_MILLION, PERCENTAGE,
-                                 Platform, UnitOfEnergy, UnitOfPower,
-                                 UnitOfTemperature, UnitOfTime, UnitOfVolume)
+from homeassistant.const import (
+    CONCENTRATION_MICROGRAMS_PER_CUBIC_METER,
+    CONCENTRATION_PARTS_PER_MILLION,
+    PERCENTAGE,
+    Platform,
+    UnitOfEnergy,
+    UnitOfPower,
+    UnitOfTemperature,
+    UnitOfTime,
+    UnitOfVolume,
+)
 
 from .midea.devices.a1.device import DeviceAttributes as A1Attributes
 from .midea.devices.ac.device import DeviceAttributes as ACAttributes

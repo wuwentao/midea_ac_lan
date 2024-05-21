@@ -1,7 +1,6 @@
 import logging
 
-from .message import (MessageEDResponse, MessageNewSet, MessageOldSet,
-                      MessageQuery)
+from .message import MessageEDResponse, MessageNewSet, MessageOldSet, MessageQuery
 
 try:
     from enum import StrEnum

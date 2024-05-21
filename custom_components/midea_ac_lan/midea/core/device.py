@@ -10,11 +10,18 @@ import socket
 import time
 from enum import IntEnum
 
-from .message import (MessageApplianceResponse, MessageQueryAppliance,
-                      MessageQuestCustom, MessageType)
+from .message import (
+    MessageApplianceResponse,
+    MessageQueryAppliance,
+    MessageQuestCustom,
+    MessageType,
+)
 from .packet_builder import PacketBuilder
-from .security import (MSGTYPE_ENCRYPTED_REQUEST, MSGTYPE_HANDSHAKE_REQUEST,
-                       LocalSecurity)
+from .security import (
+    MSGTYPE_ENCRYPTED_REQUEST,
+    MSGTYPE_HANDSHAKE_REQUEST,
+    LocalSecurity,
+)
 
 _LOGGER = logging.getLogger(__name__)
 

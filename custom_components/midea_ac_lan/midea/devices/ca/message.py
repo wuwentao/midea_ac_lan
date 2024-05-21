@@ -1,5 +1,4 @@
-from ...core.message import (MessageBody, MessageRequest, MessageResponse,
-                             MessageType)
+from ...core.message import MessageBody, MessageRequest, MessageResponse, MessageType
 
 
 class MessageCABase(MessageRequest):

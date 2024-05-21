@@ -1,5 +1,4 @@
-from ...core.message import (MessageBody, MessageRequest, MessageResponse,
-                             MessageType)
+from ...core.message import MessageBody, MessageRequest, MessageResponse, MessageType
 
 NEW_PROTOCOL_PARAMS = {
     "zero_cold_water": 0x03,

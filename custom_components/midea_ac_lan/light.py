@@ -1,11 +1,17 @@
 import logging
 from typing import Any
 
-from homeassistant.components.light import (ATTR_BRIGHTNESS, ATTR_COLOR_TEMP,
-                                            ATTR_EFFECT, SUPPORT_BRIGHTNESS,
-                                            SUPPORT_COLOR, SUPPORT_COLOR_TEMP,
-                                            SUPPORT_EFFECT, LightEntity,
-                                            LightEntityFeature)
+from homeassistant.components.light import (
+    ATTR_BRIGHTNESS,
+    ATTR_COLOR_TEMP,
+    ATTR_EFFECT,
+    SUPPORT_BRIGHTNESS,
+    SUPPORT_COLOR,
+    SUPPORT_COLOR_TEMP,
+    SUPPORT_EFFECT,
+    LightEntity,
+    LightEntityFeature,
+)
 from homeassistant.const import CONF_DEVICE_ID, CONF_SWITCHES, Platform
 
 from .const import DEVICES, DOMAIN

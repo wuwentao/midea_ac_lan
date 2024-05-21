@@ -1,7 +1,12 @@
 import logging
 
-from .message import (Message34Response, MessageLock, MessagePower,
-                      MessageQuery, MessageStorage)
+from .message import (
+    Message34Response,
+    MessageLock,
+    MessagePower,
+    MessageQuery,
+    MessageStorage,
+)
 
 try:
     from enum import StrEnum

@@ -1,8 +1,10 @@
 import logging
 
-from homeassistant.components.humidifier import (HumidifierDeviceClass,
-                                                 HumidifierEntity,
-                                                 HumidifierEntityFeature)
+from homeassistant.components.humidifier import (
+    HumidifierDeviceClass,
+    HumidifierEntity,
+    HumidifierEntityFeature,
+)
 from homeassistant.const import CONF_DEVICE_ID, CONF_SWITCHES, Platform
 
 from .const import DEVICES, DOMAIN

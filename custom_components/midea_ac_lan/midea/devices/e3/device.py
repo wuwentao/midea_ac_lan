@@ -1,8 +1,13 @@
 import json
 import logging
 
-from .message import (MessageE3Response, MessageNewProtocolSet, MessagePower,
-                      MessageQuery, MessageSet)
+from .message import (
+    MessageE3Response,
+    MessageNewProtocolSet,
+    MessagePower,
+    MessageQuery,
+    MessageSet,
+)
 
 try:
     from enum import StrEnum

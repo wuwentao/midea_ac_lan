@@ -11,17 +11,35 @@ import logging
 
 import homeassistant.helpers.config_validation as cv
 from homeassistant import config_entries
-from homeassistant.const import (CONF_CUSTOMIZE, CONF_DEVICE, CONF_DEVICE_ID,
-                                 CONF_IP_ADDRESS, CONF_NAME, CONF_PASSWORD,
-                                 CONF_PORT, CONF_PROTOCOL, CONF_SENSORS,
-                                 CONF_SWITCHES, CONF_TOKEN, CONF_TYPE)
+from homeassistant.const import (
+    CONF_CUSTOMIZE,
+    CONF_DEVICE,
+    CONF_DEVICE_ID,
+    CONF_IP_ADDRESS,
+    CONF_NAME,
+    CONF_PASSWORD,
+    CONF_PORT,
+    CONF_PROTOCOL,
+    CONF_SENSORS,
+    CONF_SWITCHES,
+    CONF_TOKEN,
+    CONF_TYPE,
+)
 from homeassistant.core import callback
 from homeassistant.helpers.aiohttp_client import async_create_clientsession
 from homeassistant.util.json import load_json
 
-from .const import (CONF_ACCOUNT, CONF_KEY, CONF_MODEL, CONF_REFRESH_INTERVAL,
-                    CONF_SERVER, CONF_SUBTYPE, DOMAIN, EXTRA_CONTROL,
-                    EXTRA_SENSOR)
+from .const import (
+    CONF_ACCOUNT,
+    CONF_KEY,
+    CONF_MODEL,
+    CONF_REFRESH_INTERVAL,
+    CONF_SERVER,
+    CONF_SUBTYPE,
+    DOMAIN,
+    EXTRA_CONTROL,
+    EXTRA_SENSOR,
+)
 from .midea.core.cloud import get_midea_cloud
 from .midea.core.device import MiedaDevice
 from .midea.core.discover import discover

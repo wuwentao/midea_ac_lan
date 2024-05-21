@@ -1,7 +1,6 @@
 from enum import IntEnum
 
-from ...core.message import (MessageBody, MessageRequest, MessageResponse,
-                             MessageType)
+from ...core.message import MessageBody, MessageRequest, MessageResponse, MessageType
 
 
 class NewSetTags(IntEnum):

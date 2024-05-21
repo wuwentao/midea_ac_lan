@@ -2,14 +2,29 @@ import logging
 
 import homeassistant.helpers.config_validation as cv
 import voluptuous as vol
-from homeassistant.const import (CONF_CUSTOMIZE, CONF_DEVICE_ID,
-                                 CONF_IP_ADDRESS, CONF_NAME, CONF_PORT,
-                                 CONF_PROTOCOL, CONF_TOKEN, CONF_TYPE)
+from homeassistant.const import (
+    CONF_CUSTOMIZE,
+    CONF_DEVICE_ID,
+    CONF_IP_ADDRESS,
+    CONF_NAME,
+    CONF_PORT,
+    CONF_PROTOCOL,
+    CONF_TOKEN,
+    CONF_TYPE,
+)
 from homeassistant.core import HomeAssistant
 
-from .const import (ALL_PLATFORM, CONF_ACCOUNT, CONF_KEY, CONF_MODEL,
-                    CONF_REFRESH_INTERVAL, CONF_SUBTYPE, DEVICES, DOMAIN,
-                    EXTRA_SWITCH)
+from .const import (
+    ALL_PLATFORM,
+    CONF_ACCOUNT,
+    CONF_KEY,
+    CONF_MODEL,
+    CONF_REFRESH_INTERVAL,
+    CONF_SUBTYPE,
+    DEVICES,
+    DOMAIN,
+    EXTRA_SWITCH,
+)
 from .midea.devices import async_device_selector
 from .midea_devices import MIDEA_DEVICES
 
