@@ -1,16 +1,14 @@
-import logging
 import json
-from .message import (
-    MessageQuery,
-    MessageSet,
-    MessageE2Response,
-    MessagePower,
-    MessageNewProtocolSet
-)
+import logging
+
+from .message import (MessageE2Response, MessageNewProtocolSet, MessagePower,
+                      MessageQuery, MessageSet)
+
 try:
     from enum import StrEnum
 except ImportError:
     from ...backports.myenum import StrEnum
+
 from ...core.device import MiedaDevice
 
 _LOGGER = logging.getLogger(__name__)
@@ -32,17 +30,17 @@ class DeviceAttributes(StrEnum):
 
 class MideaE2Device(MiedaDevice):
     def __init__(
-            self,
-            name: str,
-            device_id: int,
-            ip_address: str,
-            port: int,
-            token: str,
-            key: str,
-            protocol: int,
-            model: str,
-            subtype: int,
-            customize: str
+        self,
+        name: str,
+        device_id: int,
+        ip_address: str,
+        port: int,
+        token: str,
+        key: str,
+        protocol: int,
+        model: str,
+        subtype: int,
+        customize: str,
     ):
         super().__init__(
             name=name,
@@ -66,8 +64,9 @@ class MideaE2Device(MiedaDevice):
                 DeviceAttributes.variable_heating: False,
                 DeviceAttributes.heating_time_remaining: 0,
                 DeviceAttributes.water_consumption: None,
-                DeviceAttributes.heating_power: None
-            })
+                DeviceAttributes.heating_power: None,
+            },
+        )
         self._default_old_protocol = "auto"
         self._old_protocol = self._default_old_protocol
         self.set_customize(customize)
@@ -91,15 +90,21 @@ class MideaE2Device(MiedaDevice):
     def make_message_set(self):
         message = MessageSet(self._protocol_version)
         message.protection = self._attributes[DeviceAttributes.protection]
-        message.whole_tank_heating = self._attributes[DeviceAttributes.whole_tank_heating]
-        message.target_temperature = self._attributes[DeviceAttributes.target_temperature]
+        message.whole_tank_heating = self._attributes[
+            DeviceAttributes.whole_tank_heating
+        ]
+        message.target_temperature = self._attributes[
+            DeviceAttributes.target_temperature
+        ]
         message.variable_heating = self._attributes[DeviceAttributes.variable_heating]
         return message
 
     def set_attribute(self, attr, value):
-        if attr not in [DeviceAttributes.heating,
-                        DeviceAttributes.keep_warm,
-                        DeviceAttributes.current_temperature]:
+        if attr not in [
+            DeviceAttributes.heating,
+            DeviceAttributes.keep_warm,
+            DeviceAttributes.current_temperature,
+        ]:
             if self._old_protocol is not None and self._old_protocol != "auto":
                 old_protocol = self._old_protocol
             else:

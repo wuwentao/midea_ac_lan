@@ -1,9 +1,5 @@
-from ...core.message import (
-    MessageType,
-    MessageRequest,
-    MessageResponse,
-    MessageBody,
-)
+from ...core.message import (MessageBody, MessageRequest, MessageResponse,
+                             MessageType)
 
 
 class MessageECBase(MessageRequest):
@@ -12,7 +8,7 @@ class MessageECBase(MessageRequest):
             device_type=0xEC,
             protocol_version=protocol_version,
             message_type=message_type,
-            body_type=body_type
+            body_type=body_type,
         )
 
     @property
@@ -25,16 +21,12 @@ class MessageQuery(MessageECBase):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.query,
-            body_type=None)
+            body_type=None,
+        )
 
     @property
     def body(self):
-        return bytearray([
-            0xAA, 0x55,
-            0x01, 0x03,
-            0x00, 0x00, 0x00, 0x00,
-            0x00, 0x00
-        ])
+        return bytearray([0xAA, 0x55, 0x01, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00])
 
     @property
     def _body(self):
@@ -63,7 +55,7 @@ class ECBodyNew(MessageBody):
         self.keep_warm_time = body[19] * 60 + body[20]
         self.top_temperature = body[48]
         self.bottom_temperature = body[49]
-        self.with_pressure = (body[33] > 0)
+        self.with_pressure = body[33] > 0
 
 
 class MessageECResponse(MessageResponse):
@@ -71,10 +63,12 @@ class MessageECResponse(MessageResponse):
         super().__init__(message)
         if self.message_type == MessageType.notify1 and super().body[3] == 0x01:
             self.set_body(ECBodyNew(super().body))
-        elif (self.message_type == MessageType.set and super().body[3] == 0x02) or \
-                (self.message_type == MessageType.query and super().body[3] == 0x03) or \
-                (self.message_type == MessageType.notify1 and super().body[3] == 0x04) or \
-                (self.message_type == MessageType.notify1 and super().body[3] == 0x3d):
+        elif (
+            (self.message_type == MessageType.set and super().body[3] == 0x02)
+            or (self.message_type == MessageType.query and super().body[3] == 0x03)
+            or (self.message_type == MessageType.notify1 and super().body[3] == 0x04)
+            or (self.message_type == MessageType.notify1 and super().body[3] == 0x3D)
+        ):
             self.set_body(ECGeneralMessageBody(super().body))
         elif self.message_type == MessageType.notify1 and super().body[3] == 0x06:
             self.mode = super().body[4] + (super().body[5] << 8)

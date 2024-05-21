@@ -1,9 +1,5 @@
-from ...core.message import (
-    MessageType,
-    MessageRequest,
-    MessageResponse,
-    MessageBody,
-)
+from ...core.message import (MessageBody, MessageRequest, MessageResponse,
+                             MessageType)
 
 
 class MessageE6Base(MessageRequest):
@@ -12,7 +8,7 @@ class MessageE6Base(MessageRequest):
             device_type=0xE6,
             protocol_version=protocol_version,
             message_type=message_type,
-            body_type=None
+            body_type=None,
         )
 
     @property
@@ -27,8 +23,7 @@ class MessageE6Base(MessageRequest):
 class MessageQuery(MessageE6Base):
     def __init__(self, protocol_version):
         super().__init__(
-            protocol_version=protocol_version,
-            message_type=MessageType.query
+            protocol_version=protocol_version, message_type=MessageType.query
         )
 
     @property
@@ -39,8 +34,7 @@ class MessageQuery(MessageE6Base):
 class MessageSet(MessageE6Base):
     def __init__(self, protocol_version):
         super().__init__(
-            protocol_version=protocol_version,
-            message_type=MessageType.set
+            protocol_version=protocol_version, message_type=MessageType.set
         )
         self.main_power = None
         self.heating_temperature = None
@@ -71,14 +65,8 @@ class E6GeneralMessageBody(MessageBody):
         self.heating_working = (body[2] & 0x10) > 0
         self.bathing_working = (body[2] & 0x20) > 0
         self.heating_power = (body[4] & 0x01) > 0
-        self.min_temperature = [
-            body[16],
-            body[11]
-        ]
-        self.max_temperature = [
-            body[15],
-            body[10]
-        ]
+        self.min_temperature = [body[16], body[11]]
+        self.max_temperature = [body[15], body[10]]
         self.heating_temperature = body[17]
         self.bathing_temperature = body[12]
         self.heating_leaving_temperature = body[14]

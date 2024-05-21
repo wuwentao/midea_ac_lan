@@ -1,12 +1,12 @@
-from Crypto.Cipher import AES
-from Crypto.Util.Padding import pad, unpad
-from Crypto.Util.strxor import strxor
-from Crypto.Random import get_random_bytes
-from urllib.parse import unquote_plus, urlencode, urlparse
+import hmac
 from hashlib import md5, sha256
 from typing import Any
-import hmac
+from urllib.parse import unquote_plus, urlencode, urlparse
 
+from Crypto.Cipher import AES
+from Crypto.Random import get_random_bytes
+from Crypto.Util.Padding import pad, unpad
+from Crypto.Util.strxor import strxor
 
 MSGTYPE_HANDSHAKE_REQUEST = 0x0
 MSGTYPE_HANDSHAKE_RESPONSE = 0x1
@@ -21,8 +21,8 @@ class CloudSecurity:
         self._hmac_key = hmac_key
         self._aes_key = None
         self._aes_iv = None
-        self._fixed_key = format(fixed_key, 'x').encode("ascii") if fixed_key else None
-        self._fixed_iv = format(fixed_iv, 'x').encode("ascii") if fixed_iv else None
+        self._fixed_key = format(fixed_key, "x").encode("ascii") if fixed_key else None
+        self._fixed_iv = format(fixed_iv, "x").encode("ascii") if fixed_iv else None
 
     def sign(self, url: str, data: Any, random: str) -> str:
         msg = self._iot_key
@@ -59,7 +59,7 @@ class CloudSecurity:
         data = bytearray(sha256(bytes_id).digest())
         for i in range(0, 16):
             data[i] ^= data[i + 16]
-        return data[0: 16].hex()
+        return data[0:16].hex()
 
     def set_aes_keys(self, key, iv):
         if isinstance(key, str):
@@ -103,15 +103,18 @@ class CloudSecurity:
         if isinstance(data, str):
             data = bytes.fromhex(data)
         if aes_iv is None:  # ECB
-            return unpad(AES.new(aes_key, AES.MODE_ECB).decrypt(data), len(aes_key)).decode()
+            return unpad(
+                AES.new(aes_key, AES.MODE_ECB).decrypt(data), len(aes_key)
+            ).decode()
         else:  # CBC
-            return unpad(AES.new(aes_key, AES.MODE_CBC, iv=aes_iv).decrypt(data), len(aes_key)).decode()
+            return unpad(
+                AES.new(aes_key, AES.MODE_CBC, iv=aes_iv).decrypt(data), len(aes_key)
+            ).decode()
 
 
 class MeijuCloudSecurity(CloudSecurity):
     def __init__(self, login_key, iot_key, hmac_key):
-        super().__init__(login_key, iot_key, hmac_key,
-                         10864842703515613082)
+        super().__init__(login_key, iot_key, hmac_key, 10864842703515613082)
 
     def encrypt_iam_password(self, login_id, data) -> str:
         md = md5()
@@ -123,9 +126,9 @@ class MeijuCloudSecurity(CloudSecurity):
 
 class MSmartCloudSecurity(CloudSecurity):
     def __init__(self, login_key, iot_key, hmac_key):
-        super().__init__(login_key, iot_key, hmac_key,
-                         13101328926877700970,
-                         16429062708050928556)
+        super().__init__(
+            login_key, iot_key, hmac_key, 13101328926877700970, 16429062708050928556
+        )
 
     def encrypt_iam_password(self, login_id, data) -> str:
         md = md5()
@@ -141,8 +144,8 @@ class MSmartCloudSecurity(CloudSecurity):
         key_digest = sha256(self._login_key.encode("ascii")).hexdigest()
         tmp_key = key_digest[:16].encode("ascii")
         tmp_iv = key_digest[16:32].encode("ascii")
-        self._aes_key = self.aes_decrypt(encrypted_key, tmp_key, tmp_iv).encode('ascii')
-        self._aes_iv = self.aes_decrypt(encrypted_iv, tmp_key, tmp_iv).encode('ascii')
+        self._aes_key = self.aes_decrypt(encrypted_key, tmp_key, tmp_iv).encode("ascii")
+        self._aes_iv = self.aes_decrypt(encrypted_iv, tmp_key, tmp_iv).encode("ascii")
 
 
 class MideaAirSecurity(CloudSecurity):
@@ -161,10 +164,13 @@ class LocalSecurity:
         self.blockSize = 16
         self.iv = b"\0" * 16
         self.aes_key = bytes.fromhex(
-            format(141661095494369103254425781617665632877, 'x')
+            format(141661095494369103254425781617665632877, "x")
         )
         self.salt = bytes.fromhex(
-            format(233912452794221312800602098970898185176935770387238278451789080441632479840061417076563, 'x')
+            format(
+                233912452794221312800602098970898185176935770387238278451789080441632479840061417076563,
+                "x",
+            )
         )
         self._tcp_key = None
         self._request_count = 0
@@ -172,7 +178,9 @@ class LocalSecurity:
 
     def aes_decrypt(self, raw):
         try:
-            return unpad(AES.new(self.aes_key, AES.MODE_ECB).decrypt(bytearray(raw)), 16)
+            return unpad(
+                AES.new(self.aes_key, AES.MODE_ECB).decrypt(bytearray(raw)), 16
+            )
         except ValueError:
             return bytearray(0)
 
@@ -208,7 +216,7 @@ class LocalSecurity:
         size, padding = len(data), 0
         if msgtype in (MSGTYPE_ENCRYPTED_RESPONSE, MSGTYPE_ENCRYPTED_REQUEST):
             if (size + 2) % 16 != 0:
-                padding = 16 - (size + 2 & 0xf)
+                padding = 16 - (size + 2 & 0xF)
                 size += padding + 32
                 data += get_random_bytes(padding)
         header += size.to_bytes(2, "big")
@@ -238,7 +246,7 @@ class LocalSecurity:
         if header[4] != 0x20:
             raise Exception("missing byte 4")
         padding = header[5] >> 4
-        msgtype = header[5] & 0xf
+        msgtype = header[5] & 0xF
         data = data[6:]
         if msgtype in (MSGTYPE_ENCRYPTED_RESPONSE, MSGTYPE_ENCRYPTED_REQUEST):
             sign = data[-32:]

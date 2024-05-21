@@ -1,9 +1,5 @@
-from ...core.message import (
-    MessageType,
-    MessageRequest,
-    MessageResponse,
-    MessageBody,
-)
+from ...core.message import (MessageBody, MessageRequest, MessageResponse,
+                             MessageType)
 
 
 class MessageFABase(MessageRequest):
@@ -12,7 +8,7 @@ class MessageFABase(MessageRequest):
             device_type=0xFA,
             protocol_version=protocol_version,
             message_type=message_type,
-            body_type=body_type
+            body_type=body_type,
         )
 
     @property
@@ -25,7 +21,8 @@ class MessageQuery(MessageFABase):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.query,
-            body_type=None)
+            body_type=None,
+        )
 
     @property
     def body(self):
@@ -41,7 +38,8 @@ class MessageSet(MessageFABase):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.set,
-            body_type=0x00)
+            body_type=0x00,
+        )
         self._subtype = subtype
         self.power = None
         self.lock = None
@@ -55,31 +53,84 @@ class MessageSet(MessageFABase):
     @property
     def _body(self):
         if 1 <= self._subtype <= 10 or self._subtype == 161:
-            _body_return = bytearray([
-                0x00, 0x00, 0x00, 0x80,
-                0x00, 0x00, 0x00, 0x80,
-                0x00, 0x00, 0x00, 0x00,
-                0x00, 0x00, 0x00, 0x00,
-                0x00, 0x00
-            ])
+            _body_return = bytearray(
+                [
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x80,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x80,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                ]
+            )
             if self._subtype != 10:
                 _body_return[13] = 0xFF
         else:
-            _body_return = bytearray([
-                0x00, 0x00, 0x00, 0x80,
-                0x00, 0x00, 0x00, 0x80,
-                0x00, 0x00, 0x00, 0x00,
-                0x00, 0x00, 0x00, 0x00,
-                0x00, 0x00, 0x00, 0x00,
-                0x00, 0x00, 0x00, 0x00,
-                0x00, 0x00, 0x00, 0x00,
-                0x00, 0x00, 0x00, 0x00,
-                0x00, 0x00, 0x00, 0x00,
-                0x00, 0x00, 0x00, 0x00,
-                0x00, 0x00, 0x00, 0x00,
-                0x00, 0x00, 0x00, 0x00,
-                0x00
-            ])
+            _body_return = bytearray(
+                [
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x80,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x80,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                    0x00,
+                ]
+            )
         if self.power is not None:
             if self.power:
                 _body_return[3] = 1
@@ -100,9 +151,13 @@ class MessageSet(MessageFABase):
             else:
                 _body_return[7] = 0
         if self.oscillation_angle is not None:
-            _body_return[7] = 1 | _body_return[7] | ((self.oscillation_angle << 4) & 0x70)
+            _body_return[7] = (
+                1 | _body_return[7] | ((self.oscillation_angle << 4) & 0x70)
+            )
         if self.oscillation_mode is not None:
-            _body_return[7] = 1 | _body_return[7] | ((self.oscillation_mode << 1) & 0x0E)
+            _body_return[7] = (
+                1 | _body_return[7] | ((self.oscillation_mode << 1) & 0x0E)
+            )
         if self.tilting_angle is not None and len(_body_return) > 24:
             _body_return[24] = self.tilting_angle
         return _body_return
@@ -117,7 +172,7 @@ class FAGeneralMessageBody(MessageBody):
         else:
             self.child_lock = False
         self.power = (body[4] & 0x01) > 0
-        mode = ((body[4] & 0x1E) >> 1)
+        mode = (body[4] & 0x1E) >> 1
         if mode > 0:
             self.mode = mode - 1
         fan_speed = body[5]
@@ -134,6 +189,10 @@ class FAGeneralMessageBody(MessageBody):
 class MessageFAResponse(MessageResponse):
     def __init__(self, message):
         super().__init__(message)
-        if self.message_type in [MessageType.query, MessageType.set, MessageType.notify1]:
+        if self.message_type in [
+            MessageType.query,
+            MessageType.set,
+            MessageType.notify1,
+        ]:
             self.set_body(FAGeneralMessageBody(super().body))
         self.set_attr()

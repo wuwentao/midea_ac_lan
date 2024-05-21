@@ -1,9 +1,5 @@
-from ...core.message import (
-    MessageType,
-    MessageRequest,
-    MessageResponse,
-    MessageBody
-)
+from ...core.message import (MessageBody, MessageRequest, MessageResponse,
+                             MessageType)
 
 
 class Message40Base(MessageRequest):
@@ -12,7 +8,7 @@ class Message40Base(MessageRequest):
             device_type=0x40,
             protocol_version=protocol_version,
             message_type=message_type,
-            body_type=body_type
+            body_type=body_type,
         )
 
     @property
@@ -25,12 +21,12 @@ class MessageQuery(Message40Base):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.query,
-            body_type=0x01)
+            body_type=0x01,
+        )
 
     @property
     def _body(self):
-        return bytearray([
-        ])
+        return bytearray([])
 
 
 class MessageSet(Message40Base):
@@ -38,7 +34,8 @@ class MessageSet(Message40Base):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.set,
-            body_type=0x01)
+            body_type=0x01,
+        )
         self.fields = {}
         self.light = False
         self.fan_speed = 0
@@ -58,47 +55,49 @@ class MessageSet(Message40Base):
         ventilation = 1 if self.ventilation else 0
         direction = self.direction
         smelly_sensor = 1 if self.smelly_sensor else 0
-        return bytearray([
-            light,
-            self.read_field("MAIN_LIGHT_BRIGHTNESS"),
-            self.read_field("NIGHT_LIGHT_ENABLE"),
-            self.read_field("NIGHT_LIGHT_BRIGHTNESS"),
-            self.read_field("RADAR_INDUCTION_ENABLE"),
-            self.read_field("RADAR_INDUCTION_CLOSING_TIME"),
-            self.read_field("LIGHT_INTENSITY_THRESHOLD"),
-            self.read_field("RADAR_SENSITIVITY"),
-            self.read_field("HEATING_ENABLE"),
-            self.read_field("HEATING_TEMPERATURE"),
-            self.read_field("HEATING_SPEED"),
-            self.read_field("HEATING_DIRECTION"),
-            self.read_field("BATH_ENABLE"),
-            self.read_field("BATH_HEATING_TIME"),
-            self.read_field("BATH_TEMPERATURE"),
-            self.read_field("BATH_SPEED"),
-            self.read_field("BATH_DIRECTION"),
-            ventilation,
-            self.read_field("VENTILATION_SPEED"),
-            self.read_field("VENTILATION_DIRECTION"),
-            self.read_field("DRYING_ENABLE"),
-            self.read_field("DRYING_TIME"),
-            self.read_field("DRYING_TEMPERATURE"),
-            self.read_field("DRYING_SPEED"),
-            self.read_field("DRYING_DIRECTION"),
-            blow,
-            fan_speed,
-            direction,
-            self.read_field("DELAY_ENABLE"),
-            self.read_field("DELAY_TIME"),
-            self.read_field("SOFT_WIND_ENABLE"),
-            self.read_field("SOFT_WIND_TIME"),
-            self.read_field("SOFT_WIND_TEMPERATURE"),
-            self.read_field("SOFT_WIND_SPEED"),
-            self.read_field("SOFT_WIND_DIRECTION"),
-            self.read_field("WINDLESS_ENABLE"),
-            self.read_field("ANION_ENABLE"),
-            smelly_sensor,
-            self.read_field("SMELLY_THRESHOLD")
-        ])
+        return bytearray(
+            [
+                light,
+                self.read_field("MAIN_LIGHT_BRIGHTNESS"),
+                self.read_field("NIGHT_LIGHT_ENABLE"),
+                self.read_field("NIGHT_LIGHT_BRIGHTNESS"),
+                self.read_field("RADAR_INDUCTION_ENABLE"),
+                self.read_field("RADAR_INDUCTION_CLOSING_TIME"),
+                self.read_field("LIGHT_INTENSITY_THRESHOLD"),
+                self.read_field("RADAR_SENSITIVITY"),
+                self.read_field("HEATING_ENABLE"),
+                self.read_field("HEATING_TEMPERATURE"),
+                self.read_field("HEATING_SPEED"),
+                self.read_field("HEATING_DIRECTION"),
+                self.read_field("BATH_ENABLE"),
+                self.read_field("BATH_HEATING_TIME"),
+                self.read_field("BATH_TEMPERATURE"),
+                self.read_field("BATH_SPEED"),
+                self.read_field("BATH_DIRECTION"),
+                ventilation,
+                self.read_field("VENTILATION_SPEED"),
+                self.read_field("VENTILATION_DIRECTION"),
+                self.read_field("DRYING_ENABLE"),
+                self.read_field("DRYING_TIME"),
+                self.read_field("DRYING_TEMPERATURE"),
+                self.read_field("DRYING_SPEED"),
+                self.read_field("DRYING_DIRECTION"),
+                blow,
+                fan_speed,
+                direction,
+                self.read_field("DELAY_ENABLE"),
+                self.read_field("DELAY_TIME"),
+                self.read_field("SOFT_WIND_ENABLE"),
+                self.read_field("SOFT_WIND_TIME"),
+                self.read_field("SOFT_WIND_TEMPERATURE"),
+                self.read_field("SOFT_WIND_SPEED"),
+                self.read_field("SOFT_WIND_DIRECTION"),
+                self.read_field("WINDLESS_ENABLE"),
+                self.read_field("ANION_ENABLE"),
+                smelly_sensor,
+                self.read_field("SMELLY_THRESHOLD"),
+            ]
+        )
 
 
 class Message40Body(MessageBody):
@@ -157,6 +156,10 @@ class Message40Body(MessageBody):
 class Message40Response(MessageResponse):
     def __init__(self, message):
         super().__init__(message)
-        if self.message_type in [MessageType.set, MessageType.notify1, MessageType.query] and self.body_type == 0x01:
+        if (
+            self.message_type
+            in [MessageType.set, MessageType.notify1, MessageType.query]
+            and self.body_type == 0x01
+        ):
             self.set_body(Message40Body(super().body))
         self.set_attr()

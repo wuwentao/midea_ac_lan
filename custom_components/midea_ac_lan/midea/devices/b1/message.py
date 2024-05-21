@@ -1,18 +1,14 @@
-from ...core.message import (
-    MessageType,
-    MessageRequest,
-    MessageResponse,
-    MessageBody
-)
+from ...core.message import (MessageBody, MessageRequest, MessageResponse,
+                             MessageType)
 
 
 class MessageB1Base(MessageRequest):
-    def __init__(self, protocol_version, message_type,  body_type):
+    def __init__(self, protocol_version, message_type, body_type):
         super().__init__(
             device_type=0xB1,
             protocol_version=protocol_version,
             message_type=message_type,
-            body_type=body_type
+            body_type=body_type,
         )
 
     @property
@@ -25,7 +21,8 @@ class MessageQuery(MessageB1Base):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.query,
-            body_type=0x00)
+            body_type=0x00,
+        )
 
     @property
     def _body(self):
@@ -37,9 +34,11 @@ class B1MessageBody(MessageBody):
         super().__init__(body)
         self.door = (body[16] & 0x02) > 0
         self.status = body[1]
-        self.time_remaining = (0 if body[6] == 0xFF else body[6]) * 3600 + \
-                              (0 if body[7] == 0xFF else body[7]) * 60 + \
-                              (0 if body[8] == 0xFF else body[8])
+        self.time_remaining = (
+            (0 if body[6] == 0xFF else body[6]) * 3600
+            + (0 if body[7] == 0xFF else body[7]) * 60
+            + (0 if body[8] == 0xFF else body[8])
+        )
         self.current_temperature = body[19]
         self.tank_ejected = (body[16] & 0x04) > 0
         self.water_shortage = (body[16] & 0x08) > 0

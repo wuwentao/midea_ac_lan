@@ -1,15 +1,13 @@
-import logging
 import json
-from .message import (
-    MessageQuery,
-    MessageC2Response,
-    MessageSet,
-    MessagePower
-)
+import logging
+
+from .message import MessageC2Response, MessagePower, MessageQuery, MessageSet
+
 try:
     from enum import StrEnum
 except ImportError:
     from ...backports.myenum import StrEnum
+
 from ...core.device import MiedaDevice
 
 _LOGGER = logging.getLogger(__name__)
@@ -33,17 +31,17 @@ class DeviceAttributes(StrEnum):
 
 class MideaC2Device(MiedaDevice):
     def __init__(
-            self,
-            name: str,
-            device_id: int,
-            ip_address: str,
-            port: int,
-            token: str,
-            key: str,
-            protocol: int,
-            model: str,
-            subtype: int,
-            customize: str
+        self,
+        name: str,
+        device_id: int,
+        ip_address: str,
+        port: int,
+        token: str,
+        key: str,
+        protocol: int,
+        model: str,
+        subtype: int,
+        customize: str,
     ):
         super().__init__(
             name=name,
@@ -69,8 +67,9 @@ class MideaC2Device(MiedaDevice):
                 DeviceAttributes.seat_temp_level: 0,
                 DeviceAttributes.water_temperature: None,
                 DeviceAttributes.seat_temperature: None,
-                DeviceAttributes.filter_life: None
-            })
+                DeviceAttributes.filter_life: None,
+            },
+        )
         self._max_dry_level = None
         self._max_water_temp_level = None
         self._max_seat_temp_level = None
@@ -115,7 +114,7 @@ class MideaC2Device(MiedaDevice):
             DeviceAttributes.foam_shield,
             DeviceAttributes.water_temp_level,
             DeviceAttributes.seat_temp_level,
-            DeviceAttributes.dry_level
+            DeviceAttributes.dry_level,
         ]:
             message = MessageSet(self._protocol_version)
             setattr(message, attr, value)
@@ -137,10 +136,17 @@ class MideaC2Device(MiedaDevice):
                     self._max_seat_temp_level = params.get("max_seat_temp_level")
             except Exception as e:
                 _LOGGER.error(f"[{self.device_id}] Set customize error: {repr(e)}")
-            self.update_all({"dry_level": {"max_dry_level": self._max_dry_level},
-                             "water_temp_level": {"max_water_temp_level": self._max_water_temp_level},
-                             "seat_temp_level": {"max_seat_temp_level": self._max_seat_temp_level}
-                             })
+            self.update_all(
+                {
+                    "dry_level": {"max_dry_level": self._max_dry_level},
+                    "water_temp_level": {
+                        "max_water_temp_level": self._max_water_temp_level
+                    },
+                    "seat_temp_level": {
+                        "max_seat_temp_level": self._max_seat_temp_level
+                    },
+                }
+            )
 
 
 class MideaAppliance(MideaC2Device):

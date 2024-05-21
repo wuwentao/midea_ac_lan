@@ -1,9 +1,5 @@
-from ...core.message import (
-    MessageType,
-    MessageRequest,
-    MessageResponse,
-    MessageBody
-)
+from ...core.message import (MessageBody, MessageRequest, MessageResponse,
+                             MessageType)
 
 
 class Message13Base(MessageRequest):
@@ -12,7 +8,7 @@ class Message13Base(MessageRequest):
             device_type=0x13,
             protocol_version=protocol_version,
             message_type=message_type,
-            body_type=body_type
+            body_type=body_type,
         )
 
     @property
@@ -25,13 +21,12 @@ class MessageQuery(Message13Base):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.query,
-            body_type=0x24)
+            body_type=0x24,
+        )
 
     @property
     def _body(self):
-        return bytearray([
-            0x00, 0x00, 0x00, 0x00
-        ])
+        return bytearray([0x00, 0x00, 0x00, 0x00])
 
 
 class MessageSet(Message13Base):
@@ -39,7 +34,8 @@ class MessageSet(Message13Base):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.set,
-            body_type=0x00)
+            body_type=0x00,
+        )
         self.brightness = None
         self.color_temperature = None
         self.effect = None
@@ -71,11 +67,11 @@ class MessageMainLightBody(MessageBody):
         self.effect = self.read_byte(body, 3) - 1
         if self.effect > 5:
             self.effect = 1
-        '''
+        """
         self.rgb_color = [self.read_byte(body, 5),
                           self.read_byte(body, 6),
                           self.read_byte(body, 7)]
-        '''
+        """
         self.power = self.read_byte(body, 8) > 0
 
 
@@ -88,7 +84,7 @@ class MessageMainLightResponseBody(MessageBody):
 class Message13Response(MessageResponse):
     def __init__(self, message):
         super().__init__(message)
-        if self.body_type == 0xa4:
+        if self.body_type == 0xA4:
             self.set_body(MessageMainLightBody(super().body))
         elif self.message_type == MessageType.set and self.body_type > 0x80:
             self.set_body(MessageMainLightResponseBody(super().body))

@@ -1,12 +1,8 @@
 from enum import IntEnum
+
 from ...core.crc8 import calculate
-from ...core.message import (
-    MessageType,
-    MessageRequest,
-    MessageResponse,
-    MessageBody,
-    NewProtocolMessageBody
-)
+from ...core.message import (MessageBody, MessageRequest, MessageResponse,
+                             MessageType, NewProtocolMessageBody)
 
 
 class NewProtocolTags(IntEnum):
@@ -44,17 +40,34 @@ class MessageQuery(MessageA1Base):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.query,
-            body_type=0x41)
+            body_type=0x41,
+        )
 
     @property
     def _body(self):
-        return bytearray([
-            0x81, 0x00, 0xFF, 0x00,
-            0x00, 0x00, 0x00, 0x00,
-            0x00, 0x00, 0x00, 0x00,
-            0x00, 0x00, 0x00, 0x00,
-            0x00, 0x00, 0x00
-        ])
+        return bytearray(
+            [
+                0x81,
+                0x00,
+                0xFF,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+            ]
+        )
 
 
 class MessageNewProtocolQuery(MessageA1Base):
@@ -62,13 +75,12 @@ class MessageNewProtocolQuery(MessageA1Base):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.query,
-            body_type=0xB1)
+            body_type=0xB1,
+        )
 
     @property
     def _body(self):
-        query_params = [
-            NewProtocolTags.light
-        ]
+        query_params = [NewProtocolTags.light]
         _body = bytearray([len(query_params)])
         for param in query_params:
             _body.extend([param & 0xFF, param >> 8])
@@ -80,7 +92,8 @@ class MessageSet(MessageA1Base):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.set,
-            body_type=0x48)
+            body_type=0x48,
+        )
         self.power = False
         self.prompt_tone = False
         self.mode = 1
@@ -110,20 +123,30 @@ class MessageSet(MessageA1Base):
         swing = 0x08 if self.swing else 0x00
         # byte 13 water_level_set
         water_level_set = self.water_level_set
-        return bytearray([
-            power | prompt_tone | 0x02,
-            mode,
-            fan_speed,
-            0x00, 0x00, 0x00,
-            target_humidity,
-            child_lock,
-            anion,
-            swing,
-            0x00, 0x00,
-            water_level_set,
-            0x00, 0x00, 0x00, 0x00,
-            0x00, 0x00, 0x00
-        ])
+        return bytearray(
+            [
+                power | prompt_tone | 0x02,
+                mode,
+                fan_speed,
+                0x00,
+                0x00,
+                0x00,
+                target_humidity,
+                child_lock,
+                anion,
+                swing,
+                0x00,
+                0x00,
+                water_level_set,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+            ]
+        )
 
 
 class MessageNewProtocolSet(MessageA1Base):
@@ -131,7 +154,8 @@ class MessageNewProtocolSet(MessageA1Base):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.set,
-            body_type=0xB0)
+            body_type=0xB0,
+        )
         self.light = None
 
     @property
@@ -143,8 +167,9 @@ class MessageNewProtocolSet(MessageA1Base):
             payload.extend(
                 NewProtocolMessageBody.pack(
                     param=NewProtocolTags.light,
-                    value=bytearray([0x01 if self.light else 0x00])
-                ))
+                    value=bytearray([0x01 if self.light else 0x00]),
+                )
+            )
         payload[0] = pack_count
         return payload
 
@@ -172,13 +197,17 @@ class A1NewProtocolMessageBody(NewProtocolMessageBody):
         super().__init__(body, bt)
         params = self.parse()
         if NewProtocolTags.light in params:
-            self.light = (params[NewProtocolTags.light][0] > 0)
+            self.light = params[NewProtocolTags.light][0] > 0
 
 
 class MessageA1Response(MessageResponse):
     def __init__(self, message):
         super().__init__(message)
-        if self.message_type in [MessageType.query, MessageType.set, MessageType.notify1]:
+        if self.message_type in [
+            MessageType.query,
+            MessageType.set,
+            MessageType.notify1,
+        ]:
             if self.body_type in [0xB0, 0xB1, 0xB5]:
                 self.set_body(A1NewProtocolMessageBody(super().body, self.body_type))
             else:

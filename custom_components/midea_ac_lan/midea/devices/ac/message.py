@@ -1,12 +1,8 @@
 from enum import IntEnum
-from ...core.message import (
-    MessageType,
-    MessageRequest,
-    MessageResponse,
-    MessageBody,
-    NewProtocolMessageBody
-)
+
 from ...core.crc8 import calculate
+from ...core.message import (MessageBody, MessageRequest, MessageResponse,
+                             MessageType, NewProtocolMessageBody)
 
 BB_AC_MODES = [0, 3, 1, 2, 4, 5]
 
@@ -18,7 +14,7 @@ class NewProtocolTags(IntEnum):
     prompt_tone = 0x001A
     indirect_wind = 0x0042
     fresh_air_1 = 0x0233
-    fresh_air_2 = 0x004b
+    fresh_air_2 = 0x004B
 
 
 class MessageACBase(MessageRequest):
@@ -29,7 +25,7 @@ class MessageACBase(MessageRequest):
             device_type=0xAC,
             protocol_version=protocol_version,
             message_type=message_type,
-            body_type=body_type
+            body_type=body_type,
         )
         MessageACBase._message_serial += 1
         if MessageACBase._message_serial >= 254:
@@ -52,17 +48,34 @@ class MessageQuery(MessageACBase):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.query,
-            body_type=0x41)
+            body_type=0x41,
+        )
 
     @property
     def _body(self):
-        return bytearray([
-            0x81, 0x00, 0xFF, 0x00,
-            0x00, 0x00, 0x00, 0x00,
-            0x00, 0x00, 0x00, 0x00,
-            0x00, 0x00, 0x00, 0x00,
-            0x00, 0x00, 0x00,
-        ])
+        return bytearray(
+            [
+                0x81,
+                0x00,
+                0xFF,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+            ]
+        )
 
 
 class MessagePowerQuery(MessageACBase):
@@ -70,13 +83,12 @@ class MessagePowerQuery(MessageACBase):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.query,
-            body_type=0x41)
+            body_type=0x41,
+        )
 
     @property
     def _body(self):
-        return bytearray([
-            0x21, 0x01, 0x44, 0x00, 0x01
-        ])
+        return bytearray([0x21, 0x01, 0x44, 0x00, 0x01])
 
     @property
     def body(self):
@@ -90,20 +102,36 @@ class MessageToggleDisplay(MessageACBase):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.query,
-            body_type=0x41)
+            body_type=0x41,
+        )
         self.prompt_tone = False
 
     @property
     def _body(self):
         prompt_tone = 0x40 if self.prompt_tone else 0
-        return bytearray([
-            0x02 | prompt_tone,
-            0x00, 0xFF, 0x02,
-            0x00, 0x02, 0x00, 0x00,
-            0x00, 0x00, 0x00, 0x00,
-            0x00, 0x00, 0x00, 0x00,
-            0x00, 0x00, 0x00
-        ])
+        return bytearray(
+            [
+                0x02 | prompt_tone,
+                0x00,
+                0xFF,
+                0x02,
+                0x00,
+                0x02,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+            ]
+        )
 
 
 class MessageNewProtocolQuery(MessageACBase):
@@ -111,7 +139,8 @@ class MessageNewProtocolQuery(MessageACBase):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.query,
-            body_type=0xB1)
+            body_type=0xB1,
+        )
 
     @property
     def _body(self):
@@ -121,7 +150,7 @@ class MessageNewProtocolQuery(MessageACBase):
             NewProtocolTags.indoor_humidity,
             NewProtocolTags.screen_display,
             NewProtocolTags.fresh_air_1,
-            NewProtocolTags.fresh_air_2
+            NewProtocolTags.fresh_air_2,
         ]
 
         _body = bytearray([len(query_params)])
@@ -133,9 +162,8 @@ class MessageNewProtocolQuery(MessageACBase):
 class MessageSubProtocol(MessageACBase):
     def __init__(self, protocol_version, message_type, subprotocol_query_type):
         super().__init__(
-            protocol_version=protocol_version,
-            message_type=message_type,
-            body_type=0xAA)
+            protocol_version=protocol_version, message_type=message_type, body_type=0xAA
+        )
         self._subprotocol_query_type = subprotocol_query_type
 
     @property
@@ -152,10 +180,17 @@ class MessageSubProtocol(MessageACBase):
     @property
     def _body(self):
         _subprotocol_body = self._subprotocol_body
-        _body = bytearray([
-            6 + 2 + (len(_subprotocol_body) if _subprotocol_body is not None else 0),
-            0x00, 0xFF, 0xFF, self._subprotocol_query_type
-        ])
+        _body = bytearray(
+            [
+                6
+                + 2
+                + (len(_subprotocol_body) if _subprotocol_body is not None else 0),
+                0x00,
+                0xFF,
+                0xFF,
+                self._subprotocol_query_type,
+            ]
+        )
         if _subprotocol_body is not None:
             _body.extend(_subprotocol_body)
         return _body
@@ -166,7 +201,8 @@ class MessageSubProtocolQuery(MessageSubProtocol):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.query,
-            subprotocol_query_type=subprotocol_query_type)
+            subprotocol_query_type=subprotocol_query_type,
+        )
 
 
 class MessageSubProtocolSet(MessageSubProtocol):
@@ -174,7 +210,8 @@ class MessageSubProtocolSet(MessageSubProtocol):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.set,
-            subprotocol_query_type=0x20)
+            subprotocol_query_type=0x20,
+        )
         self.power = False
         self.mode = 0
         self.target_temperature = 20.0
@@ -206,18 +243,47 @@ class MessageSubProtocolSet(MessageSubProtocol):
 
         prompt_tone = 0x01 if self.prompt_tone else 0
         timer = 0x04 if (self.sn8_flag and self.timer) else 0
-        return bytearray([
-            0x02 | boost_mode | power | dry,  aux_heating, sleep_mode, 0x00,
-            0x00, mode, target_temperature, fan_speed,
-            0x32, 0x00, 0x00, 0x00,
-            0x00, 0x00, 0x00, 0x01,
-            0x01, 0x00, 0x01, water_model_temperature_set,
-            prompt_tone, target_temperature, 0x32, 0x66,
-            0x00, eco | timer, 0x00, 0x00,
-            0x00, 0x00, 0x00, 0x00,
-            0x00, 0x00, 0x00, 0x00,
-            0x08
-        ])
+        return bytearray(
+            [
+                0x02 | boost_mode | power | dry,
+                aux_heating,
+                sleep_mode,
+                0x00,
+                0x00,
+                mode,
+                target_temperature,
+                fan_speed,
+                0x32,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x01,
+                0x01,
+                0x00,
+                0x01,
+                water_model_temperature_set,
+                prompt_tone,
+                target_temperature,
+                0x32,
+                0x66,
+                0x00,
+                eco | timer,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x08,
+            ]
+        )
 
 
 class MessageGeneralSet(MessageACBase):
@@ -225,7 +291,8 @@ class MessageGeneralSet(MessageACBase):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.set,
-            body_type=0x40)
+            body_type=0x40,
+        )
         self.power = False
         self.prompt_tone = True
         self.mode = 0
@@ -250,14 +317,18 @@ class MessageGeneralSet(MessageACBase):
         power = 0x01 if self.power else 0
         prompt_tone = 0x40 if self.prompt_tone else 0
         # Byte2, mode target_temperature
-        mode = (self.mode << 5) & 0xe0
-        target_temperature = (int(self.target_temperature) & 0xf) | \
-                             (0x10 if int(round(self.target_temperature * 2)) % 2 != 0 else 0)
+        mode = (self.mode << 5) & 0xE0
+        target_temperature = (int(self.target_temperature) & 0xF) | (
+            0x10 if int(round(self.target_temperature * 2)) % 2 != 0 else 0
+        )
         # Byte 3, fan_speed
-        fan_speed = self.fan_speed & 0x7f
+        fan_speed = self.fan_speed & 0x7F
         # Byte 7, swing_mode
-        swing_mode = 0x30 | (0x0c if self.swing_vertical else 0) \
+        swing_mode = (
+            0x30
+            | (0x0C if self.swing_vertical else 0)
             | (0x03 if self.swing_horizontal else 0)
+        )
         # Byte 8, turbo
         boost_mode = 0x20 if self.boost_mode else 0
         # Byte 9 aux_heating eco_mode
@@ -276,22 +347,32 @@ class MessageGeneralSet(MessageACBase):
         # Byte 22 comfort_mode
         comfort_mode = 0x01 if self.comfort_mode else 0
 
-        return bytearray([
-            power | prompt_tone,
-            mode | target_temperature,
-            fan_speed,
-            0x00, 0x00, 0x00,
-            swing_mode,
-            boost_mode,
-            smart_eye | dry | aux_heating | eco_mode,
-            temp_fahrenheit | sleep_mode | boost_mode_1,
-            0x00, 0x00, 0x00, 0x00,
-            0x00, 0x00,
-            natural_wind,
-            0x00, 0x00, 0x00,
-            frost_protect,
-            comfort_mode
-        ])
+        return bytearray(
+            [
+                power | prompt_tone,
+                mode | target_temperature,
+                fan_speed,
+                0x00,
+                0x00,
+                0x00,
+                swing_mode,
+                boost_mode,
+                smart_eye | dry | aux_heating | eco_mode,
+                temp_fahrenheit | sleep_mode | boost_mode_1,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                0x00,
+                natural_wind,
+                0x00,
+                0x00,
+                0x00,
+                frost_protect,
+                comfort_mode,
+            ]
+        )
 
 
 class MessageNewProtocolSet(MessageACBase):
@@ -299,7 +380,8 @@ class MessageNewProtocolSet(MessageACBase):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.set,
-            body_type=0xB0)
+            body_type=0xB0,
+        )
         self.indirect_wind = None
         self.prompt_tone = None
         self.breezeless = None
@@ -316,29 +398,33 @@ class MessageNewProtocolSet(MessageACBase):
             payload.extend(
                 NewProtocolMessageBody.pack(
                     param=NewProtocolTags.breezeless,
-                    value=bytearray([0x01 if self.breezeless else 0x00])
-                ))
+                    value=bytearray([0x01 if self.breezeless else 0x00]),
+                )
+            )
         if self.indirect_wind is not None:
             pack_count += 1
             payload.extend(
                 NewProtocolMessageBody.pack(
                     param=NewProtocolTags.indirect_wind,
-                    value=bytearray([0x02 if self.indirect_wind else 0x01])
-                ))
+                    value=bytearray([0x02 if self.indirect_wind else 0x01]),
+                )
+            )
         if self.prompt_tone is not None:
             pack_count += 1
             payload.extend(
                 NewProtocolMessageBody.pack(
                     param=NewProtocolTags.prompt_tone,
-                    value=bytearray([0x01 if self.prompt_tone else 0x00])
-                ))
+                    value=bytearray([0x01 if self.prompt_tone else 0x00]),
+                )
+            )
         if self.screen_display_alternate is not None:
             pack_count += 1
             payload.extend(
                 NewProtocolMessageBody.pack(
                     param=NewProtocolTags.screen_display,
-                    value=bytearray([0x64 if self.screen_display_alternate else 0x00])
-                ))
+                    value=bytearray([0x64 if self.screen_display_alternate else 0x00]),
+                )
+            )
         if self.fresh_air_1 is not None and len(self.fresh_air_1) == 2:
             pack_count += 1
             fresh_air_power = 2 if self.fresh_air_1[0] > 0 else 1
@@ -346,13 +432,22 @@ class MessageNewProtocolSet(MessageACBase):
             payload.extend(
                 NewProtocolMessageBody.pack(
                     param=NewProtocolTags.fresh_air_1,
-                    value=bytearray([
-                        fresh_air_power,
-                        fresh_air_fan_speed,
-                        0x00, 0x00, 0x00, 0x00,
-                        0x00, 0x00, 0x00, 0x00
-                    ])
-                ))
+                    value=bytearray(
+                        [
+                            fresh_air_power,
+                            fresh_air_fan_speed,
+                            0x00,
+                            0x00,
+                            0x00,
+                            0x00,
+                            0x00,
+                            0x00,
+                            0x00,
+                            0x00,
+                        ]
+                    ),
+                )
+            )
         if self.fresh_air_2 is not None and len(self.fresh_air_2) == 2:
             pack_count += 1
             fresh_air_power = 1 if self.fresh_air_2[0] > 0 else 0
@@ -360,12 +455,9 @@ class MessageNewProtocolSet(MessageACBase):
             payload.extend(
                 NewProtocolMessageBody.pack(
                     param=NewProtocolTags.fresh_air_2,
-                    value=bytearray([
-                        fresh_air_power,
-                        fresh_air_fan_speed,
-                        0xFF
-                    ])
-                ))
+                    value=bytearray([fresh_air_power, fresh_air_fan_speed, 0xFF]),
+                )
+            )
         payload[0] = pack_count
         return payload
 
@@ -374,9 +466,11 @@ class XA0MessageBody(MessageBody):
     def __init__(self, body):
         super().__init__(body)
         self.power = (body[1] & 0x1) > 0
-        self.target_temperature = ((body[1] & 0x3E) >> 1) - 4 + 16.0 + (0.5 if body[1] & 0x40 > 0 else 0.0)
-        self.mode = (body[2] & 0xe0) >> 5
-        self.fan_speed = body[3] & 0x7f
+        self.target_temperature = (
+            ((body[1] & 0x3E) >> 1) - 4 + 16.0 + (0.5 if body[1] & 0x40 > 0 else 0.0)
+        )
+        self.mode = (body[2] & 0xE0) >> 5
+        self.fan_speed = body[3] & 0x7F
         self.swing_vertical = (body[7] & 0xC) > 0
         self.swing_horizontal = (body[7] & 0x3) > 0
         self.boost_mode = ((body[8] & 0x20) > 0) or ((body[10] & 0x2) > 0)
@@ -417,13 +511,15 @@ class XBXMessageBody(NewProtocolMessageBody):
         super().__init__(body, bt)
         params = self.parse()
         if NewProtocolTags.indirect_wind in params:
-            self.indirect_wind = (params[NewProtocolTags.indirect_wind][0] == 0x02)
+            self.indirect_wind = params[NewProtocolTags.indirect_wind][0] == 0x02
         if NewProtocolTags.indoor_humidity in params:
             self.indoor_humidity = params[NewProtocolTags.indoor_humidity][0]
         if NewProtocolTags.breezeless in params:
-            self.breezeless = (params[NewProtocolTags.breezeless][0] == 1)
+            self.breezeless = params[NewProtocolTags.breezeless][0] == 1
         if NewProtocolTags.screen_display in params:
-            self.screen_display_alternate = (params[NewProtocolTags.screen_display][0] > 0)
+            self.screen_display_alternate = (
+                params[NewProtocolTags.screen_display][0] > 0
+            )
             self.screen_display_new = True
         if NewProtocolTags.fresh_air_1 in params:
             self.fresh_air_1 = True
@@ -441,8 +537,10 @@ class XC0MessageBody(MessageBody):
     def __init__(self, body):
         super().__init__(body)
         self.power = (body[1] & 0x1) > 0
-        self.mode = (body[2] & 0xe0) >> 5
-        self.target_temperature = (body[2] & 0x0F) + 16.0 + (0.5 if body[0x02] & 0x10 > 0 else 0.0)
+        self.mode = (body[2] & 0xE0) >> 5
+        self.target_temperature = (
+            (body[2] & 0x0F) + 16.0 + (0.5 if body[0x02] & 0x10 > 0 else 0.0)
+        )
         self.fan_speed = body[3] & 0x7F
         self.swing_vertical = (body[7] & 0x0C) > 0
         self.swing_horizontal = (body[7] & 0x03) > 0
@@ -481,16 +579,13 @@ class XC1MessageBody(MessageBody):
         super().__init__(body)
         if body[3] == 0x44:
             self.total_energy_consumption = XC1MessageBody.parse_consumption(
-                analysis_method,
-                body[4], body[5], body[6], body[7]
+                analysis_method, body[4], body[5], body[6], body[7]
             )
             self.current_energy_consumption = XC1MessageBody.parse_consumption(
-                analysis_method,
-                body[12], body[13], body[14], body[15]
+                analysis_method, body[12], body[13], body[14], body[15]
             )
             self.realtime_power = XC1MessageBody.parse_power(
-                analysis_method,
-                body[16], body[17], body[18]
+                analysis_method, body[16], body[17], body[18]
             )
         elif body[3] == 0x40:
             pass
@@ -502,9 +597,14 @@ class XC1MessageBody(MessageBody):
     @staticmethod
     def parse_power(analysis_method, byte1, byte2, byte3):
         if analysis_method == 1:
-            return float(XC1MessageBody.parse_value(byte1) * 10000 +
-                         XC1MessageBody.parse_value(byte2) * 100 +
-                         XC1MessageBody.parse_value(byte3)) / 10
+            return (
+                float(
+                    XC1MessageBody.parse_value(byte1) * 10000
+                    + XC1MessageBody.parse_value(byte2) * 100
+                    + XC1MessageBody.parse_value(byte3)
+                )
+                / 10
+            )
         elif analysis_method == 2:
             return float((byte1 << 16) + (byte2 << 8) + byte3) / 10
         else:
@@ -513,10 +613,15 @@ class XC1MessageBody(MessageBody):
     @staticmethod
     def parse_consumption(analysis_method, byte1, byte2, byte3, byte4):
         if analysis_method == 1:
-            return float(XC1MessageBody.parse_value(byte1) * 1000000 +
-                         XC1MessageBody.parse_value(byte2) * 10000 +
-                         XC1MessageBody.parse_value(byte3) * 100 +
-                         XC1MessageBody.parse_value(byte4)) / 100
+            return (
+                float(
+                    XC1MessageBody.parse_value(byte1) * 1000000
+                    + XC1MessageBody.parse_value(byte2) * 10000
+                    + XC1MessageBody.parse_value(byte3) * 100
+                    + XC1MessageBody.parse_value(byte4)
+                )
+                / 100
+            )
         elif analysis_method == 2:
             return float((byte1 << 32) + (byte2 << 16) + (byte3 << 8) + byte4) / 10
         else:
@@ -542,22 +647,40 @@ class XBBMessageBody(MessageBody):
                 self.mode = 0
             self.target_temperature = (subprotocol_body[6] - 30) / 2
             self.fan_speed = subprotocol_body[7]
-            self.timer = (subprotocol_body[25] & 0x04) > 0 if subprotocol_body_len > 27 else False
-            self.eco_mode = (subprotocol_body[25] & 0x40) > 0 if subprotocol_body_len > 27 else False
+            self.timer = (
+                (subprotocol_body[25] & 0x04) > 0
+                if subprotocol_body_len > 27
+                else False
+            )
+            self.eco_mode = (
+                (subprotocol_body[25] & 0x40) > 0
+                if subprotocol_body_len > 27
+                else False
+            )
         elif data_type == 0x10:
             if subprotocol_body[8] & 0x80 == 0x80:
-                self.indoor_temperature = (0 - (~(subprotocol_body[7] + subprotocol_body[8] * 256) + 1) & 0xffff) / 100
+                self.indoor_temperature = (
+                    0 - (~(subprotocol_body[7] + subprotocol_body[8] * 256) + 1)
+                    & 0xFFFF
+                ) / 100
             else:
-                self.indoor_temperature = (subprotocol_body[7] + subprotocol_body[8] * 256) / 100
+                self.indoor_temperature = (
+                    subprotocol_body[7] + subprotocol_body[8] * 256
+                ) / 100
             self.indoor_humidity = subprotocol_body[30]
             self.sn8_flag = subprotocol_body[80] == 0x31
         elif data_type == 0x12:
             pass
         elif data_type == 0x30:
             if subprotocol_body[6] & 0x80 == 0x80:
-                self.outdoor_temperature = (0 - (~(subprotocol_body[5] + subprotocol_body[6] * 256) + 1) & 0xffff) / 100
+                self.outdoor_temperature = (
+                    0 - (~(subprotocol_body[5] + subprotocol_body[6] * 256) + 1)
+                    & 0xFFFF
+                ) / 100
             else:
-                self.outdoor_temperature = (subprotocol_body[5] + subprotocol_body[6] * 256) / 100
+                self.outdoor_temperature = (
+                    subprotocol_body[5] + subprotocol_body[6] * 256
+                ) / 100
         elif data_type == 0x13 or data_type == 0x21:
             pass
 
@@ -569,15 +692,25 @@ class MessageACResponse(MessageResponse):
             self.set_body(XA0MessageBody(super().body))
         elif self.message_type == MessageType.notify1 and self.body_type == 0xA1:
             self.set_body(XA1MessageBody(super().body))
-        elif self.message_type in [MessageType.query, MessageType.set, MessageType.notify2] and \
-                self.body_type in [0xB0, 0xB1, 0xB5]:
+        elif self.message_type in [
+            MessageType.query,
+            MessageType.set,
+            MessageType.notify2,
+        ] and self.body_type in [0xB0, 0xB1, 0xB5]:
             self.set_body(XBXMessageBody(super().body, self.body_type))
-        elif self.message_type in [MessageType.query, MessageType.set] and self.body_type == 0xC0:
+        elif (
+            self.message_type in [MessageType.query, MessageType.set]
+            and self.body_type == 0xC0
+        ):
             self.set_body(XC0MessageBody(super().body))
         elif self.message_type == MessageType.query and self.body_type == 0xC1:
             self.set_body(XC1MessageBody(super().body, power_analysis_method))
-        elif self.message_type in [MessageType.set, MessageType.query, MessageType.notify2] and \
-                self.body_type == 0xBB and len(super().body) >= 21:
+        elif (
+            self.message_type
+            in [MessageType.set, MessageType.query, MessageType.notify2]
+            and self.body_type == 0xBB
+            and len(super().body) >= 21
+        ):
             self.used_subprotocol = True
             self.set_body(XBBMessageBody(super().body))
         self.set_attr()

@@ -1,9 +1,5 @@
-from ...core.message import (
-    MessageType,
-    MessageRequest,
-    MessageResponse,
-    MessageBody,
-)
+from ...core.message import (MessageBody, MessageRequest, MessageResponse,
+                             MessageType)
 
 
 class MessageCFBase(MessageRequest):
@@ -12,7 +8,7 @@ class MessageCFBase(MessageRequest):
             device_type=0xCF,
             protocol_version=protocol_version,
             message_type=message_type,
-            body_type=body_type
+            body_type=body_type,
         )
 
     @property
@@ -25,7 +21,8 @@ class MessageQuery(MessageCFBase):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.query,
-            body_type=0x01)
+            body_type=0x01,
+        )
 
     @property
     def _body(self):
@@ -37,7 +34,8 @@ class MessageSet(MessageCFBase):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.set,
-            body_type=0x01)
+            body_type=0x01,
+        )
         self.power = False
         self.mode = 0  # 1 自动 2 制冷 3 制热
         self.target_temperature = None
@@ -47,11 +45,15 @@ class MessageSet(MessageCFBase):
     def _body(self):
         power = 0x01 if self.power else 0x00
         mode = self.mode
-        target_temperature = 0xFF if self.target_temperature is None else (int(self.target_temperature) & 0xFF)
-        aux_heating = 0xFF if self.aux_heating is None else (0x01 if self.aux_heating else 0x00)
-        return bytearray([
-            power, mode, target_temperature, aux_heating
-        ])
+        target_temperature = (
+            0xFF
+            if self.target_temperature is None
+            else (int(self.target_temperature) & 0xFF)
+        )
+        aux_heating = (
+            0xFF if self.aux_heating is None else (0x01 if self.aux_heating else 0x00)
+        )
+        return bytearray([power, mode, target_temperature, aux_heating])
 
 
 class CFMessageBody(MessageBody):
@@ -77,7 +79,10 @@ class CFMessageBody(MessageBody):
 class MessageCFResponse(MessageResponse):
     def __init__(self, message):
         super().__init__(message)
-        if self.message_type in [MessageType.query, MessageType.set] and self.body_type == 0x01:
+        if (
+            self.message_type in [MessageType.query, MessageType.set]
+            and self.body_type == 0x01
+        ):
             self.set_body(CFMessageBody(super().body, data_offset=1))
         elif self.message_type in [MessageType.notify1, MessageType.notify2]:
             self.set_body(CFMessageBody(super().body, data_offset=0))

@@ -1,9 +1,5 @@
-from ...core.message import (
-    MessageType,
-    MessageRequest,
-    MessageResponse,
-    MessageBody,
-)
+from ...core.message import (MessageBody, MessageRequest, MessageResponse,
+                             MessageType)
 
 
 class MessageFABase(MessageRequest):
@@ -12,7 +8,7 @@ class MessageFABase(MessageRequest):
             device_type=0xCE,
             protocol_version=protocol_version,
             message_type=message_type,
-            body_type=body_type
+            body_type=body_type,
         )
 
     @property
@@ -25,7 +21,8 @@ class MessageQuery(MessageFABase):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.query,
-            body_type=0x01)
+            body_type=0x01,
+        )
 
     @property
     def _body(self):
@@ -37,7 +34,8 @@ class MessageSet(MessageFABase):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.set,
-            body_type=0x01)
+            body_type=0x01,
+        )
 
         self.power = False
         self.fan_speed = 0
@@ -59,14 +57,16 @@ class MessageSet(MessageFABase):
         powerful_purify = 0x10 if self.powerful_purify else 0x00
         scheduled = 0x01 if self.scheduled else 0x00
         child_lock = 0x7F if self.child_lock else 0x00
-        return bytearray([
-            power | 0x01,
-            self.fan_speed,
-            link_to_ac | sleep_mode | eco_mode | aux_heating | powerful_purify,
-            scheduled,
-            0x00,
-            child_lock
-        ])
+        return bytearray(
+            [
+                power | 0x01,
+                self.fan_speed,
+                link_to_ac | sleep_mode | eco_mode | aux_heating | powerful_purify,
+                scheduled,
+                0x00,
+                child_lock,
+            ]
+        )
 
 
 class CEGeneralMessageBody(MessageBody):
@@ -126,8 +126,10 @@ class CENotifyMessageBody(MessageBody):
 class MessageCEResponse(MessageResponse):
     def __init__(self, message):
         super().__init__(message)
-        if (self.message_type in [MessageType.query, MessageType.set] and self.body_type == 0x01) or \
-                (self.message_type == MessageType.notify1 and self.body_type == 0x02):
+        if (
+            self.message_type in [MessageType.query, MessageType.set]
+            and self.body_type == 0x01
+        ) or (self.message_type == MessageType.notify1 and self.body_type == 0x02):
             self.set_body(CEGeneralMessageBody(super().body))
         elif self.message_type == MessageType.notify1 and self.body_type == 0x01:
             self.set_body(CENotifyMessageBody(super().body))

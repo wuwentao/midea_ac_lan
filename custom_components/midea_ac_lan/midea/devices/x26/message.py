@@ -1,9 +1,5 @@
-from ...core.message import (
-    MessageType,
-    MessageRequest,
-    MessageResponse,
-    MessageBody
-)
+from ...core.message import (MessageBody, MessageRequest, MessageResponse,
+                             MessageType)
 
 
 class Message26Base(MessageRequest):
@@ -12,7 +8,7 @@ class Message26Base(MessageRequest):
             device_type=0x26,
             protocol_version=protocol_version,
             message_type=message_type,
-            body_type=body_type
+            body_type=body_type,
         )
 
     @property
@@ -25,12 +21,12 @@ class MessageQuery(Message26Base):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.query,
-            body_type=0x01)
+            body_type=0x01,
+        )
 
     @property
     def _body(self):
-        return bytearray([
-        ])
+        return bytearray([])
 
 
 class MessageSet(Message26Base):
@@ -38,7 +34,8 @@ class MessageSet(Message26Base):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.set,
-            body_type=0x01)
+            body_type=0x01,
+        )
         self.fields = {}
         self.main_light = False
         self.night_light = False
@@ -51,47 +48,53 @@ class MessageSet(Message26Base):
 
     @property
     def _body(self):
-        return bytearray([
-            1 if self.main_light else 0,
-            self.read_field("MAIN_LIGHT_BRIGHTNESS"),
-            1 if self.night_light else 0,
-            self.read_field("NIGHT_LIGHT_BRIGHTNESS"),
-            self.read_field("RADAR_INDUCTION_ENABLE"),
-            self.read_field("RADAR_INDUCTION_CLOSING_TIME"),
-            self.read_field("LIGHT_INTENSITY_THRESHOLD"),
-            self.read_field("RADAR_SENSITIVITY"),
-            1 if self.mode == 1 or self.mode == 2 else 0,
-            0 if not (self.mode == 1 or self.mode == 2) else 55 if self.mode == 1 else 30,
-            self.read_field("HEATING_SPEED"),
-            self.direction,
-            1 if self.mode == 3 else 0,
-            self.read_field("BATH_HEATING_TIME"),
-            self.read_field("BATH_TEMPERATURE"),
-            self.read_field("BATH_SPEED"),
-            self.direction,
-            1 if self.mode == 5 else 0,
-            self.read_field("VENTILATION_SPEED"),
-            self.direction,
-            1 if self.mode == 6 else 0,
-            self.read_field("DRYING_TIME"),
-            self.read_field("DRYING_TEMPERATURE"),
-            self.read_field("DRYING_SPEED"),
-            self.direction,
-            1 if self.mode == 4 else 0,
-            self.read_field("BLOWING_SPEED"),
-            self.direction,
-            self.read_field("DELAY_ENABLE"),
-            self.read_field("DELAY_TIME"),
-            self.read_field("SOFT_WIND_ENABLE"),
-            self.read_field("SOFT_WIND_TIME"),
-            self.read_field("SOFT_WIND_TEMPERATURE"),
-            self.read_field("SOFT_WIND_SPEED"),
-            self.read_field("SOFT_WIND_DIRECTION"),
-            self.read_field("WINDLESS_ENABLE"),
-            self.read_field("ANION_ENABLE"),
-            self.read_field("SMELLY_ENABLE"),
-            self.read_field("SMELLY_THRESHOLD")
-        ])
+        return bytearray(
+            [
+                1 if self.main_light else 0,
+                self.read_field("MAIN_LIGHT_BRIGHTNESS"),
+                1 if self.night_light else 0,
+                self.read_field("NIGHT_LIGHT_BRIGHTNESS"),
+                self.read_field("RADAR_INDUCTION_ENABLE"),
+                self.read_field("RADAR_INDUCTION_CLOSING_TIME"),
+                self.read_field("LIGHT_INTENSITY_THRESHOLD"),
+                self.read_field("RADAR_SENSITIVITY"),
+                1 if self.mode == 1 or self.mode == 2 else 0,
+                (
+                    0
+                    if not (self.mode == 1 or self.mode == 2)
+                    else 55 if self.mode == 1 else 30
+                ),
+                self.read_field("HEATING_SPEED"),
+                self.direction,
+                1 if self.mode == 3 else 0,
+                self.read_field("BATH_HEATING_TIME"),
+                self.read_field("BATH_TEMPERATURE"),
+                self.read_field("BATH_SPEED"),
+                self.direction,
+                1 if self.mode == 5 else 0,
+                self.read_field("VENTILATION_SPEED"),
+                self.direction,
+                1 if self.mode == 6 else 0,
+                self.read_field("DRYING_TIME"),
+                self.read_field("DRYING_TEMPERATURE"),
+                self.read_field("DRYING_SPEED"),
+                self.direction,
+                1 if self.mode == 4 else 0,
+                self.read_field("BLOWING_SPEED"),
+                self.direction,
+                self.read_field("DELAY_ENABLE"),
+                self.read_field("DELAY_TIME"),
+                self.read_field("SOFT_WIND_ENABLE"),
+                self.read_field("SOFT_WIND_TIME"),
+                self.read_field("SOFT_WIND_TEMPERATURE"),
+                self.read_field("SOFT_WIND_SPEED"),
+                self.read_field("SOFT_WIND_DIRECTION"),
+                self.read_field("WINDLESS_ENABLE"),
+                self.read_field("ANION_ENABLE"),
+                self.read_field("SMELLY_ENABLE"),
+                self.read_field("SMELLY_THRESHOLD"),
+            ]
+        )
 
 
 class Message26Body(MessageBody):
@@ -168,6 +171,10 @@ class Message26Body(MessageBody):
 class Message26Response(MessageResponse):
     def __init__(self, message):
         super().__init__(message)
-        if self.message_type in [MessageType.set, MessageType.notify1, MessageType.query] and self.body_type == 0x01:
+        if (
+            self.message_type
+            in [MessageType.set, MessageType.notify1, MessageType.query]
+            and self.body_type == 0x01
+        ):
             self.set_body(Message26Body(super().body))
         self.set_attr()
