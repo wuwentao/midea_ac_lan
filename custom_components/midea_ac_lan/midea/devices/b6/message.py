@@ -1,9 +1,4 @@
-from ...core.message import (
-    MessageType,
-    MessageRequest,
-    MessageResponse,
-    MessageBody,
-)
+from ...core.message import MessageBody, MessageRequest, MessageResponse, MessageType
 
 
 class MessageB6Base(MessageRequest):
@@ -12,7 +7,7 @@ class MessageB6Base(MessageRequest):
             device_type=0xB6,
             protocol_version=protocol_version,
             message_type=message_type,
-            body_type=body_type
+            body_type=body_type,
         )
 
     @property
@@ -25,7 +20,7 @@ class MessageQuery(MessageB6Base):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.query,
-            body_type=0x11 if protocol_version == 2 else 0x31
+            body_type=0x11 if protocol_version == 2 else 0x31,
         )
 
     @property
@@ -83,10 +78,9 @@ class MessageSet(MessageB6Base):
                 else:
                     value2 = 0x02
                     value3 = self.fan_level
-            return bytearray([
-                0x01, light, value2, value3,
-                0xFF, 0xFF, 0xFF, 0xFF, 0xFF
-            ])
+            return bytearray(
+                [0x01, light, value2, value3, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF]
+            )
         else:
             value13 = 0xFF
             value14 = 0xFF
@@ -113,10 +107,7 @@ class MessageSet(MessageB6Base):
                 value13 = 0x02
                 value14 = 0x02
                 value15 = 0x01 if self.light else 0x00
-            return bytearray([
-                0x01, value13, value14, value15, value16,
-                0xFF, 0xFF
-            ])
+            return bytearray([0x01, value13, value14, value15, value16, 0xFF, 0xFF])
 
 
 class B6FeedbackBody(MessageBody):
@@ -157,7 +148,7 @@ class B6NewProtocolBody(MessageBody):
     def __init__(self, body):
         super().__init__(body)
         if body[1] == 0x01:
-            pack_bytes = body[3: 3 + body[2]]
+            pack_bytes = body[3 : 3 + body[2]]
             if pack_bytes[1] != 0xFF:
                 self.power = True
                 self.power = pack_bytes[1] not in [0x00, 0x01, 0x05, 0x07]
@@ -189,9 +180,17 @@ class B6ExceptionBody(MessageBody):
 class MessageB6Response(MessageResponse):
     def __init__(self, message):
         super().__init__(message)
-        if self.message_type == MessageType.set and self.body_type == 0x22 and super().body[1] == 0x01:
+        if (
+            self.message_type == MessageType.set
+            and self.body_type == 0x22
+            and super().body[1] == 0x01
+        ):
             self.set_body(B6SpecialBody(super().body))
-        elif self.message_type == MessageType.set and self.body_type == 0x11 and super().body[1] == 0x01:
+        elif (
+            self.message_type == MessageType.set
+            and self.body_type == 0x11
+            and super().body[1] == 0x01
+        ):
             #############################
             pass
         elif self.message_type == MessageType.query:

@@ -1,31 +1,32 @@
 import logging
-import voluptuous as vol
+
 import homeassistant.helpers.config_validation as cv
+import voluptuous as vol
+from homeassistant.const import (
+    CONF_CUSTOMIZE,
+    CONF_DEVICE_ID,
+    CONF_IP_ADDRESS,
+    CONF_NAME,
+    CONF_PORT,
+    CONF_PROTOCOL,
+    CONF_TOKEN,
+    CONF_TYPE,
+)
+from homeassistant.core import HomeAssistant
+
 from .const import (
-    DOMAIN,
+    ALL_PLATFORM,
     CONF_ACCOUNT,
     CONF_KEY,
     CONF_MODEL,
-    CONF_SUBTYPE,
     CONF_REFRESH_INTERVAL,
+    CONF_SUBTYPE,
     DEVICES,
+    DOMAIN,
     EXTRA_SWITCH,
-    ALL_PLATFORM,
-)
-from .midea_devices import MIDEA_DEVICES
-
-from homeassistant.core import HomeAssistant
-from homeassistant.const import (
-    CONF_NAME,
-    CONF_TOKEN,
-    CONF_IP_ADDRESS,
-    CONF_PORT,
-    CONF_PROTOCOL,
-    CONF_DEVICE_ID,
-    CONF_TYPE,
-    CONF_CUSTOMIZE,
 )
 from .midea.devices import async_device_selector
+from .midea_devices import MIDEA_DEVICES
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -34,18 +35,13 @@ async def update_listener(hass, config_entry):
     for platform in ALL_PLATFORM:
         await hass.config_entries.async_forward_entry_unload(config_entry, platform)
     for platform in ALL_PLATFORM:
-        hass.async_create_task(hass.config_entries.async_forward_entry_setup(
-            config_entry, platform))
+        hass.async_create_task(
+            hass.config_entries.async_forward_entry_setup(config_entry, platform)
+        )
     device_id = config_entry.data.get(CONF_DEVICE_ID)
-    customize = config_entry.options.get(
-        CONF_CUSTOMIZE, ""
-    )
-    ip_address = config_entry.options.get(
-        CONF_IP_ADDRESS, None
-    )
-    refresh_interval = config_entry.options.get(
-        CONF_REFRESH_INTERVAL, None
-    )
+    customize = config_entry.options.get(CONF_CUSTOMIZE, "")
+    ip_address = config_entry.options.get(CONF_IP_ADDRESS, None)
+    refresh_interval = config_entry.options.get(CONF_REFRESH_INTERVAL, None)
     dev = hass.data[DOMAIN][DEVICES].get(device_id)
     if dev:
         dev.set_customize(customize)
@@ -60,7 +56,10 @@ async def async_setup(hass: HomeAssistant, hass_config: dict):
     attributes = []
     for device_entities in MIDEA_DEVICES.values():
         for attribute_name, attribute in device_entities.get("entities").items():
-            if attribute.get("type") in EXTRA_SWITCH and attribute_name.value not in attributes:
+            if (
+                attribute.get("type") in EXTRA_SWITCH
+                and attribute_name.value not in attributes
+            ):
                 attributes.append(attribute_name.value)
 
     def service_set_attribute(service):
@@ -72,11 +71,20 @@ async def async_setup(hass: HomeAssistant, hass_config: dict):
             if attr == "fan_speed" and value == "auto":
                 value = 102
             item = MIDEA_DEVICES.get(dev.device_type).get("entities").get(attr)
-            if (item and (item.get("type") in EXTRA_SWITCH) or
-                         (dev.device_type == 0xAC and attr == "fan_speed" and value in range(0, 103))):
+            if (
+                item
+                and (item.get("type") in EXTRA_SWITCH)
+                or (
+                    dev.device_type == 0xAC
+                    and attr == "fan_speed"
+                    and value in range(0, 103)
+                )
+            ):
                 dev.set_attribute(attr=attr, value=value)
             else:
-                _LOGGER.error(f"Appliance [{device_id}] has no attribute {attr} or value is invalid")
+                _LOGGER.error(
+                    f"Appliance [{device_id}] has no attribute {attr} or value is invalid"
+                )
 
     def service_send_command(service):
         device_id = service.data.get("device_id")
@@ -85,7 +93,9 @@ async def async_setup(hass: HomeAssistant, hass_config: dict):
         try:
             cmd_body = bytearray.fromhex(cmd_body)
         except ValueError:
-            _LOGGER.error(f"Appliance [{device_id}] invalid cmd_body, a hexadecimal string required")
+            _LOGGER.error(
+                f"Appliance [{device_id}] invalid cmd_body, a hexadecimal string required"
+            )
             return
         dev = hass.data[DOMAIN][DEVICES].get(device_id)
         if dev:
@@ -99,9 +109,9 @@ async def async_setup(hass: HomeAssistant, hass_config: dict):
             {
                 vol.Required("device_id"): vol.Coerce(int),
                 vol.Required("attribute"): vol.In(attributes),
-                vol.Required("value"): vol.Any(int, cv.boolean, str)
+                vol.Required("value"): vol.Any(int, cv.boolean, str),
             }
-        )
+        ),
     )
 
     hass.services.async_register(
@@ -112,9 +122,9 @@ async def async_setup(hass: HomeAssistant, hass_config: dict):
             {
                 vol.Required("device_id"): vol.Coerce(int),
                 vol.Required("cmd_type"): vol.In([2, 3]),
-                vol.Required("cmd_body"): str
+                vol.Required("cmd_body"): str,
             }
-        )
+        ),
     )
     return True
 
@@ -128,7 +138,7 @@ async def async_setup_entry(hass: HomeAssistant, config_entry):
     if name is None:
         name = f"{device_id}"
     if device_type is None:
-        device_type = 0xac
+        device_type = 0xAC
     token = config_entry.data.get(CONF_TOKEN)
     key = config_entry.data.get(CONF_KEY)
     ip_address = config_entry.options.get(CONF_IP_ADDRESS, None)
@@ -167,8 +177,9 @@ async def async_setup_entry(hass: HomeAssistant, config_entry):
             hass.data[DOMAIN][DEVICES] = {}
         hass.data[DOMAIN][DEVICES][device_id] = device
         for platform in ALL_PLATFORM:
-            hass.async_create_task(hass.config_entries.async_forward_entry_setup(
-                config_entry, platform))
+            hass.async_create_task(
+                hass.config_entries.async_forward_entry_setup(config_entry, platform)
+            )
         config_entry.add_update_listener(update_listener)
         return True
     return False

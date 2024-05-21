@@ -1,20 +1,27 @@
 import threading
+
 try:
     from enum import StrEnum
 except ImportError:
     from ..backports.myenum import StrEnum
-from enum import IntEnum
-from .security import LocalSecurity, MSGTYPE_HANDSHAKE_REQUEST, MSGTYPE_ENCRYPTED_REQUEST
-from .packet_builder import PacketBuilder
-from .message import (
-    MessageType,
-    MessageQuestCustom,
-    MessageQueryAppliance,
-    MessageApplianceResponse
-)
-import socket
+
 import logging
+import socket
 import time
+from enum import IntEnum
+
+from .message import (
+    MessageApplianceResponse,
+    MessageQueryAppliance,
+    MessageQuestCustom,
+    MessageType,
+)
+from .packet_builder import PacketBuilder
+from .security import (
+    MSGTYPE_ENCRYPTED_REQUEST,
+    MSGTYPE_HANDSHAKE_REQUEST,
+    LocalSecurity,
+)
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -42,18 +49,20 @@ class ParseMessageResult(IntEnum):
 
 
 class MiedaDevice(threading.Thread):
-    def __init__(self,
-                 name: str,
-                 device_id: int,
-                 device_type: int,
-                 ip_address: str,
-                 port: int,
-                 token: str,
-                 key: str,
-                 protocol: int,
-                 model: str,
-                 subtype: int,
-                 attributes: dict):
+    def __init__(
+        self,
+        name: str,
+        device_id: int,
+        device_type: int,
+        ip_address: str,
+        port: int,
+        token: str,
+        key: str,
+        protocol: int,
+        model: str,
+        subtype: int,
+        attributes: dict,
+    ):
         threading.Thread.__init__(self)
         self._attributes = attributes if attributes else {}
         self._socket = None
@@ -122,7 +131,9 @@ class MiedaDevice(threading.Thread):
         try:
             self._socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             self._socket.settimeout(10)
-            _LOGGER.debug(f"[{self._device_id}] Connecting to {self._ip_address}:{self._port}")
+            _LOGGER.debug(
+                f"[{self._device_id}] Connecting to {self._ip_address}:{self._port}"
+            )
             self._socket.connect((self._ip_address, self._port))
             _LOGGER.debug(f"[{self._device_id}] Connected")
             if self._protocol == 3:
@@ -143,20 +154,21 @@ class MiedaDevice(threading.Thread):
         except RefreshFailed:
             _LOGGER.debug(f"[{self._device_id}] Refresh status is timed out")
         except Exception as e:
-            _LOGGER.error(f"[{self._device_id}] Unknown error: {e.__traceback__.tb_frame.f_globals['__file__']}, "
-                          f"{e.__traceback__.tb_lineno}, {repr(e)}")
+            _LOGGER.error(
+                f"[{self._device_id}] Unknown error: {e.__traceback__.tb_frame.f_globals['__file__']}, "
+                f"{e.__traceback__.tb_lineno}, {repr(e)}"
+            )
         self.enable_device(False)
         return False
 
     def authenticate(self):
-        request = self._security.encode_8370(
-            self._token, MSGTYPE_HANDSHAKE_REQUEST)
+        request = self._security.encode_8370(self._token, MSGTYPE_HANDSHAKE_REQUEST)
         _LOGGER.debug(f"[{self._device_id}] Handshaking")
         self._socket.send(request)
         response = self._socket.recv(512)
         if len(response) < 20:
             raise AuthException()
-        response = response[8: 72]
+        response = response[8:72]
         self._security.tcp_key(response, self._key)
 
     def send_message(self, data):
@@ -169,7 +181,9 @@ class MiedaDevice(threading.Thread):
         if self._socket is not None:
             self._socket.send(data)
         else:
-            _LOGGER.debug(f"[{self._device_id}] Send failure, device disconnected, data: {data.hex()}")
+            _LOGGER.debug(
+                f"[{self._device_id}] Send failure, device disconnected, data: {data.hex()}"
+            )
 
     def send_message_v3(self, data, msg_type=MSGTYPE_ENCRYPTED_REQUEST):
         data = self._security.encode_8370(data, msg_type)
@@ -205,8 +219,10 @@ class MiedaDevice(threading.Thread):
                     except socket.timeout:
                         error_count += 1
                         self._unsupported_protocol.append(cmd.__class__.__name__)
-                        _LOGGER.debug(f"[{self._device_id}] Does not supports "
-                                      f"the protocol {cmd.__class__.__name__}, ignored")
+                        _LOGGER.debug(
+                            f"[{self._device_id}] Does not supports "
+                            f"the protocol {cmd.__class__.__name__}, ignored"
+                        )
                     except ResponseException:
                         error_count += 1
             else:
@@ -220,7 +236,9 @@ class MiedaDevice(threading.Thread):
             self._appliance_query = False
             _LOGGER.debug(f"[{self.device_id}] Received: {message}")
             self._protocol_version = message.protocol_version
-            _LOGGER.debug(f"[{self._device_id}] Device protocol version: {self._protocol_version}")
+            _LOGGER.debug(
+                f"[{self._device_id}] Device protocol version: {self._protocol_version}"
+            )
             return False
         return True
 
@@ -252,9 +270,13 @@ class MiedaDevice(threading.Thread):
                             if len(status) > 0:
                                 self.update_all(status)
                             else:
-                                _LOGGER.debug(f"[{self._device_id}] Unidentified protocol")
+                                _LOGGER.debug(
+                                    f"[{self._device_id}] Unidentified protocol"
+                                )
                     except Exception as e:
-                        _LOGGER.error(f"[{self._device_id}] Error in process message: {e}, msg = {decrypted.hex()}")
+                        _LOGGER.error(
+                            f"[{self._device_id}] Error in process message: {e}, msg = {decrypted.hex()}"
+                        )
                 else:
                     _LOGGER.warning(
                         f"[{self._device_id}] Illegal payload, "
@@ -278,12 +300,16 @@ class MiedaDevice(threading.Thread):
         raise NotImplementedError
 
     def send_command(self, cmd_type, cmd_body: bytearray):
-        cmd = MessageQuestCustom(self._device_type, self._protocol_version, cmd_type, cmd_body)
+        cmd = MessageQuestCustom(
+            self._device_type, self._protocol_version, cmd_type, cmd_body
+        )
         try:
             self.build_send(cmd)
         except socket.error as e:
-            _LOGGER.debug(f"[{self._device_id}] Interface send_command failure, {repr(e)}, "
-                          f"cmd_type: {cmd_type}, cmd_body: {cmd_body.hex()}")
+            _LOGGER.debug(
+                f"[{self._device_id}] Interface send_command failure, {repr(e)}, "
+                f"cmd_type: {cmd_type}, cmd_body: {cmd_body.hex()}"
+            )
 
     def send_heartbeat(self):
         msg = PacketBuilder(self._device_id, bytearray([0x00])).finalize(msg_type=0)
@@ -373,8 +399,10 @@ class MiedaDevice(threading.Thread):
                         self.close_socket()
                     break
                 except Exception as e:
-                    _LOGGER.error(f"[{self._device_id}] Unknown error :{e.__traceback__.tb_frame.f_globals['__file__']}, "
-                                  f"{e.__traceback__.tb_lineno}, {repr(e)}")
+                    _LOGGER.error(
+                        f"[{self._device_id}] Unknown error :{e.__traceback__.tb_frame.f_globals['__file__']}, "
+                        f"{e.__traceback__.tb_lineno}, {repr(e)}"
+                    )
                     self.close_socket()
                     break
 

@@ -1,14 +1,12 @@
 import logging
-from .message import (
-    MessageQuery,
-    MessagePower,
-    MessageStart,
-    MessageDBResponse
-)
+
+from .message import MessageDBResponse, MessagePower, MessageQuery, MessageStart
+
 try:
     from enum import StrEnum
 except ImportError:
     from ...backports.myenum import StrEnum
+
 from ...core.device import MiedaDevice
 
 _LOGGER = logging.getLogger(__name__)
@@ -24,17 +22,17 @@ class DeviceAttributes(StrEnum):
 
 class MideaDBDevice(MiedaDevice):
     def __init__(
-            self,
-            name: str,
-            device_id: int,
-            ip_address: str,
-            port: int,
-            token: str,
-            key: str,
-            protocol: int,
-            model: str,
-            subtype: int,
-            customize: str
+        self,
+        name: str,
+        device_id: int,
+        ip_address: str,
+        port: int,
+        token: str,
+        key: str,
+        protocol: int,
+        model: str,
+        subtype: int,
+        customize: str,
     ):
         super().__init__(
             name=name,
@@ -52,8 +50,9 @@ class MideaDBDevice(MiedaDevice):
                 DeviceAttributes.start: False,
                 DeviceAttributes.washing_data: bytearray([]),
                 DeviceAttributes.progress: "Unknown",
-                DeviceAttributes.time_remaining: None
-            })
+                DeviceAttributes.time_remaining: None,
+            },
+        )
 
     def build_query(self):
         return [MessageQuery(self._protocol_version)]
@@ -62,8 +61,17 @@ class MideaDBDevice(MiedaDevice):
         message = MessageDBResponse(msg)
         _LOGGER.debug(f"[{self.device_id}] Received: {message}")
         new_status = {}
-        progress = ["Idle", "Spin", "Rinse", "Wash", "Pre-wash",
-                    "Dry", "Weight", "Hi-speed Spin", "Unknown"]
+        progress = [
+            "Idle",
+            "Spin",
+            "Rinse",
+            "Wash",
+            "Pre-wash",
+            "Dry",
+            "Weight",
+            "Hi-speed Spin",
+            "Unknown",
+        ]
         for status in self._attributes.keys():
             if hasattr(message, str(status)):
                 if status == DeviceAttributes.progress:

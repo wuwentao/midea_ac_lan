@@ -1,9 +1,4 @@
-from ...core.message import (
-    MessageType,
-    MessageRequest,
-    MessageResponse,
-    MessageBody,
-)
+from ...core.message import MessageBody, MessageRequest, MessageResponse, MessageType
 
 
 class MessageDBBase(MessageRequest):
@@ -12,7 +7,7 @@ class MessageDBBase(MessageRequest):
             device_type=0xDB,
             protocol_version=protocol_version,
             message_type=message_type,
-            body_type=body_type
+            body_type=body_type,
         )
 
     @property
@@ -25,7 +20,8 @@ class MessageQuery(MessageDBBase):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.query,
-            body_type=0x03)
+            body_type=0x03,
+        )
 
     @property
     def _body(self):
@@ -37,20 +33,38 @@ class MessagePower(MessageDBBase):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.set,
-            body_type=0x02)
+            body_type=0x02,
+        )
         self.power = False
 
     @property
     def _body(self):
         power = 0x01 if self.power else 0x00
-        return bytearray([
-            power,
-            0xFF, 0xFF, 0xFF, 0xFF,
-            0xFF, 0xFF, 0xFF, 0xFF,
-            0xFF, 0xFF, 0xFF, 0xFF,
-            0xFF, 0xFF, 0xFF, 0xFF,
-            0xFF, 0xFF, 0xFF, 0xFF
-        ])
+        return bytearray(
+            [
+                power,
+                0xFF,
+                0xFF,
+                0xFF,
+                0xFF,
+                0xFF,
+                0xFF,
+                0xFF,
+                0xFF,
+                0xFF,
+                0xFF,
+                0xFF,
+                0xFF,
+                0xFF,
+                0xFF,
+                0xFF,
+                0xFF,
+                0xFF,
+                0xFF,
+                0xFF,
+                0xFF,
+            ]
+        )
 
 
 class MessageStart(MessageDBBase):
@@ -58,21 +72,18 @@ class MessageStart(MessageDBBase):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.set,
-            body_type=0x02)
+            body_type=0x02,
+        )
         self.start = False
         self.washing_data = bytearray([])
 
     @property
     def _body(self):
-        if self.start:     # Pause
-            return bytearray([
-                0xFF, 0x01
-            ]) + self.washing_data
+        if self.start:  # Pause
+            return bytearray([0xFF, 0x01]) + self.washing_data
         else:
             # Pause
-            return bytearray([
-                0xFF, 0x00
-            ])
+            return bytearray([0xFF, 0x00])
 
 
 class DBGeneralMessageBody(MessageBody):
@@ -95,7 +106,8 @@ class DBGeneralMessageBody(MessageBody):
 class MessageDBResponse(MessageResponse):
     def __init__(self, message):
         super().__init__(message)
-        if self.message_type in [MessageType.query, MessageType.set] or \
-                (self.message_type == MessageType.notify1 and self.body_type == 0x04):
+        if self.message_type in [MessageType.query, MessageType.set] or (
+            self.message_type == MessageType.notify1 and self.body_type == 0x04
+        ):
             self.set_body(DBGeneralMessageBody(super().body))
         self.set_attr()

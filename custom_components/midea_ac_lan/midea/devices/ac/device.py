@@ -1,20 +1,23 @@
-import logging
 import json
+import logging
+
 from .message import (
-    MessageQuery,
-    MessageToggleDisplay,
-    MessageNewProtocolQuery,
     MessageACResponse,
     MessageGeneralSet,
+    MessageNewProtocolQuery,
     MessageNewProtocolSet,
     MessagePowerQuery,
+    MessageQuery,
     MessageSubProtocolQuery,
-    MessageSubProtocolSet
+    MessageSubProtocolSet,
+    MessageToggleDisplay,
 )
+
 try:
     from enum import StrEnum
 except ImportError:
     from ...backports.myenum import StrEnum
+
 from ...core.device import MiedaDevice
 
 _LOGGER = logging.getLogger(__name__)
@@ -58,22 +61,27 @@ class DeviceAttributes(StrEnum):
 
 class MideaACDevice(MiedaDevice):
     _fresh_air_fan_speeds = {
-        0: "Off", 20: "Silent", 40: "Low", 60: "Medium", 80: "High", 100: "Full"
+        0: "Off",
+        20: "Silent",
+        40: "Low",
+        60: "Medium",
+        80: "High",
+        100: "Full",
     }
     _fresh_air_fan_speeds_rev = dict(reversed(_fresh_air_fan_speeds.items()))
 
     def __init__(
-            self,
-            name: str,
-            device_id: int,
-            ip_address: str,
-            port: int,
-            token: str,
-            key: str,
-            protocol: int,
-            model: str,
-            subtype: int,
-            customize: str
+        self,
+        name: str,
+        device_id: int,
+        ip_address: str,
+        port: int,
+        token: str,
+        key: str,
+        protocol: int,
+        model: str,
+        subtype: int,
+        customize: str,
     ):
         super().__init__(
             name=name,
@@ -120,7 +128,8 @@ class MideaACDevice(MiedaDevice):
                 DeviceAttributes.fresh_air_mode: None,
                 DeviceAttributes.fresh_air_1: None,
                 DeviceAttributes.fresh_air_2: None,
-            })
+            },
+        )
         self._fresh_air_version = None
         self._default_temperature_step = 0.5
         self._temperature_step = None
@@ -144,12 +153,12 @@ class MideaACDevice(MiedaDevice):
             return [
                 MessageSubProtocolQuery(self._protocol_version, 0x10),
                 MessageSubProtocolQuery(self._protocol_version, 0x11),
-                MessageSubProtocolQuery(self._protocol_version, 0x30)
+                MessageSubProtocolQuery(self._protocol_version, 0x30),
             ]
         return [
             MessageQuery(self._protocol_version),
             MessageNewProtocolQuery(self._protocol_version),
-            MessagePowerQuery(self._protocol_version)
+            MessagePowerQuery(self._protocol_version),
         ]
 
     def process_message(self, msg):
@@ -179,9 +188,13 @@ class MideaACDevice(MiedaDevice):
                         self._attributes[DeviceAttributes.fresh_air_mode] = v
             else:
                 self._attributes[DeviceAttributes.fresh_air_mode] = "Off"
-            new_status[DeviceAttributes.fresh_air_mode.value] = self._attributes[DeviceAttributes.fresh_air_mode]
-        if not self._attributes[DeviceAttributes.power] or \
-                (DeviceAttributes.swing_vertical in new_status and self._attributes[DeviceAttributes.swing_vertical]):
+            new_status[DeviceAttributes.fresh_air_mode.value] = self._attributes[
+                DeviceAttributes.fresh_air_mode
+            ]
+        if not self._attributes[DeviceAttributes.power] or (
+            DeviceAttributes.swing_vertical in new_status
+            and self._attributes[DeviceAttributes.swing_vertical]
+        ):
             self._attributes[DeviceAttributes.indirect_wind] = False
             new_status[DeviceAttributes.indirect_wind.value] = False
         if not self._attributes[DeviceAttributes.power]:
@@ -198,7 +211,9 @@ class MideaACDevice(MiedaDevice):
         message.power = self._attributes[DeviceAttributes.power]
         message.prompt_tone = self._attributes[DeviceAttributes.prompt_tone]
         message.mode = self._attributes[DeviceAttributes.mode]
-        message.target_temperature = self._attributes[DeviceAttributes.target_temperature]
+        message.target_temperature = self._attributes[
+            DeviceAttributes.target_temperature
+        ]
         message.fan_speed = self._attributes[DeviceAttributes.fan_speed]
         message.swing_vertical = self._attributes[DeviceAttributes.swing_vertical]
         message.swing_horizontal = self._attributes[DeviceAttributes.swing_horizontal]
@@ -220,7 +235,9 @@ class MideaACDevice(MiedaDevice):
         message.prompt_tone = self._attributes[DeviceAttributes.prompt_tone]
         message.aux_heating = self._attributes[DeviceAttributes.aux_heating]
         message.mode = self._attributes[DeviceAttributes.mode]
-        message.target_temperature = self._attributes[DeviceAttributes.target_temperature]
+        message.target_temperature = self._attributes[
+            DeviceAttributes.target_temperature
+        ]
         message.fan_speed = self._attributes[DeviceAttributes.fan_speed]
         message.boost_mode = self._attributes[DeviceAttributes.boost_mode]
         message.dry = self._attributes[DeviceAttributes.dry]
@@ -240,13 +257,15 @@ class MideaACDevice(MiedaDevice):
     def set_attribute(self, attr, value):
         # if nat a sensor
         message = None
-        if attr not in [DeviceAttributes.indoor_temperature,
-                        DeviceAttributes.outdoor_temperature,
-                        DeviceAttributes.indoor_humidity,
-                        DeviceAttributes.full_dust,
-                        DeviceAttributes.total_energy_consumption,
-                        DeviceAttributes.current_energy_consumption,
-                        DeviceAttributes.realtime_power]:
+        if attr not in [
+            DeviceAttributes.indoor_temperature,
+            DeviceAttributes.outdoor_temperature,
+            DeviceAttributes.indoor_humidity,
+            DeviceAttributes.full_dust,
+            DeviceAttributes.total_energy_consumption,
+            DeviceAttributes.current_energy_consumption,
+            DeviceAttributes.realtime_power,
+        ]:
             if attr == DeviceAttributes.prompt_tone:
                 self._attributes[DeviceAttributes.prompt_tone] = value
                 self.update_all({DeviceAttributes.prompt_tone.value: value})
@@ -254,9 +273,9 @@ class MideaACDevice(MiedaDevice):
                 message = MessageToggleDisplay(self._protocol_version)
                 message.prompt_tone = self._attributes[DeviceAttributes.prompt_tone]
             elif attr in [
-                    DeviceAttributes.indirect_wind,
-                    DeviceAttributes.breezeless,
-                    DeviceAttributes.screen_display_alternate
+                DeviceAttributes.indirect_wind,
+                DeviceAttributes.breezeless,
+                DeviceAttributes.screen_display_alternate,
             ]:
                 message = MessageNewProtocolSet(self._protocol_version)
                 setattr(message, str(attr), value)
@@ -267,38 +286,42 @@ class MideaACDevice(MiedaDevice):
                     setattr(
                         message,
                         str(self._fresh_air_version),
-                        [value, self._attributes[DeviceAttributes.fresh_air_fan_speed]]
+                        [value, self._attributes[DeviceAttributes.fresh_air_fan_speed]],
                     )
             elif attr == DeviceAttributes.fresh_air_mode:
                 if value in MideaACDevice._fresh_air_fan_speeds.values():
                     speed = list(MideaACDevice._fresh_air_fan_speeds.keys())[
                         list(MideaACDevice._fresh_air_fan_speeds.values()).index(value)
                     ]
-                    fresh_air = [True, speed] if speed > 0 else \
-                        [False, self._attributes[DeviceAttributes.fresh_air_fan_speed]]
-                    message = MessageNewProtocolSet(self._protocol_version)
-                    setattr(
-                        message,
-                        str(self._fresh_air_version),
-                        fresh_air
+                    fresh_air = (
+                        [True, speed]
+                        if speed > 0
+                        else [
+                            False,
+                            self._attributes[DeviceAttributes.fresh_air_fan_speed],
+                        ]
                     )
+                    message = MessageNewProtocolSet(self._protocol_version)
+                    setattr(message, str(self._fresh_air_version), fresh_air)
                 elif not value:
                     message = MessageNewProtocolSet(self._protocol_version)
                     setattr(
                         message,
                         str(self._fresh_air_version),
-                        [False, self._attributes[DeviceAttributes.fresh_air_fan_speed]]
+                        [False, self._attributes[DeviceAttributes.fresh_air_fan_speed]],
                     )
             elif attr == DeviceAttributes.fresh_air_fan_speed:
                 if self._fresh_air_version is not None:
                     message = MessageNewProtocolSet(self._protocol_version)
-                    fresh_air = [True, value] if value > 0 else \
-                        [False, self._attributes[DeviceAttributes.fresh_air_fan_speed]]
-                    setattr(
-                        message,
-                        str(self._fresh_air_version),
-                        fresh_air
+                    fresh_air = (
+                        [True, value]
+                        if value > 0
+                        else [
+                            False,
+                            self._attributes[DeviceAttributes.fresh_air_fan_speed],
+                        ]
                     )
+                    setattr(message, str(self._fresh_air_version), fresh_air)
             elif attr in self._attributes.keys():
                 message = self.make_message_uniq_set()
                 if attr in [
@@ -306,7 +329,7 @@ class MideaACDevice(MiedaDevice):
                     DeviceAttributes.sleep_mode,
                     DeviceAttributes.frost_protect,
                     DeviceAttributes.comfort_mode,
-                    DeviceAttributes.eco_mode
+                    DeviceAttributes.eco_mode,
                 ]:
                     message.boost_mode = False
                     message.sleep_mode = False

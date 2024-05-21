@@ -1,13 +1,12 @@
 import logging
-from .message import (
-    MessageQuery,
-    MessageFDResponse,
-    MessageSet
-)
+
+from .message import MessageFDResponse, MessageQuery, MessageSet
+
 try:
     from enum import StrEnum
 except ImportError:
     from ...backports.myenum import StrEnum
+
 from ...core.device import MiedaDevice
 
 _LOGGER = logging.getLogger(__name__)
@@ -28,31 +27,45 @@ class DeviceAttributes(StrEnum):
 
 class MideaFDDevice(MiedaDevice):
     _modes = [
-        "Manual", "Auto", "Continuous", "Living-Room", "Bed-Room", "Kitchen", "Sleep"
+        "Manual",
+        "Auto",
+        "Continuous",
+        "Living-Room",
+        "Bed-Room",
+        "Kitchen",
+        "Sleep",
     ]
     _speeds_old = {
-        1: "Lowest", 40: "Low", 60: "Medium", 80: "High", 102: "Auto", 127: "Off"
+        1: "Lowest",
+        40: "Low",
+        60: "Medium",
+        80: "High",
+        102: "Auto",
+        127: "Off",
     }
     _speeds_new = {
-        1: "Lowest", 39: "Low", 59: "Medium", 80: "High", 101: "Auto", 127: "Off"
+        1: "Lowest",
+        39: "Low",
+        59: "Medium",
+        80: "High",
+        101: "Auto",
+        127: "Off",
     }
-    _screen_displays = {
-        0: "Bright", 6: "Dim", 7: "Off"
-    }
+    _screen_displays = {0: "Bright", 6: "Dim", 7: "Off"}
     _detect_modes = ["Off", "PM 2.5", "Methanal"]
 
     def __init__(
-            self,
-            name: str,
-            device_id: int,
-            ip_address: str,
-            port: int,
-            token: str,
-            key: str,
-            protocol: int,
-            model: str,
-            subtype: int,
-            customize: str
+        self,
+        name: str,
+        device_id: int,
+        ip_address: str,
+        port: int,
+        token: str,
+        key: str,
+        protocol: int,
+        model: str,
+        subtype: int,
+        customize: str,
     ):
         super().__init__(
             name=name,
@@ -76,7 +89,8 @@ class MideaFDDevice(MiedaDevice):
                 DeviceAttributes.mode: None,
                 DeviceAttributes.screen_display: None,
                 DeviceAttributes.disinfect: None,
-            })
+            },
+        )
         if self.subtype > 5:
             self._speeds = MideaFDDevice._speeds_new
         else:
@@ -121,7 +135,9 @@ class MideaFDDevice(MiedaDevice):
                         self._attributes[status] = None
                 elif status == DeviceAttributes.screen_display:
                     if value in MideaFDDevice._screen_displays.keys():
-                        self._attributes[status] = MideaFDDevice._screen_displays.get(value)
+                        self._attributes[status] = MideaFDDevice._screen_displays.get(
+                            value
+                        )
                     else:
                         self._attributes[status] = None
                 else:
@@ -136,17 +152,29 @@ class MideaFDDevice(MiedaDevice):
         message.screen_display = self._attributes[DeviceAttributes.screen_display]
         message.disinfect = self._attributes[DeviceAttributes.disinfect]
         if self._attributes[DeviceAttributes.mode] in MideaFDDevice._modes:
-            message.mode = MideaFDDevice._modes.index(self._attributes[DeviceAttributes.mode]) + 1
+            message.mode = (
+                MideaFDDevice._modes.index(self._attributes[DeviceAttributes.mode]) + 1
+            )
         else:
             message.mode = 1
-        message.fan_speed = 40 if self._attributes[DeviceAttributes.fan_speed] is None else \
-            list(self._speeds.keys())[list(self._speeds.values()).index(
-                self._attributes[DeviceAttributes.fan_speed]
-            )]
-        message.screen_display = 0 if self._attributes[DeviceAttributes.screen_display] is None else \
-            list(MideaFDDevice._screen_displays.keys())[list(MideaFDDevice._screen_displays.values()).index(
-                self._attributes[DeviceAttributes.screen_display]
-            )]
+        message.fan_speed = (
+            40
+            if self._attributes[DeviceAttributes.fan_speed] is None
+            else list(self._speeds.keys())[
+                list(self._speeds.values()).index(
+                    self._attributes[DeviceAttributes.fan_speed]
+                )
+            ]
+        )
+        message.screen_display = (
+            0
+            if self._attributes[DeviceAttributes.screen_display] is None
+            else list(MideaFDDevice._screen_displays.keys())[
+                list(MideaFDDevice._screen_displays.values()).index(
+                    self._attributes[DeviceAttributes.screen_display]
+                )
+            ]
+        )
         return message
 
     def set_attribute(self, attr, value):
@@ -165,9 +193,9 @@ class MideaFDDevice(MiedaDevice):
                     ]
             elif attr == DeviceAttributes.screen_display:
                 if value in MideaFDDevice._screen_displays.values():
-                    message.screen_display = list(MideaFDDevice._screen_displays.keys())[
-                        list(MideaFDDevice._screen_displays.values()).index(value)
-                    ]
+                    message.screen_display = list(
+                        MideaFDDevice._screen_displays.keys()
+                    )[list(MideaFDDevice._screen_displays.values()).index(value)]
                 elif not value:
                     message.screen_display = 7
             else:

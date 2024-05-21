@@ -1,13 +1,12 @@
 import logging
-from .message import (
-    MessageQuery,
-    MessageSet,
-    MessageE6Response
-)
+
+from .message import MessageE6Response, MessageQuery, MessageSet
+
 try:
     from enum import StrEnum
 except ImportError:
     from ...backports.myenum import StrEnum
+
 from ...core.device import MiedaDevice
 
 _LOGGER = logging.getLogger(__name__)
@@ -28,17 +27,17 @@ class DeviceAttributes(StrEnum):
 
 class MideaE6Device(MiedaDevice):
     def __init__(
-            self,
-            name: str,
-            device_id: int,
-            ip_address: str,
-            port: int,
-            token: str,
-            key: str,
-            protocol: int,
-            model: str,
-            subtype: int,
-            customize: str
+        self,
+        name: str,
+        device_id: int,
+        ip_address: str,
+        port: int,
+        token: str,
+        key: str,
+        protocol: int,
+        model: str,
+        subtype: int,
+        customize: str,
     ):
         super().__init__(
             name=name,
@@ -61,8 +60,9 @@ class MideaE6Device(MiedaDevice):
                 DeviceAttributes.heating_temperature: 50,
                 DeviceAttributes.bathing_temperature: 40,
                 DeviceAttributes.heating_leaving_temperature: None,
-                DeviceAttributes.bathing_leaving_temperature: None
-            })
+                DeviceAttributes.bathing_leaving_temperature: None,
+            },
+        )
 
     def build_query(self):
         return [MessageQuery(self._protocol_version)]
@@ -78,10 +78,12 @@ class MideaE6Device(MiedaDevice):
         return new_status
 
     def set_attribute(self, attr, value):
-        if attr in [DeviceAttributes.main_power,
-                    DeviceAttributes.heating_power,
-                    DeviceAttributes.heating_temperature,
-                    DeviceAttributes.bathing_temperature]:
+        if attr in [
+            DeviceAttributes.main_power,
+            DeviceAttributes.heating_power,
+            DeviceAttributes.heating_temperature,
+            DeviceAttributes.bathing_temperature,
+        ]:
             message = MessageSet(self._protocol_version)
             setattr(message, str(attr), value)
             self.build_send(message)
