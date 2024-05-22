@@ -28,6 +28,9 @@ from homeassistant.const import (
 from homeassistant.core import callback
 from homeassistant.helpers.aiohttp_client import async_create_clientsession
 from homeassistant.util.json import load_json
+from midealocal.cloud import get_midea_cloud
+from midealocal.device import MideaDevice
+from midealocal.discover import discover
 
 from .const import (
     CONF_ACCOUNT,
@@ -40,9 +43,6 @@ from .const import (
     EXTRA_CONTROL,
     EXTRA_SENSOR,
 )
-from midealocal.discover import discover
-from midealocal.cloud import get_midea_cloud
-from midealocal.device import MideaDevice
 from .midea_devices import MIDEA_DEVICES
 
 _LOGGER = logging.getLogger(__name__)

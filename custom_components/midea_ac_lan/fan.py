@@ -9,14 +9,11 @@ from homeassistant.const import (
     STATE_ON,
     Platform,
 )
-
-from .const import (
-    DOMAIN,
-    DEVICES,
-)
 from midealocal.devices.ac import DeviceAttributes as ACAttributes
 from midealocal.devices.ce import DeviceAttributes as CEAttributes
 from midealocal.devices.x40 import DeviceAttributes as X40Attributes
+
+from .const import DEVICES, DOMAIN
 from .midea_devices import MIDEA_DEVICES
 from .midea_entity import MideaEntity
 

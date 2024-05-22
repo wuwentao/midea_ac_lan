@@ -12,13 +12,10 @@ from homeassistant.components.light import (
     LightEntity,
     LightEntityFeature,
 )
-from homeassistant.const import (
-    Platform,
-    CONF_DEVICE_ID,
-    CONF_SWITCHES,
-)
-from .const import DOMAIN, DEVICES
+from homeassistant.const import CONF_DEVICE_ID, CONF_SWITCHES, Platform
 from midealocal.devices.x13 import DeviceAttributes as X13Attributes
+
+from .const import DEVICES, DOMAIN
 from .midea_devices import MIDEA_DEVICES
 from .midea_entity import MideaEntity
 

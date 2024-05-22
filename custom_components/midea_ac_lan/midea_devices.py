@@ -11,10 +11,6 @@ from homeassistant.const import (
     UnitOfTime,
     UnitOfVolume,
 )
-
-from midealocal.devices.x26 import DeviceAttributes as X26Attributes
-from midealocal.devices.x34 import DeviceAttributes as X34Attributes
-from midealocal.devices.x40 import DeviceAttributes as X40Attributes
 from midealocal.devices.a1 import DeviceAttributes as A1Attributes
 from midealocal.devices.ac import DeviceAttributes as ACAttributes
 from midealocal.devices.b0 import DeviceAttributes as B0Attributes
@@ -45,7 +41,9 @@ from midealocal.devices.fa import DeviceAttributes as FAAttributes
 from midealocal.devices.fb import DeviceAttributes as FBAttributes
 from midealocal.devices.fc import DeviceAttributes as FCAttributes
 from midealocal.devices.fd import DeviceAttributes as FDAttributes
-
+from midealocal.devices.x26 import DeviceAttributes as X26Attributes
+from midealocal.devices.x34 import DeviceAttributes as X34Attributes
+from midealocal.devices.x40 import DeviceAttributes as X40Attributes
 
 MIDEA_DEVICES = {
     0x13: {

@@ -13,6 +13,7 @@ from homeassistant.const import (
     CONF_TYPE,
 )
 from homeassistant.core import HomeAssistant
+from midealocal.devices import device_selector
 
 from .const import (
     ALL_PLATFORM,
@@ -25,7 +26,6 @@ from .const import (
     DOMAIN,
     EXTRA_SWITCH,
 )
-from midealocal.devices import device_selector
 from .midea_devices import MIDEA_DEVICES
 
 _LOGGER = logging.getLogger(__name__)
