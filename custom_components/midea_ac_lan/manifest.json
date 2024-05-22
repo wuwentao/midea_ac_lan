@@ -1,13 +1,17 @@
 {
   "domain": "midea_ac_lan",
   "name": "Midea AC LAN",
-  "codeowners": ["@georgezhao2010"],
+  "codeowners": [
+    "@wuwentao"
+  ],
   "config_flow": true,
   "dependencies": [],
-  "documentation": "https://github.com/georgezhao2010/midea_ac_lan#readme",
+  "documentation": "https://github.com/wuwentao/midea_ac_lan#readme",
   "integration_type": "device",
   "iot_class": "local_push",
-  "issue_tracker": "https://github.com/georgezhao2010/midea_ac_lan/issues",
-  "requirements": [],
-  "version": "v0.3.22"
+  "issue_tracker": "https://github.com/wuwentao/midea_ac_lan/issues",
+  "requirements": [
+    "pycryptodome"
+  ],
+  "version": "v0.3.23"
 }

@@ -1,6 +1,7 @@
 # 空气能热水器
 
 ## 特性
+
 - 支持温度设定
 
 设置温度调整步长 (默认为1).
@@ -10,7 +11,9 @@
 ```
 
 ## 生成实体
+
 ### 默认生成实体
+
 | 实体ID                                 | 类型           | 描述    |
 |--------------------------------------|--------------|-------|
 | water_heater.{DEVICEID}_water_heater | water_heater | 热水器实体 |
@@ -24,7 +27,6 @@
 | sensor.{DEVICEID}_outdoor_temperature      | sensor        | Outdoor Temperature    | 室外温度                     |
 | binary_sensor.{DEVICEID}_compressor_status | binary_sensor | Compressor Status      | 压缩机状态 (可能在部分机型上无法正确显示状态) |
 | switch.{DEVICEID}_power                    | switch        | Power                  | 电源                       |
-
 
 ## 服务
 
@@ -41,6 +43,7 @@
 | value     | true 或 false     |
 
 示例
+
 ```yaml
 service: midea_ac_lan.set_attribute
 data:

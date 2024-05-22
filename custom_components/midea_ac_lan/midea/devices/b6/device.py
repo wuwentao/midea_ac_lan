@@ -1,14 +1,13 @@
-import logging
 import json
-from .message import (
-    MessageQuery,
-    MessageB6Response,
-    MessageSet
-)
+import logging
+
+from .message import MessageB6Response, MessageQuery, MessageSet
+
 try:
     from enum import StrEnum
 except ImportError:
-    from ...backports.enum import StrEnum
+    from ...backports.myenum import StrEnum
+
 from ...core.device import MiedaDevice
 
 _LOGGER = logging.getLogger(__name__)
@@ -26,17 +25,17 @@ class DeviceAttributes(StrEnum):
 
 class MideaB6Device(MiedaDevice):
     def __init__(
-            self,
-            name: str,
-            device_id: int,
-            ip_address: str,
-            port: int,
-            token: str,
-            key: str,
-            protocol: int,
-            model: str,
-            subtype: int,
-            customize: str
+        self,
+        name: str,
+        device_id: int,
+        ip_address: str,
+        port: int,
+        token: str,
+        key: str,
+        protocol: int,
+        model: str,
+        subtype: int,
+        customize: str,
     ):
         super().__init__(
             name=name,
@@ -56,11 +55,10 @@ class MideaB6Device(MiedaDevice):
                 DeviceAttributes.fan_level: 0,
                 DeviceAttributes.fan_speed: 0,
                 DeviceAttributes.oilcup_full: False,
-                DeviceAttributes.cleaning_reminder: False
-            })
-        self._default_speeds = {
-            0: "Off", 1: "Level 1", 2: "Level 2"
-        }
+                DeviceAttributes.cleaning_reminder: False,
+            },
+        )
+        self._default_speeds = {0: "Off", 1: "Level 1", 2: "Level 2"}
         self._default_power_speed = 2
         self._power_speed = self._default_power_speed
         self._speeds = self._default_speeds
@@ -87,13 +85,21 @@ class MideaB6Device(MiedaDevice):
                 value = getattr(message, str(status))
                 if status == DeviceAttributes.fan_level:
                     if value in self._speeds.keys():
-                        self._attributes[DeviceAttributes.mode] = self._speeds.get(value)
-                        self._attributes[DeviceAttributes.fan_speed] = list(self._speeds.keys()).index(value)
+                        self._attributes[DeviceAttributes.mode] = self._speeds.get(
+                            value
+                        )
+                        self._attributes[DeviceAttributes.fan_speed] = list(
+                            self._speeds.keys()
+                        ).index(value)
                     else:
                         self._attributes[DeviceAttributes.mode] = None
                         self._attributes[DeviceAttributes.fan_speed] = 0
-                    new_status[DeviceAttributes.mode.value] = self._attributes[DeviceAttributes.mode]
-                    new_status[DeviceAttributes.fan_speed.value] = self._attributes[DeviceAttributes.fan_speed]
+                    new_status[DeviceAttributes.mode.value] = self._attributes[
+                        DeviceAttributes.mode
+                    ]
+                    new_status[DeviceAttributes.fan_speed.value] = self._attributes[
+                        DeviceAttributes.fan_speed
+                    ]
                 self._attributes[status] = getattr(message, str(status))
                 new_status[str(status)] = self._attributes[status]
         return new_status
@@ -107,8 +113,9 @@ class MideaB6Device(MiedaDevice):
         elif attr == DeviceAttributes.mode:
             if value in self._speeds.values():
                 message = MessageSet(self._protocol_version)
-                message.fan_level = \
-                    list(self._speeds.keys())[list(self._speeds.values()).index(value)]
+                message.fan_level = list(self._speeds.keys())[
+                    list(self._speeds.values()).index(value)
+                ]
             elif not value:
                 message = MessageSet(self._protocol_version)
                 message.power = False
@@ -130,8 +137,9 @@ class MideaB6Device(MiedaDevice):
         else:
             message.fan_level = self._power_speed
         if mode is not None in self._speeds.values():
-            message.fan_level = \
-                list(self._speeds.keys())[list(self._speeds.values()).index(mode)]
+            message.fan_level = list(self._speeds.keys())[
+                list(self._speeds.values()).index(mode)
+            ]
         self.build_send(message)
 
     def set_customize(self, customize):
@@ -151,7 +159,9 @@ class MideaB6Device(MiedaDevice):
                         keys = sorted(speeds.keys())
                         for k in keys:
                             self._speeds[k] = speeds[k]
-                    self.update_all({"speeds": self._speeds, "default_speed": self._power_speed})
+                    self.update_all(
+                        {"speeds": self._speeds, "default_speed": self._power_speed}
+                    )
             except Exception as e:
                 _LOGGER.error(f"[{self.device_id}] Set customize error: {repr(e)}")
 

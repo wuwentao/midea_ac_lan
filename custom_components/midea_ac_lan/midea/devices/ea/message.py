@@ -1,9 +1,4 @@
-from ...core.message import (
-    MessageType,
-    MessageRequest,
-    MessageResponse,
-    MessageBody,
-)
+from ...core.message import MessageBody, MessageRequest, MessageResponse, MessageType
 
 
 class MessageEABase(MessageRequest):
@@ -12,7 +7,7 @@ class MessageEABase(MessageRequest):
             device_type=0xEA,
             protocol_version=protocol_version,
             message_type=message_type,
-            body_type=body_type
+            body_type=body_type,
         )
 
     @property
@@ -25,13 +20,12 @@ class MessageQuery(MessageEABase):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.query,
-            body_type=None)
+            body_type=None,
+        )
 
     @property
     def body(self):
-        return bytearray([
-            0xAA, 0x55, 0x01, 0x03, 0x00
-        ])
+        return bytearray([0xAA, 0x55, 0x01, 0x03, 0x00])
 
     @property
     def _body(self):
@@ -100,16 +94,22 @@ class MessageEAResponse(MessageResponse):
             if self.message_type == MessageType.set and super().body[5] == 0x16:  # 381
                 self.set_body(EABody1(super().body))
             elif self.message_type == MessageType.query:
-                if super().body[6] == 0x52 and super().body[7] == 0xc3:  # 404
+                if super().body[6] == 0x52 and super().body[7] == 0xC3:  # 404
                     self.set_body(EABody2(super().body))
-                elif super().body[5] == 0x3d:  # 420
+                elif super().body[5] == 0x3D:  # 420
                     self.set_body(EABody1(super().body))
-            elif self.message_type == MessageType.notify1 and super().body[5] == 0x3d:  # 463
+            elif (
+                self.message_type == MessageType.notify1 and super().body[5] == 0x3D
+            ):  # 463
                 self.set_body(EABody1(super().body))
         else:
-            if(self.message_type == MessageType.set and super().body[3] == 0x02) or \
-                    (self.message_type == MessageType.query and super().body[3] == 0x03) or \
-                    (self.message_type == MessageType.notify1 and super().body[3] == 0x04):  # 351
+            if (
+                (self.message_type == MessageType.set and super().body[3] == 0x02)
+                or (self.message_type == MessageType.query and super().body[3] == 0x03)
+                or (
+                    self.message_type == MessageType.notify1 and super().body[3] == 0x04
+                )
+            ):  # 351
                 self.set_body(EABody3(super().body))
             elif self.message_type == MessageType.notify1 and super().body[3] == 0x06:
                 self.mode = super().body[4] + (super().body[5] << 8)

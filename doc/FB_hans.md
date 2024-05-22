@@ -1,11 +1,14 @@
 # 电取暖器
 
 ## Features
+
 - 支持目标温度设定
 - 支持预设模式设定
 
 ## 生成实体
+
 ### 默认生成实体
+
 | 实体ID                       | 类型      | 描述    |
 |----------------------------|---------|-------|
 | climate.{DEVICEID}_climate | climate | 恒温器实体 |
@@ -40,6 +43,7 @@
 | value     | 1 - 10           |
 
 示例
+
 ```yaml
 service: midea_ac_lan.set_attribute
 data:

@@ -1,11 +1,15 @@
 # Heat Bump
+
 ## Features
+
 - Supports target temperature
 - Supports run mode
 - Supports auxiliary heating
 
 ## Entities
+
 ### Default entity
+
 | EntityID                   | Class   | Description    |
 |----------------------------|---------|----------------|
 | climate.{DEVICEID}_climate | climate | Climate entity |
@@ -20,7 +24,6 @@
 
 ## Service
 
-
 ### midea_ac_lan.set_attribute
 
 [![Service](https://my.home-assistant.io/badges/developer_call_service.svg)](https://my.home-assistant.io/redirect/developer_call_service/?service=midea_ac_lan.set_attribute)
@@ -34,6 +37,7 @@ Set the attribute of appliance. Service data:
 | value     | true or false                               |
 
 Example
+
 ```yaml
 service: midea_ac_lan.set_attribute
 data:

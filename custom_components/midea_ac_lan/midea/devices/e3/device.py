@@ -1,16 +1,19 @@
-import logging
 import json
+import logging
+
 from .message import (
-    MessageQuery,
-    MessageSet,
+    MessageE3Response,
     MessageNewProtocolSet,
     MessagePower,
-    MessageE3Response
+    MessageQuery,
+    MessageSet,
 )
+
 try:
     from enum import StrEnum
 except ImportError:
-    from ...backports.enum import StrEnum
+    from ...backports.myenum import StrEnum
+
 from ...core.device import MiedaDevice
 
 _LOGGER = logging.getLogger(__name__)
@@ -29,17 +32,17 @@ class DeviceAttributes(StrEnum):
 
 class MideaE3Device(MiedaDevice):
     def __init__(
-            self,
-            name: str,
-            device_id: int,
-            ip_address: str,
-            port: int,
-            token: str,
-            key: str,
-            protocol: int,
-            model: str,
-            subtype: int,
-            customize: str
+        self,
+        name: str,
+        device_id: int,
+        ip_address: str,
+        port: int,
+        token: str,
+        key: str,
+        protocol: int,
+        model: str,
+        subtype: int,
+        customize: str,
     ):
         super().__init__(
             name=name,
@@ -61,10 +64,9 @@ class MideaE3Device(MiedaDevice):
                 DeviceAttributes.smart_volume: False,
                 DeviceAttributes.current_temperature: None,
                 DeviceAttributes.target_temperature: 40,
-            })
-        self._old_subtypes = [
-            32, 33, 34, 35, 36, 37, 40, 43, 48, 49, 80
-        ]
+            },
+        )
+        self._old_subtypes = [32, 33, 34, 35, 36, 37, 40, 43, 48, 49, 80]
         self._precision_halves = None
         self._default_precision_halves = False
         self.set_customize(customize)
@@ -82,8 +84,10 @@ class MideaE3Device(MiedaDevice):
         new_status = {}
         for status in self._attributes.keys():
             if hasattr(message, str(status)):
-                if self._precision_halves and status in [DeviceAttributes.current_temperature,
-                                                             DeviceAttributes.target_temperature]:
+                if self._precision_halves and status in [
+                    DeviceAttributes.current_temperature,
+                    DeviceAttributes.target_temperature,
+                ]:
                     self._attributes[status] = getattr(message, str(status)) / 2
                 else:
                     self._attributes[status] = getattr(message, str(status))
@@ -97,13 +101,17 @@ class MideaE3Device(MiedaDevice):
         message.protection = self._attributes[DeviceAttributes.protection]
         message.zero_clod_pulse = self._attributes[DeviceAttributes.zero_cold_pulse]
         message.smart_volume = self._attributes[DeviceAttributes.smart_volume]
-        message.target_temperature = self._attributes[DeviceAttributes.target_temperature]
+        message.target_temperature = self._attributes[
+            DeviceAttributes.target_temperature
+        ]
         return message
 
     def set_attribute(self, attr, value):
-        if attr not in [DeviceAttributes.burning_state,
-                        DeviceAttributes.current_temperature,
-                        DeviceAttributes.protection]:
+        if attr not in [
+            DeviceAttributes.burning_state,
+            DeviceAttributes.current_temperature,
+            DeviceAttributes.protection,
+        ]:
             if self._precision_halves and attr == DeviceAttributes.target_temperature:
                 value = int(value * 2)
             if attr == DeviceAttributes.power:

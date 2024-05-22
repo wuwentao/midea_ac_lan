@@ -1,10 +1,6 @@
 from enum import IntEnum
-from ...core.message import (
-    MessageType,
-    MessageRequest,
-    MessageResponse,
-    MessageBody,
-)
+
+from ...core.message import MessageBody, MessageRequest, MessageResponse, MessageType
 
 
 class C2MessageEnum(IntEnum):
@@ -12,8 +8,8 @@ class C2MessageEnum(IntEnum):
     child_lock = 0x10
     foam_shield = 0x1F
     water_temp_level = 0x09
-    seat_temp_level = 0x0a
-    dry_level = 0x0c
+    seat_temp_level = 0x0A
+    dry_level = 0x0C
 
 
 C2_MESSAGE_KEYS = {
@@ -21,8 +17,22 @@ C2_MESSAGE_KEYS = {
     C2MessageEnum.sensor_light: {True: 0x01 << 1, False: 0x00},
     C2MessageEnum.foam_shield: {True: 0x01 << 2, False: 0x00},
     C2MessageEnum.dry_level: {0: 0x00, 1: 0x01 << 1, 2: 0x02 << 1, 3: 0x03 << 1},
-    C2MessageEnum.seat_temp_level: {0: 0x00, 1: 0x01 << 3, 2: 0x02 << 3, 3: 0x03 << 3, 4: 0x04 << 3, 5: 0x05 << 3},
-    C2MessageEnum.water_temp_level: {0: 0x00, 1: 0x01, 2: 0x02, 3: 0x03, 4: 0x04, 5: 0x05}
+    C2MessageEnum.seat_temp_level: {
+        0: 0x00,
+        1: 0x01 << 3,
+        2: 0x02 << 3,
+        3: 0x03 << 3,
+        4: 0x04 << 3,
+        5: 0x05 << 3,
+    },
+    C2MessageEnum.water_temp_level: {
+        0: 0x00,
+        1: 0x01,
+        2: 0x02,
+        3: 0x03,
+        4: 0x04,
+        5: 0x05,
+    },
 }
 
 
@@ -32,7 +42,7 @@ class MessageC2Base(MessageRequest):
             device_type=0xC2,
             protocol_version=protocol_version,
             message_type=message_type,
-            body_type=body_type
+            body_type=body_type,
         )
 
     @property
@@ -45,7 +55,8 @@ class MessageQuery(MessageC2Base):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.query,
-            body_type=0x01)
+            body_type=0x01,
+        )
 
     @property
     def _body(self):
@@ -57,8 +68,10 @@ class MessagePower(MessageC2Base):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.set,
-            body_type=0x00)
+            body_type=0x00,
+        )
         self.power = False
+
     @property
     def _body(self):
         if self.power:
@@ -73,7 +86,8 @@ class MessagePowerOff(MessageC2Base):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.set,
-            body_type=0x02)
+            body_type=0x02,
+        )
 
     @property
     def _body(self):
@@ -85,7 +99,8 @@ class MessageSet(MessageC2Base):
         super().__init__(
             protocol_version=protocol_version,
             message_type=MessageType.set,
-            body_type=0x00)
+            body_type=0x00,
+        )
 
         self.child_lock = None
         self.sensor_light = None
@@ -126,9 +141,9 @@ class C2MessageBody(MessageBody):
         super().__init__(body)
         self.power = (body[2] & 0x01) > 0
         self.seat_status = (body[3] & 0x01) > 0
-        self.dry_level = ((body[6] & 0x7E) >> 1)
-        self.water_temp_level = (body[9] & 0x07)
-        self.seat_temp_level = ((body[9] & 0x38) >> 3)
+        self.dry_level = (body[6] & 0x7E) >> 1
+        self.water_temp_level = body[9] & 0x07
+        self.seat_temp_level = (body[9] & 0x38) >> 3
         self.lid_status = (body[12] & 0x40) > 0
         self.foam_shield = (body[13] & 0x80) > 0
         self.sensor_light = (body[14] & 0x01) > 0
@@ -147,6 +162,10 @@ class C2Notify1MessageBody(MessageBody):
 class MessageC2Response(MessageResponse):
     def __init__(self, message):
         super().__init__(message)
-        if self.message_type in [MessageType.notify1, MessageType.query, MessageType.set]:
+        if self.message_type in [
+            MessageType.notify1,
+            MessageType.query,
+            MessageType.set,
+        ]:
             self.set_body(C2MessageBody(super().body))
         self.set_attr()

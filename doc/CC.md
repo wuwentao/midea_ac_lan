@@ -1,5 +1,7 @@
 # MDV Wi-Fi Controller
+
 ## Features
+
 - Supports target temperature
 - Supports run mode
 - Supports fan mode
@@ -7,11 +9,14 @@
 - Supports auxiliary heating
 
 ### Supported Run-Modes
+
 - Sleep Mode
 - ECO Mode
 
 ## Entities
+
 ### Default entity
+
 | EntityID                   | Class   | Description    |
 |----------------------------|---------|----------------|
 | climate.{DEVICEID}_climate | climate | Climate entity |
@@ -43,6 +48,7 @@ Set the attribute of appliance. Service data:
 | value     | true or false                                                                            |
 
 Example
+
 ```yaml
 service: midea_ac_lan.set_attribute
 data:

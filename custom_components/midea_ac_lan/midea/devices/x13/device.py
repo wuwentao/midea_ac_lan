@@ -1,14 +1,13 @@
-import logging
 import json
-from .message import (
-    MessageQuery,
-    MessageSet,
-    Message13Response
-)
+import logging
+
+from .message import Message13Response, MessageQuery, MessageSet
+
 try:
     from enum import StrEnum
 except ImportError:
-    from ...backports.enum import StrEnum
+    from ...backports.myenum import StrEnum
+
 from ...core.device import MiedaDevice
 
 _LOGGER = logging.getLogger(__name__)
@@ -26,17 +25,17 @@ class Midea13Device(MiedaDevice):
     _effects = ["Manual", "Living", "Reading", "Mildly", "Cinema", "Night"]
 
     def __init__(
-            self,
-            name: str,
-            device_id: int,
-            ip_address: str,
-            port: int,
-            token: str,
-            key: str,
-            protocol: int,
-            model: str,
-            subtype: int,
-            customize: str
+        self,
+        name: str,
+        device_id: int,
+        ip_address: str,
+        port: int,
+        token: str,
+        key: str,
+        protocol: int,
+        model: str,
+        subtype: int,
+        customize: str,
     ):
         super().__init__(
             name=name,
@@ -54,8 +53,9 @@ class Midea13Device(MiedaDevice):
                 DeviceAttributes.color_temperature: None,
                 DeviceAttributes.rgb_color: None,
                 DeviceAttributes.effect: None,
-                DeviceAttributes.power: False
-            })
+                DeviceAttributes.power: False,
+            },
+        )
         self._color_temp_range = None
         self._default_color_temp_range = [2700, 6500]
         self.set_customize(customize)
@@ -69,12 +69,17 @@ class Midea13Device(MiedaDevice):
         return self._color_temp_range
 
     def kelvin_to_midea(self, kelvin):
-        return round((kelvin - self._color_temp_range[0]) /
-        (self._color_temp_range[1] - self._color_temp_range[0]) * 255)
+        return round(
+            (kelvin - self._color_temp_range[0])
+            / (self._color_temp_range[1] - self._color_temp_range[0])
+            * 255
+        )
 
     def midea_to_kelvin(self, midea):
-        return round((self._color_temp_range[1] - self._color_temp_range[0]) / 255 * midea) + \
-            self._color_temp_range[0]
+        return (
+            round((self._color_temp_range[1] - self._color_temp_range[0]) / 255 * midea)
+            + self._color_temp_range[0]
+        )
 
     def build_query(self):
         return [MessageQuery(self._protocol_version)]
@@ -101,10 +106,12 @@ class Midea13Device(MiedaDevice):
         return new_status
 
     def set_attribute(self, attr, value):
-        if attr in [DeviceAttributes.brightness,
-                    DeviceAttributes.color_temperature,
-                    DeviceAttributes.effect,
-                    DeviceAttributes.power]:
+        if attr in [
+            DeviceAttributes.brightness,
+            DeviceAttributes.color_temperature,
+            DeviceAttributes.effect,
+            DeviceAttributes.power,
+        ]:
             message = MessageSet(self._protocol_version)
             if attr == DeviceAttributes.effect and value in self._effects:
                 setattr(message, str(attr), Midea13Device._effects.index(value))

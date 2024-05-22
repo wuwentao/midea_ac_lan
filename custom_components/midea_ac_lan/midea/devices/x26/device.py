@@ -1,14 +1,13 @@
 import logging
 import math
-from .message import (
-    MessageQuery,
-    MessageSet,
-    Message26Response
-)
+
+from .message import Message26Response, MessageQuery, MessageSet
+
 try:
     from enum import StrEnum
 except ImportError:
-    from ...backports.enum import StrEnum
+    from ...backports.myenum import StrEnum
+
 from ...core.device import MiedaDevice
 
 _LOGGER = logging.getLogger(__name__)
@@ -29,17 +28,17 @@ class Midea26Device(MiedaDevice):
     _directions = ["60", "70", "80", "90", "100", "110", "120", "Oscillate"]
 
     def __init__(
-            self,
-            name: str,
-            device_id: int,
-            ip_address: str,
-            port: int,
-            token: str,
-            key: str,
-            protocol: int,
-            model: str,
-            subtype: int,
-            customize: str
+        self,
+        name: str,
+        device_id: int,
+        ip_address: str,
+        port: int,
+        token: str,
+        key: str,
+        protocol: int,
+        model: str,
+        subtype: int,
+        customize: str,
     ):
         super().__init__(
             name=name,
@@ -59,8 +58,9 @@ class Midea26Device(MiedaDevice):
                 DeviceAttributes.direction: None,
                 DeviceAttributes.current_humidity: None,
                 DeviceAttributes.current_radar: None,
-                DeviceAttributes.current_temperature: None
-            })
+                DeviceAttributes.current_temperature: None,
+            },
+        )
         self._fields = {}
 
     @staticmethod
@@ -68,8 +68,11 @@ class Midea26Device(MiedaDevice):
         if direction == "Oscillate":
             result = 0xFD
         else:
-            result = Midea26Device._directions.index(direction) * 10 + 60 \
-                if direction in Midea26Device._directions else 0xFD
+            result = (
+                Midea26Device._directions.index(direction) * 10 + 60
+                if direction in Midea26Device._directions
+                else 0xFD
+            )
         return result
 
     @staticmethod
@@ -111,21 +114,23 @@ class Midea26Device(MiedaDevice):
         return new_status
 
     def set_attribute(self, attr, value):
-        if attr in [DeviceAttributes.main_light,
-                    DeviceAttributes.night_light,
-                    DeviceAttributes.mode,
-                    DeviceAttributes.direction
-                    ]:
+        if attr in [
+            DeviceAttributes.main_light,
+            DeviceAttributes.night_light,
+            DeviceAttributes.mode,
+            DeviceAttributes.direction,
+        ]:
             message = MessageSet(self._protocol_version)
             message.fields = self._fields
             message.main_light = self._attributes[DeviceAttributes.main_light]
             message.night_light = self._attributes[DeviceAttributes.night_light]
-            message.mode = Midea26Device._modes.index(self._attributes[DeviceAttributes.mode])
-            message.direction = self._convert_to_midea_direction(self._attributes[DeviceAttributes.direction])
-            if attr in [
-                DeviceAttributes.main_light,
-                DeviceAttributes.night_light
-            ]:
+            message.mode = Midea26Device._modes.index(
+                self._attributes[DeviceAttributes.mode]
+            )
+            message.direction = self._convert_to_midea_direction(
+                self._attributes[DeviceAttributes.direction]
+            )
+            if attr in [DeviceAttributes.main_light, DeviceAttributes.night_light]:
                 message.main_light = False
                 message.night_light = False
                 setattr(message, str(attr), value)

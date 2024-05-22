@@ -1,11 +1,13 @@
 # 燃气热水器
+
 ## 特性
+
 - 支持温度设定
 
 ## 自定义
 
 - 设置热水器温度基数为整度还是半度 (false 为整度 true 为半度, 默认为 false)
-  
+
   如果你的热水器显示的温度为实际温度的两倍，请将该值设为true。
 
 ```json
@@ -13,7 +15,9 @@
 ```
 
 ## 生成实体
+
 ### 默认生成实体
+
 | 实体ID                                 | 类型           | 描述    |
 |--------------------------------------|--------------|-------|
 | water_heater.{DEVICEID}_water_heater | water_heater | 热水器实体 |
@@ -45,6 +49,7 @@
 | value     | true or false                                                                               |
 
 示例
+
 ```yaml
 service: midea_ac_lan.set_attribute
 data:
