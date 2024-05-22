@@ -12,39 +12,42 @@ from homeassistant.const import (
     UnitOfVolume,
 )
 
-from .midea.devices.a1.device import DeviceAttributes as A1Attributes
-from .midea.devices.ac.device import DeviceAttributes as ACAttributes
-from .midea.devices.b0.device import DeviceAttributes as B0Attributes
-from .midea.devices.b1.device import DeviceAttributes as B1Attributes
-from .midea.devices.b3.device import DeviceAttributes as B3Attributes
-from .midea.devices.b4.device import DeviceAttributes as B4Attributes
-from .midea.devices.b6.device import DeviceAttributes as B6Attributes
-from .midea.devices.bf.device import DeviceAttributes as BFAttributes
-from .midea.devices.c2.device import DeviceAttributes as C2Attributes
-from .midea.devices.c3.device import DeviceAttributes as C3Attributes
-from .midea.devices.ca.device import DeviceAttributes as CAAttributes
-from .midea.devices.cc.device import DeviceAttributes as CCAttributes
-from .midea.devices.cd.device import DeviceAttributes as CDAttributes
-from .midea.devices.ce.device import DeviceAttributes as CEAttributes
-from .midea.devices.cf.device import DeviceAttributes as CFAttributes
-from .midea.devices.da.device import DeviceAttributes as DAAttributes
-from .midea.devices.db.device import DeviceAttributes as DBAttributes
-from .midea.devices.dc.device import DeviceAttributes as DCAttributes
-from .midea.devices.e1.device import DeviceAttributes as E1Attributes
-from .midea.devices.e2.device import DeviceAttributes as E2Attributes
-from .midea.devices.e3.device import DeviceAttributes as E3Attributes
-from .midea.devices.e6.device import DeviceAttributes as E6Attributes
-from .midea.devices.e8.device import DeviceAttributes as E8Attributes
-from .midea.devices.ea.device import DeviceAttributes as EAAttributes
-from .midea.devices.ec.device import DeviceAttributes as ECAttributes
-from .midea.devices.ed.device import DeviceAttributes as EDAttributes
-from .midea.devices.fa.device import DeviceAttributes as FAAttributes
-from .midea.devices.fb.device import DeviceAttributes as FBAttributes
-from .midea.devices.fc.device import DeviceAttributes as FCAttributes
-from .midea.devices.fd.device import DeviceAttributes as FDAttributes
-from .midea.devices.x26.device import DeviceAttributes as X26Attributes
-from .midea.devices.x34.device import DeviceAttributes as X34Attributes
-from .midea.devices.x40.device import DeviceAttributes as X40Attributes
+from homeassistant.components.binary_sensor import BinarySensorDeviceClass
+from homeassistant.components.sensor import SensorStateClass, SensorDeviceClass
+from midealocal.devices.x26 import DeviceAttributes as X26Attributes
+from midealocal.devices.x34 import DeviceAttributes as X34Attributes
+from midealocal.devices.x40 import DeviceAttributes as X40Attributes
+from midealocal.devices.a1 import DeviceAttributes as A1Attributes
+from midealocal.devices.ac import DeviceAttributes as ACAttributes
+from midealocal.devices.b0 import DeviceAttributes as B0Attributes
+from midealocal.devices.b1 import DeviceAttributes as B1Attributes
+from midealocal.devices.b3 import DeviceAttributes as B3Attributes
+from midealocal.devices.b4 import DeviceAttributes as B4Attributes
+from midealocal.devices.b6 import DeviceAttributes as B6Attributes
+from midealocal.devices.bf import DeviceAttributes as BFAttributes
+from midealocal.devices.c2 import DeviceAttributes as C2Attributes
+from midealocal.devices.c3 import DeviceAttributes as C3Attributes
+from midealocal.devices.ca import DeviceAttributes as CAAttributes
+from midealocal.devices.cc import DeviceAttributes as CCAttributes
+from midealocal.devices.cd import DeviceAttributes as CDAttributes
+from midealocal.devices.ce import DeviceAttributes as CEAttributes
+from midealocal.devices.cf import DeviceAttributes as CFAttributes
+from midealocal.devices.da import DeviceAttributes as DAAttributes
+from midealocal.devices.db import DeviceAttributes as DBAttributes
+from midealocal.devices.dc import DeviceAttributes as DCAttributes
+from midealocal.devices.e1 import DeviceAttributes as E1Attributes
+from midealocal.devices.e2 import DeviceAttributes as E2Attributes
+from midealocal.devices.e3 import DeviceAttributes as E3Attributes
+from midealocal.devices.e6 import DeviceAttributes as E6Attributes
+from midealocal.devices.e8 import DeviceAttributes as E8Attributes
+from midealocal.devices.ea import DeviceAttributes as EAAttributes
+from midealocal.devices.ec import DeviceAttributes as ECAttributes
+from midealocal.devices.ed import DeviceAttributes as EDAttributes
+from midealocal.devices.fa import DeviceAttributes as FAAttributes
+from midealocal.devices.fb import DeviceAttributes as FBAttributes
+from midealocal.devices.fc import DeviceAttributes as FCAttributes
+from midealocal.devices.fd import DeviceAttributes as FDAttributes
+
 
 MIDEA_DEVICES = {
     0x13: {

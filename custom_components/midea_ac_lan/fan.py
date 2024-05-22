@@ -10,10 +10,13 @@ from homeassistant.const import (
     Platform,
 )
 
-from .const import DEVICES, DOMAIN
-from .midea.devices.ac.device import DeviceAttributes as ACAttributes
-from .midea.devices.ce.device import DeviceAttributes as CEAttributes
-from .midea.devices.x40.device import DeviceAttributes as X40Attributes
+from .const import (
+    DOMAIN,
+    DEVICES,
+)
+from midealocal.devices.ac import DeviceAttributes as ACAttributes
+from midealocal.devices.ce import DeviceAttributes as CEAttributes
+from midealocal.devices.x40 import DeviceAttributes as X40Attributes
 from .midea_devices import MIDEA_DEVICES
 from .midea_entity import MideaEntity
 

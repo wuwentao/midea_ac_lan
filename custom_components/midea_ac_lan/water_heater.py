@@ -17,10 +17,13 @@ from homeassistant.const import (
     UnitOfTemperature,
 )
 
-from .const import DEVICES, DOMAIN
-from .midea.devices.c3.device import DeviceAttributes as C3Attributes
-from .midea.devices.cd.device import DeviceAttributes as CDAttributes
-from .midea.devices.e6.device import DeviceAttributes as E6Attributes
+from .const import (
+    DOMAIN,
+    DEVICES
+)
+from midealocal.devices.e6 import DeviceAttributes as E6Attributes
+from midealocal.devices.c3 import DeviceAttributes as C3Attributes
+from midealocal.devices.cd import DeviceAttributes as CDAttributes
 from .midea_devices import MIDEA_DEVICES
 from .midea_entity import MideaEntity
 

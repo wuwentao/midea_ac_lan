@@ -2,7 +2,8 @@
   "domain": "midea_ac_lan",
   "name": "Midea AC LAN",
   "codeowners": [
-    "@wuwentao"
+    "@wuwentao",
+    "@rokam"
   ],
   "config_flow": true,
   "dependencies": [],
@@ -11,7 +12,8 @@
   "iot_class": "local_push",
   "issue_tracker": "https://github.com/wuwentao/midea_ac_lan/issues",
   "requirements": [
-    "pycryptodome"
+    "pycryptodome",
+    "midea-local==1.0.2"
   ],
   "version": "v0.3.23"
 }
