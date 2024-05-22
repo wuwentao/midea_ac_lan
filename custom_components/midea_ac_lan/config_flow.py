@@ -363,7 +363,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 len(user_input[CONF_TOKEN]) == 0 or len(user_input[CONF_KEY]) == 0
             ):
                 return await self.async_step_manually(error="invalid_token")
-            dm = MiedaDevice(
+            dm = MideaDevice(
                 name="",
                 device_id=user_input[CONF_DEVICE_ID],
                 device_type=user_input[CONF_TYPE],

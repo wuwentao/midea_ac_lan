@@ -12,8 +12,6 @@ from homeassistant.const import (
     UnitOfVolume,
 )
 
-from homeassistant.components.binary_sensor import BinarySensorDeviceClass
-from homeassistant.components.sensor import SensorStateClass, SensorDeviceClass
 from midealocal.devices.x26 import DeviceAttributes as X26Attributes
 from midealocal.devices.x34 import DeviceAttributes as X34Attributes
 from midealocal.devices.x40 import DeviceAttributes as X40Attributes
