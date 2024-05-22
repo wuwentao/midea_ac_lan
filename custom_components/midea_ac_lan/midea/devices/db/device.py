@@ -9,7 +9,7 @@ try:
     from enum import StrEnum
 except ImportError:
     from ...backports.enum import StrEnum
-from ...core.device import MideaDevice
+from ...core.device import MiedaDevice
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -22,7 +22,7 @@ class DeviceAttributes(StrEnum):
     time_remaining = "time_remaining"
 
 
-class MideaDBDevice(MideaDevice):
+class MideaDBDevice(MiedaDevice):
     def __init__(
             self,
             name: str,

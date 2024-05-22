@@ -8,7 +8,7 @@ try:
     from enum import StrEnum
 except ImportError:
     from ...backports.enum import StrEnum
-from ...core.device import MideaDevice
+from ...core.device import MiedaDevice
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -32,7 +32,7 @@ class DeviceAttributes(StrEnum):
     temp_fahrenheit = "temp_fahrenheit"
 
 
-class MideaCCDevice(MideaDevice):
+class MideaCCDevice(MiedaDevice):
     _fan_speeds_7level = {
         0x01: "Level 1", 0x02: "Level 2", 0x04: "Level 3",
         0x08: "Level 4", 0x10: "Level 5", 0x20: "Level 6",

@@ -41,7 +41,7 @@ class ParseMessageResult(IntEnum):
     ERROR = 99
 
 
-class MideaDevice(threading.Thread):
+class MiedaDevice(threading.Thread):
     def __init__(self,
                  name: str,
                  device_id: int,
