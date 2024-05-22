@@ -153,8 +153,9 @@ async def async_setup_entry(hass: HomeAssistant, config_entry):
     if protocol == 3 and (key is None or key is None):
         _LOGGER.error("For V3 devices, the key and the token is required.")
         return False
-    device = await hass.async_add_import_executor_job(device_selector,
-        name,        
+    device = await hass.async_add_import_executor_job(
+        device_selector,
+        name,
         device_id,
         device_type,
         ip_address,

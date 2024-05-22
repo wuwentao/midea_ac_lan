@@ -17,10 +17,7 @@ from homeassistant.const import (
     CONF_DEVICE_ID,
     CONF_SWITCHES,
 )
-from .const import (
-    DOMAIN,
-    DEVICES
-)
+from .const import DOMAIN, DEVICES
 from midealocal.devices.x13 import DeviceAttributes as X13Attributes
 from .midea_devices import MIDEA_DEVICES
 from .midea_entity import MideaEntity
