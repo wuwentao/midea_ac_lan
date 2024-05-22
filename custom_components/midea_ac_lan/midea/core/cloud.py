@@ -275,6 +275,8 @@ class MeijuCloud(MideaCloud):
                             model_number = int(appliance.get("modelNumber", 0))
                         except ValueError:
                             model_number = 0
+                        except TypeError:
+                            model_number = 0
                         device_info = {
                             "name": appliance.get("name"),
                             "type": int(appliance.get("type"), 16),
