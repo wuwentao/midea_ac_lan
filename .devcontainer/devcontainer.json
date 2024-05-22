@@ -18,15 +18,14 @@
 				"ryanluker.vscode-coverage-gutters",
 				"ms-python.vscode-pylance",
 				"github.vscode-github-actions",
-				"GitHub.vscode-pull-request-github"
+				"GitHub.vscode-pull-request-github",
+				"ms-python.black-formatter"
 			],
 			"settings": {
 				"files.eol": "\n",
 				"editor.tabSize": 4,
 				"python.pythonPath": "/usr/bin/python3",
 				"python.analysis.autoSearchPaths": false,
-				"python.formatting.provider": "black",
-				"python.formatting.blackPath": "/usr/local/py-utils/bin/black",
 				"editor.formatOnPaste": false,
 				"editor.formatOnSave": true,
 				"editor.formatOnType": true
