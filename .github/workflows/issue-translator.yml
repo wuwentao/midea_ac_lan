@@ -8,6 +8,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
     steps:
       - uses: usthe/issues-translate-action@v2.7
         with:
