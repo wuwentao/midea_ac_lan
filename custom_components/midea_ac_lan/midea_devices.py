@@ -875,7 +875,7 @@ MIDEA_DEVICES = {
                 "icon": "mdi:air-conditioner",
                 "name": "Zone2 Thermostat",
                 "zone": 1,
-                "default": True,
+                "default": False,
             },
             "water_heater": {
                 "type": Platform.WATER_HEATER,
