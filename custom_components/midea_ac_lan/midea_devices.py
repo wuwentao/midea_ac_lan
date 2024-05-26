@@ -11,6 +11,7 @@ from homeassistant.const import (
     UnitOfTime,
     UnitOfVolume,
 )
+
 from midealocal.devices.a1 import DeviceAttributes as A1Attributes
 from midealocal.devices.ac import DeviceAttributes as ACAttributes
 from midealocal.devices.b0 import DeviceAttributes as B0Attributes
@@ -874,7 +875,7 @@ MIDEA_DEVICES = {
                 "icon": "mdi:air-conditioner",
                 "name": "Zone2 Thermostat",
                 "zone": 1,
-                "default": True,
+                "default": False,
             },
             "water_heater": {
                 "type": Platform.WATER_HEATER,
