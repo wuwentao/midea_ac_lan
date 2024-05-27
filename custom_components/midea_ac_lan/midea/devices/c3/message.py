@@ -168,7 +168,10 @@ class C3Notify1MessageBody(MessageBody):
             + (body[data_offset + 7] << 8)
             + (body[data_offset + 8])
         )
-        self.outdoor_temperature = int(body[data_offset + 9])
+        base_value = body[data_offset + 9]
+        self.outdoor_temperature = (
+            (base_value - 256) if base_value > 127 else base_value
+        )
 
 
 class MessageC3Response(MessageResponse):
