@@ -11,7 +11,6 @@ from homeassistant.const import (
     UnitOfTime,
     UnitOfVolume,
 )
-
 from midealocal.devices.a1 import DeviceAttributes as A1Attributes
 from midealocal.devices.ac import DeviceAttributes as ACAttributes
 from midealocal.devices.b0 import DeviceAttributes as B0Attributes
