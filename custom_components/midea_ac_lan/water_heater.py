@@ -121,7 +121,7 @@ class MideaWaterHeater(MideaEntity, WaterHeaterEntity):
 
     @property
     def operation_list(self):
-        return getattr(self._device, "preset_modes")
+        return self._device.preset_modes
 
     def turn_on(self):
         self._device.set_attribute(attr="power", value=True)
@@ -140,7 +140,10 @@ class MideaWaterHeater(MideaEntity, WaterHeaterEntity):
             self.schedule_update_ha_state()
         except Exception as e:
             _LOGGER.debug(
-                f"Entity {self.entity_id} update_state {repr(e)}, status = {status}"
+                "Entity %s update_state %s, status = %s",
+                self.entity_id,
+                repr(e),
+                status,
             )
 
 

@@ -112,7 +112,10 @@ class MideaFan(MideaEntity, FanEntity):
             self.schedule_update_ha_state()
         except Exception as e:
             _LOGGER.debug(
-                f"Entity {self.entity_id} update_state {repr(e)}, status = {status}"
+                "Entity %s update_state %s, status = %s",
+                self.entity_id,
+                repr(e),
+                status,
             )
 
 
@@ -177,7 +180,8 @@ class MideaACFreshAirFan(MideaFan):
     def set_percentage(self, percentage: int):
         fan_speed = int(percentage / self.percentage_step + 0.5)
         self._device.set_attribute(
-            attr=ACAttributes.fresh_air_fan_speed, value=fan_speed
+            attr=ACAttributes.fresh_air_fan_speed,
+            value=fan_speed,
         )
 
     def set_preset_mode(self, preset_mode: str):

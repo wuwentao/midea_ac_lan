@@ -51,7 +51,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
     0x13: {
         "name": "Light",
         "entities": {
-            "light": {"type": Platform.LIGHT, "icon": "mdi:lightbulb", "default": True}
+            "light": {"type": Platform.LIGHT, "icon": "mdi:lightbulb", "default": True},
         },
     },
     0x26: {

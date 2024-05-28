@@ -89,7 +89,7 @@ class ConfigFlow(config_entries.ConfigFlow):
     def _save_device_config(self, data: dict):
         os.makedirs(self.hass.config.path(STORAGE_PATH), exist_ok=True)
         record_file = self.hass.config.path(
-            f"{STORAGE_PATH}/{data[CONF_DEVICE_ID]}.json"
+            f"{STORAGE_PATH}/{data[CONF_DEVICE_ID]}.json",
         )
         save_json(record_file, data)
 
@@ -121,7 +121,7 @@ class ConfigFlow(config_entries.ConfigFlow):
                         ^ int(json_data[CONF_ACCOUNT].encode("utf-8").hex(), 16)
                     ),
                     "X",
-                )
+                ),
             ).decode("UTF-8")
         return json_data
 
@@ -139,7 +139,7 @@ class ConfigFlow(config_entries.ConfigFlow):
     def _already_configured(self, device_id, ip_address):
         for entry in self._async_current_entries():
             if device_id == entry.data.get(
-                CONF_DEVICE_ID
+                CONF_DEVICE_ID,
             ) or ip_address == entry.data.get(CONF_IP_ADDRESS):
                 return True
         return False
@@ -156,7 +156,7 @@ class ConfigFlow(config_entries.ConfigFlow):
         return self.async_show_form(
             step_id="user",
             data_schema=vol.Schema(
-                {vol.Required("action", default="discovery"): vol.In(ADD_WAY)}
+                {vol.Required("action", default="discovery"): vol.In(ADD_WAY)},
             ),
             errors={"base": error} if error else None,
         )
@@ -189,7 +189,7 @@ class ConfigFlow(config_entries.ConfigFlow):
                     vol.Required(CONF_ACCOUNT): str,
                     vol.Required(CONF_PASSWORD): str,
                     vol.Required(CONF_SERVER, default=1): vol.In(SERVERS),
-                }
+                },
             ),
             errors={"base": error} if error else None,
         )
@@ -235,7 +235,7 @@ class ConfigFlow(config_entries.ConfigFlow):
         return self.async_show_form(
             step_id="discovery",
             data_schema=vol.Schema(
-                {vol.Required(CONF_IP_ADDRESS, default="auto"): str}
+                {vol.Required(CONF_IP_ADDRESS, default="auto"): str},
             ),
             errors={"base": error} if error else None,
         )
@@ -259,7 +259,8 @@ class ConfigFlow(config_entries.ConfigFlow):
                     CONF_KEY: storage_device.get(CONF_KEY),
                 }
                 _LOGGER.debug(
-                    f"Loaded configuration for device {device_id} from storage"
+                    "Loaded configuration for device %s from storage",
+                    device_id,
                 )
                 return await self.async_step_manually()
             else:
@@ -292,16 +293,16 @@ class ConfigFlow(config_entries.ConfigFlow):
                 if device.get(CONF_PROTOCOL) == 3:
                     if self.account[CONF_SERVER] == "美的美居":
                         _LOGGER.debug(
-                            "Try to get the Token and the Key use the preset MSmartHome account"
+                            "Try to get the Token and the Key use the preset MSmartHome account",
                         )
                         self.cloud = get_midea_cloud(
                             "MSmartHome",
                             self.session,
                             bytes.fromhex(
-                                format((PRESET_ACCOUNT[0] ^ PRESET_ACCOUNT[1]), "X")
+                                format((PRESET_ACCOUNT[0] ^ PRESET_ACCOUNT[1]), "X"),
                             ).decode("ASCII"),
                             bytes.fromhex(
-                                format((PRESET_ACCOUNT[0] ^ PRESET_ACCOUNT[2]), "X")
+                                format((PRESET_ACCOUNT[0] ^ PRESET_ACCOUNT[2]), "X"),
                             ).decode("ASCII"),
                         )
                         if not await self.cloud.login():
@@ -335,9 +336,10 @@ class ConfigFlow(config_entries.ConfigFlow):
             data_schema=vol.Schema(
                 {
                     vol.Required(
-                        CONF_DEVICE, default=list(self.available_device.keys())[0]
+                        CONF_DEVICE,
+                        default=list(self.available_device.keys())[0],
                     ): vol.In(self.available_device),
-                }
+                },
             ),
             errors={"base": error} if error else None,
         )
@@ -392,7 +394,8 @@ class ConfigFlow(config_entries.ConfigFlow):
                 }
                 self._save_device_config(data)
                 return self.async_create_entry(
-                    title=f"{user_input[CONF_NAME]}", data=data
+                    title=f"{user_input[CONF_NAME]}",
+                    data=data,
                 )
             else:
                 return await self.async_step_manually(error="config_incorrect")
@@ -409,7 +412,8 @@ class ConfigFlow(config_entries.ConfigFlow):
                         ),
                     ): str,
                     vol.Required(
-                        CONF_DEVICE_ID, default=self.found_device.get(CONF_DEVICE_ID)
+                        CONF_DEVICE_ID,
+                        default=self.found_device.get(CONF_DEVICE_ID),
                     ): int,
                     vol.Required(
                         CONF_TYPE,
@@ -420,7 +424,8 @@ class ConfigFlow(config_entries.ConfigFlow):
                         ),
                     ): vol.In(self.supports),
                     vol.Required(
-                        CONF_IP_ADDRESS, default=self.found_device.get(CONF_IP_ADDRESS)
+                        CONF_IP_ADDRESS,
+                        default=self.found_device.get(CONF_IP_ADDRESS),
                     ): str,
                     vol.Required(
                         CONF_PORT,
@@ -470,7 +475,7 @@ class ConfigFlow(config_entries.ConfigFlow):
                             else ""
                         ),
                     ): str,
-                }
+                },
             ),
             errors={"base": error} if error else None,
         )
@@ -512,7 +517,7 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
             if attribute_config.get("type") in EXTRA_SENSOR:
                 sensors[attribute_name] = attribute_config.get("name")
             elif attribute_config.get(
-                "type"
+                "type",
             ) in EXTRA_CONTROL and not attribute_config.get("default"):
                 switches[attribute_name] = attribute_config.get("name")
         ip_address = self._config_entry.options.get(CONF_IP_ADDRESS, None)
@@ -520,18 +525,18 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
             ip_address = self._config_entry.data.get(CONF_IP_ADDRESS, None)
         refresh_interval = self._config_entry.options.get(CONF_REFRESH_INTERVAL, 30)
         extra_sensors = list(
-            set(sensors.keys()) & set(self._config_entry.options.get(CONF_SENSORS, []))
+            set(sensors.keys()) & set(self._config_entry.options.get(CONF_SENSORS, [])),
         )
         extra_switches = list(
             set(switches.keys())
-            & set(self._config_entry.options.get(CONF_SWITCHES, []))
+            & set(self._config_entry.options.get(CONF_SWITCHES, [])),
         )
         customize = self._config_entry.options.get(CONF_CUSTOMIZE, "")
         data_schema = vol.Schema(
             {
                 vol.Required(CONF_IP_ADDRESS, default=ip_address): str,
                 vol.Required(CONF_REFRESH_INTERVAL, default=refresh_interval): int,
-            }
+            },
         )
         if len(sensors) > 0:
             data_schema = data_schema.extend(
@@ -539,8 +544,8 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                     vol.Required(
                         CONF_SENSORS,
                         default=extra_sensors,
-                    ): cv.multi_select(sensors)
-                }
+                    ): cv.multi_select(sensors),
+                },
             )
         if len(switches) > 0:
             data_schema = data_schema.extend(
@@ -548,16 +553,16 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                     vol.Required(
                         CONF_SWITCHES,
                         default=extra_switches,
-                    ): cv.multi_select(switches)
-                }
+                    ): cv.multi_select(switches),
+                },
             )
         data_schema = data_schema.extend(
             {
                 vol.Optional(
                     CONF_CUSTOMIZE,
                     default=customize,
-                ): str
-            }
+                ): str,
+            },
         )
 
         return self.async_show_form(step_id="init", data_schema=data_schema)
