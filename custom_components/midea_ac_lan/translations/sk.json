@@ -1,119 +1,119 @@
 {
-    "config": {
-        "error": {
-            "preset_account": "Failed to login with preset account, please report this issue",
-            "login_failed": "Failed to login, account or password was wrong",
-            "no_devices": "V sieti sa nenašli žiadne nové dostupné zariadenia",
-            "device_exist": "Spotrebič je už nakonfigurovaný",
-            "config_incorrect": "Konfigurácia je nesprávna",
-            "connect_error": "Nedá sa pripojiť k spotrebiču",
-            "invalid_token": "Token alebo Key v nesprávnom formáte"
-        },
-        "step": {
-            "user": {
-                "data": {
-                    "way": "Pridávanie spotrebičov"
-                },
-                "description": "Vyberte spôsob pridávania zariadení",
-                "title": "Pridať nový spotrebič"
-            },
-            "login": {
-                "data": {
-                    "account": "Account",
-                    "password": "Password"
-                },
-                "description": "Login and storage your Midea account only for getting the appliance info.\nYou can remove this configuration after all appliance configured.",
-                "title": "Login"
-            },
-            "discovery": {
-                "description": "Zadajte IP adresu pre zariadenie, zadajte \"auto\" pre automatické vyhľadávanie.\nNa vyhľadávanie v rámci určitej siete môžete použiť aj IP adresu, napríklad \"192.168.1.255\".",
-                "title": "Hľadať",
-                "data": {
-                    "ip_address": "IP adresa"
-                }
-            },
-            "list":{
-                "description": "{table}",
-                "title": "Spotrebiče"
-            },
-            "auto": {
-                "data": {
-                    "device": "Spotrebiče"
-                },
-                "description": "Vyberte zariadenie, ktoré chcete pridať",
-                "title": "Našiel sa nový spotrebič"
-            },
-            "manually": {
-                "data": {
-                    "name": "Názov (napr. AC obývačka)",
-                    "device_id": "Kód spotrebiča",
-                    "type": "Typ",
-                    "ip_address": "IP adresa",
-                    "port": "Port",
-                    "model": "Model",
-                    "subtype": "Podtyp",
-                    "protocol": "Protokol",
-                    "token": "Token",
-                    "key": "Key"
-                },
-                "description": "Konfigurácia spotrebiča",
-                "title": "Nový spotrebič"
-            }
-        }
+  "config": {
+    "error": {
+      "preset_account": "Failed to login with preset account, please report this issue",
+      "login_failed": "Failed to login, account or password was wrong",
+      "no_devices": "V sieti sa nenašli žiadne nové dostupné zariadenia",
+      "device_exist": "Spotrebič je už nakonfigurovaný",
+      "config_incorrect": "Konfigurácia je nesprávna",
+      "connect_error": "Nedá sa pripojiť k spotrebiču",
+      "invalid_token": "Token alebo Key v nesprávnom formáte"
     },
-    "options": {
-        "step": {
-            "init": {
-                "data": {
-                    "ip_address": "IP adresa",
-                    "refresh_interval": "Refresh interval (0 means not refreshing actively)",
-                    "sensors": "Extra Snímače",
-                    "switches": "Extra Ovládacie prvky",
-                    "customize": "Voliteľné"
-                },
-                "title": "Konfigurovať"
-            }
+    "step": {
+      "user": {
+        "data": {
+          "way": "Pridávanie spotrebičov"
         },
-        "abort": {
-            "account_option": "The account does not supports this operation.\nClick \"ADD DEVICE\" to  add a new device."
-        }
-    },
-    "services": {
-        "set_attribute": {
-            "name": "Nastaviť atribút",
-            "description": "Nastavte hodnotu atribútu zariadenia",
-            "fields" : {
-                "device_id": {
-                    "name": "Kód spotrebiča",
-                    "description": "Kód spotrebiča (ID zariadenia) spotrebiča"
-                },
-                "attribute": {
-                    "name": "Atribút",
-                    "description": "Názov atribútu, ktorý chcete nastaviť"
-                },
-                "value": {
-                    "name": "Hodnota",
-                    "description": "Hodnota atribútu, ktorú chcete nastaviť"
-                }
-            }
+        "description": "Vyberte spôsob pridávania zariadení",
+        "title": "Pridať nový spotrebič"
+      },
+      "login": {
+        "data": {
+          "account": "Account",
+          "password": "Password"
         },
-        "send_command": {
-            "name": "Prispôsobiť príkaz",
-            "description": "Pošlite do zariadenia príkaz na prispôsobenie",
-            "fields" : {
-                "device_id": {
-                    "name": "Kód spotrebiča",
-                    "description": "Kód spotrebiča (ID zariadenia) spotrebiča"
-                },
-                "cmd_type": {
-                    "name": "typ príkazu",
-                    "description": "Typ príkazu by mal byť 3 (dopyt) alebo 2 (nastaviť)"
-                },
-                "cmd_body": {
-                    "name": "obsah príkazu",
-                    "description": "Obsah príkazu, (nezahŕňa hlavičku protokolu MSmart a kontrolný súčet na konci)"
-                }
-            }
+        "description": "Login and storage your Midea account only for getting the appliance info.\nYou can remove this configuration after all appliance configured.",
+        "title": "Login"
+      },
+      "discovery": {
+        "description": "Zadajte IP adresu pre zariadenie, zadajte \"auto\" pre automatické vyhľadávanie.\nNa vyhľadávanie v rámci určitej siete môžete použiť aj IP adresu, napríklad \"192.168.1.255\".",
+        "title": "Hľadať",
+        "data": {
+          "ip_address": "IP adresa"
         }
+      },
+      "list": {
+        "description": "{table}",
+        "title": "Spotrebiče"
+      },
+      "auto": {
+        "data": {
+          "device": "Spotrebiče"
+        },
+        "description": "Vyberte zariadenie, ktoré chcete pridať",
+        "title": "Našiel sa nový spotrebič"
+      },
+      "manually": {
+        "data": {
+          "name": "Názov (napr. AC obývačka)",
+          "device_id": "Kód spotrebiča",
+          "type": "Typ",
+          "ip_address": "IP adresa",
+          "port": "Port",
+          "model": "Model",
+          "subtype": "Podtyp",
+          "protocol": "Protokol",
+          "token": "Token",
+          "key": "Key"
+        },
+        "description": "Konfigurácia spotrebiča",
+        "title": "Nový spotrebič"
+      }
     }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "ip_address": "IP adresa",
+          "refresh_interval": "Refresh interval (0 means not refreshing actively)",
+          "sensors": "Extra Snímače",
+          "switches": "Extra Ovládacie prvky",
+          "customize": "Voliteľné"
+        },
+        "title": "Konfigurovať"
+      }
+    },
+    "abort": {
+      "account_option": "The account does not supports this operation.\nClick \"ADD DEVICE\" to  add a new device."
+    }
+  },
+  "services": {
+    "set_attribute": {
+      "name": "Nastaviť atribút",
+      "description": "Nastavte hodnotu atribútu zariadenia",
+      "fields": {
+        "device_id": {
+          "name": "Kód spotrebiča",
+          "description": "Kód spotrebiča (ID zariadenia) spotrebiča"
+        },
+        "attribute": {
+          "name": "Atribút",
+          "description": "Názov atribútu, ktorý chcete nastaviť"
+        },
+        "value": {
+          "name": "Hodnota",
+          "description": "Hodnota atribútu, ktorú chcete nastaviť"
+        }
+      }
+    },
+    "send_command": {
+      "name": "Prispôsobiť príkaz",
+      "description": "Pošlite do zariadenia príkaz na prispôsobenie",
+      "fields": {
+        "device_id": {
+          "name": "Kód spotrebiča",
+          "description": "Kód spotrebiča (ID zariadenia) spotrebiča"
+        },
+        "cmd_type": {
+          "name": "typ príkazu",
+          "description": "Typ príkazu by mal byť 3 (dopyt) alebo 2 (nastaviť)"
+        },
+        "cmd_body": {
+          "name": "obsah príkazu",
+          "description": "Obsah príkazu, (nezahŕňa hlavičku protokolu MSmart a kontrolný súčet na konci)"
+        }
+      }
+    }
+  }
 }

@@ -17,21 +17,21 @@
 
 ### Default entity
 
-| EntityID                   | Class   | Description    |
-|----------------------------|---------|----------------|
-| climate.{DEVICEID}_climate | climate | Climate entity |
+| EntityID                    | Class   | Description    |
+| --------------------------- | ------- | -------------- |
+| climate.{DEVICEID}\_climate | climate | Climate entity |
 
 ### Extra entities
 
-| EntityID                             | Class  | Description        |
-|--------------------------------------|--------|--------------------|
-| sensor.{DEVICEID}_indoor_temperature | sensor | Indoor Temperature |
-| switch.{DEVICEID}_aux_heating        | switch | Aux Heating        |
-| switch.{DEVICEID}_eco_mode           | switch | ECO Mode           |
-| switch.{DEVICEID}_night_light        | switch | Night Light        |
-| switch.{DEVICEID}_power              | switch | Power              |
-| switch.{DEVICEID}_sleep_mode         | switch | Sleep Mode         |
-| switch.{DEVICEID}_swing              | switch | Swing              |
+| EntityID                              | Class  | Description        |
+| ------------------------------------- | ------ | ------------------ |
+| sensor.{DEVICEID}\_indoor_temperature | sensor | Indoor Temperature |
+| switch.{DEVICEID}\_aux_heating        | switch | Aux Heating        |
+| switch.{DEVICEID}\_eco_mode           | switch | ECO Mode           |
+| switch.{DEVICEID}\_night_light        | switch | Night Light        |
+| switch.{DEVICEID}\_power              | switch | Power              |
+| switch.{DEVICEID}\_sleep_mode         | switch | Sleep Mode         |
+| switch.{DEVICEID}\_swing              | switch | Swing              |
 
 ## Service
 
@@ -42,7 +42,7 @@
 Set the attribute of appliance. Service data:
 
 | Name      | Description                                                                              |
-|-----------|------------------------------------------------------------------------------------------|
+| --------- | ---------------------------------------------------------------------------------------- |
 | device_id | The Appliance code (Device ID) of appliance                                              |
 | attribute | "aux_heating"<br/>"eco_mode"<br/>"night_light"<br/>"power"<br />"sleep_mode"<br/>"swing" |
 | value     | true or false                                                                            |

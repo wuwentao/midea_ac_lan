@@ -8,12 +8,12 @@
 
 ### 额外生成实体
 
-| EntityID                         | 类型     | 名称             | 描述   |
-|----------------------------------|--------|----------------|------|
-| sensor.{DEVICEID}_progress       | sensor | Progress       | 当前程序 |
-| sensor.{DEVICEID}_time_remaining | sensor | Time Remaining | 剩余时间 |
-| switch.{DEVICEID}_power          | switch | Power          | 电源开关 |
-| switch.{DEVICEID}_start          | switch | Start          | 启动暂停 |
+| EntityID                          | 类型   | 名称           | 描述     |
+| --------------------------------- | ------ | -------------- | -------- |
+| sensor.{DEVICEID}\_progress       | sensor | Progress       | 当前程序 |
+| sensor.{DEVICEID}\_time_remaining | sensor | Time Remaining | 剩余时间 |
+| switch.{DEVICEID}\_power          | switch | Power          | 电源开关 |
+| switch.{DEVICEID}\_start          | switch | Start          | 启动暂停 |
 
 ## 服务
 
@@ -23,11 +23,11 @@
 
 设置设备属性, 服务数据:
 
-| 名称        | 描述                  |
-|-----------|---------------------|
-| device_id | 设备的编号(Device ID)    |
-| attribute | "power"<br/>"start" |
-| value     | true 或 false        |
+| 名称      | 描述                  |
+| --------- | --------------------- |
+| device_id | 设备的编号(Device ID) |
+| attribute | "power"<br/>"start"   |
+| value     | true 或 false         |
 
 示例
 

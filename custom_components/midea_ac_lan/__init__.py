@@ -1,4 +1,5 @@
 import logging
+from typing import cast
 
 import homeassistant.helpers.config_validation as cv
 import voluptuous as vol
@@ -55,7 +56,9 @@ async def async_setup(hass: HomeAssistant, hass_config: dict):
     hass.data.setdefault(DOMAIN, {})
     attributes = []
     for device_entities in MIDEA_DEVICES.values():
-        for attribute_name, attribute in device_entities.get("entities").items():
+        for attribute_name, attribute in cast(
+            dict, device_entities["entities"]
+        ).items():
             if (
                 attribute.get("type") in EXTRA_SWITCH
                 and attribute_name.value not in attributes

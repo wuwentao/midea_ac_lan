@@ -9,18 +9,18 @@
 
 ### 默认生成实体
 
-| 实体ID                       | 类型      | 描述    |
-|----------------------------|---------|-------|
-| climate.{DEVICEID}_climate | climate | 恒温器实体 |
+| 实体ID                      | 类型    | 描述       |
+| --------------------------- | ------- | ---------- |
+| climate.{DEVICEID}\_climate | climate | 恒温器实体 |
 
 ### 额外生成实体
 
-| EntityID                              | 类型     | 名称                  | 描述   |
-|---------------------------------------|--------|---------------------|------|
-| sensor.{DEVICEID}_current_temperature | sensor | Current Temperature | 当前温度 |
-| lock.{DEVICEID}_child_lock            | lock   | 童锁                  |      |
-| number.{DEVICEID}_heating_level       | number | 加热档位                |      |
-| switch.{DEVICEID}_power               | switch | 电源开关                |      |
+| EntityID                               | 类型   | 名称                | 描述     |
+| -------------------------------------- | ------ | ------------------- | -------- |
+| sensor.{DEVICEID}\_current_temperature | sensor | Current Temperature | 当前温度 |
+| lock.{DEVICEID}\_child_lock            | lock   | 童锁                |          |
+| number.{DEVICEID}\_heating_level       | number | 加热档位            |          |
+| switch.{DEVICEID}\_power               | switch | 电源开关            |          |
 
 ## 服务
 
@@ -30,17 +30,17 @@
 
 设置设备属性, 服务数据:
 
-| 名称        | 描述                       |
-|-----------|--------------------------|
-| device_id | 设备的编号(Device ID)         |
+| 名称      | 描述                     |
+| --------- | ------------------------ |
+| device_id | 设备的编号(Device ID)    |
 | attribute | "child_lock"<br/>"power" |
-| value     | true 或 false             |
+| value     | true 或 false            |
 
-| 名称        | 描述               |
-|-----------|------------------|
+| 名称      | 描述                  |
+| --------- | --------------------- |
 | device_id | 设备的编号(Device ID) |
-| attribute | "heating_level"  |
-| value     | 1 - 10           |
+| attribute | "heating_level"       |
+| value     | 1 - 10                |
 
 示例
 
