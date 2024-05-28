@@ -66,5 +66,8 @@ class MideaEntity(Entity):
                 self.schedule_update_ha_state()
             except Exception as e:
                 _LOGGER.debug(
-                    f"Entity {self.entity_id} update_state {repr(e)}, status = {status}"
+                    "Entity %s update_state %s, status = %s",
+                    self.entity_id,
+                    repr(e),
+                    status,
                 )

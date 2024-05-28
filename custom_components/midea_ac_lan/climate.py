@@ -183,10 +183,11 @@ class MideaClimate(MideaEntity, ClimateEntity):
             try:
                 mode = self._modes.index(hvac_mode.lower()) if hvac_mode else None
                 self._device.set_target_temperature(
-                    target_temperature=temperature, mode=mode
+                    target_temperature=temperature,
+                    mode=mode,
                 )
             except ValueError as e:
-                _LOGGER.error(f"set_temperature {e}, kwargs = {kwargs}")
+                _LOGGER.error("set_temperature %s, kwargs = %s", e, kwargs)
 
     def set_hvac_mode(self, hvac_mode: str) -> None:
         hvac_mode = hvac_mode.lower()
@@ -224,7 +225,10 @@ class MideaClimate(MideaEntity, ClimateEntity):
             self.schedule_update_ha_state()
         except Exception as e:
             _LOGGER.debug(
-                f"Entity {self.entity_id} update_state {repr(e)}, status = {status}"
+                "Entity %s update_state %s, status = %s",
+                self.entity_id,
+                repr(e),
+                status,
             )
 
 
@@ -309,7 +313,8 @@ class MideaACClimate(MideaClimate):
         swing_vertical = swing & 1 > 0
         swing_horizontal = swing & 2 > 0
         self._device.set_swing(
-            swing_vertical=swing_vertical, swing_horizontal=swing_horizontal
+            swing_vertical=swing_vertical,
+            swing_horizontal=swing_horizontal,
         )
 
 
@@ -469,10 +474,12 @@ class MideaC3Climate(MideaClimate):
             try:
                 mode = self._modes.index(hvac_mode.lower()) if hvac_mode else None
                 self._device.set_target_temperature(
-                    zone=self._zone, target_temperature=temperature, mode=mode
+                    zone=self._zone,
+                    target_temperature=temperature,
+                    mode=mode,
                 )
             except ValueError as e:
-                _LOGGER.error(f"set_temperature {e}, kwargs = {kwargs}")
+                _LOGGER.error("set_temperature %s, kwargs = %s", e, kwargs)
 
     def set_hvac_mode(self, hvac_mode: str) -> None:
         hvac_mode = hvac_mode.lower()
@@ -546,7 +553,8 @@ class MideaFBClimate(MideaClimate):
             self.turn_off()
         else:
             self._device.set_attribute(
-                attr=FBAttributes.target_temperature, value=temperature
+                attr=FBAttributes.target_temperature,
+                value=temperature,
             )
 
     def set_hvac_mode(self, hvac_mode: str) -> None:

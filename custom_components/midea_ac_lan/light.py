@@ -77,7 +77,7 @@ class MideaLight(MideaEntity, LightEntity):
 
     @property
     def effect_list(self):
-        return getattr(self._device, "effects")
+        return self._device.effects
 
     @property
     def effect(self):
@@ -105,7 +105,8 @@ class MideaLight(MideaEntity, LightEntity):
                 self._device.set_attribute(attr=X13Attributes.brightness, value=value)
             if key == ATTR_COLOR_TEMP:
                 self._device.set_attribute(
-                    attr=X13Attributes.color_temperature, value=round(1000000 / value)
+                    attr=X13Attributes.color_temperature,
+                    value=round(1000000 / value),
                 )
             if key == ATTR_EFFECT:
                 self._device.set_attribute(attr=X13Attributes.effect, value=value)
@@ -118,5 +119,8 @@ class MideaLight(MideaEntity, LightEntity):
             self.schedule_update_ha_state()
         except Exception as e:
             _LOGGER.debug(
-                f"Entity {self.entity_id} update_state {repr(e)}, status = {status}"
+                "Entity %s update_state %s, status = %s",
+                self.entity_id,
+                repr(e),
+                status,
             )
