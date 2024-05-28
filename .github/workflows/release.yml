@@ -24,8 +24,8 @@ jobs:
           clean: true
       - name: Zip release file
         run: |
-          apt-get update || exit 1
-          apt-get install zip || exit 1
+          sudo apt-get update || exit 1
+          sudo apt-get install zip || exit 1
           echo "show runner hostname"
           hostname
           echo "show runner user"
@@ -44,8 +44,8 @@ jobs:
           sudo chown -R "$(id -u):$(id -g)" "$dst_dir" || exit 1
           sudo chmod -R 755 "$dst_dir" || exit 1
           cd "custom_components/midea_ac_lan/" || exit 1
-          zip -r "../midea_ac_lan.zip" "./*" || exit 1
-          cp "../midea_ac_lan.zip" "$dst_dir/midea_ac_lan.zip" || exit 1
+          zip -r ../midea_ac_lan.zip ./* || exit 1
+          cp ../midea_ac_lan.zip "$dst_dir/" || exit 1
           ls -alht "$dst_dir" || exit 1
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
