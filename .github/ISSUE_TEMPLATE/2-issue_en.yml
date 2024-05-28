@@ -1,6 +1,6 @@
 ---
 name: Bug report
-description: Intergration or entity is not working right
+description: Integration or entity is not working right
 labels: ["bug"]
 body:
   - type: input
@@ -11,7 +11,7 @@ body:
     validations:
       required: true
     attributes:
-      label: Intergration version
+      label: Integration version
       placeholder: 0.3.18
   - type: input
     validations:

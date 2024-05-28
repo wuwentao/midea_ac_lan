@@ -7,7 +7,7 @@
 - Supports fan mode
 - Supports swing mode
 - Supports preset mode
-- Supports build-in fresh air system
+- Supports built-in fresh air system
 
 ### Supported Run-Modes
 
@@ -69,7 +69,7 @@
 | switch.{DEVICEID}_swing_horizontal           | switch        | Swing Horizontal           |
 | switch.{DEVICEID}_swing_vertical             | switch        | Swing Vertical             |
 
-## Build-in fresh air system
+## Built-in fresh air system
 
 Some Midea appliance be named "Fresh Air Appliance", the protocol that actually uses the air conditioner. If your fresh air appliance is identified as an air conditioner, you should check the Fresh Air Fan entity in CONFIGURE, and use this fan entity to control your fresh air appliance.***
 
