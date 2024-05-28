@@ -28,11 +28,10 @@ from homeassistant.const import (
 from homeassistant.core import callback
 from homeassistant.helpers.aiohttp_client import async_create_clientsession
 from homeassistant.util.json import load_json
-from midealocal.cloud import get_midea_cloud
+from midealocal.cloud import MideaCloud, get_midea_cloud
 from midealocal.device import MideaDevice
 from midealocal.discover import discover
 
-from midealocal.cloud import MideaCloud
 from .const import (
     CONF_ACCOUNT,
     CONF_KEY,
