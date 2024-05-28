@@ -13,6 +13,7 @@ from homeassistant.const import (
     CONF_TYPE,
 )
 from homeassistant.core import HomeAssistant
+from midealocal.devices import device_selector
 
 from .const import (
     ALL_PLATFORM,
@@ -25,7 +26,6 @@ from .const import (
     DOMAIN,
     EXTRA_SWITCH,
 )
-from .midea.devices import async_device_selector
 from .midea_devices import MIDEA_DEVICES
 
 _LOGGER = logging.getLogger(__name__)
@@ -153,19 +153,19 @@ async def async_setup_entry(hass: HomeAssistant, config_entry):
     if protocol == 3 and (key is None or key is None):
         _LOGGER.error("For V3 devices, the key and the token is required.")
         return False
-    device = await async_device_selector(
-        hass=hass,
-        name=name,
-        device_id=device_id,
-        device_type=device_type,
-        ip_address=ip_address,
-        port=port,
-        token=token,
-        key=key,
-        protocol=protocol,
-        model=model,
-        subtype=subtype,
-        customize=customize,
+    device = await hass.async_add_import_executor_job(
+        device_selector,
+        name,
+        device_id,
+        device_type,
+        ip_address,
+        port,
+        token,
+        key,
+        protocol,
+        model,
+        subtype,
+        customize,
     )
     if refresh_interval is not None:
         device.set_refresh_interval(refresh_interval)

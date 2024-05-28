@@ -32,13 +32,13 @@ from homeassistant.const import (
     Platform,
     UnitOfTemperature,
 )
+from midealocal.devices.ac import DeviceAttributes as ACAttributes
+from midealocal.devices.c3 import DeviceAttributes as C3Attributes
+from midealocal.devices.cc import DeviceAttributes as CCAttributes
+from midealocal.devices.cf import DeviceAttributes as CFAttributes
+from midealocal.devices.fb import DeviceAttributes as FBAttributes
 
 from .const import DEVICES, DOMAIN
-from .midea.devices.ac.device import DeviceAttributes as ACAttributes
-from .midea.devices.c3.device import DeviceAttributes as C3Attributes
-from .midea.devices.cc.device import DeviceAttributes as CCAttributes
-from .midea.devices.cf.device import DeviceAttributes as CFAttributes
-from .midea.devices.fb.device import DeviceAttributes as FBAttributes
 from .midea_devices import MIDEA_DEVICES
 from .midea_entity import MideaEntity
 
