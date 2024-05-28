@@ -1,3 +1,4 @@
+from typing import Any
 from homeassistant.components.binary_sensor import BinarySensorDeviceClass
 from homeassistant.components.sensor import SensorDeviceClass, SensorStateClass
 from homeassistant.const import (
@@ -45,7 +46,7 @@ from midealocal.devices.x26 import DeviceAttributes as X26Attributes
 from midealocal.devices.x34 import DeviceAttributes as X34Attributes
 from midealocal.devices.x40 import DeviceAttributes as X40Attributes
 
-MIDEA_DEVICES = {
+MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
     0x13: {
         "name": "Light",
         "entities": {

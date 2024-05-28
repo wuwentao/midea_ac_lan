@@ -10,17 +10,17 @@
 
 ### 默认生成实体
 
-| 实体ID                       | 类型      | 描述    |
-|----------------------------|---------|-------|
-| climate.{DEVICEID}_climate | climate | 恒温器实体 |
+| 实体ID                      | 类型    | 描述       |
+| --------------------------- | ------- | ---------- |
+| climate.{DEVICEID}\_climate | climate | 恒温器实体 |
 
 ### 额外生成实体
 
-| EntityID                              | 类型     | 名称                  | 描述   |
-|---------------------------------------|--------|---------------------|------|
-| sensor.{DEVICEID}_current_temperature | sensor | Current Temperature | 当前温度 |
-| switch.{DEVICEID}_aux_heating         | switch | Aux Heating         | 电辅热  |
-| switch.{DEVICEID}_power               | switch | Power               | 电源开关 |
+| EntityID                               | 类型   | 名称                | 描述     |
+| -------------------------------------- | ------ | ------------------- | -------- |
+| sensor.{DEVICEID}\_current_temperature | sensor | Current Temperature | 当前温度 |
+| switch.{DEVICEID}\_aux_heating         | switch | Aux Heating         | 电辅热   |
+| switch.{DEVICEID}\_power               | switch | Power               | 电源开关 |
 
 ## Service
 
@@ -30,11 +30,11 @@
 
 设置设备属性, 服务数据:
 
-| 名称        | 描述                        |
-|-----------|---------------------------|
-| device_id | 设备的编号(Device ID)          |
+| 名称      | 描述                      |
+| --------- | ------------------------- |
+| device_id | 设备的编号(Device ID)     |
 | attribute | "aux_heating"<br/>"power" |
-| value     | true 或 false              |
+| value     | true 或 false             |
 
 示例
 

@@ -75,7 +75,6 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
 
 
 class MideaClimate(MideaEntity, ClimateEntity):
-
     # https://developers.home-assistant.io/blog/2024/01/24/climate-climateentityfeatures-expanded
     _enable_turn_on_off_backwards_compatibility: bool = (
         False  # maybe remove after 2025.1
@@ -176,7 +175,7 @@ class MideaClimate(MideaEntity, ClimateEntity):
     def set_temperature(self, **kwargs) -> None:
         if ATTR_TEMPERATURE not in kwargs:
             return
-        temperature = float(int((float(kwargs.get(ATTR_TEMPERATURE)) * 2) + 0.5)) / 2
+        temperature = float(int((float(kwargs[ATTR_TEMPERATURE]) * 2) + 0.5)) / 2
         hvac_mode = kwargs.get(ATTR_HVAC_MODE)
         if hvac_mode == HVACMode.OFF:
             self.turn_off()
@@ -462,7 +461,7 @@ class MideaC3Climate(MideaClimate):
     def set_temperature(self, **kwargs) -> None:
         if ATTR_TEMPERATURE not in kwargs:
             return
-        temperature = float(int((float(kwargs.get(ATTR_TEMPERATURE)) * 2) + 0.5)) / 2
+        temperature = float(int((float(kwargs[ATTR_TEMPERATURE]) * 2) + 0.5)) / 2
         hvac_mode = kwargs.get(ATTR_HVAC_MODE)
         if hvac_mode == HVACMode.OFF:
             self.turn_off()
@@ -541,7 +540,7 @@ class MideaFBClimate(MideaClimate):
     def set_temperature(self, **kwargs) -> None:
         if ATTR_TEMPERATURE not in kwargs:
             return
-        temperature = float(int((float(kwargs.get(ATTR_TEMPERATURE)) * 2) + 0.5)) / 2
+        temperature = float(int((float(kwargs[ATTR_TEMPERATURE]) * 2) + 0.5)) / 2
         hvac_mode = kwargs.get(ATTR_HVAC_MODE)
         if hvac_mode == HVACMode.OFF:
             self.turn_off()

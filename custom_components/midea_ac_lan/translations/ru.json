@@ -1,119 +1,119 @@
 {
-    "config": {
-        "error": {
-            "preset_account": "Failed to login with preset account, please report this issue",
-            "login_failed": "Failed to login, account or password was wrong",
-            "no_devices": "Новые доступные устройства в локальной сети не найдены",
-            "device_exist": "Устройство уже настроено",
-            "config_incorrect": "Некорректная конфигурация",
-            "connect_error": "Не удается подключиться к устройству",
-            "invalid_token": "Некорректный формат Token или Key"
-        },
-        "step": {
-            "user": {
-                "data": {
-                    "way": "Добавление устройства"
-                },
-                "description": "Выберите способ добавления устройств",
-                "title": "Добавить новое устройство"
-            },
-            "login": {
-                "data": {
-                    "account": "Account",
-                    "password": "Password"
-                },
-                "description": "Login and storage your Midea account only for getting the appliance info.\nYou can remove this configuration after all appliance configured.",
-                "title": "Login"
-            },
-            "discovery": {
-                "description": "Введите IP-адрес устройства, введите \"auto\", чтобы автоматически обнаружить\nВы также можете использовать IP-адрес для поиска в определенной сети, например, \"192.168.1.255\"",
-                "title": "Поиск",
-                "data": {
-                    "ip_address": "IP-адрес"
-                }
-            },
-            "list":{
-                "description": "{table}",
-                "title": "Устройства"
-            },
-            "auto": {
-                "data": {
-                    "device": "Устройства"
-                },
-                "description": "Выберите устройство для добавления",
-                "title": "Найдено новое устройство"
-            },
-            "manually": {
-                "data": {
-                    "name": "Название (например, Кондиционер в гостиной)",
-                    "device_id": "Идентификатор устройства",
-                    "type": "Тип",
-                    "ip_address": "IP-адрес",
-                    "port": "Порт",
-                    "model": "Модель",
-                    "subtype": "Подтип",
-                    "protocol": "Протокол",
-                    "token": "Token",
-                    "key": "Key"
-                },
-                "description": "Настройка устройства",
-                "title": "Новое устройство"
-            }
-        }
+  "config": {
+    "error": {
+      "preset_account": "Failed to login with preset account, please report this issue",
+      "login_failed": "Failed to login, account or password was wrong",
+      "no_devices": "Новые доступные устройства в локальной сети не найдены",
+      "device_exist": "Устройство уже настроено",
+      "config_incorrect": "Некорректная конфигурация",
+      "connect_error": "Не удается подключиться к устройству",
+      "invalid_token": "Некорректный формат Token или Key"
     },
-    "options": {
-        "step": {
-            "init": {
-                "data": {
-                    "ip_address": "IP-адрес",
-                    "refresh_interval": "Интервал обновления (0 не выполняет активное обновление)",
-                    "sensors": "Доп. сенсоры",
-                    "switches": "Доп. элементы управления",
-                    "customize": "Настроить"
-                },
-                "title": "Конфигурация"
-            }
+    "step": {
+      "user": {
+        "data": {
+          "way": "Добавление устройства"
         },
-        "abort": {
-            "account_option": "The account does not supports this operation.\nClick \"ADD DEVICE\" to  add a new device."
-        }
-    },
-    "services": {
-        "set_attribute": {
-            "name": "Установить атрибут",
-            "description": "Установить значение атрибута устройства",
-            "fields" : {
-                "device_id": {
-                    "name": "Идентификатор устройства",
-                    "description": "Код (Идентификатор) устройства"
-                },
-                "attribute": {
-                    "name": "Атрибут",
-                    "description": "Название атрибута для установки"
-                },
-                "value": {
-                    "name": "Значение",
-                    "description": "Значение атрибута для установки"
-                }
-            }
+        "description": "Выберите способ добавления устройств",
+        "title": "Добавить новое устройство"
+      },
+      "login": {
+        "data": {
+          "account": "Account",
+          "password": "Password"
         },
-        "send_command": {
-            "name": "Пользовательская команда",
-            "description": "Отправить пользовательскую команду на устройство",
-            "fields" : {
-                "device_id": {
-                    "name": "Идентификатор устройства",
-                    "description": "Код (Идентификатор) устройства"
-                },
-                "cmd_type": {
-                    "name": "Тип команды",
-                    "description": "Тип команды, может быть 3 (запрос) или 2 (установка значения)"
-                },
-                "cmd_body": {
-                    "name": "Тело команды",
-                    "description": "Тело команды (без заголовков протокола MSmart и контрольной суммы в конце)"
-                }
-            }
+        "description": "Login and storage your Midea account only for getting the appliance info.\nYou can remove this configuration after all appliance configured.",
+        "title": "Login"
+      },
+      "discovery": {
+        "description": "Введите IP-адрес устройства, введите \"auto\", чтобы автоматически обнаружить\nВы также можете использовать IP-адрес для поиска в определенной сети, например, \"192.168.1.255\"",
+        "title": "Поиск",
+        "data": {
+          "ip_address": "IP-адрес"
         }
+      },
+      "list": {
+        "description": "{table}",
+        "title": "Устройства"
+      },
+      "auto": {
+        "data": {
+          "device": "Устройства"
+        },
+        "description": "Выберите устройство для добавления",
+        "title": "Найдено новое устройство"
+      },
+      "manually": {
+        "data": {
+          "name": "Название (например, Кондиционер в гостиной)",
+          "device_id": "Идентификатор устройства",
+          "type": "Тип",
+          "ip_address": "IP-адрес",
+          "port": "Порт",
+          "model": "Модель",
+          "subtype": "Подтип",
+          "protocol": "Протокол",
+          "token": "Token",
+          "key": "Key"
+        },
+        "description": "Настройка устройства",
+        "title": "Новое устройство"
+      }
     }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "ip_address": "IP-адрес",
+          "refresh_interval": "Интервал обновления (0 не выполняет активное обновление)",
+          "sensors": "Доп. сенсоры",
+          "switches": "Доп. элементы управления",
+          "customize": "Настроить"
+        },
+        "title": "Конфигурация"
+      }
+    },
+    "abort": {
+      "account_option": "The account does not supports this operation.\nClick \"ADD DEVICE\" to  add a new device."
+    }
+  },
+  "services": {
+    "set_attribute": {
+      "name": "Установить атрибут",
+      "description": "Установить значение атрибута устройства",
+      "fields": {
+        "device_id": {
+          "name": "Идентификатор устройства",
+          "description": "Код (Идентификатор) устройства"
+        },
+        "attribute": {
+          "name": "Атрибут",
+          "description": "Название атрибута для установки"
+        },
+        "value": {
+          "name": "Значение",
+          "description": "Значение атрибута для установки"
+        }
+      }
+    },
+    "send_command": {
+      "name": "Пользовательская команда",
+      "description": "Отправить пользовательскую команду на устройство",
+      "fields": {
+        "device_id": {
+          "name": "Идентификатор устройства",
+          "description": "Код (Идентификатор) устройства"
+        },
+        "cmd_type": {
+          "name": "Тип команды",
+          "description": "Тип команды, может быть 3 (запрос) или 2 (установка значения)"
+        },
+        "cmd_body": {
+          "name": "Тело команды",
+          "description": "Тело команды (без заголовков протокола MSmart и контрольной суммы в конце)"
+        }
+      }
+    }
+  }
 }

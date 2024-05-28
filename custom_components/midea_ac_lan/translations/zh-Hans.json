@@ -1,119 +1,119 @@
 {
-    "config": {
-        "error": {
-            "preset_account": "预置账户登录失败，请报告此问题",
-            "login_failed": "登录失败, 用户名或密码错",
-            "no_devices": "未在网络上发现可用新设备",
-            "device_exist": "设备已经存在, 请添加其它设备",
-            "config_incorrect": "配置信息不正确, 请检查后重新输入",
-            "connect_error": "无法连接到指定设备",
-            "invalid_token": "Token或Key格式不正确"
-        },
-        "step": {
-            "user": {
-                "data": {
-                    "way": "添加方式"
-                },
-                "description": "选择添加设备的方式",
-                "title": "添加新设备"
-            },
-            "login": {
-                "data": {
-                    "account": "账号",
-                    "password": "密码"
-                },
-                "description": "登录并保存你的美的账户，仅用于获取添加设备时设备信息\n添加设备完成后，你可以删除该配置",
-                "title": "登录"
-            },
-            "discovery": {
-                "description": "输入设备的IP地址, 输入\"auto\"自动搜索设备\n你也可以使用IP地址在指定网络中搜索, 比如`192.168.1.255`",
-                "title": "搜索",
-                "data": {
-                    "ip_address": "IP地址"
-                }
-            },
-            "list":{
-                "description": "{table}",
-                "title": "设备"
-            },
-            "auto": {
-                "data": {
-                    "device": "设备"
-                },
-                "description": "选择设备并添加",
-                "title": "发现新设备"
-            },
-            "manually": {
-                "data": {
-                    "name": "名称(如客厅空调)",
-                    "device_id": "设备编号",
-                    "type": "设备类型",
-                    "ip_address": "IP地址",
-                    "port": "端口",
-                    "model": "型号",
-                    "subtype": "子型号",
-                    "protocol": "协议版本",
-                    "token": "Token",
-                    "key": "Key"
-                },
-                "description": "配置设备参数",
-                "title": "新设备"
-            }
-        }
+  "config": {
+    "error": {
+      "preset_account": "预置账户登录失败，请报告此问题",
+      "login_failed": "登录失败, 用户名或密码错",
+      "no_devices": "未在网络上发现可用新设备",
+      "device_exist": "设备已经存在, 请添加其它设备",
+      "config_incorrect": "配置信息不正确, 请检查后重新输入",
+      "connect_error": "无法连接到指定设备",
+      "invalid_token": "Token或Key格式不正确"
     },
-    "options": {
-        "step": {
-            "init": {
-                "data": {
-                    "ip_address": "IP地址",
-                    "refresh_interval": "刷新间隔(设0为不进行主动刷新)",
-                    "sensors": "扩展传感器",
-                    "switches": "扩展控制",
-                    "customize": "自定义"
-                },
-                "title": "配置"
-            }
+    "step": {
+      "user": {
+        "data": {
+          "way": "添加方式"
         },
-        "abort": {
-            "account_option": "账户配置不支持此操作.\n点击\"添加设备\"完成添加新设备的操作"
-        }
-    },
-    "services": {
-        "set_attribute": {
-            "name": "设置属性",
-            "description": "设置设备的属性值",
-            "fields" : {
-                "device_id": {
-                    "name": "设备编码",
-                    "description": "设备编码(Deivce ID)"
-                },
-                "attribute": {
-                    "name": "属性",
-                    "description": "要设置的属性名称"
-                },
-                "value": {
-                    "name": "值",
-                    "description": "要设置的属性值"
-                }
-            }
+        "description": "选择添加设备的方式",
+        "title": "添加新设备"
+      },
+      "login": {
+        "data": {
+          "account": "账号",
+          "password": "密码"
         },
-        "send_command": {
-            "name": "自定义命令",
-            "description": "向设备发送一个自定义命令",
-            "fields" : {
-                "device_id": {
-                    "name": "设备编码",
-                    "description": "设备编码(Device ID)"
-                },
-                "cmd_type": {
-                    "name": "命令类型",
-                    "description": "命令类型，可以为2(查询)或3(设置)"
-                },
-                "cmd_body": {
-                    "name": "命令体",
-                    "description": "命令的消息体(不包括前部的MSmart协议头及后部的校验码)"
-                }
-            }
+        "description": "登录并保存你的美的账户，仅用于获取添加设备时设备信息\n添加设备完成后，你可以删除该配置",
+        "title": "登录"
+      },
+      "discovery": {
+        "description": "输入设备的IP地址, 输入\"auto\"自动搜索设备\n你也可以使用IP地址在指定网络中搜索, 比如`192.168.1.255`",
+        "title": "搜索",
+        "data": {
+          "ip_address": "IP地址"
         }
+      },
+      "list": {
+        "description": "{table}",
+        "title": "设备"
+      },
+      "auto": {
+        "data": {
+          "device": "设备"
+        },
+        "description": "选择设备并添加",
+        "title": "发现新设备"
+      },
+      "manually": {
+        "data": {
+          "name": "名称(如客厅空调)",
+          "device_id": "设备编号",
+          "type": "设备类型",
+          "ip_address": "IP地址",
+          "port": "端口",
+          "model": "型号",
+          "subtype": "子型号",
+          "protocol": "协议版本",
+          "token": "Token",
+          "key": "Key"
+        },
+        "description": "配置设备参数",
+        "title": "新设备"
+      }
     }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "ip_address": "IP地址",
+          "refresh_interval": "刷新间隔(设0为不进行主动刷新)",
+          "sensors": "扩展传感器",
+          "switches": "扩展控制",
+          "customize": "自定义"
+        },
+        "title": "配置"
+      }
+    },
+    "abort": {
+      "account_option": "账户配置不支持此操作.\n点击\"添加设备\"完成添加新设备的操作"
+    }
+  },
+  "services": {
+    "set_attribute": {
+      "name": "设置属性",
+      "description": "设置设备的属性值",
+      "fields": {
+        "device_id": {
+          "name": "设备编码",
+          "description": "设备编码(Deivce ID)"
+        },
+        "attribute": {
+          "name": "属性",
+          "description": "要设置的属性名称"
+        },
+        "value": {
+          "name": "值",
+          "description": "要设置的属性值"
+        }
+      }
+    },
+    "send_command": {
+      "name": "自定义命令",
+      "description": "向设备发送一个自定义命令",
+      "fields": {
+        "device_id": {
+          "name": "设备编码",
+          "description": "设备编码(Device ID)"
+        },
+        "cmd_type": {
+          "name": "命令类型",
+          "description": "命令类型，可以为2(查询)或3(设置)"
+        },
+        "cmd_body": {
+          "name": "命令体",
+          "description": "命令的消息体(不包括前部的MSmart协议头及后部的校验码)"
+        }
+      }
+    }
+  }
 }

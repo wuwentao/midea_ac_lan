@@ -32,6 +32,7 @@ from midealocal.cloud import get_midea_cloud
 from midealocal.device import MideaDevice
 from midealocal.discover import discover
 
+from midealocal.cloud import MideaCloud
 from .const import (
     CONF_ACCOUNT,
     CONF_KEY,
@@ -70,19 +71,19 @@ PRESET_ACCOUNT = [
 ]
 
 
-class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
-    available_device = []
-    devices = {}
-    found_device = {}
-    supports = {}
-    unsorted = {}
-    account = {}
-    cloud = None
+class ConfigFlow(config_entries.ConfigFlow):
+    available_device: list = []
+    devices: dict = {}
+    found_device: dict = {}
+    supports: dict = {}
+    unsorted: dict = {}
+    account: dict = {}
+    cloud: MideaCloud | None = None
     session = None
     for device_type, device_info in MIDEA_DEVICES.items():
         unsorted[device_type] = device_info["name"]
 
-    unsorted = sorted(unsorted.items(), key=lambda x: x[1])
+    unsorted = dict(sorted(unsorted.items(), key=lambda x: x[1]))
     for item in unsorted:
         supports[item[0]] = item[1]
 

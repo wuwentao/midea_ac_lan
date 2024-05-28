@@ -19,7 +19,6 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
 
 
 class MideaLock(MideaEntity, LockEntity):
-
     @property
     def is_locked(self):
         return self._device.get_attribute(self._entity_key)
