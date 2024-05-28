@@ -26,10 +26,10 @@
         "title": "Login"
       },
       "discovery": {
-        "description": "Saisissez l'adresse IP de l'appareil, entrez \"auto\" pour découvrir automatiquement.\nVous pouvez également utiliser une adresse IP pour rechercher dans un réseau spécifié, comme \"192.168.1.255\".",
+        "description": "Saisissez l'address IP de l'appareil, entrez \"auto\" pour découvrir automatiquement.\nVous pouvez également utiliser une address IP pour rechercher dans un réseau spécifié, comme \"192.168.1.255\".",
         "title": "Recherche",
         "data": {
-          "ip_address": "Adresse IP"
+          "ip_address": "Address IP"
         }
       },
       "list": {
@@ -48,7 +48,7 @@
           "name": "Nom (ex: Clim Salon)",
           "device_id": "Code appareil",
           "type": "Type",
-          "ip_address": "Adresse IP",
+          "ip_address": "Address IP",
           "port": "Port",
           "model": "Modèle",
           "subtype": "Soustype",
@@ -65,7 +65,7 @@
     "step": {
       "init": {
         "data": {
-          "ip_address": "Adresse IP",
+          "ip_address": "Address IP",
           "refresh_interval": "Refresh interval (0 means not refreshing actively)",
           "sensors": "Capteurs supplémentaire",
           "switches": "Contrôles supplémentaire",
@@ -88,7 +88,7 @@
           "description": "Code de l'appareil (ID de l'appareil)"
         },
         "attribute": {
-          "name": "Attribut",
+          "name": "Attribute",
           "description": "Nom de l'attribut que vous souhaitez définir"
         },
         "value": {
@@ -111,7 +111,7 @@
         },
         "cmd_body": {
           "name": "command body",
-          "description": "The body of command, (not include MSmart protocol head and cheksum at the end)"
+          "description": "The body of command, (not include MSmart protocol head and checksum at the end)"
         }
       }
     }

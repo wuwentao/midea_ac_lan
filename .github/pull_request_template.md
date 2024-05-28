@@ -2,7 +2,7 @@
 
 ## Reason & Detail
 
-## Releted issue
+## Related issue
 
 fix #X
 
