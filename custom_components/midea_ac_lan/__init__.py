@@ -3,6 +3,7 @@ from typing import Any, cast
 
 import homeassistant.helpers.config_validation as cv
 import voluptuous as vol
+from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import (
     CONF_CUSTOMIZE,
     CONF_DEVICE_ID,
@@ -13,9 +14,8 @@ from homeassistant.const import (
     CONF_TOKEN,
     CONF_TYPE,
 )
-from homeassistant.config_entries import ConfigEntry
-from homeassistant.helpers.typing import ConfigType
 from homeassistant.core import HomeAssistant
+from homeassistant.helpers.typing import ConfigType
 from midealocal.devices import device_selector
 
 from .const import (
