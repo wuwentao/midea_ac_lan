@@ -24,8 +24,8 @@ jobs:
           clean: true
       - name: Zip release file
         run: |
-          apt-get update || exit 1
-          apt-get install zip || exit 1
+          sudo apt-get update || exit 1
+          sudo apt-get install zip || exit 1
           echo "show runner hostname"
           hostname
           echo "show runner user"
