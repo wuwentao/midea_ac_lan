@@ -1,5 +1,5 @@
 import logging
-from typing import cast
+from typing import Any, cast
 
 import homeassistant.helpers.config_validation as cv
 import voluptuous as vol
@@ -13,6 +13,8 @@ from homeassistant.const import (
     CONF_TOKEN,
     CONF_TYPE,
 )
+from homeassistant.config_entries import ConfigEntry
+from homeassistant.helpers.typing import ConfigType
 from homeassistant.core import HomeAssistant
 from midealocal.devices import device_selector
 
@@ -32,7 +34,7 @@ from .midea_devices import MIDEA_DEVICES
 _LOGGER = logging.getLogger(__name__)
 
 
-async def update_listener(hass, config_entry):
+async def update_listener(hass: HomeAssistant, config_entry: ConfigEntry) -> None:
     for platform in ALL_PLATFORM:
         await hass.config_entries.async_forward_entry_unload(config_entry, platform)
     for platform in ALL_PLATFORM:
@@ -52,7 +54,7 @@ async def update_listener(hass, config_entry):
             dev.set_refresh_interval(refresh_interval)
 
 
-async def async_setup(hass: HomeAssistant, hass_config: dict):
+async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
     hass.data.setdefault(DOMAIN, {})
     attributes = []
     for device_entities in MIDEA_DEVICES.values():
@@ -65,15 +67,17 @@ async def async_setup(hass: HomeAssistant, hass_config: dict):
             ):
                 attributes.append(attribute_name.value)
 
-    def service_set_attribute(service):
-        device_id = service.data.get("device_id")
-        attr = service.data.get("attribute")
-        value = service.data.get("value")
+    def service_set_attribute(service: Any) -> None:
+        device_id = service.data["device_id"]
+        attr = service.data["attribute"]
+        value = service.data["value"]
         dev = hass.data[DOMAIN][DEVICES].get(device_id)
         if dev:
             if attr == "fan_speed" and value == "auto":
                 value = 102
-            item = MIDEA_DEVICES.get(dev.device_type).get("entities").get(attr)
+            item = None
+            if _dev := MIDEA_DEVICES.get(dev.device_type):
+                item = cast(dict, _dev["entities"]).get(attr)
             if (
                 item
                 and (item.get("type") in EXTRA_SWITCH)
@@ -89,7 +93,7 @@ async def async_setup(hass: HomeAssistant, hass_config: dict):
                     f"Appliance [{device_id}] has no attribute {attr} or value is invalid"
                 )
 
-    def service_send_command(service):
+    def service_send_command(service: Any) -> None:
         device_id = service.data.get("device_id")
         cmd_type = service.data.get("cmd_type")
         cmd_body = service.data.get("cmd_body")
@@ -132,7 +136,7 @@ async def async_setup(hass: HomeAssistant, hass_config: dict):
     return True
 
 
-async def async_setup_entry(hass: HomeAssistant, config_entry):
+async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> bool:
     device_type = config_entry.data.get(CONF_TYPE)
     if device_type == CONF_ACCOUNT:
         return True
@@ -188,7 +192,7 @@ async def async_setup_entry(hass: HomeAssistant, config_entry):
     return False
 
 
-async def async_unload_entry(hass: HomeAssistant, config_entry):
+async def async_unload_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> bool:
     device_type = config_entry.data.get(CONF_TYPE)
     if device_type == CONF_ACCOUNT:
         return True
