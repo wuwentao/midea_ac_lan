@@ -75,15 +75,15 @@ class ConfigFlow(config_entries.ConfigFlow):
     devices: dict = {}
     found_device: dict = {}
     supports: dict = {}
-    unsorted: dict = {}
+    unsorted: dict[int, str] = {}
     account: dict = {}
     cloud: MideaCloud | None = None
     session = None
     for device_type, device_info in MIDEA_DEVICES.items():
         unsorted[device_type] = device_info["name"]
 
-    unsorted = dict(sorted(unsorted.items(), key=lambda x: x[1]))
-    for item in unsorted:
+    sorted_device_names = sorted(unsorted.items(), key=lambda x: x[1])
+    for item in sorted_device_names:
         supports[item[0]] = item[1]
 
     def _save_device_config(self, data: dict):
