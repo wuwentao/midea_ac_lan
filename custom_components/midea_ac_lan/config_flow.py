@@ -70,7 +70,7 @@ PRESET_ACCOUNT = [
 ]
 
 
-class ConfigFlow(config_entries.ConfigFlow):
+class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     available_device: list = []
     devices: dict = {}
     found_device: dict = {}
@@ -203,7 +203,8 @@ class ConfigFlow(config_entries.ConfigFlow):
             for device_id, device in all_devices.items():
                 supported = device.get(CONF_TYPE) in self.supports.keys()
                 table += (
-                    f"\n{device_id}|{'%02X' % device.get(CONF_TYPE)}|{device.get(CONF_IP_ADDRESS)}|"
+                    f"\n{device_id}|{'%02X' % device.get(CONF_TYPE)}|{
+                        device.get(CONF_IP_ADDRESS)}|"
                     f"{device.get('sn')}|"
                     f"{'<font color=gree>YES</font>' if supported else '<font color=red>NO</font>'}"
                 )
@@ -221,12 +222,14 @@ class ConfigFlow(config_entries.ConfigFlow):
                 ip_address = None
             else:
                 ip_address = user_input[CONF_IP_ADDRESS]
-            self.devices = discover(self.supports.keys(), ip_address=ip_address)
+            self.devices = discover(
+                self.supports.keys(), ip_address=ip_address)
             self.available_device = {}
             for device_id, device in self.devices.items():
                 if not self._already_configured(device_id, device.get(CONF_IP_ADDRESS)):
                     self.available_device[device_id] = (
-                        f"{device_id} ({self.supports.get(device.get(CONF_TYPE))})"
+                        f"{device_id} ({self.supports.get(
+                            device.get(CONF_TYPE))})"
                     )
             if len(self.available_device) > 0:
                 return await self.async_step_auto()
@@ -289,7 +292,8 @@ class ConfigFlow(config_entries.ConfigFlow):
                 }
                 if device_info := await self.cloud.get_device_info(device_id):
                     self.found_device[CONF_NAME] = device_info.get("name")
-                    self.found_device[CONF_SUBTYPE] = device_info.get("model_number")
+                    self.found_device[CONF_SUBTYPE] = device_info.get(
+                        "model_number")
                 if device.get(CONF_PROTOCOL) == 3:
                     if self.account[CONF_SERVER] == "美的美居":
                         _LOGGER.debug(
@@ -299,10 +303,12 @@ class ConfigFlow(config_entries.ConfigFlow):
                             "MSmartHome",
                             self.session,
                             bytes.fromhex(
-                                format((PRESET_ACCOUNT[0] ^ PRESET_ACCOUNT[1]), "X"),
+                                format(
+                                    (PRESET_ACCOUNT[0] ^ PRESET_ACCOUNT[1]), "X"),
                             ).decode("ASCII"),
                             bytes.fromhex(
-                                format((PRESET_ACCOUNT[0] ^ PRESET_ACCOUNT[2]), "X"),
+                                format(
+                                    (PRESET_ACCOUNT[0] ^ PRESET_ACCOUNT[2]), "X"),
                             ).decode("ASCII"),
                         )
                         if not await self.cloud.login():
@@ -362,7 +368,8 @@ class ConfigFlow(config_entries.ConfigFlow):
             except ValueError:
                 return await self.async_step_manually(error="invalid_token")
             if user_input[CONF_PROTOCOL] == 3 and (
-                len(user_input[CONF_TOKEN]) == 0 or len(user_input[CONF_KEY]) == 0
+                len(user_input[CONF_TOKEN]) == 0 or len(
+                    user_input[CONF_KEY]) == 0
             ):
                 return await self.async_step_manually(error="invalid_token")
             dm = MideaDevice(
@@ -523,9 +530,11 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
         ip_address = self._config_entry.options.get(CONF_IP_ADDRESS, None)
         if ip_address is None:
             ip_address = self._config_entry.data.get(CONF_IP_ADDRESS, None)
-        refresh_interval = self._config_entry.options.get(CONF_REFRESH_INTERVAL, 30)
+        refresh_interval = self._config_entry.options.get(
+            CONF_REFRESH_INTERVAL, 30)
         extra_sensors = list(
-            set(sensors.keys()) & set(self._config_entry.options.get(CONF_SENSORS, [])),
+            set(sensors.keys()) & set(
+                self._config_entry.options.get(CONF_SENSORS, [])),
         )
         extra_switches = list(
             set(switches.keys())

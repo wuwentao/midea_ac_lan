@@ -5,6 +5,7 @@ set -e
 cd "$(dirname "$0")/.."
 
 python3 -m pip install --requirement requirements.txt
+python3 -m pip install --requirement requirements.dev.txt
 
 # Create config dir if not present
 if [[ ! -d "${PWD}/config" ]]; then
