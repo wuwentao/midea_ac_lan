@@ -70,7 +70,7 @@ PRESET_ACCOUNT = [
 ]
 
 
-class ConfigFlow(config_entries.ConfigFlow):
+class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     available_device: list = []
     devices: dict = {}
     found_device: dict = {}
