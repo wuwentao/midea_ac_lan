@@ -1,4 +1,5 @@
 import os
+from typing import Any
 
 import voluptuous as vol
 
@@ -75,7 +76,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     devices: dict = {}
     found_device: dict = {}
     supports: dict = {}
-    unsorted: dict[int, str] = {}
+    unsorted: dict[int, Any] = {}
     account: dict = {}
     cloud: MideaCloud | None = None
     session = None
