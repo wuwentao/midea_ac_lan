@@ -94,7 +94,7 @@ class MideaLight(MideaEntity, LightEntity):
             supported_features |= SUPPORT_EFFECT
         if self._device.get_attribute(X13Attributes.rgb_color):
             supported_features |= SUPPORT_COLOR
-        return supported_features
+        return LightEntityFeature(supported_features)
 
     def turn_on(self, **kwargs: Any):
         if not self.is_on:
