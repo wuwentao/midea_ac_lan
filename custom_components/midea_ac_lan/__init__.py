@@ -195,9 +195,9 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
             subtype=subtype,
             customize=customize,
         )
-    if refresh_interval is not None:
-        device.set_refresh_interval(refresh_interval)
     if device:
+        if refresh_interval is not None:
+            device.set_refresh_interval(refresh_interval)
         device.open()
         if DOMAIN not in hass.data:
             hass.data[DOMAIN] = {}
