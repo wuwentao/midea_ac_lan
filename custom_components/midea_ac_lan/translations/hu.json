@@ -1,119 +1,119 @@
 {
-    "config": {
-        "error": {
-            "preset_account": "Failed to login with preset account, please report this issue",
-            "login_failed": "Bejelentkezés sikertelen, a fiók vagy a jelszó helytelen",
-            "no_devices": "Nem találhatóak új eszközök a hálózaton",
-            "device_exist": "Az eszköz már be van állítva",
-            "config_incorrect": "A beállítások helytelenek",
-            "connect_error": "Nem sikerült csatlakozni az eszközhöz",
-            "invalid_token": "A Token vagy a Key formátuma helytelen"
-        },
-        "step": {
-            "user": {
-                "data": {
-                    "way": "Eszközök hozzáadása"
-                },
-                "description": "Válassza ki az eszközök hozzáadásának módját",
-                "title": "Új eszköz hozzáadása"
-            },
-            "login": {
-                "data": {
-                    "account": "Fiók",
-                    "password": "Jelszó"
-                },
-                "description": "Jelentkezzen be és tárolja el Midea-fiókját, kizárólag a készülékei információinak a megszerzéséhez.\nAz összes készülékének beállítása után eltávolíthatja ezt a konfigurációt.",
-                "title": "Bejelentkezés"
-            },
-            "discovery": {
-                "description": "Adja meg az eszköz IP címét vagy írja be az \"auto\" kifejezést az automatikus kereséshez.\nIP-címet is használhat egy megadott hálózaton belüli kereséshez, például \"192.168.1.255\".",
-                "title": "Keresés",
-                "data": {
-                    "ip_address": "IP cím"
-                }
-            },
-            "list":{
-                "description": "{table}",
-                "title": "Eszközök"
-            },
-            "auto": {
-                "data": {
-                    "device": "Eszközök"
-                },
-                "description": "Válassza ki a hozzáadandó eszközt",
-                "title": "Új eszköz található"
-            },
-            "manually": {
-                "data": {
-                    "name": "Név (pl. Nappali légkondicionáló)",
-                    "device_id": "Eszköz kód",
-                    "type": "Típus",
-                    "ip_address": "IP cím",
-                    "port": "Port",
-                    "model": "Model",
-                    "subtype": "Altípus",
-                    "protocol": "Protokoll",
-                    "token": "Token",
-                    "key": "Key"
-                },
-                "description": "Eszköz konfigurációja",
-                "title": "Új eszköz"
-            }
-        }
+  "config": {
+    "error": {
+      "preset_account": "Failed to login with preset account, please report this issue",
+      "login_failed": "Bejelentkezés sikertelen, a fiók vagy a jelszó helytelen",
+      "no_devices": "Nem találhatóak új eszközök a hálózaton",
+      "device_exist": "Az eszköz már be van állítva",
+      "config_incorrect": "A beállítások helytelenek",
+      "connect_error": "Nem sikerült csatlakozni az eszközhöz",
+      "invalid_token": "A Token vagy a Key formátuma helytelen"
     },
-    "options": {
-        "step": {
-            "init": {
-                "data": {
-                    "ip_address": "IP cím",
-                    "refresh_interval": "Frissítési intervallum (0 azt jelenti, hogy nincs aktív frissítés)",
-                    "sensors": "Extra érzékelők",
-                    "switches": "Extra vezérlők",
-                    "customize": "Személyre szabás"
-                },
-                "title": "Konfigurálás"
-            }
+    "step": {
+      "user": {
+        "data": {
+          "way": "Eszközök hozzáadása"
         },
-        "abort": {
-            "account_option": "A fiók nem támogatja ezt a műveletet.\nKattintson az \"ESZKÖZ HOZZÁADÁSA\" gombra egy új eszköz hozzáadásához."
-        }
-    },
-    "services": {
-        "set_attribute": {
-            "name": "Attribútum beállítása",
-            "description": "Állítsa be az eszköz attribútumának értékét",
-            "fields" : {
-                "device_id": {
-                    "name": "Eszköz kód",
-                    "description": "A készülék kódja (eszköz ID)"
-                },
-                "attribute": {
-                    "name": "Attribútum",
-                    "description": "A beállítandó attribútum neve"
-                },
-                "value": {
-                    "name": "Érték",
-                    "description": "A beállítandó attribútum értéke"
-                }
-            }
+        "description": "Válassza ki az eszközök hozzáadásának módját",
+        "title": "Új eszköz hozzáadása"
+      },
+      "login": {
+        "data": {
+          "account": "Fiók",
+          "password": "Jelszó"
         },
-        "send_command": {
-            "name": "Egyéni parancs",
-            "description": "Küldjön egy egyéni parancsot az eszköznek",
-            "fields" : {
-                "device_id": {
-                    "name": "Eszköz kód",
-                    "description": "A készülék kódja (Eszköz ID)"
-                },
-                "cmd_type": {
-                    "name": "Parancs típusa",
-                    "description": "A parancs típusa, lehet 3 (lekérdezés) vagy 2 (beállítás)"
-                },
-                "cmd_body": {
-                    "name": "Parancs törzse",
-                    "description": "A parancs törzse (nem tartalmazza az MSmart protokoll fejlécét és a végén lévő ellenőrző összeget)"
-                }
-            }
+        "description": "Jelentkezzen be és tárolja el Midea-fiókját, kizárólag a készülékei információinak a megszerzéséhez.\nAz összes készülékének beállítása után eltávolíthatja ezt a konfigurációt.",
+        "title": "Bejelentkezés"
+      },
+      "discovery": {
+        "description": "Adja meg az eszköz IP címét vagy írja be az \"auto\" kifejezést az automatikus kereséshez.\nIP-címet is használhat egy megadott hálózaton belüli kereséshez, például \"192.168.1.255\".",
+        "title": "Keresés",
+        "data": {
+          "ip_address": "IP cím"
         }
+      },
+      "list": {
+        "description": "{table}",
+        "title": "Eszközök"
+      },
+      "auto": {
+        "data": {
+          "device": "Eszközök"
+        },
+        "description": "Válassza ki a hozzáadandó eszközt",
+        "title": "Új eszköz található"
+      },
+      "manually": {
+        "data": {
+          "name": "Név (pl. Nappali légkondicionáló)",
+          "device_id": "Eszköz kód",
+          "type": "Típus",
+          "ip_address": "IP cím",
+          "port": "Port",
+          "model": "Model",
+          "subtype": "Altípus",
+          "protocol": "Protokoll",
+          "token": "Token",
+          "key": "Key"
+        },
+        "description": "Eszköz konfigurációja",
+        "title": "Új eszköz"
+      }
     }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "ip_address": "IP cím",
+          "refresh_interval": "Frissítési intervallum (0 azt jelenti, hogy nincs aktív frissítés)",
+          "sensors": "Extra érzékelők",
+          "switches": "Extra vezérlők",
+          "customize": "Személyre szabás"
+        },
+        "title": "Konfigurálás"
+      }
+    },
+    "abort": {
+      "account_option": "A fiók nem támogatja ezt a műveletet.\nKattintson az \"ESZKÖZ HOZZÁADÁSA\" gombra egy új eszköz hozzáadásához."
+    }
+  },
+  "services": {
+    "set_attribute": {
+      "name": "Attribútum beállítása",
+      "description": "Állítsa be az eszköz attribútumának értékét",
+      "fields": {
+        "device_id": {
+          "name": "Eszköz kód",
+          "description": "A készülék kódja (eszköz ID)"
+        },
+        "attribute": {
+          "name": "Attribútum",
+          "description": "A beállítandó attribútum neve"
+        },
+        "value": {
+          "name": "Érték",
+          "description": "A beállítandó attribútum értéke"
+        }
+      }
+    },
+    "send_command": {
+      "name": "Egyéni parancs",
+      "description": "Küldjön egy egyéni parancsot az eszköznek",
+      "fields": {
+        "device_id": {
+          "name": "Eszköz kód",
+          "description": "A készülék kódja (Eszköz ID)"
+        },
+        "cmd_type": {
+          "name": "Parancs típusa",
+          "description": "A parancs típusa, lehet 3 (lekérdezés) vagy 2 (beállítás)"
+        },
+        "cmd_body": {
+          "name": "Parancs törzse",
+          "description": "A parancs törzse (nem tartalmazza az MSmart protokoll fejlécét és a végén lévő ellenőrző összeget)"
+        }
+      }
+    }
+  }
 }
