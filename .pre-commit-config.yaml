@@ -3,6 +3,9 @@
 exclude: "CHANGELOG.md|.copier-answers.yml"
 default_stages: [commit]
 
+default_language_version:
+  python: python3.12
+
 ci:
   autofix_commit_msg: "chore(pre-commit.ci): auto fixes"
   autoupdate_commit_msg: "chore(pre-commit.ci): pre-commit autoupdate"
@@ -53,4 +56,4 @@ repos:
     rev: v1.10.0
     hooks:
       - id: mypy
-        additional_dependencies: []
+        additional_dependencies: [homeassistant==2024.5.1]
