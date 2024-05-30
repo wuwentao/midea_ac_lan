@@ -1,8 +1,8 @@
 import logging
 from typing import Any, cast
 
-from homeassistant.helpers.entity import Entity
 from homeassistant.helpers.device_registry import DeviceInfo
+from homeassistant.helpers.entity import Entity
 
 from .const import DOMAIN
 from .midea_devices import MIDEA_DEVICES
