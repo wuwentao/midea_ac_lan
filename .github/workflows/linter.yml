@@ -26,6 +26,10 @@ jobs:
           # list of files that changed across commits
           fetch-depth: 0
 
+      - uses: actions/setup-python@v3
+        with:
+          python-version: '3.12'
+
       - name: Pre-commit
         uses: pre-commit/action@v3.0.1
         
