@@ -5,15 +5,13 @@ from homeassistant.components.light import (
     ATTR_BRIGHTNESS,
     ATTR_COLOR_TEMP,
     ATTR_EFFECT,
-    SUPPORT_BRIGHTNESS,
-    SUPPORT_COLOR,
-    SUPPORT_COLOR_TEMP,
-    SUPPORT_EFFECT,
+    ColorMode,
     LightEntity,
     LightEntityFeature,
 )
 from homeassistant.const import CONF_DEVICE_ID, CONF_SWITCHES, Platform
 from midealocal.devices.x13 import DeviceAttributes as X13Attributes
+from midealocal.devices.x13 import Midea13Device
 
 from .const import DEVICES, DOMAIN
 from .midea_devices import MIDEA_DEVICES
@@ -35,9 +33,54 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
     async_add_entities(devs)
 
 
+def _calc_supported_features(device: Midea13Device) -> LightEntityFeature:
+    supported_features = LightEntityFeature(0)
+    if device.get_attribute(X13Attributes.effect):
+        supported_features |= LightEntityFeature.EFFECT
+    return supported_features
+
+
+def _calc_supported_color_modes(device: Midea13Device) -> set[ColorMode]:
+    # https://github.com/home-assistant/core/blob/c34731185164aaf44419977c4086e9a7dd6c0a7f/homeassistant/components/light/__init__.py#L1278
+    supported = set[ColorMode]()
+
+    if device.get_attribute(X13Attributes.color_temperature) is not None:
+        supported.add(ColorMode.COLOR_TEMP)
+    if device.get_attribute(X13Attributes.rgb_color) is not None:
+        supported.add(ColorMode.HS)
+    if not supported and device.get_attribute(X13Attributes.brightness) is not None:
+        supported = {ColorMode.BRIGHTNESS}
+
+    if not supported:
+        supported = {ColorMode.ONOFF}
+
+    return supported
+
+
 class MideaLight(MideaEntity, LightEntity):
-    def __init__(self, device, entity_key):
+    _attr_color_mode: ColorMode | str | None = None
+    _attr_supported_color_modes: set[ColorMode] | set[str] | None = None
+    _attr_supported_features: LightEntityFeature = LightEntityFeature(0)
+
+    _device: Midea13Device
+
+    def __init__(self, device: Midea13Device, entity_key: str):
         super().__init__(device, entity_key)
+        self._attr_supported_features = _calc_supported_features(device)
+        self._attr_supported_color_modes = _calc_supported_color_modes(device)
+        self._attr_color_mode = self._calc_color_mode(self._attr_supported_color_modes)
+
+    def _calc_color_mode(self, supported: set[ColorMode]) -> ColorMode:
+        # https://github.com/home-assistant/core/blob/c34731185164aaf44419977c4086e9a7dd6c0a7f/homeassistant/components/light/__init__.py#L925
+        if ColorMode.HS in supported and self.hs_color is not None:
+            return ColorMode.HS
+        if ColorMode.COLOR_TEMP in supported and self.color_temp_kelvin is not None:
+            return ColorMode.COLOR_TEMP
+        if ColorMode.BRIGHTNESS in supported and self.brightness is not None:
+            return ColorMode.BRIGHTNESS
+        if ColorMode.ONOFF in supported:
+            return ColorMode.ONOFF
+        return ColorMode.UNKNOWN
 
     @property
     def is_on(self):
@@ -82,19 +125,6 @@ class MideaLight(MideaEntity, LightEntity):
     @property
     def effect(self):
         return self._device.get_attribute(X13Attributes.effect)
-
-    @property
-    def supported_features(self) -> LightEntityFeature:
-        supported_features = 0
-        if self._device.get_attribute(X13Attributes.brightness):
-            supported_features |= SUPPORT_BRIGHTNESS
-        if self._device.get_attribute(X13Attributes.color_temperature):
-            supported_features |= SUPPORT_COLOR_TEMP
-        if self._device.get_attribute(X13Attributes.effect):
-            supported_features |= SUPPORT_EFFECT
-        if self._device.get_attribute(X13Attributes.rgb_color):
-            supported_features |= SUPPORT_COLOR
-        return supported_features
 
     def turn_on(self, **kwargs: Any):
         if not self.is_on:
