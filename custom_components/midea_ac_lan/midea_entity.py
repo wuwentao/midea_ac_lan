@@ -1,7 +1,8 @@
 import logging
-from typing import cast
+from typing import Any, cast
 
 from homeassistant.helpers.entity import Entity
+from homeassistant.helpers.device_registry import DeviceInfo
 
 from .const import DOMAIN
 from .midea_devices import MIDEA_DEVICES
@@ -10,7 +11,7 @@ _LOGGER = logging.getLogger(__name__)
 
 
 class MideaEntity(Entity):
-    def __init__(self, device, entity_key: str):
+    def __init__(self, device: Any, entity_key: str) -> None:
         self._device = device
         self._device.register_update(self.update_state)
         self._config = cast(dict, MIDEA_DEVICES[self._device.device_type]["entities"])[
@@ -22,11 +23,11 @@ class MideaEntity(Entity):
         self._device_name = self._device.name
 
     @property
-    def device(self):
+    def device(self) -> Any:
         return self._device
 
     @property
-    def device_info(self):
+    def device_info(self) -> DeviceInfo:
         return {
             "manufacturer": "Midea",
             "model": f"{MIDEA_DEVICES[self._device.device_type]['name']} "
@@ -37,30 +38,33 @@ class MideaEntity(Entity):
         }
 
     @property
-    def unique_id(self):
+    def unique_id(self) -> str:
         return self._unique_id
 
     @property
-    def should_poll(self):
+    def should_poll(self) -> bool:
         return False
 
     @property
-    def name(self):
-        return (
-            f"{self._device_name} {self._config.get('name')}"
-            if "name" in self._config
-            else self._device_name
+    def name(self) -> str:
+        return cast(
+            str,
+            (
+                f"{self._device_name} {self._config.get('name')}"
+                if "name" in self._config
+                else self._device_name
+            ),
         )
 
     @property
-    def available(self):
-        return self._device.available
+    def available(self) -> bool:
+        return bool(self._device.available)
 
     @property
-    def icon(self):
-        return self._config.get("icon")
+    def icon(self) -> str:
+        return cast(str, self._config.get("icon"))
 
-    def update_state(self, status):
+    def update_state(self, status: Any) -> None:
         if self._entity_key in status or "available" in status:
             try:
                 self.schedule_update_ha_state()
