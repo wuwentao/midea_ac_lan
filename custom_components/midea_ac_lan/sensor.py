@@ -1,15 +1,19 @@
 from typing import Any, cast
-from homeassistant.components.sensor import SensorEntity
+
+from homeassistant.components.sensor import (
+    SensorDeviceClass,
+    SensorEntity,
+    SensorStateClass,
+)
+from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_DEVICE_ID, CONF_SENSORS, Platform
+from homeassistant.core import HomeAssistant
+from homeassistant.helpers.entity_platform import AddEntitiesCallback
+from homeassistant.helpers.typing import StateType
 
 from .const import DEVICES, DOMAIN
 from .midea_devices import MIDEA_DEVICES
 from .midea_entity import MideaEntity
-from homeassistant.config_entries import ConfigEntry
-from homeassistant.core import HomeAssistant
-from homeassistant.helpers.entity_platform import AddEntitiesCallback
-from homeassistant.components.sensor import SensorDeviceClass, SensorStateClass
-from homeassistant.helpers.typing import StateType
 
 
 async def async_setup_entry(

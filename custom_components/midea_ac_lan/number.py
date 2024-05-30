@@ -1,13 +1,14 @@
 from typing import Any, cast
+
 from homeassistant.components.number import NumberEntity
+from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_DEVICE_ID, CONF_SWITCHES, Platform
+from homeassistant.core import HomeAssistant
+from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
 from .const import DEVICES, DOMAIN
 from .midea_devices import MIDEA_DEVICES
 from .midea_entity import MideaEntity
-from homeassistant.config_entries import ConfigEntry
-from homeassistant.core import HomeAssistant
-from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
 
 async def async_setup_entry(
