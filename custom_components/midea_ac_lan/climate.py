@@ -128,7 +128,7 @@ class MideaClimate(MideaEntity, ClimateEntity):
         return self.hvac_mode != HVACMode.OFF
 
     @property
-    def hvac_mode(self) -> str:
+    def hvac_mode(self) -> HVACMode:
         if self._device.get_attribute("power"):
             return self._modes[self._device.get_attribute("mode")]
         else:
@@ -449,7 +449,7 @@ class MideaC3Climate(MideaClimate):
         self._device.set_attribute(attr=self._power_attr, value=False)
 
     @property
-    def hvac_mode(self) -> str:
+    def hvac_mode(self) -> HVACMode:
         if self._device.get_attribute(self._power_attr):
             return self._modes[self._device.get_attribute(C3Attributes.mode)]
         else:
@@ -533,7 +533,7 @@ class MideaFBClimate(MideaClimate):
         return 35
 
     @property
-    def hvac_mode(self) -> str:
+    def hvac_mode(self) -> HVACMode:
         return (
             HVACMode.HEAT
             if self._device.get_attribute(attr=FBAttributes.power)

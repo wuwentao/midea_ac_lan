@@ -30,4 +30,4 @@ class MideaLock(MideaEntity, LockEntity):
         self._device.set_attribute(attr=self._entity_key, value=False)
 
     def open(self, **kwargs) -> None:
-        self.async_unlock()
+        self.unlock()

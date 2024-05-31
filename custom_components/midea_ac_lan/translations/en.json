@@ -1,119 +1,119 @@
 {
-    "config": {
-        "error": {
-            "preset_account": "Failed to login with preset account, please report this issue",
-            "login_failed": "Failed to login, account or password was wrong",
-            "no_devices": "No new available appliances found on the network",
-            "device_exist": "Appliance is already configured",
-            "config_incorrect": "The configuration is incorrect",
-            "connect_error": "Can't connect to appliance",
-            "invalid_token": "Token or Key in an incorrect format"
-        },
-        "step": {
-            "user": {
-                "data": {
-                    "way": "Adding appliances"
-                },
-                "description": "Choose the way to add a appliance",
-                "title": "Add new appliance"
-            },
-            "login": {
-                "data": {
-                    "account": "Account",
-                    "password": "Password"
-                },
-                "description": "Login and storage your Midea account only for getting the appliance info.\nYou can remove this configuration after all appliance configured.",
-                "title": "Login"
-            },
-            "discovery": {
-                "description": "IP address for device, enter \"auto\" to discover automatically\nYou can also use an IP address to search within a specified network, such as \"192.168.1.255\"",
-                "title": "Search",
-                "data": {
-                    "ip_address": "IP address"
-                }
-            },
-            "list":{
-                "description": "{table}",
-                "title": "Appliances"
-            },
-            "auto": {
-                "data": {
-                    "device": "Appliances"
-                },
-                "description": "Choose a appliance to add",
-                "title": "New appliance found"
-            },
-            "manually": {
-                "data": {
-                    "name": "Name (e.g. Living room AC)",
-                    "device_id": "Appliance code",
-                    "type": "Type",
-                    "ip_address": "IP address",
-                    "port": "Port",
-                    "model": "Model",
-                    "subtype": "Subtype",
-                    "protocol": "Protocol",
-                    "token": "Token",
-                    "key": "Key"
-                },
-                "description": "Configuration of appliance",
-                "title": "New appliance"
-            }
-        }
+  "config": {
+    "error": {
+      "preset_account": "Failed to login with preset account, please report this issue",
+      "login_failed": "Failed to login, account or password was wrong",
+      "no_devices": "No new available appliances found on the network",
+      "device_exist": "Appliance is already configured",
+      "config_incorrect": "The configuration is incorrect",
+      "connect_error": "Can't connect to appliance",
+      "invalid_token": "Token or Key in an incorrect format"
     },
-    "options": {
-        "step": {
-            "init": {
-                "data": {
-                    "ip_address": "IP address",
-                    "refresh_interval": "Refresh interval (0 means not refreshing actively)",
-                    "sensors": "Extra sensors",
-                    "switches": "Extra controls",
-                    "customize": "Customize"
-                },
-                "title": "Configure"
-            }
+    "step": {
+      "user": {
+        "data": {
+          "way": "Adding appliances"
         },
-        "abort": {
-            "account_option": "The account does not supports this operation.\nClick \"ADD DEVICE\" to  add a new device."
-        }
-    },
-    "services": {
-        "set_attribute": {
-            "name": "Set attribute",
-            "description": "Set the attribute value of device",
-            "fields" : {
-                "device_id": {
-                    "name": "Appliance code",
-                    "description": "The appliance code (Device ID) of appliance"
-                },
-                "attribute": {
-                    "name": "Attribute",
-                    "description": "The attribute name want to set"
-                },
-                "value": {
-                    "name": "Value",
-                    "description": "The attribute value want to set"
-                }
-            }
+        "description": "Choose the way to add a appliance",
+        "title": "Add new appliance"
+      },
+      "login": {
+        "data": {
+          "account": "Account",
+          "password": "Password"
         },
-        "send_command": {
-            "name": "Customize command",
-            "description": "Send a customize command to device",
-            "fields" : {
-                "device_id": {
-                    "name": "Appliance code",
-                    "description": "The appliance code (Device ID) of appliance"
-                },
-                "cmd_type": {
-                    "name": "command type",
-                    "description": "The type of command，should be 3（query) or 2（set)"
-                },
-                "cmd_body": {
-                    "name": "command body",
-                    "description": "The body of command, (not include MSmart protocol head and checksum at the end)"
-                }
-            }
+        "description": "Login and storage your Midea account only for getting the appliance info.\nYou can remove this configuration after all appliance configured.",
+        "title": "Login"
+      },
+      "discovery": {
+        "description": "IP address for device, enter \"auto\" to discover automatically\nYou can also use an IP address to search within a specified network, such as \"192.168.1.255\"",
+        "title": "Search",
+        "data": {
+          "ip_address": "IP address"
         }
+      },
+      "list": {
+        "description": "{table}",
+        "title": "Appliances"
+      },
+      "auto": {
+        "data": {
+          "device": "Appliances"
+        },
+        "description": "Choose a appliance to add",
+        "title": "New appliance found"
+      },
+      "manually": {
+        "data": {
+          "name": "Name (e.g. Living room AC)",
+          "device_id": "Appliance code",
+          "type": "Type",
+          "ip_address": "IP address",
+          "port": "Port",
+          "model": "Model",
+          "subtype": "Subtype",
+          "protocol": "Protocol",
+          "token": "Token",
+          "key": "Key"
+        },
+        "description": "Configuration of appliance",
+        "title": "New appliance"
+      }
     }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "ip_address": "IP address",
+          "refresh_interval": "Refresh interval (0 means not refreshing actively)",
+          "sensors": "Extra sensors",
+          "switches": "Extra controls",
+          "customize": "Customize"
+        },
+        "title": "Configure"
+      }
+    },
+    "abort": {
+      "account_option": "The account does not supports this operation.\nClick \"ADD DEVICE\" to  add a new device."
+    }
+  },
+  "services": {
+    "set_attribute": {
+      "name": "Set attribute",
+      "description": "Set the attribute value of device",
+      "fields": {
+        "device_id": {
+          "name": "Appliance code",
+          "description": "The appliance code (Device ID) of appliance"
+        },
+        "attribute": {
+          "name": "Attribute",
+          "description": "The attribute name want to set"
+        },
+        "value": {
+          "name": "Value",
+          "description": "The attribute value want to set"
+        }
+      }
+    },
+    "send_command": {
+      "name": "Customize command",
+      "description": "Send a customize command to device",
+      "fields": {
+        "device_id": {
+          "name": "Appliance code",
+          "description": "The appliance code (Device ID) of appliance"
+        },
+        "cmd_type": {
+          "name": "command type",
+          "description": "The type of command，should be 3（query) or 2（set)"
+        },
+        "cmd_body": {
+          "name": "command body",
+          "description": "The body of command, (not include MSmart protocol head and checksum at the end)"
+        }
+      }
+    }
+  }
 }
