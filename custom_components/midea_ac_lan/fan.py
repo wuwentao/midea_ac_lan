@@ -3,12 +3,7 @@ from typing import Any, cast
 
 from homeassistant.components.fan import FanEntity, FanEntityFeature
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import (
-    CONF_DEVICE_ID,
-    CONF_SWITCHES,
-    STATE_ON,
-    Platform,
-)
+from homeassistant.const import CONF_DEVICE_ID, CONF_SWITCHES, STATE_ON, Platform
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from midealocal.devices.ac import DeviceAttributes as ACAttributes
