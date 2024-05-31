@@ -13,6 +13,8 @@ from homeassistant.const import (
     CONF_PROTOCOL,
     CONF_TOKEN,
     CONF_TYPE,
+    MAJOR_VERSION,
+    MINOR_VERSION,
 )
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.typing import ConfigType
@@ -164,23 +166,38 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
     if protocol == 3 and (key is None or key is None):
         _LOGGER.error("For V3 devices, the key and the token is required.")
         return False
-    device = await hass.async_add_import_executor_job(
-        device_selector,
-        name,
-        device_id,
-        device_type,
-        ip_address,
-        port,
-        token,
-        key,
-        protocol,
-        model,
-        subtype,
-        customize,
-    )
-    if refresh_interval is not None:
-        device.set_refresh_interval(refresh_interval)
+    if (MAJOR_VERSION, MINOR_VERSION) >= (2024, 3):
+        device = await hass.async_add_import_executor_job(
+            device_selector,
+            name,
+            device_id,
+            device_type,
+            ip_address,
+            port,
+            token,
+            key,
+            protocol,
+            model,
+            subtype,
+            customize,
+        )
+    else:
+        device = device_selector(
+            name=name,
+            device_id=device_id,
+            device_type=device_type,
+            ip_address=ip_address,
+            port=port,
+            token=token,
+            key=key,
+            protocol=protocol,
+            model=model,
+            subtype=subtype,
+            customize=customize,
+        )
     if device:
+        if refresh_interval is not None:
+            device.set_refresh_interval(refresh_interval)
         device.open()
         if DOMAIN not in hass.data:
             hass.data[DOMAIN] = {}

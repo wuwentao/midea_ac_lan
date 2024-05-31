@@ -3,6 +3,9 @@
 exclude: "CHANGELOG.md|.copier-answers.yml"
 default_stages: [commit]
 
+default_language_version:
+  python: python3.12
+
 ci:
   autofix_commit_msg: "chore(pre-commit.ci): auto fixes"
   autoupdate_commit_msg: "chore(pre-commit.ci): pre-commit autoupdate"
@@ -34,11 +37,11 @@ repos:
       - id: check-xml
       - id: check-yaml
       - id: detect-private-key
-  # - repo: https://github.com/pre-commit/mirrors-prettier
-  #   rev: v4.0.0-alpha.8
-  #   hooks:
-  #     - id: prettier
-  #       args: ["--tab-width", "2"]
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v4.0.0-alpha.8
+    hooks:
+      - id: prettier
+        args: ["--tab-width", "2"]
   - repo: https://github.com/asottile/pyupgrade
     rev: v3.15.2
     hooks:
@@ -53,4 +56,4 @@ repos:
     rev: v1.10.0
     hooks:
       - id: mypy
-        additional_dependencies: []
+        additional_dependencies: [homeassistant==2024.5.1]

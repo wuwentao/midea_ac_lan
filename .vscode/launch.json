@@ -1,17 +1,13 @@
 {
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "Python Debugger: Current File",
-            "type": "debugpy",
-            "request": "launch",
-            "program": "/usr/local/python/current/bin/hass",
-            "args": [
-                "--config",
-                "config",
-                "--debug"
-            ],
-            "console": "integratedTerminal"
-        }
-    ]
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python Debugger: Current File",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "/usr/local/python/current/bin/hass",
+      "args": ["--config", "config", "--debug"],
+      "console": "integratedTerminal"
+    }
+  ]
 }
