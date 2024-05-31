@@ -2,7 +2,7 @@
 name: Lint
 
 on: # yamllint disable-line rule:truthy
-  push: null
+  # push: null
   pull_request: null
 
 permissions: {}
@@ -26,7 +26,7 @@ jobs:
           # list of files that changed across commits
           fetch-depth: 0
 
-      - uses: actions/setup-python@v3
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
