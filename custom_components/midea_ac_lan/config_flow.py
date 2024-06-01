@@ -1,5 +1,5 @@
 import os
-from typing import Any
+from typing import Any, cast
 
 import voluptuous as vol
 
@@ -11,7 +11,12 @@ except ImportError:
 import logging
 
 import homeassistant.helpers.config_validation as cv
-from homeassistant import config_entries
+from homeassistant.config_entries import (
+    ConfigEntry,
+    ConfigFlow,
+    ConfigFlowResult,
+    OptionsFlow,
+)
 from homeassistant.const import (
     CONF_CUSTOMIZE,
     CONF_DEVICE,
@@ -71,8 +76,8 @@ PRESET_ACCOUNT = [
 ]
 
 
-class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
-    available_device: list = []
+class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
+    available_device: dict = {}
     devices: dict = {}
     found_device: dict = {}
     supports: dict = {}
@@ -87,19 +92,19 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     for item in sorted_device_names:
         supports[item[0]] = item[1]
 
-    def _save_device_config(self, data: dict):
+    def _save_device_config(self, data: dict[str, Any]) -> None:
         os.makedirs(self.hass.config.path(STORAGE_PATH), exist_ok=True)
         record_file = self.hass.config.path(
             f"{STORAGE_PATH}/{data[CONF_DEVICE_ID]}.json",
         )
         save_json(record_file, data)
 
-    def _load_device_config(self, device_id):
+    def _load_device_config(self, device_id: str) -> Any:
         record_file = self.hass.config.path(f"{STORAGE_PATH}/{device_id}.json")
         json_data = load_json(record_file, default={})
         return json_data
 
-    def _save_account(self, account: dict):
+    def _save_account(self, account: dict[str, Any]) -> None:
         os.makedirs(self.hass.config.path(STORAGE_PATH), exist_ok=True)
         record_file = self.hass.config.path(f"{STORAGE_PATH}/account.json")
         account[CONF_PASSWORD] = format(
@@ -111,7 +116,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         )
         save_json(record_file, account)
 
-    def _load_account(self):
+    def _load_account(self) -> Any:
         record_file = self.hass.config.path(f"{STORAGE_PATH}/account.json")
         json_data = load_json(record_file, default={})
         if CONF_ACCOUNT in json_data.keys():
@@ -127,7 +132,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         return json_data
 
     @staticmethod
-    def _check_storage_device(device: dict, storage_device: dict):
+    def _check_storage_device(device: dict, storage_device: dict) -> bool:
         if storage_device.get(CONF_SUBTYPE) is None:
             return False
         if device.get(CONF_PROTOCOL) == 3 and (
@@ -137,7 +142,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             return False
         return True
 
-    def _already_configured(self, device_id, ip_address):
+    def _already_configured(self, device_id: str, ip_address: str) -> bool:
         for entry in self._async_current_entries():
             if device_id == entry.data.get(
                 CONF_DEVICE_ID,
@@ -145,7 +150,9 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 return True
         return False
 
-    async def async_step_user(self, user_input=None, error=None):
+    async def async_step_user(
+        self, user_input: dict[str, Any] | None = None, error: str | None = None
+    ) -> ConfigFlowResult:
         if user_input is not None:
             if user_input["action"] == "discovery":
                 return await self.async_step_discovery()
@@ -162,7 +169,9 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             errors={"base": error} if error else None,
         )
 
-    async def async_step_login(self, user_input=None, error=None):
+    async def async_step_login(
+        self, user_input: dict[str, Any] | None = None, error: str | None = None
+    ) -> ConfigFlowResult:
         if user_input is not None:
             if self.session is None:
                 self.session = async_create_clientsession(self.hass)
@@ -195,7 +204,9 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             errors={"base": error} if error else None,
         )
 
-    async def async_step_list(self, user_input=None, error=None):
+    async def async_step_list(
+        self, user_input: dict[str, Any] | None = None, error: str | None = None
+    ) -> ConfigFlowResult:
         all_devices = discover()
         if len(all_devices) > 0:
             table = (
@@ -204,7 +215,8 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             for device_id, device in all_devices.items():
                 supported = device.get(CONF_TYPE) in self.supports.keys()
                 table += (
-                    f"\n{device_id}|{'%02X' % device.get(CONF_TYPE)}|{device.get(CONF_IP_ADDRESS)}|"
+                    f"\n{device_id}|{'%02X' % device.get(CONF_TYPE)}|{
+                        device.get(CONF_IP_ADDRESS)}|"
                     f"{device.get('sn')}|"
                     f"{'<font color=gree>YES</font>' if supported else '<font color=red>NO</font>'}"
                 )
@@ -216,7 +228,9 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             errors={"base": error} if error else None,
         )
 
-    async def async_step_discovery(self, user_input=None, error=None):
+    async def async_step_discovery(
+        self, user_input: dict[str, Any] | None = None, error: str | None = None
+    ) -> ConfigFlowResult:
         if user_input is not None:
             if user_input[CONF_IP_ADDRESS].lower() == "auto":
                 ip_address = None
@@ -226,9 +240,10 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             self.available_device = {}
             for device_id, device in self.devices.items():
                 if not self._already_configured(device_id, device.get(CONF_IP_ADDRESS)):
-                    self.available_device[device_id] = (
-                        f"{device_id} ({self.supports.get(device.get(CONF_TYPE))})"
-                    )
+                    self.available_device[
+                        device_id
+                    ] = f"{device_id} ({self.supports.get(
+                        device.get(CONF_TYPE))})"
             if len(self.available_device) > 0:
                 return await self.async_step_auto()
             else:
@@ -241,10 +256,12 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             errors={"base": error} if error else None,
         )
 
-    async def async_step_auto(self, user_input=None, error=None):
+    async def async_step_auto(
+        self, user_input: dict[str, Any] | None = None, error: str | None = None
+    ) -> ConfigFlowResult:
         if user_input is not None:
             device_id = user_input[CONF_DEVICE]
-            device = self.devices.get(device_id)
+            device = self.devices[device_id]
             storage_device = self._load_device_config(device_id)
             if self._check_storage_device(device, storage_device):
                 self.found_device = {
@@ -345,7 +362,9 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             errors={"base": error} if error else None,
         )
 
-    async def async_step_manually(self, user_input=None, error=None):
+    async def async_step_manually(
+        self, user_input: dict[str, Any] | None = None, error: str | None = None
+    ) -> ConfigFlowResult:
         if user_input is not None:
             self.found_device = {
                 CONF_DEVICE_ID: user_input[CONF_DEVICE_ID],
@@ -483,12 +502,12 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
 
     @staticmethod
     @callback
-    def async_get_options_flow(config_entry):
-        return OptionsFlowHandler(config_entry)
+    def async_get_options_flow(config_entry: ConfigEntry) -> OptionsFlow:
+        return MideaLanOptionsFlowHandler(config_entry)
 
 
-class OptionsFlowHandler(config_entries.OptionsFlow):
-    def __init__(self, config_entry: config_entries.ConfigEntry):
+class MideaLanOptionsFlowHandler(OptionsFlow):
+    def __init__(self, config_entry: ConfigEntry) -> None:
         self._config_entry = config_entry
         self._device_type = config_entry.data.get(CONF_TYPE)
         if self._device_type is None:
@@ -502,16 +521,18 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                 if key not in MIDEA_DEVICES[self._device_type]["entities"]:
                     self._config_entry.options[CONF_SWITCHES].remove(key)
 
-    async def async_step_init(self, user_input=None):
+    async def async_step_init(
+        self, user_input: dict[str, Any] | None = None
+    ) -> ConfigFlowResult:
         if self._device_type == CONF_ACCOUNT:
             return self.async_abort(reason="account_option")
         if user_input is not None:
             return self.async_create_entry(title="", data=user_input)
         sensors = {}
         switches = {}
-        for attribute, attribute_config in (
-            MIDEA_DEVICES.get(self._device_type).get("entities").items()
-        ):
+        for attribute, attribute_config in cast(
+            dict, MIDEA_DEVICES[cast(int, self._device_type)]["entities"]
+        ).items():
             attribute_name = (
                 attribute if isinstance(attribute, str) else attribute.value
             )
