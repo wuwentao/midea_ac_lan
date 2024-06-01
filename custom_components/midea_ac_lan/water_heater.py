@@ -1,10 +1,12 @@
 import functools as ft
 import logging
+from typing import Any, cast
 
 from homeassistant.components.water_heater import (
     WaterHeaterEntity,
     WaterHeaterEntityFeature,
 )
+from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import (
     ATTR_TEMPERATURE,
     CONF_DEVICE_ID,
@@ -12,10 +14,11 @@ from homeassistant.const import (
     PRECISION_HALVES,
     PRECISION_WHOLE,
     STATE_OFF,
-    STATE_ON,
     Platform,
     UnitOfTemperature,
 )
+from homeassistant.core import HomeAssistant
+from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from midealocal.devices.c3 import DeviceAttributes as C3Attributes
 from midealocal.devices.cd import DeviceAttributes as CDAttributes
 from midealocal.devices.e6 import DeviceAttributes as E6Attributes
@@ -32,12 +35,24 @@ E3_TEMPERATURE_MAX = 65
 E3_TEMPERATURE_MIN = 35
 
 
-async def async_setup_entry(hass, config_entry, async_add_entities):
+async def async_setup_entry(
+    hass: HomeAssistant,
+    config_entry: ConfigEntry,
+    async_add_entities: AddEntitiesCallback,
+) -> None:
     device_id = config_entry.data.get(CONF_DEVICE_ID)
     device = hass.data[DOMAIN][DEVICES].get(device_id)
     extra_switches = config_entry.options.get(CONF_SWITCHES, [])
-    devs = []
-    for entity_key, config in MIDEA_DEVICES[device.device_type]["entities"].items():
+    devs: list[
+        MideaE2WaterHeater
+        | MideaE3WaterHeater
+        | MideaE6WaterHeater
+        | MideaC3WaterHeater
+        | MideaCDWaterHeater
+    ] = []
+    for entity_key, config in cast(
+        dict, MIDEA_DEVICES[device.device_type]["entities"]
+    ).items():
         if config["type"] == Platform.WATER_HEATER and (
             config.get("default") or entity_key in extra_switches
         ):
@@ -55,87 +70,90 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
 
 
 class MideaWaterHeater(MideaEntity, WaterHeaterEntity):
-    def __init__(self, device, entity_key):
+    def __init__(self, device: Any, entity_key: str) -> None:
         super().__init__(device, entity_key)
-        self._operations = []
+        self._operations: list[str] = []
 
     @property
-    def supported_features(self):
+    def supported_features(self) -> WaterHeaterEntityFeature:
         return WaterHeaterEntityFeature.TARGET_TEMPERATURE
 
     @property
-    def extra_state_attributes(self) -> dict:
-        attrs = self._device.attributes
+    def extra_state_attributes(self) -> dict[str, Any]:
+        attrs: dict[str, Any] = self._device.attributes
         if hasattr(self._device, "temperature_step"):
             attrs["target_temp_step"] = self._device.temperature_step
         return attrs
 
     @property
-    def min_temp(self):
-        return NotImplementedError
+    def min_temp(self) -> float:
+        raise NotImplementedError
 
     @property
-    def max_temp(self):
-        return NotImplementedError
+    def max_temp(self) -> float:
+        raise NotImplementedError
 
     @property
-    def target_temperature_low(self):
+    def target_temperature_low(self) -> float:
         return self.min_temp
 
     @property
-    def target_temperature_high(self):
+    def target_temperature_high(self) -> float:
         return self.max_temp
 
     @property
-    def precision(self):
+    def precision(self) -> float:
         return PRECISION_WHOLE
 
     @property
-    def temperature_unit(self):
+    def temperature_unit(self) -> UnitOfTemperature:
         return UnitOfTemperature.CELSIUS
 
     @property
-    def current_operation(self):
-        return (
-            self._device.get_attribute("mode")
-            if self._device.get_attribute("power")
-            else STATE_OFF
+    def current_operation(self) -> str:
+        return cast(
+            str,
+            (
+                self._device.get_attribute("mode")
+                if self._device.get_attribute("power")
+                else STATE_OFF
+            ),
         )
 
     @property
-    def current_temperature(self):
-        return self._device.get_attribute("current_temperature")
+    def current_temperature(self) -> float:
+        return cast(float, self._device.get_attribute("current_temperature"))
 
     @property
-    def target_temperature(self):
-        return self._device.get_attribute("target_temperature")
+    def target_temperature(self) -> float:
+        return cast(float, self._device.get_attribute("target_temperature"))
 
-    def set_temperature(self, **kwargs):
+    def set_temperature(self, **kwargs: Any) -> None:
         if ATTR_TEMPERATURE not in kwargs:
             return
-        temperature = int(kwargs.get(ATTR_TEMPERATURE))
+        temperature = int(kwargs[ATTR_TEMPERATURE])
         self._device.set_attribute("target_temperature", temperature)
 
-    def set_operation_mode(self, operation_mode):
+    def set_operation_mode(self, operation_mode: str) -> None:
         self._device.set_attribute(attr="mode", value=operation_mode)
 
     @property
-    def operation_list(self):
-        return self._device.preset_modes
+    def operation_list(self) -> list[str] | None:
+        return cast(list, self._device.preset_modes)
 
-    def turn_on(self):
+    def turn_on(self, **kwargs: Any) -> None:
         self._device.set_attribute(attr="power", value=True)
 
-    def turn_off(self):
+    def turn_off(self, **kwargs: Any) -> None:
         self._device.set_attribute(attr="power", value=False)
 
-    async def async_turn_on(self, **kwargs):
+    async def async_turn_on(self, **kwargs: Any) -> None:
         await self.hass.async_add_executor_job(ft.partial(self.turn_on, **kwargs))
 
-    async def async_turn_off(self, **kwargs):
+    async def async_turn_off(self, **kwargs: Any) -> None:
         await self.hass.async_add_executor_job(ft.partial(self.turn_off, **kwargs))
 
-    def update_state(self, status):
+    def update_state(self, status: Any) -> None:
         try:
             self.schedule_update_ha_state()
         except Exception as e:
@@ -148,73 +166,67 @@ class MideaWaterHeater(MideaEntity, WaterHeaterEntity):
 
 
 class MideaE2WaterHeater(MideaWaterHeater):
-    def __init__(self, device, entity_key):
+    def __init__(self, device: Any, entity_key: str) -> None:
         super().__init__(device, entity_key)
 
     @property
-    def min_temp(self):
+    def min_temp(self) -> float:
         return E2_TEMPERATURE_MIN
 
     @property
-    def max_temp(self):
+    def max_temp(self) -> float:
         return E2_TEMPERATURE_MAX
 
 
 class MideaE3WaterHeater(MideaWaterHeater):
-    def __init__(self, device, entity_key):
+    def __init__(self, device: Any, entity_key: str) -> None:
         super().__init__(device, entity_key)
 
     @property
-    def min_temp(self):
+    def min_temp(self) -> float:
         return E3_TEMPERATURE_MIN
 
     @property
-    def max_temp(self):
+    def max_temp(self) -> float:
         return E3_TEMPERATURE_MAX
 
     @property
-    def precision(self):
+    def precision(self) -> float:
         return PRECISION_HALVES if self._device.precision_halves else PRECISION_WHOLE
 
 
 class MideaC3WaterHeater(MideaWaterHeater):
-    def __init__(self, device, entity_key):
+    def __init__(self, device: Any, entity_key: str) -> None:
         super().__init__(device, entity_key)
 
     @property
-    def state(self):
-        return (
-            STATE_ON
-            if self._device.get_attribute(C3Attributes.dhw_power)
-            else STATE_OFF
+    def current_temperature(self) -> float:
+        return cast(
+            float, self._device.get_attribute(C3Attributes.tank_actual_temperature)
         )
 
     @property
-    def current_temperature(self):
-        return self._device.get_attribute(C3Attributes.tank_actual_temperature)
+    def target_temperature(self) -> float:
+        return cast(float, self._device.get_attribute(C3Attributes.dhw_target_temp))
 
-    @property
-    def target_temperature(self):
-        return self._device.get_attribute(C3Attributes.dhw_target_temp)
-
-    def set_temperature(self, **kwargs):
+    def set_temperature(self, **kwargs: Any) -> None:
         if ATTR_TEMPERATURE not in kwargs:
             return
-        temperature = int(kwargs.get(ATTR_TEMPERATURE))
+        temperature = int(kwargs[ATTR_TEMPERATURE])
         self._device.set_attribute(C3Attributes.dhw_target_temp, temperature)
 
     @property
-    def min_temp(self):
-        return self._device.get_attribute(C3Attributes.dhw_temp_min)
+    def min_temp(self) -> float:
+        return cast(float, self._device.get_attribute(C3Attributes.dhw_temp_min))
 
     @property
-    def max_temp(self):
-        return self._device.get_attribute(C3Attributes.dhw_temp_max)
+    def max_temp(self) -> float:
+        return cast(float, self._device.get_attribute(C3Attributes.dhw_temp_max))
 
-    def turn_on(self):
+    def turn_on(self, **kwargs: Any) -> None:
         self._device.set_attribute(attr=C3Attributes.dhw_power, value=True)
 
-    def turn_off(self):
+    def turn_off(self, **kwargs: Any) -> None:
         self._device.set_attribute(attr=C3Attributes.dhw_power, value=False)
 
 
@@ -232,7 +244,7 @@ class MideaE6WaterHeater(MideaWaterHeater):
         E6Attributes.bathing_temperature,
     ]
 
-    def __init__(self, device, entity_key, use):
+    def __init__(self, device: Any, entity_key: str, use: int) -> None:
         super().__init__(device, entity_key)
         self._use = use
         self._power_attr = MideaE6WaterHeater._powers[self._use]
@@ -244,65 +256,53 @@ class MideaE6WaterHeater(MideaWaterHeater):
         ]
 
     @property
-    def state(self):
-        if self._use == 0:  # for heating
-            return (
-                STATE_ON
-                if self._device.get_attribute(E6Attributes.main_power)
-                and self._device.get_attribute(E6Attributes.heating_power)
-                else STATE_OFF
-            )
-        else:  # for bathing
-            return (
-                STATE_ON
-                if self._device.get_attribute(E6Attributes.main_power)
-                else STATE_OFF
-            )
+    def current_temperature(self) -> float:
+        return cast(float, self._device.get_attribute(self._current_temperature_attr))
 
     @property
-    def current_temperature(self):
-        return self._device.get_attribute(self._current_temperature_attr)
+    def target_temperature(self) -> float:
+        return cast(float, self._device.get_attribute(self._target_temperature_attr))
 
-    @property
-    def target_temperature(self):
-        return self._device.get_attribute(self._target_temperature_attr)
-
-    def set_temperature(self, **kwargs):
+    def set_temperature(self, **kwargs: Any) -> None:
         if ATTR_TEMPERATURE not in kwargs:
             return
-        temperature = int(kwargs.get(ATTR_TEMPERATURE))
+        temperature = int(kwargs[ATTR_TEMPERATURE])
         self._device.set_attribute(self._target_temperature_attr, temperature)
 
     @property
-    def min_temp(self):
-        return self._device.get_attribute(E6Attributes.min_temperature)[self._use]
+    def min_temp(self) -> float:
+        return cast(
+            float, self._device.get_attribute(E6Attributes.min_temperature)[self._use]
+        )
 
     @property
-    def max_temp(self):
-        return self._device.get_attribute(E6Attributes.max_temperature)[self._use]
+    def max_temp(self) -> float:
+        return cast(
+            float, self._device.get_attribute(E6Attributes.max_temperature)[self._use]
+        )
 
-    def turn_on(self):
+    def turn_on(self, **kwargs: Any) -> None:
         self._device.set_attribute(attr=self._power_attr, value=True)
 
-    def turn_off(self):
+    def turn_off(self, **kwargs: Any) -> None:
         self._device.set_attribute(attr=self._power_attr, value=False)
 
 
 class MideaCDWaterHeater(MideaWaterHeater):
-    def __init__(self, device, entity_key):
+    def __init__(self, device: Any, entity_key: str) -> None:
         super().__init__(device, entity_key)
 
     @property
-    def supported_features(self):
+    def supported_features(self) -> WaterHeaterEntityFeature:
         return (
             WaterHeaterEntityFeature.TARGET_TEMPERATURE
             | WaterHeaterEntityFeature.OPERATION_MODE
         )
 
     @property
-    def min_temp(self):
-        return self._device.get_attribute(CDAttributes.min_temperature)
+    def min_temp(self) -> float:
+        return cast(float, self._device.get_attribute(CDAttributes.min_temperature))
 
     @property
-    def max_temp(self):
-        return self._device.get_attribute(CDAttributes.max_temperature)
+    def max_temp(self) -> float:
+        return cast(float, self._device.get_attribute(CDAttributes.max_temperature))
