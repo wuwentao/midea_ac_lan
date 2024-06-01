@@ -143,7 +143,7 @@ class MideaB6Fan(MideaFan):
 
 
 class MideaACFreshAirFan(MideaFan):
-    def __init__(self, device, entity_key):
+    def __init__(self, device: Any, entity_key: str) -> None:
         super().__init__(device, entity_key)
         self._attr_supported_features = (
             FanEntityFeature.SET_SPEED | FanEntityFeature.PRESET_MODE
