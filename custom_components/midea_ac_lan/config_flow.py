@@ -1,16 +1,14 @@
+import logging
 import os
 from typing import Any, cast
-
-import voluptuous as vol
 
 try:
     from homeassistant.helpers.json import save_json
 except ImportError:
     from homeassistant.util.json import save_json
 
-import logging
-
 import homeassistant.helpers.config_validation as cv
+import voluptuous as vol
 from homeassistant.config_entries import (
     ConfigEntry,
     ConfigFlow,
@@ -104,33 +102,6 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
         json_data = load_json(record_file, default={})
         return json_data
 
-    def _save_account(self, account: dict[str, Any]) -> None:
-        os.makedirs(self.hass.config.path(STORAGE_PATH), exist_ok=True)
-        record_file = self.hass.config.path(f"{STORAGE_PATH}/account.json")
-        account[CONF_PASSWORD] = format(
-            (
-                int(account[CONF_ACCOUNT].encode("utf-8").hex(), 16)
-                ^ int(account[CONF_PASSWORD].encode("utf-8").hex(), 16)
-            ),
-            "x",
-        )
-        save_json(record_file, account)
-
-    def _load_account(self) -> Any:
-        record_file = self.hass.config.path(f"{STORAGE_PATH}/account.json")
-        json_data = load_json(record_file, default={})
-        if CONF_ACCOUNT in json_data.keys():
-            json_data[CONF_PASSWORD] = bytes.fromhex(
-                format(
-                    (
-                        int(json_data[CONF_PASSWORD], 16)
-                        ^ int(json_data[CONF_ACCOUNT].encode("utf-8").hex(), 16)
-                    ),
-                    "X",
-                ),
-            ).decode("UTF-8")
-        return json_data
-
     @staticmethod
     def _check_storage_device(device: dict, storage_device: dict) -> bool:
         if storage_device.get(CONF_SUBTYPE) is None:
@@ -188,7 +159,6 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
                     CONF_PASSWORD: user_input[CONF_PASSWORD],
                     CONF_SERVER: SERVERS[user_input[CONF_SERVER]],
                 }
-                self._save_account(self.account)
                 return await self.async_step_auto()
             else:
                 return await self.async_step_login(error="login_failed")
@@ -283,9 +253,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
                 return await self.async_step_manually()
             else:
                 if CONF_ACCOUNT not in self.account.keys():
-                    self.account = self._load_account()
-                    if CONF_ACCOUNT not in self.account.keys():
-                        return await self.async_step_login()
+                    return await self.async_step_login()
                 if self.session is None:
                     self.session = async_create_clientsession(self.hass)
                 if self.cloud is None:
