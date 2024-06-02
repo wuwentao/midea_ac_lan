@@ -1,0 +1,119 @@
+{
+  "config": {
+    "error": {
+      "preset_account": "Anmeldung mit voreingestelltem Konto fehlgeschlagen, bitte melden Sie dieses Problem",
+      "login_failed": "Anmeldung fehlgeschlagen, Konto oder Passwort ist falsch",
+      "no_devices": "Keine neuen verfügbaren Geräte im Netzwerk gefunden",
+      "device_exist": "Das Gerät ist bereits konfiguriert",
+      "config_incorrect": "Die Konfiguration ist falsch",
+      "connect_error": "Kann keine Verbindung zum Gerät herstellen",
+      "invalid_token": "Token oder Schlüssel hat ein falsches Format"
+    },
+    "step": {
+      "user": {
+        "data": {
+          "way": "Hinzufügen von Geräten"
+        },
+        "description": "Wählen Sie die Art des Hinzufügens eines Geräts",
+        "title": "Neues Gerät hinzufügen"
+      },
+      "login": {
+        "data": {
+          "account": "Konto",
+          "password": "Passwort"
+        },
+        "description": "Melden Sie sich mit Ihrem Midea-Konto an. Ihr Konto wird nur verwendet, um die Geräteinformationen zu erhalten.\nSie können die Konfiguration entfernen, nachdem alle Geräte konfiguriert wurden.",
+        "title": "Login"
+      },
+      "discovery": {
+        "description": "IP-Adresse des Geräts, geben Sie \"auto\" ein, um es automatisch zu finden.\nSie können auch eine IP-Adresse verwenden, um innerhalb eines bestimmten Netzwerks zu suchen, z.B. \"192.168.1.255\".",
+        "title": "Suche",
+        "data": {
+          "ip_address": "IP-Adresse"
+        }
+      },
+      "list": {
+        "description": "{table}",
+        "title": "Geräte"
+      },
+      "auto": {
+        "data": {
+          "device": "Geräte"
+        },
+        "description": "Wählen Sie ein Gerät zum Hinzufügen",
+        "title": "Neues Gerät gefunden"
+      },
+      "manually": {
+        "data": {
+          "name": "Name (z.B. Klimaanlage Wohnzimmer)",
+          "device_id": "Geräte-ID",
+          "type": "Typ",
+          "ip_address": "IP-Adresse",
+          "port": "Port",
+          "model": "Modell",
+          "subtype": "Untertyp",
+          "protocol": "Protokoll",
+          "token": "Token",
+          "key": "Schlüssel"
+        },
+        "description": "Konfiguration des Geräts",
+        "title": "Neues Gerät"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "ip_address": "IP-Adresse",
+          "refresh_interval": "Aktualisierungsintervall (0 bedeutet, dass nicht aktiv aktualisiert wird)",
+          "sensors": "Zusätzliche Sensoren",
+          "switches": "Zusätzliche Schalter",
+          "customize": "Anpassen"
+        },
+        "title": "Konfiguration"
+      }
+    },
+    "abort": {
+      "account_option": "Das Konto unterstützt diesen Vorgang nicht.\nKlicken Sie auf \"GERÄT HINZUFÜGEN\" um ein neues Gerät hinzuzufügen."
+    }
+  },
+  "services": {
+    "set_attribute": {
+      "name": "Attribut setzen",
+      "description": "Einstellen des Attributwerts des Geräts",
+      "fields": {
+        "device_id": {
+          "name": "Geräte-ID",
+          "description": "Die Geräte-ID des Geräts"
+        },
+        "attribute": {
+          "name": "Attribut",
+          "description": "Der Name des Attributs, das gesetzt werden soll"
+        },
+        "value": {
+          "name": "Wert",
+          "description": "Der Attributwert, der gesetzt werden soll"
+        }
+      }
+    },
+    "send_command": {
+      "name": "Befehl an Gerät senden",
+      "description": "Senden eines Befehls an das Gerät",
+      "fields": {
+        "device_id": {
+          "name": "Geräte-ID",
+          "description": "Die Geräte-ID des Geräts"
+        },
+        "cmd_type": {
+          "name": "Befehlstyp",
+          "description": "Die Art des Befehls, sollte 3 （abfragen) oder 2 （setzen) sein"
+        },
+        "cmd_body": {
+          "name": "Befehl",
+          "description": "Der Hauptteil des Befehls (ohne den MSmart-Protokollkopf und die Prüfsumme am Ende)"
+        }
+      }
+    }
+  }
+}
