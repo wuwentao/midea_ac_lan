@@ -22,6 +22,20 @@ jobs:
         with:
           fetch-depth: 0
           clean: true
+      - name: check manifest.json version
+        id: check_version
+        run: |
+          # Extract the version from manifest.json
+          manifest_version=$(grep -oP '(?<="version": ")[^"]*' custom_components/midea_ac_lan/manifest.json)
+          echo "Manifest.json version: $manifest_version"
+          # Extract the release tag
+          release_tag="${GITHUB_REF#refs/tags/}"
+          echo "Release tag: $release_tag"
+          # Check if the versions match
+          if [ "$release_tag" != "$manifest_version" ]; then
+            echo "Error: Release tag ($release_tag) does not match manifest.json version ($manifest_version)"
+            exit 1
+          fi
       - name: Zip release file
         run: |
           sudo apt-get update || exit 1
