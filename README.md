@@ -7,6 +7,8 @@
 
 English | [简体中文](README_hans.md) | [Discord Chat](https://discord.com/invite/ZWdd2fXndn)
 
+**_❗ [georgezhao2010/midea_ac_lan](https://github.com/georgezhao2010/midea_ac_lan) not update for a long time, we will maintain it now_**
+
 Control your Midea M-Smart appliances via local area network.
 
 - Automated device discover and configuration based Home Assistant config flow UI.

@@ -7,6 +7,8 @@
 
 [English](README.md) | 简体中文 | [Discord交流群](https://discord.com/invite/ZWdd2fXndn)
 
+**_❗ [georgezhao2010/midea_ac_lan](https://github.com/georgezhao2010/midea_ac_lan) 已经很长时间没有更新了, 我们将接替并持续更新_**
+
 通过本地局域网控制你的美的M-Smart设备
 
 - 通过Home Assistant UI完成设备的自动搜索和配置.
