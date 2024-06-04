@@ -1,23 +1,19 @@
 # Midea AC LAN
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg)](https://github.com/hacs/integration)
-[![Donate](https://img.shields.io/badge/donate-BuyMeCoffee-yellow.svg)](https://www.buymeacoffee.com/georgezhao2010)
 [![Stable](https://img.shields.io/github/v/release/wuwentao/midea_ac_lan)](https://github.com/wuwentao/midea_ac_lan/releases/latest)
 [![Super-Linter](https://github.com/wuwentao/midea_ac_lan/actions/workflows/linter.yml/badge.svg)](https://github.com/marketplace/actions/super-linter)
+![Discord](https://img.shields.io/discord/1244496733577285732)
 
-> :warning: **This is a fork of midea_ac_lan done by Georgezhao**
+English | [简体中文](README_hans.md) | [Discord Chat](https://discord.com/invite/ZWdd2fXndn)
 
-English | [简体中文](README_hans.md)
+**_❗ [georgezhao2010/midea_ac_lan](https://github.com/georgezhao2010/midea_ac_lan) not update for a long time, we will maintain it now_**
 
 Control your Midea M-Smart appliances via local area network.
 
 - Automated device discover and configuration based Home Assistant config flow UI.
 - Extra sensors and switches.
 - Synchronize status with the appliance by long TCP connection in time.
-
-This component inspired from the repository at [@mac-zhou](https://github.com/mac-zhou/midea-msmart) which provides similar functionality for Midea air conditioners. This component include verbatim or adapted portions of the code from his great projects.
-
-Thanks also to [@NeoAcheron](https://github.com/NeoAcheron/midea-ac-py).
 
 ⭐If this component is helpful for you, please star it, it encourages me a lot.
 
@@ -180,9 +176,3 @@ logger:
   logs:
     custom_components.midea_ac_lan: debug
 ```
-
-## Support my works
-
-If you like this integration, why do not you support my works by buying me a coffee?
-
-[![Buy me a coffee](https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png)](https://www.buymeacoffee.com/georgezhao2010)

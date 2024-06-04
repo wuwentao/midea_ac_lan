@@ -1,11 +1,13 @@
 # Midea AC LAN
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg)](https://github.com/hacs/integration)
-[![Donate](https://img.shields.io/badge/donate-BuyMeCoffee-yellow.svg)](https://www.buymeacoffee.com/georgezhao2010)
 [![Stable](https://img.shields.io/github/v/release/wuwentao/midea_ac_lan)](https://github.com/wuwentao/midea_ac_lan/releases/latest)
 [![Super-Linter](https://github.com/wuwentao/midea_ac_lan/actions/workflows/linter.yml/badge.svg)](https://github.com/marketplace/actions/super-linter)
+![Discord](https://img.shields.io/discord/1244496733577285732)
 
-[English](README.md) | 简体中文
+[English](README.md) | 简体中文 | [Discord交流群](https://discord.com/invite/ZWdd2fXndn)
+
+**_❗ [georgezhao2010/midea_ac_lan](https://github.com/georgezhao2010/midea_ac_lan) 已经很长时间没有更新了, 我们将接替并持续更新_**
 
 通过本地局域网控制你的美的M-Smart设备
 
@@ -173,9 +175,3 @@ logger:
   logs:
     custom_components.midea_ac_lan: debug
 ```
-
-## 支持我的工作
-
-如果喜欢这个集成, 可以使用支付宝或者微信支付赞助我来支持我的工作。
-
-![alipay](doc/images/alipay.png) ![wechatpay](doc/images/wechatpay.png)
