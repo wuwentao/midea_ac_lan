@@ -218,7 +218,7 @@ class Midea40Fan(MideaFan):
 
     @property
     def is_on(self) -> bool:
-        return self._device.get_attribute(attr=X40Attributes.fan_speed) > 0
+        return cast(int, self._device.get_attribute(attr=X40Attributes.fan_speed)) > 0
 
     def turn_on(
         self,
