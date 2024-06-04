@@ -1,5 +1,5 @@
 import logging
-from typing import Any, cast
+from typing import Any, TypeAlias, cast
 
 from homeassistant.components.humidifier import (
     HumidifierDeviceClass,
@@ -10,6 +10,8 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_DEVICE_ID, CONF_SWITCHES, Platform
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
+from midealocal.devices.a1 import MideaA1Device
+from midealocal.devices.fd import MideaFDDevice
 
 from .const import DEVICES, DOMAIN
 from .midea_devices import MIDEA_DEVICES
@@ -40,8 +42,13 @@ async def async_setup_entry(
     async_add_entities(devs)
 
 
+MideaHumidifierDevice: TypeAlias = MideaFDDevice | MideaA1Device
+
+
 class MideaHumidifier(MideaEntity, HumidifierEntity):
-    def __init__(self, device: Any, entity_key: str) -> None:
+    _device: MideaHumidifierDevice
+
+    def __init__(self, device: MideaHumidifierDevice, entity_key: str) -> None:
         super().__init__(device, entity_key)
 
     @property
@@ -85,7 +92,9 @@ class MideaHumidifier(MideaEntity, HumidifierEntity):
 
 
 class MideaA1Humidifier(MideaHumidifier):
-    def __init__(self, device: Any, entity_key: str) -> None:
+    _device: MideaA1Device
+
+    def __init__(self, device: MideaA1Device, entity_key: str) -> None:
         super().__init__(device, entity_key)
         self._attr_min_humidity: float = 35
         self._attr_max_humidity: float = 85
@@ -100,7 +109,9 @@ class MideaA1Humidifier(MideaHumidifier):
 
 
 class MideaFDHumidifier(MideaHumidifier):
-    def __init__(self, device: Any, entity_key: str) -> None:
+    _device: MideaFDDevice
+
+    def __init__(self, device: MideaFDDevice, entity_key: str) -> None:
         super().__init__(device, entity_key)
         self._attr_min_humidity: float = 35
         self._attr_max_humidity: float = 85

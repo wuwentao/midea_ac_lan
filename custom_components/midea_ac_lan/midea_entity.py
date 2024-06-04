@@ -3,6 +3,7 @@ from typing import Any, cast
 
 from homeassistant.helpers.device_registry import DeviceInfo
 from homeassistant.helpers.entity import Entity
+from midealocal.device import MideaDevice
 
 from .const import DOMAIN
 from .midea_devices import MIDEA_DEVICES
@@ -11,7 +12,7 @@ _LOGGER = logging.getLogger(__name__)
 
 
 class MideaEntity(Entity):
-    def __init__(self, device: Any, entity_key: str) -> None:
+    def __init__(self, device: MideaDevice, entity_key: str) -> None:
         self._device = device
         self._device.register_update(self.update_state)
         self._config = cast(dict, MIDEA_DEVICES[self._device.device_type]["entities"])[

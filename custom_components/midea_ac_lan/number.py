@@ -5,6 +5,7 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_DEVICE_ID, CONF_SWITCHES, Platform
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
+from midealocal.device import MideaDevice
 
 from .const import DEVICES, DOMAIN
 from .midea_devices import MIDEA_DEVICES
@@ -30,7 +31,7 @@ async def async_setup_entry(
 
 
 class MideaNumber(MideaEntity, NumberEntity):
-    def __init__(self, device: Any, entity_key: str) -> None:
+    def __init__(self, device: MideaDevice, entity_key: str) -> None:
         super().__init__(device, entity_key)
         self._max_value = self._config.get("max")
         self._min_value = self._config.get("min")
