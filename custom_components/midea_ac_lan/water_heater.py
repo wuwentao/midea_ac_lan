@@ -1,6 +1,6 @@
 import functools as ft
 import logging
-from typing import Any, cast
+from typing import Any, TypeAlias, cast
 
 from homeassistant.components.water_heater import (
     WaterHeaterEntity,
@@ -21,8 +21,13 @@ from homeassistant.const import (
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from midealocal.devices.c3 import DeviceAttributes as C3Attributes
+from midealocal.devices.c3 import MideaC3Device
 from midealocal.devices.cd import DeviceAttributes as CDAttributes
+from midealocal.devices.cd import MideaCDDevice
+from midealocal.devices.e2 import MideaE2Device
+from midealocal.devices.e3 import MideaE3Device
 from midealocal.devices.e6 import DeviceAttributes as E6Attributes
+from midealocal.devices.e6 import MideaE6Device
 
 from .const import DEVICES, DOMAIN
 from .midea_devices import MIDEA_DEVICES
@@ -70,8 +75,15 @@ async def async_setup_entry(
     async_add_entities(devs)
 
 
+MideaWaterHeaterDevice: TypeAlias = (
+    MideaE2Device | MideaE3Device | MideaC3Device | MideaE6Device | MideaCDDevice
+)
+
+
 class MideaWaterHeater(MideaEntity, WaterHeaterEntity):
-    def __init__(self, device: Any, entity_key: str) -> None:
+    _device: MideaWaterHeaterDevice
+
+    def __init__(self, device: MideaWaterHeaterDevice, entity_key: str) -> None:
         super().__init__(device, entity_key)
         self._operations: list[str] = []
 
@@ -167,7 +179,9 @@ class MideaWaterHeater(MideaEntity, WaterHeaterEntity):
 
 
 class MideaE2WaterHeater(MideaWaterHeater):
-    def __init__(self, device: Any, entity_key: str) -> None:
+    _device: MideaE2Device
+
+    def __init__(self, device: MideaE2Device, entity_key: str) -> None:
         super().__init__(device, entity_key)
 
     @property
@@ -180,7 +194,9 @@ class MideaE2WaterHeater(MideaWaterHeater):
 
 
 class MideaE3WaterHeater(MideaWaterHeater):
-    def __init__(self, device: Any, entity_key: str) -> None:
+    _device: MideaE3Device
+
+    def __init__(self, device: MideaE3Device, entity_key: str) -> None:
         super().__init__(device, entity_key)
 
     @property
@@ -197,7 +213,9 @@ class MideaE3WaterHeater(MideaWaterHeater):
 
 
 class MideaC3WaterHeater(MideaWaterHeater):
-    def __init__(self, device: Any, entity_key: str) -> None:
+    _device: MideaC3Device
+
+    def __init__(self, device: MideaC3Device, entity_key: str) -> None:
         super().__init__(device, entity_key)
 
     @property
@@ -240,6 +258,8 @@ class MideaC3WaterHeater(MideaWaterHeater):
 
 
 class MideaE6WaterHeater(MideaWaterHeater):
+    _device: MideaE6Device
+
     _powers = [
         E6Attributes.heating_power,
         E6Attributes.main_power,
@@ -253,7 +273,7 @@ class MideaE6WaterHeater(MideaWaterHeater):
         E6Attributes.bathing_temperature,
     ]
 
-    def __init__(self, device: Any, entity_key: str, use: int) -> None:
+    def __init__(self, device: MideaE6Device, entity_key: str, use: int) -> None:
         super().__init__(device, entity_key)
         self._use = use
         self._power_attr = MideaE6WaterHeater._powers[self._use]
@@ -314,7 +334,9 @@ class MideaE6WaterHeater(MideaWaterHeater):
 
 
 class MideaCDWaterHeater(MideaWaterHeater):
-    def __init__(self, device: Any, entity_key: str) -> None:
+    _device: MideaCDDevice
+
+    def __init__(self, device: MideaCDDevice, entity_key: str) -> None:
         super().__init__(device, entity_key)
 
     @property
