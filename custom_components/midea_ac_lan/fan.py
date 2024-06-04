@@ -6,9 +6,15 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_DEVICE_ID, CONF_SWITCHES, Platform
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
+from midealocal.device import MideaDevice
 from midealocal.devices.ac import DeviceAttributes as ACAttributes
+from midealocal.devices.ac import MideaACDevice
+from midealocal.devices.b6 import MideaB6Device
 from midealocal.devices.ce import DeviceAttributes as CEAttributes
+from midealocal.devices.ce import MideaCEDevice
+from midealocal.devices.fa import MideaFADevice
 from midealocal.devices.x40 import DeviceAttributes as X40Attributes
+from midealocal.devices.x40 import Midea40Device
 
 from .const import DEVICES, DOMAIN
 from .midea_devices import MIDEA_DEVICES
@@ -48,20 +54,8 @@ async def async_setup_entry(
 
 
 class MideaFan(MideaEntity, FanEntity):
-    def __init__(self, device: Any, entity_key: str) -> None:
+    def __init__(self, device: MideaDevice, entity_key: str) -> None:
         super().__init__(device, entity_key)
-
-    def turn_on(
-        self,
-        percentage: int | None = None,
-        preset_mode: str | None = None,
-        **kwargs: Any,
-    ) -> None:
-        if percentage:
-            fan_speed = int(percentage / self.percentage_step + 0.5)
-        else:
-            fan_speed = None
-        self._device.turn_on(fan_speed=fan_speed, mode=preset_mode)
 
     @property
     def preset_modes(self) -> list[str] | None:
@@ -123,7 +117,9 @@ class MideaFan(MideaEntity, FanEntity):
 
 
 class MideaFAFan(MideaFan):
-    def __init__(self, device: Any, entity_key: str) -> None:
+    _device: MideaFADevice
+
+    def __init__(self, device: MideaFADevice, entity_key: str) -> None:
         super().__init__(device, entity_key)
         self._attr_supported_features = (
             FanEntityFeature.SET_SPEED
@@ -132,18 +128,46 @@ class MideaFAFan(MideaFan):
         )
         self._attr_speed_count = self._device.speed_count
 
+    def turn_on(
+        self,
+        percentage: int | None = None,
+        preset_mode: str | None = None,
+        **kwargs: Any,
+    ) -> None:
+        if percentage:
+            fan_speed = int(percentage / self.percentage_step + 0.5)
+        else:
+            fan_speed = None
+        self._device.turn_on(fan_speed=fan_speed, mode=preset_mode)
+
 
 class MideaB6Fan(MideaFan):
-    def __init__(self, device: Any, entity_key: str) -> None:
+    _device: MideaB6Device
+
+    def __init__(self, device: MideaB6Device, entity_key: str) -> None:
         super().__init__(device, entity_key)
         self._attr_supported_features = (
             FanEntityFeature.SET_SPEED | FanEntityFeature.PRESET_MODE
         )
         self._attr_speed_count = self._device.speed_count
 
+    def turn_on(
+        self,
+        percentage: int | None = None,
+        preset_mode: str | None = None,
+        **kwargs: Any,
+    ) -> None:
+        if percentage:
+            fan_speed = int(percentage / self.percentage_step + 0.5)
+        else:
+            fan_speed = None
+        self._device.turn_on(fan_speed=fan_speed, mode=preset_mode)
+
 
 class MideaACFreshAirFan(MideaFan):
-    def __init__(self, device: Any, entity_key: str) -> None:
+    _device: MideaACDevice
+
+    def __init__(self, device: MideaACDevice, entity_key: str) -> None:
         super().__init__(device, entity_key)
         self._attr_supported_features = (
             FanEntityFeature.SET_SPEED | FanEntityFeature.PRESET_MODE
@@ -189,7 +213,9 @@ class MideaACFreshAirFan(MideaFan):
 
 
 class MideaCEFan(MideaFan):
-    def __init__(self, device: Any, entity_key: str) -> None:
+    _device: MideaCEDevice
+
+    def __init__(self, device: MideaCEDevice, entity_key: str) -> None:
         super().__init__(device, entity_key)
         self._attr_supported_features = (
             FanEntityFeature.SET_SPEED | FanEntityFeature.PRESET_MODE
@@ -209,7 +235,9 @@ class MideaCEFan(MideaFan):
 
 
 class Midea40Fan(MideaFan):
-    def __init__(self, device: Any, entity_key: str) -> None:
+    _device: Midea40Device
+
+    def __init__(self, device: Midea40Device, entity_key: str) -> None:
         super().__init__(device, entity_key)
         self._attr_supported_features = (
             FanEntityFeature.SET_SPEED | FanEntityFeature.OSCILLATE
