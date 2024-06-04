@@ -1,5 +1,5 @@
 import logging
-from typing import Any, cast
+from typing import Any, TypeAlias, cast
 
 from homeassistant.components.climate import (
     ATTR_HVAC_MODE,
@@ -37,10 +37,15 @@ from homeassistant.const import (
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from midealocal.devices.ac import DeviceAttributes as ACAttributes
+from midealocal.devices.ac import MideaACDevice
 from midealocal.devices.c3 import DeviceAttributes as C3Attributes
+from midealocal.devices.c3 import MideaC3Device
 from midealocal.devices.cc import DeviceAttributes as CCAttributes
+from midealocal.devices.cc import MideaCCDevice
 from midealocal.devices.cf import DeviceAttributes as CFAttributes
+from midealocal.devices.cf import MideaCFDevice
 from midealocal.devices.fb import DeviceAttributes as FBAttributes
+from midealocal.devices.fb import MideaFBDevice
 
 from .const import DEVICES, DOMAIN
 from .midea_devices import MIDEA_DEVICES
@@ -90,13 +95,20 @@ async def async_setup_entry(
     async_add_entities(devs)
 
 
+MideaClimateDevice: TypeAlias = (
+    MideaACDevice | MideaCCDevice | MideaCFDevice | MideaC3Device | MideaFBDevice
+)
+
+
 class MideaClimate(MideaEntity, ClimateEntity):
     # https://developers.home-assistant.io/blog/2024/01/24/climate-climateentityfeatures-expanded
     _enable_turn_on_off_backwards_compatibility: bool = (
         False  # maybe remove after 2025.1
     )
 
-    def __init__(self, device: Any, entity_key: str) -> None:
+    _device: MideaClimateDevice
+
+    def __init__(self, device: MideaClimateDevice, entity_key: str) -> None:
         super().__init__(device, entity_key)
 
     @property
@@ -248,7 +260,9 @@ class MideaClimate(MideaEntity, ClimateEntity):
 
 
 class MideaACClimate(MideaClimate):
-    def __init__(self, device: Any, entity_key: str) -> None:
+    _device: MideaACDevice
+
+    def __init__(self, device: MideaACDevice, entity_key: str) -> None:
         super().__init__(device, entity_key)
         self._modes = [
             HVACMode.OFF,
@@ -334,7 +348,9 @@ class MideaACClimate(MideaClimate):
 
 
 class MideaCCClimate(MideaClimate):
-    def __init__(self, device: Any, entity_key: str) -> None:
+    _device: MideaCCDevice
+
+    def __init__(self, device: MideaCCDevice, entity_key: str) -> None:
         super().__init__(device, entity_key)
         self._modes = [
             HVACMode.OFF,
@@ -380,7 +396,9 @@ class MideaCCClimate(MideaClimate):
 
 
 class MideaCFClimate(MideaClimate):
-    def __init__(self, device: Any, entity_key: str) -> None:
+    _device: MideaCFDevice
+
+    def __init__(self, device: MideaCFDevice, entity_key: str) -> None:
         super().__init__(device, entity_key)
         self._modes = [HVACMode.OFF, HVACMode.AUTO, HVACMode.COOL, HVACMode.HEAT]
 
@@ -417,12 +435,14 @@ class MideaCFClimate(MideaClimate):
 
 
 class MideaC3Climate(MideaClimate):
+    _device: MideaC3Device
+
     _powers = [
         C3Attributes.zone1_power,
         C3Attributes.zone2_power,
     ]
 
-    def __init__(self, device: Any, entity_key: str, zone: int) -> None:
+    def __init__(self, device: MideaC3Device, entity_key: str, zone: int) -> None:
         super().__init__(device, entity_key)
         self._zone = zone
         self._modes = [HVACMode.OFF, HVACMode.AUTO, HVACMode.COOL, HVACMode.HEAT]
@@ -519,7 +539,9 @@ class MideaC3Climate(MideaClimate):
 
 
 class MideaFBClimate(MideaClimate):
-    def __init__(self, device: Any, entity_key: str) -> None:
+    _device: MideaFBDevice
+
+    def __init__(self, device: MideaFBDevice, entity_key: str) -> None:
         super().__init__(device, entity_key)
         self._modes = [HVACMode.OFF, HVACMode.HEAT]
         self._preset_modes: list[str] = self._device.modes
