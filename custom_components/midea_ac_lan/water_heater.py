@@ -14,6 +14,7 @@ from homeassistant.const import (
     PRECISION_HALVES,
     PRECISION_WHOLE,
     STATE_OFF,
+    STATE_ON,
     Platform,
     UnitOfTemperature,
 )
@@ -110,7 +111,7 @@ class MideaWaterHeater(MideaEntity, WaterHeaterEntity):
         return UnitOfTemperature.CELSIUS
 
     @property
-    def current_operation(self) -> str:
+    def current_operation(self) -> str | None:
         return cast(
             str,
             (
@@ -200,6 +201,14 @@ class MideaC3WaterHeater(MideaWaterHeater):
         super().__init__(device, entity_key)
 
     @property
+    def current_operation(self) -> str | None:
+        return (
+            STATE_ON
+            if self._device.get_attribute(C3Attributes.dhw_power)
+            else STATE_OFF
+        )
+
+    @property
     def current_temperature(self) -> float:
         return cast(
             float, self._device.get_attribute(C3Attributes.tank_actual_temperature)
@@ -254,6 +263,22 @@ class MideaE6WaterHeater(MideaWaterHeater):
         self._target_temperature_attr = MideaE6WaterHeater._target_temperatures[
             self._use
         ]
+
+    @property
+    def current_operation(self) -> str | None:
+        if self._use == 0:  # for heating
+            return (
+                STATE_ON
+                if self._device.get_attribute(E6Attributes.main_power)
+                and self._device.get_attribute(E6Attributes.heating_power)
+                else STATE_OFF
+            )
+        else:  # for bathing
+            return (
+                STATE_ON
+                if self._device.get_attribute(E6Attributes.main_power)
+                else STATE_OFF
+            )
 
     @property
     def current_temperature(self) -> float:
