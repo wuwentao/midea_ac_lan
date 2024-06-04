@@ -3,7 +3,7 @@ from typing import Any, cast
 
 from homeassistant.components.fan import FanEntity, FanEntityFeature
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import CONF_DEVICE_ID, CONF_SWITCHES, STATE_ON, Platform
+from homeassistant.const import CONF_DEVICE_ID, CONF_SWITCHES, Platform
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from midealocal.devices.ac import DeviceAttributes as ACAttributes
@@ -156,7 +156,7 @@ class MideaACFreshAirFan(MideaFan):
 
     @property
     def is_on(self) -> bool:
-        return self.state == STATE_ON
+        return cast(bool, self._device.get_attribute(ACAttributes.fresh_air_power))
 
     @property
     def fan_speed(self) -> int:
