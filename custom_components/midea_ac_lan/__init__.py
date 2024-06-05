@@ -1,11 +1,6 @@
 """
 midea_ac_lan integration init file
 
-Configuration:
-To use the midea_ac_lan component you will need to add the following to your
-configuration.yaml file.
-`midea_ac_lan:`
-
 integration load process:
 1. component setup: `async_setup`
     1.1 use `hass.services.async_register` to register service

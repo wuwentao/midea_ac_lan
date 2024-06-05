@@ -16,6 +16,7 @@ job process:
 4. add selected device detail with `async_step_manually`
 5. run `_save_device_config` and `async_create_entry`
 
+
 """
 import logging
 import os
@@ -100,6 +101,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
     use ConfigFlow handle to support config entries
     ConfigFlow will manage the creation of entries from user input, discovery
     """
+
     available_device: dict = {}
     devices: dict = {}
     found_device: dict = {}
@@ -541,6 +543,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
 
 class MideaLanOptionsFlowHandler(OptionsFlow):
     """define an Options Flow Handler to update the options of a config entry"""
+
     def __init__(self, config_entry: ConfigEntry) -> None:
         """Initialize options flow."""
         self._config_entry = config_entry
