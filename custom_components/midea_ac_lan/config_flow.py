@@ -15,9 +15,8 @@ job process:
             - check login with `async_step_login`
 4. add selected device detail with `async_step_manually`
 5. run `_save_device_config` and `async_create_entry`
-
-
 """
+
 import logging
 import os
 from typing import Any, cast
