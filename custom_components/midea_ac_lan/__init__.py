@@ -50,7 +50,7 @@ _LOGGER = logging.getLogger(__name__)
 
 async def update_listener(hass: HomeAssistant, config_entry: ConfigEntry) -> None:
     """
-    option flow singal update,
+    option flow signal update,
     register an update listener to the config entry that will be called when the entry is updated.
     A listener is registered by adding the following to the `async_setup_entry`:
     `config_entry.async_on_unload(config_entry.add_update_listener(update_listener))`
