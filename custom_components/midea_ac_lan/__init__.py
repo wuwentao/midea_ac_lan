@@ -1,3 +1,15 @@
+"""
+midea_ac_lan integration init file
+
+integration load process:
+1. component setup: `async_setup`
+    1.1 use `hass.services.async_register` to register service
+2. config entry setup: `async_setup_entry`
+    2.1 forward the Config Entry to the platform `async_forward_entry_setups`
+    2.2 register listener `update_listener`
+3. unloading a config entry: `async_unload_entry`
+"""
+
 import logging
 from typing import Any, cast
 
@@ -37,12 +49,20 @@ _LOGGER = logging.getLogger(__name__)
 
 
 async def update_listener(hass: HomeAssistant, config_entry: ConfigEntry) -> None:
-    for platform in ALL_PLATFORM:
-        await hass.config_entries.async_forward_entry_unload(config_entry, platform)
-    for platform in ALL_PLATFORM:
-        hass.async_create_task(
-            hass.config_entries.async_forward_entry_setup(config_entry, platform),
-        )
+    """
+    option flow signal update,
+    register an update listener to the config entry that will be called when the entry is updated.
+    A listener is registered by adding the following to the `async_setup_entry`:
+    `config_entry.async_on_unload(config_entry.add_update_listener(update_listener))`
+    means the Listener is attached when the entry is loaded and detached at unload
+    """
+
+    # Forward the unloading of an entry to platforms.
+    await hass.config_entries.async_unload_platforms(config_entry, ALL_PLATFORM)
+    # forward the Config Entry to the platforms
+    hass.async_create_task(
+        hass.config_entries.async_forward_entry_setups(config_entry, ALL_PLATFORM),
+    )
     device_id = config_entry.data.get(CONF_DEVICE_ID)
     customize = config_entry.options.get(CONF_CUSTOMIZE, "")
     ip_address = config_entry.options.get(CONF_IP_ADDRESS, None)
@@ -57,6 +77,7 @@ async def update_listener(hass: HomeAssistant, config_entry: ConfigEntry) -> Non
 
 
 async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
+    """setup midea_lan component when load this integration"""
     hass.data.setdefault(DOMAIN, {})
     attributes = []
     for device_entities in MIDEA_DEVICES.values():
@@ -71,6 +92,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
                 attributes.append(attribute_name.value)
 
     def service_set_attribute(service: Any) -> None:
+        """set service attribute func"""
         device_id = service.data["device_id"]
         attr = service.data["attribute"]
         value = service.data["value"]
@@ -99,6 +121,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
                 )
 
     def service_send_command(service: Any) -> None:
+        """send command to service func"""
         device_id = service.data.get("device_id")
         cmd_type = service.data.get("cmd_type")
         cmd_body = service.data.get("cmd_body")
@@ -114,6 +137,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         if dev:
             dev.send_command(cmd_type, cmd_body)
 
+    # register service: func call `service_set_attribute`, service.yaml key: `set_attribute`
     hass.services.async_register(
         DOMAIN,
         "set_attribute",
@@ -127,6 +151,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         ),
     )
 
+    # register service: func call `service_send_command`, service.yaml key: `send_command`
     hass.services.async_register(
         DOMAIN,
         "send_command",
@@ -143,6 +168,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
 
 
 async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> bool:
+    """Set up platform for current integration"""
     device_type = config_entry.data.get(CONF_TYPE)
     if device_type == CONF_ACCOUNT:
         return True
@@ -166,6 +192,8 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
     if protocol == 3 and (key is None or token is None):
         _LOGGER.error("For V3 devices, the key and the token is required.")
         return False
+    # device_selector in `midealocal/devices/__init__.py`
+    # hass core version >= 2024.3
     if (MAJOR_VERSION, MINOR_VERSION) >= (2024, 3):
         device = await hass.async_add_import_executor_job(
             device_selector,
@@ -181,6 +209,7 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
             subtype,
             customize,
         )
+    # hass core version < 2024.3
     else:
         device = device_selector(
             name=name,
@@ -204,16 +233,18 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
         if DEVICES not in hass.data[DOMAIN]:
             hass.data[DOMAIN][DEVICES] = {}
         hass.data[DOMAIN][DEVICES][device_id] = device
-        for platform in ALL_PLATFORM:
-            hass.async_create_task(
-                hass.config_entries.async_forward_entry_setup(config_entry, platform),
-            )
-        config_entry.add_update_listener(update_listener)
+        # Forward the setup of an entry to all platforms
+        hass.async_create_task(
+            hass.config_entries.async_forward_entry_setups(config_entry, ALL_PLATFORM),
+        )
+        # Listener `update_listener` is attached when the entry is loaded and detached at unload
+        config_entry.async_on_unload(config_entry.add_update_listener(update_listener))
         return True
     return False
 
 
 async def async_unload_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> bool:
+    """clean up entities, unsubscribe event listener and close all connections"""
     device_type = config_entry.data.get(CONF_TYPE)
     if device_type == CONF_ACCOUNT:
         return True
@@ -223,6 +254,6 @@ async def async_unload_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> 
         if dm is not None:
             dm.close()
         hass.data[DOMAIN][DEVICES].pop(device_id)
-    for platform in ALL_PLATFORM:
-        await hass.config_entries.async_forward_entry_unload(config_entry, platform)
+    # Forward the unloading of an entry to platforms
+    await hass.config_entries.async_unload_platforms(config_entry, ALL_PLATFORM)
     return True
