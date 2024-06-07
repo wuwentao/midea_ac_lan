@@ -2,6 +2,12 @@ import functools as ft
 import logging
 from typing import Any, TypeAlias, cast
 
+from midealocal.devices.c3 import DeviceAttributes as C3Attributes, MideaC3Device
+from midealocal.devices.cd import DeviceAttributes as CDAttributes, MideaCDDevice
+from midealocal.devices.e2 import MideaE2Device
+from midealocal.devices.e3 import MideaE3Device
+from midealocal.devices.e6 import DeviceAttributes as E6Attributes, MideaE6Device
+
 from homeassistant.components.water_heater import (
     WaterHeaterEntity,
     WaterHeaterEntityFeature,
@@ -20,14 +26,6 @@ from homeassistant.const import (
 )
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
-from midealocal.devices.c3 import DeviceAttributes as C3Attributes
-from midealocal.devices.c3 import MideaC3Device
-from midealocal.devices.cd import DeviceAttributes as CDAttributes
-from midealocal.devices.cd import MideaCDDevice
-from midealocal.devices.e2 import MideaE2Device
-from midealocal.devices.e3 import MideaE3Device
-from midealocal.devices.e6 import DeviceAttributes as E6Attributes
-from midealocal.devices.e6 import MideaE6Device
 
 from .const import DEVICES, DOMAIN
 from .midea_devices import MIDEA_DEVICES

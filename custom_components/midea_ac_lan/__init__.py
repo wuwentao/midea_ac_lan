@@ -13,8 +13,9 @@ integration load process:
 import logging
 from typing import Any, cast
 
-import homeassistant.helpers.config_validation as cv
+from midealocal.devices import device_selector
 import voluptuous as vol
+
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import (
     CONF_CUSTOMIZE,
@@ -29,8 +30,8 @@ from homeassistant.const import (
     MINOR_VERSION,
 )
 from homeassistant.core import HomeAssistant
+import homeassistant.helpers.config_validation as cv
 from homeassistant.helpers.typing import ConfigType
-from midealocal.devices import device_selector
 
 from .const import (
     ALL_PLATFORM,

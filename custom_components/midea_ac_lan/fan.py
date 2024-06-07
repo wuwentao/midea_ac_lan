@@ -1,20 +1,18 @@
 import logging
 from typing import Any, cast
 
+from midealocal.device import MideaDevice
+from midealocal.devices.ac import DeviceAttributes as ACAttributes, MideaACDevice
+from midealocal.devices.b6 import MideaB6Device
+from midealocal.devices.ce import DeviceAttributes as CEAttributes, MideaCEDevice
+from midealocal.devices.fa import MideaFADevice
+from midealocal.devices.x40 import DeviceAttributes as X40Attributes, Midea40Device
+
 from homeassistant.components.fan import FanEntity, FanEntityFeature
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_DEVICE_ID, CONF_SWITCHES, Platform
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
-from midealocal.device import MideaDevice
-from midealocal.devices.ac import DeviceAttributes as ACAttributes
-from midealocal.devices.ac import MideaACDevice
-from midealocal.devices.b6 import MideaB6Device
-from midealocal.devices.ce import DeviceAttributes as CEAttributes
-from midealocal.devices.ce import MideaCEDevice
-from midealocal.devices.fa import MideaFADevice
-from midealocal.devices.x40 import DeviceAttributes as X40Attributes
-from midealocal.devices.x40 import Midea40Device
 
 from .const import DEVICES, DOMAIN
 from .midea_devices import MIDEA_DEVICES

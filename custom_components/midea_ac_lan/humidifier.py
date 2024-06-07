@@ -1,6 +1,9 @@
 import logging
 from typing import Any, TypeAlias, cast
 
+from midealocal.devices.a1 import MideaA1Device
+from midealocal.devices.fd import MideaFDDevice
+
 from homeassistant.components.humidifier import (
     HumidifierDeviceClass,
     HumidifierEntity,
@@ -10,8 +13,6 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_DEVICE_ID, CONF_SWITCHES, Platform
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
-from midealocal.devices.a1 import MideaA1Device
-from midealocal.devices.fd import MideaFDDevice
 
 from .const import DEVICES, DOMAIN
 from .midea_devices import MIDEA_DEVICES

@@ -8,8 +8,9 @@ if (MAJOR_VERSION, MINOR_VERSION) >= (2023, 9):
 else:
     from homeassistant.helpers.entity import DeviceInfo
 
-from homeassistant.helpers.entity import Entity
 from midealocal.device import MideaDevice
+
+from homeassistant.helpers.entity import Entity
 
 from .const import DOMAIN
 from .midea_devices import MIDEA_DEVICES

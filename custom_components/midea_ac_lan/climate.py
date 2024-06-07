@@ -1,6 +1,12 @@
 import logging
 from typing import Any, TypeAlias, cast
 
+from midealocal.devices.ac import DeviceAttributes as ACAttributes, MideaACDevice
+from midealocal.devices.c3 import DeviceAttributes as C3Attributes, MideaC3Device
+from midealocal.devices.cc import DeviceAttributes as CCAttributes, MideaCCDevice
+from midealocal.devices.cf import DeviceAttributes as CFAttributes, MideaCFDevice
+from midealocal.devices.fb import DeviceAttributes as FBAttributes, MideaFBDevice
+
 from homeassistant.components.climate import (
     ATTR_HVAC_MODE,
     FAN_AUTO,
@@ -36,16 +42,6 @@ from homeassistant.const import (
 )
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
-from midealocal.devices.ac import DeviceAttributes as ACAttributes
-from midealocal.devices.ac import MideaACDevice
-from midealocal.devices.c3 import DeviceAttributes as C3Attributes
-from midealocal.devices.c3 import MideaC3Device
-from midealocal.devices.cc import DeviceAttributes as CCAttributes
-from midealocal.devices.cc import MideaCCDevice
-from midealocal.devices.cf import DeviceAttributes as CFAttributes
-from midealocal.devices.cf import MideaCFDevice
-from midealocal.devices.fb import DeviceAttributes as FBAttributes
-from midealocal.devices.fb import MideaFBDevice
 
 from .const import DEVICES, DOMAIN
 from .midea_devices import MIDEA_DEVICES

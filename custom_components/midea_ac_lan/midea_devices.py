@@ -1,18 +1,5 @@
 from typing import Any
 
-from homeassistant.components.binary_sensor import BinarySensorDeviceClass
-from homeassistant.components.sensor import SensorDeviceClass, SensorStateClass
-from homeassistant.const import (
-    CONCENTRATION_MICROGRAMS_PER_CUBIC_METER,
-    CONCENTRATION_PARTS_PER_MILLION,
-    PERCENTAGE,
-    Platform,
-    UnitOfEnergy,
-    UnitOfPower,
-    UnitOfTemperature,
-    UnitOfTime,
-    UnitOfVolume,
-)
 from midealocal.devices.a1 import DeviceAttributes as A1Attributes
 from midealocal.devices.ac import DeviceAttributes as ACAttributes
 from midealocal.devices.b0 import DeviceAttributes as B0Attributes
@@ -46,6 +33,20 @@ from midealocal.devices.fd import DeviceAttributes as FDAttributes
 from midealocal.devices.x26 import DeviceAttributes as X26Attributes
 from midealocal.devices.x34 import DeviceAttributes as X34Attributes
 from midealocal.devices.x40 import DeviceAttributes as X40Attributes
+
+from homeassistant.components.binary_sensor import BinarySensorDeviceClass
+from homeassistant.components.sensor import SensorDeviceClass, SensorStateClass
+from homeassistant.const import (
+    CONCENTRATION_MICROGRAMS_PER_CUBIC_METER,
+    CONCENTRATION_PARTS_PER_MILLION,
+    PERCENTAGE,
+    Platform,
+    UnitOfEnergy,
+    UnitOfPower,
+    UnitOfTemperature,
+    UnitOfTime,
+    UnitOfVolume,
+)
 
 MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
     0x13: {
