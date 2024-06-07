@@ -1,7 +1,13 @@
 import logging
 from typing import Any, cast
 
-from homeassistant.helpers.device_registry import DeviceInfo
+from homeassistant.const import MAJOR_VERSION, MINOR_VERSION
+
+if (MAJOR_VERSION, MINOR_VERSION) >= (2023, 9):
+    from homeassistant.helpers.device_registry import DeviceInfo
+else:
+    from homeassistant.helpers.entity import DeviceInfo
+
 from homeassistant.helpers.entity import Entity
 from midealocal.device import MideaDevice
 
