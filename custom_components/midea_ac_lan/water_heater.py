@@ -165,15 +165,8 @@ class MideaWaterHeater(MideaEntity, WaterHeaterEntity):
         await self.hass.async_add_executor_job(ft.partial(self.turn_off, **kwargs))
 
     def update_state(self, status: Any) -> None:
-        try:
+        if self.hass:
             self.schedule_update_ha_state()
-        except Exception as e:
-            _LOGGER.debug(
-                "Entity %s update_state %s, status = %s",
-                self.entity_id,
-                repr(e),
-                status,
-            )
 
 
 class MideaE2WaterHeater(MideaWaterHeater):

@@ -74,12 +74,5 @@ class MideaEntity(Entity):
 
     def update_state(self, status: Any) -> None:
         if self._entity_key in status or "available" in status:
-            try:
+            if self.hass:
                 self.schedule_update_ha_state()
-            except Exception as e:
-                _LOGGER.debug(
-                    "Entity %s update_state %s, status = %s",
-                    self.entity_id,
-                    repr(e),
-                    status,
-                )
