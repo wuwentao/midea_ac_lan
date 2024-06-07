@@ -180,7 +180,7 @@ class MideaClimate(MideaEntity, ClimateEntity):
                     mode=mode,
                 )
             except ValueError as e:
-                _LOGGER.error("set_temperature %s, kwargs = %s", e, kwargs)
+                _LOGGER.error("ValueError: set_temperature %s, kwargs = %s", e, kwargs)
 
     def set_hvac_mode(self, hvac_mode: HVACMode) -> None:
         if hvac_mode == HVACMode.OFF:
@@ -489,7 +489,7 @@ class MideaC3Climate(MideaClimate):
                     mode=mode,
                 )
             except ValueError as e:
-                _LOGGER.error("set_temperature %s, kwargs = %s", e, kwargs)
+                _LOGGER.error("ValueError: set_temperature %s, kwargs = %s", e, kwargs)
 
     def set_hvac_mode(self, hvac_mode: HVACMode) -> None:
         if hvac_mode == HVACMode.OFF:

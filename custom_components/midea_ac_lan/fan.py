@@ -1,7 +1,6 @@
 import logging
 from typing import Any, cast
 
-from midealocal.device import MideaDevice
 from midealocal.devices.ac import DeviceAttributes as ACAttributes, MideaACDevice
 from midealocal.devices.b6 import MideaB6Device
 from midealocal.devices.ce import DeviceAttributes as CEAttributes, MideaCEDevice
@@ -52,9 +51,6 @@ async def async_setup_entry(
 
 
 class MideaFan(MideaEntity, FanEntity):
-    def __init__(self, device: MideaDevice, entity_key: str) -> None:
-        super().__init__(device, entity_key)
-
     @property
     def preset_modes(self) -> list[str] | None:
         return (
