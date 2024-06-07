@@ -21,12 +21,6 @@ import logging
 import os
 from typing import Any, cast
 
-try:
-    from homeassistant.helpers.json import save_json
-except ImportError:
-    # deprecated and stop working in Home Assistant 2022.4, can be remove later
-    from homeassistant.util.json import save_json
-
 import homeassistant.helpers.config_validation as cv
 import voluptuous as vol
 from homeassistant.config_entries import ConfigEntry, ConfigFlow, OptionsFlow
@@ -48,6 +42,7 @@ from homeassistant.const import (
 )
 from homeassistant.core import callback
 from homeassistant.helpers.aiohttp_client import async_create_clientsession
+from homeassistant.helpers.json import save_json
 from homeassistant.util.json import load_json
 from midealocal.cloud import MideaCloud, get_midea_cloud
 from midealocal.device import MideaDevice
