@@ -241,17 +241,17 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
         )
 
     async def async_step_discovery(
-        self, user_input: dict[str, Any] | None = None, error: str | None = None
+        self, discovery_info: dict[str, Any] | None = None, error: str | None = None
     ) -> ConfigFlowResult:
         """Discovery device with auto mode or ip address."""
         # input is not None, using ip_address to discovery device
-        if user_input is not None:
+        if discovery_info is not None:
             # auto mode, ip_address is None
-            if user_input[CONF_IP_ADDRESS].lower() == "auto":
+            if discovery_info[CONF_IP_ADDRESS].lower() == "auto":
                 ip_address = None
             # ip exist
             else:
-                ip_address = user_input[CONF_IP_ADDRESS]
+                ip_address = discovery_info[CONF_IP_ADDRESS]
             # use midea-local discover() to get devices list with ip_address
             self.devices = discover(self.supports.keys(), ip_address=ip_address)
             self.available_device = {}
