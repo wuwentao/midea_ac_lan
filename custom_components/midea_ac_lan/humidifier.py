@@ -52,6 +52,10 @@ class MideaHumidifier(MideaEntity, HumidifierEntity):
         super().__init__(device, entity_key)
 
     @property
+    def current_humidity(self) -> float | None:
+        return cast(float, self._device.get_attribute("current_humidity"))
+
+    @property
     def target_humidity(self) -> float:
         return cast(float, self._device.get_attribute("target_humidity"))
 
@@ -98,14 +102,8 @@ class MideaA1Humidifier(MideaHumidifier):
         super().__init__(device, entity_key)
         self._attr_min_humidity: float = 35
         self._attr_max_humidity: float = 85
-
-    @property
-    def device_class(self) -> HumidifierDeviceClass:
-        return HumidifierDeviceClass.DEHUMIDIFIER
-
-    @property
-    def supported_features(self) -> HumidifierEntityFeature:
-        return HumidifierEntityFeature.MODES
+        self._attr_device_class = HumidifierDeviceClass.DEHUMIDIFIER
+        self._attr_supported_features = HumidifierEntityFeature.MODES
 
 
 class MideaFDHumidifier(MideaHumidifier):
@@ -115,11 +113,5 @@ class MideaFDHumidifier(MideaHumidifier):
         super().__init__(device, entity_key)
         self._attr_min_humidity: float = 35
         self._attr_max_humidity: float = 85
-
-    @property
-    def device_class(self) -> HumidifierDeviceClass:
-        return HumidifierDeviceClass.HUMIDIFIER
-
-    @property
-    def supported_features(self) -> HumidifierEntityFeature:
-        return HumidifierEntityFeature.MODES
+        self._attr_device_class = HumidifierDeviceClass.HUMIDIFIER
+        self._attr_supported_features = HumidifierEntityFeature.MODES
