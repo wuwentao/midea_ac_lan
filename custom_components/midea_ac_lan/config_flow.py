@@ -29,12 +29,7 @@ except ImportError:
 
 import homeassistant.helpers.config_validation as cv
 import voluptuous as vol
-from homeassistant.config_entries import (
-    ConfigEntry,
-    ConfigFlow,
-    ConfigFlowResult,
-    OptionsFlow,
-)
+from homeassistant.config_entries import ConfigEntry, ConfigFlow, OptionsFlow
 from homeassistant.const import (
     CONF_CUSTOMIZE,
     CONF_DEVICE,
@@ -48,6 +43,8 @@ from homeassistant.const import (
     CONF_SWITCHES,
     CONF_TOKEN,
     CONF_TYPE,
+    MAJOR_VERSION,
+    MINOR_VERSION,
 )
 from homeassistant.core import callback
 from homeassistant.helpers.aiohttp_client import async_create_clientsession
@@ -55,6 +52,11 @@ from homeassistant.util.json import load_json
 from midealocal.cloud import MideaCloud, get_midea_cloud
 from midealocal.device import MideaDevice
 from midealocal.discover import discover
+
+if (MAJOR_VERSION, MINOR_VERSION) >= (2024, 4):
+    from homeassistant.config_entries import ConfigFlowResult
+else:
+    from homeassistant.data_entry_flow import FlowResult as ConfigFlowResult  # type: ignore
 
 from .const import (
     CONF_ACCOUNT,
