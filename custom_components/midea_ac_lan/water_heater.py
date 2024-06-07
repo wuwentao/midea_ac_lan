@@ -291,12 +291,12 @@ class MideaE6WaterHeater(MideaWaterHeater):
                 and self._device.get_attribute(E6Attributes.heating_power)
                 else STATE_OFF
             )
-        else:  # for bathing
-            return (
-                STATE_ON
-                if self._device.get_attribute(E6Attributes.main_power)
-                else STATE_OFF
-            )
+        # for bathing
+        return (
+            STATE_ON
+            if self._device.get_attribute(E6Attributes.main_power)
+            else STATE_OFF
+        )
 
     @property
     def current_temperature(self) -> float:
