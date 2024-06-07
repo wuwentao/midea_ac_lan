@@ -1,6 +1,5 @@
-"""
-setup current integration and add device entry via the web UI
-enable by adding `config_flow: true` in `manifest.json`
+"""setup current integration and add device entry via the web UI
+enable by adding `config_flow: true` in `manifest.json`.
 
 `MideaLanConfigFlow`: add device entry
 `MideaLanOptionsFlowHandler`: update the options of a config entry
@@ -95,10 +94,9 @@ PRESET_ACCOUNT = [
 
 
 class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
-    """
-    define current integration setup steps
+    """define current integration setup steps
     use ConfigFlow handle to support config entries
-    ConfigFlow will manage the creation of entries from user input, discovery
+    ConfigFlow will manage the creation of entries from user input, discovery.
     """
 
     available_device: dict = {}
@@ -117,7 +115,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
         supports[item[0]] = item[1]
 
     def _save_device_config(self, data: dict[str, Any]) -> None:
-        """save device config to json file with device id"""
+        """Save device config to json file with device id."""
         os.makedirs(self.hass.config.path(STORAGE_PATH), exist_ok=True)
         record_file = self.hass.config.path(
             f"{STORAGE_PATH}/{data[CONF_DEVICE_ID]}.json",
@@ -125,15 +123,13 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
         save_json(record_file, data)
 
     def _load_device_config(self, device_id: str) -> Any:
-        """load device config from json file with device id"""
+        """Load device config from json file with device id."""
         record_file = self.hass.config.path(f"{STORAGE_PATH}/{device_id}.json")
         return load_json(record_file, default={})
 
     @staticmethod
     def _check_storage_device(device: dict, storage_device: dict) -> bool:
-        """
-        check input device with storage_device
-        """
+        """Check input device with storage_device."""
         if storage_device.get(CONF_SUBTYPE) is None:
             return False
         if device.get(CONF_PROTOCOL) == 3 and (
@@ -144,7 +140,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
         return True
 
     def _already_configured(self, device_id: str, ip_address: str) -> bool:
-        """check device from json with device_id or ip address"""
+        """Check device from json with device_id or ip address."""
         for entry in self._async_current_entries():
             if device_id == entry.data.get(
                 CONF_DEVICE_ID,
@@ -155,9 +151,9 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
     async def async_step_user(
         self, user_input: dict[str, Any] | None = None, error: str | None = None
     ) -> ConfigFlowResult:
+        """Define config flow steps, using `async_step_<step_id>`
+        `async_step_user` will be the first step, then select discovery mode.
         """
-        define config flow steps, using `async_step_<step_id>`
-        `async_step_user` will be the first step, then select discovery mode"""
         # user select a device discovery mode
         if user_input is not None:
             # default is auto discovery mode
@@ -181,7 +177,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
     async def async_step_login(
         self, user_input: dict[str, Any] | None = None, error: str | None = None
     ) -> ConfigFlowResult:
-        """user login steps"""
+        """User login steps."""
         # login data exist
         if user_input is not None:
             if self.session is None:
@@ -218,7 +214,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
     async def async_step_list(
         self, user_input: dict[str, Any] | None = None, error: str | None = None
     ) -> ConfigFlowResult:
-        """list all devices and show device info in web UI"""
+        """List all devices and show device info in web UI."""
         # get all devices list
         all_devices = discover()
         # available devices exist
@@ -247,7 +243,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
     async def async_step_discovery(
         self, user_input: dict[str, Any] | None = None, error: str | None = None
     ) -> ConfigFlowResult:
-        """discovery device with auto mode or ip address"""
+        """Discovery device with auto mode or ip address."""
         # input is not None, using ip_address to discovery device
         if user_input is not None:
             # auto mode, ip_address is None
@@ -280,7 +276,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
     async def async_step_auto(
         self, user_input: dict[str, Any] | None = None, error: str | None = None
     ) -> ConfigFlowResult:
-        """discovery device detail info"""
+        """Discovery device detail info."""
         # discovery device
         if user_input is not None:
             device_id = user_input[CONF_DEVICE]
@@ -389,7 +385,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
     async def async_step_manually(
         self, user_input: dict[str, Any] | None = None, error: str | None = None
     ) -> ConfigFlowResult:
-        """add device with device detail info"""
+        """Add device with device detail info."""
         if user_input is not None:
             self.found_device = {
                 CONF_DEVICE_ID: user_input[CONF_DEVICE_ID],
@@ -530,12 +526,12 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
     @staticmethod
     @callback
     def async_get_options_flow(config_entry: ConfigEntry) -> OptionsFlow:
-        """Create the options flow with MideaLanOptionsFlowHandler"""
+        """Create the options flow with MideaLanOptionsFlowHandler."""
         return MideaLanOptionsFlowHandler(config_entry)
 
 
 class MideaLanOptionsFlowHandler(OptionsFlow):
-    """define an Options Flow Handler to update the options of a config entry"""
+    """define an Options Flow Handler to update the options of a config entry."""
 
     def __init__(self, config_entry: ConfigEntry) -> None:
         """Initialize options flow."""
