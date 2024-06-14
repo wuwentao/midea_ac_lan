@@ -134,8 +134,7 @@ class MideaClimate(MideaEntity, ClimateEntity):
     def hvac_mode(self) -> HVACMode:
         if self._device.get_attribute("power"):
             return cast(HVACMode, self.hvac_modes[self._device.get_attribute("mode")])
-        else:
-            return HVACMode.OFF
+        return HVACMode.OFF
 
     @property
     def target_temperature(self) -> float:
@@ -275,16 +274,15 @@ class MideaACClimate(MideaClimate):
         fan_speed: int = self._device.get_attribute(ACAttributes.fan_speed)
         if fan_speed > 100:
             return FAN_AUTO
-        elif fan_speed > 80:
+        if fan_speed > 80:
             return FAN_FULL_SPEED
-        elif fan_speed > 60:
+        if fan_speed > 60:
             return FAN_HIGH
-        elif fan_speed > 40:
+        if fan_speed > 40:
             return FAN_MEDIUM
-        elif fan_speed > 20:
+        if fan_speed > 20:
             return FAN_LOW
-        else:
-            return FAN_SILENT
+        return FAN_SILENT
 
     @property
     def target_temperature_step(self) -> float:
@@ -480,8 +478,7 @@ class MideaC3Climate(MideaClimate):
                 HVACMode,
                 self._modes[self._device.get_attribute(C3Attributes.mode)],
             )
-        else:
-            return HVACMode.OFF
+        return HVACMode.OFF
 
     @property
     def target_temperature(self) -> float:
