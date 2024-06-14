@@ -77,7 +77,8 @@ async def async_setup_entry(
         | MideaFBClimate
     ] = []
     for entity_key, config in cast(
-        dict, MIDEA_DEVICES[device.device_type]["entities"]
+        dict,
+        MIDEA_DEVICES[device.device_type]["entities"],
     ).items():
         if config["type"] == Platform.CLIMATE and (
             config.get("default") or entity_key in extra_switches
@@ -344,7 +345,8 @@ class MideaCCClimate(MideaClimate):
     @property
     def target_temperature_step(self) -> float:
         return cast(
-            float, self._device.get_attribute(CCAttributes.temperature_precision)
+            float,
+            self._device.get_attribute(CCAttributes.temperature_precision),
         )
 
     @property
@@ -440,25 +442,29 @@ class MideaC3Climate(MideaClimate):
     @property
     def min_temp(self) -> float:
         return cast(
-            float, self._device.get_attribute(C3Attributes.temperature_min)[self._zone]
+            float,
+            self._device.get_attribute(C3Attributes.temperature_min)[self._zone],
         )
 
     @property
     def max_temp(self) -> float:
         return cast(
-            float, self._device.get_attribute(C3Attributes.temperature_max)[self._zone]
+            float,
+            self._device.get_attribute(C3Attributes.temperature_max)[self._zone],
         )
 
     @property
     def target_temperature_low(self) -> float:
         return cast(
-            float, self._device.get_attribute(C3Attributes.temperature_min)[self._zone]
+            float,
+            self._device.get_attribute(C3Attributes.temperature_min)[self._zone],
         )
 
     @property
     def target_temperature_high(self) -> float:
         return cast(
-            float, self._device.get_attribute(C3Attributes.temperature_max)[self._zone]
+            float,
+            self._device.get_attribute(C3Attributes.temperature_max)[self._zone],
         )
 
     def turn_on(self, **kwargs: Any) -> None:
@@ -471,7 +477,8 @@ class MideaC3Climate(MideaClimate):
     def hvac_mode(self) -> HVACMode:
         if self._device.get_attribute(self._power_attr):
             return cast(
-                HVACMode, self.hvac_modes[self._device.get_attribute(C3Attributes.mode)]
+                HVACMode,
+                self._modes[self._device.get_attribute(C3Attributes.mode)],
             )
         else:
             return HVACMode.OFF
