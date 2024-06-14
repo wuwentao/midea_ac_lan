@@ -19,6 +19,7 @@ job process:
 
 import logging
 import os
+import shutil
 from typing import Any, cast
 
 import homeassistant.helpers.config_validation as cv
@@ -61,6 +62,7 @@ from .const import (
     CONF_SERVER,
     CONF_SUBTYPE,
     DOMAIN,
+    OLD_DOMAIN,
     EXTRA_CONTROL,
     EXTRA_SENSOR,
 )
@@ -75,6 +77,8 @@ ADD_WAY = {
 }
 PROTOCOLS = {1: "V1", 2: "V2", 3: "V3"}
 STORAGE_PATH = f".storage/{DOMAIN}"
+OLD_STORAGE_PATH = f".storage/{OLD_DOMAIN}"
+MIGRATED = f"{STORAGE_PATH}/.migrated"
 
 SERVERS = {
     1: "MSmartHome",
@@ -150,6 +154,93 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
                 return True
         return False
 
+    def _check_old_domain(self) -> bool:
+        """check midea_ac_lan domain configs"""
+        # user skip, migrated flag exist
+        if os.path.isfile(self.hass.config.path(MIGRATED)):
+            _LOGGER.debug("user disabled migrate, return false")
+            return False
+        # new user with old domain data
+        if os.path.exists(self.hass.config.path(OLD_STORAGE_PATH)):
+            _LOGGER.debug("midea_ac_lan exist, return true")
+            return True
+        _LOGGER.debug("midea_ac_lan NOT exist, return false")
+        return False
+
+    async def _disable_migrate(self) -> bool:
+        """disable midea_ac_lan configs migrate"""
+
+        def write_file() -> bool:
+            # user skip, migrated flag exist
+            if not os.path.exists(self.hass.config.path(STORAGE_PATH)):
+                os.makedirs(STORAGE_PATH)
+            # write to file
+            try:
+                with open(MIGRATED, "w") as file:
+                    file.write("true")
+                    _LOGGER.debug("migrate done, return true")
+                    return True
+            except OSError as e:
+                _LOGGER.error(f"File operation failed: {e}")
+                _LOGGER.debug("disable migrate failed, return false")
+                return False
+
+        # run write_file job
+        return await self.hass.async_add_executor_job(write_file)
+
+    async def _do_migrate(self) -> bool:
+        """migrate midea_ac_lan domain configs"""
+
+        def move_configs() -> bool:
+            try:
+                _LOGGER.debug("Checking if old storage path exists.")
+                # old domain exist
+                if os.path.exists(self.hass.config.path(OLD_STORAGE_PATH)):
+                    _LOGGER.debug("Old storage path exists.")
+                    # new domain not exist, rename old domain to new domain
+                    if not os.path.exists(self.hass.config.path(STORAGE_PATH)):
+                        _LOGGER.debug(
+                            "New storage path does not exist. Renaming old domain to new domain."
+                        )
+                        shutil.move(
+                            self.hass.config.path(OLD_STORAGE_PATH),
+                            self.hass.config.path(STORAGE_PATH),
+                        )
+                        return True
+                    # new domain dir exist, move old configs to new domain dir
+                    for item in os.listdir(self.hass.config.path(OLD_STORAGE_PATH)):
+                        s = os.path.join(self.hass.config.path(OLD_STORAGE_PATH), item)
+                        d = os.path.join(self.hass.config.path(STORAGE_PATH), item)
+                        # confirm destination does not exist in new domain
+                        if not os.path.exists(d):
+                            _LOGGER.debug(f"Moving {s} to {d}")
+                            shutil.move(s, d)
+                    # remove old domain dir
+                    os.rmdir(self.hass.config.path(OLD_STORAGE_PATH))
+                    return True
+                # old domain not exist
+                _LOGGER.debug("Old storage path does not exist.")
+                return False
+            except Exception as e:
+                _LOGGER.error(f"Error during migration: {e}")
+                return False
+
+        # run move_configs job
+        return await self.hass.async_add_executor_job(move_configs)
+
+    def _get_migrate_devices(self) -> list:
+        """get migrate midea_ac_lan domain devices"""
+        # old domain exist
+        migrate = []
+        if os.path.exists(self.hass.config.path(OLD_STORAGE_PATH)):
+            # new domain dir exist, mv old configs to new domain dir
+            for item in os.listdir(OLD_STORAGE_PATH):
+                # read file content
+                record_file = self.hass.config.path(f"{STORAGE_PATH}/item")
+                json_data = load_json(record_file, default={})
+                migrate.append(json_data)
+        return migrate
+
     async def async_step_user(
         self, user_input: dict[str, Any] | None = None, error: str | None = None
     ) -> ConfigFlowResult:
@@ -165,14 +256,23 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
             elif user_input["action"] == "manually":
                 self.found_device = {}
                 return await self.async_step_manually()
+            # migrate midea_ac_lan device
+            elif user_input["action"] == "migrate":
+                return await self.async_step_migrate()
             # only list all devices
             else:
                 return await self.async_step_list()
         # user not input, show device discovery select form in UI
+        # migrate data exist, show migrate option in WEB UI
+        if self._check_old_domain():
+            ADD_WAY["migrate"] = "Migrate [midea_ac_lan] configs"
+            default_option = "migrate"
+        else:
+            default_option = "discovery"
         return self.async_show_form(
             step_id="user",
             data_schema=vol.Schema(
-                {vol.Required("action", default="discovery"): vol.In(ADD_WAY)},
+                {vol.Required("action", default=default_option): vol.In(ADD_WAY)},
             ),
             errors={"base": error} if error else None,
         )
@@ -212,6 +312,51 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
                 },
             ),
             errors={"base": error} if error else None,
+        )
+
+    async def async_step_migrate(
+        self, user_input: dict[str, Any] | None = None, error: str | None = None
+    ) -> ConfigFlowResult:
+        """migrate old domain device info in web UI"""
+
+        # user select a device discovery mode
+        if user_input is not None:
+            # user select 'migrate'
+            _LOGGER.debug(f"user_input: {user_input}")
+            if user_input["action"] == "Migrate":
+                _LOGGER.debug("start do migrate")
+                # migrated = self._get_migrate_devices()
+                result = await self._do_migrate()
+                if result:
+                    await self._disable_migrate()
+                    # remove migrate option
+                    ADD_WAY.pop("migrate", None)
+                    # show migrate result in Web UI
+                    return self.async_abort(reason="Migrate successfully!")
+                _LOGGER.debug(f"migrate result {result}")
+            elif user_input["action"] == "Disable":
+                _LOGGER.debug("user select disable")
+                await self._disable_migrate()
+                # remove migrate option
+                ADD_WAY.pop("migrate", None)
+                return self.async_abort(reason="Disabled migrate successfully!")
+            # no action, not use
+            else:
+                return self.async_abort(reason="User canceled")
+        # show migrate option in web UI
+        _LOGGER.debug("no input, show web form to user")
+        return self.async_show_form(
+            step_id="migrate",
+            data_schema=vol.Schema(
+                {
+                    vol.Required("action", default="Migrate"): vol.In(
+                        ["Migrate", "Disable"]
+                    ),
+                }
+            ),
+            description_placeholders={
+                "desc": "Do you want to migrate from midea_ac_lan?",
+            },
         )
 
     async def async_step_list(
@@ -261,9 +406,10 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
             for device_id, device in self.devices.items():
                 # remove exist devices and only return new devices
                 if not self._already_configured(device_id, device.get(CONF_IP_ADDRESS)):
-                    self.available_device[device_id] = (
-                        f"{device_id} ({self.supports.get(device.get(CONF_TYPE))})"
-                    )
+                    self.available_device[
+                        device_id
+                    ] = f"{device_id} ({self.supports.get(
+                        device.get(CONF_TYPE))})"
             if len(self.available_device) > 0:
                 return await self.async_step_auto()
             else:

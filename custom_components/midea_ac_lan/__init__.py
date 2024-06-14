@@ -1,5 +1,5 @@
 """
-midea_ac_lan integration init file
+midea_lan integration init file
 
 integration load process:
 1. component setup: `async_setup`
@@ -234,7 +234,9 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
             hass.data[DOMAIN][DEVICES] = {}
         hass.data[DOMAIN][DEVICES][device_id] = device
         # Forward the setup of an entry to all platforms
-        await hass.config_entries.async_forward_entry_setups(config_entry, ALL_PLATFORM)
+        hass.async_create_task(
+            hass.config_entries.async_forward_entry_setups(config_entry, ALL_PLATFORM),
+        )
         # Listener `update_listener` is attached when the entry is loaded and detached at unload
         config_entry.async_on_unload(config_entry.add_update_listener(update_listener))
         return True
