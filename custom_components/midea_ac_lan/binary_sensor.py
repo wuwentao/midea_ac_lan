@@ -24,7 +24,8 @@ async def async_setup_entry(
     extra_sensors = config_entry.options.get(CONF_SENSORS, [])
     binary_sensors = []
     for entity_key, config in cast(
-        dict, MIDEA_DEVICES[device.device_type]["entities"]
+        dict,
+        MIDEA_DEVICES[device.device_type]["entities"],
     ).items():
         if config["type"] == Platform.BINARY_SENSOR and entity_key in extra_sensors:
             sensor = MideaBinarySensor(device, entity_key)

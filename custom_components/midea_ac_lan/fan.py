@@ -34,7 +34,8 @@ async def async_setup_entry(
         MideaFAFan | MideaB6Fan | MideaACFreshAirFan | MideaCEFan | Midea40Fan
     ] = []
     for entity_key, config in cast(
-        dict, MIDEA_DEVICES[device.device_type]["entities"]
+        dict,
+        MIDEA_DEVICES[device.device_type]["entities"],
     ).items():
         if config["type"] == Platform.FAN and (
             config.get("default") or entity_key in extra_switches

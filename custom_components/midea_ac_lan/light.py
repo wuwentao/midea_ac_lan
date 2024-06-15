@@ -33,7 +33,8 @@ async def async_setup_entry(
     extra_switches = config_entry.options.get(CONF_SWITCHES, [])
     devs = []
     for entity_key, config in cast(
-        dict, MIDEA_DEVICES[device.device_type]["entities"]
+        dict,
+        MIDEA_DEVICES[device.device_type]["entities"],
     ).items():
         if config["type"] == Platform.LIGHT and (
             config.get("default") or entity_key in extra_switches

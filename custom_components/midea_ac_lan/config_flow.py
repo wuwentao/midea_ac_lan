@@ -150,7 +150,9 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
         return False
 
     async def async_step_user(
-        self, user_input: dict[str, Any] | None = None, error: str | None = None
+        self,
+        user_input: dict[str, Any] | None = None,
+        error: str | None = None,
     ) -> ConfigFlowResult:
         """
         define config flow steps, using `async_step_<step_id>`
@@ -177,7 +179,9 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
         )
 
     async def async_step_login(
-        self, user_input: dict[str, Any] | None = None, error: str | None = None
+        self,
+        user_input: dict[str, Any] | None = None,
+        error: str | None = None,
     ) -> ConfigFlowResult:
         """user login steps"""
         # login data exist
@@ -214,7 +218,9 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
         )
 
     async def async_step_list(
-        self, user_input: dict[str, Any] | None = None, error: str | None = None
+        self,
+        user_input: dict[str, Any] | None = None,
+        error: str | None = None,
     ) -> ConfigFlowResult:
         """list all devices and show device info in web UI"""
         # get all devices list
@@ -243,7 +249,9 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
         )
 
     async def async_step_discovery(
-        self, discovery_info: dict[str, Any] | None = None, error: str | None = None
+        self,
+        discovery_info: dict[str, Any] | None = None,
+        error: str | None = None,
     ) -> ConfigFlowResult:
         """discovery device with auto mode or ip address"""
         # input is not None, using ip_address to discovery device
@@ -277,7 +285,9 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
         )
 
     async def async_step_auto(
-        self, user_input: dict[str, Any] | None = None, error: str | None = None
+        self,
+        user_input: dict[str, Any] | None = None,
+        error: str | None = None,
     ) -> ConfigFlowResult:
         """discovery device detail info"""
         # discovery device
@@ -388,7 +398,9 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
         )
 
     async def async_step_manually(
-        self, user_input: dict[str, Any] | None = None, error: str | None = None
+        self,
+        user_input: dict[str, Any] | None = None,
+        error: str | None = None,
     ) -> ConfigFlowResult:
         """add device with device detail info"""
         if user_input is not None:
@@ -555,7 +567,8 @@ class MideaLanOptionsFlowHandler(OptionsFlow):
                     self._config_entry.options[CONF_SWITCHES].remove(key)
 
     async def async_step_init(
-        self, user_input: dict[str, Any] | None = None
+        self,
+        user_input: dict[str, Any] | None = None,
     ) -> ConfigFlowResult:
         """Manage the options."""
         if self._device_type == CONF_ACCOUNT:
@@ -565,7 +578,8 @@ class MideaLanOptionsFlowHandler(OptionsFlow):
         sensors = {}
         switches = {}
         for attribute, attribute_config in cast(
-            dict, MIDEA_DEVICES[cast(int, self._device_type)]["entities"]
+            dict,
+            MIDEA_DEVICES[cast(int, self._device_type)]["entities"],
         ).items():
             attribute_name = (
                 attribute if isinstance(attribute, str) else attribute.value
