@@ -141,8 +141,7 @@ class MideaLight(MideaEntity, LightEntity):
     def turn_on(self, **kwargs: Any) -> None:
         if not self.is_on:
             self._device.set_attribute(attr=X13Attributes.power, value=True)
-        for key in kwargs:
-            value = kwargs[key]
+        for key, value in kwargs.items():
             if key == ATTR_BRIGHTNESS:
                 self._device.set_attribute(attr=X13Attributes.brightness, value=value)
             if key == ATTR_COLOR_TEMP:

@@ -124,8 +124,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
     def _load_device_config(self, device_id: str) -> Any:
         """load device config from json file with device id"""
         record_file = self.hass.config.path(f"{STORAGE_PATH}/{device_id}.json")
-        json_data = load_json(record_file, default={})
-        return json_data
+        return load_json(record_file, default={})
 
     @staticmethod
     def _check_storage_device(device: dict, storage_device: dict) -> bool:
@@ -232,9 +231,9 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
                 "Appliance code|Type|IP address|SN|Supported\n:--:|:--:|:--:|:--:|:--:"
             )
             for device_id, device in all_devices.items():
-                supported = device.get(CONF_TYPE) in self.supports.keys()
+                supported = device.get(CONF_TYPE) in self.supports
                 table += (
-                    f"\n{device_id}|{'%02X' % device.get(CONF_TYPE)}|"
+                    f"\n{device_id}|{f'{device.get(CONF_TYPE):02X}'}|"
                     f"{device.get(CONF_IP_ADDRESS)}|"
                     f"{device.get('sn')}|"
                     f"{'<font color=gree>YES</font>' if supported else '<font color=red>NO</font>'}"
@@ -251,18 +250,18 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
 
     async def async_step_discovery(
         self,
-        user_input: dict[str, Any] | None = None,
+        discovery_info: dict[str, Any] | None = None,
         error: str | None = None,
     ) -> ConfigFlowResult:
         """discovery device with auto mode or ip address"""
         # input is not None, using ip_address to discovery device
-        if user_input is not None:
+        if discovery_info is not None:
             # auto mode, ip_address is None
-            if user_input[CONF_IP_ADDRESS].lower() == "auto":
+            if discovery_info[CONF_IP_ADDRESS].lower() == "auto":
                 ip_address = None
             # ip exist
             else:
-                ip_address = user_input[CONF_IP_ADDRESS]
+                ip_address = discovery_info[CONF_IP_ADDRESS]
             # use midea-local discover() to get devices list with ip_address
             self.devices = discover(self.supports.keys(), ip_address=ip_address)
             self.available_device = {}
@@ -317,7 +316,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
                 return await self.async_step_manually()
             # device not exist, get device detail from cloud
             else:
-                if CONF_ACCOUNT not in self.account.keys():
+                if CONF_ACCOUNT not in self.account:
                     return await self.async_step_login()
                 if self.session is None:
                     self.session = async_create_clientsession(self.hass)
@@ -361,7 +360,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
                         if not await self.cloud.login():
                             return await self.async_step_auto(error="preset_account")
                     keys = await self.cloud.get_keys(user_input[CONF_DEVICE])
-                    for method, key in keys.items():
+                    for key in keys.values():
                         dm = MideaDevice(
                             name="",
                             device_id=device_id,

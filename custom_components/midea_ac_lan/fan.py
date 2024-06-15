@@ -6,7 +6,6 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_DEVICE_ID, CONF_SWITCHES, Platform
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
-from midealocal.device import MideaDevice
 from midealocal.devices.ac import DeviceAttributes as ACAttributes
 from midealocal.devices.ac import MideaACDevice
 from midealocal.devices.b6 import MideaB6Device
@@ -55,9 +54,6 @@ async def async_setup_entry(
 
 
 class MideaFan(MideaEntity, FanEntity):
-    def __init__(self, device: MideaDevice, entity_key: str) -> None:
-        super().__init__(device, entity_key)
-
     @property
     def preset_modes(self) -> list[str] | None:
         return (
