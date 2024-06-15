@@ -261,8 +261,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
             else:
                 ip_address = discovery_info[CONF_IP_ADDRESS]
             # use midea-local discover() to get devices list with ip_address
-            self.devices = discover(
-                self.supports.keys(), ip_address=ip_address)
+            self.devices = discover(self.supports.keys(), ip_address=ip_address)
             self.available_device = {}
             for device_id, device in self.devices.items():
                 # remove exist devices and only return new devices
@@ -338,8 +337,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
             if device_info := await self.cloud.get_device_info(device_id):
                 # set subtype with model_number
                 self.found_device[CONF_NAME] = device_info.get("name")
-                self.found_device[CONF_SUBTYPE] = device_info.get(
-                    "model_number")
+                self.found_device[CONF_SUBTYPE] = device_info.get("model_number")
             # get token and key from cloud for v3 device
             if device.get(CONF_PROTOCOL) == 3:
                 if self.account[CONF_SERVER] == "美的美居":
@@ -350,12 +348,10 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
                         "MSmartHome",
                         self.session,
                         bytes.fromhex(
-                            format(
-                                (PRESET_ACCOUNT[0] ^ PRESET_ACCOUNT[1]), "X"),
+                            format((PRESET_ACCOUNT[0] ^ PRESET_ACCOUNT[1]), "X"),
                         ).decode("ASCII"),
                         bytes.fromhex(
-                            format(
-                                (PRESET_ACCOUNT[0] ^ PRESET_ACCOUNT[2]), "X"),
+                            format((PRESET_ACCOUNT[0] ^ PRESET_ACCOUNT[2]), "X"),
                         ).decode("ASCII"),
                     )
                     if not await self.cloud.login():
@@ -420,8 +416,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
             except ValueError:
                 return await self.async_step_manually(error="invalid_token")
             if user_input[CONF_PROTOCOL] == 3 and (
-                len(user_input[CONF_TOKEN]) == 0 or len(
-                    user_input[CONF_KEY]) == 0
+                len(user_input[CONF_TOKEN]) == 0 or len(user_input[CONF_KEY]) == 0
             ):
                 return await self.async_step_manually(error="invalid_token")
             dm = MideaDevice(
@@ -593,11 +588,9 @@ class MideaLanOptionsFlowHandler(OptionsFlow):
         ip_address = self._config_entry.options.get(CONF_IP_ADDRESS, None)
         if ip_address is None:
             ip_address = self._config_entry.data.get(CONF_IP_ADDRESS, None)
-        refresh_interval = self._config_entry.options.get(
-            CONF_REFRESH_INTERVAL, 30)
+        refresh_interval = self._config_entry.options.get(CONF_REFRESH_INTERVAL, 30)
         extra_sensors = list(
-            set(sensors.keys()) & set(
-                self._config_entry.options.get(CONF_SENSORS, [])),
+            set(sensors.keys()) & set(self._config_entry.options.get(CONF_SENSORS, [])),
         )
         extra_switches = list(
             set(switches.keys())
