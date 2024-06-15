@@ -102,15 +102,7 @@ class MideaFan(MideaEntity, FanEntity):
             await self.hass.async_add_executor_job(self.set_percentage, percentage)
 
     def update_state(self, status: Any) -> None:
-        try:
-            self.schedule_update_ha_state()
-        except Exception as e:
-            _LOGGER.debug(
-                "Entity %s update_state %s, status = %s",
-                self.entity_id,
-                repr(e),
-                status,
-            )
+        self.schedule_update_ha_state()
 
 
 class MideaFAFan(MideaFan):
