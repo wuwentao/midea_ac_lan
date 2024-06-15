@@ -1,6 +1,6 @@
 import functools as ft
 import logging
-from typing import Any, TypeAlias, cast
+from typing import Any, ClassVar, TypeAlias, cast
 
 from homeassistant.components.water_heater import (
     WaterHeaterEntity,
@@ -262,15 +262,15 @@ class MideaC3WaterHeater(MideaWaterHeater):
 class MideaE6WaterHeater(MideaWaterHeater):
     _device: MideaE6Device
 
-    _powers = [
+    _powers: ClassVar[list[E6Attributes]] = [
         E6Attributes.heating_power,
         E6Attributes.main_power,
     ]
-    _current_temperatures = [
+    _current_temperatures: ClassVar[list[E6Attributes]] = [
         E6Attributes.heating_leaving_temperature,
         E6Attributes.bathing_leaving_temperature,
     ]
-    _target_temperatures = [
+    _target_temperatures: ClassVar[list[E6Attributes]] = [
         E6Attributes.heating_temperature,
         E6Attributes.bathing_temperature,
     ]

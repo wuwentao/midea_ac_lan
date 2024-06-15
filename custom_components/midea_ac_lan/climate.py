@@ -1,5 +1,5 @@
 import logging
-from typing import Any, TypeAlias, cast
+from typing import Any, ClassVar, TypeAlias, cast
 
 from homeassistant.components.climate import (
     ATTR_HVAC_MODE,
@@ -408,7 +408,7 @@ class MideaCFClimate(MideaClimate):
 class MideaC3Climate(MideaClimate):
     _device: MideaC3Device
 
-    _powers = [
+    _powers: ClassVar[list[C3Attributes]] = [
         C3Attributes.zone1_power,
         C3Attributes.zone2_power,
     ]
