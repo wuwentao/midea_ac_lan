@@ -6,7 +6,6 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_DEVICE_ID, CONF_SWITCHES, Platform
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
-from midealocal.device import MideaDevice
 from midealocal.devices.ac import DeviceAttributes as ACAttributes
 from midealocal.devices.ac import MideaACDevice
 from midealocal.devices.b6 import MideaB6Device
@@ -35,7 +34,8 @@ async def async_setup_entry(
         MideaFAFan | MideaB6Fan | MideaACFreshAirFan | MideaCEFan | Midea40Fan
     ] = []
     for entity_key, config in cast(
-        dict, MIDEA_DEVICES[device.device_type]["entities"]
+        dict,
+        MIDEA_DEVICES[device.device_type]["entities"],
     ).items():
         if config["type"] == Platform.FAN and (
             config.get("default") or entity_key in extra_switches
@@ -54,9 +54,6 @@ async def async_setup_entry(
 
 
 class MideaFan(MideaEntity, FanEntity):
-    def __init__(self, device: MideaDevice, entity_key: str) -> None:
-        super().__init__(device, entity_key)
-
     @property
     def preset_modes(self) -> list[str] | None:
         return (

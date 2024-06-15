@@ -1,6 +1,6 @@
 import functools as ft
 import logging
-from typing import Any, TypeAlias, cast
+from typing import Any, ClassVar, TypeAlias, cast
 
 from homeassistant.components.water_heater import (
     WaterHeaterEntity,
@@ -57,7 +57,8 @@ async def async_setup_entry(
         | MideaCDWaterHeater
     ] = []
     for entity_key, config in cast(
-        dict, MIDEA_DEVICES[device.device_type]["entities"]
+        dict,
+        MIDEA_DEVICES[device.device_type]["entities"],
     ).items():
         if config["type"] == Platform.WATER_HEATER and (
             config.get("default") or entity_key in extra_switches
@@ -221,7 +222,8 @@ class MideaC3WaterHeater(MideaWaterHeater):
     @property
     def current_temperature(self) -> float:
         return cast(
-            float, self._device.get_attribute(C3Attributes.tank_actual_temperature)
+            float,
+            self._device.get_attribute(C3Attributes.tank_actual_temperature),
         )
 
     @property
@@ -252,15 +254,15 @@ class MideaC3WaterHeater(MideaWaterHeater):
 class MideaE6WaterHeater(MideaWaterHeater):
     _device: MideaE6Device
 
-    _powers = [
+    _powers: ClassVar[list[E6Attributes]] = [
         E6Attributes.heating_power,
         E6Attributes.main_power,
     ]
-    _current_temperatures = [
+    _current_temperatures: ClassVar[list[E6Attributes]] = [
         E6Attributes.heating_leaving_temperature,
         E6Attributes.bathing_leaving_temperature,
     ]
-    _target_temperatures = [
+    _target_temperatures: ClassVar[list[E6Attributes]] = [
         E6Attributes.heating_temperature,
         E6Attributes.bathing_temperature,
     ]
@@ -285,12 +287,12 @@ class MideaE6WaterHeater(MideaWaterHeater):
                 and self._device.get_attribute(E6Attributes.heating_power)
                 else STATE_OFF
             )
-        else:  # for bathing
-            return (
-                STATE_ON
-                if self._device.get_attribute(E6Attributes.main_power)
-                else STATE_OFF
-            )
+        # for bathing
+        return (
+            STATE_ON
+            if self._device.get_attribute(E6Attributes.main_power)
+            else STATE_OFF
+        )
 
     @property
     def current_temperature(self) -> float:
@@ -309,13 +311,15 @@ class MideaE6WaterHeater(MideaWaterHeater):
     @property
     def min_temp(self) -> float:
         return cast(
-            float, self._device.get_attribute(E6Attributes.min_temperature)[self._use]
+            float,
+            self._device.get_attribute(E6Attributes.min_temperature)[self._use],
         )
 
     @property
     def max_temp(self) -> float:
         return cast(
-            float, self._device.get_attribute(E6Attributes.max_temperature)[self._use]
+            float,
+            self._device.get_attribute(E6Attributes.max_temperature)[self._use],
         )
 
     def turn_on(self, **kwargs: Any) -> None:

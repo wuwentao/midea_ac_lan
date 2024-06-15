@@ -190,7 +190,7 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
     protocol = config_entry.data.get(CONF_PROTOCOL)
     customize = config_entry.options.get(CONF_CUSTOMIZE)
     if protocol == 3 and (key is None or token is None):
-        _LOGGER.error("For V3 devices, the key and the token is required.")
+        _LOGGER.error("For V3 devices, the key and the token is required")
         return False
     # device_selector in `midealocal/devices/__init__.py`
     # hass core version >= 2024.3
