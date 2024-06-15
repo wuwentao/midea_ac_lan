@@ -270,7 +270,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
                     self.available_device[
                         device_id
                     ] = f"{device_id} ({self.supports.get(
-                        device.get(CONF_TYPE))})"
+                            device.get(CONF_TYPE))})"
             if len(self.available_device) > 0:
                 return await self.async_step_auto()
             return await self.async_step_discovery(error="no_devices")
@@ -347,10 +347,8 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
                         "Try to get the Token and the Key use the preset MSmartHome account",
                     )
                     self.cloud = get_midea_cloud(
-                        self.account[CONF_SERVER],
+                        "MSmartHome",
                         self.session,
-                        self.account[CONF_ACCOUNT],
-                        self.account[CONF_PASSWORD],
                         bytes.fromhex(
                             format(
                                 (PRESET_ACCOUNT[0] ^ PRESET_ACCOUNT[1]), "X"),
