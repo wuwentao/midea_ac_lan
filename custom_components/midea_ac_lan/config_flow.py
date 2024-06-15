@@ -314,77 +314,77 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
                 )
                 return await self.async_step_manually()
             # device not exist, get device detail from cloud
-            else:
-                if CONF_ACCOUNT not in self.account:
-                    return await self.async_step_login()
-                if self.session is None:
-                    self.session = async_create_clientsession(self.hass)
-                if self.cloud is None:
+            if CONF_ACCOUNT not in self.account.keys():
+                return await self.async_step_login()
+            if self.session is None:
+                self.session = async_create_clientsession(self.hass)
+            if self.cloud is None:
+                self.cloud = get_midea_cloud(
+                    self.account[CONF_SERVER],
+                    self.session,
+                    self.account[CONF_ACCOUNT],
+                    self.account[CONF_PASSWORD],
+                )
+            if not await self.cloud.login():
+                return await self.async_step_login()
+            self.found_device = {
+                CONF_DEVICE_ID: device_id,
+                CONF_TYPE: device.get(CONF_TYPE),
+                CONF_PROTOCOL: device.get(CONF_PROTOCOL),
+                CONF_IP_ADDRESS: device.get(CONF_IP_ADDRESS),
+                CONF_PORT: device.get(CONF_PORT),
+                CONF_MODEL: device.get(CONF_MODEL),
+            }
+            if device_info := await self.cloud.get_device_info(device_id):
+                # set subtype with model_number
+                self.found_device[CONF_NAME] = device_info.get("name")
+                self.found_device[CONF_SUBTYPE] = device_info.get(
+                    "model_number")
+            # get token and key from cloud for v3 device
+            if device.get(CONF_PROTOCOL) == 3:
+                if self.account[CONF_SERVER] == "美的美居":
+                    _LOGGER.debug(
+                        "Try to get the Token and the Key use the preset MSmartHome account",
+                    )
                     self.cloud = get_midea_cloud(
                         self.account[CONF_SERVER],
                         self.session,
                         self.account[CONF_ACCOUNT],
                         self.account[CONF_PASSWORD],
+                        bytes.fromhex(
+                            format(
+                                (PRESET_ACCOUNT[0] ^ PRESET_ACCOUNT[1]), "X"),
+                        ).decode("ASCII"),
+                        bytes.fromhex(
+                            format(
+                                (PRESET_ACCOUNT[0] ^ PRESET_ACCOUNT[2]), "X"),
+                        ).decode("ASCII"),
                     )
-                if not await self.cloud.login():
-                    return await self.async_step_login()
-                self.found_device = {
-                    CONF_DEVICE_ID: device_id,
-                    CONF_TYPE: device.get(CONF_TYPE),
-                    CONF_PROTOCOL: device.get(CONF_PROTOCOL),
-                    CONF_IP_ADDRESS: device.get(CONF_IP_ADDRESS),
-                    CONF_PORT: device.get(CONF_PORT),
-                    CONF_MODEL: device.get(CONF_MODEL),
-                }
-                if device_info := await self.cloud.get_device_info(device_id):
-                    # set subtype with model_number
-                    self.found_device[CONF_NAME] = device_info.get("name")
-                    self.found_device[CONF_SUBTYPE] = device_info.get(
-                        "model_number")
-                # get token and key from cloud for v3 device
-                if device.get(CONF_PROTOCOL) == 3:
-                    if self.account[CONF_SERVER] == "美的美居":
-                        _LOGGER.debug(
-                            "Try to get the Token and the Key use the preset MSmartHome account",
-                        )
-                        self.cloud = get_midea_cloud(
-                            "MSmartHome",
-                            self.session,
-                            bytes.fromhex(
-                                format(
-                                    (PRESET_ACCOUNT[0] ^ PRESET_ACCOUNT[1]), "X"),
-                            ).decode("ASCII"),
-                            bytes.fromhex(
-                                format(
-                                    (PRESET_ACCOUNT[0] ^ PRESET_ACCOUNT[2]), "X"),
-                            ).decode("ASCII"),
-                        )
-                        if not await self.cloud.login():
-                            return await self.async_step_auto(error="preset_account")
-                    keys = await self.cloud.get_keys(user_input[CONF_DEVICE])
-                    for key in keys.values():
-                        dm = MideaDevice(
-                            name="",
-                            device_id=device_id,
-                            device_type=device.get(CONF_TYPE),
-                            ip_address=device.get(CONF_IP_ADDRESS),
-                            port=device.get(CONF_PORT),
-                            token=key["token"],
-                            key=key["key"],
-                            protocol=3,
-                            model=device.get(CONF_MODEL),
-                            subtype=0,
-                            attributes={},
-                        )
-                        if dm.connect(refresh_status=False):
-                            dm.close_socket()
-                            self.found_device[CONF_TOKEN] = key["token"]
-                            self.found_device[CONF_KEY] = key["key"]
-                            return await self.async_step_manually()
-                    return await self.async_step_auto(error="connect_error")
-                # v1/v2 device add without token/key
-                else:
-                    return await self.async_step_manually()
+                    if not await self.cloud.login():
+                        return await self.async_step_auto(error="preset_account")
+                keys = await self.cloud.get_keys(user_input[CONF_DEVICE])
+                for method, key in keys.items():
+                    dm = MideaDevice(
+                        name="",
+                        device_id=device_id,
+                        device_type=device.get(CONF_TYPE),
+                        ip_address=device.get(CONF_IP_ADDRESS),
+                        port=device.get(CONF_PORT),
+                        token=key["token"],
+                        key=key["key"],
+                        protocol=3,
+                        model=device.get(CONF_MODEL),
+                        subtype=0,
+                        attributes={},
+                    )
+                    if dm.connect(refresh_status=False):
+                        dm.close_socket()
+                        self.found_device[CONF_TOKEN] = key["token"]
+                        self.found_device[CONF_KEY] = key["key"]
+                        return await self.async_step_manually()
+                return await self.async_step_auto(error="connect_error")
+            # v1/v2 device add without token/key
+            return await self.async_step_manually()
         # show available device list in UI
         return self.async_show_form(
             step_id="auto",
