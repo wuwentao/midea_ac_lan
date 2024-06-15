@@ -21,7 +21,8 @@ async def async_setup_entry(
     extra_switches = config_entry.options.get(CONF_SWITCHES, [])
     switches = []
     for entity_key, config in cast(
-        dict, MIDEA_DEVICES[device.device_type]["entities"]
+        dict,
+        MIDEA_DEVICES[device.device_type]["entities"],
     ).items():
         if config["type"] == Platform.SWITCH and entity_key in extra_switches:
             dev = MideaSwitch(device, entity_key)

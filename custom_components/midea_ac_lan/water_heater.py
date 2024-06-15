@@ -57,7 +57,8 @@ async def async_setup_entry(
         | MideaCDWaterHeater
     ] = []
     for entity_key, config in cast(
-        dict, MIDEA_DEVICES[device.device_type]["entities"]
+        dict,
+        MIDEA_DEVICES[device.device_type]["entities"],
     ).items():
         if config["type"] == Platform.WATER_HEATER and (
             config.get("default") or entity_key in extra_switches
@@ -229,7 +230,8 @@ class MideaC3WaterHeater(MideaWaterHeater):
     @property
     def current_temperature(self) -> float:
         return cast(
-            float, self._device.get_attribute(C3Attributes.tank_actual_temperature)
+            float,
+            self._device.get_attribute(C3Attributes.tank_actual_temperature),
         )
 
     @property
@@ -317,13 +319,15 @@ class MideaE6WaterHeater(MideaWaterHeater):
     @property
     def min_temp(self) -> float:
         return cast(
-            float, self._device.get_attribute(E6Attributes.min_temperature)[self._use]
+            float,
+            self._device.get_attribute(E6Attributes.min_temperature)[self._use],
         )
 
     @property
     def max_temp(self) -> float:
         return cast(
-            float, self._device.get_attribute(E6Attributes.max_temperature)[self._use]
+            float,
+            self._device.get_attribute(E6Attributes.max_temperature)[self._use],
         )
 
     def turn_on(self, **kwargs: Any) -> None:
