@@ -53,10 +53,8 @@ repos:
       - id: codespell
         args: ["-L hass", "-w"]
         exclude: "custom_components/midea_ac_lan/translations/de.json" # only de.json can't work with codespell
-  - repo: local
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.10.0
     hooks:
       - id: mypy
-        name: mypy
-        entry: mypy
-        language: system
-        types: [python]
+        additional_dependencies: [homeassistant==2024.5.1]

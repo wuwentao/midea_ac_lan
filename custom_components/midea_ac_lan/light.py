@@ -124,11 +124,11 @@ class MideaLight(MideaEntity, LightEntity):
 
     @property
     def min_color_temp_kelvin(self) -> int:
-        return self._device.color_temp_range[0]
+        return cast(int, self._device.color_temp_range[0])
 
     @property
     def max_color_temp_kelvin(self) -> int:
-        return self._device.color_temp_range[1]
+        return cast(int, self._device.color_temp_range[1])
 
     @property
     def effect_list(self) -> list[str] | None:

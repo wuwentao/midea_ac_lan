@@ -173,23 +173,23 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
     if device_type == CONF_ACCOUNT:
         return True
     name = config_entry.data.get(CONF_NAME)
-    device_id: int = config_entry.data[CONF_DEVICE_ID]
+    device_id = config_entry.data.get(CONF_DEVICE_ID)
     if name is None:
         name = f"{device_id}"
     if device_type is None:
         device_type = 0xAC
-    token: str = config_entry.data.get(CONF_TOKEN) or ""
-    key: str = config_entry.data.get(CONF_KEY) or ""
+    token = config_entry.data.get(CONF_TOKEN)
+    key = config_entry.data.get(CONF_KEY)
     ip_address = config_entry.options.get(CONF_IP_ADDRESS, None)
     if ip_address is None:
         ip_address = config_entry.data.get(CONF_IP_ADDRESS)
     refresh_interval = config_entry.options.get(CONF_REFRESH_INTERVAL)
-    port: int = config_entry.data[CONF_PORT]
-    model: str = config_entry.data[CONF_MODEL]
+    port = config_entry.data.get(CONF_PORT)
+    model = config_entry.data.get(CONF_MODEL)
     subtype = config_entry.data.get(CONF_SUBTYPE, 0)
-    protocol: int = config_entry.data[CONF_PROTOCOL]
-    customize: str = config_entry.options[CONF_CUSTOMIZE]
-    if protocol == 3 and (key == "" or token == ""):
+    protocol = config_entry.data.get(CONF_PROTOCOL)
+    customize = config_entry.options.get(CONF_CUSTOMIZE)
+    if protocol == 3 and (key is None or token is None):
         _LOGGER.error("For V3 devices, the key and the token is required")
         return False
     # device_selector in `midealocal/devices/__init__.py`
