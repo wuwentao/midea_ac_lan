@@ -266,10 +266,9 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
             for device_id, device in self.devices.items():
                 # remove exist devices and only return new devices
                 if not self._already_configured(device_id, device.get(CONF_IP_ADDRESS)):
-                    self.available_device[
-                        device_id
-                    ] = f"{device_id} ({self.supports.get(
-                            device.get(CONF_TYPE))})"
+                    self.available_device[device_id] = (
+                        f"{device_id} ({self.supports.get(device.get(CONF_TYPE))})"
+                    )
             if len(self.available_device) > 0:
                 return await self.async_step_auto()
             return await self.async_step_discovery(error="no_devices")
