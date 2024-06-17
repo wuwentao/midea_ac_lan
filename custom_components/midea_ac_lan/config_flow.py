@@ -194,7 +194,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
                     account=user_input[CONF_ACCOUNT],
                     password=user_input[CONF_PASSWORD],
                 )
-            if await self.cloud.login():
+            elif await self.cloud.login():
                 self.account = {
                     CONF_ACCOUNT: user_input[CONF_ACCOUNT],
                     CONF_PASSWORD: user_input[CONF_PASSWORD],
@@ -261,11 +261,13 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
             else:
                 ip_address = discovery_info[CONF_IP_ADDRESS]
             # use midea-local discover() to get devices list with ip_address
-            self.devices = discover(self.supports.keys(), ip_address=ip_address)
+            self.devices = discover(list(self.supports.keys()), ip_address=ip_address)
             self.available_device = {}
             for device_id, device in self.devices.items():
                 # remove exist devices and only return new devices
-                if not self._already_configured(device_id, device.get(CONF_IP_ADDRESS)):
+                if not self._already_configured(
+                    str(device_id), device[CONF_IP_ADDRESS]
+                ):
                     self.available_device[device_id] = (
                         f"{device_id} ({self.supports.get(device.get(CONF_TYPE))})"
                     )
@@ -323,7 +325,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
                     self.account[CONF_ACCOUNT],
                     self.account[CONF_PASSWORD],
                 )
-            if not await self.cloud.login():
+            elif not await self.cloud.login():
                 return await self.async_step_login()
             self.found_device = {
                 CONF_DEVICE_ID: device_id,
@@ -333,7 +335,9 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
                 CONF_PORT: device.get(CONF_PORT),
                 CONF_MODEL: device.get(CONF_MODEL),
             }
-            if device_info := await self.cloud.get_device_info(device_id):
+            if self.cloud and (
+                device_info := await self.cloud.get_device_info(device_id)
+            ):
                 # set subtype with model_number
                 self.found_device[CONF_NAME] = device_info.get("name")
                 self.found_device[CONF_SUBTYPE] = device_info.get("model_number")
@@ -353,9 +357,11 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
                             format((PRESET_ACCOUNT[0] ^ PRESET_ACCOUNT[2]), "X"),
                         ).decode("ASCII"),
                     )
-                    if not await self.cloud.login():
+                    if self.cloud and not await self.cloud.login():
                         return await self.async_step_auto(error="preset_account")
-                keys = await self.cloud.get_keys(user_input[CONF_DEVICE])
+                keys: dict[int, dict[str, Any]] = {}
+                if self.cloud:
+                    keys = await self.cloud.get_keys(user_input[CONF_DEVICE])
                 for method, key in keys.items():
                     dm = MideaDevice(
                         name="",
