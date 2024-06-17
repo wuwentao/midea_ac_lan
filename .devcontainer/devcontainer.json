@@ -1,6 +1,12 @@
 {
   "name": "midea_ac_lan",
-  "image": "mcr.microsoft.com/devcontainers/python:3.12-bullseye",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "..",
+    "args": {
+      "VARIANT": "3.11-bullseye"
+    }
+  },
   "postCreateCommand": "scripts/setup.sh",
   "forwardPorts": [8123],
   "portsAttributes": {
