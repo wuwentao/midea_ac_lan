@@ -3,9 +3,6 @@
 exclude: "CHANGELOG.md|.copier-answers.yml"
 default_stages: [commit]
 
-default_language_version:
-  python: python3.12
-
 ci:
   autofix_commit_msg: "chore(pre-commit.ci): auto fixes"
   autoupdate_commit_msg: "chore(pre-commit.ci): pre-commit autoupdate"
