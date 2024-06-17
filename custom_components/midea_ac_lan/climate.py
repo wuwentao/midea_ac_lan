@@ -158,7 +158,7 @@ class MideaClimate(MideaEntity, ClimateEntity):
             mode = PRESET_AWAY
         else:
             mode = PRESET_NONE
-        return mode
+        return str(mode)
 
     @property
     def extra_state_attributes(self) -> dict:
@@ -265,20 +265,20 @@ class MideaACClimate(MideaClimate):
     def fan_mode(self) -> str:
         fan_speed: int = self._device.get_attribute(ACAttributes.fan_speed)
         if fan_speed > 100:
-            return FAN_AUTO
+            return str(FAN_AUTO)
         if fan_speed > 80:
-            return FAN_FULL_SPEED
+            return str(FAN_FULL_SPEED)
         if fan_speed > 60:
-            return FAN_HIGH
+            return str(FAN_HIGH)
         if fan_speed > 40:
-            return FAN_MEDIUM
+            return str(FAN_MEDIUM)
         if fan_speed > 20:
-            return FAN_LOW
+            return str(FAN_LOW)
         return FAN_SILENT
 
     @property
     def target_temperature_step(self) -> float:
-        return (
+        return float(
             PRECISION_WHOLE if self._device.temperature_step == 1 else PRECISION_HALVES
         )
 
@@ -341,7 +341,9 @@ class MideaCCClimate(MideaClimate):
 
     @property
     def swing_mode(self) -> str:
-        return SWING_ON if self._device.get_attribute(CCAttributes.swing) else SWING_OFF
+        return str(
+            SWING_ON if self._device.get_attribute(CCAttributes.swing) else SWING_OFF
+        )
 
     def set_fan_mode(self, fan_mode: str) -> None:
         self._device.set_attribute(attr=CCAttributes.fan_speed, value=fan_mode)
@@ -423,7 +425,7 @@ class MideaC3Climate(MideaClimate):
 
     @property
     def target_temperature_step(self) -> float:
-        return (
+        return float(
             PRECISION_WHOLE
             if self._device.get_attribute(C3Attributes.zone_temp_type)[self._zone]
             else PRECISION_HALVES

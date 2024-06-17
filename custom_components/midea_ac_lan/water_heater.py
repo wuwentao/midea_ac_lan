@@ -117,7 +117,7 @@ class MideaWaterHeater(MideaEntity, WaterHeaterEntity):
 
     @property
     def precision(self) -> float:
-        return PRECISION_WHOLE
+        return float(PRECISION_WHOLE)
 
     @property
     def temperature_unit(self) -> UnitOfTemperature:
@@ -202,7 +202,9 @@ class MideaE3WaterHeater(MideaWaterHeater):
 
     @property
     def precision(self) -> float:
-        return PRECISION_HALVES if self._device.precision_halves else PRECISION_WHOLE
+        return float(
+            PRECISION_HALVES if self._device.precision_halves else PRECISION_WHOLE
+        )
 
 
 class MideaC3WaterHeater(MideaWaterHeater):
@@ -212,8 +214,8 @@ class MideaC3WaterHeater(MideaWaterHeater):
         super().__init__(device, entity_key)
 
     @property
-    def current_operation(self) -> str | None:
-        return (
+    def current_operation(self) -> str:
+        return str(
             STATE_ON
             if self._device.get_attribute(C3Attributes.dhw_power)
             else STATE_OFF
@@ -279,16 +281,16 @@ class MideaE6WaterHeater(MideaWaterHeater):
         ]
 
     @property
-    def current_operation(self) -> str | None:
+    def current_operation(self) -> str:
         if self._use == 0:  # for heating
-            return (
+            return str(
                 STATE_ON
                 if self._device.get_attribute(E6Attributes.main_power)
                 and self._device.get_attribute(E6Attributes.heating_power)
                 else STATE_OFF
             )
         # for bathing
-        return (
+        return str(
             STATE_ON
             if self._device.get_attribute(E6Attributes.main_power)
             else STATE_OFF

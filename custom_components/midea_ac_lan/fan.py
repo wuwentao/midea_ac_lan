@@ -89,7 +89,7 @@ class MideaFan(MideaEntity, FanEntity):
     def percentage(self) -> int | None:
         if not self.fan_speed:
             return None
-        return round(self.fan_speed * self.percentage_step)
+        return int(round(self.fan_speed * self.percentage_step))
 
     def set_percentage(self, percentage: int) -> None:
         fan_speed = round(percentage / self.percentage_step)
