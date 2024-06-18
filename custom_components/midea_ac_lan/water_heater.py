@@ -153,6 +153,8 @@ class MideaWaterHeater(MideaEntity, WaterHeaterEntity):
 
     @property
     def operation_list(self) -> list[str] | None:
+        if not hasattr(self._device, "preset_modes"):
+            return None
         return cast(list, self._device.preset_modes)
 
     def turn_on(self, **kwargs: Any) -> None:
@@ -312,16 +314,22 @@ class MideaE6WaterHeater(MideaWaterHeater):
 
     @property
     def min_temp(self) -> float:
+        min_temperature = cast(
+            list[str], self._device.get_attribute(E6Attributes.min_temperature)
+        )
         return cast(
             float,
-            self._device.get_attribute(E6Attributes.min_temperature)[self._use],
+            min_temperature[self._use],
         )
 
     @property
     def max_temp(self) -> float:
+        max_temperature = cast(
+            list[str], self._device.get_attribute(E6Attributes.max_temperature)
+        )
         return cast(
             float,
-            self._device.get_attribute(E6Attributes.max_temperature)[self._use],
+            max_temperature[self._use],
         )
 
     def turn_on(self, **kwargs: Any) -> None:
