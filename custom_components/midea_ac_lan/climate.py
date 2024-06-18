@@ -184,6 +184,7 @@ class MideaClimate(MideaEntity, ClimateEntity):
                 self._device.set_target_temperature(
                     target_temperature=temperature,
                     mode=mode,
+                    zone=None,
                 )
             except ValueError as e:
                 _LOGGER.error("set_temperature %s, kwargs = %s", e, kwargs)
@@ -504,9 +505,9 @@ class MideaC3Climate(MideaClimate):
             try:
                 mode = self.hvac_modes.index(hvac_mode.lower()) if hvac_mode else 0
                 self._device.set_target_temperature(
-                    zone=self._zone,
                     target_temperature=temperature,
                     mode=mode,
+                    zone=self._zone,
                 )
             except ValueError as e:
                 _LOGGER.error("set_temperature %s, kwargs = %s", e, kwargs)
