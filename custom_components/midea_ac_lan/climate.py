@@ -133,7 +133,8 @@ class MideaClimate(MideaEntity, ClimateEntity):
     @property
     def hvac_mode(self) -> HVACMode:
         if self._device.get_attribute("power"):
-            return self.hvac_modes[self._device.get_attribute("mode")]
+            mode = cast(int, self._device.get_attribute("mode"))
+            return self.hvac_modes[mode]
         return HVACMode.OFF
 
     @property
@@ -415,6 +416,10 @@ class MideaC3Climate(MideaClimate):
         ]
         self._power_attr = MideaC3Climate._powers[zone]
 
+    def _temperature(self, min: bool) -> list[str]:
+        value = C3Attributes.temperature_min if min else C3Attributes.temperature_max
+        return cast(list[str], self._device.get_attribute(value))
+
     @property
     def supported_features(self) -> ClimateEntityFeature:
         features = ClimateEntityFeature.TARGET_TEMPERATURE
@@ -424,38 +429,39 @@ class MideaC3Climate(MideaClimate):
 
     @property
     def target_temperature_step(self) -> float:
+        zone_temp_type = cast(
+            list[str], self._device.get_attribute(C3Attributes.zone_temp_type)
+        )
         return float(
-            PRECISION_WHOLE
-            if self._device.get_attribute(C3Attributes.zone_temp_type)[self._zone]
-            else PRECISION_HALVES
+            PRECISION_WHOLE if zone_temp_type[self._zone] else PRECISION_HALVES
         )
 
     @property
     def min_temp(self) -> float:
         return cast(
             float,
-            self._device.get_attribute(C3Attributes.temperature_min)[self._zone],
+            self._temperature(True)[self._zone],
         )
 
     @property
     def max_temp(self) -> float:
         return cast(
             float,
-            self._device.get_attribute(C3Attributes.temperature_max)[self._zone],
+            self._temperature(False)[self._zone],
         )
 
     @property
     def target_temperature_low(self) -> float:
         return cast(
             float,
-            self._device.get_attribute(C3Attributes.temperature_min)[self._zone],
+            self._temperature(True)[self._zone],
         )
 
     @property
     def target_temperature_high(self) -> float:
         return cast(
             float,
-            self._device.get_attribute(C3Attributes.temperature_max)[self._zone],
+            self._temperature(False)[self._zone],
         )
 
     def turn_on(self, **kwargs: Any) -> None:
@@ -475,9 +481,12 @@ class MideaC3Climate(MideaClimate):
 
     @property
     def target_temperature(self) -> float:
+        target_temperature = cast(
+            list[str], self._device.get_attribute(C3Attributes.target_temperature)
+        )
         return cast(
             float,
-            self._device.get_attribute(C3Attributes.target_temperature)[self._zone],
+            target_temperature[self._zone],
         )
 
     @property
@@ -487,13 +496,13 @@ class MideaC3Climate(MideaClimate):
     def set_temperature(self, **kwargs: Any) -> None:
         if ATTR_TEMPERATURE not in kwargs:
             return
-        temperature = float(int((float(kwargs[ATTR_TEMPERATURE]) * 2) + 0.5)) / 2
+        temperature = int(((float(kwargs[ATTR_TEMPERATURE]) * 2) + 0.5) / 2)
         hvac_mode = kwargs.get(ATTR_HVAC_MODE)
         if hvac_mode == HVACMode.OFF:
             self.turn_off()
         else:
             try:
-                mode = self.hvac_modes.index(hvac_mode.lower()) if hvac_mode else None
+                mode = self.hvac_modes.index(hvac_mode.lower()) if hvac_mode else 0
                 self._device.set_target_temperature(
                     zone=self._zone,
                     target_temperature=temperature,
@@ -551,7 +560,7 @@ class MideaFBClimate(MideaClimate):
     def set_temperature(self, **kwargs: Any) -> None:
         if ATTR_TEMPERATURE not in kwargs:
             return
-        temperature = float(int((float(kwargs[ATTR_TEMPERATURE]) * 2) + 0.5)) / 2
+        temperature = int(((float(kwargs[ATTR_TEMPERATURE]) * 2) + 0.5) / 2)
         hvac_mode = kwargs.get(ATTR_HVAC_MODE)
         if hvac_mode == HVACMode.OFF:
             self.turn_off()
