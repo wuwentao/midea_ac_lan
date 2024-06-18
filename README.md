@@ -17,7 +17,7 @@ Control your Midea M-Smart appliances via local area network.
 
 ⭐If this component is helpful for you, please star it, it encourages me a lot.
 
-**_❗Note: Home Assistant 2023.3 or higher required for this integration_**
+**_❗Note: Home Assistant 2023.8 or higher required for this integration_**
 
 ## Supported brands
 
