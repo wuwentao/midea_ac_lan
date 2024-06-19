@@ -3,7 +3,6 @@
 [![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg)](https://github.com/hacs/integration)
 [![Stable](https://img.shields.io/github/v/release/wuwentao/midea_ac_lan)](https://github.com/wuwentao/midea_ac_lan/releases/latest)
 [![Super-Linter](https://github.com/wuwentao/midea_ac_lan/actions/workflows/linter.yml/badge.svg)](https://github.com/marketplace/actions/super-linter)
-![Discord](https://img.shields.io/discord/1244496733577285732)
 
 English | [简体中文](README_hans.md) | [Discord Chat](https://discord.com/invite/ZWdd2fXndn)
 
@@ -175,4 +174,7 @@ logger:
   default: warn
   logs:
     custom_components.midea_ac_lan: debug
+    midealocal: debug
 ```
+
+we should enable `midea_ac_lan` and `midealocal`
