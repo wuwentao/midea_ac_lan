@@ -51,7 +51,7 @@ from midealocal.discover import discover
 if (MAJOR_VERSION, MINOR_VERSION) >= (2024, 4):
     from homeassistant.config_entries import ConfigFlowResult
 else:
-    from homeassistant.data_entry_flow import FlowResult as ConfigFlowResult  # type: ignore
+    from homeassistant.data_entry_flow import AbortFlow, FlowResult as ConfigFlowResult  # type: ignore
 
 from .const import (
     CONF_ACCOUNT,
@@ -194,6 +194,10 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
                     account=user_input[CONF_ACCOUNT],
                     password=user_input[CONF_PASSWORD],
                 )
+                if self.cloud is None:
+                    raise AbortFlow(
+                        f"Can not get midea cloud: {SERVERS[user_input[CONF_SERVER]]}"
+                    )
             if await self.cloud.login():
                 self.account = {
                     CONF_ACCOUNT: user_input[CONF_ACCOUNT],
@@ -325,6 +329,10 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
                     self.account[CONF_ACCOUNT],
                     self.account[CONF_PASSWORD],
                 )
+                if self.cloud is None:
+                    raise AbortFlow(
+                        f"Can not get midea cloud: {self.account[CONF_SERVER]}"
+                    )
             if not await self.cloud.login():
                 return await self.async_step_login()
             self.found_device = {
@@ -355,6 +363,8 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
                             format((PRESET_ACCOUNT[0] ^ PRESET_ACCOUNT[2]), "X"),
                         ).decode("ASCII"),
                     )
+                    if self.cloud is None:
+                        raise AbortFlow("Can not get midea cloud: MSmartHome")
                     if not await self.cloud.login():
                         return await self.async_step_auto(error="preset_account")
                 keys = await self.cloud.get_keys(user_input[CONF_DEVICE])
