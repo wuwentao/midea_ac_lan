@@ -194,7 +194,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
                     account=user_input[CONF_ACCOUNT],
                     password=user_input[CONF_PASSWORD],
                 )
-            elif await self.cloud.login():
+            if await self.cloud.login():
                 self.account = {
                     CONF_ACCOUNT: user_input[CONF_ACCOUNT],
                     CONF_PASSWORD: user_input[CONF_PASSWORD],
@@ -325,7 +325,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
                     self.account[CONF_ACCOUNT],
                     self.account[CONF_PASSWORD],
                 )
-            elif not await self.cloud.login():
+            if not await self.cloud.login():
                 return await self.async_step_login()
             self.found_device = {
                 CONF_DEVICE_ID: device_id,
@@ -335,9 +335,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
                 CONF_PORT: device.get(CONF_PORT),
                 CONF_MODEL: device.get(CONF_MODEL),
             }
-            if self.cloud and (
-                device_info := await self.cloud.get_device_info(device_id)
-            ):
+            if device_info := await self.cloud.get_device_info(device_id):
                 # set subtype with model_number
                 self.found_device[CONF_NAME] = device_info.get("name")
                 self.found_device[CONF_SUBTYPE] = device_info.get("model_number")
@@ -357,11 +355,9 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
                             format((PRESET_ACCOUNT[0] ^ PRESET_ACCOUNT[2]), "X"),
                         ).decode("ASCII"),
                     )
-                    if self.cloud and not await self.cloud.login():
+                    if not await self.cloud.login():
                         return await self.async_step_auto(error="preset_account")
-                keys: dict[int, dict[str, Any]] = {}
-                if self.cloud:
-                    keys = await self.cloud.get_keys(user_input[CONF_DEVICE])
+                keys = await self.cloud.get_keys(user_input[CONF_DEVICE])
                 for method, key in keys.items():
                     dm = MideaDevice(
                         name="",
