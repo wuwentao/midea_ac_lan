@@ -180,7 +180,7 @@ class MideaClimate(MideaEntity, ClimateEntity):
             self.turn_off()
         else:
             try:
-                mode: int = self.hvac_modes.index(hvac_mode.lower()) if hvac_mode else 0
+                mode = self.hvac_modes.index(hvac_mode.lower()) if hvac_mode else None
                 self._device.set_target_temperature(
                     target_temperature=temperature,
                     mode=mode,
@@ -503,7 +503,7 @@ class MideaC3Climate(MideaClimate):
             self.turn_off()
         else:
             try:
-                mode = self.hvac_modes.index(hvac_mode.lower()) if hvac_mode else 0
+                mode = self.hvac_modes.index(hvac_mode.lower()) if hvac_mode else None
                 self._device.set_target_temperature(
                     target_temperature=temperature,
                     mode=mode,
