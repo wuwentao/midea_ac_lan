@@ -566,9 +566,9 @@ class MideaFBClimate(MideaClimate):
         if hvac_mode == HVACMode.OFF:
             self.turn_off()
         else:
-            self._device.set_attribute(
-                attr=FBAttributes.target_temperature,
-                value=temperature,
+            self._device.set_target_temperature(
+                target_temperature=temperature,
+                mode=None,
             )
 
     def set_hvac_mode(self, hvac_mode: HVACMode) -> None:
