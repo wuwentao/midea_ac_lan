@@ -40,7 +40,7 @@ class MideaEntity(Entity):
             "model": f"{MIDEA_DEVICES[self._device.device_type]['name']} "
             f"{self._device.model}"
             f" ({self._device.subtype})",
-            "identifiers": {(DOMAIN, str(self._device.device_id))},
+            "identifiers": {(DOMAIN, self._device.device_id)},  # type: ignore[arg-type]
             "name": self._device_name,
         }
 
