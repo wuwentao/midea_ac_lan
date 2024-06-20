@@ -188,7 +188,7 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
     model: str = config_entry.data[CONF_MODEL]
     subtype = config_entry.data.get(CONF_SUBTYPE, 0)
     protocol: int = config_entry.data[CONF_PROTOCOL]
-    customize: str = config_entry.options[CONF_CUSTOMIZE]
+    customize: str = config_entry.options.get(CONF_CUSTOMIZE, "")
     if protocol == 3 and (key == "" or token == ""):
         _LOGGER.error("For V3 devices, the key and the token is required")
         return False
