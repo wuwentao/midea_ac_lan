@@ -76,7 +76,7 @@ class MideaFan(MideaEntity, FanEntity):
     def fan_speed(self) -> int | None:
         return cast(int, self._device.get_attribute("fan_speed"))
 
-    def turn_off(self, **kwargs: Any) -> None:
+    def turn_off(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
         self._device.set_attribute(attr="power", value=False)
 
     def oscillate(self, oscillating: bool) -> None:
@@ -101,7 +101,7 @@ class MideaFan(MideaEntity, FanEntity):
         else:
             await self.hass.async_add_executor_job(self.set_percentage, percentage)
 
-    def update_state(self, status: Any) -> None:
+    def update_state(self, status: Any) -> None:  # noqa: ANN401, ARG002
         self.schedule_update_ha_state()
 
 
@@ -121,7 +121,7 @@ class MideaFAFan(MideaFan):
         self,
         percentage: int | None = None,
         preset_mode: str | None = None,
-        **kwargs: Any,
+        **kwargs: Any,  # noqa: ANN401, ARG002
     ) -> None:
         if percentage:
             fan_speed = int(percentage / self.percentage_step + 0.5)
@@ -144,7 +144,7 @@ class MideaB6Fan(MideaFan):
         self,
         percentage: int | None = None,
         preset_mode: str | None = None,
-        **kwargs: Any,
+        **kwargs: Any,  # noqa: ANN401, ARG002
     ) -> None:
         if percentage:
             fan_speed = int(percentage / self.percentage_step + 0.5)
@@ -177,13 +177,13 @@ class MideaACFreshAirFan(MideaFan):
 
     def turn_on(
         self,
-        percentage: int | None = None,
-        preset_mode: str | None = None,
-        **kwargs: Any,
+        percentage: int | None = None,  # noqa: ARG002
+        preset_mode: str | None = None,  # noqa: ARG002
+        **kwargs: Any,  # noqa: ANN401, ARG002
     ) -> None:
         self._device.set_attribute(attr=ACAttributes.fresh_air_power, value=True)
 
-    def turn_off(self, **kwargs: Any) -> None:
+    def turn_off(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
         self._device.set_attribute(attr=ACAttributes.fresh_air_power, value=False)
 
     def set_percentage(self, percentage: int) -> None:
@@ -213,9 +213,9 @@ class MideaCEFan(MideaFan):
 
     def turn_on(
         self,
-        percentage: int | None = None,
-        preset_mode: str | None = None,
-        **kwargs: Any,
+        percentage: int | None = None,  # noqa: ARG002
+        preset_mode: str | None = None,  # noqa: ARG002
+        **kwargs: Any,  # noqa: ANN401, ARG002
     ) -> None:
         self._device.set_attribute(attr=CEAttributes.power, value=True)
 
@@ -239,11 +239,11 @@ class Midea40Fan(MideaFan):
 
     def turn_on(
         self,
-        percentage: int | None = None,
-        preset_mode: str | None = None,
-        **kwargs: Any,
+        percentage: int | None = None,  # noqa: ARG002
+        preset_mode: str | None = None,  # noqa: ARG002
+        **kwargs: Any,  # noqa: ANN401, ARG002
     ) -> None:
         self._device.set_attribute(attr=X40Attributes.fan_speed, value=1)
 
-    def turn_off(self, **kwargs: Any) -> None:
+    def turn_off(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
         self._device.set_attribute(attr=X40Attributes.fan_speed, value=0)

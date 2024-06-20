@@ -142,7 +142,7 @@ class MideaWaterHeater(MideaEntity, WaterHeaterEntity):
     def target_temperature(self) -> float:
         return cast(float, self._device.get_attribute("target_temperature"))
 
-    def set_temperature(self, **kwargs: Any) -> None:
+    def set_temperature(self, **kwargs: Any) -> None:  # noqa: ANN401
         if ATTR_TEMPERATURE not in kwargs:
             return
         temperature = int(kwargs[ATTR_TEMPERATURE])
@@ -157,19 +157,19 @@ class MideaWaterHeater(MideaEntity, WaterHeaterEntity):
             return None
         return cast(list, self._device.preset_modes)
 
-    def turn_on(self, **kwargs: Any) -> None:
+    def turn_on(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
         self._device.set_attribute(attr="power", value=True)
 
-    def turn_off(self, **kwargs: Any) -> None:
+    def turn_off(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
         self._device.set_attribute(attr="power", value=False)
 
-    async def async_turn_on(self, **kwargs: Any) -> None:
+    async def async_turn_on(self, **kwargs: Any) -> None:  # noqa: ANN401
         await self.hass.async_add_executor_job(ft.partial(self.turn_on, **kwargs))
 
-    async def async_turn_off(self, **kwargs: Any) -> None:
+    async def async_turn_off(self, **kwargs: Any) -> None:  # noqa: ANN401
         await self.hass.async_add_executor_job(ft.partial(self.turn_off, **kwargs))
 
-    def update_state(self, status: Any) -> None:
+    def update_state(self, status: Any) -> None:  # noqa: ANN401, ARG002
         self.schedule_update_ha_state()
 
 
@@ -205,7 +205,7 @@ class MideaE3WaterHeater(MideaWaterHeater):
     @property
     def precision(self) -> float:
         return float(
-            PRECISION_HALVES if self._device.precision_halves else PRECISION_WHOLE
+            PRECISION_HALVES if self._device.precision_halves else PRECISION_WHOLE,
         )
 
 
@@ -220,7 +220,7 @@ class MideaC3WaterHeater(MideaWaterHeater):
         return str(
             STATE_ON
             if self._device.get_attribute(C3Attributes.dhw_power)
-            else STATE_OFF
+            else STATE_OFF,
         )
 
     @property
@@ -234,7 +234,7 @@ class MideaC3WaterHeater(MideaWaterHeater):
     def target_temperature(self) -> float:
         return cast(float, self._device.get_attribute(C3Attributes.dhw_target_temp))
 
-    def set_temperature(self, **kwargs: Any) -> None:
+    def set_temperature(self, **kwargs: Any) -> None:  # noqa: ANN401
         if ATTR_TEMPERATURE not in kwargs:
             return
         temperature = int(kwargs[ATTR_TEMPERATURE])
@@ -248,10 +248,10 @@ class MideaC3WaterHeater(MideaWaterHeater):
     def max_temp(self) -> float:
         return cast(float, self._device.get_attribute(C3Attributes.dhw_temp_max))
 
-    def turn_on(self, **kwargs: Any) -> None:
+    def turn_on(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
         self._device.set_attribute(attr=C3Attributes.dhw_power, value=True)
 
-    def turn_off(self, **kwargs: Any) -> None:
+    def turn_off(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
         self._device.set_attribute(attr=C3Attributes.dhw_power, value=False)
 
 
@@ -289,13 +289,13 @@ class MideaE6WaterHeater(MideaWaterHeater):
                 STATE_ON
                 if self._device.get_attribute(E6Attributes.main_power)
                 and self._device.get_attribute(E6Attributes.heating_power)
-                else STATE_OFF
+                else STATE_OFF,
             )
         # for bathing
         return str(
             STATE_ON
             if self._device.get_attribute(E6Attributes.main_power)
-            else STATE_OFF
+            else STATE_OFF,
         )
 
     @property
@@ -306,7 +306,7 @@ class MideaE6WaterHeater(MideaWaterHeater):
     def target_temperature(self) -> float:
         return cast(float, self._device.get_attribute(self._target_temperature_attr))
 
-    def set_temperature(self, **kwargs: Any) -> None:
+    def set_temperature(self, **kwargs: Any) -> None:  # noqa: ANN401
         if ATTR_TEMPERATURE not in kwargs:
             return
         temperature = int(kwargs[ATTR_TEMPERATURE])
@@ -315,7 +315,8 @@ class MideaE6WaterHeater(MideaWaterHeater):
     @property
     def min_temp(self) -> float:
         min_temperature = cast(
-            list[str], self._device.get_attribute(E6Attributes.min_temperature)
+            list[str],
+            self._device.get_attribute(E6Attributes.min_temperature),
         )
         return cast(
             float,
@@ -325,17 +326,18 @@ class MideaE6WaterHeater(MideaWaterHeater):
     @property
     def max_temp(self) -> float:
         max_temperature = cast(
-            list[str], self._device.get_attribute(E6Attributes.max_temperature)
+            list[str],
+            self._device.get_attribute(E6Attributes.max_temperature),
         )
         return cast(
             float,
             max_temperature[self._use],
         )
 
-    def turn_on(self, **kwargs: Any) -> None:
+    def turn_on(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
         self._device.set_attribute(attr=self._power_attr, value=True)
 
-    def turn_off(self, **kwargs: Any) -> None:
+    def turn_off(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
         self._device.set_attribute(attr=self._power_attr, value=False)
 
 

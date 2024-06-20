@@ -1,5 +1,4 @@
-"""
-midea_ac_lan integration init file
+"""midea_ac_lan integration init file
 
 integration load process:
 1. component setup: `async_setup`
@@ -49,14 +48,12 @@ _LOGGER = logging.getLogger(__name__)
 
 
 async def update_listener(hass: HomeAssistant, config_entry: ConfigEntry) -> None:
-    """
-    option flow signal update,
+    """Option flow signal update,
     register an update listener to the config entry that will be called when the entry is updated.
     A listener is registered by adding the following to the `async_setup_entry`:
     `config_entry.async_on_unload(config_entry.add_update_listener(update_listener))`
     means the Listener is attached when the entry is loaded and detached at unload
     """
-
     # Forward the unloading of an entry to platforms.
     await hass.config_entries.async_unload_platforms(config_entry, ALL_PLATFORM)
     # forward the Config Entry to the platforms
@@ -77,7 +74,7 @@ async def update_listener(hass: HomeAssistant, config_entry: ConfigEntry) -> Non
 
 
 async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
-    """setup midea_lan component when load this integration"""
+    """Setup midea_lan component when load this integration"""
     hass.data.setdefault(DOMAIN, {})
     attributes = []
     for device_entities in MIDEA_DEVICES.values():
@@ -91,8 +88,8 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
             ):
                 attributes.append(attribute_name.value)
 
-    def service_set_attribute(service: Any) -> None:
-        """set service attribute func"""
+    def service_set_attribute(service: Any) -> None:  # noqa: ANN401
+        """Set service attribute func"""
         device_id = service.data["device_id"]
         attr = service.data["attribute"]
         value = service.data["value"]
@@ -120,8 +117,8 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
                     attr,
                 )
 
-    def service_send_command(service: Any) -> None:
-        """send command to service func"""
+    def service_send_command(service: Any) -> None:  # noqa: ANN401
+        """Send command to service func"""
         device_id = service.data.get("device_id")
         cmd_type = service.data.get("cmd_type")
         cmd_body = service.data.get("cmd_body")
@@ -242,7 +239,7 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
 
 
 async def async_unload_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> bool:
-    """clean up entities, unsubscribe event listener and close all connections"""
+    """Clean up entities, unsubscribe event listener and close all connections"""
     device_type = config_entry.data.get(CONF_TYPE)
     if device_type == CONF_ACCOUNT:
         return True
