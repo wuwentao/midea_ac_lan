@@ -1,4 +1,5 @@
 """setup current integration and add device entry via the web UI
+"""setup current integration and add device entry via the web UI
 enable by adding `config_flow: true` in `manifest.json`
 
 `MideaLanConfigFlow`: add device entry

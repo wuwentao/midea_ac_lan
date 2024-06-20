@@ -1,4 +1,5 @@
 """midea_ac_lan integration init file
+"""midea_ac_lan integration init file
 
 integration load process:
 1. component setup: `async_setup`
