@@ -47,10 +47,12 @@ from midealocal.cloud import MideaCloud, get_midea_cloud
 from midealocal.device import MideaDevice
 from midealocal.discover import discover
 
+from aiohttp import ClientSession
+
 if (MAJOR_VERSION, MINOR_VERSION) >= (2024, 4):
     from homeassistant.config_entries import ConfigFlowResult
 else:
-    from homeassistant.data_entry_flow import (  # type: ignore
+    from homeassistant.data_entry_flow import (  # type: ignore[assignment]
         AbortFlow,
         FlowResult as ConfigFlowResult,
     )
@@ -106,7 +108,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
     unsorted: dict[int, Any] = {}
     account: dict = {}
     cloud: MideaCloud | None = None
-    session = None
+    session: ClientSession | None = None
     for device_type, device_info in MIDEA_DEVICES.items():
         unsorted[device_type] = device_info["name"]
 
@@ -196,7 +198,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
                 if self.cloud is None:
                     raise AbortFlow(
                         f"Can not get midea cloud: {
-                            SERVERS[user_input[CONF_SERVER]]}",
+                            SERVERS[user_input[CONF_SERVER]]}"
                     )
             if await self.cloud.login():
                 self.account = {
@@ -275,7 +277,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
                     self.available_device[
                         device_id
                     ] = f"{device_id} ({self.supports.get(
-                        device.get(CONF_TYPE))})"
+                            device.get(CONF_TYPE))})"
             if len(self.available_device) > 0:
                 return await self.async_step_auto()
             return await self.async_step_discovery(error="no_devices")
