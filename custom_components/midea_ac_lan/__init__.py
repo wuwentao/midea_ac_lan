@@ -134,7 +134,8 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         if dev:
             dev.send_command(cmd_type, cmd_body)
 
-    # register service: func call `service_set_attribute`, service.yaml key: `set_attribute`
+    # register service func calls:
+    # `service_set_attribute`, service.yaml key: `set_attribute`
     hass.services.async_register(
         DOMAIN,
         "set_attribute",
@@ -148,7 +149,8 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         ),
     )
 
-    # register service: func call `service_send_command`, service.yaml key: `send_command`
+    # register service func calls:
+    # `service_send_command`, service.yaml key: `send_command`
     hass.services.async_register(
         DOMAIN,
         "send_command",
@@ -232,7 +234,9 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
         hass.data[DOMAIN][DEVICES][device_id] = device
         # Forward the setup of an entry to all platforms
         await hass.config_entries.async_forward_entry_setups(config_entry, ALL_PLATFORM)
-        # Listener `update_listener` is attached when the entry is loaded and detached at unload
+        # Listener `update_listener` is
+        # attached when the entry is loaded
+        # and detached when it's unloaded
         config_entry.async_on_unload(config_entry.add_update_listener(update_listener))
         return True
     return False
