@@ -51,7 +51,7 @@ from midealocal.discover import discover
 if (MAJOR_VERSION, MINOR_VERSION) >= (2024, 4):
     from homeassistant.config_entries import ConfigFlowResult
 else:
-    from homeassistant.data_entry_flow import FlowResult as ConfigFlowResult  # type: ignore
+    from homeassistant.data_entry_flow import AbortFlow, FlowResult as ConfigFlowResult  # type: ignore
 
 from .const import (
     CONF_ACCOUNT,
@@ -194,6 +194,10 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
                     account=user_input[CONF_ACCOUNT],
                     password=user_input[CONF_PASSWORD],
                 )
+                if self.cloud is None:
+                    raise AbortFlow(
+                        f"Can not get midea cloud: {SERVERS[user_input[CONF_SERVER]]}"
+                    )
             if await self.cloud.login():
                 self.account = {
                     CONF_ACCOUNT: user_input[CONF_ACCOUNT],
@@ -261,11 +265,13 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
             else:
                 ip_address = discovery_info[CONF_IP_ADDRESS]
             # use midea-local discover() to get devices list with ip_address
-            self.devices = discover(self.supports.keys(), ip_address=ip_address)
+            self.devices = discover(list(self.supports.keys()), ip_address=ip_address)
             self.available_device = {}
             for device_id, device in self.devices.items():
                 # remove exist devices and only return new devices
-                if not self._already_configured(device_id, device.get(CONF_IP_ADDRESS)):
+                if not self._already_configured(
+                    str(device_id), device[CONF_IP_ADDRESS]
+                ):
                     self.available_device[device_id] = (
                         f"{device_id} ({self.supports.get(device.get(CONF_TYPE))})"
                     )
@@ -323,6 +329,10 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
                     self.account[CONF_ACCOUNT],
                     self.account[CONF_PASSWORD],
                 )
+                if self.cloud is None:
+                    raise AbortFlow(
+                        f"Can not get midea cloud: {self.account[CONF_SERVER]}"
+                    )
             if not await self.cloud.login():
                 return await self.async_step_login()
             self.found_device = {
@@ -353,6 +363,8 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
                             format((PRESET_ACCOUNT[0] ^ PRESET_ACCOUNT[2]), "X"),
                         ).decode("ASCII"),
                     )
+                    if self.cloud is None:
+                        raise AbortFlow("Can not get midea cloud: MSmartHome")
                     if not await self.cloud.login():
                         return await self.async_step_auto(error="preset_account")
                 keys = await self.cloud.get_keys(user_input[CONF_DEVICE])
