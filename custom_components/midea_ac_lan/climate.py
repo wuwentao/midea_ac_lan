@@ -133,7 +133,8 @@ class MideaClimate(MideaEntity, ClimateEntity):
     @property
     def hvac_mode(self) -> HVACMode:
         if self._device.get_attribute("power"):
-            return cast(HVACMode, self.hvac_modes[self._device.get_attribute("mode")])
+            mode = cast(int, self._device.get_attribute("mode"))
+            return self.hvac_modes[mode]
         return HVACMode.OFF
 
     @property
@@ -183,6 +184,7 @@ class MideaClimate(MideaEntity, ClimateEntity):
                 self._device.set_target_temperature(
                     target_temperature=temperature,
                     mode=mode,
+                    zone=None,
                 )
             except ValueError as e:
                 _LOGGER.error("set_temperature %s, kwargs = %s", e, kwargs)
@@ -258,12 +260,11 @@ class MideaACClimate(MideaClimate):
             PRESET_SLEEP,
             PRESET_AWAY,
         ]
-
         self._attr_fan_modes = list(self._fan_speeds.keys())
 
     @property
     def fan_mode(self) -> str:
-        fan_speed: int = self._device.get_attribute(ACAttributes.fan_speed)
+        fan_speed = cast(int, self._device.get_attribute(ACAttributes.fan_speed))
         if fan_speed > 100:
             return str(FAN_AUTO)
         if fan_speed > 80:
@@ -416,6 +417,10 @@ class MideaC3Climate(MideaClimate):
         ]
         self._power_attr = MideaC3Climate._powers[zone]
 
+    def _temperature(self, min: bool) -> list[str]:
+        value = C3Attributes.temperature_min if min else C3Attributes.temperature_max
+        return cast(list[str], self._device.get_attribute(value))
+
     @property
     def supported_features(self) -> ClimateEntityFeature:
         features = ClimateEntityFeature.TARGET_TEMPERATURE
@@ -425,38 +430,39 @@ class MideaC3Climate(MideaClimate):
 
     @property
     def target_temperature_step(self) -> float:
+        zone_temp_type = cast(
+            list[str], self._device.get_attribute(C3Attributes.zone_temp_type)
+        )
         return float(
-            PRECISION_WHOLE
-            if self._device.get_attribute(C3Attributes.zone_temp_type)[self._zone]
-            else PRECISION_HALVES
+            PRECISION_WHOLE if zone_temp_type[self._zone] else PRECISION_HALVES
         )
 
     @property
     def min_temp(self) -> float:
         return cast(
             float,
-            self._device.get_attribute(C3Attributes.temperature_min)[self._zone],
+            self._temperature(True)[self._zone],
         )
 
     @property
     def max_temp(self) -> float:
         return cast(
             float,
-            self._device.get_attribute(C3Attributes.temperature_max)[self._zone],
+            self._temperature(False)[self._zone],
         )
 
     @property
     def target_temperature_low(self) -> float:
         return cast(
             float,
-            self._device.get_attribute(C3Attributes.temperature_min)[self._zone],
+            self._temperature(True)[self._zone],
         )
 
     @property
     def target_temperature_high(self) -> float:
         return cast(
             float,
-            self._device.get_attribute(C3Attributes.temperature_max)[self._zone],
+            self._temperature(False)[self._zone],
         )
 
     def turn_on(self, **kwargs: Any) -> None:
@@ -476,9 +482,12 @@ class MideaC3Climate(MideaClimate):
 
     @property
     def target_temperature(self) -> float:
+        target_temperature = cast(
+            list[str], self._device.get_attribute(C3Attributes.target_temperature)
+        )
         return cast(
             float,
-            self._device.get_attribute(C3Attributes.target_temperature)[self._zone],
+            target_temperature[self._zone],
         )
 
     @property
@@ -496,9 +505,9 @@ class MideaC3Climate(MideaClimate):
             try:
                 mode = self.hvac_modes.index(hvac_mode.lower()) if hvac_mode else None
                 self._device.set_target_temperature(
-                    zone=self._zone,
                     target_temperature=temperature,
                     mode=mode,
+                    zone=self._zone,
                 )
             except ValueError as e:
                 _LOGGER.error("set_temperature %s, kwargs = %s", e, kwargs)
@@ -557,9 +566,9 @@ class MideaFBClimate(MideaClimate):
         if hvac_mode == HVACMode.OFF:
             self.turn_off()
         else:
-            self._device.set_attribute(
-                attr=FBAttributes.target_temperature,
-                value=temperature,
+            self._device.set_target_temperature(
+                target_temperature=temperature,
+                mode=None,
             )
 
     def set_hvac_mode(self, hvac_mode: HVACMode) -> None:

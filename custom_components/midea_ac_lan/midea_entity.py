@@ -40,7 +40,7 @@ class MideaEntity(Entity):
             "model": f"{MIDEA_DEVICES[self._device.device_type]['name']} "
             f"{self._device.model}"
             f" ({self._device.subtype})",
-            "identifiers": {(DOMAIN, self._device.device_id)},
+            "identifiers": {(DOMAIN, str(self._device.device_id))},
             "name": self._device_name,
         }
 
@@ -54,13 +54,10 @@ class MideaEntity(Entity):
 
     @property
     def name(self) -> str:
-        return cast(
-            str,
-            (
-                f"{self._device_name} {self._config.get('name')}"
-                if "name" in self._config
-                else self._device_name
-            ),
+        return (
+            f"{self._device_name} {self._config.get('name')}"
+            if "name" in self._config
+            else self._device_name
         )
 
     @property
