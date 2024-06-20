@@ -123,10 +123,7 @@ class MideaFAFan(MideaFan):
         preset_mode: str | None = None,
         **kwargs: Any,
     ) -> None:
-        if percentage:
-            fan_speed = int(percentage / self.percentage_step + 0.5)
-        else:
-            fan_speed = None
+        fan_speed = int(percentage / self.percentage_step + 0.5) if percentage else None
         self._device.turn_on(fan_speed=fan_speed, mode=preset_mode)
 
 
@@ -146,10 +143,7 @@ class MideaB6Fan(MideaFan):
         preset_mode: str | None = None,
         **kwargs: Any,
     ) -> None:
-        if percentage:
-            fan_speed = int(percentage / self.percentage_step + 0.5)
-        else:
-            fan_speed = None
+        fan_speed = int(percentage / self.percentage_step + 0.5) if percentage else None
         self._device.turn_on(fan_speed=fan_speed, mode=preset_mode)
 
 
