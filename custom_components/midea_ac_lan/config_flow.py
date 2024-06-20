@@ -22,6 +22,7 @@ from typing import Any, cast
 
 import homeassistant.helpers.config_validation as cv
 import voluptuous as vol
+from aiohttp import ClientSession
 from homeassistant.config_entries import ConfigEntry, ConfigFlow, OptionsFlow
 from homeassistant.const import (
     CONF_CUSTOMIZE,
@@ -46,8 +47,6 @@ from homeassistant.util.json import load_json
 from midealocal.cloud import MideaCloud, get_midea_cloud
 from midealocal.device import MideaDevice
 from midealocal.discover import discover
-
-from aiohttp import ClientSession
 
 if (MAJOR_VERSION, MINOR_VERSION) >= (2024, 4):
     from homeassistant.config_entries import ConfigFlowResult
