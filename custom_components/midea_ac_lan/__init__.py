@@ -1,4 +1,4 @@
-"""midea_ac_lan integration init file
+"""Init for Midea LAN.
 
 integration load process:
 1. component setup: `async_setup`
@@ -48,8 +48,9 @@ _LOGGER = logging.getLogger(__name__)
 
 
 async def update_listener(hass: HomeAssistant, config_entry: ConfigEntry) -> None:
-    """Option flow signal update,
-    register an update listener to the config entry that will be called when the entry is updated.
+    """Option flow signal update.
+
+    register update listener for config entry that will be called when entry is updated.
     A listener is registered by adding the following to the `async_setup_entry`:
     `config_entry.async_on_unload(config_entry.add_update_listener(update_listener))`
     means the Listener is attached when the entry is loaded and detached at unload
@@ -89,7 +90,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:  # noqa 
                 attributes.append(attribute_name.value)
 
     def service_set_attribute(service: Any) -> None:  # noqa: ANN401
-        """Set service attribute func"""
+        """Set service attribute func."""
         device_id = service.data["device_id"]
         attr = service.data["attribute"]
         value = service.data["value"]
@@ -118,7 +119,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:  # noqa 
                 )
 
     def service_send_command(service: Any) -> None:  # noqa: ANN401
-        """Send command to service func"""
+        """Send command to service func."""
         device_id = service.data.get("device_id")
         cmd_type = service.data.get("cmd_type")
         cmd_body = service.data.get("cmd_body")
@@ -167,7 +168,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:  # noqa 
 
 
 async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> bool:
-    """Set up platform for current integration"""
+    """Set up platform for current integration."""
     device_type = config_entry.data.get(CONF_TYPE)
     if device_type == CONF_ACCOUNT:
         return True
@@ -243,7 +244,7 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
 
 
 async def async_unload_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> bool:
-    """Clean up entities, unsubscribe event listener and close all connections"""
+    """Clean up entities, unsubscribe event listener and close all connections."""
     device_type = config_entry.data.get(CONF_TYPE)
     if device_type == CONF_ACCOUNT:
         return True
