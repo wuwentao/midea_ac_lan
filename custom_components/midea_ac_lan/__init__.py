@@ -125,7 +125,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         try:
             cmd_body = bytearray.fromhex(cmd_body)
         except ValueError:
-            _LOGGER.error(
+            _LOGGER.exception(
                 "Appliance [%s] invalid cmd_body, a hexadecimal string required",
                 device_id,
             )
