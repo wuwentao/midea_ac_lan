@@ -21,7 +21,7 @@ job process:
 """
 
 import logging
-import os
+from pathlib import Path
 from typing import Any, cast
 
 import homeassistant.helpers.config_validation as cv
@@ -116,11 +116,10 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
 
     def _save_device_config(self, data: dict[str, Any]) -> None:
         """Save device config to json file with device id."""
-        os.makedirs(self.hass.config.path(STORAGE_PATH), exist_ok=True)
-        record_file = self.hass.config.path(
-            f"{STORAGE_PATH}/{data[CONF_DEVICE_ID]}.json",
-        )
-        save_json(record_file, data)
+        storage_path = Path(self.hass.config.path(STORAGE_PATH))
+        Path.mkdir(storage_path, parents=True)
+        record_file = Path(storage_path, data[CONF_DEVICE_ID], ".json")
+        save_json(record_file.name, data)
 
     def _load_device_config(self, device_id: str) -> Any:  # noqa: ANN401
         """Load device config from json file with device id."""
