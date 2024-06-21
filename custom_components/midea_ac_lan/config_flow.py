@@ -50,15 +50,10 @@ from midealocal.cloud import MideaCloud, get_midea_cloud
 from midealocal.device import MideaDevice
 from midealocal.discover import discover
 
-from aiohttp import ClientSession
 
 if (MAJOR_VERSION, MINOR_VERSION) >= (2024, 4):
     from homeassistant.config_entries import ConfigFlowResult
 else:
-    from homeassistant.data_entry_flow import (  # type: ignore[assignment]
-        AbortFlow,
-        FlowResult as ConfigFlowResult,
-    )
     from homeassistant.data_entry_flow import (  # type: ignore[assignment]
         AbortFlow,
         FlowResult as ConfigFlowResult,
@@ -352,9 +347,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
                 CONF_PORT: device.get(CONF_PORT),
                 CONF_MODEL: device.get(CONF_MODEL),
             }
-            if self.cloud and (
-                device_info := await self.cloud.get_device_info(device_id)
-            ):
+            if device_info := await self.cloud.get_device_info(device_id):
                 # set subtype with model_number
                 self.found_device[CONF_NAME] = device_info.get("name")
                 self.found_device[CONF_SUBTYPE] = device_info.get("model_number")

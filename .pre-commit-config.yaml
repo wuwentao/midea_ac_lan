@@ -53,9 +53,6 @@ repos:
       - id: codespell
         args: ["-L hass,lookin,nam", "-w"]
         exclude: "custom_components/midea_ac_lan/translations/de.json" # only de.json can't work with codespell
-        args: ["-L hass", "-w"]
-        # mypy.ini for 'lookin' and de.json for a few words
-        exclude: "custom_components/midea_ac_lan/mypy.ini, custom_components/midea_ac_lan/translations/de.json"
   - repo: local
     hooks:
       - id: mypy
