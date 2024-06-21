@@ -9,8 +9,10 @@ job process:
 2. default auto discovery action run `async_step_discovery`
 3. device available, run `async_step_auto` to show available device list in web UI
     3.1 check local device json with `_load_device_config`
-        3.1.1 device exist with `_check_storage_device`, send json data to `async_step_manually`
-        3.1.2 device NOT exist, get device data from cloud and send to `async_step_manually`
+        3.1.1 device exist with `_check_storage_device`,
+              send json data to `async_step_manually`
+        3.1.2 device NOT exist, get device data from cloud,
+              send to `async_step_manually`
             - check login with `async_step_login`
 4. add selected device detail with `async_step_manually`
 5. run `_save_device_config` and `async_create_entry`
@@ -226,13 +228,15 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
             table = (
                 "Appliance code|Type|IP address|SN|Supported\n:--:|:--:|:--:|:--:|:--:"
             )
+            green = "<font color=gree>YES</font>"
+            red = "<font color=red>NO</font>"
             for device_id, device in all_devices.items():
                 supported = device.get(CONF_TYPE) in self.supports
                 table += (
                     f"\n{device_id}|{f'{device.get(CONF_TYPE):02X}'}|"
                     f"{device.get(CONF_IP_ADDRESS)}|"
                     f"{device.get('sn')}|"
-                    f"{'<font color=gree>YES</font>' if supported else '<font color=red>NO</font>'}"
+                    f"{green if supported else red}"
                 )
         # no available device
         else:
@@ -349,7 +353,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
             if device.get(CONF_PROTOCOL) == 3:
                 if self.account[CONF_SERVER] == "美的美居":
                     _LOGGER.debug(
-                        "Try to get the Token and the Key use the preset MSmartHome account",
+                        "Try to get Token and Key using preset MSmartHome account",
                     )
                     self.cloud = get_midea_cloud(
                         "MSmartHome",
