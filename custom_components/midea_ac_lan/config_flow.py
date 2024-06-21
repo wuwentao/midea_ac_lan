@@ -47,7 +47,7 @@ from homeassistant.helpers.aiohttp_client import async_create_clientsession
 from homeassistant.helpers.json import save_json
 from homeassistant.util.json import load_json
 from midealocal.cloud import MideaCloud, get_midea_cloud
-from midealocal.device import MideaDevice
+from midealocal.device import MideaDevice, ProtocolVersion
 from midealocal.discover import discover
 
 if (MAJOR_VERSION, MINOR_VERSION) >= (2024, 4):
@@ -127,7 +127,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
         """Check input device with storage_device"""
         if storage_device.get(CONF_SUBTYPE) is None:
             return False
-        if device.get(CONF_PROTOCOL) == 3 and (
+        if device.get(CONF_PROTOCOL) == ProtocolVersion.V3 and (
             storage_device.get(CONF_TOKEN) is None
             or storage_device.get(CONF_KEY) is None
         ):
@@ -350,7 +350,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
                 self.found_device[CONF_NAME] = device_info.get("name")
                 self.found_device[CONF_SUBTYPE] = device_info.get("model_number")
             # get token and key from cloud for v3 device
-            if device.get(CONF_PROTOCOL) == 3:
+            if device.get(CONF_PROTOCOL) == ProtocolVersion.V3:
                 if self.account[CONF_SERVER] == "美的美居":
                     _LOGGER.debug(
                         "Try to get Token and Key using preset MSmartHome account",
@@ -428,7 +428,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
                 bytearray.fromhex(user_input[CONF_KEY])
             except ValueError:
                 return await self.async_step_manually(error="invalid_token")
-            if user_input[CONF_PROTOCOL] == 3 and (
+            if user_input[CONF_PROTOCOL] == ProtocolVersion.V3 and (
                 len(user_input[CONF_TOKEN]) == 0 or len(user_input[CONF_KEY]) == 0
             ):
                 return await self.async_step_manually(error="invalid_token")
