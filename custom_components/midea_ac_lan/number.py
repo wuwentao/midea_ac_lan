@@ -1,3 +1,5 @@
+"""Number for Midea Lan."""
+
 from typing import Any, cast
 
 from homeassistant.components.number import NumberEntity
@@ -17,6 +19,7 @@ async def async_setup_entry(
     config_entry: ConfigEntry,
     async_add_entities: AddEntitiesCallback,
 ) -> None:
+    """Set up numbers for device."""
     device_id = config_entry.data.get(CONF_DEVICE_ID)
     device = hass.data[DOMAIN][DEVICES].get(device_id)
     extra_switches = config_entry.options.get(CONF_SWITCHES, [])
@@ -32,6 +35,8 @@ async def async_setup_entry(
 
 
 class MideaNumber(MideaEntity, NumberEntity):
+    """Represent a Midea number sensor."""
+
     def __init__(self, device: MideaDevice, entity_key: str) -> None:
         super().__init__(device, entity_key)
         self._max_value = self._config.get("max")
@@ -40,6 +45,7 @@ class MideaNumber(MideaEntity, NumberEntity):
 
     @property
     def native_min_value(self) -> float:
+        """Return minimum value."""
         return cast(
             float,
             (
@@ -55,6 +61,7 @@ class MideaNumber(MideaEntity, NumberEntity):
 
     @property
     def native_max_value(self) -> float:
+        """Return maximum value."""
         return cast(
             float,
             (
@@ -70,6 +77,7 @@ class MideaNumber(MideaEntity, NumberEntity):
 
     @property
     def native_step(self) -> float:
+        """Return step value."""
         return cast(
             float,
             (
@@ -85,7 +93,9 @@ class MideaNumber(MideaEntity, NumberEntity):
 
     @property
     def native_value(self) -> float:
+        """Return value."""
         return cast(float, self._device.get_attribute(self._entity_key))
 
     def set_native_value(self, value: Any) -> None:  # noqa: ANN401
+        """Set value."""
         self._device.set_attribute(self._entity_key, value)
