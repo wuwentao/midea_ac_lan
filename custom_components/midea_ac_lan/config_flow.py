@@ -50,7 +50,6 @@ from midealocal.cloud import MideaCloud, get_midea_cloud
 from midealocal.device import MideaDevice
 from midealocal.discover import discover
 
-
 if (MAJOR_VERSION, MINOR_VERSION) >= (2024, 4):
     from homeassistant.config_entries import ConfigFlowResult
 else:
