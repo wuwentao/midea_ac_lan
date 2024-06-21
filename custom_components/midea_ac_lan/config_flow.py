@@ -22,6 +22,7 @@ from typing import Any, cast
 
 import homeassistant.helpers.config_validation as cv
 import voluptuous as vol
+from aiohttp import ClientSession
 from homeassistant.config_entries import ConfigEntry, ConfigFlow, OptionsFlow
 from homeassistant.const import (
     CONF_CUSTOMIZE,
@@ -50,7 +51,7 @@ from midealocal.discover import discover
 if (MAJOR_VERSION, MINOR_VERSION) >= (2024, 4):
     from homeassistant.config_entries import ConfigFlowResult
 else:
-    from homeassistant.data_entry_flow import (  # type: ignore
+    from homeassistant.data_entry_flow import (  # type: ignore[assignment]
         AbortFlow,
         FlowResult as ConfigFlowResult,
     )
@@ -106,7 +107,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
     unsorted: dict[int, Any] = {}
     account: dict = {}
     cloud: MideaCloud | None = None
-    session = None
+    session: ClientSession | None = None
     for device_type, device_info in MIDEA_DEVICES.items():
         unsorted[device_type] = device_info["name"]
 
@@ -194,10 +195,11 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
                     password=user_input[CONF_PASSWORD],
                 )
                 if self.cloud is None:
+                    # fmt: off
                     raise AbortFlow(
-                        f"Can not get midea cloud: {
-                            SERVERS[user_input[CONF_SERVER]]}",
+                        f"Can not get midea cloud: {SERVERS[user_input[CONF_SERVER]]}",
                     )
+                    # fmt: on
             if await self.cloud.login():
                 self.account = {
                     CONF_ACCOUNT: user_input[CONF_ACCOUNT],
@@ -272,10 +274,11 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
                     str(device_id),
                     device[CONF_IP_ADDRESS],
                 ):
-                    self.available_device[
-                        device_id
-                    ] = f"{device_id} ({self.supports.get(
-                        device.get(CONF_TYPE))})"
+                    # fmt: off
+                    self.available_device[device_id] = (
+                        f"{device_id} ({self.supports.get(device.get(CONF_TYPE))})"
+                    )
+                    # fmt: on
             if len(self.available_device) > 0:
                 return await self.async_step_auto()
             return await self.async_step_discovery(error="no_devices")
