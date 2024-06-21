@@ -1,6 +1,7 @@
 """Const for Midea Lan."""
 
 from enum import IntEnum
+
 from homeassistant.const import Platform
 
 DOMAIN = "midea_ac_lan"
