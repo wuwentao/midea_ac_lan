@@ -370,7 +370,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
                     if not await self.cloud.login():
                         return await self.async_step_auto(error="preset_account")
                 keys = await self.cloud.get_keys(user_input[CONF_DEVICE])
-                for method, key in keys.items():
+                for _, key in keys.items():
                     dm = MideaDevice(
                         name="",
                         device_id=device_id,
