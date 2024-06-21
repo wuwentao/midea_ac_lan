@@ -1,3 +1,5 @@
+"""Const for Midea Lan."""
+
 from homeassistant.const import Platform
 
 DOMAIN = "midea_ac_lan"
