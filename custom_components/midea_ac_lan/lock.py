@@ -1,3 +1,5 @@
+"""Lock entities for Midea Lan."""
+
 from typing import Any, cast
 
 from homeassistant.components.lock import LockEntity
@@ -16,6 +18,7 @@ async def async_setup_entry(
     config_entry: ConfigEntry,
     async_add_entities: AddEntitiesCallback,
 ) -> None:
+    """Set up entities for device."""
     device_id = config_entry.data.get(CONF_DEVICE_ID)
     device = hass.data[DOMAIN][DEVICES].get(device_id)
     extra_switches = config_entry.options.get(CONF_SWITCHES, [])
@@ -31,15 +34,21 @@ async def async_setup_entry(
 
 
 class MideaLock(MideaEntity, LockEntity):
+    """Represent a Midea lock entity."""
+
     @property
     def is_locked(self) -> bool:
+        """Return true if state is locked."""
         return cast(bool, self._device.get_attribute(self._entity_key))
 
     def lock(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
+        """Lock the lock."""
         self._device.set_attribute(attr=self._entity_key, value=True)
 
     def unlock(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
+        """Unlock the lock."""
         self._device.set_attribute(attr=self._entity_key, value=False)
 
     def open(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
+        """Open the lock."""
         self.unlock()
