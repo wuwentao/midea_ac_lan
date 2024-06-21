@@ -21,7 +21,7 @@ job process:
 """
 
 import logging
-import os
+from pathlib import Path
 from typing import Any, cast
 
 import homeassistant.helpers.config_validation as cv
@@ -97,28 +97,29 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
     ConfigFlow will manage the creation of entries from user input, discovery
     """
 
-    available_device: dict = {}
-    devices: dict = {}
-    found_device: dict = {}
-    supports: dict = {}
-    unsorted: dict[int, Any] = {}
-    account: dict = {}
-    cloud: MideaCloud | None = None
-    session: ClientSession | None = None
-    for device_type, device_info in MIDEA_DEVICES.items():
-        unsorted[device_type] = device_info["name"]
+    def __init__(self) -> None:
+        """MideaLanConfigFlow class."""
+        self.available_device: dict = {}
+        self.devices: dict = {}
+        self.found_device: dict[str, Any] = {}
+        self.supports: dict = {}
+        self.unsorted: dict[int, Any] = {}
+        self.account: dict = {}
+        self.cloud: MideaCloud | None = None
+        self.session: ClientSession | None = None
+        for device_type, device_info in MIDEA_DEVICES.items():
+            self.unsorted[device_type] = device_info["name"]
 
-    sorted_device_names = sorted(unsorted.items(), key=lambda x: x[1])
-    for item in sorted_device_names:
-        supports[item[0]] = item[1]
+        sorted_device_names = sorted(self.unsorted.items(), key=lambda x: x[1])
+        for item in sorted_device_names:
+            self.supports[item[0]] = item[1]
 
     def _save_device_config(self, data: dict[str, Any]) -> None:
         """Save device config to json file with device id."""
-        os.makedirs(self.hass.config.path(STORAGE_PATH), exist_ok=True)
-        record_file = self.hass.config.path(
-            f"{STORAGE_PATH}/{data[CONF_DEVICE_ID]}.json",
-        )
-        save_json(record_file, data)
+        storage_path = Path(self.hass.config.path(STORAGE_PATH))
+        Path.mkdir(storage_path, parents=True)
+        record_file = Path(storage_path, data[CONF_DEVICE_ID], ".json")
+        save_json(record_file.name, data)
 
     def _load_device_config(self, device_id: str) -> Any:  # noqa: ANN401
         """Load device config from json file with device id."""
