@@ -10,6 +10,7 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_DEVICE_ID, CONF_SWITCHES, Platform
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
+from midealocal.device import DeviceType
 from midealocal.devices.a1 import MideaA1Device
 from midealocal.devices.fd import MideaFDDevice
 
@@ -36,9 +37,9 @@ async def async_setup_entry(
         if config["type"] == Platform.HUMIDIFIER and (
             config.get("default") or entity_key in extra_switches
         ):
-            if device.device_type == 0xA1:
+            if device.device_type == DeviceType.A1:
                 devs.append(MideaA1Humidifier(device, entity_key))
-            if device.device_type == 0xFD:
+            if device.device_type == DeviceType.FD:
                 devs.append(MideaFDHumidifier(device, entity_key))
     async_add_entities(devs)
 
