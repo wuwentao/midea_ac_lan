@@ -1,3 +1,5 @@
+"""Sensor for Midea Lan."""
+
 from typing import Any, cast
 
 from homeassistant.components.sensor import (
@@ -21,6 +23,7 @@ async def async_setup_entry(
     config_entry: ConfigEntry,
     async_add_entities: AddEntitiesCallback,
 ) -> None:
+    """Set up sensors for device."""
     device_id = config_entry.data.get(CONF_DEVICE_ID)
     device = hass.data[DOMAIN][DEVICES].get(device_id)
     extra_sensors = config_entry.options.get(CONF_SENSORS, [])
@@ -36,22 +39,29 @@ async def async_setup_entry(
 
 
 class MideaSensor(MideaEntity, SensorEntity):
+    """Represent a Midea  sensor."""
+
     @property
     def native_value(self) -> StateType:
+        """Return entity value."""
         return cast(StateType, self._device.get_attribute(self._entity_key))
 
     @property
     def device_class(self) -> SensorDeviceClass:
+        """Return device class."""
         return cast(SensorDeviceClass, self._config.get("device_class"))
 
     @property
     def state_class(self) -> SensorStateClass | None:
+        """Return state state."""
         return cast(SensorStateClass | None, self._config.get("state_class"))
 
     @property
     def native_unit_of_measurement(self) -> str | None:
+        """Return unit of measurement."""
         return cast(str | None, self._config.get("unit"))
 
     @property
     def capability_attributes(self) -> dict[str, Any] | None:
+        """Return capabilities."""
         return {"state_class": self.state_class} if self.state_class else {}
