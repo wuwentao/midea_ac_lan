@@ -1,3 +1,5 @@
+"""Binary sensor for Midea Lan."""
+
 from typing import cast
 
 from homeassistant.components.binary_sensor import (
@@ -19,6 +21,7 @@ async def async_setup_entry(
     config_entry: ConfigEntry,
     async_add_entities: AddEntitiesCallback,
 ) -> None:
+    """Set up sensors for device."""
     device_id = config_entry.data.get(CONF_DEVICE_ID)
     device = hass.data[DOMAIN][DEVICES].get(device_id)
     extra_sensors = config_entry.options.get(CONF_SENSORS, [])
@@ -34,10 +37,14 @@ async def async_setup_entry(
 
 
 class MideaBinarySensor(MideaEntity, BinarySensorEntity):
+    """Represent a Midea binary sensor ."""
+
     @property
     def device_class(self) -> BinarySensorDeviceClass | None:
+        """Return device class."""
         return cast(BinarySensorDeviceClass, self._config.get("device_class"))
 
     @property
     def is_on(self) -> bool:
+        """Return true if sensor state is on."""
         return cast(bool, self._device.get_attribute(self._entity_key))
