@@ -4,8 +4,6 @@ set -e
 
 cd "$(dirname "$0")/.."
 
-python3 -m pip install --requirement requirements-all.txt
-
 # Install pre-commit hooks on commit
 pre-commit install
 
