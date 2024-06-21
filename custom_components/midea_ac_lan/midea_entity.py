@@ -30,7 +30,7 @@ class MideaEntity(Entity):
         self._device_name = self._device.name
 
     @property
-    def device(self) -> Any:
+    def device(self) -> MideaDevice:
         return self._device
 
     @property
@@ -68,6 +68,6 @@ class MideaEntity(Entity):
     def icon(self) -> str:
         return cast(str, self._config.get("icon"))
 
-    def update_state(self, status: Any) -> None:
+    def update_state(self, status: Any) -> None:  # noqa: ANN401
         if self._entity_key in status or "available" in status:
             self.schedule_update_ha_state()
