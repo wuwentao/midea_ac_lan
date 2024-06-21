@@ -6,6 +6,7 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_DEVICE_ID, CONF_SWITCHES, Platform
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
+from midealocal.device import DeviceType
 from midealocal.devices.ac import DeviceAttributes as ACAttributes
 from midealocal.devices.ac import MideaACDevice
 from midealocal.devices.b6 import MideaB6Device
@@ -40,15 +41,15 @@ async def async_setup_entry(
         if config["type"] == Platform.FAN and (
             config.get("default") or entity_key in extra_switches
         ):
-            if device.device_type == 0xFA:
+            if device.device_type == DeviceType.FA:
                 devs.append(MideaFAFan(device, entity_key))
-            elif device.device_type == 0xB6:
+            elif device.device_type == DeviceType.B6:
                 devs.append(MideaB6Fan(device, entity_key))
-            elif device.device_type == 0xAC:
+            elif device.device_type == DeviceType.AC:
                 devs.append(MideaACFreshAirFan(device, entity_key))
-            elif device.device_type == 0xCE:
+            elif device.device_type == DeviceType.CE:
                 devs.append(MideaCEFan(device, entity_key))
-            elif device.device_type == 0x40:
+            elif device.device_type == DeviceType.X40:
                 devs.append(Midea40Fan(device, entity_key))
     async_add_entities(devs)
 
