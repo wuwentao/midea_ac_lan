@@ -81,14 +81,6 @@ ADD_WAY = {
 PROTOCOLS = {1: "V1", 2: "V2", 3: "V3"}
 STORAGE_PATH = f".storage/{DOMAIN}"
 
-SERVERS = {
-    1: "MSmartHome",
-    2: "美的美居",
-    3: "Midea Air",
-    4: "NetHome Plus",
-    5: "Ariston Clima",
-}
-
 PRESET_ACCOUNT = [
     39182118275972017797890111985649342047468653967530949796945843010512,
     29406100301096535908214728322278519471982973450672552249652548883645,
@@ -186,27 +178,28 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
     ) -> ConfigFlowResult:
         """User login steps"""
         # login data exist
+        cloud_servers = await MideaCloud.get_cloud_servers()
         if user_input is not None:
             if self.session is None:
                 self.session = async_create_clientsession(self.hass)
             if self.cloud is None:
                 self.cloud = get_midea_cloud(
                     session=self.session,
-                    cloud_name=SERVERS[user_input[CONF_SERVER]],
+                    cloud_name=cloud_servers[user_input[CONF_SERVER]],
                     account=user_input[CONF_ACCOUNT],
                     password=user_input[CONF_PASSWORD],
                 )
                 if self.cloud is None:
                     # fmt: off
                     raise AbortFlow(
-                        f"Can not get midea cloud: {SERVERS[user_input[CONF_SERVER]]}",
+                        f"Can not get midea cloud: {cloud_servers[user_input[CONF_SERVER]]}",
                     )
                     # fmt: on
             if await self.cloud.login():
                 self.account = {
                     CONF_ACCOUNT: user_input[CONF_ACCOUNT],
                     CONF_PASSWORD: user_input[CONF_PASSWORD],
-                    CONF_SERVER: SERVERS[user_input[CONF_SERVER]],
+                    CONF_SERVER: cloud_servers[user_input[CONF_SERVER]],
                 }
                 return await self.async_step_auto()
             return await self.async_step_login(error="login_failed")
@@ -217,7 +210,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
                 {
                     vol.Required(CONF_ACCOUNT): str,
                     vol.Required(CONF_PASSWORD): str,
-                    vol.Required(CONF_SERVER, default=1): vol.In(SERVERS),
+                    vol.Required(CONF_SERVER, default=1): vol.In(cloud_servers),
                 },
             ),
             errors={"base": error} if error else None,
