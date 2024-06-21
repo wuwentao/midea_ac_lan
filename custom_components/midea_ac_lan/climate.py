@@ -165,13 +165,13 @@ class MideaClimate(MideaEntity, ClimateEntity):
     def extra_state_attributes(self) -> dict:
         return cast(dict, self._device.attributes)
 
-    def turn_on(self, **kwargs: Any) -> None:
+    def turn_on(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
         self._device.set_attribute(attr="power", value=True)
 
-    def turn_off(self, **kwargs: Any) -> None:
+    def turn_off(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
         self._device.set_attribute(attr="power", value=False)
 
-    def set_temperature(self, **kwargs: Any) -> None:
+    def set_temperature(self, **kwargs: Any) -> None:  # noqa: ANN401
         if ATTR_TEMPERATURE not in kwargs:
             return
         temperature = float(int((float(kwargs[ATTR_TEMPERATURE]) * 2) + 0.5)) / 2
@@ -194,7 +194,8 @@ class MideaClimate(MideaEntity, ClimateEntity):
             self.turn_off()
         else:
             self._device.set_attribute(
-                attr="mode", value=self.hvac_modes.index(hvac_mode)
+                attr="mode",
+                value=self.hvac_modes.index(hvac_mode),
             )
 
     def set_preset_mode(self, preset_mode: str) -> None:
@@ -221,7 +222,7 @@ class MideaClimate(MideaEntity, ClimateEntity):
         elif old_mode == PRESET_BOOST:
             self._device.set_attribute(attr="boost_mode", value=False)
 
-    def update_state(self, status: Any) -> None:
+    def update_state(self, status: Any) -> None:  # noqa: ANN401, ARG002
         self.schedule_update_ha_state()
 
 
@@ -280,7 +281,7 @@ class MideaACClimate(MideaClimate):
     @property
     def target_temperature_step(self) -> float:
         return float(
-            PRECISION_WHOLE if self._device.temperature_step == 1 else PRECISION_HALVES
+            PRECISION_WHOLE if self._device.temperature_step == 1 else PRECISION_HALVES,
         )
 
     @property
@@ -343,7 +344,7 @@ class MideaCCClimate(MideaClimate):
     @property
     def swing_mode(self) -> str:
         return str(
-            SWING_ON if self._device.get_attribute(CCAttributes.swing) else SWING_OFF
+            SWING_ON if self._device.get_attribute(CCAttributes.swing) else SWING_OFF,
         )
 
     def set_fan_mode(self, fan_mode: str) -> None:
@@ -431,10 +432,11 @@ class MideaC3Climate(MideaClimate):
     @property
     def target_temperature_step(self) -> float:
         zone_temp_type = cast(
-            list[str], self._device.get_attribute(C3Attributes.zone_temp_type)
+            list[str],
+            self._device.get_attribute(C3Attributes.zone_temp_type),
         )
         return float(
-            PRECISION_WHOLE if zone_temp_type[self._zone] else PRECISION_HALVES
+            PRECISION_WHOLE if zone_temp_type[self._zone] else PRECISION_HALVES,
         )
 
     @property
@@ -465,10 +467,10 @@ class MideaC3Climate(MideaClimate):
             self._temperature(False)[self._zone],
         )
 
-    def turn_on(self, **kwargs: Any) -> None:
+    def turn_on(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
         self._device.set_attribute(attr=self._power_attr, value=True)
 
-    def turn_off(self, **kwargs: Any) -> None:
+    def turn_off(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
         self._device.set_attribute(attr=self._power_attr, value=False)
 
     @property
@@ -483,7 +485,8 @@ class MideaC3Climate(MideaClimate):
     @property
     def target_temperature(self) -> float:
         target_temperature = cast(
-            list[str], self._device.get_attribute(C3Attributes.target_temperature)
+            list[str],
+            self._device.get_attribute(C3Attributes.target_temperature),
         )
         return cast(
             float,
@@ -494,7 +497,7 @@ class MideaC3Climate(MideaClimate):
     def current_temperature(self) -> float | None:
         return None
 
-    def set_temperature(self, **kwargs: Any) -> None:
+    def set_temperature(self, **kwargs: Any) -> None:  # noqa: ANN401
         if ATTR_TEMPERATURE not in kwargs:
             return
         temperature = float(int((float(kwargs[ATTR_TEMPERATURE]) * 2) + 0.5)) / 2
@@ -558,7 +561,7 @@ class MideaFBClimate(MideaClimate):
     def current_temperature(self) -> float:
         return cast(float, self._device.get_attribute(FBAttributes.current_temperature))
 
-    def set_temperature(self, **kwargs: Any) -> None:
+    def set_temperature(self, **kwargs: Any) -> None:  # noqa: ANN401
         if ATTR_TEMPERATURE not in kwargs:
             return
         temperature = float(int((float(kwargs[ATTR_TEMPERATURE]) * 2) + 0.5)) / 2
