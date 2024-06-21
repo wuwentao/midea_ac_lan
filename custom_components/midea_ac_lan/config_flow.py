@@ -370,15 +370,15 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
                     if not await self.cloud.login():
                         return await self.async_step_auto(error="preset_account")
                 keys = await self.cloud.get_keys(user_input[CONF_DEVICE])
-                for _, key in keys.items():
+                for _, value in keys.items():
                     dm = MideaDevice(
                         name="",
                         device_id=device_id,
                         device_type=device.get(CONF_TYPE),
                         ip_address=device.get(CONF_IP_ADDRESS),
                         port=device.get(CONF_PORT),
-                        token=key["token"],
-                        key=key["key"],
+                        token=value["token"],
+                        key=value["key"],
                         protocol=3,
                         model=device.get(CONF_MODEL),
                         subtype=0,
@@ -386,8 +386,8 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
                     )
                     if dm.connect(refresh_status=False):
                         dm.close_socket()
-                        self.found_device[CONF_TOKEN] = key["token"]
-                        self.found_device[CONF_KEY] = key["key"]
+                        self.found_device[CONF_TOKEN] = value["token"]
+                        self.found_device[CONF_KEY] = value["key"]
                         return await self.async_step_manually()
                 return await self.async_step_auto(error="connect_error")
             # v1/v2 device add without token/key
