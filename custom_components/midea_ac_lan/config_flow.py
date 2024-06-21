@@ -1,4 +1,6 @@
-"""setup current integration and add device entry via the web UI
+"""Config flow for Midea LAN.
+
+Setup current integration and add device entry via the web UI
 enable by adding `config_flow: true` in `manifest.json`
 
 `MideaLanConfigFlow`: add device entry
@@ -89,8 +91,9 @@ PRESET_ACCOUNT = [
 
 
 class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
-    """define current integration setup steps
-    use ConfigFlow handle to support config entries
+    """Define current integration setup steps.
+
+    Use ConfigFlow handle to support config entries
     ConfigFlow will manage the creation of entries from user input, discovery
     """
 
@@ -110,7 +113,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
         supports[item[0]] = item[1]
 
     def _save_device_config(self, data: dict[str, Any]) -> None:
-        """Save device config to json file with device id"""
+        """Save device config to json file with device id."""
         os.makedirs(self.hass.config.path(STORAGE_PATH), exist_ok=True)
         record_file = self.hass.config.path(
             f"{STORAGE_PATH}/{data[CONF_DEVICE_ID]}.json",
@@ -118,13 +121,13 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
         save_json(record_file, data)
 
     def _load_device_config(self, device_id: str) -> Any:  # noqa: ANN401
-        """Load device config from json file with device id"""
+        """Load device config from json file with device id."""
         record_file = self.hass.config.path(f"{STORAGE_PATH}/{device_id}.json")
         return load_json(record_file, default={})
 
     @staticmethod
     def _check_storage_device(device: dict, storage_device: dict) -> bool:
-        """Check input device with storage_device"""
+        """Check input device with storage_device."""
         if storage_device.get(CONF_SUBTYPE) is None:
             return False
         if device.get(CONF_PROTOCOL) == 3 and (
@@ -135,7 +138,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
         return True
 
     def _already_configured(self, device_id: str, ip_address: str) -> bool:
-        """Check device from json with device_id or ip address"""
+        """Check device from json with device_id or ip address."""
         for entry in self._async_current_entries():
             if device_id == entry.data.get(
                 CONF_DEVICE_ID,
@@ -148,8 +151,10 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
         user_input: dict[str, Any] | None = None,
         error: str | None = None,
     ) -> ConfigFlowResult:
-        """Define config flow steps, using `async_step_<step_id>`
-        `async_step_user` will be the first step, then select discovery mode
+        """Define config flow steps.
+
+        Using `async_step_<step_id>` and `async_step_user` will be the first step,
+        then select discovery mode
         """
         # user select a device discovery mode
         if user_input is not None:
@@ -176,30 +181,31 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
         user_input: dict[str, Any] | None = None,
         error: str | None = None,
     ) -> ConfigFlowResult:
-        """User login steps"""
+        """User login steps."""
         # login data exist
         cloud_servers = await MideaCloud.get_cloud_servers()
         if user_input is not None:
+            cloud_server = cloud_servers[user_input[CONF_SERVER]]
             if self.session is None:
                 self.session = async_create_clientsession(self.hass)
             if self.cloud is None:
                 self.cloud = get_midea_cloud(
                     session=self.session,
-                    cloud_name=cloud_servers[user_input[CONF_SERVER]],
+                    cloud_name=cloud_server,
                     account=user_input[CONF_ACCOUNT],
                     password=user_input[CONF_PASSWORD],
                 )
                 if self.cloud is None:
                     # fmt: off
                     raise AbortFlow(
-                        f"Can not get midea cloud: {cloud_servers[user_input[CONF_SERVER]]}",
+                        f"Can not get midea cloud: {cloud_server}",
                     )
                     # fmt: on
             if await self.cloud.login():
                 self.account = {
                     CONF_ACCOUNT: user_input[CONF_ACCOUNT],
                     CONF_PASSWORD: user_input[CONF_PASSWORD],
-                    CONF_SERVER: cloud_servers[user_input[CONF_SERVER]],
+                    CONF_SERVER: cloud_server,
                 }
                 return await self.async_step_auto()
             return await self.async_step_login(error="login_failed")
@@ -220,7 +226,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
         self,
         error: str | None = None,
     ) -> ConfigFlowResult:
-        """List all devices and show device info in web UI"""
+        """List all devices and show device info in web UI."""
         # get all devices list
         all_devices = discover()
         # available devices exist
@@ -253,7 +259,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
         discovery_info: dict[str, Any] | None = None,
         error: str | None = None,
     ) -> ConfigFlowResult:
-        """Discovery device with auto mode or ip address"""
+        """Discovery device with auto mode or ip address."""
         # input is not None, using ip_address to discovery device
         if discovery_info is not None:
             # auto mode, ip_address is None
@@ -293,7 +299,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
         user_input: dict[str, Any] | None = None,
         error: str | None = None,
     ) -> ConfigFlowResult:
-        """Discovery device detail info"""
+        """Discovery device detail info."""
         # discovery device
         if user_input is not None:
             device_id = user_input[CONF_DEVICE]
@@ -319,7 +325,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
                 )
                 return await self.async_step_manually()
             # device not exist, get device detail from cloud
-            if CONF_ACCOUNT not in self.account.keys():
+            if CONF_ACCOUNT not in self.account:
                 return await self.async_step_login()
             if self.session is None:
                 self.session = async_create_clientsession(self.hass)
@@ -411,7 +417,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
         user_input: dict[str, Any] | None = None,
         error: str | None = None,
     ) -> ConfigFlowResult:
-        """Add device with device detail info"""
+        """Add device with device detail info."""
         if user_input is not None:
             self.found_device = {
                 CONF_DEVICE_ID: user_input[CONF_DEVICE_ID],
@@ -552,12 +558,12 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
     @staticmethod
     @callback
     def async_get_options_flow(config_entry: ConfigEntry) -> OptionsFlow:
-        """Create the options flow with MideaLanOptionsFlowHandler"""
+        """Create the options flow with MideaLanOptionsFlowHandler."""
         return MideaLanOptionsFlowHandler(config_entry)
 
 
 class MideaLanOptionsFlowHandler(OptionsFlow):
-    """define an Options Flow Handler to update the options of a config entry"""
+    """define an Options Flow Handler to update the options of a config entry."""
 
     def __init__(self, config_entry: ConfigEntry) -> None:
         """Initialize options flow."""
