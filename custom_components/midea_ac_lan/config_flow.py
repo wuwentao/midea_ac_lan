@@ -274,10 +274,11 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
                     str(device_id),
                     device[CONF_IP_ADDRESS],
                 ):
-                    self.available_device[
-                        device_id
-                    ] = f"{device_id} ({self.supports.get(
-                            device.get(CONF_TYPE))})"
+                    # fmt: off
+                    self.available_device[device_id] = (
+                        f"{device_id} ({self.supports.get(device.get(CONF_TYPE))})"
+                    )
+                    # fmt: on
             if len(self.available_device) > 0:
                 return await self.async_step_auto()
             return await self.async_step_discovery(error="no_devices")
