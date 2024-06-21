@@ -1,3 +1,5 @@
+"""Devices configuration for Midea Lan."""
+
 from typing import Any
 
 from homeassistant.components.binary_sensor import BinarySensorDeviceClass
