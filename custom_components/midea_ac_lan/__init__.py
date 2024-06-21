@@ -29,6 +29,7 @@ from homeassistant.const import (
 )
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.typing import ConfigType
+from midealocal.device import DeviceType, ProtocolVersion
 from midealocal.devices import device_selector
 
 from .const import (
@@ -104,7 +105,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
                 item
                 and (item.get("type") in EXTRA_SWITCH)
                 or (
-                    dev.device_type == 0xAC
+                    dev.device_type == DeviceType.AC
                     and attr == "fan_speed"
                     and value in range(103)
                 )
@@ -188,7 +189,7 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
     subtype = config_entry.data.get(CONF_SUBTYPE, 0)
     protocol: int = config_entry.data[CONF_PROTOCOL]
     customize: str = config_entry.options.get(CONF_CUSTOMIZE, "")
-    if protocol == 3 and (key == "" or token == ""):
+    if protocol == ProtocolVersion.V3 and (key == "" or token == ""):
         _LOGGER.error("For V3 devices, the key and the token is required")
         return False
     # device_selector in `midealocal/devices/__init__.py`
