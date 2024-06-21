@@ -273,8 +273,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
                 ):
                     # fmt: off
                     self.available_device[device_id] = (
-                        f"{device_id} ({self.supports.get(
-                            device.get(CONF_TYPE))})"
+                        f"{device_id} ({self.supports.get(device.get(CONF_TYPE))})"
                     )
                     # fmt: on
             if len(self.available_device) > 0:
