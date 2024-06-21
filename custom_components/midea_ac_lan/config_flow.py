@@ -319,7 +319,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
                 )
                 return await self.async_step_manually()
             # device not exist, get device detail from cloud
-            if CONF_ACCOUNT not in self.account.keys():
+            if CONF_ACCOUNT not in self.account:
                 return await self.async_step_login()
             if self.session is None:
                 self.session = async_create_clientsession(self.hass)
