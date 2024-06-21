@@ -122,7 +122,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
         )
         save_json(record_file, data)
 
-    def _load_device_config(self, device_id: str) -> Any:
+    def _load_device_config(self, device_id: str) -> Any:  # noqa: ANN401
         """Load device config from json file with device id"""
         record_file = self.hass.config.path(f"{STORAGE_PATH}/{device_id}.json")
         return load_json(record_file, default={})
@@ -221,7 +221,6 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
 
     async def async_step_list(
         self,
-        user_input: dict[str, Any] | None = None,
         error: str | None = None,
     ) -> ConfigFlowResult:
         """List all devices and show device info in web UI"""

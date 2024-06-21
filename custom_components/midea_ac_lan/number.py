@@ -87,5 +87,5 @@ class MideaNumber(MideaEntity, NumberEntity):
     def native_value(self) -> float:
         return cast(float, self._device.get_attribute(self._entity_key))
 
-    def set_native_value(self, value: Any) -> None:
+    def set_native_value(self, value: Any) -> None:  # noqa: ANN401
         self._device.set_attribute(self._entity_key, value)

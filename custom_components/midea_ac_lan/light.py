@@ -138,7 +138,7 @@ class MideaLight(MideaEntity, LightEntity):
     def effect(self) -> str | None:
         return cast(str, self._device.get_attribute(X13Attributes.effect))
 
-    def turn_on(self, **kwargs: Any) -> None:
+    def turn_on(self, **kwargs: Any) -> None:  # noqa: ANN401
         if not self.is_on:
             self._device.set_attribute(attr=X13Attributes.power, value=True)
         for key, value in kwargs.items():
@@ -152,8 +152,8 @@ class MideaLight(MideaEntity, LightEntity):
             if key == ATTR_EFFECT:
                 self._device.set_attribute(attr=X13Attributes.effect, value=value)
 
-    def turn_off(self, **kwargs: Any) -> None:
+    def turn_off(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
         self._device.set_attribute(attr=X13Attributes.power, value=False)
 
-    def update_state(self, status: Any) -> None:
+    def update_state(self, status: Any) -> None:  # noqa: ANN401,ARG002
         self.schedule_update_ha_state()
