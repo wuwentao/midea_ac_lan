@@ -36,6 +36,7 @@ from homeassistant.const import (
 )
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
+from midealocal.device import DeviceType
 from midealocal.devices.ac import DeviceAttributes as ACAttributes
 from midealocal.devices.ac import MideaACDevice
 from midealocal.devices.c3 import DeviceAttributes as C3Attributes
@@ -46,8 +47,6 @@ from midealocal.devices.cf import DeviceAttributes as CFAttributes
 from midealocal.devices.cf import MideaCFDevice
 from midealocal.devices.fb import DeviceAttributes as FBAttributes
 from midealocal.devices.fb import MideaFBDevice
-
-from midealocal.device import DeviceType
 
 from .const import DEVICES, DOMAIN, FanSpeed
 from .midea_devices import MIDEA_DEVICES
