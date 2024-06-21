@@ -399,7 +399,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
                 {
                     vol.Required(
                         CONF_DEVICE,
-                        default=list(self.available_device.keys())[0],
+                        default=next(iter(self.available_device.keys())),
                     ): vol.In(self.available_device),
                 },
             ),
