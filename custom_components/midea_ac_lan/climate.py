@@ -36,6 +36,7 @@ from homeassistant.const import (
 )
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
+from midealocal.device import DeviceType
 from midealocal.devices.ac import DeviceAttributes as ACAttributes
 from midealocal.devices.ac import MideaACDevice
 from midealocal.devices.c3 import DeviceAttributes as C3Attributes
@@ -47,7 +48,7 @@ from midealocal.devices.cf import MideaCFDevice
 from midealocal.devices.fb import DeviceAttributes as FBAttributes
 from midealocal.devices.fb import MideaFBDevice
 
-from .const import DEVICES, DOMAIN
+from .const import DEVICES, DOMAIN, FanSpeed
 from .midea_devices import MIDEA_DEVICES
 from .midea_entity import MideaEntity
 
@@ -83,15 +84,15 @@ async def async_setup_entry(
         if config["type"] == Platform.CLIMATE and (
             config.get("default") or entity_key in extra_switches
         ):
-            if device.device_type == 0xAC:
+            if device.device_type == DeviceType.AC:
                 devs.append(MideaACClimate(device, entity_key))
-            elif device.device_type == 0xCC:
+            elif device.device_type == DeviceType.CC:
                 devs.append(MideaCCClimate(device, entity_key))
-            elif device.device_type == 0xCF:
+            elif device.device_type == DeviceType.CF:
                 devs.append(MideaCFClimate(device, entity_key))
-            elif device.device_type == 0xC3:
+            elif device.device_type == DeviceType.C3:
                 devs.append(MideaC3Climate(device, entity_key, config["zone"]))
-            elif device.device_type == 0xFB:
+            elif device.device_type == DeviceType.FB:
                 devs.append(MideaFBClimate(device, entity_key))
     async_add_entities(devs)
 
@@ -266,15 +267,15 @@ class MideaACClimate(MideaClimate):
     @property
     def fan_mode(self) -> str:
         fan_speed = cast(int, self._device.get_attribute(ACAttributes.fan_speed))
-        if fan_speed > 100:
+        if fan_speed > FanSpeed.AUTO:
             return str(FAN_AUTO)
-        if fan_speed > 80:
+        if fan_speed > FanSpeed.FULL_SPEED:
             return str(FAN_FULL_SPEED)
-        if fan_speed > 60:
+        if fan_speed > FanSpeed.HIGH:
             return str(FAN_HIGH)
-        if fan_speed > 40:
+        if fan_speed > FanSpeed.MEDIUM:
             return str(FAN_MEDIUM)
-        if fan_speed > 20:
+        if fan_speed > FanSpeed.LOW:
             return str(FAN_LOW)
         return FAN_SILENT
 
