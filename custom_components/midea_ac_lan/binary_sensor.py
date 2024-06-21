@@ -37,7 +37,7 @@ async def async_setup_entry(
 
 
 class MideaBinarySensor(MideaEntity, BinarySensorEntity):
-    """Represent a Midea binary sensor ."""
+    """Represent a Midea binary sensor."""
 
     @property
     def device_class(self) -> BinarySensorDeviceClass | None:
