@@ -73,7 +73,7 @@ async def update_listener(hass: HomeAssistant, config_entry: ConfigEntry) -> Non
             dev.set_refresh_interval(refresh_interval)
 
 
-async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
+async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:  # noqa ARG001
     """Setup midea_lan component when load this integration"""
     hass.data.setdefault(DOMAIN, {})
     attributes = []
