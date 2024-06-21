@@ -20,6 +20,7 @@ from homeassistant.const import (
 )
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
+from midealocal.device import DeviceType
 from midealocal.devices.c3 import DeviceAttributes as C3Attributes
 from midealocal.devices.c3 import MideaC3Device
 from midealocal.devices.cd import DeviceAttributes as CDAttributes
@@ -63,15 +64,15 @@ async def async_setup_entry(
         if config["type"] == Platform.WATER_HEATER and (
             config.get("default") or entity_key in extra_switches
         ):
-            if device.device_type == 0xE2:
+            if device.device_type == DeviceType.E2:
                 devs.append(MideaE2WaterHeater(device, entity_key))
-            elif device.device_type == 0xE3:
+            elif device.device_type == DeviceType.E3:
                 devs.append(MideaE3WaterHeater(device, entity_key))
-            elif device.device_type == 0xE6:
+            elif device.device_type == DeviceType.E6:
                 devs.append(MideaE6WaterHeater(device, entity_key, config["use"]))
-            elif device.device_type == 0xC3:
+            elif device.device_type == DeviceType.C3:
                 devs.append(MideaC3WaterHeater(device, entity_key))
-            elif device.device_type == 0xCD:
+            elif device.device_type == DeviceType.CD:
                 devs.append(MideaCDWaterHeater(device, entity_key))
     async_add_entities(devs)
 
