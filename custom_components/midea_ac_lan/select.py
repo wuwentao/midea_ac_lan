@@ -38,6 +38,7 @@ class MideaSelect(MideaEntity, SelectEntity):
     """Represent a Midea select."""
 
     def __init__(self, device: MideaDevice, entity_key: str) -> None:
+        """Midea select init."""
         super().__init__(device, entity_key)
         self._options_name = self._config.get("options")
 
