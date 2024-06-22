@@ -110,6 +110,7 @@ class MideaFAFan(MideaFan):
     _device: MideaFADevice
 
     def __init__(self, device: MideaFADevice, entity_key: str) -> None:
+        """Midea FA Fan entity init."""
         super().__init__(device, entity_key)
         self._attr_supported_features = (
             FanEntityFeature.SET_SPEED
@@ -132,6 +133,7 @@ class MideaB6Fan(MideaFan):
     _device: MideaB6Device
 
     def __init__(self, device: MideaB6Device, entity_key: str) -> None:
+        """Midea B6 Fan entity init."""
         super().__init__(device, entity_key)
         self._attr_supported_features = (
             FanEntityFeature.SET_SPEED | FanEntityFeature.PRESET_MODE
@@ -152,6 +154,7 @@ class MideaACFreshAirFan(MideaFan):
     _device: MideaACDevice
 
     def __init__(self, device: MideaACDevice, entity_key: str) -> None:
+        """Midea AC Fresh Air Fan entity init."""
         super().__init__(device, entity_key)
         self._attr_supported_features = (
             FanEntityFeature.SET_SPEED | FanEntityFeature.PRESET_MODE
@@ -200,6 +203,7 @@ class MideaCEFan(MideaFan):
     _device: MideaCEDevice
 
     def __init__(self, device: MideaCEDevice, entity_key: str) -> None:
+        """Midea CE Fan entity init."""
         super().__init__(device, entity_key)
         self._attr_supported_features = (
             FanEntityFeature.SET_SPEED | FanEntityFeature.PRESET_MODE
@@ -222,6 +226,7 @@ class Midea40Fan(MideaFan):
     _device: Midea40Device
 
     def __init__(self, device: Midea40Device, entity_key: str) -> None:
+        """Midea 40 Fan entity init."""
         super().__init__(device, entity_key)
         self._attr_supported_features = (
             FanEntityFeature.SET_SPEED | FanEntityFeature.OSCILLATE
