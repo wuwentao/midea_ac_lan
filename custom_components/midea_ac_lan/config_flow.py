@@ -57,8 +57,10 @@ if TYPE_CHECKING:
 if (MAJOR_VERSION, MINOR_VERSION) >= (2024, 4):
     from homeassistant.config_entries import ConfigFlowResult
 else:
-    from homeassistant.data_entry_flow import (  # type: ignore[assignment]
+    from homeassistant.data_entry_flow import (
         AbortFlow,
+    )
+    from homeassistant.data_entry_flow import (  # type: ignore[assignment]
         FlowResult as ConfigFlowResult,
     )
 
