@@ -2,10 +2,7 @@
   "name": "midea_ac_lan",
   "build": {
     "dockerfile": "Dockerfile",
-    "context": "..",
-    "args": {
-      "VARIANT": "3.12-bullseye"
-    }
+    "context": ".."
   },
   "postCreateCommand": "scripts/setup.sh",
   "forwardPorts": [8123],
