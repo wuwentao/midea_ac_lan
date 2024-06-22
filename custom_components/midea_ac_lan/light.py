@@ -75,6 +75,7 @@ class MideaLight(MideaEntity, LightEntity):
     _device: Midea13Device
 
     def __init__(self, device: Midea13Device, entity_key: str) -> None:
+        """Midea Light entity init."""
         super().__init__(device, entity_key)
         self._attr_supported_features = _calc_supported_features(device)
         self._attr_supported_color_modes = _calc_supported_color_modes(device)

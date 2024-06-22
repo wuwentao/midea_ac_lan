@@ -51,6 +51,7 @@ class MideaHumidifier(MideaEntity, HumidifierEntity):
     _device: MideaHumidifierDevice
 
     def __init__(self, device: MideaHumidifierDevice, entity_key: str) -> None:
+        """Midea Humidifier entity init."""
         super().__init__(device, entity_key)
 
     @property
@@ -93,6 +94,7 @@ class MideaA1Humidifier(MideaHumidifier):
     _device: MideaA1Device
 
     def __init__(self, device: MideaA1Device, entity_key: str) -> None:
+        """Midea A1 Humidifier entity init."""
         super().__init__(device, entity_key)
         self._attr_min_humidity: float = 35
         self._attr_max_humidity: float = 85
@@ -104,6 +106,7 @@ class MideaFDHumidifier(MideaHumidifier):
     _device: MideaFDDevice
 
     def __init__(self, device: MideaFDDevice, entity_key: str) -> None:
+        """Midea FD Humidifier entity init."""
         super().__init__(device, entity_key)
         self._attr_min_humidity: float = 35
         self._attr_max_humidity: float = 85

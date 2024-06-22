@@ -86,6 +86,7 @@ class MideaWaterHeater(MideaEntity, WaterHeaterEntity):
     _device: MideaWaterHeaterDevice
 
     def __init__(self, device: MideaWaterHeaterDevice, entity_key: str) -> None:
+        """Midea Water Heater entity init."""
         super().__init__(device, entity_key)
         self._operations: list[str] = []
 
@@ -178,6 +179,7 @@ class MideaE2WaterHeater(MideaWaterHeater):
     _device: MideaE2Device
 
     def __init__(self, device: MideaE2Device, entity_key: str) -> None:
+        """Midea E2 Water Heater entity init."""
         super().__init__(device, entity_key)
 
     @property
@@ -193,6 +195,7 @@ class MideaE3WaterHeater(MideaWaterHeater):
     _device: MideaE3Device
 
     def __init__(self, device: MideaE3Device, entity_key: str) -> None:
+        """Midea E3 Water Heater entity init."""
         super().__init__(device, entity_key)
 
     @property
@@ -214,6 +217,7 @@ class MideaC3WaterHeater(MideaWaterHeater):
     _device: MideaC3Device
 
     def __init__(self, device: MideaC3Device, entity_key: str) -> None:
+        """Midea C3 Water Heater entity init."""
         super().__init__(device, entity_key)
 
     @property
@@ -273,6 +277,7 @@ class MideaE6WaterHeater(MideaWaterHeater):
     ]
 
     def __init__(self, device: MideaE6Device, entity_key: str, use: int) -> None:
+        """Midea E6 Water Heater entity init."""
         super().__init__(device, entity_key)
         self._use = use
         self._power_attr = MideaE6WaterHeater._powers[self._use]
@@ -346,6 +351,7 @@ class MideaCDWaterHeater(MideaWaterHeater):
     _device: MideaCDDevice
 
     def __init__(self, device: MideaCDDevice, entity_key: str) -> None:
+        """Midea CD Water Heater entity init."""
         super().__init__(device, entity_key)
 
     @property

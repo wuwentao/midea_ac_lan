@@ -117,6 +117,7 @@ class MideaClimate(MideaEntity, ClimateEntity):
     _attr_temperature_unit: str = UnitOfTemperature.CELSIUS
 
     def __init__(self, device: MideaClimateDevice, entity_key: str) -> None:
+        """Midea Climate entity init."""
         super().__init__(device, entity_key)
 
     @property
@@ -231,6 +232,7 @@ class MideaACClimate(MideaClimate):
     _device: MideaACDevice
 
     def __init__(self, device: MideaACDevice, entity_key: str) -> None:
+        """Midea AC Climate entity init."""
         super().__init__(device, entity_key)
         self._attr_hvac_modes = [
             HVACMode.OFF,
@@ -315,6 +317,7 @@ class MideaCCClimate(MideaClimate):
     _device: MideaCCDevice
 
     def __init__(self, device: MideaCCDevice, entity_key: str) -> None:
+        """Midea CC Climate entity init."""
         super().__init__(device, entity_key)
         self._attr_hvac_modes = [
             HVACMode.OFF,
@@ -364,6 +367,7 @@ class MideaCFClimate(MideaClimate):
     _attr_target_temperature_step: float | None = PRECISION_WHOLE
 
     def __init__(self, device: MideaCFDevice, entity_key: str) -> None:
+        """Midea CF Climate entity init."""
         super().__init__(device, entity_key)
         self._attr_hvac_modes = [
             HVACMode.OFF,
@@ -409,6 +413,7 @@ class MideaC3Climate(MideaClimate):
     ]
 
     def __init__(self, device: MideaC3Device, entity_key: str, zone: int) -> None:
+        """Midea C3 Climate entity init."""
         super().__init__(device, entity_key)
         self._zone = zone
         self._attr_hvac_modes = [
@@ -537,6 +542,7 @@ class MideaFBClimate(MideaClimate):
     _attr_target_temperature_step: float | None = PRECISION_WHOLE
 
     def __init__(self, device: MideaFBDevice, entity_key: str) -> None:
+        """Midea FB Climate entity init."""
         super().__init__(device, entity_key)
         self._attr_hvac_modes = [HVACMode.OFF, HVACMode.HEAT]
         self._attr_preset_modes: list[str] = self._device.modes
