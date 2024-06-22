@@ -421,7 +421,9 @@ class MideaC3Climate(MideaClimate):
 
     def _temperature(self, minimum: bool) -> list[str]:
         # fmt: off
-        value = C3Attributes.temperature_min if minimum else C3Attributes.temperature_max
+        value = (C3Attributes.temperature_min
+            if minimum
+            else C3Attributes.temperature_max)
         # fmt: on
         return cast(list[str], self._device.get_attribute(value))
 
