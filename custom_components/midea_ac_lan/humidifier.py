@@ -49,6 +49,8 @@ MideaHumidifierDevice: TypeAlias = MideaFDDevice | MideaA1Device
 
 
 class MideaHumidifier(MideaEntity, HumidifierEntity):
+    """Midea Humidifier Entries Base Class."""
+
     _device: MideaHumidifierDevice
 
     def __init__(self, device: MideaHumidifierDevice, entity_key: str) -> None:
@@ -57,41 +59,53 @@ class MideaHumidifier(MideaEntity, HumidifierEntity):
 
     @property
     def current_humidity(self) -> float | None:
+        """Midea Humidifier current humidity."""
         return cast(float, self._device.get_attribute("current_humidity"))
 
     @property
     def target_humidity(self) -> float:
+        """Midea Humidifier target humidity."""
         return cast(float, self._device.get_attribute("target_humidity"))
 
     @property
     def mode(self) -> str:
+        """Midea Humidifier mode."""
         return cast(str, self._device.get_attribute("mode"))
 
     @property
     def available_modes(self) -> list[str] | None:
+        """Midea Humidifier available modes."""
         return cast(list, self._device.modes)
 
     def set_humidity(self, humidity: int) -> None:
+        """Midea Humidifier set humidity."""
         self._device.set_attribute("target_humidity", humidity)
 
     def set_mode(self, mode: str) -> None:
+        """Midea Humidifier set mode."""
         self._device.set_attribute("mode", mode)
 
     @property
     def is_on(self) -> bool:
+        """Midea Humidifier is on."""
         return cast(bool, self._device.get_attribute(attr="power"))
 
     def turn_on(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
+        """Midea Humidifier turn on."""
         self._device.set_attribute(attr="power", value=True)
 
     def turn_off(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
+        """Midea Humidifier turn off."""
         self._device.set_attribute(attr="power", value=False)
 
     def update_state(self, status: Any) -> None:  # noqa: ANN401, ARG002
+        """Midea Humidifier update state."""
         self.schedule_update_ha_state()
 
 
 class MideaA1Humidifier(MideaHumidifier):
+    """Midea A1 Humidifier Entries"""
+
     _device: MideaA1Device
 
     def __init__(self, device: MideaA1Device, entity_key: str) -> None:
@@ -104,6 +118,8 @@ class MideaA1Humidifier(MideaHumidifier):
 
 
 class MideaFDHumidifier(MideaHumidifier):
+    """Midea FD Humidifier Entries"""
+
     _device: MideaFDDevice
 
     def __init__(self, device: MideaFDDevice, entity_key: str) -> None:
