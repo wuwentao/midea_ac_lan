@@ -58,52 +58,64 @@ async def async_setup_entry(
 class MideaFan(MideaEntity, FanEntity):
     @property
     def preset_modes(self) -> list[str] | None:
+        """Midea Fan preset modes."""
         return (
             self._device.preset_modes if hasattr(self._device, "preset_modes") else None
         )
 
     @property
     def is_on(self) -> bool:
+        """Midea Fan is on."""
         return cast(bool, self._device.get_attribute("power"))
 
     @property
     def oscillating(self) -> bool:
+        """Midea Fan oscillating."""
         return cast(bool, self._device.get_attribute("oscillate"))
 
     @property
     def preset_mode(self) -> str | None:
+        """Midea Fan preset mode."""
         return cast(str, self._device.get_attribute("mode"))
 
     @property
     def fan_speed(self) -> int | None:
+        """Midea Fan fan speed."""
         return cast(int, self._device.get_attribute("fan_speed"))
 
     def turn_off(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
+        """Midea Fan turn off."""
         self._device.set_attribute(attr="power", value=False)
 
     def oscillate(self, oscillating: bool) -> None:
+        """Midea Fan oscillate."""
         self._device.set_attribute(attr="oscillate", value=oscillating)
 
     def set_preset_mode(self, preset_mode: str) -> None:
+        """Midea Fan set preset mode."""
         self._device.set_attribute(attr="mode", value=preset_mode.capitalize())
 
     @property
     def percentage(self) -> int | None:
+        """Midea Fan percentage."""
         if not self.fan_speed:
             return None
         return int(round(self.fan_speed * self.percentage_step))
 
     def set_percentage(self, percentage: int) -> None:
+        """Midea Fan set percentage."""
         fan_speed = round(percentage / self.percentage_step)
         self._device.set_attribute(attr="fan_speed", value=fan_speed)
 
     async def async_set_percentage(self, percentage: int) -> None:
+        """Midea Fan async set percentage."""
         if percentage == 0:
             await self.async_turn_off()
         else:
             await self.hass.async_add_executor_job(self.set_percentage, percentage)
 
     def update_state(self, status: Any) -> None:  # noqa: ANN401, ARG002
+        """Midea Fan update state."""
         self.schedule_update_ha_state()
 
 
@@ -126,6 +138,7 @@ class MideaFAFan(MideaFan):
         preset_mode: str | None = None,
         **kwargs: Any,  # noqa: ANN401, ARG002
     ) -> None:
+        """Midea FA Fan turn on."""
         fan_speed = int(percentage / self.percentage_step + 0.5) if percentage else None
         self._device.turn_on(fan_speed=fan_speed, mode=preset_mode)
 
@@ -147,6 +160,7 @@ class MideaB6Fan(MideaFan):
         preset_mode: str | None = None,
         **kwargs: Any,  # noqa: ANN401, ARG002
     ) -> None:
+        """Midea B6 Fan turn on."""
         fan_speed = int(percentage / self.percentage_step + 0.5) if percentage else None
         self._device.turn_on(fan_speed=fan_speed, mode=preset_mode)
 
@@ -164,14 +178,17 @@ class MideaACFreshAirFan(MideaFan):
 
     @property
     def preset_modes(self) -> list[str] | None:
+        """Midea AC Fan preset modes."""
         return cast(list, self._device.fresh_air_fan_speeds)
 
     @property
     def is_on(self) -> bool:
+        """Midea AC Fan is on."""
         return cast(bool, self._device.get_attribute(ACAttributes.fresh_air_power))
 
     @property
     def fan_speed(self) -> int:
+        """Midea AC Fan fan speed."""
         return cast(int, self._device.get_attribute(ACAttributes.fresh_air_fan_speed))
 
     def turn_on(
@@ -180,12 +197,15 @@ class MideaACFreshAirFan(MideaFan):
         preset_mode: str | None = None,  # noqa: ARG002
         **kwargs: Any,  # noqa: ANN401, ARG002
     ) -> None:
+        """Midea AC Fan tun on."""
         self._device.set_attribute(attr=ACAttributes.fresh_air_power, value=True)
 
     def turn_off(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
+        """Midea AC Fan turn off."""
         self._device.set_attribute(attr=ACAttributes.fresh_air_power, value=False)
 
     def set_percentage(self, percentage: int) -> None:
+        """Midea AC Fan set percentage."""
         fan_speed = int(percentage / self.percentage_step + 0.5)
         self._device.set_attribute(
             attr=ACAttributes.fresh_air_fan_speed,
@@ -193,10 +213,12 @@ class MideaACFreshAirFan(MideaFan):
         )
 
     def set_preset_mode(self, preset_mode: str) -> None:
+        """Midea AC Fan set preset mode."""
         self._device.set_attribute(attr=ACAttributes.fresh_air_mode, value=preset_mode)
 
     @property
     def preset_mode(self) -> str | None:
+        """Midea AC Fan preset mode."""
         return cast(str, self._device.get_attribute(attr=ACAttributes.fresh_air_mode))
 
 
@@ -217,9 +239,11 @@ class MideaCEFan(MideaFan):
         preset_mode: str | None = None,  # noqa: ARG002
         **kwargs: Any,  # noqa: ANN401, ARG002
     ) -> None:
+        """Midea CE Fan turn on."""
         self._device.set_attribute(attr=CEAttributes.power, value=True)
 
     async def async_set_percentage(self, percentage: int) -> None:
+        """Midea CE Fan async set percentage."""
         await self.hass.async_add_executor_job(self.set_percentage, percentage)
 
 
@@ -236,6 +260,7 @@ class Midea40Fan(MideaFan):
 
     @property
     def is_on(self) -> bool:
+        """Midea X40 Fan is on."""
         return cast(int, self._device.get_attribute(attr=X40Attributes.fan_speed)) > 0
 
     def turn_on(
@@ -244,7 +269,9 @@ class Midea40Fan(MideaFan):
         preset_mode: str | None = None,  # noqa: ARG002
         **kwargs: Any,  # noqa: ANN401, ARG002
     ) -> None:
+        """Midea X40 Fan turn on."""
         self._device.set_attribute(attr=X40Attributes.fan_speed, value=1)
 
     def turn_off(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
+        """Midea X40 Fan turn off."""
         self._device.set_attribute(attr=X40Attributes.fan_speed, value=0)
