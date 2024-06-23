@@ -4,7 +4,7 @@ from enum import IntEnum
 
 from homeassistant.const import Platform
 
-DOMAIN = "midea_ac_lan"
+DOMAIN = "midea_lan"
 COMPONENT = "component"
 DEVICES = "devices"
 
