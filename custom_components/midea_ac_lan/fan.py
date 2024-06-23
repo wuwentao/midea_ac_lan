@@ -233,12 +233,12 @@ class MideaCEFan(MideaFan):
 
 
 class Midea40Fan(MideaFan):
-    """Midea 40 Fan Entries."""
+    """Midea X40 Fan Entries."""
 
     _device: Midea40Device
 
     def __init__(self, device: Midea40Device, entity_key: str) -> None:
-        """Midea 40 Fan entity init."""
+        """Midea X40 Fan entity init."""
         super().__init__(device, entity_key)
         self._attr_supported_features = (
             FanEntityFeature.SET_SPEED | FanEntityFeature.OSCILLATE
