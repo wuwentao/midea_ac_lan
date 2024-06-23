@@ -92,10 +92,12 @@ class MideaWaterHeater(MideaEntity, WaterHeaterEntity):
 
     @property
     def supported_features(self) -> WaterHeaterEntityFeature:
+        """Midea Water Heater supported features."""
         return WaterHeaterEntityFeature.TARGET_TEMPERATURE
 
     @property
     def extra_state_attributes(self) -> dict[str, Any]:
+        """Midea Water Heater extra state attributes."""
         attrs: dict[str, Any] = self._device.attributes
         if hasattr(self._device, "temperature_step"):
             attrs["target_temp_step"] = self._device.temperature_step
@@ -103,30 +105,37 @@ class MideaWaterHeater(MideaEntity, WaterHeaterEntity):
 
     @property
     def min_temp(self) -> float:
+        """Midea Water Heater min temperature."""
         raise NotImplementedError
 
     @property
     def max_temp(self) -> float:
+        """Midea Water Heater max temperature."""
         raise NotImplementedError
 
     @property
     def target_temperature_low(self) -> float:
+        """Midea Water Heater target temperature low."""
         return self.min_temp
 
     @property
     def target_temperature_high(self) -> float:
+        """Midea Water Heater target temperature high."""
         return self.max_temp
 
     @property
     def precision(self) -> float:
+        """Midea Water Heater precision."""
         return float(PRECISION_WHOLE)
 
     @property
     def temperature_unit(self) -> UnitOfTemperature:
+        """Midea Water Heater temperature unix."""
         return UnitOfTemperature.CELSIUS
 
     @property
     def current_operation(self) -> str | None:
+        """Midea Water Heater current operation."""
         return cast(
             str,
             (
@@ -138,40 +147,50 @@ class MideaWaterHeater(MideaEntity, WaterHeaterEntity):
 
     @property
     def current_temperature(self) -> float:
+        """Midea Water Heater current temperature."""
         return cast(float, self._device.get_attribute("current_temperature"))
 
     @property
     def target_temperature(self) -> float:
+        """Midea Water Heater target temperature."""
         return cast(float, self._device.get_attribute("target_temperature"))
 
     def set_temperature(self, **kwargs: Any) -> None:  # noqa: ANN401
+        """Midea Water Heater set temperature."""
         if ATTR_TEMPERATURE not in kwargs:
             return
         temperature = int(kwargs[ATTR_TEMPERATURE])
         self._device.set_attribute("target_temperature", temperature)
 
     def set_operation_mode(self, operation_mode: str) -> None:
+        """Midea Water Heater set operation mode."""
         self._device.set_attribute(attr="mode", value=operation_mode)
 
     @property
     def operation_list(self) -> list[str] | None:
+        """Midea Water Heater operation list."""
         if not hasattr(self._device, "preset_modes"):
             return None
         return cast(list, self._device.preset_modes)
 
     def turn_on(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
+        """Midea Water Heater turn on."""
         self._device.set_attribute(attr="power", value=True)
 
     def turn_off(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
+        """Midea Water Heater turn off."""
         self._device.set_attribute(attr="power", value=False)
 
     async def async_turn_on(self, **kwargs: Any) -> None:  # noqa: ANN401
+        """Midea Water Heater async turn on."""
         await self.hass.async_add_executor_job(ft.partial(self.turn_on, **kwargs))
 
     async def async_turn_off(self, **kwargs: Any) -> None:  # noqa: ANN401
+        """Midea Water Heater async off."""
         await self.hass.async_add_executor_job(ft.partial(self.turn_off, **kwargs))
 
     def update_state(self, status: Any) -> None:  # noqa: ANN401, ARG002
+        """Midea Water Heater update state."""
         self.schedule_update_ha_state()
 
 
@@ -184,10 +203,12 @@ class MideaE2WaterHeater(MideaWaterHeater):
 
     @property
     def min_temp(self) -> float:
+        """Midea E2 Water Heater min temperature."""
         return E2_TEMPERATURE_MIN
 
     @property
     def max_temp(self) -> float:
+        """Midea E2 Water Heater max temperature."""
         return E2_TEMPERATURE_MAX
 
 
@@ -200,14 +221,17 @@ class MideaE3WaterHeater(MideaWaterHeater):
 
     @property
     def min_temp(self) -> float:
+        """Midea E3 Water Heater min temperature."""
         return E3_TEMPERATURE_MIN
 
     @property
     def max_temp(self) -> float:
+        """Midea E3 Water Heater max temperature."""
         return E3_TEMPERATURE_MAX
 
     @property
     def precision(self) -> float:
+        """Midea E3 Water Heater precision."""
         return float(
             PRECISION_HALVES if self._device.precision_halves else PRECISION_WHOLE,
         )
@@ -222,6 +246,7 @@ class MideaC3WaterHeater(MideaWaterHeater):
 
     @property
     def current_operation(self) -> str:
+        """Midea C3 Water Heater current operation."""
         return str(
             STATE_ON
             if self._device.get_attribute(C3Attributes.dhw_power)
@@ -230,6 +255,7 @@ class MideaC3WaterHeater(MideaWaterHeater):
 
     @property
     def current_temperature(self) -> float:
+        """Midea C3 Water Heater current temperature."""
         return cast(
             float,
             self._device.get_attribute(C3Attributes.tank_actual_temperature),
@@ -237,9 +263,11 @@ class MideaC3WaterHeater(MideaWaterHeater):
 
     @property
     def target_temperature(self) -> float:
+        """Midea C3 Water Heater target temperature."""
         return cast(float, self._device.get_attribute(C3Attributes.dhw_target_temp))
 
     def set_temperature(self, **kwargs: Any) -> None:  # noqa: ANN401
+        """Midea C3 Water Heater set temperature."""
         if ATTR_TEMPERATURE not in kwargs:
             return
         temperature = int(kwargs[ATTR_TEMPERATURE])
@@ -247,16 +275,20 @@ class MideaC3WaterHeater(MideaWaterHeater):
 
     @property
     def min_temp(self) -> float:
+        """Midea C3 Water Heater min temperature."""
         return cast(float, self._device.get_attribute(C3Attributes.dhw_temp_min))
 
     @property
     def max_temp(self) -> float:
+        """Midea C3 Water Heater max temperature."""
         return cast(float, self._device.get_attribute(C3Attributes.dhw_temp_max))
 
     def turn_on(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
+        """Midea C3 Water Heater turn on."""
         self._device.set_attribute(attr=C3Attributes.dhw_power, value=True)
 
     def turn_off(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
+        """Midea C3 Water Heater turn off."""
         self._device.set_attribute(attr=C3Attributes.dhw_power, value=False)
 
 
@@ -290,6 +322,7 @@ class MideaE6WaterHeater(MideaWaterHeater):
 
     @property
     def current_operation(self) -> str:
+        """Midea E6 Water Heater current operation."""
         if self._use == 0:  # for heating
             return str(
                 STATE_ON
@@ -306,13 +339,16 @@ class MideaE6WaterHeater(MideaWaterHeater):
 
     @property
     def current_temperature(self) -> float:
+        """Midea E6 Water Heater current temperature."""
         return cast(float, self._device.get_attribute(self._current_temperature_attr))
 
     @property
     def target_temperature(self) -> float:
+        """Midea E6 Water Heater target temperature."""
         return cast(float, self._device.get_attribute(self._target_temperature_attr))
 
     def set_temperature(self, **kwargs: Any) -> None:  # noqa: ANN401
+        """Midea E6 Water Heater set temperature."""
         if ATTR_TEMPERATURE not in kwargs:
             return
         temperature = int(kwargs[ATTR_TEMPERATURE])
@@ -320,6 +356,7 @@ class MideaE6WaterHeater(MideaWaterHeater):
 
     @property
     def min_temp(self) -> float:
+        """Midea E6 Water Heater min temperature."""
         min_temperature = cast(
             list[str],
             self._device.get_attribute(E6Attributes.min_temperature),
@@ -331,6 +368,7 @@ class MideaE6WaterHeater(MideaWaterHeater):
 
     @property
     def max_temp(self) -> float:
+        """Midea E6 Water Heater max temperature."""
         max_temperature = cast(
             list[str],
             self._device.get_attribute(E6Attributes.max_temperature),
@@ -341,9 +379,11 @@ class MideaE6WaterHeater(MideaWaterHeater):
         )
 
     def turn_on(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
+        """Midea E6 Water Heater turn on."""
         self._device.set_attribute(attr=self._power_attr, value=True)
 
     def turn_off(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
+        """Midea E6 Water Heater turn off."""
         self._device.set_attribute(attr=self._power_attr, value=False)
 
 
@@ -356,6 +396,7 @@ class MideaCDWaterHeater(MideaWaterHeater):
 
     @property
     def supported_features(self) -> WaterHeaterEntityFeature:
+        """Midea CD Water Heater supported features."""
         return (
             WaterHeaterEntityFeature.TARGET_TEMPERATURE
             | WaterHeaterEntityFeature.OPERATION_MODE
@@ -363,8 +404,10 @@ class MideaCDWaterHeater(MideaWaterHeater):
 
     @property
     def min_temp(self) -> float:
+        """Midea CD Water Heater min temperature."""
         return cast(float, self._device.get_attribute(CDAttributes.min_temperature))
 
     @property
     def max_temp(self) -> float:
+        """Midea CD Water Heater max temperature."""
         return cast(float, self._device.get_attribute(CDAttributes.max_temperature))
