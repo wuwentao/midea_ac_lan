@@ -1,0 +1,30 @@
+target-version = "py311"
+
+lint.select = ["ALL"]
+
+lint.ignore = [
+    "ANN101",   # Missing type annotation for `self` in method
+    "D203",     # 1 blank line required before class docstring
+    "D213",     # Multi-line docstring summary should start at the second line
+    "EM101",    # Exception must not use a string literal, assign to variable first
+    "EM102",    # Exception must not use an f-string literal, assign to variable first
+    "FBT001",   # Boolean-typed positional argument in function definition
+    "FBT002",   # Boolean default positional argument in function definition
+    "FBT003",   # Boolean positional value in function call
+    "N818",     # Exception name should be named with an Error suffix
+    "PLR0911",  # Too many return statements
+    "PLR0912",  # Too many branches
+    "TRY003",   # Avoid specifying long messages outside the exception class
+]
+
+[lint.per-file-ignores]
+"library_test.py" = [
+    "PLR0915",   # Too many statements
+    "T201",      # `print` found
+]
+"tests/*" = [
+    "S101",     # Use of `assert` detected
+]
+
+[lint.mccabe]
+max-complexity = 18
