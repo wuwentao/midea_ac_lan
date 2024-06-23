@@ -84,6 +84,8 @@ MideaWaterHeaterDevice: TypeAlias = (
 
 
 class MideaWaterHeater(MideaEntity, WaterHeaterEntity):
+    """Midea Water Heater Entries Base Class"""
+
     _device: MideaWaterHeaterDevice
 
     def __init__(self, device: MideaWaterHeaterDevice, entity_key: str) -> None:
@@ -196,6 +198,8 @@ class MideaWaterHeater(MideaEntity, WaterHeaterEntity):
 
 
 class MideaE2WaterHeater(MideaWaterHeater):
+    """Midea E2 Water Heater Entries"""
+
     _device: MideaE2Device
 
     def __init__(self, device: MideaE2Device, entity_key: str) -> None:
@@ -214,6 +218,8 @@ class MideaE2WaterHeater(MideaWaterHeater):
 
 
 class MideaE3WaterHeater(MideaWaterHeater):
+    """Midea E3 Water Heater Entries"""
+
     _device: MideaE3Device
 
     def __init__(self, device: MideaE3Device, entity_key: str) -> None:
@@ -239,6 +245,8 @@ class MideaE3WaterHeater(MideaWaterHeater):
 
 
 class MideaC3WaterHeater(MideaWaterHeater):
+    """Midea C3 Water Heater Entries"""
+
     _device: MideaC3Device
 
     def __init__(self, device: MideaC3Device, entity_key: str) -> None:
@@ -294,6 +302,8 @@ class MideaC3WaterHeater(MideaWaterHeater):
 
 
 class MideaE6WaterHeater(MideaWaterHeater):
+    """Midea E6 Water Heater Entries"""
+
     _device: MideaE6Device
 
     _powers: ClassVar[list[E6Attributes]] = [
@@ -389,6 +399,8 @@ class MideaE6WaterHeater(MideaWaterHeater):
 
 
 class MideaCDWaterHeater(MideaWaterHeater):
+    """Midea CD Water Heater Entries"""
+
     _device: MideaCDDevice
 
     def __init__(self, device: MideaCDDevice, entity_key: str) -> None:
