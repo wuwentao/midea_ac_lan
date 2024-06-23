@@ -71,7 +71,7 @@ def _calc_supported_color_modes(device: Midea13Device) -> set[ColorMode]:
 
 
 class MideaLight(MideaEntity, LightEntity):
-    """Midea Light Entries"""
+    """Midea Light Entries."""
 
     _attr_color_mode: ColorMode | str | None = None
     _attr_supported_color_modes: set[ColorMode] | set[str] | None = None
