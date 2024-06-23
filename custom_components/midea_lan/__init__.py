@@ -62,7 +62,8 @@ async def update_listener(hass: HomeAssistant, config_entry: ConfigEntry) -> Non
     await hass.config_entries.async_unload_platforms(config_entry, ALL_PLATFORM)
     # forward the Config Entry to the platforms
     hass.async_create_task(
-        hass.config_entries.async_forward_entry_setups(config_entry, ALL_PLATFORM),
+        hass.config_entries.async_forward_entry_setups(
+            config_entry, ALL_PLATFORM),
     )
     device_id = config_entry.data.get(CONF_DEVICE_ID)
     customize = config_entry.options.get(CONF_CUSTOMIZE, "")
@@ -241,7 +242,8 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
         # Listener `update_listener` is
         # attached when the entry is loaded
         # and detached when it's unloaded
-        config_entry.async_on_unload(config_entry.add_update_listener(update_listener))
+        config_entry.async_on_unload(
+            config_entry.add_update_listener(update_listener))
         return True
     return False
 
