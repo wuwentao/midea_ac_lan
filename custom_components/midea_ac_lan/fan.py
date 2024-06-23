@@ -1,3 +1,5 @@
+"""Midea Fan entries."""
+
 import logging
 from typing import Any, cast
 
