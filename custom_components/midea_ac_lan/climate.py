@@ -1,3 +1,5 @@
+"""Midea Climate entries."""
+
 import logging
 from typing import Any, ClassVar, TypeAlias, cast
 

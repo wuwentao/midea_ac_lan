@@ -1,3 +1,5 @@
+"""Midea Humidifier entries."""
+
 import logging
 from typing import Any, TypeAlias, cast
 
