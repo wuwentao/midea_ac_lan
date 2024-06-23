@@ -48,6 +48,8 @@ MideaHumidifierDevice: TypeAlias = MideaFDDevice | MideaA1Device
 
 
 class MideaHumidifier(MideaEntity, HumidifierEntity):
+    """Midea Humidifier Entries Base Class."""
+
     _device: MideaHumidifierDevice
 
     def __init__(self, device: MideaHumidifierDevice, entity_key: str) -> None:
@@ -91,6 +93,8 @@ class MideaHumidifier(MideaEntity, HumidifierEntity):
 
 
 class MideaA1Humidifier(MideaHumidifier):
+    """Midea A1 Humidifier Entries"""
+
     _device: MideaA1Device
 
     def __init__(self, device: MideaA1Device, entity_key: str) -> None:
@@ -103,6 +107,8 @@ class MideaA1Humidifier(MideaHumidifier):
 
 
 class MideaFDHumidifier(MideaHumidifier):
+    """Midea FD Humidifier Entries"""
+
     _device: MideaFDDevice
 
     def __init__(self, device: MideaFDDevice, entity_key: str) -> None:

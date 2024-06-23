@@ -55,6 +55,8 @@ async def async_setup_entry(
 
 
 class MideaFan(MideaEntity, FanEntity):
+    """Midea Fan Entries Base Class."""
+
     @property
     def preset_modes(self) -> list[str] | None:
         return (
@@ -107,6 +109,8 @@ class MideaFan(MideaEntity, FanEntity):
 
 
 class MideaFAFan(MideaFan):
+    """Midea FA Fan Entries."""
+
     _device: MideaFADevice
 
     def __init__(self, device: MideaFADevice, entity_key: str) -> None:
@@ -130,6 +134,8 @@ class MideaFAFan(MideaFan):
 
 
 class MideaB6Fan(MideaFan):
+    """Midea B6 Fan Entries."""
+
     _device: MideaB6Device
 
     def __init__(self, device: MideaB6Device, entity_key: str) -> None:
@@ -151,6 +157,8 @@ class MideaB6Fan(MideaFan):
 
 
 class MideaACFreshAirFan(MideaFan):
+    """Midea AC Fresh Air Fan Entries."""
+
     _device: MideaACDevice
 
     def __init__(self, device: MideaACDevice, entity_key: str) -> None:
@@ -200,6 +208,8 @@ class MideaACFreshAirFan(MideaFan):
 
 
 class MideaCEFan(MideaFan):
+    """Midea CE Fan Entries."""
+
     _device: MideaCEDevice
 
     def __init__(self, device: MideaCEDevice, entity_key: str) -> None:
@@ -223,6 +233,8 @@ class MideaCEFan(MideaFan):
 
 
 class Midea40Fan(MideaFan):
+    """Midea 40 Fan Entries."""
+
     _device: Midea40Device
 
     def __init__(self, device: Midea40Device, entity_key: str) -> None:

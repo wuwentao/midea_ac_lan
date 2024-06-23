@@ -103,6 +103,8 @@ MideaClimateDevice: TypeAlias = (
 
 
 class MideaClimate(MideaEntity, ClimateEntity):
+    """Midea Climate Entries Base Class."""
+
     # https://developers.home-assistant.io/blog/2024/01/24/climate-climateentityfeatures-expanded
     _enable_turn_on_off_backwards_compatibility: bool = (
         False  # maybe remove after 2025.1
@@ -229,6 +231,8 @@ class MideaClimate(MideaEntity, ClimateEntity):
 
 
 class MideaACClimate(MideaClimate):
+    """Midea AC Climate Entries."""
+
     _device: MideaACDevice
 
     def __init__(self, device: MideaACDevice, entity_key: str) -> None:
@@ -314,6 +318,8 @@ class MideaACClimate(MideaClimate):
 
 
 class MideaCCClimate(MideaClimate):
+    """Midea CC Climate Entries Base Class."""
+
     _device: MideaCCDevice
 
     def __init__(self, device: MideaCCDevice, entity_key: str) -> None:
@@ -362,6 +368,8 @@ class MideaCCClimate(MideaClimate):
 
 
 class MideaCFClimate(MideaClimate):
+    """Midea CF Climate Entries."""
+
     _device: MideaCFDevice
 
     _attr_target_temperature_step: float | None = PRECISION_WHOLE
@@ -405,6 +413,8 @@ class MideaCFClimate(MideaClimate):
 
 
 class MideaC3Climate(MideaClimate):
+    """Midea C3 Climate Entries."""
+
     _device: MideaC3Device
 
     _powers: ClassVar[list[C3Attributes]] = [
@@ -533,6 +543,8 @@ class MideaC3Climate(MideaClimate):
 
 
 class MideaFBClimate(MideaClimate):
+    """Midea FB Climate Entries."""
+
     _device: MideaFBDevice
 
     _attr_max_temp: float = 35
