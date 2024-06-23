@@ -86,7 +86,7 @@ MideaWaterHeaterDevice: TypeAlias = (
 
 
 class MideaWaterHeater(MideaEntity, WaterHeaterEntity):
-    """Midea Water Heater Entries Base Class"""
+    """Midea Water Heater Entries Base Class."""
 
     _device: MideaWaterHeaterDevice
 
@@ -200,7 +200,7 @@ class MideaWaterHeater(MideaEntity, WaterHeaterEntity):
 
 
 class MideaE2WaterHeater(MideaWaterHeater):
-    """Midea E2 Water Heater Entries"""
+    """Midea E2 Water Heater Entries."""
 
     _device: MideaE2Device
 
@@ -220,7 +220,7 @@ class MideaE2WaterHeater(MideaWaterHeater):
 
 
 class MideaE3WaterHeater(MideaWaterHeater):
-    """Midea E3 Water Heater Entries"""
+    """Midea E3 Water Heater Entries."""
 
     _device: MideaE3Device
 
@@ -247,7 +247,7 @@ class MideaE3WaterHeater(MideaWaterHeater):
 
 
 class MideaC3WaterHeater(MideaWaterHeater):
-    """Midea C3 Water Heater Entries"""
+    """Midea C3 Water Heater Entries."""
 
     _device: MideaC3Device
 
@@ -304,7 +304,7 @@ class MideaC3WaterHeater(MideaWaterHeater):
 
 
 class MideaE6WaterHeater(MideaWaterHeater):
-    """Midea E6 Water Heater Entries"""
+    """Midea E6 Water Heater Entries."""
 
     _device: MideaE6Device
 
@@ -401,7 +401,7 @@ class MideaE6WaterHeater(MideaWaterHeater):
 
 
 class MideaCDWaterHeater(MideaWaterHeater):
-    """Midea CD Water Heater Entries"""
+    """Midea CD Water Heater Entries."""
 
     _device: MideaCDDevice
 

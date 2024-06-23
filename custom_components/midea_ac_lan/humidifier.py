@@ -106,7 +106,7 @@ class MideaHumidifier(MideaEntity, HumidifierEntity):
 
 
 class MideaA1Humidifier(MideaHumidifier):
-    """Midea A1 Humidifier Entries"""
+    """Midea A1 Humidifier Entries."""
 
     _device: MideaA1Device
 
@@ -120,7 +120,7 @@ class MideaA1Humidifier(MideaHumidifier):
 
 
 class MideaFDHumidifier(MideaHumidifier):
-    """Midea FD Humidifier Entries"""
+    """Midea FD Humidifier Entries."""
 
     _device: MideaFDDevice
 

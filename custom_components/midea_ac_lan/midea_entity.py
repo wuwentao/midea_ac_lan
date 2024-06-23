@@ -24,7 +24,7 @@ class MideaEntity(Entity):
     """Base Midea entity."""
 
     def __init__(self, device: MideaDevice, entity_key: str) -> None:
-        """Base Midea entity init."""
+        """Initialize Midea base entity."""
         self._device = device
         self._device.register_update(self.update_state)
         self._config = cast(dict, MIDEA_DEVICES[self._device.device_type]["entities"])[
