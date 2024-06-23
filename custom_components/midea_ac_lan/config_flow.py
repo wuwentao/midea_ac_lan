@@ -340,10 +340,11 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
                     self.account[CONF_PASSWORD],
                 )
                 if self.cloud is None:
+                    # fmt: off
                     raise AbortFlow(
-                        f"Can not get midea cloud: {
-                            self.account[CONF_SERVER]}",
+                        f"Can not get midea cloud: {self.account[CONF_SERVER]}",
                     )
+                    # fmt: on
             if not await self.cloud.login():
                 return await self.async_step_login()
             self.found_device = {
