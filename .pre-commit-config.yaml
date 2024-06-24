@@ -55,6 +55,6 @@ repos:
     hooks:
       - id: mypy
         name: mypy
-        entry: /scripts/mypy.sh
+        entry: scripts/mypy.sh
         language: system
         types: [python]
