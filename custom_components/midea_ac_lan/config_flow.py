@@ -94,7 +94,7 @@ PRESET_ACCOUNT = [
 ]
 
 
-class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
+class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-args]
     """Define current integration setup steps.
 
     Use ConfigFlow handle to support config entries
