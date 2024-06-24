@@ -62,8 +62,7 @@ async def update_listener(hass: HomeAssistant, config_entry: ConfigEntry) -> Non
     await hass.config_entries.async_unload_platforms(config_entry, ALL_PLATFORM)
     # forward the Config Entry to the platforms
     hass.async_create_task(
-        hass.config_entries.async_forward_entry_setups(
-            config_entry, ALL_PLATFORM),
+        hass.config_entries.async_forward_entry_setups(config_entry, ALL_PLATFORM),
     )
     device_id = config_entry.data.get(CONF_DEVICE_ID)
     customize = config_entry.options.get(CONF_CUSTOMIZE, "")
@@ -242,8 +241,7 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
         # Listener `update_listener` is
         # attached when the entry is loaded
         # and detached when it's unloaded
-        config_entry.async_on_unload(
-            config_entry.add_update_listener(update_listener))
+        config_entry.async_on_unload(config_entry.add_update_listener(update_listener))
         return True
     return False
 
@@ -280,6 +278,31 @@ async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry) ->
         await _async_migrate_device_identifiers(hass, config_entry)
 
         _LOGGER.debug("Migration to configuration version 2 successful")
+
+    # 2 -> 3: migrate domain
+    if config_entry.version == 2:  # noqa: PLR2004
+        _LOGGER.debug("Migrating configuration from version 2")
+
+        # Migrate config entry
+        new_data = {**config_entry.data}
+        new_data["domain"] = DOMAIN
+        if (MAJOR_VERSION, MINOR_VERSION) >= (2024, 3):
+            hass.config_entries.async_update_entry(config_entry, version=2)
+        else:
+            config_entry.version = 2
+            hass.config_entries.async_update_entry(config_entry)
+
+        # Migrate device.
+        await _async_migrate_device_identifiers(hass, config_entry)
+
+        # Migrate entities.
+        await er.async_migrate_entries(
+            hass,
+            config_entry.entry_id,
+            _migrate_entities_domain,
+        )
+
+        _LOGGER.debug("Migration to configuration version 3 successful")
 
     return True
 
