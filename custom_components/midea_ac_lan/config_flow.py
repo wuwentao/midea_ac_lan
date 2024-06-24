@@ -101,6 +101,9 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):
     ConfigFlow will manage the creation of entries from user input, discovery
     """
 
+    VERSION = 2
+    MINOR_VERSION = 1
+
     def __init__(self) -> None:
         """MideaLanConfigFlow class."""
         self.available_device: dict = {}

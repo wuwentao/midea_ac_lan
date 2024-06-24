@@ -13,6 +13,7 @@ import logging
 from typing import Any, cast
 
 import homeassistant.helpers.config_validation as cv
+import homeassistant.helpers.device_registry as dr
 import voluptuous as vol
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import (
@@ -258,3 +259,70 @@ async def async_unload_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> 
     # Forward the unloading of an entry to platforms
     await hass.config_entries.async_unload_platforms(config_entry, ALL_PLATFORM)
     return True
+
+
+async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> bool:
+    """Migrate old entry."""
+    _LOGGER.debug(
+        "Migrating configuration from version %s.%s",
+        config_entry.version,
+        config_entry.minor_version if hasattr(config_entry, "minor_version") else 1,
+    )
+
+    # 1.x -> 2.1:  convert device identifiers from int to str
+    if config_entry.version == 1:
+        if (MAJOR_VERSION, MINOR_VERSION) >= (2024, 3):
+            hass.config_entries.async_update_entry(config_entry, version=2)
+        else:
+            config_entry.version = 2
+            hass.config_entries.async_update_entry(config_entry)
+
+        # Migrate device.
+        await _async_migrate_device_identifiers(hass, config_entry)
+
+        _LOGGER.debug("Migration to configuration version 2.1 successful")
+
+    _LOGGER.debug(
+        "Migration to configuration version %s.%s successful",
+        config_entry.version,
+        config_entry.minor_version if hasattr(config_entry, "minor_version") else 1,
+    )
+
+    return True
+
+
+async def _async_migrate_device_identifiers(
+    hass: HomeAssistant,
+    config_entry: ConfigEntry,
+) -> None:
+    """Migrate the device identifiers to the new format."""
+    device_registry = dr.async_get(hass)
+    device_entry_found = False
+    for device_entry in dr.async_entries_for_config_entry(
+        device_registry,
+        config_entry.entry_id,
+    ):
+        for identifier in device_entry.identifiers:
+            # Device found in registry. Update identifiers.
+            new_identifiers = {
+                (
+                    DOMAIN,
+                    str(identifier[1]),
+                ),
+            }
+            _LOGGER.debug(
+                "Migrating device identifiers from %s to %s",
+                device_entry.identifiers,
+                new_identifiers,
+            )
+            device_registry.async_update_device(
+                device_id=device_entry.id,
+                new_identifiers=new_identifiers,
+            )
+            # Device entry found. Leave inner for loop.
+            device_entry_found = True
+            break
+
+        # Leave outer for loop if device entry is already found.
+        if device_entry_found:
+            break
