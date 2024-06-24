@@ -266,22 +266,26 @@ async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry) ->
     _LOGGER.debug(
         "Migrating configuration from version %s.%s",
         config_entry.version,
-        config_entry.minor_version,
+        config_entry.minor_version if hasattr(config_entry, "minor_version") else 1,
     )
 
-    # 1.0 -> 1.1:  convert device identifiers from int to str
-    if config_entry.version == 1 and config_entry.minor_version == 0:
-        hass.config_entries.async_update_entry(config_entry, minor_version=1)
+    # 1.x -> 2.1:  convert device identifiers from int to str
+    if config_entry.version == 1:
+        if (MAJOR_VERSION, MINOR_VERSION) >= (2024, 3):
+            hass.config_entries.async_update_entry(config_entry, version=2)
+        else:
+            config_entry.version = 2
+            hass.config_entries.async_update_entry(config_entry)
 
         # Migrate device.
         await _async_migrate_device_identifiers(hass, config_entry)
 
-        _LOGGER.debug("Migration to configuration version 1.1 successful")
+        _LOGGER.debug("Migration to configuration version 2.1 successful")
 
     _LOGGER.debug(
         "Migration to configuration version %s.%s successful",
         config_entry.version,
-        config_entry.minor_version,
+        config_entry.minor_version if hasattr(config_entry, "minor_version") else 1,
     )
 
     return True
