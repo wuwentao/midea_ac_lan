@@ -45,3 +45,5 @@ jobs:
 
       - name: Pre-commit
         uses: pre-commit/action@v3.0.1
+        with:
+          extra_args: mypy --config-file mypy-${{ matrix.python-version }}.ini
