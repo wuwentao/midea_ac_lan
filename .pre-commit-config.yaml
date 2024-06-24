@@ -57,3 +57,4 @@ repos:
         entry: mypy
         language: system
         types: [python]
+        args: [--config-file, mypy-312.ini]
