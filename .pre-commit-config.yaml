@@ -7,6 +7,7 @@ ci:
   autofix_commit_msg: "chore(pre-commit.ci): auto fixes"
   autoupdate_commit_msg: "chore(pre-commit.ci): pre-commit autoupdate"
   autoupdate_schedule: weekly
+  skip: [mypy]
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -15,14 +16,14 @@ repos:
       - id: no-commit-to-branch
         args: ["--branch", "master"]
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.4.4
+    rev: v0.4.10
     hooks:
       - id: ruff
         args:
           - --fix
       - id: ruff-format
   - repo: https://github.com/commitizen-tools/commitizen
-    rev: v3.26.0
+    rev: v3.27.0
     hooks:
       - id: commitizen
         stages: [commit-msg]
@@ -40,7 +41,7 @@ repos:
       - id: prettier
         args: ["--tab-width", "2"]
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.15.2
+    rev: v3.16.0
     hooks:
       - id: pyupgrade
         args: [--py37-plus]
