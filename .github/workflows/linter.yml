@@ -13,7 +13,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        python-version: ["3.11", "3.12"]
+        python-version: ["3.12", "3.11"]
         os: ["windows-latest", "ubuntu-latest", "macos-latest"]
 
     permissions:
