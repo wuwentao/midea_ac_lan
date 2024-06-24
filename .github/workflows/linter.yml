@@ -38,7 +38,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements-all.txt
+          pip install -r requirements-all-${{ matrix.python-version }}.txt
         shell: bash
 
       - name: Pre-commit
