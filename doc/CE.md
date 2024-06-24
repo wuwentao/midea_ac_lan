@@ -44,9 +44,9 @@ Set the levels of fan except "Auto" (7 by default).
 
 ## Services
 
-### midea_ac_lan.set_attribute
+### midea_lan.set_attribute
 
-[![Service](https://my.home-assistant.io/badges/developer_call_service.svg)](https://my.home-assistant.io/redirect/developer_call_service/?service=midea_ac_lan.set_attribute)
+[![Service](https://my.home-assistant.io/badges/developer_call_service.svg)](https://my.home-assistant.io/redirect/developer_call_service/?service=midea_lan.set_attribute)
 
 Set the attribute of appliance. Service data:
 
@@ -59,7 +59,7 @@ Set the attribute of appliance. Service data:
 Example
 
 ```yaml
-service: midea_ac_lan.set_attribute
+service: midea_lan.set_attribute
 data:
   device_id: XXXXXXXXXXXX
   attribute: power

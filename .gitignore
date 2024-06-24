@@ -4,10 +4,6 @@ config/
 #Sensitive files
 sensitive/
 
-#exclude
-custom_components/midea_ac_lan/midea/devices/b2/
-Wcustom_components/midea_ac_lan/midea/devices/b7/
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -106,7 +102,7 @@ celerybeat.pid
 .env
 .venv
 env/
-custom_components/midea_ac_lan/venv/
+custom_components/midea_lan/venv/
 ENV/
 env.bak/
 venv.bak/
@@ -122,8 +118,6 @@ venv.bak/
 
 # Rope project settings
 .ropeproject
-
-
 
 # Pyre type checker
 .pyre/
