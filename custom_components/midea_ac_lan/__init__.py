@@ -13,6 +13,8 @@ import logging
 from typing import Any, cast
 
 import homeassistant.helpers.config_validation as cv
+import homeassistant.helpers.device_registry as dr
+import homeassistant.helpers.entity_registry as er
 import voluptuous as vol
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import (
@@ -27,7 +29,7 @@ from homeassistant.const import (
     MAJOR_VERSION,
     MINOR_VERSION,
 )
-from homeassistant.core import HomeAssistant
+from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.typing import ConfigType
 from midealocal.device import DeviceType, ProtocolVersion
 from midealocal.devices import device_selector
@@ -317,3 +319,9 @@ async def _async_migrate_device_identifiers(
         # Leave outer for loop if device entry is already found.
         if device_entry_found:
             break
+
+
+@callback
+def _migrate_entities_domain(entity_entry: er.RegistryEntry) -> dict[str, Any]:  # noqa: ARG001
+    """Migrate entities domain to the new name."""
+    return {"platform": DOMAIN}
