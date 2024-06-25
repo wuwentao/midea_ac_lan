@@ -25,7 +25,7 @@
       "settings": {
         "files.eol": "\n",
         "editor.tabSize": 4,
-        "python.pythonPath": "/usr/bin/python3",
+        "python.pythonPath": "/usr/local/bin/python3",
         "python.analysis.autoSearchPaths": false,
         "editor.formatOnPaste": false,
         "editor.formatOnSave": true,
@@ -33,10 +33,5 @@
       }
     }
   },
-  "remoteUser": "vscode",
-  "features": {
-    "ghcr.io/devcontainers/features/python:1": {
-      "version": "3.12"
-    }
-  }
+  "remoteUser": "vscode"
 }
