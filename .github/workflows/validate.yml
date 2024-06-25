@@ -15,7 +15,7 @@ jobs:
       - uses: "actions/checkout@v4"
 
       - name: HACS Action
-        uses: hacs/action@main
+        uses: wuwentao/hacs_action@main
         with:
           category: "integration"
 
