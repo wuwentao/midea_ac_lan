@@ -125,8 +125,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
         """Save device config to json file with device id."""
         storage_path = Path(self.hass.config.path(STORAGE_PATH))
         storage_path.mkdir(parents=True, exist_ok=True)
-        # convert int device_id to str
-        record_file = storage_path / f"{data[CONF_DEVICE_ID]!s}.json"
+        record_file = storage_path.joinpath(f"{data[CONF_DEVICE_ID]!s}.json")
         save_json(record_file.name, data)
 
     def _load_device_config(self, device_id: str) -> Any:  # noqa: ANN401
