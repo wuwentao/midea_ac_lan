@@ -35,6 +35,15 @@ class MideaEntity(Entity):
         self.entity_id = self._unique_id
         self._device_name = self._device.name
 
+        self._attr_translation_key = self._config.get("translation_key")
+        self._attr_has_entity_name = self._config.get("has_entity_name", False)
+        if not self.has_entity_name:  # old behavior
+            self._attr_name = (
+                f"{self._device_name} {self._config.get('name')}"
+                if "name" in self._config
+                else self._device_name
+            )
+
     @property
     def device(self) -> MideaDevice:
         """Return device structure."""
@@ -61,15 +70,6 @@ class MideaEntity(Entity):
     def should_poll(self) -> bool:
         """Return true is integration should poll."""
         return False
-
-    @property
-    def name(self) -> str:
-        """Return entity name."""
-        return (
-            f"{self._device_name} {self._config.get('name')}"
-            if "name" in self._config
-            else self._device_name
-        )
 
     @property
     def available(self) -> bool:

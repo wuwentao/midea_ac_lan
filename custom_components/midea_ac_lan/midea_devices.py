@@ -1918,14 +1918,23 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
     0xED: {
         "name": "Water Drinking Appliance",
         "entities": {
-            EDAttributes.child_lock: {"type": Platform.LOCK, "name": "Child Lock"},
+            EDAttributes.child_lock: {
+                "type": Platform.LOCK,
+                "has_entity_name": True,
+                "translation_key": "child_lock",
+                "name": "Child Lock",
+            },
             EDAttributes.power: {
                 "type": Platform.SWITCH,
+                "has_entity_name": True,
+                "translation_key": "power",
                 "name": "Power",
                 "icon": "mdi:power",
             },
             EDAttributes.filter1: {
                 "type": Platform.SENSOR,
+                "has_entity_name": True,
+                "translation_key": "filter1_days",
                 "name": "Filter1 Available Days",
                 "icon": "mdi:air-filter",
                 "unit": UnitOfTime.DAYS,
@@ -1933,6 +1942,8 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             EDAttributes.filter2: {
                 "type": Platform.SENSOR,
+                "has_entity_name": True,
+                "translation_key": "filter2_days",
                 "name": "Filter2 Available Days",
                 "icon": "mdi:air-filter",
                 "unit": UnitOfTime.DAYS,
@@ -1940,6 +1951,8 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             EDAttributes.filter3: {
                 "type": Platform.SENSOR,
+                "has_entity_name": True,
+                "translation_key": "filter3_days",
                 "name": "Filter3 Available Days",
                 "icon": "mdi:air-filter",
                 "unit": UnitOfTime.DAYS,
@@ -1947,6 +1960,8 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             EDAttributes.life1: {
                 "type": Platform.SENSOR,
+                "has_entity_name": True,
+                "translation_key": "filter1_life",
                 "name": "Filter1 Life Level",
                 "icon": "mdi:percent",
                 "unit": PERCENTAGE,
@@ -1954,6 +1969,8 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             EDAttributes.life2: {
                 "type": Platform.SENSOR,
+                "has_entity_name": True,
+                "translation_key": "filter2_life",
                 "name": "Filter2 Life Level",
                 "icon": "mdi:percent",
                 "unit": PERCENTAGE,
@@ -1961,6 +1978,8 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             EDAttributes.life3: {
                 "type": Platform.SENSOR,
+                "has_entity_name": True,
+                "translation_key": "filter3_life",
                 "name": "Filter3 Life Level",
                 "icon": "mdi:percent",
                 "unit": PERCENTAGE,
@@ -1968,6 +1987,8 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             EDAttributes.in_tds: {
                 "type": Platform.SENSOR,
+                "has_entity_name": True,
+                "translation_key": "in_tds",
                 "name": "In TDS",
                 "icon": "mdi:water",
                 "unit": CONCENTRATION_PARTS_PER_MILLION,
@@ -1975,6 +1996,8 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             EDAttributes.out_tds: {
                 "type": Platform.SENSOR,
+                "has_entity_name": True,
+                "translation_key": "out_tds",
                 "name": "Out TDS",
                 "icon": "mdi:water-plus",
                 "unit": CONCENTRATION_PARTS_PER_MILLION,
@@ -1982,6 +2005,8 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             EDAttributes.water_consumption: {
                 "type": Platform.SENSOR,
+                "has_entity_name": True,
+                "translation_key": "water_consumption",
                 "name": "Water Consumption",
                 "icon": "mdi:water-pump",
                 "unit": UnitOfVolume.LITERS,
