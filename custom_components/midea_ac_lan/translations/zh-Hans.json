@@ -61,6 +61,47 @@
       }
     }
   },
+  "entity": {
+    "lock": {
+      "child_lock": {
+        "name": "童锁"
+      }
+    },
+    "sensor": {
+      "filter1_days": {
+        "name": "滤芯1可用天数"
+      },
+      "filter2_days": {
+        "name": "滤芯2可用天数"
+      },
+      "filter3_days": {
+        "name": "滤芯3可用天数"
+      },
+      "filter1_life": {
+        "name": "滤芯1剩余寿命"
+      },
+      "filter2_life": {
+        "name": "滤芯2剩余寿命"
+      },
+      "filter3_life": {
+        "name": "滤芯3剩余寿命"
+      },
+      "in_tds": {
+        "name": "进水TDS"
+      },
+      "out_tds": {
+        "name": "出水TDS"
+      },
+      "water_consumption": {
+        "name": "总耗水量"
+      }
+    },
+    "switch": {
+      "power": {
+        "name": "电源开关"
+      }
+    }
+  },
   "options": {
     "step": {
       "init": {
