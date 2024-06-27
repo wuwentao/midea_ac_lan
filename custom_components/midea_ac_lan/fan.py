@@ -16,7 +16,7 @@ from midealocal.devices.ce import DeviceAttributes as CEAttributes
 from midealocal.devices.ce import MideaCEDevice
 from midealocal.devices.fa import MideaFADevice
 from midealocal.devices.x40 import DeviceAttributes as X40Attributes
-from midealocal.devices.x40 import Midea40Device
+from midealocal.devices.x40 import MideaX40Device
 
 from .const import DEVICES, DOMAIN
 from .midea_devices import MIDEA_DEVICES
@@ -35,7 +35,7 @@ async def async_setup_entry(
     device = hass.data[DOMAIN][DEVICES].get(device_id)
     extra_switches = config_entry.options.get(CONF_SWITCHES, [])
     devs: list[
-        MideaFAFan | MideaB6Fan | MideaACFreshAirFan | MideaCEFan | Midea40Fan
+        MideaFAFan | MideaB6Fan | MideaACFreshAirFan | MideaCEFan | MideaX40Fan
     ] = []
     for entity_key, config in cast(
         dict,
@@ -53,7 +53,7 @@ async def async_setup_entry(
             elif device.device_type == DeviceType.CE:
                 devs.append(MideaCEFan(device, entity_key))
             elif device.device_type == DeviceType.X40:
-                devs.append(Midea40Fan(device, entity_key))
+                devs.append(MideaX40Fan(device, entity_key))
     async_add_entities(devs)
 
 
@@ -259,12 +259,12 @@ class MideaCEFan(MideaFan):
         await self.hass.async_add_executor_job(self.set_percentage, percentage)
 
 
-class Midea40Fan(MideaFan):
+class MideaX40Fan(MideaFan):
     """Midea X40 Fan Entries."""
 
-    _device: Midea40Device
+    _device: MideaX40Device
 
-    def __init__(self, device: Midea40Device, entity_key: str) -> None:
+    def __init__(self, device: MideaX40Device, entity_key: str) -> None:
         """Midea X40 Fan entity init."""
         super().__init__(device, entity_key)
         self._attr_supported_features = (

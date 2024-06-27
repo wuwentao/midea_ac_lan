@@ -57,9 +57,6 @@ if TYPE_CHECKING:
 if (MAJOR_VERSION, MINOR_VERSION) >= (2024, 4):
     from homeassistant.config_entries import ConfigFlowResult
 else:
-    from homeassistant.data_entry_flow import (
-        AbortFlow,
-    )
     from homeassistant.data_entry_flow import (  # type: ignore[assignment]
         FlowResult as ConfigFlowResult,
     )
@@ -203,12 +200,6 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                     account=user_input[CONF_ACCOUNT],
                     password=user_input[CONF_PASSWORD],
                 )
-                if self.cloud is None:
-                    # fmt: off
-                    raise AbortFlow(
-                        f"Can not get midea cloud: {cloud_server}",
-                    )
-                    # fmt: on
             if await self.cloud.login():
                 self.account = {
                     CONF_ACCOUNT: user_input[CONF_ACCOUNT],
@@ -344,12 +335,6 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                     self.account[CONF_ACCOUNT],
                     self.account[CONF_PASSWORD],
                 )
-                if self.cloud is None:
-                    # fmt: off
-                    raise AbortFlow(
-                        f"Can not get midea cloud: {self.account[CONF_SERVER]}",
-                    )
-                    # fmt: on
             if not await self.cloud.login():
                 return await self.async_step_login()
             self.found_device = {
@@ -380,8 +365,6 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                             format((PRESET_ACCOUNT[0] ^ PRESET_ACCOUNT[2]), "X"),
                         ).decode("ASCII"),
                     )
-                    if self.cloud is None:
-                        raise AbortFlow("Can not get midea cloud: MSmartHome")
                     if not await self.cloud.login():
                         return await self.async_step_auto(error="preset_account")
                 keys = await self.cloud.get_keys(user_input[CONF_DEVICE])
