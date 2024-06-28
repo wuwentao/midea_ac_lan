@@ -5,7 +5,7 @@
       "name": "Python Debugger: Launch Home Assistant",
       "type": "debugpy",
       "request": "launch",
-      "program": "/home/vscode/.local/bin/hass",
+      "program": "/usr/local/bin/hass",
       "args": ["--config", "config", "--debug"],
       "console": "integratedTerminal",
       "justMyCode": false
