@@ -127,8 +127,13 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
 
     def _load_device_config(self, device_id: str) -> Any:  # noqa: ANN401
         """Load device config from json file with device id."""
-        record_file = self.hass.config.path(f"{STORAGE_PATH}/{device_id}.json")
-        return load_json(record_file, default={})
+        record_file = Path(
+            self.hass.config.path(f"{STORAGE_PATH}", f"{device_id}.json"),
+        )
+        if record_file.exists():
+            with record_file.open(encoding="utf-8") as f:
+                return load_json(f.name, default={})
+        return {}
 
     @staticmethod
     def _check_storage_device(device: dict, storage_device: dict) -> bool:
