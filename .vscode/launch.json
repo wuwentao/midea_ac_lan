@@ -2,12 +2,13 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Python Debugger: Current File",
+      "name": "Python Debugger: Launch Home Assistant",
       "type": "debugpy",
       "request": "launch",
-      "program": "/usr/local/python/current/bin/hass",
+      "program": "/home/vscode/.local/bin/hass",
       "args": ["--config", "config", "--debug"],
-      "console": "integratedTerminal"
+      "console": "integratedTerminal",
+      "justMyCode": false
     }
   ]
 }
