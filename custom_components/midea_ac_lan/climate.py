@@ -538,11 +538,9 @@ class MideaC3Climate(MideaClimate):
     @property
     def hvac_mode(self) -> HVACMode:
         """Midea C3 Climate hvac mode."""
-        if self._device.get_attribute(self._power_attr):
-            return cast(
-                HVACMode,
-                self._modes[self._device.get_attribute(C3Attributes.mode)],
-            )
+        mode = self._device.get_attribute(C3Attributes.mode)
+        if self._device.get_attribute(self._power_attr) and isinstance(mode, int):
+            return self.hvac_modes[mode]
         return HVACMode.OFF
 
     @property
