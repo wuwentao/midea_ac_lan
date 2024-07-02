@@ -140,12 +140,13 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
         """Check input device with storage_device."""
         if storage_device.get(CONF_SUBTYPE) is None:
             return False
-        if device.get(CONF_PROTOCOL) == ProtocolVersion.V3 and (
-            storage_device.get(CONF_TOKEN) is None
-            or storage_device.get(CONF_KEY) is None
-        ):
-            return False
-        return True
+        return not (
+            device.get(CONF_PROTOCOL) == ProtocolVersion.V3
+            and (
+                storage_device.get(CONF_TOKEN) is None
+                or storage_device.get(CONF_KEY) is None
+            )
+        )
 
     def _already_configured(self, device_id: str, ip_address: str) -> bool:
         """Check device from json with device_id or ip address."""
