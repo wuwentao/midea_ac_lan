@@ -4,6 +4,7 @@ import logging
 from typing import Any, cast
 
 from homeassistant.const import MAJOR_VERSION, MINOR_VERSION
+from homeassistant.core import callback
 
 if (MAJOR_VERSION, MINOR_VERSION) >= (2023, 9):
     from homeassistant.helpers.device_registry import DeviceInfo
@@ -81,6 +82,7 @@ class MideaEntity(Entity):
         """Return entity icon."""
         return cast(str, self._config.get("icon"))
 
+    @callback
     def update_state(self, status: Any) -> None:  # noqa: ANN401
         """Update entity state."""
         if self._entity_key in status or "available" in status:
