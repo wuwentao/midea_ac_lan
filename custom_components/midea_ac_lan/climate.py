@@ -299,7 +299,7 @@ class MideaACClimate(MideaClimate):
             return str(FAN_MEDIUM)
         if fan_speed > FanSpeed.LOW:
             return str(FAN_LOW)
-        return FAN_SILENT
+        return str(FAN_SILENT)
 
     @property
     def target_temperature_step(self) -> float:
