@@ -2,8 +2,11 @@ target-version = "py311"
 
 lint.select = ["ALL"]
 
+lint.preview = true
+
 lint.ignore = [
     "ANN101",   # Missing type annotation for `self` in method
+    "CPY001",   # Missing copyright notice at top of file
     "D203",     # 1 blank line required before class docstring
     "D213",     # Multi-line docstring summary should start at the second line
     "EM101",    # Exception must not use a string literal, assign to variable first
@@ -11,9 +14,14 @@ lint.ignore = [
     "FBT001",   # Boolean-typed positional argument in function definition
     "FBT002",   # Boolean default positional argument in function definition
     "FBT003",   # Boolean positional value in function call
+    "FURB110",  # Replace ternary `if` expression with `or` operator
+    "FURB118",  # Use `operator.itemgetter(0)` instead of defining a lambda
     "N818",     # Exception name should be named with an Error suffix
+    "PLC1901",  # can be simplified as an empty string is falsey
     "PLR0911",  # Too many return statements
     "PLR0912",  # Too many branches
+    "RUF021",   # Parenthesize expressions when chaining `and` and `or` together, to make the precedence clear
+    "RUF029",   # Function is declared `async`, but doesn't `await` or use `async` features.
     "TRY003",   # Avoid specifying long messages outside the exception class
 ]
 
