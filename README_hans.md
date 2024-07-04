@@ -75,7 +75,7 @@
 
 请使用以下方式安装:
 
-### 方式1: HACS
+### 方式1: HACS安装
 
 > 1. 确保`Home Assistant`中已安装HACS [HACS install docs](https://hacs.xyz/docs/setup/download)
 > 2. 打开`HACS`, 点击`[Custom repositories]`, `Repository` 输入: `https://github.com/wuwentao/midea_ac_lan`, `Category` 选择 `[Integration]`

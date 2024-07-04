@@ -76,7 +76,7 @@ And more.
 > 2. open HACS, click [Custom repositories], Repository input: `https://github.com/wuwentao/midea_ac_lan`, Category select [Integration]
 > 3. **Restart Home Assistant**.
 
-### Option 2: install with script:
+### Option 2: Install with Script:
 
 > run this script in HA Terminal or SSH add-on
 
@@ -84,7 +84,7 @@ And more.
 wget -O - https://github.com/wuwentao/midea_ac_lan/raw/master/scripts/install.sh | ARCHIVE_TAG=latest bash -
 ```
 
-### Option 3: manual install:
+### Option 3: Manual Install:
 
 1. Download `midea_ac_lan.zip` from [Latest Release](https://github.com/wuwentao/midea_ac_lan/releases/latest)
 2. copy `midea_ac_lan.zip` to `/custom_components/midea_ac_lan` in Home Assistant.
