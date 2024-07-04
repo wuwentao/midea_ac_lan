@@ -7,7 +7,7 @@ ci:
   autofix_commit_msg: "chore(pre-commit.ci): auto fixes"
   autoupdate_commit_msg: "chore(pre-commit.ci): pre-commit autoupdate"
   autoupdate_schedule: weekly
-  skip: [mypy]
+  skip: [mypy, pylint]
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -56,5 +56,10 @@ repos:
       - id: mypy
         name: mypy
         entry: scripts/mypy.sh
+        language: system
+        types: [python]
+      - id: pylint
+        name: pylint
+        entry: pylint
         language: system
         types: [python]
