@@ -299,6 +299,58 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
             errors={"base": error} if error else None,
         )
 
+    async def _get_keys_preset_account(self, appliance_id: int) -> dict[str, Any]:
+        device = self.devices[appliance_id]
+        if (
+            self.cloud is None
+            or CONF_SERVER not in self.account
+            or self.account[CONF_SERVER] == "美的美居"
+        ):
+            _LOGGER.debug(
+                "Try to get Token and Key using preset MSmartHome account",
+            )
+
+            if self.session is None:
+                self.session = async_create_clientsession(self.hass)
+
+            self.cloud = get_midea_cloud(
+                "MSmartHome",
+                self.session,
+                bytes.fromhex(
+                    format((PRESET_ACCOUNT[0] ^ PRESET_ACCOUNT[1]), "X"),
+                ).decode("ASCII"),
+                bytes.fromhex(
+                    format((PRESET_ACCOUNT[0] ^ PRESET_ACCOUNT[2]), "X"),
+                ).decode("ASCII"),
+            )
+            if not await self.cloud.login():
+                _LOGGER.error(
+                    "Unable to get Token and Key using preset MSmartHome account",
+                )
+                return {"error": "preset_account"}
+        keys = await self.cloud.get_keys(appliance_id)
+        for value in keys.values():
+            dm = MideaDevice(
+                name="",
+                device_id=appliance_id,
+                device_type=device.get(CONF_TYPE),
+                ip_address=device.get(CONF_IP_ADDRESS),
+                port=device.get(CONF_PORT),
+                token=value["token"],
+                key=value["key"],
+                protocol=3,
+                model=device.get(CONF_MODEL),
+                subtype=0,
+                attributes={},
+            )
+            if dm.connect(refresh_status=False):
+                dm.close_socket()
+                return value
+        _LOGGER.error(
+            "Unable to connect using provided cloud account",
+        )
+        return {"error": "connect_error"}
+
     async def async_step_auto(
         self,
         user_input: dict[str, Any] | None = None,
@@ -357,43 +409,12 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                 self.found_device[CONF_SUBTYPE] = device_info.get("model_number")
             # get token and key from cloud for v3 device
             if device.get(CONF_PROTOCOL) == ProtocolVersion.V3:
-                if self.account[CONF_SERVER] == "美的美居":
-                    _LOGGER.debug(
-                        "Try to get Token and Key using preset MSmartHome account",
-                    )
-                    self.cloud = get_midea_cloud(
-                        "MSmartHome",
-                        self.session,
-                        bytes.fromhex(
-                            format((PRESET_ACCOUNT[0] ^ PRESET_ACCOUNT[1]), "X"),
-                        ).decode("ASCII"),
-                        bytes.fromhex(
-                            format((PRESET_ACCOUNT[0] ^ PRESET_ACCOUNT[2]), "X"),
-                        ).decode("ASCII"),
-                    )
-                    if not await self.cloud.login():
-                        return await self.async_step_auto(error="preset_account")
-                keys = await self.cloud.get_keys(user_input[CONF_DEVICE])
-                for value in keys.values():
-                    dm = MideaDevice(
-                        name="",
-                        device_id=device_id,
-                        device_type=device.get(CONF_TYPE),
-                        ip_address=device.get(CONF_IP_ADDRESS),
-                        port=device.get(CONF_PORT),
-                        token=value["token"],
-                        key=value["key"],
-                        protocol=3,
-                        model=device.get(CONF_MODEL),
-                        subtype=0,
-                        attributes={},
-                    )
-                    if dm.connect(refresh_status=False):
-                        dm.close_socket()
-                        self.found_device[CONF_TOKEN] = value["token"]
-                        self.found_device[CONF_KEY] = value["key"]
-                        return await self.async_step_manually()
-                return await self.async_step_auto(error="connect_error")
+                keys = await self._get_keys_preset_account(user_input[CONF_DEVICE])
+                if len(keys) == 1:
+                    return await self.async_step_auto(error=keys["error"])
+                self.found_device[CONF_TOKEN] = keys["token"]
+                self.found_device[CONF_KEY] = keys["key"]
+                return await self.async_step_manually()
             # v1/v2 device add without token/key
             return await self.async_step_manually()
         # show available device list in UI
@@ -417,6 +438,23 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
     ) -> ConfigFlowResult:
         """Add device with device detail info."""
         if user_input is not None:
+            try:
+                bytearray.fromhex(user_input[CONF_TOKEN])
+                bytearray.fromhex(user_input[CONF_KEY])
+            except ValueError:
+                return await self.async_step_manually(error="invalid_token")
+
+            if user_input[CONF_PROTOCOL] == ProtocolVersion.V3 and (
+                len(user_input[CONF_TOKEN]) == 0 or len(user_input[CONF_KEY]) == 0
+            ):
+                keys = await self._get_keys_preset_account(
+                    int(user_input[CONF_DEVICE_ID]),
+                )
+                if len(keys) == 1:
+                    return await self.async_step_manually(error=keys["error"])
+                user_input[CONF_KEY] = keys["key"]
+                user_input[CONF_TOKEN] = keys["token"]
+
             self.found_device = {
                 CONF_DEVICE_ID: user_input[CONF_DEVICE_ID],
                 CONF_TYPE: user_input[CONF_TYPE],
@@ -427,15 +465,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                 CONF_TOKEN: user_input[CONF_TOKEN],
                 CONF_KEY: user_input[CONF_KEY],
             }
-            try:
-                bytearray.fromhex(user_input[CONF_TOKEN])
-                bytearray.fromhex(user_input[CONF_KEY])
-            except ValueError:
-                return await self.async_step_manually(error="invalid_token")
-            if user_input[CONF_PROTOCOL] == ProtocolVersion.V3 and (
-                len(user_input[CONF_TOKEN]) == 0 or len(user_input[CONF_KEY]) == 0
-            ):
-                return await self.async_step_manually(error="invalid_token")
+
             dm = MideaDevice(
                 name="",
                 device_id=user_input[CONF_DEVICE_ID],
