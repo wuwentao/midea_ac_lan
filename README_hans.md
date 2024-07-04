@@ -73,21 +73,27 @@
 
 ## 安装
 
-**在HACS中搜索`Midea AC LAN`并安装的方式当前还不可用**，请耐心等待HACS审核和处理流程。
+请使用以下方式安装:
 
-请先使用以下二种方式手工安装:
+### 方式1: HACS
 
-方式1:
+> 1. 确保`Home Assistant`中已安装HACS [HACS install docs](https://hacs.xyz/docs/setup/download)
+> 2. 打开`HACS`, 点击`[Custom repositories]`, `Repository` 输入: `https://github.com/wuwentao/midea_ac_lan`, `Category` 选择 `[Integration]`
+> 3. **重启Home Assistant**.
 
-1. 确保`Home Assistant`中已安装HACS [HACS install docs](https://hacs.xyz/docs/setup/download)
-2. 打开`HACS`, 点击`[Custom repositories]`, `Repository` 输入: `https://github.com/wuwentao/midea_ac_lan`, `Category` 选择 `[Integration]`
-3. **重启Home Assistant**.
+### 方式2: 脚本安装
 
-方式2:
+> 在HomeAssistant的Terminal add-on或者SSH中执行以下脚本
 
-1. 从[Latest Release](https://github.com/wuwentao/midea_ac_lan/releases/latest) 下载 `midea_ac_lan.zip`
-2. 复制 `midea_ac_lan.zip` 到 `/custom_components/midea_ac_lan`.
-3. **重启 Home Assistant**.
+```shell
+wget -O - https://github.com/wuwentao/midea_ac_lan/raw/master/scripts/install.sh | ARCHIVE_TAG=latest bash -
+```
+
+### 方式3: 手工安装
+
+> 1. 从[Latest Release](https://github.com/wuwentao/midea_ac_lan/releases/latest) 下载 `midea_ac_lan.zip`
+> 2. 复制 `midea_ac_lan.zip` 到 `/custom_components/midea_ac_lan`.
+> 3. **重启 Home Assistant**.
 
 重启完成后, 打开 `[Settings]`, `[Device & services]`, `[Integrations]`, `[Midea AC Lan]`, 进行初始化设置并添加所有设备.
 
@@ -166,7 +172,7 @@
 
 ## 调试
 
-要打开调试日志输出, 在configuration.yaml中做如下配置
+要打开调试日志输出, 在configuration.yaml中添加如下配置
 
 ```yaml
 logger:
@@ -176,4 +182,16 @@ logger:
     midealocal: debug
 ```
 
-需要同时开启`midea_ac_lan`和`midealocal`
+> 需同时开启`midea_ac_lan`和`midealocal`, 重启后生效
+
+或者使用如下方式，无需重启
+
+> `Developer Tools` -> `Services` -> `GO TO YAML MODE`
+> 粘贴以下内容到输入框中，执行`CALL SERVICE`
+
+```yaml
+service: logger.set_level
+data:
+  custom_components.midea_ac_lan: debug
+  midealocal: debug
+```

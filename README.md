@@ -70,17 +70,21 @@ And more.
 
 ## Installation
 
-**Search `Midea AC LAN` in HACS not available now, it will be ready later**
+### Option 1: Install via HACS
 
-Please use manual install as below:
+> 1. make sure you have installed HACS to Home Assistant [HACS install guide](https://hacs.xyz/docs/setup/download)
+> 2. open HACS, click [Custom repositories], Repository input: `https://github.com/wuwentao/midea_ac_lan`, Category select [Integration]
+> 3. **Restart Home Assistant**.
 
-Option 1:
+### Option 2: install with script:
 
-1. make sure you have installed HACS to Home Assistant [HACS install guide](https://hacs.xyz/docs/setup/download)
-2. open HACS, click [Custom repositories], Repository input: `https://github.com/wuwentao/midea_ac_lan`, Category select [Integration]
-3. **Restart Home Assistant**.
+> run this script in HA Terminal or SSH add-on
 
-Option 2:
+```shell
+wget -O - https://github.com/wuwentao/midea_ac_lan/raw/master/scripts/install.sh | ARCHIVE_TAG=latest bash -
+```
+
+### Option 3: manual install:
 
 1. Download `midea_ac_lan.zip` from [Latest Release](https://github.com/wuwentao/midea_ac_lan/releases/latest)
 2. copy `midea_ac_lan.zip` to `/custom_components/midea_ac_lan` in Home Assistant.
@@ -92,7 +96,7 @@ Once it done, open `[Settings]`, `[Device & services]`, `[Integrations]`, `[Mide
 
 **_❗Note: First, set a static IP address for your appliance in the router, in case the IP address of the appliance changes after set-up._**
 
-After installation, search and add component Midea AC LAN in Home Assistant integrations page.
+After installation, search and add component `Midea AC LAN` in Home Assistant integrations page.
 
 Or click [![Configuration](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start?domain=midea_ac_lan)
 
@@ -177,4 +181,16 @@ logger:
     midealocal: debug
 ```
 
-we should enable `midea_ac_lan` and `midealocal`
+> we should enable `midea_ac_lan` and `midealocal`, then restart HA
+
+or use this service call without restart HA:
+
+> `Developer Tools` -> `Services` -> `GO TO YAML MODE`
+> paste below yaml content to the form，and run `CALL SERVICE`
+
+```yaml
+service: logger.set_level
+data:
+  custom_components.midea_ac_lan: debug
+  midealocal: debug
+```
