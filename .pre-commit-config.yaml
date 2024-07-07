@@ -63,3 +63,4 @@ repos:
         entry: pylint
         language: system
         types: [python]
+        args: ["--rcfile=pylintrc", "-v"]

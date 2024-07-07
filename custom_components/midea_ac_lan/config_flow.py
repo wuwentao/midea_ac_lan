@@ -59,9 +59,7 @@ if TYPE_CHECKING:
     from aiohttp import ClientSession
 
 if (MAJOR_VERSION, MINOR_VERSION) >= (2024, 4):
-    from homeassistant.config_entries import (
-        ConfigFlowResult,  # pylint: disable=import-error
-    )
+    from homeassistant.config_entries import ConfigFlowResult
 else:
     from homeassistant.data_entry_flow import (  # type: ignore[assignment]
         FlowResult as ConfigFlowResult,
@@ -628,7 +626,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                 )
             if user_input[CONF_PROTOCOL] != device.get(CONF_PROTOCOL):
                 return await self.async_step_manually(
-                    error=f"device protocol MUST be {device.get(CONF_PROTOCOL)}",
+                    error=f"protocol MUST be {device.get(CONF_PROTOCOL)}",
                 )
 
             # try to get token/key with preset account
