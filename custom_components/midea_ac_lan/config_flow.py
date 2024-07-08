@@ -59,7 +59,7 @@ if TYPE_CHECKING:
     from aiohttp import ClientSession
 
 if (MAJOR_VERSION, MINOR_VERSION) >= (2024, 4):
-    from homeassistant.config_entries import ConfigFlowResult
+    from homeassistant.config_entries import ConfigFlowResult  # pylint: disable=E0611
 else:
     from homeassistant.data_entry_flow import (  # type: ignore[assignment]
         FlowResult as ConfigFlowResult,
