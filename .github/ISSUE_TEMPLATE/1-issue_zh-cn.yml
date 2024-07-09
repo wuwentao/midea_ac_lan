@@ -12,7 +12,13 @@ body:
       required: true
     attributes:
       label: 集成版本
-      placeholder: 0.4.23
+      placeholder: 0.4.3
+  - type: input
+    validations:
+      required: true
+    attributes:
+      label: 之前可正常使用的集成版本
+      placeholder: 0.4.1
   - type: input
     validations:
       required: true

@@ -11,8 +11,14 @@ body:
     validations:
       required: true
     attributes:
-      label: Integration version
-      placeholder: 0.3.18
+      label: Current integration version
+      placeholder: 0.4.3
+  - type: input
+    validations:
+      required: true
+    attributes:
+      label: Last known working integration version
+      placeholder: 0.4.1
   - type: input
     validations:
       required: true
