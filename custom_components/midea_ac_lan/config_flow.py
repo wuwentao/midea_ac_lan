@@ -139,7 +139,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
         storage_path = Path(self.hass.config.path(STORAGE_PATH))
         storage_path.mkdir(parents=True, exist_ok=True)
         record_file = storage_path.joinpath(f"{data[CONF_DEVICE_ID]!s}.json")
-        save_json(record_file.name, data)
+        save_json(str(record_file), data)
 
     def _load_device_config(self, device_id: str) -> Any:  # noqa: ANN401
         """Load device config from json file with device id."""
