@@ -240,10 +240,6 @@ class MideaClimate(MideaEntity, ClimateEntity):
         elif old_mode == PRESET_BOOST:
             self._device.set_attribute(attr="boost_mode", value=False)
 
-    def update_state(self, status: Any) -> None:  # noqa: ANN401, ARG002
-        """Midea Climate update state."""
-        self.schedule_update_ha_state()
-
 
 class MideaACClimate(MideaClimate):
     """Midea AC Climate Entries."""

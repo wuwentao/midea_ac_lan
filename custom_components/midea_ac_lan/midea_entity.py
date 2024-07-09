@@ -1,10 +1,9 @@
 """Base entity for Midea Lan."""
 
 import logging
-from typing import Any, cast
+from typing import cast
 
 from homeassistant.const import MAJOR_VERSION, MINOR_VERSION
-from homeassistant.core import callback
 
 if (MAJOR_VERSION, MINOR_VERSION) >= (2023, 9):
     from homeassistant.helpers.device_registry import DeviceInfo
@@ -27,7 +26,6 @@ class MideaEntity(Entity):
     def __init__(self, device: MideaDevice, entity_key: str) -> None:
         """Initialize Midea base entity."""
         self._device = device
-        self._device.register_update(self.update_state)
         self._config = cast(dict, MIDEA_DEVICES[self._device.device_type]["entities"])[
             entity_key
         ]
@@ -81,9 +79,3 @@ class MideaEntity(Entity):
     def icon(self) -> str:
         """Return entity icon."""
         return cast(str, self._config.get("icon"))
-
-    @callback
-    def update_state(self, status: Any) -> None:  # noqa: ANN401
-        """Update entity state."""
-        if self._entity_key in status or "available" in status:
-            self.schedule_update_ha_state()

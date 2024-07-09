@@ -194,10 +194,6 @@ class MideaWaterHeater(MideaEntity, WaterHeaterEntity):
         """Midea Water Heater async off."""
         await self.hass.async_add_executor_job(ft.partial(self.turn_off, **kwargs))
 
-    def update_state(self, status: Any) -> None:  # noqa: ANN401, ARG002
-        """Midea Water Heater update state."""
-        self.schedule_update_ha_state()
-
 
 class MideaE2WaterHeater(MideaWaterHeater):
     """Midea E2 Water Heater Entries."""

@@ -100,10 +100,6 @@ class MideaHumidifier(MideaEntity, HumidifierEntity):
         """Midea Humidifier turn off."""
         self._device.set_attribute(attr="power", value=False)
 
-    def update_state(self, status: Any) -> None:  # noqa: ANN401, ARG002
-        """Midea Humidifier update state."""
-        self.schedule_update_ha_state()
-
 
 class MideaA1Humidifier(MideaHumidifier):
     """Midea A1 Humidifier Entries."""
