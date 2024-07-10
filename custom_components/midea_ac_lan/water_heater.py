@@ -196,6 +196,7 @@ class MideaWaterHeater(MideaEntity, WaterHeaterEntity):
 
     def update_state(self, status: Any) -> None:  # noqa: ANN401, ARG002
         """Midea Water Heater update state."""
+        _LOGGER.debug("Water heater update_state self: %s", type(self))
         self.schedule_update_ha_state()
 
 
