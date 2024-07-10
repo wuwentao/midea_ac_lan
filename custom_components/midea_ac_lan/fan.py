@@ -120,6 +120,7 @@ class MideaFan(MideaEntity, FanEntity):
 
     def update_state(self, status: Any) -> None:  # noqa: ANN401, ARG002
         """Midea Fan update state."""
+        _LOGGER.debug("Fan update_state self: %s", type(self))
         self.schedule_update_ha_state()
 
 
