@@ -450,7 +450,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                 subtype=0,
                 attributes={},
             )
-            if dm.connect(refresh_status=False):
+            if dm.connect(refresh_status=False, get_capabilities=False):
                 dm.close_socket()
                 return value
             # return debug log with failed key
@@ -681,7 +681,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                 subtype=0,
                 attributes={},
             )
-            if dm.connect(refresh_status=False):
+            if dm.connect(refresh_status=False, get_capabilities=False):
                 dm.close_socket()
                 data = {
                     CONF_NAME: user_input[CONF_NAME],
