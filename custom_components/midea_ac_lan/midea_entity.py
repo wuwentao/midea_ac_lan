@@ -85,5 +85,6 @@ class MideaEntity(Entity):
     @callback
     def update_state(self, status: Any) -> None:  # noqa: ANN401
         """Update entity state."""
+        _LOGGER.debug("Midea entity update_state self: %s", type(self))
         if self._entity_key in status or "available" in status:
             self.schedule_update_ha_state()
