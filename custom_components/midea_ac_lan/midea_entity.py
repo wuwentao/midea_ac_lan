@@ -86,6 +86,11 @@ class MideaEntity(Entity):
     def update_state(self, status: Any) -> None:  # noqa: ANN401
         """Update entity state."""
         if not self.hass:
-            _LOGGER.error("Midea entity update_state self: %s", type(self))
+            _LOGGER.error(
+                "Midea entity update_state for %s [%s] with status %s",
+                self.name,
+                type(self),
+                status,
+            )
         if self._entity_key in status or "available" in status:
             self.schedule_update_ha_state()
