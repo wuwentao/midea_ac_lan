@@ -177,5 +177,6 @@ class MideaLight(MideaEntity, LightEntity):
 
     def update_state(self, status: Any) -> None:  # noqa: ANN401,ARG002
         """Midea Light update state."""
-        _LOGGER.debug("Light update_state self: %s", type(self))
+        if not self.hass:
+            _LOGGER.error("Light update_state for %s [%s]", self.name, type(self))
         self.schedule_update_ha_state()
