@@ -242,7 +242,8 @@ class MideaClimate(MideaEntity, ClimateEntity):
 
     def update_state(self, status: Any) -> None:  # noqa: ANN401, ARG002
         """Midea Climate update state."""
-        _LOGGER.debug("Climate update_state self: %s", type(self))
+        if not self.hass:
+            _LOGGER.error("Climate update_state self: %s", type(self))
         self.schedule_update_ha_state()
 
 
