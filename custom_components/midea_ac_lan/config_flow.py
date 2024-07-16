@@ -629,6 +629,10 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                     )
 
             device = self.devices[device_id]
+            if user_input[CONF_IP_ADDRESS] != device.get(CONF_IP_ADDRESS):
+                return await self.async_step_manually(
+                    error=f"ip_address MUST be {device.get(CONF_IP_ADDRESS)}",
+                )
             if user_input[CONF_PROTOCOL] != device.get(CONF_PROTOCOL):
                 return await self.async_step_manually(
                     error=f"protocol MUST be {device.get(CONF_PROTOCOL)}",
