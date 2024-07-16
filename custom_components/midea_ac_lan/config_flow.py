@@ -607,23 +607,28 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
             except ValueError:
                 return await self.async_step_manually(error="invalid_token")
 
+            device_id = user_input[CONF_DEVICE_ID]
             # check device, discover already done or only manual add
             if len(self.devices) < 1:
+                ip = user_input[CONF_IP_ADDRESS]
                 # discover device
                 self.devices = discover(
                     list(self.supports.keys()),
-                    ip_address=user_input[CONF_IP_ADDRESS],
+                    ip_address=ip,
                 )
                 # discover result MUST exist
                 if len(self.devices) != 1:
                     return await self.async_step_manually(error="invalid_device_ip")
-            # check all the input, disable error add
-            device_id = next(iter(self.devices.keys()))
+                # check all the input, disable error add
+                device_id = next(iter(self.devices.keys()))
+
+                # check if device_id is correctly set for that IP
+                if user_input[CONF_DEVICE_ID] != device_id:
+                    return await self.async_step_manually(
+                        error=f"For ip {ip} the device_id MUST be {device_id}",
+                    )
+
             device = self.devices[device_id]
-            if user_input[CONF_DEVICE_ID] != device_id:
-                return await self.async_step_manually(
-                    error=f"device_id MUST be {device_id}",
-                )
             if user_input[CONF_PROTOCOL] != device.get(CONF_PROTOCOL):
                 return await self.async_step_manually(
                     error=f"protocol MUST be {device.get(CONF_PROTOCOL)}",
