@@ -49,7 +49,6 @@ from homeassistant.helpers.json import save_json
 from homeassistant.util.json import load_json
 from midealocal.cloud import (
     MideaCloud,
-    default_keys,
     get_midea_cloud,
 )
 from midealocal.device import MideaDevice, ProtocolVersion
@@ -240,6 +239,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
         """User login steps."""
         # get cloud servers configs
         cloud_servers = await MideaCloud.get_cloud_servers()
+        default_keys = await MideaCloud.get_default_keys()
         # add skip login option to web UI with key 99
         cloud_servers[next(iter(default_keys))] = SKIP_LOGIN
         # user input data exist
@@ -431,7 +431,8 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
             return {"error": "cloud_none"}
 
         # get device token/key from cloud
-        keys = await self.cloud.get_keys(appliance_id)
+        keys = await self.cloud.get_cloud_keys(appliance_id)
+        default_keys = await MideaCloud.get_default_keys()
         # use token/key to connect device and confirm token result
         for k, value in keys.items():
             # skip default_key
