@@ -16,14 +16,14 @@ repos:
       - id: no-commit-to-branch
         args: ["--branch", "master"]
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.5.2
+    rev: v0.5.4
     hooks:
       - id: ruff
         args:
           - --fix
       - id: ruff-format
   - repo: https://github.com/commitizen-tools/commitizen
-    rev: v3.27.0
+    rev: v3.28.0
     hooks:
       - id: commitizen
         stages: [commit-msg]
