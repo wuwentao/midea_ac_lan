@@ -39,7 +39,7 @@ class MideaEntity(Entity):
         self._attr_translation_key = self._config.get("translation_key")
         self._attr_has_entity_name = self._config.get("has_entity_name", False)
         if self.has_entity_name:
-            if self._config.get('name') is None:
+            if self._config.get("name") is None:
                 self._attr_name = None
         else:
             # old behavior
