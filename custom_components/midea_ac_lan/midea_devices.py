@@ -197,9 +197,15 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
     0x40: {
         "name": "Integrated Ceiling Fan",
         "entities": {
-            "fan": {"type": Platform.FAN, "icon": "mdi:fan", "default": True},
+            "fan": {
+                "type": Platform.FAN,
+                "has_entity_name": True,
+                "icon": "mdi:fan",
+                "default": True,
+            },
             X40Attributes.current_temperature: {
                 "type": Platform.SENSOR,
+                "has_entity_name": True,
                 "name": "Current Temperature",
                 "device_class": SensorDeviceClass.TEMPERATURE,
                 "unit": UnitOfTemperature.CELSIUS,
@@ -207,16 +213,22 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             X40Attributes.light: {
                 "type": Platform.SWITCH,
+                "has_entity_name": True,
+                "translation_key": "light",
                 "name": "Light",
                 "icon": "mdi:lightbulb",
             },
             X40Attributes.ventilation: {
                 "type": Platform.SWITCH,
+                "has_entity_name": True,
+                "translation_key": "ventilation",
                 "name": "Ventilation",
                 "icon": "mdi:air-filter",
             },
             X40Attributes.smelly_sensor: {
                 "type": Platform.SWITCH,
+                "has_entity_name": True,
+                "translation_key": "smelly_sensor",
                 "name": "Smelly Sensor",
                 "icon": "mdi:scent",
             },
