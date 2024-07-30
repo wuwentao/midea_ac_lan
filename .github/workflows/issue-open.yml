@@ -1,0 +1,21 @@
+name: Open Issue Workflow
+
+on:
+  issues:
+    types: [opened, labeled]
+
+jobs:
+  job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Open new ISSUE on rokam/midea-local repository
+        if: contains(github.event.label.name , 'midea-local library')
+        uses: GuillaumeFalourd/open-issue-action@v1
+        with:
+          access-token: ${{ secrets.GITHUB_TOKEN }}
+          repo-owner: rokam
+          repo-name: midea-local
+          issue-title: ${{ github.event.issue.title }}
+          issue-body: ${{ github.event.issue.body }}
+
+            [${{github.event.issue.url}}]
