@@ -51,8 +51,9 @@ from midealocal.cloud import (
     MideaCloud,
     get_midea_cloud,
 )
-from midealocal.device import MideaDevice, ProtocolVersion
+from midealocal.device import AuthException, MideaDevice, ProtocolVersion
 from midealocal.discover import discover
+from midealocal.exceptions import SocketException
 
 if TYPE_CHECKING:
     from aiohttp import ClientSession
@@ -451,9 +452,17 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                 subtype=0,
                 attributes={},
             )
-            if dm.connect(refresh_status=False, get_capabilities=False):
-                dm.close_socket()
-                return value
+            if dm.connect():
+                try:
+                    dm.authenticate()
+                except AuthException:
+                    _LOGGER.debug("Unable to authenticate.")
+                    dm.close_socket()
+                except SocketException:
+                    _LOGGER.debug("Socket closed.")
+                else:
+                    dm.close_socket()
+                    return value
             # return debug log with failed key
             _LOGGER.debug(
                 "connect device using method %s token/key failed",
@@ -691,27 +700,38 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                 subtype=0,
                 attributes={},
             )
-            if dm.connect(refresh_status=False, get_capabilities=False):
-                dm.close_socket()
-                data = {
-                    CONF_NAME: user_input[CONF_NAME],
-                    CONF_DEVICE_ID: user_input[CONF_DEVICE_ID],
-                    CONF_TYPE: user_input[CONF_TYPE],
-                    CONF_PROTOCOL: user_input[CONF_PROTOCOL],
-                    CONF_IP_ADDRESS: user_input[CONF_IP_ADDRESS],
-                    CONF_PORT: user_input[CONF_PORT],
-                    CONF_MODEL: user_input[CONF_MODEL],
-                    CONF_SUBTYPE: user_input[CONF_SUBTYPE],
-                    CONF_TOKEN: user_input[CONF_TOKEN],
-                    CONF_KEY: user_input[CONF_KEY],
-                }
-                # save device json config when adding new device
-                self._save_device_config(data)
-                # finish add device entry
-                return self.async_create_entry(
-                    title=f"{user_input[CONF_NAME]}",
-                    data=data,
-                )
+            if dm.connect():
+                try:
+                    if user_input[CONF_PROTOCOL] != ProtocolVersion.V3:
+                        dm.authenticate()
+                except SocketException:
+                    _LOGGER.exception("Socket closed.")
+                except AuthException:
+                    _LOGGER.exception(
+                        "Unable to authenticate with provided key and token.",
+                    )
+                    dm.close_socket()
+                else:
+                    dm.close_socket()
+                    data = {
+                        CONF_NAME: user_input[CONF_NAME],
+                        CONF_DEVICE_ID: user_input[CONF_DEVICE_ID],
+                        CONF_TYPE: user_input[CONF_TYPE],
+                        CONF_PROTOCOL: user_input[CONF_PROTOCOL],
+                        CONF_IP_ADDRESS: user_input[CONF_IP_ADDRESS],
+                        CONF_PORT: user_input[CONF_PORT],
+                        CONF_MODEL: user_input[CONF_MODEL],
+                        CONF_SUBTYPE: user_input[CONF_SUBTYPE],
+                        CONF_TOKEN: user_input[CONF_TOKEN],
+                        CONF_KEY: user_input[CONF_KEY],
+                    }
+                    # save device json config when adding new device
+                    self._save_device_config(data)
+                    # finish add device entry
+                    return self.async_create_entry(
+                        title=f"{user_input[CONF_NAME]}",
+                        data=data,
+                    )
             return await self.async_step_manually(
                 error="Device auth failed with input config",
             )
