@@ -12,7 +12,7 @@ jobs:
         if: contains(github.event.label.name , 'midea-local library')
         uses: GuillaumeFalourd/open-issue-action@v1
         with:
-          access-token: ${{ secrets.GITHUB_TOKEN }}
+          access-token: ${{ secrets.MIDEA_LOCAL_TOKEN }}
           repo-owner: rokam
           repo-name: midea-local
           issue-title: ${{ github.event.issue.title }}
