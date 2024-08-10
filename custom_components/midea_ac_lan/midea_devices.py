@@ -923,6 +923,12 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Silent Mode",
                 "icon": "mdi:fan-remove",
             },
+            C3Attributes.SILENT_LEVEL: {
+                "type": Platform.SELECT,
+                "name": "Silent Level",
+                "icon": "mdi:fan-remove",
+                "options": "silent_modes",
+            },
             C3Attributes.tbh: {
                 "type": Platform.SWITCH,
                 "name": "TBH",
