@@ -702,7 +702,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
             )
             if dm.connect():
                 try:
-                    if user_input[CONF_PROTOCOL] != ProtocolVersion.V3:
+                    if user_input[CONF_PROTOCOL] == ProtocolVersion.V3:
                         dm.authenticate()
                 except SocketException:
                     _LOGGER.exception("Socket closed.")
