@@ -184,8 +184,10 @@ class MideaACFreshAirFan(MideaFan):
         """Midea AC Fresh Air Fan entity init."""
         super().__init__(device, entity_key)
         self._attr_supported_features = (
-            FanEntityFeature.SET_SPEED | FanEntityFeature.PRESET_MODE |
-            FanEntityFeature.TURN_ON | FanEntityFeature.TURN_OFF
+            FanEntityFeature.SET_SPEED
+            | FanEntityFeature.PRESET_MODE
+            | FanEntityFeature.TURN_ON
+            | FanEntityFeature.TURN_OFF
         )
         self._attr_speed_count = 100
 
