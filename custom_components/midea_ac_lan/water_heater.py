@@ -27,8 +27,8 @@ from midealocal.devices.c3 import DeviceAttributes as C3Attributes
 from midealocal.devices.c3 import MideaC3Device
 from midealocal.devices.cd import DeviceAttributes as CDAttributes
 from midealocal.devices.cd import MideaCDDevice
-from midealocal.devices.e2 import MideaE2Device
 from midealocal.devices.e2 import DeviceAttributes as E2Attributes
+from midealocal.devices.e2 import MideaE2Device
 from midealocal.devices.e3 import MideaE3Device
 from midealocal.devices.e6 import DeviceAttributes as E6Attributes
 from midealocal.devices.e6 import MideaE6Device
@@ -219,9 +219,7 @@ class MideaE2WaterHeater(MideaWaterHeater):
     def current_operation(self) -> str:
         """Midea E2 Water Heater current operation."""
         return str(
-            STATE_ON
-            if self._device.get_attribute(E2Attributes.power)
-            else STATE_OFF,
+            STATE_ON if self._device.get_attribute(E2Attributes.power) else STATE_OFF,
         )
 
     @property
