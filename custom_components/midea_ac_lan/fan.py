@@ -5,7 +5,11 @@ from typing import Any, cast
 
 from homeassistant.components.fan import FanEntity, FanEntityFeature
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import CONF_DEVICE_ID, CONF_SWITCHES, Platform
+from homeassistant.const import (
+    CONF_DEVICE_ID,
+    CONF_SWITCHES,
+    Platform,
+)
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from midealocal.device import DeviceType
@@ -57,8 +61,17 @@ async def async_setup_entry(
     async_add_entities(devs)
 
 
+# HA version >= 2024,8 support TURN_ON | TURN_OFF,for future changes, ref PR #285
+try:
+    FAN_FEATURE_TURN_ON_OFF = FanEntityFeature["TURN_ON"] | FanEntityFeature["TURN_OFF"]
+except KeyError:
+    FAN_FEATURE_TURN_ON_OFF = FanEntityFeature(0)
+
+
 class MideaFan(MideaEntity, FanEntity):
     """Midea Fan Entries Base Class."""
+
+    _enable_turn_on_off_backwards_compatibility = False  # 2024.8~2025.1
 
     @property
     def preset_modes(self) -> list[str] | None:
@@ -137,6 +150,7 @@ class MideaFAFan(MideaFan):
             FanEntityFeature.SET_SPEED
             | FanEntityFeature.OSCILLATE
             | FanEntityFeature.PRESET_MODE
+            | FAN_FEATURE_TURN_ON_OFF
         )
         self._attr_speed_count = self._device.speed_count
 
@@ -160,7 +174,9 @@ class MideaB6Fan(MideaFan):
         """Midea B6 Fan entity init."""
         super().__init__(device, entity_key)
         self._attr_supported_features = (
-            FanEntityFeature.SET_SPEED | FanEntityFeature.PRESET_MODE
+            FanEntityFeature.SET_SPEED
+            | FanEntityFeature.PRESET_MODE
+            | FAN_FEATURE_TURN_ON_OFF
         )
         self._attr_speed_count = self._device.speed_count
 
@@ -184,7 +200,9 @@ class MideaACFreshAirFan(MideaFan):
         """Midea AC Fresh Air Fan entity init."""
         super().__init__(device, entity_key)
         self._attr_supported_features = (
-            FanEntityFeature.SET_SPEED | FanEntityFeature.PRESET_MODE
+            FanEntityFeature.SET_SPEED
+            | FanEntityFeature.PRESET_MODE
+            | FAN_FEATURE_TURN_ON_OFF
         )
         self._attr_speed_count = 100
 
@@ -243,7 +261,9 @@ class MideaCEFan(MideaFan):
         """Midea CE Fan entity init."""
         super().__init__(device, entity_key)
         self._attr_supported_features = (
-            FanEntityFeature.SET_SPEED | FanEntityFeature.PRESET_MODE
+            FanEntityFeature.SET_SPEED
+            | FanEntityFeature.PRESET_MODE
+            | FAN_FEATURE_TURN_ON_OFF
         )
         self._attr_speed_count = self._device.speed_count
 
@@ -270,7 +290,9 @@ class MideaX40Fan(MideaFan):
         """Midea X40 Fan entity init."""
         super().__init__(device, entity_key)
         self._attr_supported_features = (
-            FanEntityFeature.SET_SPEED | FanEntityFeature.OSCILLATE
+            FanEntityFeature.SET_SPEED
+            | FanEntityFeature.OSCILLATE
+            | FAN_FEATURE_TURN_ON_OFF
         )
         self._attr_speed_count = 2
 
