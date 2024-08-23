@@ -14,7 +14,7 @@
 | 实体ID                                         | 类型          | 名称                              | 描述         |
 | ---------------------------------------------- | ------------- | --------------------------------- | ------------ |
 | binary_sensor.{DEVICEID}\_heating_working      | binary_sensor | Heating Working Status            | 取暖工作状态 |
-| binary_sensor.{DEVICEID}\_bathing_working      | binary_sensor | Bathing Working Status            | 领域工作状态 |
+| binary_sensor.{DEVICEID}\_bathing_working      | binary_sensor | Bathing Working Status            | 淋浴工作状态 |
 | sensor.{DEVICEID}\_heating_leaving_temperature | sensor        | Heating Leaving Water Temperature | 取暖出水温度 |
 | sensor.{DEVICEID}\_bathing_leaving_temperature | sensor        | Bathing Leaving Water Temperature | 淋浴出水温度 |
 | switch.{DEVICEID}\_main_power                  | switch        | Main power                        | 主电源       |
