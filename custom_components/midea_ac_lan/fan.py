@@ -63,11 +63,10 @@ async def async_setup_entry(
     async_add_entities(devs)
 
 
-FAN_FEATURE_TURN_ON_OFF: FanEntityFeature = (
-    (FanEntityFeature.TURN_ON | FanEntityFeature.TURN_OFF)
-    if (MAJOR_VERSION, MINOR_VERSION) >= (2024, 8)
-    else FanEntityFeature(0)
-)
+if (MAJOR_VERSION, MINOR_VERSION) >= (2024, 8):
+    FAN_FEATURE_TURN_ON_OFF = FanEntityFeature.TURN_ON | FanEntityFeature.TURN_OFF
+else:
+    FAN_FEATURE_TURN_ON_OFF = FanEntityFeature(0)
 
 
 class MideaFan(MideaEntity, FanEntity):
