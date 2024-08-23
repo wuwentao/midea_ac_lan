@@ -8,8 +8,6 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import (
     CONF_DEVICE_ID,
     CONF_SWITCHES,
-    MAJOR_VERSION,
-    MINOR_VERSION,
     Platform,
 )
 from homeassistant.core import HomeAssistant
@@ -63,9 +61,10 @@ async def async_setup_entry(
     async_add_entities(devs)
 
 
-if (MAJOR_VERSION, MINOR_VERSION) >= (2024, 8):
+# HA version >= 2024,8 support TURN_ON | TURN_OFF, add comments for future changes, ref PR #285
+try:
     FAN_FEATURE_TURN_ON_OFF = FanEntityFeature.TURN_ON | FanEntityFeature.TURN_OFF
-else:
+except AttributeError:
     FAN_FEATURE_TURN_ON_OFF = FanEntityFeature(0)
 
 
