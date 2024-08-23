@@ -61,7 +61,7 @@ async def async_setup_entry(
     async_add_entities(devs)
 
 
-# HA version >= 2024,8 support TURN_ON | TURN_OFF, add comments for future changes, ref PR #285
+# HA version >= 2024,8 support TURN_ON | TURN_OFF,for future changes, ref PR #285
 try:
     FAN_FEATURE_TURN_ON_OFF = FanEntityFeature.TURN_ON | FanEntityFeature.TURN_OFF
 except AttributeError:
