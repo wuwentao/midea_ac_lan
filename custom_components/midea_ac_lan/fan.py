@@ -62,9 +62,9 @@ async def async_setup_entry(
 
 
 # HA version >= 2024,8 support TURN_ON | TURN_OFF,for future changes, ref PR #285
-try:
+if hasattr(FanEntityFeature, "TURN_ON") and hasattr(FanEntityFeature, "TURN_OFF"):
     FAN_FEATURE_TURN_ON_OFF = FanEntityFeature.TURN_ON | FanEntityFeature.TURN_OFF
-except AttributeError:
+else:
     FAN_FEATURE_TURN_ON_OFF = FanEntityFeature(0)
 
 
