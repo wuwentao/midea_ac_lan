@@ -120,16 +120,6 @@ class MideaWaterHeater(MideaEntity, WaterHeaterEntity):
         raise NotImplementedError
 
     @property
-    def target_temperature_low(self) -> float:
-        """Midea Water Heater target temperature low."""
-        return self.min_temp
-
-    @property
-    def target_temperature_high(self) -> float:
-        """Midea Water Heater target temperature high."""
-        return self.max_temp
-
-    @property
     def precision(self) -> float:
         """Midea Water Heater precision."""
         return float(PRECISION_WHOLE)
