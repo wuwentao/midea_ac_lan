@@ -87,7 +87,13 @@ class MideaLight(MideaEntity, LightEntity):
         self._attr_color_mode = self._calc_color_mode(self._attr_supported_color_modes)
 
     def _calc_color_mode(self, supported: set[ColorMode]) -> ColorMode:
-        """Midea Light calculate color mode."""
+        """Midea Light calculate color mode.
+
+        Returns
+        -------
+        Calculated color mode
+
+        """
         # https://github.com/home-assistant/core/blob/c34731185164aaf44419977c4086e9a7dd6c0a7f/homeassistant/components/light/__init__.py#L925
         if ColorMode.HS in supported and self.hs_color is not None:
             return ColorMode.HS

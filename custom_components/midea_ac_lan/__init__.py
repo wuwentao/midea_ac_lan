@@ -76,7 +76,7 @@ async def update_listener(hass: HomeAssistant, config_entry: ConfigEntry) -> Non
             dev.set_refresh_interval(refresh_interval)
 
 
-async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:  # noqa: ARG001
+async def async_setup(hass: HomeAssistant, config: ConfigType) -> None:  # noqa: ARG001
     """Set up midea_lan component when load this integration."""
     hass.data.setdefault(DOMAIN, {})
     attributes = []
@@ -166,11 +166,16 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:  # noqa:
             },
         ),
     )
-    return True
 
 
 async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> bool:
-    """Set up platform for current integration."""
+    """Set up platform for current integration.
+
+    Returns
+    -------
+    True if entry is configured.
+
+    """
     device_type = config_entry.data.get(CONF_TYPE)
     if device_type == CONF_ACCOUNT:
         return True
@@ -246,7 +251,13 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
 
 
 async def async_unload_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> bool:
-    """Clean up entities, unsubscribe event listener and close all connections."""
+    """Clean up entities, unsubscribe event listener and close all connections.
+
+    Returns
+    -------
+    True if entry is unloaded.
+
+    """
     device_type = config_entry.data.get(CONF_TYPE)
     if device_type == CONF_ACCOUNT:
         return True
@@ -262,7 +273,13 @@ async def async_unload_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> 
 
 
 async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> bool:
-    """Migrate old entry."""
+    """Migrate old entry.
+
+    Returns
+    -------
+    True if entry is migrated.
+
+    """
     # 1 -> 2:  convert device identifiers from int to str
     if config_entry.version == 1:
         _LOGGER.debug("Migrating configuration from version 1")
