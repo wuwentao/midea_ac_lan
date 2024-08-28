@@ -470,7 +470,13 @@ class MideaC3Climate(MideaClimate):
         self._power_attr = MideaC3Climate._powers[zone]
 
     def _temperature(self, minimum: bool) -> list[str]:
-        """Midea C3 Climate temperature."""
+        """Midea C3 Climate temperature.
+
+        Returns
+        -------
+        List of temperatures
+
+        """
         # fmt: off
         value = (C3Attributes.temperature_min
             if minimum

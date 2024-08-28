@@ -142,7 +142,13 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
         save_json(str(record_file), data)
 
     def _load_device_config(self, device_id: str) -> Any:  # noqa: ANN401
-        """Load device config from json file with device id."""
+        """Load device config from json file with device id.
+
+        Returns
+        -------
+        Device configuration (json)
+
+        """
         record_file = Path(
             self.hass.config.path(f"{STORAGE_PATH}", f"{device_id}.json"),
         )
@@ -153,7 +159,13 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
 
     @staticmethod
     def _check_storage_device(device: dict, storage_device: dict) -> bool:
-        """Check input device with storage_device."""
+        """Check input device with storage_device.
+
+        Returns
+        -------
+        True if storage device exist
+
+        """
         if storage_device.get(CONF_SUBTYPE) is None:
             return False
         return not (
@@ -165,7 +177,13 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
         )
 
     def _already_configured(self, device_id: str, ip_address: str) -> bool:
-        """Check device from json with device_id or ip address."""
+        """Check device from json with device_id or ip address.
+
+        Returns
+        -------
+        True if device is already configured
+
+        """
         for entry in self._async_current_entries():
             if device_id == entry.data.get(
                 CONF_DEVICE_ID,
@@ -182,6 +200,11 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
 
         Using `async_step_<step_id>` and `async_step_user` will be the first step,
         then select discovery mode
+
+        Returns
+        -------
+        Config flow result
+
         """
         # user select a device discovery mode
         if user_input is not None:
@@ -211,7 +234,13 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
         user_input: dict[str, Any] | None = None,
         error: str | None = None,
     ) -> ConfigFlowResult:
-        """Remove cached login data and can input a new one."""
+        """Remove cached login data and can input a new one.
+
+        Returns
+        -------
+        Config flow result
+
+        """
         # user input data exist
         if user_input is not None:
             # key is not None
@@ -237,7 +266,13 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
         user_input: dict[str, Any] | None = None,
         error: str | None = None,
     ) -> ConfigFlowResult:
-        """User login steps."""
+        """User login steps.
+
+        Returns
+        -------
+        Config flow result
+
+        """
         # get cloud servers configs
         cloud_servers = await MideaCloud.get_cloud_servers()
         default_keys = await MideaCloud.get_default_keys()
@@ -312,7 +347,13 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
         self,
         error: str | None = None,
     ) -> ConfigFlowResult:
-        """List all devices and show device info in web UI."""
+        """List all devices and show device info in web UI.
+
+        Returns
+        -------
+        Config flow result
+
+        """
         # get all devices list
         all_devices = discover()
         # available devices exist
@@ -345,7 +386,13 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
         discovery_info: dict[str, Any] | None = None,
         error: str | None = None,
     ) -> ConfigFlowResult:
-        """Discovery device with auto mode or ip address."""
+        """Discovery device with auto mode or ip address.
+
+        Returns
+        -------
+        Config flow result
+
+        """
         # input is not None, using ip_address to discovery device
         if discovery_info is not None:
             # auto mode, ip_address is None
@@ -387,7 +434,13 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
         password: str | None = None,
         force_login: bool = False,
     ) -> bool:
-        """Check cloud login."""
+        """Check cloud login.
+
+        Returns
+        -------
+        True if cloud login succeeded
+
+        """
         # set default args with perset account
         if cloud_name is None or account is None or password is None:
             cloud_name = self.preset_cloud_name
@@ -425,7 +478,13 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
         appliance_id: int,
         default_key: bool = True,
     ) -> dict[str, Any]:
-        """Use perset MSmartHome account to get v3 device token and key."""
+        """Use perset MSmartHome account to get v3 device token and key.
+
+        Returns
+        -------
+        Dictionary of keys
+
+        """
         device = self.devices[appliance_id]
 
         if self.cloud is None:
@@ -478,7 +537,13 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
         user_input: dict[str, Any] | None = None,
         error: str | None = None,
     ) -> ConfigFlowResult:
-        """Discovery device detail info."""
+        """Discovery device detail info.
+
+        Returns
+        -------
+        Config flow result
+
+        """
         # input device exist
         if user_input is not None:
             device_id = user_input[CONF_DEVICE]
@@ -609,7 +674,13 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
         user_input: dict[str, Any] | None = None,
         error: str | None = None,
     ) -> ConfigFlowResult:
-        """Add device with device detail info."""
+        """Add device with device detail info.
+
+        Returns
+        -------
+        Config flow result
+
+        """
         if user_input is not None:
             try:
                 bytearray.fromhex(user_input[CONF_TOKEN])
@@ -824,7 +895,13 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
     @staticmethod
     @callback
     def async_get_options_flow(config_entry: ConfigEntry) -> OptionsFlow:
-        """Create the options flow with MideaLanOptionsFlowHandler."""
+        """Create the options flow with MideaLanOptionsFlowHandler.
+
+        Returns
+        -------
+        Config flow options handler
+
+        """
         return MideaLanOptionsFlowHandler(config_entry)
 
 
@@ -850,7 +927,13 @@ class MideaLanOptionsFlowHandler(OptionsFlow):
         self,
         user_input: dict[str, Any] | None = None,
     ) -> ConfigFlowResult:
-        """Manage the options."""
+        """Manage the options.
+
+        Returns
+        -------
+        Config flow result
+
+        """
         if self._device_type == CONF_ACCOUNT:
             return self.async_abort(reason="account_option")
         if user_input is not None:
