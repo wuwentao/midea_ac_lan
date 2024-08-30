@@ -30,7 +30,7 @@ from homeassistant.const import (
 )
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.typing import ConfigType
-from midealocal.device import DeviceType, ProtocolVersion
+from midealocal.device import DeviceType, MideaDevice, ProtocolVersion
 from midealocal.devices import device_selector
 
 from .const import (
@@ -67,7 +67,7 @@ async def update_listener(hass: HomeAssistant, config_entry: ConfigEntry) -> Non
     customize = config_entry.options.get(CONF_CUSTOMIZE, "")
     ip_address = config_entry.options.get(CONF_IP_ADDRESS, None)
     refresh_interval = config_entry.options.get(CONF_REFRESH_INTERVAL, None)
-    dev = hass.data[DOMAIN][DEVICES].get(device_id)
+    dev: MideaDevice = hass.data[DOMAIN][DEVICES].get(device_id)
     if dev:
         dev.set_customize(customize)
         if ip_address is not None:
