@@ -63,7 +63,7 @@ async def update_listener(hass: HomeAssistant, config_entry: ConfigEntry) -> Non
     hass.async_create_task(
         hass.config_entries.async_forward_entry_setups(config_entry, ALL_PLATFORM),
     )
-    device_id = config_entry.data.get(CONF_DEVICE_ID)
+    device_id: int = cast(int, config_entry.data.get(CONF_DEVICE_ID))
     customize = config_entry.options.get(CONF_CUSTOMIZE, "")
     ip_address = config_entry.options.get(CONF_IP_ADDRESS, None)
     refresh_interval = config_entry.options.get(CONF_REFRESH_INTERVAL, None)
@@ -93,10 +93,10 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> None:  # noqa:
 
     def service_set_attribute(service: Any) -> None:  # noqa: ANN401
         """Set service attribute func."""
-        device_id = service.data["device_id"]
+        device_id: int = service.data["device_id"]
         attr = service.data["attribute"]
         value = service.data["value"]
-        dev = hass.data[DOMAIN][DEVICES].get(device_id)
+        dev: MideaDevice = hass.data[DOMAIN][DEVICES].get(device_id)
         if dev:
             if attr == "fan_speed" and value == "auto":
                 value = 102
