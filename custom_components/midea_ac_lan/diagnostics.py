@@ -26,7 +26,7 @@ async def async_get_config_entry_diagnostics(
 
     Returns
     -------
-    Dictiory of config
+    Dictionary of config
 
     """
     return {"entry": async_redact_data(entry.as_dict(), TO_REDACT)}
