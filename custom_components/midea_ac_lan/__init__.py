@@ -76,8 +76,14 @@ async def update_listener(hass: HomeAssistant, config_entry: ConfigEntry) -> Non
             dev.set_refresh_interval(refresh_interval)
 
 
-async def async_setup(hass: HomeAssistant, config: ConfigType) -> None:  # noqa: ARG001
-    """Set up midea_lan component when load this integration."""
+async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:  # noqa: ARG001
+    """Set up midea_lan component when load this integration.
+
+    Returns
+    -------
+    True if entry is configured.
+
+    """
     hass.data.setdefault(DOMAIN, {})
     attributes = []
     for device_entities in MIDEA_DEVICES.values():
@@ -166,6 +172,8 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> None:  # noqa:
             },
         ),
     )
+
+    return True
 
 
 async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> bool:
