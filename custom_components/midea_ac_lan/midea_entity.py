@@ -89,6 +89,9 @@ class MideaEntity(Entity):
     @callback
     def update_state(self, status: Any) -> None:  # noqa: ANN401
         """Update entity state."""
+        if self.hass.is_stopping:
+            return
+
         if not self.hass:
             _LOGGER.error(
                 "Midea entity update_state for %s [%s] with status %s",
