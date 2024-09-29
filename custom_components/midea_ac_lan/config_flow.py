@@ -48,6 +48,7 @@ from homeassistant.helpers.aiohttp_client import async_create_clientsession
 from homeassistant.helpers.json import save_json
 from homeassistant.util.json import load_json
 from midealocal.cloud import (
+    PRESET_ACCOUNT_DATA,
     MideaCloud,
     get_midea_cloud,
 )
@@ -89,12 +90,6 @@ ADD_WAY = {
 PROTOCOLS = {1: "V1", 2: "V2", 3: "V3"}
 STORAGE_PATH = f".storage/{DOMAIN}"
 
-PRESET_ACCOUNT = [
-    39182118275972017797890111985649342047468653967530949796945843010512,
-    29406100301096535908214728322278519471982973450672552249652548883645,
-    39182118275972017797890111985649342050088014265865102175083010656997,
-]
-
 SKIP_LOGIN = "Skip Login (input any user/password)"
 
 
@@ -126,11 +121,11 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
             self.supports[item[0]] = item[1]
         # preset account
         self.preset_account: str = bytes.fromhex(
-            format((PRESET_ACCOUNT[0] ^ PRESET_ACCOUNT[1]), "X"),
+            format((PRESET_ACCOUNT_DATA[0] ^ PRESET_ACCOUNT_DATA[1]), "X"),
         ).decode("ASCII")
         # preset password
         self.preset_password: str = bytes.fromhex(
-            format((PRESET_ACCOUNT[0] ^ PRESET_ACCOUNT[2]), "X"),
+            format((PRESET_ACCOUNT_DATA[0] ^ PRESET_ACCOUNT_DATA[2]), "X"),
         ).decode("ASCII")
         self.preset_cloud_name: str = "MSmartHome"
 
@@ -292,10 +287,10 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                 )
                 cloud_server = cloud_servers[key]
                 account = bytes.fromhex(
-                    format((PRESET_ACCOUNT[0] ^ PRESET_ACCOUNT[1]), "X"),
+                    format((PRESET_ACCOUNT_DATA[0] ^ PRESET_ACCOUNT_DATA[1]), "X"),
                 ).decode("ASCII")
                 password = bytes.fromhex(
-                    format((PRESET_ACCOUNT[0] ^ PRESET_ACCOUNT[2]), "X"),
+                    format((PRESET_ACCOUNT_DATA[0] ^ PRESET_ACCOUNT_DATA[2]), "X"),
                 ).decode("ASCII")
                 # set a login_mode flag
                 self.hass.data[DOMAIN]["login_mode"] = "preset"
