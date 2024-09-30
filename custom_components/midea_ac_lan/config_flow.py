@@ -87,7 +87,7 @@ ADD_WAY = {
     "list": "List all appliances only",
     "cache": "Remove login cache",
 }
-PROTOCOLS = {1: "V1", 2: "V2", 3: "V3"}
+
 STORAGE_PATH = f".storage/{DOMAIN}"
 
 SKIP_LOGIN = "Skip Login (input any user/password)"
@@ -801,11 +801,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
             return await self.async_step_manually(
                 error="Device auth failed with input config",
             )
-        # show device detail form in UI
-        if self.found_device.get(CONF_PROTOCOL) == ProtocolVersion.V3:
-            # force v3, disable error add
-            PROTOCOLS.pop(1, None)
-            PROTOCOLS.pop(2, None)
+        protocol = self.found_device.get(CONF_PROTOCOL)
         return self.async_show_form(
             step_id="manually",
             data_schema=vol.Schema(
@@ -844,12 +840,10 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                     ): int,
                     vol.Required(
                         CONF_PROTOCOL,
-                        default=(
-                            self.found_device.get(CONF_PROTOCOL)
-                            if self.found_device.get(CONF_PROTOCOL)
-                            else 3
-                        ),
-                    ): vol.In(PROTOCOLS),
+                        default=protocol or ProtocolVersion.V3,
+                    ): vol.In(
+                        protocol or ProtocolVersion,
+                    ),
                     vol.Required(
                         CONF_MODEL,
                         default=(
