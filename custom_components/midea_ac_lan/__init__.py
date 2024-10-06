@@ -202,7 +202,7 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
     port: int = config_entry.data[CONF_PORT]
     model: str = config_entry.data[CONF_MODEL]
     subtype = config_entry.data.get(CONF_SUBTYPE, 0)
-    protocol: int = config_entry.data[CONF_PROTOCOL]
+    protocol: ProtocolVersion = ProtocolVersion(config_entry.data[CONF_PROTOCOL])
     customize: str = config_entry.options.get(CONF_CUSTOMIZE, "")
     if protocol == ProtocolVersion.V3 and (key == "" or token == ""):
         _LOGGER.error("For V3 devices, the key and the token is required")
@@ -234,7 +234,7 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
             port=port,
             token=token,
             key=key,
-            protocol=protocol,
+            device_protocol=protocol,
             model=model,
             subtype=subtype,
             customize=customize,
