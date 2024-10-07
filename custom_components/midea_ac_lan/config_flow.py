@@ -49,6 +49,7 @@ from homeassistant.helpers.json import save_json
 from homeassistant.util.json import load_json
 from midealocal.cloud import (
     PRESET_ACCOUNT_DATA,
+    SUPPORTED_CLOUDS,
     MideaCloud,
     get_midea_cloud,
 )
@@ -87,6 +88,9 @@ ADD_WAY = {
     "list": "List all appliances only",
     "cache": "Remove login cache",
 }
+
+# Select SmartHome from the list of supported cloud
+SMARTHOME: str = list(SUPPORTED_CLOUDS)[1]
 
 STORAGE_PATH = f".storage/{DOMAIN}"
 
@@ -127,7 +131,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
         self.preset_password: str = bytes.fromhex(
             format((PRESET_ACCOUNT_DATA[0] ^ PRESET_ACCOUNT_DATA[2]), "X"),
         ).decode("ASCII")
-        self.preset_cloud_name: str = "MSmartHome"
+        self.preset_cloud_name: str = SMARTHOME
 
     def _save_device_config(self, data: dict[str, Any]) -> None:
         """Save device config to json file with device id."""
@@ -279,11 +283,11 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                 self.hass.data[DOMAIN] = {}
             # check skip login option
             if user_input[CONF_SERVER] == next(iter(default_keys)):
-                # use preset account and MSmartHome cloud
+                # use preset account and SMARTHOME cloud
                 _LOGGER.debug("skip login matched, cloud_servers: %s", cloud_servers)
-                # get MSmartHome key from dict
+                # get SMARTHOME key from dict
                 key = next(
-                    key for key, value in cloud_servers.items() if value == "MSmartHome"
+                    key for key, value in cloud_servers.items() if value == SMARTHOME
                 )
                 cloud_server = cloud_servers[key]
                 account = bytes.fromhex(
@@ -473,7 +477,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
         appliance_id: int,
         default_key: bool = True,
     ) -> dict[str, Any]:
-        """Use perset MSmartHome account to get v3 device token and key.
+        """Use perset SMARTHOME account to get v3 device token and key.
 
         Returns
         -------
