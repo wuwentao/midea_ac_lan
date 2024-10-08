@@ -1,7 +1,7 @@
 # See https://pre-commit.com for more information
 # See https://pre-commit.com/hooks.html for more hooks
 exclude: "CHANGELOG.md|.copier-answers.yml"
-default_stages: [Nonepre-commitNone]
+default_stages: [commit]
 
 ci:
   autofix_commit_msg: "chore(pre-commit.ci): auto fixes"
@@ -15,6 +15,11 @@ repos:
     hooks:
       - id: no-commit-to-branch
         args: ["--branch", "master"]
+      - id: check-json
+      - id: check-toml
+      - id: check-xml
+      - id: check-yaml
+      - id: detect-private-key
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.6.9
     hooks:
@@ -27,14 +32,6 @@ repos:
     hooks:
       - id: commitizen
         stages: [commit-msg]
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
-    hooks:
-      - id: check-json
-      - id: check-toml
-      - id: check-xml
-      - id: check-yaml
-      - id: detect-private-key
   - repo: https://github.com/pre-commit/mirrors-prettier
     rev: v4.0.0-alpha.8
     hooks:
