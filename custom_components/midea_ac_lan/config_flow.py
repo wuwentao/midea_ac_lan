@@ -844,7 +844,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                     ): int,
                     vol.Required(
                         CONF_PROTOCOL,
-                        default=protocol or ProtocolVersion.V3,
+                        default=[protocol] if protocol else ProtocolVersion.V3,
                     ): vol.In(
                         protocol or ProtocolVersion,
                     ),
