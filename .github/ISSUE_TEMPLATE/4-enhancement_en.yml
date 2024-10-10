@@ -12,10 +12,17 @@ body:
       description: |
         > The model can be found in Settings -> Devices & Services -> Midea AC LAN -> Devices -> Device Info
         > The SN can be found in Settings -> Devices & Services -> Midea AC LAN -> Add device -> Just list appliances
-        > For privacy reason, You should mask the last 10 bytes of the SN.
-        > e.g., replace "0000BF31163200988193162YLW17116Y" with "0000BF3116320098819316XXXXXXXXXX"
+        > The SN also can be found in your SmartHome APP
+      value: |
+        > The model can be found in Settings -> Devices & Services -> Midea AC LAN -> Devices -> Device Info
+        > The SN can be found in Settings -> Devices & Services -> Midea AC LAN -> Add device -> Just list appliances
+        > The SN also can be found in your SmartHome APP
   - type: textarea
     validations:
       required: true
     attributes:
-      label: The description of new feature
+      label: The detail description of new feature
+      value: |
+        1. support new device : description device type and features you want to support
+        2. support new feature: description the feature details with device type and details
+        3. others: description the details

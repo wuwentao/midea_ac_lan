@@ -1,5 +1,5 @@
 ---
-name: 错误报告
+name: 错误Bug报告
 description: 集成或实体无法正常工作
 labels: ["bug"]
 body:
@@ -37,8 +37,20 @@ body:
     validations:
       required: true
     attributes:
-      label: 问题详细描述
+      label: 问题/Bug详细描述
+      description: 请准确描述问题对应的设备和操作
+      value: |
+        1. 请准确描述问题对应的设备名称、类型（尤其是log里面有一堆设备，到底哪个设备的什么操作有问题，务必准确说明）
+        2. 请准确描述有问题的操作或错误提示信息，例如操作xxx，实际是yyy等，（禁止提交XXX不能用了，XXX不行了）
   - type: textarea
     attributes:
       label: The logs
-      description: 必须开启Debug Log，并执行发生错误的操作，将发生错误时的Debug log文件以附件上传，开启debug log方法参考首页README
+      description: 必须先开启Debug Log(参考首页README)，并执行产生错误的操作，将完整的Debug log文件以附件上传（请勿粘贴log中内容)
+      value: |
+        1. 必须先开启Debug Log(参考首页README说明)
+        2. 执行产生错误的操作（请务必在问题详细描述中说明）
+        3. 将完整的Debug log文件以附件上传。
+        4. 请勿直接粘贴log中的部分内容！以附件上传。
+        5. 请勿直接粘贴log中的部分内容！以附件上传。
+        6. 请勿直接粘贴log中的部分内容!以附件上传。
+        ...
