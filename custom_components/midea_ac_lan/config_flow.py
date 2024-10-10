@@ -805,6 +805,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
             return await self.async_step_manually(
                 error="Device auth failed with input config",
             )
+        # show device detail form in UI
         protocol = self.found_device.get(CONF_PROTOCOL)
         return self.async_show_form(
             step_id="manually",
@@ -844,10 +845,8 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                     ): int,
                     vol.Required(
                         CONF_PROTOCOL,
-                        default=[protocol] if protocol else ProtocolVersion.V3,
-                    ): vol.In(
-                        protocol or ProtocolVersion,
-                    ),
+                        default=protocol if protocol else ProtocolVersion.V3,
+                    ): vol.In(ProtocolVersion),
                     vol.Required(
                         CONF_MODEL,
                         default=(
