@@ -7,15 +7,22 @@ body:
     validations:
       required: true
     attributes:
-      label: 设备类型及型号 (或SN)
+      label: 设备类型及型号 (SN)
       placeholder: Air Conditioner 22012225
       description: |
         > 设备型号可以在 配置 -> 设备与服务 -> Midea AC LAN -> 设备 -> 设备信息 找到
         > SN可以在 配置 -> 设备与服务 -> Midea AC LAN -> 添加设备 -> Just list appliances 找到
-        > 出于隐私原因, 你应该将SN后10个字节隐藏
-        > 如将"0000BF31163200988193162YLW17116Y"替换成"0000BF3116320098819316XXXXXXXXXX"
+        > SN也可以在美居app的设备信息中查看
+      value: |
+        > 设备型号可以在 配置 -> 设备与服务 -> Midea AC LAN -> 设备 -> 设备信息 找到
+        > SN可以在 配置 -> 设备与服务 -> Midea AC LAN -> 添加设备 -> Just list appliances 找到
+        > SN也可以在美居app的设备信息中查看
   - type: textarea
     validations:
       required: true
     attributes:
-      label: 新功能的描述
+      label: 新功能的具体描述
+      value: |
+        1. 新增设备支持：希望支持的设备类型以及具体功能，例如查看状态、控制某个功能等
+        2. 已有设备新增功能支持：app中可以查看数据，可以控制某个功能，目前不支持，请准确描述
+        3. 其他：请准确描述清楚
