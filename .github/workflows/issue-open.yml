@@ -13,7 +13,7 @@ jobs:
         uses: GuillaumeFalourd/open-issue-action@v1
         with:
           access-token: ${{ secrets.MIDEA_LOCAL_TOKEN }}
-          repo-owner: rokam
+          repo-owner: midea-lan
           repo-name: midea-local
           issue-title: ${{ github.event.issue.title }}
           issue-body: ${{ github.event.issue.body }}
