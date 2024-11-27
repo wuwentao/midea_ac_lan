@@ -58,7 +58,7 @@ _LOGGER = logging.getLogger(__name__)
 
 
 TEMPERATURE_MAX = 30
-TEMPERATURE_MIN = 17
+TEMPERATURE_MIN = 16
 
 FAN_SILENT = "silent"
 FAN_FULL_SPEED = "full"
