@@ -42,7 +42,7 @@ async def async_setup_entry(
         MideaFAFan | MideaB6Fan | MideaACFreshAirFan | MideaCEFan | MideaX40Fan
     ] = []
     for entity_key, config in cast(
-        dict,
+        "dict",
         MIDEA_DEVICES[device.device_type]["entities"],
     ).items():
         if config["type"] == Platform.FAN and (
@@ -83,22 +83,22 @@ class MideaFan(MideaEntity, FanEntity):
     @property
     def is_on(self) -> bool:
         """Midea Fan is on."""
-        return cast(bool, self._device.get_attribute("power"))
+        return cast("bool", self._device.get_attribute("power"))
 
     @property
     def oscillating(self) -> bool:
         """Midea Fan oscillating."""
-        return cast(bool, self._device.get_attribute("oscillate"))
+        return cast("bool", self._device.get_attribute("oscillate"))
 
     @property
     def preset_mode(self) -> str | None:
         """Midea Fan preset mode."""
-        return cast(str, self._device.get_attribute("mode"))
+        return cast("str", self._device.get_attribute("mode"))
 
     @property
     def fan_speed(self) -> int | None:
         """Midea Fan fan speed."""
-        return cast(int, self._device.get_attribute("fan_speed"))
+        return cast("int", self._device.get_attribute("fan_speed"))
 
     def turn_off(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
         """Midea Fan turn off."""
@@ -209,17 +209,17 @@ class MideaACFreshAirFan(MideaFan):
     @property
     def preset_modes(self) -> list[str] | None:
         """Midea AC Fan preset modes."""
-        return cast(list, self._device.fresh_air_fan_speeds)
+        return cast("list", self._device.fresh_air_fan_speeds)
 
     @property
     def is_on(self) -> bool:
         """Midea AC Fan is on."""
-        return cast(bool, self._device.get_attribute(ACAttributes.fresh_air_power))
+        return cast("bool", self._device.get_attribute(ACAttributes.fresh_air_power))
 
     @property
     def fan_speed(self) -> int:
         """Midea AC Fan fan speed."""
-        return cast(int, self._device.get_attribute(ACAttributes.fresh_air_fan_speed))
+        return cast("int", self._device.get_attribute(ACAttributes.fresh_air_fan_speed))
 
     def turn_on(
         self,
@@ -249,7 +249,7 @@ class MideaACFreshAirFan(MideaFan):
     @property
     def preset_mode(self) -> str | None:
         """Midea AC Fan preset mode."""
-        return cast(str, self._device.get_attribute(attr=ACAttributes.fresh_air_mode))
+        return cast("str", self._device.get_attribute(attr=ACAttributes.fresh_air_mode))
 
 
 class MideaCEFan(MideaFan):
@@ -299,7 +299,7 @@ class MideaX40Fan(MideaFan):
     @property
     def is_on(self) -> bool:
         """Midea X40 Fan is on."""
-        return cast(int, self._device.get_attribute(attr=X40Attributes.fan_speed)) > 0
+        return cast("int", self._device.get_attribute(attr=X40Attributes.fan_speed)) > 0
 
     def turn_on(
         self,

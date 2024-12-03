@@ -25,7 +25,7 @@ async def async_setup_entry(
     extra_switches = config_entry.options.get(CONF_SWITCHES, [])
     numbers = []
     for entity_key, config in cast(
-        dict,
+        "dict",
         MIDEA_DEVICES[device.device_type]["entities"],
     ).items():
         if config["type"] == Platform.NUMBER and entity_key in extra_switches:
@@ -48,7 +48,7 @@ class MideaNumber(MideaEntity, NumberEntity):
     def native_min_value(self) -> float:
         """Return minimum value."""
         return cast(
-            float,
+            "float",
             (
                 self._min_value
                 if isinstance(self._min_value, int)
@@ -64,7 +64,7 @@ class MideaNumber(MideaEntity, NumberEntity):
     def native_max_value(self) -> float:
         """Return maximum value."""
         return cast(
-            float,
+            "float",
             (
                 self._max_value
                 if isinstance(self._max_value, int)
@@ -80,7 +80,7 @@ class MideaNumber(MideaEntity, NumberEntity):
     def native_step(self) -> float:
         """Return step value."""
         return cast(
-            float,
+            "float",
             (
                 self._step_value
                 if isinstance(self._step_value, int)
@@ -95,7 +95,7 @@ class MideaNumber(MideaEntity, NumberEntity):
     @property
     def native_value(self) -> float:
         """Return value."""
-        return cast(float, self._device.get_attribute(self._entity_key))
+        return cast("float", self._device.get_attribute(self._entity_key))
 
     def set_native_value(self, value: Any) -> None:  # noqa: ANN401
         """Set value."""
