@@ -27,7 +27,7 @@ async def async_setup_entry(
     extra_sensors = config_entry.options.get(CONF_SENSORS, [])
     binary_sensors = []
     for entity_key, config in cast(
-        dict,
+        "dict",
         MIDEA_DEVICES[device.device_type]["entities"],
     ).items():
         if config["type"] == Platform.BINARY_SENSOR and entity_key in extra_sensors:
@@ -42,9 +42,9 @@ class MideaBinarySensor(MideaEntity, BinarySensorEntity):
     @property
     def device_class(self) -> BinarySensorDeviceClass | None:
         """Return device class."""
-        return cast(BinarySensorDeviceClass, self._config.get("device_class"))
+        return cast("BinarySensorDeviceClass", self._config.get("device_class"))
 
     @property
     def is_on(self) -> bool:
         """Return true if sensor state is on."""
-        return cast(bool, self._device.get_attribute(self._entity_key))
+        return cast("bool", self._device.get_attribute(self._entity_key))
