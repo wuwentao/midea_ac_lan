@@ -34,7 +34,7 @@ async def async_setup_entry(
     extra_switches = config_entry.options.get(CONF_SWITCHES, [])
     devs: list[MideaA1Humidifier | MideaFDHumidifier] = []
     for entity_key, config in cast(
-        dict,
+        "dict",
         MIDEA_DEVICES[device.device_type]["entities"],
     ).items():
         if config["type"] == Platform.HUMIDIFIER and (
@@ -62,22 +62,22 @@ class MideaHumidifier(MideaEntity, HumidifierEntity):
     @property
     def current_humidity(self) -> float | None:
         """Midea Humidifier current humidity."""
-        return cast(float, self._device.get_attribute("current_humidity"))
+        return cast("float", self._device.get_attribute("current_humidity"))
 
     @property
     def target_humidity(self) -> float:
         """Midea Humidifier target humidity."""
-        return cast(float, self._device.get_attribute("target_humidity"))
+        return cast("float", self._device.get_attribute("target_humidity"))
 
     @property
     def mode(self) -> str:
         """Midea Humidifier mode."""
-        return cast(str, self._device.get_attribute("mode"))
+        return cast("str", self._device.get_attribute("mode"))
 
     @property
     def available_modes(self) -> list[str] | None:
         """Midea Humidifier available modes."""
-        return cast(list, self._device.modes)
+        return cast("list", self._device.modes)
 
     def set_humidity(self, humidity: int) -> None:
         """Midea Humidifier set humidity."""
@@ -90,7 +90,7 @@ class MideaHumidifier(MideaEntity, HumidifierEntity):
     @property
     def is_on(self) -> bool:
         """Midea Humidifier is on."""
-        return cast(bool, self._device.get_attribute(attr="power"))
+        return cast("bool", self._device.get_attribute(attr="power"))
 
     def turn_on(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
         """Midea Humidifier turn on."""
