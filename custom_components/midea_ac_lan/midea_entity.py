@@ -28,9 +28,10 @@ class MideaEntity(Entity):
         """Initialize Midea base entity."""
         self._device = device
         self._device.register_update(self.update_state)
-        self._config = cast(dict, MIDEA_DEVICES[self._device.device_type]["entities"])[
-            entity_key
-        ]
+        self._config = cast(
+            "dict",
+            MIDEA_DEVICES[self._device.device_type]["entities"],
+        )[entity_key]
         self._entity_key = entity_key
         self._unique_id = f"{DOMAIN}.{self._device.device_id}_{entity_key}"
         self.entity_id = self._unique_id
@@ -84,7 +85,7 @@ class MideaEntity(Entity):
     @property
     def icon(self) -> str:
         """Return entity icon."""
-        return cast(str, self._config.get("icon"))
+        return cast("str", self._config.get("icon"))
 
     @callback
     def update_state(self, status: Any) -> None:  # noqa: ANN401
