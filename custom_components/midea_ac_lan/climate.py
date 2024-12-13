@@ -158,7 +158,8 @@ class MideaClimate(MideaEntity, ClimateEntity):
 
     @property
     def current_humidity(self) -> float | None:
-        return cast(float, self._device.get_attribute("indoor_humidity"))
+        """Midea Climate current humidity."""
+        return cast(float | None, self._device.get_attribute("indoor_humidity"))
 
     @property
     def preset_mode(self) -> str:
