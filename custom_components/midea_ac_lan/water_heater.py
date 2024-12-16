@@ -249,6 +249,13 @@ class MideaE3WaterHeater(MideaWaterHeater):
             PRECISION_HALVES if self._device.precision_halves else PRECISION_WHOLE,
         )
 
+    @property
+    def current_operation(self) -> str:
+        """Midea E3 Water Heater current operation."""
+        return str(
+            STATE_ON if self._device.get_attribute("power") else STATE_OFF,
+        )
+
 
 class MideaC3WaterHeater(MideaWaterHeater):
     """Midea C3 Water Heater Entries."""
