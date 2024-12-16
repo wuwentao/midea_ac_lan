@@ -157,11 +157,6 @@ class MideaClimate(MideaEntity, ClimateEntity):
         return cast(float | None, self._device.get_attribute("indoor_temperature"))
 
     @property
-    def current_humidity(self) -> float | None:
-        """Midea Climate current humidity."""
-        return cast(float | None, self._device.get_attribute("indoor_humidity"))
-
-    @property
     def preset_mode(self) -> str:
         """Midea Climate preset mode."""
         if self._device.get_attribute("comfort_mode"):
@@ -322,6 +317,11 @@ class MideaACClimate(MideaClimate):
             1 if self._device.get_attribute(ACAttributes.swing_vertical) else 0
         ) + (2 if self._device.get_attribute(ACAttributes.swing_horizontal) else 0)
         return self._attr_swing_modes[swing_mode]
+
+    @property
+    def current_humidity(self) -> float | None:
+        """Midea Climate current humidity."""
+        return cast(float | None, self._device.get_attribute("indoor_humidity"))
 
     @property
     def outdoor_temperature(self) -> float:
