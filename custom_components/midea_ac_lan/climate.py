@@ -319,6 +319,11 @@ class MideaACClimate(MideaClimate):
         return self._attr_swing_modes[swing_mode]
 
     @property
+    def current_humidity(self) -> float | None:
+        """Midea Climate current humidity."""
+        return cast(float | None, self._device.get_attribute("indoor_humidity"))
+
+    @property
     def outdoor_temperature(self) -> float:
         """Midea AC Climate outdoor temperature."""
         return cast(float, self._device.get_attribute(ACAttributes.outdoor_temperature))
