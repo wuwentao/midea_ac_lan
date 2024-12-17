@@ -1,4 +1,4 @@
-"""Select for Midea Lan."""
+"""Select for Midea Lan."""  # noqa: A005
 
 from typing import cast
 
