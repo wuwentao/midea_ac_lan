@@ -117,7 +117,7 @@ class MideaFan(MideaEntity, FanEntity):
         """Midea Fan percentage."""
         if not self.fan_speed:
             return None
-        return round(self.fan_speed * self.percentage_step)
+        return int(round(self.fan_speed * self.percentage_step))  # noqa: RUF046
 
     def set_percentage(self, percentage: int) -> None:
         """Midea Fan set percentage."""
