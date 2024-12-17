@@ -29,7 +29,8 @@ class MideaEntity(Entity):
         self._device = device
         self._device.register_update(self.update_state)
         self._config = cast(
-            "dict", MIDEA_DEVICES[self._device.device_type]["entities"]
+            "dict",
+            MIDEA_DEVICES[self._device.device_type]["entities"],
         )[entity_key]
         self._entity_key = entity_key
         self._unique_id = f"{DOMAIN}.{self._device.device_id}_{entity_key}"

@@ -327,7 +327,8 @@ class MideaACClimate(MideaClimate):
     def outdoor_temperature(self) -> float:
         """Midea AC Climate outdoor temperature."""
         return cast(
-            "float", self._device.get_attribute(ACAttributes.outdoor_temperature)
+            "float",
+            self._device.get_attribute(ACAttributes.outdoor_temperature),
         )
 
     def set_fan_mode(self, fan_mode: str) -> None:
@@ -452,7 +453,8 @@ class MideaCFClimate(MideaClimate):
     def current_temperature(self) -> float:
         """Midea CF Climate current temperature."""
         return cast(
-            "float", self._device.get_attribute(CFAttributes.current_temperature)
+            "float",
+            self._device.get_attribute(CFAttributes.current_temperature),
         )
 
 
@@ -649,7 +651,8 @@ class MideaFBClimate(MideaClimate):
     def current_temperature(self) -> float:
         """Midea FB Climate current temperature."""
         return cast(
-            "float", self._device.get_attribute(FBAttributes.current_temperature)
+            "float",
+            self._device.get_attribute(FBAttributes.current_temperature),
         )
 
     def set_temperature(self, **kwargs: Any) -> None:  # noqa: ANN401
