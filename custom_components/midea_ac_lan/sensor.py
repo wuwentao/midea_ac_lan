@@ -29,7 +29,7 @@ async def async_setup_entry(
     extra_sensors = config_entry.options.get(CONF_SENSORS, [])
     sensors = []
     for entity_key, config in cast(
-        dict,
+        "dict",
         MIDEA_DEVICES[device.device_type]["entities"],
     ).items():
         if config["type"] == Platform.SENSOR and entity_key in extra_sensors:
@@ -44,22 +44,22 @@ class MideaSensor(MideaEntity, SensorEntity):
     @property
     def native_value(self) -> StateType:
         """Return entity value."""
-        return cast(StateType, self._device.get_attribute(self._entity_key))
+        return cast("StateType", self._device.get_attribute(self._entity_key))
 
     @property
     def device_class(self) -> SensorDeviceClass:
         """Return device class."""
-        return cast(SensorDeviceClass, self._config.get("device_class"))
+        return cast("SensorDeviceClass", self._config.get("device_class"))
 
     @property
     def state_class(self) -> SensorStateClass | None:
         """Return state state."""
-        return cast(SensorStateClass | None, self._config.get("state_class"))
+        return cast("SensorStateClass | None", self._config.get("state_class"))
 
     @property
     def native_unit_of_measurement(self) -> str | None:
         """Return unit of measurement."""
-        return cast(str | None, self._config.get("unit"))
+        return cast("str | None", self._config.get("unit"))
 
     @property
     def capability_attributes(self) -> dict[str, Any] | None:

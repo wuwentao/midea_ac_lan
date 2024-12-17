@@ -934,8 +934,8 @@ class MideaLanOptionsFlowHandler(OptionsFlow):
         sensors = {}
         switches = {}
         for attribute, attribute_config in cast(
-            dict,
-            MIDEA_DEVICES[cast(int, self._device_type)]["entities"],
+            "dict",
+            MIDEA_DEVICES[cast("int", self._device_type)]["entities"],
         ).items():
             attribute_name = (
                 attribute if isinstance(attribute, str) else attribute.value

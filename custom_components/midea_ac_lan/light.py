@@ -36,7 +36,7 @@ async def async_setup_entry(
     extra_switches = config_entry.options.get(CONF_SWITCHES, [])
     devs = []
     for entity_key, config in cast(
-        dict,
+        "dict",
         MIDEA_DEVICES[device.device_type]["entities"],
     ).items():
         if config["type"] == Platform.LIGHT and (
@@ -108,17 +108,17 @@ class MideaLight(MideaEntity, LightEntity):
     @property
     def is_on(self) -> bool:
         """Midea Light is on."""
-        return cast(bool, self._device.get_attribute(X13Attributes.power))
+        return cast("bool", self._device.get_attribute(X13Attributes.power))
 
     @property
     def brightness(self) -> int | None:
         """Midea Light brightness."""
-        return cast(int, self._device.get_attribute(X13Attributes.brightness))
+        return cast("int", self._device.get_attribute(X13Attributes.brightness))
 
     @property
     def rgb_color(self) -> tuple[int, int, int] | None:
         """Midea Light rgb color."""
-        return cast(tuple, self._device.get_attribute(X13Attributes.rgb_color))
+        return cast("tuple", self._device.get_attribute(X13Attributes.rgb_color))
 
     @property
     def color_temp(self) -> int | None:
@@ -130,7 +130,7 @@ class MideaLight(MideaEntity, LightEntity):
     @property
     def color_temp_kelvin(self) -> int | None:
         """Midea Light color temperature kelvin."""
-        return cast(int, self._device.get_attribute(X13Attributes.color_temperature))
+        return cast("int", self._device.get_attribute(X13Attributes.color_temperature))
 
     @property
     def min_mireds(self) -> int:
@@ -155,12 +155,12 @@ class MideaLight(MideaEntity, LightEntity):
     @property
     def effect_list(self) -> list[str] | None:
         """Midea Light effect list."""
-        return cast(list, self._device.effects)
+        return cast("list", self._device.effects)
 
     @property
     def effect(self) -> str | None:
         """Midea Light effect."""
-        return cast(str, self._device.get_attribute(X13Attributes.effect))
+        return cast("str", self._device.get_attribute(X13Attributes.effect))
 
     def turn_on(self, **kwargs: Any) -> None:  # noqa: ANN401
         """Midea Light turn on."""

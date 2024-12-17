@@ -63,7 +63,7 @@ async def update_listener(hass: HomeAssistant, config_entry: ConfigEntry) -> Non
     hass.async_create_task(
         hass.config_entries.async_forward_entry_setups(config_entry, ALL_PLATFORM),
     )
-    device_id: int = cast(int, config_entry.data.get(CONF_DEVICE_ID))
+    device_id: int = cast("int", config_entry.data.get(CONF_DEVICE_ID))
     customize = config_entry.options.get(CONF_CUSTOMIZE, "")
     ip_address = config_entry.options.get(CONF_IP_ADDRESS, None)
     refresh_interval = config_entry.options.get(CONF_REFRESH_INTERVAL, None)
@@ -88,7 +88,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:  # noqa:
     attributes = []
     for device_entities in MIDEA_DEVICES.values():
         for attribute_name, attribute in cast(
-            dict,
+            "dict",
             device_entities["entities"],
         ).items():
             if (
@@ -108,7 +108,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:  # noqa:
                 value = 102
             item = None
             if _dev := MIDEA_DEVICES.get(dev.device_type):
-                item = cast(dict, _dev["entities"]).get(attr)
+                item = cast("dict", _dev["entities"]).get(attr)
             if (
                 item
                 and (item.get("type") in EXTRA_SWITCH)
