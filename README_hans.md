@@ -4,7 +4,7 @@
 [![Stable](https://img.shields.io/github/v/release/wuwentao/midea_ac_lan)](https://github.com/wuwentao/midea_ac_lan/releases/latest)
 [![Super-Linter](https://github.com/wuwentao/midea_ac_lan/actions/workflows/linter.yml/badge.svg)](https://github.com/marketplace/actions/super-linter)
 
-[English](README.md) | 简体中文 | [Discord交流群](https://discord.com/invite/ZWdd2fXndn)
+[English](README.md) | 简体中文 | [Discord交流群](https://discord.com/invite/ZWdd2fXndn) | [QQ群](https://qm.qq.com/q/l53SGEwlZ6)
 
 **_❗ [georgezhao2010/midea_ac_lan](https://github.com/georgezhao2010/midea_ac_lan) 已经很长时间没有更新了, 我们将接替并持续更新_**
 
@@ -21,6 +21,12 @@
 ⭐如果本集成对你有所帮助, 请不吝为它点个星, 这将是对我的极大激励。
 
 **_❗注意: 本集成需要 Home Assistant 2023.8 或更高版本_**
+
+## 从[georgezhao2010/midea_ac_lan]迁移
+
+1. 删除旧的集成：[georgezhao2010/midea_ac_lan]
+2. [安装当前集成](#安装)
+3. 完成, 之前的设备和数据应该都存在了，直接正常使用即可.
 
 ## 已支持的品牌
 

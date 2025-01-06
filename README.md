@@ -4,7 +4,7 @@
 [![Stable](https://img.shields.io/github/v/release/wuwentao/midea_ac_lan)](https://github.com/wuwentao/midea_ac_lan/releases/latest)
 [![Super-Linter](https://github.com/wuwentao/midea_ac_lan/actions/workflows/linter.yml/badge.svg)](https://github.com/marketplace/actions/super-linter)
 
-English | [简体中文](README_hans.md) | [Discord Chat](https://discord.com/invite/ZWdd2fXndn)
+English | [简体中文](README_hans.md) | [Discord Chat](https://discord.com/invite/ZWdd2fXndn) | [QQ Group](https://qm.qq.com/q/l53SGEwlZ6)
 
 **_❗ [georgezhao2010/midea_ac_lan](https://github.com/georgezhao2010/midea_ac_lan) not update for a long time, we will maintain it now_**
 
@@ -17,6 +17,12 @@ Control your Midea M-Smart appliances via local area network.
 ⭐If this component is helpful for you, please star it, it encourages me a lot.
 
 **_❗Note: Home Assistant 2023.8 or higher required for this integration_**
+
+## Upgrade from georgezhao2010/midea_ac_lan
+
+1. Remove old georgezhao2010/midea_ac_lan integration
+2. [Install current integration](#installation)
+3. Done, your device and data should be exist and works well as before.
 
 ## Supported brands
 
@@ -76,7 +82,7 @@ And more.
 > 2. open HACS, click [Custom repositories], Repository input: `https://github.com/wuwentao/midea_ac_lan`, Category select [Integration]
 > 3. **Restart Home Assistant**.
 
-### Option 2: Install with Script:
+### Option 2: Install with Script
 
 > run this script in HA Terminal or SSH add-on
 
@@ -84,7 +90,7 @@ And more.
 wget -O - https://github.com/wuwentao/midea_ac_lan/raw/master/scripts/install.sh | ARCHIVE_TAG=latest bash -
 ```
 
-### Option 3: Manual Install:
+### Option 3: Manual Install
 
 1. Download `midea_ac_lan.zip` from [Latest Release](https://github.com/wuwentao/midea_ac_lan/releases/latest)
 2. copy `midea_ac_lan.zip` to `/custom_components/midea_ac_lan` in Home Assistant.
@@ -171,7 +177,7 @@ Example
 
 ## Debug
 
-Turn on the debug log out，config in configuration.yaml
+Turn on the debug log，add below config in `configuration.yaml`
 
 ```yaml
 logger:
