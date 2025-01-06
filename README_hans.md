@@ -4,9 +4,7 @@
 [![Stable](https://img.shields.io/github/v/release/wuwentao/midea_ac_lan)](https://github.com/wuwentao/midea_ac_lan/releases/latest)
 [![Super-Linter](https://github.com/wuwentao/midea_ac_lan/actions/workflows/linter.yml/badge.svg)](https://github.com/marketplace/actions/super-linter)
 
-[English](README.md) | 简体中文 | [Discord交流群](https://discord.com/invite/ZWdd2fXndn) | [QQ群](https://qm.qq.com/q/l53SGEwlZ6)
-
-**_❗ [georgezhao2010/midea_ac_lan](https://github.com/georgezhao2010/midea_ac_lan) 已经很长时间没有更新了, 我们将接替并持续更新_**
+[English](README.md) | 简体中文 | [Discord交流群](https://discord.com/invite/ZWdd2fXndn) | [QQ交流群](https://qm.qq.com/q/l53SGEwlZ6)
 
 通过本地局域网控制你的美的M-Smart设备
 
@@ -192,12 +190,14 @@ logger:
 
 或者使用如下方式，无需重启
 
-> `Developer Tools` -> `Services` -> `GO TO YAML MODE`
-> 粘贴以下内容到输入框中，执行`CALL SERVICE`
+> `开发者工具` -> `动作` -> 下拉列表中选择 `Logger: 设置级别` -> 左下角选择：`进入YAML模式`
+> 粘贴以下内容到输入框中，选择`执行动作`即可
 
 ```yaml
-service: logger.set_level
+action: logger.set_level
 data:
   custom_components.midea_ac_lan: debug
   midealocal: debug
 ```
+
+> 注意： 此模式虽然无需重启，但是无法捕获开机启动触发的完整错误，首选修改`configuration.yaml`的方法。

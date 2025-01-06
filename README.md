@@ -6,8 +6,6 @@
 
 English | [简体中文](README_hans.md) | [Discord Chat](https://discord.com/invite/ZWdd2fXndn) | [QQ Group](https://qm.qq.com/q/l53SGEwlZ6)
 
-**_❗ [georgezhao2010/midea_ac_lan](https://github.com/georgezhao2010/midea_ac_lan) not update for a long time, we will maintain it now_**
-
 Control your Midea M-Smart appliances via local area network.
 
 - Automated device discover and configuration based Home Assistant config flow UI.
@@ -191,12 +189,14 @@ logger:
 
 or use this service call without restart HA:
 
-> `Developer Tools` -> `Services` -> `GO TO YAML MODE`
-> paste below yaml content to the form，and run `CALL SERVICE`
+> `Developer Tools` -> `Actions` -> select `Logger: Set Log Level` -> `GO TO YAML MODE`
+> paste below yaml content to the form，and run
 
 ```yaml
-service: logger.set_level
+action: logger.set_level
 data:
   custom_components.midea_ac_lan: debug
   midealocal: debug
 ```
+
+> Tips: this mode not required reboot, but it can't capture device startup error log, recommend to edit `configuration.yaml` file to enable debug mode.
