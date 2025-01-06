@@ -5,7 +5,7 @@ from typing import Any, cast
 
 from homeassistant.components.light import (
     ATTR_BRIGHTNESS,
-    ATTR_COLOR_TEMP,
+    ATTR_COLOR_TEMP_KELVIN,
     ATTR_EFFECT,
     ColorMode,
     LightEntity,
@@ -127,20 +127,11 @@ class MideaLight(MideaEntity, LightEntity):
             return None
         return round(1000000 / self.color_temp_kelvin)
 
+    # https://developers.home-assistant.io/blog/2024/12/14/kelvin-preferred-color-temperature-unit
     @property
     def color_temp_kelvin(self) -> int | None:
         """Midea Light color temperature kelvin."""
         return cast("int", self._device.get_attribute(X13Attributes.color_temperature))
-
-    @property
-    def min_mireds(self) -> int:
-        """Midea Light color temperature min mireds."""
-        return round(1000000 / self.max_color_temp_kelvin)
-
-    @property
-    def max_mireds(self) -> int:
-        """Midea Light color temperature max mireds."""
-        return round(1000000 / self.min_color_temp_kelvin)
 
     @property
     def min_color_temp_kelvin(self) -> int:
@@ -169,7 +160,7 @@ class MideaLight(MideaEntity, LightEntity):
         for key, value in kwargs.items():
             if key == ATTR_BRIGHTNESS:
                 self._device.set_attribute(attr=X13Attributes.brightness, value=value)
-            if key == ATTR_COLOR_TEMP:
+            if key == ATTR_COLOR_TEMP_KELVIN:
                 self._device.set_attribute(
                     attr=X13Attributes.color_temperature,
                     value=round(1000000 / value),
