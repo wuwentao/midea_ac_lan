@@ -20,7 +20,7 @@ Control your Midea M-Smart appliances via local area network.
 
 1. Remove old georgezhao2010/midea_ac_lan integration
 2. [Install current integration](#installation)
-3. Done, your device and data should be exist and works well as before.
+3. Done, your devices, configuration and history data should be there and work as before.
 
 ## Supported brands
 
@@ -173,30 +173,6 @@ Example
 { "refresh_interval": 15, "fan_speed": 100 }
 ```
 
-## Debug
+## Debug and Test
 
-Turn on the debug log，add below config in `configuration.yaml`
-
-```yaml
-logger:
-  default: warn
-  logs:
-    custom_components.midea_ac_lan: debug
-    midealocal: debug
-```
-
-> we should enable `midea_ac_lan` and `midealocal`, then restart HA
-
-or use this service call without restart HA:
-
-> `Developer Tools` -> `Actions` -> select `Logger: Set Log Level` -> `GO TO YAML MODE`
-> paste below yaml content to the form，and run
-
-```yaml
-action: logger.set_level
-data:
-  custom_components.midea_ac_lan: debug
-  midealocal: debug
-```
-
-> Tips: this mode not required reboot, but it can't capture device startup error log, recommend to edit `configuration.yaml` file to enable debug mode.
+please refer to [Debug and Test](doc/debug.md)

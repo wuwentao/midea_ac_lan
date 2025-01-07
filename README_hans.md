@@ -174,30 +174,6 @@ wget -O - https://github.com/wuwentao/midea_ac_lan/raw/master/scripts/install.sh
 { "refresh_interval": 15, "fan_speed": 100 }
 ```
 
-## 调试
+## Debug调试和测试
 
-要打开调试日志输出, 在configuration.yaml中添加如下配置
-
-```yaml
-logger:
-  default: warn
-  logs:
-    custom_components.midea_ac_lan: debug
-    midealocal: debug
-```
-
-> 需同时开启`midea_ac_lan`和`midealocal`, 重启后生效
-
-或者使用如下方式，无需重启
-
-> `开发者工具` -> `动作` -> 下拉列表中选择 `Logger: 设置级别` -> 左下角选择：`进入YAML模式`
-> 粘贴以下内容到输入框中，选择`执行动作`即可
-
-```yaml
-action: logger.set_level
-data:
-  custom_components.midea_ac_lan: debug
-  midealocal: debug
-```
-
-> 注意： 此模式虽然无需重启，但是无法捕获开机启动触发的完整错误，首选修改`configuration.yaml`的方法。
+请参考[Debug调试和测试](doc/debug_hans.md)
