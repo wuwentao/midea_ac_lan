@@ -9,7 +9,7 @@
 
 you can use below two methods to enable debug log.
 
-edit `configuration.yaml` and reboot HA is therecommended method.
+edit `configuration.yaml` and reboot HA is the recommended method.
 
 ### method 1: edit `configuration.yaml`
 
@@ -44,7 +44,7 @@ edit `configuration.yaml` and reboot HA is therecommended method.
      midealocal: debug
    ```
 
-   > Tips: this mode not required reboot, but it can't capture device startup error log, recommend to edit `configuration.yaml` file to enable debug mode.
+   Tips: this mode doesn't require reboot, but it can't capture device startup error log, so is still recommended to edit `configuration.yaml` file to enable debug mode.
 
 4. Trigger debug log with some action with bug or error
 5. Download full debug log file via HA web UI ( `Settings --> System --> Logs` )

@@ -42,9 +42,9 @@
      midealocal: debug
    ```
 
-   > 说明：此方法不需要重启HA，但是不能捕获开启启动以后的很多错误日志, 强烈推荐使用编辑`configuration.yaml`的方法。
+   > 说明：此方法不需要重启HA，但是不能捕获开机启动以后的很多错误日志, 强烈推荐使用编辑`configuration.yaml`的方法。
 
-4. 支持有bug或者error产生的动作，触发debug log
+4. 执行有bug或者error产生的动作，触发debug log
 5. 进入`设置 --> 系统 --> 日志`， 点击下载按钮，下载完整debug log
 
 ## 修改源代码进行测试
