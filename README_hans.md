@@ -4,9 +4,7 @@
 [![Stable](https://img.shields.io/github/v/release/wuwentao/midea_ac_lan)](https://github.com/wuwentao/midea_ac_lan/releases/latest)
 [![Super-Linter](https://github.com/wuwentao/midea_ac_lan/actions/workflows/linter.yml/badge.svg)](https://github.com/marketplace/actions/super-linter)
 
-[English](README.md) | 简体中文 | [Discord交流群](https://discord.com/invite/ZWdd2fXndn)
-
-**_❗ [georgezhao2010/midea_ac_lan](https://github.com/georgezhao2010/midea_ac_lan) 已经很长时间没有更新了, 我们将接替并持续更新_**
+[English](README.md) | 简体中文 | [Discord交流群](https://discord.com/invite/ZWdd2fXndn) | [QQ交流群](https://qm.qq.com/q/l53SGEwlZ6)
 
 通过本地局域网控制你的美的M-Smart设备
 
@@ -21,6 +19,12 @@
 ⭐如果本集成对你有所帮助, 请不吝为它点个星, 这将是对我的极大激励。
 
 **_❗注意: 本集成需要 Home Assistant 2023.8 或更高版本_**
+
+## 从[georgezhao2010/midea_ac_lan]迁移
+
+1. 删除旧的集成：[georgezhao2010/midea_ac_lan]
+2. [安装当前集成](#安装)
+3. 完成, 之前的设备和数据应该都存在了，直接正常使用即可.
 
 ## 已支持的品牌
 
@@ -170,28 +174,6 @@ wget -O - https://github.com/wuwentao/midea_ac_lan/raw/master/scripts/install.sh
 { "refresh_interval": 15, "fan_speed": 100 }
 ```
 
-## 调试
+## Debug调试和测试
 
-要打开调试日志输出, 在configuration.yaml中添加如下配置
-
-```yaml
-logger:
-  default: warn
-  logs:
-    custom_components.midea_ac_lan: debug
-    midealocal: debug
-```
-
-> 需同时开启`midea_ac_lan`和`midealocal`, 重启后生效
-
-或者使用如下方式，无需重启
-
-> `Developer Tools` -> `Services` -> `GO TO YAML MODE`
-> 粘贴以下内容到输入框中，执行`CALL SERVICE`
-
-```yaml
-service: logger.set_level
-data:
-  custom_components.midea_ac_lan: debug
-  midealocal: debug
-```
+请参考[Debug调试和测试](doc/debug_hans.md)
