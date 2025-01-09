@@ -20,8 +20,9 @@ Control your Midea M-Smart appliances via local area network.
 
 1. Remove old georgezhao2010/midea_ac_lan integration
 2. [Install current integration](#installation)
-3. If you can't found your device entries, try to configure your device and enable it in `Settings -> Devices & Services -> Midea AC LAN -> Devices -> CONFIGURE`
-4. Done, your devices should works as before.
+3. You devices will NOT be deleted, it should still exist and you don't need to discover or add it again.
+4. If you can't found your device entries, try to configure your device and enable it in `Settings -> Devices & Services -> Midea AC LAN -> Devices -> CONFIGURE`
+5. Done, your devices should works as before.
 
 ## Supported brands
 
