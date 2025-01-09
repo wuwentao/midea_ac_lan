@@ -20,7 +20,9 @@ Control your Midea M-Smart appliances via local area network.
 
 1. Remove old georgezhao2010/midea_ac_lan integration
 2. [Install current integration](#installation)
-3. Done, your devices, configuration and history data should be there and work as before.
+3. You devices will NOT be deleted, it should still exist and you don't need to discover or add it again.
+4. If you can't found your device entries, try to configure your device and enable it in `Settings -> Devices & Services -> Midea AC LAN -> Devices -> CONFIGURE`
+5. Done, your devices should works as before.
 
 ## Supported brands
 
@@ -157,7 +159,7 @@ If you are very concerned about the synchronization speed of the status, you can
 
 ### Extra sensor and switch entities
 
-After configuration, one of few main entity (e.g. climate entity) may be generated . If you want to make the attributes to extra sensor and switch entities, click CONFIGURE in Midea AC LAN integration card to choose (if your devices supported).
+After configuration, one of few main entity (e.g. climate entity) may be generated . If you want to make the attributes to extra sensor and switch entities, click CONFIGURE in Midea AC LAN integration card to choose (your device MUST support this feature).
 
 ### Customize
 
