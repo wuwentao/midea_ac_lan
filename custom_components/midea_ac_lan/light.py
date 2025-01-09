@@ -163,7 +163,7 @@ class MideaLight(MideaEntity, LightEntity):
             if key == ATTR_COLOR_TEMP_KELVIN:
                 self._device.set_attribute(
                     attr=X13Attributes.color_temperature,
-                    value=round(1000000 / value),
+                    value=value,
                 )
             if key == ATTR_EFFECT:
                 self._device.set_attribute(attr=X13Attributes.effect, value=value)
