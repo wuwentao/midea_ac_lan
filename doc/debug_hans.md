@@ -5,6 +5,8 @@
 1. 安装 Add-on `[Advanced SSH & Web Terminal]` ，并禁用保护模式 `[Protected Mode]`
 2. 使用任意SSH终端软件(或者HA Web UI中使用 `[Advanced SSH & Web Terminal]` add-on)
 
+> 禁用保护模式 `[Protected Mode]`后才能在HAOS中使用docker命令显示和操作HA Core docker container.
+
 ## 调试日志Debug Log
 
 以下二种方法都可以打开调试日志Debug Log, 推荐使用修改`configuration.yaml`并重启HA的方法.
@@ -65,7 +67,7 @@
 
 ### 修改`midealocal`源代码
 
-`midealocal`是python3的pip package, 安装是HA core 中，(属于HAOS里面运行的一个docker container).
+`midealocal`是python3的pip package, 安装在HA core 中，而HA Core则属于HAOS里面运行的一个docker container.
 
 1. SSH登录HAOS
 2. 在HAOS中执行如下命令进入HA Core所在的docker: `docker exec -it homeassistant /bin/bash`
@@ -93,3 +95,20 @@
 3. 可以使用`ls`命令查看所有文件，可以使用`cat xxx.json`查看某个设备的配置信息，xxx为设备虚拟ID.
 
 > 如无特殊或者异常情况，一般不建议操作该文件。如需操作，可重命名备份该文件配置文件
+
+## 获取设备类型和SN
+
+`midealocal`是python3的pip package, 安装在HA core 中，而HA Core则属于HAOS里面运行的一个docker container.
+
+1. SSH登录HAOS
+2. 在HAOS中执行如下命令进入HA Core所在的docker: `docker exec -it homeassistant /bin/bash`
+3. 在HA Core的shell中执行如下命令来获取设备类型和SN: `python3 -m midealocal.cli discover --get_sn --host 192.168.2.127` (请替换示例命令中的IP为你的设备IP).
+
+执行以上命令的输出如下:
+
+```shell
+2025-01-21 18:06:33.552 INFO (MainThread) [cli] Found 1 devices.
+2025-01-21 18:06:33.552 INFO (MainThread) [cli] Found devices: {193514046726897: {'device_id': 193514046726897, 'type': 176, 'ip_address': '192.168.2.127', 'port': 6444, 'model': '0TG025JG', 'sn': 'xxxx', 'protocol': 3}}
+```
+
+请提供设备实际输出的内容, debug时需使用以上信息来确认设备的类型，协议，SN等.
