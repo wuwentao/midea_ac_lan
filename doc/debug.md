@@ -5,6 +5,8 @@
 1. Install Add-on `[Advanced SSH & Web Terminal]` and disable `[Protected Mode]` once it done, you can ssh to your HAOS
 2. Use any SSH Terminal software (or HA `[Advanced SSH & Web Terminal]` add-on web UI)
 
+> disable `[Protected Mode]` can show HA Core docker container with docker command.
+
 ## Debug log
 
 you can use below two methods to enable debug log.
@@ -66,7 +68,7 @@ if you need to manual edit or change source code in `midea_ac_lan` for test purp
 
 ### edit `midealocal` source code
 
-`midealocal` is a python3 pip package, and it will be installed in HA core (a docker container in HAOS).
+`midealocal` is a python3 pip package, it has been installed in HA Core，and HA Core is a docker container in HAOS.
 
 1. ssh login to your HAOS
 2. enter HA Core docker in HAOS: `docker exec -it homeassistant /bin/bash`
@@ -96,3 +98,20 @@ you can use below command to get a device json config:
 
 > if there is no any error exist, please don't remove or edit this file.
 > if you want to change it, you can rename and backup it.
+
+## Get Device type and SN
+
+`midealocal` is a python3 pip package, it has been installed in HA Core，and HA Core is a docker container in HAOS.
+
+1. ssh login to your HAOS
+2. enter HA Core docker in HAOS: `docker exec -it homeassistant /bin/bash`
+3. run below command to get device type and device SN in HA Core shell `python3 -m midealocal.cli discover --get_sn --host 192.168.2.127` (replace the example ip address to your device IP).
+
+output example:
+
+```shell
+2025-01-21 18:06:33.552 INFO (MainThread) [cli] Found 1 devices.
+2025-01-21 18:06:33.552 INFO (MainThread) [cli] Found devices: {193514046726897: {'device_id': 193514046726897, 'type': 176, 'ip_address': '192.168.2.127', 'port': 6444, 'model': '0TG025JG', 'sn': 'xxxx', 'protocol': 3}}
+```
+
+post these output to us, it's a important debug info for your device, we can confirm with your device type/SN/protocol for debug purpose.
