@@ -3,7 +3,7 @@
     "error": {
       "preset_account": "Failed to login with preset account, please report this issue",
       "login_failed": "Failed to login, account or password was wrong",
-      "no_devices": "Aucun nouvel appareil trouvé sur le réseau",
+      "no_devices": "Aucun nouvel apparel trouvé sur le réseau",
       "device_exist": "L'appareil est déjà configurée",
       "config_incorrect": "La configuration est incorrecte",
       "connect_error": "Impossible de se connecter à l'appareil",
@@ -15,7 +15,7 @@
           "way": "Ajout d'appareil"
         },
         "description": "Choisissez comment ajouter des appareils",
-        "title": "Ajouter un nouvel appareil"
+        "title": "Ajouter un nouvel apparel"
       },
       "login": {
         "data": {
@@ -34,19 +34,19 @@
       },
       "list": {
         "description": "{table}",
-        "title": "Appareil"
+        "title": "Apparel"
       },
       "auto": {
         "data": {
-          "device": "Appareil"
+          "device": "Apparel"
         },
-        "description": "Choisissez un appareil à ajouter",
-        "title": "Nouvel appareil trouvé"
+        "description": "Choisissez un apparel à ajouter",
+        "title": "Nouvel apparel trouvé"
       },
       "manually": {
         "data": {
           "name": "Nom (ex: Clim Salon)",
-          "device_id": "Code appareil",
+          "device_id": "Code apparel",
           "type": "Type",
           "ip_address": "Address IP",
           "port": "Port",
@@ -57,7 +57,7 @@
           "key": "Key"
         },
         "description": "Configuration de l'appareil",
-        "title": "Nouvel appareil"
+        "title": "Nouvel apparel"
       }
     }
   },
@@ -677,7 +677,7 @@
       "description": "Définir la valeur d'attribut de l'appareil",
       "fields": {
         "device_id": {
-          "name": "Code appareil",
+          "name": "Code apparel",
           "description": "Code de l'appareil (ID de l'appareil)"
         },
         "attribute": {
@@ -695,7 +695,7 @@
       "description": "Send a customize command to device",
       "fields": {
         "device_id": {
-          "name": "Code appareil",
+          "name": "Code apparel",
           "description": "Code de l'appareil (ID de l'appareil)"
         },
         "cmd_type": {
