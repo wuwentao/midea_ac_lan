@@ -41,14 +41,18 @@ body:
       label: The detail description of bug/problem
       description: description the device type and the error details
       value: |
-        1. description the device type and name（you may have multiple devices）
+        1. description the device type and name(you may have multiple devices)
         2. description the error action or error info (device have multiple data/features)
+        3. Submit issue without debug log will be directly closed(if you have any special case, you can add a description for it).
+        4. Submit issue without debug log will be directly closed(if you have any special case, you can add a description for it).
+        5. Submit issue without debug log will be directly closed(if you have any special case, you can add a description for it).
+
   - type: textarea
     attributes:
       label: The logs
       description: DEBUG log MUST be enabled, and execute the action to trigger error log and upload the debug log file as attachment. please refer to README document to enable DEBUG log
       value: |
-        1. DEBUG log MUST be enabled (Please refer to README document)
+        1. DEBUG log MUST be enabled (Please refer to README document), Submit issue without debug log will be directly closed
         2. Execute the action to trigger error log（you should description the error action）
         3. Upload the debug log file as attachment。
         4. Please don't paste the log content! upload as a attachment file.
