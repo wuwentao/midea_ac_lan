@@ -1614,6 +1614,13 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "unit": UnitOfTemperature.CELSIUS,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
+            CDAttributes.water_level: {
+                "type": Platform.SENSOR,
+                "has_entity_name": True,
+                "translation_key": "water_level",
+                "name": "Water Level",
+                "icon": "mdi:cup-water",
+            },
             CDAttributes.power: {
                 "type": Platform.SWITCH,
                 "has_entity_name": True,
