@@ -106,7 +106,7 @@ class MideaWaterHeater(MideaEntity, WaterHeaterEntity):
         """Midea Water Heater extra state attributes."""
         attrs: dict[str, Any] = self._device.attributes
         if hasattr(self._device, "temperature_step"):
-            attrs["target_temp_step"] = self._device.temperature_step
+            attrs["target_temperature_step"] = self._device.temperature_step
         return attrs
 
     @property
@@ -155,7 +155,8 @@ class MideaWaterHeater(MideaEntity, WaterHeaterEntity):
         """Midea Water Heater set temperature."""
         if ATTR_TEMPERATURE not in kwargs:
             return
-        temperature = int(kwargs[ATTR_TEMPERATURE])
+        # input target_temperature should be float
+        temperature = float(kwargs[ATTR_TEMPERATURE])
         self._device.set_attribute("target_temperature", temperature)
 
     def set_operation_mode(self, operation_mode: str) -> None:
@@ -292,7 +293,7 @@ class MideaC3WaterHeater(MideaWaterHeater):
         """Midea C3 Water Heater set temperature."""
         if ATTR_TEMPERATURE not in kwargs:
             return
-        temperature = int(kwargs[ATTR_TEMPERATURE])
+        temperature = float(kwargs[ATTR_TEMPERATURE])
         self._device.set_attribute(C3Attributes.dhw_target_temp, temperature)
 
     @property
@@ -375,7 +376,7 @@ class MideaE6WaterHeater(MideaWaterHeater):
         """Midea E6 Water Heater set temperature."""
         if ATTR_TEMPERATURE not in kwargs:
             return
-        temperature = int(kwargs[ATTR_TEMPERATURE])
+        temperature = float(kwargs[ATTR_TEMPERATURE])
         self._device.set_attribute(self._target_temperature_attr, temperature)
 
     @property
