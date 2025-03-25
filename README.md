@@ -16,10 +16,16 @@ Control your Midea M-Smart appliances via local area network.
 
 **_❗Note: Home Assistant 2023.8 or higher required for this integration_**
 
+## ❗❗❗❗❗❗Important Notice❗❗❗❗❗❗
+
+1. Midea has closed the server-side Token APIs in Meiju Cloud and Smarthome Cloud, and other cloud APIs are expected to be closed successively, which will prevent adding new devices in the future.
+2. For devices that have been successfully added, please be sure to **copy or back up the device's `.json` configuration file to a backup device outside of HAOS** for future use
+3. How to obtain the device's `.json` configuration file: Please refer to [Debug and Test](doc/debug.md#get-device-json-config)
+
 ## Upgrade from georgezhao2010/midea_ac_lan
 
 1. Remove old georgezhao2010/midea_ac_lan integration
-2. [Install current integration](#installation)
+2. [Install current integration](#installation), reboot HA
 3. You devices will NOT be deleted, it should still exist and you don't need to discover or add it again.
 4. If you can't found your device entries, try to configure your device and enable it in `Settings -> Devices & Services -> Midea AC LAN -> Devices -> CONFIGURE`
 5. Done, your devices should works as before.

@@ -20,6 +20,12 @@
 
 **_❗注意: 本集成需要 Home Assistant 2023.8 或更高版本_**
 
+## ❗❗❗❗❗❗重要提醒❗❗❗❗❗❗
+
+1. 美的已经关闭国内美居、海外SmartHome等服务器侧Token API，其他云端API应该也会陆续关闭，后续将无法添加新设备
+2. 已经添加成功的设备，请**务必将设备的.json配置文件复制或备份至HAOS之外的其他设备**，供后续使用
+3. 如何获取设备的`.json`配置文件： 请参考[Debug调试和测试](doc/debug_hans.md#%E8%8E%B7%E5%8F%96%E8%AE%BE%E5%A4%87json%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6)
+
 ## 从[georgezhao2010/midea_ac_lan]迁移
 
 1. 删除旧的集成：[georgezhao2010/midea_ac_lan]
