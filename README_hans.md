@@ -48,6 +48,7 @@
 | 40   | 凉霸                        | [40_hans.md](doc/40_hans.md) |
 | A1   | 除湿器                      | [A1_hans.md](doc/A1_hans.md) |
 | AC   | 空调器                      | [AC_hans.md](doc/AC_hans.md) |
+| AD   | 空气盒子                    | [AD_hans.md](doc/AD_hans.md) |
 | B0   | 微波炉                      | [B0_hans.md](doc/B0_hans.md) |
 | B1   | 电烤箱                      | [B1_hans.md](doc/B1_hans.md) |
 | B3   | 消毒碗柜                    | [B3_hans.md](doc/B3_hans.md) |

@@ -89,8 +89,8 @@ ADD_WAY = {
     "cache": "Remove login cache",
 }
 
-# Select SmartHome from the list of supported cloud
-SMARTHOME: str = list(SUPPORTED_CLOUDS)[1]
+# Select DEFAULT_CLOUD from the list of supported cloud
+DEFAULT_CLOUD: str = list(SUPPORTED_CLOUDS)[3]
 
 STORAGE_PATH = f".storage/{DOMAIN}"
 
@@ -126,12 +126,12 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
         # preset account
         self.preset_account: str = bytes.fromhex(
             format((PRESET_ACCOUNT_DATA[0] ^ PRESET_ACCOUNT_DATA[1]), "X"),
-        ).decode("ASCII")
+        ).decode("utf-8", errors="ignore")
         # preset password
         self.preset_password: str = bytes.fromhex(
             format((PRESET_ACCOUNT_DATA[0] ^ PRESET_ACCOUNT_DATA[2]), "X"),
-        ).decode("ASCII")
-        self.preset_cloud_name: str = SMARTHOME
+        ).decode("utf-8", errors="ignore")
+        self.preset_cloud_name: str = DEFAULT_CLOUD
 
     def _save_device_config(self, data: dict[str, Any]) -> None:
         """Save device config to json file with device id."""
@@ -283,19 +283,17 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                 self.hass.data[DOMAIN] = {}
             # check skip login option
             if user_input[CONF_SERVER] == next(iter(default_keys)):
-                # use preset account and SMARTHOME cloud
+                # use preset account and DEFAULT_CLOUD cloud
                 _LOGGER.debug("skip login matched, cloud_servers: %s", cloud_servers)
-                # get SMARTHOME key from dict
+                # get DEFAULT_CLOUD key from dict
                 key = next(
-                    key for key, value in cloud_servers.items() if value == SMARTHOME
+                    key
+                    for key, value in cloud_servers.items()
+                    if value == DEFAULT_CLOUD
                 )
                 cloud_server = cloud_servers[key]
-                account = bytes.fromhex(
-                    format((PRESET_ACCOUNT_DATA[0] ^ PRESET_ACCOUNT_DATA[1]), "X"),
-                ).decode("ASCII")
-                password = bytes.fromhex(
-                    format((PRESET_ACCOUNT_DATA[0] ^ PRESET_ACCOUNT_DATA[2]), "X"),
-                ).decode("ASCII")
+                account = self.preset_account
+                password = self.preset_password
                 # set a login_mode flag
                 self.hass.data[DOMAIN]["login_mode"] = "preset"
             # use input data
@@ -477,7 +475,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
         appliance_id: int,
         default_key: bool = True,
     ) -> dict[str, Any]:
-        """Use perset SMARTHOME account to get v3 device token and key.
+        """Use perset DEFAULT_CLOUD account to get v3 device token and key.
 
         Returns
         -------
@@ -625,7 +623,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                     # exclude: user selected not login and phase 1 is preset account
                     if self.hass.data[DOMAIN]["login_mode"] == "preset":
                         return await self.async_step_auto(
-                            error="can't get valid token without login",
+                            error="can't get valid token from Midea server",
                         )
 
                     # get key phase 2: reinit cloud with preset account
@@ -642,11 +640,14 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                     # phase 2 got no available token/key, disable device add
                     if not keys.get("token") or not keys.get("key"):
                         _LOGGER.debug(
-                            "Can't get any available token with device %s",
+                            "Can't get available token from Midea server for device %s",
                             device_id,
                         )
                         return await self.async_step_auto(
-                            error="Can't get available token for this device",
+                            error=(
+                                f"Can't get available token from Midea server"
+                                f" for device {device_id}"
+                            ),
                         )
                 # get key pass
                 self.found_device[CONF_TOKEN] = keys["token"]
@@ -734,11 +735,14 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                 # no available token/key, disable device add
                 if not keys.get("token") or not keys.get("key"):
                     _LOGGER.debug(
-                        "Can't get a valid token for this v3 device %s",
+                        "Can't get a valid token from Midea server for device %s",
                         user_input[CONF_DEVICE_ID],
                     )
                     return await self.async_step_manually(
-                        error="Can't get a valid token for this v3 device",
+                        error=(
+                            f"Can't get a valid token from Midea server"
+                            f" for device {user_input[CONF_DEVICE_ID]}"
+                        ),
                     )
 
                 # set token/key from preset account

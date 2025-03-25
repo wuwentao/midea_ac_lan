@@ -45,6 +45,7 @@ And more.
 | 40   | Integrated Ceiling Fan     | [40.md](doc/40.md) |
 | A1   | Dehumidifier               | [A1.md](doc/A1.md) |
 | AC   | Air Conditioner            | [AC.md](doc/AC.md) |
+| AD   | Air Box                    | [AD.md](doc/AD.md) |
 | B0   | Microwave Oven             | [B0.md](doc/B0.md) |
 | B1   | Electric Oven              | [B1.md](doc/B1.md) |
 | B3   | Dish Sterilizer            | [B3.md](doc/B3.md) |
