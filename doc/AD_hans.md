@@ -21,7 +21,7 @@
 | sensor.{DEVICEID}\_hcho                      | Sensor        | Methanal                | 甲醛浓度         |
 | binary_sensor.{DEVICEID}\_presets_function   | Binary Sensor | Presets Function        | 预设功能状态     |
 | binary_sensor.{DEVICEID}\_fall_asleep_status | Binary Sensor | Asleep Status           | 入睡状态         |
-| binary_sensor.{DEVICEID}\_portable_sense     | Binary Sensor | Portable Sense          | 便携感应状态     |
+| binary_sensor.{DEVICEID}\_portable_sense     | Binary Sensor | Portable Sense          | 随身感状态       |
 | binary_sensor.{DEVICEID}\_night_mode         | Binary Sensor | Night Mode              | 夜间模式状态     |
 | binary_sensor.{DEVICEID}\_screen_status      | Binary Sensor | Screen Status           | 屏幕开关状态     |
 | binary_sensor.{DEVICEID}\_led_status         | Binary Sensor | Ambient Lighting Status | 氛围灯状态       |
