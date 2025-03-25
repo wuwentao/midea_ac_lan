@@ -668,7 +668,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Methanal",
                 "icon": "mdi:molecule",
                 "device_class": SensorDeviceClass.VOLATILE_ORGANIC_COMPOUNDS,
-                "unit": CONCENTRATION_MILLIGRAMS_PER_CUBIC_METER,
+                "unit": CONCENTRATION_MICROGRAMS_PER_CUBIC_METER,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
             ADAttributes.presets_function: {
