@@ -604,42 +604,42 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Temperature",
                 "device_class": SensorDeviceClass.TEMPERATURE,
                 "unit": UnitOfTemperature.CELSIUS,
-                "state_class": SensorStateClass.MEASUREMENT
+                "state_class": SensorStateClass.MEASUREMENT,
             },
             ADAttributes.humidity: {
                 "type": Platform.SENSOR,
                 "name": "Humidity",
                 "device_class": SensorDeviceClass.HUMIDITY,
                 "unit": PERCENTAGE,
-                "state_class": SensorStateClass.MEASUREMENT
+                "state_class": SensorStateClass.MEASUREMENT,
             },
             ADAttributes.temperature_raw: {
                 "type": Platform.SENSOR,
                 "name": "Temperature Raw",
                 "device_class": SensorDeviceClass.TEMPERATURE,
                 "unit": UnitOfTemperature.CELSIUS,
-                "state_class": SensorStateClass.MEASUREMENT
+                "state_class": SensorStateClass.MEASUREMENT,
             },
             ADAttributes.humidity_raw: {
                 "type": Platform.SENSOR,
                 "name": "Humidity Raw",
                 "device_class": SensorDeviceClass.HUMIDITY,
                 "unit": PERCENTAGE,
-                "state_class": SensorStateClass.MEASUREMENT
+                "state_class": SensorStateClass.MEASUREMENT,
             },
             ADAttributes.temperature_compensate: {
                 "type": Platform.SENSOR,
                 "name": "Temperature Compensate",
                 "device_class": SensorDeviceClass.TEMPERATURE,
                 "unit": UnitOfTemperature.CELSIUS,
-                "state_class": SensorStateClass.MEASUREMENT
+                "state_class": SensorStateClass.MEASUREMENT,
             },
             ADAttributes.humidity_compensate: {
                 "type": Platform.SENSOR,
                 "name": "Humidity Compensate",
                 "device_class": SensorDeviceClass.HUMIDITY,
                 "unit": PERCENTAGE,
-                "state_class": SensorStateClass.MEASUREMENT
+                "state_class": SensorStateClass.MEASUREMENT,
             },
             ADAttributes.tvoc: {
                 "type": Platform.SENSOR,
@@ -647,21 +647,21 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "icon": "mdi:heat-wave",
                 "device_class": SensorDeviceClass.VOLATILE_ORGANIC_COMPOUNDS,
                 "unit": CONCENTRATION_PARTS_PER_MILLION,
-                "state_class": SensorStateClass.MEASUREMENT
+                "state_class": SensorStateClass.MEASUREMENT,
             },
             ADAttributes.co2: {
                 "type": Platform.SENSOR,
                 "name": "Carbon Dioxide",
                 "device_class": SensorDeviceClass.CO2,
                 "unit": CONCENTRATION_PARTS_PER_MILLION,
-                "state_class": SensorStateClass.MEASUREMENT
+                "state_class": SensorStateClass.MEASUREMENT,
             },
             ADAttributes.pm25: {
                 "type": Platform.SENSOR,
                 "name": "PM 2.5",
                 "device_class": SensorDeviceClass.PM25,
                 "unit": CONCENTRATION_MICROGRAMS_PER_CUBIC_METER,
-                "state_class": SensorStateClass.MEASUREMENT
+                "state_class": SensorStateClass.MEASUREMENT,
             },
             ADAttributes.hcho: {
                 "type": Platform.SENSOR,
@@ -669,66 +669,66 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "icon": "mdi:molecule",
                 "device_class": SensorDeviceClass.VOLATILE_ORGANIC_COMPOUNDS,
                 "unit": CONCENTRATION_MILLIGRAMS_PER_CUBIC_METER,
-                "state_class": SensorStateClass.MEASUREMENT
+                "state_class": SensorStateClass.MEASUREMENT,
             },
             ADAttributes.presets_function: {
                 "type": Platform.BINARY_SENSOR,
                 "name": "Presets Function",
-                "device_class": BinarySensorDeviceClass.RUNNING
-            },    
+                "device_class": BinarySensorDeviceClass.RUNNING,
+            },
             ADAttributes.fall_asleep_status: {
                 "type": Platform.BINARY_SENSOR,
                 "name": "Asleep Status",
                 "icon": "mdi:sleep",
-                "device_class": BinarySensorDeviceClass.RUNNING
-            },        
+                "device_class": BinarySensorDeviceClass.RUNNING,
+            },
             ADAttributes.screen_extinction_timeout: {
                 "type": Platform.SENSOR,
                 "name": "Screen Extinction Timeout",
                 "unit": UnitOfTime.MINUTES,
-                "state_class": SensorStateClass.MEASUREMENT
+                "state_class": SensorStateClass.MEASUREMENT,
             },
             ADAttributes.portable_sense: {
                 "type": Platform.BINARY_SENSOR,
                 "name": "Portable Sense",
-                "device_class": BinarySensorDeviceClass.RUNNING
-            },   
+                "device_class": BinarySensorDeviceClass.RUNNING,
+            },
             ADAttributes.night_mode: {
                 "type": Platform.BINARY_SENSOR,
                 "name": "Night Mode",
-                "device_class": BinarySensorDeviceClass.RUNNING
+                "device_class": BinarySensorDeviceClass.RUNNING,
             },
             ADAttributes.screen_status: {
                 "type": Platform.BINARY_SENSOR,
                 "name": "Screen Status",
-                "device_class": BinarySensorDeviceClass.RUNNING
+                "device_class": BinarySensorDeviceClass.RUNNING,
             },
             ADAttributes.led_status: {
                 "type": Platform.BINARY_SENSOR,
                 "name": "Ambient Lighting Status",
-                "device_class": BinarySensorDeviceClass.RUNNING
-            },   
+                "device_class": BinarySensorDeviceClass.RUNNING,
+            },
             ADAttributes.arofene_link: {
                 "type": Platform.BINARY_SENSOR,
                 "name": "Methanal Status",
-                "device_class": BinarySensorDeviceClass.PLUG
+                "device_class": BinarySensorDeviceClass.PLUG,
             },
             ADAttributes.header_exist: {
                 "type": Platform.BINARY_SENSOR,
                 "name": "Header Status",
-                "device_class": BinarySensorDeviceClass.PLUG
+                "device_class": BinarySensorDeviceClass.PLUG,
             },
             ADAttributes.radar_exist: {
                 "type": Platform.BINARY_SENSOR,
                 "name": "Radar Status",
-                "device_class": BinarySensorDeviceClass.RUNNING
-            },   
+                "device_class": BinarySensorDeviceClass.RUNNING,
+            },
             ADAttributes.header_led_status: {
                 "type": Platform.BINARY_SENSOR,
                 "name": "Breathing Light",
-                "device_class": BinarySensorDeviceClass.RUNNING
-            }  
-        }
+                "device_class": BinarySensorDeviceClass.RUNNING,
+            },
+        },
     },
     0xB0: {
         "name": "Microwave Oven",
