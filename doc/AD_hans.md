@@ -11,10 +11,10 @@
 
 | EntityID                                     | 类型          | 名称                    | 描述             |
 | -------------------------------------------- | ------------- | ----------------------- | ---------------- |
-| sensor.{DEVICEID}\_temperature               | Sensor        | Temperature             | 温度原始值       |
-| sensor.{DEVICEID}\_temperature_compensate    | Sensor        | Temperature Compensate  | 温度补偿值       |
-| sensor.{DEVICEID}\_humidity                  | Sensor        | Humidity                | 湿度原始值       |
-| sensor.{DEVICEID}\_humidity_compensate       | Sensor        | Humidity Compensate     | 湿度补偿值       |
+| sensor.{DEVICEID}\_temperature               | Sensor        | Temperature             | 温度            |
+| sensor.{DEVICEID}\_temperature_compensate    | Sensor        | Temperature Compensate  | 温度原始值       |
+| sensor.{DEVICEID}\_humidity                  | Sensor        | Humidity                | 湿度            |
+| sensor.{DEVICEID}\_humidity_compensate       | Sensor        | Humidity Compensate     | 湿度原始值       |
 | sensor.{DEVICEID}\_tvoc                      | Sensor        | TVOC                    | 总挥发性有机物   |
 | sensor.{DEVICEID}\_co2                       | Sensor        | Carbon Dioxide          | 二氧化碳浓度     |
 | sensor.{DEVICEID}\_pm25                      | Sensor        | PM 2.5                  | 细颗粒物浓度     |
