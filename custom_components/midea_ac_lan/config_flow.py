@@ -334,7 +334,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                 {
                     vol.Required(CONF_ACCOUNT): str,
                     vol.Required(CONF_PASSWORD): str,
-                    vol.Required(CONF_SERVER, default=3): vol.In(cloud_servers),
+                    vol.Required(CONF_SERVER, default=1): vol.In(cloud_servers),
                 },
             ),
             errors={"base": error} if error else None,
@@ -735,7 +735,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                 # no available token/key, disable device add
                 if not keys.get("token") or not keys.get("key"):
                     _LOGGER.debug(
-                        "Can't get a valid token from Midea server for this device %s",
+                        "Can't get a valid token from Midea server for device %s",
                         user_input[CONF_DEVICE_ID],
                     )
                     return await self.async_step_manually(
