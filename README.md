@@ -127,7 +127,7 @@ You can also use an IP address to search within a specified network, such as `19
 
 ### Configure manually
 
-If you already know following information, you could add the appliance manually.
+If you already know the following information, you could add the appliance manually.
 
 - Appliance code
 - Appliance type (one of [Supported appliances](README.md#supported-appliances))
@@ -143,22 +143,23 @@ Using this option, you can list all discoverable Midea M-Smart devices on the ne
 
 **_❗Note: For certain reasons, not all supported devices may be listed here._**
 
-## Configure
+## Configuration
 
-Configure can be found in `Settings -> Devices & Services -> Midea AC LAN -> Devices -> CONFIGURE`.
-You can re-set the IP address when device IP changed.
+The configuration can be found in `Settings -> Devices & Services -> Midea AC LAN -> Devices -> CONFIGURE`.
+You can re-set the IP address when device IP has changed.
 You can also add extra sensor and switch entities or customize your own device.
 
 ### IP address
 
-Set the IP address of device. You can reset this when your device IP is changed.
+Set the IP address of the device. You can reset this when your device IP has changed.
 
 ### Refresh interval
 
-Set the interval for actively refreshing the status of a single device (the unit is second) (30 by default and 0 means not refresh actively)
+Set the interval for actively refreshing the status of a single device (the unit is second).
+The interval is set to 30 seconds by default and can be set to 0 to not refresh actively. \
 Mostly the status update of Midea devices relies on the active information notification of the device, \
 in which condition the status update in HA still works normally even if the refresh interval is set to be "0". \
-This component will also actively query the device status at regular intervals, and the default time is 30 seconds. \
+This component will also actively query the device status at regular intervals at a default interval of 30 seconds. \
 Some devices do not have active information notifications when their status changed, so synchronization with the status in HA will be slower. \
 If you are very concerned about the synchronization speed of the status, you can try to set a shorter status refresh interval.
 
@@ -166,7 +167,7 @@ If you are very concerned about the synchronization speed of the status, you can
 
 ### Extra sensor and switch entities
 
-After configuration, one of few main entity (e.g. climate entity) may be generated . If you want to make the attributes to extra sensor and switch entities, click CONFIGURE in Midea AC LAN integration card to choose (your device MUST support this feature).
+After configuration, one of few main entities (e.g. climate entity) may be generated . If you want to make the attributes to extra sensor and switch entities, click CONFIGURE in Midea AC LAN integration card to choose (your device MUST support this feature).
 
 ### Customize
 
@@ -184,4 +185,4 @@ Example
 
 ## Debug and Test
 
-please refer to [Debug and Test](doc/debug.md)
+Please refer to [Debug and Test](doc/debug.md)
