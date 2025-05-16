@@ -304,7 +304,7 @@
         "name": "Current Temperature"
       },
       "dehydration_speed": {
-        "name": "dehydration speed"
+        "name": "Dehydration speed"
       },
       "dehydration_time": {
         "name": "Dehydration time"
@@ -454,19 +454,19 @@
         "name": "Right Flex Zone Setting Temperature"
       },
       "rinse_count": {
-        "name": "rinse count"
+        "name": "Rinse count"
       },
       "rinse_level": {
-        "name": "rinse level"
+        "name": "Rinse level"
       },
       "seat_temperature": {
         "name": "Seat Temperature"
       },
       "soak_time": {
-        "name": "soak time"
+        "name": "Soak time"
       },
       "softener": {
-        "name": "softener"
+        "name": "Softener"
       },
       "softwater": {
         "name": "Softwater Level"
@@ -511,10 +511,10 @@
         "name": "TVOC"
       },
       "wash_strength": {
-        "name": "wash strength"
+        "name": "Wash strength"
       },
       "wash_time": {
-        "name": "wash time"
+        "name": "Wash time"
       },
       "water_consumption": {
         "name": "Water Consumption"
@@ -642,7 +642,7 @@
         "name": "Storage"
       },
       "swing": {
-        "name": "swing"
+        "name": "Swing"
       },
       "swing_horizontal": {
         "name": "Swing Horizontal"
@@ -738,11 +738,11 @@
           "description": "The appliance code (Device ID) of appliance"
         },
         "cmd_type": {
-          "name": "command type",
+          "name": "Command type",
           "description": "The type of command，should be 3（query) or 2（set)"
         },
         "cmd_body": {
-          "name": "command body",
+          "name": "Command body",
           "description": "The body of command, (not include MSmart protocol head and checksum at the end)"
         }
       }
