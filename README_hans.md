@@ -20,21 +20,22 @@
 
 **_❗注意: 本集成需要 Home Assistant 2023.8 或更高版本_**
 
-## ❗❗❗❗❗❗重要提醒❗❗❗❗❗❗
+## 1. ❗❗❗❗❗❗重要提醒❗❗❗❗❗❗
 
-1. 美的已经关闭国内美居、海外SmartHome等服务器侧Token API，其他云端API应该也会陆续关闭，后续将无法添加新设备
-2. 已经添加成功的设备，请**务必将设备的.json配置文件复制或备份至HAOS之外的其他设备**，供后续使用
+1. 美的已经关闭国内美居、海外SmartHome等服务器侧Token API服务，目前切换其他云端Token API后暂时还能继续添加设备，但是应该也会陆续关闭，后续将无法添加新设备。
+2. 已经添加成功的设备，请**务必将设备的.json配置文件复制或备份至HAOS之外的其他设备**，供后续使用（通讯协议为v2的旧设备无配置文件，无需备份，仅通讯协议为v3的设备需要备份）
 3. 如何获取设备的`.json`配置文件： 请参考[Debug调试和测试](doc/debug_hans.md#%E8%8E%B7%E5%8F%96%E8%AE%BE%E5%A4%87json%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6)
+4. 关闭原因： 美的设计v1局域网API时，认为客户端通讯已经加密，因此在加密通讯里面使用云端服务生成的token并未设置过期时间。但目前Github存在大量使用破解了客户端加密模式的HA插件，由于Token无法过期，存在安全隐患，因此美的会陆续关闭以上所有云端token API服务，逐步切换至新的v2云端控制API, 从而导致v1局域网控制API无法使用。
 
-## 从[georgezhao2010/midea_ac_lan]迁移
+## 2. 从[georgezhao2010/midea_ac_lan]迁移
 
-1. 删除旧的集成：[georgezhao2010/midea_ac_lan]
-2. [安装当前集成](#安装), 重启HA
+1. 删除旧的集成：[georgezhao2010/midea_ac_lan](https://github.com/georgezhao2010/midea_ac_lan)
+2. [安装当前集成](#5-安装), 重启HA
 3. 原有的设备不会被删除，应该仍然都存在，因此无需重新Discover搜索和重新添加设备
 4. 如果原有设备的实体开关、传感器消失，请通过 `设置 -> 设备与服务 -> Midea AC LAN -> 设备` ，在指定的设备下，点击 `选项`重新启用即可。
 5. 完成, 设备仍然像之前一样正常使用即可.
 
-## 已支持的品牌
+## 3. 已支持的品牌
 
 ![beverly](brands/beverly.png) ![bugu](brands/bugu.png) ![carrier](brands/carrier.png) \
 ![colmo](brands/colmo.png) ![comfee](brands/comfee.png) ![electrolux](brands/electrolux.png) \
@@ -44,7 +45,7 @@
 
 以及更多。
 
-## 已支持的设备
+## 4. 已支持的设备
 
 | 类型 | 名称                        | 文档                         |
 | ---- | --------------------------- | ---------------------------- |
@@ -84,7 +85,7 @@
 | FC   | 空气净化器                  | [FC_hans.md](doc/FC_hans.md) |
 | FD   | 加湿器                      | [FD_hans.md](doc/FD_hans.md) |
 
-## 安装
+## 5. 安装
 
 请使用以下方式安装:
 
@@ -110,7 +111,7 @@ wget -O - https://github.com/wuwentao/midea_ac_lan/raw/master/scripts/install.sh
 
 重启完成后, 打开 `[Settings]`, `[Device & services]`, `[Integrations]`, `[Midea AC Lan]`, 进行初始化设置并添加所有设备.
 
-## 添加设备
+## 6. 添加设备
 
 **_❗注意: 首先, 在路由器上为你的设备设置一个静态IP地址, 以防设置后设备的IP地址发生改变。_**
 
@@ -122,7 +123,7 @@ wget -O - https://github.com/wuwentao/midea_ac_lan/raw/master/scripts/install.sh
 
 完成美的账户配置之后, 点击'添加设备'进行设备添加。你可以多次重复操作以添加多台设备。
 
-### Discover automatically / 自动搜索
+### 6.1 Discover automatically / 自动搜索
 
 使用此选项, 组件会列出网络上或者指定IP地址上的设备, 选择一个并进行添加。
 
@@ -130,7 +131,7 @@ wget -O - https://github.com/wuwentao/midea_ac_lan/raw/master/scripts/install.sh
 
 **_❗注意: 自动配置要求设备必须与HA在同一网段, 否则可能搜索不到设备, 请自行确认这点_**
 
-### Configure manually / 手动配置
+### 6.2 Configure manually / 手动配置
 
 如果之前你已经通过其它集成手工配置过设备, 并知道以下信息, 也可以进行手动配置
 
@@ -142,22 +143,22 @@ wget -O - https://github.com/wuwentao/midea_ac_lan/raw/master/scripts/install.sh
 - Token
 - Key
 
-### List all appliances only / 仅列出所有设备
+### 6.3 List all appliances only / 仅列出所有设备
 
 使用此选择, 可以列出网络中所有可以被搜索到的美的M-Smart设备, 以及他们的ID, 类型, SN等信息
 
 **_❗注意: 出于某些原因, 可能不是所有受支持的设备都能于此列出_**
 
-## 配置
+## 7. 配置
 
 集成配置位于 `设置 -> 设备与服务 -> Midea AC LAN -> 设备` 在指定的设备下，点击 `选项`。
 在配置中, 你可以在设备IP改变后重新指定IP地址, 也可以增加扩展的传感器或开关等实体或者自定义你的设备
 
-### IP地址
+### 7.1 IP地址
 
 指定设备的IP地址。当你的设备IP地址变动后, 可以重新设定它
 
-### 刷新间隔
+### 7.2 刷新间隔
 
 指定单台设备的主动状态刷新间隔 (单位为秒) (默认值为30, 设0代表不进行主动刷新)
 
@@ -165,15 +166,15 @@ wget -O - https://github.com/wuwentao/midea_ac_lan/raw/master/scripts/install.sh
 
 **_❗注意: 更小的更新间隔意味着更多的能源消耗_**
 
-## 额外的传感器及开关实体
+## 7.3 额外的传感器及开关实体
 
 配置完成后, 可能会默认生成一个或几个主要实体(比如climate实体)。如果需要其它属性生成为扩展的传感器及开关实体, 在Midea AC LAN集成卡片上点击`选项`, 并选择要生成的传感器及开关(设备必须支持该功能)。
 
-### 自定义
+### 7.4 自定义
 
 某些类型的设备有它们自己的自定义项, 可以通过自定义项定制设备的特点。如果你的设备无法正常工作, 也许你需要自定义它。请参阅设备文档以获取具体信息。
 
-自定义的格式必须是JSON。
+自定义Customize的格式必须是JSON。
 
 如果要设置多个自定义项, 请注意遵循JSON的格式要求
 
@@ -183,6 +184,6 @@ wget -O - https://github.com/wuwentao/midea_ac_lan/raw/master/scripts/install.sh
 { "refresh_interval": 15, "fan_speed": 100 }
 ```
 
-## Debug调试和测试
+## 8. Debug调试和测试
 
 请参考[Debug调试和测试](doc/debug_hans.md)
