@@ -21,7 +21,7 @@ if you got a error temperature value between Fahrenheit and Celsius, you can man
 { "lua_protocol": new }
 ```
 
-其中`lua_protocol`为key, 不能修改，值可以设置为`old`, `new`, `auto`(default is `auto`).
+`lua_protocol` is key name, and value can be set to `old`, `new`, `auto`(default is `auto`).
 
 ## Entities
 
