@@ -2632,6 +2632,28 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Heating Power",
                 "icon": "mdi:heating-coil",
             },
+            E6Attributes.cold_water_single: {
+                "type": Platform.SWITCH,
+                "has_entity_name": True,
+                "translation_key": "cold_water_single",
+                "name": "Cold Water Single",
+                "icon": "mdi:water",
+            },
+            E6Attributes.cold_water_dot: {
+                "type": Platform.SWITCH,
+                "has_entity_name": True,
+                "translation_key": "cold_water_dot",
+                "name": "Cold Water Dot",
+                "icon": "mdi:water-outline",
+            },
+            E6Attributes.heating_modes: {
+                "type": Platform.SELECT,
+                "has_entity_name": True,
+                "translation_key": "mode",
+                "options": "heating_modes",
+                "name": "Heating Modes",
+                "icon": "mdi:auto-mode",
+            },
         },
     },
     0xE8: {
