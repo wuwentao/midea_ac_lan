@@ -21,14 +21,14 @@ repos:
       - id: check-yaml
       - id: detect-private-key
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.11.10
+    rev: v0.11.11
     hooks:
       - id: ruff
         args:
           - --fix
       - id: ruff-format
   - repo: https://github.com/commitizen-tools/commitizen
-    rev: v4.7.2
+    rev: v4.8.2
     hooks:
       - id: commitizen
         stages: [commit-msg]
@@ -43,7 +43,7 @@ repos:
       - id: prettier
         args: ["--tab-width", "2"]
   - repo: https://github.com/asottile/pyupgrade
-    rev: v3.19.1
+    rev: v3.20.0
     hooks:
       - id: pyupgrade
         args: [--py37-plus]
