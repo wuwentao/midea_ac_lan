@@ -15,6 +15,12 @@
 { "old_protocol": true }
 ```
 
+- 设置温度调整步长(默认为1).
+
+```json
+{ "temperature_step": 0.5 }
+```
+
 ## 生成实体
 
 ### 默认生成实体

@@ -7,16 +7,18 @@ body:
     validations:
       required: true
     attributes:
-      label: Device type and model (or SN)
-      placeholder: Air Conditioner 22012225
+      label: Device type and Device SN
+      placeholder: Air Conditioner, SN 22012225xxxxxx
       description: |
         > The model can be found in Settings -> Devices & Services -> Midea AC LAN -> Devices -> Device Info
         > The SN can be found in Settings -> Devices & Services -> Midea AC LAN -> Add device -> Just list appliances
         > The SN also can be found in your SmartHome APP
+        > The SN also can be discovery via debug doc in README
       value: |
         > The model can be found in Settings -> Devices & Services -> Midea AC LAN -> Devices -> Device Info
         > The SN can be found in Settings -> Devices & Services -> Midea AC LAN -> Add device -> Just list appliances
         > The SN also can be found in your SmartHome APP
+        > The SN also can be discovery via debug doc in README
   - type: textarea
     validations:
       required: true
@@ -26,3 +28,6 @@ body:
         1. support new device : description device type and features you want to support
         2. support new feature: description the feature details with device type and details
         3. others: description the details
+        4. you MUST attach a debug log for exist device, Submit issue without debug log will be directly closed
+        5. you MUST attach a debug log for exist device, Submit issue without debug log will be directly closed
+        6. you MUST attach a debug log for exist device, Submit issue without debug log will be directly closed

@@ -1,6 +1,6 @@
 # 空气能热水器
 
-## 特性
+## 自定义
 
 - 支持温度设定
 
@@ -9,6 +9,16 @@
 ```json
 { "temperature_step": 0.5 }
 ```
+
+- 切换华氏度和摄氏度
+
+如果温度显示错误单位，请使用如下参数进行修改：
+
+```json
+{ "lua_protocol": new }
+```
+
+其中`lua_protocol`为key, 不能修改，值可以设置为`old`, `new`, `auto` (默认为`auto`)。
 
 ## 生成实体
 
@@ -25,6 +35,7 @@
 | sensor.{DEVICEID}\_compressor_temperature   | sensor        | Compressor Temperature | 压缩机温度                                    |
 | sensor.{DEVICEID}\_condenser_temperature    | sensor        | Condenser Temperature  | 冷凝器温度                                    |
 | sensor.{DEVICEID}\_outdoor_temperature      | sensor        | Outdoor Temperature    | 室外温度                                      |
+| sensor.{DEVICEID}\_water_level              | sensor        | Water Level            | 水位                                          |
 | binary_sensor.{DEVICEID}\_compressor_status | binary_sensor | Compressor Status      | 压缩机状态 (可能在部分机型上无法正确显示状态) |
 | switch.{DEVICEID}\_power                    | switch        | Power                  | 电源                                          |
 

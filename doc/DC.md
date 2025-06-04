@@ -8,12 +8,22 @@ No default entity
 
 ### Extra entities
 
-| EntityID                          | Class  | Description    |
-| --------------------------------- | ------ | -------------- |
-| sensor.{DEVICEID}\_progress       | sensor | Progress       |
-| sensor.{DEVICEID}\_time_remaining | sensor | Time Remaining |
-| switch.{DEVICEID}\_power          | switch | Power          |
-| switch.{DEVICEID}\_start          | switch | Start          |
+| EntityID                           | Class  | Description     |
+| ---------------------------------- | ------ | --------------- |
+| sensor.{DEVICEID}\_progress        | sensor | Progress        |
+| sensor.{DEVICEID}\_time_remaining  | sensor | Time Remaining  |
+| sensor.{DEVICEID}\_status          | sensor | Status          |
+| sensor.{DEVICEID}\_program         | sensor | Program         |
+| sensor.{DEVICEID}\_dryness_level   | sensor | Dryness Level   |
+| sensor.{DEVICEID}\_dry_temperature | sensor | Dry Temperature |
+| sensor.{DEVICEID}\_intensity       | sensor | Intensity       |
+| sensor.{DEVICEID}\_material        | sensor | Material        |
+| sensor.{DEVICEID}\_water_box       | sensor | Water Box       |
+| sensor.{DEVICEID}\_door_warn       | sensor | Door Warn       |
+| sensor.{DEVICEID}\_ai_switch       | sensor | AI Switch       |
+| sensor.{DEVICEID}\_error_code      | sensor | Error Code      |
+| switch.{DEVICEID}\_power           | switch | Power           |
+| switch.{DEVICEID}\_start           | switch | Start           |
 
 ## Service
 

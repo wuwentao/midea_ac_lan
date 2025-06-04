@@ -1,5 +1,13 @@
 # 壁挂炉
 
+## 自定义
+
+- 设置温度调整步长(默认为1).
+
+```json
+{ "temperature_step": 0.5 }
+```
+
 ## 生成实体
 
 ### 默认实体
@@ -19,6 +27,9 @@
 | sensor.{DEVICEID}\_bathing_leaving_temperature | sensor        | Bathing Leaving Water Temperature | 淋浴出水温度 |
 | switch.{DEVICEID}\_main_power                  | switch        | Main power                        | 主电源       |
 | sensor.{DEVICEID}\_heating_power               | switch        | Heating power                     | 取暖电源     |
+| sensor.{DEVICEID}\_cold_water_single           | switch        | Cold Water Single                 | 单次零冷水   |
+| sensor.{DEVICEID}\_cold_water_dot              | switch        | Cold Water Dot                    | 点动零冷水   |
+| sensor.{DEVICEID}\_heating_modes               | switch        | Heating Modes                     | 模式         |
 
 ## 服务
 

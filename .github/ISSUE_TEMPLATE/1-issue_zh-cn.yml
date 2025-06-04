@@ -42,12 +42,15 @@ body:
       value: |
         1. 请准确描述问题对应的设备名称、类型（尤其是log里面有一堆设备，到底哪个设备的什么操作有问题，务必准确说明）
         2. 请准确描述有问题的操作或错误提示信息，例如操作xxx，实际是yyy等，（禁止提交XXX不能用了，XXX不行了）
+        3. 无debug log的issue将直接关闭（如果你有不提交debug log的特殊理由，请单独说明）
+        4. 无debug log的issue将直接关闭（如果你有不提交debug log的特殊理由，请单独说明）
+        5. 无debug log的issue将直接关闭（如果你有不提交debug log的特殊理由，请单独说明）
   - type: textarea
     attributes:
       label: The logs
       description: 必须先开启Debug Log(参考首页README)，并执行产生错误的操作，将完整的Debug log文件以附件上传（请勿粘贴log中内容)
       value: |
-        1. 必须先开启Debug Log(参考首页README说明)
+        1. 必须先开启Debug Log(参考首页README说明)，无debug log的issue将直接关闭
         2. 执行产生错误的操作（请务必在问题详细描述中说明）
         3. 将完整的Debug log文件以附件上传。
         4. 请勿直接粘贴log中的部分内容！以附件上传。

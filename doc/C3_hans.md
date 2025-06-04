@@ -5,6 +5,14 @@
 - 支持目标温度设定
 - 支持运行模式设定
 
+## 自定义
+
+- 设置温度调整步长(默认为0.5).
+
+```json
+{ "temperature_step": 1 }
+```
+
 ## 生成实体
 
 ### 默认生成实体
@@ -37,6 +45,7 @@
 | switch.{DEVICEID}\_eco_mode                     | switch        | ECO Mode                     | ECO模式                                                             |
 | switch.{DEVICEID}\_fast_dhw                     | switch        | Fast DHW                     | 快速生活热水                                                        |
 | switch.{DEVICEID}\_silent_mode                  | switch        | Silent Mode                  | 静音模式                                                            |
+| switch.{DEVICEID}\_silent_level                 | select        | Silent Level                 | 静音级别                                                            |
 | switch.{DEVICEID}\_tbh                          | switch        | TBH                          | TBH                                                                 |
 | switch.{DEVICEID}\_zone1_curve                  | switch        | Zone1 Curve                  | 区域1曲线                                                           |
 | switch.{DEVICEID}\_zone2_curve                  | switch        | Zone2 Curve                  | 区域2曲线                                                           |

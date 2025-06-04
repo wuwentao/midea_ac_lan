@@ -304,13 +304,46 @@
         "name": "Current Temperature"
       },
       "dehydration_speed": {
-        "name": "dehydration speed"
+        "name": "Dehydration speed"
       },
       "dehydration_time": {
-        "name": "dehydration time"
+        "name": "Dehydration time"
+      },
+      "dehydration_time_value": {
+        "name": "Dehydration time value"
+      },
+      "wash_time_value": {
+        "name": "Wash time value"
+      },
+      "stains": {
+        "name": "Stains"
+      },
+      "dirty_degree": {
+        "name": "Dirty degree"
       },
       "detergent": {
-        "name": "detergent"
+        "name": "Detergent"
+      },
+      "intensity": {
+        "name": "Intensity"
+      },
+      "dryness_level": {
+        "name": "Dryness Level"
+      },
+      "dry_temperature": {
+        "name": "Dry Temperature"
+      },
+      "door_warn": {
+        "name": "Door Warn"
+      },
+      "ai_switch": {
+        "name": "AI Switch"
+      },
+      "material": {
+        "name": "Material"
+      },
+      "water_box": {
+        "name": "Water Box"
       },
       "energy_consumption": {
         "name": "Energy Consumption"
@@ -421,19 +454,19 @@
         "name": "Right Flex Zone Setting Temperature"
       },
       "rinse_count": {
-        "name": "rinse count"
+        "name": "Rinse count"
       },
       "rinse_level": {
-        "name": "rinse level"
+        "name": "Rinse level"
       },
       "seat_temperature": {
         "name": "Seat Temperature"
       },
       "soak_time": {
-        "name": "soak time"
+        "name": "Soak time"
       },
       "softener": {
-        "name": "softener"
+        "name": "Softener"
       },
       "softwater": {
         "name": "Softwater Level"
@@ -477,20 +510,20 @@
       "tvoc": {
         "name": "TVOC"
       },
-      "wash_level": {
-        "name": "rinse count"
-      },
       "wash_strength": {
-        "name": "wash strength"
+        "name": "Wash strength"
       },
       "wash_time": {
-        "name": "wash time"
+        "name": "Wash time"
       },
       "water_consumption": {
         "name": "Water Consumption"
       },
       "water_temperature": {
         "name": "Water Temperature"
+      },
+      "water_level": {
+        "name": "Water Level"
       },
       "working_time": {
         "name": "Working Time"
@@ -520,6 +553,12 @@
       },
       "dry": {
         "name": "Dry"
+      },
+      "cold_water_single": {
+        "name": "Cold Water Single"
+      },
+      "cold_water_dot": {
+        "name": "Cold Water Dot"
       },
       "eco_mode": {
         "name": "ECO Mode"
@@ -603,7 +642,7 @@
         "name": "Storage"
       },
       "swing": {
-        "name": "swing"
+        "name": "Swing"
       },
       "swing_horizontal": {
         "name": "Swing Horizontal"
@@ -699,11 +738,11 @@
           "description": "The appliance code (Device ID) of appliance"
         },
         "cmd_type": {
-          "name": "command type",
+          "name": "Command type",
           "description": "The type of command，should be 3（query) or 2（set)"
         },
         "cmd_body": {
-          "name": "command body",
+          "name": "Command body",
           "description": "The body of command, (not include MSmart protocol head and checksum at the end)"
         }
       }

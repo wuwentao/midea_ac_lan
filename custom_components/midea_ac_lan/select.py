@@ -1,4 +1,4 @@
-"""Select for Midea Lan."""  # noqa: A005
+"""Select for Midea Lan."""
 
 from typing import cast
 
@@ -25,7 +25,7 @@ async def async_setup_entry(
     extra_switches = config_entry.options.get(CONF_SWITCHES, [])
     selects = []
     for entity_key, config in cast(
-        dict,
+        "dict",
         MIDEA_DEVICES[device.device_type]["entities"],
     ).items():
         if config["type"] == Platform.SELECT and entity_key in extra_switches:
@@ -45,12 +45,12 @@ class MideaSelect(MideaEntity, SelectEntity):
     @property
     def options(self) -> list[str]:
         """Return entity options."""
-        return cast(list, getattr(self._device, self._options_name))
+        return cast("list", getattr(self._device, self._options_name))
 
     @property
     def current_option(self) -> str:
         """Return entity current option."""
-        return cast(str, self._device.get_attribute(self._entity_key))
+        return cast("str", self._device.get_attribute(self._entity_key))
 
     def select_option(self, option: str) -> None:
         """Select entity option."""

@@ -2,7 +2,7 @@
   "config": {
     "error": {
       "preset_account": "Failed to login with preset account, please report this issue",
-      "login_failed": "Failed to login, account or password was wrong",
+      "login_failed": "Не удалось авторизоваться, неверное имя аккаунта или пароль",
       "no_devices": "Новые доступные устройства в локальной сети не найдены",
       "device_exist": "Устройство уже настроено",
       "config_incorrect": "Некорректная конфигурация",
@@ -19,14 +19,14 @@
       },
       "login": {
         "data": {
-          "account": "Account",
-          "password": "Password"
+          "account": "Аккаунт",
+          "password": "Пароль"
         },
         "description": "Login and storage your Midea account only for getting the appliance info.\nYou can remove this configuration after all appliance configured.",
         "title": "Login"
       },
       "discovery": {
-        "description": "Введите IP-адрес устройства, введите \"auto\", чтобы автоматически обнаружить\nВы также можете использовать IP-адрес для поиска в определенной сети, например, \"192.168.1.255\"",
+        "description": "Введите IP-адрес устройства или \"auto\", чтобы обнаружить устройства автоматически.\nВы также можете использовать IP-адрес для поиска в определенной сети, например, \"192.168.1.255\"",
         "title": "Поиск",
         "data": {
           "ip_address": "IP-адрес"
@@ -85,22 +85,22 @@
         "name": "Burning State"
       },
       "cleaning_reminder": {
-        "name": "Cleaning Reminder"
+        "name": "Требуется очистка"
       },
       "compressor_status": {
-        "name": "Compressor Status"
+        "name": "Статус компрессора"
       },
       "cooking": {
-        "name": "Cooking"
+        "name": "Приготовление"
       },
       "filter_change_reminder": {
-        "name": "Filter Change Reminder"
+        "name": "Требуется замена фильтра"
       },
       "filter_cleaning_reminder": {
-        "name": "Filter Cleaning Reminder"
+        "name": "Требуется очистка фильтра"
       },
       "finished": {
-        "name": "Finished"
+        "name": "Завершено"
       },
       "flex_zone_door": {
         "name": "Flex Door"
@@ -115,19 +115,19 @@
         "name": "Freezer Door Overtime"
       },
       "full_dust": {
-        "name": "Full of Dust"
+        "name": "Загрязнение"
       },
       "heating": {
-        "name": "Heating"
+        "name": "Нагрев"
       },
       "heating_working": {
         "name": "Heating Working Status"
       },
       "keep_warm": {
-        "name": "Keep Warm"
+        "name": "Поддержание температуры"
       },
       "lid_status": {
-        "name": "Lid Status"
+        "name": "Крышка"
       },
       "middle_compartment_cooling": {
         "name": "Middle Compartment Cooling"
@@ -142,7 +142,7 @@
         "name": "Oil-cup Full"
       },
       "protection": {
-        "name": "Protection"
+        "name": "Защита"
       },
       "refrigerator_door": {
         "name": "Refrigerator Door"
@@ -151,19 +151,19 @@
         "name": "Refrigerator Door Overtime"
       },
       "rinse_aid": {
-        "name": "Rinse Aid Shortage"
+        "name": "Нехватка ополаскивателя"
       },
       "salt": {
-        "name": "Salt Shortage"
+        "name": "Соль"
       },
       "seat_status": {
-        "name": "Seat Status"
+        "name": "Сиденье"
       },
       "status_dhw": {
         "name": "DHW status"
       },
       "status_heating": {
-        "name": "Heating status"
+        "name": "Подогрев"
       },
       "status_ibh": {
         "name": "IBH status"
@@ -190,7 +190,7 @@
         "name": "Water Change Reminder"
       },
       "water_shortage": {
-        "name": "Water Shortage"
+        "name": "Нехватка воды"
       },
       "with_pressure": {
         "name": "With Pressure"
@@ -223,7 +223,7 @@
     },
     "lock": {
       "child_lock": {
-        "name": "Child Lock"
+        "name": "Блокировка"
       }
     },
     "number": {
@@ -245,13 +245,13 @@
         "name": "Detect Mode"
       },
       "direction": {
-        "name": "Direction"
+        "name": "Направление"
       },
       "fan_speed": {
-        "name": "Fan Speed"
+        "name": "Скорость"
       },
       "mode": {
-        "name": "Mode"
+        "name": "Режим"
       },
       "oscillation_angle": {
         "name": "Oscillation Angle"
@@ -266,7 +266,7 @@
         "name": "Silent Level"
       },
       "tilting_angle": {
-        "name": "Tilting Angle"
+        "name": "Угол поворота"
       },
       "water_level_set": {
         "name": "Water Level Setting"
@@ -301,28 +301,61 @@
         "name": "Current Energy Consumption"
       },
       "current_temperature": {
-        "name": "Current Temperature"
+        "name": "Текущая температура"
       },
       "dehydration_speed": {
-        "name": "dehydration speed"
+        "name": "Dehydration speed"
       },
       "dehydration_time": {
-        "name": "dehydration time"
+        "name": "Dehydration time"
+      },
+      "dehydration_time_value": {
+        "name": "Dehydration time value"
+      },
+      "wash_time_value": {
+        "name": "Wash time value"
+      },
+      "stains": {
+        "name": "Stains"
+      },
+      "dirty_degree": {
+        "name": "Dirty degree"
       },
       "detergent": {
-        "name": "detergent"
+        "name": "Моющее средство"
+      },
+      "intensity": {
+        "name": "Интенсивность"
+      },
+      "dryness_level": {
+        "name": "Dryness Level"
+      },
+      "dry_temperature": {
+        "name": "Dry Temperature"
+      },
+      "door_warn": {
+        "name": "Door Warn"
+      },
+      "ai_switch": {
+        "name": "AI Switch"
+      },
+      "material": {
+        "name": "Материал"
+      },
+      "water_box": {
+        "name": "Water Box"
       },
       "energy_consumption": {
-        "name": "Energy Consumption"
+        "name": "Энергопотребление"
       },
       "error_code": {
-        "name": "Error Code"
+        "name": "Код ошибки"
       },
       "fan_level": {
         "name": "Fan level"
       },
       "filter_life": {
-        "name": "Filter Life"
+        "name": "Состояние фильтра"
       },
       "filter1_days": {
         "name": "Filter1 Available Days"
@@ -355,13 +388,13 @@
         "name": "Freezer Setting Temperature"
       },
       "hcho": {
-        "name": "Methanal"
+        "name": "Формальдегид"
       },
       "heating_leaving_temperature": {
         "name": "Heating Leaving Water Temperature"
       },
       "heating_power": {
-        "name": "Heating Power"
+        "name": "Мощность нагрева"
       },
       "heating_time_remaining": {
         "name": "Heating Time Remaining"
@@ -391,7 +424,7 @@
         "name": "Middle Compartment Temperature"
       },
       "mode": {
-        "name": "Mode"
+        "name": "Режим"
       },
       "out_tds": {
         "name": "Out TDS"
@@ -400,13 +433,13 @@
         "name": "Outdoor Temperature"
       },
       "program": {
-        "name": "Program"
+        "name": "Программа"
       },
       "progress": {
-        "name": "Progress"
+        "name": "Этап"
       },
       "realtime_power": {
-        "name": "Realtime Power"
+        "name": "Энергопотребление"
       },
       "refrigerator_actual_temp": {
         "name": "Refrigerator Actual Temperature"
@@ -421,25 +454,25 @@
         "name": "Right Flex Zone Setting Temperature"
       },
       "rinse_count": {
-        "name": "rinse count"
+        "name": "Rinse count"
       },
       "rinse_level": {
-        "name": "rinse level"
+        "name": "Уровень ополаскивателя"
       },
       "seat_temperature": {
-        "name": "Seat Temperature"
+        "name": "Температура сиденья"
       },
       "soak_time": {
-        "name": "soak time"
+        "name": "Время замачивания"
       },
       "softener": {
-        "name": "softener"
+        "name": "Умягчитель"
       },
       "softwater": {
-        "name": "Softwater Level"
+        "name": "Уровень умягчителя"
       },
       "status": {
-        "name": "Status"
+        "name": "Статус"
       },
       "storage_remaining": {
         "name": "Storage Remaining"
@@ -451,10 +484,10 @@
         "name": "Tank Actual Temperature"
       },
       "target_temperature": {
-        "name": "Target Temperature"
+        "name": "Целевая температура"
       },
       "time_remaining": {
-        "name": "Time Remaining"
+        "name": "Время цикла"
       },
       "top_compartment_remaining": {
         "name": "Top Compartment Remaining"
@@ -469,7 +502,7 @@
         "name": "Top Temperature"
       },
       "total_energy_consumption": {
-        "name": "Total Energy Consumption"
+        "name": "Общее энергопотребление"
       },
       "total_produced_energy": {
         "name": "Total produced energy"
@@ -477,23 +510,23 @@
       "tvoc": {
         "name": "TVOC"
       },
-      "wash_level": {
-        "name": "rinse count"
-      },
       "wash_strength": {
-        "name": "wash strength"
+        "name": "Wash strength"
       },
       "wash_time": {
-        "name": "wash time"
+        "name": "Время мойки"
       },
       "water_consumption": {
         "name": "Water Consumption"
       },
       "water_temperature": {
-        "name": "Water Temperature"
+        "name": "Температура воды"
+      },
+      "water_level": {
+        "name": "Уровень воды"
       },
       "working_time": {
-        "name": "Working Time"
+        "name": "Время работы"
       }
     },
     "switch": {
@@ -516,13 +549,13 @@
         "name": "DHW Power"
       },
       "disinfect": {
-        "name": "Disinfect"
+        "name": "Дезинфекция"
       },
       "dry": {
         "name": "Dry"
       },
       "eco_mode": {
-        "name": "ECO Mode"
+        "name": "Эко-режим"
       },
       "fast_dhw": {
         "name": "Fast DHW"
@@ -531,16 +564,16 @@
         "name": "Foam Shield"
       },
       "frost_protect": {
-        "name": "Frost Protect"
+        "name": "Защита от замерзания"
       },
       "heating_power": {
-        "name": "Heating Power"
+        "name": "Нагреватель"
       },
       "indirect_wind": {
         "name": "Indirect Wind"
       },
       "light": {
-        "name": "Light"
+        "name": "Свет"
       },
       "link_to_ac": {
         "name": "Link to AC"
@@ -558,10 +591,10 @@
         "name": "Night Light"
       },
       "oscillate": {
-        "name": "Oscillate"
+        "name": "Режим поворота"
       },
       "power": {
-        "name": "Power"
+        "name": "Питание"
       },
       "powerful_purify": {
         "name": "Powerful Purification"
@@ -594,16 +627,16 @@
         "name": "Smelly Sensor"
       },
       "standby": {
-        "name": "Standby"
+        "name": "Ожидание"
       },
       "start": {
-        "name": "Start"
+        "name": "Старт"
       },
       "storage": {
         "name": "Storage"
       },
       "swing": {
-        "name": "swing"
+        "name": "Swing"
       },
       "swing_horizontal": {
         "name": "Swing Horizontal"
@@ -618,7 +651,7 @@
         "name": "Variable Heating"
       },
       "ventilation": {
-        "name": "Ventilation"
+        "name": "Вентиляция"
       },
       "whole_tank_heating": {
         "name": "Whole Tank Heating"
@@ -660,8 +693,8 @@
         "data": {
           "ip_address": "IP-адрес",
           "refresh_interval": "Интервал обновления (0 не выполняет активное обновление)",
-          "sensors": "Доп. сенсоры",
-          "switches": "Доп. элементы управления",
+          "sensors": "Дополнительные сенсоры",
+          "switches": "Дополнительные элементы управления",
           "customize": "Настроить"
         },
         "title": "Конфигурация"
