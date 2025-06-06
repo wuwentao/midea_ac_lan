@@ -32,8 +32,7 @@ RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak && \
 # .bashrc or .zshrc add mirror site:
 # export PIP_MIRROR_DOMAIN="pypi.tuna.tsinghua.edu.cn"
 # --- BEGIN: PIP China Mirror Configuration ---
-RUN mkdir -p /etc/pip && \
-    echo "[global]" > /etc/pip.conf && \
+RUN echo "[global]" > /etc/pip.conf && \
     echo "index-url = https://${PIP_MIRROR_DOMAIN}/simple" >> /etc/pip.conf && \
     echo "trusted-host = ${PIP_MIRROR_DOMAIN}" >> /etc/pip.conf
 # --- END: PIP Mirror Configuration ---
