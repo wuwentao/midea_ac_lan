@@ -24,10 +24,10 @@ RUN pipx uninstall mypy
 # export APT_MIRROR_DOMAIN="mirrors.tuna.tsinghua.edu.cn"
 # --- BEGIN: APT China Mirror Configuration ---
 # First, ensure apt's sources.list is initialized
-RUN apt-get update -y && \
-    cp /etc/apt/sources.list /etc/apt/sources.list.bak && \
+RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak && \
     sed -i "s|deb.debian.org|${APT_MIRROR_DOMAIN}|g" /etc/apt/sources.list && \
-    sed -i "s|security.debian.org|${APT_MIRROR_DOMAIN}|g" /etc/apt/sources.list
+    sed -i "s|security.debian.org|${APT_MIRROR_DOMAIN}|g" /etc/apt/sources.list && \
+    apt-get clean all && rm -rf /var/lib/apt/lists/* && apt-get update
 
 # .bashrc or .zshrc add mirror site:
 # export PIP_MIRROR_DOMAIN="pypi.tuna.tsinghua.edu.cn"
