@@ -8,7 +8,7 @@ cd "$(dirname "$0")/.."
 pre-commit install
 pre-commit install --hook-type commit-msg
 
-npm install @commitlint/config-conventional
+npm install --no-fund @commitlint/config-conventional
 
 # Create config dir if not present
 if [[ ! -d "${PWD}/config" ]]; then

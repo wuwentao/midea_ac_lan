@@ -2,7 +2,11 @@
   "name": "midea_ac_lan",
   "build": {
     "dockerfile": "Dockerfile",
-    "context": ".."
+    "context": "..",
+    "args": {
+      "APT_MIRROR_DOMAIN": "${localEnv:APT_MIRROR_DOMAIN:-deb.debian.org}",
+      "PIP_MIRROR_DOMAIN": "${localEnv:PIP_MIRROR_DOMAIN:-pypi.org}"
+    }
   },
   "postCreateCommand": "scripts/setup.sh",
   "forwardPorts": [8123],
@@ -29,7 +33,13 @@
         "python.analysis.autoSearchPaths": false,
         "editor.formatOnPaste": false,
         "editor.formatOnSave": true,
-        "editor.formatOnType": true
+        "editor.formatOnType": true,
+        "terminal.integrated.profiles.linux": {
+          "zsh": {
+            "path": "/usr/bin/zsh"
+          }
+        },
+        "terminal.integrated.defaultProfile.linux": "zsh"
       }
     }
   },
