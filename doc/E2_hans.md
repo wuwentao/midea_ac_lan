@@ -15,6 +15,14 @@
 { "old_protocol": true }
 ```
 
+- 设置热水器温度基数为整度还是半度 (false 为整度 true 为半度, 默认为 false)
+
+  如果你的热水器显示的温度为实际温度的两倍，请将该值设为true。
+
+```json
+{ "precision_halves": true }
+```
+
 - 设置温度调整步长(默认为1).
 
 ```json
