@@ -24,18 +24,17 @@ RUN pipx uninstall mypy
 # export APT_MIRROR_DOMAIN="mirrors.tuna.tsinghua.edu.cn"
 # --- BEGIN: APT China Mirror Configuration ---
 # First, ensure apt's sources.list is initialized
-RUN apt-get update -y && \
-    cp /etc/apt/sources.list /etc/apt/sources.list.bak && \
+RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak && \
     sed -i "s|deb.debian.org|${APT_MIRROR_DOMAIN}|g" /etc/apt/sources.list && \
-    sed -i "s|security.debian.org|${APT_MIRROR_DOMAIN}|g" /etc/apt/sources.list
+    sed -i "s|security.debian.org|${APT_MIRROR_DOMAIN}|g" /etc/apt/sources.list && \
+    apt-get clean all && rm -rf /var/lib/apt/lists/* && apt-get update
 
 # .bashrc or .zshrc add mirror site:
 # export PIP_MIRROR_DOMAIN="pypi.tuna.tsinghua.edu.cn"
 # --- BEGIN: PIP China Mirror Configuration ---
-RUN mkdir -p /etc/pip && \
-    echo "[global]" > /etc/pip/pip.conf && \
-    echo "index-url = https://${PIP_MIRROR_DOMAIN}/simple" >> /etc/pip/pip.conf && \
-    echo "trusted-host = ${PIP_MIRROR_DOMAIN}" >> /etc/pip/pip.conf
+RUN echo "[global]" > /etc/pip.conf && \
+    echo "index-url = https://${PIP_MIRROR_DOMAIN}/simple" >> /etc/pip.conf && \
+    echo "trusted-host = ${PIP_MIRROR_DOMAIN}" >> /etc/pip.conf
 # --- END: PIP Mirror Configuration ---
 
 # [Optional] Uncomment this section to install additional OS packages.
