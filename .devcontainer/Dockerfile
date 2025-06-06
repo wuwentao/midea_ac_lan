@@ -33,9 +33,9 @@ RUN apt-get update -y && \
 # export PIP_MIRROR_DOMAIN="pypi.tuna.tsinghua.edu.cn"
 # --- BEGIN: PIP China Mirror Configuration ---
 RUN mkdir -p /etc/pip && \
-    echo "[global]" > /etc/pip/pip.conf && \
-    echo "index-url = https://${PIP_MIRROR_DOMAIN}/simple" >> /etc/pip/pip.conf && \
-    echo "trusted-host = ${PIP_MIRROR_DOMAIN}" >> /etc/pip/pip.conf
+    echo "[global]" > /etc/pip.conf && \
+    echo "index-url = https://${PIP_MIRROR_DOMAIN}/simple" >> /etc/pip.conf && \
+    echo "trusted-host = ${PIP_MIRROR_DOMAIN}" >> /etc/pip.conf
 # --- END: PIP Mirror Configuration ---
 
 # [Optional] Uncomment this section to install additional OS packages.
