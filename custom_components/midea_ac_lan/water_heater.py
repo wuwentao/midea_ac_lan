@@ -223,6 +223,14 @@ class MideaE2WaterHeater(MideaWaterHeater):
         """Midea E2 Water Heater max temperature."""
         return E2_TEMPERATURE_MAX
 
+    @property
+    def supported_features(self) -> WaterHeaterEntityFeature:
+        """Midea E2 Water Heater supported features."""
+        return (
+            WaterHeaterEntityFeature.TARGET_TEMPERATURE
+            | WaterHeaterEntityFeature.ON_OFF
+        )
+
 
 class MideaE3WaterHeater(MideaWaterHeater):
     """Midea E3 Water Heater Entries."""
@@ -271,9 +279,11 @@ class MideaC3WaterHeater(MideaWaterHeater):
     def current_operation(self) -> str:
         """Midea C3 Water Heater current operation."""
         return str(
-            STATE_ON
-            if self._device.get_attribute(C3Attributes.dhw_power)
-            else STATE_OFF,
+            (
+                STATE_ON
+                if self._device.get_attribute(C3Attributes.dhw_power)
+                else STATE_OFF
+            ),
         )
 
     @property
@@ -350,16 +360,20 @@ class MideaE6WaterHeater(MideaWaterHeater):
         """Midea E6 Water Heater current operation."""
         if self._use == 0:  # for heating
             return str(
-                STATE_ON
-                if self._device.get_attribute(E6Attributes.main_power)
-                and self._device.get_attribute(E6Attributes.heating_power)
-                else STATE_OFF,
+                (
+                    STATE_ON
+                    if self._device.get_attribute(E6Attributes.main_power)
+                    and self._device.get_attribute(E6Attributes.heating_power)
+                    else STATE_OFF
+                ),
             )
         # for bathing
         return str(
-            STATE_ON
-            if self._device.get_attribute(E6Attributes.main_power)
-            else STATE_OFF,
+            (
+                STATE_ON
+                if self._device.get_attribute(E6Attributes.main_power)
+                else STATE_OFF
+            ),
         )
 
     @property
