@@ -23,10 +23,13 @@ body:
     validations:
       required: true
     attributes:
-      label: Device type and model
-      placeholder: Air Conditioner 22012225
-      description: Can be found in Settings -> Devices & Services -> \
-        Midea AC LAN -> Devices -> Device Info
+      label: Device type and Device SN
+      placeholder: Air Conditioner, SN 22012225xxxxxx
+      description: |
+        > The model can be found in Settings -> Devices & Services -> Midea AC LAN -> Devices -> Device Info
+        > The SN can be found in Settings -> Devices & Services -> Midea AC LAN -> Add device -> Just list appliances
+        > The SN also can be found in your SmartHome APP
+        > The SN also can be discovery via debug doc in README
   - type: input
     validations:
       required: true
@@ -43,9 +46,10 @@ body:
       value: |
         1. description the device type and name(you may have multiple devices)
         2. description the error action or error info (device have multiple data/features)
-        3. Submit issue without debug log will be directly closed(if you have any special case, you can add a description for it).
-        4. Submit issue without debug log will be directly closed(if you have any special case, you can add a description for it).
-        5. Submit issue without debug log will be directly closed(if you have any special case, you can add a description for it).
+        3. Summary: Device SN describes detailed device information. Please clearly describe what the problem and error are. What should the correct expected result be? Finally: How can you prove what you're saying is correct? The debug log file is used to prove the error genuinely exists, and app screenshots or other data are used to prove the correct expected result.
+        4. Submit Issue that don't follow the template's requirements will be closed immediately. If you have a specific reason for not providing certain information, please explain it separately..
+        5. Submit Issue that don't follow the template's requirements will be closed immediately. If you have a specific reason for not providing certain information, please explain it separately.
+        6. Submit Issue that don't follow the template's requirements will be closed immediately. If you have a specific reason for not providing certain information, please explain it separately.
 
   - type: textarea
     attributes:
@@ -55,7 +59,8 @@ body:
         1. DEBUG log MUST be enabled (Please refer to README document), Submit issue without debug log will be directly closed
         2. Execute the action to trigger error log（you should description the error action）
         3. Upload the debug log file as attachment。
-        4. Please don't paste the log content! upload as a attachment file.
-        5. Please don't paste the log content! upload as a attachment file.
-        6. Please don't paste the log content! upload as a attachment file.
+        4. Summary: Device SN describes detailed device information. Please clearly describe what the problem and error are. What should the correct expected result be? Finally: How can you prove what you're saying is correct? The debug log file is used to prove the error genuinely exists, and app screenshots or other data are used to prove the correct expected result.
+        5. Please don't paste the log content! upload it as a attachment file.
+        6. Please don't paste the log content! upload it as a attachment file.
+        7. Please don't paste the log content! upload it as a attachment file.
         ...
