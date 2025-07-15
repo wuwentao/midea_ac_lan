@@ -91,7 +91,7 @@ class MideaEntity(Entity):
     def update_state(self, status: Any) -> None:  # noqa: ANN401
         """Update entity state."""
         if not self.hass:
-            _LOGGER.error(
+            _LOGGER.warning(
                 "MideaEntity update_state for %s [%s] with status %s: HASS is None",
                 self.name,
                 type(self),
