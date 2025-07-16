@@ -325,8 +325,11 @@ class MideaACClimate(MideaClimate):
 
     @property
     def current_humidity(self) -> float | None:
-        """Midea Climate current humidity."""
-        return cast("float | None", self._device.get_attribute("indoor_humidity"))
+        """Return the current indoor humidity, or None if unavailable."""
+        raw = self._device.get_attribute("indoor_humidity")
+        if isinstance(raw, (int, float)) and raw not in {0, 0xFF}:
+            return float(raw)
+        return None
 
     @property
     def outdoor_temperature(self) -> float:
