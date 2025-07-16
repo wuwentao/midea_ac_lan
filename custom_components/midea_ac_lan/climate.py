@@ -88,7 +88,8 @@ async def async_setup_entry(
             config.get("default") or entity_key in extra_switches
         ):
             if device.device_type == DeviceType.AC:
-                devs.append(MideaACClimate(device, entity_key))
+                # add config_entry args to fix indoor_humidity error bug
+                devs.append(MideaACClimate(device, entity_key, config_entry))
             elif device.device_type == DeviceType.CC:
                 devs.append(MideaCCClimate(device, entity_key))
             elif device.device_type == DeviceType.CF:
@@ -252,7 +253,12 @@ class MideaACClimate(MideaClimate):
 
     _device: MideaACDevice
 
-    def __init__(self, device: MideaACDevice, entity_key: str) -> None:
+    def __init__(
+        self,
+        device: MideaACDevice,
+        entity_key: str,
+        config_entry: ConfigEntry,
+    ) -> None:
         """Midea AC Climate entity init."""
         super().__init__(device, entity_key)
         self._attr_hvac_modes = [
@@ -286,6 +292,12 @@ class MideaACClimate(MideaClimate):
             PRESET_AWAY,
         ]
         self._attr_fan_modes = list(self._fan_speeds.keys())
+        # fix error humidity value, disable indoor_humidity
+        # add config_entry args to fix indoor_humidity error bug
+        self._indoor_humidity_enabled = (
+            "sensors" in config_entry.options
+            and "indoor_humidity" in config_entry.options["sensors"]
+        )
 
     @property
     def fan_mode(self) -> str:
@@ -321,9 +333,13 @@ class MideaACClimate(MideaClimate):
     @property
     def current_humidity(self) -> float | None:
         """Return the current indoor humidity, or None if unavailable."""
+        # fix error humidity, disable indoor_humidity in web UI
+        if not self._indoor_humidity_enabled:
+            return None
         raw = self._device.get_attribute("indoor_humidity")
         if isinstance(raw, (int, float)) and raw not in {0, 0xFF}:
             return float(raw)
+        # indoor_humidity is 0 or 255, return None
         return None
 
     @property
