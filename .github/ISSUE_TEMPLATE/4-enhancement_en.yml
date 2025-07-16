@@ -1,6 +1,6 @@
 ---
-name: Enhancement
-description: New feature or new device support request
+name: New feature | Enhancement
+description: New feature support or new device support request
 labels: ["enhancement"]
 body:
   - type: input
@@ -27,7 +27,7 @@ body:
       value: |
         1. support new device : description device type and features you want to support
         2. support new feature: description the feature details with device type and details
-        3. others: description the details
-        4. you MUST attach a debug log for exist device, Submit issue without debug log will be directly closed
-        5. you MUST attach a debug log for exist device, Submit issue without debug log will be directly closed
-        6. you MUST attach a debug log for exist device, Submit issue without debug log will be directly closed
+        3. Device SN describes detailed device information. Functional requirements must clearly describe what functionality is being added, and should include corresponding app screenshots or other documentation to prove the app actually supports this feature. Additionally, explain the current app's operational logic, display style, and expected results after execution.
+        4. you MUST attach a debug log for exist device, Submit Issue that don't follow the template's requirements will be closed immediately.
+        5. you MUST attach a debug log for exist device, Submit Issue that don't follow the template's requirements will be closed immediately.
+        6. you MUST attach a debug log for exist device, Submit Issue that don't follow the template's requirements will be closed immediately.

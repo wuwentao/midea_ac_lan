@@ -12,27 +12,35 @@ body:
       required: true
     attributes:
       label: 集成版本
-      placeholder: 0.4.3
+      placeholder: 0.6.8
   - type: input
     validations:
       required: true
     attributes:
       label: 之前可正常使用的集成版本
-      placeholder: 0.4.1
+      placeholder: 0.6.7
   - type: input
     validations:
       required: true
     attributes:
-      label: 设备类型及型号
+      label: 设备类型及设备SN
       placeholder: Air Conditioner 22012225
-      description: 可以在 配置 -> 设备与服务 -> Midea AC LAN -> 设备 -> 设备信息 找到
+      description: |
+        > 设备型号可以在 配置 -> 设备与服务 -> Midea AC LAN -> 设备 -> 设备信息 找到
+        > SN可以在 配置 -> 设备与服务 -> Midea AC LAN -> 添加设备 -> Just list appliances 找到
+        > SN也可以在美居app的设备信息中查看
+      value: |
+        > 设备型号可以在 配置 -> 设备与服务 -> Midea AC LAN -> 设备 -> 设备信息 找到
+        > SN可以在 配置 -> 设备与服务 -> Midea AC LAN -> 添加设备 -> Just list appliances 找到
+        > SN也可以在美居app的设备信息中查看
+        > SN可以通过首页README的debug文档中使用discovery功能获取
   - type: input
     validations:
       required: true
     attributes:
       label: 使用的App
       placeholder: 美的美居
-      description: 使用哪个App可以正常控制该设备
+      description: 使用哪个App控制该设备
   - type: textarea
     validations:
       required: true
@@ -42,9 +50,11 @@ body:
       value: |
         1. 请准确描述问题对应的设备名称、类型（尤其是log里面有一堆设备，到底哪个设备的什么操作有问题，务必准确说明）
         2. 请准确描述有问题的操作或错误提示信息，例如操作xxx，实际是yyy等，（禁止提交XXX不能用了，XXX不行了）
-        3. 无debug log的issue将直接关闭（如果你有不提交debug log的特殊理由，请单独说明）
-        4. 无debug log的issue将直接关闭（如果你有不提交debug log的特殊理由，请单独说明）
-        5. 无debug log的issue将直接关闭（如果你有不提交debug log的特殊理由，请单独说明）
+        3. 汇总为： 设备SN说明设备详细信息，描述写清楚问题和错误是什么？ 对应正确的结果应该是什么？最后：如何证明你说的一定是正确的? debug log文件用来证明错误确实存在，app截图或其它数据用来证明预期正确结果
+        4. 未按模板要求提供信息的issue将直接关闭（如果你有不提交某部分信息的特殊理由，请单独说明）
+        5. 未按模板要求提供信息的issue将直接关闭（如果你有不提交某部分信息的特殊理由，请单独说明）
+        6. 未按模板要求提供信息的issue将直接关闭（如果你有不提交某部分信息的特殊理由，请单独说明）
+
   - type: textarea
     attributes:
       label: The logs
@@ -53,7 +63,8 @@ body:
         1. 必须先开启Debug Log(参考首页README说明)，无debug log的issue将直接关闭
         2. 执行产生错误的操作（请务必在问题详细描述中说明）
         3. 将完整的Debug log文件以附件上传。
-        4. 请勿直接粘贴log中的部分内容！以附件上传。
-        5. 请勿直接粘贴log中的部分内容！以附件上传。
-        6. 请勿直接粘贴log中的部分内容!以附件上传。
+        4. 汇总为：设备SN说明设备详细信息，描述写清楚问题和错误是什么？ 对应正确的结果应该是什么？最后：如何证明你说的一定是正确的? debug log文件用来证明错误确实存在，app截图或其它数据用来证明预期正确结果
+        5. 请勿直接粘贴log中的一部分内容！以附件上传完整debug log文件。
+        6. 请勿直接粘贴log中的一部分内容！以附件上传debug log文件。
+        7. 请勿直接粘贴log中的一部分内容！以附件上传debug log文件。
         ...
