@@ -334,12 +334,14 @@ class MideaACClimate(MideaClimate):
     def current_humidity(self) -> float | None:
         """Return the current indoor humidity, or None if unavailable."""
         # fix error humidity, disable indoor_humidity in web UI
+        # https://github.com/wuwentao/midea_ac_lan/pull/641
         if not self._indoor_humidity_enabled:
             return None
         raw = self._device.get_attribute("indoor_humidity")
         if isinstance(raw, (int, float)) and raw not in {0, 0xFF}:
             return float(raw)
         # indoor_humidity is 0 or 255, return None
+        # https://github.com/wuwentao/midea_ac_lan/pull/614
         return None
 
     @property
