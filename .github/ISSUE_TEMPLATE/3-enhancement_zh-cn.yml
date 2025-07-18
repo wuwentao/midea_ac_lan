@@ -3,6 +3,26 @@ name: 新功能请求
 description: 请求增加新设备支持或请求为已有设备增加新的功能
 labels: ["enhancement"]
 body:
+  - type: checkboxes
+    id: ensure
+    attributes:
+      label: 验证issue输入
+      description: 在提交之前，请勾选以下选项以证明您已经按模板要求提交了，否则该 issue 将被关闭。
+      options:
+        - label: 我确认已经完整阅读过 [README文档](https://github.com/wuwentao/midea_ac_lan/blob/master/README_hans.md)，并已掌握如何在HA中使用midea_ac_lan和开启debug log。
+          required: false
+        - label: 我确认已经阅读过 README中当前issue的[设备使用文档](https://github.com/wuwentao/midea_ac_lan/blob/master/README_hans.md#4-%E5%B7%B2%E6%94%AF%E6%8C%81%E7%9A%84%E8%AE%BE%E5%A4%87/) ，但仍无法解决问题
+          required: false
+        - label: 我已经提交了设备类型和SN信息
+          required: true
+        - label: 我已经上传了完整的debug log文件，而不是出于对自身的自信而仅提供了部分认为有用的部分。
+          required: false
+        - label: 我已经准确清晰的描述了当前设备希望增加哪几个功能，对应app的操作截图也已上传
+          required: true
+        - label: 我是中文用户，使用美的美居，而非海外其他语言用户
+          required: false
+        - label: 我已在 [Issue Tracker](https://github.com/wuwentao/midea_ac_lan/issues) 中寻找过我要提出的问题，并且没有找到
+          required: false
   - type: input
     validations:
       required: true
