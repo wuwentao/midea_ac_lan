@@ -275,8 +275,8 @@ async def async_unload_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> 
         if dm is not None:
             try:
                 dm.close()
-            except Exception:
-                _LOGGER.warning("Failed to close Midea socket cleanly, skipping.")
+            except (OSError, ConnectionError, AttributeError) as e:
+                _LOGGER.warning("Failed to close Midea socket cleanly: %s", e)
         hass.data[DOMAIN][DEVICES].pop(device_id)
     # Forward the unloading of an entry to platforms
     await hass.config_entries.async_unload_platforms(config_entry, ALL_PLATFORM)
