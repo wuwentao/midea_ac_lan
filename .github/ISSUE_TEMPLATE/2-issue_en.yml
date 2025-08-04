@@ -3,6 +3,24 @@ name: Bug report
 description: Integration or entity is not working right
 labels: ["bug"]
 body:
+  - type: checkboxes
+    id: ensure
+    attributes:
+      label: Verify Issue Submission
+      description: Before submitting, please check the following options to confirm you have followed the template requirements, otherwise this issue will be closed.
+      options:
+        - label: I have read the [README documentation](https://github.com/wuwentao/midea_ac_lan/blob/master/README.md) , understand how to use midea_ac_lan and enable debug log.
+          required: false
+        - label: I have read the [device documentation](https://github.com/wuwentao/midea_ac_lan/blob/master/README.md#4-supported-appliances) for my device in the README, but the problem still can't fix.
+          required: false
+        - label: I have submitted the device type and SN information.
+          required: true
+        - label: I have uploaded the full debug log file, rather than just paste a parts of log based on my own judgment.
+          required: true
+        - label: I have accurately and clearly described what the current error is and what the expected correct result should be.
+          required: true
+        - label: I have searched for my issue in the [Issue Tracker](https://github.com/wuwentao/midea_ac_lan/issues) and have not found it.
+          required: false
   - type: input
     attributes:
       label: HA core version
