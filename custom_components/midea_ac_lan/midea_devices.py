@@ -593,6 +593,22 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "unit": UnitOfPower.WATT,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
+            ACAttributes.wind_lr_angle: {
+                "type": Platform.SELECT,
+                "has_entity_name": True,
+                "translation_key": "wind_lr_angle",
+                "name": "Airflow Horizontal",
+                "options": "wind_lr_angles",
+                "icon": "mdi:pan-horizontal",
+            },
+            ACAttributes.wind_ud_angle: {
+                "type": Platform.SELECT,
+                "has_entity_name": True,
+                "translation_key": "wind_ud_angle",
+                "name": "Airflow Vertical",
+                "options": "wind_ud_angles",
+                "icon": "mdi:pan-vertical",
+            },
         },
     },
     0xAD: {

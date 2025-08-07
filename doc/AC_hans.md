@@ -7,6 +7,7 @@
 - 支持风扇模式设定
 - 支持摆风模式设定
 - 支持预设模式设定
+- 支持出风角度设定
 - 支持内置新风系统
 
 ### 支持的模式
@@ -68,6 +69,8 @@
 | switch.{DEVICEID}\_smart_eye                  | switch        | Smart Eye                  | 智慧眼           |
 | switch.{DEVICEID}\_swing_horizontal           | switch        | Swing Horizontal           | 水平摆风         |
 | switch.{DEVICEID}\_swing_vertical             | switch        | Swing Vertical             | 垂直摆风         |
+| switch.{DEVICEID}\_wind_lr_angle              | select        | Airflow Horizontal         | 水平出风         |
+| switch.{DEVICEID}\_wind_ud_angle              | select        | Airflow Vertical           | 垂直出风         |
 
 ## 内置新风系统
 
