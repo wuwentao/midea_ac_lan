@@ -71,6 +71,7 @@
 | switch.{DEVICEID}\_swing_vertical             | switch        | Swing Vertical             | 垂直摆风         |
 | switch.{DEVICEID}\_wind_lr_angle              | select        | Airflow Horizontal         | 水平出风         |
 | switch.{DEVICEID}\_wind_ud_angle              | select        | Airflow Vertical           | 垂直出风         |
+| switch.{DEVICEID}\_fan_speed                  | number        | Fan Speed Percent          | 风速百分比       |
 
 ## 内置新风系统
 
