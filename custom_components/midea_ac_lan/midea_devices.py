@@ -609,6 +609,16 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "options": "wind_ud_angles",
                 "icon": "mdi:pan-vertical",
             },
+            ACAttributes.fan_speed: {
+                "type": Platform.NUMBER,
+                "has_entity_name": True,
+                "translation_key": "fan_speed_percent",
+                "name": "Fan Speed Percent",
+                "icon": "mdi:fan",
+                "max": 100,
+                "min": 1,
+                "step": 1,
+            },
         },
     },
     0xAD: {
