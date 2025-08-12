@@ -214,6 +214,16 @@
       },
       "climate_zone2": {
         "name": "Zone2 Thermostat"
+      },
+      "climate_key": {
+        "state_attributes": {
+          "fan_mode": {
+            "state": {
+              "silent": "Silent",
+              "full": "Full"
+            }
+          }
+        }
       }
     },
     "fan": {

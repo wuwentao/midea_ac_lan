@@ -402,6 +402,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             "climate": {
                 "type": Platform.CLIMATE,
                 "has_entity_name": True,
+                "translation_key": "climate_key",
                 "icon": "mdi:air-conditioner",
                 "default": True,
             },
