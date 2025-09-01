@@ -159,7 +159,7 @@ class MideaClimate(MideaEntity, ClimateEntity):
         """Midea Climate current temperature."""
         if self._external_temp_sensor:
             state = self.hass.states.get(self._external_temp_sensor)
-            if state and state.state not in [STATE_UNKNOWN, None]:
+            if state and state.state not in {STATE_UNKNOWN, None}:
                 try:
                     temp = float(state.state)
                     if self._external_temp_sensor_units:
@@ -325,7 +325,7 @@ class MideaACClimate(MideaClimate):
             customize = json.loads(config_entry.options.get("customize", "{}"))
             _LOGGER.info("Deserialized Customize Section: %s", customize)
         except json.JSONDecodeError as e:
-            _LOGGER.error("Error deserializing 'customize' section: %s", e)
+            _LOGGER.exception("Error deserializing 'customize' section: %s", e)
             customize = {}
 
         # Assign the external temperature and humidity sensor entity IDs
@@ -369,7 +369,7 @@ class MideaACClimate(MideaClimate):
         """Return the current indoor humidity, or None if unavailable."""
         if self._external_humidity_sensor:
             state = self.hass.states.get(self._external_humidity_sensor)
-            if state and state.state not in [STATE_UNKNOWN, None]:
+            if state and state.state not in {STATE_UNKNOWN, None}:
                 try:
                     return float(state.state)
                 except ValueError:
