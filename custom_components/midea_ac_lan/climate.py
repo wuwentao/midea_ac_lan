@@ -1,7 +1,7 @@
 """Midea Climate entries."""
 
-import logging
 import json
+import logging
 from typing import Any, ClassVar, TypeAlias, cast
 
 from homeassistant.components.climate import (
@@ -167,7 +167,10 @@ class MideaClimate(MideaEntity, ClimateEntity):
                             return (temp - 32) * 5 / 9
                         return temp
                 except ValueError:
-                    _LOGGER.warning("Invalid temperature value from sensor %s", self._external_temp_sensor)
+                    _LOGGER.warning(
+                        "Invalid temperature value from sensor %s",
+                        self._external_temp_sensor,
+                    )
         # Fallback to the indoor temperature from the AC unit if the sensor is invalid or not found
         return cast("float | None", self._device.get_attribute("indoor_temperature"))
 
@@ -326,9 +329,9 @@ class MideaACClimate(MideaClimate):
             customize = {}
 
         # Assign the external temperature and humidity sensor entity IDs
-        self._external_temp_sensor = customize.get("external_temp_sensor", None)
-        self._external_temp_sensor_units = customize.get("external_temp_sensor_units", None)
-        self._external_humidity_sensor = customize.get("external_humidity_sensor", None)
+        self._external_temp_sensor = customize.get("external_temp_sensor")
+        self._external_temp_sensor_units = customize.get("external_temp_sensor_units")
+        self._external_humidity_sensor = customize.get("external_humidity_sensor")
 
     @property
     def fan_mode(self) -> str:
@@ -370,7 +373,10 @@ class MideaACClimate(MideaClimate):
                 try:
                     return float(state.state)
                 except ValueError:
-                    _LOGGER.warning("Invalid humidity value from sensor %s", self._external_humidity_sensor)
+                    _LOGGER.warning(
+                        "Invalid humidity value from sensor %s",
+                        self._external_humidity_sensor,
+                    )
         # fix error humidity, disable indoor_humidity in web UI
         # https://github.com/wuwentao/midea_ac_lan/pull/641
         elif not self._indoor_humidity_enabled:
