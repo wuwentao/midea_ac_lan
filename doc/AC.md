@@ -33,6 +33,16 @@
 { "power_analysis_method": 2 }
 ```
 
+- Read temperature or humidity from an external sensor
+
+```json
+{
+  "external_temp_sensor": "sensor.lumi_lumi_weather_temperature",
+  "external_humidity_sensor": "sensor.lumi_lumi_weather_humidity",
+  "external_temp_sensor_units": "F"
+}
+```
+
 ## Entities
 
 ### Default entity
