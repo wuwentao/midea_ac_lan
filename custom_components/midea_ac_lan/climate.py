@@ -324,7 +324,7 @@ class MideaACClimate(MideaClimate):
         try:
             customize = json.loads(config_entry.options.get("customize", "{}"))
             _LOGGER.info("Deserialized Customize Section: %s", customize)
-        except json.JSONDecodeError as e:
+        except json.JSONDecodeError:
             _LOGGER.exception("Error deserializing 'customize' section: %s")
             customize = {}
 
