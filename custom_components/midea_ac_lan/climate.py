@@ -171,7 +171,7 @@ class MideaClimate(MideaEntity, ClimateEntity):
                         "Invalid temperature value from sensor %s",
                         self._external_temp_sensor,
                     )
-        # Fallback to the indoor temperature from the AC unit if the sensor is invalid or not found
+        # Fallback to the indoor temperature from the AC
         return cast("float | None", self._device.get_attribute("indoor_temperature"))
 
     @property
@@ -325,7 +325,7 @@ class MideaACClimate(MideaClimate):
             customize = json.loads(config_entry.options.get("customize", "{}"))
             _LOGGER.info("Deserialized Customize Section: %s", customize)
         except json.JSONDecodeError as e:
-            _LOGGER.exception("Error deserializing 'customize' section: %s", e)
+            _LOGGER.exception("Error deserializing 'customize' section: %s")
             customize = {}
 
         # Assign the external temperature and humidity sensor entity IDs
