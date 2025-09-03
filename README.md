@@ -88,9 +88,10 @@ please check your device documents and supported feature in below table links.
 
 ### Option 1: Install via HACS
 
-> 1. make sure you have installed HACS to Home Assistant [HACS install guide](https://hacs.xyz/docs/setup/download)
-> 2. open HACS, click [Custom repositories], Repository input: `https://github.com/wuwentao/midea_ac_lan`, Category select [Integration]
-> 3. **Restart Home Assistant**.
+> [!IMPORTANT]
+> Make sure you have installed HACS in Home Assistant using the [HACS install guide](https://hacs.xyz/docs/setup/download)
+
+[![Open your Home Assistant instance and open "midea_ac_lan" inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=wuwentao&repository=midea_ac_lan)
 
 ### Option 2: Install with Script
 
