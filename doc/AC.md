@@ -68,6 +68,9 @@
 | switch.{DEVICEID}\_smart_eye                  | switch        | Smart Eye                  |
 | switch.{DEVICEID}\_swing_horizontal           | switch        | Swing Horizontal           |
 | switch.{DEVICEID}\_swing_vertical             | switch        | Swing Vertical             |
+| switch.{DEVICEID}\_wind_lr_angle              | select        | Airflow Horizontal         |
+| switch.{DEVICEID}\_wind_ud_angle              | select        | Airflow Vertical           |
+| switch.{DEVICEID}\_fan_speed                  | number        | Fan Speed Percent          |
 
 ## Built-in fresh air system
 

@@ -214,6 +214,16 @@
       },
       "climate_zone2": {
         "name": "区域2恒温器"
+      },
+      "climate_key": {
+        "state_attributes": {
+          "fan_mode": {
+            "state": {
+              "silent": "静音",
+              "full": "全速"
+            }
+          }
+        }
       }
     },
     "fan": {
@@ -238,6 +248,9 @@
       },
       "water_temp_level": {
         "name": "水温档位"
+      },
+      "fan_speed": {
+        "name": "风速百分比"
       }
     },
     "select": {
