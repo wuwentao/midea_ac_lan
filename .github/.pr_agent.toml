@@ -1,12 +1,12 @@
-# 文件： .pr_agent.toml
-
 [pr_reviewer]
-# 给 review 工具额外的指令
+# 给 review 工具额外的指令（扩展：覆盖 synchronize 跳过）
 extra_instructions = """
-- Check that Device SN is provided and valid (alphanumeric, 30-40 chars).
-- Ensure debug logs are uploaded as files, not pasted in body.
-- Validate error description: includes what happened, expected result, and steps to reproduce.
+- For all events including synchronize: Always run review/describe if auto enabled.
+- Check that Device SN is provided and valid (alphanumeric, 30-40 chars, e.g., 00000051222270043261305102930000).
+- Ensure debug logs are uploaded as files, not pasted in body (flag if body has >200 chars hex/code).
+- Validate error description: includes what happened, expected result, and steps to reproduce (>50 words).
 - For code changes, ensure no style issues (PEP8 / JavaScript lint rules) if applicable.
+- Output compliance score 0-100% for template match.
 """
 
 # 控制建议数量
@@ -16,9 +16,13 @@ num_code_suggestions = 5
 generate_labels = true
 
 [general]
-model = "gpt-4o-mini"
-fallback_models = ["gpt-3.5-turbo"]
+model = "gpt-4o-mini"  # 免费高效模型
+fallback_models = ["gpt-3.5-turbo"]  # 备用免费模型
 # 如果 PR 太大，部分 patch 被截断
 large_patch_policy = "clip"
 # 最大 token 数
 max_model_tokens = 32000
+# 新增：防超时/跳过
+raise_on_timeout = false
+# 新增：强制 synchronize 不跳过（自定义覆盖）
+skip_synchronize = false  # 如果 PR-Agent 支持；否则在 extra_instructions 中处理

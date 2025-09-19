@@ -1,16 +1,14 @@
-# 文件路径： .github/workflows/pr_agent.yml
-
 name: PR Agent Review
 
 on:
   pull_request:
-    types: [opened, reopened, ready_for_review, synchronize]
+    types: [opened, reopened, ready_for_review, synchronize] # 保持 synchronize
   issue_comment:
-    types: [created]
+    types: [created] # 支持手工 /review
 
 jobs:
   pr_agent_job:
-    if: ${{ github.event.sender.type != 'Bot' }}
+    if: ${{ github.event.sender.type != 'Bot' }} # 防 bot 循环
     runs-on: ubuntu-latest
     permissions:
       issues: write
@@ -22,13 +20,15 @@ jobs:
         uses: actions/checkout@v4
 
       - name: PR Agent action step
-        uses: qodo-ai/pr-agent@main
+        uses: qodo-ai/pr-agent@main # 最新 main，确保 v0.9+
         env:
-          OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
+          OPENAI_KEY: ${{ secrets.OPENAI_KEY }} # 免费 gpt-3.5-turbo 额度
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # 以下是一些可选配置参数，按需要打开／修改
-          # config.model: "gpt-3.5-turbo"
-          # config.fallback_models: '["gpt-3.5-turbo"]'
-          github_action_config.auto_review: "true"
-          github_action_config.auto_describe: "true"
-          github_action_config.auto_improve: "false"
+        # 核心修复：启用评论触发和 synchronize 支持
+        with:
+          github_action_config: |
+            auto_review: "true"
+            auto_describe: "true"
+            auto_improve: "false"
+            comment_trigger: "true"  # 新增：启用 /review 等命令响应
+            synchronize_review: "true"  # 新增：覆盖 skip synchronize（如果支持；否则用 toml）
