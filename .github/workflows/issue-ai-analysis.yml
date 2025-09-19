@@ -1,0 +1,74 @@
+name: AI Issue Analysis and Summary
+
+on:
+  issues:
+    types: [opened, edited] # 自动触发：新建/编辑 Issue
+  issue_comment:
+    types: [created] # 手动触发：评论 "!analyze" 或 "!summarize"
+
+permissions:
+  issues: write
+  models: read
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Trigger Condition
+        id: trigger
+        run: |
+          if [ "${{ github.event_name }}" = "issue_comment" ]; then
+            comment_body="${{ github.event.comment.body }}"
+            if [[ $comment_body == *"!analyze"* ]]; then
+              echo "prompt_file=.github/prompts/issue-analysis.prompt.yml" >> $GITHUB_OUTPUT
+              echo "mode=analyze" >> $GITHUB_OUTPUT
+            elif [[ $comment_body == *"!summarize"* ]]; then
+              echo "prompt_file=.github/prompts/reply-summary.prompt.yml" >> $GITHUB_OUTPUT
+              echo "mode=summarize" >> $GITHUB_OUTPUT
+            else
+              echo "prompt_file=none" >> $GITHUB_OUTPUT
+              echo "mode=none" >> $GITHUB_OUTPUT
+            fi
+          else
+            echo "prompt_file=.github/prompts/issue-analysis.prompt.yml" >> $GITHUB_OUTPUT
+            echo "mode=analyze" >> $GITHUB_OUTPUT
+          fi
+
+      - if: steps.trigger.outputs.mode != 'none'
+        uses: actions/checkout@v4
+
+      - name: AI Inference for Issue
+        if: steps.trigger.outputs.mode != 'none'
+        id: ai
+        uses: actions/ai-inference@v1.2
+        with:
+          prompt-file: ${{ steps.trigger.outputs.prompt_file }}
+          model: "grok-3"
+          max-tokens: 600
+          enable-github-mcp: true
+
+      - name: Post AI Comment
+        if: steps.trigger.outputs.mode != 'none' && steps.ai.outputs.response != ''
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const response = JSON.parse(`${{ steps.ai.outputs.response }}`);
+            const mode = '${{ steps.trigger.outputs.mode }}';
+            let title = (mode === 'analyze') ? '## 🧩 AI Issue Analysis' : '## 💬 AI Reply Summary';
+
+            let body = `${title}\n\n` +
+                       `**Compliance Score:** ${response.compliance_score || 'N/A'}\n\n` +
+                       `**SN Check:** ${response.sn_check || 'N/A'}\n` +
+                       `**Debug Log Check:** ${response.debug_log_check || 'N/A'}\n` +
+                       `**Description Check:** ${response.description_check || 'N/A'}\n\n` +
+                       `**Summary:**\n${response.summary || 'N/A'}\n\n` +
+                       `**Suggestions:**\n${response.suggestions || 'N/A'}\n\n` +
+                       (response.reply_analysis ? `**Reply Analysis:**\n${response.reply_analysis}\n\n` : '') +
+                       (response.potential_solutions ? `**Potential Solutions:**\n${response.potential_solutions}\n` : '');
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body
+            });
