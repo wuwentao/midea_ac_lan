@@ -16,8 +16,9 @@ num_code_suggestions = 5
 generate_labels = true
 
 [general]
+model = "gpt-4o-mini"
+fallback_models = ["gpt-3.5-turbo"]
 # 如果 PR 太大，部分 patch 被截断
 large_patch_policy = "clip"
 # 最大 token 数
 max_model_tokens = 32000
-
