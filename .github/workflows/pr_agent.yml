@@ -1,0 +1,34 @@
+# 文件路径： .github/workflows/pr_agent.yml
+
+name: PR Agent Review
+
+on:
+  pull_request:
+    types: [opened, reopened, ready_for_review, synchronize]
+  issue_comment:
+    types: [created]
+
+jobs:
+  pr_agent_job:
+    if: ${{ github.event.sender.type != 'Bot' }}
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+      contents: write
+    name: Run PR-Agent on Pull Requests / Comments
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: PR Agent action step
+        uses: qodo-ai/pr-agent@main
+        env:
+          OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # 以下是一些可选配置参数，按需要打开／修改
+          # config.model: "gpt-3.5-turbo"
+          # config.fallback_models: '["gpt-3.5-turbo"]'
+          github_action_config.auto_review: "true"
+          github_action_config.auto_describe: "true"
+          github_action_config.auto_improve: "false"

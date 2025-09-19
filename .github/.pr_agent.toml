@@ -1,0 +1,23 @@
+# 文件： .pr_agent.toml
+
+[pr_reviewer]
+# 给 review 工具额外的指令
+extra_instructions = """
+- Check that Device SN is provided and valid (alphanumeric, 30-40 chars).
+- Ensure debug logs are uploaded as files, not pasted in body.
+- Validate error description: includes what happened, expected result, and steps to reproduce.
+- For code changes, ensure no style issues (PEP8 / JavaScript lint rules) if applicable.
+"""
+
+# 控制建议数量
+num_code_suggestions = 5
+
+# 控制是否自动添加标签
+generate_labels = true
+
+[general]
+# 如果 PR 太大，部分 patch 被截断
+large_patch_policy = "clip"
+# 最大 token 数
+max_model_tokens = 32000
+
