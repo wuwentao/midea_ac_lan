@@ -37,17 +37,49 @@ class MideaEntity(Entity):
         self.entity_id = self._unique_id
         self._device_name = self._device.name
 
+        # HA language setting:
+        # 1. hass.config.language: Settings / System / General settings
+        # 2. user language setting in user profile setting
+        # Entity name translation based on hass.config.language
+        # add language in /config/configuration.yaml will disable web UI setting
+        # homeassistant:
+        #    language: zh-Hans  # noqa: ERA001
+
+        # Translating the name and attributes of entities:
+        # https://developers.home-assistant.io/blog/2023/03/27/entity_name_translations/#translating-entity-name
+        # https://developers.home-assistant.io/docs/internationalization/core
+        # translation_key: if defined, Home Assistant will try to find a
+        # translation in translations/<lang>.json.
+        # If translation exists -> UI shows the translated string.
+        # If translation not found -> fallback to "name" / device_class / entity_id.
         self._attr_translation_key = self._config.get("translation_key")
-        self._attr_has_entity_name = self._config.get("has_entity_name", False)
-        if self.has_entity_name:
-            if self._config.get("name") is None:
-                self._attr_name = None
+
+        # has_entity_name: MUST be True in modern HA (old False behavior is deprecated).
+        self._attr_has_entity_name = True
+
+        # Step 1: translation_key is defined
+        # - If translation is found in the current language:
+        #       -> UI displays the translated string.
+        if self._attr_translation_key is not None:
+            # skip set attr_name and use translation_key
+            pass
+            # set attr_name to None will only show device name without translaion_key
+        # Step 2: No translation_key
+        # but english "name" is explicitly set in config:
+        #       -> UI displays this name directly (highest priority).
+        elif self._config.get("name") is not None:
+            self._attr_name = self._config["name"]
+        # Step 3: No translation_key, no name,
+        # fallback to device_class default label.
+        # Example: device_class = temperature -> "Temperature".
+        elif "device_class" in self._config:
+            self._attr_name = None  # Let HA generate from device_class
+        # Step 4: Nothing available,
         else:
-            # old behavior
             self._attr_name = (
                 f"{self._device_name} {self._config.get('name')}"
                 if "name" in self._config
-                else self._device_name
+                else f"{self._device_name}"
             )
 
     @property
