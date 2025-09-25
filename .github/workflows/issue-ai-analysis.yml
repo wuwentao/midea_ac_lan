@@ -35,21 +35,21 @@ jobs:
           fi
 
       - if: steps.trigger.outputs.mode != 'none'
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: AI Inference for Issue
         if: steps.trigger.outputs.mode != 'none'
         id: ai
-        uses: actions/ai-inference@v1.2
+        uses: actions/ai-inference@v2.0.1
         with:
           prompt-file: ${{ steps.trigger.outputs.prompt_file }}
           model: "grok-3"
-          max-tokens: 600
+          max-tokens: 1000
           enable-github-mcp: true
 
       - name: Post AI Comment
         if: steps.trigger.outputs.mode != 'none' && steps.ai.outputs.response != ''
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             const response = JSON.parse(`${{ steps.ai.outputs.response }}`);
