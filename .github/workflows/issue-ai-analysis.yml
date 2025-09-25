@@ -44,7 +44,7 @@ jobs:
         with:
           prompt-file: ${{ steps.trigger.outputs.prompt_file }}
           model: "grok-3"
-          max-tokens: 600
+          max-tokens: 1000
           enable-github-mcp: true
 
       - name: Post AI Comment

@@ -31,7 +31,8 @@ jobs:
       - name: PR Agent action step
         uses: qodo-ai/pr-agent@main # 使用 PR-Agent 最新主分支
         env:
-          OPENAI_KEY: ${{ secrets.OPENAI_KEY }} # GPT 模型密钥
+          # OPENAI_KEY: ${{ secrets.OPENAI_KEY }} # GPT 模型密钥
+          XAI_API_KEY: ${{ secrets.XAI_API_KEY }} # XAI API 密钥
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub Token
         with:
           github_action_config: |
