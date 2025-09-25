@@ -34,9 +34,7 @@ jobs:
           # OPENAI_KEY: ${{ secrets.OPENAI_KEY }} # GPT 模型密钥
           XAI_API_KEY: ${{ secrets.XAI_API_KEY }} # XAI API 密钥
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub Token
-        with:
-          github_action_config: |
-            auto_review: "true"          # 自动对 PR 进行 review
-            auto_describe: "true"        # 自动生成 PR 描述（summary）
-            auto_improve: "false"        # 不自动修改代码
-            comment_trigger: "true"      # 支持 /review 或 /summarize 手动触发
+          github_action_config.auto_review: "true" # 自动对 PR 进行 review
+          github_action_config.auto_describe: "true" # 自动生成 PR 描述（summary）
+          github_action_config.auto_improve: "false" # 不自动修改代码
+          github_action_config.comment_trigger: "true" # 支持 /review 或 /summarize 手动触发
