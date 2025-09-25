@@ -26,7 +26,7 @@ jobs:
     steps:
       - name: Checkout code
         # 获取当前仓库代码，用于 PR-Agent 分析
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: PR Agent action step
         uses: qodo-ai/pr-agent@main # 使用 PR-Agent 最新主分支
