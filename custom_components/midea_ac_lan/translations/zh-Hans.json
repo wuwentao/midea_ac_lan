@@ -249,7 +249,7 @@
       "water_temp_level": {
         "name": "水温档位"
       },
-      "fan_speed": {
+      "fan_speed_percent": {
         "name": "风速百分比"
       }
     },
@@ -283,6 +283,28 @@
       },
       "water_level_set": {
         "name": "水位设定"
+      },
+      "wind_lr_angle": {
+        "name": "水平出风",
+        "state": {
+          "off": "停止",
+          "left": "左方",
+          "left-mid": "左中",
+          "middle": "中部",
+          "right-mid": "右中",
+          "right": "右方"
+        }
+      },
+      "wind_ud_angle": {
+        "name": "垂直出风",
+        "state": {
+          "off": "停止",
+          "up": "上方",
+          "up-mid": "中上",
+          "middle": "中部",
+          "down-mid": "中下",
+          "down": "下方"
+        }
       }
     },
     "sensor": {

@@ -27,3 +27,5 @@ large_patch_policy = "clip"
 max_model_tokens = 1000
 # 超时时不抛异常，继续运行
 raise_on_timeout = false
+
+llm_provider = "xai"  # 指定 xAI provider, 避免 fallback OpenAI

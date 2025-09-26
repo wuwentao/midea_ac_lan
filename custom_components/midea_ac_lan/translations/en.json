@@ -249,7 +249,7 @@
       "water_temp_level": {
         "name": "Water Temperature Level"
       },
-      "fan_speed": {
+      "fan_speed_percent": {
         "name": "Fan Speed Percent"
       }
     },
@@ -283,6 +283,28 @@
       },
       "water_level_set": {
         "name": "Water Level Setting"
+      },
+      "wind_lr_angle": {
+        "name": "Airflow Horizontal",
+        "state": {
+          "off": "Off",
+          "left": "Left",
+          "left-mid": "Left-Mid",
+          "middle": "Middle",
+          "right-mid": "Right-Mid",
+          "right": "Right"
+        }
+      },
+      "wind_ud_angle": {
+        "name": "Airflow Vertical",
+        "state": {
+          "off": "Off",
+          "up": "Up",
+          "up-mid": "Up-Mid",
+          "middle": "Middle",
+          "down-mid": "Down-Mid",
+          "down": "Down"
+        }
       }
     },
     "sensor": {
