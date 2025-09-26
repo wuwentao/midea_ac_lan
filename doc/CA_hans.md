@@ -18,6 +18,8 @@
 | binary_sensor.{DEVICEID}\_freezer_door_overtime      | binary_sensor | Freezer Door Overtime               | 冷冻室门超时     |
 | binary_sensor.{DEVICEID}\_refrigerator_door          | binary_sensor | Refrigerator Door                   | 冷藏室门状态     |
 | binary_sensor.{DEVICEID}\_refrigerator_door_overtime | binary_sensor | Refrigerator Door Overtime          | 冷藏室门超时     |
+| binary_sensor.{DEVICEID}\_microcrystal_fresh         | binary_sensor | Microcrystal Fresh                  | 微晶一周鲜       |
+| binary_sensor.{DEVICEID}\_electronic_smell           | binary_sensor | Deodorizing sterilizing             | 净味除菌         |
 | sensor.{DEVICEID}\_flex_zone_actual_temp             | sensor        | Flex-zone Actual Temperature        | 变温区实际温度   |
 | sensor.{DEVICEID}\_flex_zone_setting_temp            | sensor        | Flex-zone Setting Temperature       | 变温区设置温度   |
 | sensor.{DEVICEID}\_freezer_actual_temp               | sensor        | Freezer Actual Temperature          | 冷冻室实际温度   |
@@ -27,6 +29,8 @@
 | sensor.{DEVICEID}\_refrigerator_setting_temp         | sensor        | Refrigerator setting Temperature    | 冷藏室设置温度   |
 | sensor.{DEVICEID}\_right_flex_zone_actual_temp       | sensor        | Right Flex-zone Actual Temperature  | 右变温区实际温度 |
 | sensor.{DEVICEID}\_right_flex_zone_setting_temp      | sensor        | Right Flex-zone Setting Temperature | 右变温区设置温度 |
+| sensor.{DEVICEID}\_humidity                          | sensor        | Humidity                            | 湿度             |
+| sensor.{DEVICEID}\_variable_mode                     | sensor        | Variable Mode                       | 变温区模式       |
 
 ## 服务
 
