@@ -1490,6 +1490,30 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "unit": UnitOfTemperature.CELSIUS,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
+            CAAttributes.microcrystal_fresh: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "microcrystal_fresh",
+                "name": "Microcrystal Fresh",
+                "icon": "mdi:origin",
+            },
+            CAAttributes.electronic_smell: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "electronic_smell",
+                "name": "Deodorizing sterilizing",
+                "icon": "mdi:air-filter",
+            },
+            CAAttributes.humidity: {
+                "type": Platform.SENSOR,
+                "translation_key": "humidity",
+                "name": "Humidity",
+                "icon": "mdi:water-opacity",
+            },
+            CAAttributes.variable_mode: {
+                "type": Platform.SENSOR,
+                "translation_key": "variable_mode",
+                "name": "Variable Mode",
+                "icon": "mdi:nut",
+            },
         },
     },
     0xCC: {
