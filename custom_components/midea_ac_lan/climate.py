@@ -1,5 +1,6 @@
 """Midea Climate entries."""
 
+import json
 import logging
 from typing import Any, ClassVar, TypeAlias, cast
 
@@ -33,6 +34,7 @@ from homeassistant.const import (
     MINOR_VERSION,
     PRECISION_HALVES,
     PRECISION_WHOLE,
+    STATE_UNKNOWN,
     Platform,
     UnitOfTemperature,
 )
@@ -155,6 +157,21 @@ class MideaClimate(MideaEntity, ClimateEntity):
     @property
     def current_temperature(self) -> float | None:
         """Midea Climate current temperature."""
+        if self._external_temp_sensor:
+            state = self.hass.states.get(self._external_temp_sensor)
+            if state and state.state not in {STATE_UNKNOWN, None}:
+                try:
+                    temp = float(state.state)
+                    if self._external_temp_sensor_units:
+                        if self._external_temp_sensor_units.lower() == "f":
+                            return (temp - 32) * 5 / 9
+                        return temp
+                except ValueError:
+                    _LOGGER.warning(
+                        "Invalid temperature value from sensor %s",
+                        self._external_temp_sensor,
+                    )
+        # Fallback to the indoor temperature from the AC
         return cast("float | None", self._device.get_attribute("indoor_temperature"))
 
     @property
@@ -304,6 +321,18 @@ class MideaACClimate(MideaClimate):
             and "indoor_humidity" in config_entry.options["sensors"]
         )
 
+        try:
+            customize = json.loads(config_entry.options.get("customize", "{}"))
+            _LOGGER.info("Deserialized Customize Section: %s", customize)
+        except json.JSONDecodeError:
+            _LOGGER.exception("Error deserializing 'customize' section: %s")
+            customize = {}
+
+        # Assign the external temperature and humidity sensor entity IDs
+        self._external_temp_sensor = customize.get("external_temp_sensor")
+        self._external_temp_sensor_units = customize.get("external_temp_sensor_units")
+        self._external_humidity_sensor = customize.get("external_humidity_sensor")
+
     @property
     def fan_mode(self) -> str:
         """Midea AC Climate fan mode."""
@@ -338,9 +367,19 @@ class MideaACClimate(MideaClimate):
     @property
     def current_humidity(self) -> float | None:
         """Return the current indoor humidity, or None if unavailable."""
+        if self._external_humidity_sensor:
+            state = self.hass.states.get(self._external_humidity_sensor)
+            if state and state.state not in {STATE_UNKNOWN, None}:
+                try:
+                    return float(state.state)
+                except ValueError:
+                    _LOGGER.warning(
+                        "Invalid humidity value from sensor %s",
+                        self._external_humidity_sensor,
+                    )
         # fix error humidity, disable indoor_humidity in web UI
         # https://github.com/wuwentao/midea_ac_lan/pull/641
-        if not self._indoor_humidity_enabled:
+        elif not self._indoor_humidity_enabled:
             return None
         raw = self._device.get_attribute("indoor_humidity")
         if isinstance(raw, (int, float)) and raw not in {0, 0xFF}:
