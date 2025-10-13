@@ -1409,7 +1409,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "refrigerator_door",
                 "name": "Refrigerator Door",
                 "icon": "mdi:alert-circle",
-                "device_class": BinarySensorDeviceClass.PROBLEM,
+                "device_class": BinarySensorDeviceClass.DOOR,
             },
             CAAttributes.refrigerator_door_overtime: {
                 "type": Platform.BINARY_SENSOR,
