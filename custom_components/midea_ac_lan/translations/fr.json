@@ -1,9 +1,9 @@
 {
   "config": {
     "error": {
-      "preset_account": "Échec de la connexion avec le compte prédéfini, veuillez signaler ce problème",
-      "login_failed": "Échec de la connexion, le compte ou le mot de passe est incorrect",
-      "no_devices": "Aucun nouvel appareil trouvé sur le réseau",
+      "preset_account": "Échec de la connection avec le compte prédéfini, veuillez signaler ce problème",
+      "login_failed": "Échec de la connection, le compte ou le not de passe est incorrect",
+      "no_devices": "Aucun nouvel apparel trouvé sur le réseau",
       "device_exist": "L'appareil est déjà configuré",
       "config_incorrect": "La configuration est incorrecte",
       "connect_error": "Impossible de se connecter à l'appareil",
@@ -14,22 +14,22 @@
         "data": {
           "way": "Ajout d'appareil"
         },
-        "description": "Choisissez la méthode pour ajouter un appareil",
-        "title": "Ajouter un nouvel appareil"
+        "description": "Choisissez la méthode pour ajouter un apparel",
+        "title": "Ajouter un nouvel apparel"
       },
       "login": {
         "data": {
           "account": "Compte",
-          "password": "Mot de passe"
+          "password": "Not de passe"
         },
-        "description": "Connectez-vous et stockez votre compte Midea uniquement pour obtenir les informations de l'appareil.\nVous pouvez supprimer cette configuration après avoir configuré tous les appareils.",
-        "title": "Connexion"
+        "description": "Connectez-vous et stockez votre compte Midea uniquement pour obtenir les information de l'appareil.\nVous pouvez supprimer cette configuration après avoir configuré tous les appareils.",
+        "title": "Connection"
       },
       "discovery": {
-        "description": "Saisissez l'adresse IP de l'appareil, entrez \"auto\" pour découvrir automatiquement.\nVous pouvez également utiliser une adresse IP pour rechercher dans un réseau spécifié, comme \"192.168.1.255\".",
+        "description": "Saisissez l'address IP de l'appareil, entrez \"auto\" pour découvrir automatiquement.\nVous pouvez également utiliser une address IP pour rechercher dans un réseau spécifié, comme \"192.168.1.255\".",
         "title": "Recherche",
         "data": {
-          "ip_address": "Adresse IP"
+          "ip_address": "Address IP"
         }
       },
       "list": {
@@ -40,15 +40,15 @@
         "data": {
           "device": "Appareils"
         },
-        "description": "Choisissez un appareil à ajouter",
-        "title": "Nouvel appareil trouvé"
+        "description": "Choisissez un apparel à ajouter",
+        "title": "Nouvel apparel trouvé"
       },
       "manually": {
         "data": {
           "name": "Nom (ex: Clim Salon)",
-          "device_id": "Code appareil",
+          "device_id": "Code apparel",
           "type": "Type",
-          "ip_address": "Adresse IP",
+          "ip_address": "Address IP",
           "port": "Port",
           "model": "Modèle",
           "subtype": "Sous-type",
@@ -57,7 +57,7 @@
           "key": "Clé"
         },
         "description": "Configuration de l'appareil",
-        "title": "Nouvel appareil"
+        "title": "Nouvel apparel"
       }
     }
   },
@@ -396,25 +396,25 @@
         "name": "Niveau du ventilateur"
       },
       "filter_life": {
-        "name": "Durée de vie du filtre"
+        "name": "Durée de via du filtre"
       },
       "filter1_days": {
         "name": "Jours disponibles filtre 1"
       },
       "filter1_life": {
-        "name": "Niveau de vie filtre 1"
+        "name": "Niveau de via filtre 1"
       },
       "filter2_days": {
         "name": "Jours disponibles filtre 2"
       },
       "filter2_life": {
-        "name": "Niveau de vie filtre 2"
+        "name": "Niveau de via filtre 2"
       },
       "filter3_days": {
         "name": "Jours disponibles filtre 3"
       },
       "filter3_life": {
-        "name": "Niveau de vie filtre 3"
+        "name": "Niveau de via filtre 3"
       },
       "flex_zone_actual_temp": {
         "name": "Température réelle zone flexible"
@@ -590,7 +590,7 @@
         "name": "Sans brise"
       },
       "comfort_mode": {
-        "name": "Mode confort"
+        "name": "Mode comfort"
       },
       "dhw_power": {
         "name": "Alimentation eau chaude sanitaire"
@@ -707,7 +707,7 @@
         "name": "Ventilation"
       },
       "whole_tank_heating": {
-        "name": "Chauffage réservoir complet"
+        "name": "Chauffage réservoir complete"
       },
       "zero_cold_pulse": {
         "name": "Zéro eau froide (Pulsé)"
@@ -744,7 +744,7 @@
     "step": {
       "init": {
         "data": {
-          "ip_address": "Adresse IP",
+          "ip_address": "Address IP",
           "refresh_interval": "Intervalle de rafraîchissement (0 signifie pas de rafraîchissement actif)",
           "sensors": "Capteurs supplémentaires",
           "switches": "Contrôles supplémentaires",
@@ -754,7 +754,7 @@
       }
     },
     "abort": {
-      "account_option": "Le compte ne prend pas en charge cette opération.\nCliquez sur \"AJOUTER UN APPAREIL\" pour ajouter un nouvel appareil."
+      "account_option": "Le compte ne prend pas en charge cette opération.\nCliquez sur \"AJOUTER UN APPAREL\" pour ajouter un nouvel apparel."
     }
   },
   "services": {
@@ -763,11 +763,11 @@
       "description": "Définir la valeur d'attribut de l'appareil",
       "fields": {
         "device_id": {
-          "name": "Code appareil",
+          "name": "Code apparel",
           "description": "Le code de l'appareil (ID de l'appareil)"
         },
         "attribute": {
-          "name": "Attribut",
+          "name": "Attribute",
           "description": "Le nom de l'attribut à définir"
         },
         "value": {
@@ -781,7 +781,7 @@
       "description": "Envoyer une commande personnalisée à l'appareil",
       "fields": {
         "device_id": {
-          "name": "Code appareil",
+          "name": "Code apparel",
           "description": "Le code de l'appareil (ID de l'appareil)"
         },
         "cmd_type": {
@@ -790,7 +790,7 @@
         },
         "cmd_body": {
           "name": "Corps de la commande",
-          "description": "Le corps de la commande (n'inclut pas l'en-tête du protocole MSmart et la somme de contrôle à la fin)"
+          "description": "Le corps de la commande (n'inclut pas l'en-tête du protocole MSmart et la some de contrôle à la fin)"
         }
       }
     }
