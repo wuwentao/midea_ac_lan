@@ -209,6 +209,7 @@ class MideaWaterHeater(MideaEntity, WaterHeaterEntity):
     def set_high_temp_sterilize(self, value: bool) -> None:
         self._device.set_attribute("sterilize_high_temp", value)
 
+
 class MideaE2WaterHeater(MideaWaterHeater):
     """Midea E2 Water Heater Entries."""
 
