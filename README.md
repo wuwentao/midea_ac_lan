@@ -191,3 +191,7 @@ Example
 ## 8. Debug and Test
 
 please refer to [Debug and Test](doc/debug.md)
+
+## 9. Contributing Guide
+
+[CONTRIBUTING](.github/CONTRIBUTING.md)

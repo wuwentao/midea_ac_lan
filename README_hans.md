@@ -189,3 +189,7 @@ wget -O - https://github.com/wuwentao/midea_ac_lan/raw/master/scripts/install.sh
 ## 8. Debug调试和测试
 
 请参考[Debug调试和测试](doc/debug_hans.md)
+
+## 9. Contributing Guide
+
+[中文版CONTRIBUTING](.github/CONTRIBUTING.zh.md)
