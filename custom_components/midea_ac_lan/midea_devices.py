@@ -1366,7 +1366,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "type": Platform.BINARY_SENSOR,
                 "translation_key": "bar_door",
                 "name": "Bar Door",
-                "icon": "mdi:box-shadow",
+                "icon": "mdi:door",
                 "device_class": BinarySensorDeviceClass.DOOR,
             },
             CAAttributes.bar_door_overtime: {
@@ -1380,7 +1380,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "type": Platform.BINARY_SENSOR,
                 "translation_key": "flex_zone_door",
                 "name": "Flex Door",
-                "icon": "mdi:box-shadow",
+                "icon": "mdi:door",
                 "device_class": BinarySensorDeviceClass.DOOR,
             },
             CAAttributes.flex_zone_door_overtime: {
@@ -1394,7 +1394,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "type": Platform.BINARY_SENSOR,
                 "translation_key": "freezer_door",
                 "name": "Freezer Door",
-                "icon": "mdi:box-shadow",
+                "icon": "mdi:door",
                 "device_class": BinarySensorDeviceClass.DOOR,
             },
             CAAttributes.freezer_door_overtime: {
@@ -1408,7 +1408,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "type": Platform.BINARY_SENSOR,
                 "translation_key": "refrigerator_door",
                 "name": "Refrigerator Door",
-                "icon": "mdi:alert-circle",
+                "icon": "mdi:door",
                 "device_class": BinarySensorDeviceClass.DOOR,
             },
             CAAttributes.refrigerator_door_overtime: {
