@@ -130,7 +130,6 @@ These variables are supported inside `devcontainer/Dockerfile`.
    git checkout -b feat/add-feature
    ```
 2. Follow [Conventional Commits](https://www.conventionalcommits.org/) message format:
-
    - `feat:` → New feature
    - `fix:` → Bug fix
    - `chore:` → Tooling, configs, or non-functional updates

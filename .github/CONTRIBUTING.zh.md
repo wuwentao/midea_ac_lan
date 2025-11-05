@@ -127,7 +127,6 @@ export PIP_MIRROR_DOMAIN="pypi.tuna.tsinghua.edu.cn"
    git checkout -b feat/功能描述
    ```
 2. 提交信息需遵循 [Conventional Commits](https://www.conventionalcommits.org/) 规范：
-
    - `feat:` 新功能
    - `fix:` 修复问题
    - `chore:` 工具/配置调整（如 CI/CD、pre-commit 等）
