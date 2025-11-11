@@ -2262,6 +2262,18 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Whole Tank Heating",
                 "icon": "mdi:restore",
             },
+            E2Attributes.sterilization: {
+                "type": Platform.SWITCH,
+                "translation_key": "sterilization",
+                "name": "Sterilization",
+                "icon": "mdi:bacteria",
+            },
+            E2Attributes.eplus: {
+                "type": Platform.SWITCH,
+                "translation_key": "eplus",
+                "name": "Eplus",
+                "icon": "mdi:brain",
+            },
         },
     },
     0xE3: {
