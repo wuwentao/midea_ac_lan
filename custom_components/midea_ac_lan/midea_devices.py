@@ -1357,6 +1357,27 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "unit": UnitOfTemperature.CELSIUS,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
+            C3Attributes.temp_tw_in: {
+                "type": Platform.SENSOR,
+                "name": "Water Inlet Temperature",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C3Attributes.temp_tw_out: {
+                "type": Platform.SENSOR,
+                "name": "Water Outlet Temperature",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C3Attributes.instant_power0: {
+                "type": Platform.SENSOR,
+                "name": "Current Power",
+                "device_class": SensorDeviceClass.POWER,
+                "unit": UnitOfPower.WATT,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
         },
     },
     0xCA: {
