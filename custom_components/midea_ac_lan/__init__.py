@@ -107,8 +107,8 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:  # noqa:
             if attr == "fan_speed" and value == "auto":
                 value = 102
             item = None
-            if _dev := MIDEA_DEVICES.get(dev.device_type):
-                item = cast("dict", _dev["entities"]).get(attr)
+            if dev_ := MIDEA_DEVICES.get(dev.device_type):
+                item = cast("dict", dev_["entities"]).get(attr)
             if (
                 item
                 and (item.get("type") in EXTRA_SWITCH)

@@ -1,0 +1,40 @@
+name: PR Agent Review
+
+# 触发事件
+on:
+  pull_request:
+    # 监听 PR 状态变化，包括打开、重开、准备 review 以及 push commit（synchronize）
+    types: [opened, reopened, ready_for_review, synchronize]
+  issue_comment:
+    # 监听新评论，用于手动触发 review 或 summarize
+    types: [created]
+
+    # /review       -> 对 PR 的代码修改进行 review
+    # /summarize    -> 生成 PR 的描述总结
+    # /improve      -> 对 PR 的代码进行建议修改（需在 workflow 配置允许 auto_improve）
+
+jobs:
+  pr_agent_job:
+    # 防止机器人循环触发
+    if: ${{ github.event.sender.type != 'Bot' }}
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write # 用于写入评论、标签
+      pull-requests: write # 用于操作 PR
+      contents: write # 用于读取仓库内容
+    name: Run PR-Agent on Pull Requests / Comments
+    steps:
+      - name: Checkout code
+        # 获取当前仓库代码，用于 PR-Agent 分析
+        uses: actions/checkout@v5
+
+      - name: PR Agent action step
+        uses: qodo-ai/pr-agent@main # 使用 PR-Agent 最新主分支
+        env:
+          # OPENAI_KEY: ${{ secrets.OPENAI_KEY }} # GPT 模型密钥
+          XAI_API_KEY: ${{ secrets.XAI_API_KEY }} # XAI API 密钥
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub Token
+          github_action_config.auto_review: "true" # 自动对 PR 进行 review
+          github_action_config.auto_describe: "true" # 自动生成 PR 描述（summary）
+          github_action_config.auto_improve: "false" # 不自动修改代码
+          github_action_config.comment_trigger: "true" # 支持 /review 或 /summarize 手动触发

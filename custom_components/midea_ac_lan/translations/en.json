@@ -204,8 +204,11 @@
       "zone2_room_temp_mode": {
         "name": "Zone2 Room-temperature Mode"
       },
-      "zone2_water_temp_mode": {
-        "name": "Zone2 Water-temperature Mode"
+      "microcrystal_fresh": {
+        "name": "Microcrystal Fresh"
+      },
+      "electronic_smell": {
+        "name": "Deodorizing sterilizing"
       }
     },
     "climate": {
@@ -249,7 +252,7 @@
       "water_temp_level": {
         "name": "Water Temperature Level"
       },
-      "fan_speed": {
+      "fan_speed_percent": {
         "name": "Fan Speed Percent"
       }
     },
@@ -283,6 +286,28 @@
       },
       "water_level_set": {
         "name": "Water Level Setting"
+      },
+      "wind_lr_angle": {
+        "name": "Airflow Horizontal",
+        "state": {
+          "off": "Off",
+          "left": "Left",
+          "left-mid": "Left-Mid",
+          "middle": "Middle",
+          "right-mid": "Right-Mid",
+          "right": "Right"
+        }
+      },
+      "wind_ud_angle": {
+        "name": "Airflow Vertical",
+        "state": {
+          "off": "Off",
+          "up": "Up",
+          "up-mid": "Up-Mid",
+          "middle": "Middle",
+          "down-mid": "Down-Mid",
+          "down": "Down"
+        }
       }
     },
     "sensor": {
@@ -540,6 +565,12 @@
       },
       "working_time": {
         "name": "Working Time"
+      },
+      "humidity": {
+        "name": "Humidity"
+      },
+      "variable_mode": {
+        "name": "Variable Mode"
       }
     },
     "switch": {

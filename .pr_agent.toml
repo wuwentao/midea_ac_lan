@@ -1,0 +1,31 @@
+[pr_reviewer]
+# extra_instructions 指定 AI review 的重点
+extra_instructions = """
+- Focus only on code changes in this PR.
+- Ensure the code follows the logic and conventions of the current repository.
+- Ensure Home Assistant integration patterns are respected.
+- Check correct usage of 'midea-local' library functions.
+- Suggest improvements only if they make the code more consistent with the repo logic or HA integration.
+"""
+
+# 控制 AI 给出的建议数量
+num_code_suggestions = 5
+
+# 是否自动添加标签（例如 'needs review' / 'changes requested'）
+generate_labels = true
+
+[general]
+# 默认使用高效模型
+# model = "gpt-4o-mini"
+model = "grok-3"  # xAI Grok-3（免费额度，支持代码分析；PR-Agent 兼容）
+# 模型降级顺序
+# fallback_models = ["gpt-3.5-turbo"]
+fallback_models = ["xai/grok-2-latest"]
+# PR patch 太大时，截断超出部分
+large_patch_policy = "clip"
+# 最大 token 数限制
+max_model_tokens = 1000
+# 超时时不抛异常，继续运行
+raise_on_timeout = false
+
+llm_provider = "xai"  # 指定 xAI provider, 避免 fallback OpenAI
