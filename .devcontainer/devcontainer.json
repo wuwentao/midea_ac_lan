@@ -4,8 +4,8 @@
     "dockerfile": "Dockerfile",
     "context": "..",
     "args": {
-      "APT_MIRROR_DOMAIN": "${localEnv:APT_MIRROR_DOMAIN:-deb.debian.org}",
-      "PIP_MIRROR_DOMAIN": "${localEnv:PIP_MIRROR_DOMAIN:-pypi.org}"
+      "APT_MIRROR_DOMAIN": "${localEnv:APT_MIRROR_DOMAIN:deb.debian.org}",
+      "PIP_MIRROR_DOMAIN": "${localEnv:PIP_MIRROR_DOMAIN:pypi.org}"
     }
   },
   "postCreateCommand": "scripts/setup.sh",
