@@ -28,7 +28,7 @@ repos:
           - --fix
       - id: ruff-format
   - repo: https://github.com/commitizen-tools/commitizen
-    rev: v4.11.0
+    rev: v4.11.1
     hooks:
       - id: commitizen
         stages: [commit-msg]
