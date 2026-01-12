@@ -27,19 +27,20 @@ Default step: 0.5
 
 ### Power consumption analysis method
 
-  There are 4 different methods to decode the consumption of an AC, but we don’t know which is right for your device.
-  If the power and/or energy consumption data looks incorrect, try another method and see if they are correct.
-  The options are 1 (binary), 2 (BCD), 3 (base/radix 100) and 12 (BCD like #2, but with an additional /10 divider for the energy values).
+There are 4 different methods to decode the consumption of an AC, but we don’t know which is right for your device.
+If the power and/or energy consumption data looks incorrect, try another method and see if they are correct.
+The options are 1 (binary), 2 (BCD), 3 (base/radix 100) and 12 (BCD like #2, but with an additional /10 divider for the energy values).
 
-  Default mode: 1
+Default mode: 1
 
 ```json
 { "power_analysis_method": 2 }
 ```
-  Known settings:
-  | Device                           | Mode |
-  | :------------------------------- | ---: |
-  | Midea PortaSplit                 |   12 |
+
+Known settings:
+| Device | Mode |
+| :------------------------------- | ---: |
+| Midea PortaSplit | 12 |
 
 ## Entities
 
