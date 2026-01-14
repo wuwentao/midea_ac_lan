@@ -1,5 +1,7 @@
 """Const for Midea Lan."""
 
+from __future__ import annotations
+
 from enum import IntEnum
 
 from homeassistant.const import Platform

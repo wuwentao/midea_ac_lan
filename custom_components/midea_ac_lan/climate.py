@@ -1,5 +1,7 @@
 """Midea Climate entries."""
 
+from __future__ import annotations
+
 import logging
 from typing import Any, ClassVar, TypeAlias, cast
 
@@ -29,8 +31,6 @@ from homeassistant.const import (
     ATTR_TEMPERATURE,
     CONF_DEVICE_ID,
     CONF_SWITCHES,
-    MAJOR_VERSION,
-    MINOR_VERSION,
     PRECISION_HALVES,
     PRECISION_WHOLE,
     Platform,
@@ -109,11 +109,6 @@ MideaClimateDevice: TypeAlias = (
 class MideaClimate(MideaEntity, ClimateEntity):
     """Midea Climate Entries Base Class."""
 
-    # https://developers.home-assistant.io/blog/2024/01/24/climate-climateentityfeatures-expanded
-    _enable_turn_on_off_backwards_compatibility: bool = (
-        False  # maybe remove after 2025.1
-    )
-
     _device: MideaClimateDevice
 
     _attr_max_temp: float = TEMPERATURE_MAX
@@ -129,15 +124,14 @@ class MideaClimate(MideaEntity, ClimateEntity):
     @property
     def supported_features(self) -> ClimateEntityFeature:
         """Midea Climate supported features."""
-        features = (
+        return (
             ClimateEntityFeature.TARGET_TEMPERATURE
             | ClimateEntityFeature.FAN_MODE
             | ClimateEntityFeature.PRESET_MODE
             | ClimateEntityFeature.SWING_MODE
+            | ClimateEntityFeature.TURN_OFF
+            | ClimateEntityFeature.TURN_ON
         )
-        if (MAJOR_VERSION, MINOR_VERSION) >= (2024, 2):
-            features |= ClimateEntityFeature.TURN_OFF | ClimateEntityFeature.TURN_ON
-        return features
 
     @property
     def hvac_mode(self) -> HVACMode:
@@ -450,10 +444,11 @@ class MideaCFClimate(MideaClimate):
     @property
     def supported_features(self) -> ClimateEntityFeature:
         """Midea CF Climate supported features."""
-        features = ClimateEntityFeature.TARGET_TEMPERATURE
-        if (MAJOR_VERSION, MINOR_VERSION) >= (2024, 2):
-            features |= ClimateEntityFeature.TURN_OFF | ClimateEntityFeature.TURN_ON
-        return features
+        return (
+            ClimateEntityFeature.TARGET_TEMPERATURE
+            | ClimateEntityFeature.TURN_OFF
+            | ClimateEntityFeature.TURN_ON
+        )
 
     @property
     def min_temp(self) -> float:
@@ -524,10 +519,11 @@ class MideaC3Climate(MideaClimate):
     @property
     def supported_features(self) -> ClimateEntityFeature:
         """Midea C3 Climate supported features."""
-        features = ClimateEntityFeature.TARGET_TEMPERATURE
-        if (MAJOR_VERSION, MINOR_VERSION) >= (2024, 2):
-            features |= ClimateEntityFeature.TURN_OFF | ClimateEntityFeature.TURN_ON
-        return features
+        return (
+            ClimateEntityFeature.TARGET_TEMPERATURE
+            | ClimateEntityFeature.TURN_OFF
+            | ClimateEntityFeature.TURN_ON
+        )
 
     @property
     def target_temperature_step(self) -> float:
@@ -652,12 +648,12 @@ class MideaFBClimate(MideaClimate):
     @property
     def supported_features(self) -> ClimateEntityFeature:
         """Midea FB Climate supported features."""
-        features = (
-            ClimateEntityFeature.TARGET_TEMPERATURE | ClimateEntityFeature.PRESET_MODE
+        return (
+            ClimateEntityFeature.TARGET_TEMPERATURE
+            | ClimateEntityFeature.PRESET_MODE
+            | ClimateEntityFeature.TURN_OFF
+            | ClimateEntityFeature.TURN_ON
         )
-        if (MAJOR_VERSION, MINOR_VERSION) >= (2024, 2):
-            features |= ClimateEntityFeature.TURN_OFF | ClimateEntityFeature.TURN_ON
-        return features
 
     @property
     def preset_mode(self) -> str:

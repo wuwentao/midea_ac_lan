@@ -1,5 +1,7 @@
 """Number for Midea Lan."""
 
+from __future__ import annotations
+
 from typing import Any, cast
 
 from homeassistant.components.number import NumberEntity

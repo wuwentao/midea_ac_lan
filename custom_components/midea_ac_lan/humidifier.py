@@ -1,5 +1,7 @@
 """Midea Humidifier entries."""
 
+from __future__ import annotations
+
 import logging
 from typing import Any, TypeAlias, cast
 

@@ -1,14 +1,20 @@
 {
   "domain": "midea_ac_lan",
-  "name": "Midea AC LAN",
-  "codeowners": ["@wuwentao", "@rokam", "@chemelli74", "@Necroneco"],
+  "name": "Midea AC LAN (ReMinchev Fix)",
+  "codeowners": [
+    "@reminchev",
+    "@wuwentao",
+    "@rokam",
+    "@chemelli74",
+    "@Necroneco"
+  ],
   "config_flow": true,
   "dependencies": [],
-  "documentation": "https://github.com/wuwentao/midea_ac_lan#readme",
+  "documentation": "https://github.com/reminchev/midea_ac_lan#readme",
   "integration_type": "device",
   "iot_class": "local_push",
-  "issue_tracker": "https://github.com/wuwentao/midea_ac_lan/issues",
+  "issue_tracker": "https://github.com/reminchev/midea_ac_lan/issues",
   "loggers": ["midealocal"],
-  "requirements": ["midea-local==6.5.0"],
-  "version": "v0.6.10"
+  "requirements": ["midea-local>=6.5.0"],
+  "version": "v0.6.17"
 }

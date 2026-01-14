@@ -1,5 +1,7 @@
 """Midea Fan entries."""
 
+from __future__ import annotations
+
 import logging
 from typing import Any, cast
 
@@ -70,8 +72,6 @@ except KeyError:
 
 class MideaFan(MideaEntity, FanEntity):
     """Midea Fan Entries Base Class."""
-
-    _enable_turn_on_off_backwards_compatibility = False  # 2024.8~2025.1
 
     @property
     def preset_modes(self) -> list[str] | None:

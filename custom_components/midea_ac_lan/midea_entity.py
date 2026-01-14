@@ -1,17 +1,12 @@
 """Base entity for Midea Lan."""
 
+from __future__ import annotations
+
 import logging
 from typing import Any, cast
 
-from homeassistant.const import MAJOR_VERSION, MINOR_VERSION
 from homeassistant.core import callback
-
-if (MAJOR_VERSION, MINOR_VERSION) >= (2023, 9):
-    from homeassistant.helpers.device_registry import DeviceInfo
-else:
-    from homeassistant.helpers.entity import (  # type: ignore[attr-defined]
-        DeviceInfo,
-    )
+from homeassistant.helpers.device_registry import DeviceInfo
 from homeassistant.helpers.entity import Entity
 from midealocal.device import MideaDevice
 

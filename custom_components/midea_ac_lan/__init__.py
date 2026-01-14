@@ -9,6 +9,8 @@ integration load process:
 3. unloading a config entry: `async_unload_entry`
 """
 
+from __future__ import annotations
+
 import logging
 from typing import Any, cast
 
@@ -25,8 +27,6 @@ from homeassistant.const import (
     CONF_PROTOCOL,
     CONF_TOKEN,
     CONF_TYPE,
-    MAJOR_VERSION,
-    MINOR_VERSION,
 )
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.typing import ConfigType
@@ -208,37 +208,20 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
         _LOGGER.error("For V3 devices, the key and the token is required")
         return False
     # device_selector in `midealocal/devices/__init__.py`
-    # hass core version >= 2024.3
-    if (MAJOR_VERSION, MINOR_VERSION) >= (2024, 3):
-        device = await hass.async_add_import_executor_job(
-            device_selector,
-            name,
-            device_id,
-            device_type,
-            ip_address,
-            port,
-            token,
-            key,
-            protocol,
-            model,
-            subtype,
-            customize,
-        )
-    # hass core version < 2024.3
-    else:
-        device = device_selector(
-            name=name,
-            device_id=device_id,
-            device_type=device_type,
-            ip_address=ip_address,
-            port=port,
-            token=token,
-            key=key,
-            device_protocol=protocol,
-            model=model,
-            subtype=subtype,
-            customize=customize,
-        )
+    device = await hass.async_add_import_executor_job(
+        device_selector,
+        name,
+        device_id,
+        device_type,
+        ip_address,
+        port,
+        token,
+        key,
+        protocol,
+        model,
+        subtype,
+        customize,
+    )
     if device:
         if refresh_interval is not None:
             device.set_refresh_interval(refresh_interval)
@@ -295,11 +278,7 @@ async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry) ->
     if config_entry.version == 1:
         _LOGGER.debug("Migrating configuration from version 1")
 
-        if (MAJOR_VERSION, MINOR_VERSION) >= (2024, 3):
-            hass.config_entries.async_update_entry(config_entry, version=2)
-        else:
-            config_entry.version = 2
-            hass.config_entries.async_update_entry(config_entry)
+        hass.config_entries.async_update_entry(config_entry, version=2)
 
         # Migrate device.
         await _async_migrate_device_identifiers(hass, config_entry)

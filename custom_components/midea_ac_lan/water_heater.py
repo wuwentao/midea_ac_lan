@@ -1,5 +1,7 @@
 """Midea Water Heater entries."""
 
+from __future__ import annotations
+
 import functools as ft
 import logging
 from typing import Any, ClassVar, TypeAlias, cast

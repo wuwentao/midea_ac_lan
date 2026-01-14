@@ -20,13 +20,20 @@ job process:
 5. run `_save_device_config` and `async_create_entry`
 """
 
+from __future__ import annotations
+
 import logging
 from pathlib import Path
 from typing import TYPE_CHECKING, Any, cast
 
 import homeassistant.helpers.config_validation as cv
 import voluptuous as vol
-from homeassistant.config_entries import ConfigEntry, ConfigFlow, OptionsFlow
+from homeassistant.config_entries import (
+    ConfigEntry,
+    ConfigFlow,
+    ConfigFlowResult,
+    OptionsFlow,
+)
 from homeassistant.const import (
     CONF_CUSTOMIZE,
     CONF_DEVICE,
@@ -40,8 +47,6 @@ from homeassistant.const import (
     CONF_SWITCHES,
     CONF_TOKEN,
     CONF_TYPE,
-    MAJOR_VERSION,
-    MINOR_VERSION,
 )
 from homeassistant.core import callback
 from homeassistant.helpers.aiohttp_client import async_create_clientsession
@@ -59,13 +64,6 @@ from midealocal.exceptions import SocketException
 
 if TYPE_CHECKING:
     from aiohttp import ClientSession
-
-if (MAJOR_VERSION, MINOR_VERSION) >= (2024, 4):
-    from homeassistant.config_entries import ConfigFlowResult  # pylint: disable=E0611
-else:
-    from homeassistant.data_entry_flow import (  # type: ignore[assignment]
-        FlowResult as ConfigFlowResult,
-    )
 
 from .const import (
     CONF_ACCOUNT,
@@ -105,7 +103,6 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
     """
 
     VERSION = 2
-    MINOR_VERSION = 1
 
     def __init__(self) -> None:
         """MideaLanConfigFlow class."""
