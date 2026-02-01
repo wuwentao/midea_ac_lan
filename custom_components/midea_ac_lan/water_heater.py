@@ -436,6 +436,25 @@ class MideaCDWaterHeater(MideaWaterHeater):
         """Midea CD Water Heater entity init."""
         super().__init__(device, entity_key)
 
+    async def async_handle_set_operation_mode(self, operation_mode: str) -> None:
+        """Handle a set target operation mode service call.
+
+        Override to silently ignore empty operation_mode instead of raising
+        ServiceValidationError from HA core validation.
+        """
+        if not operation_mode:
+            return
+        await super().async_handle_set_operation_mode(operation_mode)
+
+    def set_operation_mode(self, operation_mode: str) -> None:
+        """Midea CD Water Heater set operation mode.
+
+        Override to add empty value check as additional safety layer.
+        """
+        if not operation_mode:
+            return
+        super().set_operation_mode(operation_mode)
+
     @property
     def supported_features(self) -> WaterHeaterEntityFeature:
         """Midea CD Water Heater supported features."""
