@@ -455,6 +455,25 @@ class MideaCDWaterHeater(MideaWaterHeater):
             return
         super().set_operation_mode(operation_mode)
 
+    def set_temperature(self, **kwargs: Any) -> None:  # noqa: ANN401
+        """Midea CD Water Heater set temperature.
+
+        Override to ensure power stays on when setting temperature.
+        The underlying midea-local library includes current power state
+        in the command message. If power is incorrectly read as False,
+        setting temperature will turn off the device.
+        """
+        if ATTR_TEMPERATURE not in kwargs:
+            return
+        # Ensure device is powered on before setting temperature
+        current_power = self._device.get_attribute("power")
+        if not current_power:
+            # Device appears to be off, force power on first
+            self._device.set_attribute("power", True)
+        # Now set temperature
+        temperature = float(kwargs[ATTR_TEMPERATURE])
+        self._device.set_attribute("target_temperature", temperature)
+
     @property
     def supported_features(self) -> WaterHeaterEntityFeature:
         """Midea CD Water Heater supported features."""
