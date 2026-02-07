@@ -479,6 +479,7 @@ class MideaCDWaterHeater(MideaWaterHeater):
         """Midea CD Water Heater supported features."""
         return (
             WaterHeaterEntityFeature.TARGET_TEMPERATURE
+            | WaterHeaterEntityFeature.ON_OFF
             | WaterHeaterEntityFeature.OPERATION_MODE
         )
 
