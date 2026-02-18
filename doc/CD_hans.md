@@ -19,6 +19,7 @@
 ```
 
 `lua_protocol` 设置可以设为：
+
 - `auto`（默认）- 自动检测协议版本
 - `new` - 使用新版协议（如果温度单位错误，请先尝试此选项）
 - `old` - 使用旧版协议
@@ -35,31 +36,31 @@
 
 ### Extra entities
 
-| EntityID                                    | 类型          | 名称                     | 描述           |
-| ------------------------------------------- | ------------- | ------------------------ | -------------- |
-| binary_sensor.{DEVICEID}\_compressor_status | binary_sensor | Compressor Status        | 压缩机状态     |
-| sensor.{DEVICEID}\_compressor_temperature   | sensor        | Compressor Temperature   | 压缩机温度     |
-| sensor.{DEVICEID}\_condenser_temperature    | sensor        | Condenser Temperature    | 冷凝器温度     |
-| sensor.{DEVICEID}\_outdoor_temperature      | sensor        | Outdoor Temperature      | 室外温度       |
-| sensor.{DEVICEID}\_water_level              | sensor        | Water Level              | 水位           |
-| switch.{DEVICEID}\_disinfect                | switch        | Disinfect                | 消毒           |
-| sensor.{DEVICEID}\_elec_heat                | sensor        | Electric Heat            | 电加热         |
-| binary_sensor.{DEVICEID}\_top_elec_heat     | binary_sensor | Top Electric Heat        | 上部电加热     |
-| binary_sensor.{DEVICEID}\_bottom_elec_heat  | binary_sensor | Bottom Electric Heat     | 底部电加热     |
-| sensor.{DEVICEID}\_water_pump               | sensor        | Water Pump               | 水泵           |
-| sensor.{DEVICEID}\_four_way                 | sensor        | Four Way Valve           | 四通阀         |
-| sensor.{DEVICEID}\_back_water               | sensor        | Back Water               | 回水           |
-| sensor.{DEVICEID}\_sterilize                | sensor        | Sterilize                | 杀菌           |
-| sensor.{DEVICEID}\_top_temperature          | sensor        | Top Temperature          | 顶部温度       |
-| sensor.{DEVICEID}\_bottom_temperature       | sensor        | Bottom Temperature       | 底部温度       |
-| sensor.{DEVICEID}\_wind                     | sensor        | Wind                     | 风             |
-| binary_sensor.{DEVICEID}\_smart_grid        | binary_sensor | Smart Grid               | 智能电网       |
-| binary_sensor.{DEVICEID}\_multi_terminal    | binary_sensor | Multi Terminal           | 多终端         |
-| binary_sensor.{DEVICEID}\_mute_effect       | binary_sensor | Mute Effect              | 静音效果       |
-| binary_sensor.{DEVICEID}\_mute_status       | binary_sensor | Mute Status              | 静音状态       |
-| sensor.{DEVICEID}\_error_code               | sensor        | Error Code               | 错误代码       |
-| sensor.{DEVICEID}\_typeinfo                 | sensor        | Type Info                | 类型信息       |
-| switch.{DEVICEID}\_power                    | switch        | Power                    | 电源           |
+| EntityID                                    | 类型          | 名称                   | 描述       |
+| ------------------------------------------- | ------------- | ---------------------- | ---------- |
+| binary_sensor.{DEVICEID}\_compressor_status | binary_sensor | Compressor Status      | 压缩机状态 |
+| sensor.{DEVICEID}\_compressor_temperature   | sensor        | Compressor Temperature | 压缩机温度 |
+| sensor.{DEVICEID}\_condenser_temperature    | sensor        | Condenser Temperature  | 冷凝器温度 |
+| sensor.{DEVICEID}\_outdoor_temperature      | sensor        | Outdoor Temperature    | 室外温度   |
+| sensor.{DEVICEID}\_water_level              | sensor        | Water Level            | 水位       |
+| switch.{DEVICEID}\_disinfect                | switch        | Disinfect              | 消毒       |
+| sensor.{DEVICEID}\_elec_heat                | sensor        | Electric Heat          | 电加热     |
+| binary_sensor.{DEVICEID}\_top_elec_heat     | binary_sensor | Top Electric Heat      | 上部电加热 |
+| binary_sensor.{DEVICEID}\_bottom_elec_heat  | binary_sensor | Bottom Electric Heat   | 底部电加热 |
+| sensor.{DEVICEID}\_water_pump               | sensor        | Water Pump             | 水泵       |
+| sensor.{DEVICEID}\_four_way                 | sensor        | Four Way Valve         | 四通阀     |
+| sensor.{DEVICEID}\_back_water               | sensor        | Back Water             | 回水       |
+| sensor.{DEVICEID}\_sterilize                | sensor        | Sterilize              | 杀菌       |
+| sensor.{DEVICEID}\_top_temperature          | sensor        | Top Temperature        | 顶部温度   |
+| sensor.{DEVICEID}\_bottom_temperature       | sensor        | Bottom Temperature     | 底部温度   |
+| sensor.{DEVICEID}\_wind                     | sensor        | Wind                   | 风         |
+| binary_sensor.{DEVICEID}\_smart_grid        | binary_sensor | Smart Grid             | 智能电网   |
+| binary_sensor.{DEVICEID}\_multi_terminal    | binary_sensor | Multi Terminal         | 多终端     |
+| binary_sensor.{DEVICEID}\_mute_effect       | binary_sensor | Mute Effect            | 静音效果   |
+| binary_sensor.{DEVICEID}\_mute_status       | binary_sensor | Mute Status            | 静音状态   |
+| sensor.{DEVICEID}\_error_code               | sensor        | Error Code             | 错误代码   |
+| sensor.{DEVICEID}\_typeinfo                 | sensor        | Type Info              | 类型信息   |
+| switch.{DEVICEID}\_power                    | switch        | Power                  | 电源       |
 
 ## 服务
 
