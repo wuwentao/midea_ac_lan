@@ -17,21 +17,30 @@
 
 ## Customize
 
-- Set the temperature step of AC (0.5 by default).
+### Temperature setting step of AC
+
+Default step: 0.5
 
 ```json
 { "temperature_step": 1 }
 ```
 
-- Power consumption analysis method (1 by default)
+### Power consumption analysis method
 
-  There are 3 different methods to analyze the power consumption of an AC, but I don’t know which is right for your device.
-  If the power consumption data looks incorrect, try another method and see if they are correct.
-  The options include 1, 2, and 3.
+There are 4 different methods to decode the consumption of an AC, but we don’t know which is right for your device.
+If the power and/or energy consumption data looks incorrect, try another method and see if they are correct.
+The options are 1 (binary), 2 (BCD), 3 (base/radix 100) and 12 (BCD like #2, but with an additional /10 divider for the energy values).
+
+Default mode: 1
 
 ```json
 { "power_analysis_method": 2 }
 ```
+
+Known settings:
+| Device | Mode |
+| :------------------------------- | ---: |
+| Midea PortaSplit | 12 |
 
 ## Entities
 
