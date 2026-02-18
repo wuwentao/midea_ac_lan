@@ -13,15 +13,20 @@
 { "temperature_step": 0.5 }
 ```
 
-- switch temperature between Fahrenheit and Celsius
+- Set the protocol version for temperature unit handling
 
-if you got a error temperature value between Fahrenheit and Celsius, you can manual change it with:
+Some Heat Pump Water Heater models may display incorrect temperature units (showing Fahrenheit when it should be Celsius or vice versa). This is caused by different protocol versions used by various models. If you experience this issue, you can manually set the protocol version:
 
 ```json
-{ "lua_protocol": new }
+{ "lua_protocol": "new" }
 ```
 
-`lua_protocol` is key name, and value can be set to `old`, `new`, `auto`(default is `auto`).
+The `lua_protocol` setting can be set to:
+- `auto` (default) - Automatically detect the protocol version
+- `new` - Use the newer protocol version (try this first if temperature units are wrong)
+- `old` - Use the older protocol version
+
+**Note:** This setting specifically affects how temperature units are interpreted. If your device shows temperatures in the wrong unit (e.g., 140°F when it should be 60°C), try setting this to `"new"` or `"old"` to fix the issue.
 
 ## Entities
 
@@ -33,14 +38,31 @@ if you got a error temperature value between Fahrenheit and Celsius, you can man
 
 ### Extra entities
 
-| EntityID                                    | Class         | Description                                             |
-| ------------------------------------------- | ------------- | ------------------------------------------------------- |
-| sensor.{DEVICEID}\_compressor_temperature   | sensor        | Compressor Temperature                                  |
-| sensor.{DEVICEID}\_condenser_temperature    | sensor        | Condenser Temperature                                   |
-| sensor.{DEVICEID}\_outdoor_temperature      | sensor        | Outdoor Temperature                                     |
-| sensor.{DEVICEID}\_water_level              | sensor        | Water Level                                             |
-| binary_sensor.{DEVICEID}\_compressor_status | binary_sensor | Compressor Status (It may doesn't work in some devices) |
-| switch.{DEVICEID}\_power                    | switch        | Power                                                   |
+| EntityID                                    | Class         | Description                   |
+| ------------------------------------------- | ------------- | ----------------------------- |
+| binary_sensor.{DEVICEID}\_compressor_status | binary_sensor | Compressor Status             |
+| sensor.{DEVICEID}\_compressor_temperature   | sensor        | Compressor Temperature        |
+| sensor.{DEVICEID}\_condenser_temperature    | sensor        | Condenser Temperature         |
+| sensor.{DEVICEID}\_outdoor_temperature      | sensor        | Outdoor Temperature           |
+| sensor.{DEVICEID}\_water_level              | sensor        | Water Level                   |
+| switch.{DEVICEID}\_disinfect                | switch        | Disinfect                     |
+| sensor.{DEVICEID}\_elec_heat                | sensor        | Electric Heat                 |
+| binary_sensor.{DEVICEID}\_top_elec_heat     | binary_sensor | Top Electric Heat             |
+| binary_sensor.{DEVICEID}\_bottom_elec_heat  | binary_sensor | Bottom Electric Heat          |
+| sensor.{DEVICEID}\_water_pump               | sensor        | Water Pump                    |
+| sensor.{DEVICEID}\_four_way                 | sensor        | Four Way Valve                |
+| sensor.{DEVICEID}\_back_water               | sensor        | Back Water                    |
+| sensor.{DEVICEID}\_sterilize                | sensor        | Sterilize                     |
+| sensor.{DEVICEID}\_top_temperature          | sensor        | Top Temperature               |
+| sensor.{DEVICEID}\_bottom_temperature       | sensor        | Bottom Temperature            |
+| sensor.{DEVICEID}\_wind                     | sensor        | Wind                          |
+| binary_sensor.{DEVICEID}\_smart_grid        | binary_sensor | Smart Grid                    |
+| binary_sensor.{DEVICEID}\_multi_terminal    | binary_sensor | Multi Terminal                |
+| binary_sensor.{DEVICEID}\_mute_effect       | binary_sensor | Mute Effect                   |
+| binary_sensor.{DEVICEID}\_mute_status       | binary_sensor | Mute Status                   |
+| sensor.{DEVICEID}\_error_code               | sensor        | Error Code                    |
+| sensor.{DEVICEID}\_typeinfo                 | sensor        | Type Info                     |
+| switch.{DEVICEID}\_power                    | switch        | Power                         |
 
 ## Services
 
