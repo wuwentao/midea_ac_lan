@@ -354,6 +354,13 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "icon": "mdi:alert-circle",
                 "device_class": BinarySensorDeviceClass.PROBLEM,
             },
+            A1Attributes.filter_cleaning_reminder: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "filter_cleaning_reminder",
+                "name": "Filter Cleaning Reminder",
+                "icon": "mdi:alert-circle",
+                "device_class": BinarySensorDeviceClass.PROBLEM,
+            },
         },
     },
     0xAC: {
