@@ -5,7 +5,8 @@ on:
   release:
     types: [released]
 
-permissions: {}
+permissions:
+  contents: write
 
 defaults:
   run:
@@ -106,5 +107,4 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: artifacts/midea_ac_lan.zip
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          token: ${{ secrets.GH_TOKEN }}
