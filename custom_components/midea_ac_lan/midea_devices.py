@@ -1756,7 +1756,6 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "eco",
                 "name": "ECO",
                 "icon": "mdi:leaf",
-                "device_class": BinarySensorDeviceClass.RUNNING,
             },
             CDAttributes.maintain_warn_tag: {
                 "type": Platform.BINARY_SENSOR,
