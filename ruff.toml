@@ -23,6 +23,7 @@ lint.ignore = [
     "RUF021",   # Parenthesize expressions when chaining `and` and `or` together, to make the precedence clear
     "RUF029",   # Function is declared `async`, but doesn't `await` or use `async` features.
     "TRY003",   # Avoid specifying long messages outside the exception class
+    "RUF067",   # Ignore non-empty-init-module
 ]
 
 [lint.per-file-ignores]
