@@ -93,6 +93,9 @@
       "cooking": {
         "name": "烹饪中"
       },
+      "cold_power": {
+        "name": "制冷功率"
+      },
       "filter_change_reminder": {
         "name": "滤芯更换提醒"
       },
@@ -101,6 +104,9 @@
       },
       "finished": {
         "name": "完成"
+      },
+      "fault": {
+        "name": "故障"
       },
       "flex_zone_door": {
         "name": "变温区门状态"
@@ -144,6 +150,9 @@
       "protection": {
         "name": "安全防护"
       },
+      "pump_on": {
+        "name": "水泵"
+      },
       "refrigerator_door": {
         "name": "冷藏室门状态"
       },
@@ -158,6 +167,9 @@
       },
       "seat_status": {
         "name": "入座状态"
+      },
+      "sleep_power": {
+        "name": "睡眠功率"
       },
       "status_dhw": {
         "name": "DHW状态"
@@ -191,6 +203,12 @@
       },
       "water_shortage": {
         "name": "缺水"
+      },
+      "standby": {
+        "name": "待机"
+      },
+      "warm_power": {
+        "name": "制热功率"
       },
       "with_pressure": {
         "name": "带压中"
@@ -269,6 +287,9 @@
       "fan_speed": {
         "name": "风速设定"
       },
+      "heating_mode": {
+        "name": "采暖模式"
+      },
       "mode": {
         "name": "模式"
       },
@@ -314,6 +335,9 @@
       }
     },
     "sensor": {
+      "activity_mode_target_temperature": {
+        "name": "外出模式目标温度"
+      },
       "bathing_leaving_temperature": {
         "name": "淋浴出水温度"
       },
@@ -419,6 +443,9 @@
       "flex_zone_setting_temp": {
         "name": "变温区设置温度"
       },
+      "flow_volume": {
+        "name": "循环流量"
+      },
       "freezer_actual_temp": {
         "name": "冷冻室实际温度"
       },
@@ -428,6 +455,9 @@
       "hcho": {
         "name": "甲醛"
       },
+      "heating_gap_temperature": {
+        "name": "采暖回差温度"
+      },
       "heating_leaving_temperature": {
         "name": "取暖出水温度"
       },
@@ -436,6 +466,15 @@
       },
       "heating_time_remaining": {
         "name": "加热剩余时间"
+      },
+      "heating_temperature": {
+        "name": "采暖温度"
+      },
+      "heating_target_temperature": {
+        "name": "采暖目标温度"
+      },
+      "heating_unit_type": {
+        "name": "采暖末端类型"
       },
       "in_tds": {
         "name": "进水TDS"
@@ -451,6 +490,9 @@
       },
       "keep_warm_time": {
         "name": "保温时间"
+      },
+      "last_time": {
+        "name": "上次时间"
       },
       "middle_compartment_remaining": {
         "name": "中层剩余时间"
@@ -485,6 +527,9 @@
       "refrigerator_setting_temp": {
         "name": "冷藏室设置温度"
       },
+      "return_temperature": {
+        "name": "回水温度"
+      },
       "right_flex_zone_actual_temp": {
         "name": "右变温区实际温度"
       },
@@ -499,6 +544,9 @@
       },
       "seat_temperature": {
         "name": "当前座温"
+      },
+      "sleep_mode_target_temperature": {
+        "name": "睡眠模式目标温度"
       },
       "soak_time": {
         "name": "浸泡时间"
@@ -524,6 +572,9 @@
       "target_temperature": {
         "name": "设定温度"
       },
+      "three_way_mode": {
+        "name": "三通阀模式"
+      },
       "time_remaining": {
         "name": "剩余时间"
       },
@@ -547,6 +598,9 @@
       },
       "tvoc": {
         "name": "TVOC"
+      },
+      "user_mode_target_temperature": {
+        "name": "居家模式目标温度"
       },
       "wash_level": {
         "name": "洗涤档位"
@@ -733,6 +787,9 @@
       }
     },
     "water_heater": {
+      "space_heating": {
+        "name": "采暖"
+      },
       "domestic_hot_water": {
         "name": "生活热水"
       },
