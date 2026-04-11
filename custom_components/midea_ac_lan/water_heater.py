@@ -23,8 +23,6 @@ from homeassistant.const import (
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from midealocal.device import DeviceType
-from midealocal.devices.c1 import DeviceAttributes as C1Attributes
-from midealocal.devices.c1 import MideaC1Device
 from midealocal.devices.c3 import DeviceAttributes as C3Attributes
 from midealocal.devices.c3 import MideaC3Device
 from midealocal.devices.cd import DeviceAttributes as CDAttributes
@@ -46,9 +44,6 @@ E2_TEMPERATURE_MIN = 30
 E3_TEMPERATURE_MAX = 65
 E3_TEMPERATURE_MIN = 35
 
-C1_TEMPERATURE_MIN = 30
-C1_TEMPERATURE_MAX = 75
-
 async def async_setup_entry(
     hass: HomeAssistant,
     config_entry: ConfigEntry,
@@ -62,7 +57,6 @@ async def async_setup_entry(
         MideaE2WaterHeater
         | MideaE3WaterHeater
         | MideaE6WaterHeater
-        | MideaC1WaterHeater
         | MideaC3WaterHeater
         | MideaCDWaterHeater
     ] = []
@@ -79,8 +73,6 @@ async def async_setup_entry(
                 devs.append(MideaE3WaterHeater(device, entity_key))
             elif device.device_type == DeviceType.E6:
                 devs.append(MideaE6WaterHeater(device, entity_key, config["use"]))
-            elif device.device_type == DeviceType.C1:
-                devs.append(MideaC1WaterHeater(device, entity_key))
             elif device.device_type == DeviceType.C3:
                 devs.append(MideaC3WaterHeater(device, entity_key))
             elif device.device_type == DeviceType.CD:
@@ -91,7 +83,6 @@ async def async_setup_entry(
 MideaWaterHeaterDevice: TypeAlias = (
     MideaE2Device
     | MideaE3Device
-    | MideaC1Device
     | MideaC3Device
     | MideaE6Device
     | MideaCDDevice
@@ -465,106 +456,3 @@ class MideaCDWaterHeater(MideaWaterHeater):
     def max_temp(self) -> float:
         """Midea CD Water Heater max temperature."""
         return cast("float", self._device.get_attribute(CDAttributes.max_temperature))
-
-
-class MideaC1WaterHeater(MideaWaterHeater):
-    """Midea C1 electric wall-hung boiler (space heating setpoint)."""
-
-    _device: MideaC1Device
-
-    def __init__(self, device: MideaC1Device, entity_key: str) -> None:
-        """Midea C1 water heater entity init."""
-        super().__init__(device, entity_key)
-
-    @property
-    def extra_state_attributes(self) -> dict[str, Any]:
-        """Expose the same keys as ``midealocal`` C1 ``DeviceAttributes`` / CLI status dict."""
-        attrs: dict[str, Any] = {
-            str(attr): self._device.get_attribute(attr) for attr in C1Attributes
-        }
-        if hasattr(self._device, "temperature_step"):
-            attrs["target_temperature_step"] = self._device.temperature_step
-        return attrs
-
-    @property
-    def is_on(self) -> bool:
-        """Return boiler power (``power`` in library status)."""
-        return bool(self._device.get_attribute(C1Attributes.power))
-
-    @property
-    def supported_features(self) -> WaterHeaterEntityFeature:
-        """Target temperature, heating mode, and power."""
-        return (
-            WaterHeaterEntityFeature.TARGET_TEMPERATURE
-            | WaterHeaterEntityFeature.OPERATION_MODE
-            | WaterHeaterEntityFeature.ON_OFF
-        )
-
-    @property
-    def operation_list(self) -> list[str] | None:
-        """Heating schedule modes from appliance (user / activity / sleep)."""
-        return list(self._device.heating_modes)
-
-    @property
-    def current_operation(self) -> str:
-        """Off when power is off; otherwise current heating mode."""
-        if not self._device.get_attribute(C1Attributes.power):
-            return STATE_OFF
-        mode = cast("str", self._device.get_attribute(C1Attributes.heating_mode))
-        modes = self.operation_list or []
-        if mode == "unknown" and modes:
-            return modes[0]
-        return mode
-
-    @property
-    def min_temp(self) -> float:
-        """Minimum heating setpoint when device does not publish limits."""
-        return float(C1_TEMPERATURE_MIN)
-
-    @property
-    def max_temp(self) -> float:
-        """Maximum heating setpoint when device does not publish limits."""
-        return float(C1_TEMPERATURE_MAX)
-
-    @property
-    def precision(self) -> float:
-        """C1 heating setpoint is always whole °C."""
-        return float(PRECISION_WHOLE)
-
-    @property
-    def current_temperature(self) -> float | None:
-        """Current temperature from appliance status."""
-        raw = self._device.get_attribute(C1Attributes.current_temperature)
-        if isinstance(raw, int | float):
-            return float(raw)
-        return None
-
-    @property
-    def target_temperature(self) -> float:
-        """Space heating target setpoint."""
-        raw = self._device.get_attribute(C1Attributes.heating_target_temperature)
-        if isinstance(raw, int | float):
-            return float(raw)
-        return float(self.min_temp)
-
-    def set_temperature(self, **kwargs: Any) -> None:  # noqa: ANN401
-        """Set heating target (V3: segmented set in library; V2 may no-op)."""
-        if ATTR_TEMPERATURE not in kwargs:
-            return
-        temperature = float(round(float(kwargs[ATTR_TEMPERATURE])))
-        self._device.set_attribute(
-            attr=C1Attributes.heating_target_temperature,
-            value=temperature,
-        )
-
-    def set_operation_mode(self, operation_mode: str) -> None:
-        """Set heating mode (user / activity / sleep)."""
-        self._device.set_attribute(attr=C1Attributes.heating_mode, value=operation_mode)
-
-    def turn_on(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
-        """Turn boiler on."""
-        self._device.set_attribute(attr=C1Attributes.power, value=True)
-
-    def turn_off(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
-        """Turn boiler off."""
-        self._device.set_attribute(attr=C1Attributes.power, value=False)

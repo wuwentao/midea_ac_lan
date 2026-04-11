@@ -1084,10 +1084,10 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
     0xC1: {
         "name": "Electric Wall-Hung Boiler",
         "entities": {
-            "water_heater": {
-                "type": Platform.WATER_HEATER,
+            "climate": {
+                "type": Platform.CLIMATE,
                 "translation_key": "space_heating",
-                "name": "Space heating",
+                "name": "Electric Boiler",
                 "icon": "mdi:radiator",
                 "default": True,
             },
