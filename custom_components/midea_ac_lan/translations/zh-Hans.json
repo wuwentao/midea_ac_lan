@@ -81,8 +81,35 @@
       "bottom_compartment_preheating": {
         "name": "下层预热"
       },
+      "bottom_temperature": {
+        "name": "底部温度传感器"
+      },
       "burning_state": {
         "name": "燃烧状态"
+      },
+      "communication_error": {
+        "name": "通讯故障"
+      },
+      "ele_exception": {
+        "name": "电气异常"
+      },
+      "elec_warning": {
+        "name": "电气警告"
+      },
+      "fast_hot_power": {
+        "name": "速热"
+      },
+      "half_heat": {
+        "name": "半胆加热"
+      },
+      "limit_error": {
+        "name": "限温故障"
+      },
+      "sensor_error": {
+        "name": "传感器故障"
+      },
+      "sterilization": {
+        "name": "杀菌中"
       },
       "cleaning_reminder": {
         "name": "清洁提示"
@@ -410,8 +437,41 @@
       "energy_consumption": {
         "name": "能耗"
       },
+      "day_water_consumption": {
+        "name": "当日用水量"
+      },
+      "discharge_left_time": {
+        "name": "排水剩余时间"
+      },
+      "discharge_status": {
+        "name": "排水状态"
+      },
       "error_code": {
         "name": "错误码"
+      },
+      "flow_rate": {
+        "name": "流量"
+      },
+      "heat_water_level": {
+        "name": "热水水位"
+      },
+      "in_temperature": {
+        "name": "进水温度"
+      },
+      "sterilize_cycle_index": {
+        "name": "杀菌周期序号"
+      },
+      "sterilize_left_days": {
+        "name": "杀菌剩余天数"
+      },
+      "tank_volume": {
+        "name": "水箱容积"
+      },
+      "uv_sterilize_minute": {
+        "name": "UV杀菌分钟"
+      },
+      "uv_sterilize_second": {
+        "name": "UV杀菌秒"
       },
       "fan_level": {
         "name": "当前风扇档位"
