@@ -436,11 +436,50 @@ class MideaCDWaterHeater(MideaWaterHeater):
         """Midea CD Water Heater entity init."""
         super().__init__(device, entity_key)
 
+    async def async_handle_set_operation_mode(self, operation_mode: str) -> None:
+        """Handle a set target operation mode service call.
+
+        Override to silently ignore empty operation_mode instead of raising
+        ServiceValidationError from HA core validation.
+        """
+        if not operation_mode:
+            return
+        await super().async_handle_set_operation_mode(operation_mode)
+
+    def set_operation_mode(self, operation_mode: str) -> None:
+        """Midea CD Water Heater set operation mode.
+
+        Override to add empty value check as additional safety layer.
+        """
+        if not operation_mode:
+            return
+        super().set_operation_mode(operation_mode)
+
+    def set_temperature(self, **kwargs: Any) -> None:  # noqa: ANN401
+        """Midea CD Water Heater set temperature.
+
+        Override to ensure power stays on when setting temperature.
+        The underlying midea-local library includes current power state
+        in the command message. If power is incorrectly read as False,
+        setting temperature will turn off the device.
+        """
+        if ATTR_TEMPERATURE not in kwargs:
+            return
+        # Ensure device is powered on before setting temperature
+        current_power = self._device.get_attribute("power")
+        if not current_power:
+            # Device appears to be off, force power on first
+            self._device.set_attribute("power", True)
+        # Now set temperature
+        temperature = float(kwargs[ATTR_TEMPERATURE])
+        self._device.set_attribute("target_temperature", temperature)
+
     @property
     def supported_features(self) -> WaterHeaterEntityFeature:
         """Midea CD Water Heater supported features."""
         return (
             WaterHeaterEntityFeature.TARGET_TEMPERATURE
+            | WaterHeaterEntityFeature.ON_OFF
             | WaterHeaterEntityFeature.OPERATION_MODE
         )
 
