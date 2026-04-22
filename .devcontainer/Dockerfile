@@ -20,6 +20,8 @@ RUN if [ "${INSTALL_NODE}" = "true" ]; then su vscode -c "umask 0002 && . /usr/l
 # They would conflict with our requirements.txt
 RUN pipx uninstall mypy
 
+RUN rm -f /etc/apt/sources.list.d/yarn.list
+
 RUN if [ -n "${APT_MIRROR_DOMAIN}" ] && [ "${APT_MIRROR_DOMAIN}" != "deb.debian.org" ]; then \
     cp /etc/apt/sources.list /etc/apt/sources.list.bak && \
     sed -i "s|deb.debian.org|${APT_MIRROR_DOMAIN}|g" /etc/apt/sources.list && \
