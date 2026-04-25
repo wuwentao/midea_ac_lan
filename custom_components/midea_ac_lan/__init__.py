@@ -33,6 +33,7 @@ from homeassistant.helpers.typing import ConfigType
 from midealocal.device import DeviceType, MideaDevice, ProtocolVersion
 from midealocal.devices import device_selector
 
+from . import fa_oscillate_patch  # noqa: F401 - Fix oscillate for 56011CEC fans
 from .const import (
     ALL_PLATFORM,
     CONF_ACCOUNT,
