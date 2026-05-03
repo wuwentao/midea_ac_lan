@@ -3,6 +3,7 @@
 from typing import Any
 
 from homeassistant.components.binary_sensor import BinarySensorDeviceClass
+from homeassistant.components.number import NumberDeviceClass
 from homeassistant.components.sensor import SensorDeviceClass, SensorStateClass
 from homeassistant.const import (
     CONCENTRATION_MICROGRAMS_PER_CUBIC_METER,
@@ -1785,6 +1786,17 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "icon": "mdi:calendar-check",
                 "device_class": BinarySensorDeviceClass.RUNNING,
             },
+            CDAttributes.max_temperature: {
+                "type": Platform.NUMBER,
+                "translation_key": "max_temperature",
+                "name": "Maximum Target Temperature",
+                "device_class": NumberDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "max": 75,
+                "min": "min_temperature",
+                "step": 1,
+                "icon": "mdi:thermometer-high",
+            },
             CDAttributes.vacation_mode: {
                 "type": Platform.SWITCH,
                 "translation_key": "vacation_mode",
@@ -1792,18 +1804,23 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "icon": "mdi:beach",
             },
             CDAttributes.vacation_days: {
-                "type": Platform.SENSOR,
+                "type": Platform.NUMBER,
                 "translation_key": "vacation_days",
                 "name": "Vacation Days",
+                "max": 9999,
+                "min": 1,
+                "step": 1,
                 "icon": "mdi:calendar-range",
             },
             CDAttributes.vacation_temperature: {
-                "type": Platform.SENSOR,
+                "type": Platform.NUMBER,
                 "translation_key": "vacation_temperature",
                 "name": "Vacation Temperature",
-                "device_class": SensorDeviceClass.TEMPERATURE,
+                "device_class": NumberDeviceClass.TEMPERATURE,
                 "unit": UnitOfTemperature.CELSIUS,
-                "state_class": SensorStateClass.MEASUREMENT,
+                "max": 75,
+                "min": "min_temperature",
+                "step": 1,
             },
             CDAttributes.vacation_start_year: {
                 "type": Platform.SENSOR,

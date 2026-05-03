@@ -68,9 +68,10 @@ The `lua_protocol` setting can be set to:
 | binary_sensor.{DEVICEID}\_maintain_warn     | binary_sensor | Maintenance Warning      |
 | binary_sensor.{DEVICEID}\_order1_effect     | binary_sensor | Schedule 1 Active        |
 | binary_sensor.{DEVICEID}\_order2_effect     | binary_sensor | Schedule 2 Active        |
+| number.{DEVICEID}\_max_temperature          | number        | Maximum Target Temperature |
 | switch.{DEVICEID}\_vacation_mode            | switch        | Vacation Mode            |
-| sensor.{DEVICEID}\_vacation_days            | sensor        | Vacation Days            |
-| sensor.{DEVICEID}\_vacation_temperature     | sensor        | Vacation Temperature     |
+| number.{DEVICEID}\_vacation_days            | number        | Vacation Days            |
+| number.{DEVICEID}\_vacation_temperature     | number        | Vacation Temperature     |
 | sensor.{DEVICEID}\_vacation_start_year      | sensor        | Vacation Start Year      |
 | sensor.{DEVICEID}\_vacation_start_month     | sensor        | Vacation Start Month     |
 | sensor.{DEVICEID}\_vacation_start_day       | sensor        | Vacation Start Day       |
