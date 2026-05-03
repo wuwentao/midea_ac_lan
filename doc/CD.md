@@ -47,6 +47,7 @@ The `lua_protocol` setting can be set to:
 | sensor.{DEVICEID}\_outdoor_temperature      | sensor        | Outdoor Temperature      |
 | sensor.{DEVICEID}\_water_level              | sensor        | Water Level              |
 | switch.{DEVICEID}\_disinfect                | switch        | Disinfect                |
+| number.{DEVICEID}\_disinfection_set_temperature | number     | Disinfection Temperature |
 | sensor.{DEVICEID}\_elec_heat                | sensor        | Electric Heat            |
 | binary_sensor.{DEVICEID}\_top_elec_heat     | binary_sensor | Top Electric Heat        |
 | binary_sensor.{DEVICEID}\_bottom_elec_heat  | binary_sensor | Bottom Electric Heat     |
@@ -71,7 +72,7 @@ The `lua_protocol` setting can be set to:
 | number.{DEVICEID}\_max_temperature          | number        | Maximum Target Temperature |
 | switch.{DEVICEID}\_vacation_mode            | switch        | Vacation Mode            |
 | number.{DEVICEID}\_vacation_days            | number        | Vacation Days            |
-| number.{DEVICEID}\_vacation_temperature     | number        | Vacation Temperature     |
+| sensor.{DEVICEID}\_vacation_temperature     | sensor        | Vacation Temperature     |
 | sensor.{DEVICEID}\_vacation_start_year      | sensor        | Vacation Start Year      |
 | sensor.{DEVICEID}\_vacation_start_month     | sensor        | Vacation Start Month     |
 | sensor.{DEVICEID}\_vacation_start_day       | sensor        | Vacation Start Day       |
