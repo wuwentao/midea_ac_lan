@@ -47,7 +47,6 @@ The `lua_protocol` setting can be set to:
 | sensor.{DEVICEID}\_outdoor_temperature      | sensor        | Outdoor Temperature      |
 | sensor.{DEVICEID}\_water_level              | sensor        | Water Level              |
 | switch.{DEVICEID}\_disinfect                | switch        | Disinfect                |
-| number.{DEVICEID}\_disinfection_set_temperature | number     | Disinfection Temperature |
 | sensor.{DEVICEID}\_elec_heat                | sensor        | Electric Heat            |
 | binary_sensor.{DEVICEID}\_top_elec_heat     | binary_sensor | Top Electric Heat        |
 | binary_sensor.{DEVICEID}\_bottom_elec_heat  | binary_sensor | Bottom Electric Heat     |

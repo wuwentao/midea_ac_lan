@@ -1650,17 +1650,6 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Disinfect",
                 "icon": "mdi:bacteria",
             },
-            "disinfection_set_temperature": {
-                "type": Platform.NUMBER,
-                "translation_key": "disinfection_set_temperature",
-                "name": "Disinfection Temperature",
-                "device_class": NumberDeviceClass.TEMPERATURE,
-                "unit": UnitOfTemperature.CELSIUS,
-                "max": 90,
-                "min": 25,
-                "step": 1,
-                "icon": "mdi:thermometer-alert",
-            },
             CDAttributes.elec_heat: {
                 "type": Platform.SENSOR,
                 "translation_key": "elec_heat",
