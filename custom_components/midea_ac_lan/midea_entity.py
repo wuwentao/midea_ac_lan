@@ -147,5 +147,5 @@ class MideaEntity(Entity):
             # call_soon_threadsafe to avoid RuntimeError: Event loop is closed
             # on HA 2026.5+ / Python 3.14+.
             self.hass.loop.call_soon_threadsafe(
-                self.schedule_update_ha_state
+                self.schedule_update_ha_state,
             )

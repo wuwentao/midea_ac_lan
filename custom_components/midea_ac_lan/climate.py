@@ -253,7 +253,7 @@ class MideaClimate(MideaEntity, ClimateEntity):
         # Must run on the event loop thread; the device callback may be
         # invoked from a background thread.
         self.hass.loop.call_soon_threadsafe(
-            self.schedule_update_ha_state
+            self.schedule_update_ha_state,
         )
 
 
