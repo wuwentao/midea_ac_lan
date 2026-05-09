@@ -141,4 +141,11 @@ class MideaEntity(Entity):
             return
 
         if self._entity_key in status or "available" in status:
-            self.schedule_update_ha_state()
+            # schedule_update_ha_state must run on the event loop thread.
+            # The device callback may be invoked from a background thread
+            # (see midealocal/device.py Thread._connect_loop), so we use
+            # call_soon_threadsafe to avoid RuntimeError: Event loop is closed
+            # on HA 2026.5+ / Python 3.14+.
+            self.hass.loop.call_soon_threadsafe(
+                self.schedule_update_ha_state,
+            )
