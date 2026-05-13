@@ -124,6 +124,7 @@ class MideaEntity(Entity):
 
         Raises:
             RuntimeError: Re-raises unexpected scheduling errors.
+
         """
         if not self.hass:
             _LOGGER.warning(
