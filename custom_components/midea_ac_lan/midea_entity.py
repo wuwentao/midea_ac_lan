@@ -34,7 +34,6 @@ class MideaEntity(Entity):
         )[entity_key]
         self._entity_key = entity_key
         self._unique_id = f"{DOMAIN}.{self._device.device_id}_{entity_key}"
-        self.entity_id = self._unique_id
         self._device_name = self._device.name
 
         # HA language setting:
@@ -120,25 +119,56 @@ class MideaEntity(Entity):
         return cast("str", self._config.get("icon"))
 
     @callback
-    def update_state(self, status: Any) -> None:  # noqa: ANN401
-        """Update entity state."""
+    def _schedule_update_ha_state_safely(self, source: str) -> None:
+        """Schedule an HA state update unless HA is shutting down.
+
+        Raises:
+            RuntimeError: Re-raises unexpected scheduling errors.
+        """
         if not self.hass:
             _LOGGER.warning(
-                "MideaEntity update_state for %s [%s] with status %s: HASS is None",
+                "%s update_state skipped for %s [%s]: HASS is None",
+                source,
                 self.name,
                 type(self),
-                status,
             )
             return
 
         if self.hass.is_stopping:
             _LOGGER.debug(
-                "MideaEntity update_state for %s [%s] with status %s: HASS is stopping",
+                "%s update_state skipped for %s [%s]: HASS is stopping",
+                source,
                 self.name,
                 type(self),
-                status,
             )
             return
 
-        if self._entity_key in status or "available" in status:
+        loop = getattr(self.hass, "loop", None)
+        if loop is not None and loop.is_closed():
+            _LOGGER.debug(
+                "%s update_state skipped for %s [%s]: HASS event loop is closed",
+                source,
+                self.name,
+                type(self),
+            )
+            return
+
+        try:
             self.schedule_update_ha_state()
+        except RuntimeError as err:
+            if "Event loop is closed" in str(err):
+                _LOGGER.debug(
+                    "%s update_state skipped for %s [%s]: %s",
+                    source,
+                    self.name,
+                    type(self),
+                    err,
+                )
+                return
+            raise
+
+    @callback
+    def update_state(self, status: Any) -> None:  # noqa: ANN401
+        """Update entity state."""
+        if self._entity_key in status or "available" in status:
+            self._schedule_update_ha_state_safely("MideaEntity")

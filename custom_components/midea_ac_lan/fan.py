@@ -133,14 +133,7 @@ class MideaFan(MideaEntity, FanEntity):
 
     def update_state(self, status: Any) -> None:  # noqa: ANN401, ARG002
         """Midea Fan update state."""
-        if not self.hass:
-            _LOGGER.warning(
-                "Fan update_state skipped for %s [%s]: HASS is None",
-                self.name,
-                type(self),
-            )
-            return
-        self.schedule_update_ha_state()
+        self._schedule_update_ha_state_safely("Fan")
 
 
 class MideaFAFan(MideaFan):

@@ -102,14 +102,7 @@ class MideaHumidifier(MideaEntity, HumidifierEntity):
 
     def update_state(self, status: Any) -> None:  # noqa: ANN401, ARG002
         """Midea Humidifier update state."""
-        if not self.hass:
-            _LOGGER.warning(
-                "Humidifier update_state skipped for %s [%s]: HASS is None",
-                self.name,
-                type(self),
-            )
-            return
-        self.schedule_update_ha_state()
+        self._schedule_update_ha_state_safely("Humidifier")
 
 
 class MideaA1Humidifier(MideaHumidifier):
