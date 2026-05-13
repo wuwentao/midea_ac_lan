@@ -107,6 +107,8 @@ class MideaWaterHeater(MideaEntity, WaterHeaterEntity):
         attrs: dict[str, Any] = self._device.attributes
         if hasattr(self._device, "temperature_step"):
             attrs["target_temperature_step"] = self._device.temperature_step
+        attrs["eplus"] = self._device.get_attribute("eplus")
+        attrs["sterilization"] = self._device.get_attribute("sterilization")
         return attrs
 
     @property
@@ -196,6 +198,18 @@ class MideaWaterHeater(MideaEntity, WaterHeaterEntity):
             )
             return
         self.schedule_update_ha_state()
+
+    def set_ai_heating(self, value: bool) -> None:
+        """Set AI heating mode."""
+        self._device.set_attribute("ai_heating", value)
+
+    def set_smart_sterilize(self, value: bool) -> None:
+        """Set smart sterilize mode."""
+        self._device.set_attribute("smart_sterilize", value)
+
+    def set_high_temp_sterilize(self, value: bool) -> None:
+        """Set high temperature sterilize mode."""
+        self._device.set_attribute("sterilize_high_temp", value)
 
 
 class MideaE2WaterHeater(MideaWaterHeater):
