@@ -3,7 +3,6 @@
 from typing import Any
 
 from homeassistant.components.binary_sensor import BinarySensorDeviceClass
-from homeassistant.components.number import NumberDeviceClass
 from homeassistant.components.sensor import SensorDeviceClass, SensorStateClass
 from homeassistant.const import (
     CONCENTRATION_MICROGRAMS_PER_CUBIC_METER,
@@ -1644,11 +1643,12 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Water Level",
                 "icon": "mdi:cup-water",
             },
-            CDAttributes.disinfect: {
-                "type": Platform.SWITCH,
-                "translation_key": "disinfect",
-                "name": "Disinfect",
-                "icon": "mdi:bacteria",
+            CDAttributes.disinfection_temperature: {
+                "type": Platform.SENSOR,
+                "name": "Disinfection Temperature",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
             },
             CDAttributes.elec_heat: {
                 "type": Platform.SENSOR,
@@ -1758,12 +1758,10 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "ECO",
                 "icon": "mdi:leaf",
             },
-            CDAttributes.maintain_warn_tag: {
+            CDAttributes.maintenance_reminder: {
                 "type": Platform.BINARY_SENSOR,
-                "translation_key": "maintain_warn_tag",
-                "name": "Maintenance Warning Tag",
+                "name": "Maintenance Reminder",
                 "icon": "mdi:wrench-clock",
-                "device_class": BinarySensorDeviceClass.PROBLEM,
             },
             CDAttributes.maintain_warn: {
                 "type": Platform.BINARY_SENSOR,
@@ -1787,14 +1785,11 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "device_class": BinarySensorDeviceClass.RUNNING,
             },
             CDAttributes.max_temperature: {
-                "type": Platform.NUMBER,
-                "translation_key": "max_temperature",
+                "type": Platform.SENSOR,
                 "name": "Maximum Target Temperature",
-                "device_class": NumberDeviceClass.TEMPERATURE,
+                "device_class": SensorDeviceClass.TEMPERATURE,
                 "unit": UnitOfTemperature.CELSIUS,
-                "max": 75,
-                "min": "min_temperature",
-                "step": 1,
+                "state_class": SensorStateClass.MEASUREMENT,
                 "icon": "mdi:thermometer-high",
             },
             CDAttributes.vacation_mode: {
@@ -1811,14 +1806,6 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "min": 1,
                 "step": 1,
                 "icon": "mdi:calendar-range",
-            },
-            CDAttributes.vacation_temperature: {
-                "type": Platform.SENSOR,
-                "translation_key": "vacation_temperature",
-                "name": "Vacation Temperature",
-                "device_class": SensorDeviceClass.TEMPERATURE,
-                "unit": UnitOfTemperature.CELSIUS,
-                "state_class": SensorStateClass.MEASUREMENT,
             },
             CDAttributes.vacation_start_year: {
                 "type": Platform.SENSOR,
