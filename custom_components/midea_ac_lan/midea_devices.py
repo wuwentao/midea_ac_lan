@@ -1645,6 +1645,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             CDAttributes.disinfection_temperature: {
                 "type": Platform.SENSOR,
+                "translation_key": "disinfection_temperature",
                 "name": "Disinfection Temperature",
                 "device_class": SensorDeviceClass.TEMPERATURE,
                 "unit": UnitOfTemperature.CELSIUS,
@@ -1760,6 +1761,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             CDAttributes.maintenance_reminder: {
                 "type": Platform.BINARY_SENSOR,
+                "translation_key": "maintenance_reminder",
                 "name": "Maintenance Reminder",
                 "icon": "mdi:wrench-clock",
             },
@@ -1786,6 +1788,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             CDAttributes.max_temperature: {
                 "type": Platform.SENSOR,
+                "translation_key": "max_temperature",
                 "name": "Maximum Target Temperature",
                 "device_class": SensorDeviceClass.TEMPERATURE,
                 "unit": UnitOfTemperature.CELSIUS,

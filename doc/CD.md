@@ -46,7 +46,7 @@ The `lua_protocol` setting can be set to:
 | sensor.{DEVICEID}\_condenser_temperature    | sensor        | Condenser Temperature    |
 | sensor.{DEVICEID}\_outdoor_temperature      | sensor        | Outdoor Temperature      |
 | sensor.{DEVICEID}\_water_level              | sensor        | Water Level              |
-| switch.{DEVICEID}\_disinfect                | switch        | Disinfect                |
+| sensor.{DEVICEID}\_disinfection_temperature | sensor        | Disinfection Temperature |
 | sensor.{DEVICEID}\_elec_heat                | sensor        | Electric Heat            |
 | binary_sensor.{DEVICEID}\_top_elec_heat     | binary_sensor | Top Electric Heat        |
 | binary_sensor.{DEVICEID}\_bottom_elec_heat  | binary_sensor | Bottom Electric Heat     |
@@ -64,14 +64,13 @@ The `lua_protocol` setting can be set to:
 | sensor.{DEVICEID}\_error_code               | sensor        | Error Code               |
 | sensor.{DEVICEID}\_typeinfo                 | sensor        | Type Info                |
 | binary_sensor.{DEVICEID}\_eco               | binary_sensor | ECO Mode Active          |
-| binary_sensor.{DEVICEID}\_maintain_warn_tag | binary_sensor | Maintenance Warning Tag  |
+| binary_sensor.{DEVICEID}\_maintenance_reminder | binary_sensor | Maintenance Reminder   |
 | binary_sensor.{DEVICEID}\_maintain_warn     | binary_sensor | Maintenance Warning      |
 | binary_sensor.{DEVICEID}\_order1_effect     | binary_sensor | Schedule 1 Active        |
 | binary_sensor.{DEVICEID}\_order2_effect     | binary_sensor | Schedule 2 Active        |
-| number.{DEVICEID}\_max_temperature          | number        | Maximum Target Temperature |
+| sensor.{DEVICEID}\_max_temperature          | sensor        | Maximum Target Temperature |
 | switch.{DEVICEID}\_vacation_mode            | switch        | Vacation Mode            |
 | number.{DEVICEID}\_vacation_days            | number        | Vacation Days            |
-| sensor.{DEVICEID}\_vacation_temperature     | sensor        | Vacation Temperature     |
 | sensor.{DEVICEID}\_vacation_start_year      | sensor        | Vacation Start Year      |
 | sensor.{DEVICEID}\_vacation_start_month     | sensor        | Vacation Start Month     |
 | sensor.{DEVICEID}\_vacation_start_day       | sensor        | Vacation Start Day       |
