@@ -39,45 +39,45 @@ The `lua_protocol` setting can be set to:
 
 ### Extra entities
 
-| EntityID                                    | Class         | Description              |
-| ------------------------------------------- | ------------- | ------------------------ |
-| binary_sensor.{DEVICEID}\_compressor_status | binary_sensor | Compressor Status        |
-| sensor.{DEVICEID}\_compressor_temperature   | sensor        | Compressor Temperature   |
-| sensor.{DEVICEID}\_condenser_temperature    | sensor        | Condenser Temperature    |
-| sensor.{DEVICEID}\_outdoor_temperature      | sensor        | Outdoor Temperature      |
-| sensor.{DEVICEID}\_water_level              | sensor        | Water Level              |
-| sensor.{DEVICEID}\_disinfection_temperature | sensor        | Disinfection Temperature |
-| sensor.{DEVICEID}\_elec_heat                | sensor        | Electric Heat            |
-| binary_sensor.{DEVICEID}\_top_elec_heat     | binary_sensor | Top Electric Heat        |
-| binary_sensor.{DEVICEID}\_bottom_elec_heat  | binary_sensor | Bottom Electric Heat     |
-| sensor.{DEVICEID}\_water_pump               | sensor        | Water Pump               |
-| sensor.{DEVICEID}\_four_way                 | sensor        | Four Way Valve           |
-| sensor.{DEVICEID}\_back_water               | sensor        | Back Water               |
-| sensor.{DEVICEID}\_sterilize                | sensor        | Sterilize                |
-| sensor.{DEVICEID}\_top_temperature          | sensor        | Top Temperature          |
-| sensor.{DEVICEID}\_bottom_temperature       | sensor        | Bottom Temperature       |
-| sensor.{DEVICEID}\_wind                     | sensor        | Wind                     |
-| binary_sensor.{DEVICEID}\_smart_grid        | binary_sensor | Smart Grid               |
-| binary_sensor.{DEVICEID}\_multi_terminal    | binary_sensor | Multi Terminal           |
-| binary_sensor.{DEVICEID}\_mute_effect       | binary_sensor | Mute Effect              |
-| binary_sensor.{DEVICEID}\_mute_status       | binary_sensor | Mute Status              |
-| sensor.{DEVICEID}\_error_code               | sensor        | Error Code               |
-| sensor.{DEVICEID}\_typeinfo                 | sensor        | Type Info                |
-| binary_sensor.{DEVICEID}\_eco               | binary_sensor | ECO Mode Active          |
-| binary_sensor.{DEVICEID}\_maintenance_reminder | binary_sensor | Maintenance Reminder   |
-| binary_sensor.{DEVICEID}\_maintain_warn     | binary_sensor | Maintenance Warning      |
-| binary_sensor.{DEVICEID}\_order1_effect     | binary_sensor | Schedule 1 Active        |
-| binary_sensor.{DEVICEID}\_order2_effect     | binary_sensor | Schedule 2 Active        |
-| sensor.{DEVICEID}\_max_temperature          | sensor        | Maximum Target Temperature |
-| switch.{DEVICEID}\_vacation_mode            | switch        | Vacation Mode            |
-| number.{DEVICEID}\_vacation_days            | number        | Vacation Days            |
-| sensor.{DEVICEID}\_vacation_start_year      | sensor        | Vacation Start Year      |
-| sensor.{DEVICEID}\_vacation_start_month     | sensor        | Vacation Start Month     |
-| sensor.{DEVICEID}\_vacation_start_day       | sensor        | Vacation Start Day       |
-| sensor.{DEVICEID}\_auto_sterilize_week      | sensor        | Auto Sterilize Week      |
-| sensor.{DEVICEID}\_auto_sterilize_hour      | sensor        | Auto Sterilize Hour      |
-| sensor.{DEVICEID}\_auto_sterilize_minute    | sensor        | Auto Sterilize Minute    |
-| switch.{DEVICEID}\_power                    | switch        | Power                    |
+| EntityID                                       | Class         | Description                |
+| ---------------------------------------------- | ------------- | -------------------------- |
+| binary_sensor.{DEVICEID}\_compressor_status    | binary_sensor | Compressor Status          |
+| sensor.{DEVICEID}\_compressor_temperature      | sensor        | Compressor Temperature     |
+| sensor.{DEVICEID}\_condenser_temperature       | sensor        | Condenser Temperature      |
+| sensor.{DEVICEID}\_outdoor_temperature         | sensor        | Outdoor Temperature        |
+| sensor.{DEVICEID}\_water_level                 | sensor        | Water Level                |
+| sensor.{DEVICEID}\_disinfection_temperature    | sensor        | Disinfection Temperature   |
+| sensor.{DEVICEID}\_elec_heat                   | sensor        | Electric Heat              |
+| binary_sensor.{DEVICEID}\_top_elec_heat        | binary_sensor | Top Electric Heat          |
+| binary_sensor.{DEVICEID}\_bottom_elec_heat     | binary_sensor | Bottom Electric Heat       |
+| sensor.{DEVICEID}\_water_pump                  | sensor        | Water Pump                 |
+| sensor.{DEVICEID}\_four_way                    | sensor        | Four Way Valve             |
+| sensor.{DEVICEID}\_back_water                  | sensor        | Back Water                 |
+| sensor.{DEVICEID}\_sterilize                   | sensor        | Sterilize                  |
+| sensor.{DEVICEID}\_top_temperature             | sensor        | Top Temperature            |
+| sensor.{DEVICEID}\_bottom_temperature          | sensor        | Bottom Temperature         |
+| sensor.{DEVICEID}\_wind                        | sensor        | Wind                       |
+| binary_sensor.{DEVICEID}\_smart_grid           | binary_sensor | Smart Grid                 |
+| binary_sensor.{DEVICEID}\_multi_terminal       | binary_sensor | Multi Terminal             |
+| binary_sensor.{DEVICEID}\_mute_effect          | binary_sensor | Mute Effect                |
+| binary_sensor.{DEVICEID}\_mute_status          | binary_sensor | Mute Status                |
+| sensor.{DEVICEID}\_error_code                  | sensor        | Error Code                 |
+| sensor.{DEVICEID}\_typeinfo                    | sensor        | Type Info                  |
+| binary_sensor.{DEVICEID}\_eco                  | binary_sensor | ECO Mode Active            |
+| binary_sensor.{DEVICEID}\_maintenance_reminder | binary_sensor | Maintenance Reminder       |
+| binary_sensor.{DEVICEID}\_maintain_warn        | binary_sensor | Maintenance Warning        |
+| binary_sensor.{DEVICEID}\_order1_effect        | binary_sensor | Schedule 1 Active          |
+| binary_sensor.{DEVICEID}\_order2_effect        | binary_sensor | Schedule 2 Active          |
+| sensor.{DEVICEID}\_max_temperature             | sensor        | Maximum Target Temperature |
+| switch.{DEVICEID}\_vacation_mode               | switch        | Vacation Mode              |
+| number.{DEVICEID}\_vacation_days               | number        | Vacation Days              |
+| sensor.{DEVICEID}\_vacation_start_year         | sensor        | Vacation Start Year        |
+| sensor.{DEVICEID}\_vacation_start_month        | sensor        | Vacation Start Month       |
+| sensor.{DEVICEID}\_vacation_start_day          | sensor        | Vacation Start Day         |
+| sensor.{DEVICEID}\_auto_sterilize_week         | sensor        | Auto Sterilize Week        |
+| sensor.{DEVICEID}\_auto_sterilize_hour         | sensor        | Auto Sterilize Hour        |
+| sensor.{DEVICEID}\_auto_sterilize_minute       | sensor        | Auto Sterilize Minute      |
+| switch.{DEVICEID}\_power                       | switch        | Power                      |
 
 ## Services
 
