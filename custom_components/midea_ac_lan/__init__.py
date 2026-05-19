@@ -310,7 +310,7 @@ async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry) ->
     # 2 -> 3: rewrite entity_ids that wrongly used the integration domain
     # (e.g. "midea_ac_lan.123_humidity") to their proper platform domain
     # ("sensor.123_humidity"). Required for HA 2027.5 which rejects wrong-domain ids.
-    if config_entry.version == 2:
+    if config_entry.version == 2:  # noqa: PLR2004
         _LOGGER.debug("Migrating configuration from version 2")
 
         await _async_migrate_entity_ids(hass, config_entry)
@@ -360,7 +360,7 @@ async def _async_migrate_entity_ids(
         platform = key_to_platform.get(entity_key_str)
         if platform is None:
             _LOGGER.warning(
-                "midea_ac_lan: cannot migrate %s — unknown entity_key %s for device_type %s",
+                "midea_ac_lan: cannot migrate %s - unknown key %s for type %s",
                 entry.entity_id,
                 entity_key_str,
                 device_type,
