@@ -356,7 +356,7 @@ async def _async_migrate_entity_ids(
     for entry in er.async_entries_for_config_entry(registry, config_entry.entry_id):
         if not entry.entity_id.startswith(prefix):
             continue
-        entity_key_str = entry.entity_id[len(prefix):]
+        entity_key_str = entry.entity_id[len(prefix) :]
         platform = key_to_platform.get(entity_key_str)
         if platform is None:
             _LOGGER.warning(
