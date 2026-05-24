@@ -466,7 +466,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "type": Platform.SWITCH,
                 "translation_key": "out_silent",
                 "name": "Outdoor Silent Mode",
-                "icon": "mdi:volume-off",
+                "icon": "mdi:hvac-off",
             },
             ACAttributes.smart_eye: {
                 "type": Platform.SWITCH,
