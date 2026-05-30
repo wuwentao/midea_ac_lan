@@ -1,6 +1,7 @@
 """Const for Midea Lan."""
 
 from enum import IntEnum
+from typing import Any, cast
 
 from homeassistant.const import Platform
 
@@ -26,6 +27,18 @@ EXTRA_CONTROL = [
     *EXTRA_SWITCH,
 ]
 ALL_PLATFORM = EXTRA_SENSOR + EXTRA_CONTROL
+
+
+def supports_model(model: object, config: dict[str, Any]) -> bool:
+    """Return if the entity config applies to the device model.
+
+    Returns
+    -------
+    True if the entity is available for the device model.
+
+    """
+    models = config.get("models")
+    return not models or str(model) in cast("list[str]", models)
 
 
 class FanSpeed(IntEnum):
