@@ -2294,6 +2294,15 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Storage",
                 "icon": "mdi:repeat-variant",
             },
+            "start": {
+                "type": Platform.BUTTON,
+                "name": "Start",
+                "icon": "mdi:play",
+                "set_message": "e1_start",
+                "available_power_attribute": E1Attributes.power,
+                "models": ["7600024L"],
+                "default": True,
+            },
             E1Attributes.mode: {
                 "type": Platform.SENSOR,
                 "translation_key": "mode",
