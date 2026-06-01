@@ -311,6 +311,12 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Swing",
                 "icon": "mdi:pan-horizontal",
             },
+            A1Attributes.pump: {
+                "type": Platform.SWITCH,
+                "translation_key": "water_pump",
+                "name": "Water Pump",
+                "icon": "mdi:water-pump",
+            },
             A1Attributes.fan_speed: {
                 "type": Platform.SELECT,
                 "translation_key": "fan_speed",
