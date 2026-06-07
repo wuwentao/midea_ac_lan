@@ -14,7 +14,7 @@ repos:
     rev: v6.0.0
     hooks:
       - id: no-commit-to-branch
-        args: ["--branch", "master"]
+        args: ["--branch", "main"]
       - id: check-json
       - id: check-toml
       - id: check-xml
