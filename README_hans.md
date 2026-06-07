@@ -102,7 +102,7 @@
 > 在HomeAssistant的Terminal add-on或者SSH中执行以下脚本
 
 ```shell
-wget -O - https://github.com/wuwentao/midea_ac_lan/raw/master/scripts/install.sh | ARCHIVE_TAG=latest bash -
+wget -O - https://github.com/wuwentao/midea_ac_lan/raw/main/scripts/install.sh | ARCHIVE_TAG=latest bash -
 ```
 
 ### 方式3: 手工安装

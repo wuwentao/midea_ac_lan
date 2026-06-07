@@ -2,8 +2,8 @@
 #
 # origin https://github.com/al-one/hass-xiaomi-miot/blob/master/install.sh
 #
-# wget -q -O - https://raw.githubusercontent.com/wuwentao/midea_ac_lan/master/scripts/install.sh | bash -
-# wget -q -O - https://raw.githubusercontent.com/wuwentao/midea_ac_lan/master/scripts/install.sh | ARCHIVE_TAG=v0.4.2 bash -
+# wget -q -O - https://raw.githubusercontent.com/wuwentao/midea_ac_lan/main/scripts/install.sh | bash -
+# wget -q -O - https://raw.githubusercontent.com/wuwentao/midea_ac_lan/main/scripts/install.sh | ARCHIVE_TAG=v0.4.2 bash -
 set -e
 
 [ -z "$DOMAIN" ] && DOMAIN="midea_ac_lan"
@@ -11,7 +11,7 @@ set -e
 REPO_NAME=$(basename "$REPO_PATH")
 
 [ -z "$ARCHIVE_TAG" ] && ARCHIVE_TAG="$1"
-[ -z "$ARCHIVE_TAG" ] && ARCHIVE_TAG="master"
+[ -z "$ARCHIVE_TAG" ] && ARCHIVE_TAG="main"
 [ -z "$HUB_DOMAIN" ] && HUB_DOMAIN="github.com"
 ARCHIVE_URL="https://$HUB_DOMAIN/$REPO_PATH/archive/$ARCHIVE_TAG.zip"
 

@@ -100,7 +100,7 @@ please check your device documents and supported feature in below table links.
 > run this script in HA Terminal or SSH add-on
 
 ```shell
-wget -O - https://github.com/wuwentao/midea_ac_lan/raw/master/scripts/install.sh | ARCHIVE_TAG=latest bash -
+wget -O - https://github.com/wuwentao/midea_ac_lan/raw/main/scripts/install.sh | ARCHIVE_TAG=latest bash -
 ```
 
 ### Option 3: Manual Install
