@@ -55,13 +55,17 @@ Known settings:
 | EntityID                                      | Class         | Description                |
 | --------------------------------------------- | ------------- | -------------------------- |
 | sensor.{DEVICEID}\_full_dust                  | binary_sensor | Full of Dust               |
+| sensor.{DEVICEID}\_self_clean_active          | binary_sensor | Self Clean Active          |
 | sensor.{DEVICEID}\_indoor_humidity            | sensor        | Indoor humidity            |
 | sensor.{DEVICEID}\_indoor_temperature         | sensor        | Indoor Temperature         |
 | sensor.{DEVICEID}\_outdoor_temperature        | sensor        | Outdoor Temperature        |
 | sensor.{DEVICEID}\_total_energy_consumption   | sensor        | Total Energy Consumption   |
 | sensor.{DEVICEID}\_current_energy_consumption | sensor        | Current Energy Consumption |
 | sensor.{DEVICEID}\_realtime_power             | sensor        | Realtime Power             |
+| sensor.{DEVICEID}\_pmv                        | sensor        | PMV (Predicted Mean Vote)  |
+| sensor.{DEVICEID}\_error_code                 | sensor        | Error Code                 |
 | fan.{DEVICEID}\_fresh_air                     | fan           | Fresh Air Fan              |
+| switch.{DEVICEID}\_anion                      | switch        | Anion (Ionizer)            |
 | switch.{DEVICEID}\_aux_heating                | switch        | Aux Heating                |
 | switch.{DEVICEID}\_boost_mode                 | switch        | Boost Mode                 |
 | switch.{DEVICEID}\_breezeless                 | switch        | Breezeless                 |
@@ -74,7 +78,9 @@ Known settings:
 | switch.{DEVICEID}\_power                      | switch        | Power                      |
 | switch.{DEVICEID}\_screen_display             | switch        | Screen Display             |
 | switch.{DEVICEID}\_screen_display_alternate   | switch        | Screen Display Alternate   |
+| switch.{DEVICEID}\_self_clean                 | switch        | Self Clean                 |
 | switch.{DEVICEID}\_smart_eye                  | switch        | Smart Eye                  |
+| switch.{DEVICEID}\_sound                      | switch        | Sound                      |
 | switch.{DEVICEID}\_swing_horizontal           | switch        | Swing Horizontal           |
 | switch.{DEVICEID}\_swing_vertical             | switch        | Swing Vertical             |
 | switch.{DEVICEID}\_wind_lr_angle              | select        | Airflow Horizontal         |
