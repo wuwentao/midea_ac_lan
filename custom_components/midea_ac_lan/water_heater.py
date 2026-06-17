@@ -2,7 +2,7 @@
 
 import functools as ft
 import logging
-from typing import Any, ClassVar, TypeAlias, cast
+from typing import Any, ClassVar, cast
 
 from homeassistant.components.water_heater import (
     WaterHeaterEntity,
@@ -81,7 +81,7 @@ async def async_setup_entry(
     async_add_entities(devs)
 
 
-MideaWaterHeaterDevice: TypeAlias = (
+type MideaWaterHeaterDevice = (
     MideaE2Device | MideaE3Device | MideaC3Device | MideaE6Device | MideaCDDevice
 )
 
