@@ -1,7 +1,7 @@
 """Midea Humidifier entries."""
 
 import logging
-from typing import Any, TypeAlias, cast
+from typing import Any, cast
 
 from homeassistant.components.humidifier import (
     HumidifierDeviceClass,
@@ -47,7 +47,7 @@ async def async_setup_entry(
     async_add_entities(devs)
 
 
-MideaHumidifierDevice: TypeAlias = MideaFDDevice | MideaA1Device
+type MideaHumidifierDevice = MideaFDDevice | MideaA1Device
 
 
 class MideaHumidifier(MideaEntity, HumidifierEntity):

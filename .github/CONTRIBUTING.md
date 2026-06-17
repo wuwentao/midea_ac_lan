@@ -35,7 +35,7 @@ This project uses **VS Code + Dev Container** to provide a consistent, container
 ## 2. System Requirements
 
 - **OS:** Linux / macOS / Windows (with WSL2)
-- **Python:** ≥ 3.11 (for runtime inside container)
+- **Python:** ≥ 3.12 (for runtime inside container)
 - **VS Code Extensions:**
   - [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
   - [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) (Windows only)
