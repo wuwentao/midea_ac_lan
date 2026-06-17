@@ -14,14 +14,14 @@ repos:
     rev: v6.0.0
     hooks:
       - id: no-commit-to-branch
-        args: ["--branch", "master"]
+        args: ["--branch", "main"]
       - id: check-json
       - id: check-toml
       - id: check-xml
       - id: check-yaml
       - id: detect-private-key
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.15.15
+    rev: v0.15.17
     hooks:
       - id: ruff
         args:
@@ -46,7 +46,7 @@ repos:
     rev: v3.21.2
     hooks:
       - id: pyupgrade
-        args: [--py37-plus]
+        args: [--py312-plus]
   - repo: https://github.com/codespell-project/codespell
     rev: v2.4.2
     hooks:
@@ -60,6 +60,7 @@ repos:
         entry: scripts/mypy.sh
         language: system
         types: [python]
+        pass_filenames: false
       - id: pylint
         name: pylint
         entry: pylint

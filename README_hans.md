@@ -18,7 +18,7 @@
 
 ⭐如果本集成对你有所帮助, 请不吝为它点个星, 这将是对我的极大激励。
 
-**_❗注意: 本集成需要 Home Assistant 2023.8 或更高版本_**
+**_❗注意: 本集成需要 Home Assistant 2024.4.1 或更高版本_**
 
 ## 1. ❗❗❗❗❗❗重要提醒❗❗❗❗❗❗
 
@@ -102,7 +102,7 @@
 > 在HomeAssistant的Terminal add-on或者SSH中执行以下脚本
 
 ```shell
-wget -O - https://github.com/wuwentao/midea_ac_lan/raw/master/scripts/install.sh | ARCHIVE_TAG=latest bash -
+wget -O - https://github.com/wuwentao/midea_ac_lan/raw/main/scripts/install.sh | ARCHIVE_TAG=latest bash -
 ```
 
 ### 方式3: 手工安装

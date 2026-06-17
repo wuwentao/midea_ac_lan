@@ -28,6 +28,7 @@
 | switch.{DEVICEID}\_prompt_tone         | switch        | Prompt Tone         | 提示音           |
 | switch.{DEVICEID}\_power               | switch        | Power               | 电源开关         |
 | switch.{DEVICEID}\_swing               | switch        | Swing               | 摆风开关         |
+| switch.{DEVICEID}\_pump                | switch        | Water Pump          | 水泵开关         |
 | select.{DEVICEID}\_fan_speed           | select        | Fan Speed           | 风速设定         |
 | select.{DEVICEID}\_water_level_set     | select        | Water Level Setting | 水位设定         |
 
@@ -39,11 +40,11 @@
 
 设置设备属性, 服务数据:
 
-| 名称      | 描述                                                               |
-| --------- | ------------------------------------------------------------------ |
-| device_id | 设备的编号(Device ID)                                              |
-| attribute | "child_lock"<br/>"anion"<br/>"prompt_tone"<br/>"power"<br/>"swing" |
-| value     | true 或 false                                                      |
+| 名称      | 描述                                                                          |
+| --------- | ----------------------------------------------------------------------------- |
+| device_id | 设备的编号(Device ID)                                                         |
+| attribute | "child_lock"<br/>"anion"<br/>"prompt_tone"<br/>"power"<br/>"swing"<br/>"pump" |
+| value     | true 或 false                                                                 |
 
 | 名称      | 描述                                                            |
 | --------- | --------------------------------------------------------------- |
