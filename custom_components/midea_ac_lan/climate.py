@@ -1,7 +1,7 @@
 """Midea Climate entries."""
 
 import logging
-from typing import Any, ClassVar, TypeAlias, cast
+from typing import Any, ClassVar, cast
 
 from homeassistant.components.climate import (
     ATTR_HVAC_MODE,
@@ -101,7 +101,7 @@ async def async_setup_entry(
     async_add_entities(devs)
 
 
-MideaClimateDevice: TypeAlias = (
+type MideaClimateDevice = (
     MideaACDevice | MideaCCDevice | MideaCFDevice | MideaC3Device | MideaFBDevice
 )
 
