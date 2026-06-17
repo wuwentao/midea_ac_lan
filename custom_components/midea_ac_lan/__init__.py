@@ -14,6 +14,7 @@ from typing import Any, cast
 
 import homeassistant.helpers.config_validation as cv
 import homeassistant.helpers.device_registry as dr
+import homeassistant.helpers.entity_registry as er
 import voluptuous as vol
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import (
@@ -306,7 +307,83 @@ async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry) ->
 
         _LOGGER.debug("Migration to configuration version 2 successful")
 
+    # 2 -> 3: rewrite entity_ids that wrongly used the integration domain
+    # (e.g. "midea_ac_lan.123_humidity") to their proper platform domain
+    # ("sensor.123_humidity"). Required for HA 2027.5 which rejects wrong-domain ids.
+    if config_entry.version == 2:  # noqa: PLR2004
+        _LOGGER.debug("Migrating configuration from version 2")
+
+        await _async_migrate_entity_ids(hass, config_entry)
+
+        if (MAJOR_VERSION, MINOR_VERSION) >= (2024, 3):
+            hass.config_entries.async_update_entry(config_entry, version=3)
+        else:
+            config_entry.version = 3
+            hass.config_entries.async_update_entry(config_entry)
+
+        _LOGGER.debug("Migration to configuration version 3 successful")
+
     return True
+
+
+async def _async_migrate_entity_ids(
+    hass: HomeAssistant,
+    config_entry: ConfigEntry,
+) -> None:
+    """Rewrite legacy `midea_ac_lan.*` entity_ids to their correct platform domain."""
+    if config_entry.data.get(CONF_TYPE) == CONF_ACCOUNT:
+        return
+
+    device_type = config_entry.data.get(CONF_TYPE) or 0xAC
+    device_id = config_entry.data.get(CONF_DEVICE_ID)
+    if device_id is None:
+        return
+
+    device_entities = cast(
+        "dict",
+        MIDEA_DEVICES.get(device_type, {}).get("entities", {}),
+    )
+    # Map "<entity_key as string>" -> Platform enum from MIDEA_DEVICES.
+    key_to_platform: dict[str, Any] = {}
+    for key, cfg in device_entities.items():
+        key_str = key.value if hasattr(key, "value") else str(key)
+        platform = cfg.get("type")
+        if platform is not None:
+            key_to_platform[key_str] = platform
+
+    prefix = f"{DOMAIN}.{device_id}_"
+    registry = er.async_get(hass)
+    for entry in er.async_entries_for_config_entry(registry, config_entry.entry_id):
+        if not entry.entity_id.startswith(prefix):
+            continue
+        entity_key_str = entry.entity_id[len(prefix) :]
+        platform = key_to_platform.get(entity_key_str)
+        if platform is None:
+            _LOGGER.warning(
+                "midea_ac_lan: cannot migrate %s - unknown key %s for type %s",
+                entry.entity_id,
+                entity_key_str,
+                device_type,
+            )
+            continue
+        new_entity_id = f"{platform.value}.{device_id}_{entity_key_str}"
+        if new_entity_id == entry.entity_id:
+            continue
+        try:
+            registry.async_update_entity(entry.entity_id, new_entity_id=new_entity_id)
+        except ValueError as err:
+            _LOGGER.warning(
+                "midea_ac_lan: could not rename %s -> %s: %s",
+                entry.entity_id,
+                new_entity_id,
+                err,
+            )
+        else:
+            _LOGGER.info(
+                "midea_ac_lan: migrated entity_id %s -> %s",
+                entry.entity_id,
+                new_entity_id,
+            )
 
 
 async def _async_migrate_device_identifiers(
