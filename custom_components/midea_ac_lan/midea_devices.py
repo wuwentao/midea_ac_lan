@@ -311,6 +311,12 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Swing",
                 "icon": "mdi:pan-horizontal",
             },
+            A1Attributes.pump: {
+                "type": Platform.SWITCH,
+                "translation_key": "water_pump",
+                "name": "Water Pump",
+                "icon": "mdi:water-pump",
+            },
             A1Attributes.fan_speed: {
                 "type": Platform.SELECT,
                 "translation_key": "fan_speed",
@@ -486,6 +492,24 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Swing Vertical",
                 "icon": "mdi:arrow-split-horizontal",
             },
+            ACAttributes.anion: {
+                "type": Platform.SWITCH,
+                "translation_key": "anion",
+                "name": "Anion",
+                "icon": "mdi:vanish",
+            },
+            ACAttributes.sound: {
+                "type": Platform.SWITCH,
+                "translation_key": "sound",
+                "name": "Sound",
+                "icon": "mdi:volume-high",
+            },
+            ACAttributes.self_clean: {
+                "type": Platform.SWITCH,
+                "translation_key": "self_clean",
+                "name": "Self Clean",
+                "icon": "mdi:air-filter",
+            },
             ACAttributes.full_dust: {
                 "type": Platform.BINARY_SENSOR,
                 "translation_key": "full_dust",
@@ -540,6 +564,19 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "device_class": SensorDeviceClass.POWER,
                 "unit": UnitOfPower.WATT,
                 "state_class": SensorStateClass.MEASUREMENT,
+            },
+            ACAttributes.pmv: {
+                "type": Platform.SENSOR,
+                "translation_key": "pmv",
+                "name": "PMV",
+                "icon": "mdi:thermometer-lines",
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            ACAttributes.error_code: {
+                "type": Platform.SENSOR,
+                "translation_key": "error_code",
+                "name": "Error Code",
+                "icon": "mdi:alert-box",
             },
             ACAttributes.wind_lr_angle: {
                 "type": Platform.SELECT,

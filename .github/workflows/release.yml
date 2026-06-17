@@ -29,11 +29,17 @@ jobs:
           # Extract the version from manifest.json
           manifest_version=$(grep -oP '(?<="version": ")[^"]*' custom_components/midea_ac_lan/manifest.json)
           echo "Manifest.json version: $manifest_version"
-          # Extract the release tag
+          # Validate semver format (no "v" prefix; HACS 2.0+ rejects "v"-prefixed versions)
+          if ! [[ "$manifest_version" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?(\+[0-9A-Za-z.-]+)?$ ]]; then
+            echo "Error: manifest.json version ($manifest_version) is not valid semver. Must be X.Y.Z without a 'v' prefix."
+            exit 1
+          fi
+          # Extract the release tag, strip optional leading "v"
           release_tag="${GITHUB_REF#refs/tags/}"
-          echo "Release tag: $release_tag"
+          release_tag_stripped="${release_tag#v}"
+          echo "Release tag: $release_tag (stripped: $release_tag_stripped)"
           # Check if the versions match
-          if [ "$release_tag" != "$manifest_version" ]; then
+          if [ "$release_tag_stripped" != "$manifest_version" ]; then
             echo "Error: Release tag ($release_tag) does not match manifest.json version ($manifest_version)"
             exit 1
           fi

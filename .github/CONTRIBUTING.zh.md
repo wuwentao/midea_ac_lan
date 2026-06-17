@@ -36,7 +36,7 @@ GitHub 文件路径：`.github/CONTRIBUTING.zh.md`
 ## 二、系统与工具要求
 
 - **操作系统**：Linux / macOS / Windows（需启用 WSL2）
-- **Python**：最低版本 `3.11`（容器内已自动安装）
+- **Python**：最低版本 `3.12`（容器内已自动安装）
 - **VS Code 插件**：
   - Dev Containers
   - Remote - WSL（仅 Windows 用户）

@@ -14,7 +14,7 @@ Control your Midea M-Smart appliances via local area network.
 
 ⭐If this component is helpful for you, please star it, it encourages me a lot.
 
-**_❗Note: Home Assistant 2023.8 or higher required for this integration_**
+**_❗Note: Home Assistant 2024.4.1 or higher required for this integration_**
 
 ## 1. ❗❗❗❗❗❗Important Notice❗❗❗❗❗❗
 
@@ -100,7 +100,7 @@ please check your device documents and supported feature in below table links.
 > run this script in HA Terminal or SSH add-on
 
 ```shell
-wget -O - https://github.com/wuwentao/midea_ac_lan/raw/master/scripts/install.sh | ARCHIVE_TAG=latest bash -
+wget -O - https://github.com/wuwentao/midea_ac_lan/raw/main/scripts/install.sh | ARCHIVE_TAG=latest bash -
 ```
 
 ### Option 3: Manual Install
