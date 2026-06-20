@@ -11,9 +11,11 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_DEVICE_ID, CONF_SENSORS, Platform
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
+from homeassistant.helpers.restore_state import RestoreEntity
 from homeassistant.helpers.typing import StateType
+from midealocal.device import MideaDevice
 
-from .const import DEVICES, DOMAIN
+from .const import DEVICES, DOMAIN, supports_model
 from .midea_devices import MIDEA_DEVICES
 from .midea_entity import MideaEntity
 
@@ -32,8 +34,16 @@ async def async_setup_entry(
         "dict",
         MIDEA_DEVICES[device.device_type]["entities"],
     ).items():
-        if config["type"] == Platform.SENSOR and entity_key in extra_sensors:
-            sensor = MideaSensor(device, entity_key)
+        if (
+            config["type"] == Platform.SENSOR
+            and supports_model(device.model, config)
+            and (config.get("default") or entity_key in extra_sensors)
+        ):
+            sensor = (
+                MideaEstimatedUsageSensor(device, entity_key)
+                if config.get("estimate")
+                else MideaSensor(device, entity_key)
+            )
             sensors.append(sensor)
     async_add_entities(sensors)
 
@@ -65,3 +75,64 @@ class MideaSensor(MideaEntity, SensorEntity):
     def capability_attributes(self) -> dict[str, Any] | None:
         """Return capabilities."""
         return {"state_class": self.state_class} if self.state_class else {}
+
+
+class MideaEstimatedUsageSensor(MideaSensor, RestoreEntity):
+    """Represent estimated dishwasher usage accumulated per run."""
+
+    def __init__(self, device: MideaDevice, entity_key: str) -> None:
+        """Initialize estimated usage sensor."""
+        super().__init__(device, entity_key)
+        self._native_value: float = 0.0
+        self._last_status: str | None = None
+        self._running_mode: str | None = None
+
+    async def async_added_to_hass(self) -> None:
+        """Restore previous accumulated value."""
+        if last_state := await self.async_get_last_state():
+            try:
+                self._native_value = float(last_state.state)
+            except (TypeError, ValueError):
+                self._native_value = 0.0
+        self._last_status = cast("str | None", self._device.get_attribute("status"))
+        if self._last_status == "Running":
+            self._running_mode = cast("str | None", self._device.get_attribute("mode"))
+
+    @property
+    def native_value(self) -> StateType:
+        """Return accumulated estimated usage."""
+        return round(self._native_value, 3)
+
+    @property
+    def extra_state_attributes(self) -> dict[str, Any]:
+        """Return estimate metadata."""
+        estimate = cast("dict[str, Any]", self._config["estimate"])
+        return {
+            "estimate_source": "fixed_per_wash_mode",
+            "known_modes": list(cast("dict[str, float]", estimate["values"]).keys()),
+            "last_status": self._last_status,
+            "running_mode": self._running_mode,
+        }
+
+    def update_state(self, status: Any) -> None:  # noqa: ANN401
+        """Accumulate estimate once when a dishwasher run finishes."""
+        current_status = cast("str | None", self._device.get_attribute("status"))
+        current_mode = cast("str | None", self._device.get_attribute("mode"))
+
+        if current_status == "Running":
+            self._running_mode = current_mode
+        elif self._last_status == "Running":
+            mode = self._running_mode or current_mode
+            values = cast("dict[str, float]", self._config["estimate"]["values"])
+            if mode in values:
+                self._native_value += values[mode]
+            self._running_mode = None
+
+        self._last_status = current_status
+        super().update_state(status)
+        if (
+            self.hass
+            and not self.hass.is_stopping
+            and ("status" in status or "mode" in status)
+        ):
+            self.schedule_update_ha_state()
