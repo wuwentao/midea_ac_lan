@@ -34,7 +34,8 @@ class MideaEntity(Entity):
         )[entity_key]
         self._entity_key = entity_key
         self._unique_id = f"{DOMAIN}.{self._device.device_id}_{entity_key}"
-        self.entity_id = self._unique_id
+        ha_domain = self._config["type"]
+        self.entity_id = f"{ha_domain}.{self._device.device_id}_{entity_key}"
         self._device_name = self._device.name
 
         # HA language setting:
