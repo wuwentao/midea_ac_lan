@@ -279,10 +279,12 @@ class MideaACClimate(MideaClimate):
             HVACMode.FAN_ONLY,
         ]
         self._attr_hvac_modes = list(self._mode_index)
-        self._swing_mode_enabled = True
-        # priority: customize > B5 capabilities > defaults
-        self._apply_capabilities()
-        self._apply_capability_customize(config_entry)
+        # customize overrides parsed once; B5 capabilities read dynamically
+        # (they arrive after the first refresh, so hvac_modes/supported_features
+        # are computed lazily — priority: customize > B5 > defaults)
+        self._customize_swing: bool | None = None
+        self._customize_hvac_modes: list[HVACMode] | None = None
+        self._parse_capability_customize(config_entry)
         self._fan_speeds: dict[str, int] = {
             FAN_SILENT: 20,
             FAN_LOW: 40,
@@ -313,39 +315,10 @@ class MideaACClimate(MideaClimate):
             and "indoor_humidity" in config_entry.options["sensors"]
         )
 
-    def _apply_capabilities(self) -> None:
-        """Derive hvac_modes / swing from the device B5 capabilities.
+    def _parse_capability_customize(self, config_entry: ConfigEntry) -> None:
+        """Parse the swing / hvac_modes customize overrides (highest priority).
 
-        Uses the capability flags decoded by midea-local. When the device does
-        not report them (older library or no B5), the defaults are kept.
-        """
-        caps = getattr(self._device, "capabilities", {})
-        if not caps:
-            return
-        modes = [HVACMode.OFF]
-        if caps.get("auto_mode"):
-            modes.append(HVACMode.AUTO)
-        if caps.get("cool_mode"):
-            modes.append(HVACMode.COOL)
-        if caps.get("dry_mode"):
-            modes.append(HVACMode.DRY)
-        if caps.get("heat_mode"):
-            modes.append(HVACMode.HEAT)
-        # fan-only is always available on AC devices
-        modes.append(HVACMode.FAN_ONLY)
-        self._attr_hvac_modes = modes
-        if "swing_vertical" in caps or "swing_horizontal" in caps:
-            self._swing_mode_enabled = bool(
-                caps.get("swing_vertical") or caps.get("swing_horizontal"),
-            )
-
-    def _apply_capability_customize(self, config_entry: ConfigEntry) -> None:
-        """Limit hvac_modes / disable swing from the customize option.
-
-        Some devices do not support every generic AC capability (e.g. a
-        cooling-only portable AC has no swing and no heat/auto). The device
-        does not report this reliably, so allow the user to declare it:
-        ``{"swing": false, "hvac_modes": ["off", "cool", "dry", "fan_only"]}``.
+        ``{"swing": false, "hvac_modes": ["off", "cool", "dry", "fan_only"]}``
         """
         customize = config_entry.options.get(CONF_CUSTOMIZE, "")
         if not customize:
@@ -357,7 +330,7 @@ class MideaACClimate(MideaClimate):
         if not isinstance(params, dict):
             return
         if "swing" in params:
-            self._swing_mode_enabled = bool(params["swing"])
+            self._customize_swing = bool(params["swing"])
         modes = params.get("hvac_modes")
         if isinstance(modes, list):
             valid = {mode.value: mode for mode in self._mode_index}
@@ -369,13 +342,47 @@ class MideaACClimate(MideaClimate):
             if HVACMode.OFF not in wanted:
                 wanted.insert(0, HVACMode.OFF)
             if any(hvac != HVACMode.OFF for hvac in wanted):
-                self._attr_hvac_modes = wanted
+                self._customize_hvac_modes = wanted
+
+    def _capability_swing(self) -> bool:
+        """Whether swing is available: customize > B5 capability > default."""
+        if self._customize_swing is not None:
+            return self._customize_swing
+        caps = getattr(self._device, "capabilities", {})
+        if "swing_vertical" in caps or "swing_horizontal" in caps:
+            return bool(caps.get("swing_vertical") or caps.get("swing_horizontal"))
+        return True
+
+    @property
+    def hvac_modes(self) -> list[HVACMode]:
+        """hvac_modes: customize > B5 capabilities > default full set.
+
+        Read dynamically so capabilities decoded after the first refresh are
+        reflected (they are not yet available when the entity is created).
+        """
+        if self._customize_hvac_modes is not None:
+            return self._customize_hvac_modes
+        caps = getattr(self._device, "capabilities", {})
+        if not caps:
+            return list(self._mode_index)
+        modes = [HVACMode.OFF]
+        if caps.get("auto_mode"):
+            modes.append(HVACMode.AUTO)
+        if caps.get("cool_mode"):
+            modes.append(HVACMode.COOL)
+        if caps.get("dry_mode"):
+            modes.append(HVACMode.DRY)
+        if caps.get("heat_mode"):
+            modes.append(HVACMode.HEAT)
+        # fan-only is always available on AC devices
+        modes.append(HVACMode.FAN_ONLY)
+        return modes
 
     @property
     def supported_features(self) -> ClimateEntityFeature:
         """Midea AC Climate supported features."""
         features = super().supported_features
-        if not self._swing_mode_enabled:
+        if not self._capability_swing():
             features &= ~ClimateEntityFeature.SWING_MODE
         return features
 
