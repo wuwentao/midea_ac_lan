@@ -475,6 +475,30 @@ class MideaACClimate(MideaClimate):
         return str(FAN_SILENT)
 
     @property
+    def fan_modes(self) -> list[str] | None:
+        """fan_modes restricted to the speeds the device reports (B5).
+
+        Falls back to the full set when no capability is reported.
+        """
+        caps = getattr(self._device, "capabilities", {})
+        if not caps:
+            return list(self._fan_speeds.keys())
+        cap_by_fan = {
+            FAN_SILENT: "fan_silent",
+            FAN_LOW: "fan_low",
+            FAN_MEDIUM: "fan_medium",
+            FAN_HIGH: "fan_high",
+            FAN_FULL_SPEED: "fan_custom",
+            FAN_AUTO: "fan_auto",
+        }
+        modes = [
+            name
+            for name in self._fan_speeds
+            if caps.get(cap_by_fan.get(name, ""))
+        ]
+        return modes or list(self._fan_speeds.keys())
+
+    @property
     def target_temperature_step(self) -> float:
         """Midea AC Climate target temperature step."""
         return float(
