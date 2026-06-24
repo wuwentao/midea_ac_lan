@@ -284,6 +284,7 @@ class MideaACClimate(MideaClimate):
         # are computed lazily — priority: customize > B5 > defaults)
         self._customize_swing: bool | None = None
         self._customize_hvac_modes: list[HVACMode] | None = None
+        self._customize_preset_modes: list[str] | None = None
         self._parse_capability_customize(config_entry)
         self._fan_speeds: dict[str, int] = {
             FAN_SILENT: 20,
@@ -343,6 +344,25 @@ class MideaACClimate(MideaClimate):
                 wanted.insert(0, HVACMode.OFF)
             if any(hvac != HVACMode.OFF for hvac in wanted):
                 self._customize_hvac_modes = wanted
+        presets = params.get("preset_modes")
+        if isinstance(presets, list):
+            valid_presets = {
+                PRESET_NONE,
+                PRESET_COMFORT,
+                PRESET_ECO,
+                PRESET_BOOST,
+                PRESET_SLEEP,
+                PRESET_AWAY,
+            }
+            wanted_p: list[str] = []
+            for name in presets:
+                preset = str(name)
+                if preset in valid_presets and preset not in wanted_p:
+                    wanted_p.append(preset)
+            if PRESET_NONE not in wanted_p:
+                wanted_p.insert(0, PRESET_NONE)
+            if any(p != PRESET_NONE for p in wanted_p):
+                self._customize_preset_modes = wanted_p
 
     def _capability_swing(self) -> bool:
         """Whether swing is available: customize > B5 capability > default."""
@@ -377,6 +397,37 @@ class MideaACClimate(MideaClimate):
         # fan-only is always available on AC devices
         modes.append(HVACMode.FAN_ONLY)
         return modes
+
+    @property
+    def preset_modes(self) -> list[str]:
+        """preset_modes: customize > B5 capabilities > default full set.
+
+        B5 only declares eco and turbo (and heat implies away). comfort and
+        sleep have no capability flag, so they are kept unless overridden via
+        the customize ``preset_modes`` option.
+        """
+        all_presets = [
+            PRESET_NONE,
+            PRESET_COMFORT,
+            PRESET_ECO,
+            PRESET_BOOST,
+            PRESET_SLEEP,
+            PRESET_AWAY,
+        ]
+        if self._customize_preset_modes is not None:
+            return self._customize_preset_modes
+        caps = getattr(self._device, "capabilities", {})
+        if not caps:
+            return all_presets
+        keep = {
+            PRESET_NONE: True,
+            PRESET_COMFORT: True,
+            PRESET_ECO: bool(caps.get("eco")),
+            PRESET_BOOST: bool(caps.get("turbo_cool") or caps.get("turbo_heat")),
+            PRESET_SLEEP: True,
+            PRESET_AWAY: bool(caps.get("heat_mode")),
+        }
+        return [preset for preset in all_presets if keep[preset]]
 
     @property
     def supported_features(self) -> ClimateEntityFeature:
