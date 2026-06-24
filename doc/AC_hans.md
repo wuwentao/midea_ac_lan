@@ -24,19 +24,27 @@
 { "temperature_step": 1 }
 ```
 
-- 限制模式 / 关闭摆风
+- 能力（模式 / 摆风 / 预设）
 
-  部分设备并不支持所有通用空调功能（例如仅制冷的移动空调没有摆风，也没有 `heat`/`auto` 模式）。
-  设备无法可靠上报这一点，可通过以下选项手动声明（请通过美的 App 或遥控器确认）：
+  运行模式、摆风和预设会根据设备的 B5 能力上报自动识别（例如仅制冷的移动空调
+  只显示 `cool`/`dry`/`fan_only`，无摆风、无预设）。
+
+  部分能力无法推断（旧版库，或协议本身不声明的功能，如 `comfort`/`sleep` 预设），
+  可通过自定义覆盖（请通过美的 App 或遥控器确认真实取值）：
 
 ```json
-{ "swing": false, "hvac_modes": ["off", "cool", "dry", "fan_only"] }
+{
+  "swing": false,
+  "hvac_modes": ["off", "cool", "dry", "fan_only"],
+  "preset_modes": ["none"]
+}
 ```
 
-  - `swing`（布尔）：为 `false` 时，温控实体不再提供摆风控制。
+  - `swing`（布尔）：强制开启/关闭摆风控制。
   - `hvac_modes`（列表）：限制显示的模式，`off` 始终保留。可选值：`off`、`auto`、`cool`、`dry`、`heat`、`fan_only`。
+  - `preset_modes`（列表）：限制预设，`none` 始终保留；用 `["none"]` 可完全移除预设控制。可选值：`none`、`comfort`、`eco`、`boost`、`sleep`、`away`。
 
-  两个键均为可选；省略则保持默认全集。
+  优先级为 自定义 > B5 能力 > 默认值。所有键均为可选；省略则使用自动识别的集合。
 
 - 空调功耗分析方法(默认为1)
 
