@@ -25,6 +25,22 @@ Default step: 0.5
 { "temperature_step": 1 }
 ```
 
+### Limit modes / disable swing
+
+Some devices do not support every generic AC capability — e.g. a cooling-only
+portable AC has no swing and no `heat`/`auto` modes. The device does not report
+this reliably, so you can declare it (confirm via the Midea app or remote):
+
+```json
+{ "swing": false, "hvac_modes": ["off", "cool", "dry", "fan_only"] }
+```
+
+- `swing` (bool): when `false`, the climate no longer advertises a swing control.
+- `hvac_modes` (list): restrict the modes shown. `off` is always kept. Valid
+  values: `off`, `auto`, `cool`, `dry`, `heat`, `fan_only`.
+
+Both keys are optional; omit them to keep the default full set.
+
 ### Power consumption analysis method
 
 There are 5 different methods to decode the consumption of an AC, but we don’t know which is right for your device.

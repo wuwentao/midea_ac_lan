@@ -1,5 +1,6 @@
 """Midea Climate entries."""
 
+import json
 import logging
 from typing import Any, ClassVar, cast
 
@@ -27,6 +28,7 @@ from homeassistant.components.climate import (
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import (
     ATTR_TEMPERATURE,
+    CONF_CUSTOMIZE,
     CONF_DEVICE_ID,
     CONF_SWITCHES,
     MAJOR_VERSION,
@@ -266,7 +268,9 @@ class MideaACClimate(MideaClimate):
     ) -> None:
         """Midea AC Climate entity init."""
         super().__init__(device, entity_key)
-        self._attr_hvac_modes = [
+        # fixed positional map: device "mode" int -> HVACMode. DO NOT reorder,
+        # the device mode value indexes into this list.
+        self._mode_index = [
             HVACMode.OFF,
             HVACMode.AUTO,
             HVACMode.COOL,
@@ -274,6 +278,9 @@ class MideaACClimate(MideaClimate):
             HVACMode.HEAT,
             HVACMode.FAN_ONLY,
         ]
+        self._attr_hvac_modes = list(self._mode_index)
+        self._swing_mode_enabled = True
+        self._apply_capability_customize(config_entry)
         self._fan_speeds: dict[str, int] = {
             FAN_SILENT: 20,
             FAN_LOW: 40,
@@ -303,6 +310,64 @@ class MideaACClimate(MideaClimate):
             "sensors" in config_entry.options
             and "indoor_humidity" in config_entry.options["sensors"]
         )
+
+    def _apply_capability_customize(self, config_entry: ConfigEntry) -> None:
+        """Limit hvac_modes / disable swing from the customize option.
+
+        Some devices do not support every generic AC capability (e.g. a
+        cooling-only portable AC has no swing and no heat/auto). The device
+        does not report this reliably, so allow the user to declare it:
+        ``{"swing": false, "hvac_modes": ["off", "cool", "dry", "fan_only"]}``.
+        """
+        customize = config_entry.options.get(CONF_CUSTOMIZE, "")
+        if not customize:
+            return
+        try:
+            params = json.loads(customize)
+        except (ValueError, TypeError):
+            return
+        if not isinstance(params, dict):
+            return
+        if "swing" in params:
+            self._swing_mode_enabled = bool(params["swing"])
+        modes = params.get("hvac_modes")
+        if isinstance(modes, list):
+            valid = {mode.value: mode for mode in self._mode_index}
+            wanted: list[HVACMode] = []
+            for name in modes:
+                hvac = valid.get(str(name))
+                if hvac is not None and hvac not in wanted:
+                    wanted.append(hvac)
+            if HVACMode.OFF not in wanted:
+                wanted.insert(0, HVACMode.OFF)
+            if len(wanted) > 1:
+                self._attr_hvac_modes = wanted
+
+    @property
+    def supported_features(self) -> ClimateEntityFeature:
+        """Midea AC Climate supported features."""
+        features = super().supported_features
+        if not self._swing_mode_enabled:
+            features &= ~ClimateEntityFeature.SWING_MODE
+        return features
+
+    @property
+    def hvac_mode(self) -> HVACMode:
+        """Midea AC Climate hvac mode (device mode int -> fixed map)."""
+        if self._device.get_attribute("power"):
+            mode = cast("int", self._device.get_attribute("mode"))
+            return self._mode_index[mode]
+        return HVACMode.OFF
+
+    def set_hvac_mode(self, hvac_mode: HVACMode) -> None:
+        """Midea AC Climate set hvac mode (via the fixed map index)."""
+        if hvac_mode == HVACMode.OFF:
+            self.turn_off()
+        else:
+            self._device.set_attribute(
+                attr="mode",
+                value=self._mode_index.index(hvac_mode),
+            )
 
     @property
     def fan_mode(self) -> str:
