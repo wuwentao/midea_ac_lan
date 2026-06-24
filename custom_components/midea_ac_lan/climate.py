@@ -280,6 +280,8 @@ class MideaACClimate(MideaClimate):
         ]
         self._attr_hvac_modes = list(self._mode_index)
         self._swing_mode_enabled = True
+        # priority: customize > B5 capabilities > defaults
+        self._apply_capabilities()
         self._apply_capability_customize(config_entry)
         self._fan_speeds: dict[str, int] = {
             FAN_SILENT: 20,
@@ -311,6 +313,32 @@ class MideaACClimate(MideaClimate):
             and "indoor_humidity" in config_entry.options["sensors"]
         )
 
+    def _apply_capabilities(self) -> None:
+        """Derive hvac_modes / swing from the device B5 capabilities.
+
+        Uses the capability flags decoded by midea-local. When the device does
+        not report them (older library or no B5), the defaults are kept.
+        """
+        caps = getattr(self._device, "capabilities", {})
+        if not caps:
+            return
+        modes = [HVACMode.OFF]
+        if caps.get("auto_mode"):
+            modes.append(HVACMode.AUTO)
+        if caps.get("cool_mode"):
+            modes.append(HVACMode.COOL)
+        if caps.get("dry_mode"):
+            modes.append(HVACMode.DRY)
+        if caps.get("heat_mode"):
+            modes.append(HVACMode.HEAT)
+        # fan-only is always available on AC devices
+        modes.append(HVACMode.FAN_ONLY)
+        self._attr_hvac_modes = modes
+        if "swing_vertical" in caps or "swing_horizontal" in caps:
+            self._swing_mode_enabled = bool(
+                caps.get("swing_vertical") or caps.get("swing_horizontal"),
+            )
+
     def _apply_capability_customize(self, config_entry: ConfigEntry) -> None:
         """Limit hvac_modes / disable swing from the customize option.
 
@@ -340,7 +368,7 @@ class MideaACClimate(MideaClimate):
                     wanted.append(hvac)
             if HVACMode.OFF not in wanted:
                 wanted.insert(0, HVACMode.OFF)
-            if len(wanted) > 1:
+            if any(hvac != HVACMode.OFF for hvac in wanted):
                 self._attr_hvac_modes = wanted
 
     @property
