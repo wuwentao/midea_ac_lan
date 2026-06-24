@@ -29,6 +29,16 @@
 { "temperature_step": 0.5 }
 ```
 
+- 设置加热功率倍率(默认为1).
+
+  部分电热水器型号上报的是额定加热功率，可能与实际测量功耗不一致。可以使用 `heating_power_multiplier` 校准 `sensor.{DEVICEID}_heating_power` 的数值；未配置时保持默认行为不变。
+
+  例如，如果设备上报 `2000 W`，但实际测量功耗为 `1500 W`，可以使用 `0.75` 作为倍率：
+
+```json
+{ "heating_power_multiplier": 0.75 }
+```
+
 ## 生成实体
 
 ### 默认生成实体
