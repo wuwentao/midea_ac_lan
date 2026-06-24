@@ -361,8 +361,8 @@ class MideaACClimate(MideaClimate):
                     wanted_p.append(preset)
             if PRESET_NONE not in wanted_p:
                 wanted_p.insert(0, PRESET_NONE)
-            if any(p != PRESET_NONE for p in wanted_p):
-                self._customize_preset_modes = wanted_p
+            # honor even an empty / none-only list (user wants no presets)
+            self._customize_preset_modes = wanted_p
 
     def _capability_swing(self) -> bool:
         """Whether swing is available: customize > B5 capability > default."""
@@ -435,6 +435,9 @@ class MideaACClimate(MideaClimate):
         features = super().supported_features
         if not self._capability_swing():
             features &= ~ClimateEntityFeature.SWING_MODE
+        # drop the preset control entirely when no real preset is available
+        if not any(preset != PRESET_NONE for preset in self.preset_modes):
+            features &= ~ClimateEntityFeature.PRESET_MODE
         return features
 
     @property
