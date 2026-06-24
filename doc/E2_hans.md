@@ -29,7 +29,7 @@
 { "temperature_step": 0.5 }
 ```
 
-- 校准加热功率传感器(默认为1).
+- 设置加热功率倍率(默认为1).
 
   部分电热水器型号上报的是额定加热功率，可能与实际测量功耗不一致。可以使用 `heating_power_multiplier` 校准 `sensor.{DEVICEID}_heating_power` 的数值；未配置时保持默认行为不变。
 
