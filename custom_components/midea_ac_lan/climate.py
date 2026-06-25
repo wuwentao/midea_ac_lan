@@ -369,6 +369,7 @@ class MideaACClimate(MideaClimate):
 
         Returns:
             ``True`` when the swing control should be exposed.
+
         """
         if self._customize_swing is not None:
             return self._customize_swing
