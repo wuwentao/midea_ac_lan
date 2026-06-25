@@ -25,6 +25,35 @@ Default step: 0.5
 { "temperature_step": 1 }
 ```
 
+### Capabilities (modes / swing / presets)
+
+The available run-modes, fan speeds, swing support and presets are detected
+automatically from the device's B5 capability report. A cooling-only portable
+AC, for example, then exposes only `cool`/`dry`/`fan_only`, the `low`/`high`/
+`auto` fan speeds, no swing, and no presets.
+
+Some capabilities cannot be derived (older library, or features the protocol
+does not declare such as the `comfort` and `sleep` presets). You can override
+them via customize (confirm the real values via the Midea app or remote):
+
+```json
+{
+  "swing": false,
+  "hvac_modes": ["off", "cool", "dry", "fan_only"],
+  "preset_modes": ["none"]
+}
+```
+
+- `swing` (bool): force the swing control on/off.
+- `hvac_modes` (list): restrict the modes shown. `off` is always kept. Valid
+  values: `off`, `auto`, `cool`, `dry`, `heat`, `fan_only`.
+- `preset_modes` (list): restrict the presets. `none` is always kept; use
+  `["none"]` to remove the preset control entirely. Valid values: `none`,
+  `comfort`, `eco`, `boost`, `sleep`, `away`.
+
+Priority is customize > B5 capabilities > defaults. All keys are optional; omit
+them to use the auto-detected set.
+
 ### Power consumption analysis method
 
 There are 5 different methods to decode the consumption of an AC, but we don’t know which is right for your device.
