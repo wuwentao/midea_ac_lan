@@ -40,11 +40,11 @@
 }
 ```
 
-  - `swing`（布尔）：强制开启/关闭摆风控制。
-  - `hvac_modes`（列表）：限制显示的模式，`off` 始终保留。可选值：`off`、`auto`、`cool`、`dry`、`heat`、`fan_only`。
-  - `preset_modes`（列表）：限制预设，`none` 始终保留；用 `["none"]` 可完全移除预设控制。可选值：`none`、`comfort`、`eco`、`boost`、`sleep`、`away`。
+- `swing`（布尔）：强制开启/关闭摆风控制。
+- `hvac_modes`（列表）：限制显示的模式，`off` 始终保留。可选值：`off`、`auto`、`cool`、`dry`、`heat`、`fan_only`。
+- `preset_modes`（列表）：限制预设，`none` 始终保留；用 `["none"]` 可完全移除预设控制。可选值：`none`、`comfort`、`eco`、`boost`、`sleep`、`away`。
 
-  优先级为 自定义 > B5 能力 > 默认值。所有键均为可选；省略则使用自动识别的集合。
+优先级为 自定义 > B5 能力 > 默认值。所有键均为可选；省略则使用自动识别的集合。
 
 - 空调功耗分析方法(默认为1)
 

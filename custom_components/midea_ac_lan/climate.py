@@ -492,9 +492,7 @@ class MideaACClimate(MideaClimate):
             FAN_AUTO: "fan_auto",
         }
         modes = [
-            name
-            for name in self._fan_speeds
-            if caps.get(cap_by_fan.get(name, ""))
+            name for name in self._fan_speeds if caps.get(cap_by_fan.get(name, ""))
         ]
         return modes or list(self._fan_speeds.keys())
 
