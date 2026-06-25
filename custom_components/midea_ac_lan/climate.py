@@ -365,7 +365,11 @@ class MideaACClimate(MideaClimate):
             self._customize_preset_modes = wanted_p
 
     def _capability_swing(self) -> bool:
-        """Whether swing is available: customize > B5 capability > default."""
+        """Whether swing is available (customize > B5 capability > default).
+
+        Returns:
+            ``True`` when the swing control should be exposed.
+        """
         if self._customize_swing is not None:
             return self._customize_swing
         caps = getattr(self._device, "capabilities", {})
