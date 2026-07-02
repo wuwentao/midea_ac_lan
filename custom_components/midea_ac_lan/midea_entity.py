@@ -27,7 +27,6 @@ class MideaEntity(Entity):
     def __init__(self, device: MideaDevice, entity_key: str) -> None:
         """Initialize Midea base entity."""
         self._device = device
-        self._device.register_update(self.update_state)
         self._config = cast(
             "dict",
             MIDEA_DEVICES[self._device.device_type]["entities"],
@@ -118,6 +117,21 @@ class MideaEntity(Entity):
     def icon(self) -> str:
         """Return entity icon."""
         return cast("str", self._config.get("icon"))
+
+    async def async_added_to_hass(self) -> None:
+        """Subscribe to device updates once the entity is added to HA.
+
+        Registering the callback here (rather than in ``__init__``) ensures an
+        entity that is constructed but never added to HA never receives updates,
+        which avoids the recurring "HASS is None" warnings.
+        """
+        await super().async_added_to_hass()
+        self._device.register_update(self.update_state)
+
+    async def async_will_remove_from_hass(self) -> None:
+        """Unsubscribe from device updates when the entity is removed from HA."""
+        await super().async_will_remove_from_hass()
+        self._device.unregister_update(self.update_state)
 
     @callback
     def update_state(self, status: Any) -> None:  # noqa: ANN401
