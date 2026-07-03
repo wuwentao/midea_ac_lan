@@ -33,7 +33,12 @@ class MideaEntity(Entity):
         )[entity_key]
         self._entity_key = entity_key
         self._unique_id = f"{DOMAIN}.{self._device.device_id}_{entity_key}"
-        self.entity_id = self._unique_id
+        # Build entity_id with the correct platform domain (sensor.*, switch.*, …)
+        # instead of the integration domain. Keeps the legacy "<device_id>_<key>"
+        # object_id so existing entity_ids are unchanged, while fixing the HA
+        # wrong-domain deprecation (breaks in HA 2027.5.0).
+        ha_domain = self._config["type"]
+        self.entity_id = f"{ha_domain}.{self._device.device_id}_{entity_key}"
         self._device_name = self._device.name
 
         # HA language setting:
