@@ -1,0 +1,85 @@
+[project]
+name = "midea_ac_lan"
+# Placeholder only. The real, released version lives in
+# custom_components/midea_ac_lan/manifest.json (bumped by the release workflow).
+version = "0.0.0"
+description = "Control your Midea M-Smart appliances via local area network in Home Assistant."
+readme = "README.md"
+requires-python = ">=3.12,<3.15"
+license = { text = "MIT" }
+# Runtime dependency, mirrors custom_components/midea_ac_lan/manifest.json so that
+# `import midealocal` works inside the dev virtualenv.
+dependencies = ["midea-local==6.8.0"]
+
+# Development dependencies (PEP 735). Installed by default with `uv sync`.
+# Replaces the former requirements-dev.txt + requirements-dev-3.1X.txt files.
+[dependency-groups]
+dev = [
+  # Home Assistant: minimum-supported version per Python version, selected via
+  # environment markers (was requirements-dev-3.12/3.13/3.14.txt).
+  "homeassistant==2024.4.1  ; python_version == '3.12'",
+  "homeassistant==2024.12.1 ; python_version == '3.13'",
+  "homeassistant==2026.3.1  ; python_full_version >= '3.14.2'",
+  # Tooling (was requirements-dev.txt). ruff is aligned to the version enforced
+  # by the ruff-pre-commit hook in .pre-commit-config.yaml (v0.15.17).
+  "ruff==0.15.17",
+  "mypy==1.15.0",
+  "pylint==3.2.5",
+  "pre-commit==3.7.1",
+  "pydantic==1.10.15",
+  "colorlog==6.8.2",
+  "ffmpeg==1.4",
+  "mutagen==1.47.0",
+  "numpy==2.0.0",
+]
+
+[tool.uv]
+# This is a Home Assistant custom component, not a buildable/publishable package.
+# uv only manages the virtualenv and dependencies; it does not build this project.
+package = false
+
+# ----------------------------------------------------------------------------
+# ruff configuration (migrated from the former ruff.toml).
+# The ruff-pre-commit hook and `uv run ruff` both read this automatically.
+# ----------------------------------------------------------------------------
+[tool.ruff]
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["ALL"]
+
+preview = true
+
+ignore = [
+  "ANN101",  # Missing type annotation for `self` in method
+  "CPY001",  # Missing copyright notice at top of file
+  "D203",    # 1 blank line required before class docstring
+  "D213",    # Multi-line docstring summary should start at the second line
+  "EM101",   # Exception must not use a string literal, assign to variable first
+  "EM102",   # Exception must not use an f-string literal, assign to variable first
+  "FBT001",  # Boolean-typed positional argument in function definition
+  "FBT002",  # Boolean default positional argument in function definition
+  "FBT003",  # Boolean positional value in function call
+  "FURB110", # Replace ternary `if` expression with `or` operator
+  "FURB118", # Use `operator.itemgetter(0)` instead of defining a lambda
+  "N818",    # Exception name should be named with an Error suffix
+  "PLC1901", # can be simplified as an empty string is falsey
+  "PLR0911", # Too many return statements
+  "PLR0912", # Too many branches
+  "RUF021",  # Parenthesize expressions when chaining `and` and `or` together, to make the precedence clear
+  "RUF029",  # Function is declared `async`, but doesn't `await` or use `async` features.
+  "TRY003",  # Avoid specifying long messages outside the exception class
+  "RUF067",  # Ignore non-empty-init-module
+]
+
+[tool.ruff.lint.per-file-ignores]
+"library_test.py" = [
+  "PLR0915", # Too many statements
+  "T201",    # `print` found
+]
+"tests/*" = [
+  "S101", # Use of `assert` detected
+]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 18
