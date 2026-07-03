@@ -140,6 +140,7 @@ class MideaEntity(Entity):
         Raises:
             RuntimeError: If ``schedule_update_ha_state()`` fails for a reason
                 other than the event loop being closed during shutdown.
+
         """
         if not self.hass:
             _LOGGER.warning(
