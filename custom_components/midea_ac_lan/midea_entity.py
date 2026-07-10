@@ -99,13 +99,12 @@ class MideaEntity(Entity):
             "identifiers": {(DOMAIN, str(self._device.device_id))},
             "name": self._device_name,
         }
-        try:
-            mac = self._device.mac
-        except AttributeError:
-            return info
-        if mac:
-            clean_mac = format_mac(mac)
-            info["connections"] = {(CONNECTION_NETWORK_MAC, clean_mac)}
+        if self._device.mac:
+            info["connections"] = {
+                (CONNECTION_NETWORK_MAC, format_mac(self._device.mac)),
+            }
+        if self._device.serial_number:
+            info["serial_number"] = self._device.serial_number
         return info
 
     @property

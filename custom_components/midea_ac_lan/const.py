@@ -14,6 +14,8 @@ CONF_SUBTYPE = "subtype"
 CONF_ACCOUNT = "account"
 CONF_SERVER = "server"
 CONF_REFRESH_INTERVAL = "refresh_interval"
+CONF_MAC = "mac"
+CONF_SN = "sn"
 
 EXTRA_SENSOR = [Platform.SENSOR, Platform.BINARY_SENSOR]
 EXTRA_SWITCH = [Platform.SWITCH, Platform.LOCK, Platform.SELECT, Platform.NUMBER]
