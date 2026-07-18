@@ -3,7 +3,7 @@
 Some multi-split indoor units expose outdoor-unit operating data through C1
 group 0x41, but ``midea-local`` does not currently query or parse that group.
 This compatibility layer adds the read-only query only for models verified to
-support it and exposes the reported outdoor-unit electrical diagnostics.
+support it and exposes their reported compressor frequencies.
 """
 
 from __future__ import annotations
@@ -16,7 +16,6 @@ from midealocal.devices.ac.message import MessageACBase
 from midealocal.message import ListTypes, MessageType
 
 from .ac_bb_diagnostics import (
-    COMPRESSOR_CURRENT,
     COMPRESSOR_FREQUENCY,
     COMPRESSOR_TARGET_FREQUENCY,
     supports_ac_bb_diagnostic_attribute,
@@ -32,16 +31,10 @@ SUPPORTED_AC_C1_FREQUENCY_MODELS: Final = frozenset(
     },
 )
 
-OUTDOOR_UNIT_TOTAL_CURRENT: Final = "outdoor_unit_total_current"
-OUTDOOR_UNIT_VOLTAGE: Final = "outdoor_unit_voltage"
-
 AC_C1_DIAGNOSTIC_ATTRIBUTES: Final = frozenset(
     {
         COMPRESSOR_FREQUENCY,
         COMPRESSOR_TARGET_FREQUENCY,
-        COMPRESSOR_CURRENT,
-        OUTDOOR_UNIT_TOTAL_CURRENT,
-        OUTDOOR_UNIT_VOLTAGE,
     },
 )
 
@@ -52,9 +45,6 @@ _MESSAGE_BODY_OFFSET: Final = 10
 _GROUP_TYPE_OFFSET: Final = _MESSAGE_BODY_OFFSET + 3
 _ACTUAL_FREQUENCY_OFFSET: Final = _MESSAGE_BODY_OFFSET + 4
 _TARGET_FREQUENCY_OFFSET: Final = _MESSAGE_BODY_OFFSET + 5
-_COMPRESSOR_CURRENT_OFFSET: Final = _MESSAGE_BODY_OFFSET + 6
-_OUTDOOR_TOTAL_CURRENT_OFFSET: Final = _MESSAGE_BODY_OFFSET + 7
-_OUTDOOR_VOLTAGE_OFFSET: Final = _MESSAGE_BODY_OFFSET + 8
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -146,36 +136,21 @@ def install_ac_c1_diagnostics(device: MideaDevice) -> None:
     def process_message(message: bytes) -> dict[str, Any]:
         status = original_process_message(message)
         if (
-            len(message) > _OUTDOOR_VOLTAGE_OFFSET
+            len(message) > _TARGET_FREQUENCY_OFFSET
             and message[_MESSAGE_BODY_OFFSET] == _C1_BODY_TYPE
             and message[_GROUP_TYPE_OFFSET] == _GROUP_ONE_TYPE
         ):
             frequency = int(message[_ACTUAL_FREQUENCY_OFFSET])
             target_frequency = int(message[_TARGET_FREQUENCY_OFFSET])
-            compressor_current = float(message[_COMPRESSOR_CURRENT_OFFSET])
-            outdoor_total_current = float(
-                message[_OUTDOOR_TOTAL_CURRENT_OFFSET],
-            )
-            outdoor_voltage = float(message[_OUTDOOR_VOLTAGE_OFFSET])
             attributes[COMPRESSOR_FREQUENCY] = frequency
             attributes[COMPRESSOR_TARGET_FREQUENCY] = target_frequency
-            attributes[COMPRESSOR_CURRENT] = compressor_current
-            attributes[OUTDOOR_UNIT_TOTAL_CURRENT] = outdoor_total_current
-            attributes[OUTDOOR_UNIT_VOLTAGE] = outdoor_voltage
             status[COMPRESSOR_FREQUENCY] = frequency
             status[COMPRESSOR_TARGET_FREQUENCY] = target_frequency
-            status[COMPRESSOR_CURRENT] = compressor_current
-            status[OUTDOOR_UNIT_TOTAL_CURRENT] = outdoor_total_current
-            status[OUTDOOR_UNIT_VOLTAGE] = outdoor_voltage
             _LOGGER.debug(
-                "[%s] C1 compressor diagnostics: actual=%s Hz, target=%s Hz, "
-                "compressor=%s A, outdoor=%s A, voltage=%s V",
+                "[%s] C1 compressor diagnostics: actual=%s Hz, target=%s Hz",
                 device.device_id,
                 frequency,
                 target_frequency,
-                compressor_current,
-                outdoor_total_current,
-                outdoor_voltage,
             )
         return status
 

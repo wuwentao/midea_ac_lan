@@ -67,6 +67,7 @@ else:
         FlowResult as ConfigFlowResult,
     )
 
+from .ac_bb_diagnostics import supports_ac_bb_exhaust
 from .ac_c1_diagnostics import supports_ac_diagnostic_attribute
 from .const import (
     CONF_ACCOUNT,
@@ -946,6 +947,12 @@ class MideaLanOptionsFlowHandler(OptionsFlow):
             "dict",
             MIDEA_DEVICES[cast("int", self._device_type)]["entities"],
         ).items():
+            if attribute_config.get("ac_bb_exhaust") and not supports_ac_bb_exhaust(
+                cast("int", self._device_type),
+                self._config_entry.data.get(CONF_MODEL, ""),
+                self._config_entry.data.get(CONF_SUBTYPE, 0),
+            ):
+                continue
             if attribute_config.get("ac_diagnostic") and not (
                 supports_ac_diagnostic_attribute(
                     attribute if isinstance(attribute, str) else attribute.value,

@@ -94,6 +94,7 @@
 | sensor.{DEVICEID}\_estimated_total_energy_consumption | sensor | Estimated Total Energy Consumption | 估算总耗电 |
 | sensor.{DEVICEID}\_estimated_daily_energy_consumption | sensor | Estimated Daily Energy Consumption | 估算今日耗电 |
 | fan.{DEVICEID}\_fresh_air                     | fan           | Fresh Air                  | 新风             |
+| fan.{DEVICEID}\_fresh_air_exhaust             | fan           | Fresh Air Exhaust          | 排风             |
 | switch.{DEVICEID}\_aux_heating                | switch        | Aux Heating                | 电辅热           |
 | switch.{DEVICEID}\_boost_mode                 | switch        | Boost Mode                 | 强劲模式         |
 | switch.{DEVICEID}\_breezeless                 | switch        | Breezeless                 | 无风感           |

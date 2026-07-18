@@ -118,6 +118,7 @@ Known settings:
 | sensor.{DEVICEID}\_pmv                        | sensor        | PMV (Predicted Mean Vote)  |
 | sensor.{DEVICEID}\_error_code                 | sensor        | Error Code                 |
 | fan.{DEVICEID}\_fresh_air                     | fan           | Fresh Air Fan              |
+| fan.{DEVICEID}\_fresh_air_exhaust             | fan           | Fresh Air Exhaust          |
 | switch.{DEVICEID}\_anion                      | switch        | Anion (Ionizer)            |
 | switch.{DEVICEID}\_aux_heating                | switch        | Aux Heating                |
 | switch.{DEVICEID}\_boost_mode                 | switch        | Boost Mode                 |

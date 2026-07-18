@@ -272,7 +272,7 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
             device.model,
             device.subtype,
         ):
-            install_ac_bb_diagnostics(device, customize)
+            install_ac_bb_diagnostics(device)
         if device_type == DeviceType.AC and supports_ac_c1_frequency(
             device.device_type,
             device.model,

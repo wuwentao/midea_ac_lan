@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-from contextlib import suppress
 from typing import TYPE_CHECKING, Any, cast
 
 from homeassistant.components.sensor import (
@@ -11,13 +10,7 @@ from homeassistant.components.sensor import (
     SensorStateClass,
 )
 from homeassistant.const import CONF_DEVICE_ID, CONF_SENSORS, Platform
-from homeassistant.helpers.restore_state import RestoreEntity
-from homeassistant.util import dt as dt_util
 
-from .ac_bb_diagnostics import (
-    BB_ENERGY_ATTRIBUTES,
-    restore_ac_bb_energy,
-)
 from .ac_c1_diagnostics import supports_ac_diagnostic_attribute
 from .const import DEVICES, DOMAIN
 from .midea_devices import MIDEA_DEVICES
@@ -28,7 +21,6 @@ if TYPE_CHECKING:
     from homeassistant.core import HomeAssistant
     from homeassistant.helpers.entity_platform import AddEntitiesCallback
     from homeassistant.helpers.typing import StateType
-    from midealocal.device import MideaDevice
 
 
 async def async_setup_entry(
@@ -54,12 +46,7 @@ async def async_setup_entry(
             device.subtype,
         ):
             continue
-        sensor_class = (
-            MideaBBDiagnosticEnergySensor
-            if entity_key in BB_ENERGY_ATTRIBUTES
-            else MideaSensor
-        )
-        sensors.append(sensor_class(device, entity_key))
+        sensors.append(MideaSensor(device, entity_key))
     async_add_entities(sensors)
 
 
@@ -90,29 +77,3 @@ class MideaSensor(MideaEntity, SensorEntity):
     def capability_attributes(self) -> dict[str, Any] | None:
         """Return capabilities."""
         return {"state_class": self.state_class} if self.state_class else {}
-
-
-class MideaBBDiagnosticEnergySensor(RestoreEntity, MideaSensor):
-    """Represent a restorable cumulative BB diagnostics energy sensor."""
-
-    def __init__(self, device: MideaDevice, entity_key: str) -> None:
-        """Initialize a restorable BB diagnostics energy sensor."""
-        super().__init__(device, entity_key)
-
-    async def async_added_to_hass(self) -> None:
-        """Restore the previous cumulative energy value."""
-        await super().async_added_to_hass()
-        last_state = await self.async_get_last_state()
-        restored_value = 0.0
-        last_updated = dt_util.utcnow()
-        if last_state is not None:
-            last_updated = last_state.last_updated
-            with suppress(TypeError, ValueError):
-                restored_value = float(last_state.state)
-        restore_ac_bb_energy(
-            self._device,
-            self._entity_key,
-            restored_value,
-            last_updated,
-        )
-        self.async_write_ha_state()
