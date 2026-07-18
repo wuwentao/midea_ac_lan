@@ -10,6 +10,7 @@ from homeassistant.const import (
     PERCENTAGE,
     Platform,
     UnitOfEnergy,
+    UnitOfFrequency,
     UnitOfPower,
     UnitOfTemperature,
     UnitOfTime,
@@ -50,11 +51,12 @@ from midealocal.devices.x26 import DeviceAttributes as X26Attributes
 from midealocal.devices.x34 import DeviceAttributes as X34Attributes
 from midealocal.devices.x40 import DeviceAttributes as X40Attributes
 
-from .ac_bb_diagnostics import (
-    COMPRESSOR_FREQUENCY,
-    COMPRESSOR_TARGET_FREQUENCY,
-    FRESH_AIR_EXHAUST,
-)
+FRESH_AIR_EXHAUST = "fresh_air_exhaust"
+FRESH_AIR_EXHAUST_MODE = "fresh_air_exhaust_mode"
+FRESH_AIR_EXHAUST_POWER = "fresh_air_exhaust_power"
+FRESH_AIR_EXHAUST_SPEED = "fresh_air_exhaust_speed"
+COMPRESSOR_FREQUENCY = "compressor_frequency"
+COMPRESSOR_TARGET_FREQUENCY = "compressor_target_frequency"
 
 """
 Entity Naming Rule:
@@ -395,7 +397,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "fresh_air_exhaust",
                 "name": "Fresh Air Exhaust",
                 "icon": "mdi:fan-reverse",
-                "ac_bb_exhaust": True,
+                "required_attribute": FRESH_AIR_EXHAUST_POWER,
             },
             ACAttributes.aux_heating: {
                 "type": Platform.SWITCH,
@@ -580,20 +582,22 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             COMPRESSOR_FREQUENCY: {
                 "type": Platform.SENSOR,
-                "ac_diagnostic": True,
+                "required_attribute": COMPRESSOR_FREQUENCY,
                 "translation_key": "compressor_frequency",
                 "name": "Compressor Frequency",
                 "icon": "mdi:sine-wave",
-                "unit": "Hz",
+                "device_class": SensorDeviceClass.FREQUENCY,
+                "unit": UnitOfFrequency.HERTZ,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
             COMPRESSOR_TARGET_FREQUENCY: {
                 "type": Platform.SENSOR,
-                "ac_diagnostic": True,
+                "required_attribute": COMPRESSOR_TARGET_FREQUENCY,
                 "translation_key": "compressor_target_frequency",
                 "name": "Compressor Target Frequency",
                 "icon": "mdi:sine-wave",
-                "unit": "Hz",
+                "device_class": SensorDeviceClass.FREQUENCY,
+                "unit": UnitOfFrequency.HERTZ,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
             ACAttributes.pmv: {

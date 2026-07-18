@@ -22,19 +22,14 @@ from midealocal.devices.fa import MideaFADevice
 from midealocal.devices.x40 import DeviceAttributes as X40Attributes
 from midealocal.devices.x40 import MideaX40Device
 
-from .ac_bb_diagnostics import (
-    BB_FRESH_AIR_EXHAUST_PRESETS,
-    BB_FRESH_AIR_INTAKE_PRESETS,
+from .const import DEVICES, DOMAIN
+from .midea_devices import (
     FRESH_AIR_EXHAUST,
     FRESH_AIR_EXHAUST_MODE,
     FRESH_AIR_EXHAUST_POWER,
     FRESH_AIR_EXHAUST_SPEED,
-    set_ac_bb_fresh_air,
-    supports_ac_bb_exhaust,
-    supports_ac_bb_protocol,
+    MIDEA_DEVICES,
 )
-from .const import DEVICES, DOMAIN
-from .midea_devices import MIDEA_DEVICES
 from .midea_entity import MideaEntity
 
 _LOGGER = logging.getLogger(__name__)
@@ -56,10 +51,10 @@ async def async_setup_entry(
         "dict",
         MIDEA_DEVICES[device.device_type]["entities"],
     ).items():
-        if config.get("ac_bb_exhaust") and not supports_ac_bb_exhaust(
-            device.device_type,
-            device.model,
-            device.subtype,
+        required_attribute = config.get("required_attribute")
+        if (
+            required_attribute is not None
+            and required_attribute not in device.attributes
         ):
             continue
         if config["type"] == Platform.FAN and (
@@ -232,17 +227,11 @@ class MideaACFreshAirFan(MideaFan):
     @property
     def preset_modes(self) -> list[str] | None:
         """Midea AC Fan preset modes."""
-        if supports_ac_bb_protocol(
-            self._device.device_type,
-            self._device.model,
-            self._device.subtype,
-        ):
-            presets = (
-                BB_FRESH_AIR_EXHAUST_PRESETS
-                if self._is_exhaust
-                else BB_FRESH_AIR_INTAKE_PRESETS
+        if self._is_exhaust:
+            return cast(
+                "list[str]",
+                getattr(self._device, "fresh_air_exhaust_fan_speeds", []),
             )
-            return list(presets.values())
         return cast("list", self._device.fresh_air_fan_speeds)
 
     @property
@@ -272,99 +261,47 @@ class MideaACFreshAirFan(MideaFan):
         **kwargs: Any,  # noqa: ANN401, ARG002
     ) -> None:
         """Midea AC Fan tun on."""
-        if supports_ac_bb_protocol(
-            self._device.device_type,
-            self._device.model,
-            self._device.subtype,
-        ):
-            if preset_mode is not None:
-                speed = self._preset_speed(preset_mode)
-                power = speed > 0
-            elif percentage is not None:
-                speed = percentage
-                power = speed > 0
-            else:
-                speed = self.fan_speed or 60
-                power = True
-            set_ac_bb_fresh_air(
-                self._device,
-                power,
-                speed or self.fan_speed or 60,
-                exhaust=self._is_exhaust,
-            )
+        if preset_mode is not None:
+            self.set_preset_mode(preset_mode)
             return
-        self._device.set_attribute(attr=ACAttributes.fresh_air_power, value=True)
+        if percentage is not None:
+            self.set_percentage(percentage)
+            return
+        attribute = (
+            FRESH_AIR_EXHAUST_POWER
+            if self._is_exhaust
+            else ACAttributes.fresh_air_power
+        )
+        self._device.set_attribute(attr=attribute, value=True)
 
     def turn_off(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
         """Midea AC Fan turn off."""
-        if supports_ac_bb_protocol(
-            self._device.device_type,
-            self._device.model,
-            self._device.subtype,
-        ):
-            set_ac_bb_fresh_air(
-                self._device,
-                False,
-                self.fan_speed or 60,
-                exhaust=self._is_exhaust,
-            )
-            return
-        self._device.set_attribute(attr=ACAttributes.fresh_air_power, value=False)
+        attribute = (
+            FRESH_AIR_EXHAUST_POWER
+            if self._is_exhaust
+            else ACAttributes.fresh_air_power
+        )
+        self._device.set_attribute(attr=attribute, value=False)
 
     def set_percentage(self, percentage: int) -> None:
         """Midea AC Fan set percentage."""
         fan_speed = int(percentage / self.percentage_step + 0.5)
-        if supports_ac_bb_protocol(
-            self._device.device_type,
-            self._device.model,
-            self._device.subtype,
-        ):
-            set_ac_bb_fresh_air(
-                self._device,
-                fan_speed > 0,
-                fan_speed or 60,
-                exhaust=self._is_exhaust,
-            )
-            return
+        attribute = (
+            FRESH_AIR_EXHAUST_SPEED
+            if self._is_exhaust
+            else ACAttributes.fresh_air_fan_speed
+        )
         self._device.set_attribute(
-            attr=ACAttributes.fresh_air_fan_speed,
+            attr=attribute,
             value=fan_speed,
         )
 
     def set_preset_mode(self, preset_mode: str) -> None:
         """Midea AC Fan set preset mode."""
-        if supports_ac_bb_protocol(
-            self._device.device_type,
-            self._device.model,
-            self._device.subtype,
-        ):
-            speed = self._preset_speed(preset_mode)
-            set_ac_bb_fresh_air(
-                self._device,
-                speed > 0,
-                speed or self.fan_speed or 60,
-                exhaust=self._is_exhaust,
-            )
-            return
-        self._device.set_attribute(attr=ACAttributes.fresh_air_mode, value=preset_mode)
-
-    @staticmethod
-    def _preset_speed(preset_mode: str | None) -> int:
-        """Return the Midea fresh-air speed represented by a preset.
-
-        Returns
-        -------
-        Numeric fresh-air speed, or zero for off/unknown.
-
-        """
-        return {
-            "off": 0,
-            "silent": 20,
-            "low": 40,
-            "medium": 60,
-            "high": 80,
-            "full": 100,
-        }.get(preset_mode or "", 0)
+        attribute = (
+            FRESH_AIR_EXHAUST_MODE if self._is_exhaust else ACAttributes.fresh_air_mode
+        )
+        self._device.set_attribute(attr=attribute, value=preset_mode)
 
     @property
     def preset_mode(self) -> str | None:

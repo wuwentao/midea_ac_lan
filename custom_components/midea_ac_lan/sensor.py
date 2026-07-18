@@ -1,26 +1,21 @@
 """Sensor for Midea Lan."""
 
-from __future__ import annotations
-
-from typing import TYPE_CHECKING, Any, cast
+from typing import Any, cast
 
 from homeassistant.components.sensor import (
     SensorDeviceClass,
     SensorEntity,
     SensorStateClass,
 )
+from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_DEVICE_ID, CONF_SENSORS, Platform
+from homeassistant.core import HomeAssistant
+from homeassistant.helpers.entity_platform import AddEntitiesCallback
+from homeassistant.helpers.typing import StateType
 
-from .ac_c1_diagnostics import supports_ac_diagnostic_attribute
 from .const import DEVICES, DOMAIN
 from .midea_devices import MIDEA_DEVICES
 from .midea_entity import MideaEntity
-
-if TYPE_CHECKING:
-    from homeassistant.config_entries import ConfigEntry
-    from homeassistant.core import HomeAssistant
-    from homeassistant.helpers.entity_platform import AddEntitiesCallback
-    from homeassistant.helpers.typing import StateType
 
 
 async def async_setup_entry(
@@ -39,11 +34,10 @@ async def async_setup_entry(
     ).items():
         if config["type"] != Platform.SENSOR or entity_key not in extra_sensors:
             continue
-        if config.get("ac_diagnostic") and not supports_ac_diagnostic_attribute(
-            entity_key,
-            device.device_type,
-            device.model,
-            device.subtype,
+        required_attribute = config.get("required_attribute")
+        if (
+            required_attribute is not None
+            and required_attribute not in device.attributes
         ):
             continue
         sensors.append(MideaSensor(device, entity_key))
