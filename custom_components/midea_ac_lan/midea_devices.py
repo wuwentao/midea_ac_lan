@@ -9,6 +9,8 @@ from homeassistant.const import (
     CONCENTRATION_PARTS_PER_MILLION,
     PERCENTAGE,
     Platform,
+    UnitOfElectricCurrent,
+    UnitOfElectricPotential,
     UnitOfEnergy,
     UnitOfPower,
     UnitOfTemperature,
@@ -49,6 +51,19 @@ from midealocal.devices.fd import DeviceAttributes as FDAttributes
 from midealocal.devices.x26 import DeviceAttributes as X26Attributes
 from midealocal.devices.x34 import DeviceAttributes as X34Attributes
 from midealocal.devices.x40 import DeviceAttributes as X40Attributes
+
+from .ac_bb_diagnostics import (
+    COMPRESSOR_CURRENT,
+    COMPRESSOR_FREQUENCY,
+    ESTIMATED_DAILY_ENERGY_CONSUMPTION,
+    ESTIMATED_REALTIME_POWER,
+    ESTIMATED_TOTAL_ENERGY_CONSUMPTION,
+)
+from .ac_c1_diagnostics import (
+    COMPRESSOR_TARGET_FREQUENCY,
+    OUTDOOR_UNIT_TOTAL_CURRENT,
+    OUTDOOR_UNIT_VOLTAGE,
+)
 
 """
 Entity Naming Rule:
@@ -564,6 +579,78 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "device_class": SensorDeviceClass.POWER,
                 "unit": UnitOfPower.WATT,
                 "state_class": SensorStateClass.MEASUREMENT,
+            },
+            COMPRESSOR_FREQUENCY: {
+                "type": Platform.SENSOR,
+                "ac_diagnostic": True,
+                "translation_key": "compressor_frequency",
+                "name": "Compressor Frequency",
+                "icon": "mdi:sine-wave",
+                "unit": "Hz",
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            COMPRESSOR_CURRENT: {
+                "type": Platform.SENSOR,
+                "ac_diagnostic": True,
+                "translation_key": "compressor_current",
+                "name": "Compressor Current",
+                "device_class": SensorDeviceClass.CURRENT,
+                "unit": UnitOfElectricCurrent.AMPERE,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            COMPRESSOR_TARGET_FREQUENCY: {
+                "type": Platform.SENSOR,
+                "ac_diagnostic": True,
+                "translation_key": "compressor_target_frequency",
+                "name": "Compressor Target Frequency",
+                "icon": "mdi:sine-wave",
+                "unit": "Hz",
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            OUTDOOR_UNIT_TOTAL_CURRENT: {
+                "type": Platform.SENSOR,
+                "ac_diagnostic": True,
+                "translation_key": "outdoor_unit_total_current",
+                "name": "Outdoor Unit Total Current",
+                "device_class": SensorDeviceClass.CURRENT,
+                "unit": UnitOfElectricCurrent.AMPERE,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            OUTDOOR_UNIT_VOLTAGE: {
+                "type": Platform.SENSOR,
+                "ac_diagnostic": True,
+                "translation_key": "outdoor_unit_voltage",
+                "name": "Outdoor Unit Voltage",
+                "device_class": SensorDeviceClass.VOLTAGE,
+                "unit": UnitOfElectricPotential.VOLT,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            ESTIMATED_REALTIME_POWER: {
+                "type": Platform.SENSOR,
+                "ac_diagnostic": True,
+                "translation_key": "estimated_realtime_power",
+                "name": "Estimated Realtime Power",
+                "device_class": SensorDeviceClass.POWER,
+                "unit": UnitOfPower.WATT,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            ESTIMATED_TOTAL_ENERGY_CONSUMPTION: {
+                "type": Platform.SENSOR,
+                "ac_diagnostic": True,
+                "translation_key": "estimated_total_energy_consumption",
+                "name": "Estimated Total Energy Consumption",
+                "device_class": SensorDeviceClass.ENERGY,
+                "unit": UnitOfEnergy.KILO_WATT_HOUR,
+                "state_class": SensorStateClass.TOTAL_INCREASING,
+            },
+            ESTIMATED_DAILY_ENERGY_CONSUMPTION: {
+                "type": Platform.SENSOR,
+                "ac_diagnostic": True,
+                "translation_key": "estimated_daily_energy_consumption",
+                "name": "Estimated Daily Energy Consumption",
+                "device_class": SensorDeviceClass.ENERGY,
+                "unit": UnitOfEnergy.KILO_WATT_HOUR,
+                "state_class": SensorStateClass.TOTAL,
             },
             ACAttributes.pmv: {
                 "type": Platform.SENSOR,

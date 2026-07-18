@@ -66,6 +66,39 @@
 { "power_analysis_method": 2 }
 ```
 
+### BB 子协议诊断数据
+
+美的 23096725 型号、subtype 1 的空调使用 BB 子协议，并不支持传统的电量查询。
+本集成可读取室外机上报的压缩机电流和压缩机频率，并据此提供“估算实时功率”、
+“估算总耗电”和“估算今日耗电”。今日耗电按照 Home Assistant 配置的本地时区在
+午夜归零；两个耗电值在集成或 Home Assistant 重启后恢复。估算值不是设备原生电表
+读数，也不能代替经过校准的外置电量计。
+
+估算总耗电从首次启用该传感器时开始，并非空调出厂以来的原生总电量。上述诊断
+传感器只对匹配的 0xAC 型号和 subtype 提供，不会出现在其他空调型号中。
+
+默认电压为 220 V；设备未上报功率因数时使用默认值 0.95。可通过“自定义”调整：
+
+```json
+{
+  "bb_power_voltage": 220,
+  "bb_power_factor": 0.95,
+  "bb_current_scale": 0.1
+}
+```
+
+### C1 压缩机频率诊断
+
+0xAC 型号 22390001 子类型 8 和 22390003 子类型 8 会在 C1 的 0x41 分组中
+上报压缩机实际/目标频率、整数安培精度的压缩机/室外机总电流，以及整数伏特精度
+的室外机有效电压。本集成只对这些已验证的型号/子类型增加该只读查询。该 C1
+分组不提供功率因数或输入功率。
+
+在一拖多系统中，正在参与运行的内机会读到同一外机的相同频率；未运行的内机
+会返回 0 Hz，即使另一台内机正在使用外机。请勿把多台内机基于频率估算的功率
+相加，因为它们指向同一台外机。频率也不能单独作为通用功率换算依据，外机容量
+和运行工况都会影响实际功率。
+
 ## 生成实体
 
 ### 默认生成实体
@@ -85,6 +118,14 @@
 | sensor.{DEVICEID}\_total_energy_consumption   | sensor        | Total Energy Consumption   | 总能耗           |
 | sensor.{DEVICEID}\_current_energy_consumption | sensor        | Current Energy Consumption | 当前能耗         |
 | sensor.{DEVICEID}\_realtime_power             | sensor        | Realtime Power             | 实时功率         |
+| sensor.{DEVICEID}\_compressor_frequency        | sensor        | Compressor Frequency       | 压缩机频率       |
+| sensor.{DEVICEID}\_compressor_target_frequency | sensor        | Compressor Target Frequency | 压缩机目标频率   |
+| sensor.{DEVICEID}\_compressor_current          | sensor        | Compressor Current         | 压缩机电流       |
+| sensor.{DEVICEID}\_outdoor_unit_total_current  | sensor        | Outdoor Unit Total Current | 室外机总电流     |
+| sensor.{DEVICEID}\_outdoor_unit_voltage        | sensor        | Outdoor Unit Voltage       | 室外机有效电压   |
+| sensor.{DEVICEID}\_estimated_realtime_power    | sensor        | Estimated Realtime Power   | 估算实时功率     |
+| sensor.{DEVICEID}\_estimated_total_energy_consumption | sensor | Estimated Total Energy Consumption | 估算总耗电 |
+| sensor.{DEVICEID}\_estimated_daily_energy_consumption | sensor | Estimated Daily Energy Consumption | 估算今日耗电 |
 | fan.{DEVICEID}\_fresh_air                     | fan           | Fresh Air                  | 新风             |
 | switch.{DEVICEID}\_aux_heating                | switch        | Aux Heating                | 电辅热           |
 | switch.{DEVICEID}\_boost_mode                 | switch        | Boost Mode                 | 强劲模式         |

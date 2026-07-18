@@ -338,11 +338,29 @@
       "compressor_temperature": {
         "name": "压缩机温度"
       },
+      "compressor_current": {
+        "name": "压缩机电流"
+      },
+      "compressor_frequency": {
+        "name": "压缩机频率"
+      },
+      "compressor_target_frequency": {
+        "name": "压缩机目标频率"
+      },
       "condenser_temperature": {
         "name": "冷凝器温度"
       },
       "current_energy_consumption": {
         "name": "当前能耗"
+      },
+      "estimated_daily_energy_consumption": {
+        "name": "估算今日耗电"
+      },
+      "estimated_realtime_power": {
+        "name": "估算实时功率"
+      },
+      "estimated_total_energy_consumption": {
+        "name": "估算总耗电"
       },
       "current_temperature": {
         "name": "当前温度"
@@ -472,6 +490,12 @@
       },
       "outdoor_temperature": {
         "name": "室外温度"
+      },
+      "outdoor_unit_total_current": {
+        "name": "室外机总电流"
+      },
+      "outdoor_unit_voltage": {
+        "name": "室外机有效电压"
       },
       "program": {
         "name": "程序"

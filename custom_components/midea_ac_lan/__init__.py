@@ -34,6 +34,14 @@ from midealocal.device import DeviceType, MideaDevice, ProtocolVersion
 from midealocal.devices import device_selector
 from midealocal.discover import discover
 
+from .ac_bb_diagnostics import (
+    install_ac_bb_diagnostics,
+    supports_ac_bb_diagnostics,
+)
+from .ac_c1_diagnostics import (
+    install_ac_c1_diagnostics,
+    supports_ac_c1_frequency,
+)
 from .const import (
     ALL_PLATFORM,
     CONF_ACCOUNT,
@@ -251,6 +259,18 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
     if device:
         if refresh_interval is not None:
             device.set_refresh_interval(refresh_interval)
+        if device_type == DeviceType.AC and supports_ac_bb_diagnostics(
+            device.device_type,
+            device.model,
+            device.subtype,
+        ):
+            install_ac_bb_diagnostics(device, customize)
+        if device_type == DeviceType.AC and supports_ac_c1_frequency(
+            device.device_type,
+            device.model,
+            device.subtype,
+        ):
+            install_ac_c1_diagnostics(device)
         device.open()
         if DOMAIN not in hass.data:
             hass.data[DOMAIN] = {}
