@@ -55,15 +55,12 @@ from midealocal.devices.x40 import DeviceAttributes as X40Attributes
 from .ac_bb_diagnostics import (
     COMPRESSOR_CURRENT,
     COMPRESSOR_FREQUENCY,
+    COMPRESSOR_TARGET_FREQUENCY,
     ESTIMATED_DAILY_ENERGY_CONSUMPTION,
     ESTIMATED_REALTIME_POWER,
     ESTIMATED_TOTAL_ENERGY_CONSUMPTION,
 )
-from .ac_c1_diagnostics import (
-    COMPRESSOR_TARGET_FREQUENCY,
-    OUTDOOR_UNIT_TOTAL_CURRENT,
-    OUTDOOR_UNIT_VOLTAGE,
-)
+from .ac_c1_diagnostics import OUTDOOR_UNIT_TOTAL_CURRENT, OUTDOOR_UNIT_VOLTAGE
 
 """
 Entity Naming Rule:

@@ -16,10 +16,10 @@ from midealocal.devices.ac.message import MessageACBase
 from midealocal.message import ListTypes, MessageType
 
 from .ac_bb_diagnostics import (
-    BB_DIAGNOSTIC_ATTRIBUTES,
     COMPRESSOR_CURRENT,
     COMPRESSOR_FREQUENCY,
-    supports_ac_bb_diagnostics,
+    COMPRESSOR_TARGET_FREQUENCY,
+    supports_ac_bb_diagnostic_attribute,
 )
 
 if TYPE_CHECKING:
@@ -32,7 +32,6 @@ SUPPORTED_AC_C1_FREQUENCY_MODELS: Final = frozenset(
     },
 )
 
-COMPRESSOR_TARGET_FREQUENCY: Final = "compressor_target_frequency"
 OUTDOOR_UNIT_TOTAL_CURRENT: Final = "outdoor_unit_total_current"
 OUTDOOR_UNIT_VOLTAGE: Final = "outdoor_unit_voltage"
 
@@ -117,7 +116,8 @@ def supports_ac_diagnostic_attribute(
         supports_ac_c1_frequency(device_type, model, subtype)
     ):
         return True
-    return attribute in BB_DIAGNOSTIC_ATTRIBUTES and supports_ac_bb_diagnostics(
+    return supports_ac_bb_diagnostic_attribute(
+        attribute,
         device_type,
         model,
         subtype,
