@@ -87,48 +87,6 @@ Known settings:
 | Midea PortaSplit           |   12 |
 | Midea 00000Q1D subtype 524 |  101 |
 
-### BB subprotocol diagnostics
-
-Midea AC model 23096725 subtype 1 uses the BB subprotocol and does not implement
-the traditional energy query. For this model the integration can expose the
-compressor current and frequency reported by the outdoor unit, plus estimated
-power, total estimated energy, and daily estimated energy. The daily value
-resets at midnight in Home Assistant's configured time zone. Both energy values
-are restored after an integration or Home Assistant restart. Estimated power is
-calculated from compressor current, line voltage, and power factor; it is not a
-substitute for a calibrated external energy meter.
-
-The total estimate starts when this sensor is first enabled; it is not the
-appliance's factory lifetime energy counter. These diagnostics are only offered
-for the matching 0xAC model and subtype, and do not appear for other AC models.
-
-The default line voltage is 220 V. The fallback power factor is 0.95 and is only
-used when the device does not report one. Both values and the raw-current scale
-can be customized:
-
-```json
-{
-  "bb_power_voltage": 220,
-  "bb_power_factor": 0.95,
-  "bb_current_scale": 0.1
-}
-```
-
-### C1 compressor frequency diagnostics
-
-AC models 22390001 subtype 8 and 22390003 subtype 8 expose actual and target
-compressor frequency, whole-ampere compressor and outdoor-unit current, and
-whole-volt outdoor-unit RMS voltage in the otherwise unused C1 group 0x41
-response. The integration adds this read-only query only for those model/subtype
-combinations. These C1 frames do not report power factor or input power.
-
-On a multi-split system, active indoor units connected to the same outdoor unit
-report the same frequency. An inactive indoor unit reports 0 Hz even while a
-different indoor unit is running. Do not add frequency-derived power estimates
-from multiple indoor units: they refer to the same outdoor compressor. Frequency
-alone is also insufficient for a universal power estimate because the outdoor
-unit capacity and operating conditions affect power draw.
-
 ## Entities
 
 ### Default entity
