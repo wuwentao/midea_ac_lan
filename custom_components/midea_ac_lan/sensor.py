@@ -44,7 +44,12 @@ class MideaSensor(MideaEntity, SensorEntity):
     @property
     def native_value(self) -> StateType:
         """Return entity value."""
-        return cast("StateType", self._device.get_attribute(self._entity_key))
+        value = self._device.get_attribute(self._entity_key)
+        # If options mapping exists, return mapped key instead of raw value
+        options = self._config.get("options")
+        if options is not None and isinstance(value, int) and value in options:
+            return cast("StateType", options[value])
+        return cast("StateType", value)
 
     @property
     def device_class(self) -> SensorDeviceClass:
