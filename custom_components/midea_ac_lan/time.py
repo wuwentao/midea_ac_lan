@@ -2,7 +2,7 @@
 
 import logging
 from datetime import time
-from typing import Any, cast
+from typing import cast
 
 from homeassistant.components.time import TimeEntity
 from homeassistant.config_entries import ConfigEntry
@@ -67,7 +67,7 @@ class MideaTime(MideaEntity, TimeEntity):
         if hour is None or minute is None:
             return None
         try:
-            return time(hour=hour, minute=minute)
+            return time(hour=cast("int", hour), minute=cast("int", minute))
         except (TypeError, ValueError):
             _LOGGER.warning(
                 "Invalid time value for %s: hour=%s, minute=%s",
