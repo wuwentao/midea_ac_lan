@@ -97,6 +97,6 @@ class MideaNumber(MideaEntity, NumberEntity):
         """Return value."""
         return cast("float", self._device.get_attribute(self._entity_key))
 
-    def set_native_value(self, value: Any) -> None:  # noqa: ANN401
+    def set_native_value(self, value: Any) -> None:  # ruff:ignore[any-type]
         """Set value."""
         self._device.set_attribute(self._entity_key, value)

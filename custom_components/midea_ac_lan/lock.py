@@ -41,14 +41,14 @@ class MideaLock(MideaEntity, LockEntity):
         """Return true if state is locked."""
         return cast("bool", self._device.get_attribute(self._entity_key))
 
-    def lock(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
+    def lock(self, **kwargs: Any) -> None:  # ruff:ignore[any-type, unused-method-argument]
         """Lock the lock."""
         self._device.set_attribute(attr=self._entity_key, value=True)
 
-    def unlock(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
+    def unlock(self, **kwargs: Any) -> None:  # ruff:ignore[any-type, unused-method-argument]
         """Unlock the lock."""
         self._device.set_attribute(attr=self._entity_key, value=False)
 
-    def open(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
+    def open(self, **kwargs: Any) -> None:  # ruff:ignore[any-type, unused-method-argument]
         """Open the lock."""
         self.unlock()

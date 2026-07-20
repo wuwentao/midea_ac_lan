@@ -42,7 +42,7 @@ class MideaEntity(Entity):
         # Entity name translation based on hass.config.language
         # add language in /config/configuration.yaml will disable web UI setting
         # homeassistant:
-        #    language: zh-Hans  # noqa: ERA001
+        #    language: zh-Hans  # ruff:ignore[commented-out-code]
 
         # Translating the name and attributes of entities:
         # https://developers.home-assistant.io/blog/2023/03/27/entity_name_translations/#translating-entity-name
@@ -134,7 +134,7 @@ class MideaEntity(Entity):
         self._device.unregister_update(self.update_state)
 
     @callback
-    def update_state(self, status: Any) -> None:  # noqa: ANN401
+    def update_state(self, status: Any) -> None:  # ruff:ignore[any-type]
         """Update entity state."""
         if not self.hass:
             # Defensive guard for the is_stopping access below. Since the update

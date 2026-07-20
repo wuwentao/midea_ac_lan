@@ -76,7 +76,7 @@ async def update_listener(hass: HomeAssistant, config_entry: ConfigEntry) -> Non
             dev.set_refresh_interval(refresh_interval)
 
 
-async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:  # noqa: ARG001
+async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:  # ruff:ignore[unused-function-argument]
     """Set up midea_lan component when load this integration.
 
     Returns
@@ -97,7 +97,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:  # noqa:
             ):
                 attributes.append(attribute_name.value)
 
-    def service_set_attribute(service: Any) -> None:  # noqa: ANN401
+    def service_set_attribute(service: Any) -> None:  # ruff:ignore[any-type]
         """Set service attribute func."""
         device_id: int = service.data["device_id"]
         attr = service.data["attribute"]
@@ -126,7 +126,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:  # noqa:
                     attr,
                 )
 
-    def service_send_command(service: Any) -> None:  # noqa: ANN401
+    def service_send_command(service: Any) -> None:  # ruff:ignore[any-type]
         """Send command to service func."""
         device_id = service.data.get("device_id")
         cmd_type = service.data.get("cmd_type")

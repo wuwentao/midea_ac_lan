@@ -100,7 +100,7 @@ class MideaFan(MideaEntity, FanEntity):
         """Midea Fan fan speed."""
         return cast("int", self._device.get_attribute("fan_speed"))
 
-    def turn_off(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
+    def turn_off(self, **kwargs: Any) -> None:  # ruff:ignore[any-type, unused-method-argument]
         """Midea Fan turn off."""
         self._device.set_attribute(attr="power", value=False)
 
@@ -117,7 +117,7 @@ class MideaFan(MideaEntity, FanEntity):
         """Midea Fan percentage."""
         if not self.fan_speed:
             return None
-        return int(round(self.fan_speed * self.percentage_step))  # noqa: RUF046
+        return int(round(self.fan_speed * self.percentage_step))  # ruff:ignore[unnecessary-cast-to-int]
 
     def set_percentage(self, percentage: int) -> None:
         """Midea Fan set percentage."""
@@ -131,7 +131,7 @@ class MideaFan(MideaEntity, FanEntity):
         else:
             await self.hass.async_add_executor_job(self.set_percentage, percentage)
 
-    def update_state(self, status: Any) -> None:  # noqa: ANN401, ARG002
+    def update_state(self, status: Any) -> None:  # ruff:ignore[any-type, unused-method-argument]
         """Midea Fan update state."""
         if not self.hass:
             _LOGGER.warning(
@@ -163,7 +163,7 @@ class MideaFAFan(MideaFan):
         self,
         percentage: int | None = None,
         preset_mode: str | None = None,
-        **kwargs: Any,  # noqa: ANN401, ARG002
+        **kwargs: Any,  # ruff:ignore[any-type, unused-method-argument]
     ) -> None:
         """Midea FA Fan turn on."""
         fan_speed = int(percentage / self.percentage_step + 0.5) if percentage else None
@@ -189,7 +189,7 @@ class MideaB6Fan(MideaFan):
         self,
         percentage: int | None = None,
         preset_mode: str | None = None,
-        **kwargs: Any,  # noqa: ANN401, ARG002
+        **kwargs: Any,  # ruff:ignore[any-type, unused-method-argument]
     ) -> None:
         """Midea B6 Fan turn on."""
         fan_speed = int(percentage / self.percentage_step + 0.5) if percentage else None
@@ -228,14 +228,14 @@ class MideaACFreshAirFan(MideaFan):
 
     def turn_on(
         self,
-        percentage: int | None = None,  # noqa: ARG002
-        preset_mode: str | None = None,  # noqa: ARG002
-        **kwargs: Any,  # noqa: ANN401, ARG002
+        percentage: int | None = None,  # ruff:ignore[unused-method-argument]
+        preset_mode: str | None = None,  # ruff:ignore[unused-method-argument]
+        **kwargs: Any,  # ruff:ignore[any-type, unused-method-argument]
     ) -> None:
         """Midea AC Fan tun on."""
         self._device.set_attribute(attr=ACAttributes.fresh_air_power, value=True)
 
-    def turn_off(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
+    def turn_off(self, **kwargs: Any) -> None:  # ruff:ignore[any-type, unused-method-argument]
         """Midea AC Fan turn off."""
         self._device.set_attribute(attr=ACAttributes.fresh_air_power, value=False)
 
@@ -274,9 +274,9 @@ class MideaCEFan(MideaFan):
 
     def turn_on(
         self,
-        percentage: int | None = None,  # noqa: ARG002
-        preset_mode: str | None = None,  # noqa: ARG002
-        **kwargs: Any,  # noqa: ANN401, ARG002
+        percentage: int | None = None,  # ruff:ignore[unused-method-argument]
+        preset_mode: str | None = None,  # ruff:ignore[unused-method-argument]
+        **kwargs: Any,  # ruff:ignore[any-type, unused-method-argument]
     ) -> None:
         """Midea CE Fan turn on."""
         self._device.set_attribute(attr=CEAttributes.power, value=True)
@@ -308,13 +308,13 @@ class MideaX40Fan(MideaFan):
 
     def turn_on(
         self,
-        percentage: int | None = None,  # noqa: ARG002
-        preset_mode: str | None = None,  # noqa: ARG002
-        **kwargs: Any,  # noqa: ANN401, ARG002
+        percentage: int | None = None,  # ruff:ignore[unused-method-argument]
+        preset_mode: str | None = None,  # ruff:ignore[unused-method-argument]
+        **kwargs: Any,  # ruff:ignore[any-type, unused-method-argument]
     ) -> None:
         """Midea X40 Fan turn on."""
         self._device.set_attribute(attr=X40Attributes.fan_speed, value=1)
 
-    def turn_off(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
+    def turn_off(self, **kwargs: Any) -> None:  # ruff:ignore[any-type, unused-method-argument]
         """Midea X40 Fan turn off."""
         self._device.set_attribute(attr=X40Attributes.fan_speed, value=0)

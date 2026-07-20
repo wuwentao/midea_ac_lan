@@ -41,10 +41,10 @@ class MideaSwitch(MideaEntity, ToggleEntity):
         """Return true if switch is on."""
         return cast("bool", self._device.get_attribute(self._entity_key))
 
-    def turn_on(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
+    def turn_on(self, **kwargs: Any) -> None:  # ruff:ignore[any-type, unused-method-argument]
         """Turn on switch."""
         self._device.set_attribute(attr=self._entity_key, value=True)
 
-    def turn_off(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
+    def turn_off(self, **kwargs: Any) -> None:  # ruff:ignore[any-type, unused-method-argument]
         """Turn off switch."""
         self._device.set_attribute(attr=self._entity_key, value=False)
