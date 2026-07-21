@@ -9,6 +9,8 @@ from homeassistant.const import (
     CONCENTRATION_PARTS_PER_MILLION,
     PERCENTAGE,
     Platform,
+    UnitOfElectricCurrent,
+    UnitOfElectricPotential,
     UnitOfEnergy,
     UnitOfFrequency,
     UnitOfPower,
@@ -57,6 +59,10 @@ FRESH_AIR_EXHAUST_POWER = "fresh_air_exhaust_power"
 FRESH_AIR_EXHAUST_SPEED = "fresh_air_exhaust_speed"
 COMPRESSOR_FREQUENCY = "compressor_frequency"
 COMPRESSOR_TARGET_FREQUENCY = "compressor_target_frequency"
+COMPRESSOR_CURRENT = "compressor_current"
+OUTDOOR_UNIT_TOTAL_CURRENT = "outdoor_unit_total_current"
+OUTDOOR_UNIT_VOLTAGE = "outdoor_unit_voltage"
+POWER_FACTOR = "power_factor"
 
 """
 Entity Naming Rule:
@@ -598,6 +604,42 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "icon": "mdi:sine-wave",
                 "device_class": SensorDeviceClass.FREQUENCY,
                 "unit": UnitOfFrequency.HERTZ,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            COMPRESSOR_CURRENT: {
+                "type": Platform.SENSOR,
+                "required_attribute": COMPRESSOR_CURRENT,
+                "translation_key": "compressor_current",
+                "name": "Compressor Current",
+                "device_class": SensorDeviceClass.CURRENT,
+                "unit": UnitOfElectricCurrent.AMPERE,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            OUTDOOR_UNIT_TOTAL_CURRENT: {
+                "type": Platform.SENSOR,
+                "required_attribute": OUTDOOR_UNIT_TOTAL_CURRENT,
+                "translation_key": "outdoor_unit_total_current",
+                "name": "Outdoor Unit Total Current",
+                "device_class": SensorDeviceClass.CURRENT,
+                "unit": UnitOfElectricCurrent.AMPERE,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            OUTDOOR_UNIT_VOLTAGE: {
+                "type": Platform.SENSOR,
+                "required_attribute": OUTDOOR_UNIT_VOLTAGE,
+                "translation_key": "outdoor_unit_voltage",
+                "name": "Outdoor Unit Voltage",
+                "device_class": SensorDeviceClass.VOLTAGE,
+                "unit": UnitOfElectricPotential.VOLT,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            POWER_FACTOR: {
+                "type": Platform.SENSOR,
+                "required_attribute": POWER_FACTOR,
+                "translation_key": "power_factor",
+                "name": "Power Factor",
+                "device_class": SensorDeviceClass.POWER_FACTOR,
+                "unit": PERCENTAGE,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
             ACAttributes.pmv: {
