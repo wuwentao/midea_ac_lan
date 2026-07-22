@@ -3,7 +3,7 @@
 > [English Version](./CONTRIBUTING.md)
 
 感谢你愿意为本项目贡献代码与想法！
-本文档介绍如何使用 **VS Code + Dev Container** 构建开发环境、在 Windows（WSL2）下配置环境、如何提交代码以及规范要求。
+本文档介绍如何使用 **[uv](https://docs.astral.sh/uv/)** 构建本地开发环境，以及如何提交代码与规范要求。
 
 GitHub 文件路径：`.github/CONTRIBUTING.zh.md`
 
@@ -12,111 +12,167 @@ GitHub 文件路径：`.github/CONTRIBUTING.zh.md`
 ## 目录
 
 1. [开发环境概述](#一-开发环境概述)
-2. [系统与工具要求](#二-系统与工具要求)
-3. [推荐方式：在容器卷中克隆仓库](#三-推荐方式在容器卷中克隆仓库)
-4. [备用方式：本地克隆后再在容器中打开（不推荐）](#四-备用方式本地克隆后再在容器中打开不推荐)
-5. [Windows 用户指南（WSL2 必须）](#五-windows-用户指南wsl2-必须)
+2. [前置条件：安装 uv](#二-前置条件安装-uv)
+3. [初始化项目](#三-初始化项目)
+4. [本地运行 Home Assistant](#四-本地运行-home-assistant)
+5. [测试多个 Python 版本](#五-测试多个-python-版本)
 6. [中国大陆网络镜像配置](#六-中国大陆网络镜像配置)
-7. [Dev Container 命令与问题排查](#七-dev-container-命令与问题排查)
+7. [代码风格、Pre-commit 与检查](#七-代码风格pre-commit-与检查)
 8. [代码提交流程](#八-代码提交流程)
-9. [代码风格与测试规范](#九-代码风格与测试规范)
-10. [问题反馈与社区守则](#十-问题反馈与社区守则)
+9. [问题反馈与社区守则](#九-问题反馈与社区守则)
 
 ---
 
 ## 一、开发环境概述
 
-本项目采用 **VS Code + Dev Container** 容器化开发环境，保证跨平台一致性。
+本项目使用 **[uv](https://docs.astral.sh/uv/)**（一个极快的 Python 包与项目管理器）来搭建简单、可复现的本地开发环境，**无需 Docker 或 Dev Container**。
 
-> ✅ 推荐方式：在 VS Code 命令面板中执行 **“Dev Containers: Clone Repository in Container Volume...”**
-> 所有依赖、权限与配置均在容器中完成。
+`uv` 会自动：
 
----
+- 创建并管理虚拟环境（`.venv`）；
+- **自动下载所需的 Python 版本**（在 `.python-version` 中固定为 `3.12`）——你**无需**自己安装 Python；
+- 根据 `pyproject.toml` / `uv.lock` 安装全部依赖。
 
-## 二、系统与工具要求
-
-- **操作系统**：Linux / macOS / Windows（需启用 WSL2）
-- **Python**：最低版本 `3.11`（容器内已自动安装）
-- **VS Code 插件**：
-  - Dev Containers
-  - Remote - WSL（仅 Windows 用户）
-- **Docker**：Docker Desktop（启用 WSL2 backend）或原生 Docker
-- **配置参考**：可查看 `.devcontainer/Dockerfile` 了解镜像构建逻辑
-
-> ⚠️ Windows 用户 **无需** 在 WSL 中手动安装 Python、venv 或 pip，容器会自动配置完整环境。
+支持的 Python 版本：**3.12、3.13、3.14**。
 
 ---
 
-## 三、推荐方式：在容器卷中克隆仓库
+## 二、前置条件：安装 uv
 
-1. 打开 **VS Code**。
-2. 打开命令面板：
-   - **Windows/Linux**：`Ctrl + Shift + P`
-   - **macOS**：`Cmd + Shift + P`
-3. 输入 `Dev Containers: Clone Repository in Container Volume...`，按回车执行。
-4. 输入仓库地址（如 `https://github.com/<org>/<repo>.git`）。
-5. VS Code 将自动构建并打开容器化开发环境。
+只需安装一次 uv，按你的操作系统选择方式。完整文档：<https://docs.astral.sh/uv/getting-started/installation/>。
 
-**优点：**
-
-- 避免权限冲突；
-- 环境与依赖完全由容器管理；
-- 无需本地安装任何 Python 工具。
-
----
-
-## 四、备用方式：本地克隆后再在容器中打开（不推荐）
+**macOS / Linux / WSL2：**
 
 ```bash
-git clone <仓库地址>
-cd <仓库目录>
-code .
+curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-然后执行命令：**Dev Containers: Open Folder in Container**
+**Windows（PowerShell）：**
 
-> ⚠️ 可能出现文件权限或 UID/GID 不一致问题，请自行调整或避免此方式。
+```powershell
+powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+**其他方式（任意系统）：**
+
+```bash
+# 使用 Homebrew（macOS/Linux）
+brew install uv
+# 或使用 pipx
+pipx install uv
+```
+
+安装后验证（必要时重启终端）：
+
+```bash
+uv --version
+```
+
+> 💡 **Windows 提示：** 你可以在 Windows 原生环境开发，也可以在 **WSL2**（Ubuntu）中开发，二者皆可——只需在你使用的环境中安装 uv 即可。
 
 ---
 
-## 五、Windows 用户指南（WSL2 必须）
+## 三、初始化项目
 
-1. 启用 WSL2：
-   ```powershell
-   wsl --install -d Ubuntu
-   wsl --set-default-version 2
-   ```
-2. 无需在 Ubuntu 中安装 Python 或开发工具。
-   只需确保 **Docker Desktop**（WSL2 backend）与 **VS Code Dev Containers** 插件已启用。
-3. 推荐仓库存放路径：
-   - `/home/<用户名>/<repo>`
-   - 避免放在 `C:\` 驱动器下（性能差且易出权限问题）
+克隆仓库并运行初始化脚本：
+
+```bash
+git clone https://github.com/wuwentao/midea_ac_lan.git
+cd midea_ac_lan
+./scripts/setup.sh
+```
+
+`scripts/setup.sh` 会执行 `uv sync`（创建 `.venv` 并安装项目及 `dev` 依赖组）并安装 git 钩子。
+
+想手动执行？以下两步等价：
+
+```bash
+uv sync
+uv run pre-commit install
+uv run pre-commit install --hook-type commit-msg
+```
+
+> 在没有 bash 的 Windows 环境下，请直接运行上面的手动命令，而不是 `scripts/setup.sh`。
+
+---
+
+## 四、本地运行 Home Assistant
+
+启动本地 Home Assistant 实例（已加载本集成），地址 <http://localhost:8123>：
+
+```bash
+./scripts/run.sh
+```
+
+或直接运行：
+
+```bash
+uv run hass --config config --debug
+```
+
+首次运行会在 `./config` 下创建配置。在 VS Code 中也可使用 **“Run Home Assistant on port 8123”** 任务或 **“Python Debugger: Launch Home Assistant”** 调试配置。
+
+---
+
+## 五、测试多个 Python 版本
+
+每个受支持的 Python 版本对应其必须兼容的最低 Home Assistant 版本。`uv` 会通过 `pyproject.toml` 中的环境标记自动选择对应的 Home Assistant：
+
+| Python | Home Assistant |
+| ------ | -------------- |
+| 3.12   | 2024.4.1       |
+| 3.13   | 2024.12.1      |
+| 3.14   | 2026.3.1       |
+
+随时切换到其他版本：
+
+```bash
+uv sync --python 3.13   # 或 3.14
+```
+
+若本地没有对应解释器，uv 会自动下载。
 
 ---
 
 ## 六、中国大陆网络镜像配置
 
-构建容器前可设置镜像变量：
+如果依赖或 Python 下载缓慢，可在运行 uv **之前**设置以下环境变量（可写入 `~/.bashrc` / `~/.zshrc` / PowerShell 配置文件以持久化）：
 
 ```bash
-export APT_MIRROR_DOMAIN="mirrors.tuna.tsinghua.edu.cn"
-export PIP_MIRROR_DOMAIN="pypi.tuna.tsinghua.edu.cn"
+# PyPI 镜像（清华）
+export UV_DEFAULT_INDEX="https://pypi.tuna.tsinghua.edu.cn/simple"
+
+# Python 解释器下载镜像
+export UV_PYTHON_INSTALL_MIRROR="https://mirror.nju.edu.cn/github-release/astral-sh/python-build-standalone"
 ```
 
-这些变量在 `.devcontainer/Dockerfile` 中已支持。
+Windows PowerShell：
+
+```powershell
+$env:UV_DEFAULT_INDEX = "https://pypi.tuna.tsinghua.edu.cn/simple"
+$env:UV_PYTHON_INSTALL_MIRROR = "https://mirror.nju.edu.cn/github-release/astral-sh/python-build-standalone"
+```
 
 ---
 
-## 七、Dev Container 命令与问题排查
+## 七、代码风格、Pre-commit 与检查
 
-| 命令                                     | 说明                 |
-| ---------------------------------------- | -------------------- |
-| **Reopen in Container**                  | 在容器中打开当前项目 |
-| **Rebuild Container**                    | 重建开发容器         |
-| **Clone Repository in Container Volume** | 推荐方式             |
-| **Show Container Log**                   | 查看容器构建日志     |
+所有检查都通过 uv 环境中的 **pre-commit** 运行：
 
-> 构建错误可在命令面板执行：**Dev Containers: Show Container Log**
+```bash
+uv run pre-commit run --all-files
+```
+
+其中包括：
+
+- `ruff` → 代码检查 + 自动修复与格式化（配置见 `pyproject.toml` 的 `[tool.ruff]`）
+- `mypy` → 静态类型检查（配置见 `mypy.ini`）
+- `pylint` → 额外的代码检查（配置见 `pylintrc`）
+- `codespell`、`prettier`、`commitizen` / `commitlint`
+
+提交前请修复所有报错。CI 会在每个 Pull Request 上运行相同的检查。
+
+> 若你修改了 `pyproject.toml` 中的依赖，请运行 `uv lock`（或由 `uv-lock` 这个 pre-commit 钩子自动完成）并提交更新后的 `uv.lock`。
 
 ---
 
@@ -143,21 +199,13 @@ export PIP_MIRROR_DOMAIN="pypi.tuna.tsinghua.edu.cn"
    ```
 
 4. 推送并创建 Pull Request。
-   GitHub Actions 会自动验证 commit message 格式。
+   GitHub Actions 会自动验证 commit message 格式并运行检查。
+
+> ℹ️ pre-commit 钩子会阻止直接向 `main` 分支提交——请始终在分支上开发。
 
 ---
 
-## 九、代码风格与测试规范
-
-- 容器内已预装 **pre-commit**，提交时会自动运行以下工具：
-  - `ruff`：代码检查
-  - `mypy`：类型检查
-- 若 pre-commit 报错，请根据提示修复后重新提交。
-- 测试推荐使用 `pytest`。
-
----
-
-## 十、问题反馈与社区守则
+## 九、问题反馈与社区守则
 
 - 提交 Issue 时请附带：重现步骤、环境说明、日志。
 - 保持尊重、清晰、建设性的沟通。

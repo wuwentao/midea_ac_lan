@@ -18,7 +18,7 @@
 
 ⭐如果本集成对你有所帮助, 请不吝为它点个星, 这将是对我的极大激励。
 
-**_❗注意: 本集成需要 Home Assistant 2023.8 或更高版本_**
+**_❗注意: 本集成需要 Home Assistant 2024.4.1 或更高版本_**
 
 ## 1. ❗❗❗❗❗❗重要提醒❗❗❗❗❗❗
 
@@ -192,4 +192,12 @@ wget -O - https://github.com/wuwentao/midea_ac_lan/raw/main/scripts/install.sh |
 
 ## 9. Contributing Guide
 
-[中文版CONTRIBUTING](.github/CONTRIBUTING.zh.md)
+开发环境使用 [uv](https://docs.astral.sh/uv/)（无需 Docker）。安装 uv 后：
+
+```shell
+git clone https://github.com/wuwentao/midea_ac_lan.git
+cd midea_ac_lan
+./scripts/setup.sh
+```
+
+完整的环境搭建、本地运行 Home Assistant、代码风格与提交规范，请参考 [中文版CONTRIBUTING](.github/CONTRIBUTING.zh.md)。

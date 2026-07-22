@@ -13,7 +13,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        python-version: ["3.12", "3.11"]
+        # python-version: ["3.12", "3.13", "3.14"]
+        python-version: ["3.12"]
         os: ["windows-latest", "ubuntu-latest", "macos-latest"]
 
     permissions:
@@ -25,21 +26,25 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          # super-linter needs the full git history to get the
-          # list of files that changed across commits
-          fetch-depth: 0
 
-      - uses: actions/setup-python@v5
-        name: Set up Python ${{ matrix.python-version }}
+      - name: Install uv
+        # Pin to a full release; Astral no longer publishes moving major tags.
+        uses: astral-sh/setup-uv@v6
         with:
+          enable-cache: true
           python-version: ${{ matrix.python-version }}
 
       - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements-all-${{ matrix.python-version }}.txt
-        shell: bash
+        # --locked fails the build if uv.lock is out of date with pyproject.toml
+        run: uv sync --locked --python ${{ matrix.python-version }}
+
+      - name: Cache pre-commit
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pre-commit
+          key: >-
+            pre-commit-${{ runner.os }}-py${{ matrix.python-version }}-${{
+            hashFiles('.pre-commit-config.yaml') }}
 
       - name: Pre-commit
-        uses: pre-commit/action@v3.0.1
+        run: uv run pre-commit run --all-files --show-diff-on-failure

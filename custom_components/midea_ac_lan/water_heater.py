@@ -2,7 +2,7 @@
 
 import functools as ft
 import logging
-from typing import Any, ClassVar, TypeAlias, cast
+from typing import Any, ClassVar, cast
 
 from homeassistant.components.water_heater import (
     WaterHeaterEntity,
@@ -81,7 +81,7 @@ async def async_setup_entry(
     async_add_entities(devs)
 
 
-MideaWaterHeaterDevice: TypeAlias = (
+type MideaWaterHeaterDevice = (
     MideaE2Device | MideaE3Device | MideaC3Device | MideaE6Device | MideaCDDevice
 )
 
@@ -399,7 +399,7 @@ class MideaE6WaterHeater(MideaWaterHeater):
         """Midea E6 Water Heater min temperature."""
         min_temperature = cast(
             "list[str]",
-            self._device.get_attribute(E6Attributes.min_temperature),
+            self._device.get_attribute(E6Attributes.temperature_min),
         )
         return cast(
             "float",
@@ -411,7 +411,7 @@ class MideaE6WaterHeater(MideaWaterHeater):
         """Midea E6 Water Heater max temperature."""
         max_temperature = cast(
             "list[str]",
-            self._device.get_attribute(E6Attributes.max_temperature),
+            self._device.get_attribute(E6Attributes.temperature_max),
         )
         return cast(
             "float",

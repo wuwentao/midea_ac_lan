@@ -3,7 +3,7 @@
 > [中文版点这里 / Chinese Version](./CONTRIBUTING.zh.md)
 
 Thank you for contributing to this project!
-This guide explains how to set up your development environment (recommended: **VS Code + Dev Container**) and how to contribute code following our workflow and style rules.
+This guide explains how to set up your development environment with **[uv](https://docs.astral.sh/uv/)** and how to contribute code following our workflow and style rules.
 
 GitHub Path: `.github/CONTRIBUTING.md`
 
@@ -12,114 +12,167 @@ GitHub Path: `.github/CONTRIBUTING.md`
 ## Table of Contents
 
 1. [Overview](#1-overview)
-2. [System Requirements](#2-system-requirements)
-3. [Recommended Setup: Clone in Container Volume](#3-recommended-setup-clone-in-container-volume)
-4. [Alternative Setup: Local Clone (Not Recommended)](#4-alternative-setup-local-clone-not-recommended)
-5. [Windows Users (WSL2 Required)](#5-windows-users-wsl2-required)
+2. [Prerequisite: Install uv](#2-prerequisite-install-uv)
+3. [Set Up the Project](#3-set-up-the-project)
+4. [Run Home Assistant Locally](#4-run-home-assistant-locally)
+5. [Testing Multiple Python Versions](#5-testing-multiple-python-versions)
 6. [China Mainland Network Mirrors](#6-china-mainland-network-mirrors)
-7. [Dev Container Commands & Debugging](#7-dev-container-commands--debugging)
+7. [Code Style, Pre-commit & Linting](#7-code-style-pre-commit--linting)
 8. [Commit & Pull Request Workflow](#8-commit--pull-request-workflow)
-9. [Code Style, Pre-commit & Testing](#9-code-style-pre-commit--testing)
-10. [Issues & Community Conduct](#10-issues--community-conduct)
+9. [Issues & Community Conduct](#9-issues--community-conduct)
 
 ---
 
 ## 1. Overview
 
-This project uses **VS Code + Dev Container** to provide a consistent, containerized development environment.
+This project uses **[uv](https://docs.astral.sh/uv/)**, an extremely fast Python package and project manager, to provide a simple and reproducible local development environment. No Docker or Dev Container is required.
 
-> ✅ Recommended: Use **“Dev Containers: Clone Repository in Container Volume...”** directly from VS Code to avoid permission issues.
+`uv` will:
 
----
+- Create and manage a virtual environment (`.venv`) for you.
+- **Automatically download the correct Python version** (pinned to `3.12` in `.python-version`) — you do **not** need to install Python yourself.
+- Install all dependencies from `pyproject.toml` / `uv.lock`.
 
-## 2. System Requirements
-
-- **OS:** Linux / macOS / Windows (with WSL2)
-- **Python:** ≥ 3.11 (for runtime inside container)
-- **VS Code Extensions:**
-  - [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
-  - [Remote - WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) (Windows only)
-- **Docker:** Docker Desktop (with WSL2 backend) or native Docker
-- **Reference:** See `.devcontainer/Dockerfile` for the environment build details.
-
-> ⚠️ On Windows, you **do not need** to install Python or any build tools inside WSL manually. The container environment handles everything.
+Supported Python versions: **3.12, 3.13, 3.14**.
 
 ---
 
-## 3. Recommended Setup: Clone in Container Volume
+## 2. Prerequisite: Install uv
 
-1. Open **VS Code**.
-2. Press:
-   - **Windows/Linux:** `Ctrl + Shift + P`
-   - **macOS:** `Cmd + Shift + P`
-3. Type `Dev Containers: Clone Repository in Container Volume...` and press Enter.
-4. Enter your repository URL (e.g., `https://github.com/<org>/<repo>.git`).
-5. VS Code will automatically:
-   - Clone the repository into a Docker-managed volume.
-   - Build and open the containerized environment.
+Install uv once, using the method for your OS. Full docs: <https://docs.astral.sh/uv/getting-started/installation/>.
 
-**Advantages:**
-
-- Avoids UID/GID conflicts.
-- All dependencies and configs remain inside the container.
-
----
-
-## 4. Alternative Setup: Local Clone (Not Recommended)
-
-If you prefer cloning locally:
+**macOS / Linux / WSL2:**
 
 ```bash
-git clone <repo-url>
-cd <repo>
-code .
+curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-Then open via command:
+**Windows (PowerShell):**
 
-> `Dev Containers: Open Folder in Container`
+```powershell
+powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
 
-⚠️ May cause permission issues if your host user differs from the container user.
-Use at your own risk.
+**Alternatives (any OS):**
+
+```bash
+# with Homebrew (macOS/Linux)
+brew install uv
+# or with pipx
+pipx install uv
+```
+
+Verify the install and restart your shell if needed:
+
+```bash
+uv --version
+```
+
+> 💡 **Windows tip:** you can develop natively on Windows, or inside **WSL2** (Ubuntu). Either works — just install uv in whichever environment you use.
 
 ---
 
-## 5. Windows Users (WSL2 Required)
+## 3. Set Up the Project
 
-1. Enable WSL2:
-   ```powershell
-   wsl --install -d Ubuntu
-   wsl --set-default-version 2
-   ```
-2. No need to install Python or compilers manually.
-   Just ensure Docker Desktop (WSL2 backend) and VS Code Dev Container extensions are installed.
-3. Clone or open repositories **inside WSL’s Linux filesystem**:
-   - Example path: `/home/<user>/<repo>`
-   - Avoid using `C:\` drives to prevent performance and permission issues.
+Clone the repository and run the setup script:
+
+```bash
+git clone https://github.com/wuwentao/midea_ac_lan.git
+cd midea_ac_lan
+./scripts/setup.sh
+```
+
+`scripts/setup.sh` runs `uv sync` (creating `.venv` and installing the project plus the `dev` dependency group) and installs the git hooks.
+
+Prefer to do it manually? These two steps are equivalent:
+
+```bash
+uv sync
+uv run pre-commit install
+uv run pre-commit install --hook-type commit-msg
+```
+
+> On Windows without a bash shell, run the manual commands above instead of `scripts/setup.sh`.
+
+---
+
+## 4. Run Home Assistant Locally
+
+Start a local Home Assistant instance with this integration loaded on <http://localhost:8123>:
+
+```bash
+./scripts/run.sh
+```
+
+Or run it directly:
+
+```bash
+uv run hass --config config --debug
+```
+
+The config is created under `./config` on first run. In VS Code you can also use the **"Run Home Assistant on port 8123"** task or the **"Python Debugger: Launch Home Assistant"** launch configuration.
+
+---
+
+## 5. Testing Multiple Python Versions
+
+Each supported Python version targets the minimum Home Assistant version it must work with. `uv` selects the right Home Assistant automatically (via environment markers in `pyproject.toml`):
+
+| Python | Home Assistant |
+| ------ | -------------- |
+| 3.12   | 2024.4.1       |
+| 3.13   | 2024.12.1      |
+| 3.14   | 2026.3.1       |
+
+Switch the active environment to another version at any time:
+
+```bash
+uv sync --python 3.13   # or 3.14
+```
+
+uv downloads the interpreter if it is not already present.
 
 ---
 
 ## 6. China Mainland Network Mirrors
 
-For users in China Mainland, set mirrors before building:
+If package or Python downloads are slow, set these environment variables **before** running uv (put them in your `~/.bashrc` / `~/.zshrc` / PowerShell profile to persist):
 
 ```bash
-export APT_MIRROR_DOMAIN="mirrors.tuna.tsinghua.edu.cn"
-export PIP_MIRROR_DOMAIN="pypi.tuna.tsinghua.edu.cn"
+# PyPI mirror (Tsinghua)
+export UV_DEFAULT_INDEX="https://pypi.tuna.tsinghua.edu.cn/simple"
+
+# Python interpreter download mirror
+export UV_PYTHON_INSTALL_MIRROR="https://mirror.nju.edu.cn/github-release/astral-sh/python-build-standalone"
 ```
 
-These variables are supported inside `devcontainer/Dockerfile`.
+On Windows PowerShell:
+
+```powershell
+$env:UV_DEFAULT_INDEX = "https://pypi.tuna.tsinghua.edu.cn/simple"
+$env:UV_PYTHON_INSTALL_MIRROR = "https://mirror.nju.edu.cn/github-release/astral-sh/python-build-standalone"
+```
 
 ---
 
-## 7. Dev Container Commands & Debugging
+## 7. Code Style, Pre-commit & Linting
 
-| Command                                  | Description                          |
-| ---------------------------------------- | ------------------------------------ |
-| **Reopen in Container**                  | Open current folder inside container |
-| **Rebuild Container**                    | Rebuild environment                  |
-| **Clone Repository in Container Volume** | Recommended workflow                 |
-| **Show Container Log**                   | View build logs and errors           |
+All checks run through **pre-commit** inside the uv environment:
+
+```bash
+uv run pre-commit run --all-files
+```
+
+This runs, among others:
+
+- `ruff` → linting + auto-fix and formatting (config in `pyproject.toml` `[tool.ruff]`)
+- `mypy` → static type checking (config in `mypy.ini`)
+- `pylint` → additional linting (config in `pylintrc`)
+- `codespell`, `prettier`, `commitizen` / `commitlint`
+
+Fix all reported issues before committing. The same checks run in CI on every pull request.
+
+> If you change dependencies in `pyproject.toml`, run `uv lock` (or let the `uv-lock` pre-commit hook do it) and commit the updated `uv.lock`.
 
 ---
 
@@ -146,22 +199,13 @@ These variables are supported inside `devcontainer/Dockerfile`.
    ```
 
 4. Push and open a Pull Request.
-   GitHub Actions will validate your commit messages automatically.
+   GitHub Actions will validate your commit messages and run the linters automatically.
+
+> ℹ️ Commits directly to `main` are blocked by a pre-commit hook — always work on a branch.
 
 ---
 
-## 9. Code Style, Pre-commit & Testing
-
-- **Pre-commit** is preinstalled inside the container.
-- It automatically runs:
-  - `ruff` → Linting and static analysis
-  - `mypy` → Type checking
-- Fix all reported issues before committing.
-- Tests use `pytest` (unless specified otherwise).
-
----
-
-## 10. Issues & Community Conduct
+## 9. Issues & Community Conduct
 
 When opening Issues:
 
