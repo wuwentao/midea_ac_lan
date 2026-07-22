@@ -1,5 +1,6 @@
 """Midea Climate entries."""
 
+import json
 import logging
 from typing import Any, ClassVar, cast
 
@@ -27,6 +28,7 @@ from homeassistant.components.climate import (
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import (
     ATTR_TEMPERATURE,
+    CONF_CUSTOMIZE,
     CONF_DEVICE_ID,
     CONF_SWITCHES,
     MAJOR_VERSION,
@@ -250,7 +252,7 @@ class MideaClimate(MideaEntity, ClimateEntity):
                 type(self),
             )
             return
-        self.schedule_update_ha_state()
+        self.schedule_update_if_running()
 
 
 class MideaACClimate(MideaClimate):
@@ -266,7 +268,9 @@ class MideaACClimate(MideaClimate):
     ) -> None:
         """Midea AC Climate entity init."""
         super().__init__(device, entity_key)
-        self._attr_hvac_modes = [
+        # fixed positional map: device "mode" int -> HVACMode. DO NOT reorder,
+        # the device mode value indexes into this list.
+        self._mode_index = [
             HVACMode.OFF,
             HVACMode.AUTO,
             HVACMode.COOL,
@@ -274,6 +278,14 @@ class MideaACClimate(MideaClimate):
             HVACMode.HEAT,
             HVACMode.FAN_ONLY,
         ]
+        self._attr_hvac_modes = list(self._mode_index)
+        # customize overrides parsed once; B5 capabilities read dynamically
+        # (they arrive after the first refresh, so hvac_modes/supported_features
+        # are computed lazily — priority: customize > B5 > defaults)
+        self._customize_swing: bool | None = None
+        self._customize_hvac_modes: list[HVACMode] | None = None
+        self._customize_preset_modes: list[str] | None = None
+        self._parse_capability_customize(config_entry)
         self._fan_speeds: dict[str, int] = {
             FAN_SILENT: 20,
             FAN_LOW: 40,
@@ -304,6 +316,176 @@ class MideaACClimate(MideaClimate):
             and "indoor_humidity" in config_entry.options["sensors"]
         )
 
+    def _parse_capability_customize(self, config_entry: ConfigEntry) -> None:
+        """Parse the swing / hvac_modes customize overrides (highest priority).
+
+        ``{"swing": false, "hvac_modes": ["off", "cool", "dry", "fan_only"]}``
+        """
+        customize = config_entry.options.get(CONF_CUSTOMIZE, "")
+        if not customize:
+            return
+        try:
+            params = json.loads(customize)
+        except (ValueError, TypeError):
+            return
+        if not isinstance(params, dict):
+            return
+        if "swing" in params:
+            self._customize_swing = bool(params["swing"])
+        modes = params.get("hvac_modes")
+        if isinstance(modes, list):
+            valid = {mode.value: mode for mode in self._mode_index}
+            wanted: list[HVACMode] = []
+            for name in modes:
+                hvac = valid.get(str(name))
+                if hvac is not None and hvac not in wanted:
+                    wanted.append(hvac)
+            if HVACMode.OFF not in wanted:
+                wanted.insert(0, HVACMode.OFF)
+            if any(hvac != HVACMode.OFF for hvac in wanted):
+                self._customize_hvac_modes = wanted
+        presets = params.get("preset_modes")
+        if isinstance(presets, list):
+            valid_presets = {
+                PRESET_NONE,
+                PRESET_COMFORT,
+                PRESET_ECO,
+                PRESET_BOOST,
+                PRESET_SLEEP,
+                PRESET_AWAY,
+            }
+            wanted_p: list[str] = []
+            for name in presets:
+                preset = str(name)
+                if preset in valid_presets and preset not in wanted_p:
+                    wanted_p.append(preset)
+            if PRESET_NONE not in wanted_p:
+                wanted_p.insert(0, PRESET_NONE)
+            # honor even an empty / none-only list (user wants no presets)
+            self._customize_preset_modes = wanted_p
+
+    def _capability_swing(self) -> bool:
+        """Whether swing is available (customize > B5 capability > default).
+
+        Returns:
+            ``True`` when the swing control should be exposed.
+
+        """
+        if self._customize_swing is not None:
+            return self._customize_swing
+        caps = getattr(self._device, "capabilities", {})
+        if "swing_vertical" in caps or "swing_horizontal" in caps:
+            return bool(caps.get("swing_vertical") or caps.get("swing_horizontal"))
+        return True
+
+    @property
+    def hvac_modes(self) -> list[HVACMode]:
+        """hvac_modes: customize > B5 capabilities > default full set.
+
+        Read dynamically so capabilities decoded after the first refresh are
+        reflected (they are not yet available when the entity is created).
+        """
+        if self._customize_hvac_modes is not None:
+            return self._customize_hvac_modes
+        caps = getattr(self._device, "capabilities", {})
+        if not caps:
+            return list(self._mode_index)
+        modes = [HVACMode.OFF]
+        if caps.get("auto_mode"):
+            modes.append(HVACMode.AUTO)
+        if caps.get("cool_mode"):
+            modes.append(HVACMode.COOL)
+        if caps.get("dry_mode"):
+            modes.append(HVACMode.DRY)
+        if caps.get("heat_mode"):
+            modes.append(HVACMode.HEAT)
+        # fan-only is always available on AC devices
+        modes.append(HVACMode.FAN_ONLY)
+        return modes
+
+    @property
+    def preset_modes(self) -> list[str]:
+        """preset_modes: customize > B5 capabilities > default full set.
+
+        B5 only declares eco and turbo (and heat implies away). comfort and
+        sleep have no capability flag, so they are kept unless overridden via
+        the customize ``preset_modes`` option.
+        """
+        all_presets = [
+            PRESET_NONE,
+            PRESET_COMFORT,
+            PRESET_ECO,
+            PRESET_BOOST,
+            PRESET_SLEEP,
+            PRESET_AWAY,
+        ]
+        if self._customize_preset_modes is not None:
+            return self._customize_preset_modes
+        caps = getattr(self._device, "capabilities", {})
+        if not caps:
+            return all_presets
+        keep = {
+            PRESET_NONE: True,
+            PRESET_COMFORT: True,
+            PRESET_ECO: bool(caps.get("eco")),
+            PRESET_BOOST: bool(caps.get("turbo_cool") or caps.get("turbo_heat")),
+            PRESET_SLEEP: True,
+            PRESET_AWAY: bool(caps.get("heat_mode")),
+        }
+        return [preset for preset in all_presets if keep[preset]]
+
+    @property
+    def supported_features(self) -> ClimateEntityFeature:
+        """Midea AC Climate supported features."""
+        features = super().supported_features
+        if not self._capability_swing():
+            features &= ~ClimateEntityFeature.SWING_MODE
+        # drop the preset control entirely when no real preset is available
+        if not any(preset != PRESET_NONE for preset in self.preset_modes):
+            features &= ~ClimateEntityFeature.PRESET_MODE
+        return features
+
+    @property
+    def hvac_mode(self) -> HVACMode:
+        """Midea AC Climate hvac mode (device mode int -> fixed map)."""
+        if self._device.get_attribute("power"):
+            mode = cast("int", self._device.get_attribute("mode"))
+            return self._mode_index[mode]
+        return HVACMode.OFF
+
+    def set_hvac_mode(self, hvac_mode: HVACMode) -> None:
+        """Midea AC Climate set hvac mode (via the fixed map index)."""
+        if hvac_mode == HVACMode.OFF:
+            self.turn_off()
+        else:
+            self._device.set_attribute(
+                attr="mode",
+                value=self._mode_index.index(hvac_mode),
+            )
+
+    def set_temperature(self, **kwargs: Any) -> None:  # noqa: ANN401
+        """Midea AC Climate set temperature (raw mode via the fixed map).
+
+        ``hvac_modes`` is a filtered subset here, so the raw protocol mode must
+        come from the fixed ``_mode_index`` and not from the displayed list.
+        """
+        if ATTR_TEMPERATURE not in kwargs:
+            return
+        temperature = float(int((float(kwargs[ATTR_TEMPERATURE]) * 2) + 0.5)) / 2
+        hvac_mode = kwargs.get(ATTR_HVAC_MODE)
+        if hvac_mode == HVACMode.OFF:
+            self.turn_off()
+        else:
+            try:
+                mode = self._mode_index.index(hvac_mode.lower()) if hvac_mode else None
+                self._device.set_target_temperature(
+                    target_temperature=temperature,
+                    mode=mode,
+                    zone=None,
+                )
+            except ValueError:
+                _LOGGER.exception("Error setting temperature with: %s", kwargs)
+
     @property
     def fan_mode(self) -> str:
         """Midea AC Climate fan mode."""
@@ -319,6 +501,28 @@ class MideaACClimate(MideaClimate):
         if fan_speed > FanSpeed.LOW:
             return str(FAN_LOW)
         return str(FAN_SILENT)
+
+    @property
+    def fan_modes(self) -> list[str] | None:
+        """fan_modes restricted to the speeds the device reports (B5).
+
+        Falls back to the full set when no capability is reported.
+        """
+        caps = getattr(self._device, "capabilities", {})
+        if not caps:
+            return list(self._fan_speeds.keys())
+        cap_by_fan = {
+            FAN_SILENT: "fan_silent",
+            FAN_LOW: "fan_low",
+            FAN_MEDIUM: "fan_medium",
+            FAN_HIGH: "fan_high",
+            FAN_FULL_SPEED: "fan_custom",
+            FAN_AUTO: "fan_auto",
+        }
+        modes = [
+            name for name in self._fan_speeds if caps.get(cap_by_fan.get(name, ""))
+        ]
+        return modes or list(self._fan_speeds.keys())
 
     @property
     def target_temperature_step(self) -> float:
@@ -356,6 +560,22 @@ class MideaACClimate(MideaClimate):
             "float",
             self._device.get_attribute(ACAttributes.outdoor_temperature),
         )
+
+    @property
+    def min_temp(self) -> float:
+        """Midea AC Climate min temperature (from device capability)."""
+        value = self._device.get_attribute(ACAttributes.min_temperature)
+        if value is None:
+            return TEMPERATURE_MIN
+        return cast("float", value)
+
+    @property
+    def max_temp(self) -> float:
+        """Midea AC Climate max temperature (from device capability)."""
+        value = self._device.get_attribute(ACAttributes.max_temperature)
+        if value is None:
+            return TEMPERATURE_MAX
+        return cast("float", value)
 
     def set_fan_mode(self, fan_mode: str) -> None:
         """Midea AC Climate set fan mode."""

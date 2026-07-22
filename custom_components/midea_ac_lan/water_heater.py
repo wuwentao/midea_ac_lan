@@ -195,7 +195,7 @@ class MideaWaterHeater(MideaEntity, WaterHeaterEntity):
                 type(self),
             )
             return
-        self.schedule_update_ha_state()
+        self.schedule_update_if_running()
 
 
 class MideaE2WaterHeater(MideaWaterHeater):
@@ -399,7 +399,7 @@ class MideaE6WaterHeater(MideaWaterHeater):
         """Midea E6 Water Heater min temperature."""
         min_temperature = cast(
             "list[str]",
-            self._device.get_attribute(E6Attributes.min_temperature),
+            self._device.get_attribute(E6Attributes.temperature_min),
         )
         return cast(
             "float",
@@ -411,7 +411,7 @@ class MideaE6WaterHeater(MideaWaterHeater):
         """Midea E6 Water Heater max temperature."""
         max_temperature = cast(
             "list[str]",
-            self._device.get_attribute(E6Attributes.max_temperature),
+            self._device.get_attribute(E6Attributes.temperature_max),
         )
         return cast(
             "float",
