@@ -12,6 +12,7 @@ else:
     from homeassistant.helpers.entity import (  # type: ignore[attr-defined]
         DeviceInfo,
     )
+from homeassistant.helpers.device_registry import CONNECTION_NETWORK_MAC, format_mac
 from homeassistant.helpers.entity import Entity
 from midealocal.device import MideaDevice
 
@@ -33,7 +34,12 @@ class MideaEntity(Entity):
         )[entity_key]
         self._entity_key = entity_key
         self._unique_id = f"{DOMAIN}.{self._device.device_id}_{entity_key}"
-        self.entity_id = self._unique_id
+        # Build entity_id with the correct platform domain (sensor.*, switch.*, …)
+        # instead of the integration domain. Keeps the legacy "<device_id>_<key>"
+        # object_id so existing entity_ids are unchanged, while fixing the HA
+        # wrong-domain deprecation (breaks in HA 2027.5.0).
+        ha_domain = self._config["type"]
+        self.entity_id = f"{ha_domain}.{self._device.device_id}_{entity_key}"
         self._device_name = self._device.name
 
         # HA language setting:
@@ -89,7 +95,7 @@ class MideaEntity(Entity):
     @property
     def device_info(self) -> DeviceInfo:
         """Return device info."""
-        return {
+        info: DeviceInfo = {
             "manufacturer": "Midea",
             "model": f"{MIDEA_DEVICES[self._device.device_type]['name']} "
             f"{self._device.model}"
@@ -97,6 +103,13 @@ class MideaEntity(Entity):
             "identifiers": {(DOMAIN, str(self._device.device_id))},
             "name": self._device_name,
         }
+        if self._device.mac:
+            info["connections"] = {
+                (CONNECTION_NETWORK_MAC, format_mac(self._device.mac)),
+            }
+        if self._device.serial_number:
+            info["serial_number"] = self._device.serial_number
+        return info
 
     @property
     def unique_id(self) -> str:
