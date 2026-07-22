@@ -139,36 +139,27 @@ class MideaEntity(Entity):
         self._device.unregister_update(self.update_state)
 
     @callback
-    def update_state(self, status: Any) -> None:  # noqa: ANN401
-        """Update entity state.
+    def schedule_update_if_running(self) -> None:
+        """Schedule a state write unless HA is shutting down.
+
+        Shared by the base ``update_state`` and by the per-device-type
+        subclasses that override it (climate, fan, light, water_heater,
+        humidifier), so the shutdown guard lives in exactly one place and the
+        main control entities are protected too (issues #798 and #809).
+
+        The caller is responsible for the ``self.hass is None`` guard.
 
         Raises:
             RuntimeError: If ``schedule_update_ha_state()`` fails for a reason
                 other than the event loop being closed during shutdown.
 
         """
-        if not self.hass:
-            # Defensive guard for the is_stopping access below. Since the update
-            # callback is now registered in async_added_to_hass (#869), hass is
-            # always set on the normal path, so this is debug (like is_stopping).
-            _LOGGER.debug(
-                "MideaEntity update_state for %s [%s] with status %s: HASS is None",
-                self.name,
-                type(self),
-                status,
-            )
-            return
-
         if self.hass.is_stopping:
             _LOGGER.debug(
-                "MideaEntity update_state for %s [%s] with status %s: HASS is stopping",
+                "MideaEntity update_state for %s [%s]: HASS is stopping",
                 self.name,
                 type(self),
-                status,
             )
-            return
-
-        if self._entity_key not in status and "available" not in status:
             return
 
         # A device background thread can still deliver an update after the HA
@@ -189,3 +180,23 @@ class MideaEntity(Entity):
                 "Ignoring update for %s: event loop closed during shutdown",
                 self.name,
             )
+
+    @callback
+    def update_state(self, status: Any) -> None:  # noqa: ANN401
+        """Update entity state."""
+        if not self.hass:
+            # Defensive guard for the is_stopping access below. Since the update
+            # callback is now registered in async_added_to_hass (#869), hass is
+            # always set on the normal path, so this is debug (like is_stopping).
+            _LOGGER.debug(
+                "MideaEntity update_state for %s [%s] with status %s: HASS is None",
+                self.name,
+                type(self),
+                status,
+            )
+            return
+
+        if self._entity_key not in status and "available" not in status:
+            return
+
+        self.schedule_update_if_running()
