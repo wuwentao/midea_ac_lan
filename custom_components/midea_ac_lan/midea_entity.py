@@ -95,7 +95,7 @@ class MideaEntity(Entity):
     @property
     def device_info(self) -> DeviceInfo:
         """Return device info."""
-        info = {
+        info: DeviceInfo = {
             "manufacturer": "Midea",
             "model": f"{MIDEA_DEVICES[self._device.device_type]['name']} "
             f"{self._device.model}"
