@@ -3,6 +3,7 @@
 ## 特性
 
 - 支持温度设定
+- 支持杀菌(sterilization)和 Memo U(记忆模式)开关
 
 ## 自定义
 
@@ -57,7 +58,9 @@
 | sensor.{DEVICEID}\_heating_power          | sensor        | Heating Power       | 加热功率 |
 | sensor.{DEVICEID}\_current_temperature    | sensor        | Current Temperature | 当前温度 |
 | switch.{DEVICEID}\_auto_cut_out           | switch        | Auto Cut-out        | 出水断电 |
+| switch.{DEVICEID}\_memory                 | switch        | Memo U              | 记忆模式 |
 | switch.{DEVICEID}\_power                  | switch        | Power               | 电源开关 |
+| switch.{DEVICEID}\_sterilization          | switch        | Sterilization       | 杀菌     |
 | switch.{DEVICEID}\_variable_heating       | switch        | Variable Heating    | 变频加热 |
 | switch.{DEVICEID}\_whole_tank_heating     | switch        | Whole Tank Heating  | 全胆速热 |
 

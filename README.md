@@ -194,4 +194,12 @@ please refer to [Debug and Test](doc/debug.md)
 
 ## 9. Contributing Guide
 
-[CONTRIBUTING](.github/CONTRIBUTING.md)
+Development uses [uv](https://docs.astral.sh/uv/) (no Docker required). Install uv, then:
+
+```shell
+git clone https://github.com/wuwentao/midea_ac_lan.git
+cd midea_ac_lan
+./scripts/setup.sh
+```
+
+See [CONTRIBUTING](.github/CONTRIBUTING.md) for full setup, running Home Assistant locally, and the code style / commit rules.

@@ -27,6 +27,11 @@ repos:
         args:
           - --fix
       - id: ruff-format
+  - repo: https://github.com/astral-sh/uv-pre-commit
+    rev: 0.11.15
+    hooks:
+      # Keep uv.lock in sync with pyproject.toml.
+      - id: uv-lock
   - repo: https://github.com/commitizen-tools/commitizen
     rev: v4.16.3
     hooks:
@@ -37,6 +42,7 @@ repos:
     hooks:
       - id: commitlint
         stages: [commit-msg]
+        additional_dependencies: ["@commitlint/config-conventional"]
   - repo: https://github.com/pre-commit/mirrors-prettier
     rev: v4.0.0-alpha.8
     hooks:
@@ -51,8 +57,8 @@ repos:
     rev: v2.4.2
     hooks:
       - id: codespell
-        args: ["-L hass,lookin,nam", "-w"]
-        exclude: "custom_components/midea_ac_lan/translations/(de|es).json"
+        args: ["-L hass,lookin,nam,astroid", "-w"]
+        exclude: "uv\\.lock|custom_components/midea_ac_lan/translations/(de|es|fr).json"
   - repo: local
     hooks:
       - id: mypy
@@ -63,6 +69,6 @@ repos:
         pass_filenames: false
       - id: pylint
         name: pylint
-        entry: pylint
+        entry: uv run pylint
         language: system
         types: [python]
