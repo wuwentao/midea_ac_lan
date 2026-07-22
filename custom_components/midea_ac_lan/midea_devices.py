@@ -592,6 +592,13 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "options": "wind_ud_angles",
                 "icon": "mdi:pan-vertical",
             },
+            ACAttributes.rate_select: {
+                "type": Platform.SELECT,
+                "translation_key": "rate_select",
+                "name": "Power Rate Limit",
+                "options": "rate_selects",
+                "icon": "mdi:lightning-bolt-circle",
+            },
             ACAttributes.fan_speed: {
                 "type": Platform.NUMBER,
                 "translation_key": "fan_speed_percent",
@@ -2535,6 +2542,18 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "whole_tank_heating",
                 "name": "Whole Tank Heating",
                 "icon": "mdi:restore",
+            },
+            E2Attributes.sterilization: {
+                "type": Platform.SWITCH,
+                "translation_key": "sterilization",
+                "name": "Sterilization",
+                "icon": "mdi:bacteria",
+            },
+            E2Attributes.memory: {
+                "type": Platform.SWITCH,
+                "translation_key": "memory",
+                "name": "Memo U",
+                "icon": "mdi:brain",
             },
         },
     },
