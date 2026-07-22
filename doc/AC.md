@@ -25,6 +25,47 @@ Default step: 0.5
 { "temperature_step": 1 }
 ```
 
+### Temperature range of AC
+
+The min/max target temperature shown by the climate entity. By default it is
+read from the device capability (B5 message) when available, otherwise it falls
+back to 16–30 °C. Set these options to override the range manually, for example
+when your device reports a wrong range or does not report one at all (confirm the
+expected values via the Midea app or the remote control). Each value is optional.
+
+```json
+{ "min_temperature": 16, "max_temperature": 30 }
+```
+
+### Capabilities (modes / swing / presets)
+
+The available run-modes, fan speeds, swing support and presets are detected
+automatically from the device's B5 capability report. A cooling-only portable
+AC, for example, then exposes only `cool`/`dry`/`fan_only`, the `low`/`high`/
+`auto` fan speeds, no swing, and no presets.
+
+Some capabilities cannot be derived (older library, or features the protocol
+does not declare such as the `comfort` and `sleep` presets). You can override
+them via customize (confirm the real values via the Midea app or remote):
+
+```json
+{
+  "swing": false,
+  "hvac_modes": ["off", "cool", "dry", "fan_only"],
+  "preset_modes": ["none"]
+}
+```
+
+- `swing` (bool): force the swing control on/off.
+- `hvac_modes` (list): restrict the modes shown. `off` is always kept. Valid
+  values: `off`, `auto`, `cool`, `dry`, `heat`, `fan_only`.
+- `preset_modes` (list): restrict the presets. `none` is always kept; use
+  `["none"]` to remove the preset control entirely. Valid values: `none`,
+  `comfort`, `eco`, `boost`, `sleep`, `away`.
+
+Priority is customize > B5 capabilities > defaults. All keys are optional; omit
+them to use the auto-detected set.
+
 ### Power consumption analysis method
 
 There are 5 different methods to decode the consumption of an AC, but we don’t know which is right for your device.
@@ -89,6 +130,7 @@ Known settings:
 | switch.{DEVICEID}\_swing_vertical             | switch        | Swing Vertical             |
 | switch.{DEVICEID}\_wind_lr_angle              | select        | Airflow Horizontal         |
 | switch.{DEVICEID}\_wind_ud_angle              | select        | Airflow Vertical           |
+| switch.{DEVICEID}\_rate_select                | select        | Power Rate Limit           |
 | switch.{DEVICEID}\_fan_speed                  | number        | Fan Speed Percent          |
 
 ## Built-in fresh air system

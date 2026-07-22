@@ -24,6 +24,38 @@
 { "temperature_step": 1 }
 ```
 
+- 设置温度范围(温控实体显示的最低/最高目标温度)
+
+  默认情况下，若设备上报了温度能力(B5 报文)则按其取值，否则回退为 16~30 °C。
+  当设备未上报温度范围，或上报的范围不正确时，可用以下选项手动覆盖
+  (请通过美的 App 或遥控器确认正确的取值)。两个值均为可选。
+
+```json
+{ "min_temperature": 16, "max_temperature": 30 }
+```
+
+- 能力（模式 / 摆风 / 预设）
+
+  运行模式、风速、摆风和预设会根据设备的 B5 能力上报自动识别（例如仅制冷的移动空调
+  只显示 `cool`/`dry`/`fan_only`、`low`/`high`/`auto` 风速，无摆风、无预设）。
+
+  部分能力无法推断（旧版库，或协议本身不声明的功能，如 `comfort`/`sleep` 预设），
+  可通过自定义覆盖（请通过美的 App 或遥控器确认真实取值）：
+
+```json
+{
+  "swing": false,
+  "hvac_modes": ["off", "cool", "dry", "fan_only"],
+  "preset_modes": ["none"]
+}
+```
+
+- `swing`（布尔）：强制开启/关闭摆风控制。
+- `hvac_modes`（列表）：限制显示的模式，`off` 始终保留。可选值：`off`、`auto`、`cool`、`dry`、`heat`、`fan_only`。
+- `preset_modes`（列表）：限制预设，`none` 始终保留；用 `["none"]` 可完全移除预设控制。可选值：`none`、`comfort`、`eco`、`boost`、`sleep`、`away`。
+
+优先级为 自定义 > B5 能力 > 默认值。所有键均为可选；省略则使用自动识别的集合。
+
 - 空调功耗分析方法(默认为1)
 
   我找到了三种不同的办法去分析空调功耗数据, 但我无从得知哪种适合你的空调设备
@@ -71,6 +103,7 @@
 | switch.{DEVICEID}\_swing_vertical             | switch        | Swing Vertical             | 垂直摆风         |
 | switch.{DEVICEID}\_wind_lr_angle              | select        | Airflow Horizontal         | 水平出风         |
 | switch.{DEVICEID}\_wind_ud_angle              | select        | Airflow Vertical           | 垂直出风         |
+| switch.{DEVICEID}\_rate_select                | select        | Power Rate Limit           | 功率限制         |
 | switch.{DEVICEID}\_fan_speed                  | number        | Fan Speed Percent          | 风速百分比       |
 
 ## 内置新风系统
