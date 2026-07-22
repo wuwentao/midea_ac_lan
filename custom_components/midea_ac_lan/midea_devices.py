@@ -3125,6 +3125,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "error",
                 "name": "Error",
                 "icon": "mdi:alert-circle",
+                "device_class": SensorDeviceClass.ENUM,
                 # Soft water machine (deviceKind=9/10, subtype 703) error codes
                 # Source: weex.js error dictionary "a"
                 "options": {
