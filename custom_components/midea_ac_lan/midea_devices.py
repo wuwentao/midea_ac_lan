@@ -592,6 +592,13 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "options": "wind_ud_angles",
                 "icon": "mdi:pan-vertical",
             },
+            ACAttributes.rate_select: {
+                "type": Platform.SELECT,
+                "translation_key": "rate_select",
+                "name": "Power Rate Limit",
+                "options": "rate_selects",
+                "icon": "mdi:lightning-bolt-circle",
+            },
             ACAttributes.fan_speed: {
                 "type": Platform.NUMBER,
                 "translation_key": "fan_speed_percent",
