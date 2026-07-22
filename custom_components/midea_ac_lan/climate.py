@@ -357,6 +357,22 @@ class MideaACClimate(MideaClimate):
             self._device.get_attribute(ACAttributes.outdoor_temperature),
         )
 
+    @property
+    def min_temp(self) -> float:
+        """Midea AC Climate min temperature (from device capability)."""
+        value = self._device.get_attribute(ACAttributes.min_temperature)
+        if value is None:
+            return TEMPERATURE_MIN
+        return cast("float", value)
+
+    @property
+    def max_temp(self) -> float:
+        """Midea AC Climate max temperature (from device capability)."""
+        value = self._device.get_attribute(ACAttributes.max_temperature)
+        if value is None:
+            return TEMPERATURE_MAX
+        return cast("float", value)
+
     def set_fan_mode(self, fan_mode: str) -> None:
         """Midea AC Climate set fan mode."""
         fan_speed = self._fan_speeds.get(fan_mode)
