@@ -25,6 +25,18 @@ Default step: 0.5
 { "temperature_step": 1 }
 ```
 
+### Temperature range of AC
+
+The min/max target temperature shown by the climate entity. By default it is
+read from the device capability (B5 message) when available, otherwise it falls
+back to 16–30 °C. Set these options to override the range manually, for example
+when your device reports a wrong range or does not report one at all (confirm the
+expected values via the Midea app or the remote control). Each value is optional.
+
+```json
+{ "min_temperature": 16, "max_temperature": 30 }
+```
+
 ### Power consumption analysis method
 
 There are 5 different methods to decode the consumption of an AC, but we don’t know which is right for your device.
@@ -89,6 +101,7 @@ Known settings:
 | switch.{DEVICEID}\_swing_vertical             | switch        | Swing Vertical             |
 | switch.{DEVICEID}\_wind_lr_angle              | select        | Airflow Horizontal         |
 | switch.{DEVICEID}\_wind_ud_angle              | select        | Airflow Vertical           |
+| switch.{DEVICEID}\_rate_select                | select        | Power Rate Limit           |
 | switch.{DEVICEID}\_fan_speed                  | number        | Fan Speed Percent          |
 
 ## Built-in fresh air system

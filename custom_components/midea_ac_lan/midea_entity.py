@@ -28,14 +28,18 @@ class MideaEntity(Entity):
     def __init__(self, device: MideaDevice, entity_key: str) -> None:
         """Initialize Midea base entity."""
         self._device = device
-        self._device.register_update(self.update_state)
         self._config = cast(
             "dict",
             MIDEA_DEVICES[self._device.device_type]["entities"],
         )[entity_key]
         self._entity_key = entity_key
         self._unique_id = f"{DOMAIN}.{self._device.device_id}_{entity_key}"
-        self.entity_id = self._unique_id
+        # Build entity_id with the correct platform domain (sensor.*, switch.*, …)
+        # instead of the integration domain. Keeps the legacy "<device_id>_<key>"
+        # object_id so existing entity_ids are unchanged, while fixing the HA
+        # wrong-domain deprecation (breaks in HA 2027.5.0).
+        ha_domain = self._config["type"]
+        self.entity_id = f"{ha_domain}.{self._device.device_id}_{entity_key}"
         self._device_name = self._device.name
 
         # HA language setting:
@@ -127,11 +131,29 @@ class MideaEntity(Entity):
         """Return entity icon."""
         return cast("str", self._config.get("icon"))
 
+    async def async_added_to_hass(self) -> None:
+        """Subscribe to device updates once the entity is added to HA.
+
+        Registering the callback here (rather than in ``__init__``) ensures an
+        entity that is constructed but never added to HA never receives updates,
+        which avoids the recurring "HASS is None" warnings.
+        """
+        await super().async_added_to_hass()
+        self._device.register_update(self.update_state)
+
+    async def async_will_remove_from_hass(self) -> None:
+        """Unsubscribe from device updates when the entity is removed from HA."""
+        await super().async_will_remove_from_hass()
+        self._device.unregister_update(self.update_state)
+
     @callback
     def update_state(self, status: Any) -> None:  # noqa: ANN401
         """Update entity state."""
         if not self.hass:
-            _LOGGER.warning(
+            # Defensive guard for the is_stopping access below. Since the update
+            # callback is now registered in async_added_to_hass (#869), hass is
+            # always set on the normal path, so this is debug (like is_stopping).
+            _LOGGER.debug(
                 "MideaEntity update_state for %s [%s] with status %s: HASS is None",
                 self.name,
                 type(self),
