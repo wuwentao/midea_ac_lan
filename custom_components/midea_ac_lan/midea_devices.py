@@ -594,6 +594,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             ACAttributes.rate_select: {
                 "type": Platform.SELECT,
+                "translation_key": "rate_select",
                 "name": "Power Rate Limit",
                 "options": "rate_selects",
                 "icon": "mdi:lightning-bolt-circle",
