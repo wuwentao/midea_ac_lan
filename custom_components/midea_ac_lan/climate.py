@@ -360,7 +360,7 @@ class MideaACClimate(MideaClimate):
     @property
     def min_temp(self) -> float:
         """Midea AC Climate min temperature (from device capability)."""
-        value = self._device.get_attribute("min_temperature")
+        value = self._device.get_attribute(ACAttributes.min_temperature)
         if value is None:
             return TEMPERATURE_MIN
         return cast("float", value)
@@ -368,7 +368,7 @@ class MideaACClimate(MideaClimate):
     @property
     def max_temp(self) -> float:
         """Midea AC Climate max temperature (from device capability)."""
-        value = self._device.get_attribute("max_temperature")
+        value = self._device.get_attribute(ACAttributes.max_temperature)
         if value is None:
             return TEMPERATURE_MAX
         return cast("float", value)
