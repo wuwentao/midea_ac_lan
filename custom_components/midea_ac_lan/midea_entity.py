@@ -142,7 +142,10 @@ class MideaEntity(Entity):
     def update_state(self, status: Any) -> None:  # noqa: ANN401
         """Update entity state."""
         if not self.hass:
-            _LOGGER.warning(
+            # Defensive guard for the is_stopping access below. Since the update
+            # callback is now registered in async_added_to_hass (#869), hass is
+            # always set on the normal path, so this is debug (like is_stopping).
+            _LOGGER.debug(
                 "MideaEntity update_state for %s [%s] with status %s: HASS is None",
                 self.name,
                 type(self),
