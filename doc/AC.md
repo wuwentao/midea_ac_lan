@@ -40,10 +40,11 @@ Default mode: 1
 ```
 
 Known settings:
-| Device | Mode |
-| :------------------------------- | ---: |
-| Midea PortaSplit | 12 |
-| Midea 00000Q1D subtype 524 | 101 |
+
+| Device                     | Mode |
+| :------------------------- | ---: |
+| Midea PortaSplit           |   12 |
+| Midea 00000Q1D subtype 524 |  101 |
 
 ## Entities
 
