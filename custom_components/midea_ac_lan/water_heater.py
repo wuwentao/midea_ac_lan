@@ -195,7 +195,7 @@ class MideaWaterHeater(MideaEntity, WaterHeaterEntity):
                 type(self),
             )
             return
-        self.schedule_update_ha_state()
+        self.schedule_update_if_running()
 
 
 class MideaE2WaterHeater(MideaWaterHeater):
