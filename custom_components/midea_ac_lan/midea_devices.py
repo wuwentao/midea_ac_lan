@@ -2458,7 +2458,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "type": Platform.SELECT,
                 "attribute": E1Attributes.mode,
                 "name": "Wash Mode",
-                "options_dict": "_modes",
+                "options_dict": "modes",
                 "options_codes_by_model": {
                     "7600024L": [13, 4, 8, 6, 2, 11, 10],
                 },

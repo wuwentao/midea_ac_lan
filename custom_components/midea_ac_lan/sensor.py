@@ -78,24 +78,38 @@ class MideaSensor(MideaEntity, SensorEntity):
 
 
 class MideaEstimatedUsageSensor(MideaSensor, RestoreEntity):
-    """Represent estimated dishwasher usage accumulated per run."""
+    """Represent estimated dishwasher usage accumulated per run.
+
+    The dishwasher does not report actual energy/water usage, so this sensor
+    accumulates a fixed per-mode estimate (from the product manual) once each
+    time a wash run *completes*. Completion is detected by the device
+    ``progress`` attribute reaching ``"Complete"``; a cancelled or errored run
+    never reaches that state and is therefore not counted.
+    """
+
+    _COMPLETE_PROGRESS = "Complete"
+    _RUNNING_STATUS = "Running"
 
     def __init__(self, device: MideaDevice, entity_key: str) -> None:
         """Initialize estimated usage sensor."""
         super().__init__(device, entity_key)
         self._native_value: float = 0.0
-        self._last_status: str | None = None
+        self._last_progress: str | None = None
         self._running_mode: str | None = None
 
     async def async_added_to_hass(self) -> None:
-        """Restore previous accumulated value."""
+        """Register for device updates and restore the accumulated value."""
+        await super().async_added_to_hass()
         if last_state := await self.async_get_last_state():
             try:
                 self._native_value = float(last_state.state)
             except (TypeError, ValueError):
                 self._native_value = 0.0
-        self._last_status = cast("str | None", self._device.get_attribute("status"))
-        if self._last_status == "Running":
+        self._last_progress = cast(
+            "str | None",
+            self._device.get_attribute("progress"),
+        )
+        if self._device.get_attribute("status") == self._RUNNING_STATUS:
             self._running_mode = cast("str | None", self._device.get_attribute("mode"))
 
     @property
@@ -110,29 +124,41 @@ class MideaEstimatedUsageSensor(MideaSensor, RestoreEntity):
         return {
             "estimate_source": "fixed_per_wash_mode",
             "known_modes": list(cast("dict[str, float]", estimate["values"]).keys()),
-            "last_status": self._last_status,
+            "last_progress": self._last_progress,
             "running_mode": self._running_mode,
         }
 
     def update_state(self, status: Any) -> None:  # noqa: ANN401
-        """Accumulate estimate once when a dishwasher run finishes."""
-        current_status = cast("str | None", self._device.get_attribute("status"))
+        """Accumulate the estimate once when a dishwasher run completes."""
+        current_status = self._device.get_attribute("status")
+        current_progress = cast(
+            "str | None",
+            self._device.get_attribute("progress"),
+        )
         current_mode = cast("str | None", self._device.get_attribute("mode"))
 
-        if current_status == "Running":
+        # Remember the mode selected while the machine is actually running so we
+        # can still attribute usage after it stops reporting the mode on finish.
+        if current_status == self._RUNNING_STATUS:
             self._running_mode = current_mode
-        elif self._last_status == "Running":
+
+        # Count once, on the edge into the "Complete" progress state. A cancel or
+        # error transition never reaches "Complete", so it is not counted.
+        if (
+            current_progress == self._COMPLETE_PROGRESS
+            and self._last_progress != self._COMPLETE_PROGRESS
+        ):
             mode = self._running_mode or current_mode
             values = cast("dict[str, float]", self._config["estimate"]["values"])
             if mode in values:
                 self._native_value += values[mode]
             self._running_mode = None
 
-        self._last_status = current_status
+        self._last_progress = current_progress
         super().update_state(status)
         if (
             self.hass
             and not self.hass.is_stopping
-            and ("status" in status or "mode" in status)
+            and ("progress" in status or "status" in status or "mode" in status)
         ):
             self.schedule_update_ha_state()

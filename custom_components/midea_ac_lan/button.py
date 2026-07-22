@@ -1,6 +1,6 @@
 """Button for Midea Lan."""
 
-from typing import Any, cast
+from typing import TYPE_CHECKING, Any, cast
 
 from homeassistant.components.button import ButtonEntity
 from homeassistant.config_entries import ConfigEntry
@@ -8,11 +8,13 @@ from homeassistant.const import CONF_DEVICE_ID, CONF_SWITCHES, Platform
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from midealocal.device import MideaDevice
-from midealocal.devices.e1.message import MessageWork
 
 from .const import DEVICES, DOMAIN, supports_model
 from .midea_devices import MIDEA_DEVICES
 from .midea_entity import MideaEntity
+
+if TYPE_CHECKING:
+    from midealocal.devices.e1 import MideaE1Device
 
 
 async def async_setup_entry(
@@ -75,14 +77,7 @@ class MideaButton(MideaEntity, ButtonEntity):
         if mode is None or mode == 0:
             msg = "Unsupported dishwasher mode"
             raise ValueError(msg)
-
-        protocol_version = cast(
-            "int",
-            self._device._message_protocol_version,  # noqa: SLF001
-        )
-        message = MessageWork(protocol_version)
-        message.mode = mode
-        self._device.build_send(message)
+        cast("MideaE1Device", self._device).start_work()
 
     def _get_current_mode_code(self) -> int | None:
         """Return raw code for the current dishwasher mode.
@@ -93,7 +88,7 @@ class MideaButton(MideaEntity, ButtonEntity):
 
         """
         mode_name = self._device.get_attribute("mode")
-        modes = cast("dict[int, str]", self._device._modes)  # noqa: SLF001
+        modes = cast("MideaE1Device", self._device).modes
         for key, item in modes.items():
             if item == mode_name:
                 return key

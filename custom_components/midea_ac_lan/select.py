@@ -1,6 +1,6 @@
 """Select for Midea Lan."""
 
-from typing import Any, cast
+from typing import TYPE_CHECKING, Any, cast
 
 from homeassistant.components.select import SelectEntity
 from homeassistant.config_entries import ConfigEntry
@@ -8,11 +8,13 @@ from homeassistant.const import CONF_DEVICE_ID, CONF_SWITCHES, Platform
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from midealocal.device import MideaDevice
-from midealocal.devices.e1.message import MessageWork
 
 from .const import DEVICES, DOMAIN, supports_model
 from .midea_devices import MIDEA_DEVICES
 from .midea_entity import MideaEntity
+
+if TYPE_CHECKING:
+    from midealocal.devices.e1 import MideaE1Device
 
 
 async def async_setup_entry(
@@ -95,25 +97,18 @@ class MideaSelect(MideaEntity, SelectEntity):
         return cast("dict[int, str]", getattr(self._device, self._options_dict_name))
 
     def _select_e1_work_mode(self, option: str) -> None:
-        """Set dishwasher work mode using midea-local's E1 work message.
+        """Set dishwasher work mode via midea-local's public E1 API.
 
         Raises
         ------
         ValueError
-            If the requested option is not supported.
+            If the requested option is not a supported work mode.
 
         """
         mode = self._get_dict_key_by_value(self._get_options_dict(), option)
         if mode is None:
             raise ValueError(f"Unsupported dishwasher mode: {option}")
-
-        protocol_version = cast(
-            "int",
-            self._device._message_protocol_version,  # noqa: SLF001
-        )
-        message = MessageWork(protocol_version)
-        message.mode = mode
-        self._device.build_send(message)
+        cast("MideaE1Device", self._device).set_work_mode(mode)
 
     @callback
     def update_state(self, status: Any) -> None:  # noqa: ANN401
