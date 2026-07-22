@@ -12,6 +12,7 @@ else:
     from homeassistant.helpers.entity import (  # type: ignore[attr-defined]
         DeviceInfo,
     )
+from homeassistant.helpers.device_registry import CONNECTION_NETWORK_MAC, format_mac
 from homeassistant.helpers.entity import Entity
 from midealocal.device import MideaDevice
 
@@ -94,7 +95,7 @@ class MideaEntity(Entity):
     @property
     def device_info(self) -> DeviceInfo:
         """Return device info."""
-        return {
+        info: DeviceInfo = {
             "manufacturer": "Midea",
             "model": f"{MIDEA_DEVICES[self._device.device_type]['name']} "
             f"{self._device.model}"
@@ -102,6 +103,13 @@ class MideaEntity(Entity):
             "identifiers": {(DOMAIN, str(self._device.device_id))},
             "name": self._device_name,
         }
+        if self._device.mac:
+            info["connections"] = {
+                (CONNECTION_NETWORK_MAC, format_mac(self._device.mac)),
+            }
+        if self._device.serial_number:
+            info["serial_number"] = self._device.serial_number
+        return info
 
     @property
     def unique_id(self) -> str:
