@@ -463,6 +463,29 @@ class MideaACClimate(MideaClimate):
                 value=self._mode_index.index(hvac_mode),
             )
 
+    def set_temperature(self, **kwargs: Any) -> None:  # noqa: ANN401
+        """Midea AC Climate set temperature (raw mode via the fixed map).
+
+        ``hvac_modes`` is a filtered subset here, so the raw protocol mode must
+        come from the fixed ``_mode_index`` and not from the displayed list.
+        """
+        if ATTR_TEMPERATURE not in kwargs:
+            return
+        temperature = float(int((float(kwargs[ATTR_TEMPERATURE]) * 2) + 0.5)) / 2
+        hvac_mode = kwargs.get(ATTR_HVAC_MODE)
+        if hvac_mode == HVACMode.OFF:
+            self.turn_off()
+        else:
+            try:
+                mode = self._mode_index.index(hvac_mode.lower()) if hvac_mode else None
+                self._device.set_target_temperature(
+                    target_temperature=temperature,
+                    mode=mode,
+                    zone=None,
+                )
+            except ValueError:
+                _LOGGER.exception("Error setting temperature with: %s", kwargs)
+
     @property
     def fan_mode(self) -> str:
         """Midea AC Climate fan mode."""
