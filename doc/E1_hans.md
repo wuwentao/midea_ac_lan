@@ -4,7 +4,18 @@
 
 ### 默认实体
 
-无默认实体
+| EntityID                                        | 类型   | 名称                         | 描述                      |
+| ----------------------------------------------- | ------ | ---------------------------- | ------------------------- |
+| select.{DEVICEID}\_mode_select                  | select | Wash Mode                    | 洗涤模式                  |
+| button.{DEVICEID}\_start                        | button | Start                        | 启动 (仅 `7600024L` 型号) |
+| sensor.{DEVICEID}\_estimated_energy_consumption | sensor | Estimated Energy Consumption | 预估能耗 (仅 `7600024L`)  |
+| sensor.{DEVICEID}\_estimated_water_consumption  | sensor | Estimated Water Consumption  | 预估水耗 (仅 `7600024L`)  |
+
+> `select.{DEVICEID}_mode_select` 对所有 E1 洗碗机生成, 展示设备上报的模式列表
+> (在 `7600024L` 型号上限定为 7 个已验证模式)。`button.{DEVICEID}_start` 和
+> `sensor.{DEVICEID}_estimated_*` 仅在 `7600024L` 型号上生成; 每个模式的能耗/水耗
+> 预估值来自产品手册, 在一次洗涤完成时累加为总量。以上实体仅在洗碗机开机时可用。
+> 请通过 select 实体设置洗涤模式 (而非 `set_attribute`)。
 
 ### 额外生成实体
 

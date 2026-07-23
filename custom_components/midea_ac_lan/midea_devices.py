@@ -2551,6 +2551,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "start": {
                 "type": Platform.BUTTON,
+                "translation_key": "start",
                 "name": "Start",
                 "icon": "mdi:play",
                 "set_message": "e1_start",
@@ -2567,6 +2568,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             "mode_select": {
                 "type": Platform.SELECT,
                 "attribute": E1Attributes.mode,
+                "translation_key": "wash_mode",
                 "name": "Wash Mode",
                 "options_dict": "modes",
                 "options_codes_by_model": {
@@ -2579,6 +2581,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "estimated_energy_consumption": {
                 "type": Platform.SENSOR,
+                "translation_key": "estimated_energy_consumption",
                 "name": "Estimated Energy Consumption",
                 "icon": "mdi:lightning-bolt",
                 "device_class": SensorDeviceClass.ENERGY,
@@ -2601,6 +2604,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "estimated_water_consumption": {
                 "type": Platform.SENSOR,
+                "translation_key": "estimated_water_consumption",
                 "name": "Estimated Water Consumption",
                 "icon": "mdi:water",
                 "device_class": SensorDeviceClass.WATER,
