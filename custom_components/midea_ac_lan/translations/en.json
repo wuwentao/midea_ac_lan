@@ -256,6 +256,11 @@
         "name": "Water Pump Running"
       }
     },
+    "button": {
+      "start": {
+        "name": "Start"
+      }
+    },
     "climate": {
       "climate_zone1": {
         "name": "Zone1 Thermostat"
@@ -339,7 +344,6 @@
         "name": "Fresh Air Speed",
         "state": {
           "off": "Off",
-          "silent": "Silent",
           "low": "Low",
           "medium": "Medium",
           "high": "High",
@@ -366,6 +370,9 @@
       },
       "tilting_angle": {
         "name": "Tilting Angle"
+      },
+      "wash_mode": {
+        "name": "Wash Mode"
       },
       "water_level_set": {
         "name": "Water Level Setting"
@@ -493,6 +500,12 @@
       },
       "error_code": {
         "name": "Error Code"
+      },
+      "estimated_energy_consumption": {
+        "name": "Estimated Energy Consumption"
+      },
+      "estimated_water_consumption": {
+        "name": "Estimated Water Consumption"
       },
       "fan_level": {
         "name": "Fan level"

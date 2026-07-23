@@ -613,6 +613,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             # group 1: compressor and refrigerant circuit
             ACAttributes.compressor_frequency: {
                 "type": Platform.SENSOR,
+                "required_attribute": ACAttributes.compressor_frequency,
                 "translation_key": "compressor_frequency",
                 "name": "Compressor Frequency",
                 "device_class": SensorDeviceClass.FREQUENCY,
@@ -621,6 +622,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             ACAttributes.target_compressor_frequency: {
                 "type": Platform.SENSOR,
+                "required_attribute": ACAttributes.target_compressor_frequency,
                 "translation_key": "target_compressor_frequency",
                 "name": "Target Compressor Frequency",
                 "device_class": SensorDeviceClass.FREQUENCY,
@@ -629,6 +631,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             ACAttributes.compressor_current: {
                 "type": Platform.SENSOR,
+                "required_attribute": ACAttributes.compressor_current,
                 "translation_key": "compressor_current",
                 "name": "Compressor Current",
                 "device_class": SensorDeviceClass.CURRENT,
@@ -637,6 +640,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             ACAttributes.compressor_voltage: {
                 "type": Platform.SENSOR,
+                "required_attribute": ACAttributes.compressor_voltage,
                 "translation_key": "compressor_voltage",
                 "name": "Compressor Voltage",
                 "device_class": SensorDeviceClass.VOLTAGE,
@@ -645,6 +649,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             ACAttributes.indoor_coil_temperature: {
                 "type": Platform.SENSOR,
+                "required_attribute": ACAttributes.indoor_coil_temperature,
                 "translation_key": "indoor_coil_temperature",
                 "name": "Indoor Coil Temperature (T1)",
                 "device_class": SensorDeviceClass.TEMPERATURE,
@@ -653,6 +658,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             ACAttributes.evaporator_temperature: {
                 "type": Platform.SENSOR,
+                "required_attribute": ACAttributes.evaporator_temperature,
                 "translation_key": "evaporator_temperature",
                 "name": "Evaporator Temperature (T2)",
                 "device_class": SensorDeviceClass.TEMPERATURE,
@@ -661,6 +667,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             ACAttributes.condenser_temperature: {
                 "type": Platform.SENSOR,
+                "required_attribute": ACAttributes.condenser_temperature,
                 "translation_key": "condenser_temperature",
                 "name": "Condenser Temperature (T3)",
                 "device_class": SensorDeviceClass.TEMPERATURE,
@@ -669,6 +676,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             ACAttributes.outdoor_ambient_temperature: {
                 "type": Platform.SENSOR,
+                "required_attribute": ACAttributes.outdoor_ambient_temperature,
                 "translation_key": "outdoor_ambient_temperature",
                 "name": "Outdoor Ambient Temperature (T4)",
                 "device_class": SensorDeviceClass.TEMPERATURE,
@@ -677,6 +685,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             ACAttributes.discharge_pipe_temperature: {
                 "type": Platform.SENSOR,
+                "required_attribute": ACAttributes.discharge_pipe_temperature,
                 "translation_key": "discharge_pipe_temperature",
                 "name": "Discharge Pipe Temperature (TP)",
                 "device_class": SensorDeviceClass.TEMPERATURE,
@@ -686,6 +695,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             # group 2: indoor fan and condensate pump
             ACAttributes.indoor_fan_speed: {
                 "type": Platform.SENSOR,
+                "required_attribute": ACAttributes.indoor_fan_speed,
                 "translation_key": "indoor_fan_speed",
                 "name": "Indoor Fan Speed",
                 "icon": "mdi:fan",
@@ -694,6 +704,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             ACAttributes.target_indoor_fan_speed: {
                 "type": Platform.SENSOR,
+                "required_attribute": ACAttributes.target_indoor_fan_speed,
                 "translation_key": "target_indoor_fan_speed",
                 "name": "Target Indoor Fan Speed",
                 "icon": "mdi:fan-clock",
@@ -702,6 +713,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             ACAttributes.water_pump_running: {
                 "type": Platform.BINARY_SENSOR,
+                "required_attribute": ACAttributes.water_pump_running,
                 "translation_key": "water_pump_running",
                 "name": "Water Pump Running",
                 "icon": "mdi:water-pump",
@@ -710,6 +722,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             # group 7: real time compressor power
             ACAttributes.compressor_power: {
                 "type": Platform.SENSOR,
+                "required_attribute": ACAttributes.compressor_power,
                 "translation_key": "compressor_power",
                 "name": "Compressor Power",
                 "device_class": SensorDeviceClass.POWER,
@@ -2577,11 +2590,81 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Storage",
                 "icon": "mdi:repeat-variant",
             },
+            "start": {
+                "type": Platform.BUTTON,
+                "translation_key": "start",
+                "name": "Start",
+                "icon": "mdi:play",
+                "set_message": "e1_start",
+                "available_power_attribute": E1Attributes.power,
+                "models": ["7600024L"],
+                "default": True,
+            },
             E1Attributes.mode: {
                 "type": Platform.SENSOR,
                 "translation_key": "mode",
                 "name": "Working Mode",
                 "icon": "mdi:dishwasher",
+            },
+            "mode_select": {
+                "type": Platform.SELECT,
+                "attribute": E1Attributes.mode,
+                "translation_key": "wash_mode",
+                "name": "Wash Mode",
+                "options_dict": "modes",
+                "options_codes_by_model": {
+                    "7600024L": [13, 4, 8, 6, 2, 11, 10],
+                },
+                "set_message": "e1_work_mode",
+                "available_power_attribute": E1Attributes.power,
+                "icon": "mdi:dishwasher",
+                "default": True,
+            },
+            "estimated_energy_consumption": {
+                "type": Platform.SENSOR,
+                "translation_key": "estimated_energy_consumption",
+                "name": "Estimated Energy Consumption",
+                "icon": "mdi:lightning-bolt",
+                "device_class": SensorDeviceClass.ENERGY,
+                "unit": UnitOfEnergy.KILO_WATT_HOUR,
+                "state_class": SensorStateClass.TOTAL_INCREASING,
+                "estimate": {
+                    "kind": "energy",
+                    "values": {
+                        "Germ": 0.765,
+                        "ECO Wash": 0.99,
+                        "Strong Wash": 1.28,
+                        "Hour Wash": 0.91,
+                        "Soak Wash": 0.02,
+                        "Self Clean": 1.524,
+                        "Fruit Wash": 1.625,
+                    },
+                },
+                "models": ["7600024L"],
+                "default": True,
+            },
+            "estimated_water_consumption": {
+                "type": Platform.SENSOR,
+                "translation_key": "estimated_water_consumption",
+                "name": "Estimated Water Consumption",
+                "icon": "mdi:water",
+                "device_class": SensorDeviceClass.WATER,
+                "unit": UnitOfVolume.LITERS,
+                "state_class": SensorStateClass.TOTAL_INCREASING,
+                "estimate": {
+                    "kind": "water",
+                    "values": {
+                        "Germ": 9.9,
+                        "ECO Wash": 10.4,
+                        "Strong Wash": 13.9,
+                        "Hour Wash": 10.4,
+                        "Soak Wash": 3.4,
+                        "Self Clean": 10.3,
+                        "Fruit Wash": 13.3,
+                    },
+                },
+                "models": ["7600024L"],
+                "default": True,
             },
             E1Attributes.error_code: {
                 "type": Platform.SENSOR,
