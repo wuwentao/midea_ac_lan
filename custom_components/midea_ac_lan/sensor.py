@@ -54,7 +54,14 @@ class MideaSensor(MideaEntity, SensorEntity):
     @property
     def native_value(self) -> StateType:
         """Return entity value."""
-        return cast("StateType", self._device.get_attribute(self._entity_key))
+        value = self._device.get_attribute(self._entity_key)
+        # If an options mapping exists, translate the raw value to its enum key.
+        options = self._config.get("options")
+        if options is not None and isinstance(value, int):
+            # For an enum sensor an unmapped value is not a valid state, so
+            # report it as unknown (None) instead of leaking the raw int.
+            return cast("StateType", options.get(value))
+        return cast("StateType", value)
 
     @property
     def device_class(self) -> SensorDeviceClass:
@@ -67,13 +74,28 @@ class MideaSensor(MideaEntity, SensorEntity):
         return cast("SensorStateClass | None", self._config.get("state_class"))
 
     @property
+    def options(self) -> list[str] | None:
+        """Return the list of possible states for an enum sensor."""
+        if self.device_class != SensorDeviceClass.ENUM:
+            return None
+        options = self._config.get("options")
+        return list(options.values()) if options else None
+
+    @property
     def native_unit_of_measurement(self) -> str | None:
         """Return unit of measurement."""
         return cast("str | None", self._config.get("unit"))
 
     @property
+    def suggested_display_precision(self) -> int | None:
+        """Return the suggested number of decimal digits for display."""
+        return cast("int | None", self._config.get("suggested_display_precision"))
+
+    @property
     def capability_attributes(self) -> dict[str, Any] | None:
         """Return capabilities."""
+        if self.options is not None:
+            return {"options": self.options}
         return {"state_class": self.state_class} if self.state_class else {}
 
 

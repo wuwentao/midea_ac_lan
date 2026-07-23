@@ -70,9 +70,11 @@ else:
 from .const import (
     CONF_ACCOUNT,
     CONF_KEY,
+    CONF_MAC,
     CONF_MODEL,
     CONF_REFRESH_INTERVAL,
     CONF_SERVER,
+    CONF_SN,
     CONF_SUBTYPE,
     DOMAIN,
     EXTRA_CONTROL,
@@ -106,7 +108,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
     """
 
     VERSION = 2
-    MINOR_VERSION = 1
+    MINOR_VERSION = 2
 
     def __init__(self) -> None:
         """MideaLanConfigFlow class."""
@@ -799,6 +801,8 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                         CONF_SUBTYPE: user_input[CONF_SUBTYPE],
                         CONF_TOKEN: user_input[CONF_TOKEN],
                         CONF_KEY: user_input[CONF_KEY],
+                        CONF_MAC: device.get(CONF_MAC),
+                        CONF_SN: device.get(CONF_SN),
                     }
                     # save device json config when adding new device
                     self._save_device_config(data)

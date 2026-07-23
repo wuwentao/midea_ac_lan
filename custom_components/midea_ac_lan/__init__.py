@@ -32,13 +32,16 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers.typing import ConfigType
 from midealocal.device import DeviceType, MideaDevice, ProtocolVersion
 from midealocal.devices import device_selector
+from midealocal.discover import discover
 
 from .const import (
     ALL_PLATFORM,
     CONF_ACCOUNT,
     CONF_KEY,
+    CONF_MAC,
     CONF_MODEL,
     CONF_REFRESH_INTERVAL,
+    CONF_SN,
     CONF_SUBTYPE,
     DEVICES,
     DOMAIN,
@@ -209,6 +212,8 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
     subtype = config_entry.data.get(CONF_SUBTYPE, 0)
     protocol: ProtocolVersion = ProtocolVersion(config_entry.data[CONF_PROTOCOL])
     customize: str = config_entry.options.get(CONF_CUSTOMIZE, "")
+    mac: str | None = config_entry.data.get(CONF_MAC)
+    serial_number: str | None = config_entry.data.get(CONF_SN)
     if protocol == ProtocolVersion.V3 and (key == "" or token == ""):
         _LOGGER.error("For V3 devices, the key and the token is required")
         return False
@@ -228,6 +233,8 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
             model,
             subtype,
             customize,
+            mac,
+            serial_number,
         )
     # hass core version < 2024.3
     else:
@@ -243,6 +250,8 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
             model=model,
             subtype=subtype,
             customize=customize,
+            mac=mac,
+            serial_number=serial_number,
         )
     if device:
         if refresh_interval is not None:
@@ -311,6 +320,64 @@ async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry) ->
 
         _LOGGER.debug("Migration to configuration version 2 successful")
 
+    # 2.1 -> 2.2: backfill mac address and serial number for existing devices
+    entry_version_2 = 2
+    if config_entry.version == entry_version_2 and config_entry.minor_version == 1:
+        _LOGGER.debug("Migrating configuration from version 2.1")
+
+        if await _async_backfill_mac_and_sn(hass, config_entry):
+            if (MAJOR_VERSION, MINOR_VERSION) >= (2024, 3):
+                hass.config_entries.async_update_entry(config_entry, minor_version=2)
+            else:
+                config_entry.minor_version = 2
+                hass.config_entries.async_update_entry(config_entry)
+
+            _LOGGER.debug("Migration to configuration version 2.2 successful")
+        else:
+            _LOGGER.debug(
+                "Device %s did not respond to discovery;"
+                " mac/serial number migration will be retried on next start",
+                config_entry.data.get(CONF_DEVICE_ID),
+            )
+
+    return True
+
+
+async def _async_backfill_mac_and_sn(
+    hass: HomeAssistant,
+    config_entry: ConfigEntry,
+) -> bool:
+    """Best-effort discovery to backfill mac address and serial number.
+
+    Returns
+    -------
+    True if the entry already had the data, has no IP/device id to look up,
+    or was successfully updated. False if the device did not answer
+    discovery and the migration should be retried on a later start.
+
+    """
+    if config_entry.data.get(CONF_TYPE) == CONF_ACCOUNT:
+        return True
+    if config_entry.data.get(CONF_MAC) or config_entry.data.get(CONF_SN):
+        return True
+    ip_address = config_entry.data.get(CONF_IP_ADDRESS)
+    device_id = config_entry.data.get(CONF_DEVICE_ID)
+    if ip_address is None or device_id is None:
+        return True
+    found_devices = await hass.async_add_executor_job(
+        lambda: discover(ip_address=ip_address),
+    )
+    device = found_devices.get(int(device_id))
+    if device is None:
+        return False
+    hass.config_entries.async_update_entry(
+        config_entry,
+        data={
+            **config_entry.data,
+            CONF_MAC: device.get(CONF_MAC),
+            CONF_SN: device.get(CONF_SN),
+        },
+    )
     return True
 
 
