@@ -18,7 +18,13 @@ CONF_MAC = "mac"
 CONF_SN = "sn"
 
 EXTRA_SENSOR = [Platform.SENSOR, Platform.BINARY_SENSOR]
-EXTRA_SWITCH = [Platform.SWITCH, Platform.LOCK, Platform.SELECT, Platform.NUMBER]
+EXTRA_SWITCH = [
+    Platform.SWITCH,
+    Platform.LOCK,
+    Platform.SELECT,
+    Platform.NUMBER,
+    Platform.TIME,
+]
 EXTRA_CONTROL = [
     Platform.CLIMATE,
     Platform.WATER_HEATER,
