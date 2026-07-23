@@ -70,13 +70,16 @@ else:
 from .const import (
     CONF_ACCOUNT,
     CONF_KEY,
+    CONF_MAC,
     CONF_MODEL,
     CONF_REFRESH_INTERVAL,
     CONF_SERVER,
+    CONF_SN,
     CONF_SUBTYPE,
     DOMAIN,
     EXTRA_CONTROL,
     EXTRA_SENSOR,
+    supports_model,
 )
 from .midea_devices import MIDEA_DEVICES
 
@@ -105,7 +108,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
     """
 
     VERSION = 2
-    MINOR_VERSION = 1
+    MINOR_VERSION = 2
 
     def __init__(self) -> None:
         """MideaLanConfigFlow class."""
@@ -798,6 +801,8 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                         CONF_SUBTYPE: user_input[CONF_SUBTYPE],
                         CONF_TOKEN: user_input[CONF_TOKEN],
                         CONF_KEY: user_input[CONF_KEY],
+                        CONF_MAC: device.get(CONF_MAC),
+                        CONF_SN: device.get(CONF_SN),
                     }
                     # save device json config when adding new device
                     self._save_device_config(data)
@@ -941,6 +946,11 @@ class MideaLanOptionsFlowHandler(OptionsFlow):
             "dict",
             MIDEA_DEVICES[cast("int", self._device_type)]["entities"],
         ).items():
+            if not supports_model(
+                self._config_entry.data.get(CONF_MODEL),
+                attribute_config,
+            ):
+                continue
             attribute_name = (
                 attribute if isinstance(attribute, str) else attribute.value
             )

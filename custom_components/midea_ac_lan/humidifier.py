@@ -109,7 +109,7 @@ class MideaHumidifier(MideaEntity, HumidifierEntity):
                 type(self),
             )
             return
-        self.schedule_update_ha_state()
+        self.schedule_update_if_running()
 
 
 class MideaA1Humidifier(MideaHumidifier):

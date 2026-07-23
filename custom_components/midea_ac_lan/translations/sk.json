@@ -93,6 +93,9 @@
       "cooking": {
         "name": "Cooking"
       },
+      "error_code": {
+        "name": "Kód chyby"
+      },
       "filter_change_reminder": {
         "name": "Filter Change Reminder"
       },
@@ -126,6 +129,9 @@
       "keep_warm": {
         "name": "Keep Warm"
       },
+      "leak_water": {
+        "name": "Únik vody"
+      },
       "lid_status": {
         "name": "Lid Status"
       },
@@ -152,6 +158,9 @@
       },
       "rinse_aid": {
         "name": "Rinse Aid Shortage"
+      },
+      "rsj_stand_by": {
+        "name": "Pohotovostný režim"
       },
       "salt": {
         "name": "Salt Shortage"
@@ -238,6 +247,15 @@
       },
       "water_temp_level": {
         "name": "Water Temperature Level"
+      },
+      "leak_water_protection_value": {
+        "name": "Hodnota ochrany proti úniku vody"
+      },
+      "flushing_days": {
+        "name": "Dni regenerácie"
+      },
+      "water_hardness": {
+        "name": "Tvrdosť vody"
       }
     },
     "select": {
@@ -259,6 +277,9 @@
       "oscillation_mode": {
         "name": "Oscillation Mode"
       },
+      "rate_select": {
+        "name": "Power Rate Limit"
+      },
       "screen_display": {
         "name": "Screen Display"
       },
@@ -270,6 +291,11 @@
       },
       "water_level_set": {
         "name": "Water Level Setting"
+      }
+    },
+    "time": {
+      "timing_regeneration": {
+        "name": "Časovaná regenerácia"
       }
     },
     "sensor": {
@@ -314,6 +340,20 @@
       },
       "energy_consumption": {
         "name": "Energy Consumption"
+      },
+      "error": {
+        "name": "Chyba",
+        "state": {
+          "no_error": "Bez chyby",
+          "e1_position_not_found": "E1 Pozícia nenájdená",
+          "e2_photo_sensor_no_signal": "E2 Fotosenzor bez signálu",
+          "e3_motor_not_running": "E3 Motor nebeží",
+          "e4_wrong_position": "E4 Nesprávna pozícia",
+          "e1_motor_fault": "E1 Porucha motora",
+          "e5_communication_fault": "E5 Porucha komunikácie",
+          "e6_salt_sensor_fault": "E6 Porucha senzora soli",
+          "e7_chlorine_sterilization_fault": "E7 Porucha chlórovej sterilizácie"
+        }
       },
       "error_code": {
         "name": "Error Code"
@@ -381,6 +421,9 @@
       "keep_warm_time": {
         "name": "Keep Warm Time"
       },
+      "left_salt": {
+        "name": "Zvyšná soľ"
+      },
       "middle_compartment_remaining": {
         "name": "Middle Compartment Remaining"
       },
@@ -417,6 +460,12 @@
       "refrigerator_setting_temp": {
         "name": "Refrigerator Setting Temperature"
       },
+      "regeneration_left_seconds": {
+        "name": "Zostávajúce sekundy regenerácie"
+      },
+      "remaining_days": {
+        "name": "Zostávajúce dni"
+      },
       "right_flex_zone_actual_temp": {
         "name": "Right Flex Zone Actual Temperature"
       },
@@ -429,11 +478,17 @@
       "rinse_level": {
         "name": "rinse level"
       },
+      "salt_setting": {
+        "name": "Nastavenie soli"
+      },
       "seat_temperature": {
         "name": "Seat Temperature"
       },
       "soak_time": {
         "name": "soak time"
+      },
+      "soft_available": {
+        "name": "Dostupná mäkká voda"
       },
       "softener": {
         "name": "softener"
@@ -455,6 +510,9 @@
       },
       "target_temperature": {
         "name": "Target Temperature"
+      },
+      "temperature": {
+        "name": "Teplota"
       },
       "time_remaining": {
         "name": "Time Remaining"
@@ -480,6 +538,12 @@
       "tvoc": {
         "name": "TVOC"
       },
+      "use_days": {
+        "name": "Dni používania"
+      },
+      "velocity": {
+        "name": "Rýchlosť"
+      },
       "wash_level": {
         "name": "rinse count"
       },
@@ -491,6 +555,12 @@
       },
       "water_consumption": {
         "name": "Water Consumption"
+      },
+      "water_consumption_average": {
+        "name": "Priemerná spotreba vody"
+      },
+      "water_consumption_big": {
+        "name": "Spotreba vody"
       },
       "water_temperature": {
         "name": "Water Temperature"
@@ -514,6 +584,12 @@
       },
       "breezeless": {
         "name": "Breezeless"
+      },
+      "child_lock": {
+        "name": "Detský zámok"
+      },
+      "cl_sterilization": {
+        "name": "CL sterilizácia"
       },
       "comfort_mode": {
         "name": "Comfort Mode"
@@ -545,6 +621,9 @@
       "indirect_wind": {
         "name": "Indirect Wind"
       },
+      "leak_water_protection": {
+        "name": "Ochrana proti úniku vody"
+      },
       "light": {
         "name": "Light"
       },
@@ -575,8 +654,14 @@
       "prompt_tone": {
         "name": "Prompt Tone"
       },
+      "regeneration": {
+        "name": "Regenerácia"
+      },
       "water_pump": {
         "name": "Vodné čerpadlo"
+      },
+      "water_way": {
+        "name": "Vodná cesta"
       },
       "screen_display": {
         "name": "Screen Display"
@@ -601,6 +686,9 @@
       },
       "smelly_sensor": {
         "name": "Smelly Sensor"
+      },
+      "soften": {
+        "name": "Zmäkčovanie"
       },
       "standby": {
         "name": "Standby"
