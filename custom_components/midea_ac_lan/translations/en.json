@@ -93,6 +93,9 @@
       "cooking": {
         "name": "Cooking"
       },
+      "error_code": {
+        "name": "Error Code"
+      },
       "filter_change_reminder": {
         "name": "Filter Change Reminder"
       },
@@ -125,6 +128,9 @@
       },
       "keep_warm": {
         "name": "Keep Warm"
+      },
+      "leak_water": {
+        "name": "Leak Water"
       },
       "lid_status": {
         "name": "Lid Status"
@@ -167,6 +173,9 @@
       },
       "rinse_aid": {
         "name": "Rinse Aid Shortage"
+      },
+      "rsj_stand_by": {
+        "name": "Stand By"
       },
       "salt": {
         "name": "Salt Shortage"
@@ -225,9 +234,6 @@
       "water_shortage": {
         "name": "Water Shortage"
       },
-      "water_pump_running": {
-        "name": "Water Pump Running"
-      },
       "with_pressure": {
         "name": "With Pressure"
       },
@@ -245,6 +251,9 @@
       },
       "electronic_smell": {
         "name": "Deodorizing sterilizing"
+      },
+      "water_pump_running": {
+        "name": "Water Pump Running"
       }
     },
     "climate": {
@@ -296,6 +305,15 @@
       },
       "vacation_days": {
         "name": "Vacation Days"
+      },
+      "leak_water_protection_value": {
+        "name": "Leak Water Protection Value"
+      },
+      "flushing_days": {
+        "name": "Regeneration Days"
+      },
+      "water_hardness": {
+        "name": "Water Hardness"
       }
     },
     "select": {
@@ -375,6 +393,11 @@
         }
       }
     },
+    "time": {
+      "timing_regeneration": {
+        "name": "Timing Regeneration"
+      }
+    },
     "sensor": {
       "bathing_leaving_temperature": {
         "name": "Bathing Leaving Water Temperature"
@@ -397,18 +420,6 @@
       "compressor_temperature": {
         "name": "Compressor Temperature"
       },
-      "compressor_frequency": {
-        "name": "Compressor Frequency"
-      },
-      "compressor_current": {
-        "name": "Compressor Current"
-      },
-      "compressor_power": {
-        "name": "Compressor Power"
-      },
-      "compressor_voltage": {
-        "name": "Compressor Voltage"
-      },
       "condenser_temperature": {
         "name": "Condenser Temperature"
       },
@@ -427,11 +438,8 @@
       "dehydration_time_value": {
         "name": "Dehydration time value"
       },
-      "discharge_pipe_temperature": {
-        "name": "Discharge Pipe Temperature"
-      },
-      "evaporator_temperature": {
-        "name": "Evaporator Temperature"
+      "temperature": {
+        "name": "Temperature"
       },
       "wash_time_value": {
         "name": "Wash time value"
@@ -468,6 +476,20 @@
       },
       "energy_consumption": {
         "name": "Energy Consumption"
+      },
+      "error": {
+        "name": "Error",
+        "state": {
+          "no_error": "No Error",
+          "e1_position_not_found": "E1 Position not found",
+          "e2_photo_sensor_no_signal": "E2 Photo sensor no signal",
+          "e3_motor_not_running": "E3 Motor not running",
+          "e4_wrong_position": "E4 Wrong position",
+          "e1_motor_fault": "E1 Motor fault",
+          "e5_communication_fault": "E5 Communication fault",
+          "e6_salt_sensor_fault": "E6 Salt sensor fault",
+          "e7_chlorine_sterilization_fault": "E7 Chlorine sterilization fault"
+        }
       },
       "error_code": {
         "name": "Error Code"
@@ -523,12 +545,6 @@
       "in_tds": {
         "name": "In TDS"
       },
-      "indoor_coil_temperature": {
-        "name": "Indoor Coil Temperature"
-      },
-      "indoor_fan_speed": {
-        "name": "Indoor Fan Speed"
-      },
       "indoor_humidity": {
         "name": "Indoor Humidity"
       },
@@ -540,6 +556,9 @@
       },
       "keep_warm_time": {
         "name": "Keep Warm Time"
+      },
+      "left_salt": {
+        "name": "Left Salt"
       },
       "middle_compartment_remaining": {
         "name": "Middle Compartment Remaining"
@@ -559,9 +578,6 @@
       "outdoor_temperature": {
         "name": "Outdoor Temperature"
       },
-      "outdoor_ambient_temperature": {
-        "name": "Outdoor Ambient Temperature"
-      },
       "program": {
         "name": "Program"
       },
@@ -571,12 +587,6 @@
       "realtime_power": {
         "name": "Realtime Power"
       },
-      "target_compressor_frequency": {
-        "name": "Target Compressor Frequency"
-      },
-      "target_indoor_fan_speed": {
-        "name": "Target Indoor Fan Speed"
-      },
       "pmv": {
         "name": "PMV"
       },
@@ -585,6 +595,12 @@
       },
       "refrigerator_setting_temp": {
         "name": "Refrigerator Setting Temperature"
+      },
+      "regeneration_left_seconds": {
+        "name": "Regeneration Left Seconds"
+      },
+      "remaining_days": {
+        "name": "Remaining Days"
       },
       "right_flex_zone_actual_temp": {
         "name": "Right Flex Zone Actual Temperature"
@@ -598,11 +614,17 @@
       "rinse_level": {
         "name": "Rinse level"
       },
+      "salt_setting": {
+        "name": "Salt Setting"
+      },
       "seat_temperature": {
         "name": "Seat Temperature"
       },
       "soak_time": {
         "name": "Soak time"
+      },
+      "soft_available": {
+        "name": "Soft Water Available"
       },
       "softener": {
         "name": "Softener"
@@ -658,6 +680,12 @@
       "water_consumption": {
         "name": "Water Consumption"
       },
+      "water_consumption_average": {
+        "name": "Water Consumption Average"
+      },
+      "water_consumption_big": {
+        "name": "Water Consumption"
+      },
       "water_temperature": {
         "name": "Water Temperature"
       },
@@ -669,6 +697,9 @@
       },
       "typeinfo": {
         "name": "Type Info"
+      },
+      "use_days": {
+        "name": "Use Days"
       },
       "elec_heat": {
         "name": "Electric Heat"
@@ -717,6 +748,42 @@
       },
       "variable_mode": {
         "name": "Variable Mode"
+      },
+      "compressor_frequency": {
+        "name": "Compressor Frequency"
+      },
+      "target_compressor_frequency": {
+        "name": "Target Compressor Frequency"
+      },
+      "compressor_current": {
+        "name": "Compressor Current"
+      },
+      "compressor_voltage": {
+        "name": "Compressor Voltage"
+      },
+      "compressor_power": {
+        "name": "Compressor Power"
+      },
+      "indoor_coil_temperature": {
+        "name": "Indoor Coil Temperature (T1)"
+      },
+      "evaporator_temperature": {
+        "name": "Evaporator Temperature (T2)"
+      },
+      "outdoor_ambient_temperature": {
+        "name": "Outdoor Ambient Temperature (T4)"
+      },
+      "discharge_pipe_temperature": {
+        "name": "Discharge Pipe Temperature (TP)"
+      },
+      "indoor_fan_speed": {
+        "name": "Indoor Fan Speed"
+      },
+      "target_indoor_fan_speed": {
+        "name": "Target Indoor Fan Speed"
+      },
+      "velocity": {
+        "name": "Velocity"
       }
     },
     "switch": {
@@ -731,6 +798,12 @@
       },
       "breezeless": {
         "name": "Breezeless"
+      },
+      "child_lock": {
+        "name": "Child Lock"
+      },
+      "cl_sterilization": {
+        "name": "CL Sterilization"
       },
       "comfort_mode": {
         "name": "Comfort Mode"
@@ -774,6 +847,9 @@
       "indirect_wind": {
         "name": "Indirect Wind"
       },
+      "leak_water_protection": {
+        "name": "Leak Water Protection"
+      },
       "light": {
         "name": "Light"
       },
@@ -804,8 +880,14 @@
       "prompt_tone": {
         "name": "Prompt Tone"
       },
+      "regeneration": {
+        "name": "Regeneration"
+      },
       "water_pump": {
         "name": "Water Pump"
+      },
+      "water_way": {
+        "name": "Water Way"
       },
       "screen_display": {
         "name": "Screen Display"
@@ -833,6 +915,9 @@
       },
       "smelly_sensor": {
         "name": "Smelly Sensor"
+      },
+      "soften": {
+        "name": "Softening"
       },
       "standby": {
         "name": "Standby"

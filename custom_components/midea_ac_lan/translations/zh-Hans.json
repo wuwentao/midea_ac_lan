@@ -93,6 +93,9 @@
       "cooking": {
         "name": "烹饪中"
       },
+      "error_code": {
+        "name": "错误代码"
+      },
       "filter_change_reminder": {
         "name": "滤芯更换提醒"
       },
@@ -126,6 +129,9 @@
       "keep_warm": {
         "name": "保温"
       },
+      "leak_water": {
+        "name": "漏水报警"
+      },
       "lid_status": {
         "name": "盖子状态"
       },
@@ -152,6 +158,9 @@
       },
       "rinse_aid": {
         "name": "漂洗剂不足"
+      },
+      "rsj_stand_by": {
+        "name": "待机状态"
       },
       "salt": {
         "name": "软水盐不足"
@@ -191,9 +200,6 @@
       },
       "water_shortage": {
         "name": "缺水"
-      },
-      "water_pump_running": {
-        "name": "水泵运行"
       },
       "with_pressure": {
         "name": "带压中"
@@ -263,6 +269,15 @@
       },
       "fan_speed_percent": {
         "name": "风速百分比"
+      },
+      "leak_water_protection_value": {
+        "name": "漏水保护阈值"
+      },
+      "flushing_days": {
+        "name": "再生天数"
+      },
+      "water_hardness": {
+        "name": "进水硬度"
       }
     },
     "select": {
@@ -342,6 +357,11 @@
         }
       }
     },
+    "time": {
+      "timing_regeneration": {
+        "name": "定时再生时间"
+      }
+    },
     "sensor": {
       "bathing_leaving_temperature": {
         "name": "淋浴出水温度"
@@ -364,18 +384,6 @@
       "compressor_temperature": {
         "name": "压缩机温度"
       },
-      "compressor_frequency": {
-        "name": "压缩机频率"
-      },
-      "compressor_current": {
-        "name": "压缩机电流"
-      },
-      "compressor_power": {
-        "name": "压缩机功率"
-      },
-      "compressor_voltage": {
-        "name": "压缩机电压"
-      },
       "condenser_temperature": {
         "name": "冷凝器温度"
       },
@@ -394,11 +402,8 @@
       "dehydration_time_value": {
         "name": "脱水时间值"
       },
-      "discharge_pipe_temperature": {
-        "name": "排气管温度"
-      },
-      "evaporator_temperature": {
-        "name": "蒸发器温度"
+      "temperature": {
+        "name": "目标温度"
       },
       "wash_time_value": {
         "name": "洗涤时间值"
@@ -432,6 +437,20 @@
       },
       "energy_consumption": {
         "name": "能耗"
+      },
+      "error": {
+        "name": "错误",
+        "state": {
+          "no_error": "无故障",
+          "e1_position_not_found": "E1 一直找不到工作位",
+          "e2_photo_sensor_no_signal": "E2 光感没有发出信号",
+          "e3_motor_not_running": "E3 电机不转",
+          "e4_wrong_position": "E4 工作位不正确",
+          "e1_motor_fault": "E1 电机故障",
+          "e5_communication_fault": "E5 通信故障",
+          "e6_salt_sensor_fault": "E6 盐位传感器故障",
+          "e7_chlorine_sterilization_fault": "E7 余氯杀菌故障"
+        }
       },
       "error_code": {
         "name": "错误码"
@@ -487,12 +506,6 @@
       "in_tds": {
         "name": "进水TDS"
       },
-      "indoor_coil_temperature": {
-        "name": "室内盘管温度"
-      },
-      "indoor_fan_speed": {
-        "name": "室内风机转速"
-      },
       "indoor_humidity": {
         "name": "室内湿度"
       },
@@ -504,6 +517,9 @@
       },
       "keep_warm_time": {
         "name": "保温时间"
+      },
+      "left_salt": {
+        "name": "剩余盐量"
       },
       "middle_compartment_remaining": {
         "name": "中层剩余时间"
@@ -523,9 +539,6 @@
       "outdoor_temperature": {
         "name": "室外温度"
       },
-      "outdoor_ambient_temperature": {
-        "name": "室外环境温度"
-      },
       "program": {
         "name": "程序"
       },
@@ -535,12 +548,6 @@
       "realtime_power": {
         "name": "实时功率"
       },
-      "target_compressor_frequency": {
-        "name": "压缩机目标频率"
-      },
-      "target_indoor_fan_speed": {
-        "name": "室内风机目标转速"
-      },
       "pmv": {
         "name": "PMV"
       },
@@ -549,6 +556,12 @@
       },
       "refrigerator_setting_temp": {
         "name": "冷藏室设置温度"
+      },
+      "regeneration_left_seconds": {
+        "name": "再生剩余秒数"
+      },
+      "remaining_days": {
+        "name": "剩余天数"
       },
       "right_flex_zone_actual_temp": {
         "name": "右变温区实际温度"
@@ -562,11 +575,17 @@
       "rinse_level": {
         "name": "漂洗档位"
       },
+      "salt_setting": {
+        "name": "盐量设置"
+      },
       "seat_temperature": {
         "name": "当前座温"
       },
       "soak_time": {
         "name": "浸泡时间"
+      },
+      "soft_available": {
+        "name": "软化水可用量"
       },
       "softener": {
         "name": "柔顺剂"
@@ -613,6 +632,9 @@
       "tvoc": {
         "name": "TVOC"
       },
+      "use_days": {
+        "name": "使用天数"
+      },
       "wash_level": {
         "name": "洗涤档位"
       },
@@ -626,6 +648,12 @@
         "name": "洗涤剂"
       },
       "water_consumption": {
+        "name": "总耗水量"
+      },
+      "water_consumption_average": {
+        "name": "平均耗水量"
+      },
+      "water_consumption_big": {
         "name": "总耗水量"
       },
       "water_level": {
@@ -642,6 +670,9 @@
       },
       "variable_mode": {
         "name": "变温区模式"
+      },
+      "velocity": {
+        "name": "流速"
       }
     },
     "switch": {
@@ -656,6 +687,12 @@
       },
       "breezeless": {
         "name": "无风感"
+      },
+      "child_lock": {
+        "name": "童锁"
+      },
+      "cl_sterilization": {
+        "name": "CL 杀菌"
       },
       "comfort_mode": {
         "name": "舒省模式"
@@ -694,6 +731,9 @@
       "indirect_wind": {
         "name": "防直吹"
       },
+      "leak_water_protection": {
+        "name": "漏水保护"
+      },
       "light": {
         "name": "灯光"
       },
@@ -724,8 +764,14 @@
       "prompt_tone": {
         "name": "提示音"
       },
+      "regeneration": {
+        "name": "再生"
+      },
       "water_pump": {
         "name": "水泵"
+      },
+      "water_way": {
+        "name": "水路"
       },
       "screen_display": {
         "name": "屏幕显示"
@@ -753,6 +799,9 @@
       },
       "smelly_sensor": {
         "name": "异味感应"
+      },
+      "soften": {
+        "name": "软化功能"
       },
       "standby": {
         "name": "待机"
