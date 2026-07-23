@@ -79,6 +79,7 @@ from .const import (
     DOMAIN,
     EXTRA_CONTROL,
     EXTRA_SENSOR,
+    supports_model,
 )
 from .midea_devices import MIDEA_DEVICES
 
@@ -945,6 +946,11 @@ class MideaLanOptionsFlowHandler(OptionsFlow):
             "dict",
             MIDEA_DEVICES[cast("int", self._device_type)]["entities"],
         ).items():
+            if not supports_model(
+                self._config_entry.data.get(CONF_MODEL),
+                attribute_config,
+            ):
+                continue
             attribute_name = (
                 attribute if isinstance(attribute, str) else attribute.value
             )

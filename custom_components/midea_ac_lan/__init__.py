@@ -94,11 +94,16 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:  # noqa:
             "dict",
             device_entities["entities"],
         ).items():
+            attribute_key = (
+                attribute_name
+                if isinstance(attribute_name, str)
+                else attribute_name.value
+            )
             if (
                 attribute.get("type") in EXTRA_SWITCH
-                and attribute_name.value not in attributes
+                and attribute_key not in attributes
             ):
-                attributes.append(attribute_name.value)
+                attributes.append(attribute_key)
 
     def service_set_attribute(service: Any) -> None:  # noqa: ANN401
         """Set service attribute func."""
