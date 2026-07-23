@@ -225,6 +225,9 @@
       "water_shortage": {
         "name": "Water Shortage"
       },
+      "water_pump_running": {
+        "name": "Water Pump Running"
+      },
       "with_pressure": {
         "name": "With Pressure"
       },
@@ -305,6 +308,26 @@
       "fan_speed": {
         "name": "Fan Speed"
       },
+      "fresh_air_exhaust_mode": {
+        "name": "Fresh Air Exhaust Speed",
+        "state": {
+          "off": "Off",
+          "silent": "Low",
+          "high": "High",
+          "full": "Full"
+        }
+      },
+      "fresh_air_mode": {
+        "name": "Fresh Air Speed",
+        "state": {
+          "off": "Off",
+          "silent": "Silent",
+          "low": "Low",
+          "medium": "Medium",
+          "high": "High",
+          "full": "Full"
+        }
+      },
       "mode": {
         "name": "Mode"
       },
@@ -380,8 +403,11 @@
       "compressor_current": {
         "name": "Compressor Current"
       },
-      "compressor_target_frequency": {
-        "name": "Compressor Target Frequency"
+      "compressor_power": {
+        "name": "Compressor Power"
+      },
+      "compressor_voltage": {
+        "name": "Compressor Voltage"
       },
       "condenser_temperature": {
         "name": "Condenser Temperature"
@@ -400,6 +426,12 @@
       },
       "dehydration_time_value": {
         "name": "Dehydration time value"
+      },
+      "discharge_pipe_temperature": {
+        "name": "Discharge Pipe Temperature"
+      },
+      "evaporator_temperature": {
+        "name": "Evaporator Temperature"
       },
       "wash_time_value": {
         "name": "Wash time value"
@@ -491,6 +523,12 @@
       "in_tds": {
         "name": "In TDS"
       },
+      "indoor_coil_temperature": {
+        "name": "Indoor Coil Temperature"
+      },
+      "indoor_fan_speed": {
+        "name": "Indoor Fan Speed"
+      },
       "indoor_humidity": {
         "name": "Indoor Humidity"
       },
@@ -521,14 +559,8 @@
       "outdoor_temperature": {
         "name": "Outdoor Temperature"
       },
-      "outdoor_unit_total_current": {
-        "name": "Outdoor Unit Total Current"
-      },
-      "outdoor_unit_voltage": {
-        "name": "Outdoor Unit Voltage"
-      },
-      "power_factor": {
-        "name": "Power Factor"
+      "outdoor_ambient_temperature": {
+        "name": "Outdoor Ambient Temperature"
       },
       "program": {
         "name": "Program"
@@ -538,6 +570,12 @@
       },
       "realtime_power": {
         "name": "Realtime Power"
+      },
+      "target_compressor_frequency": {
+        "name": "Target Compressor Frequency"
+      },
+      "target_indoor_fan_speed": {
+        "name": "Target Indoor Fan Speed"
       },
       "pmv": {
         "name": "PMV"

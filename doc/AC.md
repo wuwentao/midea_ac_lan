@@ -97,50 +97,60 @@ Known settings:
 
 ### Extra entities
 
-| EntityID                                      | Class         | Description                |
-| --------------------------------------------- | ------------- | -------------------------- |
-| sensor.{DEVICEID}\_full_dust                  | binary_sensor | Full of Dust               |
-| sensor.{DEVICEID}\_self_clean_active          | binary_sensor | Self Clean Active          |
-| sensor.{DEVICEID}\_indoor_humidity            | sensor        | Indoor humidity            |
-| sensor.{DEVICEID}\_indoor_temperature         | sensor        | Indoor Temperature         |
-| sensor.{DEVICEID}\_outdoor_temperature        | sensor        | Outdoor Temperature        |
-| sensor.{DEVICEID}\_total_energy_consumption   | sensor        | Total Energy Consumption   |
-| sensor.{DEVICEID}\_current_energy_consumption | sensor        | Current Energy Consumption |
-| sensor.{DEVICEID}\_realtime_power             | sensor        | Realtime Power             |
-| sensor.{DEVICEID}\_compressor_frequency        | sensor        | Compressor Frequency       |
-| sensor.{DEVICEID}\_compressor_target_frequency | sensor        | Compressor Target Frequency |
-| sensor.{DEVICEID}\_compressor_current          | sensor        | Compressor Current         |
-| sensor.{DEVICEID}\_outdoor_unit_total_current  | sensor        | Outdoor Unit Total Current |
-| sensor.{DEVICEID}\_outdoor_unit_voltage        | sensor        | Outdoor Unit Voltage       |
-| sensor.{DEVICEID}\_estimated_realtime_power    | sensor        | Estimated Realtime Power   |
-| sensor.{DEVICEID}\_estimated_total_energy_consumption | sensor | Estimated Total Energy Consumption |
-| sensor.{DEVICEID}\_estimated_daily_energy_consumption | sensor | Estimated Daily Energy Consumption |
-| sensor.{DEVICEID}\_pmv                        | sensor        | PMV (Predicted Mean Vote)  |
-| sensor.{DEVICEID}\_error_code                 | sensor        | Error Code                 |
-| fan.{DEVICEID}\_fresh_air                     | fan           | Fresh Air Fan              |
-| fan.{DEVICEID}\_fresh_air_exhaust             | fan           | Fresh Air Exhaust          |
-| switch.{DEVICEID}\_anion                      | switch        | Anion (Ionizer)            |
-| switch.{DEVICEID}\_aux_heating                | switch        | Aux Heating                |
-| switch.{DEVICEID}\_boost_mode                 | switch        | Boost Mode                 |
-| switch.{DEVICEID}\_breezeless                 | switch        | Breezeless                 |
-| switch.{DEVICEID}\_comfort_mode               | switch        | Comfort Mode               |
-| switch.{DEVICEID}\_dry                        | switch        | Dry                        |
-| switch.{DEVICEID}\_eco_mode                   | switch        | ECO Mode                   |
-| switch.{DEVICEID}\_indirect_wind              | switch        | Indirect Wind              |
-| switch.{DEVICEID}\_natural_wind               | switch        | Natural Wind               |
-| switch.{DEVICEID}\_prompt_tone                | switch        | Prompt Tone                |
-| switch.{DEVICEID}\_power                      | switch        | Power                      |
-| switch.{DEVICEID}\_screen_display             | switch        | Screen Display             |
-| switch.{DEVICEID}\_screen_display_alternate   | switch        | Screen Display Alternate   |
-| switch.{DEVICEID}\_self_clean                 | switch        | Self Clean                 |
-| switch.{DEVICEID}\_smart_eye                  | switch        | Smart Eye                  |
-| switch.{DEVICEID}\_sound                      | switch        | Sound                      |
-| switch.{DEVICEID}\_swing_horizontal           | switch        | Swing Horizontal           |
-| switch.{DEVICEID}\_swing_vertical             | switch        | Swing Vertical             |
-| switch.{DEVICEID}\_wind_lr_angle              | select        | Airflow Horizontal         |
-| switch.{DEVICEID}\_wind_ud_angle              | select        | Airflow Vertical           |
-| switch.{DEVICEID}\_rate_select                | select        | Power Rate Limit           |
-| switch.{DEVICEID}\_fan_speed                  | number        | Fan Speed Percent          |
+| EntityID                                       | Class         | Description                 |
+| ---------------------------------------------- | ------------- | --------------------------- |
+| sensor.{DEVICEID}\_full_dust                   | binary_sensor | Full of Dust                |
+| sensor.{DEVICEID}\_self_clean_active           | binary_sensor | Self Clean Active           |
+| sensor.{DEVICEID}\_indoor_humidity             | sensor        | Indoor humidity             |
+| sensor.{DEVICEID}\_indoor_temperature          | sensor        | Indoor Temperature          |
+| sensor.{DEVICEID}\_outdoor_temperature         | sensor        | Outdoor Temperature         |
+| sensor.{DEVICEID}\_total_energy_consumption    | sensor        | Total Energy Consumption    |
+| sensor.{DEVICEID}\_current_energy_consumption  | sensor        | Current Energy Consumption  |
+| sensor.{DEVICEID}\_realtime_power              | sensor        | Realtime Power              |
+| sensor.{DEVICEID}\_compressor_frequency        | sensor        | Compressor Frequency        |
+| sensor.{DEVICEID}\_target_compressor_frequency | sensor        | Target Compressor Frequency |
+| sensor.{DEVICEID}\_compressor_current          | sensor        | Compressor Current          |
+| sensor.{DEVICEID}\_compressor_voltage          | sensor        | Compressor Voltage          |
+| sensor.{DEVICEID}\_indoor_coil_temperature     | sensor        | Indoor Coil Temperature     |
+| sensor.{DEVICEID}\_evaporator_temperature      | sensor        | Evaporator Temperature      |
+| sensor.{DEVICEID}\_condenser_temperature       | sensor        | Condenser Temperature       |
+| sensor.{DEVICEID}\_outdoor_ambient_temperature | sensor        | Outdoor Ambient Temperature |
+| sensor.{DEVICEID}\_discharge_pipe_temperature  | sensor        | Discharge Pipe Temperature  |
+| sensor.{DEVICEID}\_indoor_fan_speed            | sensor        | Indoor Fan Speed            |
+| sensor.{DEVICEID}\_target_indoor_fan_speed     | sensor        | Target Indoor Fan Speed     |
+| sensor.{DEVICEID}\_compressor_power            | sensor        | Compressor Power            |
+| binary_sensor.{DEVICEID}\_water_pump_running   | binary_sensor | Water Pump Running          |
+| sensor.{DEVICEID}\_pmv                         | sensor        | PMV (Predicted Mean Vote)   |
+| sensor.{DEVICEID}\_error_code                  | sensor        | Error Code                  |
+| fan.{DEVICEID}\_fresh_air                      | fan           | Fresh Air Fan               |
+| fan.{DEVICEID}\_fresh_air_exhaust              | fan           | Fresh Air Exhaust           |
+| select.{DEVICEID}\_fresh_air_mode              | select        | Fresh Air Speed             |
+| select.{DEVICEID}\_fresh_air_exhaust_mode      | select        | Fresh Air Exhaust Speed     |
+| switch.{DEVICEID}\_anion                       | switch        | Anion (Ionizer)             |
+| switch.{DEVICEID}\_aux_heating                 | switch        | Aux Heating                 |
+| switch.{DEVICEID}\_boost_mode                  | switch        | Boost Mode                  |
+| switch.{DEVICEID}\_breezeless                  | switch        | Breezeless                  |
+| switch.{DEVICEID}\_comfort_mode                | switch        | Comfort Mode                |
+| switch.{DEVICEID}\_dry                         | switch        | Dry                         |
+| switch.{DEVICEID}\_eco_mode                    | switch        | ECO Mode                    |
+| switch.{DEVICEID}\_indirect_wind               | switch        | Indirect Wind               |
+| switch.{DEVICEID}\_natural_wind                | switch        | Natural Wind                |
+| switch.{DEVICEID}\_prompt_tone                 | switch        | Prompt Tone                 |
+| switch.{DEVICEID}\_power                       | switch        | Power                       |
+| switch.{DEVICEID}\_screen_display              | switch        | Screen Display              |
+| switch.{DEVICEID}\_screen_display_alternate    | switch        | Screen Display Alternate    |
+| switch.{DEVICEID}\_self_clean                  | switch        | Self Clean                  |
+| switch.{DEVICEID}\_smart_eye                   | switch        | Smart Eye                   |
+| switch.{DEVICEID}\_sound                       | switch        | Sound                       |
+| switch.{DEVICEID}\_swing_horizontal            | switch        | Swing Horizontal            |
+| switch.{DEVICEID}\_swing_vertical              | switch        | Swing Vertical              |
+| switch.{DEVICEID}\_wind_lr_angle               | select        | Airflow Horizontal          |
+| switch.{DEVICEID}\_wind_ud_angle               | select        | Airflow Vertical            |
+| switch.{DEVICEID}\_rate_select                 | select        | Power Rate Limit            |
+| switch.{DEVICEID}\_fan_speed                   | number        | Fan Speed Percent           |
+
+Service diagnostic entities are optional. Devices that do not return the
+corresponding Midea group data may leave these entities in an unknown state.
 
 ## Built-in fresh air system
 

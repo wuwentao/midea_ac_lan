@@ -8,6 +8,7 @@ from homeassistant.const import (
     CONCENTRATION_MICROGRAMS_PER_CUBIC_METER,
     CONCENTRATION_PARTS_PER_MILLION,
     PERCENTAGE,
+    REVOLUTIONS_PER_MINUTE,
     Platform,
     UnitOfElectricCurrent,
     UnitOfElectricPotential,
@@ -57,12 +58,6 @@ FRESH_AIR_EXHAUST = "fresh_air_exhaust"
 FRESH_AIR_EXHAUST_MODE = "fresh_air_exhaust_mode"
 FRESH_AIR_EXHAUST_POWER = "fresh_air_exhaust_power"
 FRESH_AIR_EXHAUST_SPEED = "fresh_air_exhaust_speed"
-COMPRESSOR_FREQUENCY = "compressor_frequency"
-COMPRESSOR_TARGET_FREQUENCY = "compressor_target_frequency"
-COMPRESSOR_CURRENT = "compressor_current"
-OUTDOOR_UNIT_TOTAL_CURRENT = "outdoor_unit_total_current"
-OUTDOOR_UNIT_VOLTAGE = "outdoor_unit_voltage"
-POWER_FACTOR = "power_factor"
 
 """
 Entity Naming Rule:
@@ -398,11 +393,27 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Fresh Air",
                 "icon": "mdi:fan",
             },
+            ACAttributes.fresh_air_mode: {
+                "type": Platform.SELECT,
+                "required_attribute": ACAttributes.fresh_air_mode,
+                "translation_key": "fresh_air_mode",
+                "name": "Fresh Air Speed",
+                "icon": "mdi:fan-chevron-up",
+                "options": "fresh_air_fan_speeds",
+            },
             FRESH_AIR_EXHAUST: {
                 "type": Platform.FAN,
                 "translation_key": "fresh_air_exhaust",
                 "name": "Fresh Air Exhaust",
                 "icon": "mdi:fan-reverse",
+                "required_attribute": FRESH_AIR_EXHAUST_POWER,
+            },
+            FRESH_AIR_EXHAUST_MODE: {
+                "type": Platform.SELECT,
+                "translation_key": "fresh_air_exhaust_mode",
+                "name": "Fresh Air Exhaust Speed",
+                "icon": "mdi:fan-chevron-down",
+                "options": "fresh_air_exhaust_fan_speeds",
                 "required_attribute": FRESH_AIR_EXHAUST_POWER,
             },
             ACAttributes.aux_heating: {
@@ -586,9 +597,9 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "unit": UnitOfPower.WATT,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
-            COMPRESSOR_FREQUENCY: {
+            ACAttributes.compressor_frequency: {
                 "type": Platform.SENSOR,
-                "required_attribute": COMPRESSOR_FREQUENCY,
+                "required_attribute": ACAttributes.compressor_frequency,
                 "translation_key": "compressor_frequency",
                 "name": "Compressor Frequency",
                 "icon": "mdi:sine-wave",
@@ -596,50 +607,111 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "unit": UnitOfFrequency.HERTZ,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
-            COMPRESSOR_TARGET_FREQUENCY: {
+            ACAttributes.target_compressor_frequency: {
                 "type": Platform.SENSOR,
-                "required_attribute": COMPRESSOR_TARGET_FREQUENCY,
-                "translation_key": "compressor_target_frequency",
-                "name": "Compressor Target Frequency",
+                "required_attribute": ACAttributes.target_compressor_frequency,
+                "translation_key": "target_compressor_frequency",
+                "name": "Target Compressor Frequency",
                 "icon": "mdi:sine-wave",
                 "device_class": SensorDeviceClass.FREQUENCY,
                 "unit": UnitOfFrequency.HERTZ,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
-            COMPRESSOR_CURRENT: {
+            ACAttributes.compressor_current: {
                 "type": Platform.SENSOR,
-                "required_attribute": COMPRESSOR_CURRENT,
+                "required_attribute": ACAttributes.compressor_current,
                 "translation_key": "compressor_current",
                 "name": "Compressor Current",
                 "device_class": SensorDeviceClass.CURRENT,
                 "unit": UnitOfElectricCurrent.AMPERE,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
-            OUTDOOR_UNIT_TOTAL_CURRENT: {
+            ACAttributes.compressor_voltage: {
                 "type": Platform.SENSOR,
-                "required_attribute": OUTDOOR_UNIT_TOTAL_CURRENT,
-                "translation_key": "outdoor_unit_total_current",
-                "name": "Outdoor Unit Total Current",
-                "device_class": SensorDeviceClass.CURRENT,
-                "unit": UnitOfElectricCurrent.AMPERE,
-                "state_class": SensorStateClass.MEASUREMENT,
-            },
-            OUTDOOR_UNIT_VOLTAGE: {
-                "type": Platform.SENSOR,
-                "required_attribute": OUTDOOR_UNIT_VOLTAGE,
-                "translation_key": "outdoor_unit_voltage",
-                "name": "Outdoor Unit Voltage",
+                "required_attribute": ACAttributes.compressor_voltage,
+                "translation_key": "compressor_voltage",
+                "name": "Compressor Voltage",
                 "device_class": SensorDeviceClass.VOLTAGE,
                 "unit": UnitOfElectricPotential.VOLT,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
-            POWER_FACTOR: {
+            ACAttributes.indoor_coil_temperature: {
                 "type": Platform.SENSOR,
-                "required_attribute": POWER_FACTOR,
-                "translation_key": "power_factor",
-                "name": "Power Factor",
-                "device_class": SensorDeviceClass.POWER_FACTOR,
-                "unit": PERCENTAGE,
+                "required_attribute": ACAttributes.indoor_coil_temperature,
+                "translation_key": "indoor_coil_temperature",
+                "name": "Indoor Coil Temperature",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            ACAttributes.evaporator_temperature: {
+                "type": Platform.SENSOR,
+                "required_attribute": ACAttributes.evaporator_temperature,
+                "translation_key": "evaporator_temperature",
+                "name": "Evaporator Temperature",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            ACAttributes.condenser_temperature: {
+                "type": Platform.SENSOR,
+                "required_attribute": ACAttributes.condenser_temperature,
+                "translation_key": "condenser_temperature",
+                "name": "Condenser Temperature",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            ACAttributes.outdoor_ambient_temperature: {
+                "type": Platform.SENSOR,
+                "required_attribute": ACAttributes.outdoor_ambient_temperature,
+                "translation_key": "outdoor_ambient_temperature",
+                "name": "Outdoor Ambient Temperature",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            ACAttributes.discharge_pipe_temperature: {
+                "type": Platform.SENSOR,
+                "required_attribute": ACAttributes.discharge_pipe_temperature,
+                "translation_key": "discharge_pipe_temperature",
+                "name": "Discharge Pipe Temperature",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            ACAttributes.indoor_fan_speed: {
+                "type": Platform.SENSOR,
+                "required_attribute": ACAttributes.indoor_fan_speed,
+                "translation_key": "indoor_fan_speed",
+                "name": "Indoor Fan Speed",
+                "icon": "mdi:fan",
+                "unit": REVOLUTIONS_PER_MINUTE,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            ACAttributes.target_indoor_fan_speed: {
+                "type": Platform.SENSOR,
+                "required_attribute": ACAttributes.target_indoor_fan_speed,
+                "translation_key": "target_indoor_fan_speed",
+                "name": "Target Indoor Fan Speed",
+                "icon": "mdi:fan",
+                "unit": REVOLUTIONS_PER_MINUTE,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            ACAttributes.water_pump_running: {
+                "type": Platform.BINARY_SENSOR,
+                "required_attribute": ACAttributes.water_pump_running,
+                "translation_key": "water_pump_running",
+                "name": "Water Pump Running",
+                "device_class": BinarySensorDeviceClass.RUNNING,
+            },
+            ACAttributes.compressor_power: {
+                "type": Platform.SENSOR,
+                "required_attribute": ACAttributes.compressor_power,
+                "translation_key": "compressor_power",
+                "name": "Compressor Power",
+                "device_class": SensorDeviceClass.POWER,
+                "unit": UnitOfPower.WATT,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
             ACAttributes.pmv: {

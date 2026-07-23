@@ -76,44 +76,53 @@
 
 ### 额外生成实体
 
-| EntityID                                      | 类型          | 名称                       | 描述             |
-| --------------------------------------------- | ------------- | -------------------------- | ---------------- |
-| sensor.{DEVICEID}\_full_dust                  | binary_sensor | Full of Dust               | 尘满             |
-| sensor.{DEVICEID}\_indoor_humidity            | sensor        | Indoor humidity            | 湿度             |
-| sensor.{DEVICEID}\_indoor_temperature         | sensor        | Indoor Temperature         | 室内温度         |
-| sensor.{DEVICEID}\_outdoor_temperature        | sensor        | Outdoor Temperature        | 室外机温度       |
-| sensor.{DEVICEID}\_total_energy_consumption   | sensor        | Total Energy Consumption   | 总能耗           |
-| sensor.{DEVICEID}\_current_energy_consumption | sensor        | Current Energy Consumption | 当前能耗         |
-| sensor.{DEVICEID}\_realtime_power             | sensor        | Realtime Power             | 实时功率         |
-| sensor.{DEVICEID}\_compressor_frequency        | sensor        | Compressor Frequency       | 压缩机频率       |
-| sensor.{DEVICEID}\_compressor_target_frequency | sensor        | Compressor Target Frequency | 压缩机目标频率   |
-| sensor.{DEVICEID}\_compressor_current          | sensor        | Compressor Current         | 压缩机电流       |
-| sensor.{DEVICEID}\_outdoor_unit_total_current  | sensor        | Outdoor Unit Total Current | 室外机总电流     |
-| sensor.{DEVICEID}\_outdoor_unit_voltage        | sensor        | Outdoor Unit Voltage       | 室外机有效电压   |
-| sensor.{DEVICEID}\_estimated_realtime_power    | sensor        | Estimated Realtime Power   | 估算实时功率     |
-| sensor.{DEVICEID}\_estimated_total_energy_consumption | sensor | Estimated Total Energy Consumption | 估算总耗电 |
-| sensor.{DEVICEID}\_estimated_daily_energy_consumption | sensor | Estimated Daily Energy Consumption | 估算今日耗电 |
-| fan.{DEVICEID}\_fresh_air                     | fan           | Fresh Air                  | 新风             |
-| fan.{DEVICEID}\_fresh_air_exhaust             | fan           | Fresh Air Exhaust          | 排风             |
-| switch.{DEVICEID}\_aux_heating                | switch        | Aux Heating                | 电辅热           |
-| switch.{DEVICEID}\_boost_mode                 | switch        | Boost Mode                 | 强劲模式         |
-| switch.{DEVICEID}\_breezeless                 | switch        | Breezeless                 | 无风感           |
-| switch.{DEVICEID}\_comfort_mode               | switch        | Comfort Mode               | 舒省模式         |
-| switch.{DEVICEID}\_dry                        | switch        | Dry                        | 干燥             |
-| switch.{DEVICEID}\_eco_mode                   | switch        | ECO Mode                   | ECO模式          |
-| switch.{DEVICEID}\_indirect_wind              | switch        | Indirect Wind              | 防直吹           |
-| switch.{DEVICEID}\_natural_wind               | switch        | Natural Wind               | 自然风           |
-| switch.{DEVICEID}\_prompt_tone                | switch        | Prompt Tone                | 提示音           |
-| switch.{DEVICEID}\_power                      | switch        | Power                      | 电源开关         |
-| switch.{DEVICEID}\_screen_display             | switch        | Screen Display             | 屏幕显示         |
-| switch.{DEVICEID}\_screen_display_alternate   | switch        | Screen Display Alternate   | 屏幕显示备用开关 |
-| switch.{DEVICEID}\_smart_eye                  | switch        | Smart Eye                  | 智慧眼           |
-| switch.{DEVICEID}\_swing_horizontal           | switch        | Swing Horizontal           | 水平摆风         |
-| switch.{DEVICEID}\_swing_vertical             | switch        | Swing Vertical             | 垂直摆风         |
-| switch.{DEVICEID}\_wind_lr_angle              | select        | Airflow Horizontal         | 水平出风         |
-| switch.{DEVICEID}\_wind_ud_angle              | select        | Airflow Vertical           | 垂直出风         |
-| switch.{DEVICEID}\_rate_select                | select        | Power Rate Limit           | 功率限制         |
-| switch.{DEVICEID}\_fan_speed                  | number        | Fan Speed Percent          | 风速百分比       |
+| EntityID                                       | 类型          | 名称                        | 描述             |
+| ---------------------------------------------- | ------------- | --------------------------- | ---------------- |
+| sensor.{DEVICEID}\_full_dust                   | binary_sensor | Full of Dust                | 尘满             |
+| sensor.{DEVICEID}\_indoor_humidity             | sensor        | Indoor humidity             | 湿度             |
+| sensor.{DEVICEID}\_indoor_temperature          | sensor        | Indoor Temperature          | 室内温度         |
+| sensor.{DEVICEID}\_outdoor_temperature         | sensor        | Outdoor Temperature         | 室外机温度       |
+| sensor.{DEVICEID}\_total_energy_consumption    | sensor        | Total Energy Consumption    | 总能耗           |
+| sensor.{DEVICEID}\_current_energy_consumption  | sensor        | Current Energy Consumption  | 当前能耗         |
+| sensor.{DEVICEID}\_realtime_power              | sensor        | Realtime Power              | 实时功率         |
+| sensor.{DEVICEID}\_compressor_frequency        | sensor        | Compressor Frequency        | 压缩机频率       |
+| sensor.{DEVICEID}\_target_compressor_frequency | sensor        | Target Compressor Frequency | 压缩机目标频率   |
+| sensor.{DEVICEID}\_compressor_current          | sensor        | Compressor Current          | 压缩机电流       |
+| sensor.{DEVICEID}\_compressor_voltage          | sensor        | Compressor Voltage          | 压缩机电压       |
+| sensor.{DEVICEID}\_indoor_coil_temperature     | sensor        | Indoor Coil Temperature     | 室内盘管温度     |
+| sensor.{DEVICEID}\_evaporator_temperature      | sensor        | Evaporator Temperature      | 蒸发器温度       |
+| sensor.{DEVICEID}\_condenser_temperature       | sensor        | Condenser Temperature       | 冷凝器温度       |
+| sensor.{DEVICEID}\_outdoor_ambient_temperature | sensor        | Outdoor Ambient Temperature | 室外环境温度     |
+| sensor.{DEVICEID}\_discharge_pipe_temperature  | sensor        | Discharge Pipe Temperature  | 排气管温度       |
+| sensor.{DEVICEID}\_indoor_fan_speed            | sensor        | Indoor Fan Speed            | 室内风机转速     |
+| sensor.{DEVICEID}\_target_indoor_fan_speed     | sensor        | Target Indoor Fan Speed     | 室内风机目标转速 |
+| sensor.{DEVICEID}\_compressor_power            | sensor        | Compressor Power            | 压缩机功率       |
+| binary_sensor.{DEVICEID}\_water_pump_running   | binary_sensor | Water Pump Running          | 水泵运行         |
+| fan.{DEVICEID}\_fresh_air                      | fan           | Fresh Air                   | 新风             |
+| fan.{DEVICEID}\_fresh_air_exhaust              | fan           | Fresh Air Exhaust           | 排风             |
+| select.{DEVICEID}\_fresh_air_mode              | select        | Fresh Air Speed             | 新风风速         |
+| select.{DEVICEID}\_fresh_air_exhaust_mode      | select        | Fresh Air Exhaust Speed     | 排风风速         |
+| switch.{DEVICEID}\_aux_heating                 | switch        | Aux Heating                 | 电辅热           |
+| switch.{DEVICEID}\_boost_mode                  | switch        | Boost Mode                  | 强劲模式         |
+| switch.{DEVICEID}\_breezeless                  | switch        | Breezeless                  | 无风感           |
+| switch.{DEVICEID}\_comfort_mode                | switch        | Comfort Mode                | 舒省模式         |
+| switch.{DEVICEID}\_dry                         | switch        | Dry                         | 干燥             |
+| switch.{DEVICEID}\_eco_mode                    | switch        | ECO Mode                    | ECO模式          |
+| switch.{DEVICEID}\_indirect_wind               | switch        | Indirect Wind               | 防直吹           |
+| switch.{DEVICEID}\_natural_wind                | switch        | Natural Wind                | 自然风           |
+| switch.{DEVICEID}\_prompt_tone                 | switch        | Prompt Tone                 | 提示音           |
+| switch.{DEVICEID}\_power                       | switch        | Power                       | 电源开关         |
+| switch.{DEVICEID}\_screen_display              | switch        | Screen Display              | 屏幕显示         |
+| switch.{DEVICEID}\_screen_display_alternate    | switch        | Screen Display Alternate    | 屏幕显示备用开关 |
+| switch.{DEVICEID}\_smart_eye                   | switch        | Smart Eye                   | 智慧眼           |
+| switch.{DEVICEID}\_swing_horizontal            | switch        | Swing Horizontal            | 水平摆风         |
+| switch.{DEVICEID}\_swing_vertical              | switch        | Swing Vertical              | 垂直摆风         |
+| switch.{DEVICEID}\_wind_lr_angle               | select        | Airflow Horizontal          | 水平出风         |
+| switch.{DEVICEID}\_wind_ud_angle               | select        | Airflow Vertical            | 垂直出风         |
+| switch.{DEVICEID}\_rate_select                 | select        | Power Rate Limit            | 功率限制         |
+| switch.{DEVICEID}\_fan_speed                   | number        | Fan Speed Percent           | 风速百分比       |
+
+服务诊断实体为可选实体。如果设备不返回相应的美的分组数据，这些实体可能保持未知状态。
 
 ## 内置新风系统
 
