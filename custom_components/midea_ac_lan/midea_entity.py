@@ -89,12 +89,12 @@ class MideaEntity(Entity):
 
     @property
     def device(self) -> MideaDevice:
-        """Return device structure."""
+        """Underlying Midea device instance."""
         return self._device
 
     @property
     def device_info(self) -> DeviceInfo:
-        """Return device info."""
+        """Device registry info for the entity."""
         info: DeviceInfo = {
             "manufacturer": "Midea",
             "model": f"{MIDEA_DEVICES[self._device.device_type]['name']} "
@@ -113,22 +113,22 @@ class MideaEntity(Entity):
 
     @property
     def unique_id(self) -> str:
-        """Return entity unique id."""
+        """Unique id of the entity."""
         return self._unique_id
 
     @property
     def should_poll(self) -> bool:
-        """Return true is integration should poll."""
+        """Whether the integration should poll for updates."""
         return False
 
     @property
     def available(self) -> bool:
-        """Return entity availability."""
+        """Whether the entity is available."""
         return bool(self._device.available)
 
     @property
     def icon(self) -> str:
-        """Return entity icon."""
+        """Icon for the entity."""
         return cast("str", self._config.get("icon"))
 
     async def async_added_to_hass(self) -> None:

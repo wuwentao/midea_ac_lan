@@ -38,7 +38,7 @@ class MideaLock(MideaEntity, LockEntity):
 
     @property
     def is_locked(self) -> bool:
-        """Return true if state is locked."""
+        """Whether the lock is locked."""
         return cast("bool", self._device.get_attribute(self._entity_key))
 
     def lock(self, **kwargs: Any) -> None:  # ruff:ignore[any-type, unused-method-argument]

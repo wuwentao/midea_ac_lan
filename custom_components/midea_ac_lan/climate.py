@@ -463,7 +463,7 @@ class MideaACClimate(MideaClimate):
                 value=self._mode_index.index(hvac_mode),
             )
 
-    def set_temperature(self, **kwargs: Any) -> None:  # noqa: ANN401
+    def set_temperature(self, **kwargs: Any) -> None:  # ruff:ignore[any-type]
         """Midea AC Climate set temperature (raw mode via the fixed map).
 
         ``hvac_modes`` is a filtered subset here, so the raw protocol mode must
@@ -541,7 +541,7 @@ class MideaACClimate(MideaClimate):
 
     @property
     def current_humidity(self) -> float | None:
-        """Return the current indoor humidity, or None if unavailable."""
+        """Current indoor humidity, or None if unavailable."""
         # fix error humidity, disable indoor_humidity in web UI
         # https://github.com/wuwentao/midea_ac_lan/pull/641
         if not self._indoor_humidity_enabled:

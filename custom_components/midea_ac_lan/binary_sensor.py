@@ -41,10 +41,10 @@ class MideaBinarySensor(MideaEntity, BinarySensorEntity):
 
     @property
     def device_class(self) -> BinarySensorDeviceClass | None:
-        """Return device class."""
+        """Device class of the binary sensor."""
         return cast("BinarySensorDeviceClass", self._config.get("device_class"))
 
     @property
     def is_on(self) -> bool:
-        """Return true if sensor state is on."""
+        """Whether the binary sensor is on."""
         return cast("bool", self._device.get_attribute(self._entity_key))

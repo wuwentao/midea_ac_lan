@@ -53,7 +53,7 @@ class MideaSensor(MideaEntity, SensorEntity):
 
     @property
     def native_value(self) -> StateType:
-        """Return entity value."""
+        """Native value of the sensor."""
         value = self._device.get_attribute(self._entity_key)
         # If an options mapping exists, translate the raw value to its enum key.
         options = self._config.get("options")
@@ -65,17 +65,17 @@ class MideaSensor(MideaEntity, SensorEntity):
 
     @property
     def device_class(self) -> SensorDeviceClass:
-        """Return device class."""
+        """Device class of the sensor."""
         return cast("SensorDeviceClass", self._config.get("device_class"))
 
     @property
     def state_class(self) -> SensorStateClass | None:
-        """Return state state."""
+        """State class of the sensor."""
         return cast("SensorStateClass | None", self._config.get("state_class"))
 
     @property
     def options(self) -> list[str] | None:
-        """Return the list of possible states for an enum sensor."""
+        """List of possible states for an enum sensor."""
         if self.device_class != SensorDeviceClass.ENUM:
             return None
         options = self._config.get("options")
@@ -83,17 +83,17 @@ class MideaSensor(MideaEntity, SensorEntity):
 
     @property
     def native_unit_of_measurement(self) -> str | None:
-        """Return unit of measurement."""
+        """Unit of measurement for the sensor."""
         return cast("str | None", self._config.get("unit"))
 
     @property
     def suggested_display_precision(self) -> int | None:
-        """Return the suggested number of decimal digits for display."""
+        """Suggested number of decimal digits for display."""
         return cast("int | None", self._config.get("suggested_display_precision"))
 
     @property
     def capability_attributes(self) -> dict[str, Any] | None:
-        """Return capabilities."""
+        """Capability attributes of the sensor."""
         if self.options is not None:
             return {"options": self.options}
         return {"state_class": self.state_class} if self.state_class else {}
@@ -136,12 +136,12 @@ class MideaEstimatedUsageSensor(MideaSensor, RestoreEntity):
 
     @property
     def native_value(self) -> StateType:
-        """Return accumulated estimated usage."""
+        """Accumulated estimated usage."""
         return round(self._native_value, 3)
 
     @property
     def extra_state_attributes(self) -> dict[str, Any]:
-        """Return estimate metadata."""
+        """Estimate metadata for the sensor."""
         estimate = cast("dict[str, Any]", self._config["estimate"])
         return {
             "estimate_source": "fixed_per_wash_mode",
@@ -150,7 +150,7 @@ class MideaEstimatedUsageSensor(MideaSensor, RestoreEntity):
             "running_mode": self._running_mode,
         }
 
-    def update_state(self, status: Any) -> None:  # noqa: ANN401
+    def update_state(self, status: Any) -> None:  # ruff:ignore[any-type]
         """Accumulate the estimate once when a dishwasher run completes."""
         current_status = self._device.get_attribute("status")
         current_progress = cast(

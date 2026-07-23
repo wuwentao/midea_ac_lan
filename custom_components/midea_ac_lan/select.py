@@ -53,7 +53,7 @@ class MideaSelect(MideaEntity, SelectEntity):
 
     @property
     def options(self) -> list[str]:
-        """Return entity options."""
+        """Available options for the entity."""
         if self._options_dict_name:
             options = self._get_options_dict()
             codes_by_model = self._config.get("options_codes_by_model", {})
@@ -67,13 +67,13 @@ class MideaSelect(MideaEntity, SelectEntity):
 
     @property
     def current_option(self) -> str | None:
-        """Return entity current option."""
+        """Currently selected option."""
         option = cast("str | None", self._device.get_attribute(self._attribute_key))
         return option if option in self.options else None
 
     @property
     def available(self) -> bool:
-        """Return entity availability."""
+        """Whether the entity is available."""
         if not super().available:
             return False
         power_attribute = self._config.get("available_power_attribute")
@@ -111,7 +111,7 @@ class MideaSelect(MideaEntity, SelectEntity):
         cast("MideaE1Device", self._device).set_work_mode(mode)
 
     @callback
-    def update_state(self, status: Any) -> None:  # noqa: ANN401
+    def update_state(self, status: Any) -> None:  # ruff:ignore[any-type]
         """Update entity state."""
         super().update_state(status)
         power_attribute = self._config.get("available_power_attribute")

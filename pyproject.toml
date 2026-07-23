@@ -21,8 +21,8 @@ dev = [
   "homeassistant==2024.12.1 ; python_version == '3.13'",
   "homeassistant==2026.3.1  ; python_full_version >= '3.14.2'",
   # Tooling (was requirements-dev.txt). ruff is aligned to the version enforced
-  # by the ruff-pre-commit hook in .pre-commit-config.yaml (v0.15.17).
-  "ruff==0.15.17",
+  # by the ruff-pre-commit hook in .pre-commit-config.yaml (v0.15.22).
+  "ruff==0.15.22",
   "mypy==1.15.0",
   "pylint==3.2.5",
   "pre-commit==3.7.1",
@@ -51,34 +51,34 @@ select = ["ALL"]
 preview = true
 
 ignore = [
-  "ANN101",  # Missing type annotation for `self` in method
-  "CPY001",  # Missing copyright notice at top of file
-  "D203",    # 1 blank line required before class docstring
-  "D213",    # Multi-line docstring summary should start at the second line
-  "EM101",   # Exception must not use a string literal, assign to variable first
-  "EM102",   # Exception must not use an f-string literal, assign to variable first
-  "FBT001",  # Boolean-typed positional argument in function definition
-  "FBT002",  # Boolean default positional argument in function definition
-  "FBT003",  # Boolean positional value in function call
-  "FURB110", # Replace ternary `if` expression with `or` operator
-  "FURB118", # Use `operator.itemgetter(0)` instead of defining a lambda
-  "N818",    # Exception name should be named with an Error suffix
-  "PLC1901", # can be simplified as an empty string is falsey
-  "PLR0911", # Too many return statements
-  "PLR0912", # Too many branches
-  "RUF021",  # Parenthesize expressions when chaining `and` and `or` together, to make the precedence clear
-  "RUF029",  # Function is declared `async`, but doesn't `await` or use `async` features.
-  "TRY003",  # Avoid specifying long messages outside the exception class
-  "RUF067",  # Ignore non-empty-init-module
+  "missing-type-self",  # Missing type annotation for `self` in method
+  "missing-copyright-notice",  # Missing copyright notice at top of file
+  "incorrect-blank-line-before-class",    # 1 blank line required before class docstring
+  "multi-line-summary-second-line",    # Multi-line docstring summary should start at the second line
+  "raw-string-in-exception",   # Exception must not use a string literal, assign to variable first
+  "f-string-in-exception",   # Exception must not use an f-string literal, assign to variable first
+  "boolean-type-hint-positional-argument",  # Boolean-typed positional argument in function definition
+  "boolean-default-value-positional-argument",  # Boolean default positional argument in function definition
+  "boolean-positional-value-in-call",  # Boolean positional value in function call
+  "if-exp-instead-of-or-operator", # Replace ternary `if` expression with `or` operator
+  "reimplemented-operator", # Use `operator.itemgetter(0)` instead of defining a lambda
+  "error-suffix-on-exception-name",    # Exception name should be named with an Error suffix
+  "compare-to-empty-string", # can be simplified as an empty string is falsey
+  "too-many-return-statements", # Too many return statements
+  "too-many-branches", # Too many branches
+  "parenthesize-chained-operators",  # Parenthesize expressions when chaining `and` and `or` together, to make the precedence clear
+  "unused-async",  # Function is declared `async`, but doesn't `await` or use `async` features.
+  "raise-vanilla-args",  # Avoid specifying long messages outside the exception class
+  "non-empty-init-module",  # Ignore non-empty-init-module
 ]
 
 [tool.ruff.lint.per-file-ignores]
 "library_test.py" = [
-  "PLR0915", # Too many statements
-  "T201",    # `print` found
+  "too-many-statements", # Too many statements
+  "print",    # `print` found
 ]
 "tests/*" = [
-  "S101", # Use of `assert` detected
+  "assert", # Use of `assert` detected
 ]
 
 [tool.ruff.lint.mccabe]
