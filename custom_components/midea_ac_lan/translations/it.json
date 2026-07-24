@@ -1,0 +1,1066 @@
+{
+  "config": {
+    "error": {
+      "preset_account": "Accesso con account predefinito non riuscito, per favore segnala questo problema",
+      "login_failed": "Accesso non riuscito, account o password errati",
+      "no_devices": "Nessun nuovo elettrodomestico disponibile trovato nella rete",
+      "device_exist": "L’elettrodomestico è già configurato",
+      "config_incorrect": "La configurazione non è corretta",
+      "connect_error": "Impossibile connettersi all’elettrodomestico",
+      "invalid_token": "Token o Chiave in un formato non corretto"
+    },
+    "step": {
+      "user": {
+        "data": {
+          "way": "Aggiunta elettrodomestici"
+        },
+        "description": "Scegli il metodo per aggiungere un elettrodomestico",
+        "title": "Aggiungi nuovo elettrodomestico"
+      },
+      "login": {
+        "data": {
+          "account": "Account",
+          "password": "Password"
+        },
+        "description": "Accedi e salva il tuo account Midea solo per ottenere le informazioni sugli elettrodomestici.\nPuoi rimuovere questa configurazione dopo aver completato la configurazione di tutti gli elettrodomestici.",
+        "title": "Accesso"
+      },
+      "discovery": {
+        "description": "Indirizzo IP del dispositivo, inserisci \"auto\" per rilevarlo automaticamente\nPuoi anche usare un indirizzo IP per cercare in una rete specifica, come \"192.168.1.255\"",
+        "title": "Ricerca",
+        "data": {
+          "ip_address": "Indirizzo IP"
+        }
+      },
+      "list": {
+        "description": "{table}",
+        "title": "Elettrodomestici"
+      },
+      "auto": {
+        "data": {
+          "device": "Elettrodomestici"
+        },
+        "description": "Scegli un elettrodomestico da aggiungere",
+        "title": "Nuovo elettrodomestico trovato"
+      },
+      "manually": {
+        "data": {
+          "name": "Nome (es. Climatizzatore Soggiorno)",
+          "device_id": "Codice elettrodomestico",
+          "type": "Tipo",
+          "ip_address": "Indirizzo IP",
+          "port": "Porta",
+          "model": "Modello",
+          "subtype": "Sottotipo",
+          "protocol": "Protocollo",
+          "token": "Token",
+          "key": "Chiave"
+        },
+        "description": "Configurazione dell’elettrodomestico",
+        "title": "Nuovo elettrodomestico"
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "bar_door": {
+        "name": "Porta Bar"
+      },
+      "bar_door_overtime": {
+        "name": "Porta Bar Aperta Troppo a Lungo"
+      },
+      "bathing_working": {
+        "name": "Stato Funzionamento Bagno"
+      },
+      "bottom_compartment_cooling": {
+        "name": "Raffreddamento Scomparto Inferiore"
+      },
+      "bottom_compartment_door": {
+        "name": "Porta Scomparto Inferiore"
+      },
+      "bottom_compartment_preheating": {
+        "name": "Preriscaldamento Scomparto Inferiore"
+      },
+      "burning_state": {
+        "name": "Stato di Combustione"
+      },
+      "cleaning_reminder": {
+        "name": "Promemoria Pulizia"
+      },
+      "compressor_status": {
+        "name": "Stato Compressore"
+      },
+      "cooking": {
+        "name": "Cottura"
+      },
+      "error_code": {
+        "name": "Codice Errore"
+      },
+      "filter_change_reminder": {
+        "name": "Promemoria Cambio Filtro"
+      },
+      "filter_cleaning_reminder": {
+        "name": "Promemoria Pulizia Filtro"
+      },
+      "finished": {
+        "name": "Terminato"
+      },
+      "flex_zone_door": {
+        "name": "Porta Flex"
+      },
+      "flex_zone_door_overtime": {
+        "name": "Porta Zona Flex Aperta Troppo a Lungo"
+      },
+      "freezer_door": {
+        "name": "Porta Freezer"
+      },
+      "freezer_door_overtime": {
+        "name": "Porta Freezer Aperta Troppo a Lungo"
+      },
+      "full_dust": {
+        "name": "Pieno di Polvere"
+      },
+      "heating": {
+        "name": "Riscaldamento"
+      },
+      "heating_working": {
+        "name": "Stato Funzionamento Riscaldamento"
+      },
+      "keep_warm": {
+        "name": "Mantenimento Caldo"
+      },
+      "leak_water": {
+        "name": "Perdita Acqua"
+      },
+      "lid_status": {
+        "name": "Stato Coperchio"
+      },
+      "middle_compartment_cooling": {
+        "name": "Raffreddamento Scomparto Centrale"
+      },
+      "middle_compartment_door": {
+        "name": "Porta Scomparto Centrale"
+      },
+      "middle_compartment_preheating": {
+        "name": "Preriscaldamento Scomparto Centrale"
+      },
+      "top_elec_heat": {
+        "name": "Riscaldamento Elettrico Superiore"
+      },
+      "bottom_elec_heat": {
+        "name": "Riscaldamento Elettrico Inferiore"
+      },
+      "mute_effect": {
+        "name": "Effetto Silenzioso"
+      },
+      "mute_status": {
+        "name": "Stato Silenzioso"
+      },
+      "multi_terminal": {
+        "name": "Multi Terminale"
+      },
+      "oilcup_full": {
+        "name": "Vaschetta Olio Piena"
+      },
+      "protection": {
+        "name": "Protezione"
+      },
+      "refrigerator_door": {
+        "name": "Porta Frigorifero"
+      },
+      "refrigerator_door_overtime": {
+        "name": "Porta Frigorifero Aperta Troppo a Lungo"
+      },
+      "rinse_aid": {
+        "name": "Mancanza Brillantante"
+      },
+      "rsj_stand_by": {
+        "name": "In Attesa"
+      },
+      "salt": {
+        "name": "Mancanza Sale"
+      },
+      "seat_status": {
+        "name": "Stato Sedile"
+      },
+      "smart_grid": {
+        "name": "Smart Grid"
+      },
+      "eco": {
+        "name": "ECO"
+      },
+      "maintenance_reminder": {
+        "name": "Promemoria Manutenzione"
+      },
+      "maintain_warn": {
+        "name": "Avviso Manutenzione"
+      },
+      "order1_effect": {
+        "name": "Programma 1 Attivo"
+      },
+      "order2_effect": {
+        "name": "Programma 2 Attivo"
+      },
+      "status_dhw": {
+        "name": "Stato ACS"
+      },
+      "status_heating": {
+        "name": "Stato Riscaldamento"
+      },
+      "status_ibh": {
+        "name": "Stato IBH"
+      },
+      "status_tbh": {
+        "name": "Stato TBH"
+      },
+      "tank_ejected": {
+        "name": "Serbatoio Espulso"
+      },
+      "tank_full": {
+        "name": "Stato Serbatoio"
+      },
+      "top_compartment_cooling": {
+        "name": "Raffreddamento Scomparto Superiore"
+      },
+      "top_compartment_door": {
+        "name": "Porta Scomparto Superiore"
+      },
+      "top_compartment_preheating": {
+        "name": "Preriscaldamento Scomparto Superiore"
+      },
+      "water_change_reminder": {
+        "name": "Promemoria Cambio Acqua"
+      },
+      "water_shortage": {
+        "name": "Mancanza Acqua"
+      },
+      "with_pressure": {
+        "name": "Con Pressione"
+      },
+      "zone1_room_temp_mode": {
+        "name": "Zona1 Modalità Temperatura Ambiente"
+      },
+      "zone1_water_temp_mode": {
+        "name": "Zona1 Modalità Temperatura Acqua"
+      },
+      "zone2_room_temp_mode": {
+        "name": "Zona2 Modalità Temperatura Ambiente"
+      },
+      "zone2_water_temp_mode": {
+        "name": "Zona2 Modalità Temperatura Acqua"
+      },
+      "microcrystal_fresh": {
+        "name": "Freschezza Microcristalli"
+      },
+      "electronic_smell": {
+        "name": "Deodorizzazione e Sterilizzazione"
+      },
+      "water_pump_running": {
+        "name": "Pompa Acqua in Funzione"
+      }
+    },
+    "button": {
+      "start": {
+        "name": "Avvio"
+      }
+    },
+    "climate": {
+      "climate_zone1": {
+        "name": "Termostato Zona1"
+      },
+      "climate_zone2": {
+        "name": "Termostato Zona2"
+      },
+      "climate_key": {
+        "state_attributes": {
+          "fan_mode": {
+            "state": {
+              "silent": "Silenzioso",
+              "full": "Massimo"
+            }
+          }
+        }
+      }
+    },
+    "fan": {
+      "fresh_air": {
+        "name": "Aria Fresca"
+      },
+      "fresh_air_exhaust": {
+        "name": "Estrazione Aria Fresca"
+      }
+    },
+    "lock": {
+      "child_lock": {
+        "name": "Blocco Bambini"
+      }
+    },
+    "number": {
+      "dry_level": {
+        "name": "Livello Asciugatura"
+      },
+      "heating_level": {
+        "name": "Livello Riscaldamento"
+      },
+      "seat_temp_level": {
+        "name": "Livello Temperatura Sedile"
+      },
+      "water_temp_level": {
+        "name": "Livello Temperatura Acqua"
+      },
+      "fan_speed_percent": {
+        "name": "Percentuale Velocità Ventola"
+      },
+      "vacation_days": {
+        "name": "Giorni Vacanza"
+      },
+      "leak_water_protection_value": {
+        "name": "Valore Protezione Perdita Acqua"
+      },
+      "flushing_days": {
+        "name": "Giorni Rigenerazione"
+      },
+      "water_hardness": {
+        "name": "Durezza Acqua"
+      }
+    },
+    "select": {
+      "detect_mode": {
+        "name": "Modalità Rilevamento"
+      },
+      "direction": {
+        "name": "Direzione"
+      },
+      "fan_speed": {
+        "name": "Velocità Ventola"
+      },
+      "fresh_air_exhaust_mode": {
+        "name": "Velocità Estrazione Aria Fresca",
+        "state": {
+          "off": "Spento",
+          "silent": "Bassa",
+          "high": "Alta",
+          "full": "Massima"
+        }
+      },
+      "fresh_air_mode": {
+        "name": "Velocità Aria Fresca",
+        "state": {
+          "off": "Spento",
+          "low": "Bassa",
+          "medium": "Media",
+          "high": "Alta",
+          "full": "Massima"
+        }
+      },
+      "mode": {
+        "name": "Modalità"
+      },
+      "oscillation_angle": {
+        "name": "Angolo Oscillazione"
+      },
+      "oscillation_mode": {
+        "name": "Modalità Oscillazione"
+      },
+      "rate_select": {
+        "name": "Limite Potenza"
+      },
+      "screen_display": {
+        "name": "Display Schermo"
+      },
+      "silent_level": {
+        "name": "Livello Silenzioso"
+      },
+      "tilting_angle": {
+        "name": "Angolo Inclinazione"
+      },
+      "wash_mode": {
+        "name": "Modalità Lavaggio"
+      },
+      "water_level_set": {
+        "name": "Impostazione Livello Acqua"
+      },
+      "wind_lr_angle": {
+        "name": "Flusso Aria Orizzontale",
+        "state": {
+          "off": "Spento",
+          "left": "Sinistra",
+          "left-mid": "Sinistra-Medio",
+          "middle": "Centro",
+          "right-mid": "Destra-Medio",
+          "right": "Destra"
+        }
+      },
+      "wind_ud_angle": {
+        "name": "Flusso Aria Verticale",
+        "state": {
+          "off": "Spento",
+          "up": "Su",
+          "up-mid": "Su-Medio",
+          "middle": "Centro",
+          "down-mid": "Giù-Medio",
+          "down": "Giù"
+        }
+      }
+    },
+    "time": {
+      "timing_regeneration": {
+        "name": "Rigenerazione Programmata"
+      }
+    },
+    "sensor": {
+      "bathing_leaving_temperature": {
+        "name": "Temperatura Acqua in Uscita Bagno"
+      },
+      "bottom_compartment_remaining": {
+        "name": "Tempo Rimanente Scomparto Inferiore"
+      },
+      "bottom_compartment_status": {
+        "name": "Stato Scomparto Inferiore"
+      },
+      "bottom_compartment_temperature": {
+        "name": "Temperatura Scomparto Inferiore"
+      },
+      "bottom_temperature": {
+        "name": "Temperatura Inferiore"
+      },
+      "bright": {
+        "name": "Livello Luminosità"
+      },
+      "compressor_temperature": {
+        "name": "Temperatura Compressore"
+      },
+      "condenser_temperature": {
+        "name": "Temperatura Condensatore"
+      },
+      "current_energy_consumption": {
+        "name": "Consumo Energetico Attuale"
+      },
+      "current_temperature": {
+        "name": "Temperatura Attuale"
+      },
+      "dehydration_speed": {
+        "name": "Velocità Centrifuga"
+      },
+      "dehydration_time": {
+        "name": "Tempo Centrifuga"
+      },
+      "dehydration_time_value": {
+        "name": "Valore Tempo Centrifuga"
+      },
+      "temperature": {
+        "name": "Temperatura"
+      },
+      "wash_time_value": {
+        "name": "Valore Tempo Lavaggio"
+      },
+      "stains": {
+        "name": "Macchie"
+      },
+      "dirty_degree": {
+        "name": "Grado di Sporco"
+      },
+      "detergent": {
+        "name": "Detersivo"
+      },
+      "intensity": {
+        "name": "Intensità"
+      },
+      "dryness_level": {
+        "name": "Livello Asciugatura"
+      },
+      "dry_temperature": {
+        "name": "Temperatura Asciugatura"
+      },
+      "door_warn": {
+        "name": "Avviso Porta"
+      },
+      "ai_switch": {
+        "name": "Interruttore AI"
+      },
+      "material": {
+        "name": "Materiale"
+      },
+      "water_box": {
+        "name": "Serbatoio Acqua"
+      },
+      "energy_consumption": {
+        "name": "Consumo Energetico"
+      },
+      "error": {
+        "name": "Errore",
+        "state": {
+          "no_error": "Nessun Errore",
+          "e1_position_not_found": "E1 Posizione non trovata",
+          "e2_photo_sensor_no_signal": "E2 Nessun segnale dal fotosensore",
+          "e3_motor_not_running": "E3 Motore non in funzione",
+          "e4_wrong_position": "E4 Posizione errata",
+          "e1_motor_fault": "E1 Guasto motore",
+          "e5_communication_fault": "E5 Guasto di comunicazione",
+          "e6_salt_sensor_fault": "E6 Guasto sensore sale",
+          "e7_chlorine_sterilization_fault": "E7 Guasto sterilizzazione al cloro"
+        }
+      },
+      "error_code": {
+        "name": "Codice Errore"
+      },
+      "estimated_energy_consumption": {
+        "name": "Consumo Energetico Stimato"
+      },
+      "estimated_water_consumption": {
+        "name": "Consumo Acqua Stimato"
+      },
+      "fan_level": {
+        "name": "Livello Ventola"
+      },
+      "filter_life": {
+        "name": "Durata Filtro"
+      },
+      "filter1_days": {
+        "name": "Giorni Disponibili Filtro1"
+      },
+      "filter1_life": {
+        "name": "Livello Durata Filtro1"
+      },
+      "filter2_days": {
+        "name": "Giorni Disponibili Filtro2"
+      },
+      "filter2_life": {
+        "name": "Livello Durata Filtro2"
+      },
+      "filter3_days": {
+        "name": "Giorni Disponibili Filtro3"
+      },
+      "filter3_life": {
+        "name": "Livello Durata Filtro3"
+      },
+      "flex_zone_actual_temp": {
+        "name": "Temperatura Attuale Zona Flex"
+      },
+      "flex_zone_setting_temp": {
+        "name": "Temperatura Impostata Zona Flex"
+      },
+      "freezer_actual_temp": {
+        "name": "Temperatura Attuale Freezer"
+      },
+      "freezer_setting_temp": {
+        "name": "Temperatura Impostata Freezer"
+      },
+      "hcho": {
+        "name": "Metanale"
+      },
+      "heating_leaving_temperature": {
+        "name": "Temperatura Acqua in Uscita Riscaldamento"
+      },
+      "heating_power": {
+        "name": "Potenza Riscaldamento"
+      },
+      "heating_time_remaining": {
+        "name": "Tempo Rimanente Riscaldamento"
+      },
+      "in_tds": {
+        "name": "TDS Ingresso"
+      },
+      "indoor_humidity": {
+        "name": "Umidità Interna"
+      },
+      "indoor_temperature": {
+        "name": "Temperatura Interna"
+      },
+      "keep_warm_remaining": {
+        "name": "Tempo Rimanente Mantenimento Caldo"
+      },
+      "keep_warm_time": {
+        "name": "Tempo Mantenimento Caldo"
+      },
+      "left_salt": {
+        "name": "Sale Rimanente"
+      },
+      "middle_compartment_remaining": {
+        "name": "Tempo Rimanente Scomparto Centrale"
+      },
+      "middle_compartment_status": {
+        "name": "Stato Scomparto Centrale"
+      },
+      "middle_compartment_temperature": {
+        "name": "Temperatura Scomparto Centrale"
+      },
+      "mode": {
+        "name": "Modalità"
+      },
+      "out_tds": {
+        "name": "TDS Uscita"
+      },
+      "outdoor_temperature": {
+        "name": "Temperatura Esterna"
+      },
+      "program": {
+        "name": "Programma"
+      },
+      "progress": {
+        "name": "Avanzamento"
+      },
+      "realtime_power": {
+        "name": "Potenza in Tempo Reale"
+      },
+      "pmv": {
+        "name": "PMV"
+      },
+      "refrigerator_actual_temp": {
+        "name": "Temperatura Attuale Frigorifero"
+      },
+      "refrigerator_setting_temp": {
+        "name": "Temperatura Impostata Frigorifero"
+      },
+      "regeneration_left_seconds": {
+        "name": "Secondi Rimanenti Rigenerazione"
+      },
+      "remaining_days": {
+        "name": "Giorni Rimanenti"
+      },
+      "right_flex_zone_actual_temp": {
+        "name": "Temperatura Attuale Zona Flex Destra"
+      },
+      "right_flex_zone_setting_temp": {
+        "name": "Temperatura Impostata Zona Flex Destra"
+      },
+      "rinse_count": {
+        "name": "Numero Risciacqui"
+      },
+      "rinse_level": {
+        "name": "Livello Risciacquo"
+      },
+      "salt_setting": {
+        "name": "Impostazione Sale"
+      },
+      "seat_temperature": {
+        "name": "Temperatura Sedile"
+      },
+      "soak_time": {
+        "name": "Tempo Ammollo"
+      },
+      "soft_available": {
+        "name": "Acqua Addolcita Disponibile"
+      },
+      "softener": {
+        "name": "Ammorbidente"
+      },
+      "softwater": {
+        "name": "Livello Acqua Addolcita"
+      },
+      "status": {
+        "name": "Stato"
+      },
+      "storage_remaining": {
+        "name": "Tempo Rimanente Conservazione"
+      },
+      "tank": {
+        "name": "Serbatoio"
+      },
+      "tank_actual_temperature": {
+        "name": "Temperatura Attuale Serbatoio"
+      },
+      "target_temperature": {
+        "name": "Temperatura Obiettivo"
+      },
+      "time_remaining": {
+        "name": "Tempo Rimanente"
+      },
+      "top_compartment_remaining": {
+        "name": "Tempo Rimanente Scomparto Superiore"
+      },
+      "top_compartment_status": {
+        "name": "Stato Scomparto Superiore"
+      },
+      "top_compartment_temperature": {
+        "name": "Temperatura Scomparto Superiore"
+      },
+      "top_temperature": {
+        "name": "Temperatura Superiore"
+      },
+      "total_energy_consumption": {
+        "name": "Consumo Energetico Totale"
+      },
+      "total_produced_energy": {
+        "name": "Energia Totale Prodotta"
+      },
+      "tvoc": {
+        "name": "TVOC"
+      },
+      "wash_level": {
+        "name": "Numero Risciacqui"
+      },
+      "wash_strength": {
+        "name": "Intensità Lavaggio"
+      },
+      "wash_time": {
+        "name": "Tempo Lavaggio"
+      },
+      "water_consumption": {
+        "name": "Consumo Acqua"
+      },
+      "water_consumption_average": {
+        "name": "Consumo Acqua Medio"
+      },
+      "water_consumption_big": {
+        "name": "Consumo Acqua"
+      },
+      "water_temperature": {
+        "name": "Temperatura Acqua"
+      },
+      "water_level": {
+        "name": "Livello Acqua"
+      },
+      "wind": {
+        "name": "Vento"
+      },
+      "typeinfo": {
+        "name": "Informazioni Tipo"
+      },
+      "use_days": {
+        "name": "Giorni di Utilizzo"
+      },
+      "elec_heat": {
+        "name": "Riscaldamento Elettrico"
+      },
+      "water_pump": {
+        "name": "Pompa Acqua"
+      },
+      "four_way": {
+        "name": "Valvola Quattro Vie"
+      },
+      "back_water": {
+        "name": "Acqua di Ritorno"
+      },
+      "sterilize": {
+        "name": "Sterilizzazione"
+      },
+      "disinfection_temperature": {
+        "name": "Temperatura Disinfezione"
+      },
+      "max_temperature": {
+        "name": "Temperatura Obiettivo Massima"
+      },
+      "vacation_start_year": {
+        "name": "Anno Inizio Vacanza"
+      },
+      "vacation_start_month": {
+        "name": "Mese Inizio Vacanza"
+      },
+      "vacation_start_day": {
+        "name": "Giorno Inizio Vacanza"
+      },
+      "auto_sterilize_week": {
+        "name": "Giorno Sterilizzazione Automatica"
+      },
+      "auto_sterilize_hour": {
+        "name": "Ora Sterilizzazione Automatica"
+      },
+      "auto_sterilize_minute": {
+        "name": "Minuto Sterilizzazione Automatica"
+      },
+      "working_time": {
+        "name": "Tempo di Lavoro"
+      },
+      "humidity": {
+        "name": "Umidità"
+      },
+      "variable_mode": {
+        "name": "Modalità Variabile"
+      },
+      "compressor_frequency": {
+        "name": "Frequenza Compressore"
+      },
+      "target_compressor_frequency": {
+        "name": "Frequenza Obiettivo Compressore"
+      },
+      "compressor_current": {
+        "name": "Corrente Compressore"
+      },
+      "compressor_voltage": {
+        "name": "Tensione Compressore"
+      },
+      "compressor_power": {
+        "name": "Potenza Compressore"
+      },
+      "indoor_coil_temperature": {
+        "name": "Temperatura Batteria Interna (T1)"
+      },
+      "evaporator_temperature": {
+        "name": "Temperatura Evaporatore (T2)"
+      },
+      "outdoor_ambient_temperature": {
+        "name": "Temperatura Ambiente Esterna (T4)"
+      },
+      "discharge_pipe_temperature": {
+        "name": "Temperatura Tubo di Scarico (TP)"
+      },
+      "indoor_fan_speed": {
+        "name": "Velocità Ventola Interna"
+      },
+      "target_indoor_fan_speed": {
+        "name": "Velocità Obiettivo Ventola Interna"
+      },
+      "velocity": {
+        "name": "Velocità"
+      }
+    },
+    "switch": {
+      "anion": {
+        "name": "Anioni"
+      },
+      "aux_heating": {
+        "name": "Riscaldamento Ausiliario"
+      },
+      "boost_mode": {
+        "name": "Modalità Boost"
+      },
+      "breezeless": {
+        "name": "Senza Corrente d’Aria"
+      },
+      "child_lock": {
+        "name": "Blocco Bambini"
+      },
+      "cl_sterilization": {
+        "name": "Sterilizzazione al Cloro"
+      },
+      "comfort_mode": {
+        "name": "Modalità Comfort"
+      },
+      "dhw_power": {
+        "name": "Potenza ACS"
+      },
+      "disinfect": {
+        "name": "Disinfezione"
+      },
+      "vacation_mode": {
+        "name": "Modalità Vacanza"
+      },
+      "dry": {
+        "name": "Asciugatura"
+      },
+      "cold_water_single": {
+        "name": "Acqua Fredda Singola"
+      },
+      "cold_water_dot": {
+        "name": "Acqua Fredda Punto"
+      },
+      "eco_mode": {
+        "name": "Modalità ECO"
+      },
+      "memory": {
+        "name": "Memo U"
+      },
+      "fast_dhw": {
+        "name": "ACS Rapida"
+      },
+      "foam_shield": {
+        "name": "Protezione Schiuma"
+      },
+      "frost_protect": {
+        "name": "Protezione Gelo"
+      },
+      "heating_power": {
+        "name": "Potenza Riscaldamento"
+      },
+      "indirect_wind": {
+        "name": "Vento Indiretto"
+      },
+      "leak_water_protection": {
+        "name": "Protezione Perdita Acqua"
+      },
+      "light": {
+        "name": "Luce"
+      },
+      "link_to_ac": {
+        "name": "Collegamento al Climatizzatore"
+      },
+      "main_light": {
+        "name": "Luce Principale"
+      },
+      "main_power": {
+        "name": "Alimentazione Principale"
+      },
+      "natural_wind": {
+        "name": "Vento Naturale"
+      },
+      "night_light": {
+        "name": "Luce Notturna"
+      },
+      "oscillate": {
+        "name": "Oscillazione"
+      },
+      "power": {
+        "name": "Alimentazione"
+      },
+      "powerful_purify": {
+        "name": "Purificazione Potente"
+      },
+      "prompt_tone": {
+        "name": "Tono Avviso"
+      },
+      "regeneration": {
+        "name": "Rigenerazione"
+      },
+      "water_pump": {
+        "name": "Pompa Acqua"
+      },
+      "water_way": {
+        "name": "Circuito Acqua"
+      },
+      "screen_display": {
+        "name": "Display Schermo"
+      },
+      "screen_display_alternate": {
+        "name": "Display Schermo Alternato"
+      },
+      "sensor_light": {
+        "name": "Luce Sensore"
+      },
+      "silent_mode": {
+        "name": "Modalità Silenziosa"
+      },
+      "sleep_mode": {
+        "name": "Modalità Sonno"
+      },
+      "out_silent": {
+        "name": "Modalità Silenziosa Esterna"
+      },
+      "smart_eye": {
+        "name": "Occhio Intelligente"
+      },
+      "smart_volume": {
+        "name": "Volume Intelligente"
+      },
+      "smelly_sensor": {
+        "name": "Sensore Odori"
+      },
+      "soften": {
+        "name": "Addolcimento"
+      },
+      "standby": {
+        "name": "Standby"
+      },
+      "start": {
+        "name": "Avvio"
+      },
+      "sterilization": {
+        "name": "Sterilizzazione"
+      },
+      "storage": {
+        "name": "Conservazione"
+      },
+      "swing": {
+        "name": "Oscillazione"
+      },
+      "swing_horizontal": {
+        "name": "Oscillazione Orizzontale"
+      },
+      "swing_vertical": {
+        "name": "Oscillazione Verticale"
+      },
+      "self_clean": {
+        "name": "Autopulizia"
+      },
+      "sound": {
+        "name": "Suono"
+      },
+      "tbh": {
+        "name": "TBH"
+      },
+      "variable_heating": {
+        "name": "Riscaldamento Variabile"
+      },
+      "ventilation": {
+        "name": "Ventilazione"
+      },
+      "whole_tank_heating": {
+        "name": "Riscaldamento Intero Serbatoio"
+      },
+      "zero_cold_pulse": {
+        "name": "Acqua Zero Fredda (Impulso)"
+      },
+      "zero_cold_water": {
+        "name": "Acqua Zero Fredda"
+      },
+      "zone1_curve": {
+        "name": "Curva Zona1"
+      },
+      "zone1_power": {
+        "name": "Potenza Zona1"
+      },
+      "zone2_curve": {
+        "name": "Curva Zona2"
+      },
+      "zone2_power": {
+        "name": "Potenza Zona2"
+      }
+    },
+    "water_heater": {
+      "domestic_hot_water": {
+        "name": "Acqua calda sanitaria"
+      },
+      "bathing": {
+        "name": "Bagno"
+      },
+      "heating": {
+        "name": "Riscaldamento"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "ip_address": "Indirizzo IP",
+          "refresh_interval": "Intervallo aggiornamento (0 significa nessun aggiornamento attivo)",
+          "sensors": "Sensori aggiuntivi",
+          "switches": "Controlli aggiuntivi",
+          "customize": "Personalizza"
+        },
+        "title": "Configura"
+      }
+    },
+    "abort": {
+      "account_option": "L’account non supporta questa operazione.\nClicca \"AGGIUNGI DISPOSITIVO\" per aggiungere un nuovo dispositivo."
+    }
+  },
+  "services": {
+    "set_attribute": {
+      "name": "Imposta attributo",
+      "description": "Imposta il valore dell’attributo del dispositivo",
+      "fields": {
+        "device_id": {
+          "name": "Codice elettrodomestico",
+          "description": "Il codice elettrodomestico (ID dispositivo) dell’elettrodomestico"
+        },
+        "attribute": {
+          "name": "Attributo",
+          "description": "Il nome dell’attributo da impostare"
+        },
+        "value": {
+          "name": "Valore",
+          "description": "Il valore dell’attributo da impostare"
+        }
+      }
+    },
+    "send_command": {
+      "name": "Comando personalizzato",
+      "description": "Invia un comando personalizzato al dispositivo",
+      "fields": {
+        "device_id": {
+          "name": "Codice elettrodomestico",
+          "description": "Il codice elettrodomestico (ID dispositivo) dell’elettrodomestico"
+        },
+        "cmd_type": {
+          "name": "Tipo di comando",
+          "description": "Il tipo di comando, deve essere 3 (query) o 2 (set)"
+        },
+        "cmd_body": {
+          "name": "Corpo del comando",
+          "description": "Il corpo del comando (non include l’intestazione del protocollo MSmart e il checksum finale)"
+        }
+      }
+    }
+  }
+}
