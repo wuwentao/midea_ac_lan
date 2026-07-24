@@ -144,6 +144,21 @@
       "middle_compartment_preheating": {
         "name": "Middle Compartment Preheating"
       },
+      "top_elec_heat": {
+        "name": "Верхний электронагрев"
+      },
+      "bottom_elec_heat": {
+        "name": "Нижний электронагрев"
+      },
+      "mute_effect": {
+        "name": "Эффект тихого режима"
+      },
+      "mute_status": {
+        "name": "Статус тихого режима"
+      },
+      "multi_terminal": {
+        "name": "Мультитерминал"
+      },
       "oilcup_full": {
         "name": "Oil-cup Full"
       },
@@ -167,6 +182,24 @@
       },
       "seat_status": {
         "name": "Сиденье"
+      },
+      "smart_grid": {
+        "name": "Умная сеть"
+      },
+      "eco": {
+        "name": "ECO"
+      },
+      "maintenance_reminder": {
+        "name": "Напоминание об обслуживании"
+      },
+      "maintain_warn": {
+        "name": "Предупреждение об обслуживании"
+      },
+      "order1_effect": {
+        "name": "Расписание 1 активно"
+      },
+      "order2_effect": {
+        "name": "Расписание 2 активно"
       },
       "status_dhw": {
         "name": "DHW status"
@@ -215,6 +248,20 @@
       },
       "zone2_water_temp_mode": {
         "name": "Zone2 Water-temperature Mode"
+      },
+      "microcrystal_fresh": {
+        "name": "Микрокристаллическая свежесть"
+      },
+      "electronic_smell": {
+        "name": "Дезодорация и стерилизация"
+      },
+      "water_pump_running": {
+        "name": "Работа водяного насоса"
+      }
+    },
+    "button": {
+      "start": {
+        "name": "Старт"
       }
     },
     "climate": {
@@ -223,11 +270,24 @@
       },
       "climate_zone2": {
         "name": "Zone2 Thermostat"
+      },
+      "climate_key": {
+        "state_attributes": {
+          "fan_mode": {
+            "state": {
+              "silent": "Тихий",
+              "full": "Полная"
+            }
+          }
+        }
       }
     },
     "fan": {
       "fresh_air": {
         "name": "Fresh Air"
+      },
+      "fresh_air_exhaust": {
+        "name": "Вытяжка свежего воздуха"
       }
     },
     "lock": {
@@ -248,6 +308,12 @@
       "water_temp_level": {
         "name": "Water Temperature Level"
       },
+      "fan_speed_percent": {
+        "name": "Скорость вентилятора (%)"
+      },
+      "vacation_days": {
+        "name": "Дни отпуска"
+      },
       "leak_water_protection_value": {
         "name": "Значение защиты от протечек"
       },
@@ -267,6 +333,25 @@
       },
       "fan_speed": {
         "name": "Скорость"
+      },
+      "fresh_air_exhaust_mode": {
+        "name": "Скорость вытяжки свежего воздуха",
+        "state": {
+          "off": "Выкл",
+          "silent": "Низкая",
+          "high": "Высокая",
+          "full": "Максимальная"
+        }
+      },
+      "fresh_air_mode": {
+        "name": "Скорость свежего воздуха",
+        "state": {
+          "off": "Выкл",
+          "low": "Низкая",
+          "medium": "Средняя",
+          "high": "Высокая",
+          "full": "Максимальная"
+        }
       },
       "mode": {
         "name": "Режим"
@@ -289,8 +374,33 @@
       "tilting_angle": {
         "name": "Угол поворота"
       },
+      "wash_mode": {
+        "name": "Режим мойки"
+      },
       "water_level_set": {
         "name": "Water Level Setting"
+      },
+      "wind_lr_angle": {
+        "name": "Горизонтальный поток воздуха",
+        "state": {
+          "off": "Выкл",
+          "left": "Влево",
+          "left-mid": "Влево-центр",
+          "middle": "Центр",
+          "right-mid": "Вправо-центр",
+          "right": "Вправо"
+        }
+      },
+      "wind_ud_angle": {
+        "name": "Вертикальный поток воздуха",
+        "state": {
+          "off": "Выкл",
+          "up": "Вверх",
+          "up-mid": "Вверх-центр",
+          "middle": "Центр",
+          "down-mid": "Вниз-центр",
+          "down": "Вниз"
+        }
       }
     },
     "time": {
@@ -393,6 +503,12 @@
       },
       "error_code": {
         "name": "Код ошибки"
+      },
+      "estimated_energy_consumption": {
+        "name": "Расчётное энергопотребление"
+      },
+      "estimated_water_consumption": {
+        "name": "Расчётный расход воды"
       },
       "fan_level": {
         "name": "Fan level"
@@ -571,11 +687,8 @@
       "tvoc": {
         "name": "TVOC"
       },
-      "use_days": {
-        "name": "Дни использования"
-      },
-      "velocity": {
-        "name": "Скорость"
+      "wash_level": {
+        "name": "Количество полосканий"
       },
       "wash_strength": {
         "name": "Wash strength"
@@ -598,8 +711,98 @@
       "water_level": {
         "name": "Уровень воды"
       },
+      "wind": {
+        "name": "Поток воздуха"
+      },
+      "typeinfo": {
+        "name": "Информация о типе"
+      },
+      "use_days": {
+        "name": "Дни использования"
+      },
+      "elec_heat": {
+        "name": "Электронагрев"
+      },
+      "water_pump": {
+        "name": "Водяной насос"
+      },
+      "four_way": {
+        "name": "Четырёхходовой клапан"
+      },
+      "back_water": {
+        "name": "Обратная вода"
+      },
+      "sterilize": {
+        "name": "Стерилизация"
+      },
+      "disinfection_temperature": {
+        "name": "Температура дезинфекции"
+      },
+      "max_temperature": {
+        "name": "Максимальная целевая температура"
+      },
+      "vacation_start_year": {
+        "name": "Год начала отпуска"
+      },
+      "vacation_start_month": {
+        "name": "Месяц начала отпуска"
+      },
+      "vacation_start_day": {
+        "name": "День начала отпуска"
+      },
+      "auto_sterilize_week": {
+        "name": "День недели автостерилизации"
+      },
+      "auto_sterilize_hour": {
+        "name": "Час автостерилизации"
+      },
+      "auto_sterilize_minute": {
+        "name": "Минута автостерилизации"
+      },
       "working_time": {
         "name": "Время работы"
+      },
+      "humidity": {
+        "name": "Влажность"
+      },
+      "variable_mode": {
+        "name": "Переменный режим"
+      },
+      "compressor_frequency": {
+        "name": "Частота компрессора"
+      },
+      "target_compressor_frequency": {
+        "name": "Целевая частота компрессора"
+      },
+      "compressor_current": {
+        "name": "Ток компрессора"
+      },
+      "compressor_voltage": {
+        "name": "Напряжение компрессора"
+      },
+      "compressor_power": {
+        "name": "Мощность компрессора"
+      },
+      "indoor_coil_temperature": {
+        "name": "Температура внутреннего теплообменника (T1)"
+      },
+      "evaporator_temperature": {
+        "name": "Температура испарителя (T2)"
+      },
+      "outdoor_ambient_temperature": {
+        "name": "Наружная температура окружающей среды (T4)"
+      },
+      "discharge_pipe_temperature": {
+        "name": "Температура нагнетательной трубы (TP)"
+      },
+      "indoor_fan_speed": {
+        "name": "Скорость внутреннего вентилятора"
+      },
+      "target_indoor_fan_speed": {
+        "name": "Целевая скорость внутреннего вентилятора"
+      },
+      "velocity": {
+        "name": "Скорость"
       }
     },
     "switch": {
@@ -630,11 +833,23 @@
       "disinfect": {
         "name": "Дезинфекция"
       },
+      "vacation_mode": {
+        "name": "Режим отпуска"
+      },
       "dry": {
         "name": "Dry"
       },
+      "cold_water_single": {
+        "name": "Холодная вода (однократно)"
+      },
+      "cold_water_dot": {
+        "name": "Холодная вода (порционно)"
+      },
       "eco_mode": {
         "name": "Эко-режим"
+      },
+      "memory": {
+        "name": "Memo U"
       },
       "fast_dhw": {
         "name": "Fast DHW"
@@ -708,6 +923,9 @@
       "sleep_mode": {
         "name": "Sleep Mode"
       },
+      "out_silent": {
+        "name": "Тихий режим наружного блока"
+      },
       "smart_eye": {
         "name": "Smart Eye"
       },
@@ -725,6 +943,9 @@
       },
       "start": {
         "name": "Старт"
+      },
+      "sterilization": {
+        "name": "Стерилизация"
       },
       "storage": {
         "name": "Storage"

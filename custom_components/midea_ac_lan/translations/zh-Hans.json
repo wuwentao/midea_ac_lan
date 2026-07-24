@@ -144,6 +144,21 @@
       "middle_compartment_preheating": {
         "name": "中层预热"
       },
+      "top_elec_heat": {
+        "name": "顶部电加热"
+      },
+      "bottom_elec_heat": {
+        "name": "底部电加热"
+      },
+      "mute_effect": {
+        "name": "静音效果"
+      },
+      "mute_status": {
+        "name": "静音状态"
+      },
+      "multi_terminal": {
+        "name": "多终端"
+      },
       "oilcup_full": {
         "name": "油杯满提示"
       },
@@ -167,6 +182,24 @@
       },
       "seat_status": {
         "name": "入座状态"
+      },
+      "smart_grid": {
+        "name": "智能电网"
+      },
+      "eco": {
+        "name": "ECO"
+      },
+      "maintenance_reminder": {
+        "name": "维护提醒"
+      },
+      "maintain_warn": {
+        "name": "维护警告"
+      },
+      "order1_effect": {
+        "name": "定时1生效"
+      },
+      "order2_effect": {
+        "name": "定时2生效"
       },
       "status_dhw": {
         "name": "DHW状态"
@@ -221,6 +254,9 @@
       },
       "electronic_smell": {
         "name": "净味杀菌"
+      },
+      "water_pump_running": {
+        "name": "水泵运行"
       }
     },
     "button": {
@@ -274,6 +310,9 @@
       },
       "fan_speed_percent": {
         "name": "风速百分比"
+      },
+      "vacation_days": {
+        "name": "假期天数"
       },
       "leak_water_protection_value": {
         "name": "漏水保护阈值"
@@ -420,6 +459,9 @@
       },
       "dirty_degree": {
         "name": "脏度"
+      },
+      "detergent": {
+        "name": "洗涤剂"
       },
       "intensity": {
         "name": "强度"
@@ -645,9 +687,6 @@
       "tvoc": {
         "name": "TVOC"
       },
-      "use_days": {
-        "name": "使用天数"
-      },
       "wash_level": {
         "name": "洗涤档位"
       },
@@ -656,9 +695,6 @@
       },
       "wash_time": {
         "name": "洗涤时间档位"
-      },
-      "detergent": {
-        "name": "洗涤剂"
       },
       "water_consumption": {
         "name": "总耗水量"
@@ -669,11 +705,59 @@
       "water_consumption_big": {
         "name": "总耗水量"
       },
+      "water_temperature": {
+        "name": "水温"
+      },
       "water_level": {
         "name": "水位"
       },
-      "water_temperature": {
-        "name": "水温"
+      "wind": {
+        "name": "风"
+      },
+      "typeinfo": {
+        "name": "类型信息"
+      },
+      "use_days": {
+        "name": "使用天数"
+      },
+      "elec_heat": {
+        "name": "电加热"
+      },
+      "water_pump": {
+        "name": "水泵"
+      },
+      "four_way": {
+        "name": "四通阀"
+      },
+      "back_water": {
+        "name": "回水"
+      },
+      "sterilize": {
+        "name": "杀菌"
+      },
+      "disinfection_temperature": {
+        "name": "消毒温度"
+      },
+      "max_temperature": {
+        "name": "最高目标温度"
+      },
+      "vacation_start_year": {
+        "name": "假期开始年"
+      },
+      "vacation_start_month": {
+        "name": "假期开始月"
+      },
+      "vacation_start_day": {
+        "name": "假期开始日"
+      },
+      "auto_sterilize_week": {
+        "name": "自动杀菌星期"
+      },
+      "auto_sterilize_hour": {
+        "name": "自动杀菌小时"
+      },
+      "auto_sterilize_minute": {
+        "name": "自动杀菌分钟"
       },
       "working_time": {
         "name": "工作时间"
@@ -683,6 +767,39 @@
       },
       "variable_mode": {
         "name": "变温区模式"
+      },
+      "compressor_frequency": {
+        "name": "压缩机频率"
+      },
+      "target_compressor_frequency": {
+        "name": "目标压缩机频率"
+      },
+      "compressor_current": {
+        "name": "压缩机电流"
+      },
+      "compressor_voltage": {
+        "name": "压缩机电压"
+      },
+      "compressor_power": {
+        "name": "压缩机功率"
+      },
+      "indoor_coil_temperature": {
+        "name": "室内盘管温度 (T1)"
+      },
+      "evaporator_temperature": {
+        "name": "蒸发器温度 (T2)"
+      },
+      "outdoor_ambient_temperature": {
+        "name": "室外环境温度 (T4)"
+      },
+      "discharge_pipe_temperature": {
+        "name": "排气管温度 (TP)"
+      },
+      "indoor_fan_speed": {
+        "name": "室内风机转速"
+      },
+      "target_indoor_fan_speed": {
+        "name": "目标室内风机转速"
       },
       "velocity": {
         "name": "流速"
@@ -710,23 +827,29 @@
       "comfort_mode": {
         "name": "舒省模式"
       },
-      "cold_water_single": {
-        "name": "单次零冷水"
-      },
-      "cold_water_dot": {
-        "name": "点动零冷水"
-      },
       "dhw_power": {
         "name": "生活热水电源开关"
       },
       "disinfect": {
         "name": "消毒"
       },
+      "vacation_mode": {
+        "name": "假期模式"
+      },
       "dry": {
         "name": "干燥"
       },
+      "cold_water_single": {
+        "name": "单次零冷水"
+      },
+      "cold_water_dot": {
+        "name": "点动零冷水"
+      },
       "eco_mode": {
         "name": "ECO模式"
+      },
+      "memory": {
+        "name": "记忆"
       },
       "fast_dhw": {
         "name": "快速生活热水"
@@ -738,8 +861,7 @@
         "name": "防霜冻"
       },
       "heating_power": {
-        "name": "加热",
-        "_comments": "E2 加热功率, E6 加热开关"
+        "name": "加热"
       },
       "indirect_wind": {
         "name": "防直吹"
@@ -821,6 +943,9 @@
       },
       "start": {
         "name": "启动"
+      },
+      "sterilization": {
+        "name": "杀菌"
       },
       "storage": {
         "name": "保管开关"

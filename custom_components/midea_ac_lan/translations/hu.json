@@ -144,6 +144,21 @@
       "middle_compartment_preheating": {
         "name": "Middle Compartment Preheating"
       },
+      "top_elec_heat": {
+        "name": "Felső elektromos fűtés"
+      },
+      "bottom_elec_heat": {
+        "name": "Alsó elektromos fűtés"
+      },
+      "mute_effect": {
+        "name": "Némítás hatása"
+      },
+      "mute_status": {
+        "name": "Némítás állapota"
+      },
+      "multi_terminal": {
+        "name": "Több terminál"
+      },
       "oilcup_full": {
         "name": "Oil-cup Full"
       },
@@ -167,6 +182,24 @@
       },
       "seat_status": {
         "name": "Seat Status"
+      },
+      "smart_grid": {
+        "name": "Okos hálózat"
+      },
+      "eco": {
+        "name": "ECO"
+      },
+      "maintenance_reminder": {
+        "name": "Karbantartási emlékeztető"
+      },
+      "maintain_warn": {
+        "name": "Karbantartási figyelmeztetés"
+      },
+      "order1_effect": {
+        "name": "1. ütemezés aktív"
+      },
+      "order2_effect": {
+        "name": "2. ütemezés aktív"
       },
       "status_dhw": {
         "name": "DHW status"
@@ -215,6 +248,20 @@
       },
       "zone2_water_temp_mode": {
         "name": "Zone2 Water-temperature Mode"
+      },
+      "microcrystal_fresh": {
+        "name": "Mikrokristályos frissítés"
+      },
+      "electronic_smell": {
+        "name": "Szagtalanító sterilizálás"
+      },
+      "water_pump_running": {
+        "name": "Vízszivattyú működik"
+      }
+    },
+    "button": {
+      "start": {
+        "name": "Indítás"
       }
     },
     "climate": {
@@ -223,11 +270,24 @@
       },
       "climate_zone2": {
         "name": "Zone2 Thermostat"
+      },
+      "climate_key": {
+        "state_attributes": {
+          "fan_mode": {
+            "state": {
+              "silent": "Csendes",
+              "full": "Teljes"
+            }
+          }
+        }
       }
     },
     "fan": {
       "fresh_air": {
         "name": "Fresh Air"
+      },
+      "fresh_air_exhaust": {
+        "name": "Frisslevegő elszívás"
       }
     },
     "lock": {
@@ -248,6 +308,12 @@
       "water_temp_level": {
         "name": "Water Temperature Level"
       },
+      "fan_speed_percent": {
+        "name": "Ventilátor sebesség százalék"
+      },
+      "vacation_days": {
+        "name": "Vakáció napok"
+      },
       "leak_water_protection_value": {
         "name": "Vízszivárgás védelem értéke"
       },
@@ -267,6 +333,25 @@
       },
       "fan_speed": {
         "name": "Fan Speed"
+      },
+      "fresh_air_exhaust_mode": {
+        "name": "Frisslevegő elszívás sebessége",
+        "state": {
+          "off": "Ki",
+          "silent": "Alacsony",
+          "high": "Magas",
+          "full": "Teljes"
+        }
+      },
+      "fresh_air_mode": {
+        "name": "Frisslevegő sebessége",
+        "state": {
+          "off": "Ki",
+          "low": "Alacsony",
+          "medium": "Közepes",
+          "high": "Magas",
+          "full": "Teljes"
+        }
       },
       "mode": {
         "name": "Mode"
@@ -289,8 +374,33 @@
       "tilting_angle": {
         "name": "Tilting Angle"
       },
+      "wash_mode": {
+        "name": "Mosási mód"
+      },
       "water_level_set": {
         "name": "Water Level Setting"
+      },
+      "wind_lr_angle": {
+        "name": "Légáramlás vízszintes",
+        "state": {
+          "off": "Ki",
+          "left": "Bal",
+          "left-mid": "Bal-közép",
+          "middle": "Közép",
+          "right-mid": "Jobb-közép",
+          "right": "Jobb"
+        }
+      },
+      "wind_ud_angle": {
+        "name": "Légáramlás függőleges",
+        "state": {
+          "off": "Ki",
+          "up": "Fel",
+          "up-mid": "Fel-közép",
+          "middle": "Közép",
+          "down-mid": "Le-közép",
+          "down": "Le"
+        }
       }
     },
     "time": {
@@ -335,8 +445,44 @@
       "dehydration_time": {
         "name": "dehydration time"
       },
+      "dehydration_time_value": {
+        "name": "Víztelenítési idő értéke"
+      },
+      "temperature": {
+        "name": "Hőmérséklet"
+      },
+      "wash_time_value": {
+        "name": "Mosási idő értéke"
+      },
+      "stains": {
+        "name": "Foltok"
+      },
+      "dirty_degree": {
+        "name": "Szennyezettség mértéke"
+      },
       "detergent": {
         "name": "detergent"
+      },
+      "intensity": {
+        "name": "Intenzitás"
+      },
+      "dryness_level": {
+        "name": "Szárazsági szint"
+      },
+      "dry_temperature": {
+        "name": "Szárítási hőmérséklet"
+      },
+      "door_warn": {
+        "name": "Ajtó figyelmeztetés"
+      },
+      "ai_switch": {
+        "name": "AI kapcsoló"
+      },
+      "material": {
+        "name": "Anyag"
+      },
+      "water_box": {
+        "name": "Víztartály"
       },
       "energy_consumption": {
         "name": "Energy Consumption"
@@ -357,6 +503,12 @@
       },
       "error_code": {
         "name": "Error Code"
+      },
+      "estimated_energy_consumption": {
+        "name": "Becsült energiafogyasztás"
+      },
+      "estimated_water_consumption": {
+        "name": "Becsült vízfogyasztás"
       },
       "fan_level": {
         "name": "Fan level"
@@ -511,9 +663,6 @@
       "target_temperature": {
         "name": "Target Temperature"
       },
-      "temperature": {
-        "name": "Hőmérséklet"
-      },
       "time_remaining": {
         "name": "Time Remaining"
       },
@@ -537,12 +686,6 @@
       },
       "tvoc": {
         "name": "TVOC"
-      },
-      "use_days": {
-        "name": "Használati napok"
-      },
-      "velocity": {
-        "name": "Sebesség"
       },
       "wash_level": {
         "name": "rinse count"
@@ -568,8 +711,98 @@
       "water_level": {
         "name": "Water Level"
       },
+      "wind": {
+        "name": "Szél"
+      },
+      "typeinfo": {
+        "name": "Típusinformáció"
+      },
+      "use_days": {
+        "name": "Használati napok"
+      },
+      "elec_heat": {
+        "name": "Elektromos fűtés"
+      },
+      "water_pump": {
+        "name": "Vízszivattyú"
+      },
+      "four_way": {
+        "name": "Négyjáratú szelep"
+      },
+      "back_water": {
+        "name": "Visszatérő víz"
+      },
+      "sterilize": {
+        "name": "Sterilizálás"
+      },
+      "disinfection_temperature": {
+        "name": "Fertőtlenítési hőmérséklet"
+      },
+      "max_temperature": {
+        "name": "Maximális cél hőmérséklet"
+      },
+      "vacation_start_year": {
+        "name": "Vakáció kezdő év"
+      },
+      "vacation_start_month": {
+        "name": "Vakáció kezdő hónap"
+      },
+      "vacation_start_day": {
+        "name": "Vakáció kezdő nap"
+      },
+      "auto_sterilize_week": {
+        "name": "Automatikus sterilizálás hét"
+      },
+      "auto_sterilize_hour": {
+        "name": "Automatikus sterilizálás óra"
+      },
+      "auto_sterilize_minute": {
+        "name": "Automatikus sterilizálás perc"
+      },
       "working_time": {
         "name": "Working Time"
+      },
+      "humidity": {
+        "name": "Páratartalom"
+      },
+      "variable_mode": {
+        "name": "Változó mód"
+      },
+      "compressor_frequency": {
+        "name": "Kompresszor frekvencia"
+      },
+      "target_compressor_frequency": {
+        "name": "Cél kompresszor frekvencia"
+      },
+      "compressor_current": {
+        "name": "Kompresszor áramerősség"
+      },
+      "compressor_voltage": {
+        "name": "Kompresszor feszültség"
+      },
+      "compressor_power": {
+        "name": "Kompresszor teljesítmény"
+      },
+      "indoor_coil_temperature": {
+        "name": "Beltéri hőcserélő hőmérséklet (T1)"
+      },
+      "evaporator_temperature": {
+        "name": "Párologtató hőmérséklet (T2)"
+      },
+      "outdoor_ambient_temperature": {
+        "name": "Kültéri környezeti hőmérséklet (T4)"
+      },
+      "discharge_pipe_temperature": {
+        "name": "Nyomócső hőmérséklet (TP)"
+      },
+      "indoor_fan_speed": {
+        "name": "Beltéri ventilátor sebesség"
+      },
+      "target_indoor_fan_speed": {
+        "name": "Cél beltéri ventilátor sebesség"
+      },
+      "velocity": {
+        "name": "Sebesség"
       }
     },
     "switch": {
@@ -600,11 +833,23 @@
       "disinfect": {
         "name": "Disinfect"
       },
+      "vacation_mode": {
+        "name": "Vakáció mód"
+      },
       "dry": {
         "name": "Dry"
       },
+      "cold_water_single": {
+        "name": "Hideg víz egyszeri"
+      },
+      "cold_water_dot": {
+        "name": "Hideg víz pont"
+      },
       "eco_mode": {
         "name": "ECO Mode"
+      },
+      "memory": {
+        "name": "Memo U"
       },
       "fast_dhw": {
         "name": "Fast DHW"
@@ -678,6 +923,9 @@
       "sleep_mode": {
         "name": "Sleep Mode"
       },
+      "out_silent": {
+        "name": "Kültéri csendes mód"
+      },
       "smart_eye": {
         "name": "Smart Eye"
       },
@@ -695,6 +943,9 @@
       },
       "start": {
         "name": "Start"
+      },
+      "sterilization": {
+        "name": "Sterilizálás"
       },
       "storage": {
         "name": "Storage"
