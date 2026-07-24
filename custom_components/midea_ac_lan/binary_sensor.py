@@ -30,9 +30,15 @@ async def async_setup_entry(
         "dict",
         MIDEA_DEVICES[device.device_type]["entities"],
     ).items():
-        if config["type"] == Platform.BINARY_SENSOR and entity_key in extra_sensors:
-            sensor = MideaBinarySensor(device, entity_key)
-            binary_sensors.append(sensor)
+        if config["type"] != Platform.BINARY_SENSOR or entity_key not in extra_sensors:
+            continue
+        required_attribute = config.get("required_attribute")
+        if (
+            required_attribute is not None
+            and required_attribute not in device.attributes
+        ):
+            continue
+        binary_sensors.append(MideaBinarySensor(device, entity_key))
     async_add_entities(binary_sensors)
 
 

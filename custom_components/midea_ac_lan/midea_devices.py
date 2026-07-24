@@ -54,6 +54,11 @@ from midealocal.devices.x26 import DeviceAttributes as X26Attributes
 from midealocal.devices.x34 import DeviceAttributes as X34Attributes
 from midealocal.devices.x40 import DeviceAttributes as X40Attributes
 
+FRESH_AIR_EXHAUST = "fresh_air_exhaust"
+FRESH_AIR_EXHAUST_MODE = "fresh_air_exhaust_mode"
+FRESH_AIR_EXHAUST_POWER = "fresh_air_exhaust_power"
+FRESH_AIR_EXHAUST_SPEED = "fresh_air_exhaust_speed"
+
 """
 Entity Naming Rule:
 
@@ -388,6 +393,29 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Fresh Air",
                 "icon": "mdi:fan",
             },
+            ACAttributes.fresh_air_mode: {
+                "type": Platform.SELECT,
+                "required_attribute": ACAttributes.fresh_air_mode,
+                "translation_key": "fresh_air_mode",
+                "name": "Fresh Air Speed",
+                "icon": "mdi:fan-chevron-up",
+                "options": "fresh_air_fan_speeds",
+            },
+            FRESH_AIR_EXHAUST: {
+                "type": Platform.FAN,
+                "translation_key": "fresh_air_exhaust",
+                "name": "Fresh Air Exhaust",
+                "icon": "mdi:fan-reverse",
+                "required_attribute": FRESH_AIR_EXHAUST_POWER,
+            },
+            FRESH_AIR_EXHAUST_MODE: {
+                "type": Platform.SELECT,
+                "translation_key": "fresh_air_exhaust_mode",
+                "name": "Fresh Air Exhaust Speed",
+                "icon": "mdi:fan-chevron-down",
+                "options": "fresh_air_exhaust_fan_speeds",
+                "required_attribute": FRESH_AIR_EXHAUST_POWER,
+            },
             ACAttributes.aux_heating: {
                 "type": Platform.SWITCH,
                 "translation_key": "aux_heating",
@@ -585,6 +613,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             # group 1: compressor and refrigerant circuit
             ACAttributes.compressor_frequency: {
                 "type": Platform.SENSOR,
+                "required_attribute": ACAttributes.compressor_frequency,
                 "translation_key": "compressor_frequency",
                 "name": "Compressor Frequency",
                 "device_class": SensorDeviceClass.FREQUENCY,
@@ -593,6 +622,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             ACAttributes.target_compressor_frequency: {
                 "type": Platform.SENSOR,
+                "required_attribute": ACAttributes.target_compressor_frequency,
                 "translation_key": "target_compressor_frequency",
                 "name": "Target Compressor Frequency",
                 "device_class": SensorDeviceClass.FREQUENCY,
@@ -601,6 +631,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             ACAttributes.compressor_current: {
                 "type": Platform.SENSOR,
+                "required_attribute": ACAttributes.compressor_current,
                 "translation_key": "compressor_current",
                 "name": "Compressor Current",
                 "device_class": SensorDeviceClass.CURRENT,
@@ -609,6 +640,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             ACAttributes.compressor_voltage: {
                 "type": Platform.SENSOR,
+                "required_attribute": ACAttributes.compressor_voltage,
                 "translation_key": "compressor_voltage",
                 "name": "Compressor Voltage",
                 "device_class": SensorDeviceClass.VOLTAGE,
@@ -617,6 +649,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             ACAttributes.indoor_coil_temperature: {
                 "type": Platform.SENSOR,
+                "required_attribute": ACAttributes.indoor_coil_temperature,
                 "translation_key": "indoor_coil_temperature",
                 "name": "Indoor Coil Temperature (T1)",
                 "device_class": SensorDeviceClass.TEMPERATURE,
@@ -625,6 +658,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             ACAttributes.evaporator_temperature: {
                 "type": Platform.SENSOR,
+                "required_attribute": ACAttributes.evaporator_temperature,
                 "translation_key": "evaporator_temperature",
                 "name": "Evaporator Temperature (T2)",
                 "device_class": SensorDeviceClass.TEMPERATURE,
@@ -633,6 +667,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             ACAttributes.condenser_temperature: {
                 "type": Platform.SENSOR,
+                "required_attribute": ACAttributes.condenser_temperature,
                 "translation_key": "condenser_temperature",
                 "name": "Condenser Temperature (T3)",
                 "device_class": SensorDeviceClass.TEMPERATURE,
@@ -641,6 +676,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             ACAttributes.outdoor_ambient_temperature: {
                 "type": Platform.SENSOR,
+                "required_attribute": ACAttributes.outdoor_ambient_temperature,
                 "translation_key": "outdoor_ambient_temperature",
                 "name": "Outdoor Ambient Temperature (T4)",
                 "device_class": SensorDeviceClass.TEMPERATURE,
@@ -649,6 +685,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             ACAttributes.discharge_pipe_temperature: {
                 "type": Platform.SENSOR,
+                "required_attribute": ACAttributes.discharge_pipe_temperature,
                 "translation_key": "discharge_pipe_temperature",
                 "name": "Discharge Pipe Temperature (TP)",
                 "device_class": SensorDeviceClass.TEMPERATURE,
@@ -658,6 +695,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             # group 2: indoor fan and condensate pump
             ACAttributes.indoor_fan_speed: {
                 "type": Platform.SENSOR,
+                "required_attribute": ACAttributes.indoor_fan_speed,
                 "translation_key": "indoor_fan_speed",
                 "name": "Indoor Fan Speed",
                 "icon": "mdi:fan",
@@ -666,6 +704,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             ACAttributes.target_indoor_fan_speed: {
                 "type": Platform.SENSOR,
+                "required_attribute": ACAttributes.target_indoor_fan_speed,
                 "translation_key": "target_indoor_fan_speed",
                 "name": "Target Indoor Fan Speed",
                 "icon": "mdi:fan-clock",
@@ -674,6 +713,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             ACAttributes.water_pump_running: {
                 "type": Platform.BINARY_SENSOR,
+                "required_attribute": ACAttributes.water_pump_running,
                 "translation_key": "water_pump_running",
                 "name": "Water Pump Running",
                 "icon": "mdi:water-pump",
@@ -682,6 +722,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             # group 7: real time compressor power
             ACAttributes.compressor_power: {
                 "type": Platform.SENSOR,
+                "required_attribute": ACAttributes.compressor_power,
                 "translation_key": "compressor_power",
                 "name": "Compressor Power",
                 "device_class": SensorDeviceClass.POWER,

@@ -282,6 +282,9 @@
     "fan": {
       "fresh_air": {
         "name": "Fresh Air"
+      },
+      "fresh_air_exhaust": {
+        "name": "Fresh Air Exhaust"
       }
     },
     "lock": {
@@ -327,6 +330,25 @@
       },
       "fan_speed": {
         "name": "Fan Speed"
+      },
+      "fresh_air_exhaust_mode": {
+        "name": "Fresh Air Exhaust Speed",
+        "state": {
+          "off": "Off",
+          "silent": "Low",
+          "high": "High",
+          "full": "Full"
+        }
+      },
+      "fresh_air_mode": {
+        "name": "Fresh Air Speed",
+        "state": {
+          "off": "Off",
+          "low": "Low",
+          "medium": "Medium",
+          "high": "High",
+          "full": "Full"
+        }
       },
       "mode": {
         "name": "Mode"

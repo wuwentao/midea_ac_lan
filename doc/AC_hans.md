@@ -99,6 +99,9 @@
 | sensor.{DEVICEID}\_target_indoor_fan_speed     | sensor        | Target Indoor Fan Speed          | 内风机目标转速    |
 | sensor.{DEVICEID}\_water_pump_running          | binary_sensor | Water Pump Running               | 水泵运行          |
 | fan.{DEVICEID}\_fresh_air                      | fan           | Fresh Air                        | 新风              |
+| fan.{DEVICEID}\_fresh_air_exhaust              | fan           | Fresh Air Exhaust                | 排风              |
+| select.{DEVICEID}\_fresh_air_mode              | select        | Fresh Air Speed                  | 新风风速          |
+| select.{DEVICEID}\_fresh_air_exhaust_mode      | select        | Fresh Air Exhaust Speed          | 排风风速          |
 | switch.{DEVICEID}\_aux_heating                 | switch        | Aux Heating                      | 电辅热            |
 | switch.{DEVICEID}\_boost_mode                  | switch        | Boost Mode                       | 强劲模式          |
 | switch.{DEVICEID}\_breezeless                  | switch        | Breezeless                       | 无风感            |
@@ -118,6 +121,8 @@
 | switch.{DEVICEID}\_wind_ud_angle               | select        | Airflow Vertical                 | 垂直出风          |
 | switch.{DEVICEID}\_rate_select                 | select        | Power Rate Limit                 | 功率限制          |
 | switch.{DEVICEID}\_fan_speed                   | number        | Fan Speed Percent                | 风速百分比        |
+
+服务诊断实体为可选实体。如果设备不返回相应的美的分组数据，这些实体可能保持未知状态。
 
 ## 内置新风系统
 

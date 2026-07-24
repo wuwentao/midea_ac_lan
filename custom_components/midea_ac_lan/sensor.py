@@ -35,16 +35,23 @@ async def async_setup_entry(
         MIDEA_DEVICES[device.device_type]["entities"],
     ).items():
         if (
-            config["type"] == Platform.SENSOR
-            and supports_model(device.model, config)
-            and (config.get("default") or entity_key in extra_sensors)
+            config["type"] != Platform.SENSOR
+            or not supports_model(device.model, config)
+            or (not config.get("default") and entity_key not in extra_sensors)
         ):
-            sensor = (
-                MideaEstimatedUsageSensor(device, entity_key)
-                if config.get("estimate")
-                else MideaSensor(device, entity_key)
-            )
-            sensors.append(sensor)
+            continue
+        required_attribute = config.get("required_attribute")
+        if (
+            required_attribute is not None
+            and required_attribute not in device.attributes
+        ):
+            continue
+        sensor = (
+            MideaEstimatedUsageSensor(device, entity_key)
+            if config.get("estimate")
+            else MideaSensor(device, entity_key)
+        )
+        sensors.append(sensor)
     async_add_entities(sensors)
 
 

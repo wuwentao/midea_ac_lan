@@ -76,6 +76,7 @@ from .const import (
     CONF_SERVER,
     CONF_SN,
     CONF_SUBTYPE,
+    DEVICES,
     DOMAIN,
     EXTRA_CONTROL,
     EXTRA_SENSOR,
@@ -942,6 +943,15 @@ class MideaLanOptionsFlowHandler(OptionsFlow):
             return self.async_create_entry(title="", data=user_input)
         sensors = {}
         switches = {}
+        device_id = self._config_entry.data.get(CONF_DEVICE_ID)
+        device = (
+            self.hass.data.get(DOMAIN, {}).get(DEVICES, {}).get(device_id)
+            if device_id is not None
+            else None
+        )
+        selected_attributes = set(
+            self._config_entry.options.get(CONF_SENSORS, []),
+        ) | set(self._config_entry.options.get(CONF_SWITCHES, []))
         for attribute, attribute_config in cast(
             "dict",
             MIDEA_DEVICES[cast("int", self._device_type)]["entities"],
@@ -954,6 +964,17 @@ class MideaLanOptionsFlowHandler(OptionsFlow):
             attribute_name = (
                 attribute if isinstance(attribute, str) else attribute.value
             )
+            required_attribute = attribute_config.get("required_attribute")
+            if (
+                required_attribute is not None
+                and (
+                    device is None
+                    or required_attribute not in device.attributes
+                    or device.get_attribute(required_attribute) is None
+                )
+                and attribute_name not in selected_attributes
+            ):
+                continue
             if attribute_config.get("type") in EXTRA_SENSOR:
                 sensors[attribute_name] = attribute_config.get("name")
             elif attribute_config.get(
