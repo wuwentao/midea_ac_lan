@@ -455,7 +455,7 @@ class MideaCDWaterHeater(MideaWaterHeater):
             return
         super().set_operation_mode(operation_mode)
 
-    def set_temperature(self, **kwargs: Any) -> None:  # noqa: ANN401
+    def set_temperature(self, **kwargs: Any) -> None:  # ruff:ignore[any-type]
         """Midea CD Water Heater set temperature.
 
         Override to ensure power stays on when setting temperature.
