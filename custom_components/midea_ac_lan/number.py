@@ -46,7 +46,7 @@ class MideaNumber(MideaEntity, NumberEntity):
 
     @property
     def native_min_value(self) -> float:
-        """Return minimum value."""
+        """Minimum value allowed."""
         return cast(
             "float",
             (
@@ -62,7 +62,7 @@ class MideaNumber(MideaEntity, NumberEntity):
 
     @property
     def native_max_value(self) -> float:
-        """Return maximum value."""
+        """Maximum value allowed."""
         return cast(
             "float",
             (
@@ -78,7 +78,7 @@ class MideaNumber(MideaEntity, NumberEntity):
 
     @property
     def native_step(self) -> float:
-        """Return step value."""
+        """Step value between allowed values."""
         return cast(
             "float",
             (
@@ -94,9 +94,9 @@ class MideaNumber(MideaEntity, NumberEntity):
 
     @property
     def native_value(self) -> float:
-        """Return value."""
+        """Native value of the entity."""
         return cast("float", self._device.get_attribute(self._entity_key))
 
-    def set_native_value(self, value: Any) -> None:  # noqa: ANN401
+    def set_native_value(self, value: Any) -> None:  # ruff:ignore[any-type]
         """Set value."""
         self._device.set_attribute(self._entity_key, value)

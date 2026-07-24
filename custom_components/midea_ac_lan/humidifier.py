@@ -92,15 +92,15 @@ class MideaHumidifier(MideaEntity, HumidifierEntity):
         """Midea Humidifier is on."""
         return cast("bool", self._device.get_attribute(attr="power"))
 
-    def turn_on(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
+    def turn_on(self, **kwargs: Any) -> None:  # ruff:ignore[any-type, unused-method-argument]
         """Midea Humidifier turn on."""
         self._device.set_attribute(attr="power", value=True)
 
-    def turn_off(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
+    def turn_off(self, **kwargs: Any) -> None:  # ruff:ignore[any-type, unused-method-argument]
         """Midea Humidifier turn off."""
         self._device.set_attribute(attr="power", value=False)
 
-    def update_state(self, status: Any) -> None:  # noqa: ANN401, ARG002
+    def update_state(self, status: Any) -> None:  # ruff:ignore[any-type, unused-method-argument]
         """Midea Humidifier update state."""
         if not self.hass:
             _LOGGER.warning(

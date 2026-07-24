@@ -181,15 +181,15 @@ class MideaClimate(MideaEntity, ClimateEntity):
         """Midea Climate extra state attributes."""
         return cast("dict", self._device.attributes)
 
-    def turn_on(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
+    def turn_on(self, **kwargs: Any) -> None:  # ruff:ignore[any-type, unused-method-argument]
         """Midea Climate turn on."""
         self._device.set_attribute(attr="power", value=True)
 
-    def turn_off(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
+    def turn_off(self, **kwargs: Any) -> None:  # ruff:ignore[any-type, unused-method-argument]
         """Midea Climate turn off."""
         self._device.set_attribute(attr="power", value=False)
 
-    def set_temperature(self, **kwargs: Any) -> None:  # noqa: ANN401
+    def set_temperature(self, **kwargs: Any) -> None:  # ruff:ignore[any-type]
         """Midea Climate set temperature."""
         if ATTR_TEMPERATURE not in kwargs:
             return
@@ -243,7 +243,7 @@ class MideaClimate(MideaEntity, ClimateEntity):
         elif old_mode == PRESET_BOOST:
             self._device.set_attribute(attr="boost_mode", value=False)
 
-    def update_state(self, status: Any) -> None:  # noqa: ANN401, ARG002
+    def update_state(self, status: Any) -> None:  # ruff:ignore[any-type, unused-method-argument]
         """Midea Climate update state."""
         if not self.hass:
             _LOGGER.warning(
@@ -463,7 +463,7 @@ class MideaACClimate(MideaClimate):
                 value=self._mode_index.index(hvac_mode),
             )
 
-    def set_temperature(self, **kwargs: Any) -> None:  # noqa: ANN401
+    def set_temperature(self, **kwargs: Any) -> None:  # ruff:ignore[any-type]
         """Midea AC Climate set temperature (raw mode via the fixed map).
 
         ``hvac_modes`` is a filtered subset here, so the raw protocol mode must
@@ -541,7 +541,7 @@ class MideaACClimate(MideaClimate):
 
     @property
     def current_humidity(self) -> float | None:
-        """Return the current indoor humidity, or None if unavailable."""
+        """Current indoor humidity, or None if unavailable."""
         # fix error humidity, disable indoor_humidity in web UI
         # https://github.com/wuwentao/midea_ac_lan/pull/641
         if not self._indoor_humidity_enabled:
@@ -792,11 +792,11 @@ class MideaC3Climate(MideaClimate):
             self._temperature(False)[self._zone],
         )
 
-    def turn_on(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
+    def turn_on(self, **kwargs: Any) -> None:  # ruff:ignore[any-type, unused-method-argument]
         """Midea C3 Climate turn on."""
         self._device.set_attribute(attr=self._power_attr, value=True)
 
-    def turn_off(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
+    def turn_off(self, **kwargs: Any) -> None:  # ruff:ignore[any-type, unused-method-argument]
         """Midea C3 Climate turn off."""
         self._device.set_attribute(attr=self._power_attr, value=False)
 
@@ -825,7 +825,7 @@ class MideaC3Climate(MideaClimate):
         """Midea C3 Climate current temperature."""
         return None
 
-    def set_temperature(self, **kwargs: Any) -> None:  # noqa: ANN401
+    def set_temperature(self, **kwargs: Any) -> None:  # ruff:ignore[any-type]
         """Midea C3 Climate set temperature."""
         if ATTR_TEMPERATURE not in kwargs:
             return
@@ -901,7 +901,7 @@ class MideaFBClimate(MideaClimate):
             self._device.get_attribute(FBAttributes.current_temperature),
         )
 
-    def set_temperature(self, **kwargs: Any) -> None:  # noqa: ANN401
+    def set_temperature(self, **kwargs: Any) -> None:  # ruff:ignore[any-type]
         """Midea FB Climate set temperature."""
         if ATTR_TEMPERATURE not in kwargs:
             return

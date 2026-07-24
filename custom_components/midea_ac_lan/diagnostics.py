@@ -19,7 +19,7 @@ TO_REDACT = {CONF_TOKEN, CONF_KEY}
 
 
 async def async_get_config_entry_diagnostics(
-    hass: HomeAssistant,  # noqa: ARG001
+    hass: HomeAssistant,  # ruff:ignore[unused-function-argument]
     entry: ConfigEntry,
 ) -> dict[str, Any]:
     """Return diagnostics for a config entry.

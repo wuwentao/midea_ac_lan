@@ -61,7 +61,7 @@ class MideaTime(MideaEntity, TimeEntity):
 
     @property
     def native_value(self) -> time | None:
-        """Return entity value."""
+        """Native value of the entity."""
         hour = self._device.get_attribute(self._hour_attr)
         minute = self._device.get_attribute(self._min_attr)
         if hour is None or minute is None:

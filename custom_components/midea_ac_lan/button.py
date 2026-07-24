@@ -50,7 +50,7 @@ class MideaButton(MideaEntity, ButtonEntity):
 
     @property
     def available(self) -> bool:
-        """Return entity availability."""
+        """Whether the entity is available."""
         if not super().available:
             return False
         if self._power_attribute and not self._device.get_attribute(
@@ -95,7 +95,7 @@ class MideaButton(MideaEntity, ButtonEntity):
         return None
 
     @callback
-    def update_state(self, status: Any) -> None:  # noqa: ANN401
+    def update_state(self, status: Any) -> None:  # ruff:ignore[any-type]
         """Update entity state."""
         super().update_state(status)
         if (
