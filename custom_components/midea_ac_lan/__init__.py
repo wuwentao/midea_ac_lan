@@ -360,13 +360,29 @@ async def _async_backfill_mac_and_sn(
         return True
     if config_entry.data.get(CONF_MAC) or config_entry.data.get(CONF_SN):
         return True
-    ip_address = config_entry.data.get(CONF_IP_ADDRESS)
+    # Honor an IP override set via the options flow (e.g. after a DHCP change),
+    # mirroring async_setup_entry; the data IP may be stale.
+    ip_address = config_entry.options.get(CONF_IP_ADDRESS)
+    if ip_address is None:
+        ip_address = config_entry.data.get(CONF_IP_ADDRESS)
     device_id = config_entry.data.get(CONF_DEVICE_ID)
     if ip_address is None or device_id is None:
         return True
-    found_devices = await hass.async_add_executor_job(
-        lambda: discover(ip_address=ip_address),
-    )
+    try:
+        found_devices = await hass.async_add_executor_job(
+            lambda: discover(ip_address=ip_address),
+        )
+    except Exception:
+        # Best-effort migration: any discovery failure (socket error, malformed
+        # reply from a legacy device, parse error) must not break entry setup.
+        # Retry on the next start instead.
+        _LOGGER.debug(
+            "Discovery for device %s failed; mac/serial number migration"
+            " will be retried on next start",
+            device_id,
+            exc_info=True,
+        )
+        return False
     device = found_devices.get(int(device_id))
     if device is None:
         return False
