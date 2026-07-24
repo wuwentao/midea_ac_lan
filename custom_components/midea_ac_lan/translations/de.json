@@ -93,6 +93,9 @@
       "cooking": {
         "name": "Cooking"
       },
+      "error_code": {
+        "name": "Fehlercode"
+      },
       "filter_change_reminder": {
         "name": "Filter Change Reminder"
       },
@@ -126,6 +129,9 @@
       "keep_warm": {
         "name": "Keep Warm"
       },
+      "leak_water": {
+        "name": "Leckwasser"
+      },
       "lid_status": {
         "name": "Lid Status"
       },
@@ -152,6 +158,9 @@
       },
       "rinse_aid": {
         "name": "Rinse Aid Shortage"
+      },
+      "rsj_stand_by": {
+        "name": "Standby"
       },
       "salt": {
         "name": "Salt Shortage"
@@ -238,6 +247,15 @@
       },
       "water_temp_level": {
         "name": "Water Temperature Level"
+      },
+      "leak_water_protection_value": {
+        "name": "Leckschutzwert"
+      },
+      "flushing_days": {
+        "name": "Regenerationstage"
+      },
+      "water_hardness": {
+        "name": "Wasserhärte"
       }
     },
     "select": {
@@ -259,6 +277,9 @@
       "oscillation_mode": {
         "name": "Oscillation Mode"
       },
+      "rate_select": {
+        "name": "Power Rate Limit"
+      },
       "screen_display": {
         "name": "Screen Display"
       },
@@ -270,6 +291,11 @@
       },
       "water_level_set": {
         "name": "Water Level Setting"
+      }
+    },
+    "time": {
+      "timing_regeneration": {
+        "name": "Regenerationszeit"
       }
     },
     "sensor": {
@@ -314,6 +340,20 @@
       },
       "energy_consumption": {
         "name": "Energy Consumption"
+      },
+      "error": {
+        "name": "Fehler",
+        "state": {
+          "no_error": "Kein Fehler",
+          "e1_position_not_found": "E1 Position nicht gefunden",
+          "e2_photo_sensor_no_signal": "E2 Fotosensor kein Signal",
+          "e3_motor_not_running": "E3 Motor läuft nicht",
+          "e4_wrong_position": "E4 Falsche Position",
+          "e1_motor_fault": "E1 Motorfehler",
+          "e5_communication_fault": "E5 Kommunikationsfehler",
+          "e6_salt_sensor_fault": "E6 Salzsensorfehler",
+          "e7_chlorine_sterilization_fault": "E7 Chlorsterilisationsfehler"
+        }
       },
       "error_code": {
         "name": "Error Code"
@@ -381,6 +421,9 @@
       "keep_warm_time": {
         "name": "Keep Warm Time"
       },
+      "left_salt": {
+        "name": "Verbleibendes Salz"
+      },
       "middle_compartment_remaining": {
         "name": "Middle Compartment Remaining"
       },
@@ -408,11 +451,20 @@
       "realtime_power": {
         "name": "Realtime Power"
       },
+      "pmv": {
+        "name": "PMV"
+      },
       "refrigerator_actual_temp": {
         "name": "Refrigerator Actual Temperature"
       },
       "refrigerator_setting_temp": {
         "name": "Refrigerator Setting Temperature"
+      },
+      "regeneration_left_seconds": {
+        "name": "Regeneration verbleibende Sekunden"
+      },
+      "remaining_days": {
+        "name": "Verbleibende Tage"
       },
       "right_flex_zone_actual_temp": {
         "name": "Right Flex Zone Actual Temperature"
@@ -426,11 +478,17 @@
       "rinse_level": {
         "name": "rinse level"
       },
+      "salt_setting": {
+        "name": "Salzeinstellung"
+      },
       "seat_temperature": {
         "name": "Seat Temperature"
       },
       "soak_time": {
         "name": "soak time"
+      },
+      "soft_available": {
+        "name": "Verfügbares Weichwasser"
       },
       "softener": {
         "name": "softener"
@@ -452,6 +510,9 @@
       },
       "target_temperature": {
         "name": "Target Temperature"
+      },
+      "temperature": {
+        "name": "Temperatur"
       },
       "time_remaining": {
         "name": "Time Remaining"
@@ -477,6 +538,12 @@
       "tvoc": {
         "name": "TVOC"
       },
+      "use_days": {
+        "name": "Nutzungstage"
+      },
+      "velocity": {
+        "name": "Durchflussgeschwindigkeit"
+      },
       "wash_level": {
         "name": "rinse count"
       },
@@ -487,6 +554,12 @@
         "name": "wash time"
       },
       "water_consumption": {
+        "name": "Wasserverbrauch"
+      },
+      "water_consumption_average": {
+        "name": "Durchschnittlicher Wasserverbrauch"
+      },
+      "water_consumption_big": {
         "name": "Wasserverbrauch"
       },
       "water_temperature": {
@@ -511,6 +584,12 @@
       },
       "breezeless": {
         "name": "Breezeless"
+      },
+      "child_lock": {
+        "name": "Kindersicherung"
+      },
+      "cl_sterilization": {
+        "name": "CL-Sterilisation"
       },
       "comfort_mode": {
         "name": "Comfort Mode"
@@ -542,6 +621,9 @@
       "indirect_wind": {
         "name": "Indirect Wind"
       },
+      "leak_water_protection": {
+        "name": "Leckschutz"
+      },
       "light": {
         "name": "Licht"
       },
@@ -572,6 +654,15 @@
       "prompt_tone": {
         "name": "Prompt Tone"
       },
+      "regeneration": {
+        "name": "Regeneration"
+      },
+      "water_pump": {
+        "name": "Wasserpumpe"
+      },
+      "water_way": {
+        "name": "Wasserweg"
+      },
       "screen_display": {
         "name": "Screen Display"
       },
@@ -596,6 +687,9 @@
       "smelly_sensor": {
         "name": "Geruchssensor"
       },
+      "soften": {
+        "name": "Enthärtung"
+      },
       "standby": {
         "name": "Standby"
       },
@@ -613,6 +707,12 @@
       },
       "swing_vertical": {
         "name": "Swing Vertical"
+      },
+      "self_clean": {
+        "name": "Self Clean"
+      },
+      "sound": {
+        "name": "Sound"
       },
       "tbh": {
         "name": "TBH"

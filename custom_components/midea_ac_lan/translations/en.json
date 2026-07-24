@@ -93,6 +93,9 @@
       "cooking": {
         "name": "Cooking"
       },
+      "error_code": {
+        "name": "Error Code"
+      },
       "filter_change_reminder": {
         "name": "Filter Change Reminder"
       },
@@ -125,6 +128,9 @@
       },
       "keep_warm": {
         "name": "Keep Warm"
+      },
+      "leak_water": {
+        "name": "Leak Water"
       },
       "lid_status": {
         "name": "Lid Status"
@@ -168,6 +174,9 @@
       "rinse_aid": {
         "name": "Rinse Aid Shortage"
       },
+      "rsj_stand_by": {
+        "name": "Stand By"
+      },
       "salt": {
         "name": "Salt Shortage"
       },
@@ -176,6 +185,21 @@
       },
       "smart_grid": {
         "name": "Smart Grid"
+      },
+      "eco": {
+        "name": "ECO"
+      },
+      "maintenance_reminder": {
+        "name": "Maintenance Reminder"
+      },
+      "maintain_warn": {
+        "name": "Maintenance Warning"
+      },
+      "order1_effect": {
+        "name": "Schedule 1 Active"
+      },
+      "order2_effect": {
+        "name": "Schedule 2 Active"
       },
       "status_dhw": {
         "name": "DHW status"
@@ -227,6 +251,14 @@
       },
       "electronic_smell": {
         "name": "Deodorizing sterilizing"
+      },
+      "water_pump_running": {
+        "name": "Water Pump Running"
+      }
+    },
+    "button": {
+      "start": {
+        "name": "Start"
       }
     },
     "climate": {
@@ -250,6 +282,9 @@
     "fan": {
       "fresh_air": {
         "name": "Fresh Air"
+      },
+      "fresh_air_exhaust": {
+        "name": "Fresh Air Exhaust"
       }
     },
     "lock": {
@@ -272,6 +307,18 @@
       },
       "fan_speed_percent": {
         "name": "Fan Speed Percent"
+      },
+      "vacation_days": {
+        "name": "Vacation Days"
+      },
+      "leak_water_protection_value": {
+        "name": "Leak Water Protection Value"
+      },
+      "flushing_days": {
+        "name": "Regeneration Days"
+      },
+      "water_hardness": {
+        "name": "Water Hardness"
       }
     },
     "select": {
@@ -284,6 +331,25 @@
       "fan_speed": {
         "name": "Fan Speed"
       },
+      "fresh_air_exhaust_mode": {
+        "name": "Fresh Air Exhaust Speed",
+        "state": {
+          "off": "Off",
+          "silent": "Low",
+          "high": "High",
+          "full": "Full"
+        }
+      },
+      "fresh_air_mode": {
+        "name": "Fresh Air Speed",
+        "state": {
+          "off": "Off",
+          "low": "Low",
+          "medium": "Medium",
+          "high": "High",
+          "full": "Full"
+        }
+      },
       "mode": {
         "name": "Mode"
       },
@@ -293,6 +359,9 @@
       "oscillation_mode": {
         "name": "Oscillation Mode"
       },
+      "rate_select": {
+        "name": "Power Rate Limit"
+      },
       "screen_display": {
         "name": "Screen Display"
       },
@@ -301,6 +370,9 @@
       },
       "tilting_angle": {
         "name": "Tilting Angle"
+      },
+      "wash_mode": {
+        "name": "Wash Mode"
       },
       "water_level_set": {
         "name": "Water Level Setting"
@@ -326,6 +398,11 @@
           "down-mid": "Down-Mid",
           "down": "Down"
         }
+      }
+    },
+    "time": {
+      "timing_regeneration": {
+        "name": "Timing Regeneration"
       }
     },
     "sensor": {
@@ -368,6 +445,9 @@
       "dehydration_time_value": {
         "name": "Dehydration time value"
       },
+      "temperature": {
+        "name": "Temperature"
+      },
       "wash_time_value": {
         "name": "Wash time value"
       },
@@ -404,8 +484,28 @@
       "energy_consumption": {
         "name": "Energy Consumption"
       },
+      "error": {
+        "name": "Error",
+        "state": {
+          "no_error": "No Error",
+          "e1_position_not_found": "E1 Position not found",
+          "e2_photo_sensor_no_signal": "E2 Photo sensor no signal",
+          "e3_motor_not_running": "E3 Motor not running",
+          "e4_wrong_position": "E4 Wrong position",
+          "e1_motor_fault": "E1 Motor fault",
+          "e5_communication_fault": "E5 Communication fault",
+          "e6_salt_sensor_fault": "E6 Salt sensor fault",
+          "e7_chlorine_sterilization_fault": "E7 Chlorine sterilization fault"
+        }
+      },
       "error_code": {
         "name": "Error Code"
+      },
+      "estimated_energy_consumption": {
+        "name": "Estimated Energy Consumption"
+      },
+      "estimated_water_consumption": {
+        "name": "Estimated Water Consumption"
       },
       "fan_level": {
         "name": "Fan level"
@@ -470,6 +570,9 @@
       "keep_warm_time": {
         "name": "Keep Warm Time"
       },
+      "left_salt": {
+        "name": "Left Salt"
+      },
       "middle_compartment_remaining": {
         "name": "Middle Compartment Remaining"
       },
@@ -497,11 +600,20 @@
       "realtime_power": {
         "name": "Realtime Power"
       },
+      "pmv": {
+        "name": "PMV"
+      },
       "refrigerator_actual_temp": {
         "name": "Refrigerator Actual Temperature"
       },
       "refrigerator_setting_temp": {
         "name": "Refrigerator Setting Temperature"
+      },
+      "regeneration_left_seconds": {
+        "name": "Regeneration Left Seconds"
+      },
+      "remaining_days": {
+        "name": "Remaining Days"
       },
       "right_flex_zone_actual_temp": {
         "name": "Right Flex Zone Actual Temperature"
@@ -515,11 +627,17 @@
       "rinse_level": {
         "name": "Rinse level"
       },
+      "salt_setting": {
+        "name": "Salt Setting"
+      },
       "seat_temperature": {
         "name": "Seat Temperature"
       },
       "soak_time": {
         "name": "Soak time"
+      },
+      "soft_available": {
+        "name": "Soft Water Available"
       },
       "softener": {
         "name": "Softener"
@@ -575,6 +693,12 @@
       "water_consumption": {
         "name": "Water Consumption"
       },
+      "water_consumption_average": {
+        "name": "Water Consumption Average"
+      },
+      "water_consumption_big": {
+        "name": "Water Consumption"
+      },
       "water_temperature": {
         "name": "Water Temperature"
       },
@@ -586,6 +710,9 @@
       },
       "typeinfo": {
         "name": "Type Info"
+      },
+      "use_days": {
+        "name": "Use Days"
       },
       "elec_heat": {
         "name": "Electric Heat"
@@ -602,6 +729,30 @@
       "sterilize": {
         "name": "Sterilize"
       },
+      "disinfection_temperature": {
+        "name": "Disinfection Temperature"
+      },
+      "max_temperature": {
+        "name": "Maximum Target Temperature"
+      },
+      "vacation_start_year": {
+        "name": "Vacation Start Year"
+      },
+      "vacation_start_month": {
+        "name": "Vacation Start Month"
+      },
+      "vacation_start_day": {
+        "name": "Vacation Start Day"
+      },
+      "auto_sterilize_week": {
+        "name": "Auto Sterilize Week"
+      },
+      "auto_sterilize_hour": {
+        "name": "Auto Sterilize Hour"
+      },
+      "auto_sterilize_minute": {
+        "name": "Auto Sterilize Minute"
+      },
       "working_time": {
         "name": "Working Time"
       },
@@ -610,6 +761,42 @@
       },
       "variable_mode": {
         "name": "Variable Mode"
+      },
+      "compressor_frequency": {
+        "name": "Compressor Frequency"
+      },
+      "target_compressor_frequency": {
+        "name": "Target Compressor Frequency"
+      },
+      "compressor_current": {
+        "name": "Compressor Current"
+      },
+      "compressor_voltage": {
+        "name": "Compressor Voltage"
+      },
+      "compressor_power": {
+        "name": "Compressor Power"
+      },
+      "indoor_coil_temperature": {
+        "name": "Indoor Coil Temperature (T1)"
+      },
+      "evaporator_temperature": {
+        "name": "Evaporator Temperature (T2)"
+      },
+      "outdoor_ambient_temperature": {
+        "name": "Outdoor Ambient Temperature (T4)"
+      },
+      "discharge_pipe_temperature": {
+        "name": "Discharge Pipe Temperature (TP)"
+      },
+      "indoor_fan_speed": {
+        "name": "Indoor Fan Speed"
+      },
+      "target_indoor_fan_speed": {
+        "name": "Target Indoor Fan Speed"
+      },
+      "velocity": {
+        "name": "Velocity"
       }
     },
     "switch": {
@@ -625,6 +812,12 @@
       "breezeless": {
         "name": "Breezeless"
       },
+      "child_lock": {
+        "name": "Child Lock"
+      },
+      "cl_sterilization": {
+        "name": "CL Sterilization"
+      },
       "comfort_mode": {
         "name": "Comfort Mode"
       },
@@ -633,6 +826,9 @@
       },
       "disinfect": {
         "name": "Disinfect"
+      },
+      "vacation_mode": {
+        "name": "Vacation Mode"
       },
       "dry": {
         "name": "Dry"
@@ -645,6 +841,9 @@
       },
       "eco_mode": {
         "name": "ECO Mode"
+      },
+      "memory": {
+        "name": "Memo U"
       },
       "fast_dhw": {
         "name": "Fast DHW"
@@ -660,6 +859,9 @@
       },
       "indirect_wind": {
         "name": "Indirect Wind"
+      },
+      "leak_water_protection": {
+        "name": "Leak Water Protection"
       },
       "light": {
         "name": "Light"
@@ -691,6 +893,15 @@
       "prompt_tone": {
         "name": "Prompt Tone"
       },
+      "regeneration": {
+        "name": "Regeneration"
+      },
+      "water_pump": {
+        "name": "Water Pump"
+      },
+      "water_way": {
+        "name": "Water Way"
+      },
       "screen_display": {
         "name": "Screen Display"
       },
@@ -706,6 +917,9 @@
       "sleep_mode": {
         "name": "Sleep Mode"
       },
+      "out_silent": {
+        "name": "Outdoor Silent Mode"
+      },
       "smart_eye": {
         "name": "Smart Eye"
       },
@@ -715,11 +929,17 @@
       "smelly_sensor": {
         "name": "Smelly Sensor"
       },
+      "soften": {
+        "name": "Softening"
+      },
       "standby": {
         "name": "Standby"
       },
       "start": {
         "name": "Start"
+      },
+      "sterilization": {
+        "name": "Sterilization"
       },
       "storage": {
         "name": "Storage"
@@ -732,6 +952,12 @@
       },
       "swing_vertical": {
         "name": "Swing Vertical"
+      },
+      "self_clean": {
+        "name": "Self Clean"
+      },
+      "sound": {
+        "name": "Sound"
       },
       "tbh": {
         "name": "TBH"

@@ -12,6 +12,7 @@ else:
     from homeassistant.helpers.entity import (  # type: ignore[attr-defined]
         DeviceInfo,
     )
+from homeassistant.helpers.device_registry import CONNECTION_NETWORK_MAC, format_mac
 from homeassistant.helpers.entity import Entity
 from midealocal.device import MideaDevice
 
@@ -27,14 +28,18 @@ class MideaEntity(Entity):
     def __init__(self, device: MideaDevice, entity_key: str) -> None:
         """Initialize Midea base entity."""
         self._device = device
-        self._device.register_update(self.update_state)
         self._config = cast(
             "dict",
             MIDEA_DEVICES[self._device.device_type]["entities"],
         )[entity_key]
         self._entity_key = entity_key
         self._unique_id = f"{DOMAIN}.{self._device.device_id}_{entity_key}"
-        self.entity_id = self._unique_id
+        # Build entity_id with the correct platform domain (sensor.*, switch.*, …)
+        # instead of the integration domain. Keeps the legacy "<device_id>_<key>"
+        # object_id so existing entity_ids are unchanged, while fixing the HA
+        # wrong-domain deprecation (breaks in HA 2027.5.0).
+        ha_domain = self._config["type"]
+        self.entity_id = f"{ha_domain}.{self._device.device_id}_{entity_key}"
         self._device_name = self._device.name
 
         # HA language setting:
@@ -43,7 +48,7 @@ class MideaEntity(Entity):
         # Entity name translation based on hass.config.language
         # add language in /config/configuration.yaml will disable web UI setting
         # homeassistant:
-        #    language: zh-Hans  # noqa: ERA001
+        #    language: zh-Hans  # ruff:ignore[commented-out-code]
 
         # Translating the name and attributes of entities:
         # https://developers.home-assistant.io/blog/2023/03/27/entity_name_translations/#translating-entity-name
@@ -84,13 +89,13 @@ class MideaEntity(Entity):
 
     @property
     def device(self) -> MideaDevice:
-        """Return device structure."""
+        """Underlying Midea device instance."""
         return self._device
 
     @property
     def device_info(self) -> DeviceInfo:
-        """Return device info."""
-        return {
+        """Device registry info for the entity."""
+        info: DeviceInfo = {
             "manufacturer": "Midea",
             "model": f"{MIDEA_DEVICES[self._device.device_type]['name']} "
             f"{self._device.model}"
@@ -98,32 +103,100 @@ class MideaEntity(Entity):
             "identifiers": {(DOMAIN, str(self._device.device_id))},
             "name": self._device_name,
         }
+        if self._device.mac:
+            info["connections"] = {
+                (CONNECTION_NETWORK_MAC, format_mac(self._device.mac)),
+            }
+        if self._device.serial_number:
+            info["serial_number"] = self._device.serial_number
+        return info
 
     @property
     def unique_id(self) -> str:
-        """Return entity unique id."""
+        """Unique id of the entity."""
         return self._unique_id
 
     @property
     def should_poll(self) -> bool:
-        """Return true is integration should poll."""
+        """Whether the integration should poll for updates."""
         return False
 
     @property
     def available(self) -> bool:
-        """Return entity availability."""
+        """Whether the entity is available."""
         return bool(self._device.available)
 
     @property
     def icon(self) -> str:
-        """Return entity icon."""
+        """Icon for the entity."""
         return cast("str", self._config.get("icon"))
 
+    async def async_added_to_hass(self) -> None:
+        """Subscribe to device updates once the entity is added to HA.
+
+        Registering the callback here (rather than in ``__init__``) ensures an
+        entity that is constructed but never added to HA never receives updates,
+        which avoids the recurring "HASS is None" warnings.
+        """
+        await super().async_added_to_hass()
+        self._device.register_update(self.update_state)
+
+    async def async_will_remove_from_hass(self) -> None:
+        """Unsubscribe from device updates when the entity is removed from HA."""
+        await super().async_will_remove_from_hass()
+        self._device.unregister_update(self.update_state)
+
     @callback
-    def update_state(self, status: Any) -> None:  # noqa: ANN401
+    def schedule_update_if_running(self) -> None:
+        """Schedule a state write unless HA is shutting down.
+
+        Shared by the base ``update_state`` and by the per-device-type
+        subclasses that override it (climate, fan, light, water_heater,
+        humidifier), so the shutdown guard lives in exactly one place and the
+        main control entities are protected too (issues #798 and #809).
+
+        The caller is responsible for the ``self.hass is None`` guard.
+
+        Raises:
+            RuntimeError: If ``schedule_update_ha_state()`` fails for a reason
+                other than the event loop being closed during shutdown.
+
+        """
+        if self.hass.is_stopping:
+            _LOGGER.debug(
+                "MideaEntity update_state for %s [%s]: HASS is stopping",
+                self.name,
+                type(self),
+            )
+            return
+
+        # A device background thread can still deliver an update after the HA
+        # event loop has been closed during shutdown. Scheduling a state write
+        # then raises RuntimeError because the loop is already closed (issues
+        # #798 and #809). The is_stopping guard above covers the common case,
+        # but a race remains between that check and the schedule call, so also
+        # guard against the closed loop and swallow the residual RuntimeError.
+        if self.hass.loop.is_closed():
+            return
+        try:
+            self.schedule_update_ha_state()
+        except RuntimeError:
+            # Only swallow the shutdown race; re-raise any unrelated RuntimeError.
+            if not self.hass.loop.is_closed():
+                raise
+            _LOGGER.debug(
+                "Ignoring update for %s: event loop closed during shutdown",
+                self.name,
+            )
+
+    @callback
+    def update_state(self, status: Any) -> None:  # ruff:ignore[any-type]
         """Update entity state."""
         if not self.hass:
-            _LOGGER.warning(
+            # Defensive guard for the is_stopping access below. Since the update
+            # callback is now registered in async_added_to_hass (#869), hass is
+            # always set on the normal path, so this is debug (like is_stopping).
+            _LOGGER.debug(
                 "MideaEntity update_state for %s [%s] with status %s: HASS is None",
                 self.name,
                 type(self),
@@ -131,14 +204,7 @@ class MideaEntity(Entity):
             )
             return
 
-        if self.hass.is_stopping:
-            _LOGGER.debug(
-                "MideaEntity update_state for %s [%s] with status %s: HASS is stopping",
-                self.name,
-                type(self),
-                status,
-            )
+        if self._entity_key not in status and "available" not in status:
             return
 
-        if self._entity_key in status or "available" in status:
-            self.schedule_update_ha_state()
+        self.schedule_update_if_running()

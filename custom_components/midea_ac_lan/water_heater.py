@@ -2,7 +2,7 @@
 
 import functools as ft
 import logging
-from typing import Any, ClassVar, TypeAlias, cast
+from typing import Any, ClassVar, cast
 
 from homeassistant.components.water_heater import (
     WaterHeaterEntity,
@@ -81,7 +81,7 @@ async def async_setup_entry(
     async_add_entities(devs)
 
 
-MideaWaterHeaterDevice: TypeAlias = (
+type MideaWaterHeaterDevice = (
     MideaE2Device | MideaE3Device | MideaC3Device | MideaE6Device | MideaCDDevice
 )
 
@@ -151,7 +151,7 @@ class MideaWaterHeater(MideaEntity, WaterHeaterEntity):
         """Midea Water Heater target temperature."""
         return cast("float", self._device.get_attribute("target_temperature"))
 
-    def set_temperature(self, **kwargs: Any) -> None:  # noqa: ANN401
+    def set_temperature(self, **kwargs: Any) -> None:  # ruff:ignore[any-type]
         """Midea Water Heater set temperature."""
         if ATTR_TEMPERATURE not in kwargs:
             return
@@ -170,23 +170,23 @@ class MideaWaterHeater(MideaEntity, WaterHeaterEntity):
             return None
         return cast("list", self._device.preset_modes)
 
-    def turn_on(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
+    def turn_on(self, **kwargs: Any) -> None:  # ruff:ignore[any-type, unused-method-argument]
         """Midea Water Heater turn on."""
         self._device.set_attribute(attr="power", value=True)
 
-    def turn_off(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
+    def turn_off(self, **kwargs: Any) -> None:  # ruff:ignore[any-type, unused-method-argument]
         """Midea Water Heater turn off."""
         self._device.set_attribute(attr="power", value=False)
 
-    async def async_turn_on(self, **kwargs: Any) -> None:  # noqa: ANN401
+    async def async_turn_on(self, **kwargs: Any) -> None:  # ruff:ignore[any-type]
         """Midea Water Heater async turn on."""
         await self.hass.async_add_executor_job(ft.partial(self.turn_on, **kwargs))
 
-    async def async_turn_off(self, **kwargs: Any) -> None:  # noqa: ANN401
+    async def async_turn_off(self, **kwargs: Any) -> None:  # ruff:ignore[any-type]
         """Midea Water Heater async off."""
         await self.hass.async_add_executor_job(ft.partial(self.turn_off, **kwargs))
 
-    def update_state(self, status: Any) -> None:  # noqa: ANN401, ARG002
+    def update_state(self, status: Any) -> None:  # ruff:ignore[any-type, unused-method-argument]
         """Midea Water Heater update state."""
         if not self.hass:
             _LOGGER.warning(
@@ -195,7 +195,7 @@ class MideaWaterHeater(MideaEntity, WaterHeaterEntity):
                 type(self),
             )
             return
-        self.schedule_update_ha_state()
+        self.schedule_update_if_running()
 
 
 class MideaE2WaterHeater(MideaWaterHeater):
@@ -300,7 +300,7 @@ class MideaC3WaterHeater(MideaWaterHeater):
         """Midea C3 Water Heater target temperature."""
         return cast("float", self._device.get_attribute(C3Attributes.dhw_target_temp))
 
-    def set_temperature(self, **kwargs: Any) -> None:  # noqa: ANN401
+    def set_temperature(self, **kwargs: Any) -> None:  # ruff:ignore[any-type]
         """Midea C3 Water Heater set temperature."""
         if ATTR_TEMPERATURE not in kwargs:
             return
@@ -317,11 +317,11 @@ class MideaC3WaterHeater(MideaWaterHeater):
         """Midea C3 Water Heater max temperature."""
         return cast("float", self._device.get_attribute(C3Attributes.dhw_temp_max))
 
-    def turn_on(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
+    def turn_on(self, **kwargs: Any) -> None:  # ruff:ignore[any-type, unused-method-argument]
         """Midea C3 Water Heater turn on."""
         self._device.set_attribute(attr=C3Attributes.dhw_power, value=True)
 
-    def turn_off(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
+    def turn_off(self, **kwargs: Any) -> None:  # ruff:ignore[any-type, unused-method-argument]
         """Midea C3 Water Heater turn off."""
         self._device.set_attribute(attr=C3Attributes.dhw_power, value=False)
 
@@ -387,7 +387,7 @@ class MideaE6WaterHeater(MideaWaterHeater):
         """Midea E6 Water Heater target temperature."""
         return cast("float", self._device.get_attribute(self._target_temperature_attr))
 
-    def set_temperature(self, **kwargs: Any) -> None:  # noqa: ANN401
+    def set_temperature(self, **kwargs: Any) -> None:  # ruff:ignore[any-type]
         """Midea E6 Water Heater set temperature."""
         if ATTR_TEMPERATURE not in kwargs:
             return
@@ -399,7 +399,7 @@ class MideaE6WaterHeater(MideaWaterHeater):
         """Midea E6 Water Heater min temperature."""
         min_temperature = cast(
             "list[str]",
-            self._device.get_attribute(E6Attributes.min_temperature),
+            self._device.get_attribute(E6Attributes.temperature_min),
         )
         return cast(
             "float",
@@ -411,18 +411,18 @@ class MideaE6WaterHeater(MideaWaterHeater):
         """Midea E6 Water Heater max temperature."""
         max_temperature = cast(
             "list[str]",
-            self._device.get_attribute(E6Attributes.max_temperature),
+            self._device.get_attribute(E6Attributes.temperature_max),
         )
         return cast(
             "float",
             max_temperature[self._use],
         )
 
-    def turn_on(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
+    def turn_on(self, **kwargs: Any) -> None:  # ruff:ignore[any-type, unused-method-argument]
         """Midea E6 Water Heater turn on."""
         self._device.set_attribute(attr=self._power_attr, value=True)
 
-    def turn_off(self, **kwargs: Any) -> None:  # noqa: ANN401, ARG002
+    def turn_off(self, **kwargs: Any) -> None:  # ruff:ignore[any-type, unused-method-argument]
         """Midea E6 Water Heater turn off."""
         self._device.set_attribute(attr=self._power_attr, value=False)
 

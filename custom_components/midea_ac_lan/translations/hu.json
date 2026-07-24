@@ -93,6 +93,9 @@
       "cooking": {
         "name": "Cooking"
       },
+      "error_code": {
+        "name": "Hibakód"
+      },
       "filter_change_reminder": {
         "name": "Filter Change Reminder"
       },
@@ -126,6 +129,9 @@
       "keep_warm": {
         "name": "Keep Warm"
       },
+      "leak_water": {
+        "name": "Vízszivárgás"
+      },
       "lid_status": {
         "name": "Lid Status"
       },
@@ -152,6 +158,9 @@
       },
       "rinse_aid": {
         "name": "Rinse Aid Shortage"
+      },
+      "rsj_stand_by": {
+        "name": "Készenlét"
       },
       "salt": {
         "name": "Salt Shortage"
@@ -238,6 +247,15 @@
       },
       "water_temp_level": {
         "name": "Water Temperature Level"
+      },
+      "leak_water_protection_value": {
+        "name": "Vízszivárgás védelem értéke"
+      },
+      "flushing_days": {
+        "name": "Regenerálási napok"
+      },
+      "water_hardness": {
+        "name": "Víz keménység"
       }
     },
     "select": {
@@ -259,6 +277,9 @@
       "oscillation_mode": {
         "name": "Oscillation Mode"
       },
+      "rate_select": {
+        "name": "Power Rate Limit"
+      },
       "screen_display": {
         "name": "Screen Display"
       },
@@ -270,6 +291,11 @@
       },
       "water_level_set": {
         "name": "Water Level Setting"
+      }
+    },
+    "time": {
+      "timing_regeneration": {
+        "name": "Időzített regenerálás"
       }
     },
     "sensor": {
@@ -314,6 +340,20 @@
       },
       "energy_consumption": {
         "name": "Energy Consumption"
+      },
+      "error": {
+        "name": "Hiba",
+        "state": {
+          "no_error": "Nincs hiba",
+          "e1_position_not_found": "E1 Pozíció nem található",
+          "e2_photo_sensor_no_signal": "E2 Fotóérzékelő nincs jel",
+          "e3_motor_not_running": "E3 Motor nem fut",
+          "e4_wrong_position": "E4 Hibás pozíció",
+          "e1_motor_fault": "E1 Motor hiba",
+          "e5_communication_fault": "E5 Kommunikációs hiba",
+          "e6_salt_sensor_fault": "E6 Sóérzékelő hiba",
+          "e7_chlorine_sterilization_fault": "E7 Klór sterilizációs hiba"
+        }
       },
       "error_code": {
         "name": "Error Code"
@@ -381,6 +421,9 @@
       "keep_warm_time": {
         "name": "Keep Warm Time"
       },
+      "left_salt": {
+        "name": "Maradék só"
+      },
       "middle_compartment_remaining": {
         "name": "Middle Compartment Remaining"
       },
@@ -408,11 +451,20 @@
       "realtime_power": {
         "name": "Realtime Power"
       },
+      "pmv": {
+        "name": "PMV"
+      },
       "refrigerator_actual_temp": {
         "name": "Refrigerator Actual Temperature"
       },
       "refrigerator_setting_temp": {
         "name": "Refrigerator Setting Temperature"
+      },
+      "regeneration_left_seconds": {
+        "name": "Regenerálás hátralévő másodperc"
+      },
+      "remaining_days": {
+        "name": "Hátralévő napok"
       },
       "right_flex_zone_actual_temp": {
         "name": "Right Flex Zone Actual Temperature"
@@ -426,11 +478,17 @@
       "rinse_level": {
         "name": "rinse level"
       },
+      "salt_setting": {
+        "name": "Só beállítása"
+      },
       "seat_temperature": {
         "name": "Seat Temperature"
       },
       "soak_time": {
         "name": "soak time"
+      },
+      "soft_available": {
+        "name": "Elérhető lágy víz"
       },
       "softener": {
         "name": "softener"
@@ -452,6 +510,9 @@
       },
       "target_temperature": {
         "name": "Target Temperature"
+      },
+      "temperature": {
+        "name": "Hőmérséklet"
       },
       "time_remaining": {
         "name": "Time Remaining"
@@ -477,6 +538,12 @@
       "tvoc": {
         "name": "TVOC"
       },
+      "use_days": {
+        "name": "Használati napok"
+      },
+      "velocity": {
+        "name": "Sebesség"
+      },
       "wash_level": {
         "name": "rinse count"
       },
@@ -488,6 +555,12 @@
       },
       "water_consumption": {
         "name": "Water Consumption"
+      },
+      "water_consumption_average": {
+        "name": "Átlagos vízfogyasztás"
+      },
+      "water_consumption_big": {
+        "name": "Vízfogyasztás"
       },
       "water_temperature": {
         "name": "Water Temperature"
@@ -511,6 +584,12 @@
       },
       "breezeless": {
         "name": "Breezeless"
+      },
+      "child_lock": {
+        "name": "Gyermekzár"
+      },
+      "cl_sterilization": {
+        "name": "CL sterilizálás"
       },
       "comfort_mode": {
         "name": "Comfort Mode"
@@ -542,6 +621,9 @@
       "indirect_wind": {
         "name": "Indirect Wind"
       },
+      "leak_water_protection": {
+        "name": "Védelem a vízszivárgás ellen"
+      },
       "light": {
         "name": "Light"
       },
@@ -572,6 +654,15 @@
       "prompt_tone": {
         "name": "Prompt Tone"
       },
+      "regeneration": {
+        "name": "Regenerálás"
+      },
+      "water_pump": {
+        "name": "Vízszivattyú"
+      },
+      "water_way": {
+        "name": "Vízi út"
+      },
       "screen_display": {
         "name": "Screen Display"
       },
@@ -596,6 +687,9 @@
       "smelly_sensor": {
         "name": "Smelly Sensor"
       },
+      "soften": {
+        "name": "Lágyítás"
+      },
       "standby": {
         "name": "Standby"
       },
@@ -613,6 +707,12 @@
       },
       "swing_vertical": {
         "name": "Swing Vertical"
+      },
+      "self_clean": {
+        "name": "Self Clean"
+      },
+      "sound": {
+        "name": "Sound"
       },
       "tbh": {
         "name": "TBH"

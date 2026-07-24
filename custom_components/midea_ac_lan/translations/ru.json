@@ -93,6 +93,9 @@
       "cooking": {
         "name": "Приготовление"
       },
+      "error_code": {
+        "name": "Код ошибки"
+      },
       "filter_change_reminder": {
         "name": "Требуется замена фильтра"
       },
@@ -126,6 +129,9 @@
       "keep_warm": {
         "name": "Поддержание температуры"
       },
+      "leak_water": {
+        "name": "Протечка воды"
+      },
       "lid_status": {
         "name": "Крышка"
       },
@@ -152,6 +158,9 @@
       },
       "rinse_aid": {
         "name": "Нехватка ополаскивателя"
+      },
+      "rsj_stand_by": {
+        "name": "Ожидание"
       },
       "salt": {
         "name": "Соль"
@@ -238,6 +247,15 @@
       },
       "water_temp_level": {
         "name": "Water Temperature Level"
+      },
+      "leak_water_protection_value": {
+        "name": "Значение защиты от протечек"
+      },
+      "flushing_days": {
+        "name": "Дни регенерации"
+      },
+      "water_hardness": {
+        "name": "Жёсткость воды"
       }
     },
     "select": {
@@ -259,6 +277,9 @@
       "oscillation_mode": {
         "name": "Oscillation Mode"
       },
+      "rate_select": {
+        "name": "Ограничение мощности"
+      },
       "screen_display": {
         "name": "Screen Display"
       },
@@ -270,6 +291,11 @@
       },
       "water_level_set": {
         "name": "Water Level Setting"
+      }
+    },
+    "time": {
+      "timing_regeneration": {
+        "name": "Регенерация по таймеру"
       }
     },
     "sensor": {
@@ -312,6 +338,9 @@
       "dehydration_time_value": {
         "name": "Dehydration time value"
       },
+      "temperature": {
+        "name": "Температура"
+      },
       "wash_time_value": {
         "name": "Wash time value"
       },
@@ -347,6 +376,20 @@
       },
       "energy_consumption": {
         "name": "Энергопотребление"
+      },
+      "error": {
+        "name": "Ошибка",
+        "state": {
+          "no_error": "Нет ошибок",
+          "e1_position_not_found": "E1 Позиция не найдена",
+          "e2_photo_sensor_no_signal": "E2 Датчик не даёт сигнал",
+          "e3_motor_not_running": "E3 Двигатель не работает",
+          "e4_wrong_position": "E4 Неправильная позиция",
+          "e1_motor_fault": "E1 Неисправность двигателя",
+          "e5_communication_fault": "E5 Ошибка связи",
+          "e6_salt_sensor_fault": "E6 Неисправность датчика соли",
+          "e7_chlorine_sterilization_fault": "E7 Неисправность хлорной стерилизации"
+        }
       },
       "error_code": {
         "name": "Код ошибки"
@@ -414,6 +457,9 @@
       "keep_warm_time": {
         "name": "Keep Warm Time"
       },
+      "left_salt": {
+        "name": "Остаток соли"
+      },
       "middle_compartment_remaining": {
         "name": "Middle Compartment Remaining"
       },
@@ -441,11 +487,20 @@
       "realtime_power": {
         "name": "Энергопотребление"
       },
+      "pmv": {
+        "name": "PMV"
+      },
       "refrigerator_actual_temp": {
         "name": "Refrigerator Actual Temperature"
       },
       "refrigerator_setting_temp": {
         "name": "Refrigerator Setting Temperature"
+      },
+      "regeneration_left_seconds": {
+        "name": "Оставшиеся секунды регенерации"
+      },
+      "remaining_days": {
+        "name": "Оставшиеся дни"
       },
       "right_flex_zone_actual_temp": {
         "name": "Right Flex Zone Actual Temperature"
@@ -459,11 +514,17 @@
       "rinse_level": {
         "name": "Уровень ополаскивателя"
       },
+      "salt_setting": {
+        "name": "Настройка соли"
+      },
       "seat_temperature": {
         "name": "Температура сиденья"
       },
       "soak_time": {
         "name": "Время замачивания"
+      },
+      "soft_available": {
+        "name": "Доступная мягкая вода"
       },
       "softener": {
         "name": "Умягчитель"
@@ -510,6 +571,12 @@
       "tvoc": {
         "name": "TVOC"
       },
+      "use_days": {
+        "name": "Дни использования"
+      },
+      "velocity": {
+        "name": "Скорость"
+      },
       "wash_strength": {
         "name": "Wash strength"
       },
@@ -518,6 +585,12 @@
       },
       "water_consumption": {
         "name": "Water Consumption"
+      },
+      "water_consumption_average": {
+        "name": "Средний расход воды"
+      },
+      "water_consumption_big": {
+        "name": "Потребление воды"
       },
       "water_temperature": {
         "name": "Температура воды"
@@ -541,6 +614,12 @@
       },
       "breezeless": {
         "name": "Breezeless"
+      },
+      "child_lock": {
+        "name": "Блокировка от детей"
+      },
+      "cl_sterilization": {
+        "name": "CL-стерилизация"
       },
       "comfort_mode": {
         "name": "Comfort Mode"
@@ -572,6 +651,9 @@
       "indirect_wind": {
         "name": "Indirect Wind"
       },
+      "leak_water_protection": {
+        "name": "Защита от протечек"
+      },
       "light": {
         "name": "Свет"
       },
@@ -602,6 +684,15 @@
       "prompt_tone": {
         "name": "Prompt Tone"
       },
+      "regeneration": {
+        "name": "Регенерация"
+      },
+      "water_pump": {
+        "name": "Водяной насос"
+      },
+      "water_way": {
+        "name": "Водный путь"
+      },
       "screen_display": {
         "name": "Screen Display"
       },
@@ -626,6 +717,9 @@
       "smelly_sensor": {
         "name": "Smelly Sensor"
       },
+      "soften": {
+        "name": "Умягчение"
+      },
       "standby": {
         "name": "Ожидание"
       },
@@ -643,6 +737,12 @@
       },
       "swing_vertical": {
         "name": "Swing Vertical"
+      },
+      "self_clean": {
+        "name": "Self Clean"
+      },
+      "sound": {
+        "name": "Sound"
       },
       "tbh": {
         "name": "TBH"
