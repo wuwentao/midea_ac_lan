@@ -32,12 +32,19 @@ async def async_setup_entry(
         MIDEA_DEVICES[device.device_type]["entities"],
     ).items():
         if (
-            config["type"] == Platform.SELECT
-            and supports_model(device.model, config)
-            and (config.get("default") or entity_key in extra_switches)
+            config["type"] != Platform.SELECT
+            or not supports_model(device.model, config)
+            or (not config.get("default") and entity_key not in extra_switches)
         ):
-            dev = MideaSelect(device, entity_key)
-            selects.append(dev)
+            continue
+        required_attribute = config.get("required_attribute")
+        if (
+            required_attribute is not None
+            and required_attribute not in device.attributes
+        ):
+            continue
+        dev = MideaSelect(device, entity_key)
+        selects.append(dev)
     async_add_entities(selects)
 
 

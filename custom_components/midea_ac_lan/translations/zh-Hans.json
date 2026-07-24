@@ -249,6 +249,9 @@
     "fan": {
       "fresh_air": {
         "name": "新风"
+      },
+      "fresh_air_exhaust": {
+        "name": "排风"
       }
     },
     "lock": {
@@ -291,6 +294,25 @@
       },
       "fan_speed": {
         "name": "风速设定"
+      },
+      "fresh_air_exhaust_mode": {
+        "name": "排风风速",
+        "state": {
+          "off": "关闭",
+          "silent": "低速",
+          "high": "高速",
+          "full": "强劲"
+        }
+      },
+      "fresh_air_mode": {
+        "name": "新风风速",
+        "state": {
+          "off": "关闭",
+          "low": "低速",
+          "medium": "中速",
+          "high": "高速",
+          "full": "强劲"
+        }
       },
       "mode": {
         "name": "模式"

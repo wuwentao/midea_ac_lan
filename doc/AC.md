@@ -123,6 +123,9 @@ Known settings:
 | sensor.{DEVICEID}\_target_indoor_fan_speed     | sensor        | Target Indoor Fan Speed          |
 | sensor.{DEVICEID}\_water_pump_running          | binary_sensor | Water Pump Running               |
 | fan.{DEVICEID}\_fresh_air                      | fan           | Fresh Air Fan                    |
+| fan.{DEVICEID}\_fresh_air_exhaust              | fan           | Fresh Air Exhaust                |
+| select.{DEVICEID}\_fresh_air_mode              | select        | Fresh Air Speed                  |
+| select.{DEVICEID}\_fresh_air_exhaust_mode      | select        | Fresh Air Exhaust Speed          |
 | switch.{DEVICEID}\_anion                       | switch        | Anion (Ionizer)                  |
 | switch.{DEVICEID}\_aux_heating                 | switch        | Aux Heating                      |
 | switch.{DEVICEID}\_boost_mode                  | switch        | Boost Mode                       |
@@ -145,6 +148,9 @@ Known settings:
 | switch.{DEVICEID}\_wind_ud_angle               | select        | Airflow Vertical                 |
 | switch.{DEVICEID}\_rate_select                 | select        | Power Rate Limit                 |
 | switch.{DEVICEID}\_fan_speed                   | number        | Fan Speed Percent                |
+
+Service diagnostic entities are optional. Devices that do not return the
+corresponding Midea group data may leave these entities in an unknown state.
 
 ## Built-in fresh air system
 
