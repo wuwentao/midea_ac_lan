@@ -1,0 +1,30 @@
+# This workflow uses the release-please GitHub Action to automate releases.
+# It only works on the main branch: a PR merged to main triggers release-please,
+# which opens/maintains a "release" PR. That PR bumps the version in
+# custom_components/midea_ac_lan/manifest.json (via extra-files) and updates
+# CHANGELOG.md. Merging the release PR tags the commit (vX.Y.Z) and publishes a
+# GitHub Release, which in turn triggers release.yml to build and attach the zip.
+#
+# Uses secrets.GH_TOKEN (a PAT) instead of the default GITHUB_TOKEN so that the
+# release/tag events created here can trigger the downstream release.yml workflow.
+name: release-please
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: googleapis/release-please-action@v5
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+          target-branch: main
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
