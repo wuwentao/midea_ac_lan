@@ -511,6 +511,8 @@ class MideaACClimate(MideaClimate):
         caps = getattr(self._device, "capabilities", {})
         if not caps:
             return list(self._fan_speeds.keys())
+        if caps.get("fan_custom"):
+            return list(self._fan_speeds.keys())
         cap_by_fan = {
             FAN_SILENT: "fan_silent",
             FAN_LOW: "fan_low",
