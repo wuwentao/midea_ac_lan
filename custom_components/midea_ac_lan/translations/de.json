@@ -72,6 +72,9 @@
       "bathing_working": {
         "name": "Bathing Working Status"
       },
+      "bf_error_code": {
+        "name": "Fehler"
+      },
       "bottom_compartment_cooling": {
         "name": "Bottom Compartment Cooling"
       },
@@ -84,6 +87,12 @@
       "burning_state": {
         "name": "Burning State"
       },
+      "clean_scale": {
+        "name": "Entkalken"
+      },
+      "clean_sink_ponding": {
+        "name": "Wasseransammlung im Spülbecken"
+      },
       "cleaning_reminder": {
         "name": "Cleaning Reminder"
       },
@@ -92,6 +101,12 @@
       },
       "cooking": {
         "name": "Cooking"
+      },
+      "dissipate_heat": {
+        "name": "Wärme abführen"
+      },
+      "door": {
+        "name": "Tür"
       },
       "error_code": {
         "name": "Fehlercode"
@@ -111,6 +126,9 @@
       "flex_zone_door_overtime": {
         "name": "Flex Zone Door"
       },
+      "flip_side": {
+        "name": "Wenden"
+      },
       "freezer_door": {
         "name": "Freezer Door"
       },
@@ -125,6 +143,15 @@
       },
       "heating_working": {
         "name": "Heating Working Status"
+      },
+      "high_temperature": {
+        "name": "Hohe Temperatur"
+      },
+      "high_temperature_lock": {
+        "name": "Hochtemperatursperre"
+      },
+      "high_temperature_work": {
+        "name": "Hochtemperaturbetrieb"
       },
       "keep_warm": {
         "name": "Keep Warm"
@@ -162,8 +189,23 @@
       "oilcup_full": {
         "name": "Oil-cup Full"
       },
+      "ota": {
+        "name": "OTA"
+      },
+      "pre_heat": {
+        "name": "Vorheizen"
+      },
+      "probe": {
+        "name": "Fühler"
+      },
+      "probe_mode": {
+        "name": "Fühlermodus"
+      },
       "protection": {
         "name": "Protection"
+      },
+      "reaction": {
+        "name": "Reaktion"
       },
       "refrigerator_door": {
         "name": "Refrigerator Door"
@@ -412,6 +454,25 @@
       "bathing_leaving_temperature": {
         "name": "Bathing Leaving Water Temperature"
       },
+      "bf_status": {
+        "name": "Status",
+        "state": {
+          "save_power": "Stromsparen",
+          "standby": "Bereitschaft",
+          "work": "Arbeiten",
+          "work_finish": "Beendet",
+          "order": "Verzögerung",
+          "pause": "Pausiert",
+          "pause_c": "Pausiert C",
+          "three": "Drei",
+          "wait_to_start": "Warten auf Start",
+          "self_inspection": "Selbsttest",
+          "query_version": "Version abfragen",
+          "demo": "Demo",
+          "after_checking": "Nach Prüfung",
+          "unknown": "Unbekannt"
+        }
+      },
       "bottom_compartment_remaining": {
         "name": "Bottom Compartment Remaining"
       },
@@ -427,11 +488,26 @@
       "bright": {
         "name": "Bright Level"
       },
+      "cbs_version": {
+        "name": "CBS-Version"
+      },
+      "cloudmenuid": {
+        "name": "Cloud-Menü-ID"
+      },
       "compressor_temperature": {
         "name": "Compressor Temperature"
       },
       "condenser_temperature": {
         "name": "Condenser Temperature"
+      },
+      "cur_probe_temperature": {
+        "name": "Aktuelle Fühlertemperatur"
+      },
+      "cur_temperature_above": {
+        "name": "Aktuelle obere Temperatur"
+      },
+      "cur_temperature_underside": {
+        "name": "Aktuelle untere Temperatur"
       },
       "current_energy_consumption": {
         "name": "Current Energy Consumption"
@@ -510,6 +586,15 @@
       "estimated_water_consumption": {
         "name": "Geschätzter Wasserverbrauch"
       },
+      "execute": {
+        "name": "Ausführen",
+        "state": {
+          "ok": "OK",
+          "status_nonsupport": "Status nicht unterstützt",
+          "function_nonsupport": "Funktion nicht unterstützt",
+          "param_range_error": "Parameterbereichsfehler"
+        }
+      },
       "fan_level": {
         "name": "Fan level"
       },
@@ -533,6 +618,23 @@
       },
       "filter3_life": {
         "name": "Filter3 Lebensdauer Level"
+      },
+      "fire_power": {
+        "name": "Heizleistung",
+        "state": {
+          "fire_power_0": "Stufe 0",
+          "fire_power_1": "Stufe 1",
+          "fire_power_2": "Stufe 2",
+          "fire_power_3": "Stufe 3",
+          "fire_power_4": "Stufe 4",
+          "fire_power_5": "Stufe 5",
+          "fire_power_6": "Stufe 6",
+          "fire_power_7": "Stufe 7",
+          "fire_power_8": "Stufe 8",
+          "fire_power_9": "Stufe 9",
+          "fire_power_10": "Stufe 10",
+          "unknown": "Unbekannt"
+        }
       },
       "flex_zone_actual_temp": {
         "name": "Flex Zone Actual Temperature"
@@ -585,6 +687,9 @@
       "middle_compartment_temperature": {
         "name": "Middle Compartment Temperature"
       },
+      "minute_set": {
+        "name": "Minute einstellen"
+      },
       "mode": {
         "name": "Mode"
       },
@@ -593,6 +698,12 @@
       },
       "outdoor_temperature": {
         "name": "Outdoor Temperature"
+      },
+      "people_number": {
+        "name": "Personenanzahl"
+      },
+      "probe_temperature": {
+        "name": "Fühlertemperatur"
       },
       "program": {
         "name": "Program"
@@ -636,6 +747,9 @@
       "seat_temperature": {
         "name": "Seat Temperature"
       },
+      "second_set": {
+        "name": "Sekunde einstellen"
+      },
       "soak_time": {
         "name": "soak time"
       },
@@ -651,6 +765,12 @@
       "status": {
         "name": "Status"
       },
+      "steam_quantity": {
+        "name": "Dampfmenge"
+      },
+      "stepnum": {
+        "name": "Aktueller Schritt"
+      },
       "storage_remaining": {
         "name": "Storage Remaining"
       },
@@ -662,6 +782,12 @@
       },
       "target_temperature": {
         "name": "Target Temperature"
+      },
+      "temperature_above": {
+        "name": "Obere Temperatur"
+      },
+      "temperature_underside": {
+        "name": "Untere Temperatur"
       },
       "time_remaining": {
         "name": "Time Remaining"
@@ -683,6 +809,9 @@
       },
       "total_produced_energy": {
         "name": "Total produced energy"
+      },
+      "totalstep": {
+        "name": "Gesamtschritte"
       },
       "tvoc": {
         "name": "TVOC"
@@ -758,6 +887,121 @@
       },
       "auto_sterilize_minute": {
         "name": "Auto-Sterilisieren Minute"
+      },
+      "weight": {
+        "name": "Gewicht"
+      },
+      "work_mode": {
+        "name": "Arbeitsmodus",
+        "state": {
+          "microwave": "Mikrowelle",
+          "microwave_1": "Mikrowelle 1",
+          "microwave_2": "Mikrowelle 2",
+          "microwave_3": "Mikrowelle 3",
+          "microwave_4": "Mikrowelle 4",
+          "microwave_5": "Mikrowelle 5",
+          "microwave_steam_above_tube": "Mikrowelle Dampf Ober Heizstab",
+          "microwave_double_tube": "Mikrowelle Doppel Heizstab",
+          "microwave_hot_wind_tube_fan": "Mikrowelle Heißluft Heizstab Lüfter",
+          "microwave_underside_tube_hot_wind_tube_fan": "Mikrowelle Unter Heizstab Heißluft Lüfter",
+          "microwave_double_tube_hot_wind_tube_fan": "Mikrowelle Doppel Heizstab Heißluft Lüfter",
+          "microwave_steam": "Mikrowelle Dampf",
+          "microwave_steam_1": "Mikrowelle Dampf 1",
+          "unfreeze": "Auftauen",
+          "unfreeze_1": "Auftauen 1",
+          "unfreeze_2": "Auftauen 2",
+          "unfreeze_3": "Auftauen 3",
+          "unfreeze_t": "Auftauen T",
+          "microwave_above_tube": "Mikrowelle Ober Heizstab",
+          "microwave_above_tube_1": "Mikrowelle Ober Heizstab 1",
+          "microwave_above_tube_2": "Mikrowelle Ober Heizstab 2",
+          "microwave_above_tube_fan": "Mikrowelle Ober Heizstab Lüfter",
+          "fast_unfreeze": "Schnell Auftauen",
+          "fresh_unfreeze": "Frisch Auftauen",
+          "microwave_zymosis": "Mikrowelle Gärung",
+          "pure_steam": "Rein Dampf",
+          "pure_steam_1": "Rein Dampf 1",
+          "pure_steam_2": "Rein Dampf 2",
+          "pure_steam_3": "Rein Dampf 3",
+          "pure_steam_4": "Rein Dampf 4",
+          "pure_steam_5": "Rein Dampf 5",
+          "pure_steam_6": "Rein Dampf 6",
+          "pure_steam_7": "Rein Dampf 7",
+          "pure_steam_8": "Rein Dampf 8",
+          "pure_steam_9": "Rein Dampf 9",
+          "steam_above_tube": "Dampf Ober Heizstab",
+          "steam_underside_tube": "Dampf Unter Heizstab",
+          "steam_double_tube": "Dampf Doppel Heizstab",
+          "steam_hot_wind_tube_fan": "Dampf Heißluft Heizstab Lüfter",
+          "steam_hot_wind_tube_fan_1": "Dampf Heißluft Heizstab Lüfter 1",
+          "steam_hot_wind_tube_fan_2": "Dampf Heißluft Heizstab Lüfter 2",
+          "steam_hot_wind_tube": "Dampf Heißluft Heizstab",
+          "steam_double_tube_fan": "Dampf Doppel Heizstab Lüfter",
+          "steam_above_inside_outside_tube_fan": "Dampf Ober Innen Außen Heizstab Lüfter",
+          "steam_above_inside_tube_fan": "Dampf Ober Innen Heizstab Lüfter",
+          "above_tube": "Ober Heizstab",
+          "underside_tube": "Unter Heizstab",
+          "double_tube": "Doppel Heizstab",
+          "hot_wind_tube_fan": "Heißluft Heizstab Lüfter",
+          "pure_preheat": "Rein Vorheizen",
+          "above_tube_hot_wind_tube_fan": "Ober Heizstab Heißluft Lüfter",
+          "underside_tube_hot_wind_tube_fan": "Unter Heizstab Heißluft Lüfter",
+          "zymosis": "Gärung",
+          "double_tube_hot_wind_tube_fan": "Doppel Heizstab Heißluft Lüfter",
+          "above_tube_revolve": "Ober Heizstab Drehend",
+          "underside_tube_revolve": "Unter Heizstab Drehend",
+          "double_tube_revolve": "Doppel Heizstab Drehend",
+          "hot_wind_tube_fan_revolve": "Heißluft Heizstab Lüfter Drehend",
+          "warm": "Warmhalten",
+          "double_tube_fan": "Doppel Heizstab Lüfter",
+          "double_tube_fan_1": "Doppel Heizstab Lüfter 1",
+          "double_tube_fan_2": "Doppel Heizstab Lüfter 2",
+          "double_tube_fan_3": "Doppel Heizstab Lüfter 3",
+          "above_inside_tube_revolve": "Ober Innen Heizstab Drehend",
+          "above_inside_tube_fan": "Ober Innen Heizstab Lüfter",
+          "above_inside_outside_tube_revolve": "Ober Innen Außen Heizstab Drehend",
+          "above_inside_outside_tube_fan": "Ober Innen Außen Heizstab Lüfter",
+          "above_inside_underside_tube": "Ober Innen Unter Heizstab",
+          "above_inside_underside_tube_1": "Ober Innen Unter Heizstab 1",
+          "above_inside_underside_tube_fan": "Ober Innen Unter Heizstab Lüfter",
+          "above_inside_underside_tube_fan_1": "Ober Innen Unter Heizstab Lüfter 1",
+          "above_inside_tube": "Ober Innen Heizstab",
+          "above_inside_outside_tube": "Ober Innen Außen Heizstab",
+          "underside_tube_fan": "Unter Heizstab Lüfter",
+          "above_tube_fan": "Ober Heizstab Lüfter",
+          "above_tube_fan_1": "Ober Heizstab Lüfter 1",
+          "above_tube_fan_2": "Ober Heizstab Lüfter 2",
+          "scale_clean": "Entkalkung",
+          "clean": "Reinigen",
+          "remove_odor": "Geruch entfernen",
+          "remove_odor_2": "Geruch entfernen 2",
+          "high_temperature_clean": "Hohe Temperatur Reinigen",
+          "dining_utensils_clean": "Geschirr Reinigen",
+          "auto_menu": "Automatikmenü",
+          "eco": "Eco",
+          "above_tube_1": "Ober Heizstab 1",
+          "above_tube_2": "Ober Heizstab 2",
+          "above_tube_3": "Ober Heizstab 3",
+          "underside_tube_1": "Unter Heizstab 1",
+          "underside_tube_2": "Unter Heizstab 2",
+          "double_tube_1": "Doppel Heizstab 1",
+          "double_tube_2": "Doppel Heizstab 2",
+          "double_tube_3": "Doppel Heizstab 3",
+          "double_tube_4": "Doppel Heizstab 4",
+          "double_tube_5": "Doppel Heizstab 5",
+          "double_tube_6": "Doppel Heizstab 6",
+          "hot_wind_tube_fan_1": "Heißluft Heizstab Lüfter 1",
+          "hot_wind_tube_fan_2": "Heißluft Heizstab Lüfter 2",
+          "hot_wind_tube_fan_3": "Heißluft Heizstab Lüfter 3",
+          "hot_wind_tube_fan_4": "Heißluft Heizstab Lüfter 4",
+          "hot_wind_tube_fan_5": "Heißluft Heizstab Lüfter 5",
+          "double_tube_hot_wind_tube_fan_1": "Doppel Heizstab Heißluft Lüfter 1",
+          "double_tube_hot_wind_tube_fan_2": "Doppel Heizstab Heißluft Lüfter 2",
+          "double_tube_hot_wind_tube_fan_3": "Doppel Heizstab Heißluft Lüfter 3",
+          "double_tube_hot_wind_tube_fan_4": "Doppel Heizstab Heißluft Lüfter 4",
+          "double_tube_hot_wind_tube_fan_5": "Doppel Heizstab Heißluft Lüfter 5",
+          "unknown": "Unbekannt"
+        }
       },
       "working_time": {
         "name": "Working Time"
@@ -860,8 +1104,14 @@
       "frost_protect": {
         "name": "Frost Protect"
       },
+      "furnace_light": {
+        "name": "Ofenlicht"
+      },
       "heating_power": {
         "name": "Heating Power"
+      },
+      "hot_wind": {
+        "name": "Heißluft"
       },
       "indirect_wind": {
         "name": "Indirect Wind"
@@ -901,6 +1151,9 @@
       },
       "regeneration": {
         "name": "Regeneration"
+      },
+      "turntable": {
+        "name": "Drehteller"
       },
       "water_pump": {
         "name": "Wasserpumpe"
