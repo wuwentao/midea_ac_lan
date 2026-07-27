@@ -504,13 +504,21 @@ class MideaACClimate(MideaClimate):
 
     @property
     def fan_modes(self) -> list[str] | None:
-        """fan_modes restricted to the speeds the device reports (B5).
+        """fan_modes: B5 capabilities > default full set.
 
-        Falls back to the full set when no capability is reported.
+        Read dynamically so capabilities decoded after the first refresh are
+        reflected (they are not yet available when the entity is created).
+
+        The B5 ``b5_wind_speed`` byte is a single capability profile (1-7), not
+        a bitmask: value 1 (``fan_custom``) means the fan is stepless/inverter
+        and accepts every speed, so all discrete modes are valid. Mapping
+        ``fan_custom`` to ``full`` alone collapsed the list to ``["full"]`` on
+        such units (issue #904); short-circuit to the full set instead.
         """
         caps = getattr(self._device, "capabilities", {})
         if not caps:
             return list(self._fan_speeds.keys())
+        # stepless/inverter fan: expose every discrete speed, not just "full"
         if caps.get("fan_custom"):
             return list(self._fan_speeds.keys())
         cap_by_fan = {
