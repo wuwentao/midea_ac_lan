@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.1](https://github.com/wuwentao/midea_ac_lan/compare/v0.7.0...v0.7.1) (2026-07-27)
+
+
+### Bug Fixes
+
+* **ac:** fan modes collapse to only "full" on stepless/inverter ACs ([#900](https://github.com/wuwentao/midea_ac_lan/issues/900)) ([f92a068](https://github.com/wuwentao/midea_ac_lan/commit/f92a068a4cba30aca0042a24605b325277bc74ff))
+
 ## [0.7.0](https://github.com/wuwentao/midea_ac_lan/compare/v0.6.12...v0.7.0) (2026-07-24)
 
 
