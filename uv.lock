@@ -2473,7 +2473,7 @@ dev = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "midea-local", specifier = "==6.11.0" }]
+requires-dist = [{ name = "midea-local", specifier = "==6.11.1" }]
 
 [package.metadata.requires-dev]
 dev = [
@@ -2493,7 +2493,7 @@ dev = [
 
 [[package]]
 name = "midea-local"
-version = "6.11.0"
+version = "6.11.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "aiofiles" },
@@ -2507,9 +2507,9 @@ dependencies = [
     { name = "platformdirs" },
     { name = "pycryptodome" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/25/a7/aeac2c848bf62cb4f11af768160a229f721bd29cdd0e43674eeb99466114/midea_local-6.11.0.tar.gz", hash = "sha256:a860f33893854248b3c99cf9035b8f5dcbf4f4aede1b44719bbc595a5fb661eb", size = 132398, upload-time = "2026-07-22T03:36:10.694Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/59/6d/99b66a62a8c8d397ef584df111fcff6f7d1b8d46ba3866f0cc0e80207d43/midea_local-6.11.1.tar.gz", hash = "sha256:839fa1b3fa16b0b475bdee4050e6f371d36cbb108f1887499a7ff1b211cb23dc", size = 132822, upload-time = "2026-07-27T06:14:04.572Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/0a/be/22d326ccb7c4a1b5aa744076c2a0fd6bd789628bb604b3c1330ae436f357/midea_local-6.11.0-py3-none-any.whl", hash = "sha256:db8769ac2bbf5e169efb181a19e02b6e44ae09b286961bf05fa30fba3a86320e", size = 188127, upload-time = "2026-07-22T03:36:09.121Z" },
+    { url = "https://files.pythonhosted.org/packages/e3/67/75c89fef3c6f01d7e95cdc5f9c5de89934d2b9b3bbe6bfb8afb0c0415531/midea_local-6.11.1-py3-none-any.whl", hash = "sha256:44a5a8acc69ec9814ee155068f7d4c827737be15118e4bc824ec1269786b04c0", size = 188585, upload-time = "2026-07-27T06:14:03.149Z" },
 ]
 
 [[package]]
