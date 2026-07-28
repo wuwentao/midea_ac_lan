@@ -917,14 +917,12 @@ class MideaLanOptionsFlowHandler(OptionsFlow):
         self._device_type = config_entry.data.get(CONF_TYPE)
         if self._device_type is None:
             self._device_type = 0xAC
-        if CONF_SENSORS in self._config_entry.options:
-            for key in self._config_entry.options[CONF_SENSORS]:
-                if key not in MIDEA_DEVICES[self._device_type]["entities"]:
-                    self._config_entry.options[CONF_SENSORS].remove(key)
-        if CONF_SWITCHES in self._config_entry.options:
-            for key in self._config_entry.options[CONF_SWITCHES]:
-                if key not in MIDEA_DEVICES[self._device_type]["entities"]:
-                    self._config_entry.options[CONF_SWITCHES].remove(key)
+        # Stale keys (attributes no longer in MIDEA_DEVICES) are filtered out
+        # downstream in async_step_init, where the multi-select defaults are
+        # computed as `set(sensors) & set(options)` / `set(switches) & ...` —
+        # both `sensors` and `switches` are built only from valid entities. No
+        # pruning is needed here; doing it in place mutated the list while
+        # iterating (skipping elements) and mutated HA-owned entry state.
 
     async def async_step_init(
         self,
