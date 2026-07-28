@@ -98,9 +98,5 @@ class MideaButton(MideaEntity, ButtonEntity):
     def update_state(self, status: Any) -> None:  # ruff:ignore[any-type]
         """Update entity state."""
         super().update_state(status)
-        if (
-            self.hass
-            and not self.hass.is_stopping
-            and ("mode" in status or self._power_attribute in status)
-        ):
-            self.schedule_update_ha_state()
+        if self.hass and ("mode" in status or self._power_attribute in status):
+            self.schedule_update_if_running()

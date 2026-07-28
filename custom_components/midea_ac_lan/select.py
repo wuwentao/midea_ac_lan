@@ -125,10 +125,9 @@ class MideaSelect(MideaEntity, SelectEntity):
         if (
             power_attribute
             and self.hass
-            and not self.hass.is_stopping
             and (self._attribute_key in status or power_attribute in status)
         ):
-            self.schedule_update_ha_state()
+            self.schedule_update_if_running()
 
     @staticmethod
     def _get_dict_key_by_value(source: dict[int, str], value: str) -> int | None:
