@@ -146,7 +146,10 @@ class MideaClimate(MideaEntity, ClimateEntity):
         """Midea Climate hvac mode."""
         if self._device.get_attribute("power"):
             mode = cast("int", self._device.get_attribute("mode"))
-            return self.hvac_modes[mode]
+            # Guard against an out-of-range/undefined device mode so a malformed
+            # frame cannot raise IndexError on every state render.
+            if 0 <= mode < len(self.hvac_modes):
+                return self.hvac_modes[mode]
         return HVACMode.OFF
 
     @property
@@ -450,7 +453,10 @@ class MideaACClimate(MideaClimate):
         """Midea AC Climate hvac mode (device mode int -> fixed map)."""
         if self._device.get_attribute("power"):
             mode = cast("int", self._device.get_attribute("mode"))
-            return self._mode_index[mode]
+            # The AC `mode` field is a 3-bit value (0-7) but `_mode_index` only
+            # maps 0-5; guard so an out-of-spec 6/7 cannot raise IndexError.
+            if 0 <= mode < len(self._mode_index):
+                return self._mode_index[mode]
         return HVACMode.OFF
 
     def set_hvac_mode(self, hvac_mode: HVACMode) -> None:
@@ -814,7 +820,11 @@ class MideaC3Climate(MideaClimate):
     def hvac_mode(self) -> HVACMode:
         """Midea C3 Climate hvac mode."""
         mode = self._device.get_attribute(C3Attributes.mode)
-        if self._device.get_attribute(self._power_attr) and isinstance(mode, int):
+        if (
+            self._device.get_attribute(self._power_attr)
+            and isinstance(mode, int)
+            and 0 <= mode < len(self.hvac_modes)
+        ):
             return self.hvac_modes[mode]
         return HVACMode.OFF
 
