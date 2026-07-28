@@ -243,6 +243,16 @@ class MideaE3WaterHeater(MideaWaterHeater):
         super().__init__(device, entity_key)
 
     @property
+    def supported_features(self) -> WaterHeaterEntityFeature:
+        """Midea E3 Water Heater supported features."""
+        # E3 implements turn_on/turn_off and reports on/off state, so advertise
+        # ON_OFF to self-document that support (matches E2).
+        return (
+            WaterHeaterEntityFeature.TARGET_TEMPERATURE
+            | WaterHeaterEntityFeature.ON_OFF
+        )
+
+    @property
     def min_temp(self) -> float:
         """Midea E3 Water Heater min temperature."""
         return E3_TEMPERATURE_MIN
@@ -275,6 +285,16 @@ class MideaC3WaterHeater(MideaWaterHeater):
     def __init__(self, device: MideaC3Device, entity_key: str) -> None:
         """Midea C3 Water Heater entity init."""
         super().__init__(device, entity_key)
+
+    @property
+    def supported_features(self) -> WaterHeaterEntityFeature:
+        """Midea C3 Water Heater supported features."""
+        # C3 implements turn_on/turn_off (dhw_power) and reports on/off state,
+        # so advertise ON_OFF to self-document that support (matches E2).
+        return (
+            WaterHeaterEntityFeature.TARGET_TEMPERATURE
+            | WaterHeaterEntityFeature.ON_OFF
+        )
 
     @property
     def current_operation(self) -> str:
@@ -355,6 +375,16 @@ class MideaE6WaterHeater(MideaWaterHeater):
         self._target_temperature_attr = MideaE6WaterHeater._target_temperatures[
             self._use
         ]
+
+    @property
+    def supported_features(self) -> WaterHeaterEntityFeature:
+        """Midea E6 Water Heater supported features."""
+        # E6 implements turn_on/turn_off and reports on/off state, so advertise
+        # ON_OFF to self-document that support (matches E2).
+        return (
+            WaterHeaterEntityFeature.TARGET_TEMPERATURE
+            | WaterHeaterEntityFeature.ON_OFF
+        )
 
     @property
     def current_operation(self) -> str:
