@@ -65,7 +65,7 @@ please check your device documents and supported feature in below table links.
 | C3   | Heat Pump Wi-Fi Controller | [C3.md](doc/C3.md) |
 | CA   | Refrigerator               | [CA.md](doc/CA.md) |
 | CC   | MDV Wi-Fi Controller       | [CC.md](doc/CC.md) |
-| CD   | Heat Pump Water Heater     | [CC.md](doc/CD.md) |
+| CD   | Heat Pump Water Heater     | [CD.md](doc/CD.md) |
 | CE   | Fresh Air Appliance        | [CE.md](doc/CE.md) |
 | CF   | Heat Pump                  | [CF.md](doc/CF.md) |
 | DA   | Top Load Washer            | [DA.md](doc/DA.md) |
