@@ -51,28 +51,24 @@ The integration supports a wide HA version range by branching on `(MAJOR_VERSION
 
 ## Common commands
 
-Dev environment is a **VS Code Dev Container** (`.devcontainer/`); `scripts/setup.sh` runs on create (installs pre-commit hooks + commit-msg hooks).
+Dev environment is managed by **[uv](https://docs.astral.sh/uv/)**. Install uv first, then run `scripts/setup.sh`: it runs `uv sync` (creates `.venv`, installs the project + `dev` dependency group, and downloads the Python version pinned in `.python-version` if needed) and installs the pre-commit + commit-msg git hooks.
 
 ```bash
-scripts/run.sh          # run Home Assistant locally with ./config, integration on PYTHONPATH (port 8123)
-scripts/setup.sh        # install pre-commit + commit-msg hooks, create ./config
+scripts/setup.sh        # uv sync + install pre-commit/commit-msg hooks
+scripts/run.sh          # run Home Assistant locally with ./config, integration on PYTHONPATH (creates ./config on first run)
 ```
 
 Linting / checks (all enforced in CI via pre-commit — there is no separate test suite in this repo):
 
 ```bash
-pre-commit run --all-files      # run everything: ruff, ruff-format, mypy, pylint, codespell, commitlint, prettier
-ruff check .                    # lint (config: ruff.toml, lint.select = ALL, target py312)
-ruff format .                   # format
-scripts/mypy.sh                 # mypy (config: mypy.ini) — note: NOT `mypy .` directly
-pylint custom_components        # pylint (config: pylintrc)
+uv run pre-commit run --all-files   # run everything: ruff, ruff-format, mypy, pylint, codespell, commitlint, prettier
+uv run ruff check .                 # lint (config: ruff.toml, lint.select = ALL, target py312)
+uv run ruff format .                # format
+scripts/mypy.sh                     # mypy (config: mypy.ini) — note: NOT `mypy .` directly
+uv run pylint custom_components     # pylint (config: pylintrc)
 ```
 
-Install dev deps for a given HA/Python version (each pins a different `homeassistant==`):
-
-```bash
-pip install -r requirements-dev-3.12.txt   # or -3.13 / -3.14
-```
+Dependencies (including the per-Python `homeassistant==` pins) live in `pyproject.toml` and are resolved by environment markers; `uv sync` installs the right set for your Python. There are no `requirements-dev-3.1x.txt` files anymore.
 
 ## Conventions
 
