@@ -13,9 +13,9 @@ if TYPE_CHECKING:
     from homeassistant.config_entries import ConfigEntry
     from homeassistant.core import HomeAssistant
 
-from .const import CONF_KEY
+from .const import CONF_KEY, CONF_MAC, CONF_SN
 
-TO_REDACT = {CONF_TOKEN, CONF_KEY}
+TO_REDACT = {CONF_TOKEN, CONF_KEY, CONF_MAC, CONF_SN}
 
 
 async def async_get_config_entry_diagnostics(
