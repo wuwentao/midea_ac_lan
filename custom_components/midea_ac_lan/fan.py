@@ -122,7 +122,13 @@ class MideaFan(MideaEntity, FanEntity):
 
     def set_preset_mode(self, preset_mode: str) -> None:
         """Midea Fan set preset mode."""
-        self._device.set_attribute(attr="mode", value=preset_mode.capitalize())
+        # Pass the preset value through unchanged. `preset_modes` already
+        # returns the device's own strings and HA only ever hands one of them
+        # back, so the value is guaranteed valid. Do NOT `.capitalize()` it:
+        # that corrupts multi-word / mixed-case names such as the CE fan's
+        # "ECO mode" -> "Eco mode", which the device matches case-sensitively
+        # and silently drops, making the ECO preset unselectable.
+        self._device.set_attribute(attr="mode", value=preset_mode)
 
     @property
     def percentage(self) -> int | None:
