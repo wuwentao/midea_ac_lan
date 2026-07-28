@@ -79,13 +79,15 @@ class MideaEntity(Entity):
         # Example: device_class = temperature -> "Temperature".
         elif "device_class" in self._config:
             self._attr_name = None  # Let HA generate from device_class
-        # Step 4: Nothing available,
+        # Step 4: Nothing available (no translation_key, no name, no
+        # device_class). With has_entity_name=True HA already prepends the
+        # device name, so the entity's own name must be None — the entity then
+        # represents the device's main feature and shows just the device name.
+        # (The previous fallback embedded the device name itself, yielding a
+        # doubled "DeviceName DeviceName", or "DeviceName None" when a null
+        # "name" key was present.)
         else:
-            self._attr_name = (
-                f"{self._device_name} {self._config.get('name')}"
-                if "name" in self._config
-                else f"{self._device_name}"
-            )
+            self._attr_name = None
 
     @property
     def device(self) -> MideaDevice:
