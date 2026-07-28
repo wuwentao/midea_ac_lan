@@ -44,53 +44,41 @@ class MideaNumber(MideaEntity, NumberEntity):
         self._min_value = self._config.get("min")
         self._step_value = self._config.get("step")
 
+    def _resolve_bound(self, bound: Any) -> float:  # ruff:ignore[any-type]
+        """Resolve a min/max/step config value to a concrete number.
+
+        A numeric literal is used as-is. Otherwise the value is treated as an
+        attribute name: prefer the device attribute of that name, falling back
+        to a same-named device property populated by ``set_customize``.
+
+        Returns
+        -------
+        The resolved bound as a float.
+
+        """
+        if isinstance(bound, (int, float)):
+            return cast("float", bound)
+        # `bound` is an attribute name. Use `is not None` (not truthiness) so a
+        # legitimate 0 is not treated as "missing", and read the attribute once.
+        value = self._device.get_attribute(attr=bound)
+        if value is None:
+            value = getattr(self._device, bound)
+        return cast("float", value)
+
     @property
     def native_min_value(self) -> float:
         """Minimum value allowed."""
-        return cast(
-            "float",
-            (
-                self._min_value
-                if isinstance(self._min_value, int)
-                else (
-                    self._device.get_attribute(attr=self._min_value)
-                    if self._device.get_attribute(attr=self._min_value)
-                    else getattr(self._device, self._min_value)
-                )
-            ),
-        )
+        return self._resolve_bound(self._min_value)
 
     @property
     def native_max_value(self) -> float:
         """Maximum value allowed."""
-        return cast(
-            "float",
-            (
-                self._max_value
-                if isinstance(self._max_value, int)
-                else (
-                    self._device.get_attribute(attr=self._max_value)
-                    if self._device.get_attribute(attr=self._max_value)
-                    else getattr(self._device, self._max_value)
-                )
-            ),
-        )
+        return self._resolve_bound(self._max_value)
 
     @property
     def native_step(self) -> float:
         """Step value between allowed values."""
-        return cast(
-            "float",
-            (
-                self._step_value
-                if isinstance(self._step_value, int)
-                else (
-                    self._device.get_attribute(attr=self._step_value)
-                    if self._device.get_attribute(attr=self._step_value)
-                    else getattr(self._device, self._step_value)
-                )
-            ),
-        )
+        return self._resolve_bound(self._step_value)
 
     @property
     def native_value(self) -> float:
