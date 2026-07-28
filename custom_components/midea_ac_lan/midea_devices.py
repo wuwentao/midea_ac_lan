@@ -2247,7 +2247,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             DAAttributes.wash_level: {
                 "type": Platform.SENSOR,
                 "translation_key": "wash_level",
-                "name": "Rinse count",
+                "name": "Wash level",
                 "icon": "mdi:hydraulic-oil-level",
             },
             DAAttributes.wash_strength: {
