@@ -69,7 +69,7 @@ jobs:
           cp ../midea_ac_lan.zip "$dst_dir/" || exit 1
           ls -alht "$dst_dir" || exit 1
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: midea_ac_lan.zip
           path: /github/workspace/artifacts
