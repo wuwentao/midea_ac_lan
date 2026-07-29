@@ -25,12 +25,22 @@ dev = [
   "ruff==0.16.0",
   "mypy==1.15.0",
   "pylint==3.2.5",
-  "pre-commit==3.7.1",
+  "pre-commit==4.6.1",
+  # pydantic is required by dev/CI: mypy loads it as a plugin (mypy.ini ->
+  # `plugins = pydantic.mypy`), so it must stay installed for `scripts/mypy.sh`.
   "pydantic==1.10.15",
-  "colorlog==6.8.2",
-  "ffmpeg==1.4",
-  "mutagen==1.47.0",
-  "numpy==2.0.0",
+]
+
+# Optional runtime extras for the local `uv run hass` dev/debug environment
+# (scripts/run.sh installs this via `uv run --group run`). Home Assistant imports
+# these opportunistically at runtime — e.g. colorlog for coloured console logs
+# (guarded import in homeassistant/bootstrap.py) — but the midea_ac_lan
+# integration never imports them, and neither setup.sh nor CI needs them, so they
+# are kept out of the default `dev` group. Not installed by `uv sync`.
+run = [
+  "colorlog==6.12.0",
+  "mutagen==1.48.1",
+  "numpy==2.5.1",
 ]
 
 [tool.uv]

@@ -9,7 +9,7 @@ cd "$(dirname "$0")/.."
 # Create config dir if not present
 if [[ ! -d "${PWD}/config" ]]; then
 	mkdir -p "${PWD}/config"
-	uv run hass --config "${PWD}/config" --script ensure_config
+	uv run --group run hass --config "${PWD}/config" --script ensure_config
 fi
 
 # Set the path to custom_components
@@ -19,4 +19,6 @@ fi
 export PYTHONPATH="${PYTHONPATH}:${PWD}/custom_components"
 
 # Start Home Assistant
-uv run hass --config "${PWD}/config" --debug
+# `--group run` pulls in the optional runtime extras (colorlog, numpy, mutagen)
+# declared in pyproject.toml; setup.sh and CI intentionally skip them.
+uv run --group run hass --config "${PWD}/config" --debug

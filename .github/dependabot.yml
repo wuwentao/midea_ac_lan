@@ -5,7 +5,10 @@ updates:
     schedule:
       interval: daily
     open-pull-requests-limit: 10
-  - package-ecosystem: "pip"
+  # Use the "uv" ecosystem (not "pip"): this project is uv-managed and CI runs
+  # `uv sync --locked`. The uv ecosystem updates uv.lock alongside pyproject.toml,
+  # so version-bump PRs stay in sync and don't fail the lockfile check.
+  - package-ecosystem: "uv"
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
