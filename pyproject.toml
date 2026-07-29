@@ -23,7 +23,7 @@ dev = [
   # Tooling (was requirements-dev.txt). ruff is aligned to the version enforced
   # by the ruff-pre-commit hook in .pre-commit-config.yaml (v0.16.0).
   "ruff==0.16.0",
-  "mypy==1.15.0",
+  "mypy==2.3.0",
   "pylint==3.2.5",
   "pre-commit==4.6.1",
   # pydantic is required by dev/CI: mypy loads it as a plugin (mypy.ini ->
