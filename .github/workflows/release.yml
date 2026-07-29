@@ -110,7 +110,7 @@ jobs:
           echo "github.ref: ${{github.ref}}"
 
       - name: Upload images to Release Asset
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           files: artifacts/midea_ac_lan.zip
           token: ${{ secrets.GH_TOKEN }}
