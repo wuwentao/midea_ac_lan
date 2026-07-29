@@ -28,7 +28,7 @@ dev = [
   "pre-commit==4.6.1",
   # pydantic is required by dev/CI: mypy loads it as a plugin (mypy.ini ->
   # `plugins = pydantic.mypy`), so it must stay installed for `scripts/mypy.sh`.
-  "pydantic==1.10.15",
+  "pydantic==2.13.4",
 ]
 
 # Optional runtime extras for the local `uv run hass` dev/debug environment
