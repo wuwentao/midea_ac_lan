@@ -1022,7 +1022,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "type": Platform.BINARY_SENSOR,
                 "translation_key": "top_compartment_cooling",
                 "name": "Top Compartment Cooling",
-                "icon": "snowflake-variant",
+                "icon": "mdi:snowflake-variant",
                 "device_class": BinarySensorDeviceClass.RUNNING,
             },
             B3Attributes.middle_compartment_door: {
@@ -1043,7 +1043,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "type": Platform.BINARY_SENSOR,
                 "translation_key": "middle_compartment_cooling",
                 "name": "Middle Compartment Cooling",
-                "icon": "snowflake-variant",
+                "icon": "mdi:snowflake-variant",
                 "device_class": BinarySensorDeviceClass.RUNNING,
             },
             B3Attributes.bottom_compartment_door: {
@@ -1064,7 +1064,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "type": Platform.BINARY_SENSOR,
                 "translation_key": "bottom_compartment_cooling",
                 "name": "Bottom Compartment Cooling",
-                "icon": "snowflake-variant",
+                "icon": "mdi:snowflake-variant",
                 "device_class": BinarySensorDeviceClass.RUNNING,
             },
             B3Attributes.top_compartment_status: {
@@ -1985,7 +1985,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
         "entities": {
             "climate": {
                 "type": Platform.CLIMATE,
-                "icon": "hass:air-conditioner",
+                "icon": "mdi:air-conditioner",
                 "default": True,
             },
             CCAttributes.aux_heating: {
@@ -2396,7 +2396,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
         "entities": {
             "climate": {
                 "type": Platform.CLIMATE,
-                "icon": "hass:air-conditioner",
+                "icon": "mdi:air-conditioner",
                 "default": True,
             },
             CFAttributes.aux_heating: {
@@ -2482,7 +2482,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             DAAttributes.wash_level: {
                 "type": Platform.SENSOR,
                 "translation_key": "wash_level",
-                "name": "Rinse count",
+                "name": "Wash level",
                 "icon": "mdi:hydraulic-oil-level",
             },
             DAAttributes.wash_strength: {
@@ -3157,7 +3157,6 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "type": Platform.BINARY_SENSOR,
                 "translation_key": "finished",
                 "name": "Finished",
-                "icon": "",
             },
             E8Attributes.water_shortage: {
                 "type": Platform.BINARY_SENSOR,

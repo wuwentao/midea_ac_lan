@@ -356,7 +356,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
 
         """
         # get all devices list
-        all_devices = discover()
+        all_devices = await self.hass.async_add_executor_job(discover)
         # available devices exist
         if len(all_devices) > 0:
             table = (
@@ -403,7 +403,9 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
             else:
                 ip_address = discovery_info[CONF_IP_ADDRESS]
             # use midea-local discover() to get devices list with ip_address
-            self.devices = discover(list(self.supports.keys()), ip_address=ip_address)
+            self.devices = await self.hass.async_add_executor_job(
+                lambda: discover(list(self.supports.keys()), ip_address=ip_address),
+            )
             self.available_device = {}
             for device_id, device in self.devices.items():
                 # remove exist devices and only return new devices
@@ -512,17 +514,8 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                 subtype=0,
                 attributes={},
             )
-            if dm.connect():
-                try:
-                    dm.authenticate()
-                except AuthException:
-                    _LOGGER.debug("Unable to authenticate.")
-                    dm.close_socket()
-                except SocketException:
-                    _LOGGER.debug("Socket closed.")
-                else:
-                    dm.close_socket()
-                    return value
+            if await self.hass.async_add_executor_job(self._try_connect_key, dm):
+                return value
             # return debug log with failed key
             _LOGGER.debug(
                 "connect device using method %s token/key failed",
@@ -532,6 +525,60 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
             "Unable to connect device with all the token/key",
         )
         return {"error": "connect_error"}
+
+    @staticmethod
+    def _try_connect_key(dm: MideaDevice) -> bool:
+        """Connect + authenticate a device, closing the socket afterwards.
+
+        Runs the blocking socket I/O (connect/authenticate/recv) in an executor
+        so it never blocks the event loop.
+
+        Returns
+        -------
+        True if the device connected and authenticated successfully.
+
+        """
+        if dm.connect():
+            try:
+                dm.authenticate()
+            except AuthException:
+                _LOGGER.debug("Unable to authenticate.")
+                dm.close_socket()
+            except SocketException:
+                _LOGGER.debug("Socket closed.")
+                dm.close_socket()
+            else:
+                dm.close_socket()
+                return True
+        return False
+
+    @staticmethod
+    def _try_connect_manual(dm: MideaDevice, authenticate_v3: bool) -> bool:
+        """Connect (and for V3, authenticate) a manually-entered device.
+
+        Runs the blocking socket I/O in an executor so it never blocks the
+        event loop.
+
+        Returns
+        -------
+        True if the device connected (and authenticated for V3) successfully.
+
+        """
+        if dm.connect():
+            try:
+                if authenticate_v3:
+                    dm.authenticate()
+            except SocketException:
+                _LOGGER.exception("Socket closed.")
+            except AuthException:
+                _LOGGER.exception(
+                    "Unable to authenticate with provided key and token.",
+                )
+                dm.close_socket()
+            else:
+                dm.close_socket()
+                return True
+        return False
 
     async def async_step_auto(
         self,
@@ -697,9 +744,8 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
             if len(self.devices) < 1:
                 ip = user_input[CONF_IP_ADDRESS]
                 # discover device
-                self.devices = discover(
-                    list(self.supports.keys()),
-                    ip_address=ip,
+                self.devices = await self.hass.async_add_executor_job(
+                    lambda: discover(list(self.supports.keys()), ip_address=ip),
                 )
                 # discover result MUST exist
                 if len(self.devices) != 1:
@@ -778,40 +824,33 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                 subtype=0,
                 attributes={},
             )
-            if dm.connect():
-                try:
-                    if user_input[CONF_PROTOCOL] == ProtocolVersion.V3:
-                        dm.authenticate()
-                except SocketException:
-                    _LOGGER.exception("Socket closed.")
-                except AuthException:
-                    _LOGGER.exception(
-                        "Unable to authenticate with provided key and token.",
-                    )
-                    dm.close_socket()
-                else:
-                    dm.close_socket()
-                    data = {
-                        CONF_NAME: user_input[CONF_NAME],
-                        CONF_DEVICE_ID: user_input[CONF_DEVICE_ID],
-                        CONF_TYPE: user_input[CONF_TYPE],
-                        CONF_PROTOCOL: user_input[CONF_PROTOCOL],
-                        CONF_IP_ADDRESS: user_input[CONF_IP_ADDRESS],
-                        CONF_PORT: user_input[CONF_PORT],
-                        CONF_MODEL: user_input[CONF_MODEL],
-                        CONF_SUBTYPE: user_input[CONF_SUBTYPE],
-                        CONF_TOKEN: user_input[CONF_TOKEN],
-                        CONF_KEY: user_input[CONF_KEY],
-                        CONF_MAC: device.get(CONF_MAC),
-                        CONF_SN: device.get(CONF_SN),
-                    }
-                    # save device json config when adding new device
-                    self._save_device_config(data)
-                    # finish add device entry
-                    return self.async_create_entry(
-                        title=f"{user_input[CONF_NAME]}",
-                        data=data,
-                    )
+            authenticate_v3 = user_input[CONF_PROTOCOL] == ProtocolVersion.V3
+            if await self.hass.async_add_executor_job(
+                self._try_connect_manual,
+                dm,
+                authenticate_v3,
+            ):
+                data = {
+                    CONF_NAME: user_input[CONF_NAME],
+                    CONF_DEVICE_ID: user_input[CONF_DEVICE_ID],
+                    CONF_TYPE: user_input[CONF_TYPE],
+                    CONF_PROTOCOL: user_input[CONF_PROTOCOL],
+                    CONF_IP_ADDRESS: user_input[CONF_IP_ADDRESS],
+                    CONF_PORT: user_input[CONF_PORT],
+                    CONF_MODEL: user_input[CONF_MODEL],
+                    CONF_SUBTYPE: user_input[CONF_SUBTYPE],
+                    CONF_TOKEN: user_input[CONF_TOKEN],
+                    CONF_KEY: user_input[CONF_KEY],
+                    CONF_MAC: device.get(CONF_MAC),
+                    CONF_SN: device.get(CONF_SN),
+                }
+                # save device json config when adding new device
+                self._save_device_config(data)
+                # finish add device entry
+                return self.async_create_entry(
+                    title=f"{user_input[CONF_NAME]}",
+                    data=data,
+                )
             return await self.async_step_manually(
                 error="Device auth failed with input config",
             )
@@ -917,14 +956,12 @@ class MideaLanOptionsFlowHandler(OptionsFlow):
         self._device_type = config_entry.data.get(CONF_TYPE)
         if self._device_type is None:
             self._device_type = 0xAC
-        if CONF_SENSORS in self._config_entry.options:
-            for key in self._config_entry.options[CONF_SENSORS]:
-                if key not in MIDEA_DEVICES[self._device_type]["entities"]:
-                    self._config_entry.options[CONF_SENSORS].remove(key)
-        if CONF_SWITCHES in self._config_entry.options:
-            for key in self._config_entry.options[CONF_SWITCHES]:
-                if key not in MIDEA_DEVICES[self._device_type]["entities"]:
-                    self._config_entry.options[CONF_SWITCHES].remove(key)
+        # Stale keys (attributes no longer in MIDEA_DEVICES) are filtered out
+        # downstream in async_step_init, where the multi-select defaults are
+        # computed as `set(sensors) & set(options)` / `set(switches) & ...` —
+        # both `sensors` and `switches` are built only from valid entities. No
+        # pruning is needed here; doing it in place mutated the list while
+        # iterating (skipping elements) and mutated HA-owned entry state.
 
     async def async_step_init(
         self,

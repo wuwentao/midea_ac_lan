@@ -249,9 +249,7 @@ class MideaEstimatedUsageSensor(MideaSensor, RestoreEntity):
 
         self._last_progress = current_progress
         super().update_state(status)
-        if (
-            self.hass
-            and not self.hass.is_stopping
-            and ("progress" in status or "status" in status or "mode" in status)
+        if self.hass and (
+            "progress" in status or "status" in status or "mode" in status
         ):
-            self.schedule_update_ha_state()
+            self.schedule_update_if_running()

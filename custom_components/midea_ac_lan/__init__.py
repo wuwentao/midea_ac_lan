@@ -52,31 +52,43 @@ from .midea_devices import MIDEA_DEVICES
 _LOGGER = logging.getLogger(__name__)
 
 
+def _close_device(device: MideaDevice) -> None:
+    """Close a Midea device connection without failing unload/setup cleanup."""
+    try:
+        device.close()
+    except (OSError, ConnectionError, AttributeError) as e:
+        _LOGGER.warning("Failed to close Midea socket cleanly: %s", e)
+
+
+def _device_store(hass: HomeAssistant) -> dict[int, MideaDevice]:
+    """Return the integration's loaded device map.
+
+    Returns
+    -------
+    Device id to Midea device mapping.
+
+    """
+    return cast(
+        "dict[int, MideaDevice]",
+        hass.data.setdefault(DOMAIN, {}).setdefault(DEVICES, {}),
+    )
+
+
 async def update_listener(hass: HomeAssistant, config_entry: ConfigEntry) -> None:
     """Option flow signal update.
 
-    register update listener for config entry that will be called when entry is updated.
-    A listener is registered by adding the following to the `async_setup_entry`:
-    `config_entry.async_on_unload(config_entry.add_update_listener(update_listener))`
-    means the Listener is attached when the entry is loaded and detached at unload
+    Registered in `async_setup_entry` via
+    `config_entry.async_on_unload(config_entry.add_update_listener(...))`, so it
+    is attached when the entry loads and detached at unload. Reload the entry so
+    the changed options (customize JSON, IP override, refresh interval, and the
+    extra sensor/switch selection) are re-applied through the normal setup path.
+
+    Reloading avoids the previous fire-and-forget re-setup, which awaited the
+    platform unload but then re-forwarded setup via an untracked
+    `async_create_task` — swallowing any setup error and racing the customize/
+    ip/refresh application that followed.
     """
-    # Forward the unloading of an entry to platforms.
-    await hass.config_entries.async_unload_platforms(config_entry, ALL_PLATFORM)
-    # forward the Config Entry to the platforms
-    hass.async_create_task(
-        hass.config_entries.async_forward_entry_setups(config_entry, ALL_PLATFORM),
-    )
-    device_id: int = cast("int", config_entry.data.get(CONF_DEVICE_ID))
-    customize = config_entry.options.get(CONF_CUSTOMIZE, "")
-    ip_address = config_entry.options.get(CONF_IP_ADDRESS, None)
-    refresh_interval = config_entry.options.get(CONF_REFRESH_INTERVAL, None)
-    dev: MideaDevice = hass.data[DOMAIN][DEVICES].get(device_id)
-    if dev:
-        dev.set_customize(customize)
-        if ip_address is not None:
-            dev.set_ip_address(ip_address)
-        if refresh_interval is not None:
-            dev.set_refresh_interval(refresh_interval)
+    await hass.config_entries.async_reload(config_entry.entry_id)
 
 
 async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:  # ruff:ignore[unused-function-argument]
@@ -257,13 +269,17 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
         if refresh_interval is not None:
             device.set_refresh_interval(refresh_interval)
         device.open()
-        if DOMAIN not in hass.data:
-            hass.data[DOMAIN] = {}
-        if DEVICES not in hass.data[DOMAIN]:
-            hass.data[DOMAIN][DEVICES] = {}
-        hass.data[DOMAIN][DEVICES][device_id] = device
-        # Forward the setup of an entry to all platforms
-        await hass.config_entries.async_forward_entry_setups(config_entry, ALL_PLATFORM)
+        _device_store(hass)[device_id] = device
+        try:
+            # Forward the setup of an entry to all platforms
+            await hass.config_entries.async_forward_entry_setups(
+                config_entry,
+                ALL_PLATFORM,
+            )
+        except Exception:
+            _device_store(hass).pop(device_id, None)
+            _close_device(device)
+            raise
         # Listener `update_listener` is
         # attached when the entry is loaded
         # and detached when it's unloaded
@@ -283,18 +299,22 @@ async def async_unload_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> 
     device_type = config_entry.data.get(CONF_TYPE)
     if device_type == CONF_ACCOUNT:
         return True
-    device_id = config_entry.data.get(CONF_DEVICE_ID)
-    if device_id is not None:
-        dm = hass.data[DOMAIN][DEVICES].get(device_id)
-        if dm is not None:
-            try:
-                dm.close()
-            except (OSError, ConnectionError, AttributeError) as e:
-                _LOGGER.warning("Failed to close Midea socket cleanly: %s", e)
-        hass.data[DOMAIN][DEVICES].pop(device_id)
-    # Forward the unloading of an entry to platforms
-    await hass.config_entries.async_unload_platforms(config_entry, ALL_PLATFORM)
-    return True
+    # Unload the platforms first; only tear the device down if that succeeded,
+    # and report the real result so a failed platform unload isn't masked.
+    # bool() keeps mypy happy: async_unload_platforms is typed to return Any.
+    unload_ok = bool(
+        await hass.config_entries.async_unload_platforms(
+            config_entry,
+            ALL_PLATFORM,
+        ),
+    )
+    if unload_ok:
+        device_id = config_entry.data.get(CONF_DEVICE_ID)
+        if device_id is not None:
+            dm = _device_store(hass).pop(device_id, None)
+            if dm is not None:
+                _close_device(dm)
+    return unload_ok
 
 
 async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> bool:

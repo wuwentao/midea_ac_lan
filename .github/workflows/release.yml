@@ -19,7 +19,7 @@ jobs:
     timeout-minutes: 60
     steps:
       - name: Checkout Source Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
           clean: true
@@ -69,7 +69,7 @@ jobs:
           cp ../midea_ac_lan.zip "$dst_dir/" || exit 1
           ls -alht "$dst_dir" || exit 1
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: midea_ac_lan.zip
           path: /github/workspace/artifacts
@@ -81,7 +81,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download All Artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           path: artifacts
           pattern: midea_ac_lan.zip
@@ -110,7 +110,7 @@ jobs:
           echo "github.ref: ${{github.ref}}"
 
       - name: Upload images to Release Asset
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           files: artifacts/midea_ac_lan.zip
           token: ${{ secrets.GH_TOKEN }}
