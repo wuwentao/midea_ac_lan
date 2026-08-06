@@ -5,8 +5,8 @@ from typing import Any
 from homeassistant.components.binary_sensor import BinarySensorDeviceClass
 from homeassistant.components.sensor import SensorDeviceClass, SensorStateClass
 from homeassistant.const import (
-    CONCENTRATION_MICROGRAMS_PER_CUBIC_METER,
-    CONCENTRATION_PARTS_PER_MILLION,
+    MAJOR_VERSION,
+    MINOR_VERSION,
     PERCENTAGE,
     REVOLUTIONS_PER_MINUTE,
     Platform,
@@ -19,6 +19,27 @@ from homeassistant.const import (
     UnitOfTime,
     UnitOfVolume,
 )
+
+# HA 2026.7 added UnitOfDensity/UnitOfRatio, and HA 2026.8 started deprecating
+# CONCENTRATION_MICROGRAMS_PER_CUBIC_METER / CONCENTRATION_PARTS_PER_MILLION in favor of
+# them (scheduled for removal in HA 2027.8). Both old and new names resolve to the
+# identical runtime string ("μg/m³" / "ppm"), so this is purely cosmetic. This
+# integration's floor is HA 2024.4.1, where UnitOfDensity/UnitOfRatio do not exist yet,
+# so branch on the HA version like the rest of this codebase does for newer HA APIs (see
+# other MAJOR_VERSION/MINOR_VERSION usages, e.g. midea_entity.py).
+if (MAJOR_VERSION, MINOR_VERSION) >= (2026, 7):
+    from homeassistant.const import (  # pylint: disable=E0611
+        UnitOfDensity,
+        UnitOfRatio,
+    )
+
+    CONCENTRATION_MICROGRAMS_PER_CUBIC_METER = UnitOfDensity.MICROGRAMS_PER_CUBIC_METER
+    CONCENTRATION_PARTS_PER_MILLION = UnitOfRatio.PARTS_PER_MILLION
+else:
+    from homeassistant.const import (  # type: ignore[no-redef]
+        CONCENTRATION_MICROGRAMS_PER_CUBIC_METER,
+        CONCENTRATION_PARTS_PER_MILLION,
+    )
 from midealocal.devices.a1 import DeviceAttributes as A1Attributes
 from midealocal.devices.ac import DeviceAttributes as ACAttributes
 from midealocal.devices.ad import DeviceAttributes as ADAttributes
