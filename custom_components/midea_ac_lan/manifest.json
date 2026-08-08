@@ -9,6 +9,8 @@
   "iot_class": "local_push",
   "issue_tracker": "https://github.com/wuwentao/midea_ac_lan/issues",
   "loggers": ["midealocal"],
-  "requirements": ["midea-local==6.11.1"],
+  "requirements": [
+    "midea-local @ git+https://github.com/matvejalekseev/midea-local.git@combined/b0-b1-fixes"
+  ],
   "version": "0.7.1"
 }
