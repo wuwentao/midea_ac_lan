@@ -967,6 +967,21 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "unit": UnitOfTime.SECONDS,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
+            B0Attributes.mode: {
+                "type": Platform.SENSOR,
+                "name": "Mode",
+                "icon": "mdi:chef-hat",
+            },
+            B0Attributes.fire_power: {
+                "type": Platform.SENSOR,
+                "name": "Fire Power",
+                "icon": "mdi:fire",
+            },
+            B0Attributes.child_lock: {
+                "type": Platform.LOCK,
+                "translation_key": "child_lock",
+                "name": "Child Lock",
+            },
         },
     },
     0xB1: {
