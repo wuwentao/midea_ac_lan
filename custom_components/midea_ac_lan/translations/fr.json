@@ -123,6 +123,13 @@
       "heating": {
         "name": "Heating"
       },
+      "dispensing": {
+        "name": "Distribution d’eau"
+      },
+      "lack_water": { "name": "Manque d’eau" },
+      "standby": { "name": "Veille" },
+      "hot_water_dispensing": { "name": "Distribution d’eau chaude" },
+      "fault": { "name": "Défaut" },
       "heating_working": {
         "name": "Heating Working Status"
       },
@@ -391,6 +398,12 @@
       },
       "water_hardness": {
         "name": "Dureté de l'eau"
+      },
+      "boil_temperature": {
+        "name": "Température cible d’ébullition"
+      },
+      "keep_warm_time": {
+        "name": "Durée de maintien au chaud"
       }
     },
     "select": {
@@ -639,6 +652,7 @@
       "keep_warm_remaining": {
         "name": "Keep Warm Remaining"
       },
+      "fault_code": { "name": "Code défaut" },
       "keep_warm_time": {
         "name": "Keep Warm Time"
       },
@@ -1102,6 +1116,21 @@
       },
       "zone2_power": {
         "name": "Zone2 Power"
+      },
+      "boiling": {
+        "name": "Faire bouillir l’eau"
+      },
+      "tea_bar_boil": {
+        "name": "Interrupteur d’ébullition"
+      },
+      "keep_warm": {
+        "name": "Maintien au chaud"
+      },
+      "tea_bar_cooling": {
+        "name": "Refroidissement"
+      },
+      "screen_off": {
+        "name": "Écran éteint"
       }
     },
     "water_heater": {
@@ -1113,6 +1142,9 @@
       },
       "heating": {
         "name": "Heating"
+      },
+      "tea_bar_temperature": {
+        "name": "Faire bouillir l’eau"
       }
     }
   },

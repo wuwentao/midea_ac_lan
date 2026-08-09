@@ -14,6 +14,7 @@ from typing import Any, cast
 
 import homeassistant.helpers.config_validation as cv
 import homeassistant.helpers.device_registry as dr
+import homeassistant.helpers.entity_registry as er
 import voluptuous as vol
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import (
@@ -46,6 +47,7 @@ from .const import (
     DEVICES,
     DOMAIN,
     EXTRA_SWITCH,
+    supports_device,
 )
 from .midea_devices import MIDEA_DEVICES
 
@@ -72,6 +74,34 @@ def _device_store(hass: HomeAssistant) -> dict[int, MideaDevice]:
         "dict[int, MideaDevice]",
         hass.data.setdefault(DOMAIN, {}).setdefault(DEVICES, {}),
     )
+
+
+def _remove_unsupported_entities(
+    hass: HomeAssistant,
+    device: MideaDevice,
+) -> None:
+    """Remove stale entities that do not apply to this model and subtype."""
+    registry = er.async_get(hass)
+    entities = cast(
+        "dict[str, dict[str, Any]]",
+        MIDEA_DEVICES[device.device_type]["entities"],
+    )
+    for entity_key, config in entities.items():
+        if supports_device(device.model, device.subtype, config):
+            continue
+        unique_id = f"{DOMAIN}.{device.device_id}_{entity_key}"
+        entity_domain = cast("str", config["type"].value)
+        entity_id = registry.async_get_entity_id(
+            entity_domain,
+            DOMAIN,
+            unique_id,
+        )
+        if entity_id is None:
+            legacy_entity_id = f"{entity_domain}.{device.device_id}_{entity_key}"
+            if registry.async_get(legacy_entity_id) is not None:
+                entity_id = legacy_entity_id
+        if entity_id is not None:
+            registry.async_remove(entity_id)
 
 
 async def update_listener(hass: HomeAssistant, config_entry: ConfigEntry) -> None:
@@ -271,6 +301,7 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
         device.open()
         _device_store(hass)[device_id] = device
         try:
+            _remove_unsupported_entities(hass, device)
             # Forward the setup of an entry to all platforms
             await hass.config_entries.async_forward_entry_setups(
                 config_entry,

@@ -123,6 +123,21 @@
       "heating": {
         "name": "Heating"
       },
+      "dispensing": {
+        "name": "Dispensing Water"
+      },
+      "lack_water": {
+        "name": "Lack Water"
+      },
+      "standby": {
+        "name": "Standby"
+      },
+      "hot_water_dispensing": {
+        "name": "Hot Water Dispensing"
+      },
+      "fault": {
+        "name": "Fault"
+      },
       "heating_working": {
         "name": "Heating Working Status"
       },
@@ -347,6 +362,12 @@
       },
       "water_hardness": {
         "name": "Water Hardness"
+      },
+      "boil_temperature": {
+        "name": "Boil Target Temperature"
+      },
+      "keep_warm_time": {
+        "name": "Keep Warm Time"
       }
     },
     "select": {
@@ -594,6 +615,9 @@
       },
       "keep_warm_remaining": {
         "name": "Keep Warm Remaining"
+      },
+      "fault_code": {
+        "name": "Fault Code"
       },
       "keep_warm_time": {
         "name": "Keep Warm Time"
@@ -1044,6 +1068,21 @@
       },
       "zone2_power": {
         "name": "Zone2 Power"
+      },
+      "boiling": {
+        "name": "Boil Water"
+      },
+      "tea_bar_boil": {
+        "name": "Boil Water Switch"
+      },
+      "keep_warm": {
+        "name": "Keep Warm"
+      },
+      "tea_bar_cooling": {
+        "name": "Tea Bar Cooling"
+      },
+      "screen_off": {
+        "name": "Screen Off"
       }
     },
     "water_heater": {
@@ -1055,6 +1094,9 @@
       },
       "heating": {
         "name": "Heating"
+      },
+      "tea_bar_temperature": {
+        "name": "Boil Water"
       }
     }
   },

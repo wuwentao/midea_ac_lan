@@ -15,7 +15,7 @@ from homeassistant.helpers.restore_state import RestoreEntity
 from homeassistant.helpers.typing import StateType
 from midealan.device import MideaDevice
 
-from .const import DEVICES, DOMAIN, supports_model
+from .const import DEVICES, DOMAIN, supports_device
 from .midea_devices import MIDEA_DEVICES
 from .midea_entity import MideaEntity
 
@@ -36,7 +36,7 @@ async def async_setup_entry(
     ).items():
         if (
             config["type"] != Platform.SENSOR
-            or not supports_model(device.model, config)
+            or not supports_device(device.model, device.subtype, config)
             or (not config.get("default") and entity_key not in extra_sensors)
         ):
             continue

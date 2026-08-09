@@ -123,6 +123,13 @@
       "heating": {
         "name": "Heizen"
       },
+      "dispensing": {
+        "name": "Wasserentnahme"
+      },
+      "lack_water": { "name": "Wassermangel" },
+      "standby": { "name": "Bereitschaft" },
+      "hot_water_dispensing": { "name": "Heißwasserausgabe" },
+      "fault": { "name": "Störung" },
       "heating_working": {
         "name": "Heizen Arbeitsstatus"
       },
@@ -391,6 +398,12 @@
       },
       "water_hardness": {
         "name": "Wasserhärte"
+      },
+      "boil_temperature": {
+        "name": "Zieltemperatur zum Kochen"
+      },
+      "keep_warm_time": {
+        "name": "Warmhaltezeit"
       }
     },
     "select": {
@@ -639,6 +652,7 @@
       "keep_warm_remaining": {
         "name": "Keep Warm Remaining"
       },
+      "fault_code": { "name": "Fehlercode" },
       "keep_warm_time": {
         "name": "Keep Warm Time"
       },
@@ -1102,6 +1116,21 @@
       },
       "zone2_power": {
         "name": "Zone2 Power"
+      },
+      "boiling": {
+        "name": "Wasser kochen"
+      },
+      "tea_bar_boil": {
+        "name": "Wasserkocher-Schalter"
+      },
+      "keep_warm": {
+        "name": "Warmhalten"
+      },
+      "tea_bar_cooling": {
+        "name": "Kühlung"
+      },
+      "screen_off": {
+        "name": "Bildschirm aus"
       }
     },
     "water_heater": {
@@ -1113,6 +1142,9 @@
       },
       "heating": {
         "name": "Heizen"
+      },
+      "tea_bar_temperature": {
+        "name": "Wasser kochen"
       }
     }
   },

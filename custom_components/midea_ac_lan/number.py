@@ -2,14 +2,14 @@
 
 from typing import Any, cast
 
-from homeassistant.components.number import NumberEntity
+from homeassistant.components.number import NumberDeviceClass, NumberEntity
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_DEVICE_ID, CONF_SWITCHES, Platform
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from midealan.device import MideaDevice
 
-from .const import DEVICES, DOMAIN
+from .const import DEVICES, DOMAIN, supports_device
 from .midea_devices import MIDEA_DEVICES
 from .midea_entity import MideaEntity
 
@@ -28,7 +28,11 @@ async def async_setup_entry(
         "dict",
         MIDEA_DEVICES[device.device_type]["entities"],
     ).items():
-        if config["type"] != Platform.NUMBER or entity_key not in extra_switches:
+        if (
+            config["type"] != Platform.NUMBER
+            or not supports_device(device.model, device.subtype, config)
+            or (not config.get("default") and entity_key not in extra_switches)
+        ):
             continue
         required_attribute = config.get("required_attribute")
         if (
@@ -49,6 +53,11 @@ class MideaNumber(MideaEntity, NumberEntity):
         self._max_value = self._config.get("max")
         self._min_value = self._config.get("min")
         self._step_value = self._config.get("step")
+        self._attr_device_class = cast(
+            "NumberDeviceClass | None",
+            self._config.get("device_class"),
+        )
+        self._attr_native_unit_of_measurement = self._config.get("unit")
 
     def _resolve_bound(self, bound: Any) -> float:  # ruff:ignore[any-type]
         """Resolve a min/max/step config value to a concrete number.
