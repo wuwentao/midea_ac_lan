@@ -123,6 +123,13 @@
       "heating": {
         "name": "Нагрев"
       },
+      "dispensing": {
+        "name": "Подача воды"
+      },
+      "lack_water": { "name": "Недостаток воды" },
+      "standby": { "name": "Ожидание" },
+      "hot_water_dispensing": { "name": "Подача горячей воды" },
+      "fault": { "name": "Неисправность" },
       "heating_working": {
         "name": "Heating Working Status"
       },
@@ -322,6 +329,12 @@
       },
       "water_hardness": {
         "name": "Жёсткость воды"
+      },
+      "boil_temperature": {
+        "name": "Целевая температура кипячения"
+      },
+      "keep_warm_time": {
+        "name": "Время поддержания тепла"
       }
     },
     "select": {
@@ -570,6 +583,7 @@
       "keep_warm_remaining": {
         "name": "Keep Warm Remaining"
       },
+      "fault_code": { "name": "Код неисправности" },
       "keep_warm_time": {
         "name": "Keep Warm Time"
       },
@@ -997,6 +1011,21 @@
       },
       "zone2_power": {
         "name": "Zone2 Power"
+      },
+      "boiling": {
+        "name": "Кипячение воды"
+      },
+      "tea_bar_boil": {
+        "name": "Выключатель кипячения"
+      },
+      "keep_warm": {
+        "name": "Поддержание тепла"
+      },
+      "tea_bar_cooling": {
+        "name": "Охлаждение"
+      },
+      "screen_off": {
+        "name": "Выключение экрана"
       }
     },
     "water_heater": {
@@ -1008,6 +1037,9 @@
       },
       "heating": {
         "name": "Heating"
+      },
+      "tea_bar_temperature": {
+        "name": "Кипячение воды"
       }
     }
   },

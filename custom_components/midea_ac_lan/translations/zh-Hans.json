@@ -123,6 +123,21 @@
       "heating": {
         "name": "加热"
       },
+      "dispensing": {
+        "name": "正在取水"
+      },
+      "lack_water": {
+        "name": "缺水"
+      },
+      "standby": {
+        "name": "待机"
+      },
+      "hot_water_dispensing": {
+        "name": "正在输出热水"
+      },
+      "fault": {
+        "name": "设备故障"
+      },
       "heating_working": {
         "name": "取暖工作状态"
       },
@@ -322,6 +337,12 @@
       },
       "water_hardness": {
         "name": "进水硬度"
+      },
+      "boil_temperature": {
+        "name": "烧水目标温度"
+      },
+      "keep_warm_time": {
+        "name": "保温时间"
       }
     },
     "select": {
@@ -569,6 +590,9 @@
       },
       "keep_warm_remaining": {
         "name": "保温剩余时间"
+      },
+      "fault_code": {
+        "name": "故障代码"
       },
       "keep_warm_time": {
         "name": "保温时间"
@@ -997,6 +1021,21 @@
       },
       "zone2_power": {
         "name": "区域2恒温器开关"
+      },
+      "boiling": {
+        "name": "烧水"
+      },
+      "tea_bar_boil": {
+        "name": "烧水开关"
+      },
+      "keep_warm": {
+        "name": "保温"
+      },
+      "tea_bar_cooling": {
+        "name": "制冷"
+      },
+      "screen_off": {
+        "name": "熄屏"
       }
     },
     "water_heater": {
@@ -1008,6 +1047,9 @@
       },
       "heating": {
         "name": "加热"
+      },
+      "tea_bar_temperature": {
+        "name": "烧水"
       }
     }
   },

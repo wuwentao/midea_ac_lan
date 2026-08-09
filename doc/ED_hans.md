@@ -4,16 +4,37 @@
 
 ### 默认实体
 
-无默认实体
+茶吧机子型号 395 默认生成以下实体：
+
+| EntityID                                       | 类型          | 描述                                                        |
+| ---------------------------------------------- | ------------- | ----------------------------------------------------------- |
+| sensor.{DEVICEID}\_current_temperature         | sensor        | 当前水温                                                    |
+| sensor.{DEVICEID}\_target_temperature          | sensor        | 目标水温                                                    |
+| binary_sensor.{DEVICEID}\_heating              | binary_sensor | 正在烧水                                                    |
+| binary_sensor.{DEVICEID}\_dispensing           | binary_sensor | 正在取水                                                    |
+| switch.{DEVICEID}\_tea_bar                     | switch        | “烧水开关”；打开后由设备自动取水并烧到 100℃，关闭时停止烧水 |
+| climate.{DEVICEID}\_tea_bar_temperature        | climate       | 开关式温控；开启按官方协议烧到 100℃，设置温度则按目标烧水   |
+| lock.{DEVICEID}\_child_lock                    | lock          | 使用型号 63000622 官方协议的童锁                            |
+| switch.{DEVICEID}\_keep_warm                   | switch        | 保温开关；使用型号 63000622 官方保温命令                    |
+| switch.{DEVICEID}\_cooling                     | switch        | 茶吧机制冷；使用型号 63000622 官方信号制冷命令              |
+| switch.{DEVICEID}\_screen_display              | switch        | 屏幕显示；开启时点亮，关闭时发送官方休眠命令                |
+| number.{DEVICEID}\_keep_warm_time              | number        | 保温时长；1–12 小时，每 0.5 小时一档                        |
+| sensor.{DEVICEID}\_keep_warm_remaining         | sensor        | 设备上报的剩余保温时间，单位为秒                            |
+| binary_sensor.{DEVICEID}\_lack_water           | binary_sensor | 设备报告缺水                                                |
+| binary_sensor.{DEVICEID}\_standby              | binary_sensor | 设备报告待机状态                                            |
+| binary_sensor.{DEVICEID}\_hot_water_dispensing | binary_sensor | 设备正在输出热水                                            |
+| binary_sensor.{DEVICEID}\_fault                | binary_sensor | 设备报告非零故障码                                          |
+| sensor.{DEVICEID}\_fault_code                  | sensor        | 设备上报的原始故障代码                                      |
 
 ### 额外生成实体
+
+下列软水机控制和状态实体仅向子型号 703 提供，不会再向茶吧机子型号 395 提供。
 
 #### 开关
 
 | EntityID                                 | 类型   | 名称                  | 描述     |
 | ---------------------------------------- | ------ | --------------------- | -------- |
 | switch.{DEVICEID}\_power                 | switch | Power                 | 电源开关 |
-| lock.{DEVICEID}\_child_lock              | switch | Child Lock            | 童锁     |
 | switch.{DEVICEID}\_soften                | switch | Softening             | 软化功能 |
 | switch.{DEVICEID}\_cl_sterilization      | switch | CL Sterilization      | 氯杀菌   |
 | switch.{DEVICEID}\_leak_water_protection | switch | Leak Water Protection | 漏水保护 |
