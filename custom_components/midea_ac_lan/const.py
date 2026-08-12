@@ -65,6 +65,12 @@ def supports_device(
     if config.get("removed"):
         return False
     normalized_subtype = int(cast("int", subtype))
+    excluded_devices = cast(
+        "list[tuple[str, int]]",
+        config.get("excluded_devices", []),
+    )
+    if (str(model), normalized_subtype) in excluded_devices:
+        return False
     excluded_subtypes = config.get("excluded_subtypes")
     if excluded_subtypes and normalized_subtype in cast(
         "list[int]",

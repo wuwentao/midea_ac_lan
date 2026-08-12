@@ -82,6 +82,7 @@ FRESH_AIR_EXHAUST_POWER = "fresh_air_exhaust_power"
 FRESH_AIR_EXHAUST_SPEED = "fresh_air_exhaust_speed"
 ED_TEA_BAR_SUBTYPES = [395]
 ED_TEA_BAR_MODELS = ["63000622"]
+ED_TEA_BAR_DEVICES = [(ED_TEA_BAR_MODELS[0], ED_TEA_BAR_SUBTYPES[0])]
 ED_SOFT_WATER_SUBTYPES = [703]
 
 """
@@ -3154,15 +3155,14 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "type": Platform.LOCK,
                 "translation_key": "child_lock",
                 "name": "Child Lock",
-                "default_subtypes": ED_TEA_BAR_SUBTYPES,
-                "default_models": ED_TEA_BAR_MODELS,
+                "excluded_devices": ED_TEA_BAR_DEVICES,
             },
             EDAttributes.power: {
                 "type": Platform.SWITCH,
                 "translation_key": "power",
                 "name": "Power",
                 "icon": "mdi:power",
-                "excluded_subtypes": ED_TEA_BAR_SUBTYPES,
+                "excluded_devices": ED_TEA_BAR_DEVICES,
             },
             EDAttributes.filter1: {
                 "type": Platform.SENSOR,
@@ -3421,8 +3421,12 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "keep_warm_remaining",
                 "name": "Keep Warm Remaining",
                 "icon": "mdi:progress-clock",
-                "unit": UnitOfTime.SECONDS,
+                "device_class": SensorDeviceClass.DURATION,
+                "unit": UnitOfTime.HOURS,
+                "suggested_unit": UnitOfTime.HOURS,
                 "state_class": SensorStateClass.MEASUREMENT,
+                "suggested_display_precision": 6,
+                "duration_from_minutes": True,
                 "default": True,
                 "required_attribute": EDAttributes.keep_warm_remaining,
                 "subtypes": ED_TEA_BAR_SUBTYPES,
@@ -3443,10 +3447,22 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "subtypes": ED_TEA_BAR_SUBTYPES,
                 "models": ED_TEA_BAR_MODELS,
             },
+            "tea_bar_child_lock": {
+                "type": Platform.SWITCH,
+                "translation_key": "tea_bar_child_lock",
+                "name": "Tea Bar Child Lock",
+                "icon": "mdi:lock",
+                "default": True,
+                "required_attribute": EDAttributes.child_lock,
+                "subtypes": ED_TEA_BAR_SUBTYPES,
+                "models": ED_TEA_BAR_MODELS,
+            },
             "tea_bar_temperature": {
                 "type": Platform.CLIMATE,
-                "translation_key": "tea_bar_temperature",
-                "name": "Boil Water",
+                # This is the appliance's primary Home/HA control. Leaving
+                # the entity name unset exposes the device name instead of
+                # the redundant "Tea Bar Boil Water".
+                "name": None,
                 "icon": "mdi:kettle-steam",
                 "default": True,
                 "subtypes": ED_TEA_BAR_SUBTYPES,
