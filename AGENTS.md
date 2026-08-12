@@ -4,7 +4,7 @@ Shared guidance for all AI coding agents (Claude Code, OpenAI Codex, GitHub Copi
 
 ## What this is
 
-A Home Assistant custom integration (distributed via HACS) that controls Midea M-Smart appliances over the local network. This repo is a **thin Home Assistant glue layer**; all device protocol, discovery, encryption, and cloud-token logic lives in the external **`midea-local`** library (imported as `midealocal`, pinned in `custom_components/midea_ac_lan/manifest.json` → `requirements`). When device behavior or a new attribute is missing, the fix is often in `midea-local`, not here.
+A Home Assistant custom integration (distributed via HACS) that controls Midea M-Smart appliances over the local network. This repo is a **thin Home Assistant glue layer**; all device protocol, discovery, encryption, and cloud-token logic lives in the external **`midea-lan`** library (imported as `midealan`, pinned in `custom_components/midea_ac_lan/manifest.json` → `requirements`). When device behavior or a new attribute is missing, the fix is often in `midea-lan`, not here.
 
 Integration code lives entirely in `custom_components/midea_ac_lan/`. Minimum Home Assistant: **2024.4.1**; target Python **3.12+**.
 
@@ -12,7 +12,7 @@ Integration code lives entirely in `custom_components/midea_ac_lan/`. Minimum Ho
 
 ### The device registry (`midea_devices.py`) is the center of everything
 
-`MIDEA_DEVICES: dict[int, ...]` maps a device-type hex code (e.g. `0xAC`, `0xA1`) to `{"name": ..., "entities": {...}}`. Each entry in `entities` maps a **device attribute** (a `DeviceAttributes` enum member imported from `midealocal.devices.<type>`) to a config dict describing which HA platform represents it and its metadata:
+`MIDEA_DEVICES: dict[int, ...]` maps a device-type hex code (e.g. `0xAC`, `0xA1`) to `{"name": ..., "entities": {...}}`. Each entry in `entities` maps a **device attribute** (a `DeviceAttributes` enum member imported from `midealan.devices.<type>`) to a config dict describing which HA platform represents it and its metadata:
 
 ```python
 ACAttributes.eco_mode: {
@@ -39,11 +39,11 @@ Note: simple platforms (switch, sensor, …) are generic and data-driven. Comple
 
 ### Lifecycle & data flow (`__init__.py`)
 
-`async_setup` registers two services (`set_attribute`, `send_command`; see `services.yaml`). `async_setup_entry` calls `midealocal.devices.device_selector(...)` to build the `MideaDevice`, calls `device.open()` (starts the long-lived TCP connection), and stores it in `hass.data[DOMAIN][DEVICES][device_id]`. Entities read/write via `device.get_attribute()` / `device.set_attribute()`. `update_listener` re-applies options (customize JSON, IP, refresh interval) on config change. `async_migrate_entry` handles config-entry schema migrations (v1→v2 device identifiers).
+`async_setup` registers two services (`set_attribute`, `send_command`; see `services.yaml`). `async_setup_entry` calls `midealan.devices.device_selector(...)` to build the `MideaDevice`, calls `device.open()` (starts the long-lived TCP connection), and stores it in `hass.data[DOMAIN][DEVICES][device_id]`. Entities read/write via `device.get_attribute()` / `device.set_attribute()`. `update_listener` re-applies options (customize JSON, IP, refresh interval) on config change. `async_migrate_entry` handles config-entry schema migrations (v1→v2 device identifiers).
 
 ### Config & options flow (`config_flow.py`)
 
-`MideaLanConfigFlow` handles discovery/manual add and fetching Token+Key from the Midea cloud (`midealocal.cloud`); `MideaLanOptionsFlowHandler` handles per-device options (IP, refresh interval, extra sensor/switch selection, customize). Successfully-added V3 devices are cached to `.storage/midea_ac_lan/<device_id>.json` and reloaded on re-add.
+`MideaLanConfigFlow` handles discovery/manual add and fetching Token+Key from the Midea cloud (`midealan.cloud`); `MideaLanOptionsFlowHandler` handles per-device options (IP, refresh interval, extra sensor/switch selection, customize). Successfully-added V3 devices are cached to `.storage/midea_ac_lan/<device_id>.json` and reloaded on re-add.
 
 ### Home Assistant multi-version compatibility
 
@@ -75,5 +75,5 @@ Dependencies (including the per-Python `homeassistant==` pins) live in `pyprojec
 - **Commits must follow Conventional Commits** — enforced by commitlint + commitizen on the `commit-msg` hook. Types: `feat`, `fix`, `chore`, `docs`, `refactor`, `test`. Releases are automated from these messages (see recent `chore(main): midea_ac_lan release vX.Y.Z` commits).
 - **Do not commit directly to `main`** — blocked by a pre-commit hook; branch and open a PR.
 - **Releasing** bumps `version` in `manifest.json`, which must be valid semver **without a `v` prefix** (HACS 2.0+ rejects `v`-prefixed); enforced by `.github/workflows/release.yml`.
-- **Adding a new device type**: bump the `midea-local` pin in `manifest.json`, add a `0xXX` entry to `MIDEA_DEVICES` in `midea_devices.py`, add a `doc/<TYPE>.md` (+ `_hans` Chinese variant) and a row in `README.md`'s supported-appliances table. Add UI strings to `custom_components/midea_ac_lan/translations/en.json` (and other locales) keyed by `translation_key`.
+- **Adding a new device type**: bump the `midea-lan` pin in `manifest.json`, add a `0xXX` entry to `MIDEA_DEVICES` in `midea_devices.py`, add a `doc/<TYPE>.md` (+ `_hans` Chinese variant) and a row in `README.md`'s supported-appliances table. Add UI strings to `custom_components/midea_ac_lan/translations/en.json` (and other locales) keyed by `translation_key`.
 - CI validation: `.github/workflows/linter.yml` (pre-commit) and `validate.yml` (HACS + hassfest).

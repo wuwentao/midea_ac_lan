@@ -783,17 +783,20 @@
       "compressor_power": {
         "name": "Kompressorleistung"
       },
-      "indoor_coil_temperature": {
-        "name": "Innenraum-Wärmetauschertemperatur (T1)"
+      "indoor_ambient_temperature": {
+        "name": "Innenraum-Umgebungstemperatur(T1)"
       },
-      "evaporator_temperature": {
-        "name": "Verdampfertemperatur (T2)"
+      "indoor_coil_temperature": {
+        "name": "Innentemperatur der Heizschlange(T2)"
+      },
+      "outdoor_coil_temperature": {
+        "name": "Außentemperatur der Heizschlange(T3)"
       },
       "outdoor_ambient_temperature": {
-        "name": "Außenumgebungstemperatur (T4)"
+        "name": "Außenumgebungstemperatur(T4)"
       },
       "discharge_pipe_temperature": {
-        "name": "Druckleitungstemperatur (TP)"
+        "name": "Druckleitungstemperatur(TP)"
       },
       "indoor_fan_speed": {
         "name": "Innengerät Lüftergeschwindigkeit"

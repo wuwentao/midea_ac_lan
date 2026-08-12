@@ -783,17 +783,20 @@
       "compressor_power": {
         "name": "Výkon kompresora"
       },
-      "indoor_coil_temperature": {
-        "name": "Teplota vnútorného výmenníka (T1)"
+      "indoor_ambient_temperature": {
+        "name": "Vnútorná teplota prostredia(T1)"
       },
-      "evaporator_temperature": {
-        "name": "Teplota výparníka (T2)"
+      "indoor_coil_temperature": {
+        "name": "Teplota vnútornej špirály(T2)"
+      },
+      "outdoor_coil_temperature": {
+        "name": "Teplota vonkajšej špirály(T3)"
       },
       "outdoor_ambient_temperature": {
-        "name": "Vonkajšia teplota okolia (T4)"
+        "name": "Vonkajšia teplota okolia(T4)"
       },
       "discharge_pipe_temperature": {
-        "name": "Teplota výtlačného potrubia (TP)"
+        "name": "Teplota výtlačného potrubia(TP)"
       },
       "indoor_fan_speed": {
         "name": "Rýchlosť vnútorného ventilátora"

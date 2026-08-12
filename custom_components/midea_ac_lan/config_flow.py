@@ -47,14 +47,14 @@ from homeassistant.core import callback
 from homeassistant.helpers.aiohttp_client import async_create_clientsession
 from homeassistant.helpers.json import save_json
 from homeassistant.util.json import load_json
-from midealocal.cloud import (
+from midealan.cloud import (
     PRESET_ACCOUNT_DATA,
     SUPPORTED_CLOUDS,
     MideaCloud,
     get_midea_cloud,
 )
-from midealocal.device import MideaDevice, ProtocolVersion
-from midealocal.discover import discover
+from midealan.device import MideaDevice, ProtocolVersion
+from midealan.discover import discover
 
 if TYPE_CHECKING:
     from aiohttp import ClientSession
@@ -401,7 +401,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
             # ip exist
             else:
                 ip_address = discovery_info[CONF_IP_ADDRESS]
-            # use midea-local discover() to get devices list with ip_address
+            # use midea-lan discover() to get devices list with ip_address
             self.devices = await self.hass.async_add_executor_job(
                 lambda: discover(list(self.supports.keys()), ip_address=ip_address),
             )
@@ -530,7 +530,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
         """Connect to a device, closing the socket afterwards.
 
         Runs the blocking socket I/O in an executor so it never blocks the
-        event loop. V3 authentication is handled inside midea-local's connect().
+        event loop. V3 authentication is handled inside midea-lan's connect().
 
         Returns
         -------
