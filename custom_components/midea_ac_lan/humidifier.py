@@ -12,9 +12,9 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_DEVICE_ID, CONF_SWITCHES, Platform
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
-from midealocal.device import DeviceType
-from midealocal.devices.a1 import MideaA1Device
-from midealocal.devices.fd import MideaFDDevice
+from midealan.device import DeviceType
+from midealan.devices.a1 import MideaA1Device
+from midealan.devices.fd import MideaFDDevice
 
 from .const import DEVICES, DOMAIN
 from .midea_devices import MIDEA_DEVICES

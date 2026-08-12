@@ -24,10 +24,10 @@ edit `configuration.yaml` and reboot HA is the recommended method.
      default: warn
      logs:
        custom_components.midea_ac_lan: debug
-       midealocal: debug
+       midealan: debug
    ```
 
-   > we should enable `midea_ac_lan` and `midealocal`
+   > we should enable `midea_ac_lan` and `midealan`
 
 4. Restart HA
 5. Trigger debug log with some action with bug or error
@@ -43,7 +43,7 @@ edit `configuration.yaml` and reboot HA is the recommended method.
    action: logger.set_level
    data:
      custom_components.midea_ac_lan: debug
-     midealocal: debug
+     midealan: debug
    ```
 
    Tips: this mode doesn't require reboot, but it can't capture device startup error log, so is still recommended to edit `configuration.yaml` file to enable debug mode.
@@ -66,14 +66,14 @@ if you need to manual edit or change source code in `midea_ac_lan` for test purp
    > for example: there is a github PR exist, and we should manual update `light.py`,
    > we can got github raw file URL, and use below `wget` command with `-O light.py` to download latest file and overwrite exist `light.py` > `wget https://github.com/wuwentao/midea_ac_lan/raw/xxxx/custom_components/midea_ac_lan/light.py -O light.py`
 
-### edit `midealocal` source code
+### edit `midealan` source code
 
-`midealocal` is a python3 pip package, it has been installed in HA Core，and HA Core is a docker container in HAOS.
+`midealan` is a python3 pip package, it has been installed in HA Core，and HA Core is a docker container in HAOS.
 
 1. ssh login to your HAOS
 2. enter HA Core docker in HAOS: `docker exec -it homeassistant /bin/bash`
-3. get `midealocal` install path with `pip show midea-local`, it will show path info to you, for example, my location is Location: `/usr/local/lib/python3.13/site-packages`
-4. switch to `midealocal` root path with `cd /usr/local/lib/python3.13/site-packages/midealocal/`
+3. get `midealan` install path with `pip show midea-lan`, it will show path info to you, for example, my location is Location: `/usr/local/lib/python3.13/site-packages`
+4. switch to `midealan` root path with `cd /usr/local/lib/python3.13/site-packages/midealan/`
 5. now you can manual edit all the source code with `vi` , or `scp` to upload file, or `wget` to download file.
 6. once you upload or download a new file to HA, replace the old source code file to new file.
 7. reboot HA to load it
@@ -82,7 +82,7 @@ if you need to manual edit or change source code in `midea_ac_lan` for test purp
 
 for example: there is a github PR exist, and we should manual update `devices/cd/message.py`
 
-> got github raw file URL, and use below `wget` command with `-O devices/cd/message.py` to download latest file and overwrite exist `devices/cd/message.py` > `wget https://github.com/midea-lan/midea-local/raw/xxxx/midealocal/devices/cd/message.py -O devices/cd/message.py`
+> got github raw file URL, and use below `wget` command with `-O devices/cd/message.py` to download latest file and overwrite exist `devices/cd/message.py` > `wget https://github.com/wuwentao/midea-lan/raw/xxxx/midealan/devices/cd/message.py -O devices/cd/message.py`
 
 ## Get Device json config
 
@@ -101,11 +101,11 @@ you can use below command to get a device json config:
 
 ## Get Device type and SN
 
-`midealocal` is a python3 pip package, it has been installed in HA Core，and HA Core is a docker container in HAOS.
+`midealan` is a python3 pip package, it has been installed in HA Core，and HA Core is a docker container in HAOS.
 
 1. ssh login to your HAOS
 2. enter HA Core docker in HAOS: `docker exec -it homeassistant /bin/bash`
-3. run below command to get device type and device SN in HA Core shell `python3 -m midealocal.cli discover --get_sn --host 192.168.2.127` (replace the example ip address to your device IP).
+3. run below command to get device type and device SN in HA Core shell `python3 -m midealan.cli discover --get_sn --host 192.168.2.127` (replace the example ip address to your device IP).
 
 output example:
 

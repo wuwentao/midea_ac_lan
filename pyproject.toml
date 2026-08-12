@@ -8,8 +8,8 @@ readme = "README.md"
 requires-python = ">=3.12,<3.15"
 license = { text = "MIT" }
 # Runtime dependency, mirrors custom_components/midea_ac_lan/manifest.json so that
-# `import midealocal` works inside the dev virtualenv.
-dependencies = ["midea-local==6.11.1"]
+# `import midealan` works inside the dev virtualenv.
+dependencies = ["midea-lan==2026.8.0"]
 
 # Development dependencies (PEP 735). Installed by default with `uv sync`.
 # Replaces the former requirements-dev.txt + requirements-dev-3.1X.txt files.
@@ -22,7 +22,7 @@ dev = [
   "homeassistant==2026.3.1  ; python_full_version >= '3.14.2'",
   # Tooling (was requirements-dev.txt). ruff is aligned to the version enforced
   # by the ruff-pre-commit hook in .pre-commit-config.yaml (v0.16.0).
-  "ruff==0.16.0",
+  "ruff==0.16.1",
   "mypy==2.3.0",
   "pylint==4.0.6",
   "pre-commit==4.6.1",

@@ -13,7 +13,7 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.restore_state import RestoreEntity
 from homeassistant.helpers.typing import StateType
-from midealocal.device import MideaDevice
+from midealan.device import MideaDevice
 
 from .const import DEVICES, DOMAIN, supports_model
 from .midea_devices import MIDEA_DEVICES

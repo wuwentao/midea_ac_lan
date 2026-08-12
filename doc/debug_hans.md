@@ -22,10 +22,10 @@
      default: warn
      logs:
        custom_components.midea_ac_lan: debug
-       midealocal: debug
+       midealan: debug
    ```
 
-   > 需要同时开启 `midea_ac_lan` 和 `midealocal`
+   > 需要同时开启 `midea_ac_lan` 和 `midealan`
 
 4. 重启HA
 5. 执行有bug或error的操作，触发debug log
@@ -41,7 +41,7 @@
    action: logger.set_level
    data:
      custom_components.midea_ac_lan: debug
-     midealocal: debug
+     midealan: debug
    ```
 
    > 说明：此方法不需要重启HA，但是不能捕获开机启动以后的很多错误日志, 强烈推荐使用编辑`configuration.yaml`的方法。
@@ -65,14 +65,14 @@
    > 首先获取github PR中对应文件的raw file URL, 然后使用 `wget` 命令带上 `-O light.py` 去下载文件并覆盖已经存在的`light.py`即可
    > `wget https://github.com/wuwentao/midea_ac_lan/raw/xxxx/custom_components/midea_ac_lan/light.py -O light.py`
 
-### 修改`midealocal`源代码
+### 修改`midealan`源代码
 
-`midealocal`是python3的pip package, 安装在HA core 中，而HA Core则属于HAOS里面运行的一个docker container.
+`midealan`是python3的pip package, 安装在HA core 中，而HA Core则属于HAOS里面运行的一个docker container.
 
 1. SSH登录HAOS
 2. 在HAOS中执行如下命令进入HA Core所在的docker: `docker exec -it homeassistant /bin/bash`
-3. 使用`pip show midea-local`来获取`midealocal`, 例如, 我的Path为: `/usr/local/lib/python3.13/site-packages`
-4. 使用`cd /usr/local/lib/python3.13/site-packages/midealocal/`切换到 `midealocal`根目录
+3. 使用`pip show midea-lan`来获取`midealan`, 例如, 我的Path为: `/usr/local/lib/python3.13/site-packages`
+4. 使用`cd /usr/local/lib/python3.13/site-packages/midealan/`切换到 `midealan`根目录
 5. 使用`vi`直接修改, 或者使用`scp`上传文件, 或者使用`wget`下载github raw文件.
 6. 用上传或下载的文件替换同名的旧文件即可.
 7. 重启HA重新加载修改后的源码.
@@ -82,7 +82,7 @@
 例如: 有一个github的PR, 需要修改`devices/cd/message.py`,
 
 > 首先获取github PR中对应文件的raw file URL, 然后使用 `wget` 命令带上 `-O devices/cd/message.py` 去下载文件并覆盖已经存在的`devices/cd/message.py`即可
-> `wget https://github.com/midea-lan/midea-local/raw/xxxx/midealocal/devices/cd/message.py -O devices/cd/message.py`
+> `wget https://github.com/wuwentao/midea-lan/raw/xxxx/midealan/devices/cd/message.py -O devices/cd/message.py`
 
 ## 获取设备json配置文件
 
@@ -98,11 +98,11 @@
 
 ## 获取设备类型和SN
 
-`midealocal`是python3的pip package, 安装在HA core 中，而HA Core则属于HAOS里面运行的一个docker container.
+`midealan`是python3的pip package, 安装在HA core 中，而HA Core则属于HAOS里面运行的一个docker container.
 
 1. SSH登录HAOS
 2. 在HAOS中执行如下命令进入HA Core所在的docker: `docker exec -it homeassistant /bin/bash`
-3. 在HA Core的shell中执行如下命令来获取设备类型和SN: `python3 -m midealocal.cli discover --get_sn --host 192.168.2.127` (请替换示例命令中的IP为你的设备IP).
+3. 在HA Core的shell中执行如下命令来获取设备类型和SN: `python3 -m midealan.cli discover --get_sn --host 192.168.2.127` (请替换示例命令中的IP为你的设备IP).
 
 执行以上命令的输出如下:
 

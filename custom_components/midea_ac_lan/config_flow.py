@@ -47,15 +47,14 @@ from homeassistant.core import callback
 from homeassistant.helpers.aiohttp_client import async_create_clientsession
 from homeassistant.helpers.json import save_json
 from homeassistant.util.json import load_json
-from midealocal.cloud import (
+from midealan.cloud import (
     PRESET_ACCOUNT_DATA,
     SUPPORTED_CLOUDS,
     MideaCloud,
     get_midea_cloud,
 )
-from midealocal.device import AuthException, MideaDevice, ProtocolVersion
-from midealocal.discover import discover
-from midealocal.exceptions import SocketException
+from midealan.device import MideaDevice, ProtocolVersion
+from midealan.discover import discover
 
 if TYPE_CHECKING:
     from aiohttp import ClientSession
@@ -144,7 +143,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
         record_file = storage_path.joinpath(f"{data[CONF_DEVICE_ID]!s}.json")
         save_json(str(record_file), data)
 
-    def _load_device_config(self, device_id: str) -> Any:  # ruff:ignore[any-type]
+    def _load_device_config(self, device_id: int | str) -> Any:  # ruff:ignore[any-type]
         """Load device config from json file with device id.
 
         Returns
@@ -402,7 +401,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
             # ip exist
             else:
                 ip_address = discovery_info[CONF_IP_ADDRESS]
-            # use midea-local discover() to get devices list with ip_address
+            # use midea-lan discover() to get devices list with ip_address
             self.devices = await self.hass.async_add_executor_job(
                 lambda: discover(list(self.supports.keys()), ip_address=ip_address),
             )
@@ -514,7 +513,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                 subtype=0,
                 attributes={},
             )
-            if await self.hass.async_add_executor_job(self._try_connect_key, dm):
+            if await self.hass.async_add_executor_job(self._try_connect_device, dm):
                 return value
             # return debug log with failed key
             _LOGGER.debug(
@@ -527,58 +526,21 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
         return {"error": "connect_error"}
 
     @staticmethod
-    def _try_connect_key(dm: MideaDevice) -> bool:
-        """Connect + authenticate a device, closing the socket afterwards.
-
-        Runs the blocking socket I/O (connect/authenticate/recv) in an executor
-        so it never blocks the event loop.
-
-        Returns
-        -------
-        True if the device connected and authenticated successfully.
-
-        """
-        if dm.connect():
-            try:
-                dm.authenticate()
-            except AuthException:
-                _LOGGER.debug("Unable to authenticate.")
-                dm.close_socket()
-            except SocketException:
-                _LOGGER.debug("Socket closed.")
-                dm.close_socket()
-            else:
-                dm.close_socket()
-                return True
-        return False
-
-    @staticmethod
-    def _try_connect_manual(dm: MideaDevice, authenticate_v3: bool) -> bool:
-        """Connect (and for V3, authenticate) a manually-entered device.
+    def _try_connect_device(dm: MideaDevice) -> bool:
+        """Connect to a device, closing the socket afterwards.
 
         Runs the blocking socket I/O in an executor so it never blocks the
-        event loop.
+        event loop. V3 authentication is handled inside midea-lan's connect().
 
         Returns
         -------
-        True if the device connected (and authenticated for V3) successfully.
+        True if the device connected successfully.
 
         """
-        if dm.connect():
-            try:
-                if authenticate_v3:
-                    dm.authenticate()
-            except SocketException:
-                _LOGGER.exception("Socket closed.")
-            except AuthException:
-                _LOGGER.exception(
-                    "Unable to authenticate with provided key and token.",
-                )
-                dm.close_socket()
-            else:
-                dm.close_socket()
-                return True
-        return False
+        try:
+            return dm.connect()
+        finally:
+            dm.close_socket()
 
     async def async_step_auto(
         self,
@@ -606,7 +568,10 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                 CONF_PORT: device.get(CONF_PORT),
                 CONF_MODEL: device.get(CONF_MODEL),
             }
-            storage_device = self._load_device_config(device_id)
+            storage_device = await self.hass.async_add_executor_job(
+                self._load_device_config,
+                device_id,
+            )
             # device config already exist, load from local json without cloud
             if self._check_storage_device(device, storage_device):
                 self.found_device = {
@@ -824,11 +789,9 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                 subtype=0,
                 attributes={},
             )
-            authenticate_v3 = user_input[CONF_PROTOCOL] == ProtocolVersion.V3
             if await self.hass.async_add_executor_job(
-                self._try_connect_manual,
+                self._try_connect_device,
                 dm,
-                authenticate_v3,
             ):
                 data = {
                     CONF_NAME: user_input[CONF_NAME],
@@ -845,7 +808,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                     CONF_SN: device.get(CONF_SN),
                 }
                 # save device json config when adding new device
-                self._save_device_config(data)
+                await self.hass.async_add_executor_job(self._save_device_config, data)
                 # finish add device entry
                 return self.async_create_entry(
                     title=f"{user_input[CONF_NAME]}",

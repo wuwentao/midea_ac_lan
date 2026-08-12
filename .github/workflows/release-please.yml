@@ -14,6 +14,13 @@ on:
     branches:
       - main
 
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Force release version, e.g. 2026.8.0"
+        required: false
+        type: string
+
 permissions:
   contents: write
   pull-requests: write
@@ -28,3 +35,4 @@ jobs:
           target-branch: main
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
+          release-as: ${{ inputs.version }}

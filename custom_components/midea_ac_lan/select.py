@@ -7,14 +7,14 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_DEVICE_ID, CONF_SWITCHES, Platform
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
-from midealocal.device import MideaDevice
+from midealan.device import MideaDevice
 
 from .const import DEVICES, DOMAIN, supports_model
 from .midea_devices import MIDEA_DEVICES
 from .midea_entity import MideaEntity
 
 if TYPE_CHECKING:
-    from midealocal.devices.e1 import MideaE1Device
+    from midealan.devices.e1 import MideaE1Device
 
 
 async def async_setup_entry(
@@ -94,7 +94,7 @@ class MideaSelect(MideaEntity, SelectEntity):
         self._device.set_attribute(self._attribute_key, option)
 
     def _get_options_dict(self) -> dict[int, str]:
-        """Return option dict from the backing midea-local device.
+        """Return option dict from the backing midea-lan device.
 
         Returns
         -------
@@ -104,7 +104,7 @@ class MideaSelect(MideaEntity, SelectEntity):
         return cast("dict[int, str]", getattr(self._device, self._options_dict_name))
 
     def _select_e1_work_mode(self, option: str) -> None:
-        """Set dishwasher work mode via midea-local's public E1 API.
+        """Set dishwasher work mode via midea-lan's public E1 API.
 
         Raises
         ------

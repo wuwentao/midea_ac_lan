@@ -21,19 +21,19 @@ repos:
       - id: check-yaml
       - id: detect-private-key
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.16.0
+    rev: v0.16.1
     hooks:
       - id: ruff
         args:
           - --fix
       - id: ruff-format
   - repo: https://github.com/astral-sh/uv-pre-commit
-    rev: 0.11.32
+    rev: 0.12.1
     hooks:
       # Keep uv.lock in sync with pyproject.toml.
       - id: uv-lock
   - repo: https://github.com/commitizen-tools/commitizen
-    rev: v4.16.5
+    rev: v4.17.0
     hooks:
       - id: commitizen
         stages: [commit-msg]
