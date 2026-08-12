@@ -114,9 +114,9 @@ Known settings:
 | sensor.{DEVICEID}\_compressor_current          | sensor        | Compressor Current               |
 | sensor.{DEVICEID}\_compressor_voltage          | sensor        | Compressor Voltage               |
 | sensor.{DEVICEID}\_compressor_power            | sensor        | Compressor Power                 |
-| sensor.{DEVICEID}\_indoor_coil_temperature     | sensor        | Indoor Coil Temperature (T1)     |
-| sensor.{DEVICEID}\_evaporator_temperature      | sensor        | Evaporator Temperature (T2)      |
-| sensor.{DEVICEID}\_condenser_temperature       | sensor        | Condenser Temperature (T3)       |
+| sensor.{DEVICEID}\_indoor_ambient_temperature  | sensor        | Indoor Ambient Temperature (T1)  |
+| sensor.{DEVICEID}\_indoor_coil_temperature     | sensor        | Indoor Coil Temperature (T2)     |
+| sensor.{DEVICEID}\_outdoor_coil_temperature    | sensor        | Outdoor Coil Temperature (T3)    |
 | sensor.{DEVICEID}\_outdoor_ambient_temperature | sensor        | Outdoor Ambient Temperature (T4) |
 | sensor.{DEVICEID}\_discharge_pipe_temperature  | sensor        | Discharge Pipe Temperature (TP)  |
 | sensor.{DEVICEID}\_indoor_fan_speed            | sensor        | Indoor Fan Speed                 |

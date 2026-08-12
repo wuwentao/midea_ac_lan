@@ -22,16 +22,16 @@ from homeassistant.const import (
 )
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
-from midealocal.device import DeviceType
-from midealocal.devices.c3 import DeviceAttributes as C3Attributes
-from midealocal.devices.c3 import MideaC3Device
-from midealocal.devices.cd import DeviceAttributes as CDAttributes
-from midealocal.devices.cd import MideaCDDevice
-from midealocal.devices.e2 import DeviceAttributes as E2Attributes
-from midealocal.devices.e2 import MideaE2Device
-from midealocal.devices.e3 import MideaE3Device
-from midealocal.devices.e6 import DeviceAttributes as E6Attributes
-from midealocal.devices.e6 import MideaE6Device
+from midealan.device import DeviceType
+from midealan.devices.c3 import DeviceAttributes as C3Attributes
+from midealan.devices.c3 import MideaC3Device
+from midealan.devices.cd import DeviceAttributes as CDAttributes
+from midealan.devices.cd import MideaCDDevice
+from midealan.devices.e2 import DeviceAttributes as E2Attributes
+from midealan.devices.e2 import MideaE2Device
+from midealan.devices.e3 import MideaE3Device
+from midealan.devices.e6 import DeviceAttributes as E6Attributes
+from midealan.devices.e6 import MideaE6Device
 
 from .const import DEVICES, DOMAIN
 from .midea_devices import MIDEA_DEVICES

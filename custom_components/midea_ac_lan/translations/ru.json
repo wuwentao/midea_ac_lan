@@ -1027,17 +1027,20 @@
       "compressor_power": {
         "name": "Мощность компрессора"
       },
-      "indoor_coil_temperature": {
-        "name": "Температура внутреннего теплообменника (T1)"
+      "indoor_ambient_temperature": {
+        "name": "Комнатная температура(T1)"
       },
-      "evaporator_temperature": {
-        "name": "Температура испарителя (T2)"
+      "indoor_coil_temperature": {
+        "name": "Температура внутреннего теплообменника(T2)"
+      },
+      "outdoor_coil_temperature": {
+        "name": "Температура наружного теплообменника(T3)"
       },
       "outdoor_ambient_temperature": {
-        "name": "Наружная температура окружающей среды (T4)"
+        "name": "Наружная температура окружающей среды(T4)"
       },
       "discharge_pipe_temperature": {
-        "name": "Температура нагнетательной трубы (TP)"
+        "name": "Температура нагнетательной трубы(TP)"
       },
       "indoor_fan_speed": {
         "name": "Скорость внутреннего вентилятора"

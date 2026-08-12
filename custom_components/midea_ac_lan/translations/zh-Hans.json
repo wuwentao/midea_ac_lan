@@ -1015,17 +1015,20 @@
       "compressor_power": {
         "name": "压缩机功率"
       },
-      "indoor_coil_temperature": {
-        "name": "室内盘管温度 (T1)"
+      "indoor_ambient_temperature": {
+        "name": "室内环境温度(T1)"
       },
-      "evaporator_temperature": {
-        "name": "蒸发器温度 (T2)"
+      "indoor_coil_temperature": {
+        "name": "室内盘管温度(T2)"
+      },
+      "outdoor_coil_temperature": {
+        "name": "室外盘管温度(T3)"
       },
       "outdoor_ambient_temperature": {
-        "name": "室外环境温度 (T4)"
+        "name": "室外环境温度(T4)"
       },
       "discharge_pipe_temperature": {
-        "name": "排气管温度 (TP)"
+        "name": "排气管温度(TP)"
       },
       "indoor_fan_speed": {
         "name": "室内风机转速"

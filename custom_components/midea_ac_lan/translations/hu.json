@@ -1027,17 +1027,20 @@
       "compressor_power": {
         "name": "Kompresszor teljesítmény"
       },
-      "indoor_coil_temperature": {
-        "name": "Beltéri hőcserélő hőmérséklet (T1)"
+      "indoor_ambient_temperature": {
+        "name": "Beltéri környezeti hőmérséklet(T1)"
       },
-      "evaporator_temperature": {
-        "name": "Párologtató hőmérséklet (T2)"
+      "indoor_coil_temperature": {
+        "name": "Beltéri hőcserélő hőmérséklet(T2)"
+      },
+      "outdoor_coil_temperature": {
+        "name": "Kültéri hőcserélő hőmérséklet(T3)"
       },
       "outdoor_ambient_temperature": {
-        "name": "Kültéri környezeti hőmérséklet (T4)"
+        "name": "Kültéri környezeti hőmérséklet(T4)"
       },
       "discharge_pipe_temperature": {
-        "name": "Nyomócső hőmérséklet (TP)"
+        "name": "Nyomócső hőmérséklet(TP)"
       },
       "indoor_fan_speed": {
         "name": "Beltéri ventilátor sebesség"

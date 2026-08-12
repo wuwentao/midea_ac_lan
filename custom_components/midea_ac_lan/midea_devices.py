@@ -5,8 +5,8 @@ from typing import Any
 from homeassistant.components.binary_sensor import BinarySensorDeviceClass
 from homeassistant.components.sensor import SensorDeviceClass, SensorStateClass
 from homeassistant.const import (
-    CONCENTRATION_MICROGRAMS_PER_CUBIC_METER,
-    CONCENTRATION_PARTS_PER_MILLION,
+    MAJOR_VERSION,
+    MINOR_VERSION,
     PERCENTAGE,
     REVOLUTIONS_PER_MINUTE,
     Platform,
@@ -19,40 +19,61 @@ from homeassistant.const import (
     UnitOfTime,
     UnitOfVolume,
 )
-from midealocal.devices.a1 import DeviceAttributes as A1Attributes
-from midealocal.devices.ac import DeviceAttributes as ACAttributes
-from midealocal.devices.ad import DeviceAttributes as ADAttributes
-from midealocal.devices.b0 import DeviceAttributes as B0Attributes
-from midealocal.devices.b1 import DeviceAttributes as B1Attributes
-from midealocal.devices.b3 import DeviceAttributes as B3Attributes
-from midealocal.devices.b4 import DeviceAttributes as B4Attributes
-from midealocal.devices.b6 import DeviceAttributes as B6Attributes
-from midealocal.devices.bf import DeviceAttributes as BFAttributes
-from midealocal.devices.c2 import DeviceAttributes as C2Attributes
-from midealocal.devices.c3 import DeviceAttributes as C3Attributes
-from midealocal.devices.ca import DeviceAttributes as CAAttributes
-from midealocal.devices.cc import DeviceAttributes as CCAttributes
-from midealocal.devices.cd import DeviceAttributes as CDAttributes
-from midealocal.devices.ce import DeviceAttributes as CEAttributes
-from midealocal.devices.cf import DeviceAttributes as CFAttributes
-from midealocal.devices.da import DeviceAttributes as DAAttributes
-from midealocal.devices.db import DeviceAttributes as DBAttributes
-from midealocal.devices.dc import DeviceAttributes as DCAttributes
-from midealocal.devices.e1 import DeviceAttributes as E1Attributes
-from midealocal.devices.e2 import DeviceAttributes as E2Attributes
-from midealocal.devices.e3 import DeviceAttributes as E3Attributes
-from midealocal.devices.e6 import DeviceAttributes as E6Attributes
-from midealocal.devices.e8 import DeviceAttributes as E8Attributes
-from midealocal.devices.ea import DeviceAttributes as EAAttributes
-from midealocal.devices.ec import DeviceAttributes as ECAttributes
-from midealocal.devices.ed import DeviceAttributes as EDAttributes
-from midealocal.devices.fa import DeviceAttributes as FAAttributes
-from midealocal.devices.fb import DeviceAttributes as FBAttributes
-from midealocal.devices.fc import DeviceAttributes as FCAttributes
-from midealocal.devices.fd import DeviceAttributes as FDAttributes
-from midealocal.devices.x26 import DeviceAttributes as X26Attributes
-from midealocal.devices.x34 import DeviceAttributes as X34Attributes
-from midealocal.devices.x40 import DeviceAttributes as X40Attributes
+
+# HA 2026.7 added UnitOfDensity/UnitOfRatio, and HA 2026.8 started deprecating
+# CONCENTRATION_MICROGRAMS_PER_CUBIC_METER / CONCENTRATION_PARTS_PER_MILLION in favor of
+# them (scheduled for removal in HA 2027.8). Both old and new names resolve to the
+# identical runtime string ("μg/m³" / "ppm"), so this is purely cosmetic. This
+# integration's floor is HA 2024.4.1, where UnitOfDensity/UnitOfRatio do not exist yet,
+# so branch on the HA version like the rest of this codebase does for newer HA APIs (see
+# other MAJOR_VERSION/MINOR_VERSION usages, e.g. midea_entity.py).
+if (MAJOR_VERSION, MINOR_VERSION) >= (2026, 7):
+    from homeassistant.const import (  # pylint: disable=E0611
+        UnitOfDensity,
+        UnitOfRatio,
+    )
+
+    CONCENTRATION_MICROGRAMS_PER_CUBIC_METER = UnitOfDensity.MICROGRAMS_PER_CUBIC_METER
+    CONCENTRATION_PARTS_PER_MILLION = UnitOfRatio.PARTS_PER_MILLION
+else:
+    from homeassistant.const import (  # type: ignore[no-redef]
+        CONCENTRATION_MICROGRAMS_PER_CUBIC_METER,
+        CONCENTRATION_PARTS_PER_MILLION,
+    )
+from midealan.devices.a1 import DeviceAttributes as A1Attributes
+from midealan.devices.ac import DeviceAttributes as ACAttributes
+from midealan.devices.ad import DeviceAttributes as ADAttributes
+from midealan.devices.b0 import DeviceAttributes as B0Attributes
+from midealan.devices.b1 import DeviceAttributes as B1Attributes
+from midealan.devices.b3 import DeviceAttributes as B3Attributes
+from midealan.devices.b4 import DeviceAttributes as B4Attributes
+from midealan.devices.b6 import DeviceAttributes as B6Attributes
+from midealan.devices.bf import DeviceAttributes as BFAttributes
+from midealan.devices.c2 import DeviceAttributes as C2Attributes
+from midealan.devices.c3 import DeviceAttributes as C3Attributes
+from midealan.devices.ca import DeviceAttributes as CAAttributes
+from midealan.devices.cc import DeviceAttributes as CCAttributes
+from midealan.devices.cd import DeviceAttributes as CDAttributes
+from midealan.devices.ce import DeviceAttributes as CEAttributes
+from midealan.devices.cf import DeviceAttributes as CFAttributes
+from midealan.devices.da import DeviceAttributes as DAAttributes
+from midealan.devices.db import DeviceAttributes as DBAttributes
+from midealan.devices.dc import DeviceAttributes as DCAttributes
+from midealan.devices.e1 import DeviceAttributes as E1Attributes
+from midealan.devices.e2 import DeviceAttributes as E2Attributes
+from midealan.devices.e3 import DeviceAttributes as E3Attributes
+from midealan.devices.e6 import DeviceAttributes as E6Attributes
+from midealan.devices.e8 import DeviceAttributes as E8Attributes
+from midealan.devices.ea import DeviceAttributes as EAAttributes
+from midealan.devices.ec import DeviceAttributes as ECAttributes
+from midealan.devices.ed import DeviceAttributes as EDAttributes
+from midealan.devices.fa import DeviceAttributes as FAAttributes
+from midealan.devices.fb import DeviceAttributes as FBAttributes
+from midealan.devices.fc import DeviceAttributes as FCAttributes
+from midealan.devices.fd import DeviceAttributes as FDAttributes
+from midealan.devices.x26 import DeviceAttributes as X26Attributes
+from midealan.devices.x34 import DeviceAttributes as X34Attributes
+from midealan.devices.x40 import DeviceAttributes as X40Attributes
 
 FRESH_AIR_EXHAUST = "fresh_air_exhaust"
 FRESH_AIR_EXHAUST_MODE = "fresh_air_exhaust_mode"
@@ -647,28 +668,28 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "unit": UnitOfElectricPotential.VOLT,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
-            ACAttributes.indoor_coil_temperature: {
+            ACAttributes.indoor_ambient_temperature: {
                 "type": Platform.SENSOR,
-                "required_attribute": ACAttributes.indoor_coil_temperature,
-                "translation_key": "indoor_coil_temperature",
+                "required_attribute": ACAttributes.indoor_ambient_temperature,
+                "translation_key": "indoor_ambient_temperature",
                 "name": "Indoor Coil Temperature (T1)",
                 "device_class": SensorDeviceClass.TEMPERATURE,
                 "unit": UnitOfTemperature.CELSIUS,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
-            ACAttributes.evaporator_temperature: {
+            ACAttributes.indoor_coil_temperature: {
                 "type": Platform.SENSOR,
-                "required_attribute": ACAttributes.evaporator_temperature,
-                "translation_key": "evaporator_temperature",
+                "required_attribute": ACAttributes.indoor_coil_temperature,
+                "translation_key": "indoor_coil_temperature",
                 "name": "Evaporator Temperature (T2)",
                 "device_class": SensorDeviceClass.TEMPERATURE,
                 "unit": UnitOfTemperature.CELSIUS,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
-            ACAttributes.condenser_temperature: {
+            ACAttributes.outdoor_coil_temperature: {
                 "type": Platform.SENSOR,
-                "required_attribute": ACAttributes.condenser_temperature,
-                "translation_key": "condenser_temperature",
+                "required_attribute": ACAttributes.outdoor_coil_temperature,
+                "translation_key": "outdoor_coil_temperature",
                 "name": "Condenser Temperature (T3)",
                 "device_class": SensorDeviceClass.TEMPERATURE,
                 "unit": UnitOfTemperature.CELSIUS,
@@ -904,6 +925,14 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "icon": "mdi:box-shadow",
                 "device_class": BinarySensorDeviceClass.DOOR,
             },
+            # Deliberately NO device_class here. BinarySensorDeviceClass.LOCK
+            # defines on = UNLOCKED, but this attribute is True when the child
+            # lock is ENGAGED, so that device class would display it inverted.
+            B0Attributes.child_lock: {
+                "type": Platform.BINARY_SENSOR,
+                "name": "Child Lock",
+                "icon": "mdi:lock",
+            },
             B0Attributes.tank_ejected: {
                 "type": Platform.BINARY_SENSOR,
                 "translation_key": "tank_ejected",
@@ -937,6 +966,16 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "status",
                 "name": "Status",
                 "icon": "mdi:information",
+            },
+            B0Attributes.mode: {
+                "type": Platform.SENSOR,
+                "name": "Mode",
+                "icon": "mdi:chef-hat",
+            },
+            B0Attributes.fire_power: {
+                "type": Platform.SENSOR,
+                "name": "Fire Power",
+                "icon": "mdi:fire",
             },
             B0Attributes.time_remaining: {
                 "type": Platform.SENSOR,
@@ -1669,7 +1708,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Silent Mode",
                 "icon": "mdi:fan-remove",
             },
-            C3Attributes.SILENT_LEVEL: {
+            C3Attributes.silent_level: {
                 "type": Platform.SELECT,
                 "translation_key": "silent_level",
                 "name": "Silent Level",
