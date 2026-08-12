@@ -1,5 +1,37 @@
 # Changelog
 
+## [1.0.0](https://github.com/wuwentao/midea_ac_lan/compare/v0.7.1...v1.0.0) (2026-08-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* replace midea-local with midea-lan ([#990](https://github.com/wuwentao/midea_ac_lan/issues/990))
+
+### Features
+
+* **ac:** add icons for silent and full mode ([#962](https://github.com/wuwentao/midea_ac_lan/issues/962)) ([7e9bb2e](https://github.com/wuwentao/midea_ac_lan/commit/7e9bb2e3e900a19e48107dd42778ae6afbfef4b0))
+* **b0:** expose child_lock, mode and fire_power entities ([#967](https://github.com/wuwentao/midea_ac_lan/issues/967)) ([dc2d318](https://github.com/wuwentao/midea_ac_lan/commit/dc2d318f9c87c137c206fe37f7870424e31d522a))
+* replace midea-local with midea-lan ([#990](https://github.com/wuwentao/midea_ac_lan/issues/990)) ([ba4ad15](https://github.com/wuwentao/midea_ac_lan/commit/ba4ad1572be8071f7c2e0a535b3455011633bc5f))
+* **water_heater:** advertise ON_OFF for E3/E6/C3 ([#930](https://github.com/wuwentao/midea_ac_lan/issues/930)) ([94e18ac](https://github.com/wuwentao/midea_ac_lan/commit/94e18acd8c6b1f71fe010f04672b1a9151d40a22))
+
+
+### Bug Fixes
+
+* avoid deprecated CONCENTRATION_* constants on HA &gt;= 2026.7 ([#977](https://github.com/wuwentao/midea_ac_lan/issues/977)) ([ed760ee](https://github.com/wuwentao/midea_ac_lan/commit/ed760ee34675d873acfde3786830f6293c3b634a))
+* **climate:** bounds-check device mode before indexing hvac list ([#919](https://github.com/wuwentao/midea_ac_lan/issues/919)) ([e982c8c](https://github.com/wuwentao/midea_ac_lan/commit/e982c8cdb3ee28896ed206c586eb849aa2588186))
+* **config_flow:** avoid duplicate auth and blocking io ([#964](https://github.com/wuwentao/midea_ac_lan/issues/964)) ([0b9db57](https://github.com/wuwentao/midea_ac_lan/commit/0b9db57355472e55b7c22d9a4ccf314d9a5a43cd))
+* **config_flow:** run blocking socket I/O in executor jobs ([#915](https://github.com/wuwentao/midea_ac_lan/issues/915)) ([3e1e101](https://github.com/wuwentao/midea_ac_lan/commit/3e1e1010876cccc0fffbb9180e56da7cd1d731a7))
+* **config_flow:** stop mutating options list while iterating it ([#916](https://github.com/wuwentao/midea_ac_lan/issues/916)) ([8dde3da](https://github.com/wuwentao/midea_ac_lan/commit/8dde3da4175eab8b4d0b6286a499245cd61242cb))
+* **da:** correct wash_level label duplicated as "Rinse count" ([#913](https://github.com/wuwentao/midea_ac_lan/issues/913)) ([97e6da3](https://github.com/wuwentao/midea_ac_lan/commit/97e6da3ce168a41ffbbe7198d0ab98b7d07479bf))
+* **entity:** avoid doubled device name in the fallback entity name ([#927](https://github.com/wuwentao/midea_ac_lan/issues/927)) ([a8d9e63](https://github.com/wuwentao/midea_ac_lan/commit/a8d9e631861c614ce91ccc3e0f48a46159ab0067))
+* **entity:** route sensor/select/button updates through shutdown guard ([#914](https://github.com/wuwentao/midea_ac_lan/issues/914)) ([4478757](https://github.com/wuwentao/midea_ac_lan/commit/4478757abacc96af42183e7dd62b4ffc7fb29d99))
+* **fan:** stop capitalizing preset mode so CE "ECO mode" works ([#912](https://github.com/wuwentao/midea_ac_lan/issues/912)) ([04e3146](https://github.com/wuwentao/midea_ac_lan/commit/04e314619e1dc7f551be96e6a4337faf391c1147))
+* **hacs:** raise advertised minimum Home Assistant to 2024.4.1 ([#923](https://github.com/wuwentao/midea_ac_lan/issues/923)) ([1ccc9fe](https://github.com/wuwentao/midea_ac_lan/commit/1ccc9feb7c553da9e67743f8632d2764386b92cc))
+* **init:** make options reload robust and unload report real result ([#917](https://github.com/wuwentao/midea_ac_lan/issues/917)) ([dca4e8f](https://github.com/wuwentao/midea_ac_lan/commit/dca4e8f5087753848ddacfd9fdb082efa36d33f2))
+* **light:** recompute color modes so dimmable lights are not stuck on/off ([#911](https://github.com/wuwentao/midea_ac_lan/issues/911)) ([ec3c939](https://github.com/wuwentao/midea_ac_lan/commit/ec3c9393700bb4f368fe6028d7d7edf01b2205da))
+* **registry:** correct invalid and non-standard entity icons ([#918](https://github.com/wuwentao/midea_ac_lan/issues/918)) ([66fe75e](https://github.com/wuwentao/midea_ac_lan/commit/66fe75e3f98c3860520dadcbdc9b948d29bc8291))
+* **vscode:** sync editor config with pre-commit/CI ([#955](https://github.com/wuwentao/midea_ac_lan/issues/955)) ([27da176](https://github.com/wuwentao/midea_ac_lan/commit/27da176955a92bd243d1e323328de740692b231e))
+
 ## [0.7.1](https://github.com/wuwentao/midea_ac_lan/compare/v0.7.0...v0.7.1) (2026-07-27)
 
 
