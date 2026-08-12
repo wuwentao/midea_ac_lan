@@ -7,14 +7,14 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_DEVICE_ID, CONF_SWITCHES, Platform
 from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
-from midealocal.device import MideaDevice
+from midealan.device import MideaDevice
 
 from .const import DEVICES, DOMAIN, supports_model
 from .midea_devices import MIDEA_DEVICES
 from .midea_entity import MideaEntity
 
 if TYPE_CHECKING:
-    from midealocal.devices.e1 import MideaE1Device
+    from midealan.devices.e1 import MideaE1Device
 
 
 async def async_setup_entry(

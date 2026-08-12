@@ -90,9 +90,9 @@
 | sensor.{DEVICEID}\_compressor_current          | sensor        | Compressor Current               | 压缩机电流        |
 | sensor.{DEVICEID}\_compressor_voltage          | sensor        | Compressor Voltage               | 压缩机电压        |
 | sensor.{DEVICEID}\_compressor_power            | sensor        | Compressor Power                 | 压缩机实时功率    |
-| sensor.{DEVICEID}\_indoor_coil_temperature     | sensor        | Indoor Coil Temperature (T1)     | 内机盘管温度 (T1) |
-| sensor.{DEVICEID}\_evaporator_temperature      | sensor        | Evaporator Temperature (T2)      | 蒸发器温度 (T2)   |
-| sensor.{DEVICEID}\_condenser_temperature       | sensor        | Condenser Temperature (T3)       | 冷凝器温度 (T3)   |
+| sensor.{DEVICEID}\_indoor_ambient_temperature  | sensor        | Indoor Ambient Temperature (T1)  | 室内环境温度 (T1) |
+| sensor.{DEVICEID}\_indoor_coil_temperature     | sensor        | Indoor Coil Temperature (T2)     | 室内盘管温度 (T2) |
+| sensor.{DEVICEID}\_outdoor_coil_temperature    | sensor        | Outdoor Coil Temperature (T3)    | 室外盘管温度 (T3) |
 | sensor.{DEVICEID}\_outdoor_ambient_temperature | sensor        | Outdoor Ambient Temperature (T4) | 室外环境温度 (T4) |
 | sensor.{DEVICEID}\_discharge_pipe_temperature  | sensor        | Discharge Pipe Temperature (TP)  | 排气管温度 (TP)   |
 | sensor.{DEVICEID}\_indoor_fan_speed            | sensor        | Indoor Fan Speed                 | 内风机转速        |

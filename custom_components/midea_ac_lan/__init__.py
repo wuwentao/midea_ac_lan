@@ -30,9 +30,9 @@ from homeassistant.const import (
 )
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.typing import ConfigType
-from midealocal.device import DeviceType, MideaDevice, ProtocolVersion
-from midealocal.devices import device_selector
-from midealocal.discover import discover
+from midealan.device import DeviceType, MideaDevice, ProtocolVersion
+from midealan.devices import device_selector
+from midealan.discover import discover
 
 from .const import (
     ALL_PLATFORM,
@@ -229,7 +229,7 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
     if protocol == ProtocolVersion.V3 and (key == "" or token == ""):
         _LOGGER.error("For V3 devices, the key and the token is required")
         return False
-    # device_selector in `midealocal/devices/__init__.py`
+    # device_selector in `midealan/devices/__init__.py`
     # hass core version >= 2024.3
     if (MAJOR_VERSION, MINOR_VERSION) >= (2024, 3):
         device = await hass.async_add_import_executor_job(

@@ -783,17 +783,20 @@
       "compressor_power": {
         "name": "Potencia del compresor"
       },
-      "indoor_coil_temperature": {
-        "name": "Temperatura del serpentín interior (T1)"
+      "indoor_ambient_temperature": {
+        "name": "Temperatura ambiente interior(T1)"
       },
-      "evaporator_temperature": {
-        "name": "Temperatura del evaporador (T2)"
+      "indoor_coil_temperature": {
+        "name": "Temperatura del serpentín interior(T2)"
+      },
+      "outdoor_coil_temperature": {
+        "name": "Temperatura del serpentín exterior(T3)"
       },
       "outdoor_ambient_temperature": {
-        "name": "Temperatura ambiente exterior (T4)"
+        "name": "Temperatura ambiente exterior(T4)"
       },
       "discharge_pipe_temperature": {
-        "name": "Temperatura del tubo de descarga (TP)"
+        "name": "Temperatura del tubo de descarga(TP)"
       },
       "indoor_fan_speed": {
         "name": "Velocidad del ventilador interior"

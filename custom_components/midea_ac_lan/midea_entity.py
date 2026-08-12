@@ -14,7 +14,7 @@ else:
     )
 from homeassistant.helpers.device_registry import CONNECTION_NETWORK_MAC, format_mac
 from homeassistant.helpers.entity import Entity
-from midealocal.device import MideaDevice
+from midealan.device import MideaDevice
 
 from .const import DOMAIN
 from .midea_devices import MIDEA_DEVICES

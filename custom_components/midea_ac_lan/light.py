@@ -15,8 +15,8 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_DEVICE_ID, CONF_SWITCHES, Platform
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
-from midealocal.devices.x13 import DeviceAttributes as X13Attributes
-from midealocal.devices.x13 import Midea13Device
+from midealan.devices.x13 import DeviceAttributes as X13Attributes
+from midealan.devices.x13 import Midea13Device
 
 from .const import DEVICES, DOMAIN
 from .midea_devices import MIDEA_DEVICES
