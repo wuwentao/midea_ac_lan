@@ -925,6 +925,14 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "icon": "mdi:box-shadow",
                 "device_class": BinarySensorDeviceClass.DOOR,
             },
+            # Deliberately NO device_class here. BinarySensorDeviceClass.LOCK
+            # defines on = UNLOCKED, but this attribute is True when the child
+            # lock is ENGAGED, so that device class would display it inverted.
+            B0Attributes.child_lock: {
+                "type": Platform.BINARY_SENSOR,
+                "name": "Child Lock",
+                "icon": "mdi:lock",
+            },
             B0Attributes.tank_ejected: {
                 "type": Platform.BINARY_SENSOR,
                 "translation_key": "tank_ejected",
@@ -958,6 +966,16 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "status",
                 "name": "Status",
                 "icon": "mdi:information",
+            },
+            B0Attributes.mode: {
+                "type": Platform.SENSOR,
+                "name": "Mode",
+                "icon": "mdi:chef-hat",
+            },
+            B0Attributes.fire_power: {
+                "type": Platform.SENSOR,
+                "name": "Fire Power",
+                "icon": "mdi:fire",
             },
             B0Attributes.time_remaining: {
                 "type": Platform.SENSOR,
