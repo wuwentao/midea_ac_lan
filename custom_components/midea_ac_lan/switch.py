@@ -42,11 +42,15 @@ async def async_setup_entry(
             and required_attribute not in device.attributes
         ):
             continue
-        dev = (
-            MideaEDTeaBarBoilSwitch(device, entity_key)
-            if device.device_type == DeviceType.ED and entity_key == "tea_bar"
-            else MideaSwitch(device, entity_key)
-        )
+        if device.device_type == DeviceType.ED and entity_key == "tea_bar":
+            dev = MideaEDTeaBarBoilSwitch(device, entity_key)
+        elif (
+            device.device_type == DeviceType.ED
+            and entity_key == "tea_bar_child_lock"
+        ):
+            dev = MideaEDTeaBarChildLockSwitch(device, entity_key)
+        else:
+            dev = MideaSwitch(device, entity_key)
         switches.append(dev)
     async_add_entities(switches)
 
@@ -88,3 +92,22 @@ class MideaEDTeaBarBoilSwitch(MideaSwitch):
     def turn_off(self, **kwargs: Any) -> None:  # ruff:ignore[any-type, unused-method-argument]
         """Stop the active boil cycle."""
         self._device.set_attribute(EDAttributes.boiling, False)
+
+
+class MideaEDTeaBarChildLockSwitch(MideaSwitch):
+    """Expose the tea-bar child lock with on/off switch semantics."""
+
+    _device: MideaEDDevice
+
+    @property
+    def is_on(self) -> bool:
+        """Whether the appliance child lock is enabled."""
+        return bool(self._device.get_attribute(EDAttributes.child_lock))
+
+    def turn_on(self, **kwargs: Any) -> None:  # ruff:ignore[any-type, unused-method-argument]
+        """Enable the child lock using the official model command."""
+        self._device.set_attribute(EDAttributes.child_lock, True)
+
+    def turn_off(self, **kwargs: Any) -> None:  # ruff:ignore[any-type, unused-method-argument]
+        """Disable the child lock using the official model command."""
+        self._device.set_attribute(EDAttributes.child_lock, False)

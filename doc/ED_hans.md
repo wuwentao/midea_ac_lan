@@ -6,25 +6,25 @@
 
 茶吧机子型号 395 默认生成以下实体：
 
-| EntityID                                       | 类型          | 描述                                                        |
-| ---------------------------------------------- | ------------- | ----------------------------------------------------------- |
-| sensor.{DEVICEID}\_current_temperature         | sensor        | 当前水温                                                    |
-| sensor.{DEVICEID}\_target_temperature          | sensor        | 目标水温                                                    |
-| binary_sensor.{DEVICEID}\_heating              | binary_sensor | 正在烧水                                                    |
-| binary_sensor.{DEVICEID}\_dispensing           | binary_sensor | 正在取水                                                    |
-| switch.{DEVICEID}\_tea_bar                     | switch        | “烧水开关”；打开后由设备自动取水并烧到 100℃，关闭时停止烧水 |
-| climate.{DEVICEID}\_tea_bar_temperature        | climate       | 开关式温控；开启按官方协议烧到 100℃，设置温度则按目标烧水   |
-| lock.{DEVICEID}\_child_lock                    | lock          | 使用型号 63000622 官方协议的童锁                            |
-| switch.{DEVICEID}\_keep_warm                   | switch        | 保温开关；使用型号 63000622 官方保温命令                    |
-| switch.{DEVICEID}\_cooling                     | switch        | 茶吧机制冷；使用型号 63000622 官方信号制冷命令              |
-| switch.{DEVICEID}\_screen_display              | switch        | 屏幕显示；开启时点亮，关闭时发送官方休眠命令                |
-| number.{DEVICEID}\_keep_warm_time              | number        | 保温时长；1–12 小时，每 0.5 小时一档                        |
-| sensor.{DEVICEID}\_keep_warm_remaining         | sensor        | 设备上报的剩余保温时间，单位为秒                            |
-| binary_sensor.{DEVICEID}\_lack_water           | binary_sensor | 设备报告缺水                                                |
-| binary_sensor.{DEVICEID}\_standby              | binary_sensor | 设备报告待机状态                                            |
-| binary_sensor.{DEVICEID}\_hot_water_dispensing | binary_sensor | 设备正在输出热水                                            |
-| binary_sensor.{DEVICEID}\_fault                | binary_sensor | 设备报告非零故障码                                          |
-| sensor.{DEVICEID}\_fault_code                  | sensor        | 设备上报的原始故障代码                                      |
+| EntityID                                       | 类型          | 描述                                                                         |
+| ---------------------------------------------- | ------------- | ---------------------------------------------------------------------------- |
+| sensor.{DEVICEID}\_current_temperature         | sensor        | 当前水温                                                                     |
+| sensor.{DEVICEID}\_target_temperature          | sensor        | 目标水温                                                                     |
+| binary_sensor.{DEVICEID}\_heating              | binary_sensor | 正在烧水                                                                     |
+| binary_sensor.{DEVICEID}\_dispensing           | binary_sensor | 正在取水                                                                     |
+| switch.{DEVICEID}\_tea_bar                     | switch        | “烧水开关”；打开后由设备自动取水并烧到 100℃，关闭时停止烧水                  |
+| climate.{DEVICEID}\_tea_bar_temperature        | climate       | 主“茶吧机”控制；普通开启按官方协议烧到 100℃，明确设温时支持 40–100℃ 整数温度 |
+| switch.{DEVICEID}\_tea_bar_child_lock          | switch        | 童锁开关；使用型号 63000622 官方协议，支持“打开/关闭”语义                    |
+| switch.{DEVICEID}\_keep_warm                   | switch        | 保温开关；使用型号 63000622 官方保温命令                                     |
+| switch.{DEVICEID}\_cooling                     | switch        | 茶吧机制冷；使用型号 63000622 官方信号制冷命令                               |
+| switch.{DEVICEID}\_screen_display              | switch        | 屏幕显示；开启时点亮，关闭时发送官方休眠命令                                 |
+| number.{DEVICEID}\_keep_warm_time              | number        | 保温时长；1–12 小时，每 0.5 小时一档                                         |
+| sensor.{DEVICEID}\_keep_warm_remaining         | sensor        | 剩余保温时间；界面按小时和分钟显示，并保留设备上报的原始分钟属性             |
+| binary_sensor.{DEVICEID}\_lack_water           | binary_sensor | 设备报告缺水                                                                 |
+| binary_sensor.{DEVICEID}\_standby              | binary_sensor | 设备报告待机状态                                                             |
+| binary_sensor.{DEVICEID}\_hot_water_dispensing | binary_sensor | 设备正在输出热水                                                             |
+| binary_sensor.{DEVICEID}\_fault                | binary_sensor | 设备报告非零故障码                                                           |
+| sensor.{DEVICEID}\_fault_code                  | sensor        | 设备上报的原始故障代码                                                       |
 
 ### 额外生成实体
 
