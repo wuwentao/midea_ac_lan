@@ -257,6 +257,51 @@
       },
       "water_pump_running": {
         "name": "Water Pump Running"
+      },
+      "status_cool": {
+        "name": "Cooling Status"
+      },
+      "eco_function_state": {
+        "name": "ECO Function"
+      },
+      "eco_timer_state": {
+        "name": "ECO Timer"
+      },
+      "heat": {
+        "name": "Heat Capability"
+      },
+      "cool": {
+        "name": "Cool Capability"
+      },
+      "dhw": {
+        "name": "DHW Capability"
+      },
+      "double_zone": {
+        "name": "Double Zone Enabled"
+      },
+      "room_thermal_support": {
+        "name": "Room Thermostat Support"
+      },
+      "room_thermal_state": {
+        "name": "Room Thermostat State"
+      },
+      "time_set": {
+        "name": "Time Set"
+      },
+      "disinfect_run": {
+        "name": "Disinfect Running"
+      },
+      "remote_onoff": {
+        "name": "Remote On/Off"
+      },
+      "tbh_control": {
+        "name": "TBH Control"
+      },
+      "SysEnergyAnaEN": {
+        "name": "System Energy Analysis Enabled"
+      },
+      "HMIEnergyAnaSetEN": {
+        "name": "HMI Energy Analysis Set Enabled"
       }
     },
     "button": {
@@ -806,6 +851,182 @@
       },
       "velocity": {
         "name": "Velocity"
+      },
+      "comp_run_freq": {
+        "name": "Compressor Frequency"
+      },
+      "fan_speed": {
+        "name": "Fan Speed",
+        "state": {
+          "LEVEL_1": "Level 1",
+          "LEVEL_2": "Level 2",
+          "LEVEL_3": "Level 3",
+          "LEVEL_4": "Level 4"
+        }
+      },
+      "temp_t3": {
+        "name": "Outdoor Coil Temperature (T3)"
+      },
+      "temp_ta": {
+        "name": "Ambient Temperature (Ta)"
+      },
+      "pressure_high": {
+        "name": "High Pressure"
+      },
+      "pressure_low": {
+        "name": "Low Pressure"
+      },
+      "water_flow": {
+        "name": "Water Flow Rate"
+      },
+      "water_pressure": {
+        "name": "Water Pressure"
+      },
+      "heat_elec_total_consum0": {
+        "name": "Heat Pump Total Electric Consumption"
+      },
+      "heat_elec_total_capacity0": {
+        "name": "Heat Pump Total Thermal Energy"
+      },
+      "temp_t1": {
+        "name": "T1 - Total Outlet Water Temperature"
+      },
+      "temp_t2": {
+        "name": "T2 - Refrigerant Liquid Side Temperature"
+      },
+      "temp_t2b": {
+        "name": "T2B - Refrigerant Gas Side Temperature"
+      },
+      "temp_t4": {
+        "name": "T4 - Outdoor Ambient Temperature"
+      },
+      "temp_t5": {
+        "name": "T5 - Water Tank Temperature"
+      },
+      "temp_tb_t1": {
+        "name": "TB-T1 - Buffer Tank Top Temperature"
+      },
+      "temp_tb_t2": {
+        "name": "TB-T2 - Buffer Tank Bottom Temperature"
+      },
+      "temp_tf": {
+        "name": "TF - PCB Module Temperature"
+      },
+      "temp_th": {
+        "name": "TH - Compressor Suction Temperature"
+      },
+      "temp_tp": {
+        "name": "TP - Compressor Discharge Temperature"
+      },
+      "temp_tsolar": {
+        "name": "Solar Panel Temperature"
+      },
+      "temp_tw2": {
+        "name": "Zone 2 Water Temperature"
+      },
+      "dc_current": {
+        "name": "DC Bus Current"
+      },
+      "odu_voltage": {
+        "name": "Outdoor Unit Voltage"
+      },
+      "room_rel_hum": {
+        "name": "Room Relative Humidity"
+      },
+      "total_electricity0": {
+        "name": "Total Electricity Consumption (raw)"
+      },
+      "total_thermal0": {
+        "name": "Total Thermal Energy (raw)"
+      },
+      "total_renew_power0": {
+        "name": "Total Renewable Energy"
+      },
+      "instant_renew_power0": {
+        "name": "Instant Renewable Power"
+      },
+      "unit_mode_run": {
+        "name": "Unit Running Mode",
+        "state": {
+          "OFF": "Off",
+          "COOL": "Cooling",
+          "HEAT": "Heating"
+        }
+      },
+      "hydbox_subtype": {
+        "name": "Hydraulic Box Subtype"
+      },
+      "machine_type": {
+        "name": "Machine Type"
+      },
+      "odu_model": {
+        "name": "Outdoor Unit Model Code"
+      },
+      "fg_capacity_need": {
+        "name": "Capacity Need (raw)"
+      },
+      "fg_usb_info_connect": {
+        "name": "USB Info Connect (raw)"
+      },
+      "odu_plan_vol_lmt": {
+        "name": "Outdoor Unit Current Limitation Code"
+      },
+      "current_unit_capacity": {
+        "name": "Current Unit Capacity (raw)"
+      },
+      "hydrobox_capacity": {
+        "name": "Hydraulic Box Capacity"
+      },
+      "sphera_ahs_voltage": {
+        "name": "AHS Voltage (raw)"
+      },
+      "idu_t1s1": {
+        "name": "Zone 1 Calculated T1s (Curve)"
+      },
+      "idu_t1s2": {
+        "name": "Zone 2 Calculated T1s (Curve)"
+      },
+      "t5s": {
+        "name": "T5s - DHW Setpoint (raw)"
+      },
+      "tas": {
+        "name": "Tas - Air Setpoint (raw)"
+      },
+      "zone1_temp_set": {
+        "name": "Zone 1 Temperature Set (raw)"
+      },
+      "zone2_temp_set": {
+        "name": "Zone 2 Temperature Set (raw)"
+      },
+      "zone_terminal_type": {
+        "name": "Zone Terminal Type (raw)"
+      },
+      "disinfect_set_weekday": {
+        "name": "Disinfect Weekday Setting"
+      },
+      "disinfect_start_hour": {
+        "name": "Disinfect Start Hour"
+      },
+      "disinfect_start_minutes": {
+        "name": "Disinfect Start Minutes"
+      },
+      "pwm_pump_out": {
+        "name": "Pump Output PWM (raw)"
+      },
+      "odu_target_fre": {
+        "name": "Outdoor Unit Target Frequency"
+      },
+      "temp_t4a_ver": {
+        "name": "T4A / Version Byte (meaning unverified)"
+      },
+      "exv_opening": {
+        "name": "EXV1 Opening (outdoor unit expansion valve)"
+      },
+      "error_code_description": {
+        "name": "Error Description"
+      },
+      "wifi_module_serial": {
+        "name": "WiFi Module Serial / Identification"
       }
     },
     "switch": {
@@ -997,6 +1218,9 @@
       },
       "zone2_power": {
         "name": "Zone2 Power"
+      },
+      "holiday_on": {
+        "name": "Holiday Mode"
       }
     },
     "water_heater": {
