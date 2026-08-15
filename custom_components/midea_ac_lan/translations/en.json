@@ -302,6 +302,21 @@
       },
       "HMIEnergyAnaSetEN": {
         "name": "HMI Energy Analysis Set Enabled"
+      },
+      "heat_capability": {
+        "name": "Heat Capability"
+      },
+      "cool_capability": {
+        "name": "Cool Capability"
+      },
+      "dhw_capability": {
+        "name": "DHW Capability"
+      },
+      "sys_energy_ana_en": {
+        "name": "System Energy Analysis Enabled"
+      },
+      "hmi_energy_ana_set_en": {
+        "name": "HMI Energy Analysis Set Enabled"
       }
     },
     "button": {
@@ -414,7 +429,12 @@
         "name": "Screen Display"
       },
       "silent_level": {
-        "name": "Silent Level"
+        "name": "Silent Level",
+        "state": {
+          "off": "Off",
+          "silent": "Silent",
+          "super_silent": "Super Silent"
+        }
       },
       "tilting_angle": {
         "name": "Tilting Angle"
@@ -1027,6 +1047,15 @@
       },
       "wifi_module_serial": {
         "name": "WiFi Module Serial / Identification"
+      },
+      "temp_tw_in": {
+        "name": "Water Inlet Temperature"
+      },
+      "temp_tw_out": {
+        "name": "Water Outlet Temperature"
+      },
+      "instant_power0": {
+        "name": "Current Power"
       }
     },
     "switch": {
