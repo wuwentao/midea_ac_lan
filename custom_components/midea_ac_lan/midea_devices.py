@@ -1767,6 +1767,12 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "unit_mode_run",
                 "name": "Unit Running Mode",
                 "icon": "mdi:heat-pump-outline",
+                "device_class": SensorDeviceClass.ENUM,
+                "options": {
+                    "off": "off",
+                    "cool": "cool",
+                    "heat": "heat",
+                },
             },
             C3Attributes.temp_t1: {
                 "type": Platform.SENSOR,
@@ -1940,8 +1946,11 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             C3Attributes.total_electricity0: {
                 "type": Platform.SENSOR,
                 "translation_key": "total_electricity0",
-                "name": "Total Electricity (raw)",
+                "name": "Total Electricity Consumption",
                 "icon": "mdi:lightning-bolt",
+                # verified against wired HMI: raw value equals kWh
+                "device_class": SensorDeviceClass.ENERGY,
+                "unit": UnitOfEnergy.KILO_WATT_HOUR,
                 "state_class": SensorStateClass.TOTAL_INCREASING,
             },
             C3Attributes.total_thermal0: {
@@ -1954,15 +1963,19 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             C3Attributes.heat_elec_total_consum0: {
                 "type": Platform.SENSOR,
                 "translation_key": "heat_elec_total_consum0",
-                "name": "Heat Pump Total Electric Consumption (raw)",
+                "name": "Heat Pump Total Electric Consumption",
                 "icon": "mdi:lightning-bolt",
+                "device_class": SensorDeviceClass.ENERGY,
+                "unit": UnitOfEnergy.KILO_WATT_HOUR,
                 "state_class": SensorStateClass.TOTAL_INCREASING,
             },
             C3Attributes.heat_elec_total_capacity0: {
                 "type": Platform.SENSOR,
                 "translation_key": "heat_elec_total_capacity0",
-                "name": "Heat Pump Total Thermal Energy (raw)",
-                "icon": "mdi:fire",
+                "name": "Heat Pump Total Thermal Production",
+                "icon": "mdi:lightning-bolt",
+                "device_class": SensorDeviceClass.ENERGY,
+                "unit": UnitOfEnergy.KILO_WATT_HOUR,
                 "state_class": SensorStateClass.TOTAL_INCREASING,
             },
             C3Attributes.instant_renew_power0: {
@@ -2144,12 +2157,14 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "disinfect_start_hour",
                 "name": "Disinfect Start Hour",
                 "icon": "mdi:clock-outline",
+                "unit": UnitOfTime.HOURS,
             },
             C3Attributes.disinfect_start_minutes: {
                 "type": Platform.SENSOR,
                 "translation_key": "disinfect_start_minutes",
                 "name": "Disinfect Start Minutes",
                 "icon": "mdi:clock-outline",
+                "unit": UnitOfTime.MINUTES,
             },
         },
     },
