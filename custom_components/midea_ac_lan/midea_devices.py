@@ -1943,6 +1943,15 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "unit": PERCENTAGE,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
+            C3Attributes.comp_total_run_time: {
+                "type": Platform.SENSOR,
+                "translation_key": "comp_total_run_time",
+                "name": "Compressor Total Run Time",
+                "icon": "mdi:timer-outline",
+                "device_class": SensorDeviceClass.DURATION,
+                "unit": UnitOfTime.HOURS,
+                "state_class": SensorStateClass.TOTAL_INCREASING,
+            },
             C3Attributes.total_electricity0: {
                 "type": Platform.SENSOR,
                 "translation_key": "total_electricity0",
