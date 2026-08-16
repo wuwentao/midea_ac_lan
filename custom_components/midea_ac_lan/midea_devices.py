@@ -1965,8 +1965,15 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             C3Attributes.total_thermal0: {
                 "type": Platform.SENSOR,
                 "translation_key": "total_thermal0",
-                "name": "Total Thermal Energy (raw)",
+                "name": "Total Thermal Energy",
                 "icon": "mdi:fire",
+                # Verified against Modbus documentation (reg 145-146,
+                # "power output ... kWh"). Same u16 BE encoding as
+                # total_electricity0. Adding device_class + unit so HA
+                # accepts this into the Energy dashboard as a thermal
+                # counter.
+                "device_class": SensorDeviceClass.ENERGY,
+                "unit": UnitOfEnergy.KILO_WATT_HOUR,
                 "state_class": SensorStateClass.TOTAL_INCREASING,
             },
             C3Attributes.heat_elec_total_consum0: {
