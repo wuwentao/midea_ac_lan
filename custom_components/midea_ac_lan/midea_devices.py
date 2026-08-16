@@ -1627,7 +1627,8 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "instant_power0",
                 "name": "Current Power",
                 "device_class": SensorDeviceClass.POWER,
-                "unit": UnitOfPower.WATT,
+                # parser scales to kW (0.01 kW units); verified vs wired HMI
+                "unit": UnitOfPower.KILO_WATT,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
             # ---- Newly exposed C3 attributes (device capability + telemetry) ----
@@ -1753,6 +1754,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 # HA validates state against list(options.values()), so values
                 # MUST match the raw parsed strings exactly.
                 "options": {
+                    "off": "off",
                     "level_1": "level_1",
                     "level_2": "level_2",
                     "level_3": "level_3",
@@ -1891,7 +1893,9 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "water_flow",
                 "name": "Water Flow Rate",
                 "icon": "mdi:water-pump",
-                "unit": UnitOfVolumeFlowRate.LITERS_PER_MINUTE,
+                "device_class": SensorDeviceClass.VOLUME_FLOW_RATE,
+                # parser scales to m3/h (raw/100); verified against wired HMI
+                "unit": UnitOfVolumeFlowRate.CUBIC_METERS_PER_HOUR,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
             C3Attributes.water_pressure: {
@@ -1964,17 +1968,19 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             C3Attributes.instant_renew_power0: {
                 "type": Platform.SENSOR,
                 "translation_key": "instant_renew_power0",
-                "name": "Instant Renewable Power (raw)",
+                "name": "Renewable Instant Power (raw)",
                 "device_class": SensorDeviceClass.POWER,
-                "unit": UnitOfPower.WATT,
+                # parser scales to kW; consistent with instant_power0
+                "unit": UnitOfPower.KILO_WATT,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
             C3Attributes.total_renew_power0: {
                 "type": Platform.SENSOR,
                 "translation_key": "total_renew_power0",
-                "name": "Total Renewable Power (raw)",
+                "name": "Renewable Total Power (raw)",
                 "device_class": SensorDeviceClass.POWER,
-                "unit": UnitOfPower.WATT,
+                # parser scales to kW; consistent with instant_power0
+                "unit": UnitOfPower.KILO_WATT,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
             C3Attributes.error_code_description: {
@@ -2118,13 +2124,6 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "zone_terminal_type",
                 "name": "Zone Terminal Type",
                 "icon": "mdi:identifier",
-            },
-            C3Attributes.pwm_pump_out: {
-                "type": Platform.SENSOR,
-                "translation_key": "pwm_pump_out",
-                "name": "PWM Pump Output",
-                "icon": "mdi:water-pump",
-                "state_class": SensorStateClass.MEASUREMENT,
             },
             C3Attributes.sphera_ahs_voltage: {
                 "type": Platform.SENSOR,
