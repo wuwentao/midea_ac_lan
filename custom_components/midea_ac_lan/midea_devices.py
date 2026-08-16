@@ -1749,11 +1749,14 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "device_class": SensorDeviceClass.ENUM,
                 # NOTE: raw values (typically 10/20/30/40) map to discrete levels;
                 # exact RPM mapping is not officially documented for this device.
+                # Parser exposes lowercase enum names (level_1..level_4).
+                # HA validates state against list(options.values()), so values
+                # MUST match the raw parsed strings exactly.
                 "options": {
-                    "LEVEL_1": "LEVEL_1",
-                    "LEVEL_2": "LEVEL_2",
-                    "LEVEL_3": "LEVEL_3",
-                    "LEVEL_4": "LEVEL_4",
+                    "level_1": "level_1",
+                    "level_2": "level_2",
+                    "level_3": "level_3",
+                    "level_4": "level_4",
                 },
                 "default": False,
             },
