@@ -433,7 +433,10 @@
         "state": {
           "off": "Off",
           "silent": "Silent",
-          "super_silent": "Super Silent"
+          "super_silent": "Super Silent",
+          "OFF": "Off",
+          "SILENT": "Silent",
+          "SUPER_SILENT": "Super Silent"
         }
       },
       "tilting_angle": {
@@ -878,10 +881,10 @@
       "fan_speed": {
         "name": "Fan Speed",
         "state": {
-          "LEVEL_1": "Level 1",
-          "LEVEL_2": "Level 2",
-          "LEVEL_3": "Level 3",
-          "LEVEL_4": "Level 4"
+          "level_1": "Level 1",
+          "level_2": "Level 2",
+          "level_3": "Level 3",
+          "level_4": "Level 4"
         }
       },
       "temp_t3": {
@@ -968,9 +971,9 @@
       "unit_mode_run": {
         "name": "Unit Running Mode",
         "state": {
-          "OFF": "Off",
-          "COOL": "Cooling",
-          "HEAT": "Heating"
+          "off": "Off",
+          "cool": "Cooling",
+          "heat": "Heating"
         }
       },
       "hydbox_subtype": {
