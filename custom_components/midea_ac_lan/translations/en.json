@@ -317,6 +317,30 @@
       },
       "hmi_energy_ana_set_en": {
         "name": "HMI Energy Analysis Set Enabled"
+      },
+      "pump_i_running": {
+        "name": "Pump Interior (Pump_I)"
+      },
+      "pump_o_running": {
+        "name": "Pump Outdoor (Pump_O)"
+      },
+      "pump_d_running": {
+        "name": "Pump D (Pump_D)"
+      },
+      "pump_c_running": {
+        "name": "Pump C (Pump_C)"
+      },
+      "pump_s_running": {
+        "name": "Pump S (Pump_S)"
+      },
+      "sv1_open": {
+        "name": "3-way Valve DHW (SV1)"
+      },
+      "sv2_open": {
+        "name": "Heating Valve (SV2)"
+      },
+      "load_output_tbh": {
+        "name": "Tank Backup Heater (TBH)"
       }
     },
     "button": {
@@ -1072,6 +1096,9 @@
       },
       "odu_software_version": {
         "name": "ODU Software Version"
+      },
+      "load_output_raw": {
+        "name": "Load Output Bitmap (raw)"
       }
     },
     "switch": {
