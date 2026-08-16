@@ -1749,7 +1749,12 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "device_class": SensorDeviceClass.ENUM,
                 # NOTE: raw values (typically 10/20/30/40) map to discrete levels;
                 # exact RPM mapping is not officially documented for this device.
-                "options": ["LEVEL_1", "LEVEL_2", "LEVEL_3", "LEVEL_4"],
+                "options": {
+                    "LEVEL_1": "LEVEL_1",
+                    "LEVEL_2": "LEVEL_2",
+                    "LEVEL_3": "LEVEL_3",
+                    "LEVEL_4": "LEVEL_4",
+                },
                 "default": False,
             },
             C3Attributes.unit_mode_run: {
