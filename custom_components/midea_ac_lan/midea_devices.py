@@ -1935,6 +1935,30 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "unit": UnitOfElectricCurrent.AMPERE,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
+            C3Attributes.dc_bus_voltage: {
+                "type": Platform.SENSOR,
+                "translation_key": "dc_bus_voltage",
+                "name": "DC Bus Voltage",
+                "device_class": SensorDeviceClass.VOLTAGE,
+                "unit": UnitOfElectricPotential.VOLT,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C3Attributes.compressor_current: {
+                "type": Platform.SENSOR,
+                "translation_key": "compressor_current",
+                "name": "Compressor Current",
+                "device_class": SensorDeviceClass.CURRENT,
+                "unit": UnitOfElectricCurrent.AMPERE,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C3Attributes.instant_power: {
+                "type": Platform.SENSOR,
+                "translation_key": "instant_power",
+                "name": "Instant Power",
+                "device_class": SensorDeviceClass.POWER,
+                "unit": UnitOfPower.KILO_WATT,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
             C3Attributes.room_rel_hum: {
                 "type": Platform.SENSOR,
                 "translation_key": "room_rel_hum",
@@ -2042,6 +2066,20 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "hydrobox_capacity",
                 "name": "Hydrobox Capacity",
                 "icon": "mdi:heat-pump-outline",
+            },
+            # IDU / ODU firmware versions - parsed from X10 telemetry
+            # bytes 94/95 (verified against wired HMI: V14 / V64).
+            C3Attributes.idu_software_version: {
+                "type": Platform.SENSOR,
+                "translation_key": "idu_software_version",
+                "name": "IDU Software Version",
+                "icon": "mdi:chip",
+            },
+            C3Attributes.odu_software_version: {
+                "type": Platform.SENSOR,
+                "translation_key": "odu_software_version",
+                "name": "ODU Software Version",
+                "icon": "mdi:chip",
             },
             C3Attributes.machine_type: {
                 "type": Platform.SENSOR,
