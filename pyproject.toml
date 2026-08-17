@@ -17,9 +17,9 @@ dependencies = ["midea-lan==2026.8.0"]
 dev = [
   # Home Assistant: minimum-supported version per Python version, selected via
   # environment markers (was requirements-dev-3.12/3.13/3.14.txt).
-  "homeassistant==2024.4.1  ; python_version == '3.12'",
-  "homeassistant==2024.12.1 ; python_version == '3.13'",
-  "homeassistant==2026.3.1  ; python_full_version >= '3.14.2'",
+  "homeassistant==2025.1.4  ; python_version == '3.12'",
+  "homeassistant==2025.1.4 ; python_version == '3.13'",
+  "homeassistant==2025.1.4  ; python_full_version >= '3.14.2'",
   # Tooling (was requirements-dev.txt). ruff is aligned to the version enforced
   # by the ruff-pre-commit hook in .pre-commit-config.yaml (v0.16.0).
   "ruff==0.16.3",
