@@ -1512,34 +1512,6 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Zone2 Power",
                 "icon": "mdi:power",
             },
-            C3Attributes.zone1_water_temp_mode: {
-                "type": Platform.BINARY_SENSOR,
-                "translation_key": "zone1_water_temp_mode",
-                "name": "Zone1 Water-temperature Mode",
-                "icon": "mdi:coolant-temperature",
-                "device_class": BinarySensorDeviceClass.RUNNING,
-            },
-            C3Attributes.zone2_water_temp_mode: {
-                "type": Platform.BINARY_SENSOR,
-                "translation_key": "zone2_water_temp_mode",
-                "name": "Zone2 Water-temperature Mode",
-                "icon": "mdi:coolant-temperature",
-                "device_class": BinarySensorDeviceClass.RUNNING,
-            },
-            C3Attributes.zone1_room_temp_mode: {
-                "type": Platform.BINARY_SENSOR,
-                "translation_key": "zone1_room_temp_mode",
-                "name": "Zone1 Room-temperature Mode",
-                "icon": "mdi:home-thermometer-outline",
-                "device_class": BinarySensorDeviceClass.RUNNING,
-            },
-            C3Attributes.zone2_room_temp_mode: {
-                "type": Platform.BINARY_SENSOR,
-                "translation_key": "zone2_room_temp_mode",
-                "name": "Zone2 Room-temperature Mode",
-                "icon": "mdi:home-thermometer-outline",
-                "device_class": BinarySensorDeviceClass.RUNNING,
-            },
             C3Attributes.error_code: {
                 "type": Platform.SENSOR,
                 "translation_key": "error_code",
@@ -1620,15 +1592,6 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Water Outlet Temperature",
                 "device_class": SensorDeviceClass.TEMPERATURE,
                 "unit": UnitOfTemperature.CELSIUS,
-                "state_class": SensorStateClass.MEASUREMENT,
-            },
-            C3Attributes.instant_power0: {
-                "type": Platform.SENSOR,
-                "translation_key": "instant_power0",
-                "name": "Current Power",
-                "device_class": SensorDeviceClass.POWER,
-                # parser scales to kW (0.01 kW units); verified vs wired HMI
-                "unit": UnitOfPower.KILO_WATT,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
             # ---- Newly exposed C3 attributes (device capability + telemetry) ----
@@ -1943,14 +1906,6 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "unit": UnitOfElectricPotential.VOLT,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
-            C3Attributes.compressor_current: {
-                "type": Platform.SENSOR,
-                "translation_key": "compressor_current",
-                "name": "Compressor Current",
-                "device_class": SensorDeviceClass.CURRENT,
-                "unit": UnitOfElectricCurrent.AMPERE,
-                "state_class": SensorStateClass.MEASUREMENT,
-            },
             C3Attributes.instant_power: {
                 "type": Platform.SENSOR,
                 "translation_key": "instant_power",
@@ -1984,14 +1939,14 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             C3Attributes.pump_c_running: {
                 "type": Platform.BINARY_SENSOR,
                 "translation_key": "pump_c_running",
-                "name": "Pump C (Pump_C)",
+                "name": "Pump C — Zone 2 (Pump_C, reg129 BIT8)",
                 "icon": "mdi:pump",
                 "device_class": BinarySensorDeviceClass.RUNNING,
             },
             C3Attributes.pump_s_running: {
                 "type": Platform.BINARY_SENSOR,
                 "translation_key": "pump_s_running",
-                "name": "Pump S (Pump_S)",
+                "name": "Pump S — Solar (Pump_S, reg129 BIT11)",
                 "icon": "mdi:pump",
                 "device_class": BinarySensorDeviceClass.RUNNING,
             },
@@ -2021,6 +1976,87 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "load_output_raw",
                 "name": "Load Output Bitmap (raw)",
                 "icon": "mdi:matrix",
+                "entity_category": EntityCategory.DIAGNOSTIC,
+            },
+            C3Attributes.load_output_raw_hi: {
+                "type": Platform.SENSOR,
+                "translation_key": "load_output_raw_hi",
+                "name": "Load Output Bitmap Hi (raw)",
+                "icon": "mdi:matrix",
+                "entity_category": EntityCategory.DIAGNOSTIC,
+            },
+            C3Attributes.load_output_reg129: {
+                "type": Platform.SENSOR,
+                "translation_key": "load_output_reg129",
+                "name": "Load Output Reg 129 (16-bit)",
+                "icon": "mdi:matrix",
+                "entity_category": EntityCategory.DIAGNOSTIC,
+            },
+            C3Attributes.ibh1_on: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "ibh1_on",
+                "name": "Electric Heater IBH1",
+                "icon": "mdi:radiator",
+                "device_class": BinarySensorDeviceClass.RUNNING,
+            },
+            C3Attributes.ibh2_on: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "ibh2_on",
+                "name": "Electric Heater IBH2",
+                "icon": "mdi:radiator",
+                "device_class": BinarySensorDeviceClass.RUNNING,
+            },
+            C3Attributes.sv3_open: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "sv3_open",
+                "name": "3-way Valve SV3",
+                "icon": "mdi:valve",
+                "device_class": BinarySensorDeviceClass.OPENING,
+            },
+            C3Attributes.crankcase_heater_on: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "crankcase_heater_on",
+                "name": "Crankcase Heater",
+                "icon": "mdi:heating-coil",
+                "device_class": BinarySensorDeviceClass.RUNNING,
+            },
+            C3Attributes.alarm_on: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "alarm_on",
+                "name": "Alarm (Reg 129 BIT12)",
+                "icon": "mdi:alert",
+                "device_class": BinarySensorDeviceClass.PROBLEM,
+            },
+            C3Attributes.aux_heat_on: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "aux_heat_on",
+                "name": "Auxiliary Heat Source",
+                "icon": "mdi:fire",
+                "device_class": BinarySensorDeviceClass.RUNNING,
+            },
+            # ---- New (Aug-18): compressor telemetry ----
+            C3Attributes.compressor_on: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "compressor_on",
+                "name": "Compressor Running",
+                "icon": "mdi:engine",
+                "device_class": BinarySensorDeviceClass.RUNNING,
+            },
+            C3Attributes.compressor_status_raw: {
+                "type": Platform.SENSOR,
+                "translation_key": "compressor_status_raw",
+                "name": "Compressor Status Bitmap (raw)",
+                "icon": "mdi:matrix",
+                "entity_category": EntityCategory.DIAGNOSTIC,
+            },
+            C3Attributes.odu_comp_current: {
+                "type": Platform.SENSOR,
+                "translation_key": "odu_comp_current",
+                "name": "ODU Compressor Current",
+                "device_class": SensorDeviceClass.CURRENT,
+                "unit": UnitOfElectricCurrent.AMPERE,
+                "state_class": SensorStateClass.MEASUREMENT,
+                "icon": "mdi:current-ac",
             },
             C3Attributes.room_rel_hum: {
                 "type": Platform.SENSOR,
@@ -2039,66 +2075,6 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "unit": UnitOfTime.HOURS,
                 "state_class": SensorStateClass.TOTAL_INCREASING,
             },
-            C3Attributes.total_electricity0: {
-                "type": Platform.SENSOR,
-                "translation_key": "total_electricity0",
-                "name": "Total Electricity Consumption",
-                "icon": "mdi:lightning-bolt",
-                # verified against wired HMI: raw value equals kWh
-                "device_class": SensorDeviceClass.ENERGY,
-                "unit": UnitOfEnergy.KILO_WATT_HOUR,
-                "state_class": SensorStateClass.TOTAL_INCREASING,
-            },
-            C3Attributes.total_thermal0: {
-                "type": Platform.SENSOR,
-                "translation_key": "total_thermal0",
-                "name": "Total Thermal Energy",
-                "icon": "mdi:fire",
-                # Verified against Modbus documentation (reg 145-146,
-                # "power output ... kWh"). Same u16 BE encoding as
-                # total_electricity0. Adding device_class + unit so HA
-                # accepts this into the Energy dashboard as a thermal
-                # counter.
-                "device_class": SensorDeviceClass.ENERGY,
-                "unit": UnitOfEnergy.KILO_WATT_HOUR,
-                "state_class": SensorStateClass.TOTAL_INCREASING,
-            },
-            C3Attributes.heat_elec_total_consum0: {
-                "type": Platform.SENSOR,
-                "translation_key": "heat_elec_total_consum0",
-                "name": "Heat Pump Total Electric Consumption",
-                "icon": "mdi:lightning-bolt",
-                "device_class": SensorDeviceClass.ENERGY,
-                "unit": UnitOfEnergy.KILO_WATT_HOUR,
-                "state_class": SensorStateClass.TOTAL_INCREASING,
-            },
-            C3Attributes.heat_elec_total_capacity0: {
-                "type": Platform.SENSOR,
-                "translation_key": "heat_elec_total_capacity0",
-                "name": "Heat Pump Total Thermal Production",
-                "icon": "mdi:lightning-bolt",
-                "device_class": SensorDeviceClass.ENERGY,
-                "unit": UnitOfEnergy.KILO_WATT_HOUR,
-                "state_class": SensorStateClass.TOTAL_INCREASING,
-            },
-            C3Attributes.instant_renew_power0: {
-                "type": Platform.SENSOR,
-                "translation_key": "instant_renew_power0",
-                "name": "Renewable Instant Power (raw)",
-                "device_class": SensorDeviceClass.POWER,
-                # parser scales to kW; consistent with instant_power0
-                "unit": UnitOfPower.KILO_WATT,
-                "state_class": SensorStateClass.MEASUREMENT,
-            },
-            C3Attributes.total_renew_power0: {
-                "type": Platform.SENSOR,
-                "translation_key": "total_renew_power0",
-                "name": "Renewable Total Power (raw)",
-                "device_class": SensorDeviceClass.POWER,
-                # parser scales to kW; consistent with instant_power0
-                "unit": UnitOfPower.KILO_WATT,
-                "state_class": SensorStateClass.MEASUREMENT,
-            },
             C3Attributes.error_code_description: {
                 "type": Platform.SENSOR,
                 "translation_key": "error_code_description",
@@ -2112,12 +2088,6 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "icon": "mdi:identifier",
             },
             # --- Additional low-level diagnostic sensors ---
-            C3Attributes.current_unit_capacity: {
-                "type": Platform.SENSOR,
-                "translation_key": "current_unit_capacity",
-                "name": "Current Unit Capacity",
-                "icon": "mdi:heat-pump",
-            },
             C3Attributes.hydbox_subtype: {
                 "type": Platform.SENSOR,
                 "translation_key": "hydbox_subtype",
@@ -2132,16 +2102,17 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             # IDU / ODU firmware versions - parsed from X10 telemetry
             # bytes 94/95 (verified against wired HMI: V14 / V64).
-            C3Attributes.idu_software_version: {
+            # SW version strings including build date (parsed from X10 tail).
+            C3Attributes.idu_software_version_str: {
                 "type": Platform.SENSOR,
-                "translation_key": "idu_software_version",
-                "name": "IDU Software Version",
+                "translation_key": "idu_software_version_str",
+                "name": "IDU Software Version (with date)",
                 "icon": "mdi:chip",
             },
-            C3Attributes.odu_software_version: {
+            C3Attributes.odu_software_version_str: {
                 "type": Platform.SENSOR,
-                "translation_key": "odu_software_version",
-                "name": "ODU Software Version",
+                "translation_key": "odu_software_version_str",
+                "name": "ODU Software Version (with date)",
                 "icon": "mdi:chip",
             },
             C3Attributes.machine_type: {
@@ -2156,14 +2127,6 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Outdoor Unit Model",
                 "icon": "mdi:identifier",
             },
-            C3Attributes.odu_plan_vol_lmt: {
-                "type": Platform.SENSOR,
-                "translation_key": "odu_plan_vol_lmt",
-                "name": "Outdoor Unit Voltage Limit",
-                "device_class": SensorDeviceClass.VOLTAGE,
-                "unit": UnitOfElectricPotential.VOLT,
-                "state_class": SensorStateClass.MEASUREMENT,
-            },
             C3Attributes.odu_target_fre: {
                 "type": Platform.SENSOR,
                 "translation_key": "odu_target_fre",
@@ -2177,20 +2140,6 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "fg_capacity_need",
                 "name": "Function Group Capacity Need",
                 "icon": "mdi:gauge",
-                "state_class": SensorStateClass.MEASUREMENT,
-            },
-            C3Attributes.fg_usb_info_connect: {
-                "type": Platform.SENSOR,
-                "translation_key": "fg_usb_info_connect",
-                "name": "Function Group USB Info Connect",
-                "icon": "mdi:usb",
-            },
-            C3Attributes.temp_t4a_ver: {
-                "type": Platform.SENSOR,
-                "translation_key": "temp_t4a_ver",
-                "name": "Outdoor Ambient Temperature Ver. (T4a)",
-                "device_class": SensorDeviceClass.TEMPERATURE,
-                "unit": UnitOfTemperature.CELSIUS,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
             C3Attributes.temp_tf: {
@@ -2249,20 +2198,6 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "unit": UnitOfTemperature.CELSIUS,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
-            C3Attributes.zone_terminal_type: {
-                "type": Platform.SENSOR,
-                "translation_key": "zone_terminal_type",
-                "name": "Zone Terminal Type",
-                "icon": "mdi:identifier",
-            },
-            C3Attributes.sphera_ahs_voltage: {
-                "type": Platform.SENSOR,
-                "translation_key": "sphera_ahs_voltage",
-                "name": "Sphera AHS Voltage",
-                "device_class": SensorDeviceClass.VOLTAGE,
-                "unit": UnitOfElectricPotential.VOLT,
-                "state_class": SensorStateClass.MEASUREMENT,
-            },
             C3Attributes.disinfect_set_weekday: {
                 "type": Platform.SENSOR,
                 "translation_key": "disinfect_set_weekday",
@@ -2274,15 +2209,13 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "disinfect_start_hour",
                 "name": "Disinfect Start Hour",
                 "icon": "mdi:clock-outline",
-                "unit": UnitOfTime.HOURS,
-            },
+                            },
             C3Attributes.disinfect_start_minutes: {
                 "type": Platform.SENSOR,
                 "translation_key": "disinfect_start_minutes",
                 "name": "Disinfect Start Minutes",
                 "icon": "mdi:clock-outline",
-                "unit": UnitOfTime.MINUTES,
-            },
+                            },
         },
     },
     0xCA: {
