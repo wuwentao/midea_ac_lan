@@ -2050,6 +2050,102 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "icon": "mdi:matrix",
                 "entity_category": EntityCategory.DIAGNOSTIC,
             },
+            # --- Diagnostic raw uint8 exposures: candidate LAN offsets
+            # for Modbus reg 128 (Status bit 1). Users can correlate
+            # value changes against scenario events (defrost cycle, E8
+            # water-flow alarm, DHW anti-freeze, HT/CL thermostat
+            # toggles) to identify bit assignments.
+            C3Attributes.raw_b18: {
+                "type": Platform.SENSOR,
+                "translation_key": "raw_b18",
+                "name": "Raw byte 18 (odu_voltage hi — expect 0)",
+                "icon": "mdi:numeric",
+                "entity_category": EntityCategory.DIAGNOSTIC,
+            },
+            C3Attributes.raw_b19: {
+                "type": Platform.SENSOR,
+                "translation_key": "raw_b19",
+                "name": "Raw byte 19 (reg128 candidate)",
+                "icon": "mdi:numeric",
+                "entity_category": EntityCategory.DIAGNOSTIC,
+            },
+            C3Attributes.raw_b20: {
+                "type": Platform.SENSOR,
+                "translation_key": "raw_b20",
+                "name": "Raw byte 20 (reg128 candidate)",
+                "icon": "mdi:numeric",
+                "entity_category": EntityCategory.DIAGNOSTIC,
+            },
+            C3Attributes.raw_b21: {
+                "type": Platform.SENSOR,
+                "translation_key": "raw_b21",
+                "name": "Raw byte 21 (reg128 candidate)",
+                "icon": "mdi:numeric",
+                "entity_category": EntityCategory.DIAGNOSTIC,
+            },
+            C3Attributes.raw_b31: {
+                "type": Platform.SENSOR,
+                "translation_key": "raw_b31",
+                "name": "Raw byte 31 (reg128 candidate)",
+                "icon": "mdi:numeric",
+                "entity_category": EntityCategory.DIAGNOSTIC,
+            },
+            C3Attributes.raw_b56: {
+                "type": Platform.SENSOR,
+                "translation_key": "raw_b56",
+                "name": "Raw byte 56 (reg128 candidate)",
+                "icon": "mdi:numeric",
+                "entity_category": EntityCategory.DIAGNOSTIC,
+            },
+            C3Attributes.raw_b57: {
+                "type": Platform.SENSOR,
+                "translation_key": "raw_b57",
+                "name": "Raw byte 57 (reg128 candidate)",
+                "icon": "mdi:numeric",
+                "entity_category": EntityCategory.DIAGNOSTIC,
+            },
+            C3Attributes.raw_b58: {
+                "type": Platform.SENSOR,
+                "translation_key": "raw_b58",
+                "name": "Raw byte 58 (reg128 candidate)",
+                "icon": "mdi:numeric",
+                "entity_category": EntityCategory.DIAGNOSTIC,
+            },
+            C3Attributes.raw_b59: {
+                "type": Platform.SENSOR,
+                "translation_key": "raw_b59",
+                "name": "Raw byte 59 (reg128 candidate)",
+                "icon": "mdi:numeric",
+                "entity_category": EntityCategory.DIAGNOSTIC,
+            },
+            C3Attributes.raw_b74: {
+                "type": Platform.SENSOR,
+                "translation_key": "raw_b74",
+                "name": "Raw byte 74 (reg128 candidate)",
+                "icon": "mdi:numeric",
+                "entity_category": EntityCategory.DIAGNOSTIC,
+            },
+            C3Attributes.raw_b83: {
+                "type": Platform.SENSOR,
+                "translation_key": "raw_b83",
+                "name": "Raw byte 83 (reg128 candidate)",
+                "icon": "mdi:numeric",
+                "entity_category": EntityCategory.DIAGNOSTIC,
+            },
+            C3Attributes.raw_b85: {
+                "type": Platform.SENSOR,
+                "translation_key": "raw_b85",
+                "name": "Raw byte 85 (reg128 candidate)",
+                "icon": "mdi:numeric",
+                "entity_category": EntityCategory.DIAGNOSTIC,
+            },
+            C3Attributes.system_active_reg128: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "system_active_reg128",
+                "name": "System Active (Reg 128 BIT0 candidate)",
+                "icon": "mdi:heat-pump",
+                "device_class": BinarySensorDeviceClass.RUNNING,
+            },
             C3Attributes.odu_comp_current: {
                 "type": Platform.SENSOR,
                 "translation_key": "odu_comp_current",
