@@ -4,6 +4,7 @@ from typing import Any
 
 from homeassistant.components.binary_sensor import BinarySensorDeviceClass
 from homeassistant.components.sensor import SensorDeviceClass, SensorStateClass
+from homeassistant.helpers.entity import EntityCategory
 from homeassistant.const import (
     MAJOR_VERSION,
     MINOR_VERSION,
