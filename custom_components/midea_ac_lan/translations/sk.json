@@ -72,6 +72,9 @@
       "bathing_working": {
         "name": "Bathing Working Status"
       },
+      "bf_error_code": {
+        "name": "Chyba"
+      },
       "bottom_compartment_cooling": {
         "name": "Bottom Compartment Cooling"
       },
@@ -84,6 +87,12 @@
       "burning_state": {
         "name": "Burning State"
       },
+      "clean_scale": {
+        "name": "Odstraňovanie vodného kameňa"
+      },
+      "clean_sink_ponding": {
+        "name": "Nahromadenie vody v umývadle"
+      },
       "cleaning_reminder": {
         "name": "Cleaning Reminder"
       },
@@ -92,6 +101,12 @@
       },
       "cooking": {
         "name": "Cooking"
+      },
+      "dissipate_heat": {
+        "name": "Odvod tepla"
+      },
+      "door": {
+        "name": "Dvere"
       },
       "error_code": {
         "name": "Kód chyby"
@@ -111,6 +126,9 @@
       "flex_zone_door_overtime": {
         "name": "Flex Zone Door"
       },
+      "flip_side": {
+        "name": "Otočiť"
+      },
       "freezer_door": {
         "name": "Freezer Door"
       },
@@ -125,6 +143,15 @@
       },
       "heating_working": {
         "name": "Heating Working Status"
+      },
+      "high_temperature": {
+        "name": "Vysoká teplota"
+      },
+      "high_temperature_lock": {
+        "name": "Zámok vysokej teploty"
+      },
+      "high_temperature_work": {
+        "name": "Práca pri vysokej teplote"
       },
       "keep_warm": {
         "name": "Keep Warm"
@@ -162,8 +189,23 @@
       "oilcup_full": {
         "name": "Oil-cup Full"
       },
+      "ota": {
+        "name": "OTA"
+      },
+      "pre_heat": {
+        "name": "Predohrev"
+      },
+      "probe": {
+        "name": "Teplotná sonda"
+      },
+      "probe_mode": {
+        "name": "Režim sondy"
+      },
       "protection": {
         "name": "Protection"
+      },
+      "reaction": {
+        "name": "Reakcia"
       },
       "refrigerator_door": {
         "name": "Refrigerator Door"
@@ -412,6 +454,25 @@
       "bathing_leaving_temperature": {
         "name": "Bathing Leaving Water Temperature"
       },
+      "bf_status": {
+        "name": "Stav",
+        "state": {
+          "save_power": "Úspora energie",
+          "standby": "Pohotovostný režim",
+          "work": "Pracuje",
+          "work_finish": "Dokončené",
+          "order": "Oneskorenie",
+          "pause": "Pozastavené",
+          "pause_c": "Pozastavené C",
+          "three": "Tri",
+          "wait_to_start": "Čakanie na spustenie",
+          "self_inspection": "Kontrola",
+          "query_version": "Verzia",
+          "demo": "Demo",
+          "after_checking": "Po kontrole",
+          "unknown": "Neznáme"
+        }
+      },
       "bottom_compartment_remaining": {
         "name": "Bottom Compartment Remaining"
       },
@@ -427,11 +488,26 @@
       "bright": {
         "name": "Bright Level"
       },
+      "cbs_version": {
+        "name": "Verzia CBS"
+      },
+      "cloudmenuid": {
+        "name": "ID cloudového menu"
+      },
       "compressor_temperature": {
         "name": "Compressor Temperature"
       },
       "condenser_temperature": {
         "name": "Condenser Temperature"
+      },
+      "cur_probe_temperature": {
+        "name": "Aktuálna teplota sondy"
+      },
+      "cur_temperature_above": {
+        "name": "Aktuálna horná teplota"
+      },
+      "cur_temperature_underside": {
+        "name": "Aktuálna dolná teplota"
       },
       "current_energy_consumption": {
         "name": "Current Energy Consumption"
@@ -510,6 +586,15 @@
       "estimated_water_consumption": {
         "name": "Odhadovaná spotreba vody"
       },
+      "execute": {
+        "name": "Vykonanie",
+        "state": {
+          "ok": "OK",
+          "status_nonsupport": "Stav nepodporovaný",
+          "function_nonsupport": "Funkcia nepodporovaná",
+          "param_range_error": "Chyba rozsahu parametra"
+        }
+      },
       "fan_level": {
         "name": "Fan level"
       },
@@ -533,6 +618,23 @@
       },
       "filter3_life": {
         "name": "Filter3 Life Level"
+      },
+      "fire_power": {
+        "name": "Ohrev",
+        "state": {
+          "fire_power_0": "Úroveň 0",
+          "fire_power_1": "Úroveň 1",
+          "fire_power_2": "Úroveň 2",
+          "fire_power_3": "Úroveň 3",
+          "fire_power_4": "Úroveň 4",
+          "fire_power_5": "Úroveň 5",
+          "fire_power_6": "Úroveň 6",
+          "fire_power_7": "Úroveň 7",
+          "fire_power_8": "Úroveň 8",
+          "fire_power_9": "Úroveň 9",
+          "fire_power_10": "Úroveň 10",
+          "unknown": "Neznáme"
+        }
       },
       "flex_zone_actual_temp": {
         "name": "Flex Zone Actual Temperature"
@@ -585,6 +687,9 @@
       "middle_compartment_temperature": {
         "name": "Middle Compartment Temperature"
       },
+      "minute_set": {
+        "name": "Nastavenie minúty"
+      },
       "mode": {
         "name": "Mode"
       },
@@ -593,6 +698,12 @@
       },
       "outdoor_temperature": {
         "name": "Outdoor Temperature"
+      },
+      "people_number": {
+        "name": "Počet osôb"
+      },
+      "probe_temperature": {
+        "name": "Teplota sondy"
       },
       "program": {
         "name": "Program"
@@ -636,6 +747,9 @@
       "seat_temperature": {
         "name": "Seat Temperature"
       },
+      "second_set": {
+        "name": "Nastavenie sekundy"
+      },
       "soak_time": {
         "name": "soak time"
       },
@@ -651,6 +765,12 @@
       "status": {
         "name": "Status"
       },
+      "steam_quantity": {
+        "name": "Množstvo pary"
+      },
+      "stepnum": {
+        "name": "Aktuálny krok"
+      },
       "storage_remaining": {
         "name": "Storage Remaining"
       },
@@ -662,6 +782,12 @@
       },
       "target_temperature": {
         "name": "Target Temperature"
+      },
+      "temperature_above": {
+        "name": "Horná teplota"
+      },
+      "temperature_underside": {
+        "name": "Dolná teplota"
       },
       "time_remaining": {
         "name": "Time Remaining"
@@ -683,6 +809,9 @@
       },
       "total_produced_energy": {
         "name": "Total produced energy"
+      },
+      "totalstep": {
+        "name": "Celkový počet krokov"
       },
       "tvoc": {
         "name": "TVOC"
@@ -758,6 +887,121 @@
       },
       "auto_sterilize_minute": {
         "name": "Minúta automatickej sterilizácie"
+      },
+      "weight": {
+        "name": "Hmotnosť"
+      },
+      "work_mode": {
+        "name": "Pracovný režim",
+        "state": {
+          "microwave": "Mikrovlnka",
+          "microwave_1": "Mikrovlnka 1",
+          "microwave_2": "Mikrovlnka 2",
+          "microwave_3": "Mikrovlnka 3",
+          "microwave_4": "Mikrovlnka 4",
+          "microwave_5": "Mikrovlnka 5",
+          "microwave_steam_above_tube": "Mikrovlnka Para Horný Trubica",
+          "microwave_double_tube": "Mikrovlnka Dvojitý Trubica",
+          "microwave_hot_wind_tube_fan": "Mikrovlnka Horúci vzduch Trubica Ventilátor",
+          "microwave_underside_tube_hot_wind_tube_fan": "Mikrovlnka Dolný Trubica Horúci vzduch Ventilátor",
+          "microwave_double_tube_hot_wind_tube_fan": "Mikrovlnka Dvojitý Trubica Horúci vzduch Ventilátor",
+          "microwave_steam": "Mikrovlnka Para",
+          "microwave_steam_1": "Mikrovlnka Para 1",
+          "unfreeze": "Odmrazovanie",
+          "unfreeze_1": "Odmrazovanie 1",
+          "unfreeze_2": "Odmrazovanie 2",
+          "unfreeze_3": "Odmrazovanie 3",
+          "unfreeze_t": "Odmrazovanie T",
+          "microwave_above_tube": "Mikrovlnka Horný Trubica",
+          "microwave_above_tube_1": "Mikrovlnka Horný Trubica 1",
+          "microwave_above_tube_2": "Mikrovlnka Horný Trubica 2",
+          "microwave_above_tube_fan": "Mikrovlnka Horný Trubica Ventilátor",
+          "fast_unfreeze": "Rýchly Odmrazovanie",
+          "fresh_unfreeze": "Čerstvý Odmrazovanie",
+          "microwave_zymosis": "Mikrovlnka Kvasenie",
+          "pure_steam": "Čistý Para",
+          "pure_steam_1": "Čistý Para 1",
+          "pure_steam_2": "Čistý Para 2",
+          "pure_steam_3": "Čistý Para 3",
+          "pure_steam_4": "Čistý Para 4",
+          "pure_steam_5": "Čistý Para 5",
+          "pure_steam_6": "Čistý Para 6",
+          "pure_steam_7": "Čistý Para 7",
+          "pure_steam_8": "Čistý Para 8",
+          "pure_steam_9": "Čistý Para 9",
+          "steam_above_tube": "Para Horný Trubica",
+          "steam_underside_tube": "Para Dolný Trubica",
+          "steam_double_tube": "Para Dvojitý Trubica",
+          "steam_hot_wind_tube_fan": "Para Horúci vzduch Trubica Ventilátor",
+          "steam_hot_wind_tube_fan_1": "Para Horúci vzduch Trubica Ventilátor 1",
+          "steam_hot_wind_tube_fan_2": "Para Horúci vzduch Trubica Ventilátor 2",
+          "steam_hot_wind_tube": "Para Horúci vzduch Trubica",
+          "steam_double_tube_fan": "Para Dvojitý Trubica Ventilátor",
+          "steam_above_inside_outside_tube_fan": "Para Horný Vnútorný Vonkajší Trubica Ventilátor",
+          "steam_above_inside_tube_fan": "Para Horný Vnútorný Trubica Ventilátor",
+          "above_tube": "Horný Trubica",
+          "underside_tube": "Dolný Trubica",
+          "double_tube": "Dvojitý Trubica",
+          "hot_wind_tube_fan": "Horúci vzduch Trubica Ventilátor",
+          "pure_preheat": "Čistý Predhrievanie",
+          "above_tube_hot_wind_tube_fan": "Horný Trubica Horúci vzduch Ventilátor",
+          "underside_tube_hot_wind_tube_fan": "Dolný Trubica Horúci vzduch Ventilátor",
+          "zymosis": "Kvasenie",
+          "double_tube_hot_wind_tube_fan": "Dvojitý Trubica Horúci vzduch Ventilátor",
+          "above_tube_revolve": "Horný Trubica Otáčavý",
+          "underside_tube_revolve": "Dolný Trubica Otáčavý",
+          "double_tube_revolve": "Dvojitý Trubica Otáčavý",
+          "hot_wind_tube_fan_revolve": "Horúci vzduch Trubica Ventilátor Otáčavý",
+          "warm": "Udržiavanie tepla",
+          "double_tube_fan": "Dvojitý Trubica Ventilátor",
+          "double_tube_fan_1": "Dvojitý Trubica Ventilátor 1",
+          "double_tube_fan_2": "Dvojitý Trubica Ventilátor 2",
+          "double_tube_fan_3": "Dvojitý Trubica Ventilátor 3",
+          "above_inside_tube_revolve": "Horný Vnútorný Trubica Otáčavý",
+          "above_inside_tube_fan": "Horný Vnútorný Trubica Ventilátor",
+          "above_inside_outside_tube_revolve": "Horný Vnútorný Vonkajší Trubica Otáčavý",
+          "above_inside_outside_tube_fan": "Horný Vnútorný Vonkajší Trubica Ventilátor",
+          "above_inside_underside_tube": "Horný Vnútorný Dolný Trubica",
+          "above_inside_underside_tube_1": "Horný Vnútorný Dolný Trubica 1",
+          "above_inside_underside_tube_fan": "Horný Vnútorný Dolný Trubica Ventilátor",
+          "above_inside_underside_tube_fan_1": "Horný Vnútorný Dolný Trubica Ventilátor 1",
+          "above_inside_tube": "Horný Vnútorný Trubica",
+          "above_inside_outside_tube": "Horný Vnútorný Vonkajší Trubica",
+          "underside_tube_fan": "Dolný Trubica Ventilátor",
+          "above_tube_fan": "Horný Trubica Ventilátor",
+          "above_tube_fan_1": "Horný Trubica Ventilátor 1",
+          "above_tube_fan_2": "Horný Trubica Ventilátor 2",
+          "scale_clean": "Odvápňovanie",
+          "clean": "Čistenie",
+          "remove_odor": "Odstránenie zápachu",
+          "remove_odor_2": "Odstránenie zápachu 2",
+          "high_temperature_clean": "Vysoká teplota Čistenie",
+          "dining_utensils_clean": "Príbory Čistenie",
+          "auto_menu": "Automatické menu",
+          "eco": "Eco",
+          "above_tube_1": "Horný Trubica 1",
+          "above_tube_2": "Horný Trubica 2",
+          "above_tube_3": "Horný Trubica 3",
+          "underside_tube_1": "Dolný Trubica 1",
+          "underside_tube_2": "Dolný Trubica 2",
+          "double_tube_1": "Dvojitý Trubica 1",
+          "double_tube_2": "Dvojitý Trubica 2",
+          "double_tube_3": "Dvojitý Trubica 3",
+          "double_tube_4": "Dvojitý Trubica 4",
+          "double_tube_5": "Dvojitý Trubica 5",
+          "double_tube_6": "Dvojitý Trubica 6",
+          "hot_wind_tube_fan_1": "Horúci vzduch Trubica Ventilátor 1",
+          "hot_wind_tube_fan_2": "Horúci vzduch Trubica Ventilátor 2",
+          "hot_wind_tube_fan_3": "Horúci vzduch Trubica Ventilátor 3",
+          "hot_wind_tube_fan_4": "Horúci vzduch Trubica Ventilátor 4",
+          "hot_wind_tube_fan_5": "Horúci vzduch Trubica Ventilátor 5",
+          "double_tube_hot_wind_tube_fan_1": "Dvojitý Trubica Horúci vzduch Ventilátor 1",
+          "double_tube_hot_wind_tube_fan_2": "Dvojitý Trubica Horúci vzduch Ventilátor 2",
+          "double_tube_hot_wind_tube_fan_3": "Dvojitý Trubica Horúci vzduch Ventilátor 3",
+          "double_tube_hot_wind_tube_fan_4": "Dvojitý Trubica Horúci vzduch Ventilátor 4",
+          "double_tube_hot_wind_tube_fan_5": "Dvojitý Trubica Horúci vzduch Ventilátor 5",
+          "unknown": "Neznáme"
+        }
       },
       "working_time": {
         "name": "Working Time"
@@ -863,8 +1107,14 @@
       "frost_protect": {
         "name": "Frost Protect"
       },
+      "furnace_light": {
+        "name": "Svetlo rúry"
+      },
       "heating_power": {
         "name": "Heating Power"
+      },
+      "hot_wind": {
+        "name": "Horúci vzduch"
       },
       "indirect_wind": {
         "name": "Indirect Wind"
@@ -904,6 +1154,9 @@
       },
       "regeneration": {
         "name": "Regenerácia"
+      },
+      "turntable": {
+        "name": "Otočný tanier"
       },
       "water_pump": {
         "name": "Vodné čerpadlo"

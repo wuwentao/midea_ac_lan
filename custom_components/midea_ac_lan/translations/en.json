@@ -84,6 +84,15 @@
       "burning_state": {
         "name": "Burning State"
       },
+      "bf_error_code": {
+        "name": "Error"
+      },
+      "clean_scale": {
+        "name": "Descaling"
+      },
+      "clean_sink_ponding": {
+        "name": "Sink Ponding"
+      },
       "cleaning_reminder": {
         "name": "Cleaning Reminder"
       },
@@ -92,6 +101,12 @@
       },
       "cooking": {
         "name": "Cooking"
+      },
+      "dissipate_heat": {
+        "name": "Heat Dissipation"
+      },
+      "door": {
+        "name": "Door"
       },
       "error_code": {
         "name": "Error Code"
@@ -111,6 +126,9 @@
       "flex_zone_door_overtime": {
         "name": "Flex Zone Door"
       },
+      "flip_side": {
+        "name": "Flip Side"
+      },
       "freezer_door": {
         "name": "Freezer Door"
       },
@@ -125,6 +143,15 @@
       },
       "heating_working": {
         "name": "Heating Working Status"
+      },
+      "high_temperature": {
+        "name": "High Temperature"
+      },
+      "high_temperature_lock": {
+        "name": "High Temperature Lock"
+      },
+      "high_temperature_work": {
+        "name": "High Temperature Work"
       },
       "keep_warm": {
         "name": "Keep Warm"
@@ -143,6 +170,18 @@
       },
       "middle_compartment_preheating": {
         "name": "Middle Compartment Preheating"
+      },
+      "pre_heat": {
+        "name": "Pre Heat"
+      },
+      "probe": {
+        "name": "Probe"
+      },
+      "probe_mode": {
+        "name": "Probe Mode"
+      },
+      "reaction": {
+        "name": "Reaction"
       },
       "top_elec_heat": {
         "name": "Top Electric Heat"
@@ -412,6 +451,25 @@
       "bathing_leaving_temperature": {
         "name": "Bathing Leaving Water Temperature"
       },
+      "bf_status": {
+        "name": "Status",
+        "state": {
+          "save_power": "Save Power",
+          "standby": "Standby",
+          "work": "Working",
+          "work_finish": "Finished",
+          "order": "Delay",
+          "pause": "Paused",
+          "pause_c": "Paused C",
+          "three": "Three",
+          "wait_to_start": "Wait to Start",
+          "self_inspection": "Self Inspection",
+          "query_version": "Query Version",
+          "demo": "Demo",
+          "after_checking": "After Checking",
+          "unknown": "Unknown"
+        }
+      },
       "bottom_compartment_remaining": {
         "name": "Bottom Compartment Remaining"
       },
@@ -427,11 +485,23 @@
       "bright": {
         "name": "Bright Level"
       },
+      "cloudmenuid": {
+        "name": "Cloud Menu ID"
+      },
       "compressor_temperature": {
         "name": "Compressor Temperature"
       },
       "condenser_temperature": {
         "name": "Condenser Temperature"
+      },
+      "cur_probe_temperature": {
+        "name": "Current Probe Temperature"
+      },
+      "cur_temperature_above": {
+        "name": "Current Temperature Above"
+      },
+      "cur_temperature_underside": {
+        "name": "Current Temperature Underside"
       },
       "current_energy_consumption": {
         "name": "Current Energy Consumption"
@@ -448,8 +518,55 @@
       "dehydration_time_value": {
         "name": "Dehydration time value"
       },
+      "execute": {
+        "name": "Execute Status",
+        "state": {
+          "ok": "OK",
+          "status_nonsupport": "Status Not Supported",
+          "function_nonsupport": "Function Not Supported",
+          "param_range_error": "Parameter Range Error"
+        }
+      },
+      "fire_power": {
+        "name": "Fire Power",
+        "state": {
+          "fire_power_0": "Level 0",
+          "fire_power_1": "Level 1",
+          "fire_power_2": "Level 2",
+          "fire_power_3": "Level 3",
+          "fire_power_4": "Level 4",
+          "fire_power_5": "Level 5",
+          "fire_power_6": "Level 6",
+          "fire_power_7": "Level 7",
+          "fire_power_8": "Level 8",
+          "fire_power_9": "Level 9",
+          "fire_power_10": "Level 10",
+          "unknown": "Unknown"
+        }
+      },
+      "people_number": {
+        "name": "People Number"
+      },
+      "probe_temperature": {
+        "name": "Probe Temperature"
+      },
+      "steam_quantity": {
+        "name": "Steam Quantity"
+      },
+      "stepnum": {
+        "name": "Current Step"
+      },
       "temperature": {
         "name": "Temperature"
+      },
+      "temperature_above": {
+        "name": "Temperature Above"
+      },
+      "temperature_underside": {
+        "name": "Temperature Underside"
+      },
+      "totalstep": {
+        "name": "Total Steps"
       },
       "wash_time_value": {
         "name": "Wash time value"
@@ -711,6 +828,9 @@
       "water_level": {
         "name": "Water Level"
       },
+      "weight": {
+        "name": "Weight"
+      },
       "wind": {
         "name": "Wind"
       },
@@ -758,6 +878,118 @@
       },
       "auto_sterilize_minute": {
         "name": "Auto Sterilize Minute"
+      },
+      "work_mode": {
+        "name": "Work Mode",
+        "state": {
+          "microwave": "Microwave",
+          "microwave_1": "Microwave 1",
+          "microwave_2": "Microwave 2",
+          "microwave_3": "Microwave 3",
+          "microwave_4": "Microwave 4",
+          "microwave_5": "Microwave 5",
+          "microwave_steam_above_tube": "Microwave Steam Above Tube",
+          "microwave_double_tube": "Microwave Double Tube",
+          "microwave_hot_wind_tube_fan": "Microwave Hot Wind Tube Fan",
+          "microwave_underside_tube_hot_wind_tube_fan": "Microwave Underside Tube Hot Wind Fan",
+          "microwave_double_tube_hot_wind_tube_fan": "Microwave Double Tube Hot Wind Fan",
+          "microwave_steam": "Microwave Steam",
+          "microwave_steam_1": "Microwave Steam 1",
+          "unfreeze": "Unfreeze",
+          "unfreeze_1": "Unfreeze 1",
+          "unfreeze_2": "Unfreeze 2",
+          "unfreeze_3": "Unfreeze 3",
+          "unfreeze_t": "Unfreeze T",
+          "microwave_above_tube": "Microwave Above Tube",
+          "microwave_above_tube_1": "Microwave Above Tube 1",
+          "microwave_above_tube_2": "Microwave Above Tube 2",
+          "microwave_above_tube_fan": "Microwave Above Tube Fan",
+          "fast_unfreeze": "Fast Unfreeze",
+          "fresh_unfreeze": "Fresh Unfreeze",
+          "microwave_zymosis": "Microwave Fermentation",
+          "pure_steam": "Pure Steam",
+          "pure_steam_1": "Pure Steam 1",
+          "pure_steam_2": "Pure Steam 2",
+          "pure_steam_3": "Pure Steam 3",
+          "pure_steam_4": "Pure Steam 4",
+          "pure_steam_5": "Pure Steam 5",
+          "pure_steam_6": "Pure Steam 6",
+          "pure_steam_7": "Pure Steam 7",
+          "pure_steam_8": "Pure Steam 8",
+          "pure_steam_9": "Pure Steam 9",
+          "steam_above_tube": "Steam Above Tube",
+          "steam_underside_tube": "Steam Underside Tube",
+          "steam_double_tube": "Steam Double Tube",
+          "steam_hot_wind_tube_fan": "Steam Hot Wind Tube Fan",
+          "steam_hot_wind_tube_fan_1": "Steam Hot Wind Tube Fan 1",
+          "steam_hot_wind_tube_fan_2": "Steam Hot Wind Tube Fan 2",
+          "steam_hot_wind_tube": "Steam Hot Wind Tube",
+          "steam_double_tube_fan": "Steam Double Tube Fan",
+          "steam_above_inside_outside_tube_fan": "Steam Above Inside Outside Tube Fan",
+          "steam_above_inside_tube_fan": "Steam Above Inside Tube Fan",
+          "above_tube": "Above Tube",
+          "underside_tube": "Underside Tube",
+          "double_tube": "Double Tube",
+          "hot_wind_tube_fan": "Hot Wind Tube Fan",
+          "pure_preheat": "Pure Preheat",
+          "above_tube_hot_wind_tube_fan": "Above Tube Hot Wind Fan",
+          "underside_tube_hot_wind_tube_fan": "Underside Tube Hot Wind Fan",
+          "zymosis": "Fermentation",
+          "double_tube_hot_wind_tube_fan": "Double Tube Hot Wind Fan",
+          "above_tube_revolve": "Above Tube Revolve",
+          "underside_tube_revolve": "Underside Tube Revolve",
+          "double_tube_revolve": "Double Tube Revolve",
+          "hot_wind_tube_fan_revolve": "Hot Wind Tube Fan Revolve",
+          "warm": "Keep Warm",
+          "double_tube_fan": "Double Tube Fan",
+          "double_tube_fan_1": "Double Tube Fan 1",
+          "double_tube_fan_2": "Double Tube Fan 2",
+          "double_tube_fan_3": "Double Tube Fan 3",
+          "above_inside_tube_revolve": "Above Inside Tube Revolve",
+          "above_inside_tube_fan": "Above Inside Tube Fan",
+          "above_inside_outside_tube_revolve": "Above Inside Outside Tube Revolve",
+          "above_inside_outside_tube_fan": "Above Inside Outside Tube Fan",
+          "above_inside_underside_tube": "Above Inside Underside Tube",
+          "above_inside_underside_tube_1": "Above Inside Underside Tube 1",
+          "above_inside_underside_tube_fan": "Above Inside Underside Tube Fan",
+          "above_inside_underside_tube_fan_1": "Above Inside Underside Tube Fan 1",
+          "above_inside_tube": "Above Inside Tube",
+          "above_inside_outside_tube": "Above Inside Outside Tube",
+          "underside_tube_fan": "Underside Tube Fan",
+          "above_tube_fan": "Above Tube Fan",
+          "above_tube_fan_1": "Above Tube Fan 1",
+          "above_tube_fan_2": "Above Tube Fan 2",
+          "scale_clean": "Descaling",
+          "clean": "Clean",
+          "remove_odor": "Remove Odor",
+          "remove_odor_2": "Remove Odor 2",
+          "high_temperature_clean": "High Temperature Clean",
+          "dining_utensils_clean": "Dining Utensils Clean",
+          "auto_menu": "Auto Menu",
+          "eco": "Eco",
+          "above_tube_1": "Above Tube 1",
+          "above_tube_2": "Above Tube 2",
+          "above_tube_3": "Above Tube 3",
+          "underside_tube_1": "Underside Tube 1",
+          "underside_tube_2": "Underside Tube 2",
+          "double_tube_1": "Double Tube 1",
+          "double_tube_2": "Double Tube 2",
+          "double_tube_3": "Double Tube 3",
+          "double_tube_4": "Double Tube 4",
+          "double_tube_5": "Double Tube 5",
+          "double_tube_6": "Double Tube 6",
+          "hot_wind_tube_fan_1": "Hot Wind Tube Fan 1",
+          "hot_wind_tube_fan_2": "Hot Wind Tube Fan 2",
+          "hot_wind_tube_fan_3": "Hot Wind Tube Fan 3",
+          "hot_wind_tube_fan_4": "Hot Wind Tube Fan 4",
+          "hot_wind_tube_fan_5": "Hot Wind Tube Fan 5",
+          "double_tube_hot_wind_tube_fan_1": "Double Tube Hot Wind Fan 1",
+          "double_tube_hot_wind_tube_fan_2": "Double Tube Hot Wind Fan 2",
+          "double_tube_hot_wind_tube_fan_3": "Double Tube Hot Wind Fan 3",
+          "double_tube_hot_wind_tube_fan_4": "Double Tube Hot Wind Fan 4",
+          "double_tube_hot_wind_tube_fan_5": "Double Tube Hot Wind Fan 5",
+          "unknown": "Unknown"
+        }
       },
       "working_time": {
         "name": "Working Time"
@@ -835,6 +1067,18 @@
       },
       "disinfect": {
         "name": "Disinfect"
+      },
+      "furnace_light": {
+        "name": "Furnace Light"
+      },
+      "hot_wind": {
+        "name": "Hot Wind"
+      },
+      "ramadan": {
+        "name": "Ramadan"
+      },
+      "turntable": {
+        "name": "Turntable"
       },
       "vacation_mode": {
         "name": "Vacation Mode"

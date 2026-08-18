@@ -72,6 +72,9 @@
       "bathing_working": {
         "name": "Stato Funzionamento Bagno"
       },
+      "bf_error_code": {
+        "name": "Errore"
+      },
       "bottom_compartment_cooling": {
         "name": "Raffreddamento Scomparto Inferiore"
       },
@@ -84,6 +87,12 @@
       "burning_state": {
         "name": "Stato di Combustione"
       },
+      "clean_scale": {
+        "name": "Decalcificazione"
+      },
+      "clean_sink_ponding": {
+        "name": "Ristagno acqua"
+      },
       "cleaning_reminder": {
         "name": "Promemoria Pulizia"
       },
@@ -92,6 +101,12 @@
       },
       "cooking": {
         "name": "Cottura"
+      },
+      "dissipate_heat": {
+        "name": "Dissipazione calore"
+      },
+      "door": {
+        "name": "Porta"
       },
       "error_code": {
         "name": "Codice Errore"
@@ -111,6 +126,9 @@
       "flex_zone_door_overtime": {
         "name": "Porta Zona Flex Aperta Troppo a Lungo"
       },
+      "flip_side": {
+        "name": "Girare"
+      },
       "freezer_door": {
         "name": "Porta Freezer"
       },
@@ -125,6 +143,15 @@
       },
       "heating_working": {
         "name": "Stato Funzionamento Riscaldamento"
+      },
+      "high_temperature": {
+        "name": "Alta temperatura"
+      },
+      "high_temperature_lock": {
+        "name": "Blocco alta temperatura"
+      },
+      "high_temperature_work": {
+        "name": "Funzionamento alta temperatura"
       },
       "keep_warm": {
         "name": "Mantenimento Caldo"
@@ -143,6 +170,18 @@
       },
       "middle_compartment_preheating": {
         "name": "Preriscaldamento Scomparto Centrale"
+      },
+      "pre_heat": {
+        "name": "Preriscaldamento"
+      },
+      "probe": {
+        "name": "Sonda"
+      },
+      "probe_mode": {
+        "name": "Modalità sonda"
+      },
+      "reaction": {
+        "name": "Reazione"
       },
       "top_elec_heat": {
         "name": "Riscaldamento Elettrico Superiore"
@@ -412,6 +451,25 @@
       "bathing_leaving_temperature": {
         "name": "Temperatura Acqua in Uscita Bagno"
       },
+      "bf_status": {
+        "name": "Stato",
+        "state": {
+          "save_power": "Risparmio energia",
+          "standby": "Standby",
+          "work": "In funzione",
+          "work_finish": "Completato",
+          "order": "Programmato",
+          "pause": "In pausa",
+          "pause_c": "In pausa C",
+          "three": "Tre",
+          "wait_to_start": "In attesa di avvio",
+          "self_inspection": "Autodiagnosi",
+          "query_version": "Consulta versione",
+          "demo": "Demo",
+          "after_checking": "Dopo verifica",
+          "unknown": "Sconosciuto"
+        }
+      },
       "bottom_compartment_remaining": {
         "name": "Tempo Rimanente Scomparto Inferiore"
       },
@@ -427,11 +485,23 @@
       "bright": {
         "name": "Livello Luminosità"
       },
+      "cloudmenuid": {
+        "name": "ID menu cloud"
+      },
       "compressor_temperature": {
         "name": "Temperatura Compressore"
       },
       "condenser_temperature": {
         "name": "Temperatura Condensatore"
+      },
+      "cur_probe_temperature": {
+        "name": "Temperatura sonda attuale"
+      },
+      "cur_temperature_above": {
+        "name": "Temperatura superiore attuale"
+      },
+      "cur_temperature_underside": {
+        "name": "Temperatura inferiore attuale"
       },
       "current_energy_consumption": {
         "name": "Consumo Energetico Attuale"
@@ -448,8 +518,55 @@
       "dehydration_time_value": {
         "name": "Valore Tempo Centrifuga"
       },
+      "execute": {
+        "name": "Stato esecuzione",
+        "state": {
+          "ok": "OK",
+          "status_nonsupport": "Stato non supportato",
+          "function_nonsupport": "Funzione non supportata",
+          "param_range_error": "Errore range parametri"
+        }
+      },
+      "fire_power": {
+        "name": "Potenza",
+        "state": {
+          "fire_power_0": "Livello 0",
+          "fire_power_1": "Livello 1",
+          "fire_power_2": "Livello 2",
+          "fire_power_3": "Livello 3",
+          "fire_power_4": "Livello 4",
+          "fire_power_5": "Livello 5",
+          "fire_power_6": "Livello 6",
+          "fire_power_7": "Livello 7",
+          "fire_power_8": "Livello 8",
+          "fire_power_9": "Livello 9",
+          "fire_power_10": "Livello 10",
+          "unknown": "Sconosciuto"
+        }
+      },
+      "people_number": {
+        "name": "Numero persone"
+      },
+      "probe_temperature": {
+        "name": "Temperatura sonda"
+      },
+      "steam_quantity": {
+        "name": "Quantità vapore"
+      },
+      "stepnum": {
+        "name": "Passo corrente"
+      },
       "temperature": {
         "name": "Temperatura"
+      },
+      "temperature_above": {
+        "name": "Temperatura superiore"
+      },
+      "temperature_underside": {
+        "name": "Temperatura inferiore"
+      },
+      "totalstep": {
+        "name": "Passi totali"
       },
       "wash_time_value": {
         "name": "Valore Tempo Lavaggio"
@@ -711,6 +828,9 @@
       "water_level": {
         "name": "Livello Acqua"
       },
+      "weight": {
+        "name": "Peso"
+      },
       "wind": {
         "name": "Vento"
       },
@@ -758,6 +878,118 @@
       },
       "auto_sterilize_minute": {
         "name": "Minuto Sterilizzazione Automatica"
+      },
+      "work_mode": {
+        "name": "Modalità cottura",
+        "state": {
+          "microwave": "Microonde",
+          "microwave_1": "Microonde 1",
+          "microwave_2": "Microonde 2",
+          "microwave_3": "Microonde 3",
+          "microwave_4": "Microonde 4",
+          "microwave_5": "Microonde 5",
+          "microwave_steam_above_tube": "Microonde Vapore Superiore Resistenza",
+          "microwave_double_tube": "Microonde Doppio Resistenza",
+          "microwave_hot_wind_tube_fan": "Microonde Aria calda Resistenza Ventilatore",
+          "microwave_underside_tube_hot_wind_tube_fan": "Microonde Inferiore Resistenza Aria calda Ventilatore",
+          "microwave_double_tube_hot_wind_tube_fan": "Microonde Doppio Resistenza Aria calda Ventilatore",
+          "microwave_steam": "Microonde Vapore",
+          "microwave_steam_1": "Microonde Vapore 1",
+          "unfreeze": "Scongelamento",
+          "unfreeze_1": "Scongelamento 1",
+          "unfreeze_2": "Scongelamento 2",
+          "unfreeze_3": "Scongelamento 3",
+          "unfreeze_t": "Scongelamento T",
+          "microwave_above_tube": "Microonde Superiore Resistenza",
+          "microwave_above_tube_1": "Microonde Superiore Resistenza 1",
+          "microwave_above_tube_2": "Microonde Superiore Resistenza 2",
+          "microwave_above_tube_fan": "Microonde Superiore Resistenza Ventilatore",
+          "fast_unfreeze": "Veloce Scongelamento",
+          "fresh_unfreeze": "Fresco Scongelamento",
+          "microwave_zymosis": "Microonde Fermentazione",
+          "pure_steam": "Puro Vapore",
+          "pure_steam_1": "Puro Vapore 1",
+          "pure_steam_2": "Puro Vapore 2",
+          "pure_steam_3": "Puro Vapore 3",
+          "pure_steam_4": "Puro Vapore 4",
+          "pure_steam_5": "Puro Vapore 5",
+          "pure_steam_6": "Puro Vapore 6",
+          "pure_steam_7": "Puro Vapore 7",
+          "pure_steam_8": "Puro Vapore 8",
+          "pure_steam_9": "Puro Vapore 9",
+          "steam_above_tube": "Vapore Superiore Resistenza",
+          "steam_underside_tube": "Vapore Inferiore Resistenza",
+          "steam_double_tube": "Vapore Doppio Resistenza",
+          "steam_hot_wind_tube_fan": "Vapore Aria calda Resistenza Ventilatore",
+          "steam_hot_wind_tube_fan_1": "Vapore Aria calda Resistenza Ventilatore 1",
+          "steam_hot_wind_tube_fan_2": "Vapore Aria calda Resistenza Ventilatore 2",
+          "steam_hot_wind_tube": "Vapore Aria calda Resistenza",
+          "steam_double_tube_fan": "Vapore Doppio Resistenza Ventilatore",
+          "steam_above_inside_outside_tube_fan": "Vapore Superiore Interno Esterno Resistenza Ventilatore",
+          "steam_above_inside_tube_fan": "Vapore Superiore Interno Resistenza Ventilatore",
+          "above_tube": "Superiore Resistenza",
+          "underside_tube": "Inferiore Resistenza",
+          "double_tube": "Doppio Resistenza",
+          "hot_wind_tube_fan": "Aria calda Resistenza Ventilatore",
+          "pure_preheat": "Puro Preriscaldamento",
+          "above_tube_hot_wind_tube_fan": "Superiore Resistenza Aria calda Ventilatore",
+          "underside_tube_hot_wind_tube_fan": "Inferiore Resistenza Aria calda Ventilatore",
+          "zymosis": "Fermentazione",
+          "double_tube_hot_wind_tube_fan": "Doppio Resistenza Aria calda Ventilatore",
+          "above_tube_revolve": "Superiore Resistenza Rotante",
+          "underside_tube_revolve": "Inferiore Resistenza Rotante",
+          "double_tube_revolve": "Doppio Resistenza Rotante",
+          "hot_wind_tube_fan_revolve": "Aria calda Resistenza Ventilatore Rotante",
+          "warm": "Mantieni caldo",
+          "double_tube_fan": "Doppio Resistenza Ventilatore",
+          "double_tube_fan_1": "Doppio Resistenza Ventilatore 1",
+          "double_tube_fan_2": "Doppio Resistenza Ventilatore 2",
+          "double_tube_fan_3": "Doppio Resistenza Ventilatore 3",
+          "above_inside_tube_revolve": "Superiore Interno Resistenza Rotante",
+          "above_inside_tube_fan": "Superiore Interno Resistenza Ventilatore",
+          "above_inside_outside_tube_revolve": "Superiore Interno Esterno Resistenza Rotante",
+          "above_inside_outside_tube_fan": "Superiore Interno Esterno Resistenza Ventilatore",
+          "above_inside_underside_tube": "Superiore Interno Inferiore Resistenza",
+          "above_inside_underside_tube_1": "Superiore Interno Inferiore Resistenza 1",
+          "above_inside_underside_tube_fan": "Superiore Interno Inferiore Resistenza Ventilatore",
+          "above_inside_underside_tube_fan_1": "Superiore Interno Inferiore Resistenza Ventilatore 1",
+          "above_inside_tube": "Superiore Interno Resistenza",
+          "above_inside_outside_tube": "Superiore Interno Esterno Resistenza",
+          "underside_tube_fan": "Inferiore Resistenza Ventilatore",
+          "above_tube_fan": "Superiore Resistenza Ventilatore",
+          "above_tube_fan_1": "Superiore Resistenza Ventilatore 1",
+          "above_tube_fan_2": "Superiore Resistenza Ventilatore 2",
+          "scale_clean": "Decalcificazione",
+          "clean": "Pulizia",
+          "remove_odor": "Rimozione odori",
+          "remove_odor_2": "Rimozione odori 2",
+          "high_temperature_clean": "Alta temperatura Pulizia",
+          "dining_utensils_clean": "Stoviglie Pulizia",
+          "auto_menu": "Menu automatico",
+          "eco": "Eco",
+          "above_tube_1": "Superiore Resistenza 1",
+          "above_tube_2": "Superiore Resistenza 2",
+          "above_tube_3": "Superiore Resistenza 3",
+          "underside_tube_1": "Inferiore Resistenza 1",
+          "underside_tube_2": "Inferiore Resistenza 2",
+          "double_tube_1": "Doppio Resistenza 1",
+          "double_tube_2": "Doppio Resistenza 2",
+          "double_tube_3": "Doppio Resistenza 3",
+          "double_tube_4": "Doppio Resistenza 4",
+          "double_tube_5": "Doppio Resistenza 5",
+          "double_tube_6": "Doppio Resistenza 6",
+          "hot_wind_tube_fan_1": "Aria calda Resistenza Ventilatore 1",
+          "hot_wind_tube_fan_2": "Aria calda Resistenza Ventilatore 2",
+          "hot_wind_tube_fan_3": "Aria calda Resistenza Ventilatore 3",
+          "hot_wind_tube_fan_4": "Aria calda Resistenza Ventilatore 4",
+          "hot_wind_tube_fan_5": "Aria calda Resistenza Ventilatore 5",
+          "double_tube_hot_wind_tube_fan_1": "Doppio Resistenza Aria calda Ventilatore 1",
+          "double_tube_hot_wind_tube_fan_2": "Doppio Resistenza Aria calda Ventilatore 2",
+          "double_tube_hot_wind_tube_fan_3": "Doppio Resistenza Aria calda Ventilatore 3",
+          "double_tube_hot_wind_tube_fan_4": "Doppio Resistenza Aria calda Ventilatore 4",
+          "double_tube_hot_wind_tube_fan_5": "Doppio Resistenza Aria calda Ventilatore 5",
+          "unknown": "Sconosciuto"
+        }
       },
       "working_time": {
         "name": "Tempo di Lavoro"
@@ -835,6 +1067,15 @@
       },
       "disinfect": {
         "name": "Disinfezione"
+      },
+      "furnace_light": {
+        "name": "Luce forno"
+      },
+      "hot_wind": {
+        "name": "Aria calda"
+      },
+      "turntable": {
+        "name": "Piatto rotante"
       },
       "vacation_mode": {
         "name": "Modalità Vacanza"
