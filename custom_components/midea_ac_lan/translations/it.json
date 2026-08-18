@@ -123,6 +123,13 @@
       "heating": {
         "name": "Riscaldamento"
       },
+      "dispensing": {
+        "name": "Erogazione acqua"
+      },
+      "lack_water": { "name": "Mancanza acqua" },
+      "standby": { "name": "Standby" },
+      "hot_water_dispensing": { "name": "Erogazione acqua calda" },
+      "fault": { "name": "Guasto" },
       "heating_working": {
         "name": "Stato Funzionamento Riscaldamento"
       },
@@ -322,6 +329,12 @@
       },
       "water_hardness": {
         "name": "Durezza Acqua"
+      },
+      "boil_temperature": {
+        "name": "Temperatura obiettivo di ebollizione"
+      },
+      "keep_warm_time": {
+        "name": "Durata mantenimento in caldo"
       }
     },
     "select": {
@@ -570,6 +583,7 @@
       "keep_warm_remaining": {
         "name": "Tempo Rimanente Mantenimento Caldo"
       },
+      "fault_code": { "name": "Codice guasto" },
       "keep_warm_time": {
         "name": "Tempo Mantenimento Caldo"
       },
@@ -997,6 +1011,24 @@
       },
       "zone2_power": {
         "name": "Potenza Zona2"
+      },
+      "boiling": {
+        "name": "Bollire l’acqua"
+      },
+      "tea_bar_boil": {
+        "name": "Interruttore bollitura"
+      },
+      "tea_bar_child_lock": {
+        "name": "Blocco Bambini"
+      },
+      "keep_warm": {
+        "name": "Mantenimento in caldo"
+      },
+      "tea_bar_cooling": {
+        "name": "Raffreddamento"
+      },
+      "screen_off": {
+        "name": "Spegnimento schermo"
       }
     },
     "water_heater": {
