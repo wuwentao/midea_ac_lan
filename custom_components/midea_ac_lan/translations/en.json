@@ -237,18 +237,6 @@
       "with_pressure": {
         "name": "With Pressure"
       },
-      "zone1_room_temp_mode": {
-        "name": "Zone1 Room-temperature Mode"
-      },
-      "zone1_water_temp_mode": {
-        "name": "Zone1 Water-temperature Mode"
-      },
-      "zone2_room_temp_mode": {
-        "name": "Zone2 Room-temperature Mode"
-      },
-      "zone2_water_temp_mode": {
-        "name": "Zone2 Water-temperature Mode"
-      },
       "microcrystal_fresh": {
         "name": "Microcrystal Fresh"
       },
@@ -328,10 +316,10 @@
         "name": "Pump D (Pump_D)"
       },
       "pump_c_running": {
-        "name": "Pump C (Pump_C)"
+        "name": "Pump C — Zone 2 (Pump_C)"
       },
       "pump_s_running": {
-        "name": "Pump S (Pump_S)"
+        "name": "Pump S — Solar (Pump_S)"
       },
       "sv1_open": {
         "name": "3-way Valve DHW (SV1)"
@@ -341,6 +329,27 @@
       },
       "load_output_tbh": {
         "name": "Tank Backup Heater (TBH)"
+      },
+      "compressor_on": {
+        "name": "Compressor Running"
+      },
+      "ibh1_on": {
+        "name": "Electric Heater IBH1"
+      },
+      "ibh2_on": {
+        "name": "Electric Heater IBH2"
+      },
+      "sv3_open": {
+        "name": "3-way Valve SV3"
+      },
+      "crankcase_heater_on": {
+        "name": "Crankcase Heater"
+      },
+      "alarm_on": {
+        "name": "Alarm (Reg 129 BIT12)"
+      },
+      "aux_heat_on": {
+        "name": "Auxiliary Heat Source"
       }
     },
     "button": {
@@ -752,9 +761,6 @@
       "tank_actual_temperature": {
         "name": "Tank Actual Temperature"
       },
-      "target_temperature": {
-        "name": "Target Temperature"
-      },
       "time_remaining": {
         "name": "Time Remaining"
       },
@@ -866,9 +872,6 @@
       "target_compressor_frequency": {
         "name": "Target Compressor Frequency"
       },
-      "compressor_current": {
-        "name": "Compressor Current"
-      },
       "compressor_voltage": {
         "name": "Compressor Voltage"
       },
@@ -930,12 +933,6 @@
       "water_pressure": {
         "name": "Water Pressure"
       },
-      "heat_elec_total_consum0": {
-        "name": "Heat Pump Total Electric Consumption"
-      },
-      "heat_elec_total_capacity0": {
-        "name": "Heat Pump Total Thermal Energy"
-      },
       "temp_t1": {
         "name": "T1 - Total Outlet Water Temperature"
       },
@@ -987,18 +984,6 @@
       "room_rel_hum": {
         "name": "Room Relative Humidity"
       },
-      "total_electricity0": {
-        "name": "Total Electricity Consumption (raw)"
-      },
-      "total_thermal0": {
-        "name": "Total Thermal Energy (raw)"
-      },
-      "total_renew_power0": {
-        "name": "Total Renewable Energy"
-      },
-      "instant_renew_power0": {
-        "name": "Instant Renewable Power"
-      },
       "unit_mode_run": {
         "name": "Unit Running Mode",
         "state": {
@@ -1019,20 +1004,8 @@
       "fg_capacity_need": {
         "name": "Capacity Need (raw)"
       },
-      "fg_usb_info_connect": {
-        "name": "USB Info Connect (raw)"
-      },
-      "odu_plan_vol_lmt": {
-        "name": "Outdoor Unit Current Limitation Code"
-      },
-      "current_unit_capacity": {
-        "name": "Current Unit Capacity (raw)"
-      },
       "hydrobox_capacity": {
         "name": "Hydraulic Box Capacity"
-      },
-      "sphera_ahs_voltage": {
-        "name": "AHS Voltage (raw)"
       },
       "idu_t1s1": {
         "name": "Zone 1 Calculated T1s (Curve)"
@@ -1052,9 +1025,6 @@
       "zone2_temp_set": {
         "name": "Zone 2 Temperature Set (raw)"
       },
-      "zone_terminal_type": {
-        "name": "Zone Terminal Type (raw)"
-      },
       "disinfect_set_weekday": {
         "name": "Disinfect Weekday Setting"
       },
@@ -1066,9 +1036,6 @@
       },
       "odu_target_fre": {
         "name": "Outdoor Unit Target Frequency"
-      },
-      "temp_t4a_ver": {
-        "name": "T4A / Version Byte (meaning unverified)"
       },
       "exv_opening": {
         "name": "EXV1 Opening (outdoor unit expansion valve)"
@@ -1085,20 +1052,29 @@
       "temp_tw_out": {
         "name": "Water Outlet Temperature"
       },
-      "instant_power0": {
-        "name": "Current Power"
-      },
       "comp_total_run_time": {
         "name": "Compressor Total Run Time"
       },
-      "idu_software_version": {
-        "name": "IDU Software Version"
-      },
-      "odu_software_version": {
-        "name": "ODU Software Version"
-      },
       "load_output_raw": {
         "name": "Load Output Bitmap (raw)"
+      },
+      "compressor_status_raw": {
+        "name": "Compressor Status Bitmap (raw)"
+      },
+      "odu_comp_current": {
+        "name": "ODU Compressor Current"
+      },
+      "idu_software_version_str": {
+        "name": "IDU Software Version (with date)"
+      },
+      "odu_software_version_str": {
+        "name": "ODU Software Version (with date)"
+      },
+      "load_output_raw_hi": {
+        "name": "Load Output Bitmap Hi (raw)"
+      },
+      "load_output_reg129": {
+        "name": "Load Output Reg 129 (16-bit)"
       }
     },
     "switch": {
