@@ -350,9 +350,6 @@
       },
       "aux_heat_on": {
         "name": "Auxiliary Heat Source (reg128 — unmapped)"
-      },
-      "system_active_reg128": {
-        "name": "System Active (Reg 128 BIT0 candidate)"
       }
     },
     "button": {
@@ -1058,9 +1055,6 @@
       "comp_total_run_time": {
         "name": "Compressor Total Run Time"
       },
-      "load_output_raw": {
-        "name": "Load Output Bitmap (raw)"
-      },
       "compressor_status_raw": {
         "name": "Compressor Status Bitmap (raw)"
       },
@@ -1073,47 +1067,8 @@
       "odu_software_version_str": {
         "name": "ODU Software Version (with date)"
       },
-      "load_output_raw_hi": {
-        "name": "Load Output Bitmap Hi (raw)"
-      },
-      "load_output_reg129": {
-        "name": "Load Output Reg 129 (16-bit)"
-      },
-      "raw_b18": {
-        "name": "Raw byte 18 (odu_voltage hi — expect 0)"
-      },
-      "raw_b19": {
-        "name": "Raw byte 19 (reg128 candidate)"
-      },
-      "raw_b20": {
-        "name": "Raw byte 20 (reg128 candidate)"
-      },
-      "raw_b21": {
-        "name": "Raw byte 21 (reg128 candidate)"
-      },
       "raw_b31": {
-        "name": "Raw byte 31 (reg128 candidate)"
-      },
-      "raw_b56": {
-        "name": "Raw byte 56 (reg128 candidate)"
-      },
-      "raw_b57": {
-        "name": "Raw byte 57 (reg128 candidate)"
-      },
-      "raw_b58": {
-        "name": "Raw byte 58 (reg128 candidate)"
-      },
-      "raw_b59": {
-        "name": "Raw byte 59 (reg128 candidate)"
-      },
-      "raw_b74": {
-        "name": "Raw byte 74 (reg128 candidate)"
-      },
-      "raw_b83": {
-        "name": "Raw byte 83 (reg128 candidate)"
-      },
-      "raw_b85": {
-        "name": "Raw byte 85 (reg128 candidate)"
+        "name": "Raw byte 31 (status bitmap candidate)"
       }
     },
     "switch": {
