@@ -1907,13 +1907,40 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "unit": UnitOfElectricPotential.VOLT,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
+            # --- Real-time power triad + COP (semantics verified vs Modbus
+            # V4.7 regs 148/149/150/151 and per-frame energy balance) ---
+            # instant_power is the THERMAL OUTPUT (heat delivered), not the
+            # electrical draw. Use instant_power0 for the Energy dashboard.
             C3Attributes.instant_power: {
                 "type": Platform.SENSOR,
                 "translation_key": "instant_power",
-                "name": "Instant Power",
+                "name": "Heating Capacity (Thermal Output)",
                 "device_class": SensorDeviceClass.POWER,
                 "unit": UnitOfPower.KILO_WATT,
                 "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C3Attributes.instant_power0: {
+                "type": Platform.SENSOR,
+                "translation_key": "instant_power0",
+                "name": "Power Consumption",
+                "device_class": SensorDeviceClass.POWER,
+                "unit": UnitOfPower.KILO_WATT,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C3Attributes.instant_renew_power0: {
+                "type": Platform.SENSOR,
+                "translation_key": "instant_renew_power0",
+                "name": "Renewable Heating Capacity",
+                "device_class": SensorDeviceClass.POWER,
+                "unit": UnitOfPower.KILO_WATT,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C3Attributes.instant_cop: {
+                "type": Platform.SENSOR,
+                "translation_key": "instant_cop",
+                "name": "COP (Coefficient of Performance)",
+                "state_class": SensorStateClass.MEASUREMENT,
+                "icon": "mdi:heat-pump-outline",
             },
             # --- Pump / valve statuses (LOAD_OUTPUT bitmap, X10 byte[33]) ---
             C3Attributes.pump_i_running: {
