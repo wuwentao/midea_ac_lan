@@ -22,7 +22,7 @@ dev = [
   "homeassistant==2026.3.1  ; python_full_version >= '3.14.2'",
   # Tooling (was requirements-dev.txt). ruff is aligned to the version enforced
   # by the ruff-pre-commit hook in .pre-commit-config.yaml (v0.16.0).
-  "ruff==0.16.3",
+  "ruff==0.16.4",
   "mypy==2.3.0",
   "pylint==4.0.7",
   "pre-commit==4.6.2",
