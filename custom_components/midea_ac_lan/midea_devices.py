@@ -2261,13 +2261,13 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "disinfect_start_hour",
                 "name": "DHW - Disinfect Start Hour",
                 "icon": "mdi:clock-outline",
-                            },
+            },
             C3Attributes.disinfect_start_minutes: {
                 "type": Platform.SENSOR,
                 "translation_key": "disinfect_start_minutes",
                 "name": "DHW - Disinfect Start Minute",
                 "icon": "mdi:clock-outline",
-                            },
+            },
         },
     },
     0xCA: {
