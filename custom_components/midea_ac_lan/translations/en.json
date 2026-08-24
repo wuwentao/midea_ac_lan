@@ -1,1341 +1,1338 @@
 {
-  "config": {
-    "error": {
-      "preset_account": "Failed to login with preset account, please report this issue",
-      "login_failed": "Failed to login, account or password was wrong",
-      "no_devices": "No new available appliances found on the network",
-      "device_exist": "Appliance is already configured",
-      "config_incorrect": "The configuration is incorrect",
-      "connect_error": "Can't connect to appliance",
-      "invalid_token": "Token or Key in an incorrect format"
-    },
-    "step": {
-      "user": {
-        "data": {
-          "way": "Adding appliances"
+    "config": {
+        "error": {
+            "preset_account": "Failed to login with preset account, please report this issue",
+            "login_failed": "Failed to login, account or password was wrong",
+            "no_devices": "No new available appliances found on the network",
+            "device_exist": "Appliance is already configured",
+            "config_incorrect": "The configuration is incorrect",
+            "connect_error": "Can't connect to appliance",
+            "invalid_token": "Token or Key in an incorrect format"
         },
-        "description": "Choose the way to add a appliance",
-        "title": "Add new appliance"
-      },
-      "login": {
-        "data": {
-          "account": "Account",
-          "password": "Password"
-        },
-        "description": "Login and storage your Midea account only for getting the appliance info.\nYou can remove this configuration after all appliance configured.",
-        "title": "Login"
-      },
-      "discovery": {
-        "description": "IP address for device, enter \"auto\" to discover automatically\nYou can also use an IP address to search within a specified network, such as \"192.168.1.255\"",
-        "title": "Search",
-        "data": {
-          "ip_address": "IP address"
-        }
-      },
-      "list": {
-        "description": "{table}",
-        "title": "Appliances"
-      },
-      "auto": {
-        "data": {
-          "device": "Appliances"
-        },
-        "description": "Choose a appliance to add",
-        "title": "New appliance found"
-      },
-      "manually": {
-        "data": {
-          "name": "Name (e.g. Living room AC)",
-          "device_id": "Appliance code",
-          "type": "Type",
-          "ip_address": "IP address",
-          "port": "Port",
-          "model": "Model",
-          "subtype": "Subtype",
-          "protocol": "Protocol",
-          "token": "Token",
-          "key": "Key"
-        },
-        "description": "Configuration of appliance",
-        "title": "New appliance"
-      }
-    }
-  },
-  "entity": {
-    "binary_sensor": {
-      "water_circuit_active": {
-        "name": "Water - Circuit Active"
-      },
-      "unit_demand": {
-        "name": "Diagnostic - Unit Demand (candidate)"
-      },
-      "bar_door": {
-        "name": "Bar Door"
-      },
-      "bar_door_overtime": {
-        "name": "Bar Door Overtime"
-      },
-      "bathing_working": {
-        "name": "Bathing Working Status"
-      },
-      "bottom_compartment_cooling": {
-        "name": "Bottom Compartment Cooling"
-      },
-      "bottom_compartment_door": {
-        "name": "Bottom Compartment Door"
-      },
-      "bottom_compartment_preheating": {
-        "name": "Bottom Compartment Preheating"
-      },
-      "burning_state": {
-        "name": "Burning State"
-      },
-      "cleaning_reminder": {
-        "name": "Cleaning Reminder"
-      },
-      "compressor_status": {
-        "name": "Compressor Status"
-      },
-      "cooking": {
-        "name": "Cooking"
-      },
-      "error_code": {
-        "name": "Error - Code"
-      },
-      "filter_change_reminder": {
-        "name": "Filter Change Reminder"
-      },
-      "filter_cleaning_reminder": {
-        "name": "Filter Cleaning Reminder"
-      },
-      "finished": {
-        "name": "Finished"
-      },
-      "flex_zone_door": {
-        "name": "Flex Door"
-      },
-      "flex_zone_door_overtime": {
-        "name": "Flex Zone Door"
-      },
-      "freezer_door": {
-        "name": "Freezer Door"
-      },
-      "freezer_door_overtime": {
-        "name": "Freezer Door Overtime"
-      },
-      "full_dust": {
-        "name": "Full of Dust"
-      },
-      "heating": {
-        "name": "Heating"
-      },
-      "heating_working": {
-        "name": "Heating Working Status"
-      },
-      "keep_warm": {
-        "name": "Keep Warm"
-      },
-      "leak_water": {
-        "name": "Leak Water"
-      },
-      "lid_status": {
-        "name": "Lid Status"
-      },
-      "middle_compartment_cooling": {
-        "name": "Middle Compartment Cooling"
-      },
-      "middle_compartment_door": {
-        "name": "Middle Compartment Door"
-      },
-      "middle_compartment_preheating": {
-        "name": "Middle Compartment Preheating"
-      },
-      "top_elec_heat": {
-        "name": "Top Electric Heat"
-      },
-      "bottom_elec_heat": {
-        "name": "Bottom Electric Heat"
-      },
-      "mute_effect": {
-        "name": "Mute Effect"
-      },
-      "mute_status": {
-        "name": "Mute Status"
-      },
-      "multi_terminal": {
-        "name": "Multi Terminal"
-      },
-      "oilcup_full": {
-        "name": "Oil-cup Full"
-      },
-      "protection": {
-        "name": "Protection"
-      },
-      "refrigerator_door": {
-        "name": "Refrigerator Door"
-      },
-      "refrigerator_door_overtime": {
-        "name": "Refrigerator Door Overtime"
-      },
-      "rinse_aid": {
-        "name": "Rinse Aid Shortage"
-      },
-      "rsj_stand_by": {
-        "name": "Stand By"
-      },
-      "salt": {
-        "name": "Salt Shortage"
-      },
-      "seat_status": {
-        "name": "Seat Status"
-      },
-      "smart_grid": {
-        "name": "Smart Grid"
-      },
-      "eco": {
-        "name": "ECO"
-      },
-      "maintenance_reminder": {
-        "name": "Maintenance Reminder"
-      },
-      "maintain_warn": {
-        "name": "Maintenance Warning"
-      },
-      "order1_effect": {
-        "name": "Schedule 1 Active"
-      },
-      "order2_effect": {
-        "name": "Schedule 2 Active"
-      },
-      "status_dhw": {
-        "name": "Status - DHW"
-      },
-      "status_heating": {
-        "name": "Status - Heating"
-      },
-      "status_ibh": {
-        "name": "Status - IBH"
-      },
-      "status_tbh": {
-        "name": "Status - TBH"
-      },
-      "tank_ejected": {
-        "name": "Tank Ejected"
-      },
-      "tank_full": {
-        "name": "Tank status"
-      },
-      "top_compartment_cooling": {
-        "name": "Top Compartment Cooling"
-      },
-      "top_compartment_door": {
-        "name": "Top Compartment Door"
-      },
-      "top_compartment_preheating": {
-        "name": "Top Compartment Preheating"
-      },
-      "water_change_reminder": {
-        "name": "Water Change Reminder"
-      },
-      "water_shortage": {
-        "name": "Water Shortage"
-      },
-      "with_pressure": {
-        "name": "With Pressure"
-      },
-      "microcrystal_fresh": {
-        "name": "Microcrystal Fresh"
-      },
-      "electronic_smell": {
-        "name": "Deodorizing sterilizing"
-      },
-      "water_pump_running": {
-        "name": "Water Pump Running"
-      },
-      "status_cool": {
-        "name": "Status - Cooling"
-      },
-      "eco_function_state": {
-        "name": "Mode - ECO Function"
-      },
-      "eco_timer_state": {
-        "name": "Mode - ECO Timer"
-      },
-      "double_zone": {
-        "name": "Capability - Double Zone"
-      },
-      "room_thermal_support": {
-        "name": "Capability - Room Thermostat"
-      },
-      "room_thermal_state": {
-        "name": "Status - Room Thermostat"
-      },
-      "time_set": {
-        "name": "Capability - Time Set"
-      },
-      "disinfect_run": {
-        "name": "DHW - Disinfect Running"
-      },
-      "remote_onoff": {
-        "name": "Capability - Remote On/Off"
-      },
-      "tbh_control": {
-        "name": "Capability - TBH Control"
-      },
-      "heat_capability": {
-        "name": "Capability - Heating"
-      },
-      "cool_capability": {
-        "name": "Capability - Cooling"
-      },
-      "dhw_capability": {
-        "name": "Capability - DHW"
-      },
-      "sys_energy_ana_en": {
-        "name": "Capability - Energy Analysis (System)"
-      },
-      "hmi_energy_ana_set_en": {
-        "name": "Capability - Energy Analysis (HMI)"
-      },
-      "pump_i_running": {
-        "name": "Pump_I - Internal"
-      },
-      "pump_o_running": {
-        "name": "Pump_O - External"
-      },
-      "pump_d_running": {
-        "name": "Pump_D - DHW"
-      },
-      "pump_c_running": {
-        "name": "Pump_C - Mixed Water Loop Zone 2"
-      },
-      "pump_s_running": {
-        "name": "Pump_S - Solar"
-      },
-      "sv1_open": {
-        "name": "SV1 - Valve (DHW)"
-      },
-      "sv2_open": {
-        "name": "SV2 - Valve (Heating)"
-      },
-      "load_output_tbh": {
-        "name": "Heater - Tank Backup (TBH)"
-      },
-      "compressor_on": {
-        "name": "Compressor - Running"
-      },
-      "ibh1_on": {
-        "name": "Heater - IBH1"
-      },
-      "ibh2_on": {
-        "name": "Heater - IBH2"
-      },
-      "sv3_open": {
-        "name": "SV3 - Valve"
-      },
-      "crankcase_heater_on": {
-        "name": "Heater - Crankcase"
-      },
-      "alarm_on": {
-        "name": "Error - Alarm"
-      },
-      "aux_heat_on": {
-        "name": "Heater - Auxiliary Source"
-      }
-    },
-    "button": {
-      "start": {
-        "name": "Start"
-      }
-    },
-    "climate": {
-      "climate_zone1": {
-        "name": "Zone1 Thermostat"
-      },
-      "climate_zone2": {
-        "name": "Zone2 Thermostat"
-      },
-      "climate_key": {
-        "state_attributes": {
-          "fan_mode": {
-            "state": {
-              "silent": "Silent",
-              "full": "Full"
+        "step": {
+            "user": {
+                "data": {
+                    "way": "Adding appliances"
+                },
+                "description": "Choose the way to add a appliance",
+                "title": "Add new appliance"
+            },
+            "login": {
+                "data": {
+                    "account": "Account",
+                    "password": "Password"
+                },
+                "description": "Login and storage your Midea account only for getting the appliance info.\nYou can remove this configuration after all appliance configured.",
+                "title": "Login"
+            },
+            "discovery": {
+                "description": "IP address for device, enter \"auto\" to discover automatically\nYou can also use an IP address to search within a specified network, such as \"192.168.1.255\"",
+                "title": "Search",
+                "data": {
+                    "ip_address": "IP address"
+                }
+            },
+            "list": {
+                "description": "{table}",
+                "title": "Appliances"
+            },
+            "auto": {
+                "data": {
+                    "device": "Appliances"
+                },
+                "description": "Choose a appliance to add",
+                "title": "New appliance found"
+            },
+            "manually": {
+                "data": {
+                    "name": "Name (e.g. Living room AC)",
+                    "device_id": "Appliance code",
+                    "type": "Type",
+                    "ip_address": "IP address",
+                    "port": "Port",
+                    "model": "Model",
+                    "subtype": "Subtype",
+                    "protocol": "Protocol",
+                    "token": "Token",
+                    "key": "Key"
+                },
+                "description": "Configuration of appliance",
+                "title": "New appliance"
             }
-          }
         }
-      }
     },
-    "fan": {
-      "fresh_air": {
-        "name": "Fresh Air"
-      },
-      "fresh_air_exhaust": {
-        "name": "Fresh Air Exhaust"
-      }
+    "entity": {
+        "binary_sensor": {
+            "water_circuit_active": {
+                "name": "Water - Circuit Active"
+            },
+            "unit_demand": {
+                "name": "Diagnostic - Unit Demand (candidate)"
+            },
+            "bar_door": {
+                "name": "Bar Door"
+            },
+            "bar_door_overtime": {
+                "name": "Bar Door Overtime"
+            },
+            "bathing_working": {
+                "name": "Bathing Working Status"
+            },
+            "bottom_compartment_cooling": {
+                "name": "Bottom Compartment Cooling"
+            },
+            "bottom_compartment_door": {
+                "name": "Bottom Compartment Door"
+            },
+            "bottom_compartment_preheating": {
+                "name": "Bottom Compartment Preheating"
+            },
+            "burning_state": {
+                "name": "Burning State"
+            },
+            "cleaning_reminder": {
+                "name": "Cleaning Reminder"
+            },
+            "compressor_status": {
+                "name": "Compressor Status"
+            },
+            "cooking": {
+                "name": "Cooking"
+            },
+            "error_code": {
+                "name": "Error - Code"
+            },
+            "filter_change_reminder": {
+                "name": "Filter Change Reminder"
+            },
+            "filter_cleaning_reminder": {
+                "name": "Filter Cleaning Reminder"
+            },
+            "finished": {
+                "name": "Finished"
+            },
+            "flex_zone_door": {
+                "name": "Flex Door"
+            },
+            "flex_zone_door_overtime": {
+                "name": "Flex Zone Door"
+            },
+            "freezer_door": {
+                "name": "Freezer Door"
+            },
+            "freezer_door_overtime": {
+                "name": "Freezer Door Overtime"
+            },
+            "full_dust": {
+                "name": "Full of Dust"
+            },
+            "heating": {
+                "name": "Heating"
+            },
+            "heating_working": {
+                "name": "Heating Working Status"
+            },
+            "keep_warm": {
+                "name": "Keep Warm"
+            },
+            "leak_water": {
+                "name": "Leak Water"
+            },
+            "lid_status": {
+                "name": "Lid Status"
+            },
+            "middle_compartment_cooling": {
+                "name": "Middle Compartment Cooling"
+            },
+            "middle_compartment_door": {
+                "name": "Middle Compartment Door"
+            },
+            "middle_compartment_preheating": {
+                "name": "Middle Compartment Preheating"
+            },
+            "top_elec_heat": {
+                "name": "Top Electric Heat"
+            },
+            "bottom_elec_heat": {
+                "name": "Bottom Electric Heat"
+            },
+            "mute_effect": {
+                "name": "Mute Effect"
+            },
+            "mute_status": {
+                "name": "Mute Status"
+            },
+            "multi_terminal": {
+                "name": "Multi Terminal"
+            },
+            "oilcup_full": {
+                "name": "Oil-cup Full"
+            },
+            "protection": {
+                "name": "Protection"
+            },
+            "refrigerator_door": {
+                "name": "Refrigerator Door"
+            },
+            "refrigerator_door_overtime": {
+                "name": "Refrigerator Door Overtime"
+            },
+            "rinse_aid": {
+                "name": "Rinse Aid Shortage"
+            },
+            "rsj_stand_by": {
+                "name": "Stand By"
+            },
+            "salt": {
+                "name": "Salt Shortage"
+            },
+            "seat_status": {
+                "name": "Seat Status"
+            },
+            "smart_grid": {
+                "name": "Smart Grid"
+            },
+            "eco": {
+                "name": "ECO"
+            },
+            "maintenance_reminder": {
+                "name": "Maintenance Reminder"
+            },
+            "maintain_warn": {
+                "name": "Maintenance Warning"
+            },
+            "order1_effect": {
+                "name": "Schedule 1 Active"
+            },
+            "order2_effect": {
+                "name": "Schedule 2 Active"
+            },
+            "status_dhw": {
+                "name": "Status - DHW"
+            },
+            "status_heating": {
+                "name": "Status - Heating"
+            },
+            "status_ibh": {
+                "name": "Status - IBH"
+            },
+            "status_tbh": {
+                "name": "Status - TBH"
+            },
+            "tank_ejected": {
+                "name": "Tank Ejected"
+            },
+            "tank_full": {
+                "name": "Tank status"
+            },
+            "top_compartment_cooling": {
+                "name": "Top Compartment Cooling"
+            },
+            "top_compartment_door": {
+                "name": "Top Compartment Door"
+            },
+            "top_compartment_preheating": {
+                "name": "Top Compartment Preheating"
+            },
+            "water_change_reminder": {
+                "name": "Water Change Reminder"
+            },
+            "water_shortage": {
+                "name": "Water Shortage"
+            },
+            "with_pressure": {
+                "name": "With Pressure"
+            },
+            "microcrystal_fresh": {
+                "name": "Microcrystal Fresh"
+            },
+            "electronic_smell": {
+                "name": "Deodorizing sterilizing"
+            },
+            "water_pump_running": {
+                "name": "Water Pump Running"
+            },
+            "status_cool": {
+                "name": "Status - Cooling"
+            },
+            "eco_function_state": {
+                "name": "Mode - ECO Function"
+            },
+            "eco_timer_state": {
+                "name": "Mode - ECO Timer"
+            },
+            "double_zone": {
+                "name": "Capability - Double Zone"
+            },
+            "room_thermal_support": {
+                "name": "Capability - Room Thermostat"
+            },
+            "room_thermal_state": {
+                "name": "Status - Room Thermostat"
+            },
+            "time_set": {
+                "name": "Capability - Time Set"
+            },
+            "disinfect_run": {
+                "name": "DHW - Disinfect Running"
+            },
+            "remote_onoff": {
+                "name": "Capability - Remote On/Off"
+            },
+            "tbh_control": {
+                "name": "Capability - TBH Control"
+            },
+            "heat_capability": {
+                "name": "Capability - Heating"
+            },
+            "cool_capability": {
+                "name": "Capability - Cooling"
+            },
+            "dhw_capability": {
+                "name": "Capability - DHW"
+            },
+            "sys_energy_ana_en": {
+                "name": "Capability - Energy Analysis (System)"
+            },
+            "hmi_energy_ana_set_en": {
+                "name": "Capability - Energy Analysis (HMI)"
+            },
+            "pump_i_running": {
+                "name": "Pump_I - Internal"
+            },
+            "pump_o_running": {
+                "name": "Pump_O - External"
+            },
+            "pump_d_running": {
+                "name": "Pump_D - DHW"
+            },
+            "pump_c_running": {
+                "name": "Pump_C - Mixed Water Loop Zone 2"
+            },
+            "pump_s_running": {
+                "name": "Pump_S - Solar"
+            },
+            "sv1_open": {
+                "name": "SV1 - Valve (DHW)"
+            },
+            "sv2_open": {
+                "name": "SV2 - Valve (Heating)"
+            },
+            "load_output_tbh": {
+                "name": "Heater - Tank Backup (TBH)"
+            },
+            "compressor_on": {
+                "name": "Compressor - Running"
+            },
+            "ibh1_on": {
+                "name": "Heater - IBH1"
+            },
+            "ibh2_on": {
+                "name": "Heater - IBH2"
+            },
+            "sv3_open": {
+                "name": "SV3 - Valve"
+            },
+            "crankcase_heater_on": {
+                "name": "Heater - Crankcase"
+            },
+            "alarm_on": {
+                "name": "Error - Alarm"
+            },
+            "aux_heat_on": {
+                "name": "Heater - Auxiliary Source"
+            }
+        },
+        "button": {
+            "start": {
+                "name": "Start"
+            }
+        },
+        "climate": {
+            "climate_zone1": {
+                "name": "Zone1 Thermostat"
+            },
+            "climate_zone2": {
+                "name": "Zone2 Thermostat"
+            },
+            "climate_key": {
+                "state_attributes": {
+                    "fan_mode": {
+                        "state": {
+                            "silent": "Silent",
+                            "full": "Full"
+                        }
+                    }
+                }
+            }
+        },
+        "fan": {
+            "fresh_air": {
+                "name": "Fresh Air"
+            },
+            "fresh_air_exhaust": {
+                "name": "Fresh Air Exhaust"
+            }
+        },
+        "lock": {
+            "child_lock": {
+                "name": "Child Lock"
+            }
+        },
+        "number": {
+            "dry_level": {
+                "name": "Dry Level"
+            },
+            "heating_level": {
+                "name": "Heating Level"
+            },
+            "seat_temp_level": {
+                "name": "Seat Temperature Level"
+            },
+            "water_temp_level": {
+                "name": "Water Temperature Level"
+            },
+            "fan_speed_percent": {
+                "name": "Fan Speed Percent"
+            },
+            "vacation_days": {
+                "name": "Vacation Days"
+            },
+            "leak_water_protection_value": {
+                "name": "Leak Water Protection Value"
+            },
+            "flushing_days": {
+                "name": "Regeneration Days"
+            },
+            "water_hardness": {
+                "name": "Water Hardness"
+            }
+        },
+        "select": {
+            "detect_mode": {
+                "name": "Detect Mode"
+            },
+            "direction": {
+                "name": "Direction"
+            },
+            "fan_speed": {
+                "name": "Fan Speed"
+            },
+            "fresh_air_exhaust_mode": {
+                "name": "Fresh Air Exhaust Speed",
+                "state": {
+                    "off": "Off",
+                    "silent": "Low",
+                    "high": "High",
+                    "full": "Full"
+                }
+            },
+            "fresh_air_mode": {
+                "name": "Fresh Air Speed",
+                "state": {
+                    "off": "Off",
+                    "low": "Low",
+                    "medium": "Medium",
+                    "high": "High",
+                    "full": "Full"
+                }
+            },
+            "mode": {
+                "name": "Mode"
+            },
+            "oscillation_angle": {
+                "name": "Oscillation Angle"
+            },
+            "oscillation_mode": {
+                "name": "Oscillation Mode"
+            },
+            "rate_select": {
+                "name": "Power Rate Limit"
+            },
+            "screen_display": {
+                "name": "Screen Display"
+            },
+            "silent_level": {
+                "name": "Mode - Silent Level",
+                "state": {
+                    "off": "Off",
+                    "silent": "Silent",
+                    "super_silent": "Super Silent"
+                }
+            },
+            "tilting_angle": {
+                "name": "Tilting Angle"
+            },
+            "wash_mode": {
+                "name": "Wash Mode"
+            },
+            "water_level_set": {
+                "name": "Water Level Setting"
+            },
+            "wind_lr_angle": {
+                "name": "Airflow Horizontal",
+                "state": {
+                    "off": "Off",
+                    "left": "Left",
+                    "left-mid": "Left-Mid",
+                    "middle": "Middle",
+                    "right-mid": "Right-Mid",
+                    "right": "Right"
+                }
+            },
+            "wind_ud_angle": {
+                "name": "Airflow Vertical",
+                "state": {
+                    "off": "Off",
+                    "up": "Up",
+                    "up-mid": "Up-Mid",
+                    "middle": "Middle",
+                    "down-mid": "Down-Mid",
+                    "down": "Down"
+                }
+            }
+        },
+        "time": {
+            "timing_regeneration": {
+                "name": "Timing Regeneration"
+            }
+        },
+        "sensor": {
+            "bathing_leaving_temperature": {
+                "name": "Bathing Leaving Water Temperature"
+            },
+            "bottom_compartment_remaining": {
+                "name": "Bottom Compartment Remaining"
+            },
+            "bottom_compartment_status": {
+                "name": "Bottom Compartment Status"
+            },
+            "bottom_compartment_temperature": {
+                "name": "Bottom Compartment Temperature"
+            },
+            "bottom_temperature": {
+                "name": "Bottom Temperature"
+            },
+            "bright": {
+                "name": "Bright Level"
+            },
+            "compressor_temperature": {
+                "name": "Compressor Temperature"
+            },
+            "condenser_temperature": {
+                "name": "Condenser Temperature"
+            },
+            "current_energy_consumption": {
+                "name": "Energy - Current Consumption"
+            },
+            "current_temperature": {
+                "name": "Current Temperature"
+            },
+            "dehydration_speed": {
+                "name": "Dehydration speed"
+            },
+            "dehydration_time": {
+                "name": "Dehydration time"
+            },
+            "dehydration_time_value": {
+                "name": "Dehydration time value"
+            },
+            "temperature": {
+                "name": "Temperature"
+            },
+            "wash_time_value": {
+                "name": "Wash time value"
+            },
+            "stains": {
+                "name": "Stains"
+            },
+            "dirty_degree": {
+                "name": "Dirty degree"
+            },
+            "detergent": {
+                "name": "Detergent"
+            },
+            "intensity": {
+                "name": "Intensity"
+            },
+            "dryness_level": {
+                "name": "Dryness Level"
+            },
+            "dry_temperature": {
+                "name": "Dry Temperature"
+            },
+            "door_warn": {
+                "name": "Door Warn"
+            },
+            "ai_switch": {
+                "name": "AI Switch"
+            },
+            "material": {
+                "name": "Material"
+            },
+            "water_box": {
+                "name": "Water Box"
+            },
+            "energy_consumption": {
+                "name": "Energy Consumption"
+            },
+            "error": {
+                "name": "Error",
+                "state": {
+                    "no_error": "No Error",
+                    "e1_position_not_found": "E1 Position not found",
+                    "e2_photo_sensor_no_signal": "E2 Photo sensor no signal",
+                    "e3_motor_not_running": "E3 Motor not running",
+                    "e4_wrong_position": "E4 Wrong position",
+                    "e1_motor_fault": "E1 Motor fault",
+                    "e5_communication_fault": "E5 Communication fault",
+                    "e6_salt_sensor_fault": "E6 Salt sensor fault",
+                    "e7_chlorine_sterilization_fault": "E7 Chlorine sterilization fault"
+                }
+            },
+            "error_code": {
+                "name": "Error - Code"
+            },
+            "estimated_energy_consumption": {
+                "name": "Estimated Energy Consumption"
+            },
+            "estimated_water_consumption": {
+                "name": "Estimated Water Consumption"
+            },
+            "fan_level": {
+                "name": "Fan level"
+            },
+            "filter_life": {
+                "name": "Filter Life"
+            },
+            "filter1_days": {
+                "name": "Filter1 Available Days"
+            },
+            "filter1_life": {
+                "name": "Filter1 Life Level"
+            },
+            "filter2_days": {
+                "name": "Filter2 Available Days"
+            },
+            "filter2_life": {
+                "name": "Filter2 Life Level"
+            },
+            "filter3_days": {
+                "name": "Filter3 Available Days"
+            },
+            "filter3_life": {
+                "name": "Filter3 Life Level"
+            },
+            "flex_zone_actual_temp": {
+                "name": "Flex Zone Actual Temperature"
+            },
+            "flex_zone_setting_temp": {
+                "name": "Flex Zone Setting Temperature"
+            },
+            "freezer_actual_temp": {
+                "name": "Freezer Actual Temperature"
+            },
+            "freezer_setting_temp": {
+                "name": "Freezer Setting Temperature"
+            },
+            "hcho": {
+                "name": "Methanal"
+            },
+            "heating_leaving_temperature": {
+                "name": "Heating Leaving Water Temperature"
+            },
+            "heating_power": {
+                "name": "Power - Heating (legacy)"
+            },
+            "heating_time_remaining": {
+                "name": "Heating Time Remaining"
+            },
+            "in_tds": {
+                "name": "In TDS"
+            },
+            "indoor_humidity": {
+                "name": "Indoor Humidity"
+            },
+            "indoor_temperature": {
+                "name": "Indoor Temperature"
+            },
+            "keep_warm_remaining": {
+                "name": "Keep Warm Remaining"
+            },
+            "keep_warm_time": {
+                "name": "Keep Warm Time"
+            },
+            "left_salt": {
+                "name": "Left Salt"
+            },
+            "middle_compartment_remaining": {
+                "name": "Middle Compartment Remaining"
+            },
+            "middle_compartment_status": {
+                "name": "Middle Compartment Status"
+            },
+            "middle_compartment_temperature": {
+                "name": "Middle Compartment Temperature"
+            },
+            "mode": {
+                "name": "Mode"
+            },
+            "out_tds": {
+                "name": "Out TDS"
+            },
+            "outdoor_temperature": {
+                "name": "Temperature - Outdoor"
+            },
+            "program": {
+                "name": "Program"
+            },
+            "progress": {
+                "name": "Progress"
+            },
+            "realtime_power": {
+                "name": "Realtime Power"
+            },
+            "pmv": {
+                "name": "PMV"
+            },
+            "refrigerator_actual_temp": {
+                "name": "Refrigerator Actual Temperature"
+            },
+            "refrigerator_setting_temp": {
+                "name": "Refrigerator Setting Temperature"
+            },
+            "regeneration_left_seconds": {
+                "name": "Regeneration Left Seconds"
+            },
+            "remaining_days": {
+                "name": "Remaining Days"
+            },
+            "right_flex_zone_actual_temp": {
+                "name": "Right Flex Zone Actual Temperature"
+            },
+            "right_flex_zone_setting_temp": {
+                "name": "Right Flex Zone Setting Temperature"
+            },
+            "rinse_count": {
+                "name": "Rinse count"
+            },
+            "rinse_level": {
+                "name": "Rinse level"
+            },
+            "salt_setting": {
+                "name": "Salt Setting"
+            },
+            "seat_temperature": {
+                "name": "Seat Temperature"
+            },
+            "soak_time": {
+                "name": "Soak time"
+            },
+            "soft_available": {
+                "name": "Soft Water Available"
+            },
+            "softener": {
+                "name": "Softener"
+            },
+            "softwater": {
+                "name": "Softwater Level"
+            },
+            "status": {
+                "name": "Status"
+            },
+            "storage_remaining": {
+                "name": "Storage Remaining"
+            },
+            "tank": {
+                "name": "Tank"
+            },
+            "tank_actual_temperature": {
+                "name": "Temperature - Tank Actual"
+            },
+            "time_remaining": {
+                "name": "Time Remaining"
+            },
+            "top_compartment_remaining": {
+                "name": "Top Compartment Remaining"
+            },
+            "top_compartment_status": {
+                "name": "Top Compartment Status"
+            },
+            "top_compartment_temperature": {
+                "name": "Top Compartment Temperature"
+            },
+            "top_temperature": {
+                "name": "Top Temperature"
+            },
+            "total_energy_consumption": {
+                "name": "Energy - Total Consumption"
+            },
+            "total_produced_energy": {
+                "name": "Energy - Total Produced"
+            },
+            "tvoc": {
+                "name": "TVOC"
+            },
+            "wash_level": {
+                "name": "Wash level"
+            },
+            "wash_strength": {
+                "name": "Wash strength"
+            },
+            "wash_time": {
+                "name": "Wash time"
+            },
+            "water_consumption": {
+                "name": "Water Consumption"
+            },
+            "water_consumption_average": {
+                "name": "Water Consumption Average"
+            },
+            "water_consumption_big": {
+                "name": "Water Consumption"
+            },
+            "water_temperature": {
+                "name": "Water Temperature"
+            },
+            "water_level": {
+                "name": "Water Level"
+            },
+            "wind": {
+                "name": "Wind"
+            },
+            "typeinfo": {
+                "name": "Type Info"
+            },
+            "use_days": {
+                "name": "Use Days"
+            },
+            "elec_heat": {
+                "name": "Electric Heat"
+            },
+            "water_pump": {
+                "name": "Water Pump"
+            },
+            "four_way": {
+                "name": "Four Way Valve"
+            },
+            "back_water": {
+                "name": "Back Water"
+            },
+            "sterilize": {
+                "name": "Sterilize"
+            },
+            "disinfection_temperature": {
+                "name": "Disinfection Temperature"
+            },
+            "max_temperature": {
+                "name": "Maximum Target Temperature"
+            },
+            "vacation_start_year": {
+                "name": "Vacation Start Year"
+            },
+            "vacation_start_month": {
+                "name": "Vacation Start Month"
+            },
+            "vacation_start_day": {
+                "name": "Vacation Start Day"
+            },
+            "auto_sterilize_week": {
+                "name": "Auto Sterilize Week"
+            },
+            "auto_sterilize_hour": {
+                "name": "Auto Sterilize Hour"
+            },
+            "auto_sterilize_minute": {
+                "name": "Auto Sterilize Minute"
+            },
+            "working_time": {
+                "name": "Working Time"
+            },
+            "humidity": {
+                "name": "Humidity"
+            },
+            "variable_mode": {
+                "name": "Variable Mode"
+            },
+            "compressor_frequency": {
+                "name": "Compressor Frequency"
+            },
+            "target_compressor_frequency": {
+                "name": "Target Compressor Frequency"
+            },
+            "compressor_voltage": {
+                "name": "Compressor Voltage"
+            },
+            "compressor_power": {
+                "name": "Compressor Power"
+            },
+            "indoor_ambient_temperature": {
+                "name": "Indoor Ambient Temperature(T1)"
+            },
+            "indoor_coil_temperature": {
+                "name": "Indoor Coil Temperature(T2)"
+            },
+            "outdoor_coil_temperature": {
+                "name": "Outdoor Coil Temperature(T3)"
+            },
+            "outdoor_ambient_temperature": {
+                "name": "Outdoor Ambient Temperature(T4)"
+            },
+            "discharge_pipe_temperature": {
+                "name": "Discharge Pipe Temperature(TP)"
+            },
+            "indoor_fan_speed": {
+                "name": "Indoor Fan Speed"
+            },
+            "target_indoor_fan_speed": {
+                "name": "Target Indoor Fan Speed"
+            },
+            "velocity": {
+                "name": "Velocity"
+            },
+            "comp_run_freq": {
+                "name": "Compressor - Frequency"
+            },
+            "fan_speed": {
+                "name": "ODU - Fan Speed",
+                "state": {
+                    "level_1": "Level 1",
+                    "level_2": "Level 2",
+                    "level_3": "Level 3",
+                    "level_4": "Level 4",
+                    "off": "Off"
+                }
+            },
+            "temp_t3": {
+                "name": "Temperature T3 - Outdoor Coil"
+            },
+            "temp_ta": {
+                "name": "Temperature Ta - Room Ambient"
+            },
+            "pressure_high": {
+                "name": "Refrigerant - High Pressure (P1)"
+            },
+            "pressure_low": {
+                "name": "Refrigerant - Low Pressure (P2)"
+            },
+            "water_flow": {
+                "name": "Water - Flow Rate"
+            },
+            "water_pressure": {
+                "name": "Water - Pressure"
+            },
+            "temp_t1": {
+                "name": "Temperature T1 - Total Outlet Water"
+            },
+            "temp_t2": {
+                "name": "Temperature T2 - Refrigerant Liquid Side"
+            },
+            "temp_t2b": {
+                "name": "Temperature T2B - Refrigerant Gas Side"
+            },
+            "temp_t4": {
+                "name": "Temperature T4 - Outdoor Ambient"
+            },
+            "temp_t5": {
+                "name": "Temperature T5 - Water Tank"
+            },
+            "temp_tb_t1": {
+                "name": "Temperature TB-T1 - Buffer Tank Top"
+            },
+            "temp_tb_t2": {
+                "name": "Temperature TB-T2 - Buffer Tank Bottom"
+            },
+            "temp_tf": {
+                "name": "Temperature TF - PCB Module"
+            },
+            "temp_th": {
+                "name": "Temperature TH - Compressor Suction"
+            },
+            "temp_tp": {
+                "name": "Temperature TP - Compressor Discharge"
+            },
+            "temp_tsolar": {
+                "name": "Temperature Tsolar - Solar Panel"
+            },
+            "temp_tw2": {
+                "name": "Temperature Tw2 - Zone 2 Water"
+            },
+            "dc_current": {
+                "name": "ODU - DC Bus Current"
+            },
+            "dc_bus_voltage": {
+                "name": "ODU - DC Bus Voltage"
+            },
+            "instant_power": {
+                "name": "Power - Heating Capacity"
+            },
+            "instant_power0": {
+                "name": "Power - Heating Consumption"
+            },
+            "instant_renew_power0": {
+                "name": "Power - Renewable Heating Capacity"
+            },
+            "instant_cop": {
+                "name": "Power - Heating COP"
+            },
+            "odu_voltage": {
+                "name": "ODU - Voltage"
+            },
+            "room_rel_hum": {
+                "name": "Room Relative Humidity"
+            },
+            "unit_mode_run": {
+                "name": "Status - Running Mode",
+                "state": {
+                    "off": "Off",
+                    "cool": "Cooling",
+                    "heat": "Heating"
+                }
+            },
+            "hydbox_subtype": {
+                "name": "Info - Hydraulic Box Subtype"
+            },
+            "machine_type": {
+                "name": "Info - Machine Type"
+            },
+            "odu_model": {
+                "name": "Info - ODU Model Code"
+            },
+            "fg_capacity_need": {
+                "name": "Diagnostic - Capacity Need (raw)"
+            },
+            "hydrobox_capacity": {
+                "name": "Info - Hydraulic Box Capacity"
+            },
+            "idu_t1s1": {
+                "name": "Temperature - Zone 1 Calculated (T1s)"
+            },
+            "idu_t1s2": {
+                "name": "Temperature - Zone 2 Calculated (T1s)"
+            },
+            "t5s": {
+                "name": "Temperature T5s - DHW Setpoint"
+            },
+            "tas": {
+                "name": "Temperature Tas - Air Setpoint"
+            },
+            "zone1_temp_set": {
+                "name": "Temperature - Zone 1 Setpoint"
+            },
+            "zone2_temp_set": {
+                "name": "Temperature - Zone 2 Setpoint"
+            },
+            "disinfect_set_weekday": {
+                "name": "DHW - Disinfect Weekday"
+            },
+            "disinfect_start_hour": {
+                "name": "DHW - Disinfect Start Hour"
+            },
+            "disinfect_start_minutes": {
+                "name": "DHW - Disinfect Start Minute"
+            },
+            "odu_target_fre": {
+                "name": "Compressor - Target Frequency"
+            },
+            "exv_opening": {
+                "name": "Refrigerant - EXV1 Opening"
+            },
+            "error_code_description": {
+                "name": "Error - Description"
+            },
+            "wifi_module_serial": {
+                "name": "Info - WiFi Module Serial"
+            },
+            "temp_tw_in": {
+                "name": "Temperature Tw_in - Water Inlet"
+            },
+            "temp_tw_out": {
+                "name": "Temperature Tw_out - Water Outlet"
+            },
+            "comp_total_run_time": {
+                "name": "Energy - Compressor Run Time"
+            },
+            "compressor_status_raw": {
+                "name": "Compressor - Status Bitmap (raw)"
+            },
+            "odu_comp_current": {
+                "name": "Compressor - Current"
+            },
+            "idu_software_version_str": {
+                "name": "Info - IDU Software Version"
+            },
+            "odu_software_version_str": {
+                "name": "Info - ODU Software Version"
+            },
+            "raw_b31": {
+                "name": "Diagnostic - Raw byte 31"
+            },
+            "raw_b65": {
+                "name": "Diagnostic - Raw byte 65"
+            }
+        },
+        "switch": {
+            "anion": {
+                "name": "Anion"
+            },
+            "aux_heating": {
+                "name": "Aux Heating"
+            },
+            "boost_mode": {
+                "name": "Boost Mode"
+            },
+            "breezeless": {
+                "name": "Breezeless"
+            },
+            "child_lock": {
+                "name": "Child Lock"
+            },
+            "cl_sterilization": {
+                "name": "CL Sterilization"
+            },
+            "comfort_mode": {
+                "name": "Comfort Mode"
+            },
+            "dhw_power": {
+                "name": "DHW - Power"
+            },
+            "disinfect": {
+                "name": "Disinfect"
+            },
+            "vacation_mode": {
+                "name": "Vacation Mode"
+            },
+            "dry": {
+                "name": "Dry"
+            },
+            "cold_water_single": {
+                "name": "Cold Water Single"
+            },
+            "cold_water_dot": {
+                "name": "Cold Water Dot"
+            },
+            "eco_mode": {
+                "name": "Mode - ECO"
+            },
+            "memory": {
+                "name": "Memo U"
+            },
+            "fast_dhw": {
+                "name": "DHW - Fast DHW"
+            },
+            "foam_shield": {
+                "name": "Foam Shield"
+            },
+            "frost_protect": {
+                "name": "Frost Protect"
+            },
+            "heating_power": {
+                "name": "Power - Heating (legacy)"
+            },
+            "indirect_wind": {
+                "name": "Indirect Wind"
+            },
+            "leak_water_protection": {
+                "name": "Leak Water Protection"
+            },
+            "light": {
+                "name": "Light"
+            },
+            "link_to_ac": {
+                "name": "Link to AC"
+            },
+            "main_light": {
+                "name": "Main Light"
+            },
+            "main_power": {
+                "name": "Main Power"
+            },
+            "natural_wind": {
+                "name": "Natural Wind"
+            },
+            "night_light": {
+                "name": "Night Light"
+            },
+            "oscillate": {
+                "name": "Oscillate"
+            },
+            "power": {
+                "name": "Power"
+            },
+            "powerful_purify": {
+                "name": "Powerful Purification"
+            },
+            "prompt_tone": {
+                "name": "Prompt Tone"
+            },
+            "regeneration": {
+                "name": "Regeneration"
+            },
+            "water_pump": {
+                "name": "Water Pump"
+            },
+            "water_way": {
+                "name": "Water Way"
+            },
+            "screen_display": {
+                "name": "Screen Display"
+            },
+            "screen_display_alternate": {
+                "name": "Screen Display Alternate"
+            },
+            "sensor_light": {
+                "name": "Sensor Light"
+            },
+            "silent_mode": {
+                "name": "Mode - Silent"
+            },
+            "sleep_mode": {
+                "name": "Sleep Mode"
+            },
+            "out_silent": {
+                "name": "Outdoor Silent Mode"
+            },
+            "smart_eye": {
+                "name": "Smart Eye"
+            },
+            "smart_volume": {
+                "name": "Smart Volume"
+            },
+            "smelly_sensor": {
+                "name": "Smelly Sensor"
+            },
+            "soften": {
+                "name": "Softening"
+            },
+            "standby": {
+                "name": "Standby"
+            },
+            "start": {
+                "name": "Start"
+            },
+            "sterilization": {
+                "name": "Sterilization"
+            },
+            "storage": {
+                "name": "Storage"
+            },
+            "swing": {
+                "name": "Swing"
+            },
+            "swing_horizontal": {
+                "name": "Swing Horizontal"
+            },
+            "swing_vertical": {
+                "name": "Swing Vertical"
+            },
+            "self_clean": {
+                "name": "Self Clean"
+            },
+            "sound": {
+                "name": "Sound"
+            },
+            "tbh": {
+                "name": "TBH"
+            },
+            "variable_heating": {
+                "name": "Variable Heating"
+            },
+            "ventilation": {
+                "name": "Ventilation"
+            },
+            "whole_tank_heating": {
+                "name": "Whole Tank Heating"
+            },
+            "zero_cold_pulse": {
+                "name": "Zero Cold Water (Pulse)"
+            },
+            "zero_cold_water": {
+                "name": "Zero Cold Water"
+            },
+            "zone1_curve": {
+                "name": "Zone 1 - Climate Curve"
+            },
+            "zone1_power": {
+                "name": "Zone 1 - Power"
+            },
+            "zone2_curve": {
+                "name": "Zone 2 - Climate Curve"
+            },
+            "zone2_power": {
+                "name": "Zone 2 - Power"
+            },
+            "holiday_on": {
+                "name": "Mode - Holiday"
+            },
+            "dhw_disinfect": {
+                "name": "DHW - Disinfect"
+            }
+        },
+        "water_heater": {
+            "domestic_hot_water": {
+                "name": "Domestic hot water"
+            },
+            "bathing": {
+                "name": "Bathing"
+            },
+            "heating": {
+                "name": "Heating"
+            }
+        }
     },
-    "lock": {
-      "child_lock": {
-        "name": "Child Lock"
-      }
+    "options": {
+        "step": {
+            "init": {
+                "data": {
+                    "ip_address": "IP address",
+                    "refresh_interval": "Refresh interval (0 means not refreshing actively)",
+                    "sensors": "Extra sensors",
+                    "switches": "Extra controls",
+                    "customize": "Customize"
+                },
+                "title": "Configure"
+            }
+        },
+        "abort": {
+            "account_option": "The account does not supports this operation.\nClick \"ADD DEVICE\" to  add a new device."
+        }
     },
-    "number": {
-      "dry_level": {
-        "name": "Dry Level"
-      },
-      "heating_level": {
-        "name": "Heating Level"
-      },
-      "seat_temp_level": {
-        "name": "Seat Temperature Level"
-      },
-      "water_temp_level": {
-        "name": "Water Temperature Level"
-      },
-      "fan_speed_percent": {
-        "name": "Fan Speed Percent"
-      },
-      "vacation_days": {
-        "name": "Vacation Days"
-      },
-      "leak_water_protection_value": {
-        "name": "Leak Water Protection Value"
-      },
-      "flushing_days": {
-        "name": "Regeneration Days"
-      },
-      "water_hardness": {
-        "name": "Water Hardness"
-      }
-    },
-    "select": {
-      "detect_mode": {
-        "name": "Detect Mode"
-      },
-      "direction": {
-        "name": "Direction"
-      },
-      "fan_speed": {
-        "name": "Fan Speed"
-      },
-      "fresh_air_exhaust_mode": {
-        "name": "Fresh Air Exhaust Speed",
-        "state": {
-          "off": "Off",
-          "silent": "Low",
-          "high": "High",
-          "full": "Full"
+    "services": {
+        "set_attribute": {
+            "name": "Set attribute",
+            "description": "Set the attribute value of device",
+            "fields": {
+                "device_id": {
+                    "name": "Appliance code",
+                    "description": "The appliance code (Device ID) of appliance"
+                },
+                "attribute": {
+                    "name": "Attribute",
+                    "description": "The attribute name want to set"
+                },
+                "value": {
+                    "name": "Value",
+                    "description": "The attribute value want to set"
+                }
+            }
+        },
+        "send_command": {
+            "name": "Customize command",
+            "description": "Send a customize command to device",
+            "fields": {
+                "device_id": {
+                    "name": "Appliance code",
+                    "description": "The appliance code (Device ID) of appliance"
+                },
+                "cmd_type": {
+                    "name": "Command type",
+                    "description": "The type of command，should be 3（query) or 2（set)"
+                },
+                "cmd_body": {
+                    "name": "Command body",
+                    "description": "The body of command, (not include MSmart protocol head and checksum at the end)"
+                }
+            }
         }
-      },
-      "fresh_air_mode": {
-        "name": "Fresh Air Speed",
-        "state": {
-          "off": "Off",
-          "low": "Low",
-          "medium": "Medium",
-          "high": "High",
-          "full": "Full"
-        }
-      },
-      "mode": {
-        "name": "Mode"
-      },
-      "oscillation_angle": {
-        "name": "Oscillation Angle"
-      },
-      "oscillation_mode": {
-        "name": "Oscillation Mode"
-      },
-      "rate_select": {
-        "name": "Power Rate Limit"
-      },
-      "screen_display": {
-        "name": "Screen Display"
-      },
-      "silent_level": {
-        "name": "Mode - Silent Level",
-        "state": {
-          "off": "Off",
-          "silent": "Silent",
-          "super_silent": "Super Silent",
-          "OFF": "Off",
-          "SILENT": "Silent",
-          "SUPER_SILENT": "Super Silent"
-        }
-      },
-      "tilting_angle": {
-        "name": "Tilting Angle"
-      },
-      "wash_mode": {
-        "name": "Wash Mode"
-      },
-      "water_level_set": {
-        "name": "Water Level Setting"
-      },
-      "wind_lr_angle": {
-        "name": "Airflow Horizontal",
-        "state": {
-          "off": "Off",
-          "left": "Left",
-          "left-mid": "Left-Mid",
-          "middle": "Middle",
-          "right-mid": "Right-Mid",
-          "right": "Right"
-        }
-      },
-      "wind_ud_angle": {
-        "name": "Airflow Vertical",
-        "state": {
-          "off": "Off",
-          "up": "Up",
-          "up-mid": "Up-Mid",
-          "middle": "Middle",
-          "down-mid": "Down-Mid",
-          "down": "Down"
-        }
-      }
-    },
-    "time": {
-      "timing_regeneration": {
-        "name": "Timing Regeneration"
-      }
-    },
-    "sensor": {
-      "bathing_leaving_temperature": {
-        "name": "Bathing Leaving Water Temperature"
-      },
-      "bottom_compartment_remaining": {
-        "name": "Bottom Compartment Remaining"
-      },
-      "bottom_compartment_status": {
-        "name": "Bottom Compartment Status"
-      },
-      "bottom_compartment_temperature": {
-        "name": "Bottom Compartment Temperature"
-      },
-      "bottom_temperature": {
-        "name": "Bottom Temperature"
-      },
-      "bright": {
-        "name": "Bright Level"
-      },
-      "compressor_temperature": {
-        "name": "Compressor Temperature"
-      },
-      "condenser_temperature": {
-        "name": "Condenser Temperature"
-      },
-      "current_energy_consumption": {
-        "name": "Energy - Current Consumption"
-      },
-      "current_temperature": {
-        "name": "Current Temperature"
-      },
-      "dehydration_speed": {
-        "name": "Dehydration speed"
-      },
-      "dehydration_time": {
-        "name": "Dehydration time"
-      },
-      "dehydration_time_value": {
-        "name": "Dehydration time value"
-      },
-      "temperature": {
-        "name": "Temperature"
-      },
-      "wash_time_value": {
-        "name": "Wash time value"
-      },
-      "stains": {
-        "name": "Stains"
-      },
-      "dirty_degree": {
-        "name": "Dirty degree"
-      },
-      "detergent": {
-        "name": "Detergent"
-      },
-      "intensity": {
-        "name": "Intensity"
-      },
-      "dryness_level": {
-        "name": "Dryness Level"
-      },
-      "dry_temperature": {
-        "name": "Dry Temperature"
-      },
-      "door_warn": {
-        "name": "Door Warn"
-      },
-      "ai_switch": {
-        "name": "AI Switch"
-      },
-      "material": {
-        "name": "Material"
-      },
-      "water_box": {
-        "name": "Water Box"
-      },
-      "energy_consumption": {
-        "name": "Energy Consumption"
-      },
-      "error": {
-        "name": "Error",
-        "state": {
-          "no_error": "No Error",
-          "e1_position_not_found": "E1 Position not found",
-          "e2_photo_sensor_no_signal": "E2 Photo sensor no signal",
-          "e3_motor_not_running": "E3 Motor not running",
-          "e4_wrong_position": "E4 Wrong position",
-          "e1_motor_fault": "E1 Motor fault",
-          "e5_communication_fault": "E5 Communication fault",
-          "e6_salt_sensor_fault": "E6 Salt sensor fault",
-          "e7_chlorine_sterilization_fault": "E7 Chlorine sterilization fault"
-        }
-      },
-      "error_code": {
-        "name": "Error - Code"
-      },
-      "estimated_energy_consumption": {
-        "name": "Estimated Energy Consumption"
-      },
-      "estimated_water_consumption": {
-        "name": "Estimated Water Consumption"
-      },
-      "fan_level": {
-        "name": "Fan level"
-      },
-      "filter_life": {
-        "name": "Filter Life"
-      },
-      "filter1_days": {
-        "name": "Filter1 Available Days"
-      },
-      "filter1_life": {
-        "name": "Filter1 Life Level"
-      },
-      "filter2_days": {
-        "name": "Filter2 Available Days"
-      },
-      "filter2_life": {
-        "name": "Filter2 Life Level"
-      },
-      "filter3_days": {
-        "name": "Filter3 Available Days"
-      },
-      "filter3_life": {
-        "name": "Filter3 Life Level"
-      },
-      "flex_zone_actual_temp": {
-        "name": "Flex Zone Actual Temperature"
-      },
-      "flex_zone_setting_temp": {
-        "name": "Flex Zone Setting Temperature"
-      },
-      "freezer_actual_temp": {
-        "name": "Freezer Actual Temperature"
-      },
-      "freezer_setting_temp": {
-        "name": "Freezer Setting Temperature"
-      },
-      "hcho": {
-        "name": "Methanal"
-      },
-      "heating_leaving_temperature": {
-        "name": "Heating Leaving Water Temperature"
-      },
-      "heating_power": {
-        "name": "Power - Heating (legacy)"
-      },
-      "heating_time_remaining": {
-        "name": "Heating Time Remaining"
-      },
-      "in_tds": {
-        "name": "In TDS"
-      },
-      "indoor_humidity": {
-        "name": "Indoor Humidity"
-      },
-      "indoor_temperature": {
-        "name": "Indoor Temperature"
-      },
-      "keep_warm_remaining": {
-        "name": "Keep Warm Remaining"
-      },
-      "keep_warm_time": {
-        "name": "Keep Warm Time"
-      },
-      "left_salt": {
-        "name": "Left Salt"
-      },
-      "middle_compartment_remaining": {
-        "name": "Middle Compartment Remaining"
-      },
-      "middle_compartment_status": {
-        "name": "Middle Compartment Status"
-      },
-      "middle_compartment_temperature": {
-        "name": "Middle Compartment Temperature"
-      },
-      "mode": {
-        "name": "Mode"
-      },
-      "out_tds": {
-        "name": "Out TDS"
-      },
-      "outdoor_temperature": {
-        "name": "Temperature - Outdoor"
-      },
-      "program": {
-        "name": "Program"
-      },
-      "progress": {
-        "name": "Progress"
-      },
-      "realtime_power": {
-        "name": "Realtime Power"
-      },
-      "pmv": {
-        "name": "PMV"
-      },
-      "refrigerator_actual_temp": {
-        "name": "Refrigerator Actual Temperature"
-      },
-      "refrigerator_setting_temp": {
-        "name": "Refrigerator Setting Temperature"
-      },
-      "regeneration_left_seconds": {
-        "name": "Regeneration Left Seconds"
-      },
-      "remaining_days": {
-        "name": "Remaining Days"
-      },
-      "right_flex_zone_actual_temp": {
-        "name": "Right Flex Zone Actual Temperature"
-      },
-      "right_flex_zone_setting_temp": {
-        "name": "Right Flex Zone Setting Temperature"
-      },
-      "rinse_count": {
-        "name": "Rinse count"
-      },
-      "rinse_level": {
-        "name": "Rinse level"
-      },
-      "salt_setting": {
-        "name": "Salt Setting"
-      },
-      "seat_temperature": {
-        "name": "Seat Temperature"
-      },
-      "soak_time": {
-        "name": "Soak time"
-      },
-      "soft_available": {
-        "name": "Soft Water Available"
-      },
-      "softener": {
-        "name": "Softener"
-      },
-      "softwater": {
-        "name": "Softwater Level"
-      },
-      "status": {
-        "name": "Status"
-      },
-      "storage_remaining": {
-        "name": "Storage Remaining"
-      },
-      "tank": {
-        "name": "Tank"
-      },
-      "tank_actual_temperature": {
-        "name": "Temperature - Tank Actual"
-      },
-      "time_remaining": {
-        "name": "Time Remaining"
-      },
-      "top_compartment_remaining": {
-        "name": "Top Compartment Remaining"
-      },
-      "top_compartment_status": {
-        "name": "Top Compartment Status"
-      },
-      "top_compartment_temperature": {
-        "name": "Top Compartment Temperature"
-      },
-      "top_temperature": {
-        "name": "Top Temperature"
-      },
-      "total_energy_consumption": {
-        "name": "Energy - Total Consumption"
-      },
-      "total_produced_energy": {
-        "name": "Energy - Total Produced"
-      },
-      "tvoc": {
-        "name": "TVOC"
-      },
-      "wash_level": {
-        "name": "Wash level"
-      },
-      "wash_strength": {
-        "name": "Wash strength"
-      },
-      "wash_time": {
-        "name": "Wash time"
-      },
-      "water_consumption": {
-        "name": "Water Consumption"
-      },
-      "water_consumption_average": {
-        "name": "Water Consumption Average"
-      },
-      "water_consumption_big": {
-        "name": "Water Consumption"
-      },
-      "water_temperature": {
-        "name": "Water Temperature"
-      },
-      "water_level": {
-        "name": "Water Level"
-      },
-      "wind": {
-        "name": "Wind"
-      },
-      "typeinfo": {
-        "name": "Type Info"
-      },
-      "use_days": {
-        "name": "Use Days"
-      },
-      "elec_heat": {
-        "name": "Electric Heat"
-      },
-      "water_pump": {
-        "name": "Water Pump"
-      },
-      "four_way": {
-        "name": "Four Way Valve"
-      },
-      "back_water": {
-        "name": "Back Water"
-      },
-      "sterilize": {
-        "name": "Sterilize"
-      },
-      "disinfection_temperature": {
-        "name": "Disinfection Temperature"
-      },
-      "max_temperature": {
-        "name": "Maximum Target Temperature"
-      },
-      "vacation_start_year": {
-        "name": "Vacation Start Year"
-      },
-      "vacation_start_month": {
-        "name": "Vacation Start Month"
-      },
-      "vacation_start_day": {
-        "name": "Vacation Start Day"
-      },
-      "auto_sterilize_week": {
-        "name": "Auto Sterilize Week"
-      },
-      "auto_sterilize_hour": {
-        "name": "Auto Sterilize Hour"
-      },
-      "auto_sterilize_minute": {
-        "name": "Auto Sterilize Minute"
-      },
-      "working_time": {
-        "name": "Working Time"
-      },
-      "humidity": {
-        "name": "Humidity"
-      },
-      "variable_mode": {
-        "name": "Variable Mode"
-      },
-      "compressor_frequency": {
-        "name": "Compressor Frequency"
-      },
-      "target_compressor_frequency": {
-        "name": "Target Compressor Frequency"
-      },
-      "compressor_voltage": {
-        "name": "Compressor Voltage"
-      },
-      "compressor_power": {
-        "name": "Compressor Power"
-      },
-      "indoor_ambient_temperature": {
-        "name": "Indoor Ambient Temperature(T1)"
-      },
-      "indoor_coil_temperature": {
-        "name": "Indoor Coil Temperature(T2)"
-      },
-      "outdoor_coil_temperature": {
-        "name": "Outdoor Coil Temperature(T3)"
-      },
-      "outdoor_ambient_temperature": {
-        "name": "Outdoor Ambient Temperature(T4)"
-      },
-      "discharge_pipe_temperature": {
-        "name": "Discharge Pipe Temperature(TP)"
-      },
-      "indoor_fan_speed": {
-        "name": "Indoor Fan Speed"
-      },
-      "target_indoor_fan_speed": {
-        "name": "Target Indoor Fan Speed"
-      },
-      "velocity": {
-        "name": "Velocity"
-      },
-      "comp_run_freq": {
-        "name": "Compressor - Frequency"
-      },
-      "fan_speed": {
-        "name": "ODU - Fan Speed",
-        "state": {
-          "level_1": "Level 1",
-          "level_2": "Level 2",
-          "level_3": "Level 3",
-          "level_4": "Level 4",
-          "off": "Off"
-        }
-      },
-      "temp_t3": {
-        "name": "Temperature T3 - Outdoor Coil"
-      },
-      "temp_ta": {
-        "name": "Temperature Ta - Room Ambient"
-      },
-      "pressure_high": {
-        "name": "Refrigerant - High Pressure (P1)"
-      },
-      "pressure_low": {
-        "name": "Refrigerant - Low Pressure (P2)"
-      },
-      "water_flow": {
-        "name": "Water - Flow Rate"
-      },
-      "water_pressure": {
-        "name": "Water - Pressure"
-      },
-      "temp_t1": {
-        "name": "Temperature T1 - Total Outlet Water"
-      },
-      "temp_t2": {
-        "name": "Temperature T2 - Refrigerant Liquid Side"
-      },
-      "temp_t2b": {
-        "name": "Temperature T2B - Refrigerant Gas Side"
-      },
-      "temp_t4": {
-        "name": "Temperature T4 - Outdoor Ambient"
-      },
-      "temp_t5": {
-        "name": "Temperature T5 - Water Tank"
-      },
-      "temp_tb_t1": {
-        "name": "Temperature TB-T1 - Buffer Tank Top"
-      },
-      "temp_tb_t2": {
-        "name": "Temperature TB-T2 - Buffer Tank Bottom"
-      },
-      "temp_tf": {
-        "name": "Temperature TF - PCB Module"
-      },
-      "temp_th": {
-        "name": "Temperature TH - Compressor Suction"
-      },
-      "temp_tp": {
-        "name": "Temperature TP - Compressor Discharge"
-      },
-      "temp_tsolar": {
-        "name": "Temperature Tsolar - Solar Panel"
-      },
-      "temp_tw2": {
-        "name": "Temperature Tw2 - Zone 2 Water"
-      },
-      "dc_current": {
-        "name": "ODU - DC Bus Current"
-      },
-      "dc_bus_voltage": {
-        "name": "ODU - DC Bus Voltage"
-      },
-      "instant_power": {
-        "name": "Power - Heating Capacity"
-      },
-      "instant_power0": {
-        "name": "Power - Heating Consumption"
-      },
-      "instant_renew_power0": {
-        "name": "Power - Renewable Heating Capacity"
-      },
-      "instant_cop": {
-        "name": "Power - Heating COP"
-      },
-      "odu_voltage": {
-        "name": "ODU - Voltage"
-      },
-      "room_rel_hum": {
-        "name": "Room Relative Humidity"
-      },
-      "unit_mode_run": {
-        "name": "Status - Running Mode",
-        "state": {
-          "off": "Off",
-          "cool": "Cooling",
-          "heat": "Heating"
-        }
-      },
-      "hydbox_subtype": {
-        "name": "Info - Hydraulic Box Subtype"
-      },
-      "machine_type": {
-        "name": "Info - Machine Type"
-      },
-      "odu_model": {
-        "name": "Info - ODU Model Code"
-      },
-      "fg_capacity_need": {
-        "name": "Diagnostic - Capacity Need (raw)"
-      },
-      "hydrobox_capacity": {
-        "name": "Info - Hydraulic Box Capacity"
-      },
-      "idu_t1s1": {
-        "name": "Temperature - Zone 1 Calculated (T1s)"
-      },
-      "idu_t1s2": {
-        "name": "Temperature - Zone 2 Calculated (T1s)"
-      },
-      "t5s": {
-        "name": "Temperature T5s - DHW Setpoint"
-      },
-      "tas": {
-        "name": "Temperature Tas - Air Setpoint"
-      },
-      "zone1_temp_set": {
-        "name": "Temperature - Zone 1 Setpoint"
-      },
-      "zone2_temp_set": {
-        "name": "Temperature - Zone 2 Setpoint"
-      },
-      "disinfect_set_weekday": {
-        "name": "DHW - Disinfect Weekday"
-      },
-      "disinfect_start_hour": {
-        "name": "DHW - Disinfect Start Hour"
-      },
-      "disinfect_start_minutes": {
-        "name": "DHW - Disinfect Start Minute"
-      },
-      "odu_target_fre": {
-        "name": "Compressor - Target Frequency"
-      },
-      "exv_opening": {
-        "name": "Refrigerant - EXV1 Opening"
-      },
-      "error_code_description": {
-        "name": "Error - Description"
-      },
-      "wifi_module_serial": {
-        "name": "Info - WiFi Module Serial"
-      },
-      "temp_tw_in": {
-        "name": "Temperature Tw_in - Water Inlet"
-      },
-      "temp_tw_out": {
-        "name": "Temperature Tw_out - Water Outlet"
-      },
-      "comp_total_run_time": {
-        "name": "Energy - Compressor Run Time"
-      },
-      "compressor_status_raw": {
-        "name": "Compressor - Status Bitmap (raw)"
-      },
-      "odu_comp_current": {
-        "name": "Compressor - Current"
-      },
-      "idu_software_version_str": {
-        "name": "Info - IDU Software Version"
-      },
-      "odu_software_version_str": {
-        "name": "Info - ODU Software Version"
-      },
-      "raw_b31": {
-        "name": "Diagnostic - Raw byte 31"
-      },
-      "raw_b65": {
-        "name": "Diagnostic - Raw byte 65"
-      }
-    },
-    "switch": {
-      "anion": {
-        "name": "Anion"
-      },
-      "aux_heating": {
-        "name": "Aux Heating"
-      },
-      "boost_mode": {
-        "name": "Boost Mode"
-      },
-      "breezeless": {
-        "name": "Breezeless"
-      },
-      "child_lock": {
-        "name": "Child Lock"
-      },
-      "cl_sterilization": {
-        "name": "CL Sterilization"
-      },
-      "comfort_mode": {
-        "name": "Comfort Mode"
-      },
-      "dhw_power": {
-        "name": "DHW - Power"
-      },
-      "disinfect": {
-        "name": "Disinfect"
-      },
-      "vacation_mode": {
-        "name": "Vacation Mode"
-      },
-      "dry": {
-        "name": "Dry"
-      },
-      "cold_water_single": {
-        "name": "Cold Water Single"
-      },
-      "cold_water_dot": {
-        "name": "Cold Water Dot"
-      },
-      "eco_mode": {
-        "name": "Mode - ECO"
-      },
-      "memory": {
-        "name": "Memo U"
-      },
-      "fast_dhw": {
-        "name": "DHW - Fast DHW"
-      },
-      "foam_shield": {
-        "name": "Foam Shield"
-      },
-      "frost_protect": {
-        "name": "Frost Protect"
-      },
-      "heating_power": {
-        "name": "Power - Heating (legacy)"
-      },
-      "indirect_wind": {
-        "name": "Indirect Wind"
-      },
-      "leak_water_protection": {
-        "name": "Leak Water Protection"
-      },
-      "light": {
-        "name": "Light"
-      },
-      "link_to_ac": {
-        "name": "Link to AC"
-      },
-      "main_light": {
-        "name": "Main Light"
-      },
-      "main_power": {
-        "name": "Main Power"
-      },
-      "natural_wind": {
-        "name": "Natural Wind"
-      },
-      "night_light": {
-        "name": "Night Light"
-      },
-      "oscillate": {
-        "name": "Oscillate"
-      },
-      "power": {
-        "name": "Power"
-      },
-      "powerful_purify": {
-        "name": "Powerful Purification"
-      },
-      "prompt_tone": {
-        "name": "Prompt Tone"
-      },
-      "regeneration": {
-        "name": "Regeneration"
-      },
-      "water_pump": {
-        "name": "Water Pump"
-      },
-      "water_way": {
-        "name": "Water Way"
-      },
-      "screen_display": {
-        "name": "Screen Display"
-      },
-      "screen_display_alternate": {
-        "name": "Screen Display Alternate"
-      },
-      "sensor_light": {
-        "name": "Sensor Light"
-      },
-      "silent_mode": {
-        "name": "Mode - Silent"
-      },
-      "sleep_mode": {
-        "name": "Sleep Mode"
-      },
-      "out_silent": {
-        "name": "Outdoor Silent Mode"
-      },
-      "smart_eye": {
-        "name": "Smart Eye"
-      },
-      "smart_volume": {
-        "name": "Smart Volume"
-      },
-      "smelly_sensor": {
-        "name": "Smelly Sensor"
-      },
-      "soften": {
-        "name": "Softening"
-      },
-      "standby": {
-        "name": "Standby"
-      },
-      "start": {
-        "name": "Start"
-      },
-      "sterilization": {
-        "name": "Sterilization"
-      },
-      "storage": {
-        "name": "Storage"
-      },
-      "swing": {
-        "name": "Swing"
-      },
-      "swing_horizontal": {
-        "name": "Swing Horizontal"
-      },
-      "swing_vertical": {
-        "name": "Swing Vertical"
-      },
-      "self_clean": {
-        "name": "Self Clean"
-      },
-      "sound": {
-        "name": "Sound"
-      },
-      "tbh": {
-        "name": "TBH"
-      },
-      "variable_heating": {
-        "name": "Variable Heating"
-      },
-      "ventilation": {
-        "name": "Ventilation"
-      },
-      "whole_tank_heating": {
-        "name": "Whole Tank Heating"
-      },
-      "zero_cold_pulse": {
-        "name": "Zero Cold Water (Pulse)"
-      },
-      "zero_cold_water": {
-        "name": "Zero Cold Water"
-      },
-      "zone1_curve": {
-        "name": "Zone 1 - Climate Curve"
-      },
-      "zone1_power": {
-        "name": "Zone 1 - Power"
-      },
-      "zone2_curve": {
-        "name": "Zone 2 - Climate Curve"
-      },
-      "zone2_power": {
-        "name": "Zone 2 - Power"
-      },
-      "holiday_on": {
-        "name": "Mode - Holiday"
-      },
-      "dhw_disinfect": {
-        "name": "DHW - Disinfect"
-      }
-    },
-    "water_heater": {
-      "domestic_hot_water": {
-        "name": "Domestic hot water"
-      },
-      "bathing": {
-        "name": "Bathing"
-      },
-      "heating": {
-        "name": "Heating"
-      }
     }
-  },
-  "options": {
-    "step": {
-      "init": {
-        "data": {
-          "ip_address": "IP address",
-          "refresh_interval": "Refresh interval (0 means not refreshing actively)",
-          "sensors": "Extra sensors",
-          "switches": "Extra controls",
-          "customize": "Customize"
-        },
-        "title": "Configure"
-      }
-    },
-    "abort": {
-      "account_option": "The account does not supports this operation.\nClick \"ADD DEVICE\" to  add a new device."
-    }
-  },
-  "services": {
-    "set_attribute": {
-      "name": "Set attribute",
-      "description": "Set the attribute value of device",
-      "fields": {
-        "device_id": {
-          "name": "Appliance code",
-          "description": "The appliance code (Device ID) of appliance"
-        },
-        "attribute": {
-          "name": "Attribute",
-          "description": "The attribute name want to set"
-        },
-        "value": {
-          "name": "Value",
-          "description": "The attribute value want to set"
-        }
-      }
-    },
-    "send_command": {
-      "name": "Customize command",
-      "description": "Send a customize command to device",
-      "fields": {
-        "device_id": {
-          "name": "Appliance code",
-          "description": "The appliance code (Device ID) of appliance"
-        },
-        "cmd_type": {
-          "name": "Command type",
-          "description": "The type of command，should be 3（query) or 2（set)"
-        },
-        "cmd_body": {
-          "name": "Command body",
-          "description": "The body of command, (not include MSmart protocol head and checksum at the end)"
-        }
-      }
-    }
-  }
 }
