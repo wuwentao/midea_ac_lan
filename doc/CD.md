@@ -120,8 +120,9 @@ water, electric mode, automatic disinfection, forced electric heating,
 time-of-use, heat-pump priority, heat recovery, heat-pump mode, Smart mode, and
 negative-temperature support.
 
-Weekly and daily schedule mappings are structured values and therefore remain
-available through `midea_ac_lan.set_attribute` rather than scalar entities.
+Weekly and daily schedules are structured mappings. They are not currently
+writable through `midea_ac_lan.set_attribute`, whose service schema accepts
+only scalar values.
 
 ## Services
 

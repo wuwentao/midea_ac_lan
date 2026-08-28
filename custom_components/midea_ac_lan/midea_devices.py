@@ -1851,6 +1851,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "disinfect",
                 "name": "Disinfect",
                 "icon": "mdi:bacteria",
+                "required_attribute": CDAttributes.disinfect,
             },
             "schedule_mode": {
                 "type": Platform.NUMBER,
@@ -1860,6 +1861,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "max": 2,
                 "step": 1,
                 "icon": "mdi:calendar-clock",
+                "required_attribute": "schedule_mode",
             },
             "max_temperature_upper_limit": {
                 "type": Platform.SENSOR,

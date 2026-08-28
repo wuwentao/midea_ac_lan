@@ -86,7 +86,8 @@
 | binary_sensor.{DEVICEID}\_new_version_water_heater | binary_sensor | Extended Protocol              |
 
 温度上下限、假期范围、定时步长及所有 capability 标志也作为可选诊断实体提供。
-每日和每周计划是结构化映射，因此通过 `midea_ac_lan.set_attribute` 服务设置。
+每日和每周计划是结构化映射。目前无法通过 `midea_ac_lan.set_attribute`
+服务写入，因为该服务架构只接受标量值。
 
 ## 服务
 
