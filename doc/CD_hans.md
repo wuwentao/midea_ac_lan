@@ -2,6 +2,10 @@
 
 ## 自定义
 
+扩展 CD 热水器可根据设备上报的能力提供即时/自动消毒、消毒温度、最高温度、
+维护提醒、定时器/周计划、Demand Response、热回收及可选运行模式。未上报的属性
+不会出现在集成的可选实体列表中，因此旧设备继续保持原有行为。
+
 - 支持温度设定
 
 设置温度调整步长 (默认为1).
@@ -61,6 +65,28 @@
 | sensor.{DEVICEID}\_error_code               | sensor        | Error Code             | 错误代码   |
 | sensor.{DEVICEID}\_typeinfo                 | sensor        | Type Info              | 类型信息   |
 | switch.{DEVICEID}\_power                    | switch        | Power                  | 电源       |
+
+### 扩展 CD 实体
+
+仅当设备上报对应属性时，以下实体才会出现在可选实体中。`Schedule Mode` 的值
+`0` 表示关闭，`1` 表示每日定时器，`2` 表示周计划。
+
+| EntityID                                           | 类型          | 名称                           |
+| -------------------------------------------------- | ------------- | ------------------------------ |
+| switch.{DEVICEID}\_disinfect                       | switch        | Immediate Disinfection         |
+| number.{DEVICEID}\_schedule_mode                   | number        | Schedule Mode                  |
+| number.{DEVICEID}\_max_temperature                 | number        | Maximum Target Temperature     |
+| number.{DEVICEID}\_disinfection_temperature        | number        | Disinfection Temperature       |
+| switch.{DEVICEID}\_maintenance_reminder            | switch        | Maintenance Reminder           |
+| binary_sensor.{DEVICEID}\_dr_enable                | binary_sensor | Demand Response                |
+| binary_sensor.{DEVICEID}\_electric_rod_exception   | binary_sensor | Electric Heater Fault          |
+| sensor.{DEVICEID}\_remaining_hot_water_max         | sensor        | Maximum Remaining Hot Water    |
+| sensor.{DEVICEID}\_force_e_heating_status          | sensor        | Forced Electric Heating Status |
+| binary_sensor.{DEVICEID}\_heat_recovery_status     | binary_sensor | Heat Recovery                  |
+| binary_sensor.{DEVICEID}\_new_version_water_heater | binary_sensor | Extended Protocol              |
+
+温度上下限、假期范围、定时步长及所有 capability 标志也作为可选诊断实体提供。
+每日和每周计划是结构化映射，因此通过 `midea_ac_lan.set_attribute` 服务设置。
 
 ## 服务
 
