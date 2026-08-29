@@ -508,16 +508,22 @@ class MideaACClimate(MideaClimate):
         """Midea AC Climate fan mode."""
         fan_speed = cast("int", self._device.get_attribute(ACAttributes.fan_speed))
         if fan_speed > FanSpeed.AUTO:
-            return str(FAN_AUTO)
-        if fan_speed > FanSpeed.FULL_SPEED:
-            return str(FAN_FULL_SPEED)
-        if fan_speed > FanSpeed.HIGH:
-            return str(FAN_HIGH)
-        if fan_speed > FanSpeed.MEDIUM:
-            return str(FAN_MEDIUM)
-        if fan_speed > FanSpeed.LOW:
-            return str(FAN_LOW)
-        return str(FAN_SILENT)
+            current_mode = str(FAN_AUTO)
+        elif fan_speed > FanSpeed.FULL_SPEED:
+            current_mode = str(FAN_FULL_SPEED)
+        elif fan_speed > FanSpeed.HIGH:
+            current_mode = str(FAN_HIGH)
+        elif fan_speed > FanSpeed.MEDIUM:
+            current_mode = str(FAN_MEDIUM)
+        elif fan_speed > FanSpeed.LOW:
+            current_mode = str(FAN_LOW)
+        else:
+            current_mode = str(FAN_SILENT)
+
+        valid_modes = self.fan_modes
+        if valid_modes and current_mode not in valid_modes:
+            return str(FAN_AUTO) if str(FAN_AUTO) in valid_modes else valid_modes[0]
+        return current_mode
 
     @property
     def fan_modes(self) -> list[str] | None:
