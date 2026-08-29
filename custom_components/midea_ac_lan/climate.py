@@ -288,7 +288,7 @@ class MideaACClimate(MideaClimate):
         self._customize_swing: bool | None = None
         self._customize_hvac_modes: list[HVACMode] | None = None
         self._customize_preset_modes: list[str] | None = None
-        self._parse_capability_customize(config_entry)
+        self._customize_fan_modes: list[str] | None = None
         self._fan_speeds: dict[str, int] = {
             FAN_SILENT: 20,
             FAN_LOW: 40,
@@ -318,6 +318,7 @@ class MideaACClimate(MideaClimate):
             "sensors" in config_entry.options
             and "indoor_humidity" in config_entry.options["sensors"]
         )
+        self._parse_capability_customize(config_entry)
 
     def _parse_capability_customize(self, config_entry: ConfigEntry) -> None:
         """Parse the swing / hvac_modes customize overrides (highest priority).
@@ -366,6 +367,16 @@ class MideaACClimate(MideaClimate):
                 wanted_p.insert(0, PRESET_NONE)
             # honor even an empty / none-only list (user wants no presets)
             self._customize_preset_modes = wanted_p
+        fan_modes_override = params.get("fan_modes")
+        if isinstance(fan_modes_override, list):
+            valid_fans = list(self._fan_speeds.keys())
+            wanted_f: list[str] = []
+            for name in fan_modes_override:
+                fan = str(name)
+                if fan in valid_fans and fan not in wanted_f:
+                    wanted_f.append(fan)
+            if wanted_f:
+                self._customize_fan_modes = wanted_f
 
     def _capability_swing(self) -> bool:
         """Whether swing is available (customize > B5 capability > default).
@@ -521,6 +532,9 @@ class MideaACClimate(MideaClimate):
         ``fan_custom`` to ``full`` alone collapsed the list to ``["full"]`` on
         such units (issue #904); short-circuit to the full set instead.
         """
+        if self._customize_fan_modes is not None:
+            return self._customize_fan_modes
+        
         caps = getattr(self._device, "capabilities", {})
         if not caps:
             return list(self._fan_speeds.keys())
