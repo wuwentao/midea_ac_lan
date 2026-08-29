@@ -1625,6 +1625,34 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "unit": UnitOfPower.WATT,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
+            # Outdoor-unit runtime telemetry. Parsed by midea-lan since the
+            # MSG_TYPE_UP_UNITPARA / X10 UnitPara work; older library releases
+            # omit these keys, so each carries a required_attribute guard.
+            C3Attributes.comp_run_freq: {
+                "type": Platform.SENSOR,
+                "required_attribute": C3Attributes.comp_run_freq,
+                "translation_key": "comp_run_freq",
+                "name": "Compressor Frequency",
+                "device_class": SensorDeviceClass.FREQUENCY,
+                "unit": UnitOfFrequency.HERTZ,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C3Attributes.fan_speed: {
+                "type": Platform.SENSOR,
+                "required_attribute": C3Attributes.fan_speed,
+                "translation_key": "outdoor_fan_speed",
+                "name": "Outdoor Fan Speed",
+                "icon": "mdi:fan",
+                "unit": REVOLUTIONS_PER_MINUTE,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C3Attributes.unit_mode_run: {
+                "type": Platform.SENSOR,
+                "required_attribute": C3Attributes.unit_mode_run,
+                "translation_key": "unit_mode_run",
+                "name": "Unit Run Mode",
+                "icon": "mdi:heat-pump",
+            },
         },
     },
     0xCA: {
