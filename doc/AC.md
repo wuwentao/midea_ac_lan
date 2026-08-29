@@ -37,7 +37,7 @@ expected values via the Midea app or the remote control). Each value is optional
 { "min_temperature": 16, "max_temperature": 30 }
 ```
 
-### Capabilities (modes / swing / presets)
+### Capabilities (modes / swing / presets / fan modes)
 
 The available run-modes, fan speeds, swing support and presets are detected
 automatically from the device's B5 capability report. A cooling-only portable
@@ -52,7 +52,8 @@ them via customize (confirm the real values via the Midea app or remote):
 {
   "swing": false,
   "hvac_modes": ["off", "cool", "dry", "fan_only"],
-  "preset_modes": ["none"]
+  "preset_modes": ["none"],
+  "fan_modes": ["silent", "low", "medium", "high", "auto"]
 }
 ```
 
@@ -62,6 +63,8 @@ them via customize (confirm the real values via the Midea app or remote):
 - `preset_modes` (list): restrict the presets. `none` is always kept; use
   `["none"]` to remove the preset control entirely. Valid values: `none`,
   `comfort`, `eco`, `boost`, `sleep`, `away`.
+- `fan_modes` (list): restrict the fan modes shown. Valid values: `silent`,
+`low`, `medium`, `high`, `full`, `auto`.
 
 Priority is customize > B5 capabilities > defaults. All keys are optional; omit
 them to use the auto-detected set.
