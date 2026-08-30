@@ -51,8 +51,8 @@
 | sensor.{DEVICEID}\_odu_comp_current             | sensor        | Compressor Current                            | 压缩机电流                                                          |
 | sensor.{DEVICEID}\_exv_current                  | sensor        | Electronic Expansion Valve Opening            | 电子膨胀阀开度                                                      |
 | sensor.{DEVICEID}\_fg_capacity_need             | sensor        | Capacity Demand                               | 能力需求                                                            |
-| sensor.{DEVICEID}\_pressure_high                | sensor        | Discharge Pressure                            | 排气压力                                                            |
-| sensor.{DEVICEID}\_pressure_low                 | sensor        | Suction Pressure                              | 吸气压力                                                            |
+| sensor.{DEVICEID}\_pressure_high                | sensor        | Refrigerant Pressure (High Side)              | 排气压力                                                            |
+| sensor.{DEVICEID}\_pressure_low                 | sensor        | Refrigerant Pressure (Low Side)               | 吸气压力                                                            |
 | sensor.{DEVICEID}\_temp_t1                      | sensor        | Temperature Sensor T1                         | 温度传感器 T1                                                       |
 | sensor.{DEVICEID}\_temp_t2                      | sensor        | Plate Heat Exchanger Temperature (T2)         | 板换温度 (T2)                                                       |
 | sensor.{DEVICEID}\_temp_t2b                     | sensor        | Plate Heat Exchanger Outlet Temperature (T2B) | 板换出口温度 (T2B)                                                  |
