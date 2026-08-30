@@ -1674,6 +1674,9 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "unit_mode_run",
                 "name": "Unit Run Mode",
                 "icon": "mdi:heat-pump",
+                "device_class": SensorDeviceClass.ENUM,
+                # Values from the C3 lua unitTable (T_0000_C3_171H120F_2023062601).
+                "options": {0: "off", 1: "auto", 2: "cool", 3: "heat", 5: "dhw"},
             },
             C3_ODU_TARGET_FRE: {
                 "type": Platform.SENSOR,

@@ -601,7 +601,14 @@
         "name": "Outdoor Fan Speed"
       },
       "unit_mode_run": {
-        "name": "Unit Run Mode"
+        "name": "Unit Run Mode",
+        "state": {
+          "off": "Off",
+          "auto": "Auto",
+          "cool": "Cool",
+          "heat": "Heat",
+          "dhw": "DHW"
+        }
       },
       "odu_target_fre": {
         "name": "Target Compressor Frequency"
