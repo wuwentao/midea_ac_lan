@@ -63,6 +63,12 @@
   },
   "entity": {
     "binary_sensor": {
+      "alarm_on": {
+        "name": "Chyba - Alarm"
+      },
+      "aux_heat_on": {
+        "name": "Ohrievač - Pomocný zdroj"
+      },
       "bar_door": {
         "name": "Bar Door"
       },
@@ -81,17 +87,50 @@
       "bottom_compartment_preheating": {
         "name": "Bottom Compartment Preheating"
       },
+      "bottom_elec_heat": {
+        "name": "Dolné elektrické vykurovanie"
+      },
       "burning_state": {
         "name": "Burning State"
       },
       "cleaning_reminder": {
         "name": "Cleaning Reminder"
       },
+      "compressor_on": {
+        "name": "Kompresor - Beží"
+      },
       "compressor_status": {
         "name": "Compressor Status"
       },
       "cooking": {
         "name": "Cooking"
+      },
+      "cool_capability": {
+        "name": "Funkcia - Chladenie"
+      },
+      "crankcase_heater_on": {
+        "name": "Ohrievač - Kľuková skriňa"
+      },
+      "dhw_capability": {
+        "name": "Funkcia - TÚV"
+      },
+      "disinfect_run": {
+        "name": "TÚV - Dezinfekcia prebieha"
+      },
+      "double_zone": {
+        "name": "Funkcia - Dve zóny"
+      },
+      "eco": {
+        "name": "ECO"
+      },
+      "eco_function_state": {
+        "name": "Režim - Funkcia ECO"
+      },
+      "eco_timer_state": {
+        "name": "Režim - Časovač ECO"
+      },
+      "electronic_smell": {
+        "name": "Dezodorácia a sterilizácia"
       },
       "error_code": {
         "name": "Kód chyby"
@@ -120,11 +159,23 @@
       "full_dust": {
         "name": "Full of Dust"
       },
+      "heat_capability": {
+        "name": "Funkcia - Kúrenie"
+      },
       "heating": {
         "name": "Heating"
       },
       "heating_working": {
         "name": "Heating Working Status"
+      },
+      "hmi_energy_ana_set_en": {
+        "name": "Funkcia - Energetická analýza (HMI)"
+      },
+      "ibh1_on": {
+        "name": "Ohrievač - IBH1"
+      },
+      "ibh2_on": {
+        "name": "Ohrievač - IBH2"
       },
       "keep_warm": {
         "name": "Keep Warm"
@@ -135,6 +186,18 @@
       "lid_status": {
         "name": "Lid Status"
       },
+      "load_output_tbh": {
+        "name": "Ohrievač - Zásobník (TBH)"
+      },
+      "maintain_warn": {
+        "name": "Upozornenie na údržbu"
+      },
+      "maintenance_reminder": {
+        "name": "Pripomienka údržby"
+      },
+      "microcrystal_fresh": {
+        "name": "Mikrokryštalická sviežosť"
+      },
       "middle_compartment_cooling": {
         "name": "Middle Compartment Cooling"
       },
@@ -144,11 +207,8 @@
       "middle_compartment_preheating": {
         "name": "Middle Compartment Preheating"
       },
-      "top_elec_heat": {
-        "name": "Horné elektrické vykurovanie"
-      },
-      "bottom_elec_heat": {
-        "name": "Dolné elektrické vykurovanie"
+      "multi_terminal": {
+        "name": "Viacero terminálov"
       },
       "mute_effect": {
         "name": "Účinok stíšenia"
@@ -156,14 +216,32 @@
       "mute_status": {
         "name": "Stav stíšenia"
       },
-      "multi_terminal": {
-        "name": "Viacero terminálov"
-      },
       "oilcup_full": {
         "name": "Oil-cup Full"
       },
+      "order1_effect": {
+        "name": "Plán 1 aktívny"
+      },
+      "order2_effect": {
+        "name": "Plán 2 aktívny"
+      },
       "protection": {
         "name": "Protection"
+      },
+      "pump_c_running": {
+        "name": "Pump_C - Zmiešavací okruh zóny 2"
+      },
+      "pump_d_running": {
+        "name": "Pump_D - TÚV"
+      },
+      "pump_i_running": {
+        "name": "Pump_I - Vnútorné"
+      },
+      "pump_o_running": {
+        "name": "Pump_O - Vonkajšie"
+      },
+      "pump_s_running": {
+        "name": "Pump_S - Solár"
       },
       "refrigerator_door": {
         "name": "Refrigerator Door"
@@ -171,8 +249,17 @@
       "refrigerator_door_overtime": {
         "name": "Refrigerator Door Overtime"
       },
+      "remote_onoff": {
+        "name": "Funkcia - Diaľkové zap/vyp"
+      },
       "rinse_aid": {
         "name": "Rinse Aid Shortage"
+      },
+      "room_thermal_state": {
+        "name": "Stav - Izbový termostat"
+      },
+      "room_thermal_support": {
+        "name": "Funkcia - Izbový termostat"
       },
       "rsj_stand_by": {
         "name": "Pohotovostný režim"
@@ -186,20 +273,8 @@
       "smart_grid": {
         "name": "Inteligentná sieť"
       },
-      "eco": {
-        "name": "ECO"
-      },
-      "maintenance_reminder": {
-        "name": "Pripomienka údržby"
-      },
-      "maintain_warn": {
-        "name": "Upozornenie na údržbu"
-      },
-      "order1_effect": {
-        "name": "Plán 1 aktívny"
-      },
-      "order2_effect": {
-        "name": "Plán 2 aktívny"
+      "status_cool": {
+        "name": "Stav - Chladenie"
       },
       "status_dhw": {
         "name": "DHW status"
@@ -213,11 +288,29 @@
       "status_tbh": {
         "name": "TBH status"
       },
+      "sv1_open": {
+        "name": "SV1 - Ventil (TÚV)"
+      },
+      "sv2_open": {
+        "name": "SV2 - Ventil (Kúrenie)"
+      },
+      "sv3_open": {
+        "name": "SV3 - Ventil"
+      },
+      "sys_energy_ana_en": {
+        "name": "Funkcia - Energetická analýza (Systém)"
+      },
       "tank_ejected": {
         "name": "Tank Ejected"
       },
       "tank_full": {
         "name": "Tank status"
+      },
+      "tbh_control": {
+        "name": "Funkcia - Riadenie TBH"
+      },
+      "time_set": {
+        "name": "Funkcia - Čas nastavený"
       },
       "top_compartment_cooling": {
         "name": "Top Compartment Cooling"
@@ -228,8 +321,20 @@
       "top_compartment_preheating": {
         "name": "Top Compartment Preheating"
       },
+      "top_elec_heat": {
+        "name": "Horné elektrické vykurovanie"
+      },
+      "unit_demand": {
+        "name": "Diagnostika - Požiadavka jednotky (kandidát)"
+      },
       "water_change_reminder": {
         "name": "Water Change Reminder"
+      },
+      "water_circuit_active": {
+        "name": "Voda - Okruh aktívny"
+      },
+      "water_pump_running": {
+        "name": "Vodné čerpadlo beží"
       },
       "water_shortage": {
         "name": "Water Shortage"
@@ -248,111 +353,6 @@
       },
       "zone2_water_temp_mode": {
         "name": "Zone2 Water-temperature Mode"
-      },
-      "microcrystal_fresh": {
-        "name": "Mikrokryštalická sviežosť"
-      },
-      "electronic_smell": {
-        "name": "Dezodorácia a sterilizácia"
-      },
-      "water_pump_running": {
-        "name": "Vodné čerpadlo beží"
-      },
-      "water_circuit_active": {
-        "name": "Voda - Okruh aktívny"
-      },
-      "unit_demand": {
-        "name": "Diagnostika - Požiadavka jednotky (kandidát)"
-      },
-      "status_cool": {
-        "name": "Stav - Chladenie"
-      },
-      "eco_function_state": {
-        "name": "Režim - Funkcia ECO"
-      },
-      "eco_timer_state": {
-        "name": "Režim - Časovač ECO"
-      },
-      "double_zone": {
-        "name": "Funkcia - Dve zóny"
-      },
-      "room_thermal_support": {
-        "name": "Funkcia - Izbový termostat"
-      },
-      "room_thermal_state": {
-        "name": "Stav - Izbový termostat"
-      },
-      "time_set": {
-        "name": "Funkcia - Nastavenie času"
-      },
-      "disinfect_run": {
-        "name": "TÚV - Dezinfekcia prebieha"
-      },
-      "remote_onoff": {
-        "name": "Funkcia - Diaľkové zap/vyp"
-      },
-      "tbh_control": {
-        "name": "Funkcia - Riadenie TBH"
-      },
-      "heat_capability": {
-        "name": "Funkcia - Vykurovanie"
-      },
-      "cool_capability": {
-        "name": "Funkcia - Chladenie"
-      },
-      "dhw_capability": {
-        "name": "Funkcia - TÚV"
-      },
-      "sys_energy_ana_en": {
-        "name": "Funkcia - Analýza energie (systém)"
-      },
-      "hmi_energy_ana_set_en": {
-        "name": "Funkcia - Analýza energie (HMI)"
-      },
-      "pump_i_running": {
-        "name": "Pump_I - Interné"
-      },
-      "pump_o_running": {
-        "name": "Pump_O - Externé"
-      },
-      "pump_d_running": {
-        "name": "Pump_D - TÚV"
-      },
-      "pump_c_running": {
-        "name": "Pump_C - Zmiešavací okruh zóny 2"
-      },
-      "pump_s_running": {
-        "name": "Pump_S - Solár"
-      },
-      "sv1_open": {
-        "name": "SV1 - Ventil (TÚV)"
-      },
-      "sv2_open": {
-        "name": "SV2 - Ventil (vykurovanie)"
-      },
-      "load_output_tbh": {
-        "name": "Ohrievač - Záložný ohrev nádrže (TBH)"
-      },
-      "compressor_on": {
-        "name": "Kompresor - Beží"
-      },
-      "ibh1_on": {
-        "name": "Ohrievač - IBH1"
-      },
-      "ibh2_on": {
-        "name": "Ohrievač - IBH2"
-      },
-      "sv3_open": {
-        "name": "SV3 - Ventil"
-      },
-      "crankcase_heater_on": {
-        "name": "Ohrievač - Ohrev kľukovej skrine"
-      },
-      "alarm_on": {
-        "name": "Chyba - Alarm"
-      },
-      "aux_heat_on": {
-        "name": "Ohrievač - Pomocný zdroj tepla"
       }
     },
     "button": {
@@ -361,12 +361,6 @@
       }
     },
     "climate": {
-      "climate_zone1": {
-        "name": "Zone1 Thermostat"
-      },
-      "climate_zone2": {
-        "name": "Zone2 Thermostat"
-      },
       "climate_key": {
         "state_attributes": {
           "fan_mode": {
@@ -376,6 +370,12 @@
             }
           }
         }
+      },
+      "climate_zone1": {
+        "name": "Zone1 Thermostat"
+      },
+      "climate_zone2": {
+        "name": "Zone2 Thermostat"
       }
     },
     "fan": {
@@ -395,29 +395,29 @@
       "dry_level": {
         "name": "Dry Level"
       },
-      "heating_level": {
-        "name": "Heating Level"
-      },
-      "seat_temp_level": {
-        "name": "Seat Temperature Level"
-      },
-      "water_temp_level": {
-        "name": "Water Temperature Level"
-      },
       "fan_speed_percent": {
         "name": "Percento rýchlosti ventilátora"
-      },
-      "vacation_days": {
-        "name": "Dni dovolenky"
-      },
-      "leak_water_protection_value": {
-        "name": "Hodnota ochrany proti úniku vody"
       },
       "flushing_days": {
         "name": "Dni regenerácie"
       },
+      "heating_level": {
+        "name": "Heating Level"
+      },
+      "leak_water_protection_value": {
+        "name": "Hodnota ochrany proti úniku vody"
+      },
+      "seat_temp_level": {
+        "name": "Seat Temperature Level"
+      },
+      "vacation_days": {
+        "name": "Dni dovolenky"
+      },
       "water_hardness": {
         "name": "Tvrdosť vody"
+      },
+      "water_temp_level": {
+        "name": "Water Temperature Level"
       }
     },
     "select": {
@@ -504,12 +504,22 @@
         }
       }
     },
-    "time": {
-      "timing_regeneration": {
-        "name": "Časovaná regenerácia"
-      }
-    },
     "sensor": {
+      "ai_switch": {
+        "name": "AI prepínač"
+      },
+      "auto_sterilize_hour": {
+        "name": "Hodina automatickej sterilizácie"
+      },
+      "auto_sterilize_minute": {
+        "name": "Minúta automatickej sterilizácie"
+      },
+      "auto_sterilize_week": {
+        "name": "Týždeň automatickej sterilizácie"
+      },
+      "back_water": {
+        "name": "Spätná voda"
+      },
       "bathing_leaving_temperature": {
         "name": "Bathing Leaving Water Temperature"
       },
@@ -528,8 +538,29 @@
       "bright": {
         "name": "Bright Level"
       },
+      "comp_run_freq": {
+        "name": "Kompresor - Frekvencia"
+      },
+      "comp_total_run_time": {
+        "name": "Energia - Doba chodu kompresora"
+      },
+      "compressor_current": {
+        "name": "Prúd kompresora"
+      },
+      "compressor_frequency": {
+        "name": "Frekvencia kompresora"
+      },
+      "compressor_power": {
+        "name": "Výkon kompresora"
+      },
+      "compressor_status_raw": {
+        "name": "Kompresor - Bitová mapa stavu (surová)"
+      },
       "compressor_temperature": {
         "name": "Compressor Temperature"
+      },
+      "compressor_voltage": {
+        "name": "Napätie kompresora"
       },
       "condenser_temperature": {
         "name": "Condenser Temperature"
@@ -540,6 +571,12 @@
       "current_temperature": {
         "name": "Current Temperature"
       },
+      "dc_bus_voltage": {
+        "name": "Vonkajšia jednotka - Napätie DC zbernice"
+      },
+      "dc_current": {
+        "name": "Vonkajšia jednotka - Prúd DC zbernice"
+      },
       "dehydration_speed": {
         "name": "dehydration speed"
       },
@@ -549,41 +586,38 @@
       "dehydration_time_value": {
         "name": "Hodnota času odstreďovania"
       },
-      "temperature": {
-        "name": "Teplota"
-      },
-      "wash_time_value": {
-        "name": "Hodnota času prania"
-      },
-      "stains": {
-        "name": "Škvrny"
+      "detergent": {
+        "name": "detergent"
       },
       "dirty_degree": {
         "name": "Stupeň znečistenia"
       },
-      "detergent": {
-        "name": "detergent"
+      "discharge_pipe_temperature": {
+        "name": "Teplota výtlačného potrubia(TP)"
       },
-      "intensity": {
-        "name": "Intenzita"
+      "disinfect_set_weekday": {
+        "name": "TÚV - Deň dezinfekcie"
       },
-      "dryness_level": {
-        "name": "Úroveň suchosti"
+      "disinfect_start_hour": {
+        "name": "TÚV - Hodina začiatku dezinfekcie"
       },
-      "dry_temperature": {
-        "name": "Teplota sušenia"
+      "disinfect_start_minutes": {
+        "name": "TÚV - Minúta začiatku dezinfekcie"
+      },
+      "disinfection_temperature": {
+        "name": "Teplota dezinfekcie"
       },
       "door_warn": {
         "name": "Upozornenie na dvere"
       },
-      "ai_switch": {
-        "name": "AI prepínač"
+      "dry_temperature": {
+        "name": "Teplota sušenia"
       },
-      "material": {
-        "name": "Materiál"
+      "dryness_level": {
+        "name": "Úroveň suchosti"
       },
-      "water_box": {
-        "name": "Nádržka na vodu"
+      "elec_heat": {
+        "name": "Elektrické vykurovanie"
       },
       "energy_consumption": {
         "name": "Energy Consumption"
@@ -605,17 +639,26 @@
       "error_code": {
         "name": "Error Code"
       },
+      "error_code_description": {
+        "name": "Chyba - Popis"
+      },
       "estimated_energy_consumption": {
         "name": "Odhadovaná spotreba energie"
       },
       "estimated_water_consumption": {
         "name": "Odhadovaná spotreba vody"
       },
+      "exv_opening": {
+        "name": "Chladivo - Otvorenie EXV1"
+      },
       "fan_level": {
         "name": "Fan level"
       },
-      "filter_life": {
-        "name": "Filter Life"
+      "fan_speed": {
+        "name": "Vonkajšia jednotka - Otáčky ventilátora"
+      },
+      "fg_capacity_need": {
+        "name": "Diagnostika - Požadovaný výkon (surové)"
       },
       "filter1_days": {
         "name": "Filter1 Available Days"
@@ -635,11 +678,17 @@
       "filter3_life": {
         "name": "Filter3 Life Level"
       },
+      "filter_life": {
+        "name": "Filter Life"
+      },
       "flex_zone_actual_temp": {
         "name": "Flex Zone Actual Temperature"
       },
       "flex_zone_setting_temp": {
         "name": "Flex Zone Setting Temperature"
+      },
+      "four_way": {
+        "name": "Štvorcestný ventil"
       },
       "freezer_actual_temp": {
         "name": "Freezer Actual Temperature"
@@ -659,14 +708,56 @@
       "heating_time_remaining": {
         "name": "Heating Time Remaining"
       },
+      "humidity": {
+        "name": "Vlhkosť"
+      },
+      "hydbox_subtype": {
+        "name": "Info - Podtyp hydraulického modulu"
+      },
+      "hydrobox_capacity": {
+        "name": "Info - Výkon hydraulického modulu"
+      },
+      "idu_software_version_str": {
+        "name": "Info - Verzia softvéru vnútornej jednotky"
+      },
+      "idu_t1s1": {
+        "name": "Teplota - Zóna 1 vypočítaná (T1s)"
+      },
+      "idu_t1s2": {
+        "name": "Teplota - Zóna 2 vypočítaná (T1s)"
+      },
       "in_tds": {
         "name": "In TDS"
+      },
+      "indoor_ambient_temperature": {
+        "name": "Vnútorná teplota prostredia(T1)"
+      },
+      "indoor_coil_temperature": {
+        "name": "Teplota vnútornej špirály(T2)"
+      },
+      "indoor_fan_speed": {
+        "name": "Rýchlosť vnútorného ventilátora"
       },
       "indoor_humidity": {
         "name": "Indoor Humidity"
       },
       "indoor_temperature": {
         "name": "Indoor Temperature"
+      },
+      "instant_cop": {
+        "name": "Výkon - Vykurovacie COP"
+      },
+      "instant_power": {
+        "name": "Výkon - Vykurovací výkon"
+      },
+      "instant_power0": {
+        "name": "Výkon - Spotreba vykurovania"
+      },
+      "instant_renew_power0": {
+        "name": "Výkon - Obnoviteľný vykurovací výkon"
+      },
+      "intensity": {
+        "name": "Intenzita"
       },
       "keep_warm_remaining": {
         "name": "Keep Warm Remaining"
@@ -676,6 +767,15 @@
       },
       "left_salt": {
         "name": "Zvyšná soľ"
+      },
+      "machine_type": {
+        "name": "Info - Typ stroja"
+      },
+      "material": {
+        "name": "Materiál"
+      },
+      "max_temperature": {
+        "name": "Maximálna cieľová teplota"
       },
       "middle_compartment_remaining": {
         "name": "Middle Compartment Remaining"
@@ -689,11 +789,41 @@
       "mode": {
         "name": "Mode"
       },
+      "odu_comp_current": {
+        "name": "Kompresor - Prúd"
+      },
+      "odu_model": {
+        "name": "Info - Kód modelu vonkajšej jednotky"
+      },
+      "odu_software_version_str": {
+        "name": "Info - Verzia softvéru vonkajšej jednotky"
+      },
+      "odu_target_fre": {
+        "name": "Kompresor - Cieľová frekvencia"
+      },
+      "odu_voltage": {
+        "name": "Vonkajšia jednotka - Napätie"
+      },
       "out_tds": {
         "name": "Out TDS"
       },
+      "outdoor_ambient_temperature": {
+        "name": "Vonkajšia teplota okolia(T4)"
+      },
+      "outdoor_coil_temperature": {
+        "name": "Teplota vonkajšej špirály(T3)"
+      },
       "outdoor_temperature": {
         "name": "Outdoor Temperature"
+      },
+      "pmv": {
+        "name": "PMV"
+      },
+      "pressure_high": {
+        "name": "Chladivo - Vysoký tlak (P1)"
+      },
+      "pressure_low": {
+        "name": "Chladivo - Nízky tlak (P2)"
       },
       "program": {
         "name": "Program"
@@ -701,11 +831,14 @@
       "progress": {
         "name": "Progress"
       },
+      "raw_b31": {
+        "name": "Diagnostika - Surový bajt 31"
+      },
+      "raw_b65": {
+        "name": "Diagnostika - Surový bajt 65"
+      },
       "realtime_power": {
         "name": "Realtime Power"
-      },
-      "pmv": {
-        "name": "PMV"
       },
       "refrigerator_actual_temp": {
         "name": "Refrigerator Actual Temperature"
@@ -731,6 +864,9 @@
       "rinse_level": {
         "name": "rinse level"
       },
+      "room_rel_hum": {
+        "name": "Relatívna vlhkosť v miestnosti"
+      },
       "salt_setting": {
         "name": "Nastavenie soli"
       },
@@ -749,11 +885,20 @@
       "softwater": {
         "name": "Softwater Level"
       },
+      "stains": {
+        "name": "Škvrny"
+      },
       "status": {
         "name": "Status"
       },
+      "sterilize": {
+        "name": "Sterilizácia"
+      },
       "storage_remaining": {
         "name": "Storage Remaining"
+      },
+      "t5s": {
+        "name": "Teplota T5s - Žiadaná hodnota TÚV"
       },
       "tank": {
         "name": "Tank"
@@ -761,8 +906,68 @@
       "tank_actual_temperature": {
         "name": "Tank Actual Temperature"
       },
+      "target_compressor_frequency": {
+        "name": "Cieľová frekvencia kompresora"
+      },
+      "target_indoor_fan_speed": {
+        "name": "Cieľová rýchlosť vnútorného ventilátora"
+      },
       "target_temperature": {
         "name": "Target Temperature"
+      },
+      "tas": {
+        "name": "Teplota Tas - Žiadaná hodnota vzduchu"
+      },
+      "temp_t1": {
+        "name": "Teplota T1 - Celkový výstup vody"
+      },
+      "temp_t2": {
+        "name": "Teplota T2 - Chladivo na strane kvapaliny"
+      },
+      "temp_t2b": {
+        "name": "Teplota T2B - Chladivo na strane plynu"
+      },
+      "temp_t3": {
+        "name": "Teplota T3 - Vonkajší výmenník"
+      },
+      "temp_t4": {
+        "name": "Teplota T4 - Vonkajší vzduch"
+      },
+      "temp_t5": {
+        "name": "Teplota T5 - Zásobník TÚV"
+      },
+      "temp_ta": {
+        "name": "Teplota Ta - Vzduch v miestnosti"
+      },
+      "temp_tb_t1": {
+        "name": "Teplota TB-T1 - Akumulačná nádrž hore"
+      },
+      "temp_tb_t2": {
+        "name": "Teplota TB-T2 - Akumulačná nádrž dole"
+      },
+      "temp_tf": {
+        "name": "Teplota TF - Výkonový modul"
+      },
+      "temp_th": {
+        "name": "Teplota TH - Sanie kompresora"
+      },
+      "temp_tp": {
+        "name": "Teplota TP - Výtlak kompresora"
+      },
+      "temp_tsolar": {
+        "name": "Teplota Tsolar - Solárny panel"
+      },
+      "temp_tw2": {
+        "name": "Teplota Tw2 - Voda zóny 2"
+      },
+      "temp_tw_in": {
+        "name": "Teplota Tw_in - Vstup vody"
+      },
+      "temp_tw_out": {
+        "name": "Teplota Tw_out - Výstup vody"
+      },
+      "temperature": {
+        "name": "Teplota"
       },
       "time_remaining": {
         "name": "Time Remaining"
@@ -788,6 +993,36 @@
       "tvoc": {
         "name": "TVOC"
       },
+      "typeinfo": {
+        "name": "Informácie o type"
+      },
+      "unit_mode_run": {
+        "name": "Stav - Prevádzkový režim",
+        "state": {
+          "off": "Vypnuté",
+          "cool": "Chladenie",
+          "heat": "Kúrenie",
+          "dhw": "Teplá úžitková voda"
+        }
+      },
+      "use_days": {
+        "name": "Dni používania"
+      },
+      "vacation_start_day": {
+        "name": "Deň začiatku dovolenky"
+      },
+      "vacation_start_month": {
+        "name": "Mesiac začiatku dovolenky"
+      },
+      "vacation_start_year": {
+        "name": "Rok začiatku dovolenky"
+      },
+      "variable_mode": {
+        "name": "Variabilný režim"
+      },
+      "velocity": {
+        "name": "Rýchlosť"
+      },
       "wash_level": {
         "name": "Úroveň prania"
       },
@@ -796,6 +1031,12 @@
       },
       "wash_time": {
         "name": "wash time"
+      },
+      "wash_time_value": {
+        "name": "Hodnota času prania"
+      },
+      "water_box": {
+        "name": "Nádržka na vodu"
       },
       "water_consumption": {
         "name": "Water Consumption"
@@ -806,287 +1047,35 @@
       "water_consumption_big": {
         "name": "Spotreba vody"
       },
-      "water_temperature": {
-        "name": "Water Temperature"
+      "water_flow": {
+        "name": "Voda - Prietok"
       },
       "water_level": {
         "name": "Water Level"
       },
-      "wind": {
-        "name": "Vietor"
-      },
-      "typeinfo": {
-        "name": "Informácie o type"
-      },
-      "use_days": {
-        "name": "Dni používania"
-      },
-      "elec_heat": {
-        "name": "Elektrické vykurovanie"
+      "water_pressure": {
+        "name": "Voda - Tlak"
       },
       "water_pump": {
         "name": "Vodné čerpadlo"
       },
-      "four_way": {
-        "name": "Štvorcestný ventil"
+      "water_temperature": {
+        "name": "Water Temperature"
       },
-      "back_water": {
-        "name": "Spätná voda"
+      "wifi_module_serial": {
+        "name": "Info - Sériové číslo WiFi modulu"
       },
-      "sterilize": {
-        "name": "Sterilizácia"
-      },
-      "disinfection_temperature": {
-        "name": "Teplota dezinfekcie"
-      },
-      "max_temperature": {
-        "name": "Maximálna cieľová teplota"
-      },
-      "vacation_start_year": {
-        "name": "Rok začiatku dovolenky"
-      },
-      "vacation_start_month": {
-        "name": "Mesiac začiatku dovolenky"
-      },
-      "vacation_start_day": {
-        "name": "Deň začiatku dovolenky"
-      },
-      "auto_sterilize_week": {
-        "name": "Týždeň automatickej sterilizácie"
-      },
-      "auto_sterilize_hour": {
-        "name": "Hodina automatickej sterilizácie"
-      },
-      "auto_sterilize_minute": {
-        "name": "Minúta automatickej sterilizácie"
+      "wind": {
+        "name": "Vietor"
       },
       "working_time": {
         "name": "Working Time"
-      },
-      "humidity": {
-        "name": "Vlhkosť"
-      },
-      "variable_mode": {
-        "name": "Variabilný režim"
-      },
-      "compressor_frequency": {
-        "name": "Frekvencia kompresora"
-      },
-      "target_compressor_frequency": {
-        "name": "Cieľová frekvencia kompresora"
-      },
-      "compressor_current": {
-        "name": "Prúd kompresora"
-      },
-      "compressor_voltage": {
-        "name": "Napätie kompresora"
-      },
-      "compressor_power": {
-        "name": "Výkon kompresora"
-      },
-      "indoor_ambient_temperature": {
-        "name": "Vnútorná teplota prostredia(T1)"
-      },
-      "indoor_coil_temperature": {
-        "name": "Teplota vnútornej špirály(T2)"
-      },
-      "outdoor_coil_temperature": {
-        "name": "Teplota vonkajšej špirály(T3)"
-      },
-      "outdoor_ambient_temperature": {
-        "name": "Vonkajšia teplota okolia(T4)"
-      },
-      "discharge_pipe_temperature": {
-        "name": "Teplota výtlačného potrubia(TP)"
-      },
-      "indoor_fan_speed": {
-        "name": "Rýchlosť vnútorného ventilátora"
-      },
-      "target_indoor_fan_speed": {
-        "name": "Cieľová rýchlosť vnútorného ventilátora"
-      },
-      "velocity": {
-        "name": "Rýchlosť"
-      },
-      "comp_run_freq": {
-        "name": "Kompresor - Frekvencia"
-      },
-      "fan_speed": {
-        "name": "Vonkajšia jednotka - Otáčky ventilátora",
-        "state": {
-          "level_1": "Stupeň 1",
-          "level_2": "Stupeň 2",
-          "level_3": "Stupeň 3",
-          "level_4": "Stupeň 4",
-          "off": "Vypnuté"
-        }
-      },
-      "temp_t3": {
-        "name": "Teplota T3 - Vonkajší výmenník"
-      },
-      "temp_ta": {
-        "name": "Teplota Ta - Vzduch v miestnosti"
-      },
-      "pressure_high": {
-        "name": "Chladivo - Vysoký tlak (P1)"
-      },
-      "pressure_low": {
-        "name": "Chladivo - Nízky tlak (P2)"
-      },
-      "water_flow": {
-        "name": "Voda - Prietok"
-      },
-      "water_pressure": {
-        "name": "Voda - Tlak"
-      },
-      "temp_t1": {
-        "name": "Teplota T1 - Celková výstupná voda"
-      },
-      "temp_t2": {
-        "name": "Teplota T2 - Chladivo na strane kvapaliny"
-      },
-      "temp_t2b": {
-        "name": "Teplota T2B - Chladivo na strane plynu"
-      },
-      "temp_t4": {
-        "name": "Teplota T4 - Vonkajší vzduch"
-      },
-      "temp_t5": {
-        "name": "Teplota T5 - Zásobník vody"
-      },
-      "temp_tb_t1": {
-        "name": "Teplota TB-T1 - Akumulačná nádrž hore"
-      },
-      "temp_tb_t2": {
-        "name": "Teplota TB-T2 - Akumulačná nádrž dole"
-      },
-      "temp_tf": {
-        "name": "Teplota TF - Modul PCB"
-      },
-      "temp_th": {
-        "name": "Teplota TH - Sanie kompresora"
-      },
-      "temp_tp": {
-        "name": "Teplota TP - Výtlak kompresora"
-      },
-      "temp_tsolar": {
-        "name": "Teplota Tsolar - Solárny kolektor"
-      },
-      "temp_tw2": {
-        "name": "Teplota Tw2 - Voda zóny 2"
-      },
-      "dc_current": {
-        "name": "Vonkajšia jednotka - Prúd jednosmernej zbernice"
-      },
-      "dc_bus_voltage": {
-        "name": "Vonkajšia jednotka - Napätie jednosmernej zbernice"
-      },
-      "instant_power": {
-        "name": "Výkon - Tepelný výkon"
-      },
-      "instant_power0": {
-        "name": "Výkon - Spotreba na vykurovanie"
-      },
-      "instant_renew_power0": {
-        "name": "Výkon - Obnoviteľný tepelný výkon"
-      },
-      "instant_cop": {
-        "name": "Výkon - COP vykurovania"
-      },
-      "odu_voltage": {
-        "name": "Vonkajšia jednotka - Napätie"
-      },
-      "room_rel_hum": {
-        "name": "Relatívna vlhkosť v miestnosti"
-      },
-      "unit_mode_run": {
-        "name": "Stav - Prevádzkový režim",
-        "state": {
-          "off": "Vypnuté",
-          "cool": "Chladenie",
-          "heat": "Vykurovanie"
-        }
-      },
-      "hydbox_subtype": {
-        "name": "Info - Podtyp hydraulického modulu"
-      },
-      "machine_type": {
-        "name": "Info - Typ stroja"
-      },
-      "odu_model": {
-        "name": "Info - Kód modelu ODU"
-      },
-      "fg_capacity_need": {
-        "name": "Diagnostika - Požadovaný výkon (surové)"
-      },
-      "hydrobox_capacity": {
-        "name": "Info - Výkon hydraulického modulu"
-      },
-      "idu_t1s1": {
-        "name": "Teplota - Zóna 1 vypočítaná (T1s)"
-      },
-      "idu_t1s2": {
-        "name": "Teplota - Zóna 2 vypočítaná (T1s)"
-      },
-      "t5s": {
-        "name": "Teplota T5s - Žiadaná teplota TÚV"
-      },
-      "tas": {
-        "name": "Teplota Tas - Žiadaná teplota vzduchu"
       },
       "zone1_temp_set": {
         "name": "Teplota - Žiadaná hodnota zóny 1"
       },
       "zone2_temp_set": {
         "name": "Teplota - Žiadaná hodnota zóny 2"
-      },
-      "disinfect_set_weekday": {
-        "name": "TÚV - Deň dezinfekcie"
-      },
-      "disinfect_start_hour": {
-        "name": "TÚV - Hodina spustenia dezinfekcie"
-      },
-      "disinfect_start_minutes": {
-        "name": "TÚV - Minúta spustenia dezinfekcie"
-      },
-      "odu_target_fre": {
-        "name": "Kompresor - Cieľová frekvencia"
-      },
-      "exv_opening": {
-        "name": "Chladivo - Otvorenie EXV1"
-      },
-      "error_code_description": {
-        "name": "Chyba - Popis"
-      },
-      "wifi_module_serial": {
-        "name": "Info - Sériové číslo modulu WiFi"
-      },
-      "temp_tw_in": {
-        "name": "Teplota Tw_in - Vstup vody"
-      },
-      "temp_tw_out": {
-        "name": "Teplota Tw_out - Výstup vody"
-      },
-      "comp_total_run_time": {
-        "name": "Energia - Prevádzkové hodiny kompresora"
-      },
-      "compressor_status_raw": {
-        "name": "Kompresor - Bitová mapa stavu (surové)"
-      },
-      "odu_comp_current": {
-        "name": "Kompresor - Prúd"
-      },
-      "idu_software_version_str": {
-        "name": "Info - Verzia softvéru IDU"
-      },
-      "odu_software_version_str": {
-        "name": "Info - Verzia softvéru ODU"
-      },
-      "raw_b31": {
-        "name": "Diagnostika - Surový bajt 31"
-      },
-      "raw_b65": {
-        "name": "Diagnostika - Surový bajt 65"
       }
     },
     "switch": {
@@ -1108,8 +1097,17 @@
       "cl_sterilization": {
         "name": "CL sterilizácia"
       },
+      "cold_water_dot": {
+        "name": "Studená voda bodovo"
+      },
+      "cold_water_single": {
+        "name": "Studená voda jednorazovo"
+      },
       "comfort_mode": {
         "name": "Comfort Mode"
+      },
+      "dhw_disinfect": {
+        "name": "TÚV - Dezinfekcia"
       },
       "dhw_power": {
         "name": "DHW Power"
@@ -1117,23 +1115,11 @@
       "disinfect": {
         "name": "Disinfect"
       },
-      "vacation_mode": {
-        "name": "Režim dovolenky"
-      },
       "dry": {
         "name": "Dry"
       },
-      "cold_water_single": {
-        "name": "Studená voda jednorazovo"
-      },
-      "cold_water_dot": {
-        "name": "Studená voda bodovo"
-      },
       "eco_mode": {
         "name": "ECO Mode"
-      },
-      "memory": {
-        "name": "Memo U"
       },
       "fast_dhw": {
         "name": "Fast DHW"
@@ -1146,6 +1132,9 @@
       },
       "heating_power": {
         "name": "Heating Power"
+      },
+      "holiday_on": {
+        "name": "Režim - Dovolenka"
       },
       "indirect_wind": {
         "name": "Indirect Wind"
@@ -1165,6 +1154,9 @@
       "main_power": {
         "name": "Main Power"
       },
+      "memory": {
+        "name": "Memo U"
+      },
       "natural_wind": {
         "name": "Natural Wind"
       },
@@ -1173,6 +1165,9 @@
       },
       "oscillate": {
         "name": "Oscillate"
+      },
+      "out_silent": {
+        "name": "Vonkajší tichý režim"
       },
       "power": {
         "name": "Power"
@@ -1186,17 +1181,14 @@
       "regeneration": {
         "name": "Regenerácia"
       },
-      "water_pump": {
-        "name": "Vodné čerpadlo"
-      },
-      "water_way": {
-        "name": "Vodná cesta"
-      },
       "screen_display": {
         "name": "Screen Display"
       },
       "screen_display_alternate": {
         "name": "Screen Display Alternate"
+      },
+      "self_clean": {
+        "name": "Self Clean"
       },
       "sensor_light": {
         "name": "Sensor Light"
@@ -1206,9 +1198,6 @@
       },
       "sleep_mode": {
         "name": "Sleep Mode"
-      },
-      "out_silent": {
-        "name": "Vonkajší tichý režim"
       },
       "smart_eye": {
         "name": "Smart Eye"
@@ -1221,6 +1210,9 @@
       },
       "soften": {
         "name": "Zmäkčovanie"
+      },
+      "sound": {
+        "name": "Sound"
       },
       "standby": {
         "name": "Standby"
@@ -1243,20 +1235,23 @@
       "swing_vertical": {
         "name": "Swing Vertical"
       },
-      "self_clean": {
-        "name": "Self Clean"
-      },
-      "sound": {
-        "name": "Sound"
-      },
       "tbh": {
         "name": "TBH"
+      },
+      "vacation_mode": {
+        "name": "Režim dovolenky"
       },
       "variable_heating": {
         "name": "Variable Heating"
       },
       "ventilation": {
         "name": "Ventilation"
+      },
+      "water_pump": {
+        "name": "Vodné čerpadlo"
+      },
+      "water_way": {
+        "name": "Vodná cesta"
       },
       "whole_tank_heating": {
         "name": "Whole Tank Heating"
@@ -1278,20 +1273,19 @@
       },
       "zone2_power": {
         "name": "Zone2 Power"
-      },
-      "holiday_on": {
-        "name": "Režim - Dovolenka"
-      },
-      "dhw_disinfect": {
-        "name": "TÚV - Dezinfekcia"
+      }
+    },
+    "time": {
+      "timing_regeneration": {
+        "name": "Časovaná regenerácia"
       }
     },
     "water_heater": {
-      "domestic_hot_water": {
-        "name": "Domestic hot water"
-      },
       "bathing": {
         "name": "Bathing"
+      },
+      "domestic_hot_water": {
+        "name": "Domestic hot water"
       },
       "heating": {
         "name": "Heating"
