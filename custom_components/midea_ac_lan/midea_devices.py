@@ -1448,8 +1448,8 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             C3Attributes.disinfect: {
                 "type": Platform.SWITCH,
-                "translation_key": "disinfect",
-                "name": "Disinfect",
+                "translation_key": "dhw_disinfect",
+                "name": "DHW - Disinfect",
                 "icon": "mdi:water-plus-outline",
             },
             C3Attributes.dhw_power: {
@@ -1488,6 +1488,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "tbh",
                 "name": "TBH",
                 "icon": "mdi:water-boiler",
+                "default": False,
             },
             C3Attributes.zone1_curve: {
                 "type": Platform.SWITCH,
@@ -1716,7 +1717,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             C3Attributes.fan_speed: {
                 "type": Platform.SENSOR,
                 "translation_key": "fan_speed",
-                "name": "ODU Fan Speed",
+                "name": "ODU - Fan Speed",
                 "icon": "mdi:fan",
                 "unit": REVOLUTIONS_PER_MINUTE,
                 "state_class": SensorStateClass.MEASUREMENT,
@@ -2265,15 +2266,15 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             C3Attributes.disinfect_start_hour: {
                 "type": Platform.SENSOR,
                 "translation_key": "disinfect_start_hour",
-                "name": "Disinfect Start Hour",
+                "name": "DHW - Disinfect Start Hour",
                 "icon": "mdi:clock-outline",
-                            },
+            },
             C3Attributes.disinfect_start_minutes: {
                 "type": Platform.SENSOR,
                 "translation_key": "disinfect_start_minutes",
-                "name": "Disinfect Start Minutes",
+                "name": "DHW - Disinfect Start Minute",
                 "icon": "mdi:clock-outline",
-                            },
+            },
         },
     },
     0xCA: {
