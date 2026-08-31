@@ -259,100 +259,100 @@
         "name": "Vízszivattyú működik"
       },
       "water_circuit_active": {
-        "name": "Water - Circuit Active"
+        "name": "Víz - Kör aktív"
       },
       "unit_demand": {
-        "name": "Diagnostic - Unit Demand (candidate)"
+        "name": "Diagnosztika - Egység igény (jelölt)"
       },
       "status_cool": {
-        "name": "Status - Cooling"
+        "name": "Állapot - Hűtés"
       },
       "eco_function_state": {
-        "name": "Mode - ECO Function"
+        "name": "Üzemmód - ECO funkció"
       },
       "eco_timer_state": {
-        "name": "Mode - ECO Timer"
+        "name": "Üzemmód - ECO időzítő"
       },
       "double_zone": {
-        "name": "Capability - Double Zone"
+        "name": "Funkció - Két zóna"
       },
       "room_thermal_support": {
-        "name": "Capability - Room Thermostat"
+        "name": "Funkció - Szobatermosztát"
       },
       "room_thermal_state": {
-        "name": "Status - Room Thermostat"
+        "name": "Állapot - Szobatermosztát"
       },
       "time_set": {
-        "name": "Capability - Time Set"
+        "name": "Funkció - Időbeállítás"
       },
       "disinfect_run": {
-        "name": "DHW - Disinfect Running"
+        "name": "HMV - Fertőtlenítés fut"
       },
       "remote_onoff": {
-        "name": "Capability - Remote On/Off"
+        "name": "Funkció - Távoli be/ki"
       },
       "tbh_control": {
-        "name": "Capability - TBH Control"
+        "name": "Funkció - TBH vezérlés"
       },
       "heat_capability": {
-        "name": "Capability - Heating"
+        "name": "Funkció - Fűtés"
       },
       "cool_capability": {
-        "name": "Capability - Cooling"
+        "name": "Funkció - Hűtés"
       },
       "dhw_capability": {
-        "name": "Capability - DHW"
+        "name": "Funkció - HMV"
       },
       "sys_energy_ana_en": {
-        "name": "Capability - Energy Analysis (System)"
+        "name": "Funkció - Energiaelemzés (rendszer)"
       },
       "hmi_energy_ana_set_en": {
-        "name": "Capability - Energy Analysis (HMI)"
+        "name": "Funkció - Energiaelemzés (HMI)"
       },
       "pump_i_running": {
-        "name": "Pump_I - Internal"
+        "name": "Pump_I - Belső"
       },
       "pump_o_running": {
-        "name": "Pump_O - External"
+        "name": "Pump_O - Külső"
       },
       "pump_d_running": {
-        "name": "Pump_D - DHW"
+        "name": "Pump_D - HMV"
       },
       "pump_c_running": {
-        "name": "Pump_C - Mixed Water Loop Zone 2"
+        "name": "Pump_C - Kevert kör 2. zóna"
       },
       "pump_s_running": {
-        "name": "Pump_S - Solar"
+        "name": "Pump_S - Napkollektor"
       },
       "sv1_open": {
-        "name": "SV1 - Valve (DHW)"
+        "name": "SV1 - Szelep (HMV)"
       },
       "sv2_open": {
-        "name": "SV2 - Valve (Heating)"
+        "name": "SV2 - Szelep (fűtés)"
       },
       "load_output_tbh": {
-        "name": "Heater - Tank Backup (TBH)"
+        "name": "Fűtés - Tartály rásegítő fűtés (TBH)"
       },
       "compressor_on": {
-        "name": "Compressor - Running"
+        "name": "Kompresszor - Működik"
       },
       "ibh1_on": {
-        "name": "Heater - IBH1"
+        "name": "Fűtés - IBH1"
       },
       "ibh2_on": {
-        "name": "Heater - IBH2"
+        "name": "Fűtés - IBH2"
       },
       "sv3_open": {
-        "name": "SV3 - Valve"
+        "name": "SV3 - Szelep"
       },
       "crankcase_heater_on": {
-        "name": "Heater - Crankcase"
+        "name": "Fűtés - Forgattyúház"
       },
       "alarm_on": {
-        "name": "Error - Alarm"
+        "name": "Hiba - Riasztás"
       },
       "aux_heat_on": {
-        "name": "Heater - Auxiliary Source"
+        "name": "Fűtés - Kiegészítő hőforrás"
       }
     },
     "button": {
@@ -465,7 +465,12 @@
         "name": "Screen Display"
       },
       "silent_level": {
-        "name": "Silent Level"
+        "name": "Silent Level",
+        "state": {
+          "off": "Ki",
+          "silent": "Csendes",
+          "super_silent": "Szuper csendes"
+        }
       },
       "tilting_angle": {
         "name": "Tilting Angle"
@@ -904,172 +909,184 @@
         "name": "Sebesség"
       },
       "comp_run_freq": {
-        "name": "Compressor - Frequency"
+        "name": "Kompresszor - Frekvencia"
       },
       "fan_speed": {
-        "name": "ODU - Fan Speed"
+        "name": "Kültéri egység - Ventilátor fordulatszám",
+        "state": {
+          "level_1": "1. fokozat",
+          "level_2": "2. fokozat",
+          "level_3": "3. fokozat",
+          "level_4": "4. fokozat",
+          "off": "Ki"
+        }
       },
       "temp_t3": {
-        "name": "Temperature T3 - Outdoor Coil"
+        "name": "Hőmérséklet T3 - Kültéri hőcserélő"
       },
       "temp_ta": {
-        "name": "Temperature Ta - Room Ambient"
+        "name": "Hőmérséklet Ta - Belső levegő"
       },
       "pressure_high": {
-        "name": "Refrigerant - High Pressure (P1)"
+        "name": "Hűtőközeg - Nagynyomás (P1)"
       },
       "pressure_low": {
-        "name": "Refrigerant - Low Pressure (P2)"
+        "name": "Hűtőközeg - Kisnyomás (P2)"
       },
       "water_flow": {
-        "name": "Water - Flow Rate"
+        "name": "Víz - Térfogatáram"
       },
       "water_pressure": {
-        "name": "Water - Pressure"
+        "name": "Víz - Nyomás"
       },
       "temp_t1": {
-        "name": "Temperature T1 - Total Outlet Water"
+        "name": "Hőmérséklet T1 - Teljes előremenő víz"
       },
       "temp_t2": {
-        "name": "Temperature T2 - Refrigerant Liquid Side"
+        "name": "Hőmérséklet T2 - Hűtőközeg folyadékoldal"
       },
       "temp_t2b": {
-        "name": "Temperature T2B - Refrigerant Gas Side"
+        "name": "Hőmérséklet T2B - Hűtőközeg gázoldal"
       },
       "temp_t4": {
-        "name": "Temperature T4 - Outdoor Ambient"
+        "name": "Hőmérséklet T4 - Külső levegő"
       },
       "temp_t5": {
-        "name": "Temperature T5 - Water Tank"
+        "name": "Hőmérséklet T5 - Melegvíztároló"
       },
       "temp_tb_t1": {
-        "name": "Temperature TB-T1 - Buffer Tank Top"
+        "name": "Hőmérséklet TB-T1 - Puffertartály felső"
       },
       "temp_tb_t2": {
-        "name": "Temperature TB-T2 - Buffer Tank Bottom"
+        "name": "Hőmérséklet TB-T2 - Puffertartály alsó"
       },
       "temp_tf": {
-        "name": "Temperature TF - PCB Module"
+        "name": "Hőmérséklet TF - PCB modul"
       },
       "temp_th": {
-        "name": "Temperature TH - Compressor Suction"
+        "name": "Hőmérséklet TH - Kompresszor szívóoldal"
       },
       "temp_tp": {
-        "name": "Temperature TP - Compressor Discharge"
+        "name": "Hőmérséklet TP - Kompresszor nyomóoldal"
       },
       "temp_tsolar": {
-        "name": "Temperature Tsolar - Solar Panel"
+        "name": "Hőmérséklet Tsolar - Napkollektor"
       },
       "temp_tw2": {
-        "name": "Temperature Tw2 - Zone 2 Water"
+        "name": "Hőmérséklet Tw2 - 2. zóna víz"
       },
       "dc_current": {
-        "name": "ODU - DC Bus Current"
+        "name": "Kültéri egység - DC busz áram"
       },
       "dc_bus_voltage": {
-        "name": "ODU - DC Bus Voltage"
+        "name": "Kültéri egység - DC busz feszültség"
       },
       "instant_power": {
-        "name": "Power - Heating Capacity"
+        "name": "Teljesítmény - Fűtési teljesítmény"
       },
       "instant_power0": {
-        "name": "Power - Heating Consumption"
+        "name": "Teljesítmény - Fűtési fogyasztás"
       },
       "instant_renew_power0": {
-        "name": "Power - Renewable Heating Capacity"
+        "name": "Teljesítmény - Megújuló fűtési teljesítmény"
       },
       "instant_cop": {
-        "name": "Power - Heating COP"
+        "name": "Teljesítmény - Fűtési COP"
       },
       "odu_voltage": {
-        "name": "ODU - Voltage"
+        "name": "Kültéri egység - Feszültség"
       },
       "room_rel_hum": {
-        "name": "Room Relative Humidity"
+        "name": "Relatív páratartalom"
       },
       "unit_mode_run": {
-        "name": "Status - Running Mode"
+        "name": "Állapot - Üzemmód",
+        "state": {
+          "off": "Ki",
+          "cool": "Hűtés",
+          "heat": "Fűtés"
+        }
       },
       "hydbox_subtype": {
-        "name": "Info - Hydraulic Box Subtype"
+        "name": "Info - Hidraulikus modul altípus"
       },
       "machine_type": {
-        "name": "Info - Machine Type"
+        "name": "Info - Géptípus"
       },
       "odu_model": {
-        "name": "Info - ODU Model Code"
+        "name": "Info - ODU modellkód"
       },
       "fg_capacity_need": {
-        "name": "Diagnostic - Capacity Need (raw)"
+        "name": "Diagnosztika - Teljesítményigény (nyers)"
       },
       "hydrobox_capacity": {
-        "name": "Info - Hydraulic Box Capacity"
+        "name": "Info - Hidraulikus modul teljesítmény"
       },
       "idu_t1s1": {
-        "name": "Temperature - Zone 1 Calculated (T1s)"
+        "name": "Hőmérséklet - 1. zóna számított (T1s)"
       },
       "idu_t1s2": {
-        "name": "Temperature - Zone 2 Calculated (T1s)"
+        "name": "Hőmérséklet - 2. zóna számított (T1s)"
       },
       "t5s": {
-        "name": "Temperature T5s - DHW Setpoint"
+        "name": "Hőmérséklet T5s - HMV alapjel"
       },
       "tas": {
-        "name": "Temperature Tas - Air Setpoint"
+        "name": "Hőmérséklet Tas - Levegő alapjel"
       },
       "zone1_temp_set": {
-        "name": "Temperature - Zone 1 Setpoint"
+        "name": "Hőmérséklet - 1. zóna alapjel"
       },
       "zone2_temp_set": {
-        "name": "Temperature - Zone 2 Setpoint"
+        "name": "Hőmérséklet - 2. zóna alapjel"
       },
       "disinfect_set_weekday": {
-        "name": "DHW - Disinfect Weekday"
+        "name": "HMV - Fertőtlenítés napja"
       },
       "disinfect_start_hour": {
-        "name": "DHW - Disinfect Start Hour"
+        "name": "HMV - Fertőtlenítés indítás óra"
       },
       "disinfect_start_minutes": {
-        "name": "DHW - Disinfect Start Minute"
+        "name": "HMV - Fertőtlenítés indítás perc"
       },
       "odu_target_fre": {
-        "name": "Compressor - Target Frequency"
+        "name": "Kompresszor - Cél frekvencia"
       },
       "exv_opening": {
-        "name": "Refrigerant - EXV1 Opening"
+        "name": "Hűtőközeg - EXV1 nyitás"
       },
       "error_code_description": {
-        "name": "Error - Description"
+        "name": "Hiba - Leírás"
       },
       "wifi_module_serial": {
-        "name": "Info - WiFi Module Serial"
+        "name": "Info - WiFi modul sorozatszám"
       },
       "temp_tw_in": {
-        "name": "Temperature Tw_in - Water Inlet"
+        "name": "Hőmérséklet Tw_in - Vízbemenet"
       },
       "temp_tw_out": {
-        "name": "Temperature Tw_out - Water Outlet"
+        "name": "Hőmérséklet Tw_out - Vízkimenet"
       },
       "comp_total_run_time": {
-        "name": "Energy - Compressor Run Time"
+        "name": "Energia - Kompresszor üzemidő"
       },
       "compressor_status_raw": {
-        "name": "Compressor - Status Bitmap (raw)"
+        "name": "Kompresszor - Állapot bitmap (nyers)"
       },
       "odu_comp_current": {
-        "name": "Compressor - Current"
+        "name": "Kompresszor - Áram"
       },
       "idu_software_version_str": {
-        "name": "Info - IDU Software Version"
+        "name": "Info - IDU szoftververzió"
       },
       "odu_software_version_str": {
-        "name": "Info - ODU Software Version"
+        "name": "Info - ODU szoftververzió"
       },
       "raw_b31": {
-        "name": "Diagnostic - Raw byte 31"
+        "name": "Diagnosztika - Nyers bájt 31"
       },
       "raw_b65": {
-        "name": "Diagnostic - Raw byte 65"
+        "name": "Diagnosztika - Nyers bájt 65"
       }
     },
     "switch": {
@@ -1263,10 +1280,10 @@
         "name": "Zone2 Power"
       },
       "holiday_on": {
-        "name": "Mode - Holiday"
+        "name": "Üzemmód - Nyaralás"
       },
       "dhw_disinfect": {
-        "name": "DHW - Disinfect"
+        "name": "HMV - Fertőtlenítés"
       }
     },
     "water_heater": {
