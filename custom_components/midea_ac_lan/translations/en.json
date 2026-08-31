@@ -894,14 +894,7 @@
                 "name": "Compressor - Frequency"
             },
             "fan_speed": {
-                "name": "ODU - Fan Speed",
-                "state": {
-                    "level_1": "Level 1",
-                    "level_2": "Level 2",
-                    "level_3": "Level 3",
-                    "level_4": "Level 4",
-                    "off": "Off"
-                }
+                "name": "ODU - Fan Speed"
             },
             "temp_t3": {
                 "name": "Temperature T3 - Outdoor Coil"
@@ -986,7 +979,8 @@
                 "state": {
                     "off": "Off",
                     "cool": "Cooling",
-                    "heat": "Heating"
+                    "heat": "Heating",
+                    "dhw": "Domestic hot water"
                 }
             },
             "hydbox_subtype": {
