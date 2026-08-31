@@ -259,100 +259,100 @@
         "name": "水泵运行"
       },
       "water_circuit_active": {
-        "name": "Water - Circuit Active"
+        "name": "水 - 水路运行"
       },
       "unit_demand": {
-        "name": "Diagnostic - Unit Demand (candidate)"
+        "name": "诊断 - 机组需求（候选）"
       },
       "status_cool": {
-        "name": "Status - Cooling"
+        "name": "状态 - 制冷"
       },
       "eco_function_state": {
-        "name": "Mode - ECO Function"
+        "name": "模式 - ECO 功能"
       },
       "eco_timer_state": {
-        "name": "Mode - ECO Timer"
+        "name": "模式 - ECO 定时"
       },
       "double_zone": {
-        "name": "Capability - Double Zone"
+        "name": "功能 - 双区"
       },
       "room_thermal_support": {
-        "name": "Capability - Room Thermostat"
+        "name": "功能 - 房间温控器"
       },
       "room_thermal_state": {
-        "name": "Status - Room Thermostat"
+        "name": "状态 - 房间温控器"
       },
       "time_set": {
-        "name": "Capability - Time Set"
+        "name": "功能 - 时间设置"
       },
       "disinfect_run": {
-        "name": "DHW - Disinfect Running"
+        "name": "生活热水 - 杀菌运行中"
       },
       "remote_onoff": {
-        "name": "Capability - Remote On/Off"
+        "name": "功能 - 远程开关机"
       },
       "tbh_control": {
-        "name": "Capability - TBH Control"
+        "name": "功能 - TBH 控制"
       },
       "heat_capability": {
-        "name": "Capability - Heating"
+        "name": "功能 - 制热"
       },
       "cool_capability": {
-        "name": "Capability - Cooling"
+        "name": "功能 - 制冷"
       },
       "dhw_capability": {
-        "name": "Capability - DHW"
+        "name": "功能 - 生活热水"
       },
       "sys_energy_ana_en": {
-        "name": "Capability - Energy Analysis (System)"
+        "name": "功能 - 能量分析（系统）"
       },
       "hmi_energy_ana_set_en": {
-        "name": "Capability - Energy Analysis (HMI)"
+        "name": "功能 - 能量分析（线控器）"
       },
       "pump_i_running": {
-        "name": "Pump_I - Internal"
+        "name": "Pump_I - 内置"
       },
       "pump_o_running": {
-        "name": "Pump_O - External"
+        "name": "Pump_O - 外置"
       },
       "pump_d_running": {
-        "name": "Pump_D - DHW"
+        "name": "Pump_D - 生活热水"
       },
       "pump_c_running": {
-        "name": "Pump_C - Mixed Water Loop Zone 2"
+        "name": "Pump_C - 二区混水回路"
       },
       "pump_s_running": {
-        "name": "Pump_S - Solar"
+        "name": "Pump_S - 太阳能"
       },
       "sv1_open": {
-        "name": "SV1 - Valve (DHW)"
+        "name": "SV1 - 阀（生活热水）"
       },
       "sv2_open": {
-        "name": "SV2 - Valve (Heating)"
+        "name": "SV2 - 阀（采暖）"
       },
       "load_output_tbh": {
-        "name": "Heater - Tank Backup (TBH)"
+        "name": "加热器 - 水箱辅助电加热（TBH）"
       },
       "compressor_on": {
-        "name": "Compressor - Running"
+        "name": "压缩机 - 运行中"
       },
       "ibh1_on": {
-        "name": "Heater - IBH1"
+        "name": "加热器 - IBH1"
       },
       "ibh2_on": {
-        "name": "Heater - IBH2"
+        "name": "加热器 - IBH2"
       },
       "sv3_open": {
-        "name": "SV3 - Valve"
+        "name": "SV3 - 阀"
       },
       "crankcase_heater_on": {
-        "name": "Heater - Crankcase"
+        "name": "加热器 - 曲轴箱"
       },
       "alarm_on": {
-        "name": "Error - Alarm"
+        "name": "故障 - 报警"
       },
       "aux_heat_on": {
-        "name": "Heater - Auxiliary Source"
+        "name": "加热器 - 辅助热源"
       }
     },
     "button": {
@@ -465,7 +465,12 @@
         "name": "屏幕显示"
       },
       "silent_level": {
-        "name": "静音级别"
+        "name": "静音级别",
+        "state": {
+          "off": "关闭",
+          "silent": "静音",
+          "super_silent": "超静音"
+        }
       },
       "tilting_angle": {
         "name": "垂直摆头角度"
@@ -904,172 +909,184 @@
         "name": "流速"
       },
       "comp_run_freq": {
-        "name": "Compressor - Frequency"
+        "name": "压缩机 - 频率"
       },
       "fan_speed": {
-        "name": "ODU - Fan Speed"
+        "name": "室外机 - 风机转速",
+        "state": {
+          "level_1": "1 档",
+          "level_2": "2 档",
+          "level_3": "3 档",
+          "level_4": "4 档",
+          "off": "关闭"
+        }
       },
       "temp_t3": {
-        "name": "Temperature T3 - Outdoor Coil"
+        "name": "温度 T3 - 室外盘管"
       },
       "temp_ta": {
-        "name": "Temperature Ta - Room Ambient"
+        "name": "温度 Ta - 室内环境"
       },
       "pressure_high": {
-        "name": "Refrigerant - High Pressure (P1)"
+        "name": "制冷剂 - 高压（P1）"
       },
       "pressure_low": {
-        "name": "Refrigerant - Low Pressure (P2)"
+        "name": "制冷剂 - 低压（P2）"
       },
       "water_flow": {
-        "name": "Water - Flow Rate"
+        "name": "水 - 水流量"
       },
       "water_pressure": {
-        "name": "Water - Pressure"
+        "name": "水 - 压力"
       },
       "temp_t1": {
-        "name": "Temperature T1 - Total Outlet Water"
+        "name": "温度 T1 - 总出水"
       },
       "temp_t2": {
-        "name": "Temperature T2 - Refrigerant Liquid Side"
+        "name": "温度 T2 - 制冷剂液侧"
       },
       "temp_t2b": {
-        "name": "Temperature T2B - Refrigerant Gas Side"
+        "name": "温度 T2B - 制冷剂气侧"
       },
       "temp_t4": {
-        "name": "Temperature T4 - Outdoor Ambient"
+        "name": "温度 T4 - 室外环境"
       },
       "temp_t5": {
-        "name": "Temperature T5 - Water Tank"
+        "name": "温度 T5 - 水箱"
       },
       "temp_tb_t1": {
-        "name": "Temperature TB-T1 - Buffer Tank Top"
+        "name": "温度 TB-T1 - 缓冲水箱上部"
       },
       "temp_tb_t2": {
-        "name": "Temperature TB-T2 - Buffer Tank Bottom"
+        "name": "温度 TB-T2 - 缓冲水箱下部"
       },
       "temp_tf": {
-        "name": "Temperature TF - PCB Module"
+        "name": "温度 TF - 功率模块"
       },
       "temp_th": {
-        "name": "Temperature TH - Compressor Suction"
+        "name": "温度 TH - 压缩机吸气"
       },
       "temp_tp": {
-        "name": "Temperature TP - Compressor Discharge"
+        "name": "温度 TP - 压缩机排气"
       },
       "temp_tsolar": {
-        "name": "Temperature Tsolar - Solar Panel"
+        "name": "温度 Tsolar - 太阳能集热器"
       },
       "temp_tw2": {
-        "name": "Temperature Tw2 - Zone 2 Water"
+        "name": "温度 Tw2 - 二区水温"
       },
       "dc_current": {
-        "name": "ODU - DC Bus Current"
+        "name": "室外机 - 直流母线电流"
       },
       "dc_bus_voltage": {
-        "name": "ODU - DC Bus Voltage"
+        "name": "室外机 - 直流母线电压"
       },
       "instant_power": {
-        "name": "Power - Heating Capacity"
+        "name": "功率 - 制热量"
       },
       "instant_power0": {
-        "name": "Power - Heating Consumption"
+        "name": "功率 - 制热耗电量"
       },
       "instant_renew_power0": {
-        "name": "Power - Renewable Heating Capacity"
+        "name": "功率 - 可再生制热量"
       },
       "instant_cop": {
-        "name": "Power - Heating COP"
+        "name": "功率 - 制热 COP"
       },
       "odu_voltage": {
-        "name": "ODU - Voltage"
+        "name": "室外机 - 电压"
       },
       "room_rel_hum": {
-        "name": "Room Relative Humidity"
+        "name": "室内相对湿度"
       },
       "unit_mode_run": {
-        "name": "Status - Running Mode"
+        "name": "状态 - 运行模式",
+        "state": {
+          "off": "关闭",
+          "cool": "制冷",
+          "heat": "制热"
+        }
       },
       "hydbox_subtype": {
-        "name": "Info - Hydraulic Box Subtype"
+        "name": "信息 - 水力模块子类型"
       },
       "machine_type": {
-        "name": "Info - Machine Type"
+        "name": "信息 - 机型"
       },
       "odu_model": {
-        "name": "Info - ODU Model Code"
+        "name": "信息 - 外机型号代码"
       },
       "fg_capacity_need": {
-        "name": "Diagnostic - Capacity Need (raw)"
+        "name": "诊断 - 需求能力（原始值）"
       },
       "hydrobox_capacity": {
-        "name": "Info - Hydraulic Box Capacity"
+        "name": "信息 - 水力模块能力"
       },
       "idu_t1s1": {
-        "name": "Temperature - Zone 1 Calculated (T1s)"
+        "name": "温度 - 一区计算值（T1s）"
       },
       "idu_t1s2": {
-        "name": "Temperature - Zone 2 Calculated (T1s)"
+        "name": "温度 - 二区计算值（T1s）"
       },
       "t5s": {
-        "name": "Temperature T5s - DHW Setpoint"
+        "name": "温度 T5s - 生活热水设定值"
       },
       "tas": {
-        "name": "Temperature Tas - Air Setpoint"
+        "name": "温度 Tas - 空气设定值"
       },
       "zone1_temp_set": {
-        "name": "Temperature - Zone 1 Setpoint"
+        "name": "温度 - 一区设定值"
       },
       "zone2_temp_set": {
-        "name": "Temperature - Zone 2 Setpoint"
+        "name": "温度 - 二区设定值"
       },
       "disinfect_set_weekday": {
-        "name": "DHW - Disinfect Weekday"
+        "name": "生活热水 - 杀菌星期"
       },
       "disinfect_start_hour": {
-        "name": "DHW - Disinfect Start Hour"
+        "name": "生活热水 - 杀菌开始小时"
       },
       "disinfect_start_minutes": {
-        "name": "DHW - Disinfect Start Minute"
+        "name": "生活热水 - 杀菌开始分钟"
       },
       "odu_target_fre": {
-        "name": "Compressor - Target Frequency"
+        "name": "压缩机 - 目标频率"
       },
       "exv_opening": {
-        "name": "Refrigerant - EXV1 Opening"
+        "name": "制冷剂 - EXV1 开度"
       },
       "error_code_description": {
-        "name": "Error - Description"
+        "name": "故障 - 说明"
       },
       "wifi_module_serial": {
-        "name": "Info - WiFi Module Serial"
+        "name": "信息 - WiFi 模块序列号"
       },
       "temp_tw_in": {
-        "name": "Temperature Tw_in - Water Inlet"
+        "name": "温度 Tw_in - 进水"
       },
       "temp_tw_out": {
-        "name": "Temperature Tw_out - Water Outlet"
+        "name": "温度 Tw_out - 出水"
       },
       "comp_total_run_time": {
-        "name": "Energy - Compressor Run Time"
+        "name": "能耗 - 压缩机运行时间"
       },
       "compressor_status_raw": {
-        "name": "Compressor - Status Bitmap (raw)"
+        "name": "压缩机 - 状态位图（原始值）"
       },
       "odu_comp_current": {
-        "name": "Compressor - Current"
+        "name": "压缩机 - 电流"
       },
       "idu_software_version_str": {
-        "name": "Info - IDU Software Version"
+        "name": "信息 - 内机软件版本"
       },
       "odu_software_version_str": {
-        "name": "Info - ODU Software Version"
+        "name": "信息 - 外机软件版本"
       },
       "raw_b31": {
-        "name": "Diagnostic - Raw byte 31"
+        "name": "诊断 - 原始字节 31"
       },
       "raw_b65": {
-        "name": "Diagnostic - Raw byte 65"
+        "name": "诊断 - 原始字节 65"
       }
     },
     "switch": {
@@ -1263,10 +1280,10 @@
         "name": "区域2恒温器开关"
       },
       "holiday_on": {
-        "name": "Mode - Holiday"
+        "name": "模式 - 假期"
       },
       "dhw_disinfect": {
-        "name": "DHW - Disinfect"
+        "name": "生活热水 - 杀菌"
       }
     },
     "water_heater": {
