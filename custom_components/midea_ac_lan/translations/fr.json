@@ -63,6 +63,12 @@
   },
   "entity": {
     "binary_sensor": {
+      "alarm_on": {
+        "name": "Erreur - Alarme"
+      },
+      "aux_heat_on": {
+        "name": "Résistance - Source auxiliaire"
+      },
       "bar_door": {
         "name": "Bar Door"
       },
@@ -81,17 +87,50 @@
       "bottom_compartment_preheating": {
         "name": "Bottom Compartment Preheating"
       },
+      "bottom_elec_heat": {
+        "name": "Chauffage électrique inférieur"
+      },
       "burning_state": {
         "name": "Burning State"
       },
       "cleaning_reminder": {
         "name": "Cleaning Reminder"
       },
+      "compressor_on": {
+        "name": "Compresseur - En marche"
+      },
       "compressor_status": {
         "name": "Compressor Status"
       },
       "cooking": {
         "name": "Cooking"
+      },
+      "cool_capability": {
+        "name": "Fonction - Refroidissement"
+      },
+      "crankcase_heater_on": {
+        "name": "Résistance - Carter"
+      },
+      "dhw_capability": {
+        "name": "Fonction - ECS"
+      },
+      "disinfect_run": {
+        "name": "ECS - Désinfection en cours"
+      },
+      "double_zone": {
+        "name": "Fonction - Double zone"
+      },
+      "eco": {
+        "name": "ECO"
+      },
+      "eco_function_state": {
+        "name": "Mode - Fonction ECO"
+      },
+      "eco_timer_state": {
+        "name": "Mode - Minuterie ECO"
+      },
+      "electronic_smell": {
+        "name": "Désodorisation stérilisation"
       },
       "error_code": {
         "name": "Code d'erreur"
@@ -120,11 +159,23 @@
       "full_dust": {
         "name": "Full of Dust"
       },
+      "heat_capability": {
+        "name": "Fonction - Chauffage"
+      },
       "heating": {
         "name": "Heating"
       },
       "heating_working": {
         "name": "Heating Working Status"
+      },
+      "hmi_energy_ana_set_en": {
+        "name": "Fonction - Analyse énergétique (IHM)"
+      },
+      "ibh1_on": {
+        "name": "Résistance - IBH1"
+      },
+      "ibh2_on": {
+        "name": "Résistance - IBH2"
       },
       "keep_warm": {
         "name": "Keep Warm"
@@ -135,6 +186,18 @@
       "lid_status": {
         "name": "Lid Status"
       },
+      "load_output_tbh": {
+        "name": "Résistance - Ballon (TBH)"
+      },
+      "maintain_warn": {
+        "name": "Avertissement d'entretien"
+      },
+      "maintenance_reminder": {
+        "name": "Rappel d'entretien"
+      },
+      "microcrystal_fresh": {
+        "name": "Fraîcheur microcristal"
+      },
       "middle_compartment_cooling": {
         "name": "Middle Compartment Cooling"
       },
@@ -144,11 +207,8 @@
       "middle_compartment_preheating": {
         "name": "Middle Compartment Preheating"
       },
-      "top_elec_heat": {
-        "name": "Chauffage électrique supérieur"
-      },
-      "bottom_elec_heat": {
-        "name": "Chauffage électrique inférieur"
+      "multi_terminal": {
+        "name": "Multi-terminal"
       },
       "mute_effect": {
         "name": "Effet silencieux"
@@ -156,14 +216,32 @@
       "mute_status": {
         "name": "État silencieux"
       },
-      "multi_terminal": {
-        "name": "Multi-terminal"
-      },
       "oilcup_full": {
         "name": "Oil-cup Full"
       },
+      "order1_effect": {
+        "name": "Programmation 1 active"
+      },
+      "order2_effect": {
+        "name": "Programmation 2 active"
+      },
       "protection": {
         "name": "Protection"
+      },
+      "pump_c_running": {
+        "name": "Pump_C - Circuit mélangé zone 2"
+      },
+      "pump_d_running": {
+        "name": "Pump_D - ECS"
+      },
+      "pump_i_running": {
+        "name": "Pump_I - Interne"
+      },
+      "pump_o_running": {
+        "name": "Pump_O - Externe"
+      },
+      "pump_s_running": {
+        "name": "Pump_S - Solaire"
       },
       "refrigerator_door": {
         "name": "Refrigerator Door"
@@ -171,8 +249,17 @@
       "refrigerator_door_overtime": {
         "name": "Refrigerator Door Overtime"
       },
+      "remote_onoff": {
+        "name": "Fonction - Marche/arrêt à distance"
+      },
       "rinse_aid": {
         "name": "Rinse Aid Shortage"
+      },
+      "room_thermal_state": {
+        "name": "État - Thermostat d'ambiance"
+      },
+      "room_thermal_support": {
+        "name": "Fonction - Thermostat d'ambiance"
       },
       "rsj_stand_by": {
         "name": "Veille"
@@ -186,20 +273,8 @@
       "smart_grid": {
         "name": "Réseau intelligent"
       },
-      "eco": {
-        "name": "ECO"
-      },
-      "maintenance_reminder": {
-        "name": "Rappel d'entretien"
-      },
-      "maintain_warn": {
-        "name": "Avertissement d'entretien"
-      },
-      "order1_effect": {
-        "name": "Programmation 1 active"
-      },
-      "order2_effect": {
-        "name": "Programmation 2 active"
+      "status_cool": {
+        "name": "État - Refroidissement"
       },
       "status_dhw": {
         "name": "DHW status"
@@ -213,11 +288,29 @@
       "status_tbh": {
         "name": "TBH status"
       },
+      "sv1_open": {
+        "name": "SV1 - Vanne (ECS)"
+      },
+      "sv2_open": {
+        "name": "SV2 - Vanne (Chauffage)"
+      },
+      "sv3_open": {
+        "name": "SV3 - Vanne"
+      },
+      "sys_energy_ana_en": {
+        "name": "Fonction - Analyse énergétique (Système)"
+      },
       "tank_ejected": {
         "name": "Tank Ejected"
       },
       "tank_full": {
         "name": "Tank status"
+      },
+      "tbh_control": {
+        "name": "Fonction - Commande TBH"
+      },
+      "time_set": {
+        "name": "Fonction - Heure réglée"
       },
       "top_compartment_cooling": {
         "name": "Top Compartment Cooling"
@@ -228,8 +321,20 @@
       "top_compartment_preheating": {
         "name": "Top Compartment Preheating"
       },
+      "top_elec_heat": {
+        "name": "Chauffage électrique supérieur"
+      },
+      "unit_demand": {
+        "name": "Diagnostic - Demande de l'unité (candidat)"
+      },
       "water_change_reminder": {
         "name": "Water Change Reminder"
+      },
+      "water_circuit_active": {
+        "name": "Eau - Circuit actif"
+      },
+      "water_pump_running": {
+        "name": "Pompe à eau en marche"
       },
       "water_shortage": {
         "name": "Water Shortage"
@@ -248,15 +353,6 @@
       },
       "zone2_water_temp_mode": {
         "name": "Zone2 Water-temperature Mode"
-      },
-      "microcrystal_fresh": {
-        "name": "Fraîcheur microcristal"
-      },
-      "electronic_smell": {
-        "name": "Désodorisation stérilisation"
-      },
-      "water_pump_running": {
-        "name": "Pompe à eau en marche"
       }
     },
     "button": {
@@ -265,12 +361,6 @@
       }
     },
     "climate": {
-      "climate_zone1": {
-        "name": "Zone1 Thermostat"
-      },
-      "climate_zone2": {
-        "name": "Zone2 Thermostat"
-      },
       "climate_key": {
         "state_attributes": {
           "fan_mode": {
@@ -280,6 +370,12 @@
             }
           }
         }
+      },
+      "climate_zone1": {
+        "name": "Zone1 Thermostat"
+      },
+      "climate_zone2": {
+        "name": "Zone2 Thermostat"
       }
     },
     "fan": {
@@ -299,29 +395,29 @@
       "dry_level": {
         "name": "Dry Level"
       },
-      "heating_level": {
-        "name": "Heating Level"
-      },
-      "seat_temp_level": {
-        "name": "Seat Temperature Level"
-      },
-      "water_temp_level": {
-        "name": "Water Temperature Level"
-      },
       "fan_speed_percent": {
         "name": "Pourcentage de vitesse du ventilateur"
-      },
-      "vacation_days": {
-        "name": "Jours de vacances"
-      },
-      "leak_water_protection_value": {
-        "name": "Valeur de protection contre les fuites"
       },
       "flushing_days": {
         "name": "Jours de régénération"
       },
+      "heating_level": {
+        "name": "Heating Level"
+      },
+      "leak_water_protection_value": {
+        "name": "Valeur de protection contre les fuites"
+      },
+      "seat_temp_level": {
+        "name": "Seat Temperature Level"
+      },
+      "vacation_days": {
+        "name": "Jours de vacances"
+      },
       "water_hardness": {
         "name": "Dureté de l'eau"
+      },
+      "water_temp_level": {
+        "name": "Water Temperature Level"
       }
     },
     "select": {
@@ -369,7 +465,12 @@
         "name": "Screen Display"
       },
       "silent_level": {
-        "name": "Silent Level"
+        "name": "Silent Level",
+        "state": {
+          "off": "Arrêt",
+          "silent": "Silencieux",
+          "super_silent": "Très silencieux"
+        }
       },
       "tilting_angle": {
         "name": "Tilting Angle"
@@ -403,12 +504,22 @@
         }
       }
     },
-    "time": {
-      "timing_regeneration": {
-        "name": "Régénération programmée"
-      }
-    },
     "sensor": {
+      "ai_switch": {
+        "name": "Interrupteur IA"
+      },
+      "auto_sterilize_hour": {
+        "name": "Heure de stérilisation automatique"
+      },
+      "auto_sterilize_minute": {
+        "name": "Minute de stérilisation automatique"
+      },
+      "auto_sterilize_week": {
+        "name": "Semaine de stérilisation automatique"
+      },
+      "back_water": {
+        "name": "Retour d'eau"
+      },
       "bathing_leaving_temperature": {
         "name": "Bathing Leaving Water Temperature"
       },
@@ -427,8 +538,29 @@
       "bright": {
         "name": "Bright Level"
       },
+      "comp_run_freq": {
+        "name": "Compresseur - Fréquence"
+      },
+      "comp_total_run_time": {
+        "name": "Énergie - Temps de fonctionnement du compresseur"
+      },
+      "compressor_current": {
+        "name": "Courant du compresseur"
+      },
+      "compressor_frequency": {
+        "name": "Fréquence du compresseur"
+      },
+      "compressor_power": {
+        "name": "Puissance du compresseur"
+      },
+      "compressor_status_raw": {
+        "name": "Compresseur - Bitmap d'état (brut)"
+      },
       "compressor_temperature": {
         "name": "Compressor Temperature"
+      },
+      "compressor_voltage": {
+        "name": "Tension du compresseur"
       },
       "condenser_temperature": {
         "name": "Condenser Temperature"
@@ -439,6 +571,12 @@
       "current_temperature": {
         "name": "Current Temperature"
       },
+      "dc_bus_voltage": {
+        "name": "Unité extérieure - Tension du bus CC"
+      },
+      "dc_current": {
+        "name": "Unité extérieure - Courant du bus CC"
+      },
       "dehydration_speed": {
         "name": "dehydration speed"
       },
@@ -448,41 +586,38 @@
       "dehydration_time_value": {
         "name": "Valeur du temps d'essorage"
       },
-      "temperature": {
-        "name": "Température"
-      },
-      "wash_time_value": {
-        "name": "Valeur du temps de lavage"
-      },
-      "stains": {
-        "name": "Taches"
+      "detergent": {
+        "name": "detergent"
       },
       "dirty_degree": {
         "name": "Degré de saleté"
       },
-      "detergent": {
-        "name": "detergent"
+      "discharge_pipe_temperature": {
+        "name": "Température du tuyau de refoulement(TP)"
       },
-      "intensity": {
-        "name": "Intensité"
+      "disinfect_set_weekday": {
+        "name": "ECS - Jour de désinfection"
       },
-      "dryness_level": {
-        "name": "Niveau de séchage"
+      "disinfect_start_hour": {
+        "name": "ECS - Heure de début de désinfection"
       },
-      "dry_temperature": {
-        "name": "Température de séchage"
+      "disinfect_start_minutes": {
+        "name": "ECS - Minute de début de désinfection"
+      },
+      "disinfection_temperature": {
+        "name": "Température de désinfection"
       },
       "door_warn": {
         "name": "Alerte de porte"
       },
-      "ai_switch": {
-        "name": "Interrupteur IA"
+      "dry_temperature": {
+        "name": "Température de séchage"
       },
-      "material": {
-        "name": "Matériau"
+      "dryness_level": {
+        "name": "Niveau de séchage"
       },
-      "water_box": {
-        "name": "Réservoir d'eau"
+      "elec_heat": {
+        "name": "Chauffage électrique"
       },
       "energy_consumption": {
         "name": "Energy Consumption"
@@ -504,17 +639,26 @@
       "error_code": {
         "name": "Error Code"
       },
+      "error_code_description": {
+        "name": "Erreur - Description"
+      },
       "estimated_energy_consumption": {
         "name": "Consommation d'énergie estimée"
       },
       "estimated_water_consumption": {
         "name": "Consommation d'eau estimée"
       },
+      "exv_opening": {
+        "name": "Fluide frigorigène - Ouverture EXV1"
+      },
       "fan_level": {
         "name": "Fan level"
       },
-      "filter_life": {
-        "name": "Filter Life"
+      "fan_speed": {
+        "name": "Unité extérieure - Vitesse du ventilateur"
+      },
+      "fg_capacity_need": {
+        "name": "Diagnostic - Demande de puissance (brut)"
       },
       "filter1_days": {
         "name": "Filter1 Available Days"
@@ -534,11 +678,17 @@
       "filter3_life": {
         "name": "Filter3 Life Level"
       },
+      "filter_life": {
+        "name": "Filter Life"
+      },
       "flex_zone_actual_temp": {
         "name": "Flex Zone Actual Temperature"
       },
       "flex_zone_setting_temp": {
         "name": "Flex Zone Setting Temperature"
+      },
+      "four_way": {
+        "name": "Vanne quatre voies"
       },
       "freezer_actual_temp": {
         "name": "Freezer Actual Temperature"
@@ -558,14 +708,56 @@
       "heating_time_remaining": {
         "name": "Heating Time Remaining"
       },
+      "humidity": {
+        "name": "Humidité"
+      },
+      "hydbox_subtype": {
+        "name": "Info - Sous-type du module hydraulique"
+      },
+      "hydrobox_capacity": {
+        "name": "Info - Puissance du module hydraulique"
+      },
+      "idu_software_version_str": {
+        "name": "Info - Version logicielle unité intérieure"
+      },
+      "idu_t1s1": {
+        "name": "Température - Zone 1 calculée (T1s)"
+      },
+      "idu_t1s2": {
+        "name": "Température - Zone 2 calculée (T1s)"
+      },
       "in_tds": {
         "name": "In TDS"
+      },
+      "indoor_ambient_temperature": {
+        "name": "Température ambiante intérieure(T1)"
+      },
+      "indoor_coil_temperature": {
+        "name": "Température del'échangeur intérieur(T2)"
+      },
+      "indoor_fan_speed": {
+        "name": "Vitesse du ventilateur intérieur"
       },
       "indoor_humidity": {
         "name": "Indoor Humidity"
       },
       "indoor_temperature": {
         "name": "Indoor Temperature"
+      },
+      "instant_cop": {
+        "name": "Puissance - COP de chauffage"
+      },
+      "instant_power": {
+        "name": "Puissance - Capacité de chauffage"
+      },
+      "instant_power0": {
+        "name": "Puissance - Consommation de chauffage"
+      },
+      "instant_renew_power0": {
+        "name": "Puissance - Capacité renouvelable de chauffage"
+      },
+      "intensity": {
+        "name": "Intensité"
       },
       "keep_warm_remaining": {
         "name": "Keep Warm Remaining"
@@ -575,6 +767,15 @@
       },
       "left_salt": {
         "name": "Sel restant"
+      },
+      "machine_type": {
+        "name": "Info - Type de machine"
+      },
+      "material": {
+        "name": "Matériau"
+      },
+      "max_temperature": {
+        "name": "Température cible maximale"
       },
       "middle_compartment_remaining": {
         "name": "Middle Compartment Remaining"
@@ -588,11 +789,41 @@
       "mode": {
         "name": "Mode"
       },
+      "odu_comp_current": {
+        "name": "Compresseur - Courant"
+      },
+      "odu_model": {
+        "name": "Info - Code modèle unité extérieure"
+      },
+      "odu_software_version_str": {
+        "name": "Info - Version logicielle unité extérieure"
+      },
+      "odu_target_fre": {
+        "name": "Compresseur - Fréquence cible"
+      },
+      "odu_voltage": {
+        "name": "Unité extérieure - Tension"
+      },
       "out_tds": {
         "name": "Out TDS"
       },
+      "outdoor_ambient_temperature": {
+        "name": "Température ambiante extérieure(T4)"
+      },
+      "outdoor_coil_temperature": {
+        "name": "Température de l'échangeur extérieur(T3)"
+      },
       "outdoor_temperature": {
         "name": "Outdoor Temperature"
+      },
+      "pmv": {
+        "name": "Indice PMV"
+      },
+      "pressure_high": {
+        "name": "Fluide frigorigène - Haute pression (P1)"
+      },
+      "pressure_low": {
+        "name": "Fluide frigorigène - Basse pression (P2)"
       },
       "program": {
         "name": "Program"
@@ -600,11 +831,14 @@
       "progress": {
         "name": "Progress"
       },
+      "raw_b31": {
+        "name": "Diagnostic - Octet brut 31"
+      },
+      "raw_b65": {
+        "name": "Diagnostic - Octet brut 65"
+      },
       "realtime_power": {
         "name": "Realtime Power"
-      },
-      "pmv": {
-        "name": "Indice PMV"
       },
       "refrigerator_actual_temp": {
         "name": "Refrigerator Actual Temperature"
@@ -630,6 +864,9 @@
       "rinse_level": {
         "name": "rinse level"
       },
+      "room_rel_hum": {
+        "name": "Humidité relative de la pièce"
+      },
       "salt_setting": {
         "name": "Réglage du sel"
       },
@@ -648,11 +885,20 @@
       "softwater": {
         "name": "Softwater Level"
       },
+      "stains": {
+        "name": "Taches"
+      },
       "status": {
         "name": "Status"
       },
+      "sterilize": {
+        "name": "Stériliser"
+      },
       "storage_remaining": {
         "name": "Storage Remaining"
+      },
+      "t5s": {
+        "name": "Température T5s - Consigne ECS"
       },
       "tank": {
         "name": "Tank"
@@ -660,8 +906,68 @@
       "tank_actual_temperature": {
         "name": "Tank Actual Temperature"
       },
+      "target_compressor_frequency": {
+        "name": "Fréquence cible du compresseur"
+      },
+      "target_indoor_fan_speed": {
+        "name": "Vitesse cible du ventilateur intérieur"
+      },
       "target_temperature": {
         "name": "Target Temperature"
+      },
+      "tas": {
+        "name": "Température Tas - Consigne d'air"
+      },
+      "temp_t1": {
+        "name": "Température T1 - Départ d'eau total"
+      },
+      "temp_t2": {
+        "name": "Température T2 - Fluide côté liquide"
+      },
+      "temp_t2b": {
+        "name": "Température T2B - Fluide côté gaz"
+      },
+      "temp_t3": {
+        "name": "Température T3 - Batterie extérieure"
+      },
+      "temp_t4": {
+        "name": "Température T4 - Air extérieur"
+      },
+      "temp_t5": {
+        "name": "Température T5 - Ballon d'eau chaude"
+      },
+      "temp_ta": {
+        "name": "Température Ta - Air ambiant"
+      },
+      "temp_tb_t1": {
+        "name": "Température TB-T1 - Ballon tampon haut"
+      },
+      "temp_tb_t2": {
+        "name": "Température TB-T2 - Ballon tampon bas"
+      },
+      "temp_tf": {
+        "name": "Température TF - Module de puissance"
+      },
+      "temp_th": {
+        "name": "Température TH - Aspiration compresseur"
+      },
+      "temp_tp": {
+        "name": "Température TP - Refoulement compresseur"
+      },
+      "temp_tsolar": {
+        "name": "Température Tsolar - Panneau solaire"
+      },
+      "temp_tw2": {
+        "name": "Température Tw2 - Eau zone 2"
+      },
+      "temp_tw_in": {
+        "name": "Température Tw_in - Entrée d'eau"
+      },
+      "temp_tw_out": {
+        "name": "Température Tw_out - Sortie d'eau"
+      },
+      "temperature": {
+        "name": "Température"
       },
       "time_remaining": {
         "name": "Time Remaining"
@@ -687,6 +993,36 @@
       "tvoc": {
         "name": "TVOC"
       },
+      "typeinfo": {
+        "name": "Informations de type"
+      },
+      "unit_mode_run": {
+        "name": "État - Mode de fonctionnement",
+        "state": {
+          "off": "Arrêt",
+          "cool": "Refroidissement",
+          "heat": "Chauffage",
+          "dhw": "Eau chaude sanitaire"
+        }
+      },
+      "use_days": {
+        "name": "Jours d'utilisation"
+      },
+      "vacation_start_day": {
+        "name": "Jour de début des vacances"
+      },
+      "vacation_start_month": {
+        "name": "Mois de début des vacances"
+      },
+      "vacation_start_year": {
+        "name": "Année de début des vacances"
+      },
+      "variable_mode": {
+        "name": "Mode variable"
+      },
+      "velocity": {
+        "name": "Vitesse"
+      },
       "wash_level": {
         "name": "Niveau de lavage"
       },
@@ -695,6 +1031,12 @@
       },
       "wash_time": {
         "name": "wash time"
+      },
+      "wash_time_value": {
+        "name": "Valeur du temps de lavage"
+      },
+      "water_box": {
+        "name": "Réservoir d'eau"
       },
       "water_consumption": {
         "name": "Water Consumption"
@@ -705,107 +1047,35 @@
       "water_consumption_big": {
         "name": "Consommation d'eau"
       },
-      "water_temperature": {
-        "name": "Water Temperature"
+      "water_flow": {
+        "name": "Eau - Débit"
       },
       "water_level": {
         "name": "Water Level"
       },
-      "wind": {
-        "name": "Vent"
-      },
-      "typeinfo": {
-        "name": "Informations de type"
-      },
-      "use_days": {
-        "name": "Jours d'utilisation"
-      },
-      "elec_heat": {
-        "name": "Chauffage électrique"
+      "water_pressure": {
+        "name": "Eau - Pression"
       },
       "water_pump": {
         "name": "Pompe à eau"
       },
-      "four_way": {
-        "name": "Vanne quatre voies"
+      "water_temperature": {
+        "name": "Water Temperature"
       },
-      "back_water": {
-        "name": "Retour d'eau"
+      "wifi_module_serial": {
+        "name": "Info - Numéro de série du module WiFi"
       },
-      "sterilize": {
-        "name": "Stériliser"
-      },
-      "disinfection_temperature": {
-        "name": "Température de désinfection"
-      },
-      "max_temperature": {
-        "name": "Température cible maximale"
-      },
-      "vacation_start_year": {
-        "name": "Année de début des vacances"
-      },
-      "vacation_start_month": {
-        "name": "Mois de début des vacances"
-      },
-      "vacation_start_day": {
-        "name": "Jour de début des vacances"
-      },
-      "auto_sterilize_week": {
-        "name": "Semaine de stérilisation automatique"
-      },
-      "auto_sterilize_hour": {
-        "name": "Heure de stérilisation automatique"
-      },
-      "auto_sterilize_minute": {
-        "name": "Minute de stérilisation automatique"
+      "wind": {
+        "name": "Vent"
       },
       "working_time": {
         "name": "Working Time"
       },
-      "humidity": {
-        "name": "Humidité"
+      "zone1_temp_set": {
+        "name": "Température - Consigne zone 1"
       },
-      "variable_mode": {
-        "name": "Mode variable"
-      },
-      "compressor_frequency": {
-        "name": "Fréquence du compresseur"
-      },
-      "target_compressor_frequency": {
-        "name": "Fréquence cible du compresseur"
-      },
-      "compressor_current": {
-        "name": "Courant du compresseur"
-      },
-      "compressor_voltage": {
-        "name": "Tension du compresseur"
-      },
-      "compressor_power": {
-        "name": "Puissance du compresseur"
-      },
-      "indoor_ambient_temperature": {
-        "name": "Température ambiante intérieure(T1)"
-      },
-      "indoor_coil_temperature": {
-        "name": "Température del'échangeur intérieur(T2)"
-      },
-      "outdoor_coil_temperature": {
-        "name": "Température de l'échangeur extérieur(T3)"
-      },
-      "outdoor_ambient_temperature": {
-        "name": "Température ambiante extérieure(T4)"
-      },
-      "discharge_pipe_temperature": {
-        "name": "Température du tuyau de refoulement(TP)"
-      },
-      "indoor_fan_speed": {
-        "name": "Vitesse du ventilateur intérieur"
-      },
-      "target_indoor_fan_speed": {
-        "name": "Vitesse cible du ventilateur intérieur"
-      },
-      "velocity": {
-        "name": "Vitesse"
+      "zone2_temp_set": {
+        "name": "Température - Consigne zone 2"
       }
     },
     "switch": {
@@ -827,8 +1097,17 @@
       "cl_sterilization": {
         "name": "Stérilisation CL"
       },
+      "cold_water_dot": {
+        "name": "Point d'eau froide"
+      },
+      "cold_water_single": {
+        "name": "Eau froide simple"
+      },
       "comfort_mode": {
         "name": "Comfort Mode"
+      },
+      "dhw_disinfect": {
+        "name": "ECS - Désinfection"
       },
       "dhw_power": {
         "name": "DHW Power"
@@ -836,23 +1115,11 @@
       "disinfect": {
         "name": "Disinfect"
       },
-      "vacation_mode": {
-        "name": "Mode vacances"
-      },
       "dry": {
         "name": "Dry"
       },
-      "cold_water_single": {
-        "name": "Eau froide simple"
-      },
-      "cold_water_dot": {
-        "name": "Point d'eau froide"
-      },
       "eco_mode": {
         "name": "ECO Mode"
-      },
-      "memory": {
-        "name": "Mémo U"
       },
       "fast_dhw": {
         "name": "Fast DHW"
@@ -865,6 +1132,9 @@
       },
       "heating_power": {
         "name": "Heating Power"
+      },
+      "holiday_on": {
+        "name": "Mode - Vacances"
       },
       "indirect_wind": {
         "name": "Indirect Wind"
@@ -884,6 +1154,9 @@
       "main_power": {
         "name": "Main Power"
       },
+      "memory": {
+        "name": "Mémo U"
+      },
       "natural_wind": {
         "name": "Natural Wind"
       },
@@ -892,6 +1165,9 @@
       },
       "oscillate": {
         "name": "Oscillate"
+      },
+      "out_silent": {
+        "name": "Mode silencieux extérieur"
       },
       "power": {
         "name": "Power"
@@ -905,17 +1181,14 @@
       "regeneration": {
         "name": "Régénération"
       },
-      "water_pump": {
-        "name": "Pompe à eau"
-      },
-      "water_way": {
-        "name": "Voie d'eau"
-      },
       "screen_display": {
         "name": "Screen Display"
       },
       "screen_display_alternate": {
         "name": "Screen Display Alternate"
+      },
+      "self_clean": {
+        "name": "Auto-nettoyage"
       },
       "sensor_light": {
         "name": "Sensor Light"
@@ -925,9 +1198,6 @@
       },
       "sleep_mode": {
         "name": "Sleep Mode"
-      },
-      "out_silent": {
-        "name": "Mode silencieux extérieur"
       },
       "smart_eye": {
         "name": "Smart Eye"
@@ -940,6 +1210,9 @@
       },
       "soften": {
         "name": "Adoucissement"
+      },
+      "sound": {
+        "name": "Son"
       },
       "standby": {
         "name": "Standby"
@@ -962,20 +1235,23 @@
       "swing_vertical": {
         "name": "Swing Vertical"
       },
-      "self_clean": {
-        "name": "Auto-nettoyage"
-      },
-      "sound": {
-        "name": "Son"
-      },
       "tbh": {
         "name": "TBH"
+      },
+      "vacation_mode": {
+        "name": "Mode vacances"
       },
       "variable_heating": {
         "name": "Variable Heating"
       },
       "ventilation": {
         "name": "Ventilation"
+      },
+      "water_pump": {
+        "name": "Pompe à eau"
+      },
+      "water_way": {
+        "name": "Voie d'eau"
       },
       "whole_tank_heating": {
         "name": "Whole Tank Heating"
@@ -999,12 +1275,17 @@
         "name": "Zone2 Power"
       }
     },
+    "time": {
+      "timing_regeneration": {
+        "name": "Régénération programmée"
+      }
+    },
     "water_heater": {
-      "domestic_hot_water": {
-        "name": "Domestic hot water"
-      },
       "bathing": {
         "name": "Bathing"
+      },
+      "domestic_hot_water": {
+        "name": "Domestic hot water"
       },
       "heating": {
         "name": "Heating"
