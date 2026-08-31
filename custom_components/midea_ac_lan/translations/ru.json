@@ -63,6 +63,12 @@
   },
   "entity": {
     "binary_sensor": {
+      "alarm_on": {
+        "name": "Ошибка - Авария"
+      },
+      "aux_heat_on": {
+        "name": "ТЭН - Дополнительный источник"
+      },
       "bar_door": {
         "name": "Bar Door"
       },
@@ -81,17 +87,50 @@
       "bottom_compartment_preheating": {
         "name": "Bottom Compartment Preheating"
       },
+      "bottom_elec_heat": {
+        "name": "Нижний электронагрев"
+      },
       "burning_state": {
         "name": "Burning State"
       },
       "cleaning_reminder": {
         "name": "Требуется очистка"
       },
+      "compressor_on": {
+        "name": "Компрессор - Работает"
+      },
       "compressor_status": {
         "name": "Статус компрессора"
       },
       "cooking": {
         "name": "Приготовление"
+      },
+      "cool_capability": {
+        "name": "Возможность - Охлаждение"
+      },
+      "crankcase_heater_on": {
+        "name": "ТЭН - Картер компрессора"
+      },
+      "dhw_capability": {
+        "name": "Возможность - ГВС"
+      },
+      "disinfect_run": {
+        "name": "ГВС - Дезинфекция идёт"
+      },
+      "double_zone": {
+        "name": "Возможность - Две зоны"
+      },
+      "eco": {
+        "name": "ECO"
+      },
+      "eco_function_state": {
+        "name": "Режим - Функция ECO"
+      },
+      "eco_timer_state": {
+        "name": "Режим - Таймер ECO"
+      },
+      "electronic_smell": {
+        "name": "Дезодорация и стерилизация"
       },
       "error_code": {
         "name": "Код ошибки"
@@ -120,11 +159,23 @@
       "full_dust": {
         "name": "Загрязнение"
       },
+      "heat_capability": {
+        "name": "Возможность - Отопление"
+      },
       "heating": {
         "name": "Нагрев"
       },
       "heating_working": {
         "name": "Heating Working Status"
+      },
+      "hmi_energy_ana_set_en": {
+        "name": "Возможность - Анализ энергии (HMI)"
+      },
+      "ibh1_on": {
+        "name": "ТЭН - IBH1"
+      },
+      "ibh2_on": {
+        "name": "ТЭН - IBH2"
       },
       "keep_warm": {
         "name": "Поддержание температуры"
@@ -135,6 +186,18 @@
       "lid_status": {
         "name": "Крышка"
       },
+      "load_output_tbh": {
+        "name": "ТЭН - Бак (TBH)"
+      },
+      "maintain_warn": {
+        "name": "Предупреждение об обслуживании"
+      },
+      "maintenance_reminder": {
+        "name": "Напоминание об обслуживании"
+      },
+      "microcrystal_fresh": {
+        "name": "Микрокристаллическая свежесть"
+      },
       "middle_compartment_cooling": {
         "name": "Middle Compartment Cooling"
       },
@@ -144,11 +207,8 @@
       "middle_compartment_preheating": {
         "name": "Middle Compartment Preheating"
       },
-      "top_elec_heat": {
-        "name": "Верхний электронагрев"
-      },
-      "bottom_elec_heat": {
-        "name": "Нижний электронагрев"
+      "multi_terminal": {
+        "name": "Мультитерминал"
       },
       "mute_effect": {
         "name": "Эффект тихого режима"
@@ -156,14 +216,32 @@
       "mute_status": {
         "name": "Статус тихого режима"
       },
-      "multi_terminal": {
-        "name": "Мультитерминал"
-      },
       "oilcup_full": {
         "name": "Oil-cup Full"
       },
+      "order1_effect": {
+        "name": "Расписание 1 активно"
+      },
+      "order2_effect": {
+        "name": "Расписание 2 активно"
+      },
       "protection": {
         "name": "Защита"
+      },
+      "pump_c_running": {
+        "name": "Pump_C - Смесительный контур зоны 2"
+      },
+      "pump_d_running": {
+        "name": "Pump_D - ГВС"
+      },
+      "pump_i_running": {
+        "name": "Pump_I - Внутренний"
+      },
+      "pump_o_running": {
+        "name": "Pump_O - Внешний"
+      },
+      "pump_s_running": {
+        "name": "Pump_S - Солнечный контур"
       },
       "refrigerator_door": {
         "name": "Refrigerator Door"
@@ -171,8 +249,17 @@
       "refrigerator_door_overtime": {
         "name": "Refrigerator Door Overtime"
       },
+      "remote_onoff": {
+        "name": "Возможность - Удалённое вкл/выкл"
+      },
       "rinse_aid": {
         "name": "Нехватка ополаскивателя"
+      },
+      "room_thermal_state": {
+        "name": "Состояние - Комнатный термостат"
+      },
+      "room_thermal_support": {
+        "name": "Возможность - Комнатный термостат"
       },
       "rsj_stand_by": {
         "name": "Ожидание"
@@ -186,20 +273,8 @@
       "smart_grid": {
         "name": "Умная сеть"
       },
-      "eco": {
-        "name": "ECO"
-      },
-      "maintenance_reminder": {
-        "name": "Напоминание об обслуживании"
-      },
-      "maintain_warn": {
-        "name": "Предупреждение об обслуживании"
-      },
-      "order1_effect": {
-        "name": "Расписание 1 активно"
-      },
-      "order2_effect": {
-        "name": "Расписание 2 активно"
+      "status_cool": {
+        "name": "Состояние - Охлаждение"
       },
       "status_dhw": {
         "name": "DHW status"
@@ -213,11 +288,29 @@
       "status_tbh": {
         "name": "TBH status"
       },
+      "sv1_open": {
+        "name": "SV1 - Клапан (ГВС)"
+      },
+      "sv2_open": {
+        "name": "SV2 - Клапан (Отопление)"
+      },
+      "sv3_open": {
+        "name": "SV3 - Клапан"
+      },
+      "sys_energy_ana_en": {
+        "name": "Возможность - Анализ энергии (Система)"
+      },
       "tank_ejected": {
         "name": "Tank Ejected"
       },
       "tank_full": {
         "name": "Tank status"
+      },
+      "tbh_control": {
+        "name": "Возможность - Управление TBH"
+      },
+      "time_set": {
+        "name": "Возможность - Время установлено"
       },
       "top_compartment_cooling": {
         "name": "Top Compartment Cooling"
@@ -228,8 +321,20 @@
       "top_compartment_preheating": {
         "name": "Top Compartment Preheating"
       },
+      "top_elec_heat": {
+        "name": "Верхний электронагрев"
+      },
+      "unit_demand": {
+        "name": "Диагностика - Запрос установки (кандидат)"
+      },
       "water_change_reminder": {
         "name": "Water Change Reminder"
+      },
+      "water_circuit_active": {
+        "name": "Вода - Контур активен"
+      },
+      "water_pump_running": {
+        "name": "Работа водяного насоса"
       },
       "water_shortage": {
         "name": "Нехватка воды"
@@ -248,111 +353,6 @@
       },
       "zone2_water_temp_mode": {
         "name": "Zone2 Water-temperature Mode"
-      },
-      "microcrystal_fresh": {
-        "name": "Микрокристаллическая свежесть"
-      },
-      "electronic_smell": {
-        "name": "Дезодорация и стерилизация"
-      },
-      "water_pump_running": {
-        "name": "Работа водяного насоса"
-      },
-      "water_circuit_active": {
-        "name": "Вода - Контур активен"
-      },
-      "unit_demand": {
-        "name": "Диагностика - Запрос установки (кандидат)"
-      },
-      "status_cool": {
-        "name": "Состояние - Охлаждение"
-      },
-      "eco_function_state": {
-        "name": "Режим - Функция ECO"
-      },
-      "eco_timer_state": {
-        "name": "Режим - Таймер ECO"
-      },
-      "double_zone": {
-        "name": "Функция - Две зоны"
-      },
-      "room_thermal_support": {
-        "name": "Функция - Комнатный термостат"
-      },
-      "room_thermal_state": {
-        "name": "Состояние - Комнатный термостат"
-      },
-      "time_set": {
-        "name": "Функция - Установка времени"
-      },
-      "disinfect_run": {
-        "name": "ГВС - Дезинфекция выполняется"
-      },
-      "remote_onoff": {
-        "name": "Функция - Дистанционное вкл/выкл"
-      },
-      "tbh_control": {
-        "name": "Функция - Управление TBH"
-      },
-      "heat_capability": {
-        "name": "Функция - Отопление"
-      },
-      "cool_capability": {
-        "name": "Функция - Охлаждение"
-      },
-      "dhw_capability": {
-        "name": "Функция - ГВС"
-      },
-      "sys_energy_ana_en": {
-        "name": "Функция - Анализ энергии (система)"
-      },
-      "hmi_energy_ana_set_en": {
-        "name": "Функция - Анализ энергии (HMI)"
-      },
-      "pump_i_running": {
-        "name": "Pump_I - Внутренний"
-      },
-      "pump_o_running": {
-        "name": "Pump_O - Внешний"
-      },
-      "pump_d_running": {
-        "name": "Pump_D - ГВС"
-      },
-      "pump_c_running": {
-        "name": "Pump_C - Смесительный контур зоны 2"
-      },
-      "pump_s_running": {
-        "name": "Pump_S - Солнечный контур"
-      },
-      "sv1_open": {
-        "name": "SV1 - Клапан (ГВС)"
-      },
-      "sv2_open": {
-        "name": "SV2 - Клапан (отопление)"
-      },
-      "load_output_tbh": {
-        "name": "Нагреватель - Резервный ТЭН бака (TBH)"
-      },
-      "compressor_on": {
-        "name": "Компрессор - Работает"
-      },
-      "ibh1_on": {
-        "name": "Нагреватель - IBH1"
-      },
-      "ibh2_on": {
-        "name": "Нагреватель - IBH2"
-      },
-      "sv3_open": {
-        "name": "SV3 - Клапан"
-      },
-      "crankcase_heater_on": {
-        "name": "Нагреватель - Картер"
-      },
-      "alarm_on": {
-        "name": "Ошибка - Авария"
-      },
-      "aux_heat_on": {
-        "name": "Нагреватель - Дополнительный источник"
       }
     },
     "button": {
@@ -361,12 +361,6 @@
       }
     },
     "climate": {
-      "climate_zone1": {
-        "name": "Zone1 Thermostat"
-      },
-      "climate_zone2": {
-        "name": "Zone2 Thermostat"
-      },
       "climate_key": {
         "state_attributes": {
           "fan_mode": {
@@ -376,6 +370,12 @@
             }
           }
         }
+      },
+      "climate_zone1": {
+        "name": "Zone1 Thermostat"
+      },
+      "climate_zone2": {
+        "name": "Zone2 Thermostat"
       }
     },
     "fan": {
@@ -395,29 +395,29 @@
       "dry_level": {
         "name": "Dry Level"
       },
-      "heating_level": {
-        "name": "Heating Level"
-      },
-      "seat_temp_level": {
-        "name": "Seat Temperature Level"
-      },
-      "water_temp_level": {
-        "name": "Water Temperature Level"
-      },
       "fan_speed_percent": {
         "name": "Скорость вентилятора (%)"
-      },
-      "vacation_days": {
-        "name": "Дни отпуска"
-      },
-      "leak_water_protection_value": {
-        "name": "Значение защиты от протечек"
       },
       "flushing_days": {
         "name": "Дни регенерации"
       },
+      "heating_level": {
+        "name": "Heating Level"
+      },
+      "leak_water_protection_value": {
+        "name": "Значение защиты от протечек"
+      },
+      "seat_temp_level": {
+        "name": "Seat Temperature Level"
+      },
+      "vacation_days": {
+        "name": "Дни отпуска"
+      },
       "water_hardness": {
         "name": "Жёсткость воды"
+      },
+      "water_temp_level": {
+        "name": "Water Temperature Level"
       }
     },
     "select": {
@@ -504,12 +504,22 @@
         }
       }
     },
-    "time": {
-      "timing_regeneration": {
-        "name": "Регенерация по таймеру"
-      }
-    },
     "sensor": {
+      "ai_switch": {
+        "name": "AI Switch"
+      },
+      "auto_sterilize_hour": {
+        "name": "Час автостерилизации"
+      },
+      "auto_sterilize_minute": {
+        "name": "Минута автостерилизации"
+      },
+      "auto_sterilize_week": {
+        "name": "День недели автостерилизации"
+      },
+      "back_water": {
+        "name": "Обратная вода"
+      },
       "bathing_leaving_temperature": {
         "name": "Bathing Leaving Water Temperature"
       },
@@ -528,8 +538,29 @@
       "bright": {
         "name": "Bright Level"
       },
+      "comp_run_freq": {
+        "name": "Компрессор - Частота"
+      },
+      "comp_total_run_time": {
+        "name": "Энергия - Наработка компрессора"
+      },
+      "compressor_current": {
+        "name": "Ток компрессора"
+      },
+      "compressor_frequency": {
+        "name": "Частота компрессора"
+      },
+      "compressor_power": {
+        "name": "Мощность компрессора"
+      },
+      "compressor_status_raw": {
+        "name": "Компрессор - Битовая карта состояния (сырая)"
+      },
       "compressor_temperature": {
         "name": "Compressor Temperature"
+      },
+      "compressor_voltage": {
+        "name": "Напряжение компрессора"
       },
       "condenser_temperature": {
         "name": "Condenser Temperature"
@@ -540,6 +571,12 @@
       "current_temperature": {
         "name": "Текущая температура"
       },
+      "dc_bus_voltage": {
+        "name": "Наружный блок - Напряжение шины постоянного тока"
+      },
+      "dc_current": {
+        "name": "Наружный блок - Ток шины постоянного тока"
+      },
       "dehydration_speed": {
         "name": "Dehydration speed"
       },
@@ -549,41 +586,38 @@
       "dehydration_time_value": {
         "name": "Dehydration time value"
       },
-      "temperature": {
-        "name": "Температура"
-      },
-      "wash_time_value": {
-        "name": "Wash time value"
-      },
-      "stains": {
-        "name": "Stains"
+      "detergent": {
+        "name": "Моющее средство"
       },
       "dirty_degree": {
         "name": "Dirty degree"
       },
-      "detergent": {
-        "name": "Моющее средство"
+      "discharge_pipe_temperature": {
+        "name": "Температура нагнетательной трубы(TP)"
       },
-      "intensity": {
-        "name": "Интенсивность"
+      "disinfect_set_weekday": {
+        "name": "ГВС - День дезинфекции"
       },
-      "dryness_level": {
-        "name": "Dryness Level"
+      "disinfect_start_hour": {
+        "name": "ГВС - Час начала дезинфекции"
       },
-      "dry_temperature": {
-        "name": "Dry Temperature"
+      "disinfect_start_minutes": {
+        "name": "ГВС - Минута начала дезинфекции"
+      },
+      "disinfection_temperature": {
+        "name": "Температура дезинфекции"
       },
       "door_warn": {
         "name": "Door Warn"
       },
-      "ai_switch": {
-        "name": "AI Switch"
+      "dry_temperature": {
+        "name": "Dry Temperature"
       },
-      "material": {
-        "name": "Материал"
+      "dryness_level": {
+        "name": "Dryness Level"
       },
-      "water_box": {
-        "name": "Water Box"
+      "elec_heat": {
+        "name": "Электронагрев"
       },
       "energy_consumption": {
         "name": "Энергопотребление"
@@ -605,17 +639,26 @@
       "error_code": {
         "name": "Код ошибки"
       },
+      "error_code_description": {
+        "name": "Ошибка - Описание"
+      },
       "estimated_energy_consumption": {
         "name": "Расчётное энергопотребление"
       },
       "estimated_water_consumption": {
         "name": "Расчётный расход воды"
       },
+      "exv_opening": {
+        "name": "Хладагент - Открытие ЭРВ1"
+      },
       "fan_level": {
         "name": "Fan level"
       },
-      "filter_life": {
-        "name": "Состояние фильтра"
+      "fan_speed": {
+        "name": "Наружный блок - Скорость вентилятора"
+      },
+      "fg_capacity_need": {
+        "name": "Диагностика - Требуемая мощность (сырое)"
       },
       "filter1_days": {
         "name": "Filter1 Available Days"
@@ -635,11 +678,17 @@
       "filter3_life": {
         "name": "Filter3 Life Level"
       },
+      "filter_life": {
+        "name": "Состояние фильтра"
+      },
       "flex_zone_actual_temp": {
         "name": "Flex Zone Actual Temperature"
       },
       "flex_zone_setting_temp": {
         "name": "Flex Zone Setting Temperature"
+      },
+      "four_way": {
+        "name": "Четырёхходовой клапан"
       },
       "freezer_actual_temp": {
         "name": "Freezer Actual Temperature"
@@ -659,14 +708,56 @@
       "heating_time_remaining": {
         "name": "Heating Time Remaining"
       },
+      "humidity": {
+        "name": "Влажность"
+      },
+      "hydbox_subtype": {
+        "name": "Инфо - Подтип гидромодуля"
+      },
+      "hydrobox_capacity": {
+        "name": "Инфо - Мощность гидромодуля"
+      },
+      "idu_software_version_str": {
+        "name": "Инфо - Версия ПО внутреннего блока"
+      },
+      "idu_t1s1": {
+        "name": "Температура - Зона 1 расчётная (T1s)"
+      },
+      "idu_t1s2": {
+        "name": "Температура - Зона 2 расчётная (T1s)"
+      },
       "in_tds": {
         "name": "In TDS"
+      },
+      "indoor_ambient_temperature": {
+        "name": "Комнатная температура(T1)"
+      },
+      "indoor_coil_temperature": {
+        "name": "Температура внутреннего теплообменника(T2)"
+      },
+      "indoor_fan_speed": {
+        "name": "Скорость внутреннего вентилятора"
       },
       "indoor_humidity": {
         "name": "Indoor Humidity"
       },
       "indoor_temperature": {
         "name": "Indoor Temperature"
+      },
+      "instant_cop": {
+        "name": "Мощность - COP отопления"
+      },
+      "instant_power": {
+        "name": "Мощность - Тепловая мощность"
+      },
+      "instant_power0": {
+        "name": "Мощность - Потребление на отопление"
+      },
+      "instant_renew_power0": {
+        "name": "Мощность - Возобновляемая тепловая мощность"
+      },
+      "intensity": {
+        "name": "Интенсивность"
       },
       "keep_warm_remaining": {
         "name": "Keep Warm Remaining"
@@ -676,6 +767,15 @@
       },
       "left_salt": {
         "name": "Остаток соли"
+      },
+      "machine_type": {
+        "name": "Инфо - Тип машины"
+      },
+      "material": {
+        "name": "Материал"
+      },
+      "max_temperature": {
+        "name": "Максимальная целевая температура"
       },
       "middle_compartment_remaining": {
         "name": "Middle Compartment Remaining"
@@ -689,11 +789,41 @@
       "mode": {
         "name": "Режим"
       },
+      "odu_comp_current": {
+        "name": "Компрессор - Ток"
+      },
+      "odu_model": {
+        "name": "Инфо - Код модели наружного блока"
+      },
+      "odu_software_version_str": {
+        "name": "Инфо - Версия ПО наружного блока"
+      },
+      "odu_target_fre": {
+        "name": "Компрессор - Целевая частота"
+      },
+      "odu_voltage": {
+        "name": "Наружный блок - Напряжение"
+      },
       "out_tds": {
         "name": "Out TDS"
       },
+      "outdoor_ambient_temperature": {
+        "name": "Наружная температура окружающей среды(T4)"
+      },
+      "outdoor_coil_temperature": {
+        "name": "Температура наружного теплообменника(T3)"
+      },
       "outdoor_temperature": {
         "name": "Outdoor Temperature"
+      },
+      "pmv": {
+        "name": "PMV"
+      },
+      "pressure_high": {
+        "name": "Хладагент - Высокое давление (P1)"
+      },
+      "pressure_low": {
+        "name": "Хладагент - Низкое давление (P2)"
       },
       "program": {
         "name": "Программа"
@@ -701,11 +831,14 @@
       "progress": {
         "name": "Этап"
       },
+      "raw_b31": {
+        "name": "Диагностика - Сырой байт 31"
+      },
+      "raw_b65": {
+        "name": "Диагностика - Сырой байт 65"
+      },
       "realtime_power": {
         "name": "Энергопотребление"
-      },
-      "pmv": {
-        "name": "PMV"
       },
       "refrigerator_actual_temp": {
         "name": "Refrigerator Actual Temperature"
@@ -731,6 +864,9 @@
       "rinse_level": {
         "name": "Уровень ополаскивателя"
       },
+      "room_rel_hum": {
+        "name": "Относительная влажность в помещении"
+      },
       "salt_setting": {
         "name": "Настройка соли"
       },
@@ -749,11 +885,20 @@
       "softwater": {
         "name": "Уровень умягчителя"
       },
+      "stains": {
+        "name": "Stains"
+      },
       "status": {
         "name": "Статус"
       },
+      "sterilize": {
+        "name": "Стерилизация"
+      },
       "storage_remaining": {
         "name": "Storage Remaining"
+      },
+      "t5s": {
+        "name": "Температура T5s - Уставка ГВС"
       },
       "tank": {
         "name": "Tank"
@@ -761,8 +906,68 @@
       "tank_actual_temperature": {
         "name": "Tank Actual Temperature"
       },
+      "target_compressor_frequency": {
+        "name": "Целевая частота компрессора"
+      },
+      "target_indoor_fan_speed": {
+        "name": "Целевая скорость внутреннего вентилятора"
+      },
       "target_temperature": {
         "name": "Целевая температура"
+      },
+      "tas": {
+        "name": "Температура Tas - Уставка воздуха"
+      },
+      "temp_t1": {
+        "name": "Температура T1 - Общая подача воды"
+      },
+      "temp_t2": {
+        "name": "Температура T2 - Хладагент, жидкостная сторона"
+      },
+      "temp_t2b": {
+        "name": "Температура T2B - Хладагент, газовая сторона"
+      },
+      "temp_t3": {
+        "name": "Температура T3 - Наружный теплообменник"
+      },
+      "temp_t4": {
+        "name": "Температура T4 - Наружный воздух"
+      },
+      "temp_t5": {
+        "name": "Температура T5 - Бак ГВС"
+      },
+      "temp_ta": {
+        "name": "Температура Ta - Комнатный воздух"
+      },
+      "temp_tb_t1": {
+        "name": "Температура TB-T1 - Буферная ёмкость, верх"
+      },
+      "temp_tb_t2": {
+        "name": "Температура TB-T2 - Буферная ёмкость, низ"
+      },
+      "temp_tf": {
+        "name": "Температура TF - Силовой модуль"
+      },
+      "temp_th": {
+        "name": "Температура TH - Всасывание компрессора"
+      },
+      "temp_tp": {
+        "name": "Температура TP - Нагнетание компрессора"
+      },
+      "temp_tsolar": {
+        "name": "Температура Tsolar - Солнечный коллектор"
+      },
+      "temp_tw2": {
+        "name": "Температура Tw2 - Вода зоны 2"
+      },
+      "temp_tw_in": {
+        "name": "Температура Tw_in - Вход воды"
+      },
+      "temp_tw_out": {
+        "name": "Температура Tw_out - Выход воды"
+      },
+      "temperature": {
+        "name": "Температура"
       },
       "time_remaining": {
         "name": "Время цикла"
@@ -788,6 +993,36 @@
       "tvoc": {
         "name": "TVOC"
       },
+      "typeinfo": {
+        "name": "Информация о типе"
+      },
+      "unit_mode_run": {
+        "name": "Состояние - Режим работы",
+        "state": {
+          "off": "Выкл",
+          "cool": "Охлаждение",
+          "heat": "Отопление",
+          "dhw": "Горячее водоснабжение"
+        }
+      },
+      "use_days": {
+        "name": "Дни использования"
+      },
+      "vacation_start_day": {
+        "name": "День начала отпуска"
+      },
+      "vacation_start_month": {
+        "name": "Месяц начала отпуска"
+      },
+      "vacation_start_year": {
+        "name": "Год начала отпуска"
+      },
+      "variable_mode": {
+        "name": "Переменный режим"
+      },
+      "velocity": {
+        "name": "Скорость"
+      },
       "wash_level": {
         "name": "Уровень стирки"
       },
@@ -796,6 +1031,12 @@
       },
       "wash_time": {
         "name": "Время мойки"
+      },
+      "wash_time_value": {
+        "name": "Wash time value"
+      },
+      "water_box": {
+        "name": "Water Box"
       },
       "water_consumption": {
         "name": "Water Consumption"
@@ -806,287 +1047,35 @@
       "water_consumption_big": {
         "name": "Потребление воды"
       },
-      "water_temperature": {
-        "name": "Температура воды"
+      "water_flow": {
+        "name": "Вода - Расход"
       },
       "water_level": {
         "name": "Уровень воды"
       },
-      "wind": {
-        "name": "Поток воздуха"
-      },
-      "typeinfo": {
-        "name": "Информация о типе"
-      },
-      "use_days": {
-        "name": "Дни использования"
-      },
-      "elec_heat": {
-        "name": "Электронагрев"
+      "water_pressure": {
+        "name": "Вода - Давление"
       },
       "water_pump": {
         "name": "Водяной насос"
       },
-      "four_way": {
-        "name": "Четырёхходовой клапан"
+      "water_temperature": {
+        "name": "Температура воды"
       },
-      "back_water": {
-        "name": "Обратная вода"
+      "wifi_module_serial": {
+        "name": "Инфо - Серийный номер модуля WiFi"
       },
-      "sterilize": {
-        "name": "Стерилизация"
-      },
-      "disinfection_temperature": {
-        "name": "Температура дезинфекции"
-      },
-      "max_temperature": {
-        "name": "Максимальная целевая температура"
-      },
-      "vacation_start_year": {
-        "name": "Год начала отпуска"
-      },
-      "vacation_start_month": {
-        "name": "Месяц начала отпуска"
-      },
-      "vacation_start_day": {
-        "name": "День начала отпуска"
-      },
-      "auto_sterilize_week": {
-        "name": "День недели автостерилизации"
-      },
-      "auto_sterilize_hour": {
-        "name": "Час автостерилизации"
-      },
-      "auto_sterilize_minute": {
-        "name": "Минута автостерилизации"
+      "wind": {
+        "name": "Поток воздуха"
       },
       "working_time": {
         "name": "Время работы"
-      },
-      "humidity": {
-        "name": "Влажность"
-      },
-      "variable_mode": {
-        "name": "Переменный режим"
-      },
-      "compressor_frequency": {
-        "name": "Частота компрессора"
-      },
-      "target_compressor_frequency": {
-        "name": "Целевая частота компрессора"
-      },
-      "compressor_current": {
-        "name": "Ток компрессора"
-      },
-      "compressor_voltage": {
-        "name": "Напряжение компрессора"
-      },
-      "compressor_power": {
-        "name": "Мощность компрессора"
-      },
-      "indoor_ambient_temperature": {
-        "name": "Комнатная температура(T1)"
-      },
-      "indoor_coil_temperature": {
-        "name": "Температура внутреннего теплообменника(T2)"
-      },
-      "outdoor_coil_temperature": {
-        "name": "Температура наружного теплообменника(T3)"
-      },
-      "outdoor_ambient_temperature": {
-        "name": "Наружная температура окружающей среды(T4)"
-      },
-      "discharge_pipe_temperature": {
-        "name": "Температура нагнетательной трубы(TP)"
-      },
-      "indoor_fan_speed": {
-        "name": "Скорость внутреннего вентилятора"
-      },
-      "target_indoor_fan_speed": {
-        "name": "Целевая скорость внутреннего вентилятора"
-      },
-      "velocity": {
-        "name": "Скорость"
-      },
-      "comp_run_freq": {
-        "name": "Компрессор - Частота"
-      },
-      "fan_speed": {
-        "name": "Наружный блок - Скорость вентилятора",
-        "state": {
-          "level_1": "Уровень 1",
-          "level_2": "Уровень 2",
-          "level_3": "Уровень 3",
-          "level_4": "Уровень 4",
-          "off": "Выкл"
-        }
-      },
-      "temp_t3": {
-        "name": "Температура T3 - Наружный теплообменник"
-      },
-      "temp_ta": {
-        "name": "Температура Ta - Воздух в помещении"
-      },
-      "pressure_high": {
-        "name": "Хладагент - Высокое давление (P1)"
-      },
-      "pressure_low": {
-        "name": "Хладагент - Низкое давление (P2)"
-      },
-      "water_flow": {
-        "name": "Вода - Расход"
-      },
-      "water_pressure": {
-        "name": "Вода - Давление"
-      },
-      "temp_t1": {
-        "name": "Температура T1 - Общая подающая вода"
-      },
-      "temp_t2": {
-        "name": "Температура T2 - Хладагент, сторона жидкости"
-      },
-      "temp_t2b": {
-        "name": "Температура T2B - Хладагент, сторона газа"
-      },
-      "temp_t4": {
-        "name": "Температура T4 - Наружный воздух"
-      },
-      "temp_t5": {
-        "name": "Температура T5 - Бак горячей воды"
-      },
-      "temp_tb_t1": {
-        "name": "Температура TB-T1 - Буферная емкость, верх"
-      },
-      "temp_tb_t2": {
-        "name": "Температура TB-T2 - Буферная емкость, низ"
-      },
-      "temp_tf": {
-        "name": "Температура TF - Силовой модуль"
-      },
-      "temp_th": {
-        "name": "Температура TH - Всасывание компрессора"
-      },
-      "temp_tp": {
-        "name": "Температура TP - Нагнетание компрессора"
-      },
-      "temp_tsolar": {
-        "name": "Температура Tsolar - Солнечный коллектор"
-      },
-      "temp_tw2": {
-        "name": "Температура Tw2 - Вода зоны 2"
-      },
-      "dc_current": {
-        "name": "Наружный блок - Ток шины постоянного тока"
-      },
-      "dc_bus_voltage": {
-        "name": "Наружный блок - Напряжение шины постоянного тока"
-      },
-      "instant_power": {
-        "name": "Мощность - Тепловая мощность"
-      },
-      "instant_power0": {
-        "name": "Мощность - Потребление на отопление"
-      },
-      "instant_renew_power0": {
-        "name": "Мощность - Возобновляемая тепловая мощность"
-      },
-      "instant_cop": {
-        "name": "Мощность - COP отопления"
-      },
-      "odu_voltage": {
-        "name": "Наружный блок - Напряжение"
-      },
-      "room_rel_hum": {
-        "name": "Относительная влажность"
-      },
-      "unit_mode_run": {
-        "name": "Состояние - Режим работы",
-        "state": {
-          "off": "Выкл",
-          "cool": "Охлаждение",
-          "heat": "Отопление"
-        }
-      },
-      "hydbox_subtype": {
-        "name": "Информация - Подтип гидромодуля"
-      },
-      "machine_type": {
-        "name": "Информация - Тип машины"
-      },
-      "odu_model": {
-        "name": "Информация - Код модели наружного блока"
-      },
-      "fg_capacity_need": {
-        "name": "Диагностика - Требуемая мощность (сырое)"
-      },
-      "hydrobox_capacity": {
-        "name": "Информация - Мощность гидромодуля"
-      },
-      "idu_t1s1": {
-        "name": "Температура - Зона 1, расчетная (T1s)"
-      },
-      "idu_t1s2": {
-        "name": "Температура - Зона 2, расчетная (T1s)"
-      },
-      "t5s": {
-        "name": "Температура T5s - Уставка ГВС"
-      },
-      "tas": {
-        "name": "Температура Tas - Уставка воздуха"
       },
       "zone1_temp_set": {
         "name": "Температура - Уставка зоны 1"
       },
       "zone2_temp_set": {
         "name": "Температура - Уставка зоны 2"
-      },
-      "disinfect_set_weekday": {
-        "name": "ГВС - День дезинфекции"
-      },
-      "disinfect_start_hour": {
-        "name": "ГВС - Час запуска дезинфекции"
-      },
-      "disinfect_start_minutes": {
-        "name": "ГВС - Минута запуска дезинфекции"
-      },
-      "odu_target_fre": {
-        "name": "Компрессор - Целевая частота"
-      },
-      "exv_opening": {
-        "name": "Хладагент - Открытие EXV1"
-      },
-      "error_code_description": {
-        "name": "Ошибка - Описание"
-      },
-      "wifi_module_serial": {
-        "name": "Информация - Серийный номер модуля WiFi"
-      },
-      "temp_tw_in": {
-        "name": "Температура Tw_in - Вход воды"
-      },
-      "temp_tw_out": {
-        "name": "Температура Tw_out - Выход воды"
-      },
-      "comp_total_run_time": {
-        "name": "Энергия - Наработка компрессора"
-      },
-      "compressor_status_raw": {
-        "name": "Компрессор - Битовая карта состояния (сырое)"
-      },
-      "odu_comp_current": {
-        "name": "Компрессор - Ток"
-      },
-      "idu_software_version_str": {
-        "name": "Информация - Версия ПО внутреннего блока"
-      },
-      "odu_software_version_str": {
-        "name": "Информация - Версия ПО наружного блока"
-      },
-      "raw_b31": {
-        "name": "Диагностика - Сырой байт 31"
-      },
-      "raw_b65": {
-        "name": "Диагностика - Сырой байт 65"
       }
     },
     "switch": {
@@ -1108,8 +1097,17 @@
       "cl_sterilization": {
         "name": "CL-стерилизация"
       },
+      "cold_water_dot": {
+        "name": "Холодная вода (порционно)"
+      },
+      "cold_water_single": {
+        "name": "Холодная вода (однократно)"
+      },
       "comfort_mode": {
         "name": "Comfort Mode"
+      },
+      "dhw_disinfect": {
+        "name": "ГВС - Дезинфекция"
       },
       "dhw_power": {
         "name": "DHW Power"
@@ -1117,23 +1115,11 @@
       "disinfect": {
         "name": "Дезинфекция"
       },
-      "vacation_mode": {
-        "name": "Режим отпуска"
-      },
       "dry": {
         "name": "Dry"
       },
-      "cold_water_single": {
-        "name": "Холодная вода (однократно)"
-      },
-      "cold_water_dot": {
-        "name": "Холодная вода (порционно)"
-      },
       "eco_mode": {
         "name": "Эко-режим"
-      },
-      "memory": {
-        "name": "Memo U"
       },
       "fast_dhw": {
         "name": "Fast DHW"
@@ -1146,6 +1132,9 @@
       },
       "heating_power": {
         "name": "Нагреватель"
+      },
+      "holiday_on": {
+        "name": "Режим - Отпуск"
       },
       "indirect_wind": {
         "name": "Indirect Wind"
@@ -1165,6 +1154,9 @@
       "main_power": {
         "name": "Main Power"
       },
+      "memory": {
+        "name": "Memo U"
+      },
       "natural_wind": {
         "name": "Natural Wind"
       },
@@ -1173,6 +1165,9 @@
       },
       "oscillate": {
         "name": "Режим поворота"
+      },
+      "out_silent": {
+        "name": "Тихий режим наружного блока"
       },
       "power": {
         "name": "Питание"
@@ -1186,17 +1181,14 @@
       "regeneration": {
         "name": "Регенерация"
       },
-      "water_pump": {
-        "name": "Водяной насос"
-      },
-      "water_way": {
-        "name": "Водный путь"
-      },
       "screen_display": {
         "name": "Screen Display"
       },
       "screen_display_alternate": {
         "name": "Screen Display Alternate"
+      },
+      "self_clean": {
+        "name": "Self Clean"
       },
       "sensor_light": {
         "name": "Sensor Light"
@@ -1206,9 +1198,6 @@
       },
       "sleep_mode": {
         "name": "Sleep Mode"
-      },
-      "out_silent": {
-        "name": "Тихий режим наружного блока"
       },
       "smart_eye": {
         "name": "Smart Eye"
@@ -1221,6 +1210,9 @@
       },
       "soften": {
         "name": "Умягчение"
+      },
+      "sound": {
+        "name": "Sound"
       },
       "standby": {
         "name": "Ожидание"
@@ -1243,20 +1235,23 @@
       "swing_vertical": {
         "name": "Swing Vertical"
       },
-      "self_clean": {
-        "name": "Self Clean"
-      },
-      "sound": {
-        "name": "Sound"
-      },
       "tbh": {
         "name": "TBH"
+      },
+      "vacation_mode": {
+        "name": "Режим отпуска"
       },
       "variable_heating": {
         "name": "Variable Heating"
       },
       "ventilation": {
         "name": "Вентиляция"
+      },
+      "water_pump": {
+        "name": "Водяной насос"
+      },
+      "water_way": {
+        "name": "Водный путь"
       },
       "whole_tank_heating": {
         "name": "Whole Tank Heating"
@@ -1278,20 +1273,19 @@
       },
       "zone2_power": {
         "name": "Zone2 Power"
-      },
-      "holiday_on": {
-        "name": "Режим - Отпуск"
-      },
-      "dhw_disinfect": {
-        "name": "ГВС - Дезинфекция"
+      }
+    },
+    "time": {
+      "timing_regeneration": {
+        "name": "Регенерация по таймеру"
       }
     },
     "water_heater": {
-      "domestic_hot_water": {
-        "name": "Domestic hot water"
-      },
       "bathing": {
         "name": "Bathing"
+      },
+      "domestic_hot_water": {
+        "name": "Domestic hot water"
       },
       "heating": {
         "name": "Heating"
