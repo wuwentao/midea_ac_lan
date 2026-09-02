@@ -15,6 +15,7 @@ from homeassistant.const import (
     UnitOfEnergy,
     UnitOfFrequency,
     UnitOfPower,
+    UnitOfPressure,
     UnitOfTemperature,
     UnitOfTime,
     UnitOfVolume,
@@ -79,6 +80,27 @@ FRESH_AIR_EXHAUST = "fresh_air_exhaust"
 FRESH_AIR_EXHAUST_MODE = "fresh_air_exhaust_mode"
 FRESH_AIR_EXHAUST_POWER = "fresh_air_exhaust_power"
 FRESH_AIR_EXHAUST_SPEED = "fresh_air_exhaust_speed"
+
+# C3 outdoor-unit telemetry attributes. Referenced by string so the entity
+# table still imports on a midea-lan release that predates the parser support;
+# the matching sensors carry a required_attribute guard and are skipped there.
+C3_COMP_RUN_FREQ = "comp_run_freq"
+C3_FAN_SPEED = "fan_speed"
+C3_UNIT_MODE_RUN = "unit_mode_run"
+C3_ODU_TARGET_FRE = "odu_target_fre"
+C3_ODU_VOLTAGE = "odu_voltage"
+C3_ODU_COMP_CURRENT = "odu_comp_current"
+C3_EXV_CURRENT = "exv_current"
+C3_FG_CAPACITY_NEED = "fg_capacity_need"
+C3_PRESSURE_HIGH = "pressure_high"
+C3_PRESSURE_LOW = "pressure_low"
+C3_TEMP_T1 = "temp_t1"
+C3_TEMP_T2 = "temp_t2"
+C3_TEMP_T2B = "temp_t2b"
+C3_TEMP_T3 = "temp_t3"
+C3_TEMP_TP = "temp_tp"
+C3_TEMP_TH = "temp_th"
+C3_TEMP_TF = "temp_tf"
 
 """
 Entity Naming Rule:
@@ -1629,6 +1651,162 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Current Power",
                 "device_class": SensorDeviceClass.POWER,
                 "unit": UnitOfPower.WATT,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            # Outdoor-unit runtime telemetry. Parsed by midea-lan since the
+            # MSG_TYPE_UP_UNITPARA / X10 UnitPara work; older library releases
+            # omit these keys, so each carries a required_attribute guard.
+            C3_COMP_RUN_FREQ: {
+                "type": Platform.SENSOR,
+                "required_attribute": C3_COMP_RUN_FREQ,
+                "translation_key": "comp_run_freq",
+                "name": "Compressor Frequency",
+                "device_class": SensorDeviceClass.FREQUENCY,
+                "unit": UnitOfFrequency.HERTZ,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C3_FAN_SPEED: {
+                "type": Platform.SENSOR,
+                "required_attribute": C3_FAN_SPEED,
+                "translation_key": "outdoor_fan_speed",
+                "name": "Outdoor Fan Speed",
+                "icon": "mdi:fan",
+                "unit": REVOLUTIONS_PER_MINUTE,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C3_UNIT_MODE_RUN: {
+                "type": Platform.SENSOR,
+                "required_attribute": C3_UNIT_MODE_RUN,
+                "translation_key": "unit_mode_run",
+                "name": "Unit Run Mode",
+                "icon": "mdi:heat-pump",
+                "device_class": SensorDeviceClass.ENUM,
+                # Values from the C3 lua unitTable (T_0000_C3_171H120F_2023062601).
+                "options": {0: "off", 1: "auto", 2: "cool", 3: "heat", 5: "dhw"},
+            },
+            C3_ODU_TARGET_FRE: {
+                "type": Platform.SENSOR,
+                "required_attribute": C3_ODU_TARGET_FRE,
+                "translation_key": "odu_target_fre",
+                "name": "Target Compressor Frequency",
+                "device_class": SensorDeviceClass.FREQUENCY,
+                "unit": UnitOfFrequency.HERTZ,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C3_ODU_VOLTAGE: {
+                "type": Platform.SENSOR,
+                "required_attribute": C3_ODU_VOLTAGE,
+                "translation_key": "odu_voltage",
+                "name": "Outdoor Unit Voltage",
+                "device_class": SensorDeviceClass.VOLTAGE,
+                "unit": UnitOfElectricPotential.VOLT,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C3_ODU_COMP_CURRENT: {
+                "type": Platform.SENSOR,
+                "required_attribute": C3_ODU_COMP_CURRENT,
+                "translation_key": "odu_comp_current",
+                "name": "Compressor Current",
+                "device_class": SensorDeviceClass.CURRENT,
+                "unit": UnitOfElectricCurrent.AMPERE,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C3_EXV_CURRENT: {
+                "type": Platform.SENSOR,
+                "required_attribute": C3_EXV_CURRENT,
+                "translation_key": "exv_current",
+                "name": "Electronic Expansion Valve Opening",
+                "icon": "mdi:valve",
+                "unit": "steps",
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C3_FG_CAPACITY_NEED: {
+                "type": Platform.SENSOR,
+                "required_attribute": C3_FG_CAPACITY_NEED,
+                "translation_key": "fg_capacity_need",
+                "name": "Capacity Demand",
+                "icon": "mdi:gauge",
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C3_PRESSURE_HIGH: {
+                "type": Platform.SENSOR,
+                "required_attribute": C3_PRESSURE_HIGH,
+                "translation_key": "pressure_high",
+                "name": "Refrigerant Pressure (High Side)",
+                "device_class": SensorDeviceClass.PRESSURE,
+                "unit": UnitOfPressure.KPA,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C3_PRESSURE_LOW: {
+                "type": Platform.SENSOR,
+                "required_attribute": C3_PRESSURE_LOW,
+                "translation_key": "pressure_low",
+                "name": "Refrigerant Pressure (Low Side)",
+                "device_class": SensorDeviceClass.PRESSURE,
+                "unit": UnitOfPressure.KPA,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C3_TEMP_T1: {
+                "type": Platform.SENSOR,
+                "required_attribute": C3_TEMP_T1,
+                "translation_key": "temp_t1",
+                "name": "Temperature Sensor T1",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C3_TEMP_T2: {
+                "type": Platform.SENSOR,
+                "required_attribute": C3_TEMP_T2,
+                "translation_key": "temp_t2",
+                "name": "Plate Heat Exchanger Temperature (T2)",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C3_TEMP_T2B: {
+                "type": Platform.SENSOR,
+                "required_attribute": C3_TEMP_T2B,
+                "translation_key": "temp_t2b",
+                "name": "Plate Heat Exchanger Outlet Temperature (T2B)",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C3_TEMP_T3: {
+                "type": Platform.SENSOR,
+                "required_attribute": C3_TEMP_T3,
+                "translation_key": "temp_t3",
+                "name": "Outdoor Coil Temperature (T3)",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C3_TEMP_TP: {
+                "type": Platform.SENSOR,
+                "required_attribute": C3_TEMP_TP,
+                "translation_key": "temp_tp",
+                "name": "Discharge Pipe Temperature (TP)",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C3_TEMP_TH: {
+                "type": Platform.SENSOR,
+                "required_attribute": C3_TEMP_TH,
+                "translation_key": "temp_th",
+                "name": "Suction Temperature (TH)",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C3_TEMP_TF: {
+                "type": Platform.SENSOR,
+                "required_attribute": C3_TEMP_TF,
+                "translation_key": "temp_tf",
+                "name": "Power Module Temperature (TF)",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
         },

@@ -623,6 +623,64 @@
       "outdoor_temperature": {
         "name": "Temperatura Esterna"
       },
+      "comp_run_freq": {
+        "name": "Compressor Frequency"
+      },
+      "outdoor_fan_speed": {
+        "name": "Outdoor Fan Speed"
+      },
+      "unit_mode_run": {
+        "name": "Unit Run Mode",
+        "state": {
+          "off": "Off",
+          "auto": "Auto",
+          "cool": "Cool",
+          "heat": "Heat",
+          "dhw": "DHW"
+        }
+      },
+      "odu_target_fre": {
+        "name": "Target Compressor Frequency"
+      },
+      "odu_voltage": {
+        "name": "Outdoor Unit Voltage"
+      },
+      "odu_comp_current": {
+        "name": "Compressor Current"
+      },
+      "exv_current": {
+        "name": "Electronic Expansion Valve Opening"
+      },
+      "fg_capacity_need": {
+        "name": "Capacity Demand"
+      },
+      "pressure_high": {
+        "name": "Refrigerant Pressure (High Side)"
+      },
+      "pressure_low": {
+        "name": "Refrigerant Pressure (Low Side)"
+      },
+      "temp_t1": {
+        "name": "Temperature Sensor T1"
+      },
+      "temp_t2": {
+        "name": "Plate Heat Exchanger Temperature (T2)"
+      },
+      "temp_t2b": {
+        "name": "Plate Heat Exchanger Outlet Temperature (T2B)"
+      },
+      "temp_t3": {
+        "name": "Outdoor Coil Temperature (T3)"
+      },
+      "temp_tp": {
+        "name": "Discharge Pipe Temperature (TP)"
+      },
+      "temp_th": {
+        "name": "Suction Temperature (TH)"
+      },
+      "temp_tf": {
+        "name": "Power Module Temperature (TF)"
+      },
       "program": {
         "name": "Programma"
       },
