@@ -71,21 +71,21 @@
 仅当设备上报对应属性时，以下实体才会出现在可选实体中。`Schedule Mode` 的值
 `0` 表示关闭，`1` 表示每日定时器，`2` 表示周计划。
 
-| EntityID                                           | 类型          | 名称                           |
-| -------------------------------------------------- | ------------- | ------------------------------ |
-| switch.{DEVICEID}\_disinfect                       | switch        | Immediate Disinfection         |
-| number.{DEVICEID}\_schedule_mode                   | number        | Schedule Mode                  |
-| number.{DEVICEID}\_max_temperature                 | number        | Maximum Target Temperature     |
-| number.{DEVICEID}\_disinfection_temperature        | number        | Disinfection Temperature       |
-| switch.{DEVICEID}\_maintenance_reminder            | switch        | Maintenance Reminder           |
-| binary_sensor.{DEVICEID}\_dr_enable                | binary_sensor | Demand Response                |
-| binary_sensor.{DEVICEID}\_electric_rod_exception   | binary_sensor | Electric Heater Fault          |
-| sensor.{DEVICEID}\_remaining_hot_water_max         | sensor        | Maximum Remaining Hot Water    |
-| sensor.{DEVICEID}\_force_e_heating_status          | sensor        | Forced Electric Heating Status |
-| binary_sensor.{DEVICEID}\_heat_recovery_status     | binary_sensor | Heat Recovery                  |
-| binary_sensor.{DEVICEID}\_new_version_water_heater | binary_sensor | Extended Protocol              |
+| EntityID                                           | 类型          | 名称           |
+| -------------------------------------------------- | ------------- | -------------- |
+| switch.{DEVICEID}\_disinfect                       | switch        | 即时消毒       |
+| number.{DEVICEID}\_schedule_mode                   | number        | 计划模式       |
+| number.{DEVICEID}\_max_temperature                 | number        | 最高目标温度   |
+| number.{DEVICEID}\_disinfection_temperature        | number        | 消毒温度       |
+| switch.{DEVICEID}\_maintenance_reminder            | switch        | 维护提醒       |
+| binary_sensor.{DEVICEID}\_dr_enable                | binary_sensor | 需求响应       |
+| binary_sensor.{DEVICEID}\_electric_rod_exception   | binary_sensor | 电加热故障     |
+| sensor.{DEVICEID}\_remaining_hot_water_max         | sensor        | 最大剩余热水   |
+| sensor.{DEVICEID}\_force_e_heating_status          | sensor        | 强制电加热状态 |
+| binary_sensor.{DEVICEID}\_heat_recovery_status     | binary_sensor | 热回收         |
+| binary_sensor.{DEVICEID}\_new_version_water_heater | binary_sensor | 扩展热水器协议 |
 
-温度上下限、假期范围、定时步长及所有 capability 标志也作为可选诊断实体提供。
+温度上下限、假期范围、定时步长以及所有 capability 标志也会作为可选诊断实体提供。
 每日和每周计划是结构化映射。目前无法通过 `midea_ac_lan.set_attribute`
 服务写入，因为该服务架构只接受标量值。
 
