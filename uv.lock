@@ -2568,7 +2568,7 @@ run = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "midea-lan", specifier = "==2026.8.0" }]
+requires-dist = [{ name = "midea-lan", specifier = "==2026.9.0" }]
 
 [package.metadata.requires-dev]
 dev = [
@@ -2589,7 +2589,7 @@ run = [
 
 [[package]]
 name = "midea-lan"
-version = "2026.8.0"
+version = "2026.9.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "aiofiles" },
@@ -2603,9 +2603,9 @@ dependencies = [
     { name = "pycryptodome" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/cb/1f/3fb840bb73e2b17fd58581aa0f5bda0980ec40b9409d3625d5770f453b96/midea_lan-2026.8.0.tar.gz", hash = "sha256:2f152a9a75f233678f342a8ebbdccfa0cbfa0d22516c7a5ef780a1f3c84f9979", size = 137868, upload-time = "2026-08-12T10:22:44.666Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/c8/7d/37a4f05303b014d418464259e75c98b0a8c6448cdeabb7ae176d942dcbf8/midea_lan-2026.9.0.tar.gz", hash = "sha256:dc26cad4d8cb60d201b7e2cd5583bf116677cb53c1fdd43727b16e73d3fb8c81", size = 166320, upload-time = "2026-09-02T09:23:38.152Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/1f/7e/80b8cc09dce3bee7ddcd0955d389924690f7afa64ec4de729ece094890a0/midea_lan-2026.8.0-py3-none-any.whl", hash = "sha256:4546d92ec46921e0542abbe95399c22161743a2d5b0cfbf2e660d07ca4c67484", size = 192455, upload-time = "2026-08-12T10:22:43.085Z" },
+    { url = "https://files.pythonhosted.org/packages/1b/60/c3495c29bbdcf049223a265ec66f82f02956e2c849b186da0d165ef8a4fb/midea_lan-2026.9.0-py3-none-any.whl", hash = "sha256:3ec5ecf46a9653d0155c782622a0dd86b3101dfecf99d83a686881a55cd53c9c", size = 220280, upload-time = "2026-09-02T09:23:36.586Z" },
 ]
 
 [[package]]
