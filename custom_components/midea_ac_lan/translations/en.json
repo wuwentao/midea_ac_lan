@@ -192,6 +192,28 @@
       "maintenance_reminder": {
         "name": "Maintenance Reminder"
       },
+      "dr_enable": { "name": "Demand Response" },
+      "electric_rod_exception": { "name": "Electric Heater Fault" },
+      "ac_heater_priority": { "name": "Heat Pump Priority" },
+      "high_temp_reminder": { "name": "High Temperature Reminder" },
+      "new_version_water_heater": { "name": "Extended Water Heater Protocol" },
+      "heat_recovery_status": { "name": "Heat Recovery" },
+      "holiday_mode": { "name": "Holiday Mode" },
+      "hybrid_motion_mode": { "name": "Hybrid Motion Mode" },
+      "support_boost_mode": { "name": "Boost Mode Support" },
+      "support_silent_mode": { "name": "Silent Mode Support" },
+      "support_remaining_hot_water": { "name": "Remaining Hot Water Support" },
+      "support_electric_mode": { "name": "Electric Mode Support" },
+      "support_auto_disinfect": { "name": "Automatic Disinfection Support" },
+      "support_force_e_heating": { "name": "Forced Electric Heating Support" },
+      "support_tou": { "name": "Time-of-use Support" },
+      "support_ac_heater_priority": { "name": "Heat Pump Priority Support" },
+      "support_heat_recovery": { "name": "Heat Recovery Support" },
+      "support_heat_pump_mode": { "name": "Heat Pump Mode Support" },
+      "support_smart_mode": { "name": "Smart Mode Support" },
+      "support_negative_temperature": {
+        "name": "Negative Temperature Support"
+      },
       "maintain_warn": {
         "name": "Maintenance Warning"
       },
@@ -314,6 +336,9 @@
       "vacation_days": {
         "name": "Vacation Days"
       },
+      "max_temperature": { "name": "Maximum Target Temperature" },
+      "disinfection_temperature": { "name": "Disinfection Temperature" },
+      "schedule_mode": { "name": "Schedule Mode" },
       "leak_water_protection_value": {
         "name": "Leak Water Protection Value"
       },
@@ -741,6 +766,24 @@
       "max_temperature": {
         "name": "Maximum Target Temperature"
       },
+      "max_temperature_upper_limit": {
+        "name": "Maximum Temperature Upper Limit"
+      },
+      "max_temperature_lower_limit": {
+        "name": "Maximum Temperature Lower Limit"
+      },
+      "disinfection_temperature_upper_limit": {
+        "name": "Disinfection Temperature Upper Limit"
+      },
+      "disinfection_temperature_lower_limit": {
+        "name": "Disinfection Temperature Lower Limit"
+      },
+      "dr_option": { "name": "Demand Response Option" },
+      "remaining_hot_water_max": { "name": "Maximum Remaining Hot Water" },
+      "force_e_heating_status": { "name": "Forced Electric Heating Status" },
+      "holiday_max": { "name": "Maximum Holiday Duration" },
+      "holiday_min": { "name": "Minimum Holiday Duration" },
+      "timer_step_gap": { "name": "Timer Step" },
       "vacation_start_year": {
         "name": "Vacation Start Year"
       },
@@ -836,6 +879,7 @@
       "disinfect": {
         "name": "Disinfect"
       },
+      "maintenance_reminder": { "name": "Maintenance Reminder" },
       "vacation_mode": {
         "name": "Vacation Mode"
       },

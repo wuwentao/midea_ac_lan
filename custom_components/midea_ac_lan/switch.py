@@ -27,9 +27,15 @@ async def async_setup_entry(
         "dict",
         MIDEA_DEVICES[device.device_type]["entities"],
     ).items():
-        if config["type"] == Platform.SWITCH and entity_key in extra_switches:
-            dev = MideaSwitch(device, entity_key)
-            switches.append(dev)
+        if config["type"] != Platform.SWITCH or entity_key not in extra_switches:
+            continue
+        required_attribute = config.get("required_attribute")
+        if (
+            required_attribute is not None
+            and required_attribute not in device.attributes
+        ):
+            continue
+        switches.append(MideaSwitch(device, entity_key))
     async_add_entities(switches)
 
 
