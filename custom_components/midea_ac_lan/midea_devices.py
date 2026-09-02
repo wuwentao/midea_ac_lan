@@ -1348,7 +1348,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "icon": "mdi:cup-water",
                 "device_class": BinarySensorDeviceClass.PROBLEM,
             },
-            BFAttributes.error_code: {
+            BFAttributes.error: {
                 "type": Platform.BINARY_SENSOR,
                 "translation_key": "bf_error_code",
                 "name": "Error",

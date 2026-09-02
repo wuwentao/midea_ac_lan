@@ -16,6 +16,7 @@
 | switch.{DEVICEID}\_child_lock    | switch | Child Lock    | 童锁     |
 | switch.{DEVICEID}\_furnace_light | switch | Furnace Light | 炉灯     |
 | switch.{DEVICEID}\_hot_wind      | switch | Hot Wind      | 热风     |
+| switch.{DEVICEID}\_ramadan       | switch | Ramadan       | 斋月模式 |
 | switch.{DEVICEID}\_turntable     | switch | Turntable     | 转盘     |
 
 #### 二元传感器
@@ -27,7 +28,7 @@
 | binary_sensor.{DEVICEID}\_water_change_reminder | binary_sensor | Water Change Reminder | 换水提醒 |
 | binary_sensor.{DEVICEID}\_door                  | binary_sensor | Door                  | 门状态   |
 | binary_sensor.{DEVICEID}\_water_shortage        | binary_sensor | Water shortage        | 缺水提醒 |
-| binary_sensor.{DEVICEID}\_error_code            | binary_sensor | Error Code            | 错误代码 |
+| binary_sensor.{DEVICEID}\_error                 | binary_sensor | Error                 | 错误状态 |
 | binary_sensor.{DEVICEID}\_flip_side             | binary_sensor | Flip Side             | 翻面提醒 |
 | binary_sensor.{DEVICEID}\_reaction              | binary_sensor | Reaction              | 反应     |
 | binary_sensor.{DEVICEID}\_high_temperature_lock | binary_sensor | High Temperature Lock | 高温锁   |
