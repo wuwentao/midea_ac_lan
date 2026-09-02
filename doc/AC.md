@@ -133,6 +133,7 @@ Known settings:
 | switch.{DEVICEID}\_comfort_mode                | switch        | Comfort Mode                     |
 | switch.{DEVICEID}\_dry                         | switch        | Dry                              |
 | switch.{DEVICEID}\_eco_mode                    | switch        | ECO Mode                         |
+| switch.{DEVICEID}\_ieco                        | switch        | iECO                             |
 | switch.{DEVICEID}\_indirect_wind               | switch        | Indirect Wind                    |
 | switch.{DEVICEID}\_natural_wind                | switch        | Natural Wind                     |
 | switch.{DEVICEID}\_prompt_tone                 | switch        | Prompt Tone                      |
