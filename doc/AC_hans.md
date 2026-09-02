@@ -108,6 +108,7 @@
 | switch.{DEVICEID}\_comfort_mode                | switch        | Comfort Mode                     | 舒省模式          |
 | switch.{DEVICEID}\_dry                         | switch        | Dry                              | 干燥              |
 | switch.{DEVICEID}\_eco_mode                    | switch        | ECO Mode                         | ECO模式           |
+| switch.{DEVICEID}\_ieco                        | switch        | iECO                             | iECO 节能         |
 | switch.{DEVICEID}\_indirect_wind               | switch        | Indirect Wind                    | 防直吹            |
 | switch.{DEVICEID}\_natural_wind                | switch        | Natural Wind                     | 自然风            |
 | switch.{DEVICEID}\_prompt_tone                 | switch        | Prompt Tone                      | 提示音            |

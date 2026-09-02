@@ -585,6 +585,12 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Self Clean",
                 "icon": "mdi:air-filter",
             },
+            ACAttributes.ieco: {
+                "type": Platform.SWITCH,
+                "translation_key": "ieco",
+                "name": "iECO",
+                "icon": "mdi:leaf",
+            },
             ACAttributes.full_dust: {
                 "type": Platform.BINARY_SENSOR,
                 "translation_key": "full_dust",
