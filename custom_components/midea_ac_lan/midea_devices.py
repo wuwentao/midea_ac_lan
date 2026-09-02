@@ -1710,10 +1710,9 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             # Outdoor-unit fan speed, not a discrete level enum: 671 captured
             # frames show numeric values 50..670 that track comp_run_freq
             # (freq 0 -> fan idle; freq 31..40 -> fan 290..350), i.e. RPM/10.
-            # Mirrors ACAttributes.indoor_fan_speed.
-            # NOTE: the parser still emits the string 'off' instead of 0 for an
-            # idle fan; that needs fixing on the midea-lan side, as does the
-            # x10 scaling, before this reads true RPM.
+            # Mirrors ACAttributes.indoor_fan_speed. The parser (midea-lan)
+            # now emits an int RPM value (0 when idle), so the value is used
+            # as-is here.
             C3Attributes.fan_speed: {
                 "type": Platform.SENSOR,
                 "translation_key": "fan_speed",
@@ -2067,6 +2066,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Compressor Status Bitmap (raw)",
                 "icon": "mdi:matrix",
                 "entity_category": EntityCategory.DIAGNOSTIC,
+                "entity_registry_enabled_default": False,
             },
             # --- Diagnostic raw uint8 exposures: candidate LAN offsets
             # for Modbus reg 128 (Status bit 1). Users can correlate
@@ -2079,6 +2079,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Raw byte 31 (reg128 candidate)",
                 "icon": "mdi:numeric",
                 "entity_category": EntityCategory.DIAGNOSTIC,
+                "entity_registry_enabled_default": False,
             },
             # raw_b31 bit6: verified water-circuit-active flag (r=+0.99 vs
             # pump_i / flow). Exposed as a primary running binary sensor.
@@ -2098,6 +2099,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "icon": "mdi:help-circle-outline",
                 "device_class": BinarySensorDeviceClass.RUNNING,
                 "entity_category": EntityCategory.DIAGNOSTIC,
+                "entity_registry_enabled_default": False,
             },
             # b65: unmapped derived value (46..99, sentinel 99 idle). No Modbus
             # register match; kept as raw diagnostic for future correlation.
@@ -2107,6 +2109,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Raw byte 65 (unmapped)",
                 "icon": "mdi:numeric",
                 "entity_category": EntityCategory.DIAGNOSTIC,
+                "entity_registry_enabled_default": False,
             },
             C3Attributes.odu_comp_current: {
                 "type": Platform.SENSOR,
