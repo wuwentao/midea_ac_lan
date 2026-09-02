@@ -4,7 +4,7 @@
 
 ### Default entity
 
-The following entities are created for tea bar appliance subtype 395:
+The following entities are created for tea bar appliance model 63000622 subtype 395:
 
 | EntityID                                       | Class         | Description                                                                                                                                 |
 | ---------------------------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -27,6 +27,14 @@ The following entities are created for tea bar appliance subtype 395:
 | sensor.{DEVICEID}\_fault_code                  | sensor        | Raw model fault code reported by the appliance.                                                                                             |
 
 ### Extra entities
+
+#### Non-soft-water sensors
+
+| EntityID                             | Class  | Description                                     |
+| ------------------------------------ | ------ | ----------------------------------------------- |
+| sensor.{DEVICEID}\_water_consumption | sensor | Water Consumption (for non-soft-water subtypes) |
+
+#### Water-softener entities
 
 Water-softener controls and status entities listed below are exposed only for
 subtype 703. They are not offered to tea bar appliance subtype 395.
@@ -75,7 +83,6 @@ subtype 703. They are not offered to tea bar appliance subtype 395.
 | sensor.{DEVICEID}\_life3                     | sensor | Filter3 Life Level                                         |
 | sensor.{DEVICEID}\_in_tds                    | sensor | In TDS                                                     |
 | sensor.{DEVICEID}\_out_tds                   | sensor | Out TDS                                                    |
-| sensor.{DEVICEID}\_water_consumption         | sensor | Water Consumption (for non soft-water subtypes)            |
 | sensor.{DEVICEID}\_velocity                  | sensor | Velocity (current flow rate)                               |
 | sensor.{DEVICEID}\_soft_available            | sensor | Soft Water Available (L)                                   |
 | sensor.{DEVICEID}\_left_salt                 | sensor | Left Salt (%)                                              |

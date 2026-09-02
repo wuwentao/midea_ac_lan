@@ -44,10 +44,7 @@ async def async_setup_entry(
             continue
         if device.device_type == DeviceType.ED and entity_key == "tea_bar":
             dev = MideaEDTeaBarBoilSwitch(device, entity_key)
-        elif (
-            device.device_type == DeviceType.ED
-            and entity_key == "tea_bar_child_lock"
-        ):
+        elif device.device_type == DeviceType.ED and entity_key == "tea_bar_child_lock":
             dev = MideaEDTeaBarChildLockSwitch(device, entity_key)
         else:
             dev = MideaSwitch(device, entity_key)

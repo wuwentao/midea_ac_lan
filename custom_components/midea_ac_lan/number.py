@@ -53,9 +53,8 @@ class MideaNumber(MideaEntity, NumberEntity):
         self._max_value = self._config.get("max")
         self._min_value = self._config.get("min")
         self._step_value = self._config.get("step")
-        self._attr_device_class = cast(
-            "NumberDeviceClass | None",
-            self._config.get("device_class"),
+        self._attr_device_class: NumberDeviceClass | None = self._config.get(
+            "device_class",
         )
         self._attr_native_unit_of_measurement = self._config.get("unit")
 

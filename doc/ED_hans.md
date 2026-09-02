@@ -4,7 +4,7 @@
 
 ### 默认实体
 
-茶吧机子型号 395 默认生成以下实体：
+茶吧机型号 63000622、子型号 395 默认生成以下实体：
 
 | EntityID                                       | 类型          | 描述                                                                         |
 | ---------------------------------------------- | ------------- | ---------------------------------------------------------------------------- |
@@ -27,6 +27,14 @@
 | sensor.{DEVICEID}\_fault_code                  | sensor        | 设备上报的原始故障代码                                                       |
 
 ### 额外生成实体
+
+#### 非软水机传感器
+
+| EntityID                             | 类型   | 名称              | 描述                           |
+| ------------------------------------ | ------ | ----------------- | ------------------------------ |
+| sensor.{DEVICEID}\_water_consumption | sensor | Water Consumption | 总耗水量（非软水机子型号使用） |
+
+#### 软水机实体
 
 下列软水机控制和状态实体仅向子型号 703 提供，不会再向茶吧机子型号 395 提供。
 
@@ -74,7 +82,6 @@
 | sensor.{DEVICEID}\_life3                     | sensor | Filter3 Life Level        | 滤芯3剩余寿命                                                       |
 | sensor.{DEVICEID}\_in_tds                    | sensor | In TDS                    | 进水TDS                                                             |
 | sensor.{DEVICEID}\_out_tds                   | sensor | Out TDS                   | 出水TDS                                                             |
-| sensor.{DEVICEID}\_water_consumption         | sensor | Water Consumption         | 总耗水量（非软水机 subtype 使用）                                   |
 | sensor.{DEVICEID}\_velocity                  | sensor | Velocity                  | 流速                                                                |
 | sensor.{DEVICEID}\_soft_available            | sensor | Soft Water Available      | 可用软水（L）                                                       |
 | sensor.{DEVICEID}\_left_salt                 | sensor | Left Salt                 | 剩余盐量（%）                                                       |
