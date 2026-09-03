@@ -9,7 +9,7 @@ from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from midealan.device import MideaDevice
 
-from .const import DEVICES, DOMAIN, supports_model
+from .const import DEVICES, DOMAIN, supports_device
 from .midea_devices import MIDEA_DEVICES
 from .midea_entity import MideaEntity
 
@@ -33,7 +33,7 @@ async def async_setup_entry(
     ).items():
         if (
             config["type"] == Platform.BUTTON
-            and supports_model(device.model, config)
+            and supports_device(device.model, device.subtype, config)
             and (config.get("default") or entity_key in extra_switches)
         ):
             buttons.append(MideaButton(device, entity_key))

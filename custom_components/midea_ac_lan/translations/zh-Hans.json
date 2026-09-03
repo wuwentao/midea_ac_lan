@@ -123,6 +123,21 @@
       "heating": {
         "name": "加热"
       },
+      "dispensing": {
+        "name": "正在取水"
+      },
+      "lack_water": {
+        "name": "缺水"
+      },
+      "standby": {
+        "name": "待机"
+      },
+      "hot_water_dispensing": {
+        "name": "正在输出热水"
+      },
+      "fault": {
+        "name": "设备故障"
+      },
       "heating_working": {
         "name": "取暖工作状态"
       },
@@ -191,6 +206,66 @@
       },
       "maintenance_reminder": {
         "name": "维护提醒"
+      },
+      "dr_enable": {
+        "name": "需求响应"
+      },
+      "electric_rod_exception": {
+        "name": "电加热故障"
+      },
+      "ac_heater_priority": {
+        "name": "热泵优先"
+      },
+      "high_temp_reminder": {
+        "name": "高温提醒"
+      },
+      "new_version_water_heater": {
+        "name": "扩展热水器协议"
+      },
+      "heat_recovery_status": {
+        "name": "热回收"
+      },
+      "holiday_mode": {
+        "name": "假日模式"
+      },
+      "hybrid_motion_mode": {
+        "name": "混合运动模式"
+      },
+      "support_boost_mode": {
+        "name": "Boost 模式支持"
+      },
+      "support_silent_mode": {
+        "name": "静音模式支持"
+      },
+      "support_remaining_hot_water": {
+        "name": "剩余热水支持"
+      },
+      "support_electric_mode": {
+        "name": "电加热模式支持"
+      },
+      "support_auto_disinfect": {
+        "name": "自动消毒支持"
+      },
+      "support_force_e_heating": {
+        "name": "强制电加热支持"
+      },
+      "support_tou": {
+        "name": "分时电价支持"
+      },
+      "support_ac_heater_priority": {
+        "name": "热泵优先支持"
+      },
+      "support_heat_recovery": {
+        "name": "热回收支持"
+      },
+      "support_heat_pump_mode": {
+        "name": "热泵模式支持"
+      },
+      "support_smart_mode": {
+        "name": "智能模式支持"
+      },
+      "support_negative_temperature": {
+        "name": "负温支持"
       },
       "maintain_warn": {
         "name": "维护警告"
@@ -314,6 +389,15 @@
       "vacation_days": {
         "name": "假期天数"
       },
+      "max_temperature": {
+        "name": "最高目标温度"
+      },
+      "disinfection_temperature": {
+        "name": "消毒温度"
+      },
+      "schedule_mode": {
+        "name": "计划模式"
+      },
       "leak_water_protection_value": {
         "name": "漏水保护阈值"
       },
@@ -322,6 +406,12 @@
       },
       "water_hardness": {
         "name": "进水硬度"
+      },
+      "boil_temperature": {
+        "name": "烧水目标温度"
+      },
+      "keep_warm_time": {
+        "name": "保温时间"
       }
     },
     "select": {
@@ -570,6 +660,9 @@
       "keep_warm_remaining": {
         "name": "保温剩余时间"
       },
+      "fault_code": {
+        "name": "故障代码"
+      },
       "keep_warm_time": {
         "name": "保温时间"
       },
@@ -593,6 +686,64 @@
       },
       "outdoor_temperature": {
         "name": "室外温度"
+      },
+      "comp_run_freq": {
+        "name": "Compressor Frequency"
+      },
+      "outdoor_fan_speed": {
+        "name": "Outdoor Fan Speed"
+      },
+      "unit_mode_run": {
+        "name": "Unit Run Mode",
+        "state": {
+          "off": "Off",
+          "auto": "Auto",
+          "cool": "Cool",
+          "heat": "Heat",
+          "dhw": "DHW"
+        }
+      },
+      "odu_target_fre": {
+        "name": "Target Compressor Frequency"
+      },
+      "odu_voltage": {
+        "name": "Outdoor Unit Voltage"
+      },
+      "odu_comp_current": {
+        "name": "Compressor Current"
+      },
+      "exv_current": {
+        "name": "Electronic Expansion Valve Opening"
+      },
+      "fg_capacity_need": {
+        "name": "Capacity Demand"
+      },
+      "pressure_high": {
+        "name": "Refrigerant Pressure (High Side)"
+      },
+      "pressure_low": {
+        "name": "Refrigerant Pressure (Low Side)"
+      },
+      "temp_t1": {
+        "name": "Temperature Sensor T1"
+      },
+      "temp_t2": {
+        "name": "Plate Heat Exchanger Temperature (T2)"
+      },
+      "temp_t2b": {
+        "name": "Plate Heat Exchanger Outlet Temperature (T2B)"
+      },
+      "temp_t3": {
+        "name": "Outdoor Coil Temperature (T3)"
+      },
+      "temp_tp": {
+        "name": "Discharge Pipe Temperature (TP)"
+      },
+      "temp_th": {
+        "name": "Suction Temperature (TH)"
+      },
+      "temp_tf": {
+        "name": "Power Module Temperature (TF)"
       },
       "program": {
         "name": "程序"
@@ -741,6 +892,36 @@
       "max_temperature": {
         "name": "最高目标温度"
       },
+      "max_temperature_upper_limit": {
+        "name": "最高温度上限"
+      },
+      "max_temperature_lower_limit": {
+        "name": "最高温度下限"
+      },
+      "disinfection_temperature_upper_limit": {
+        "name": "消毒温度上限"
+      },
+      "disinfection_temperature_lower_limit": {
+        "name": "消毒温度下限"
+      },
+      "dr_option": {
+        "name": "需求响应选项"
+      },
+      "remaining_hot_water_max": {
+        "name": "最大剩余热水"
+      },
+      "force_e_heating_status": {
+        "name": "强制电加热状态"
+      },
+      "holiday_max": {
+        "name": "假日最大时长"
+      },
+      "holiday_min": {
+        "name": "假日最小时长"
+      },
+      "timer_step_gap": {
+        "name": "定时步长"
+      },
       "vacation_start_year": {
         "name": "假期开始年"
       },
@@ -835,6 +1016,9 @@
       },
       "disinfect": {
         "name": "消毒"
+      },
+      "maintenance_reminder": {
+        "name": "维护提醒"
       },
       "vacation_mode": {
         "name": "假期模式"
@@ -965,6 +1149,9 @@
       "self_clean": {
         "name": "Self Clean"
       },
+      "ieco": {
+        "name": "iECO 节能"
+      },
       "sound": {
         "name": "Sound"
       },
@@ -997,6 +1184,24 @@
       },
       "zone2_power": {
         "name": "区域2恒温器开关"
+      },
+      "boiling": {
+        "name": "烧水"
+      },
+      "tea_bar_boil": {
+        "name": "烧水开关"
+      },
+      "tea_bar_child_lock": {
+        "name": "童锁"
+      },
+      "keep_warm": {
+        "name": "保温"
+      },
+      "tea_bar_cooling": {
+        "name": "制冷"
+      },
+      "screen_off": {
+        "name": "熄屏"
       }
     },
     "water_heater": {

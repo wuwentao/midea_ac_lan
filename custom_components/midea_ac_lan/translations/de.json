@@ -123,6 +123,13 @@
       "heating": {
         "name": "Heizen"
       },
+      "dispensing": {
+        "name": "Wasserentnahme"
+      },
+      "lack_water": { "name": "Wassermangel" },
+      "standby": { "name": "Bereitschaft" },
+      "hot_water_dispensing": { "name": "Heißwasserausgabe" },
+      "fault": { "name": "Störung" },
       "heating_working": {
         "name": "Heizen Arbeitsstatus"
       },
@@ -191,6 +198,66 @@
       },
       "maintenance_reminder": {
         "name": "Wartungserinnerung"
+      },
+      "dr_enable": {
+        "name": "Nachfrageantwort"
+      },
+      "electric_rod_exception": {
+        "name": "Fehler des elektrischen Heizstabs"
+      },
+      "ac_heater_priority": {
+        "name": "Wärmepumpen-Priorität"
+      },
+      "high_temp_reminder": {
+        "name": "Hinweis auf hohe Temperatur"
+      },
+      "new_version_water_heater": {
+        "name": "Erweitertes Warmwasserbereiter-Protokoll"
+      },
+      "heat_recovery_status": {
+        "name": "Wärmerückgewinnung"
+      },
+      "holiday_mode": {
+        "name": "Urlaubsmodus"
+      },
+      "hybrid_motion_mode": {
+        "name": "Hybrid-Bewegungsmodus"
+      },
+      "support_boost_mode": {
+        "name": "Boost-Modus-Unterstützung"
+      },
+      "support_silent_mode": {
+        "name": "Unterstützung für den Silent-Modus"
+      },
+      "support_remaining_hot_water": {
+        "name": "Unterstützung für verbleibendes Warmwasser"
+      },
+      "support_electric_mode": {
+        "name": "Unterstützung für den Elektromodus"
+      },
+      "support_auto_disinfect": {
+        "name": "Unterstützung für automatische Desinfektion"
+      },
+      "support_force_e_heating": {
+        "name": "Unterstützung für erzwungene elektrische Heizung"
+      },
+      "support_tou": {
+        "name": "Unterstützung für Zeitnutzung"
+      },
+      "support_ac_heater_priority": {
+        "name": "Unterstützung für Wärmepumpen-Priorität"
+      },
+      "support_heat_recovery": {
+        "name": "Unterstützung für Wärmerückgewinnung"
+      },
+      "support_heat_pump_mode": {
+        "name": "Unterstützung für Wärmepumpenmodus"
+      },
+      "support_smart_mode": {
+        "name": "Unterstützung für den Smart-Modus"
+      },
+      "support_negative_temperature": {
+        "name": "Unterstützung für negative Temperaturen"
       },
       "maintain_warn": {
         "name": "Wartungswarnung"
@@ -314,6 +381,15 @@
       "vacation_days": {
         "name": "Urlaubstage"
       },
+      "max_temperature": {
+        "name": "Maximale Zieltemperatur"
+      },
+      "disinfection_temperature": {
+        "name": "Desinfektionstemperatur"
+      },
+      "schedule_mode": {
+        "name": "Planungsmodus"
+      },
       "leak_water_protection_value": {
         "name": "Leckschutzwert"
       },
@@ -322,6 +398,12 @@
       },
       "water_hardness": {
         "name": "Wasserhärte"
+      },
+      "boil_temperature": {
+        "name": "Zieltemperatur zum Kochen"
+      },
+      "keep_warm_time": {
+        "name": "Warmhaltezeit"
       }
     },
     "select": {
@@ -570,6 +652,7 @@
       "keep_warm_remaining": {
         "name": "Keep Warm Remaining"
       },
+      "fault_code": { "name": "Fehlercode" },
       "keep_warm_time": {
         "name": "Keep Warm Time"
       },
@@ -593,6 +676,64 @@
       },
       "outdoor_temperature": {
         "name": "Außentemperatur"
+      },
+      "comp_run_freq": {
+        "name": "Compressor Frequency"
+      },
+      "outdoor_fan_speed": {
+        "name": "Outdoor Fan Speed"
+      },
+      "unit_mode_run": {
+        "name": "Unit Run Mode",
+        "state": {
+          "off": "Off",
+          "auto": "Auto",
+          "cool": "Cool",
+          "heat": "Heat",
+          "dhw": "DHW"
+        }
+      },
+      "odu_target_fre": {
+        "name": "Target Compressor Frequency"
+      },
+      "odu_voltage": {
+        "name": "Outdoor Unit Voltage"
+      },
+      "odu_comp_current": {
+        "name": "Compressor Current"
+      },
+      "exv_current": {
+        "name": "Electronic Expansion Valve Opening"
+      },
+      "fg_capacity_need": {
+        "name": "Capacity Demand"
+      },
+      "pressure_high": {
+        "name": "Refrigerant Pressure (High Side)"
+      },
+      "pressure_low": {
+        "name": "Refrigerant Pressure (Low Side)"
+      },
+      "temp_t1": {
+        "name": "Temperature Sensor T1"
+      },
+      "temp_t2": {
+        "name": "Plate Heat Exchanger Temperature (T2)"
+      },
+      "temp_t2b": {
+        "name": "Plate Heat Exchanger Outlet Temperature (T2B)"
+      },
+      "temp_t3": {
+        "name": "Outdoor Coil Temperature (T3)"
+      },
+      "temp_tp": {
+        "name": "Discharge Pipe Temperature (TP)"
+      },
+      "temp_th": {
+        "name": "Suction Temperature (TH)"
+      },
+      "temp_tf": {
+        "name": "Power Module Temperature (TF)"
       },
       "program": {
         "name": "Program"
@@ -741,6 +882,36 @@
       "max_temperature": {
         "name": "Maximales Temperaturziel"
       },
+      "max_temperature_upper_limit": {
+        "name": "Obere Grenze der maximalen Temperatur"
+      },
+      "max_temperature_lower_limit": {
+        "name": "Untere Grenze der maximalen Temperatur"
+      },
+      "disinfection_temperature_upper_limit": {
+        "name": "Obere Grenze der Desinfektionstemperatur"
+      },
+      "disinfection_temperature_lower_limit": {
+        "name": "Untere Grenze der Desinfektionstemperatur"
+      },
+      "dr_option": {
+        "name": "Nachfrageantwort-Option"
+      },
+      "remaining_hot_water_max": {
+        "name": "Maximal verbleibendes Warmwasser"
+      },
+      "force_e_heating_status": {
+        "name": "Status der erzwungenen elektrischen Heizung"
+      },
+      "holiday_max": {
+        "name": "Maximale Urlaubsdauer"
+      },
+      "holiday_min": {
+        "name": "Minimale Urlaubsdauer"
+      },
+      "timer_step_gap": {
+        "name": "Timer-Schritt"
+      },
       "vacation_start_year": {
         "name": "Urlaubsbeginn Jahr"
       },
@@ -835,6 +1006,9 @@
       },
       "disinfect": {
         "name": "Desinfizieren"
+      },
+      "maintenance_reminder": {
+        "name": "Wartungserinnerung"
       },
       "vacation_mode": {
         "name": "Urlaubsmodus"
@@ -965,6 +1139,9 @@
       "self_clean": {
         "name": "Selbstreinigung"
       },
+      "ieco": {
+        "name": "iECO"
+      },
       "sound": {
         "name": "Ton"
       },
@@ -997,6 +1174,24 @@
       },
       "zone2_power": {
         "name": "Zone2 Power"
+      },
+      "boiling": {
+        "name": "Wasser kochen"
+      },
+      "tea_bar_boil": {
+        "name": "Wasserkocher-Schalter"
+      },
+      "tea_bar_child_lock": {
+        "name": "Kindersicherung"
+      },
+      "keep_warm": {
+        "name": "Warmhalten"
+      },
+      "tea_bar_cooling": {
+        "name": "Kühlung"
+      },
+      "screen_off": {
+        "name": "Bildschirm aus"
       }
     },
     "water_heater": {

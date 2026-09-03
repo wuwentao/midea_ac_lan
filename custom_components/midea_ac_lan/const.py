@@ -50,6 +50,39 @@ def supports_model(model: object, config: dict[str, Any]) -> bool:
     return not models or str(model) in cast("list[str]", models)
 
 
+def supports_device(
+    model: object,
+    subtype: object,
+    config: dict[str, Any],
+) -> bool:
+    """Return if the entity config applies to the device model and subtype.
+
+    Returns
+    -------
+    True if the entity supports the device model and subtype.
+
+    """
+    if config.get("removed"):
+        return False
+    normalized_subtype = int(cast("int", subtype))
+    excluded_devices = cast(
+        "list[tuple[str, int]]",
+        config.get("excluded_devices", []),
+    )
+    if (str(model), normalized_subtype) in excluded_devices:
+        return False
+    excluded_subtypes = config.get("excluded_subtypes")
+    if excluded_subtypes and normalized_subtype in cast(
+        "list[int]",
+        excluded_subtypes,
+    ):
+        return False
+    subtypes = config.get("subtypes")
+    return supports_model(model, config) and (
+        not subtypes or normalized_subtype in cast("list[int]", subtypes)
+    )
+
+
 class FanSpeed(IntEnum):
     """FanSpeed reference values."""
 

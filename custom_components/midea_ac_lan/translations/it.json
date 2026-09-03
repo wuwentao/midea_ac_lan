@@ -123,6 +123,13 @@
       "heating": {
         "name": "Riscaldamento"
       },
+      "dispensing": {
+        "name": "Erogazione acqua"
+      },
+      "lack_water": { "name": "Mancanza acqua" },
+      "standby": { "name": "Standby" },
+      "hot_water_dispensing": { "name": "Erogazione acqua calda" },
+      "fault": { "name": "Guasto" },
       "heating_working": {
         "name": "Stato Funzionamento Riscaldamento"
       },
@@ -191,6 +198,32 @@
       },
       "maintenance_reminder": {
         "name": "Promemoria Manutenzione"
+      },
+      "dr_enable": { "name": "Demand Response" },
+      "electric_rod_exception": { "name": "Guasto Resistenza Elettrica" },
+      "ac_heater_priority": { "name": "Priorità Pompa di Calore" },
+      "high_temp_reminder": { "name": "Promemoria Temperatura Elevata" },
+      "new_version_water_heater": { "name": "Protocollo Scaldacqua Esteso" },
+      "heat_recovery_status": { "name": "Recupero di Calore" },
+      "holiday_mode": { "name": "Modalità Vacanza" },
+      "hybrid_motion_mode": { "name": "Modalità Ibrida Dinamica" },
+      "support_boost_mode": { "name": "Supporto Modalità Boost" },
+      "support_silent_mode": { "name": "Supporto Modalità Silenziosa" },
+      "support_remaining_hot_water": { "name": "Supporto Acqua Calda Residua" },
+      "support_electric_mode": { "name": "Supporto Modalità Elettrica" },
+      "support_auto_disinfect": { "name": "Supporto Disinfezione Automatica" },
+      "support_force_e_heating": {
+        "name": "Supporto Riscaldamento Elettrico Forzato"
+      },
+      "support_tou": { "name": "Supporto Fasce Orarie" },
+      "support_ac_heater_priority": {
+        "name": "Supporto Priorità Pompa di Calore"
+      },
+      "support_heat_recovery": { "name": "Supporto Recupero di Calore" },
+      "support_heat_pump_mode": { "name": "Supporto Modalità Pompa di Calore" },
+      "support_smart_mode": { "name": "Supporto Modalità Smart" },
+      "support_negative_temperature": {
+        "name": "Supporto Temperature Negative"
       },
       "maintain_warn": {
         "name": "Avviso Manutenzione"
@@ -314,6 +347,9 @@
       "vacation_days": {
         "name": "Giorni Vacanza"
       },
+      "max_temperature": { "name": "Temperatura Obiettivo Massima" },
+      "disinfection_temperature": { "name": "Temperatura Disinfezione" },
+      "schedule_mode": { "name": "Modalità Programmazione" },
       "leak_water_protection_value": {
         "name": "Valore Protezione Perdita Acqua"
       },
@@ -322,6 +358,12 @@
       },
       "water_hardness": {
         "name": "Durezza Acqua"
+      },
+      "boil_temperature": {
+        "name": "Temperatura obiettivo di ebollizione"
+      },
+      "keep_warm_time": {
+        "name": "Durata mantenimento in caldo"
       }
     },
     "select": {
@@ -570,6 +612,7 @@
       "keep_warm_remaining": {
         "name": "Tempo Rimanente Mantenimento Caldo"
       },
+      "fault_code": { "name": "Codice guasto" },
       "keep_warm_time": {
         "name": "Tempo Mantenimento Caldo"
       },
@@ -593,6 +636,64 @@
       },
       "outdoor_temperature": {
         "name": "Temperatura Esterna"
+      },
+      "comp_run_freq": {
+        "name": "Compressor Frequency"
+      },
+      "outdoor_fan_speed": {
+        "name": "Outdoor Fan Speed"
+      },
+      "unit_mode_run": {
+        "name": "Unit Run Mode",
+        "state": {
+          "off": "Off",
+          "auto": "Auto",
+          "cool": "Cool",
+          "heat": "Heat",
+          "dhw": "DHW"
+        }
+      },
+      "odu_target_fre": {
+        "name": "Target Compressor Frequency"
+      },
+      "odu_voltage": {
+        "name": "Outdoor Unit Voltage"
+      },
+      "odu_comp_current": {
+        "name": "Compressor Current"
+      },
+      "exv_current": {
+        "name": "Electronic Expansion Valve Opening"
+      },
+      "fg_capacity_need": {
+        "name": "Capacity Demand"
+      },
+      "pressure_high": {
+        "name": "Refrigerant Pressure (High Side)"
+      },
+      "pressure_low": {
+        "name": "Refrigerant Pressure (Low Side)"
+      },
+      "temp_t1": {
+        "name": "Temperature Sensor T1"
+      },
+      "temp_t2": {
+        "name": "Plate Heat Exchanger Temperature (T2)"
+      },
+      "temp_t2b": {
+        "name": "Plate Heat Exchanger Outlet Temperature (T2B)"
+      },
+      "temp_t3": {
+        "name": "Outdoor Coil Temperature (T3)"
+      },
+      "temp_tp": {
+        "name": "Discharge Pipe Temperature (TP)"
+      },
+      "temp_th": {
+        "name": "Suction Temperature (TH)"
+      },
+      "temp_tf": {
+        "name": "Power Module Temperature (TF)"
       },
       "program": {
         "name": "Programma"
@@ -741,6 +842,26 @@
       "max_temperature": {
         "name": "Temperatura Obiettivo Massima"
       },
+      "max_temperature_upper_limit": {
+        "name": "Limite Superiore Temperatura Massima"
+      },
+      "max_temperature_lower_limit": {
+        "name": "Limite Inferiore Temperatura Massima"
+      },
+      "disinfection_temperature_upper_limit": {
+        "name": "Limite Superiore Temperatura Disinfezione"
+      },
+      "disinfection_temperature_lower_limit": {
+        "name": "Limite Inferiore Temperatura Disinfezione"
+      },
+      "dr_option": { "name": "Opzione Demand Response" },
+      "remaining_hot_water_max": { "name": "Acqua Calda Residua Massima" },
+      "force_e_heating_status": {
+        "name": "Stato Riscaldamento Elettrico Forzato"
+      },
+      "holiday_max": { "name": "Durata Massima Vacanza" },
+      "holiday_min": { "name": "Durata Minima Vacanza" },
+      "timer_step_gap": { "name": "Intervallo Timer" },
       "vacation_start_year": {
         "name": "Anno Inizio Vacanza"
       },
@@ -836,6 +957,7 @@
       "disinfect": {
         "name": "Disinfezione"
       },
+      "maintenance_reminder": { "name": "Promemoria Manutenzione" },
       "vacation_mode": {
         "name": "Modalità Vacanza"
       },
@@ -965,6 +1087,9 @@
       "self_clean": {
         "name": "Autopulizia"
       },
+      "ieco": {
+        "name": "iECO"
+      },
       "sound": {
         "name": "Suono"
       },
@@ -997,6 +1122,24 @@
       },
       "zone2_power": {
         "name": "Potenza Zona2"
+      },
+      "boiling": {
+        "name": "Bollire l’acqua"
+      },
+      "tea_bar_boil": {
+        "name": "Interruttore bollitura"
+      },
+      "tea_bar_child_lock": {
+        "name": "Blocco Bambini"
+      },
+      "keep_warm": {
+        "name": "Mantenimento in caldo"
+      },
+      "tea_bar_cooling": {
+        "name": "Raffreddamento"
+      },
+      "screen_off": {
+        "name": "Spegnimento schermo"
       }
     },
     "water_heater": {

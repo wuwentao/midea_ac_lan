@@ -2,7 +2,7 @@
 
 import json
 import logging
-from typing import Any, ClassVar, cast
+from typing import Any, ClassVar, cast, override
 
 from homeassistant.components.climate import (
     ATTR_HVAC_MODE,
@@ -23,6 +23,7 @@ from homeassistant.components.climate import (
     SWING_VERTICAL,
     ClimateEntity,
     ClimateEntityFeature,
+    HVACAction,
     HVACMode,
 )
 from homeassistant.config_entries import ConfigEntry
@@ -49,10 +50,12 @@ from midealan.devices.cc import DeviceAttributes as CCAttributes
 from midealan.devices.cc import MideaCCDevice
 from midealan.devices.cf import DeviceAttributes as CFAttributes
 from midealan.devices.cf import MideaCFDevice
+from midealan.devices.ed import DeviceAttributes as EDAttributes
+from midealan.devices.ed import MideaEDDevice
 from midealan.devices.fb import DeviceAttributes as FBAttributes
 from midealan.devices.fb import MideaFBDevice
 
-from .const import DEVICES, DOMAIN, FanSpeed
+from .const import DEVICES, DOMAIN, FanSpeed, supports_device
 from .midea_devices import MIDEA_DEVICES
 from .midea_entity import MideaEntity
 
@@ -81,13 +84,16 @@ async def async_setup_entry(
         | MideaCFClimate
         | MideaC3Climate
         | MideaFBClimate
+        | MideaEDTeaBarClimate
     ] = []
     for entity_key, config in cast(
         "dict",
         MIDEA_DEVICES[device.device_type]["entities"],
     ).items():
-        if config["type"] == Platform.CLIMATE and (
-            config.get("default") or entity_key in extra_switches
+        if (
+            config["type"] == Platform.CLIMATE
+            and supports_device(device.model, device.subtype, config)
+            and (config.get("default") or entity_key in extra_switches)
         ):
             if device.device_type == DeviceType.AC:
                 # add config_entry args to fix indoor_humidity error bug
@@ -100,6 +106,8 @@ async def async_setup_entry(
                 devs.append(MideaC3Climate(device, entity_key, config["zone"]))
             elif device.device_type == DeviceType.FB:
                 devs.append(MideaFBClimate(device, entity_key))
+            elif device.device_type == DeviceType.ED:
+                devs.append(MideaEDTeaBarClimate(device, entity_key))
     async_add_entities(devs)
 
 
@@ -248,6 +256,116 @@ class MideaClimate(MideaEntity, ClimateEntity):
 
     def update_state(self, status: Any) -> None:  # ruff:ignore[any-type, unused-method-argument]
         """Midea Climate update state."""
+        if not self.hass:
+            _LOGGER.warning(
+                "Climate update_state skipped for %s [%s]: HASS is None",
+                self.name,
+                type(self),
+            )
+            return
+        self.schedule_update_if_running()
+
+
+class MideaEDTeaBarClimate(MideaEntity, ClimateEntity):
+    """On/off heater and temperature control for the subtype-395 tea bar."""
+
+    _enable_turn_on_off_backwards_compatibility = False
+    _device: MideaEDDevice
+    _attr_hvac_modes: ClassVar[list[HVACMode]] = [HVACMode.OFF, HVACMode.HEAT]
+    _attr_max_temp = 100
+    _attr_min_temp = 40
+    _attr_target_temperature_step = PRECISION_WHOLE
+    _attr_temperature_unit = UnitOfTemperature.CELSIUS
+
+    @property
+    def supported_features(self) -> ClimateEntityFeature:
+        """Expose the official boil toggle and direct target control."""
+        return (
+            ClimateEntityFeature.TARGET_TEMPERATURE
+            | ClimateEntityFeature.TURN_ON
+            | ClimateEntityFeature.TURN_OFF
+        )
+
+    @property
+    def hvac_mode(self) -> HVACMode:
+        """Report heat only while the automatic fill-and-boil cycle is active."""
+        active = bool(
+            self._device.get_attribute(EDAttributes.boiling)
+            or self._device.get_attribute(EDAttributes.dispensing),
+        )
+        return HVACMode.HEAT if active else HVACMode.OFF
+
+    @property
+    def hvac_action(self) -> HVACAction:
+        """Distinguish idle from the automatic fill-and-boil cycle."""
+        active = bool(
+            self._device.get_attribute(EDAttributes.boiling)
+            or self._device.get_attribute(EDAttributes.dispensing),
+        )
+        return HVACAction.HEATING if active else HVACAction.OFF
+
+    @property
+    def current_temperature(self) -> float | None:
+        """Current kettle temperature."""
+        return cast(
+            "float | None",
+            self._device.get_attribute(EDAttributes.current_temperature),
+        )
+
+    @property
+    def target_temperature(self) -> float | None:
+        """Selected boil target temperature."""
+        return cast(
+            "float | None",
+            self._device.get_attribute(EDAttributes.target_temperature),
+        )
+
+    @property
+    def extra_state_attributes(self) -> dict[str, Any]:
+        """Expose only tea-bar states backed by the official protocol."""
+        return {
+            str(EDAttributes.heating): self._device.get_attribute(
+                EDAttributes.heating,
+            ),
+            str(EDAttributes.dispensing): self._device.get_attribute(
+                EDAttributes.dispensing,
+            ),
+            str(EDAttributes.keep_warm_remaining): self._device.get_attribute(
+                EDAttributes.keep_warm_remaining,
+            ),
+        }
+
+    def set_temperature(self, **kwargs: Any) -> None:  # ruff:ignore[any-type]
+        """Start boiling with the official selected-temperature command."""
+        if ATTR_TEMPERATURE not in kwargs:
+            return
+        self._device.set_attribute(
+            EDAttributes.boil_temperature,
+            float(kwargs[ATTR_TEMPERATURE]),
+        )
+
+    @override
+    def set_hvac_mode(self, hvac_mode: HVACMode) -> None:
+        """Use the official normal-boil command for heat and stop for off."""
+        if hvac_mode == HVACMode.HEAT:
+            self.turn_on()
+        elif hvac_mode == HVACMode.OFF:
+            self.turn_off()
+        else:
+            _LOGGER.warning("Ignoring unsupported tea bar HVAC mode: %s", hvac_mode)
+
+    @override
+    def turn_on(self) -> None:
+        """Start the official automatic fill-and-boil-to-100 cycle."""
+        self._device.set_attribute(EDAttributes.boiling, True)
+
+    @override
+    def turn_off(self) -> None:
+        """Stop the active cycle with the official heat-start off command."""
+        self._device.set_attribute(EDAttributes.boiling, False)
+
+    def update_state(self, status: Any) -> None:  # ruff:ignore[any-type, unused-method-argument]
+        """Schedule a Home Assistant state update."""
         if not self.hass:
             _LOGGER.warning(
                 "Climate update_state skipped for %s [%s]: HASS is None",
