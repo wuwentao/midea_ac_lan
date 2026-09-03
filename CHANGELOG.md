@@ -1,5 +1,17 @@
 # Changelog
 
+## [2026.9.0](https://github.com/wuwentao/midea_ac_lan/compare/v2026.8.0...v2026.9.0) (2026-09-03)
+
+
+### Features
+
+* **ac:** allow customizing fan_modes via JSON overrides ([#1020](https://github.com/wuwentao/midea_ac_lan/issues/1020)) ([0497823](https://github.com/wuwentao/midea_ac_lan/commit/0497823e6c8a3c3d7e7ecee47f6bd1d70bf2b456))
+* **ac:** support iECO query and set ([#1023](https://github.com/wuwentao/midea_ac_lan/issues/1023)) ([f012aa1](https://github.com/wuwentao/midea_ac_lan/commit/f012aa1529a79e2eb038393697b9398fd581df3b))
+* **bf:** expose full entity set and add sensor timer support ([#909](https://github.com/wuwentao/midea_ac_lan/issues/909)) ([ad27a5e](https://github.com/wuwentao/midea_ac_lan/commit/ad27a5efc923975e990f6e5b3fe1a9d95c16973e))
+* **c3:** expose outdoor-unit telemetry sensors for the heat pump ([#1019](https://github.com/wuwentao/midea_ac_lan/issues/1019)) ([007bf9d](https://github.com/wuwentao/midea_ac_lan/commit/007bf9de3ee1203831d93af5d14db24c7af88dd2))
+* **cd:** expose extended water heater controls ([#1017](https://github.com/wuwentao/midea_ac_lan/issues/1017)) ([c351304](https://github.com/wuwentao/midea_ac_lan/commit/c35130426bec0f790ad115c4915f26546d4dc836))
+* **ed:** support subtype 395 tea bar appliances ([#995](https://github.com/wuwentao/midea_ac_lan/issues/995)) ([a9db7e3](https://github.com/wuwentao/midea_ac_lan/commit/a9db7e323338a7f049dd493ed26dc953c94b7706))
+
 ## [2026.8.0](https://github.com/wuwentao/midea_ac_lan/compare/v0.7.1...v2026.8.0) (2026-08-12)
 
 
