@@ -64,7 +64,7 @@ them via customize (confirm the real values via the Midea app or remote):
   `["none"]` to remove the preset control entirely. Valid values: `none`,
   `comfort`, `eco`, `boost`, `sleep`, `away`.
 - `fan_modes` (list): restrict the fan modes shown. Valid values: `silent`,
-`low`, `medium`, `high`, `full`, `auto`.
+  `low`, `medium`, `high`, `full`, `auto`.
 
 Priority is customize > B5 capabilities > defaults. All keys are optional; omit
 them to use the auto-detected set.

@@ -645,7 +645,7 @@ class MideaACClimate(MideaClimate):
 
     @property
     def fan_modes(self) -> list[str] | None:
-        """fan_modes: B5 capabilities > default full set.
+        """fan_modes: customize > B5 capabilities > default full set.
 
         Read dynamically so capabilities decoded after the first refresh are
         reflected (they are not yet available when the entity is created).
@@ -658,7 +658,6 @@ class MideaACClimate(MideaClimate):
         """
         if self._customize_fan_modes is not None:
             return self._customize_fan_modes
-        
         caps = getattr(self._device, "capabilities", {})
         if not caps:
             return list(self._fan_speeds.keys())
