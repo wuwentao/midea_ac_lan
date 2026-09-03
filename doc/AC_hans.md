@@ -34,7 +34,7 @@
 { "min_temperature": 16, "max_temperature": 30 }
 ```
 
-- 能力（模式 / 摆风 / 预设）
+- 能力（模式 / 摆风 / 预设 / 风速）
 
   运行模式、风速、摆风和预设会根据设备的 B5 能力上报自动识别（例如仅制冷的移动空调
   只显示 `cool`/`dry`/`fan_only`、`low`/`high`/`auto` 风速，无摆风、无预设）。
@@ -46,13 +46,15 @@
 {
   "swing": false,
   "hvac_modes": ["off", "cool", "dry", "fan_only"],
-  "preset_modes": ["none"]
+  "preset_modes": ["none"],
+  "fan_modes": ["silent", "low", "medium", "high", "auto"]
 }
 ```
 
 - `swing`（布尔）：强制开启/关闭摆风控制。
 - `hvac_modes`（列表）：限制显示的模式，`off` 始终保留。可选值：`off`、`auto`、`cool`、`dry`、`heat`、`fan_only`。
 - `preset_modes`（列表）：限制预设，`none` 始终保留；用 `["none"]` 可完全移除预设控制。可选值：`none`、`comfort`、`eco`、`boost`、`sleep`、`away`。
+- `fan_modes`（列表）：限制显示的风速。可选值：`silent`、`low`、`medium`、`high`、`full`、`auto`。
 
 优先级为 自定义 > B5 能力 > 默认值。所有键均为可选；省略则使用自动识别的集合。
 

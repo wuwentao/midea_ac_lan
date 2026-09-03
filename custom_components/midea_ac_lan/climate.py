@@ -280,11 +280,10 @@ class MideaEDTeaBarClimate(MideaEntity, ClimateEntity):
     @property
     def supported_features(self) -> ClimateEntityFeature:
         """Expose the official boil toggle and direct target control."""
-        return (
-            ClimateEntityFeature.TARGET_TEMPERATURE
-            | ClimateEntityFeature.TURN_ON
-            | ClimateEntityFeature.TURN_OFF
-        )
+        features = ClimateEntityFeature.TARGET_TEMPERATURE
+        if (MAJOR_VERSION, MINOR_VERSION) >= (2024, 2):
+            features |= ClimateEntityFeature.TURN_OFF | ClimateEntityFeature.TURN_ON
+        return features
 
     @property
     def hvac_mode(self) -> HVACMode:
@@ -406,7 +405,7 @@ class MideaACClimate(MideaClimate):
         self._customize_swing: bool | None = None
         self._customize_hvac_modes: list[HVACMode] | None = None
         self._customize_preset_modes: list[str] | None = None
-        self._parse_capability_customize(config_entry)
+        self._customize_fan_modes: list[str] | None = None
         self._fan_speeds: dict[str, int] = {
             FAN_SILENT: 20,
             FAN_LOW: 40,
@@ -436,6 +435,7 @@ class MideaACClimate(MideaClimate):
             "sensors" in config_entry.options
             and "indoor_humidity" in config_entry.options["sensors"]
         )
+        self._parse_capability_customize(config_entry)
 
     def _parse_capability_customize(self, config_entry: ConfigEntry) -> None:
         """Parse the swing / hvac_modes customize overrides (highest priority).
@@ -484,6 +484,16 @@ class MideaACClimate(MideaClimate):
                 wanted_p.insert(0, PRESET_NONE)
             # honor even an empty / none-only list (user wants no presets)
             self._customize_preset_modes = wanted_p
+        fan_modes_override = params.get("fan_modes")
+        if isinstance(fan_modes_override, list):
+            valid_fans = list(self._fan_speeds.keys())
+            wanted_f: list[str] = []
+            for name in fan_modes_override:
+                fan = str(name)
+                if fan in valid_fans and fan not in wanted_f:
+                    wanted_f.append(fan)
+            if wanted_f:
+                self._customize_fan_modes = wanted_f
 
     def _capability_swing(self) -> bool:
         """Whether swing is available (customize > B5 capability > default).
@@ -615,20 +625,26 @@ class MideaACClimate(MideaClimate):
         """Midea AC Climate fan mode."""
         fan_speed = cast("int", self._device.get_attribute(ACAttributes.fan_speed))
         if fan_speed > FanSpeed.AUTO:
-            return str(FAN_AUTO)
-        if fan_speed > FanSpeed.FULL_SPEED:
-            return str(FAN_FULL_SPEED)
-        if fan_speed > FanSpeed.HIGH:
-            return str(FAN_HIGH)
-        if fan_speed > FanSpeed.MEDIUM:
-            return str(FAN_MEDIUM)
-        if fan_speed > FanSpeed.LOW:
-            return str(FAN_LOW)
-        return str(FAN_SILENT)
+            current_mode = str(FAN_AUTO)
+        elif fan_speed > FanSpeed.FULL_SPEED:
+            current_mode = str(FAN_FULL_SPEED)
+        elif fan_speed > FanSpeed.HIGH:
+            current_mode = str(FAN_HIGH)
+        elif fan_speed > FanSpeed.MEDIUM:
+            current_mode = str(FAN_MEDIUM)
+        elif fan_speed > FanSpeed.LOW:
+            current_mode = str(FAN_LOW)
+        else:
+            current_mode = str(FAN_SILENT)
+
+        valid_modes = self.fan_modes
+        if valid_modes and current_mode not in valid_modes:
+            return str(FAN_AUTO) if str(FAN_AUTO) in valid_modes else valid_modes[0]
+        return current_mode
 
     @property
     def fan_modes(self) -> list[str] | None:
-        """fan_modes: B5 capabilities > default full set.
+        """fan_modes: customize > B5 capabilities > default full set.
 
         Read dynamically so capabilities decoded after the first refresh are
         reflected (they are not yet available when the entity is created).
@@ -639,6 +655,8 @@ class MideaACClimate(MideaClimate):
         ``fan_custom`` to ``full`` alone collapsed the list to ``["full"]`` on
         such units (issue #904); short-circuit to the full set instead.
         """
+        if self._customize_fan_modes is not None:
+            return self._customize_fan_modes
         caps = getattr(self._device, "capabilities", {})
         if not caps:
             return list(self._fan_speeds.keys())
