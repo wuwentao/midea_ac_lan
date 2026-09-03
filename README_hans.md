@@ -24,12 +24,12 @@
 3. 如何获取设备的`.json`配置文件： 请参考[Debug调试和测试](doc/debug_hans.md#%E8%8E%B7%E5%8F%96%E8%AE%BE%E5%A4%87json%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6)
 4. 关闭原因： 美的设计v1局域网API时，认为客户端通讯已经加密，因此在加密通讯里面使用云端服务生成的token并未设置过期时间。但目前Github存在大量使用破解了客户端加密模式的HA插件，由于Token无法过期，存在安全隐患，因此美的会陆续关闭以上所有云端token API服务，逐步切换至新的v2云端控制API, 从而导致v1局域网控制API无法使用。
 
-## 2. 从[georgezhao2010/midea_ac_lan]迁移
+## 2. 从[georgezhao2010/midea_ac_lan](https://github.com/georgezhao2010/midea_ac_lan)迁移
 
 1. 删除旧的集成：[georgezhao2010/midea_ac_lan](https://github.com/georgezhao2010/midea_ac_lan)
 2. [安装当前集成](#5-安装midea_ac_lan), 重启HA
 3. 原有的设备不会被删除，应该仍然都存在，因此无需重新Discover搜索和重新添加设备
-4. 如果原有设备的实体开关、传感器消失，请通过 `设置 -> 设备与服务 -> Midea AC LAN -> 设备` ，在指定的设备下，点击 `选项`重新启用即可。
+4. 如果原有设备的实体开关、传感器消失，请通过 `设置 -> 设备与服务 -> Midea AC LAN -> 设备` ，在指定的设备下，点击 `配置`重新启用即可。
 5. 完成, 设备仍然像之前一样正常使用即可.
 
 ## 3. 已支持的品牌
@@ -107,8 +107,9 @@ wget -O - https://github.com/wuwentao/midea_ac_lan/raw/main/scripts/install.sh |
 ### 方式3: 手工安装
 
 > 1. 从[Latest Release](https://github.com/wuwentao/midea_ac_lan/releases/latest) 下载 `midea_ac_lan.zip`
-> 2. 复制 `midea_ac_lan.zip` 到 `/custom_components/midea_ac_lan`.
-> 3. **重启 Home Assistant**.
+> 2. 解压 `midea_ac_lan.zip`.
+> 3. 将解压后的文件复制到 Home Assistant 的 `/config/custom_components/midea_ac_lan` 中，确保 `manifest.json` 直接位于 `/config/custom_components/midea_ac_lan/` 下。
+> 4. **重启 Home Assistant**.
 
 重启完成后, 打开 `[Settings]`, `[Device & services]`, `[Integrations]`, `[Midea AC Lan]`, 进行初始化设置并添加所有设备.
 
@@ -120,7 +121,7 @@ wget -O - https://github.com/wuwentao/midea_ac_lan/raw/main/scripts/install.sh |
 
 或者直接点击 [![Configuration](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start?domain=midea_ac_lan)
 
-**_❗注意: 配置过程中, 会要求输入你的美居、SmartHome账号及密码, 因为需要去美的云服务器获取设备的信息 (Token and Key)。在完成所有设备配置后, 请备份Token文件供后续使用_**
+**_❗注意: 配置过程中, 会要求输入你的美居、SmartHome账号及密码, 因为需要去美的云服务器获取设备的信息 (Token and Key)。在完成所有设备配置后, 请备份每个v3设备的`.json`配置文件供后续使用。请参考[获取设备 JSON 配置文件](doc/debug_hans.md#4-获取设备-json-配置文件)_**
 
 完成美的账户登录之后, 点击'添加设备'进行设备添加。你可以多次重复操作以添加多台设备。
 
@@ -177,7 +178,7 @@ wget -O - https://github.com/wuwentao/midea_ac_lan/raw/main/scripts/install.sh |
 
 ### 7.3 额外的传感器及开关实体
 
-配置完成后, 可能会默认生成一个或几个主要实体(比如climate实体)。如果需要其它属性生成为扩展的传感器及开关实体, 在Midea AC LAN集成卡片上点击`选项`, 并选择要生成的传感器及开关(设备必须支持该功能)。
+配置完成后, 可能会默认生成一个或几个主要实体(比如climate实体)。如果需要其它属性生成为扩展的传感器及开关实体, 在Midea AC LAN集成卡片上点击`配置`, 并选择要生成的传感器及开关(设备必须支持该功能)。
 需要参考各个不同型号的设备文档来添加。
 
 ### 7.4 自定义

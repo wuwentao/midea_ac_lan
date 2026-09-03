@@ -109,8 +109,9 @@ wget -O - https://github.com/wuwentao/midea_ac_lan/raw/main/scripts/install.sh |
 ### Option 3: Manual Install
 
 1. Download `midea_ac_lan.zip` from [Latest Release](https://github.com/wuwentao/midea_ac_lan/releases/latest)
-2. Copy `midea_ac_lan.zip` to `/custom_components/midea_ac_lan` in Home Assistant.
-3. **Restart Home Assistant**.
+2. Extract `midea_ac_lan.zip`.
+3. Copy the extracted files into `/config/custom_components/midea_ac_lan` in Home Assistant, so `manifest.json` is directly under `/config/custom_components/midea_ac_lan/`.
+4. **Restart Home Assistant**.
 
 After restarting, open `[Settings]`, `[Device & services]`, `[Integrations]`, `[Midea AC Lan]` to finish the initial setup and add your appliances.
 
@@ -122,7 +123,7 @@ After installation, search for and add the `Midea AC LAN` integration from the H
 
 Or click [![Configuration](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start?domain=midea_ac_lan)
 
-**_❗Note: During the configuration process, you will be asked to enter your Meiju or SmartHome account and password because appliance information (Token and Key) must be retrieved from the Midea cloud server. After all appliances are configured, please back up the Token files for future use._**
+**_❗Note: During the configuration process, you will be asked to enter your Meiju or SmartHome account and password because appliance information (Token and Key) must be retrieved from the Midea cloud server. After all appliances are configured, please back up each v3 appliance `.json` configuration file for future use. See [Obtain Device JSON Configuration](doc/debug.md#4-obtain-device-json-configuration)._**
 
 After the Midea account login is complete, click 'ADD DEVICE' to add an appliance. You can repeat this process to add multiple appliances.
 
