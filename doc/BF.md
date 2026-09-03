@@ -36,7 +36,7 @@ No default entity
 | binary_sensor.{DEVICEID}\_water_change_reminder | binary_sensor | Water Change Reminder |
 | binary_sensor.{DEVICEID}\_door                  | binary_sensor | Door                  |
 | binary_sensor.{DEVICEID}\_water_shortage        | binary_sensor | Water shortage        |
-| binary_sensor.{DEVICEID}\_error                 | binary_sensor | Error                 |
+| binary_sensor.{DEVICEID}\_error                 | binary_sensor | Error Code            |
 | binary_sensor.{DEVICEID}\_flip_side             | binary_sensor | Flip Side Reminder    |
 | binary_sensor.{DEVICEID}\_reaction              | binary_sensor | Reaction              |
 | binary_sensor.{DEVICEID}\_high_temperature_lock | binary_sensor | High Temperature Lock |

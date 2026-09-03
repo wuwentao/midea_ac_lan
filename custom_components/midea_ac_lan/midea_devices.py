@@ -1408,8 +1408,8 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             BFAttributes.error: {
                 "type": Platform.BINARY_SENSOR,
-                "translation_key": "bf_error_code",
-                "name": "Error",
+                "translation_key": "error_code",
+                "name": "Error Code",
                 "icon": "mdi:alert",
                 "device_class": BinarySensorDeviceClass.PROBLEM,
             },
@@ -1613,8 +1613,8 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             BFAttributes.execute: {
                 "type": Platform.SENSOR,
-                "translation_key": "execute",
-                "name": "Execute",
+                "translation_key": "execute_status",
+                "name": "Execute Status",
                 "icon": "mdi:check-circle",
             },
         },

@@ -72,9 +72,6 @@
       "bathing_working": {
         "name": "Bathing Working Status"
       },
-      "bf_error_code": {
-        "name": "Fehler"
-      },
       "bottom_compartment_cooling": {
         "name": "Bodenfach Kühlung"
       },
@@ -668,8 +665,8 @@
       "estimated_water_consumption": {
         "name": "Geschätzter Wasserverbrauch"
       },
-      "execute": {
-        "name": "Ausführen",
+      "execute_status": {
+        "name": "Ausführungsstatus",
         "state": {
           "ok": "OK",
           "status_nonsupport": "Status nicht unterstützt",
@@ -783,62 +780,62 @@
         "name": "Außentemperatur"
       },
       "comp_run_freq": {
-        "name": "Compressor Frequency"
+        "name": "Verdichterfrequenz"
       },
       "outdoor_fan_speed": {
-        "name": "Outdoor Fan Speed"
+        "name": "Lüfterdrehzahl des Außengeräts"
       },
       "unit_mode_run": {
-        "name": "Unit Run Mode",
+        "name": "Betriebsmodus des Geräts",
         "state": {
-          "off": "Off",
+          "off": "Aus",
           "auto": "Auto",
-          "cool": "Cool",
-          "heat": "Heat",
-          "dhw": "DHW"
+          "cool": "Kühlen",
+          "heat": "Heizen",
+          "dhw": "Warmwasser"
         }
       },
       "odu_target_fre": {
-        "name": "Target Compressor Frequency"
+        "name": "Ziel-Verdichterfrequenz"
       },
       "odu_voltage": {
-        "name": "Outdoor Unit Voltage"
+        "name": "Spannung des Außengeräts"
       },
       "odu_comp_current": {
-        "name": "Compressor Current"
+        "name": "Verdichterstrom"
       },
       "exv_current": {
-        "name": "Electronic Expansion Valve Opening"
+        "name": "Öffnung des elektronischen Expansionsventils"
       },
       "fg_capacity_need": {
-        "name": "Capacity Demand"
+        "name": "Leistungsbedarf"
       },
       "pressure_high": {
-        "name": "Refrigerant Pressure (High Side)"
+        "name": "Kältemitteldruck (Hochdruckseite)"
       },
       "pressure_low": {
-        "name": "Refrigerant Pressure (Low Side)"
+        "name": "Kältemitteldruck (Niederdruckseite)"
       },
       "temp_t1": {
-        "name": "Temperature Sensor T1"
+        "name": "Temperatursensor T1"
       },
       "temp_t2": {
-        "name": "Plate Heat Exchanger Temperature (T2)"
+        "name": "Plattenwärmetauscher-Temperatur (T2)"
       },
       "temp_t2b": {
-        "name": "Plate Heat Exchanger Outlet Temperature (T2B)"
+        "name": "Austrittstemperatur des Plattenwärmetauschers (T2B)"
       },
       "temp_t3": {
-        "name": "Outdoor Coil Temperature (T3)"
+        "name": "Außenspulentemperatur (T3)"
       },
       "temp_tp": {
-        "name": "Discharge Pipe Temperature (TP)"
+        "name": "Druckrohrtemperatur (TP)"
       },
       "temp_th": {
-        "name": "Suction Temperature (TH)"
+        "name": "Ansaugtemperatur (TH)"
       },
       "temp_tf": {
-        "name": "Power Module Temperature (TF)"
+        "name": "Leistungsmodul-Temperatur (TF)"
       },
       "people_number": {
         "name": "Personenanzahl"

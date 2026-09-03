@@ -72,9 +72,6 @@
       "bathing_working": {
         "name": "Bathing Working Status"
       },
-      "bf_error_code": {
-        "name": "Hiba"
-      },
       "bottom_compartment_cooling": {
         "name": "Bottom Compartment Cooling"
       },
@@ -668,8 +665,8 @@
       "estimated_water_consumption": {
         "name": "Becsült vízfogyasztás"
       },
-      "execute": {
-        "name": "Végrehajtás",
+      "execute_status": {
+        "name": "Végrehajtási állapot",
         "state": {
           "ok": "OK",
           "status_nonsupport": "Állapot nem támogatott",
@@ -783,62 +780,62 @@
         "name": "Outdoor Temperature"
       },
       "comp_run_freq": {
-        "name": "Compressor Frequency"
+        "name": "Kompresszor frekvenciája"
       },
       "outdoor_fan_speed": {
-        "name": "Outdoor Fan Speed"
+        "name": "Kültéri ventilátor fordulatszáma"
       },
       "unit_mode_run": {
-        "name": "Unit Run Mode",
+        "name": "Egység üzemmódja",
         "state": {
-          "off": "Off",
-          "auto": "Auto",
-          "cool": "Cool",
-          "heat": "Heat",
-          "dhw": "DHW"
+          "off": "Ki",
+          "auto": "Automatikus",
+          "cool": "Hűtés",
+          "heat": "Fűtés",
+          "dhw": "HMV"
         }
       },
       "odu_target_fre": {
-        "name": "Target Compressor Frequency"
+        "name": "Cél kompresszorfrekvencia"
       },
       "odu_voltage": {
-        "name": "Outdoor Unit Voltage"
+        "name": "Kültéri egység feszültsége"
       },
       "odu_comp_current": {
-        "name": "Compressor Current"
+        "name": "Kompresszor áramerőssége"
       },
       "exv_current": {
-        "name": "Electronic Expansion Valve Opening"
+        "name": "Elektronikus expanziós szelep nyitása"
       },
       "fg_capacity_need": {
-        "name": "Capacity Demand"
+        "name": "Kapacitásigény"
       },
       "pressure_high": {
-        "name": "Refrigerant Pressure (High Side)"
+        "name": "Hűtőközeg nyomása (magas oldal)"
       },
       "pressure_low": {
-        "name": "Refrigerant Pressure (Low Side)"
+        "name": "Hűtőközeg nyomása (alacsony oldal)"
       },
       "temp_t1": {
-        "name": "Temperature Sensor T1"
+        "name": "T1 hőmérséklet-érzékelő"
       },
       "temp_t2": {
-        "name": "Plate Heat Exchanger Temperature (T2)"
+        "name": "Lemezes hőcserélő hőmérséklete (T2)"
       },
       "temp_t2b": {
-        "name": "Plate Heat Exchanger Outlet Temperature (T2B)"
+        "name": "Lemezes hőcserélő kimeneti hőmérséklete (T2B)"
       },
       "temp_t3": {
-        "name": "Outdoor Coil Temperature (T3)"
+        "name": "Kültéri hőcserélő hőmérséklete (T3)"
       },
       "temp_tp": {
-        "name": "Discharge Pipe Temperature (TP)"
+        "name": "Nyomócső hőmérséklete (TP)"
       },
       "temp_th": {
-        "name": "Suction Temperature (TH)"
+        "name": "Szívási hőmérséklet (TH)"
       },
       "temp_tf": {
-        "name": "Power Module Temperature (TF)"
+        "name": "Teljesítménymodul hőmérséklete (TF)"
       },
       "people_number": {
         "name": "Személyek száma"
