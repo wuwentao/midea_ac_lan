@@ -280,11 +280,10 @@ class MideaEDTeaBarClimate(MideaEntity, ClimateEntity):
     @property
     def supported_features(self) -> ClimateEntityFeature:
         """Expose the official boil toggle and direct target control."""
-        return (
-            ClimateEntityFeature.TARGET_TEMPERATURE
-            | ClimateEntityFeature.TURN_ON
-            | ClimateEntityFeature.TURN_OFF
-        )
+        features = ClimateEntityFeature.TARGET_TEMPERATURE
+        if (MAJOR_VERSION, MINOR_VERSION) >= (2024, 2):
+            features |= ClimateEntityFeature.TURN_OFF | ClimateEntityFeature.TURN_ON
+        return features
 
     @property
     def hvac_mode(self) -> HVACMode:
