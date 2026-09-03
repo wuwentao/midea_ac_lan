@@ -92,8 +92,15 @@ ADD_WAY = {
     "cache": "Remove login cache",
 }
 
+# Secondary preset account. Move this to the library side in the next release.
+PRESET_ACCOUNT2 = [
+    39182118275972017797890111985649342047468653967530949796945843010512,
+    29406100301096535908214728322278519471982973450672552249652548883645,
+    39182118275972017797890111985649342050088014265865102175083010656997,
+]
+
 # Select DEFAULT_CLOUD from the list of supported cloud
-DEFAULT_CLOUD: str = list(SUPPORTED_CLOUDS)[3]
+DEFAULT_CLOUD: str = list(SUPPORTED_CLOUDS)[1]
 
 STORAGE_PATH = f".storage/{DOMAIN}"
 
@@ -143,7 +150,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
         record_file = storage_path.joinpath(f"{data[CONF_DEVICE_ID]!s}.json")
         save_json(str(record_file), data)
 
-    def _load_device_config(self, device_id: int | str) -> Any:  # ruff:ignore[any-type]
+    def _load_device_config(self, device_id: int | str) -> dict[str, Any]:
         """Load device config from json file with device id.
 
         Returns
@@ -156,7 +163,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
         )
         if record_file.exists():
             with record_file.open(encoding="utf-8") as f:
-                return load_json(f.name, default={})
+                return cast("dict[str, Any]", load_json(f.name, default={}))
         return {}
 
     @staticmethod
@@ -642,11 +649,29 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                             error="can't get valid token from Midea server",
                         )
 
-                    # get key phase 2: reinit cloud with preset account
+                    # get key phase 2: reinit cloud with preset account1
                     if not await self._check_cloud_login(force_login=True):
-                        return await self.async_step_auto(
-                            error="Perset account login failed!",
+                        _LOGGER.debug(
+                            "preset account1 %s login failed in %s server",
+                            self.preset_account,
+                            self.preset_cloud_name,
                         )
+                        # Account1 login failed; retry with preset account2.
+                        account2 = bytes.fromhex(
+                            format((PRESET_ACCOUNT2[0] ^ PRESET_ACCOUNT2[1]), "X"),
+                        ).decode("ASCII")
+                        password2 = bytes.fromhex(
+                            format((PRESET_ACCOUNT2[0] ^ PRESET_ACCOUNT2[2]), "X"),
+                        ).decode("ASCII")
+                        if not await self._check_cloud_login(
+                            cloud_name=self.preset_cloud_name,
+                            account=account2,
+                            password=password2,
+                            force_login=True,
+                        ):
+                            return await self.async_step_auto(
+                                error="All Preset account login failed!",
+                            )
                     # try to get a passed key, without default_key
                     keys = await self._check_key_from_cloud(
                         device_id,
