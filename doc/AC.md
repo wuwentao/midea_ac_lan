@@ -95,7 +95,9 @@ entity may stay unavailable, unknown, or fail to update.
 The available run-modes, fan speeds, swing support and presets are detected
 automatically from the device's B5 capability report. A cooling-only portable
 AC, for example, then exposes only `cool`/`dry`/`fan_only`, the `low`/`high`/
-`auto` fan speeds, no swing, and no presets.
+`auto` fan speeds, no swing, and the `comfort`/`sleep` presets plus any
+B5-advertised presets. If no capability map has been decoded yet, the default
+behavior exposes all presets.
 
 Some capability details cannot be derived (older library, or features the
 protocol does not declare such as the `comfort` and `sleep` presets). You can
@@ -132,7 +134,7 @@ Default mode: `1`
 
 Supported values: `1` (binary), `2` (BCD), `3` (base/radix 100), `12` (BCD like
 `2`, but with an additional `/10` divider for the energy values), `101` (BCD
-energy values with binary realtime power).
+energy values with binary real-time power).
 
 ```json
 { "power_analysis_method": 2 }
