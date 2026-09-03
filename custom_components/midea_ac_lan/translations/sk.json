@@ -123,6 +123,13 @@
       "heating": {
         "name": "Heating"
       },
+      "dispensing": {
+        "name": "Výdaj vody"
+      },
+      "lack_water": { "name": "Nedostatok vody" },
+      "standby": { "name": "Pohotovostný režim" },
+      "hot_water_dispensing": { "name": "Výdaj horúcej vody" },
+      "fault": { "name": "Porucha" },
       "heating_working": {
         "name": "Heating Working Status"
       },
@@ -391,6 +398,12 @@
       },
       "water_hardness": {
         "name": "Tvrdosť vody"
+      },
+      "boil_temperature": {
+        "name": "Cieľová teplota varenia"
+      },
+      "keep_warm_time": {
+        "name": "Čas udržiavania teploty"
       }
     },
     "select": {
@@ -639,6 +652,7 @@
       "keep_warm_remaining": {
         "name": "Keep Warm Remaining"
       },
+      "fault_code": { "name": "Kód poruchy" },
       "keep_warm_time": {
         "name": "Keep Warm Time"
       },
@@ -1160,6 +1174,24 @@
       },
       "zone2_power": {
         "name": "Zone2 Power"
+      },
+      "boiling": {
+        "name": "Varenie vody"
+      },
+      "tea_bar_boil": {
+        "name": "Spínač varenia vody"
+      },
+      "tea_bar_child_lock": {
+        "name": "Child Lock"
+      },
+      "keep_warm": {
+        "name": "Udržiavanie teploty"
+      },
+      "tea_bar_cooling": {
+        "name": "Chladenie"
+      },
+      "screen_off": {
+        "name": "Vypnutie obrazovky"
       }
     },
     "water_heater": {

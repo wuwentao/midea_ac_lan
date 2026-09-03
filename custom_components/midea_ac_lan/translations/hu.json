@@ -123,6 +123,13 @@
       "heating": {
         "name": "Heating"
       },
+      "dispensing": {
+        "name": "Vízadagolás"
+      },
+      "lack_water": { "name": "Vízhiány" },
+      "standby": { "name": "Készenlét" },
+      "hot_water_dispensing": { "name": "Forróvíz-adagolás" },
+      "fault": { "name": "Hiba" },
       "heating_working": {
         "name": "Heating Working Status"
       },
@@ -391,6 +398,12 @@
       },
       "water_hardness": {
         "name": "Víz keménység"
+      },
+      "boil_temperature": {
+        "name": "Forralási célhőmérséklet"
+      },
+      "keep_warm_time": {
+        "name": "Melegen tartási idő"
       }
     },
     "select": {
@@ -639,6 +652,7 @@
       "keep_warm_remaining": {
         "name": "Keep Warm Remaining"
       },
+      "fault_code": { "name": "Hibakód" },
       "keep_warm_time": {
         "name": "Keep Warm Time"
       },
@@ -1160,6 +1174,24 @@
       },
       "zone2_power": {
         "name": "Zone2 Power"
+      },
+      "boiling": {
+        "name": "Vízforralás"
+      },
+      "tea_bar_boil": {
+        "name": "Vízforraló kapcsoló"
+      },
+      "tea_bar_child_lock": {
+        "name": "Child Lock"
+      },
+      "keep_warm": {
+        "name": "Melegen tartás"
+      },
+      "tea_bar_cooling": {
+        "name": "Hűtés"
+      },
+      "screen_off": {
+        "name": "Kijelző kikapcsolása"
       }
     },
     "water_heater": {

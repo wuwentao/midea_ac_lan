@@ -123,6 +123,13 @@
       "heating": {
         "name": "Calentando"
       },
+      "dispensing": {
+        "name": "Dispensando agua"
+      },
+      "lack_water": { "name": "Falta de agua" },
+      "standby": { "name": "En espera" },
+      "hot_water_dispensing": { "name": "Dispensando agua caliente" },
+      "fault": { "name": "Avería" },
       "heating_working": {
         "name": "Estado de funcionamiento de calefacción"
       },
@@ -391,6 +398,12 @@
       },
       "water_hardness": {
         "name": "Dureza del agua"
+      },
+      "boil_temperature": {
+        "name": "Temperatura objetivo de ebullición"
+      },
+      "keep_warm_time": {
+        "name": "Tiempo de conservación"
       }
     },
     "select": {
@@ -639,6 +652,7 @@
       "keep_warm_remaining": {
         "name": "Tiempo restante de mantener caliente"
       },
+      "fault_code": { "name": "Código de avería" },
       "keep_warm_time": {
         "name": "Tiempo de mantener caliente"
       },
@@ -1160,6 +1174,24 @@
       },
       "zone2_power": {
         "name": "Potencia Zona 2"
+      },
+      "boiling": {
+        "name": "Hervir agua"
+      },
+      "tea_bar_boil": {
+        "name": "Interruptor para hervir agua"
+      },
+      "tea_bar_child_lock": {
+        "name": "Bloqueo infantil"
+      },
+      "keep_warm": {
+        "name": "Mantener caliente"
+      },
+      "tea_bar_cooling": {
+        "name": "Refrigeración"
+      },
+      "screen_off": {
+        "name": "Pantalla apagada"
       }
     },
     "water_heater": {
