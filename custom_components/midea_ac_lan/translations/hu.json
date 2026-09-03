@@ -84,6 +84,12 @@
       "burning_state": {
         "name": "Burning State"
       },
+      "clean_scale": {
+        "name": "Vízkőmentesítés"
+      },
+      "clean_sink_ponding": {
+        "name": "Vízgyűjtő medence"
+      },
       "cleaning_reminder": {
         "name": "Cleaning Reminder"
       },
@@ -92,6 +98,12 @@
       },
       "cooking": {
         "name": "Cooking"
+      },
+      "dissipate_heat": {
+        "name": "Hőelvezetés"
+      },
+      "door": {
+        "name": "Ajtó"
       },
       "error_code": {
         "name": "Hibakód"
@@ -110,6 +122,9 @@
       },
       "flex_zone_door_overtime": {
         "name": "Flex Zone Door"
+      },
+      "flip_side": {
+        "name": "Megfordítás"
       },
       "freezer_door": {
         "name": "Freezer Door"
@@ -132,6 +147,15 @@
       "fault": { "name": "Hiba" },
       "heating_working": {
         "name": "Heating Working Status"
+      },
+      "high_temperature": {
+        "name": "Magas hőmérséklet"
+      },
+      "high_temperature_lock": {
+        "name": "Magas hőmérséklet zárolás"
+      },
+      "high_temperature_work": {
+        "name": "Magas hőmérséklet üzemmód"
       },
       "keep_warm": {
         "name": "Keep Warm"
@@ -169,8 +193,23 @@
       "oilcup_full": {
         "name": "Oil-cup Full"
       },
+      "ota": {
+        "name": "OTA"
+      },
+      "pre_heat": {
+        "name": "Előmelegítés"
+      },
+      "probe": {
+        "name": "Mérőpálca"
+      },
+      "probe_mode": {
+        "name": "Mérőpálca mód"
+      },
       "protection": {
         "name": "Protection"
+      },
+      "reaction": {
+        "name": "Reakció"
       },
       "refrigerator_door": {
         "name": "Refrigerator Door"
@@ -494,6 +533,25 @@
       "bathing_leaving_temperature": {
         "name": "Bathing Leaving Water Temperature"
       },
+      "bf_status": {
+        "name": "Állapot",
+        "state": {
+          "save_power": "Energiatakarékos",
+          "standby": "Készenlét",
+          "work": "Működik",
+          "work_finish": "Befejezett",
+          "order": "Késleltetés",
+          "pause": "Szünet",
+          "pause_c": "Szünet C",
+          "three": "Három",
+          "wait_to_start": "Várakozás indításra",
+          "self_inspection": "Önellenőrzés",
+          "query_version": "Verzió lekérdezés",
+          "demo": "Demó",
+          "after_checking": "Ellenőrzés után",
+          "unknown": "Ismeretlen"
+        }
+      },
       "bottom_compartment_remaining": {
         "name": "Bottom Compartment Remaining"
       },
@@ -509,11 +567,26 @@
       "bright": {
         "name": "Bright Level"
       },
+      "cbs_version": {
+        "name": "CBS verzió"
+      },
+      "cloudmenuid": {
+        "name": "Felhő menü ID"
+      },
       "compressor_temperature": {
         "name": "Compressor Temperature"
       },
       "condenser_temperature": {
         "name": "Condenser Temperature"
+      },
+      "cur_probe_temperature": {
+        "name": "Jelenlegi mérőpálca hőmérséklet"
+      },
+      "cur_temperature_above": {
+        "name": "Jelenlegi felső hőmérséklet"
+      },
+      "cur_temperature_underside": {
+        "name": "Jelenlegi alsó hőmérséklet"
       },
       "current_energy_consumption": {
         "name": "Current Energy Consumption"
@@ -592,6 +665,15 @@
       "estimated_water_consumption": {
         "name": "Becsült vízfogyasztás"
       },
+      "execute_status": {
+        "name": "Végrehajtási állapot",
+        "state": {
+          "ok": "OK",
+          "status_nonsupport": "Állapot nem támogatott",
+          "function_nonsupport": "Funkció nem támogatott",
+          "param_range_error": "Paramétertartomány hiba"
+        }
+      },
       "fan_level": {
         "name": "Fan level"
       },
@@ -615,6 +697,23 @@
       },
       "filter3_life": {
         "name": "Filter3 Life Level"
+      },
+      "fire_power": {
+        "name": "Tűzereje",
+        "state": {
+          "fire_power_0": "Szint 0",
+          "fire_power_1": "Szint 1",
+          "fire_power_2": "Szint 2",
+          "fire_power_3": "Szint 3",
+          "fire_power_4": "Szint 4",
+          "fire_power_5": "Szint 5",
+          "fire_power_6": "Szint 6",
+          "fire_power_7": "Szint 7",
+          "fire_power_8": "Szint 8",
+          "fire_power_9": "Szint 9",
+          "fire_power_10": "Szint 10",
+          "unknown": "Ismeretlen"
+        }
       },
       "flex_zone_actual_temp": {
         "name": "Flex Zone Actual Temperature"
@@ -668,6 +767,9 @@
       "middle_compartment_temperature": {
         "name": "Middle Compartment Temperature"
       },
+      "minute_set": {
+        "name": "Perc beállítása"
+      },
       "mode": {
         "name": "Mode"
       },
@@ -678,62 +780,68 @@
         "name": "Outdoor Temperature"
       },
       "comp_run_freq": {
-        "name": "Compressor Frequency"
+        "name": "Kompresszor frekvenciája"
       },
       "outdoor_fan_speed": {
-        "name": "Outdoor Fan Speed"
+        "name": "Kültéri ventilátor fordulatszáma"
       },
       "unit_mode_run": {
-        "name": "Unit Run Mode",
+        "name": "Egység üzemmódja",
         "state": {
-          "off": "Off",
-          "auto": "Auto",
-          "cool": "Cool",
-          "heat": "Heat",
-          "dhw": "DHW"
+          "off": "Ki",
+          "auto": "Automatikus",
+          "cool": "Hűtés",
+          "heat": "Fűtés",
+          "dhw": "HMV"
         }
       },
       "odu_target_fre": {
-        "name": "Target Compressor Frequency"
+        "name": "Cél kompresszorfrekvencia"
       },
       "odu_voltage": {
-        "name": "Outdoor Unit Voltage"
+        "name": "Kültéri egység feszültsége"
       },
       "odu_comp_current": {
-        "name": "Compressor Current"
+        "name": "Kompresszor áramerőssége"
       },
       "exv_current": {
-        "name": "Electronic Expansion Valve Opening"
+        "name": "Elektronikus expanziós szelep nyitása"
       },
       "fg_capacity_need": {
-        "name": "Capacity Demand"
+        "name": "Kapacitásigény"
       },
       "pressure_high": {
-        "name": "Refrigerant Pressure (High Side)"
+        "name": "Hűtőközeg nyomása (magas oldal)"
       },
       "pressure_low": {
-        "name": "Refrigerant Pressure (Low Side)"
+        "name": "Hűtőközeg nyomása (alacsony oldal)"
       },
       "temp_t1": {
-        "name": "Temperature Sensor T1"
+        "name": "T1 hőmérséklet-érzékelő"
       },
       "temp_t2": {
-        "name": "Plate Heat Exchanger Temperature (T2)"
+        "name": "Lemezes hőcserélő hőmérséklete (T2)"
       },
       "temp_t2b": {
-        "name": "Plate Heat Exchanger Outlet Temperature (T2B)"
+        "name": "Lemezes hőcserélő kimeneti hőmérséklete (T2B)"
       },
       "temp_t3": {
-        "name": "Outdoor Coil Temperature (T3)"
+        "name": "Kültéri hőcserélő hőmérséklete (T3)"
       },
       "temp_tp": {
-        "name": "Discharge Pipe Temperature (TP)"
+        "name": "Nyomócső hőmérséklete (TP)"
       },
       "temp_th": {
-        "name": "Suction Temperature (TH)"
+        "name": "Szívási hőmérséklet (TH)"
       },
       "temp_tf": {
-        "name": "Power Module Temperature (TF)"
+        "name": "Teljesítménymodul hőmérséklete (TF)"
+      },
+      "people_number": {
+        "name": "Személyek száma"
+      },
+      "probe_temperature": {
+        "name": "Mérőpálca hőmérséklet"
       },
       "program": {
         "name": "Program"
@@ -777,6 +885,9 @@
       "seat_temperature": {
         "name": "Seat Temperature"
       },
+      "second_set": {
+        "name": "Másodperc beállítása"
+      },
       "soak_time": {
         "name": "soak time"
       },
@@ -792,6 +903,12 @@
       "status": {
         "name": "Status"
       },
+      "steam_quantity": {
+        "name": "Gőz mennyisége"
+      },
+      "stepnum": {
+        "name": "Jelenlegi lépés"
+      },
       "storage_remaining": {
         "name": "Storage Remaining"
       },
@@ -803,6 +920,12 @@
       },
       "target_temperature": {
         "name": "Target Temperature"
+      },
+      "temperature_above": {
+        "name": "Felső hőmérséklet"
+      },
+      "temperature_underside": {
+        "name": "Alsó hőmérséklet"
       },
       "time_remaining": {
         "name": "Time Remaining"
@@ -824,6 +947,9 @@
       },
       "total_produced_energy": {
         "name": "Total produced energy"
+      },
+      "totalstep": {
+        "name": "Összes lépés"
       },
       "tvoc": {
         "name": "TVOC"
@@ -929,6 +1055,121 @@
       },
       "auto_sterilize_minute": {
         "name": "Automatikus sterilizálás perc"
+      },
+      "weight": {
+        "name": "Súly"
+      },
+      "work_mode": {
+        "name": "Munkamód",
+        "state": {
+          "microwave": "Mikrohullám",
+          "microwave_1": "Mikrohullám 1",
+          "microwave_2": "Mikrohullám 2",
+          "microwave_3": "Mikrohullám 3",
+          "microwave_4": "Mikrohullám 4",
+          "microwave_5": "Mikrohullám 5",
+          "microwave_steam_above_tube": "Mikrohullám Gőz Felső Cső",
+          "microwave_double_tube": "Mikrohullám Dupla Cső",
+          "microwave_hot_wind_tube_fan": "Mikrohullám Forró levegő Cső Ventilátor",
+          "microwave_underside_tube_hot_wind_tube_fan": "Mikrohullám Alsó Cső Forró levegő Ventilátor",
+          "microwave_double_tube_hot_wind_tube_fan": "Mikrohullám Dupla Cső Forró levegő Ventilátor",
+          "microwave_steam": "Mikrohullám Gőz",
+          "microwave_steam_1": "Mikrohullám Gőz 1",
+          "unfreeze": "Kiolvasztás",
+          "unfreeze_1": "Kiolvasztás 1",
+          "unfreeze_2": "Kiolvasztás 2",
+          "unfreeze_3": "Kiolvasztás 3",
+          "unfreeze_t": "Kiolvasztás T",
+          "microwave_above_tube": "Mikrohullám Felső Cső",
+          "microwave_above_tube_1": "Mikrohullám Felső Cső 1",
+          "microwave_above_tube_2": "Mikrohullám Felső Cső 2",
+          "microwave_above_tube_fan": "Mikrohullám Felső Cső Ventilátor",
+          "fast_unfreeze": "Gyors Kiolvasztás",
+          "fresh_unfreeze": "Friss Kiolvasztás",
+          "microwave_zymosis": "Mikrohullám Erjesztés",
+          "pure_steam": "Tiszta Gőz",
+          "pure_steam_1": "Tiszta Gőz 1",
+          "pure_steam_2": "Tiszta Gőz 2",
+          "pure_steam_3": "Tiszta Gőz 3",
+          "pure_steam_4": "Tiszta Gőz 4",
+          "pure_steam_5": "Tiszta Gőz 5",
+          "pure_steam_6": "Tiszta Gőz 6",
+          "pure_steam_7": "Tiszta Gőz 7",
+          "pure_steam_8": "Tiszta Gőz 8",
+          "pure_steam_9": "Tiszta Gőz 9",
+          "steam_above_tube": "Gőz Felső Cső",
+          "steam_underside_tube": "Gőz Alsó Cső",
+          "steam_double_tube": "Gőz Dupla Cső",
+          "steam_hot_wind_tube_fan": "Gőz Forró levegő Cső Ventilátor",
+          "steam_hot_wind_tube_fan_1": "Gőz Forró levegő Cső Ventilátor 1",
+          "steam_hot_wind_tube_fan_2": "Gőz Forró levegő Cső Ventilátor 2",
+          "steam_hot_wind_tube": "Gőz Forró levegő Cső",
+          "steam_double_tube_fan": "Gőz Dupla Cső Ventilátor",
+          "steam_above_inside_outside_tube_fan": "Gőz Felső Belső Külső Cső Ventilátor",
+          "steam_above_inside_tube_fan": "Gőz Felső Belső Cső Ventilátor",
+          "above_tube": "Felső Cső",
+          "underside_tube": "Alsó Cső",
+          "double_tube": "Dupla Cső",
+          "hot_wind_tube_fan": "Forró levegő Cső Ventilátor",
+          "pure_preheat": "Tiszta Előmelegítés",
+          "above_tube_hot_wind_tube_fan": "Felső Cső Forró levegő Ventilátor",
+          "underside_tube_hot_wind_tube_fan": "Alsó Cső Forró levegő Ventilátor",
+          "zymosis": "Erjesztés",
+          "double_tube_hot_wind_tube_fan": "Dupla Cső Forró levegő Ventilátor",
+          "above_tube_revolve": "Felső Cső Forgó",
+          "underside_tube_revolve": "Alsó Cső Forgó",
+          "double_tube_revolve": "Dupla Cső Forgó",
+          "hot_wind_tube_fan_revolve": "Forró levegő Cső Ventilátor Forgó",
+          "warm": "Melegen tartás",
+          "double_tube_fan": "Dupla Cső Ventilátor",
+          "double_tube_fan_1": "Dupla Cső Ventilátor 1",
+          "double_tube_fan_2": "Dupla Cső Ventilátor 2",
+          "double_tube_fan_3": "Dupla Cső Ventilátor 3",
+          "above_inside_tube_revolve": "Felső Belső Cső Forgó",
+          "above_inside_tube_fan": "Felső Belső Cső Ventilátor",
+          "above_inside_outside_tube_revolve": "Felső Belső Külső Cső Forgó",
+          "above_inside_outside_tube_fan": "Felső Belső Külső Cső Ventilátor",
+          "above_inside_underside_tube": "Felső Belső Alsó Cső",
+          "above_inside_underside_tube_1": "Felső Belső Alsó Cső 1",
+          "above_inside_underside_tube_fan": "Felső Belső Alsó Cső Ventilátor",
+          "above_inside_underside_tube_fan_1": "Felső Belső Alsó Cső Ventilátor 1",
+          "above_inside_tube": "Felső Belső Cső",
+          "above_inside_outside_tube": "Felső Belső Külső Cső",
+          "underside_tube_fan": "Alsó Cső Ventilátor",
+          "above_tube_fan": "Felső Cső Ventilátor",
+          "above_tube_fan_1": "Felső Cső Ventilátor 1",
+          "above_tube_fan_2": "Felső Cső Ventilátor 2",
+          "scale_clean": "Vízkőmentesítés",
+          "clean": "Tisztítás",
+          "remove_odor": "Szageltávolítás",
+          "remove_odor_2": "Szageltávolítás 2",
+          "high_temperature_clean": "Magas hőmérséklet Tisztítás",
+          "dining_utensils_clean": "Étkészlet Tisztítás",
+          "auto_menu": "Automata menü",
+          "eco": "Eco",
+          "above_tube_1": "Felső Cső 1",
+          "above_tube_2": "Felső Cső 2",
+          "above_tube_3": "Felső Cső 3",
+          "underside_tube_1": "Alsó Cső 1",
+          "underside_tube_2": "Alsó Cső 2",
+          "double_tube_1": "Dupla Cső 1",
+          "double_tube_2": "Dupla Cső 2",
+          "double_tube_3": "Dupla Cső 3",
+          "double_tube_4": "Dupla Cső 4",
+          "double_tube_5": "Dupla Cső 5",
+          "double_tube_6": "Dupla Cső 6",
+          "hot_wind_tube_fan_1": "Forró levegő Cső Ventilátor 1",
+          "hot_wind_tube_fan_2": "Forró levegő Cső Ventilátor 2",
+          "hot_wind_tube_fan_3": "Forró levegő Cső Ventilátor 3",
+          "hot_wind_tube_fan_4": "Forró levegő Cső Ventilátor 4",
+          "hot_wind_tube_fan_5": "Forró levegő Cső Ventilátor 5",
+          "double_tube_hot_wind_tube_fan_1": "Dupla Cső Forró levegő Ventilátor 1",
+          "double_tube_hot_wind_tube_fan_2": "Dupla Cső Forró levegő Ventilátor 2",
+          "double_tube_hot_wind_tube_fan_3": "Dupla Cső Forró levegő Ventilátor 3",
+          "double_tube_hot_wind_tube_fan_4": "Dupla Cső Forró levegő Ventilátor 4",
+          "double_tube_hot_wind_tube_fan_5": "Dupla Cső Forró levegő Ventilátor 5",
+          "unknown": "Ismeretlen"
+        }
       },
       "working_time": {
         "name": "Working Time"
@@ -1037,8 +1278,14 @@
       "frost_protect": {
         "name": "Frost Protect"
       },
+      "furnace_light": {
+        "name": "Kemence fény"
+      },
       "heating_power": {
         "name": "Heating Power"
+      },
+      "hot_wind": {
+        "name": "Forró levegő"
       },
       "indirect_wind": {
         "name": "Indirect Wind"
@@ -1078,6 +1325,9 @@
       },
       "regeneration": {
         "name": "Regenerálás"
+      },
+      "turntable": {
+        "name": "Forgótálca"
       },
       "water_pump": {
         "name": "Vízszivattyú"

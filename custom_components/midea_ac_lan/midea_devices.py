@@ -50,7 +50,9 @@ from midealan.devices.b1 import DeviceAttributes as B1Attributes
 from midealan.devices.b3 import DeviceAttributes as B3Attributes
 from midealan.devices.b4 import DeviceAttributes as B4Attributes
 from midealan.devices.b6 import DeviceAttributes as B6Attributes
+from midealan.devices.bf import WORK_MODE_MAP as BF_WORK_MODE_MAP
 from midealan.devices.bf import DeviceAttributes as BFAttributes
+from midealan.devices.bf import FirePower as BFFirePower
 from midealan.devices.c2 import DeviceAttributes as C2Attributes
 from midealan.devices.c3 import DeviceAttributes as C3Attributes
 from midealan.devices.ca import DeviceAttributes as CAAttributes
@@ -85,6 +87,9 @@ ED_TEA_BAR_SUBTYPES = [395]
 ED_TEA_BAR_MODELS = ["63000622"]
 ED_TEA_BAR_DEVICES = [(ED_TEA_BAR_MODELS[0], ED_TEA_BAR_SUBTYPES[0])]
 ED_SOFT_WATER_SUBTYPES = [703]
+BF_WORK_MODES = list(BF_WORK_MODE_MAP)
+BF_FIRE_POWERS = list(BFFirePower.__members__)
+BF_TEMPERATURES = list(range(251))
 
 # C3 outdoor-unit telemetry attributes. Referenced by string so the entity
 # table still imports on a midea-lan release that predates the parser support;
@@ -1303,6 +1308,76 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
     0xBF: {
         "name": "Microwave Steam Oven",
         "entities": {
+            # - Switches (controls) -
+            BFAttributes.power: {
+                "type": Platform.SWITCH,
+                "translation_key": "power",
+                "name": "Power",
+                "icon": "mdi:power",
+            },
+            BFAttributes.child_lock: {
+                "type": Platform.SWITCH,
+                "translation_key": "child_lock",
+                "name": "Child Lock",
+                "icon": "mdi:lock",
+            },
+            BFAttributes.furnace_light: {
+                "type": Platform.SWITCH,
+                "translation_key": "furnace_light",
+                "name": "Furnace Light",
+                "icon": "mdi:lightbulb",
+            },
+            BFAttributes.hot_wind: {
+                "type": Platform.SWITCH,
+                "translation_key": "hot_wind",
+                "name": "Hot Wind",
+                "icon": "mdi:fan",
+            },
+            BFAttributes.ramadan: {
+                "type": Platform.SWITCH,
+                "translation_key": "ramadan",
+                "name": "Ramadan",
+                "icon": "mdi:star-crescent",
+            },
+            BFAttributes.turntable: {
+                "type": Platform.SWITCH,
+                "translation_key": "turntable",
+                "name": "Turntable",
+                "icon": "mdi:rotate-3d-variant",
+            },
+            "work_mode_select": {
+                "type": Platform.SELECT,
+                "attribute": BFAttributes.work_mode,
+                "translation_key": "work_mode",
+                "name": "Work Mode",
+                "icon": "mdi:pot-steam",
+                "options": BF_WORK_MODES,
+            },
+            "fire_power_select": {
+                "type": Platform.SELECT,
+                "attribute": BFAttributes.fire_power,
+                "translation_key": "fire_power",
+                "name": "Fire Power",
+                "icon": "mdi:fire",
+                "options": BF_FIRE_POWERS,
+            },
+            "temperature_select": {
+                "type": Platform.SELECT,
+                "attribute": BFAttributes.temperature,
+                "translation_key": "temperature",
+                "name": "Target Temperature",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "options": BF_TEMPERATURES,
+                "option_type": "int",
+            },
+            BFAttributes.pre_heat: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "pre_heat",
+                "name": "Pre Heat",
+                "icon": "mdi:fire",
+            },
+            # Binary sensors (status)
             BFAttributes.tank_ejected: {
                 "type": Platform.BINARY_SENSOR,
                 "translation_key": "tank_ejected",
@@ -1319,6 +1394,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             BFAttributes.door: {
                 "type": Platform.BINARY_SENSOR,
+                "translation_key": "door",
                 "name": "Door",
                 "icon": "mdi:box-shadow",
                 "device_class": BinarySensorDeviceClass.DOOR,
@@ -1330,18 +1406,163 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "icon": "mdi:cup-water",
                 "device_class": BinarySensorDeviceClass.PROBLEM,
             },
+            BFAttributes.error: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "error_code",
+                "name": "Error Code",
+                "icon": "mdi:alert",
+                "device_class": BinarySensorDeviceClass.PROBLEM,
+            },
+            BFAttributes.flip_side: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "flip_side",
+                "name": "Flip Side",
+                "icon": "mdi:flip-horizontal",
+                "device_class": BinarySensorDeviceClass.RUNNING,
+            },
+            BFAttributes.reaction: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "reaction",
+                "name": "Reaction",
+                "icon": "mdi:bell-alert",
+                "device_class": BinarySensorDeviceClass.RUNNING,
+            },
+            BFAttributes.high_temperature_lock: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "high_temperature_lock",
+                "name": "High Temperature Lock",
+                "icon": "mdi:lock-alert",
+                "device_class": BinarySensorDeviceClass.LOCK,
+            },
+            BFAttributes.high_temperature_work: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "high_temperature_work",
+                "name": "High Temperature Work",
+                "icon": "mdi:thermometer-alert",
+                "device_class": BinarySensorDeviceClass.RUNNING,
+            },
+            BFAttributes.high_temperature: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "high_temperature",
+                "name": "High Temperature",
+                "icon": "mdi:thermometer",
+                "device_class": BinarySensorDeviceClass.HEAT,
+            },
+            BFAttributes.probe_mode: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "probe_mode",
+                "name": "Probe Mode",
+                "icon": "mdi:thermometer-probe",
+            },
+            BFAttributes.probe: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "probe",
+                "name": "Probe",
+                "icon": "mdi:thermometer-probe",
+            },
+            BFAttributes.clean_scale: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "clean_scale",
+                "name": "Clean Scale",
+                "icon": "mdi:shimmer",
+                "device_class": BinarySensorDeviceClass.RUNNING,
+            },
+            BFAttributes.clean_sink_ponding: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "clean_sink_ponding",
+                "name": "Clean Sink Ponding",
+                "icon": "mdi:water-alert",
+                "device_class": BinarySensorDeviceClass.PROBLEM,
+            },
+            BFAttributes.dissipate_heat: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "dissipate_heat",
+                "name": "Dissipate Heat",
+                "icon": "mdi:fan",
+                "device_class": BinarySensorDeviceClass.RUNNING,
+            },
+            # - Sensors (status/measurements) -
+            BFAttributes.status: {
+                "type": Platform.SENSOR,
+                "translation_key": "bf_status",
+                "name": "Status",
+                "icon": "mdi:information",
+            },
+            BFAttributes.work_mode: {
+                "type": Platform.SENSOR,
+                "translation_key": "work_mode",
+                "name": "Work Mode",
+                "icon": "mdi:pot-steam",
+            },
+            BFAttributes.fire_power: {
+                "type": Platform.SENSOR,
+                "translation_key": "fire_power",
+                "name": "Fire Power",
+                "icon": "mdi:fire",
+            },
             BFAttributes.current_temperature: {
                 "type": Platform.SENSOR,
+                "translation_key": "current_temperature",
                 "name": "Current Temperature",
                 "device_class": SensorDeviceClass.TEMPERATURE,
                 "unit": UnitOfTemperature.CELSIUS,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
-            BFAttributes.status: {
+            BFAttributes.temperature: {
                 "type": Platform.SENSOR,
-                "translation_key": "status",
-                "name": "Status",
-                "icon": "mdi:information",
+                "translation_key": "temperature",
+                "name": "Target Temperature",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            BFAttributes.temperature_above: {
+                "type": Platform.SENSOR,
+                "translation_key": "temperature_above",
+                "name": "Temperature Above",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            BFAttributes.temperature_underside: {
+                "type": Platform.SENSOR,
+                "translation_key": "temperature_underside",
+                "name": "Temperature Underside",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            BFAttributes.cur_temperature_above: {
+                "type": Platform.SENSOR,
+                "translation_key": "cur_temperature_above",
+                "name": "Current Temperature Above",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            BFAttributes.cur_temperature_underside: {
+                "type": Platform.SENSOR,
+                "translation_key": "cur_temperature_underside",
+                "name": "Current Temperature Underside",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            BFAttributes.probe_temperature: {
+                "type": Platform.SENSOR,
+                "translation_key": "probe_temperature",
+                "name": "Probe Temperature",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            BFAttributes.cur_probe_temperature: {
+                "type": Platform.SENSOR,
+                "translation_key": "cur_probe_temperature",
+                "name": "Current Probe Temperature",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
             },
             BFAttributes.time_remaining: {
                 "type": Platform.SENSOR,
@@ -1350,6 +1571,51 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "icon": "mdi:progress-clock",
                 "unit": UnitOfTime.SECONDS,
                 "state_class": SensorStateClass.MEASUREMENT,
+                "timer": "down",
+            },
+            BFAttributes.steam_quantity: {
+                "type": Platform.SENSOR,
+                "translation_key": "steam_quantity",
+                "name": "Steam Quantity",
+                "icon": "mdi:water",
+            },
+            BFAttributes.weight: {
+                "type": Platform.SENSOR,
+                "translation_key": "weight",
+                "name": "Weight",
+                "icon": "mdi:scale",
+                "unit": "g",
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            BFAttributes.people_number: {
+                "type": Platform.SENSOR,
+                "translation_key": "people_number",
+                "name": "People Number",
+                "icon": "mdi:account-group",
+            },
+            BFAttributes.totalstep: {
+                "type": Platform.SENSOR,
+                "translation_key": "totalstep",
+                "name": "Total Steps",
+                "icon": "mdi:format-list-numbered",
+            },
+            BFAttributes.stepnum: {
+                "type": Platform.SENSOR,
+                "translation_key": "stepnum",
+                "name": "Current Step",
+                "icon": "mdi:format-list-numbered",
+            },
+            BFAttributes.cloudmenuid: {
+                "type": Platform.SENSOR,
+                "translation_key": "cloudmenuid",
+                "name": "Cloud Menu ID",
+                "icon": "mdi:menu",
+            },
+            BFAttributes.execute: {
+                "type": Platform.SENSOR,
+                "translation_key": "execute_status",
+                "name": "Execute Status",
+                "icon": "mdi:check-circle",
             },
         },
     },

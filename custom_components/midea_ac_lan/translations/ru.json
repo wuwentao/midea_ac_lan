@@ -84,6 +84,12 @@
       "burning_state": {
         "name": "Burning State"
       },
+      "clean_scale": {
+        "name": "Очистка от накипи"
+      },
+      "clean_sink_ponding": {
+        "name": "Скопление воды в раковине"
+      },
       "cleaning_reminder": {
         "name": "Требуется очистка"
       },
@@ -92,6 +98,12 @@
       },
       "cooking": {
         "name": "Приготовление"
+      },
+      "dissipate_heat": {
+        "name": "Отвод тепла"
+      },
+      "door": {
+        "name": "Дверца"
       },
       "error_code": {
         "name": "Код ошибки"
@@ -110,6 +122,9 @@
       },
       "flex_zone_door_overtime": {
         "name": "Flex Zone Door"
+      },
+      "flip_side": {
+        "name": "Перевернуть"
       },
       "freezer_door": {
         "name": "Freezer Door"
@@ -132,6 +147,15 @@
       "fault": { "name": "Неисправность" },
       "heating_working": {
         "name": "Heating Working Status"
+      },
+      "high_temperature": {
+        "name": "Высокая температура"
+      },
+      "high_temperature_lock": {
+        "name": "Блокировка высокой температуры"
+      },
+      "high_temperature_work": {
+        "name": "Работа при высокой температуре"
       },
       "keep_warm": {
         "name": "Поддержание температуры"
@@ -169,8 +193,23 @@
       "oilcup_full": {
         "name": "Oil-cup Full"
       },
+      "ota": {
+        "name": "OTA"
+      },
+      "pre_heat": {
+        "name": "Предварительный нагрев"
+      },
+      "probe": {
+        "name": "Щуп"
+      },
+      "probe_mode": {
+        "name": "Режим щупа"
+      },
       "protection": {
         "name": "Защита"
+      },
+      "reaction": {
+        "name": "Реакция"
       },
       "refrigerator_door": {
         "name": "Refrigerator Door"
@@ -494,6 +533,25 @@
       "bathing_leaving_temperature": {
         "name": "Bathing Leaving Water Temperature"
       },
+      "bf_status": {
+        "name": "Статус",
+        "state": {
+          "save_power": "Энергосбережение",
+          "standby": "Ожидание",
+          "work": "Работает",
+          "work_finish": "Завершено",
+          "order": "Задержка",
+          "pause": "Пауза",
+          "pause_c": "Пауза C",
+          "three": "Три",
+          "wait_to_start": "Ожидание запуска",
+          "self_inspection": "Самодиагностика",
+          "query_version": "Запрос версии",
+          "demo": "Демо",
+          "after_checking": "После проверки",
+          "unknown": "Неизвестно"
+        }
+      },
       "bottom_compartment_remaining": {
         "name": "Bottom Compartment Remaining"
       },
@@ -509,11 +567,26 @@
       "bright": {
         "name": "Bright Level"
       },
+      "cbs_version": {
+        "name": "Версия CBS"
+      },
+      "cloudmenuid": {
+        "name": "ID облачного меню"
+      },
       "compressor_temperature": {
         "name": "Compressor Temperature"
       },
       "condenser_temperature": {
         "name": "Condenser Temperature"
+      },
+      "cur_probe_temperature": {
+        "name": "Текущая температура щупа"
+      },
+      "cur_temperature_above": {
+        "name": "Текущая верхняя температура"
+      },
+      "cur_temperature_underside": {
+        "name": "Текущая нижняя температура"
       },
       "current_energy_consumption": {
         "name": "Current Energy Consumption"
@@ -530,8 +603,61 @@
       "dehydration_time_value": {
         "name": "Dehydration time value"
       },
+      "execute_status": {
+        "name": "Статус выполнения",
+        "state": {
+          "ok": "OK",
+          "status_nonsupport": "Статус не поддерживается",
+          "function_nonsupport": "Функция не поддерживается",
+          "param_range_error": "Ошибка диапазона параметров"
+        }
+      },
+      "fire_power": {
+        "name": "Мощность нагрева",
+        "state": {
+          "fire_power_0": "Уровень 0",
+          "fire_power_1": "Уровень 1",
+          "fire_power_2": "Уровень 2",
+          "fire_power_3": "Уровень 3",
+          "fire_power_4": "Уровень 4",
+          "fire_power_5": "Уровень 5",
+          "fire_power_6": "Уровень 6",
+          "fire_power_7": "Уровень 7",
+          "fire_power_8": "Уровень 8",
+          "fire_power_9": "Уровень 9",
+          "fire_power_10": "Уровень 10",
+          "unknown": "Неизвестно"
+        }
+      },
+      "minute_set": {
+        "name": "Установка минуты"
+      },
+      "people_number": {
+        "name": "Количество человек"
+      },
+      "probe_temperature": {
+        "name": "Температура щупа"
+      },
+      "second_set": {
+        "name": "Установка секунды"
+      },
+      "steam_quantity": {
+        "name": "Количество пара"
+      },
+      "stepnum": {
+        "name": "Текущий шаг"
+      },
       "temperature": {
         "name": "Температура"
+      },
+      "temperature_above": {
+        "name": "Верхняя температура"
+      },
+      "temperature_underside": {
+        "name": "Нижняя температура"
+      },
+      "totalstep": {
+        "name": "Всего шагов"
       },
       "wash_time_value": {
         "name": "Wash time value"
@@ -930,6 +1056,121 @@
       "auto_sterilize_minute": {
         "name": "Минута автостерилизации"
       },
+      "weight": {
+        "name": "Вес"
+      },
+      "work_mode": {
+        "name": "Рабочий режим",
+        "state": {
+          "microwave": "Микроволны",
+          "microwave_1": "Микроволны 1",
+          "microwave_2": "Микроволны 2",
+          "microwave_3": "Микроволны 3",
+          "microwave_4": "Микроволны 4",
+          "microwave_5": "Микроволны 5",
+          "microwave_steam_above_tube": "Микроволны Пар Верхний Тэн",
+          "microwave_double_tube": "Микроволны Двойной Тэн",
+          "microwave_hot_wind_tube_fan": "Микроволны Горячий воздух Тэн Вентилятор",
+          "microwave_underside_tube_hot_wind_tube_fan": "Микроволны Нижний Тэн Горячий воздух Вентилятор",
+          "microwave_double_tube_hot_wind_tube_fan": "Микроволны Двойной Тэн Горячий воздух Вентилятор",
+          "microwave_steam": "Микроволны Пар",
+          "microwave_steam_1": "Микроволны Пар 1",
+          "unfreeze": "Разморозка",
+          "unfreeze_1": "Разморозка 1",
+          "unfreeze_2": "Разморозка 2",
+          "unfreeze_3": "Разморозка 3",
+          "unfreeze_t": "Разморозка T",
+          "microwave_above_tube": "Микроволны Верхний Тэн",
+          "microwave_above_tube_1": "Микроволны Верхний Тэн 1",
+          "microwave_above_tube_2": "Микроволны Верхний Тэн 2",
+          "microwave_above_tube_fan": "Микроволны Верхний Тэн Вентилятор",
+          "fast_unfreeze": "Быстрая разморозка",
+          "fresh_unfreeze": "Свежая разморозка",
+          "microwave_zymosis": "Микроволны Брожение",
+          "pure_steam": "Чистый Пар",
+          "pure_steam_1": "Чистый Пар 1",
+          "pure_steam_2": "Чистый Пар 2",
+          "pure_steam_3": "Чистый Пар 3",
+          "pure_steam_4": "Чистый Пар 4",
+          "pure_steam_5": "Чистый Пар 5",
+          "pure_steam_6": "Чистый Пар 6",
+          "pure_steam_7": "Чистый Пар 7",
+          "pure_steam_8": "Чистый Пар 8",
+          "pure_steam_9": "Чистый Пар 9",
+          "steam_above_tube": "Пар Верхний Тэн",
+          "steam_underside_tube": "Пар Нижний Тэн",
+          "steam_double_tube": "Пар Двойной Тэн",
+          "steam_hot_wind_tube_fan": "Пар Горячий воздух Тэн Вентилятор",
+          "steam_hot_wind_tube_fan_1": "Пар Горячий воздух Тэн Вентилятор 1",
+          "steam_hot_wind_tube_fan_2": "Пар Горячий воздух Тэн Вентилятор 2",
+          "steam_hot_wind_tube": "Пар Горячий воздух Тэн",
+          "steam_double_tube_fan": "Пар Двойной Тэн Вентилятор",
+          "steam_above_inside_outside_tube_fan": "Пар Верхний Внутренний Внешний Тэн Вентилятор",
+          "steam_above_inside_tube_fan": "Пар Верхний Внутренний Тэн Вентилятор",
+          "above_tube": "Верхний Тэн",
+          "underside_tube": "Нижний Тэн",
+          "double_tube": "Двойной Тэн",
+          "hot_wind_tube_fan": "Горячий воздух Тэн Вентилятор",
+          "pure_preheat": "Чистый Преднагрев",
+          "above_tube_hot_wind_tube_fan": "Верхний Тэн Горячий воздух Вентилятор",
+          "underside_tube_hot_wind_tube_fan": "Нижний Тэн Горячий воздух Вентилятор",
+          "zymosis": "Брожение",
+          "double_tube_hot_wind_tube_fan": "Двойной Тэн Горячий воздух Вентилятор",
+          "above_tube_revolve": "Верхний Тэн Вращение",
+          "underside_tube_revolve": "Нижний Тэн Вращение",
+          "double_tube_revolve": "Двойной Тэн Вращение",
+          "hot_wind_tube_fan_revolve": "Горячий воздух Тэн Вентилятор Вращение",
+          "warm": "Подогрев",
+          "double_tube_fan": "Двойной Тэн Вентилятор",
+          "double_tube_fan_1": "Двойной Тэн Вентилятор 1",
+          "double_tube_fan_2": "Двойной Тэн Вентилятор 2",
+          "double_tube_fan_3": "Двойной Тэн Вентилятор 3",
+          "above_inside_tube_revolve": "Верхний Внутренний Тэн Вращение",
+          "above_inside_tube_fan": "Верхний Внутренний Тэн Вентилятор",
+          "above_inside_outside_tube_revolve": "Верхний Внутренний Внешний Тэн Вращение",
+          "above_inside_outside_tube_fan": "Верхний Внутренний Внешний Тэн Вентилятор",
+          "above_inside_underside_tube": "Верхний Внутренний Нижний Тэн",
+          "above_inside_underside_tube_1": "Верхний Внутренний Нижний Тэн 1",
+          "above_inside_underside_tube_fan": "Верхний Внутренний Нижний Тэн Вентилятор",
+          "above_inside_underside_tube_fan_1": "Верхний Внутренний Нижний Тэн Вентилятор 1",
+          "above_inside_tube": "Верхний Внутренний Тэн",
+          "above_inside_outside_tube": "Верхний Внутренний Внешний Тэн",
+          "underside_tube_fan": "Нижний Тэн Вентилятор",
+          "above_tube_fan": "Верхний Тэн Вентилятор",
+          "above_tube_fan_1": "Верхний Тэн Вентилятор 1",
+          "above_tube_fan_2": "Верхний Тэн Вентилятор 2",
+          "scale_clean": "Удаление накипи",
+          "clean": "Очистка",
+          "remove_odor": "Удаление запаха",
+          "remove_odor_2": "Удаление запаха 2",
+          "high_temperature_clean": "Высокая температура Очистка",
+          "dining_utensils_clean": "Столовые приборы Очистка",
+          "auto_menu": "Автоменю",
+          "eco": "Эко",
+          "above_tube_1": "Верхний Тэн 1",
+          "above_tube_2": "Верхний Тэн 2",
+          "above_tube_3": "Верхний Тэн 3",
+          "underside_tube_1": "Нижний Тэн 1",
+          "underside_tube_2": "Нижний Тэн 2",
+          "double_tube_1": "Двойной Тэн 1",
+          "double_tube_2": "Двойной Тэн 2",
+          "double_tube_3": "Двойной Тэн 3",
+          "double_tube_4": "Двойной Тэн 4",
+          "double_tube_5": "Двойной Тэн 5",
+          "double_tube_6": "Двойной Тэн 6",
+          "hot_wind_tube_fan_1": "Горячий воздух Тэн Вентилятор 1",
+          "hot_wind_tube_fan_2": "Горячий воздух Тэн Вентилятор 2",
+          "hot_wind_tube_fan_3": "Горячий воздух Тэн Вентилятор 3",
+          "hot_wind_tube_fan_4": "Горячий воздух Тэн Вентилятор 4",
+          "hot_wind_tube_fan_5": "Горячий воздух Тэн Вентилятор 5",
+          "double_tube_hot_wind_tube_fan_1": "Двойной Тэн Горячий воздух Вентилятор 1",
+          "double_tube_hot_wind_tube_fan_2": "Двойной Тэн Горячий воздух Вентилятор 2",
+          "double_tube_hot_wind_tube_fan_3": "Двойной Тэн Горячий воздух Вентилятор 3",
+          "double_tube_hot_wind_tube_fan_4": "Двойной Тэн Горячий воздух Вентилятор 4",
+          "double_tube_hot_wind_tube_fan_5": "Двойной Тэн Горячий воздух Вентилятор 5",
+          "unknown": "Неизвестно"
+        }
+      },
       "working_time": {
         "name": "Время работы"
       },
@@ -1037,8 +1278,14 @@
       "frost_protect": {
         "name": "Защита от замерзания"
       },
+      "furnace_light": {
+        "name": "Свет духовки"
+      },
       "heating_power": {
         "name": "Нагреватель"
+      },
+      "hot_wind": {
+        "name": "Горячий воздух"
       },
       "indirect_wind": {
         "name": "Indirect Wind"
@@ -1078,6 +1325,9 @@
       },
       "regeneration": {
         "name": "Регенерация"
+      },
+      "turntable": {
+        "name": "Вращающийся поднос"
       },
       "water_pump": {
         "name": "Водяной насос"
