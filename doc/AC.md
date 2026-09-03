@@ -37,16 +37,71 @@ expected values via the Midea app or the remote control). Each value is optional
 { "min_temperature": 16, "max_temperature": 30 }
 ```
 
-### Capabilities (modes / swing / presets / fan modes)
+### Capabilities
+
+Capabilities are detected automatically from the device's B5 capability report
+when the device provides one. Customize can override that detected result in two
+ways: first by forcing a capability switch on/off, then by defining the values or
+ranges that Home Assistant should expose for some capability-backed controls.
+
+#### Capability switches
+
+Use the `capabilities` customize key to force-enable a feature that is missing
+from the B5 capability report, or to force-disable one that the device reports
+incorrectly. These values are merged into the `midea-lan` capability map and
+always override the device reply: priority is customize > B5 capabilities >
+defaults.
+
+```json
+{ "capabilities": { "self_clean": true, "rate_select": 2 } }
+```
+
+Use `true` or `false` for normal on/off capability flags. Use an integer where
+the capability carries a level/count instead of a boolean, such as
+`rate_select`; use `false` or `0` to disable it.
+
+Examples:
+
+```json
+{ "capabilities": { "self_clean": true } }
+```
+
+```json
+{ "capabilities": { "self_clean": false } }
+```
+
+```json
+{ "capabilities": { "rate_select": 2 } }
+```
+
+```json
+{ "capabilities": { "rate_select": false } }
+```
+
+```json
+{ "capabilities": { "error_code": true, "out_silent": true, "sound": true } }
+```
+
+```json
+{ "capabilities": { "error_code": false, "out_silent": false, "sound": false } }
+```
+
+Only enable a capability after confirming the feature exists in the Midea app or
+remote control. If the physical device does not support the feature, the related
+entity may stay unavailable, unknown, or fail to update.
+
+#### Capability values and ranges
 
 The available run-modes, fan speeds, swing support and presets are detected
 automatically from the device's B5 capability report. A cooling-only portable
 AC, for example, then exposes only `cool`/`dry`/`fan_only`, the `low`/`high`/
-`auto` fan speeds, no swing, and no presets.
+`auto` fan speeds, no swing, and the `comfort`/`sleep` presets plus any
+B5-advertised presets. If no capability map has been decoded yet, the default
+behavior exposes all presets.
 
-Some capabilities cannot be derived (older library, or features the protocol
-does not declare such as the `comfort` and `sleep` presets). You can override
-them via customize (confirm the real values via the Midea app or remote):
+Some capability details cannot be derived (older library, or features the
+protocol does not declare such as the `comfort` and `sleep` presets). You can
+define them via customize (confirm the real values via the Midea app or remote):
 
 ```json
 {
@@ -71,13 +126,15 @@ them to use the auto-detected set.
 
 ### Power consumption analysis method
 
-There are 5 different methods to decode the consumption of an AC, but we don’t know which is right for your device.
-If the power and/or energy consumption data looks incorrect, try another method and see if they are correct.
-The options are 1 (binary), 2 (BCD), 3 (base/radix 100),
-12 (BCD like #2, but with an additional /10 divider for the energy values),
-and 101 (BCD energy values with binary realtime power).
+There are 5 different methods to decode the consumption of an AC, but we don't
+know which is right for your device. If the power and/or energy consumption data
+looks incorrect, try another method.
 
-Default mode: 1
+Default mode: `1`
+
+Supported values: `1` (binary), `2` (BCD), `3` (base/radix 100), `12` (BCD like
+`2`, but with an additional `/10` divider for the energy values), `101` (BCD
+energy values with binary real-time power).
 
 ```json
 { "power_analysis_method": 2 }
