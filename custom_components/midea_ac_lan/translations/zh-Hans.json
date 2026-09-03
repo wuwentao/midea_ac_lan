@@ -84,6 +84,12 @@
       "burning_state": {
         "name": "燃烧状态"
       },
+      "clean_scale": {
+        "name": "除垢"
+      },
+      "clean_sink_ponding": {
+        "name": "水槽积水"
+      },
       "cleaning_reminder": {
         "name": "清洁提示"
       },
@@ -92,6 +98,12 @@
       },
       "cooking": {
         "name": "烹饪中"
+      },
+      "dissipate_heat": {
+        "name": "散热"
+      },
+      "door": {
+        "name": "门"
       },
       "error_code": {
         "name": "错误代码"
@@ -110,6 +122,9 @@
       },
       "flex_zone_door_overtime": {
         "name": "变温区门超时"
+      },
+      "flip_side": {
+        "name": "翻面提醒"
       },
       "freezer_door": {
         "name": "冷冻室门状态"
@@ -140,6 +155,15 @@
       },
       "heating_working": {
         "name": "取暖工作状态"
+      },
+      "high_temperature": {
+        "name": "高温"
+      },
+      "high_temperature_lock": {
+        "name": "高温锁"
+      },
+      "high_temperature_work": {
+        "name": "高温工作"
       },
       "keep_warm": {
         "name": "保温"
@@ -177,8 +201,20 @@
       "oilcup_full": {
         "name": "油杯满提示"
       },
+      "pre_heat": {
+        "name": "预热"
+      },
+      "probe": {
+        "name": "探针"
+      },
+      "probe_mode": {
+        "name": "探针模式"
+      },
       "protection": {
         "name": "安全防护"
+      },
+      "reaction": {
+        "name": "反应"
       },
       "refrigerator_door": {
         "name": "冷藏室门状态"
@@ -502,6 +538,25 @@
       "bathing_leaving_temperature": {
         "name": "淋浴出水温度"
       },
+      "bf_status": {
+        "name": "状态",
+        "state": {
+          "save_power": "省电",
+          "standby": "待机",
+          "work": "工作中",
+          "work_finish": "已完成",
+          "order": "预约",
+          "pause": "暂停",
+          "pause_c": "暂停 C",
+          "three": "三",
+          "wait_to_start": "等待启动",
+          "self_inspection": "自检",
+          "query_version": "查询版本",
+          "demo": "演示",
+          "after_checking": "检查后",
+          "unknown": "未知"
+        }
+      },
       "bottom_compartment_remaining": {
         "name": "下层剩余时间"
       },
@@ -517,11 +572,23 @@
       "bright": {
         "name": "亮碟剂档位"
       },
+      "cloudmenuid": {
+        "name": "云菜单 ID"
+      },
       "compressor_temperature": {
         "name": "压缩机温度"
       },
       "condenser_temperature": {
         "name": "冷凝器温度"
+      },
+      "cur_probe_temperature": {
+        "name": "当前探针温度"
+      },
+      "cur_temperature_above": {
+        "name": "当前上管温度"
+      },
+      "cur_temperature_underside": {
+        "name": "当前下管温度"
       },
       "current_energy_consumption": {
         "name": "当前能耗"
@@ -538,8 +605,61 @@
       "dehydration_time_value": {
         "name": "脱水时间值"
       },
+      "execute_status": {
+        "name": "执行状态",
+        "state": {
+          "ok": "正常",
+          "status_nonsupport": "不支持该状态",
+          "function_nonsupport": "不支持该功能",
+          "param_range_error": "参数范围错误"
+        }
+      },
+      "fire_power": {
+        "name": "火力",
+        "state": {
+          "fire_power_0": "0 档",
+          "fire_power_1": "1 档",
+          "fire_power_2": "2 档",
+          "fire_power_3": "3 档",
+          "fire_power_4": "4 档",
+          "fire_power_5": "5 档",
+          "fire_power_6": "6 档",
+          "fire_power_7": "7 档",
+          "fire_power_8": "8 档",
+          "fire_power_9": "9 档",
+          "fire_power_10": "10 档",
+          "unknown": "未知"
+        }
+      },
+      "minute_set": {
+        "name": "分钟设置"
+      },
+      "people_number": {
+        "name": "人数"
+      },
+      "probe_temperature": {
+        "name": "探针温度"
+      },
+      "second_set": {
+        "name": "秒钟设置"
+      },
+      "steam_quantity": {
+        "name": "蒸汽量"
+      },
+      "stepnum": {
+        "name": "当前步数"
+      },
       "temperature": {
         "name": "目标温度"
+      },
+      "temperature_above": {
+        "name": "上管温度"
+      },
+      "temperature_underside": {
+        "name": "下管温度"
+      },
+      "totalstep": {
+        "name": "总步数"
       },
       "wash_time_value": {
         "name": "洗涤时间值"
@@ -940,6 +1060,121 @@
       "auto_sterilize_minute": {
         "name": "自动杀菌分钟"
       },
+      "weight": {
+        "name": "重量"
+      },
+      "work_mode": {
+        "name": "工作模式",
+        "state": {
+          "microwave": "微波",
+          "microwave_1": "微波 1",
+          "microwave_2": "微波 2",
+          "microwave_3": "微波 3",
+          "microwave_4": "微波 4",
+          "microwave_5": "微波 5",
+          "microwave_steam_above_tube": "微波蒸汽上管",
+          "microwave_double_tube": "微波双管",
+          "microwave_hot_wind_tube_fan": "微波热风管风扇",
+          "microwave_underside_tube_hot_wind_tube_fan": "微波下管热风风扇",
+          "microwave_double_tube_hot_wind_tube_fan": "微波双管热风风扇",
+          "microwave_steam": "微波蒸汽",
+          "microwave_steam_1": "微波蒸汽 1",
+          "unfreeze": "解冻",
+          "unfreeze_1": "解冻 1",
+          "unfreeze_2": "解冻 2",
+          "unfreeze_3": "解冻 3",
+          "unfreeze_t": "解冻 T",
+          "microwave_above_tube": "微波上管",
+          "microwave_above_tube_1": "微波上管 1",
+          "microwave_above_tube_2": "微波上管 2",
+          "microwave_above_tube_fan": "微波上管风扇",
+          "fast_unfreeze": "快速解冻",
+          "fresh_unfreeze": "生鲜解冻",
+          "microwave_zymosis": "微波发酵",
+          "pure_steam": "纯蒸",
+          "pure_steam_1": "纯蒸 1",
+          "pure_steam_2": "纯蒸 2",
+          "pure_steam_3": "纯蒸 3",
+          "pure_steam_4": "纯蒸 4",
+          "pure_steam_5": "纯蒸 5",
+          "pure_steam_6": "纯蒸 6",
+          "pure_steam_7": "纯蒸 7",
+          "pure_steam_8": "纯蒸 8",
+          "pure_steam_9": "纯蒸 9",
+          "steam_above_tube": "蒸汽上管",
+          "steam_underside_tube": "蒸汽下管",
+          "steam_double_tube": "蒸汽双管",
+          "steam_hot_wind_tube_fan": "蒸汽热风管风扇",
+          "steam_hot_wind_tube_fan_1": "蒸汽热风管风扇 1",
+          "steam_hot_wind_tube_fan_2": "蒸汽热风管风扇 2",
+          "steam_hot_wind_tube": "蒸汽热风管",
+          "steam_double_tube_fan": "蒸汽双管风扇",
+          "steam_above_inside_outside_tube_fan": "蒸汽上内外管风扇",
+          "steam_above_inside_tube_fan": "蒸汽上内管风扇",
+          "above_tube": "上管",
+          "underside_tube": "下管",
+          "double_tube": "双管",
+          "hot_wind_tube_fan": "热风管风扇",
+          "pure_preheat": "纯预热",
+          "above_tube_hot_wind_tube_fan": "上管热风风扇",
+          "underside_tube_hot_wind_tube_fan": "下管热风风扇",
+          "zymosis": "发酵",
+          "double_tube_hot_wind_tube_fan": "双管热风风扇",
+          "above_tube_revolve": "上管旋转",
+          "underside_tube_revolve": "下管旋转",
+          "double_tube_revolve": "双管旋转",
+          "hot_wind_tube_fan_revolve": "热风管风扇旋转",
+          "warm": "保温",
+          "double_tube_fan": "双管风扇",
+          "double_tube_fan_1": "双管风扇 1",
+          "double_tube_fan_2": "双管风扇 2",
+          "double_tube_fan_3": "双管风扇 3",
+          "above_inside_tube_revolve": "上内管旋转",
+          "above_inside_tube_fan": "上内管风扇",
+          "above_inside_outside_tube_revolve": "上内外管旋转",
+          "above_inside_outside_tube_fan": "上内外管风扇",
+          "above_inside_underside_tube": "上内下管",
+          "above_inside_underside_tube_1": "上内下管 1",
+          "above_inside_underside_tube_fan": "上内下管风扇",
+          "above_inside_underside_tube_fan_1": "上内下管风扇 1",
+          "above_inside_tube": "上内管",
+          "above_inside_outside_tube": "上内外管",
+          "underside_tube_fan": "下管风扇",
+          "above_tube_fan": "上管风扇",
+          "above_tube_fan_1": "上管风扇 1",
+          "above_tube_fan_2": "上管风扇 2",
+          "scale_clean": "除垢",
+          "clean": "清洁",
+          "remove_odor": "除味",
+          "remove_odor_2": "除味 2",
+          "high_temperature_clean": "高温清洁",
+          "dining_utensils_clean": "餐具清洁",
+          "auto_menu": "自动菜单",
+          "eco": "节能",
+          "above_tube_1": "上管 1",
+          "above_tube_2": "上管 2",
+          "above_tube_3": "上管 3",
+          "underside_tube_1": "下管 1",
+          "underside_tube_2": "下管 2",
+          "double_tube_1": "双管 1",
+          "double_tube_2": "双管 2",
+          "double_tube_3": "双管 3",
+          "double_tube_4": "双管 4",
+          "double_tube_5": "双管 5",
+          "double_tube_6": "双管 6",
+          "hot_wind_tube_fan_1": "热风管风扇 1",
+          "hot_wind_tube_fan_2": "热风管风扇 2",
+          "hot_wind_tube_fan_3": "热风管风扇 3",
+          "hot_wind_tube_fan_4": "热风管风扇 4",
+          "hot_wind_tube_fan_5": "热风管风扇 5",
+          "double_tube_hot_wind_tube_fan_1": "双管热风风扇 1",
+          "double_tube_hot_wind_tube_fan_2": "双管热风风扇 2",
+          "double_tube_hot_wind_tube_fan_3": "双管热风风扇 3",
+          "double_tube_hot_wind_tube_fan_4": "双管热风风扇 4",
+          "double_tube_hot_wind_tube_fan_5": "双管热风风扇 5",
+          "unknown": "未知"
+        }
+      },
       "working_time": {
         "name": "工作时间"
       },
@@ -1047,8 +1282,17 @@
       "frost_protect": {
         "name": "防霜冻"
       },
+      "furnace_light": {
+        "name": "炉灯"
+      },
       "heating_power": {
         "name": "加热"
+      },
+      "hot_wind": {
+        "name": "热风"
+      },
+      "ramadan": {
+        "name": "斋月模式"
       },
       "indirect_wind": {
         "name": "防直吹"
@@ -1088,6 +1332,9 @@
       },
       "regeneration": {
         "name": "再生"
+      },
+      "turntable": {
+        "name": "转盘"
       },
       "water_pump": {
         "name": "水泵"
