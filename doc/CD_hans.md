@@ -2,6 +2,10 @@
 
 ## 自定义
 
+扩展 CD 热水器可根据设备上报的能力提供即时/自动消毒、消毒温度、最高温度、
+维护提醒、定时器/周计划、Demand Response、热回收及可选运行模式。未上报的属性
+不会出现在集成的可选实体列表中，因此旧设备继续保持原有行为。
+
 - 支持温度设定
 
 设置温度调整步长 (默认为1).
@@ -61,6 +65,38 @@
 | sensor.{DEVICEID}\_error_code               | sensor        | Error Code             | 错误代码   |
 | sensor.{DEVICEID}\_typeinfo                 | sensor        | Type Info              | 类型信息   |
 | switch.{DEVICEID}\_power                    | switch        | Power                  | 电源       |
+
+### 扩展 CD 实体
+
+仅当设备上报对应属性时，以下实体才会出现在可选实体中。`Schedule Mode` 的值
+`0` 表示关闭，`1` 表示每日定时器，`2` 表示周计划。
+
+| EntityID                                                | 类型          | 名称               |
+| ------------------------------------------------------- | ------------- | ------------------ |
+| switch.{DEVICEID}\_disinfect                            | switch        | 即时消毒           |
+| number.{DEVICEID}\_schedule_mode                        | number        | 关闭/每日/每周计划 |
+| sensor.{DEVICEID}\_max_temperature_upper_limit          | sensor        | 最高温度上限       |
+| sensor.{DEVICEID}\_max_temperature_lower_limit          | sensor        | 最高温度下限       |
+| sensor.{DEVICEID}\_disinfection_temperature_upper_limit | sensor        | 消毒温度上限       |
+| sensor.{DEVICEID}\_disinfection_temperature_lower_limit | sensor        | 消毒温度下限       |
+| binary_sensor.{DEVICEID}\_dr_enable                     | binary_sensor | 需求响应已启用     |
+| sensor.{DEVICEID}\_dr_option                            | sensor        | 需求响应选项       |
+| binary_sensor.{DEVICEID}\_electric_rod_exception        | binary_sensor | 电加热故障         |
+| sensor.{DEVICEID}\_remaining_hot_water_max              | sensor        | 最大剩余热水量     |
+| sensor.{DEVICEID}\_force_e_heating_status               | sensor        | 强制电加热状态     |
+| binary_sensor.{DEVICEID}\_ac_heater_priority            | binary_sensor | 热泵优先           |
+| binary_sensor.{DEVICEID}\_high_temp_reminder            | binary_sensor | 高温提醒           |
+| binary_sensor.{DEVICEID}\_new_version_water_heater      | binary_sensor | 扩展协议状态       |
+| sensor.{DEVICEID}\_holiday_max                          | sensor        | 最大假日时长       |
+| sensor.{DEVICEID}\_holiday_min                          | sensor        | 最小假日时长       |
+| sensor.{DEVICEID}\_timer_step_gap                       | sensor        | 定时步长           |
+| binary_sensor.{DEVICEID}\_heat_recovery_status          | binary_sensor | 热回收状态         |
+| binary_sensor.{DEVICEID}\_holiday_mode                  | binary_sensor | 假日模式状态       |
+| binary_sensor.{DEVICEID}\_hybrid_motion_mode            | binary_sensor | 混合运动模式状态   |
+
+温度上下限、假期范围、定时步长以及所有 capability 标志也会作为可选诊断实体提供。
+每日和每周计划是结构化映射。目前无法通过 `midea_ac_lan.set_attribute`
+服务写入，因为该服务架构只接受标量值。
 
 ## 服务
 

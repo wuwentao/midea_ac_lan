@@ -19,6 +19,14 @@ No default entity
 | switch.{DEVICEID}\_ramadan       | switch | Ramadan       |
 | switch.{DEVICEID}\_turntable     | switch | Turntable     |
 
+#### Selects
+
+| EntityID                              | Class  | Description        | Options                                       |
+| ------------------------------------- | ------ | ------------------ | --------------------------------------------- |
+| select.{DEVICEID}\_work_mode_select   | select | Work Mode          | BF work mode names from midea-lan             |
+| select.{DEVICEID}\_fire_power_select  | select | Fire Power         | fire_power_0 through fire_power_10            |
+| select.{DEVICEID}\_temperature_select | select | Target Temperature | Integer temperature values from 0 through 250 |
+
 #### Binary sensors
 
 | EntityID                                        | Class         | Description           |

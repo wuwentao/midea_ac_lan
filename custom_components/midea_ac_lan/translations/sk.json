@@ -141,6 +141,13 @@
       "heating": {
         "name": "Heating"
       },
+      "dispensing": {
+        "name": "Výdaj vody"
+      },
+      "lack_water": { "name": "Nedostatok vody" },
+      "standby": { "name": "Pohotovostný režim" },
+      "hot_water_dispensing": { "name": "Výdaj horúcej vody" },
+      "fault": { "name": "Porucha" },
       "heating_working": {
         "name": "Heating Working Status"
       },
@@ -233,6 +240,66 @@
       },
       "maintenance_reminder": {
         "name": "Pripomienka údržby"
+      },
+      "dr_enable": {
+        "name": "Odozva na dopyt"
+      },
+      "electric_rod_exception": {
+        "name": "Porucha elektrického výhrevného telesa"
+      },
+      "ac_heater_priority": {
+        "name": "Priorita tepelného čerpadla"
+      },
+      "high_temp_reminder": {
+        "name": "Pripomienka vysokej teploty"
+      },
+      "new_version_water_heater": {
+        "name": "Rozšírený protokol ohrievača vody"
+      },
+      "heat_recovery_status": {
+        "name": "Rekuperácia tepla"
+      },
+      "holiday_mode": {
+        "name": "Režim dovolenky"
+      },
+      "hybrid_motion_mode": {
+        "name": "Hybridný pohybový režim"
+      },
+      "support_boost_mode": {
+        "name": "Podpora režimu Boost"
+      },
+      "support_silent_mode": {
+        "name": "Podpora tichého režimu"
+      },
+      "support_remaining_hot_water": {
+        "name": "Podpora zvyšnej teplej vody"
+      },
+      "support_electric_mode": {
+        "name": "Podpora elektrického režimu"
+      },
+      "support_auto_disinfect": {
+        "name": "Podpora automatickej dezinfekcie"
+      },
+      "support_force_e_heating": {
+        "name": "Podpora núteného elektrického ohrevu"
+      },
+      "support_tou": {
+        "name": "Podpora časového používania"
+      },
+      "support_ac_heater_priority": {
+        "name": "Podpora priority tepelného čerpadla"
+      },
+      "support_heat_recovery": {
+        "name": "Podpora rekuperácie tepla"
+      },
+      "support_heat_pump_mode": {
+        "name": "Podpora režimu tepelného čerpadla"
+      },
+      "support_smart_mode": {
+        "name": "Podpora inteligentného režimu"
+      },
+      "support_negative_temperature": {
+        "name": "Podpora záporných teplôt"
       },
       "maintain_warn": {
         "name": "Upozornenie na údržbu"
@@ -356,6 +423,15 @@
       "vacation_days": {
         "name": "Dni dovolenky"
       },
+      "max_temperature": {
+        "name": "Maximálna cieľová teplota"
+      },
+      "disinfection_temperature": {
+        "name": "Teplota dezinfekcie"
+      },
+      "schedule_mode": {
+        "name": "Režim plánovania"
+      },
       "leak_water_protection_value": {
         "name": "Hodnota ochrany proti úniku vody"
       },
@@ -364,6 +440,12 @@
       },
       "water_hardness": {
         "name": "Tvrdosť vody"
+      },
+      "boil_temperature": {
+        "name": "Cieľová teplota varenia"
+      },
+      "keep_warm_time": {
+        "name": "Čas udržiavania teploty"
       }
     },
     "select": {
@@ -672,6 +754,7 @@
       "keep_warm_remaining": {
         "name": "Keep Warm Remaining"
       },
+      "fault_code": { "name": "Kód poruchy" },
       "keep_warm_time": {
         "name": "Keep Warm Time"
       },
@@ -698,6 +781,64 @@
       },
       "outdoor_temperature": {
         "name": "Outdoor Temperature"
+      },
+      "comp_run_freq": {
+        "name": "Compressor Frequency"
+      },
+      "outdoor_fan_speed": {
+        "name": "Outdoor Fan Speed"
+      },
+      "unit_mode_run": {
+        "name": "Unit Run Mode",
+        "state": {
+          "off": "Off",
+          "auto": "Auto",
+          "cool": "Cool",
+          "heat": "Heat",
+          "dhw": "DHW"
+        }
+      },
+      "odu_target_fre": {
+        "name": "Target Compressor Frequency"
+      },
+      "odu_voltage": {
+        "name": "Outdoor Unit Voltage"
+      },
+      "odu_comp_current": {
+        "name": "Compressor Current"
+      },
+      "exv_current": {
+        "name": "Electronic Expansion Valve Opening"
+      },
+      "fg_capacity_need": {
+        "name": "Capacity Demand"
+      },
+      "pressure_high": {
+        "name": "Refrigerant Pressure (High Side)"
+      },
+      "pressure_low": {
+        "name": "Refrigerant Pressure (Low Side)"
+      },
+      "temp_t1": {
+        "name": "Temperature Sensor T1"
+      },
+      "temp_t2": {
+        "name": "Plate Heat Exchanger Temperature (T2)"
+      },
+      "temp_t2b": {
+        "name": "Plate Heat Exchanger Outlet Temperature (T2B)"
+      },
+      "temp_t3": {
+        "name": "Outdoor Coil Temperature (T3)"
+      },
+      "temp_tp": {
+        "name": "Discharge Pipe Temperature (TP)"
+      },
+      "temp_th": {
+        "name": "Suction Temperature (TH)"
+      },
+      "temp_tf": {
+        "name": "Power Module Temperature (TF)"
       },
       "people_number": {
         "name": "Počet osôb"
@@ -869,6 +1010,36 @@
       },
       "max_temperature": {
         "name": "Maximálna cieľová teplota"
+      },
+      "max_temperature_upper_limit": {
+        "name": "Horná hranica maximálnej teploty"
+      },
+      "max_temperature_lower_limit": {
+        "name": "Dolná hranica maximálnej teploty"
+      },
+      "disinfection_temperature_upper_limit": {
+        "name": "Horná hranica teploty dezinfekcie"
+      },
+      "disinfection_temperature_lower_limit": {
+        "name": "Dolná hranica teploty dezinfekcie"
+      },
+      "dr_option": {
+        "name": "Možnosť odozvy na dopyt"
+      },
+      "remaining_hot_water_max": {
+        "name": "Maximálne zostávajúca teplá voda"
+      },
+      "force_e_heating_status": {
+        "name": "Stav núteného elektrického ohrevu"
+      },
+      "holiday_max": {
+        "name": "Maximálna dĺžka dovolenky"
+      },
+      "holiday_min": {
+        "name": "Minimálna dĺžka dovolenky"
+      },
+      "timer_step_gap": {
+        "name": "Krok časovača"
       },
       "vacation_start_year": {
         "name": "Rok začiatku dovolenky"
@@ -1080,6 +1251,9 @@
       "disinfect": {
         "name": "Disinfect"
       },
+      "maintenance_reminder": {
+        "name": "Pripomienka údržby"
+      },
       "vacation_mode": {
         "name": "Režim dovolenky"
       },
@@ -1256,6 +1430,24 @@
       },
       "zone2_power": {
         "name": "Zone2 Power"
+      },
+      "boiling": {
+        "name": "Varenie vody"
+      },
+      "tea_bar_boil": {
+        "name": "Spínač varenia vody"
+      },
+      "tea_bar_child_lock": {
+        "name": "Child Lock"
+      },
+      "keep_warm": {
+        "name": "Udržiavanie teploty"
+      },
+      "tea_bar_cooling": {
+        "name": "Chladenie"
+      },
+      "screen_off": {
+        "name": "Vypnutie obrazovky"
       }
     },
     "water_heater": {

@@ -141,6 +141,13 @@
       "heating": {
         "name": "Нагрев"
       },
+      "dispensing": {
+        "name": "Подача воды"
+      },
+      "lack_water": { "name": "Недостаток воды" },
+      "standby": { "name": "Ожидание" },
+      "hot_water_dispensing": { "name": "Подача горячей воды" },
+      "fault": { "name": "Неисправность" },
       "heating_working": {
         "name": "Heating Working Status"
       },
@@ -233,6 +240,66 @@
       },
       "maintenance_reminder": {
         "name": "Напоминание об обслуживании"
+      },
+      "dr_enable": {
+        "name": "Отклик на спрос"
+      },
+      "electric_rod_exception": {
+        "name": "Неисправность электрического нагревателя"
+      },
+      "ac_heater_priority": {
+        "name": "Приоритет теплового насоса"
+      },
+      "high_temp_reminder": {
+        "name": "Напоминание о высокой температуре"
+      },
+      "new_version_water_heater": {
+        "name": "Расширенный протокол водонагревателя"
+      },
+      "heat_recovery_status": {
+        "name": "Рекуперация тепла"
+      },
+      "holiday_mode": {
+        "name": "Режим отпуска"
+      },
+      "hybrid_motion_mode": {
+        "name": "Гибридный режим движения"
+      },
+      "support_boost_mode": {
+        "name": "Поддержка режима Boost"
+      },
+      "support_silent_mode": {
+        "name": "Поддержка тихого режима"
+      },
+      "support_remaining_hot_water": {
+        "name": "Поддержка остатка горячей воды"
+      },
+      "support_electric_mode": {
+        "name": "Поддержка электрического режима"
+      },
+      "support_auto_disinfect": {
+        "name": "Поддержка автоматической дезинфекции"
+      },
+      "support_force_e_heating": {
+        "name": "Поддержка принудительного электрического нагрева"
+      },
+      "support_tou": {
+        "name": "Поддержка тарифов по времени"
+      },
+      "support_ac_heater_priority": {
+        "name": "Поддержка приоритета теплового насоса"
+      },
+      "support_heat_recovery": {
+        "name": "Поддержка рекуперации тепла"
+      },
+      "support_heat_pump_mode": {
+        "name": "Поддержка режима теплового насоса"
+      },
+      "support_smart_mode": {
+        "name": "Поддержка интеллектуального режима"
+      },
+      "support_negative_temperature": {
+        "name": "Поддержка отрицательных температур"
       },
       "maintain_warn": {
         "name": "Предупреждение об обслуживании"
@@ -356,6 +423,15 @@
       "vacation_days": {
         "name": "Дни отпуска"
       },
+      "max_temperature": {
+        "name": "Максимальная целевая температура"
+      },
+      "disinfection_temperature": {
+        "name": "Температура дезинфекции"
+      },
+      "schedule_mode": {
+        "name": "Режим расписания"
+      },
       "leak_water_protection_value": {
         "name": "Значение защиты от протечек"
       },
@@ -364,6 +440,12 @@
       },
       "water_hardness": {
         "name": "Жёсткость воды"
+      },
+      "boil_temperature": {
+        "name": "Целевая температура кипячения"
+      },
+      "keep_warm_time": {
+        "name": "Время поддержания тепла"
       }
     },
     "select": {
@@ -699,6 +781,7 @@
       "keep_warm_remaining": {
         "name": "Keep Warm Remaining"
       },
+      "fault_code": { "name": "Код неисправности" },
       "keep_warm_time": {
         "name": "Keep Warm Time"
       },
@@ -722,6 +805,64 @@
       },
       "outdoor_temperature": {
         "name": "Outdoor Temperature"
+      },
+      "comp_run_freq": {
+        "name": "Compressor Frequency"
+      },
+      "outdoor_fan_speed": {
+        "name": "Outdoor Fan Speed"
+      },
+      "unit_mode_run": {
+        "name": "Unit Run Mode",
+        "state": {
+          "off": "Off",
+          "auto": "Auto",
+          "cool": "Cool",
+          "heat": "Heat",
+          "dhw": "DHW"
+        }
+      },
+      "odu_target_fre": {
+        "name": "Target Compressor Frequency"
+      },
+      "odu_voltage": {
+        "name": "Outdoor Unit Voltage"
+      },
+      "odu_comp_current": {
+        "name": "Compressor Current"
+      },
+      "exv_current": {
+        "name": "Electronic Expansion Valve Opening"
+      },
+      "fg_capacity_need": {
+        "name": "Capacity Demand"
+      },
+      "pressure_high": {
+        "name": "Refrigerant Pressure (High Side)"
+      },
+      "pressure_low": {
+        "name": "Refrigerant Pressure (Low Side)"
+      },
+      "temp_t1": {
+        "name": "Temperature Sensor T1"
+      },
+      "temp_t2": {
+        "name": "Plate Heat Exchanger Temperature (T2)"
+      },
+      "temp_t2b": {
+        "name": "Plate Heat Exchanger Outlet Temperature (T2B)"
+      },
+      "temp_t3": {
+        "name": "Outdoor Coil Temperature (T3)"
+      },
+      "temp_tp": {
+        "name": "Discharge Pipe Temperature (TP)"
+      },
+      "temp_th": {
+        "name": "Suction Temperature (TH)"
+      },
+      "temp_tf": {
+        "name": "Power Module Temperature (TF)"
       },
       "program": {
         "name": "Программа"
@@ -869,6 +1010,36 @@
       },
       "max_temperature": {
         "name": "Максимальная целевая температура"
+      },
+      "max_temperature_upper_limit": {
+        "name": "Верхний предел максимальной температуры"
+      },
+      "max_temperature_lower_limit": {
+        "name": "Нижний предел максимальной температуры"
+      },
+      "disinfection_temperature_upper_limit": {
+        "name": "Верхний предел температуры дезинфекции"
+      },
+      "disinfection_temperature_lower_limit": {
+        "name": "Нижний предел температуры дезинфекции"
+      },
+      "dr_option": {
+        "name": "Параметр отклика на спрос"
+      },
+      "remaining_hot_water_max": {
+        "name": "Максимальный остаток горячей воды"
+      },
+      "force_e_heating_status": {
+        "name": "Статус принудительного электрического нагрева"
+      },
+      "holiday_max": {
+        "name": "Максимальная длительность отпуска"
+      },
+      "holiday_min": {
+        "name": "Минимальная длительность отпуска"
+      },
+      "timer_step_gap": {
+        "name": "Шаг таймера"
       },
       "vacation_start_year": {
         "name": "Год начала отпуска"
@@ -1080,6 +1251,9 @@
       "disinfect": {
         "name": "Дезинфекция"
       },
+      "maintenance_reminder": {
+        "name": "Напоминание об обслуживании"
+      },
       "vacation_mode": {
         "name": "Режим отпуска"
       },
@@ -1253,6 +1427,24 @@
       },
       "zone2_power": {
         "name": "Zone2 Power"
+      },
+      "boiling": {
+        "name": "Кипячение воды"
+      },
+      "tea_bar_boil": {
+        "name": "Выключатель кипячения"
+      },
+      "tea_bar_child_lock": {
+        "name": "Блокировка"
+      },
+      "keep_warm": {
+        "name": "Поддержание тепла"
+      },
+      "tea_bar_cooling": {
+        "name": "Охлаждение"
+      },
+      "screen_off": {
+        "name": "Выключение экрана"
       }
     },
     "water_heater": {

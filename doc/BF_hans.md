@@ -19,6 +19,14 @@
 | switch.{DEVICEID}\_ramadan       | switch | Ramadan       | 斋月模式 |
 | switch.{DEVICEID}\_turntable     | switch | Turntable     | 转盘     |
 
+#### 选择器
+
+| EntityID                              | 类型   | 名称               | 描述     | 选项                          |
+| ------------------------------------- | ------ | ------------------ | -------- | ----------------------------- |
+| select.{DEVICEID}\_work_mode_select   | select | Work Mode          | 工作模式 | midea-lan BF 工作模式名称     |
+| select.{DEVICEID}\_fire_power_select  | select | Fire Power         | 火力     | fire_power_0 到 fire_power_10 |
+| select.{DEVICEID}\_temperature_select | select | Target Temperature | 目标温度 | 0 到 250 的整数温度值         |
+
 #### 二元传感器
 
 | EntityID                                        | 类型          | 名称                  | 描述     |
