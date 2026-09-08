@@ -205,6 +205,15 @@ Example
 
 ![Customize](doc/imgs/customize.png)
 
+### 7.5 Cloud usage statistics
+
+Some E3 gas water heaters report daily and monthly water/gas consumption in the
+Midea cloud (the local protocol does not). Enable **Cloud usage statistics** in
+the CONFIGURE dialog and enter the Midea cloud account the appliance is bound
+to; the integration then polls the same `dayReportV2` report the official app
+uses. The feature is off by default. See [E3](doc/E3.md) for the entities, units
+and update behaviour.
+
 ## 8. Debug and Test
 
 For getting debug logs or modifying source code, please refer to [Debug and Test](doc/debug.md).

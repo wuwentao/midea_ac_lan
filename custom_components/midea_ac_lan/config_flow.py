@@ -53,7 +53,7 @@ from midealan.cloud import (
     MideaCloud,
     get_midea_cloud,
 )
-from midealan.device import MideaDevice, ProtocolVersion
+from midealan.device import DeviceType, MideaDevice, ProtocolVersion
 from midealan.discover import discover
 
 if TYPE_CHECKING:
@@ -68,6 +68,11 @@ else:
 
 from .const import (
     CONF_ACCOUNT,
+    CONF_CLOUD_ACCOUNT,
+    CONF_CLOUD_PASSWORD,
+    CONF_CLOUD_REPORT,
+    CONF_CLOUD_SERVER,
+    CONF_CLOUD_TOKEN,
     CONF_KEY,
     CONF_MAC,
     CONF_MODEL,
@@ -75,10 +80,12 @@ from .const import (
     CONF_SERVER,
     CONF_SN,
     CONF_SUBTYPE,
+    DEFAULT_REPORT_CLOUD,
     DEVICES,
     DOMAIN,
     EXTRA_CONTROL,
     EXTRA_SENSOR,
+    STORAGE_PATH,
     supports_device,
 )
 from .midea_devices import MIDEA_DEVICES
@@ -94,8 +101,6 @@ ADD_WAY = {
 
 # Select DEFAULT_CLOUD from the list of supported cloud
 DEFAULT_CLOUD: str = list(SUPPORTED_CLOUDS)[3]
-
-STORAGE_PATH = f".storage/{DOMAIN}"
 
 SKIP_LOGIN = "Skip Login (input any user/password)"
 
@@ -586,6 +591,15 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                     CONF_TOKEN: storage_device.get(CONF_TOKEN),
                     CONF_KEY: storage_device.get(CONF_KEY),
                 }
+                # keep previously saved E3 cloud credentials in the local json
+                for key in (
+                    CONF_CLOUD_TOKEN,
+                    CONF_CLOUD_ACCOUNT,
+                    CONF_CLOUD_PASSWORD,
+                    CONF_CLOUD_SERVER,
+                ):
+                    if storage_device.get(key):
+                        self.found_device[key] = storage_device[key]
                 _LOGGER.debug(
                     "Loaded configuration for device %s from storage",
                     device_id,
@@ -807,6 +821,22 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                     CONF_MAC: device.get(CONF_MAC),
                     CONF_SN: device.get(CONF_SN),
                 }
+                if int(user_input[CONF_TYPE]) == DeviceType.E3:
+                    # Keep E3 cloud report credentials already saved in the
+                    # local device json; the feature itself is opt-in via the
+                    # options dialog, so no account is captured here.
+                    data.update(
+                        {
+                            key: self.found_device[key]
+                            for key in (
+                                CONF_CLOUD_TOKEN,
+                                CONF_CLOUD_ACCOUNT,
+                                CONF_CLOUD_PASSWORD,
+                                CONF_CLOUD_SERVER,
+                            )
+                            if self.found_device.get(key)
+                        },
+                    )
                 # save device json config when adding new device
                 await self.hass.async_add_executor_job(self._save_device_config, data)
                 # finish add device entry
@@ -965,6 +995,10 @@ class MideaLanOptionsFlowHandler(OptionsFlow):
             attribute_name = (
                 attribute if isinstance(attribute, str) else attribute.value
             )
+            if attribute_config.get("cloud_report") is not None:
+                # Cloud report sensors are created automatically once the E3
+                # cloud account below is configured; they are not opt-in extras.
+                continue
             required_attribute = attribute_config.get("required_attribute")
             if (
                 required_attribute is not None
@@ -1026,5 +1060,46 @@ class MideaLanOptionsFlowHandler(OptionsFlow):
                 ): str,
             },
         )
+        if self._device_type == DeviceType.E3:
+            # Optional Midea cloud account for the E3 usage report; not every
+            # E3 model has one, so the feature is opt-in and off by default.
+            data_schema = data_schema.extend(
+                {
+                    vol.Optional(
+                        CONF_CLOUD_REPORT,
+                        default=bool(
+                            self._config_entry.options.get(CONF_CLOUD_REPORT),
+                        ),
+                    ): cv.boolean,
+                    vol.Optional(
+                        CONF_CLOUD_TOKEN,
+                        default=self._config_entry.options.get(
+                            CONF_CLOUD_TOKEN,
+                            "",
+                        ),
+                    ): str,
+                    vol.Optional(
+                        CONF_CLOUD_ACCOUNT,
+                        default=self._config_entry.options.get(
+                            CONF_CLOUD_ACCOUNT,
+                            "",
+                        ),
+                    ): str,
+                    vol.Optional(
+                        CONF_CLOUD_PASSWORD,
+                        default=self._config_entry.options.get(
+                            CONF_CLOUD_PASSWORD,
+                            "",
+                        ),
+                    ): str,
+                    vol.Optional(
+                        CONF_CLOUD_SERVER,
+                        default=self._config_entry.options.get(
+                            CONF_CLOUD_SERVER,
+                            DEFAULT_REPORT_CLOUD,
+                        ),
+                    ): vol.In(list(SUPPORTED_CLOUDS)),
+                },
+            )
 
         return self.async_show_form(step_id="init", data_schema=data_schema)

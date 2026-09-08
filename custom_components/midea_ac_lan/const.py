@@ -8,6 +8,7 @@ from homeassistant.const import Platform
 DOMAIN = "midea_ac_lan"
 COMPONENT = "component"
 DEVICES = "devices"
+CLOUD_REPORTS = "cloud_reports"
 
 CONF_KEY = "key"
 CONF_MODEL = "model"
@@ -17,6 +18,18 @@ CONF_SERVER = "server"
 CONF_REFRESH_INTERVAL = "refresh_interval"
 CONF_MAC = "mac"
 CONF_SN = "sn"
+# Optional Midea cloud account used to fetch the E3 usage report. It is stored
+# in the config entry options and only asked for on E3 devices.
+CONF_CLOUD_REPORT = "cloud_report"
+CONF_CLOUD_TOKEN = "cloud_access_token"  # ruff:ignore[hardcoded-password-string]
+CONF_CLOUD_ACCOUNT = "cloud_account"
+CONF_CLOUD_PASSWORD = "cloud_password"  # ruff:ignore[hardcoded-password-string]
+CONF_CLOUD_SERVER = "cloud_server"
+# Local device json directory below the Home Assistant config directory.
+STORAGE_PATH = f".storage/{DOMAIN}"
+# Default Midea cloud for the E3 usage report. 美的美居 (Meiju) is the backend
+# the report endpoint is verified against; other clouds are tried as configured.
+DEFAULT_REPORT_CLOUD = "美的美居"
 
 EXTRA_SENSOR = [Platform.SENSOR, Platform.BINARY_SENSOR]
 EXTRA_SWITCH = [

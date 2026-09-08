@@ -9,7 +9,9 @@ integration load process:
 3. unloading a config entry: `async_unload_entry`
 """
 
+import json
 import logging
+from pathlib import Path
 from typing import Any, cast
 
 import homeassistant.helpers.config_validation as cv
@@ -37,18 +39,27 @@ from midealan.discover import discover
 
 from .const import (
     ALL_PLATFORM,
+    CLOUD_REPORTS,
     CONF_ACCOUNT,
+    CONF_CLOUD_ACCOUNT,
+    CONF_CLOUD_PASSWORD,
+    CONF_CLOUD_REPORT,
+    CONF_CLOUD_SERVER,
+    CONF_CLOUD_TOKEN,
     CONF_KEY,
     CONF_MAC,
     CONF_MODEL,
     CONF_REFRESH_INTERVAL,
     CONF_SN,
     CONF_SUBTYPE,
+    DEFAULT_REPORT_CLOUD,
     DEVICES,
     DOMAIN,
     EXTRA_SWITCH,
+    STORAGE_PATH,
     supports_device,
 )
+from .midea_cloud_report import CloudReportCredentials, MideaCloudReportCoordinator
 from .midea_devices import MIDEA_DEVICES
 
 _LOGGER = logging.getLogger(__name__)
@@ -74,6 +85,138 @@ def _device_store(hass: HomeAssistant) -> dict[int, MideaDevice]:
         "dict[int, MideaDevice]",
         hass.data.setdefault(DOMAIN, {}).setdefault(DEVICES, {}),
     )
+
+
+def _read_local_device_config(
+    hass: HomeAssistant,
+    device_id: int,
+) -> dict[str, Any]:
+    """Read the locally saved device json, if present.
+
+    Returns
+    -------
+    dict[str, Any]
+        The saved device config, or an empty dict when absent/unreadable.
+
+    """
+    path = Path(hass.config.path(STORAGE_PATH, f"{device_id}.json"))
+    if not path.exists():
+        return {}
+    try:
+        return cast("dict[str, Any]", json.loads(path.read_text(encoding="utf-8")))
+    except (OSError, ValueError):
+        _LOGGER.warning("Failed to read local device config %s", path)
+        return {}
+
+
+async def _cloud_report_credentials(
+    hass: HomeAssistant,
+    config_entry: ConfigEntry,
+) -> CloudReportCredentials | None:
+    """Return the E3 usage report credentials, if configured.
+
+    Sources in order: the options override, the config entry data (captured
+    when the device was added) and the locally saved device json, so a user can
+    also edit the saved json instead of using the options dialog.
+
+    Returns
+    -------
+    CloudReportCredentials | None
+        The first configured credentials, or None when not configured.
+
+    """
+    device_id = config_entry.data.get(CONF_DEVICE_ID)
+    local_config: dict[str, Any] = {}
+    if device_id is not None:
+        local_config = await hass.async_add_executor_job(
+            _read_local_device_config,
+            hass,
+            device_id,
+        )
+    for source in (config_entry.options, config_entry.data, local_config):
+        token = str(source.get(CONF_CLOUD_TOKEN) or "")
+        account = str(source.get(CONF_CLOUD_ACCOUNT) or "")
+        password = str(source.get(CONF_CLOUD_PASSWORD) or "")
+        if token or (account and password):
+            cloud_name = source.get(CONF_CLOUD_SERVER) or DEFAULT_REPORT_CLOUD
+            return CloudReportCredentials(
+                cloud_name=str(cloud_name),
+                access_token=token,
+                account=account,
+                password=password,
+            )
+    return None
+
+
+async def _setup_cloud_report(
+    hass: HomeAssistant,
+    config_entry: ConfigEntry,
+    device: MideaDevice,
+) -> None:
+    """Start the E3 cloud usage report poller when it is configured.
+
+    Only E3 gas water heaters expose the cloud usage report, and not every E3
+    model has one, so the poller is strictly opt-in: it starts only when the
+    user enabled it in the options dialog.
+    """
+    if device.device_type != DeviceType.E3:
+        return
+    if not config_entry.options.get(CONF_CLOUD_REPORT):
+        return
+    credentials = await _cloud_report_credentials(hass, config_entry)
+    if credentials is None:
+        _LOGGER.warning(
+            "Cloud usage statistics enabled for device %s but no Midea "
+            "account or access token is configured",
+            device.device_id,
+        )
+        return
+    coordinator = MideaCloudReportCoordinator(
+        hass,
+        credentials=credentials,
+        appliance_id=device.device_id,
+    )
+    cloud_reports = cast(
+        "dict[int, MideaCloudReportCoordinator]",
+        hass.data.setdefault(DOMAIN, {}).setdefault(CLOUD_REPORTS, {}),
+    )
+    cloud_reports[device.device_id] = coordinator
+    # The first fetch must not block or fail entry setup: the report is optional
+    # and the local device is already usable. The coordinator's retry timer
+    # takes over once the sensors add their listeners.
+    config_entry.async_create_background_task(
+        hass,
+        coordinator.async_refresh(),
+        "midea_ac_lan cloud usage report",
+    )
+
+
+def _remove_cloud_report(
+    hass: HomeAssistant,
+    device_id: int,
+) -> MideaCloudReportCoordinator | None:
+    """Remove and return the cloud report coordinator for a device.
+
+    Returns
+    -------
+    MideaCloudReportCoordinator | None
+        The removed coordinator, or None when the device has none.
+
+    """
+    return cast(
+        "MideaCloudReportCoordinator | None",
+        hass.data.get(DOMAIN, {}).get(CLOUD_REPORTS, {}).pop(device_id, None),
+    )
+
+
+async def _async_stop_cloud_report(
+    hass: HomeAssistant,
+    device_id: int,
+) -> None:
+    """Shut down the cloud report coordinator for a device, if any."""
+    coordinator = _remove_cloud_report(hass, device_id)
+    if coordinator is not None:
+        await coordinator.async_shutdown()
 
 
 def _remove_unsupported_entities(
@@ -302,6 +445,7 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
         _device_store(hass)[device_id] = device
         try:
             _remove_unsupported_entities(hass, device)
+            await _setup_cloud_report(hass, config_entry, device)
             # Forward the setup of an entry to all platforms
             await hass.config_entries.async_forward_entry_setups(
                 config_entry,
@@ -309,6 +453,7 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
             )
         except Exception:
             _device_store(hass).pop(device_id, None)
+            await _async_stop_cloud_report(hass, device_id)
             _close_device(device)
             raise
         # Listener `update_listener` is
@@ -345,6 +490,7 @@ async def async_unload_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> 
             dm = _device_store(hass).pop(device_id, None)
             if dm is not None:
                 _close_device(dm)
+            await _async_stop_cloud_report(hass, device_id)
     return unload_ok
 
 

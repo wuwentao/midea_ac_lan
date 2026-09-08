@@ -199,6 +199,10 @@ wget -O - https://github.com/wuwentao/midea_ac_lan/raw/main/scripts/install.sh |
 
 ![自定义](doc/imgs/customize.png)
 
+### 7.5 云端用量统计
+
+部分 E3 燃气热水器在美居云中有每日/每月的用水量和用气量（本地协议不上报）。在`配置`对话框中启用**云端用量统计**并填入该设备绑定的美居账号，集成会轮询官方 App 使用的同一个 `dayReportV2` 报表接口。该功能默认关闭。实体、单位及更新方式见 [E3](doc/E3_hans.md)。
+
 ## 8. Debug调试和测试
 
 获取Debug Log或者修改源码，请参考[Debug调试和测试](doc/debug_hans.md)

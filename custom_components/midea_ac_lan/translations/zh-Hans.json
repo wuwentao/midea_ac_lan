@@ -1222,7 +1222,12 @@
       },
       "velocity": {
         "name": "流速"
-      }
+      },
+      "cloud_water_usage_daily": { "name": "昨日用水量" },
+      "cloud_gas_usage_daily": { "name": "昨日用气量" },
+      "cloud_duration_daily": { "name": "昨日用热时长" },
+      "cloud_water_usage_monthly": { "name": "本月用水量" },
+      "cloud_gas_usage_monthly": { "name": "本月用气量" }
     },
     "switch": {
       "anion": {
@@ -1471,7 +1476,12 @@
           "refresh_interval": "刷新间隔(设0为不进行主动刷新)",
           "sensors": "扩展传感器",
           "switches": "扩展控制",
-          "customize": "自定义"
+          "customize": "自定义",
+          "cloud_report": "启用云端用量统计（仅支持美居用量报表的 E3 机型）",
+          "cloud_access_token": "美居云端 accessToken（可选，直接使用，无需账号密码）",
+          "cloud_account": "美居账号（手机号/邮箱，可选，用于 E3 用量统计）",
+          "cloud_password": "美居密码",
+          "cloud_server": "美居云服务器"
         },
         "title": "配置"
       }

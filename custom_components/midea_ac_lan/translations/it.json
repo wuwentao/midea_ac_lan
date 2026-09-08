@@ -1156,7 +1156,12 @@
       },
       "velocity": {
         "name": "Velocità"
-      }
+      },
+      "cloud_water_usage_daily": { "name": "Daily Water Usage" },
+      "cloud_gas_usage_daily": { "name": "Daily Gas Usage" },
+      "cloud_duration_daily": { "name": "Daily Hot Water Duration" },
+      "cloud_water_usage_monthly": { "name": "Monthly Water Usage" },
+      "cloud_gas_usage_monthly": { "name": "Monthly Gas Usage" }
     },
     "switch": {
       "anion": {
@@ -1400,7 +1405,12 @@
           "refresh_interval": "Intervallo aggiornamento (0 significa nessun aggiornamento attivo)",
           "sensors": "Sensori aggiuntivi",
           "switches": "Controlli aggiuntivi",
-          "customize": "Personalizza"
+          "customize": "Personalizza",
+          "cloud_report": "Enable cloud usage statistics (E3 models that support the Midea usage report)",
+          "cloud_access_token": "Midea cloud access token (optional, used directly instead of the account)",
+          "cloud_account": "Midea cloud account (phone/email, optional, for the E3 usage report)",
+          "cloud_password": "Midea cloud password",
+          "cloud_server": "Midea cloud server"
         },
         "title": "Configura"
       }
