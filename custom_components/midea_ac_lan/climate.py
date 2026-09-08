@@ -505,6 +505,8 @@ class MideaACClimate(MideaClimate):
         if self._customize_swing is not None:
             return self._customize_swing
         caps = getattr(self._device, "capabilities", {})
+        if not isinstance(caps, dict):
+            return True
         swing_modes = caps.get("swing_modes")
         if isinstance(swing_modes, list):
             return bool("vertical" in swing_modes or "horizontal" in swing_modes)
@@ -520,7 +522,7 @@ class MideaACClimate(MideaClimate):
         if self._customize_hvac_modes is not None:
             return self._customize_hvac_modes
         caps = getattr(self._device, "capabilities", {})
-        if not caps:
+        if not isinstance(caps, dict) or not caps:
             return list(self._mode_index)
         modes_list = caps.get("modes")
         if not isinstance(modes_list, list):
@@ -557,7 +559,7 @@ class MideaACClimate(MideaClimate):
         if self._customize_preset_modes is not None:
             return self._customize_preset_modes
         caps = getattr(self._device, "capabilities", {})
-        if not caps:
+        if not isinstance(caps, dict) or not caps:
             return all_presets
         modes_list = caps.get("modes")
         has_heat = isinstance(modes_list, list) and "heat" in modes_list
@@ -664,7 +666,7 @@ class MideaACClimate(MideaClimate):
         if self._customize_fan_modes is not None:
             return self._customize_fan_modes
         caps = getattr(self._device, "capabilities", {})
-        if not caps:
+        if not isinstance(caps, dict) or not caps:
             return list(self._fan_speeds.keys())
         fan_speeds_list = caps.get("fan_speeds")
         if not isinstance(fan_speeds_list, list):
