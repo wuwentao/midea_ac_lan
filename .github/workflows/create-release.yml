@@ -1,0 +1,131 @@
+# Auto-tag and release workflow
+#
+# This workflow automatically runs when a release PR (title containing "release") is merged to main.
+# It:
+#   - Extracts version from custom_components/midea_ac_lan/manifest.json
+#   - Creates and pushes git tag vX.Y.Z
+#   - Publishes GitHub Release with changelog excerpt
+#   - Triggers release.yml to build and attach midea_ac_lan.zip
+#
+# No manual intervention needed - this is triggered by merging the PR from manual-release.yml
+name: Create Release
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    # Only run if PR was merged (not just closed), title contains "release",
+    # and the PR is from this repository's release-* branch (prevents external PRs from triggering release)
+    if: |
+      github.event.pull_request.merged == true &&
+      contains(github.event.pull_request.title, 'release') &&
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      startsWith(github.event.pull_request.head.ref, 'release-')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          ref: ${{ github.sha }} # Tag the exact merged commit (immutable)
+
+      - name: Extract version from component manifest
+        id: version
+        run: |
+          VERSION=$(jq -er '.version' custom_components/midea_ac_lan/manifest.json)
+          # Validate version format before using it (prevent injection)
+          if ! [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "Error: Version must be in format X.Y.Z (got: $VERSION)"
+            exit 1
+          fi
+          echo "version=${VERSION}" >> $GITHUB_OUTPUT
+          echo "Detected version: ${VERSION}"
+
+      - name: Check if tag already exists
+        id: check_tag
+        run: |
+          if git rev-parse "v${{ steps.version.outputs.version }}" >/dev/null 2>&1; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+            echo "⚠️  Tag v${{ steps.version.outputs.version }} already exists, skipping release creation"
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+            echo "✓ Tag v${{ steps.version.outputs.version }} does not exist, will create"
+          fi
+
+      - name: Extract changelog for this version
+        if: steps.check_tag.outputs.exists == 'false'
+        id: changelog
+        run: |
+          # Extract the section for this version from CHANGELOG.md
+          VERSION="${{ steps.version.outputs.version }}"
+
+          # Find the section between this version and the next heading
+          CHANGELOG=$(sed -n "/## \[${VERSION}\]/,/^## \[/p" CHANGELOG.md | sed '1d;$d')
+
+          if [ -z "$CHANGELOG" ]; then
+            echo "Warning: Could not extract changelog for version ${VERSION}, using fallback"
+            CHANGELOG="Release ${VERSION}"
+          fi
+
+          # Write to file to handle multiline content
+          echo "$CHANGELOG" > /tmp/release_notes.md
+          echo "Extracted changelog preview:"
+          head -n 10 /tmp/release_notes.md
+
+      - name: Create git tag
+        if: steps.check_tag.outputs.exists == 'false'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag -a "v${{ steps.version.outputs.version }}" -m "Release ${{ steps.version.outputs.version }}"
+          git push origin "v${{ steps.version.outputs.version }}"
+          echo "✅ Created and pushed tag v${{ steps.version.outputs.version }}"
+
+      - name: Create GitHub Release
+        if: steps.check_tag.outputs.exists == 'false'
+        env:
+          # ── Why GH_TOKEN (PAT) and not the default GITHUB_TOKEN? ──
+          # This step must use a Personal Access Token (PAT), because GitHub Actions
+          # has a loop-prevention rule: any event produced using the default GITHUB_TOKEN
+          # does NOT trigger further workflow runs. If we used GITHUB_TOKEN here, the
+          # "release: released" event would fire but would NOT trigger the release.yml
+          # workflow that builds and uploads the midea_ac_lan.zip artifact.
+          #
+          # Using a PAT makes the event cascade normally to trigger release.yml.
+          #
+          # The old release-please workflow used the same PAT for the same reason
+          # (see release-please.yml `token:` input).
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          gh release create "v${{ steps.version.outputs.version }}" \
+            --title "v${{ steps.version.outputs.version }}" \
+            --notes-file /tmp/release_notes.md \
+            --verify-tag
+
+          echo "✅ GitHub Release created: https://github.com/${{ github.repository }}/releases/tag/v${{ steps.version.outputs.version }}"
+
+      - name: Summary
+        if: steps.check_tag.outputs.exists == 'false'
+        run: |
+          echo "### 🚀 Release Published" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- **Version**: v${{ steps.version.outputs.version }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Tag**: \`v${{ steps.version.outputs.version }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "- **Release**: [View on GitHub](https://github.com/${{ github.repository }}/releases/tag/v${{ steps.version.outputs.version }})" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "The release.yml workflow will automatically build and attach midea_ac_lan.zip to this release." >> $GITHUB_STEP_SUMMARY
+
+      - name: Summary (skipped)
+        if: steps.check_tag.outputs.exists == 'true'
+        run: |
+          echo "### ⏭️  Release Skipped" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Tag v${{ steps.version.outputs.version }} already exists." >> $GITHUB_STEP_SUMMARY
