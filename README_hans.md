@@ -18,6 +18,7 @@
 ## 1. ❗❗❗❗❗❗重要提醒❗❗❗❗❗❗
 
 > 注意：目前只能使用个人注册的美居，SmartHome账号登录，并且设备必须绑定在该账号下，否则无法获取设备Token。 NetHome Plus暂时无法获取Token，但相关选项和功能仍保留。
+> ❗ SmartHome： 请勿从其他APP迁移账号，需要全新注册并添加设备，迁移账号无法获取设备Token。
 
 1. 目前美的美居、SmartHome Token API服务，需要使用个人App账号登录并且设备绑定在该账户下，才能获取Token, 后续美的可能会陆续关闭Token API服务，可能导致无法添加新设备。
 2. 已经添加成功的设备，请**务必将设备的.json配置文件复制或备份至HAOS之外的其他设备**，供后续使用（通讯协议为v2的旧设备无配置文件，无需备份，仅通讯协议为v3的设备需要备份）
@@ -126,6 +127,7 @@ wget -O - https://github.com/wuwentao/midea_ac_lan/raw/main/scripts/install.sh |
 完成美的账户登录之后, 点击'添加设备'进行设备添加。你可以多次重复操作以添加多台设备。
 
 > > 注意：目前只能使用个人注册的美居，SmartHome账号登录，并且设备必须绑定在该账号下，否则无法获取设备Token。 NetHome Plus暂时无法获取Token，但相关选项和功能仍保留。
+> > ❗ SmartHome： 请勿从其他APP迁移账号，需要全新注册并添加设备，迁移账号无法获取设备Token。
 
 ### 6.1 Discover automatically / 自动搜索
 
