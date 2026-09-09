@@ -1,5 +1,13 @@
 # Changelog
 
+## [2026.9.1](https://github.com/wuwentao/midea_ac_lan/compare/v2026.9.0...v2026.9.1) (2026-09-09)
+
+
+### Bug Fixes
+
+* **ac:** sync climate.py with lib capabilities array format ([#1039](https://github.com/wuwentao/midea_ac_lan/issues/1039)) ([2b7b291](https://github.com/wuwentao/midea_ac_lan/commit/2b7b291f44cad7e74e436ccbe151ac55ff2101bd))
+* **config-flow:** explain token account limitations ([#1048](https://github.com/wuwentao/midea_ac_lan/issues/1048)) ([db5b65f](https://github.com/wuwentao/midea_ac_lan/commit/db5b65f8c20ad5bccc5e623267a6dd5cee9a69a3))
+
 ## [2026.9.0](https://github.com/wuwentao/midea_ac_lan/compare/v2026.8.0...v2026.9.0) (2026-09-03)
 
 
