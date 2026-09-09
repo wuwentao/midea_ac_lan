@@ -18,6 +18,7 @@ Control your Midea M-Smart appliances over the local network.
 ## 1. ❗❗❗❗❗❗Important Notice❗❗❗❗❗❗
 
 > Note: Currently, only personal Meiju and SmartHome accounts can be used for login, and the appliance must be bound to that account. Otherwise, the appliance Token cannot be retrieved. NetHome Plus cannot retrieve Tokens for now, but the related options and functions are still retained.
+> ❗ SmartHome: Do not migrate your account from another app. You must register a new account and add your appliances; migrated accounts cannot retrieve appliance Tokens.
 
 1. The current Midea Meiju and SmartHome Token API services require login with a personal app account, and the appliance must be bound to that account before the Token can be retrieved. Midea may gradually close these Token API services in the future, which may prevent new appliances from being added.
 2. For appliances that have been successfully added, please be sure to **copy or back up the appliance's `.json` configuration file to a device outside HAOS** for future use. Old v2 protocol appliances do not have `.json` configuration files, so only v3 protocol appliances need backups.
@@ -128,6 +129,7 @@ Or click [![Configuration](https://my.home-assistant.io/badges/config_flow_start
 After the Midea account login is complete, click 'ADD DEVICE' to add an appliance. You can repeat this process to add multiple appliances.
 
 > Note: Currently, only personal Meiju and SmartHome accounts can be used for login, and the appliance must be bound to that account. Otherwise, the appliance Token cannot be retrieved. NetHome Plus cannot retrieve Tokens for now, but the related options and functions are still retained.
+> ❗ SmartHome: Do not migrate your account from another app. You must register a new account and add your appliances; migrated accounts cannot retrieve appliance Tokens.
 
 ### 6.1 Discover automatically
 
