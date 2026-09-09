@@ -505,8 +505,11 @@ class MideaACClimate(MideaClimate):
         if self._customize_swing is not None:
             return self._customize_swing
         caps = getattr(self._device, "capabilities", {})
-        if "swing_vertical" in caps or "swing_horizontal" in caps:
-            return bool(caps.get("swing_vertical") or caps.get("swing_horizontal"))
+        if not isinstance(caps, dict):
+            return True
+        swing_modes = caps.get("swing_modes")
+        if isinstance(swing_modes, list):
+            return bool("vertical" in swing_modes or "horizontal" in swing_modes)
         return True
 
     @property
@@ -519,20 +522,23 @@ class MideaACClimate(MideaClimate):
         if self._customize_hvac_modes is not None:
             return self._customize_hvac_modes
         caps = getattr(self._device, "capabilities", {})
-        if not caps:
+        if not isinstance(caps, dict) or not caps:
             return list(self._mode_index)
-        modes = [HVACMode.OFF]
-        if caps.get("auto_mode"):
-            modes.append(HVACMode.AUTO)
-        if caps.get("cool_mode"):
-            modes.append(HVACMode.COOL)
-        if caps.get("dry_mode"):
-            modes.append(HVACMode.DRY)
-        if caps.get("heat_mode"):
-            modes.append(HVACMode.HEAT)
+        modes_list = caps.get("modes")
+        if not isinstance(modes_list, list):
+            return list(self._mode_index)
+        hvac_modes = [HVACMode.OFF]
+        if "auto" in modes_list:
+            hvac_modes.append(HVACMode.AUTO)
+        if "cool" in modes_list:
+            hvac_modes.append(HVACMode.COOL)
+        if "dry" in modes_list:
+            hvac_modes.append(HVACMode.DRY)
+        if "heat" in modes_list:
+            hvac_modes.append(HVACMode.HEAT)
         # fan-only is always available on AC devices
-        modes.append(HVACMode.FAN_ONLY)
-        return modes
+        hvac_modes.append(HVACMode.FAN_ONLY)
+        return hvac_modes
 
     @property
     def preset_modes(self) -> list[str]:
@@ -553,15 +559,17 @@ class MideaACClimate(MideaClimate):
         if self._customize_preset_modes is not None:
             return self._customize_preset_modes
         caps = getattr(self._device, "capabilities", {})
-        if not caps:
+        if not isinstance(caps, dict) or not caps:
             return all_presets
+        modes_list = caps.get("modes")
+        has_heat = isinstance(modes_list, list) and "heat" in modes_list
         keep = {
             PRESET_NONE: True,
             PRESET_COMFORT: True,
             PRESET_ECO: bool(caps.get("eco")),
             PRESET_BOOST: bool(caps.get("turbo_cool") or caps.get("turbo_heat")),
             PRESET_SLEEP: True,
-            PRESET_AWAY: bool(caps.get("heat_mode")),
+            PRESET_AWAY: has_heat,
         }
         return [preset for preset in all_presets if keep[preset]]
 
@@ -658,21 +666,24 @@ class MideaACClimate(MideaClimate):
         if self._customize_fan_modes is not None:
             return self._customize_fan_modes
         caps = getattr(self._device, "capabilities", {})
-        if not caps:
+        if not isinstance(caps, dict) or not caps:
+            return list(self._fan_speeds.keys())
+        fan_speeds_list = caps.get("fan_speeds")
+        if not isinstance(fan_speeds_list, list):
             return list(self._fan_speeds.keys())
         # stepless/inverter fan: expose every discrete speed, not just "full"
-        if caps.get("fan_custom"):
+        if "custom" in fan_speeds_list:
             return list(self._fan_speeds.keys())
         cap_by_fan = {
-            FAN_SILENT: "fan_silent",
-            FAN_LOW: "fan_low",
-            FAN_MEDIUM: "fan_medium",
-            FAN_HIGH: "fan_high",
-            FAN_FULL_SPEED: "fan_custom",
-            FAN_AUTO: "fan_auto",
+            FAN_SILENT: "silent",
+            FAN_LOW: "low",
+            FAN_MEDIUM: "medium",
+            FAN_HIGH: "high",
+            FAN_FULL_SPEED: "custom",
+            FAN_AUTO: "auto",
         }
         modes = [
-            name for name in self._fan_speeds if caps.get(cap_by_fan.get(name, ""))
+            name for name in self._fan_speeds if cap_by_fan.get(name) in fan_speeds_list
         ]
         return modes or list(self._fan_speeds.keys())
 
