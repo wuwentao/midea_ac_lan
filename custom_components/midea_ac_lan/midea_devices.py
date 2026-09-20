@@ -1858,7 +1858,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "unit": UnitOfPressure.KPA,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
-            C3Attributes.water_flow: {
+            C3Attributes.water_flower: {  # midea-lan attribute name has an upstream typo
                 "type": Platform.SENSOR,
                 "translation_key": "water_flow",
                 "name": "Water Flow Rate",
@@ -1876,7 +1876,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "unit": UnitOfPressure.KPA,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
-            C3Attributes.exv_opening: {
+            C3Attributes.exv_current: {  # renamed upstream in midea-lan; same raw value
                 "type": Platform.SENSOR,
                 "translation_key": "exv_opening",
                 "name": "EXV Opening",
@@ -1907,16 +1907,16 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "unit": UnitOfElectricPotential.VOLT,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
-            # --- Real-time power triad + COP (semantics verified vs Modbus
-            # V4.7 regs 148/149/150/151 and per-frame energy balance) ---
-            # instant_power is the THERMAL OUTPUT (heat delivered), not the
-            # electrical draw. Use instant_power0 for the Energy dashboard.
-            C3Attributes.instant_power: {
+            # NOTE: instant_power (kW, /100 scaled) never made it into
+            # midea-lan; main exposes the same two raw bytes unscaled as
+            # current_unit_capacity. Surfaced as a raw diagnostic until a
+            # future lib PR adds the /100 scaling.
+            C3Attributes.current_unit_capacity: {
                 "type": Platform.SENSOR,
-                "translation_key": "instant_power",
-                "name": "Heating Capacity (Thermal Output)",
-                "device_class": SensorDeviceClass.POWER,
-                "unit": UnitOfPower.KILO_WATT,
+                "translation_key": "current_unit_capacity",
+                "name": "Current Unit Capacity (raw)",
+                "icon": "mdi:heat-wave",
+                "entity_category": EntityCategory.DIAGNOSTIC,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
             C3Attributes.instant_power0: {
@@ -1935,14 +1935,8 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "unit": UnitOfPower.KILO_WATT,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
-            C3Attributes.instant_cop: {
-                "type": Platform.SENSOR,
-                "translation_key": "instant_cop",
-                "name": "COP (Coefficient of Performance)",
-                "state_class": SensorStateClass.MEASUREMENT,
-                "icon": "mdi:heat-pump-outline",
-                "entity_category": EntityCategory.DIAGNOSTIC,
-            },
+            # instant_cop (thermal capacity / electrical draw) is not computed
+            # by midea-lan yet - deferred until a future lib PR adds it.
             # --- Pump / valve statuses (LOAD_OUTPUT bitmap, X10 byte[33]) ---
             C3Attributes.pump_i_running: {
                 "type": Platform.BINARY_SENSOR,
@@ -2060,57 +2054,18 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "icon": "mdi:engine",
                 "device_class": BinarySensorDeviceClass.RUNNING,
             },
-            C3Attributes.compressor_status_raw: {
-                "type": Platform.SENSOR,
-                "translation_key": "compressor_status_raw",
-                "name": "Compressor Status Bitmap (raw)",
-                "icon": "mdi:matrix",
-                "entity_category": EntityCategory.DIAGNOSTIC,
-                "entity_registry_enabled_default": False,
-            },
-            # --- Diagnostic raw uint8 exposures: candidate LAN offsets
-            # for Modbus reg 128 (Status bit 1). Users can correlate
-            # value changes against scenario events (defrost cycle, E8
-            # water-flow alarm, DHW anti-freeze, HT/CL thermostat
-            # toggles) to identify bit assignments.
-            C3Attributes.raw_b31: {
-                "type": Platform.SENSOR,
-                "translation_key": "raw_b31",
-                "name": "Raw byte 31 (reg128 candidate)",
-                "icon": "mdi:numeric",
-                "entity_category": EntityCategory.DIAGNOSTIC,
-                "entity_registry_enabled_default": False,
-            },
-            # raw_b31 bit6: verified water-circuit-active flag (r=+0.99 vs
-            # pump_i / flow). Exposed as a primary running binary sensor.
-            C3Attributes.water_circuit_active: {
-                "type": Platform.BINARY_SENSOR,
-                "translation_key": "water_circuit_active",
-                "name": "Water Circuit Active",
-                "icon": "mdi:water-sync",
-                "device_class": BinarySensorDeviceClass.RUNNING,
-            },
-            # raw_b31 bit5: demand candidate (best r=+0.71 vs TBH, no clean
-            # Modbus mapping). Diagnostic until scenario logs confirm.
-            C3Attributes.unit_demand: {
-                "type": Platform.BINARY_SENSOR,
-                "translation_key": "unit_demand",
-                "name": "Unit Demand (candidate)",
-                "icon": "mdi:help-circle-outline",
-                "device_class": BinarySensorDeviceClass.RUNNING,
-                "entity_category": EntityCategory.DIAGNOSTIC,
-                "entity_registry_enabled_default": False,
-            },
-            # b65: unmapped derived value (46..99, sentinel 99 idle). No Modbus
-            # register match; kept as raw diagnostic for future correlation.
-            C3Attributes.raw_b65: {
-                "type": Platform.SENSOR,
-                "translation_key": "raw_b65",
-                "name": "Raw byte 65 (unmapped)",
-                "icon": "mdi:numeric",
-                "entity_category": EntityCategory.DIAGNOSTIC,
-                "entity_registry_enabled_default": False,
-            },
+            # compressor_status_raw superseded by the verified compressor_on
+            # binary sensor above; no raw diagnostic needed.
+            # raw_b31, water_circuit_active (b31 bit6) and unit_demand (b31
+            # bit5) were this PR's own unverified guesses at the run-state
+            # byte. midea-lan#83 decoded that byte against the Modbus doc and
+            # real hardware instead, replacing it with named, verified flags
+            # (cool_run, heat_run, dhw_run, fact_req_solar_on,
+            # fact_req_ther_cool_on, fact_req_ther_heat_on, edge_version_type).
+            # None of those guesses survived, so nothing to alias here; the
+            # verified flags can be added as their own entities in a follow-up.
+            # raw_b65 has no Modbus register match and was dropped from the
+            # library entirely (midea-lan#46 discussion) - no replacement.
             C3Attributes.odu_comp_current: {
                 "type": Platform.SENSOR,
                 "translation_key": "odu_comp_current",
@@ -2143,10 +2098,10 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Error Description",
                 "icon": "mdi:alert-circle-outline",
             },
-            C3Attributes.wifi_module_serial: {
+            C3Attributes.hmi_sn_code: {  # renamed upstream in midea-lan#81 (it's the HMI serial, not Wi-Fi module's)
                 "type": Platform.SENSOR,
-                "translation_key": "wifi_module_serial",
-                "name": "Wi-Fi Module Serial",
+                "translation_key": "hmi_sn_code",
+                "name": "HMI Serial",
                 "icon": "mdi:identifier",
             },
             # --- Additional low-level diagnostic sensors ---

@@ -63,12 +63,6 @@
     },
     "entity": {
         "binary_sensor": {
-            "water_circuit_active": {
-                "name": "Water - Circuit Active"
-            },
-            "unit_demand": {
-                "name": "Diagnostic - Unit Demand (candidate)"
-            },
             "bar_door": {
                 "name": "Bar Door"
             },
@@ -956,17 +950,14 @@
             "dc_bus_voltage": {
                 "name": "ODU - DC Bus Voltage"
             },
-            "instant_power": {
-                "name": "Power - Heating Capacity"
+            "current_unit_capacity": {
+                "name": "Current Unit Capacity (raw)"
             },
             "instant_power0": {
                 "name": "Power - Heating Consumption"
             },
             "instant_renew_power0": {
                 "name": "Power - Renewable Heating Capacity"
-            },
-            "instant_cop": {
-                "name": "Power - Heating COP"
             },
             "odu_voltage": {
                 "name": "ODU - Voltage"
@@ -1034,8 +1025,8 @@
             "error_code_description": {
                 "name": "Error - Description"
             },
-            "wifi_module_serial": {
-                "name": "Info - WiFi Module Serial"
+            "hmi_sn_code": {
+                "name": "HMI Serial"
             },
             "temp_tw_in": {
                 "name": "Temperature Tw_in - Water Inlet"
@@ -1046,9 +1037,6 @@
             "comp_total_run_time": {
                 "name": "Energy - Compressor Run Time"
             },
-            "compressor_status_raw": {
-                "name": "Compressor - Status Bitmap (raw)"
-            },
             "odu_comp_current": {
                 "name": "Compressor - Current"
             },
@@ -1057,12 +1045,6 @@
             },
             "odu_software_version_str": {
                 "name": "Info - ODU Software Version"
-            },
-            "raw_b31": {
-                "name": "Diagnostic - Raw byte 31"
-            },
-            "raw_b65": {
-                "name": "Diagnostic - Raw byte 65"
             }
         },
         "switch": {
