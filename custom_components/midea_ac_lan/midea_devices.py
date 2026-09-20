@@ -638,7 +638,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Total Energy Consumption",
                 "device_class": SensorDeviceClass.ENERGY,
                 "unit": UnitOfEnergy.KILO_WATT_HOUR,
-                "state_class": SensorStateClass.TOTAL_INCREASING,
+                "state_class": SensorStateClass.TOTAL,
             },
             ACAttributes.current_energy_consumption: {
                 "type": Platform.SENSOR,
@@ -646,7 +646,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Current Energy Consumption",
                 "device_class": SensorDeviceClass.ENERGY,
                 "unit": UnitOfEnergy.KILO_WATT_HOUR,
-                "state_class": SensorStateClass.TOTAL_INCREASING,
+                "state_class": SensorStateClass.TOTAL,
             },
             ACAttributes.realtime_power: {
                 "type": Platform.SENSOR,
