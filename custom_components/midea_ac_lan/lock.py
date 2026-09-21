@@ -8,7 +8,7 @@ from homeassistant.const import CONF_DEVICE_ID, CONF_SWITCHES, Platform
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
-from .const import DEVICES, DOMAIN
+from .const import DEVICES, DOMAIN, supports_device
 from .midea_devices import MIDEA_DEVICES
 from .midea_entity import MideaEntity
 
@@ -27,7 +27,20 @@ async def async_setup_entry(
         "dict",
         MIDEA_DEVICES[device.device_type]["entities"],
     ).items():
-        if config["type"] == Platform.LOCK and entity_key in extra_switches:
+        default_subtypes = config.get("default_subtypes", [])
+        default_models = config.get("default_models", [])
+        is_model_default = int(device.subtype) in default_subtypes and (
+            not default_models or str(device.model) in default_models
+        )
+        if (
+            config["type"] == Platform.LOCK
+            and supports_device(device.model, device.subtype, config)
+            and (
+                config.get("default")
+                or is_model_default
+                or entity_key in extra_switches
+            )
+        ):
             dev = MideaLock(device, entity_key)
             locks.append(dev)
     async_add_entities(locks)

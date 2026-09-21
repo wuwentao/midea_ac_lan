@@ -1,5 +1,8 @@
 """Sensor for Midea Lan."""
 
+import math
+import time
+from datetime import timedelta
 from typing import Any, cast
 
 from homeassistant.components.sensor import (
@@ -9,13 +12,14 @@ from homeassistant.components.sensor import (
 )
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_DEVICE_ID, CONF_SENSORS, Platform
-from homeassistant.core import HomeAssistant
+from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
+from homeassistant.helpers.event import async_track_time_interval
 from homeassistant.helpers.restore_state import RestoreEntity
 from homeassistant.helpers.typing import StateType
 from midealan.device import MideaDevice
 
-from .const import DEVICES, DOMAIN, supports_model
+from .const import DEVICES, DOMAIN, supports_device
 from .midea_devices import MIDEA_DEVICES
 from .midea_entity import MideaEntity
 
@@ -36,7 +40,7 @@ async def async_setup_entry(
     ).items():
         if (
             config["type"] != Platform.SENSOR
-            or not supports_model(device.model, config)
+            or not supports_device(device.model, device.subtype, config)
             or (not config.get("default") and entity_key not in extra_sensors)
         ):
             continue
@@ -46,17 +50,27 @@ async def async_setup_entry(
             and required_attribute not in device.attributes
         ):
             continue
-        sensor = (
-            MideaEstimatedUsageSensor(device, entity_key)
-            if config.get("estimate")
-            else MideaSensor(device, entity_key)
-        )
+        if config.get("estimate"):
+            sensor = MideaEstimatedUsageSensor(device, entity_key)
+        elif config.get("duration_from_minutes"):
+            sensor = MideaMinuteDurationSensor(device, entity_key)
+        else:
+            sensor = MideaSensor(device, entity_key)
         sensors.append(sensor)
     async_add_entities(sensors)
 
 
 class MideaSensor(MideaEntity, SensorEntity):
-    """Represent a Midea  sensor."""
+    """Represent a Midea sensor."""
+
+    def __init__(self, device: MideaDevice, entity_key: str) -> None:
+        """Initialize Midea sensor."""
+        super().__init__(device, entity_key)
+        # Timer configuration: "down" for countdown, "up" for countup
+        self._timer = self._config.get("timer")
+        self._timer_base_value: int | None = None
+        self._timer_last_update: float | None = None
+        self._timer_listener = None
 
     @property
     def native_value(self) -> StateType:
@@ -68,6 +82,20 @@ class MideaSensor(MideaEntity, SensorEntity):
             # For an enum sensor an unmapped value is not a valid state, so
             # report it as unknown (None) instead of leaking the raw int.
             return cast("StateType", options.get(value))
+
+        # Timer mode: calculate elapsed time
+        if self._timer and isinstance(value, int):
+            now = time.time()
+            if self._timer_last_update is not None:
+                elapsed = int(now - self._timer_last_update)
+                if self._timer == "down":
+                    # Countdown: value decreases by elapsed seconds
+                    return cast("StateType", max(0, value - elapsed))
+                if self._timer == "up":
+                    # Countup: value increases by elapsed seconds
+                    return cast("StateType", value + elapsed)
+            return cast("StateType", value)
+
         return cast("StateType", value)
 
     @property
@@ -99,11 +127,84 @@ class MideaSensor(MideaEntity, SensorEntity):
         return cast("int | None", self._config.get("suggested_display_precision"))
 
     @property
+    def suggested_unit_of_measurement(self) -> str | None:
+        """Preferred display unit for device-class conversion."""
+        return cast("str | None", self._config.get("suggested_unit"))
+
+    @property
     def capability_attributes(self) -> dict[str, Any] | None:
         """Capability attributes of the sensor."""
         if self.options is not None:
             return {"options": self.options}
         return {"state_class": self.state_class} if self.state_class else {}
+
+    async def async_added_to_hass(self) -> None:
+        """Subscribe to device updates and start timer tracking."""
+        await super().async_added_to_hass()
+        # Start timer tracking if configured
+        if self._timer:
+            value = self._device.get_attribute(self._entity_key)
+            if isinstance(value, int):
+                self._timer_base_value = value
+                self._timer_last_update = time.time()
+            # Register 1-second interval update
+            self._timer_listener = async_track_time_interval(
+                self.hass,
+                self._async_timer_update,
+                timedelta(seconds=1),
+            )
+
+    async def async_will_remove_from_hass(self) -> None:
+        """Unsubscribe from device updates and stop timer tracking."""
+        await super().async_will_remove_from_hass()
+        if self._timer_listener:
+            self._timer_listener()
+            self._timer_listener = None
+
+    @callback
+    def update_state(self, status: Any) -> None:  # ruff:ignore[any-type]
+        """Update entity state."""
+        if self._timer and self._entity_key in status:
+            value = self._device.get_attribute(self._entity_key)
+            if isinstance(value, int):
+                self._timer_base_value = value
+                self._timer_last_update = time.time()
+        super().update_state(status)
+
+    @callback
+    def _async_timer_update(self, _now: Any) -> None:  # ruff:ignore[any-type]
+        """Update timer state every second."""
+        self.schedule_update_ha_state()
+
+
+class MideaMinuteDurationSensor(MideaSensor):
+    """Present a whole-minute appliance duration as hours and minutes."""
+
+    _HOUR_PRECISION = 6
+
+    @property
+    def native_value(self) -> StateType:
+        """Convert source minutes to hours for HA's duration formatter."""
+        raw_value = self._device.get_attribute(self._entity_key)
+        if raw_value is None:
+            return None
+        minutes = max(0, int(cast("int", raw_value)))
+        if minutes == 0:
+            return 0
+
+        # HA's duration formatter decomposes decimal hours with floor(). Round
+        # upward below the appliance's one-minute resolution so values such as
+        # 61 minutes cannot render as 1 hour 0 minutes through float truncation.
+        scale = 10**self._HOUR_PRECISION
+        return math.ceil((minutes / 60) * scale) / scale
+
+    @property
+    def extra_state_attributes(self) -> dict[str, int]:
+        """Keep the exact appliance value available for automations."""
+        raw_value = self._device.get_attribute(self._entity_key)
+        return {
+            "remaining_minutes": max(0, int(cast("int", raw_value or 0))),
+        }
 
 
 class MideaEstimatedUsageSensor(MideaSensor, RestoreEntity):

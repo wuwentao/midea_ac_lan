@@ -70,12 +70,19 @@ class MideaSelect(MideaEntity, SelectEntity):
             if codes:
                 return [options[code] for code in codes if code in options]
             return list(options.values())
+        if isinstance(self._options_name, list):
+            return [str(option) for option in self._options_name]
         return cast("list", getattr(self._device, self._options_name))
 
     @property
     def current_option(self) -> str | None:
         """Currently selected option."""
-        option = cast("str | None", self._device.get_attribute(self._attribute_key))
+        value = self._device.get_attribute(self._attribute_key)
+        if value is None:
+            return None
+        option = (
+            str(value) if isinstance(self._options_name, list) else cast("str", value)
+        )
         return option if option in self.options else None
 
     @property
@@ -91,7 +98,10 @@ class MideaSelect(MideaEntity, SelectEntity):
         if self._config.get("set_message") == "e1_work_mode":
             self._select_e1_work_mode(option)
             return
-        self._device.set_attribute(self._attribute_key, option)
+        value: Any = option
+        if self._config.get("option_type") == "int":
+            value = int(option)
+        self._device.set_attribute(self._attribute_key, value)
 
     def _get_options_dict(self) -> dict[int, str]:
         """Return option dict from the backing midea-lan device.

@@ -2,73 +2,67 @@
   "config": {
     "error": {
       "preset_account": "Failed to login with preset account, please report this issue",
-      "login_failed": "Bejelentkezés sikertelen, a fiók vagy a jelszó helytelen",
-      "no_devices": "Nem találhatóak új eszközök a hálózaton",
-      "device_exist": "Az eszköz már be van állítva",
-      "config_incorrect": "A beállítások helytelenek",
-      "connect_error": "Nem sikerült csatlakozni az eszközhöz",
-      "invalid_token": "A Token vagy a Key formátuma helytelen"
+      "login_failed": "Bejelentkez├ęs sikertelen, a fi├│k vagy a jelsz├│ helytelen",
+      "no_devices": "Nem tal├ílhat├│ak ├║j eszk├Âz├Âk a h├íl├│zaton",
+      "device_exist": "Az eszk├Âz m├ír be van ├íll├ştva",
+      "config_incorrect": "A be├íll├şt├ísok helytelenek",
+      "connect_error": "Nem siker├╝lt csatlakozni az eszk├Âzh├Âz",
+      "invalid_token": "A Token vagy a Key form├ítuma helytelen"
     },
     "step": {
       "user": {
         "data": {
-          "way": "Eszközök hozzáadása"
+          "way": "Eszk├Âz├Âk hozz├íad├ísa"
         },
-        "description": "Válassza ki az eszközök hozzáadásának módját",
-        "title": "Új eszköz hozzáadása"
+        "description": "V├ílassza ki az eszk├Âz├Âk hozz├íad├ís├ínak m├│dj├ít",
+        "title": "├Üj eszk├Âz hozz├íad├ísa"
       },
       "login": {
         "data": {
-          "account": "Fiók",
-          "password": "Jelszó"
+          "account": "Fi├│k",
+          "password": "Jelsz├│"
         },
-        "description": "Jelentkezzen be és tárolja el Midea-fiókját, kizárólag a készülékei információinak a megszerzéséhez.\nAz összes készülékének beállítása után eltávolíthatja ezt a konfigurációt.",
-        "title": "Bejelentkezés"
+        "description": "Jelentkezzen be, ├ęs k├ęrje le a k├ęsz├╝l├ęk tokenj├ęt.\n\n\nJelenleg csak szem├ęlyes SmartHome- ├ęs Meiju-fi├│kokkal lehet lek├ęrni a k├ęsz├╝l├ękek Tokenjeit. R├ęszletek├ęrt l├ísd a README dokument├íci├│t.",
+        "title": "Bejelentkez├ęs"
       },
       "discovery": {
-        "description": "Adja meg az eszköz IP címét vagy írja be az \"auto\" kifejezést az automatikus kereséshez.\nIP-címet is használhat egy megadott hálózaton belüli kereséshez, például \"192.168.1.255\".",
-        "title": "Keresés",
+        "description": "Adja meg az eszk├Âz IP c├şm├ęt vagy ├şrja be az \"auto\" kifejez├ęst az automatikus keres├ęshez.\nIP-c├şmet is haszn├ílhat egy megadott h├íl├│zaton bel├╝li keres├ęshez, p├ęld├íul \"192.168.1.255\".",
+        "title": "Keres├ęs",
         "data": {
-          "ip_address": "IP cím"
+          "ip_address": "IP c├şm"
         }
       },
       "list": {
         "description": "{table}",
-        "title": "Eszközök"
+        "title": "Eszk├Âz├Âk"
       },
       "auto": {
         "data": {
-          "device": "Eszközök"
+          "device": "Eszk├Âz├Âk"
         },
-        "description": "Válassza ki a hozzáadandó eszközt",
-        "title": "Új eszköz található"
+        "description": "V├ílassza ki a hozz├íadand├│ eszk├Âzt",
+        "title": "├Üj eszk├Âz tal├ílhat├│"
       },
       "manually": {
         "data": {
-          "name": "Név (pl. Nappali légkondicionáló)",
-          "device_id": "Eszköz kód",
-          "type": "Típus",
-          "ip_address": "IP cím",
+          "name": "N├ęv (pl. Nappali l├ęgkondicion├íl├│)",
+          "device_id": "Eszk├Âz k├│d",
+          "type": "T├şpus",
+          "ip_address": "IP c├şm",
           "port": "Port",
           "model": "Model",
-          "subtype": "Altípus",
+          "subtype": "Alt├şpus",
           "protocol": "Protokoll",
           "token": "Token",
           "key": "Key"
         },
-        "description": "Eszköz konfigurációja",
-        "title": "Új eszköz"
+        "description": "Eszk├Âz konfigur├íci├│ja",
+        "title": "├Üj eszk├Âz"
       }
     }
   },
   "entity": {
     "binary_sensor": {
-      "alarm_on": {
-        "name": "Hiba - Riasztás"
-      },
-      "aux_heat_on": {
-        "name": "Fűtőbetét - Kiegészítő hőforrás"
-      },
       "bar_door": {
         "name": "Bar Door"
       },
@@ -87,17 +81,17 @@
       "bottom_compartment_preheating": {
         "name": "Bottom Compartment Preheating"
       },
-      "bottom_elec_heat": {
-        "name": "Alsó elektromos fűtés"
-      },
       "burning_state": {
         "name": "Burning State"
       },
+      "clean_scale": {
+        "name": "V├şzk┼Ĺmentes├şt├ęs"
+      },
+      "clean_sink_ponding": {
+        "name": "V├şzgy┼▒jt┼Ĺ medence"
+      },
       "cleaning_reminder": {
         "name": "Cleaning Reminder"
-      },
-      "compressor_on": {
-        "name": "Kompresszor - Működik"
       },
       "compressor_status": {
         "name": "Compressor Status"
@@ -105,35 +99,14 @@
       "cooking": {
         "name": "Cooking"
       },
-      "cool_capability": {
-        "name": "Képesség - Hűtés"
+      "dissipate_heat": {
+        "name": "H┼Ĺelvezet├ęs"
       },
-      "crankcase_heater_on": {
-        "name": "Fűtőbetét - Forgattyúház"
-      },
-      "dhw_capability": {
-        "name": "Képesség - HMV"
-      },
-      "disinfect_run": {
-        "name": "HMV - Fertőtlenítés fut"
-      },
-      "double_zone": {
-        "name": "Képesség - Két zóna"
-      },
-      "eco": {
-        "name": "ECO"
-      },
-      "eco_function_state": {
-        "name": "Üzemmód - ECO funkció"
-      },
-      "eco_timer_state": {
-        "name": "Üzemmód - ECO időzítő"
-      },
-      "electronic_smell": {
-        "name": "Szagtalanító sterilizálás"
+      "door": {
+        "name": "Ajt├│"
       },
       "error_code": {
-        "name": "Hibakód"
+        "name": "Hibak├│d"
       },
       "filter_change_reminder": {
         "name": "Filter Change Reminder"
@@ -150,6 +123,9 @@
       "flex_zone_door_overtime": {
         "name": "Flex Zone Door"
       },
+      "flip_side": {
+        "name": "Megford├şt├ís"
+      },
       "freezer_door": {
         "name": "Freezer Door"
       },
@@ -159,44 +135,44 @@
       "full_dust": {
         "name": "Full of Dust"
       },
-      "heat_capability": {
-        "name": "Képesség - Fűtés"
-      },
       "heating": {
         "name": "Heating"
+      },
+      "dispensing": {
+        "name": "V├şzadagol├ís"
+      },
+      "lack_water": {
+        "name": "V├şzhi├íny"
+      },
+      "standby": {
+        "name": "K├ęszenl├ęt"
+      },
+      "hot_water_dispensing": {
+        "name": "Forr├│v├şz-adagol├ís"
+      },
+      "fault": {
+        "name": "Hiba"
       },
       "heating_working": {
         "name": "Heating Working Status"
       },
-      "hmi_energy_ana_set_en": {
-        "name": "Képesség - Energiaelemzés (HMI)"
+      "high_temperature": {
+        "name": "Magas h┼Ĺm├ęrs├ęklet"
       },
-      "ibh1_on": {
-        "name": "Fűtőbetét - IBH1"
+      "high_temperature_lock": {
+        "name": "Magas h┼Ĺm├ęrs├ęklet z├írol├ís"
       },
-      "ibh2_on": {
-        "name": "Fűtőbetét - IBH2"
+      "high_temperature_work": {
+        "name": "Magas h┼Ĺm├ęrs├ęklet ├╝zemm├│d"
       },
       "keep_warm": {
         "name": "Keep Warm"
       },
       "leak_water": {
-        "name": "Vízszivárgás"
+        "name": "V├şzsziv├írg├ís"
       },
       "lid_status": {
         "name": "Lid Status"
-      },
-      "load_output_tbh": {
-        "name": "Fűtőbetét - Tároló (TBH)"
-      },
-      "maintain_warn": {
-        "name": "Karbantartási figyelmeztetés"
-      },
-      "maintenance_reminder": {
-        "name": "Karbantartási emlékeztető"
-      },
-      "microcrystal_fresh": {
-        "name": "Mikrokristályos frissítés"
       },
       "middle_compartment_cooling": {
         "name": "Middle Compartment Cooling"
@@ -207,41 +183,41 @@
       "middle_compartment_preheating": {
         "name": "Middle Compartment Preheating"
       },
-      "multi_terminal": {
-        "name": "Több terminál"
+      "top_elec_heat": {
+        "name": "Fels┼Ĺ elektromos f┼▒t├ęs"
+      },
+      "bottom_elec_heat": {
+        "name": "Als├│ elektromos f┼▒t├ęs"
       },
       "mute_effect": {
-        "name": "Némítás hatása"
+        "name": "N├ęm├şt├ís hat├ísa"
       },
       "mute_status": {
-        "name": "Némítás állapota"
+        "name": "N├ęm├şt├ís ├íllapota"
+      },
+      "multi_terminal": {
+        "name": "T├Âbb termin├íl"
       },
       "oilcup_full": {
         "name": "Oil-cup Full"
       },
-      "order1_effect": {
-        "name": "1. ütemezés aktív"
+      "ota": {
+        "name": "OTA"
       },
-      "order2_effect": {
-        "name": "2. ütemezés aktív"
+      "pre_heat": {
+        "name": "El┼Ĺmeleg├şt├ęs"
+      },
+      "probe": {
+        "name": "M├ęr┼Ĺp├ílca"
+      },
+      "probe_mode": {
+        "name": "M├ęr┼Ĺp├ílca m├│d"
       },
       "protection": {
         "name": "Protection"
       },
-      "pump_c_running": {
-        "name": "Pump_C - Kevert kör 2. zóna"
-      },
-      "pump_d_running": {
-        "name": "Pump_D - HMV"
-      },
-      "pump_i_running": {
-        "name": "Pump_I - Belső"
-      },
-      "pump_o_running": {
-        "name": "Pump_O - Külső"
-      },
-      "pump_s_running": {
-        "name": "Pump_S - Napkollektor"
+      "reaction": {
+        "name": "Reakci├│"
       },
       "refrigerator_door": {
         "name": "Refrigerator Door"
@@ -249,20 +225,11 @@
       "refrigerator_door_overtime": {
         "name": "Refrigerator Door Overtime"
       },
-      "remote_onoff": {
-        "name": "Képesség - Távoli be/ki"
-      },
       "rinse_aid": {
         "name": "Rinse Aid Shortage"
       },
-      "room_thermal_state": {
-        "name": "Állapot - Szobatermosztát"
-      },
-      "room_thermal_support": {
-        "name": "Képesség - Szobatermosztát"
-      },
       "rsj_stand_by": {
-        "name": "Készenlét"
+        "name": "K├ęszenl├ęt"
       },
       "salt": {
         "name": "Salt Shortage"
@@ -271,10 +238,82 @@
         "name": "Seat Status"
       },
       "smart_grid": {
-        "name": "Okos hálózat"
+        "name": "Okos h├íl├│zat"
       },
-      "status_cool": {
-        "name": "Állapot - Hűtés"
+      "eco": {
+        "name": "ECO"
+      },
+      "maintenance_reminder": {
+        "name": "Karbantart├ísi eml├ękeztet┼Ĺ"
+      },
+      "dr_enable": {
+        "name": "Ig├ęnyv├ílasz"
+      },
+      "electric_rod_exception": {
+        "name": "Elektromos f┼▒t┼Ĺsz├íl hib├íja"
+      },
+      "ac_heater_priority": {
+        "name": "H┼Ĺszivatty├║ els┼Ĺbbs├ęg"
+      },
+      "high_temp_reminder": {
+        "name": "Magas h┼Ĺm├ęrs├ęklet eml├ękeztet┼Ĺ"
+      },
+      "new_version_water_heater": {
+        "name": "B┼Ĺv├ştett v├şzmeleg├şt┼Ĺ protokoll"
+      },
+      "heat_recovery_status": {
+        "name": "H┼Ĺvisszanyer├ęs"
+      },
+      "holiday_mode": {
+        "name": "Nyaral├ísi m├│d"
+      },
+      "hybrid_motion_mode": {
+        "name": "Hibrid mozg├ís m├│d"
+      },
+      "support_boost_mode": {
+        "name": "Boost m├│d t├ímogat├ísa"
+      },
+      "support_silent_mode": {
+        "name": "Csendes m├│d t├ímogat├ísa"
+      },
+      "support_remaining_hot_water": {
+        "name": "Marad├ęk melegv├şz t├ímogat├ísa"
+      },
+      "support_electric_mode": {
+        "name": "Elektromos m├│d t├ímogat├ísa"
+      },
+      "support_auto_disinfect": {
+        "name": "Automatikus fert┼Ĺtlen├şt├ęs t├ímogat├ísa"
+      },
+      "support_force_e_heating": {
+        "name": "K├ęnyszer├ştett elektromos f┼▒t├ęs t├ímogat├ísa"
+      },
+      "support_tou": {
+        "name": "Id┼Ĺalap├║ haszn├ílat t├ímogat├ísa"
+      },
+      "support_ac_heater_priority": {
+        "name": "H┼Ĺszivatty├║ els┼Ĺbbs├ęg t├ímogat├ísa"
+      },
+      "support_heat_recovery": {
+        "name": "H┼Ĺvisszanyer├ęs t├ímogat├ísa"
+      },
+      "support_heat_pump_mode": {
+        "name": "H┼Ĺszivatty├║ m├│d t├ímogat├ísa"
+      },
+      "support_smart_mode": {
+        "name": "Intelligens m├│d t├ímogat├ísa"
+      },
+      "support_negative_temperature": {
+        "name": "Negat├şv h┼Ĺm├ęrs├ęklet t├ímogat├ísa"
+      },
+      "maintain_warn": {
+        "name": "Karbantart├ísi figyelmeztet├ęs"
+      },
+      "order1_effect": {
+        "name": "1. ├╝temez├ęs akt├şv"
+      },
+      "order2_effect": {
+        "name": "2. ├╝temez├ęs akt├şv"
       },
       "status_dhw": {
         "name": "DHW status"
@@ -288,29 +327,11 @@
       "status_tbh": {
         "name": "TBH status"
       },
-      "sv1_open": {
-        "name": "SV1 - Szelep (HMV)"
-      },
-      "sv2_open": {
-        "name": "SV2 - Szelep (Fűtés)"
-      },
-      "sv3_open": {
-        "name": "SV3 - Szelep"
-      },
-      "sys_energy_ana_en": {
-        "name": "Képesség - Energiaelemzés (Rendszer)"
-      },
       "tank_ejected": {
         "name": "Tank Ejected"
       },
       "tank_full": {
         "name": "Tank status"
-      },
-      "tbh_control": {
-        "name": "Képesség - TBH vezérlés"
-      },
-      "time_set": {
-        "name": "Képesség - Idő beállítva"
       },
       "top_compartment_cooling": {
         "name": "Top Compartment Cooling"
@@ -321,20 +342,8 @@
       "top_compartment_preheating": {
         "name": "Top Compartment Preheating"
       },
-      "top_elec_heat": {
-        "name": "Felső elektromos fűtés"
-      },
-      "unit_demand": {
-        "name": "Diagnosztika - Egység igény (jelölt)"
-      },
       "water_change_reminder": {
         "name": "Water Change Reminder"
-      },
-      "water_circuit_active": {
-        "name": "Víz - Kör aktív"
-      },
-      "water_pump_running": {
-        "name": "Vízszivattyú működik"
       },
       "water_shortage": {
         "name": "Water Shortage"
@@ -353,14 +362,119 @@
       },
       "zone2_water_temp_mode": {
         "name": "Zone2 Water-temperature Mode"
+      },
+      "microcrystal_fresh": {
+        "name": "Mikrokrist├ílyos friss├şt├ęs"
+      },
+      "electronic_smell": {
+        "name": "Szagtalan├şt├│ steriliz├íl├ís"
+      },
+      "water_pump_running": {
+        "name": "V├şzszivatty├║ m┼▒k├Âdik"
+      },
+      "alarm_on": {
+        "name": "Hiba - Riaszt├ís"
+      },
+      "aux_heat_on": {
+        "name": "F┼▒t┼Ĺbet├ęt - Kieg├ęsz├şt┼Ĺ h┼Ĺforr├ís"
+      },
+      "compressor_on": {
+        "name": "Kompresszor - M┼▒k├Âdik"
+      },
+      "cool_capability": {
+        "name": "K├ępess├ęg - H┼▒t├ęs"
+      },
+      "crankcase_heater_on": {
+        "name": "F┼▒t┼Ĺbet├ęt - Forgatty├║h├íz"
+      },
+      "dhw_capability": {
+        "name": "K├ępess├ęg - HMV"
+      },
+      "disinfect_run": {
+        "name": "HMV - Fert┼Ĺtlen├şt├ęs fut"
+      },
+      "double_zone": {
+        "name": "K├ępess├ęg - K├ęt z├│na"
+      },
+      "eco_function_state": {
+        "name": "├ťzemm├│d - ECO funkci├│"
+      },
+      "eco_timer_state": {
+        "name": "├ťzemm├│d - ECO id┼Ĺz├şt┼Ĺ"
+      },
+      "heat_capability": {
+        "name": "K├ępess├ęg - F┼▒t├ęs"
+      },
+      "hmi_energy_ana_set_en": {
+        "name": "K├ępess├ęg - Energiaelemz├ęs (HMI)"
+      },
+      "ibh1_on": {
+        "name": "F┼▒t┼Ĺbet├ęt - IBH1"
+      },
+      "ibh2_on": {
+        "name": "F┼▒t┼Ĺbet├ęt - IBH2"
+      },
+      "load_output_tbh": {
+        "name": "F┼▒t┼Ĺbet├ęt - T├írol├│ (TBH)"
+      },
+      "pump_c_running": {
+        "name": "Pump_C - Kevert k├Âr 2. z├│na"
+      },
+      "pump_d_running": {
+        "name": "Pump_D - HMV"
+      },
+      "pump_i_running": {
+        "name": "Pump_I - Bels┼Ĺ"
+      },
+      "pump_o_running": {
+        "name": "Pump_O - K├╝ls┼Ĺ"
+      },
+      "pump_s_running": {
+        "name": "Pump_S - Napkollektor"
+      },
+      "remote_onoff": {
+        "name": "K├ępess├ęg - T├ívoli be/ki"
+      },
+      "room_thermal_state": {
+        "name": "├üllapot - Szobatermoszt├ít"
+      },
+      "room_thermal_support": {
+        "name": "K├ępess├ęg - Szobatermoszt├ít"
+      },
+      "status_cool": {
+        "name": "├üllapot - H┼▒t├ęs"
+      },
+      "sv1_open": {
+        "name": "SV1 - Szelep (HMV)"
+      },
+      "sv2_open": {
+        "name": "SV2 - Szelep (F┼▒t├ęs)"
+      },
+      "sv3_open": {
+        "name": "SV3 - Szelep"
+      },
+      "sys_energy_ana_en": {
+        "name": "K├ępess├ęg - Energiaelemz├ęs (Rendszer)"
+      },
+      "tbh_control": {
+        "name": "K├ępess├ęg - TBH vez├ęrl├ęs"
+      },
+      "time_set": {
+        "name": "K├ępess├ęg - Id┼Ĺ be├íll├ştva"
       }
     },
     "button": {
       "start": {
-        "name": "Indítás"
+        "name": "Ind├şt├ís"
       }
     },
     "climate": {
+      "climate_zone1": {
+        "name": "Zone1 Thermostat"
+      },
+      "climate_zone2": {
+        "name": "Zone2 Thermostat"
+      },
       "climate_key": {
         "state_attributes": {
           "fan_mode": {
@@ -370,12 +484,6 @@
             }
           }
         }
-      },
-      "climate_zone1": {
-        "name": "Zone1 Thermostat"
-      },
-      "climate_zone2": {
-        "name": "Zone2 Thermostat"
       }
     },
     "fan": {
@@ -383,7 +491,7 @@
         "name": "Fresh Air"
       },
       "fresh_air_exhaust": {
-        "name": "Frisslevegő elszívás"
+        "name": "Frissleveg┼Ĺ elsz├şv├ís"
       }
     },
     "lock": {
@@ -395,29 +503,44 @@
       "dry_level": {
         "name": "Dry Level"
       },
-      "fan_speed_percent": {
-        "name": "Ventilátor sebesség százalék"
-      },
-      "flushing_days": {
-        "name": "Regenerálási napok"
-      },
       "heating_level": {
         "name": "Heating Level"
-      },
-      "leak_water_protection_value": {
-        "name": "Vízszivárgás védelem értéke"
       },
       "seat_temp_level": {
         "name": "Seat Temperature Level"
       },
-      "vacation_days": {
-        "name": "Vakáció napok"
-      },
-      "water_hardness": {
-        "name": "Víz keménység"
-      },
       "water_temp_level": {
         "name": "Water Temperature Level"
+      },
+      "fan_speed_percent": {
+        "name": "Ventil├ítor sebess├ęg sz├ízal├ęk"
+      },
+      "vacation_days": {
+        "name": "Vak├íci├│ napok"
+      },
+      "max_temperature": {
+        "name": "Maxim├ílis c├ęl h┼Ĺm├ęrs├ęklet"
+      },
+      "disinfection_temperature": {
+        "name": "Fert┼Ĺtlen├şt├ęsi h┼Ĺm├ęrs├ęklet"
+      },
+      "schedule_mode": {
+        "name": "├ťtemez├ęsi m├│d"
+      },
+      "leak_water_protection_value": {
+        "name": "V├şzsziv├írg├ís v├ędelem ├ęrt├ęke"
+      },
+      "flushing_days": {
+        "name": "Regener├íl├ísi napok"
+      },
+      "water_hardness": {
+        "name": "V├şz kem├ęnys├ęg"
+      },
+      "boil_temperature": {
+        "name": "Forral├ísi c├ęlh┼Ĺm├ęrs├ęklet"
+      },
+      "keep_warm_time": {
+        "name": "Melegen tart├ísi id┼Ĺ"
       }
     },
     "select": {
@@ -431,7 +554,7 @@
         "name": "Fan Speed"
       },
       "fresh_air_exhaust_mode": {
-        "name": "Frisslevegő elszívás sebessége",
+        "name": "Frissleveg┼Ĺ elsz├şv├ís sebess├ęge",
         "state": {
           "off": "Ki",
           "silent": "Alacsony",
@@ -440,11 +563,11 @@
         }
       },
       "fresh_air_mode": {
-        "name": "Frisslevegő sebessége",
+        "name": "Frissleveg┼Ĺ sebess├ęge",
         "state": {
           "off": "Ki",
           "low": "Alacsony",
-          "medium": "Közepes",
+          "medium": "K├Âzepes",
           "high": "Magas",
           "full": "Teljes"
         }
@@ -465,63 +588,67 @@
         "name": "Screen Display"
       },
       "silent_level": {
-        "name": "Silent Level",
-        "state": {
-          "off": "Ki",
-          "silent": "Csendes",
-          "super_silent": "Szuper csendes"
-        }
+        "name": "Silent Level"
       },
       "tilting_angle": {
         "name": "Tilting Angle"
       },
       "wash_mode": {
-        "name": "Mosási mód"
+        "name": "Mos├ísi m├│d"
       },
       "water_level_set": {
         "name": "Water Level Setting"
       },
       "wind_lr_angle": {
-        "name": "Légáramlás vízszintes",
+        "name": "L├ęg├íraml├ís v├şzszintes",
         "state": {
           "off": "Ki",
           "left": "Bal",
-          "left-mid": "Bal-közép",
-          "middle": "Közép",
-          "right-mid": "Jobb-közép",
+          "left-mid": "Bal-k├Âz├ęp",
+          "middle": "K├Âz├ęp",
+          "right-mid": "Jobb-k├Âz├ęp",
           "right": "Jobb"
         }
       },
       "wind_ud_angle": {
-        "name": "Légáramlás függőleges",
+        "name": "L├ęg├íraml├ís f├╝gg┼Ĺleges",
         "state": {
           "off": "Ki",
           "up": "Fel",
-          "up-mid": "Fel-közép",
-          "middle": "Közép",
-          "down-mid": "Le-közép",
+          "up-mid": "Fel-k├Âz├ęp",
+          "middle": "K├Âz├ęp",
+          "down-mid": "Le-k├Âz├ęp",
           "down": "Le"
         }
       }
     },
+    "time": {
+      "timing_regeneration": {
+        "name": "Id┼Ĺz├ştett regener├íl├ís"
+      }
+    },
     "sensor": {
-      "ai_switch": {
-        "name": "AI kapcsoló"
-      },
-      "auto_sterilize_hour": {
-        "name": "Automatikus sterilizálás óra"
-      },
-      "auto_sterilize_minute": {
-        "name": "Automatikus sterilizálás perc"
-      },
-      "auto_sterilize_week": {
-        "name": "Automatikus sterilizálás hét"
-      },
-      "back_water": {
-        "name": "Visszatérő víz"
-      },
       "bathing_leaving_temperature": {
         "name": "Bathing Leaving Water Temperature"
+      },
+      "bf_status": {
+        "name": "├üllapot",
+        "state": {
+          "save_power": "Energiatakar├ękos",
+          "standby": "K├ęszenl├ęt",
+          "work": "M┼▒k├Âdik",
+          "work_finish": "Befejezett",
+          "order": "K├ęsleltet├ęs",
+          "pause": "Sz├╝net",
+          "pause_c": "Sz├╝net C",
+          "three": "H├írom",
+          "wait_to_start": "V├írakoz├ís ind├şt├ísra",
+          "self_inspection": "├ľnellen┼Ĺrz├ęs",
+          "query_version": "Verzi├│ lek├ęrdez├ęs",
+          "demo": "Dem├│",
+          "after_checking": "Ellen┼Ĺrz├ęs ut├ín",
+          "unknown": "Ismeretlen"
+        }
       },
       "bottom_compartment_remaining": {
         "name": "Bottom Compartment Remaining"
@@ -538,44 +665,32 @@
       "bright": {
         "name": "Bright Level"
       },
-      "comp_run_freq": {
-        "name": "Kompresszor - Frekvencia"
+      "cbs_version": {
+        "name": "CBS verzi├│"
       },
-      "comp_total_run_time": {
-        "name": "Energia - Kompresszor üzemidő"
-      },
-      "compressor_current": {
-        "name": "Kompresszor áramerősség"
-      },
-      "compressor_frequency": {
-        "name": "Kompresszor frekvencia"
-      },
-      "compressor_power": {
-        "name": "Kompresszor teljesítmény"
-      },
-      "compressor_status_raw": {
-        "name": "Kompresszor - Állapot bitmaszk (nyers)"
+      "cloudmenuid": {
+        "name": "Felh┼Ĺ men├╝ ID"
       },
       "compressor_temperature": {
         "name": "Compressor Temperature"
       },
-      "compressor_voltage": {
-        "name": "Kompresszor feszültség"
-      },
       "condenser_temperature": {
         "name": "Condenser Temperature"
+      },
+      "cur_probe_temperature": {
+        "name": "Jelenlegi m├ęr┼Ĺp├ílca h┼Ĺm├ęrs├ęklet"
+      },
+      "cur_temperature_above": {
+        "name": "Jelenlegi fels┼Ĺ h┼Ĺm├ęrs├ęklet"
+      },
+      "cur_temperature_underside": {
+        "name": "Jelenlegi als├│ h┼Ĺm├ęrs├ęklet"
       },
       "current_energy_consumption": {
         "name": "Current Energy Consumption"
       },
       "current_temperature": {
         "name": "Current Temperature"
-      },
-      "dc_bus_voltage": {
-        "name": "Kültéri egység - DC busz feszültség"
-      },
-      "dc_current": {
-        "name": "Kültéri egység - DC busz áram"
       },
       "dehydration_speed": {
         "name": "dehydration speed"
@@ -584,40 +699,43 @@
         "name": "dehydration time"
       },
       "dehydration_time_value": {
-        "name": "Víztelenítési idő értéke"
+        "name": "V├şztelen├şt├ęsi id┼Ĺ ├ęrt├ęke"
+      },
+      "temperature": {
+        "name": "H┼Ĺm├ęrs├ęklet"
+      },
+      "wash_time_value": {
+        "name": "Mos├ísi id┼Ĺ ├ęrt├ęke"
+      },
+      "stains": {
+        "name": "Foltok"
+      },
+      "dirty_degree": {
+        "name": "Szennyezetts├ęg m├ęrt├ęke"
       },
       "detergent": {
         "name": "detergent"
       },
-      "dirty_degree": {
-        "name": "Szennyezettség mértéke"
-      },
-      "discharge_pipe_temperature": {
-        "name": "Nyomócső hőmérséklet(TP)"
-      },
-      "disinfect_set_weekday": {
-        "name": "HMV - Fertőtlenítés napja"
-      },
-      "disinfect_start_hour": {
-        "name": "HMV - Fertőtlenítés kezdő óra"
-      },
-      "disinfect_start_minutes": {
-        "name": "HMV - Fertőtlenítés kezdő perc"
-      },
-      "disinfection_temperature": {
-        "name": "Fertőtlenítési hőmérséklet"
-      },
-      "door_warn": {
-        "name": "Ajtó figyelmeztetés"
-      },
-      "dry_temperature": {
-        "name": "Szárítási hőmérséklet"
+      "intensity": {
+        "name": "Intenzit├ís"
       },
       "dryness_level": {
-        "name": "Szárazsági szint"
+        "name": "Sz├írazs├ígi szint"
       },
-      "elec_heat": {
-        "name": "Elektromos fűtés"
+      "dry_temperature": {
+        "name": "Sz├ír├şt├ísi h┼Ĺm├ęrs├ęklet"
+      },
+      "door_warn": {
+        "name": "Ajt├│ figyelmeztet├ęs"
+      },
+      "ai_switch": {
+        "name": "AI kapcsol├│"
+      },
+      "material": {
+        "name": "Anyag"
+      },
+      "water_box": {
+        "name": "V├şztart├íly"
       },
       "energy_consumption": {
         "name": "Energy Consumption"
@@ -626,39 +744,39 @@
         "name": "Hiba",
         "state": {
           "no_error": "Nincs hiba",
-          "e1_position_not_found": "E1 Pozíció nem található",
-          "e2_photo_sensor_no_signal": "E2 Fotóérzékelő nincs jel",
+          "e1_position_not_found": "E1 Poz├şci├│ nem tal├ílhat├│",
+          "e2_photo_sensor_no_signal": "E2 Fot├│├ęrz├ękel┼Ĺ nincs jel",
           "e3_motor_not_running": "E3 Motor nem fut",
-          "e4_wrong_position": "E4 Hibás pozíció",
+          "e4_wrong_position": "E4 Hib├ís poz├şci├│",
           "e1_motor_fault": "E1 Motor hiba",
-          "e5_communication_fault": "E5 Kommunikációs hiba",
-          "e6_salt_sensor_fault": "E6 Sóérzékelő hiba",
-          "e7_chlorine_sterilization_fault": "E7 Klór sterilizációs hiba"
+          "e5_communication_fault": "E5 Kommunik├íci├│s hiba",
+          "e6_salt_sensor_fault": "E6 S├│├ęrz├ękel┼Ĺ hiba",
+          "e7_chlorine_sterilization_fault": "E7 Kl├│r steriliz├íci├│s hiba"
         }
       },
       "error_code": {
         "name": "Error Code"
       },
-      "error_code_description": {
-        "name": "Hiba - Leírás"
-      },
       "estimated_energy_consumption": {
-        "name": "Becsült energiafogyasztás"
+        "name": "Becs├╝lt energiafogyaszt├ís"
       },
       "estimated_water_consumption": {
-        "name": "Becsült vízfogyasztás"
+        "name": "Becs├╝lt v├şzfogyaszt├ís"
       },
-      "exv_opening": {
-        "name": "Hűtőközeg - EXV1 nyitás"
+      "execute_status": {
+        "name": "V├ęgrehajt├ísi ├íllapot",
+        "state": {
+          "ok": "OK",
+          "status_nonsupport": "├üllapot nem t├ímogatott",
+          "function_nonsupport": "Funkci├│ nem t├ímogatott",
+          "param_range_error": "Param├ętertartom├íny hiba"
+        }
       },
       "fan_level": {
         "name": "Fan level"
       },
-      "fan_speed": {
-        "name": "Kültéri egység - Ventilátor fordulatszám"
-      },
-      "fg_capacity_need": {
-        "name": "Diagnosztika - Teljesítményigény (nyers)"
+      "filter_life": {
+        "name": "Filter Life"
       },
       "filter1_days": {
         "name": "Filter1 Available Days"
@@ -678,17 +796,28 @@
       "filter3_life": {
         "name": "Filter3 Life Level"
       },
-      "filter_life": {
-        "name": "Filter Life"
+      "fire_power": {
+        "name": "T┼▒zereje",
+        "state": {
+          "fire_power_0": "Szint 0",
+          "fire_power_1": "Szint 1",
+          "fire_power_2": "Szint 2",
+          "fire_power_3": "Szint 3",
+          "fire_power_4": "Szint 4",
+          "fire_power_5": "Szint 5",
+          "fire_power_6": "Szint 6",
+          "fire_power_7": "Szint 7",
+          "fire_power_8": "Szint 8",
+          "fire_power_9": "Szint 9",
+          "fire_power_10": "Szint 10",
+          "unknown": "Ismeretlen"
+        }
       },
       "flex_zone_actual_temp": {
         "name": "Flex Zone Actual Temperature"
       },
       "flex_zone_setting_temp": {
         "name": "Flex Zone Setting Temperature"
-      },
-      "four_way": {
-        "name": "Négyjáratú szelep"
       },
       "freezer_actual_temp": {
         "name": "Freezer Actual Temperature"
@@ -708,35 +837,8 @@
       "heating_time_remaining": {
         "name": "Heating Time Remaining"
       },
-      "humidity": {
-        "name": "Páratartalom"
-      },
-      "hydbox_subtype": {
-        "name": "Info - Hidraulikus modul altípus"
-      },
-      "hydrobox_capacity": {
-        "name": "Info - Hidraulikus modul teljesítmény"
-      },
-      "idu_software_version_str": {
-        "name": "Info - Beltéri egység szoftververzió"
-      },
-      "idu_t1s1": {
-        "name": "Hőmérséklet - 1. zóna számított (T1s)"
-      },
-      "idu_t1s2": {
-        "name": "Hőmérséklet - 2. zóna számított (T1s)"
-      },
       "in_tds": {
         "name": "In TDS"
-      },
-      "indoor_ambient_temperature": {
-        "name": "Beltéri környezeti hőmérséklet(T1)"
-      },
-      "indoor_coil_temperature": {
-        "name": "Beltéri hőcserélő hőmérséklet(T2)"
-      },
-      "indoor_fan_speed": {
-        "name": "Beltéri ventilátor sebesség"
       },
       "indoor_humidity": {
         "name": "Indoor Humidity"
@@ -744,38 +846,17 @@
       "indoor_temperature": {
         "name": "Indoor Temperature"
       },
-      "instant_cop": {
-        "name": "Teljesítmény - Fűtési COP"
-      },
-      "instant_power": {
-        "name": "Teljesítmény - Fűtési teljesítmény"
-      },
-      "instant_power0": {
-        "name": "Teljesítmény - Fűtési fogyasztás"
-      },
-      "instant_renew_power0": {
-        "name": "Teljesítmény - Megújuló fűtési teljesítmény"
-      },
-      "intensity": {
-        "name": "Intenzitás"
-      },
       "keep_warm_remaining": {
         "name": "Keep Warm Remaining"
+      },
+      "fault_code": {
+        "name": "Hibak├│d"
       },
       "keep_warm_time": {
         "name": "Keep Warm Time"
       },
       "left_salt": {
-        "name": "Maradék só"
-      },
-      "machine_type": {
-        "name": "Info - Gép típusa"
-      },
-      "material": {
-        "name": "Anyag"
-      },
-      "max_temperature": {
-        "name": "Maximális cél hőmérséklet"
+        "name": "Marad├ęk s├│"
       },
       "middle_compartment_remaining": {
         "name": "Middle Compartment Remaining"
@@ -786,44 +867,81 @@
       "middle_compartment_temperature": {
         "name": "Middle Compartment Temperature"
       },
+      "minute_set": {
+        "name": "Perc be├íll├şt├ísa"
+      },
       "mode": {
         "name": "Mode"
-      },
-      "odu_comp_current": {
-        "name": "Kompresszor - Áram"
-      },
-      "odu_model": {
-        "name": "Info - Kültéri egység modellkód"
-      },
-      "odu_software_version_str": {
-        "name": "Info - Kültéri egység szoftververzió"
-      },
-      "odu_target_fre": {
-        "name": "Kompresszor - Cél frekvencia"
-      },
-      "odu_voltage": {
-        "name": "Kültéri egység - Feszültség"
       },
       "out_tds": {
         "name": "Out TDS"
       },
-      "outdoor_ambient_temperature": {
-        "name": "Kültéri környezeti hőmérséklet(T4)"
-      },
-      "outdoor_coil_temperature": {
-        "name": "Kültéri hőcserélő hőmérséklet(T3)"
-      },
       "outdoor_temperature": {
         "name": "Outdoor Temperature"
       },
-      "pmv": {
-        "name": "PMV"
+      "comp_run_freq": {
+        "name": "Kompresszor frekvenci├íja"
+      },
+      "outdoor_fan_speed": {
+        "name": "K├╝lt├ęri ventil├ítor fordulatsz├íma"
+      },
+      "unit_mode_run": {
+        "name": "Egys├ęg ├╝zemm├│dja",
+        "state": {
+          "off": "Ki",
+          "auto": "Automatikus",
+          "cool": "H┼▒t├ęs",
+          "heat": "F┼▒t├ęs",
+          "dhw": "HMV"
+        }
+      },
+      "odu_target_fre": {
+        "name": "C├ęl kompresszorfrekvencia"
+      },
+      "odu_voltage": {
+        "name": "K├╝lt├ęri egys├ęg fesz├╝lts├ęge"
+      },
+      "odu_comp_current": {
+        "name": "Kompresszor ├íramer┼Ĺss├ęge"
+      },
+      "exv_current": {
+        "name": "Elektronikus expanzi├│s szelep nyit├ísa"
+      },
+      "fg_capacity_need": {
+        "name": "Kapacit├ísig├ęny"
       },
       "pressure_high": {
-        "name": "Hűtőközeg - Magas nyomás (P1)"
+        "name": "H┼▒t┼Ĺk├Âzeg nyom├ísa (magas oldal)"
       },
       "pressure_low": {
-        "name": "Hűtőközeg - Alacsony nyomás (P2)"
+        "name": "H┼▒t┼Ĺk├Âzeg nyom├ísa (alacsony oldal)"
+      },
+      "temp_t1": {
+        "name": "T1 h┼Ĺm├ęrs├ęklet-├ęrz├ękel┼Ĺ"
+      },
+      "temp_t2": {
+        "name": "Lemezes h┼Ĺcser├ęl┼Ĺ h┼Ĺm├ęrs├ęklete (T2)"
+      },
+      "temp_t2b": {
+        "name": "Lemezes h┼Ĺcser├ęl┼Ĺ kimeneti h┼Ĺm├ęrs├ęklete (T2B)"
+      },
+      "temp_t3": {
+        "name": "K├╝lt├ęri h┼Ĺcser├ęl┼Ĺ h┼Ĺm├ęrs├ęklete (T3)"
+      },
+      "temp_tp": {
+        "name": "Nyom├│cs┼Ĺ h┼Ĺm├ęrs├ęklete (TP)"
+      },
+      "temp_th": {
+        "name": "Sz├şv├ísi h┼Ĺm├ęrs├ęklet (TH)"
+      },
+      "temp_tf": {
+        "name": "Teljes├ştm├ęnymodul h┼Ĺm├ęrs├ęklete (TF)"
+      },
+      "people_number": {
+        "name": "Szem├ęlyek sz├íma"
+      },
+      "probe_temperature": {
+        "name": "M├ęr┼Ĺp├ílca h┼Ĺm├ęrs├ęklet"
       },
       "program": {
         "name": "Program"
@@ -831,14 +949,11 @@
       "progress": {
         "name": "Progress"
       },
-      "raw_b31": {
-        "name": "Diagnosztika - Nyers bájt 31"
-      },
-      "raw_b65": {
-        "name": "Diagnosztika - Nyers bájt 65"
-      },
       "realtime_power": {
         "name": "Realtime Power"
+      },
+      "pmv": {
+        "name": "PMV"
       },
       "refrigerator_actual_temp": {
         "name": "Refrigerator Actual Temperature"
@@ -847,10 +962,10 @@
         "name": "Refrigerator Setting Temperature"
       },
       "regeneration_left_seconds": {
-        "name": "Regenerálás hátralévő másodperc"
+        "name": "Regener├íl├ís h├ítral├ęv┼Ĺ m├ísodperc"
       },
       "remaining_days": {
-        "name": "Hátralévő napok"
+        "name": "H├ítral├ęv┼Ĺ napok"
       },
       "right_flex_zone_actual_temp": {
         "name": "Right Flex Zone Actual Temperature"
@@ -864,20 +979,20 @@
       "rinse_level": {
         "name": "rinse level"
       },
-      "room_rel_hum": {
-        "name": "Relatív páratartalom"
-      },
       "salt_setting": {
-        "name": "Só beállítása"
+        "name": "S├│ be├íll├şt├ísa"
       },
       "seat_temperature": {
         "name": "Seat Temperature"
+      },
+      "second_set": {
+        "name": "M├ísodperc be├íll├şt├ísa"
       },
       "soak_time": {
         "name": "soak time"
       },
       "soft_available": {
-        "name": "Elérhető lágy víz"
+        "name": "El├ęrhet┼Ĺ l├így v├şz"
       },
       "softener": {
         "name": "softener"
@@ -885,20 +1000,17 @@
       "softwater": {
         "name": "Softwater Level"
       },
-      "stains": {
-        "name": "Foltok"
-      },
       "status": {
         "name": "Status"
       },
-      "sterilize": {
-        "name": "Sterilizálás"
+      "steam_quantity": {
+        "name": "G┼Ĺz mennyis├ęge"
+      },
+      "stepnum": {
+        "name": "Jelenlegi l├ęp├ęs"
       },
       "storage_remaining": {
         "name": "Storage Remaining"
-      },
-      "t5s": {
-        "name": "Hőmérséklet T5s - HMV alapjel"
       },
       "tank": {
         "name": "Tank"
@@ -906,68 +1018,14 @@
       "tank_actual_temperature": {
         "name": "Tank Actual Temperature"
       },
-      "target_compressor_frequency": {
-        "name": "Cél kompresszor frekvencia"
-      },
-      "target_indoor_fan_speed": {
-        "name": "Cél beltéri ventilátor sebesség"
-      },
       "target_temperature": {
         "name": "Target Temperature"
       },
-      "tas": {
-        "name": "Hőmérséklet Tas - Levegő alapjel"
+      "temperature_above": {
+        "name": "Fels┼Ĺ h┼Ĺm├ęrs├ęklet"
       },
-      "temp_t1": {
-        "name": "Hőmérséklet T1 - Teljes előremenő víz"
-      },
-      "temp_t2": {
-        "name": "Hőmérséklet T2 - Hűtőközeg folyadékoldal"
-      },
-      "temp_t2b": {
-        "name": "Hőmérséklet T2B - Hűtőközeg gázoldal"
-      },
-      "temp_t3": {
-        "name": "Hőmérséklet T3 - Kültéri hőcserélő"
-      },
-      "temp_t4": {
-        "name": "Hőmérséklet T4 - Külső levegő"
-      },
-      "temp_t5": {
-        "name": "Hőmérséklet T5 - HMV tároló"
-      },
-      "temp_ta": {
-        "name": "Hőmérséklet Ta - Szobalevegő"
-      },
-      "temp_tb_t1": {
-        "name": "Hőmérséklet TB-T1 - Puffertartály felső"
-      },
-      "temp_tb_t2": {
-        "name": "Hőmérséklet TB-T2 - Puffertartály alsó"
-      },
-      "temp_tf": {
-        "name": "Hőmérséklet TF - Teljesítménymodul"
-      },
-      "temp_th": {
-        "name": "Hőmérséklet TH - Kompresszor szívóág"
-      },
-      "temp_tp": {
-        "name": "Hőmérséklet TP - Kompresszor nyomóág"
-      },
-      "temp_tsolar": {
-        "name": "Hőmérséklet Tsolar - Napkollektor"
-      },
-      "temp_tw2": {
-        "name": "Hőmérséklet Tw2 - 2. zóna víz"
-      },
-      "temp_tw_in": {
-        "name": "Hőmérséklet Tw_in - Vízbemenet"
-      },
-      "temp_tw_out": {
-        "name": "Hőmérséklet Tw_out - Vízkimenet"
-      },
-      "temperature": {
-        "name": "Hőmérséklet"
+      "temperature_underside": {
+        "name": "Als├│ h┼Ĺm├ęrs├ęklet"
       },
       "time_remaining": {
         "name": "Time Remaining"
@@ -990,41 +1048,14 @@
       "total_produced_energy": {
         "name": "Total produced energy"
       },
+      "totalstep": {
+        "name": "├ľsszes l├ęp├ęs"
+      },
       "tvoc": {
         "name": "TVOC"
       },
-      "typeinfo": {
-        "name": "Típusinformáció"
-      },
-      "unit_mode_run": {
-        "name": "Állapot - Üzemmód",
-        "state": {
-          "off": "Ki",
-          "cool": "Hűtés",
-          "heat": "Fűtés",
-          "dhw": "Használati melegvíz"
-        }
-      },
-      "use_days": {
-        "name": "Használati napok"
-      },
-      "vacation_start_day": {
-        "name": "Vakáció kezdő nap"
-      },
-      "vacation_start_month": {
-        "name": "Vakáció kezdő hónap"
-      },
-      "vacation_start_year": {
-        "name": "Vakáció kezdő év"
-      },
-      "variable_mode": {
-        "name": "Változó mód"
-      },
-      "velocity": {
-        "name": "Sebesség"
-      },
       "wash_level": {
-        "name": "Mosási szint"
+        "name": "Mos├ísi szint"
       },
       "wash_strength": {
         "name": "wash strength"
@@ -1032,50 +1063,363 @@
       "wash_time": {
         "name": "wash time"
       },
-      "wash_time_value": {
-        "name": "Mosási idő értéke"
-      },
-      "water_box": {
-        "name": "Víztartály"
-      },
       "water_consumption": {
         "name": "Water Consumption"
       },
       "water_consumption_average": {
-        "name": "Átlagos vízfogyasztás"
+        "name": "├ütlagos v├şzfogyaszt├ís"
       },
       "water_consumption_big": {
-        "name": "Vízfogyasztás"
-      },
-      "water_flow": {
-        "name": "Víz - Térfogatáram"
-      },
-      "water_level": {
-        "name": "Water Level"
-      },
-      "water_pressure": {
-        "name": "Víz - Nyomás"
-      },
-      "water_pump": {
-        "name": "Vízszivattyú"
+        "name": "V├şzfogyaszt├ís"
       },
       "water_temperature": {
         "name": "Water Temperature"
       },
-      "wifi_module_serial": {
-        "name": "Info - WiFi modul sorozatszám"
+      "water_level": {
+        "name": "Water Level"
       },
       "wind": {
-        "name": "Szél"
+        "name": "Sz├ęl"
+      },
+      "typeinfo": {
+        "name": "T├şpusinform├íci├│"
+      },
+      "use_days": {
+        "name": "Haszn├ílati napok"
+      },
+      "elec_heat": {
+        "name": "Elektromos f┼▒t├ęs"
+      },
+      "water_pump": {
+        "name": "V├şzszivatty├║"
+      },
+      "four_way": {
+        "name": "N├ęgyj├írat├║ szelep"
+      },
+      "back_water": {
+        "name": "Visszat├ęr┼Ĺ v├şz"
+      },
+      "sterilize": {
+        "name": "Steriliz├íl├ís"
+      },
+      "disinfection_temperature": {
+        "name": "Fert┼Ĺtlen├şt├ęsi h┼Ĺm├ęrs├ęklet"
+      },
+      "max_temperature": {
+        "name": "Maxim├ílis c├ęl h┼Ĺm├ęrs├ęklet"
+      },
+      "max_temperature_upper_limit": {
+        "name": "Maxim├ílis h┼Ĺm├ęrs├ęklet fels┼Ĺ hat├íra"
+      },
+      "max_temperature_lower_limit": {
+        "name": "Maxim├ílis h┼Ĺm├ęrs├ęklet als├│ hat├íra"
+      },
+      "disinfection_temperature_upper_limit": {
+        "name": "Fert┼Ĺtlen├şt├ęsi h┼Ĺm├ęrs├ęklet fels┼Ĺ hat├íra"
+      },
+      "disinfection_temperature_lower_limit": {
+        "name": "Fert┼Ĺtlen├şt├ęsi h┼Ĺm├ęrs├ęklet als├│ hat├íra"
+      },
+      "dr_option": {
+        "name": "Ig├ęnyv├ílasz opci├│"
+      },
+      "remaining_hot_water_max": {
+        "name": "Maxim├ílis marad├ęk melegv├şz"
+      },
+      "force_e_heating_status": {
+        "name": "K├ęnyszer├ştett elektromos f┼▒t├ęs ├íllapota"
+      },
+      "holiday_max": {
+        "name": "Maxim├ílis nyaral├ísi id┼Ĺtartam"
+      },
+      "holiday_min": {
+        "name": "Minim├ílis nyaral├ísi id┼Ĺtartam"
+      },
+      "timer_step_gap": {
+        "name": "Id┼Ĺz├şt┼Ĺ l├ęp├ęs"
+      },
+      "vacation_start_year": {
+        "name": "Vak├íci├│ kezd┼Ĺ ├ęv"
+      },
+      "vacation_start_month": {
+        "name": "Vak├íci├│ kezd┼Ĺ h├│nap"
+      },
+      "vacation_start_day": {
+        "name": "Vak├íci├│ kezd┼Ĺ nap"
+      },
+      "auto_sterilize_week": {
+        "name": "Automatikus steriliz├íl├ís h├ęt"
+      },
+      "auto_sterilize_hour": {
+        "name": "Automatikus steriliz├íl├ís ├│ra"
+      },
+      "auto_sterilize_minute": {
+        "name": "Automatikus steriliz├íl├ís perc"
+      },
+      "weight": {
+        "name": "S├║ly"
+      },
+      "work_mode": {
+        "name": "Munkam├│d",
+        "state": {
+          "microwave": "Mikrohull├ím",
+          "microwave_1": "Mikrohull├ím 1",
+          "microwave_2": "Mikrohull├ím 2",
+          "microwave_3": "Mikrohull├ím 3",
+          "microwave_4": "Mikrohull├ím 4",
+          "microwave_5": "Mikrohull├ím 5",
+          "microwave_steam_above_tube": "Mikrohull├ím G┼Ĺz Fels┼Ĺ Cs┼Ĺ",
+          "microwave_double_tube": "Mikrohull├ím Dupla Cs┼Ĺ",
+          "microwave_hot_wind_tube_fan": "Mikrohull├ím Forr├│ leveg┼Ĺ Cs┼Ĺ Ventil├ítor",
+          "microwave_underside_tube_hot_wind_tube_fan": "Mikrohull├ím Als├│ Cs┼Ĺ Forr├│ leveg┼Ĺ Ventil├ítor",
+          "microwave_double_tube_hot_wind_tube_fan": "Mikrohull├ím Dupla Cs┼Ĺ Forr├│ leveg┼Ĺ Ventil├ítor",
+          "microwave_steam": "Mikrohull├ím G┼Ĺz",
+          "microwave_steam_1": "Mikrohull├ím G┼Ĺz 1",
+          "unfreeze": "Kiolvaszt├ís",
+          "unfreeze_1": "Kiolvaszt├ís 1",
+          "unfreeze_2": "Kiolvaszt├ís 2",
+          "unfreeze_3": "Kiolvaszt├ís 3",
+          "unfreeze_t": "Kiolvaszt├ís T",
+          "microwave_above_tube": "Mikrohull├ím Fels┼Ĺ Cs┼Ĺ",
+          "microwave_above_tube_1": "Mikrohull├ím Fels┼Ĺ Cs┼Ĺ 1",
+          "microwave_above_tube_2": "Mikrohull├ím Fels┼Ĺ Cs┼Ĺ 2",
+          "microwave_above_tube_fan": "Mikrohull├ím Fels┼Ĺ Cs┼Ĺ Ventil├ítor",
+          "fast_unfreeze": "Gyors Kiolvaszt├ís",
+          "fresh_unfreeze": "Friss Kiolvaszt├ís",
+          "microwave_zymosis": "Mikrohull├ím Erjeszt├ęs",
+          "pure_steam": "Tiszta G┼Ĺz",
+          "pure_steam_1": "Tiszta G┼Ĺz 1",
+          "pure_steam_2": "Tiszta G┼Ĺz 2",
+          "pure_steam_3": "Tiszta G┼Ĺz 3",
+          "pure_steam_4": "Tiszta G┼Ĺz 4",
+          "pure_steam_5": "Tiszta G┼Ĺz 5",
+          "pure_steam_6": "Tiszta G┼Ĺz 6",
+          "pure_steam_7": "Tiszta G┼Ĺz 7",
+          "pure_steam_8": "Tiszta G┼Ĺz 8",
+          "pure_steam_9": "Tiszta G┼Ĺz 9",
+          "steam_above_tube": "G┼Ĺz Fels┼Ĺ Cs┼Ĺ",
+          "steam_underside_tube": "G┼Ĺz Als├│ Cs┼Ĺ",
+          "steam_double_tube": "G┼Ĺz Dupla Cs┼Ĺ",
+          "steam_hot_wind_tube_fan": "G┼Ĺz Forr├│ leveg┼Ĺ Cs┼Ĺ Ventil├ítor",
+          "steam_hot_wind_tube_fan_1": "G┼Ĺz Forr├│ leveg┼Ĺ Cs┼Ĺ Ventil├ítor 1",
+          "steam_hot_wind_tube_fan_2": "G┼Ĺz Forr├│ leveg┼Ĺ Cs┼Ĺ Ventil├ítor 2",
+          "steam_hot_wind_tube": "G┼Ĺz Forr├│ leveg┼Ĺ Cs┼Ĺ",
+          "steam_double_tube_fan": "G┼Ĺz Dupla Cs┼Ĺ Ventil├ítor",
+          "steam_above_inside_outside_tube_fan": "G┼Ĺz Fels┼Ĺ Bels┼Ĺ K├╝ls┼Ĺ Cs┼Ĺ Ventil├ítor",
+          "steam_above_inside_tube_fan": "G┼Ĺz Fels┼Ĺ Bels┼Ĺ Cs┼Ĺ Ventil├ítor",
+          "above_tube": "Fels┼Ĺ Cs┼Ĺ",
+          "underside_tube": "Als├│ Cs┼Ĺ",
+          "double_tube": "Dupla Cs┼Ĺ",
+          "hot_wind_tube_fan": "Forr├│ leveg┼Ĺ Cs┼Ĺ Ventil├ítor",
+          "pure_preheat": "Tiszta El┼Ĺmeleg├şt├ęs",
+          "above_tube_hot_wind_tube_fan": "Fels┼Ĺ Cs┼Ĺ Forr├│ leveg┼Ĺ Ventil├ítor",
+          "underside_tube_hot_wind_tube_fan": "Als├│ Cs┼Ĺ Forr├│ leveg┼Ĺ Ventil├ítor",
+          "zymosis": "Erjeszt├ęs",
+          "double_tube_hot_wind_tube_fan": "Dupla Cs┼Ĺ Forr├│ leveg┼Ĺ Ventil├ítor",
+          "above_tube_revolve": "Fels┼Ĺ Cs┼Ĺ Forg├│",
+          "underside_tube_revolve": "Als├│ Cs┼Ĺ Forg├│",
+          "double_tube_revolve": "Dupla Cs┼Ĺ Forg├│",
+          "hot_wind_tube_fan_revolve": "Forr├│ leveg┼Ĺ Cs┼Ĺ Ventil├ítor Forg├│",
+          "warm": "Melegen tart├ís",
+          "double_tube_fan": "Dupla Cs┼Ĺ Ventil├ítor",
+          "double_tube_fan_1": "Dupla Cs┼Ĺ Ventil├ítor 1",
+          "double_tube_fan_2": "Dupla Cs┼Ĺ Ventil├ítor 2",
+          "double_tube_fan_3": "Dupla Cs┼Ĺ Ventil├ítor 3",
+          "above_inside_tube_revolve": "Fels┼Ĺ Bels┼Ĺ Cs┼Ĺ Forg├│",
+          "above_inside_tube_fan": "Fels┼Ĺ Bels┼Ĺ Cs┼Ĺ Ventil├ítor",
+          "above_inside_outside_tube_revolve": "Fels┼Ĺ Bels┼Ĺ K├╝ls┼Ĺ Cs┼Ĺ Forg├│",
+          "above_inside_outside_tube_fan": "Fels┼Ĺ Bels┼Ĺ K├╝ls┼Ĺ Cs┼Ĺ Ventil├ítor",
+          "above_inside_underside_tube": "Fels┼Ĺ Bels┼Ĺ Als├│ Cs┼Ĺ",
+          "above_inside_underside_tube_1": "Fels┼Ĺ Bels┼Ĺ Als├│ Cs┼Ĺ 1",
+          "above_inside_underside_tube_fan": "Fels┼Ĺ Bels┼Ĺ Als├│ Cs┼Ĺ Ventil├ítor",
+          "above_inside_underside_tube_fan_1": "Fels┼Ĺ Bels┼Ĺ Als├│ Cs┼Ĺ Ventil├ítor 1",
+          "above_inside_tube": "Fels┼Ĺ Bels┼Ĺ Cs┼Ĺ",
+          "above_inside_outside_tube": "Fels┼Ĺ Bels┼Ĺ K├╝ls┼Ĺ Cs┼Ĺ",
+          "underside_tube_fan": "Als├│ Cs┼Ĺ Ventil├ítor",
+          "above_tube_fan": "Fels┼Ĺ Cs┼Ĺ Ventil├ítor",
+          "above_tube_fan_1": "Fels┼Ĺ Cs┼Ĺ Ventil├ítor 1",
+          "above_tube_fan_2": "Fels┼Ĺ Cs┼Ĺ Ventil├ítor 2",
+          "scale_clean": "V├şzk┼Ĺmentes├şt├ęs",
+          "clean": "Tiszt├şt├ís",
+          "remove_odor": "Szagelt├ívol├şt├ís",
+          "remove_odor_2": "Szagelt├ívol├şt├ís 2",
+          "high_temperature_clean": "Magas h┼Ĺm├ęrs├ęklet Tiszt├şt├ís",
+          "dining_utensils_clean": "├ëtk├ęszlet Tiszt├şt├ís",
+          "auto_menu": "Automata men├╝",
+          "eco": "Eco",
+          "above_tube_1": "Fels┼Ĺ Cs┼Ĺ 1",
+          "above_tube_2": "Fels┼Ĺ Cs┼Ĺ 2",
+          "above_tube_3": "Fels┼Ĺ Cs┼Ĺ 3",
+          "underside_tube_1": "Als├│ Cs┼Ĺ 1",
+          "underside_tube_2": "Als├│ Cs┼Ĺ 2",
+          "double_tube_1": "Dupla Cs┼Ĺ 1",
+          "double_tube_2": "Dupla Cs┼Ĺ 2",
+          "double_tube_3": "Dupla Cs┼Ĺ 3",
+          "double_tube_4": "Dupla Cs┼Ĺ 4",
+          "double_tube_5": "Dupla Cs┼Ĺ 5",
+          "double_tube_6": "Dupla Cs┼Ĺ 6",
+          "hot_wind_tube_fan_1": "Forr├│ leveg┼Ĺ Cs┼Ĺ Ventil├ítor 1",
+          "hot_wind_tube_fan_2": "Forr├│ leveg┼Ĺ Cs┼Ĺ Ventil├ítor 2",
+          "hot_wind_tube_fan_3": "Forr├│ leveg┼Ĺ Cs┼Ĺ Ventil├ítor 3",
+          "hot_wind_tube_fan_4": "Forr├│ leveg┼Ĺ Cs┼Ĺ Ventil├ítor 4",
+          "hot_wind_tube_fan_5": "Forr├│ leveg┼Ĺ Cs┼Ĺ Ventil├ítor 5",
+          "double_tube_hot_wind_tube_fan_1": "Dupla Cs┼Ĺ Forr├│ leveg┼Ĺ Ventil├ítor 1",
+          "double_tube_hot_wind_tube_fan_2": "Dupla Cs┼Ĺ Forr├│ leveg┼Ĺ Ventil├ítor 2",
+          "double_tube_hot_wind_tube_fan_3": "Dupla Cs┼Ĺ Forr├│ leveg┼Ĺ Ventil├ítor 3",
+          "double_tube_hot_wind_tube_fan_4": "Dupla Cs┼Ĺ Forr├│ leveg┼Ĺ Ventil├ítor 4",
+          "double_tube_hot_wind_tube_fan_5": "Dupla Cs┼Ĺ Forr├│ leveg┼Ĺ Ventil├ítor 5",
+          "unknown": "Ismeretlen"
+        }
       },
       "working_time": {
         "name": "Working Time"
       },
+      "humidity": {
+        "name": "P├íratartalom"
+      },
+      "variable_mode": {
+        "name": "V├íltoz├│ m├│d"
+      },
+      "compressor_frequency": {
+        "name": "Kompresszor frekvencia"
+      },
+      "target_compressor_frequency": {
+        "name": "C├ęl kompresszor frekvencia"
+      },
+      "compressor_current": {
+        "name": "Kompresszor ├íramer┼Ĺss├ęg"
+      },
+      "compressor_voltage": {
+        "name": "Kompresszor fesz├╝lts├ęg"
+      },
+      "compressor_power": {
+        "name": "Kompresszor teljes├ştm├ęny"
+      },
+      "indoor_ambient_temperature": {
+        "name": "Belt├ęri k├Ârnyezeti h┼Ĺm├ęrs├ęklet(T1)"
+      },
+      "indoor_coil_temperature": {
+        "name": "Belt├ęri h┼Ĺcser├ęl┼Ĺ h┼Ĺm├ęrs├ęklet(T2)"
+      },
+      "outdoor_coil_temperature": {
+        "name": "K├╝lt├ęri h┼Ĺcser├ęl┼Ĺ h┼Ĺm├ęrs├ęklet(T3)"
+      },
+      "outdoor_ambient_temperature": {
+        "name": "K├╝lt├ęri k├Ârnyezeti h┼Ĺm├ęrs├ęklet(T4)"
+      },
+      "discharge_pipe_temperature": {
+        "name": "Nyom├│cs┼Ĺ h┼Ĺm├ęrs├ęklet(TP)"
+      },
+      "indoor_fan_speed": {
+        "name": "Belt├ęri ventil├ítor sebess├ęg"
+      },
+      "target_indoor_fan_speed": {
+        "name": "C├ęl belt├ęri ventil├ítor sebess├ęg"
+      },
+      "velocity": {
+        "name": "Sebess├ęg"
+      },
+      "comp_total_run_time": {
+        "name": "Energia - Kompresszor ├╝zemid┼Ĺ"
+      },
+      "dc_bus_voltage": {
+        "name": "K├╝lt├ęri egys├ęg - DC busz fesz├╝lts├ęg"
+      },
+      "dc_current": {
+        "name": "K├╝lt├ęri egys├ęg - DC busz ├íram"
+      },
+      "disinfect_set_weekday": {
+        "name": "HMV - Fert┼Ĺtlen├şt├ęs napja"
+      },
+      "disinfect_start_hour": {
+        "name": "HMV - Fert┼Ĺtlen├şt├ęs kezd┼Ĺ ├│ra"
+      },
+      "disinfect_start_minutes": {
+        "name": "HMV - Fert┼Ĺtlen├şt├ęs kezd┼Ĺ perc"
+      },
+      "error_code_description": {
+        "name": "Hiba - Le├şr├ís"
+      },
+      "hydbox_subtype": {
+        "name": "Info - Hidraulikus modul alt├şpus"
+      },
+      "hydrobox_capacity": {
+        "name": "Info - Hidraulikus modul teljes├ştm├ęny"
+      },
+      "idu_software_version_str": {
+        "name": "Info - Belt├ęri egys├ęg szoftververzi├│"
+      },
+      "idu_t1s1": {
+        "name": "H┼Ĺm├ęrs├ęklet - 1. z├│na sz├ím├ştott (T1s)"
+      },
+      "idu_t1s2": {
+        "name": "H┼Ĺm├ęrs├ęklet - 2. z├│na sz├ím├ştott (T1s)"
+      },
+      "instant_power0": {
+        "name": "Teljes├ştm├ęny - F┼▒t├ęsi fogyaszt├ís"
+      },
+      "instant_renew_power0": {
+        "name": "Teljes├ştm├ęny - Meg├║jul├│ f┼▒t├ęsi teljes├ştm├ęny"
+      },
+      "machine_type": {
+        "name": "Info - G├ęp t├şpusa"
+      },
+      "odu_model": {
+        "name": "Info - K├╝lt├ęri egys├ęg modellk├│d"
+      },
+      "odu_software_version_str": {
+        "name": "Info - K├╝lt├ęri egys├ęg szoftververzi├│"
+      },
+      "room_rel_hum": {
+        "name": "Relat├şv p├íratartalom"
+      },
+      "t5s": {
+        "name": "H┼Ĺm├ęrs├ęklet T5s - HMV alapjel"
+      },
+      "tas": {
+        "name": "H┼Ĺm├ęrs├ęklet Tas - Leveg┼Ĺ alapjel"
+      },
+      "temp_t4": {
+        "name": "H┼Ĺm├ęrs├ęklet T4 - K├╝ls┼Ĺ leveg┼Ĺ"
+      },
+      "temp_t5": {
+        "name": "H┼Ĺm├ęrs├ęklet T5 - HMV t├írol├│"
+      },
+      "temp_ta": {
+        "name": "H┼Ĺm├ęrs├ęklet Ta - Szobaleveg┼Ĺ"
+      },
+      "temp_tb_t1": {
+        "name": "H┼Ĺm├ęrs├ęklet TB-T1 - Puffertart├íly fels┼Ĺ"
+      },
+      "temp_tb_t2": {
+        "name": "H┼Ĺm├ęrs├ęklet TB-T2 - Puffertart├íly als├│"
+      },
+      "temp_tsolar": {
+        "name": "H┼Ĺm├ęrs├ęklet Tsolar - Napkollektor"
+      },
+      "temp_tw2": {
+        "name": "H┼Ĺm├ęrs├ęklet Tw2 - 2. z├│na v├şz"
+      },
+      "temp_tw_in": {
+        "name": "H┼Ĺm├ęrs├ęklet Tw_in - V├şzbemenet"
+      },
+      "temp_tw_out": {
+        "name": "H┼Ĺm├ęrs├ęklet Tw_out - V├şzkimenet"
+      },
+      "water_flow": {
+        "name": "V├şz - T├ęrfogat├íram"
+      },
+      "water_pressure": {
+        "name": "V├şz - Nyom├ís"
+      },
+      "hmi_sn_code": {
+        "name": "Info - WiFi modul sorozatsz├ím"
+      },
       "zone1_temp_set": {
-        "name": "Hőmérséklet - 1. zóna alapjel"
+        "name": "H┼Ĺm├ęrs├ęklet - 1. z├│na alapjel"
       },
       "zone2_temp_set": {
-        "name": "Hőmérséklet - 2. zóna alapjel"
+        "name": "H┼Ĺm├ęrs├ęklet - 2. z├│na alapjel"
       }
     },
     "switch": {
@@ -1092,22 +1436,13 @@
         "name": "Breezeless"
       },
       "child_lock": {
-        "name": "Gyermekzár"
+        "name": "Gyermekz├ír"
       },
       "cl_sterilization": {
-        "name": "CL sterilizálás"
-      },
-      "cold_water_dot": {
-        "name": "Hideg víz pont"
-      },
-      "cold_water_single": {
-        "name": "Hideg víz egyszeri"
+        "name": "CL steriliz├íl├ís"
       },
       "comfort_mode": {
         "name": "Comfort Mode"
-      },
-      "dhw_disinfect": {
-        "name": "HMV - Fertőtlenítés"
       },
       "dhw_power": {
         "name": "DHW Power"
@@ -1115,11 +1450,26 @@
       "disinfect": {
         "name": "Disinfect"
       },
+      "maintenance_reminder": {
+        "name": "Karbantart├ísi eml├ękeztet┼Ĺ"
+      },
+      "vacation_mode": {
+        "name": "Vak├íci├│ m├│d"
+      },
       "dry": {
         "name": "Dry"
       },
+      "cold_water_single": {
+        "name": "Hideg v├şz egyszeri"
+      },
+      "cold_water_dot": {
+        "name": "Hideg v├şz pont"
+      },
       "eco_mode": {
         "name": "ECO Mode"
+      },
+      "memory": {
+        "name": "Memo U"
       },
       "fast_dhw": {
         "name": "Fast DHW"
@@ -1130,17 +1480,20 @@
       "frost_protect": {
         "name": "Frost Protect"
       },
+      "furnace_light": {
+        "name": "Kemence f├ęny"
+      },
       "heating_power": {
         "name": "Heating Power"
       },
-      "holiday_on": {
-        "name": "Üzemmód - Nyaralás"
+      "hot_wind": {
+        "name": "Forr├│ leveg┼Ĺ"
       },
       "indirect_wind": {
         "name": "Indirect Wind"
       },
       "leak_water_protection": {
-        "name": "Védelem a vízszivárgás ellen"
+        "name": "V├ędelem a v├şzsziv├írg├ís ellen"
       },
       "light": {
         "name": "Light"
@@ -1154,9 +1507,6 @@
       "main_power": {
         "name": "Main Power"
       },
-      "memory": {
-        "name": "Memo U"
-      },
       "natural_wind": {
         "name": "Natural Wind"
       },
@@ -1165,9 +1515,6 @@
       },
       "oscillate": {
         "name": "Oscillate"
-      },
-      "out_silent": {
-        "name": "Kültéri csendes mód"
       },
       "power": {
         "name": "Power"
@@ -1179,16 +1526,22 @@
         "name": "Prompt Tone"
       },
       "regeneration": {
-        "name": "Regenerálás"
+        "name": "Regener├íl├ís"
+      },
+      "turntable": {
+        "name": "Forg├│t├ílca"
+      },
+      "water_pump": {
+        "name": "V├şzszivatty├║"
+      },
+      "water_way": {
+        "name": "V├şzi ├║t"
       },
       "screen_display": {
         "name": "Screen Display"
       },
       "screen_display_alternate": {
         "name": "Screen Display Alternate"
-      },
-      "self_clean": {
-        "name": "Self Clean"
       },
       "sensor_light": {
         "name": "Sensor Light"
@@ -1198,6 +1551,9 @@
       },
       "sleep_mode": {
         "name": "Sleep Mode"
+      },
+      "out_silent": {
+        "name": "K├╝lt├ęri csendes m├│d"
       },
       "smart_eye": {
         "name": "Smart Eye"
@@ -1209,10 +1565,7 @@
         "name": "Smelly Sensor"
       },
       "soften": {
-        "name": "Lágyítás"
-      },
-      "sound": {
-        "name": "Sound"
+        "name": "L├így├şt├ís"
       },
       "standby": {
         "name": "Standby"
@@ -1221,7 +1574,7 @@
         "name": "Start"
       },
       "sterilization": {
-        "name": "Sterilizálás"
+        "name": "Steriliz├íl├ís"
       },
       "storage": {
         "name": "Storage"
@@ -1235,23 +1588,23 @@
       "swing_vertical": {
         "name": "Swing Vertical"
       },
+      "self_clean": {
+        "name": "Self Clean"
+      },
+      "ieco": {
+        "name": "iECO"
+      },
+      "sound": {
+        "name": "Sound"
+      },
       "tbh": {
         "name": "TBH"
-      },
-      "vacation_mode": {
-        "name": "Vakáció mód"
       },
       "variable_heating": {
         "name": "Variable Heating"
       },
       "ventilation": {
         "name": "Ventilation"
-      },
-      "water_pump": {
-        "name": "Vízszivattyú"
-      },
-      "water_way": {
-        "name": "Vízi út"
       },
       "whole_tank_heating": {
         "name": "Whole Tank Heating"
@@ -1273,19 +1626,38 @@
       },
       "zone2_power": {
         "name": "Zone2 Power"
-      }
-    },
-    "time": {
-      "timing_regeneration": {
-        "name": "Időzített regenerálás"
+      },
+      "boiling": {
+        "name": "V├şzforral├ís"
+      },
+      "tea_bar_boil": {
+        "name": "V├şzforral├│ kapcsol├│"
+      },
+      "tea_bar_child_lock": {
+        "name": "Child Lock"
+      },
+      "keep_warm": {
+        "name": "Melegen tart├ís"
+      },
+      "tea_bar_cooling": {
+        "name": "H┼▒t├ęs"
+      },
+      "screen_off": {
+        "name": "Kijelz┼Ĺ kikapcsol├ísa"
+      },
+      "dhw_disinfect": {
+        "name": "HMV - Fert┼Ĺtlen├şt├ęs"
+      },
+      "holiday_on": {
+        "name": "├ťzemm├│d - Nyaral├ís"
       }
     },
     "water_heater": {
-      "bathing": {
-        "name": "Bathing"
-      },
       "domestic_hot_water": {
         "name": "Domestic hot water"
+      },
+      "bathing": {
+        "name": "Bathing"
       },
       "heating": {
         "name": "Heating"
@@ -1296,53 +1668,53 @@
     "step": {
       "init": {
         "data": {
-          "ip_address": "IP cím",
-          "refresh_interval": "Frissítési intervallum (0 azt jelenti, hogy nincs aktív frissítés)",
-          "sensors": "Extra érzékelők",
-          "switches": "Extra vezérlők",
-          "customize": "Személyre szabás"
+          "ip_address": "IP c├şm",
+          "refresh_interval": "Friss├şt├ęsi intervallum (0 azt jelenti, hogy nincs akt├şv friss├şt├ęs)",
+          "sensors": "Extra ├ęrz├ękel┼Ĺk",
+          "switches": "Extra vez├ęrl┼Ĺk",
+          "customize": "Szem├ęlyre szab├ís"
         },
-        "title": "Konfigurálás"
+        "title": "Konfigur├íl├ís"
       }
     },
     "abort": {
-      "account_option": "A fiók nem támogatja ezt a műveletet.\nKattintson az \"ESZKÖZ HOZZÁADÁSA\" gombra egy új eszköz hozzáadásához."
+      "account_option": "A fi├│k nem t├ímogatja ezt a m┼▒veletet.\nKattintson az \"ESZK├ľZ HOZZ├üAD├üSA\" gombra egy ├║j eszk├Âz hozz├íad├ís├íhoz."
     }
   },
   "services": {
     "set_attribute": {
-      "name": "Attribútum beállítása",
-      "description": "Állítsa be az eszköz attribútumának értékét",
+      "name": "Attrib├║tum be├íll├şt├ísa",
+      "description": "├üll├ştsa be az eszk├Âz attrib├║tum├ínak ├ęrt├ęk├ęt",
       "fields": {
         "device_id": {
-          "name": "Eszköz kód",
-          "description": "A készülék kódja (eszköz ID)"
+          "name": "Eszk├Âz k├│d",
+          "description": "A k├ęsz├╝l├ęk k├│dja (eszk├Âz ID)"
         },
         "attribute": {
-          "name": "Attribútum",
-          "description": "A beállítandó attribútum neve"
+          "name": "Attrib├║tum",
+          "description": "A be├íll├ştand├│ attrib├║tum neve"
         },
         "value": {
-          "name": "Érték",
-          "description": "A beállítandó attribútum értéke"
+          "name": "├ërt├ęk",
+          "description": "A be├íll├ştand├│ attrib├║tum ├ęrt├ęke"
         }
       }
     },
     "send_command": {
-      "name": "Egyéni parancs",
-      "description": "Küldjön egy egyéni parancsot az eszköznek",
+      "name": "Egy├ęni parancs",
+      "description": "K├╝ldj├Ân egy egy├ęni parancsot az eszk├Âznek",
       "fields": {
         "device_id": {
-          "name": "Eszköz kód",
-          "description": "A készülék kódja (Eszköz ID)"
+          "name": "Eszk├Âz k├│d",
+          "description": "A k├ęsz├╝l├ęk k├│dja (Eszk├Âz ID)"
         },
         "cmd_type": {
-          "name": "Parancs típusa",
-          "description": "A parancs típusa, lehet 3 (lekérdezés) vagy 2 (beállítás)"
+          "name": "Parancs t├şpusa",
+          "description": "A parancs t├şpusa, lehet 3 (lek├ęrdez├ęs) vagy 2 (be├íll├şt├ís)"
         },
         "cmd_body": {
-          "name": "Parancs törzse",
-          "description": "A parancs törzse (nem tartalmazza az MSmart protokoll fejlécét és a végén lévő ellenőrző összeget)"
+          "name": "Parancs t├Ârzse",
+          "description": "A parancs t├Ârzse (nem tartalmazza az MSmart protokoll fejl├ęc├ęt ├ęs a v├ęg├ęn l├ęv┼Ĺ ellen┼Ĺrz┼Ĺ ├Âsszeget)"
         }
       }
     }

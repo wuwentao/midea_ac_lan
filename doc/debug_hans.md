@@ -1,114 +1,210 @@
 # 调试日志和测试方法
 
-## 开启SSH
+本文档说明如何在 Home Assistant OS（HAOS）上开启调试日志，以及如何临时修改 / 测试自定义集成 `midea_ac_lan` 及其依赖库 `midea-lan`（包名：`midealan`）。
 
-1. 安装 Add-on `[Advanced SSH & Web Terminal]` ，并禁用保护模式 `[Protected Mode]`
-2. 使用任意SSH终端软件(或者HA Web UI中使用 `[Advanced SSH & Web Terminal]` add-on)
+> **重要提醒**
+>
+> 1. **调试结束后请务必关闭 debug 日志。**
+>    长时间开启 `debug` 级别会产生大量日志，占用磁盘空间并影响性能。
+>    如果通过修改 `configuration.yaml` 开启，**必须**删除或注释掉相关配置后**再次重启 Home Assistant** 才能真正生效。
+> 2. **测试完成后请恢复所有源码 / manifest 修改。**
+>    临时修改的 `manifest.json` 或 Python 源文件在收集完调试数据后应还原。
 
-> 禁用保护模式 `[Protected Mode]`后才能在HAOS中使用docker命令显示和操作HA Core docker container.
+---
 
-## 调试日志Debug Log
+## 1. 开启 SSH 访问
 
-以下二种方法都可以打开调试日志Debug Log, 推荐使用修改`configuration.yaml`并重启HA的方法.
+1. 在 Home Assistant 中进入 **设置 → 加载项 → 加载项商店**。
+2. 搜索并安装 **Advanced SSH & Web Terminal**。
+3. 打开加载项配置：
+   - 设置强密码（或配置 SSH 密钥）。
+   - **关闭「保护模式」（Protected Mode）**（必须关闭才能使用 `docker` 命令并进入 HA Core 容器）。
+4. 启动加载项，并可选择启用「在侧边栏中显示」。
+5. 使用任意 SSH 客户端（或加载项自带的 Web 终端）连接到 HAOS 主机 IP（默认端口 22）。
 
-### 方法1: 修改`configuration.yaml`
+> 关闭保护模式后，才能在 HAOS 中使用 `docker` 命令查看并操作 `homeassistant` 容器。
 
-1. SSH登录HAOS设备IP地址
-2. `cd /config/`
-3. 将以下内容加入 `configuration.yaml`中, 例如`vi configuration.yaml`
+---
 
-   ```yaml
-   logger:
-     default: warn
-     logs:
-       custom_components.midea_ac_lan: debug
-       midealan: debug
-   ```
+## 2. 开启调试日志（Debug Log）
 
-   > 需要同时开启 `midea_ac_lan` 和 `midealan`
+有两种方法可用。**强烈推荐方法 1（修改 `configuration.yaml` 并重启）**，因为它能捕获启动阶段的错误。
 
-4. 重启HA
-5. 执行有bug或error的操作，触发debug log
-6. 通过HA web UI ( `设置 --> 系统 --> 日志` )， 下载完整debug log文件
+### 方法 1：修改 `configuration.yaml`（推荐）
 
-### 方法2： 使用 Action 动作
+1. SSH 登录 HAOS。
+2. `cd /config`
+3. 编辑 `configuration.yaml`（可用 `vi` 或 File Editor 加载项），添加以下内容：
 
-1. 登录HA Web UI
-2. 进入 `开发者工具` -> `动作` -> 选择 `Logger: 设置级别` -> `进入YAML模式`
-3. 粘贴以下YAML内容到输入框中，并执行动作
+```yaml
+logger:
+  default: warn
+  logs:
+    custom_components.midea_ac_lan: debug
+    midealan: debug
+```
 
-   ```yaml
-   action: logger.set_level
-   data:
-     custom_components.midea_ac_lan: debug
-     midealan: debug
-   ```
+> 必须同时开启 `custom_components.midea_ac_lan` **和** `midealan`。
 
-   > 说明：此方法不需要重启HA，但是不能捕获开机启动以后的很多错误日志, 强烈推荐使用编辑`configuration.yaml`的方法。
+4. 完整重启 Home Assistant。
+5. 执行会触发 bug / error 的操作。
+6. 通过 **设置 → 系统 → 日志** 下载完整 debug 日志文件。
 
-4. 执行有bug或者error产生的动作，触发debug log
-5. 进入`设置 --> 系统 --> 日志`， 点击下载按钮，下载完整debug log
+**测试结束后：** 删除（或注释）上述 `logger` 配置段，并再次重启 Home Assistant，确保 debug 日志已关闭。
 
-## 修改源代码进行测试
+### 方法 2：使用动作（Action）调用（无需重启）
 
-### 修改 `midea_ac_lan`源代码
+1. 登录 Home Assistant Web UI。
+2. 进入 **开发者工具 → 动作**。
+3. 选择 **Logger: 设置级别**，切换到 YAML 模式。
+4. 粘贴并执行以下内容：
 
-如果需要修改`midea_ac_lan`进行测试, 请按以下流程操作:
+```yaml
+action: logger.set_level
+data:
+  custom_components.midea_ac_lan: debug
+  midealan: debug
+```
 
-1. SSH登录HAOS
-2. 切换到`midea_ac_lan`根目录：`cd /config/custom_components/midea_ac_lan`
-3. 使用`vi`直接修改, 或者使用`scp`上传文件, 或者使用`wget`下载github raw文件.
-4. 用上传或下载的文件替换同名的旧文件即可.
-5. 重启HA重新加载修改后的源码.
+5. 执行会触发问题的操作。
+6. 通过 **设置 → 系统 → 日志** 下载完整日志。
 
-   > 例如: 有一个github的PR, 需要修改`light.py`,
-   > 首先获取github PR中对应文件的raw file URL, 然后使用 `wget` 命令带上 `-O light.py` 去下载文件并覆盖已经存在的`light.py`即可
-   > `wget https://github.com/wuwentao/midea_ac_lan/raw/xxxx/custom_components/midea_ac_lan/light.py -O light.py`
+> 此方法**无法**捕获 Home Assistant 启动阶段的错误。建议调试时优先使用方法 1。
 
-### 修改`midealan`源代码
+---
 
-`midealan`是python3的pip package, 安装在HA core 中，而HA Core则属于HAOS里面运行的一个docker container.
+## 3. 临时修改源码进行测试
 
-1. SSH登录HAOS
-2. 在HAOS中执行如下命令进入HA Core所在的docker: `docker exec -it homeassistant /bin/bash`
-3. 使用`pip show midea-lan`来获取`midealan`, 例如, 我的Path为: `/usr/local/lib/python3.13/site-packages`
-4. 使用`cd /usr/local/lib/python3.13/site-packages/midealan/`切换到 `midealan`根目录
-5. 使用`vi`直接修改, 或者使用`scp`上传文件, 或者使用`wget`下载github raw文件.
-6. 用上传或下载的文件替换同名的旧文件即可.
-7. 重启HA重新加载修改后的源码.
+### 3.1 修改自定义集成（`midea_ac_lan`）
 
-> `/config` 目录在HAOS和HA core中均存在, 可以将文件保持至此目录.
+集成本身位于 `/config/custom_components/midea_ac_lan`，直接编辑即可。
 
-例如: 有一个github的PR, 需要修改`devices/cd/message.py`,
+1. SSH 登录 HAOS。
+2. `cd /config/custom_components/midea_ac_lan`
+3. 使用 `vi` 直接修改，或通过 `scp`/`SFTP` 上传，或用 `wget` 下载 GitHub raw 文件，例如：
 
-> 首先获取github PR中对应文件的raw file URL, 然后使用 `wget` 命令带上 `-O devices/cd/message.py` 去下载文件并覆盖已经存在的`devices/cd/message.py`即可
-> `wget https://github.com/wuwentao/midea-lan/raw/xxxx/midealan/devices/cd/message.py -O devices/cd/message.py`
+```bash
+wget https://github.com/wuwentao/midea_ac_lan/raw/<commit-or-branch>/custom_components/midea_ac_lan/light.py -O light.py
+```
 
-## 获取设备json配置文件
+4. 完整重启 Home Assistant 以加载修改。
 
-每个设备添加成功以后，`midea_ac_lan`会将设备基本信息保存至HA中，下次重复添加时无需连接服务器，同时用于去重，避免重复添加同一台设备。
+**测试结束后：** 恢复原始文件（或通过 HACS 重新安装集成）。
 
-可以使用以下命令获取某台设备的配置文件:
+### 3.2 修改依赖库（`midea-lan` / `midealan`）
 
-1. SSH登录HAOS设备IP地址
-2. 切换至配置文件根目录：`cd /config/.storage/midea_ac_lan`
-3. 可以使用`ls`命令查看所有文件，可以使用`cat xxx.json`查看某个设备的配置信息，xxx为设备虚拟ID.
+`midealan` 是安装在 Home Assistant Core Docker 容器内的 pip 包。以下提供多种方法，请按需选择。
 
-> 如无特殊或者异常情况，一般不建议操作该文件。如需操作，可重命名备份该文件配置文件
+#### 方法 A：修改 `manifest.json` 指向指定 Git 提交 / 分支（推荐大多数用户使用）
 
-## 获取设备类型和SN
+当改动已经存在于 GitHub（PR、分支或 commit）时，这是最干净的方式。
 
-`midealan`是python3的pip package, 安装在HA core 中，而HA Core则属于HAOS里面运行的一个docker container.
+1. SSH 登录 HAOS。
+2. 编辑 `/config/custom_components/midea_ac_lan/manifest.json`。
+3. 临时修改 `requirements` 条目，例如：
 
-1. SSH登录HAOS
-2. 在HAOS中执行如下命令进入HA Core所在的docker: `docker exec -it homeassistant /bin/bash`
-3. 在HA Core的shell中执行如下命令来获取设备类型和SN: `python3 -m midealan.cli discover --get_sn --host 192.168.2.127` (请替换示例命令中的IP为你的设备IP).
+```json
+"requirements": [
+  "midea-lan @ git+https://github.com/wuwentao/midea-lan.git@b59cfbc"
+]
+```
 
-执行以上命令的输出如下:
+（将 `b59cfbc` 替换为所需的 commit hash、分支名或标签。）
 
-```shell
+4. 完整重启 Home Assistant。Home Assistant 会安装指定版本的库。
+
+**测试结束后：** 恢复 `manifest.json` 中原来的 `requirements` 行并再次重启（或通过 HACS 重新安装集成）。
+
+#### 方法 B：进入容器直接编辑已安装的包
+
+适合快速本地实验，且暂时不想推送 Git 提交的情况。
+
+1. SSH 登录 HAOS。
+2. 进入 HA Core 容器：
+
+```bash
+docker exec -it homeassistant /bin/bash
+```
+
+3. 查看包安装路径：
+
+```bash
+pip show midea-lan
+```
+
+典型路径（Python 版本可能不同）：
+
+```
+Location: /usr/local/lib/python3.13/site-packages
+```
+
+4. 进入包目录：
+
+```bash
+cd /usr/local/lib/python3.13/site-packages/midealan/
+```
+
+5. 使用 `vi` 直接修改，或下载 raw 文件，例如：
+
+```bash
+wget https://github.com/wuwentao/midea-lan/raw/<commit>/midealan/devices/cd/message.py -O devices/cd/message.py
+```
+
+> 提示：`/config` 目录在容器内外均可访问，可将文件复制到 `/config` 方便传输。
+
+6. 退出容器后**完整重启 Home Assistant**。
+
+**测试结束后：** 下次 HA Core 升级或重新安装依赖时修改会被覆盖。也可手动恢复原文件或重新安装包。
+
+#### 方法 C：其他便捷选项
+
+- **将完整修改后的库复制到 `/config` 并调整导入路径**（进阶）：把本地 `midealan` 放到 `/config` 下，并修改自定义集成中的 import 路径。工作量较大，但可在容器重启后继续保留，直到手动清理。
+- **使用开发环境**（VS Code + Remote SSH / Dev Container，或完整 HA Core 开发环境）：适合需要频繁修改并贡献代码的场景，长期最舒适。
+- **结合方法 A 使用 HACS 重新下载**：推送临时分支后，通过 HACS 重新安装可强制拉取新库。
+
+---
+
+## 4. 获取设备 JSON 配置文件
+
+设备成功添加后，`midea_ac_lan` 会将配置保存在 `/config/.storage/midea_ac_lan/` 下。
+
+1. SSH 登录 HAOS。
+2. `cd /config/.storage/midea_ac_lan`
+3. 使用 `ls` 查看文件列表；使用 `cat <device_id>.json` 查看具体设备配置。
+
+> 无特殊情况请勿删除或编辑这些文件。如需操作，请先重命名备份。
+
+---
+
+## 5. 获取设备类型和 SN
+
+1. SSH 登录 HAOS。
+2. 进入 HA Core 容器：
+
+```bash
+docker exec -it homeassistant /bin/bash
+```
+
+3. 执行以下命令（请将 IP 替换为你的设备地址）：
+
+```bash
+python3 -m midealan.cli discover --get_sn --host 192.168.2.127
+```
+
+示例输出：
+
+```
 2025-01-21 18:06:33.552 INFO (MainThread) [cli] Found 1 devices.
 2025-01-21 18:06:33.552 INFO (MainThread) [cli] Found devices: {193514046726897: {'device_id': 193514046726897, 'type': 176, 'ip_address': '192.168.2.127', 'port': 6444, 'model': '0TG025JG', 'sn': 'xxxx', 'protocol': 3}}
 ```
 
-请提供设备实际输出的内容, debug时需使用以上信息来确认设备的类型，协议，SN等.
+反馈问题时请提供实际输出内容，其中包含设备类型、SN 和协议等关键调试信息。
+
+---
+
+## 测试结束后检查清单
+
+- [ ] 关闭 debug 日志（从 `configuration.yaml` 中删除 logger 配置并重启，或将级别改回 `warn`/`info`）。
+- [ ] 恢复对 `manifest.json` 的任何修改。
+- [ ] 恢复手动编辑过的源文件（或重新安装集成 / 库）。
+- [ ] 确认 Home Assistant 能干净启动，且集成已恢复使用官方包正常工作。

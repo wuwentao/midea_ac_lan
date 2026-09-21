@@ -11,7 +11,7 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from midealan.device import MideaDevice
 
-from .const import DEVICES, DOMAIN
+from .const import DEVICES, DOMAIN, supports_device
 from .midea_devices import MIDEA_DEVICES
 from .midea_entity import MideaEntity
 
@@ -32,7 +32,11 @@ async def async_setup_entry(
         "dict",
         MIDEA_DEVICES[device.device_type]["entities"],
     ).items():
-        if config["type"] == Platform.TIME and entity_key in extra_switches:
+        if (
+            config["type"] == Platform.TIME
+            and supports_device(device.model, device.subtype, config)
+            and entity_key in extra_switches
+        ):
             dev = MideaTime(device, entity_key)
             times.append(dev)
     async_add_entities(times)

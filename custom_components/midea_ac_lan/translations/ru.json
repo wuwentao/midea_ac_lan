@@ -2,73 +2,67 @@
   "config": {
     "error": {
       "preset_account": "Failed to login with preset account, please report this issue",
-      "login_failed": "Не удалось авторизоваться, неверное имя аккаунта или пароль",
-      "no_devices": "Новые доступные устройства в локальной сети не найдены",
-      "device_exist": "Устройство уже настроено",
-      "config_incorrect": "Некорректная конфигурация",
-      "connect_error": "Не удается подключиться к устройству",
-      "invalid_token": "Некорректный формат Token или Key"
+      "login_failed": "đŁđÁ Đâđ┤đ░đ╗đżĐüĐî đ░đ▓ĐéđżĐÇđŞđĚđżđ▓đ░ĐéĐîĐüĐĆ, đŻđÁđ▓đÁĐÇđŻđżđÁ đŞđ╝ĐĆ đ░đ║đ║đ░ĐâđŻĐéđ░ đŞđ╗đŞ đ┐đ░ĐÇđżđ╗Đî",
+      "no_devices": "đŁđżđ▓ĐőđÁ đ┤đżĐüĐéĐâđ┐đŻĐőđÁ ĐâĐüĐéĐÇđżđ╣ĐüĐéđ▓đ░ đ▓ đ╗đżđ║đ░đ╗ĐîđŻđżđ╣ ĐüđÁĐéđŞ đŻđÁ đŻđ░đ╣đ┤đÁđŻĐő",
+      "device_exist": "đúĐüĐéĐÇđżđ╣ĐüĐéđ▓đż ĐâđÂđÁ đŻđ░ĐüĐéĐÇđżđÁđŻđż",
+      "config_incorrect": "đŁđÁđ║đżĐÇĐÇđÁđ║ĐéđŻđ░ĐĆ đ║đżđŻĐäđŞđ│ĐâĐÇđ░ĐćđŞĐĆ",
+      "connect_error": "đŁđÁ Đâđ┤đ░đÁĐéĐüĐĆ đ┐đżđ┤đ║đ╗ĐÄĐçđŞĐéĐîĐüĐĆ đ║ ĐâĐüĐéĐÇđżđ╣ĐüĐéđ▓Đâ",
+      "invalid_token": "đŁđÁđ║đżĐÇĐÇđÁđ║ĐéđŻĐőđ╣ ĐäđżĐÇđ╝đ░Đé Token đŞđ╗đŞ Key"
     },
     "step": {
       "user": {
         "data": {
-          "way": "Добавление устройства"
+          "way": "đöđżđ▒đ░đ▓đ╗đÁđŻđŞđÁ ĐâĐüĐéĐÇđżđ╣ĐüĐéđ▓đ░"
         },
-        "description": "Выберите способ добавления устройств",
-        "title": "Добавить новое устройство"
+        "description": "đĺĐőđ▒đÁĐÇđŞĐéđÁ Đüđ┐đżĐüđżđ▒ đ┤đżđ▒đ░đ▓đ╗đÁđŻđŞĐĆ ĐâĐüĐéĐÇđżđ╣ĐüĐéđ▓",
+        "title": "đöđżđ▒đ░đ▓đŞĐéĐî đŻđżđ▓đżđÁ ĐâĐüĐéĐÇđżđ╣ĐüĐéđ▓đż"
       },
       "login": {
         "data": {
-          "account": "Аккаунт",
-          "password": "Пароль"
+          "account": "đÉđ║đ║đ░ĐâđŻĐé",
+          "password": "đčđ░ĐÇđżđ╗Đî"
         },
-        "description": "Login and storage your Midea account only for getting the appliance info.\nYou can remove this configuration after all appliance configured.",
+        "description": "đĺđżđ╣đ┤đŞĐéđÁ đ▓ đ░đ║đ║đ░ĐâđŻĐé đŞ đ┐đżđ╗ĐâĐçđŞĐéđÁ Đéđżđ║đÁđŻ ĐâĐüĐéĐÇđżđ╣ĐüĐéđ▓đ░.\n\n\nđĺ đŻđ░ĐüĐéđżĐĆĐëđÁđÁ đ▓ĐÇđÁđ╝ĐĆ Đéđżđ║đÁđŻĐő ĐâĐüĐéĐÇđżđ╣ĐüĐéđ▓ đ╝đżđ│ĐâĐé đ┐đżđ╗ĐâĐçđ░ĐéĐî Đéđżđ╗Đîđ║đż đ╗đŞĐçđŻĐőđÁ đ░đ║đ║đ░ĐâđŻĐéĐő SmartHome đŞ Meiju. đčđżđ┤ĐÇđżđ▒đŻđżĐüĐéđŞ Đüđ╝. đ▓ đ┤đżđ║Đâđ╝đÁđŻĐéđ░ĐćđŞđŞ README.",
         "title": "Login"
       },
       "discovery": {
-        "description": "Введите IP-адрес устройства или \"auto\", чтобы обнаружить устройства автоматически.\nВы также можете использовать IP-адрес для поиска в определенной сети, например, \"192.168.1.255\"",
-        "title": "Поиск",
+        "description": "đĺđ▓đÁđ┤đŞĐéđÁ IP-đ░đ┤ĐÇđÁĐü ĐâĐüĐéĐÇđżđ╣ĐüĐéđ▓đ░ đŞđ╗đŞ \"auto\", ĐçĐéđżđ▒Đő đżđ▒đŻđ░ĐÇĐâđÂđŞĐéĐî ĐâĐüĐéĐÇđżđ╣ĐüĐéđ▓đ░ đ░đ▓Đéđżđ╝đ░ĐéđŞĐçđÁĐüđ║đŞ.\nđĺĐő Đéđ░đ║đÂđÁ đ╝đżđÂđÁĐéđÁ đŞĐüđ┐đżđ╗ĐîđĚđżđ▓đ░ĐéĐî IP-đ░đ┤ĐÇđÁĐü đ┤đ╗ĐĆ đ┐đżđŞĐüđ║đ░ đ▓ đżđ┐ĐÇđÁđ┤đÁđ╗đÁđŻđŻđżđ╣ ĐüđÁĐéđŞ, đŻđ░đ┐ĐÇđŞđ╝đÁĐÇ, \"192.168.1.255\"",
+        "title": "đčđżđŞĐüđ║",
         "data": {
-          "ip_address": "IP-адрес"
+          "ip_address": "IP-đ░đ┤ĐÇđÁĐü"
         }
       },
       "list": {
         "description": "{table}",
-        "title": "Устройства"
+        "title": "đúĐüĐéĐÇđżđ╣ĐüĐéđ▓đ░"
       },
       "auto": {
         "data": {
-          "device": "Устройства"
+          "device": "đúĐüĐéĐÇđżđ╣ĐüĐéđ▓đ░"
         },
-        "description": "Выберите устройство для добавления",
-        "title": "Найдено новое устройство"
+        "description": "đĺĐőđ▒đÁĐÇđŞĐéđÁ ĐâĐüĐéĐÇđżđ╣ĐüĐéđ▓đż đ┤đ╗ĐĆ đ┤đżđ▒đ░đ▓đ╗đÁđŻđŞĐĆ",
+        "title": "đŁđ░đ╣đ┤đÁđŻđż đŻđżđ▓đżđÁ ĐâĐüĐéĐÇđżđ╣ĐüĐéđ▓đż"
       },
       "manually": {
         "data": {
-          "name": "Название (например, Кондиционер в гостиной)",
-          "device_id": "Идентификатор устройства",
-          "type": "Тип",
-          "ip_address": "IP-адрес",
-          "port": "Порт",
-          "model": "Модель",
-          "subtype": "Подтип",
-          "protocol": "Протокол",
+          "name": "đŁđ░đĚđ▓đ░đŻđŞđÁ (đŻđ░đ┐ĐÇđŞđ╝đÁĐÇ, đÜđżđŻđ┤đŞĐćđŞđżđŻđÁĐÇ đ▓ đ│đżĐüĐéđŞđŻđżđ╣)",
+          "device_id": "đśđ┤đÁđŻĐéđŞĐäđŞđ║đ░ĐéđżĐÇ ĐâĐüĐéĐÇđżđ╣ĐüĐéđ▓đ░",
+          "type": "đóđŞđ┐",
+          "ip_address": "IP-đ░đ┤ĐÇđÁĐü",
+          "port": "đčđżĐÇĐé",
+          "model": "đťđżđ┤đÁđ╗Đî",
+          "subtype": "đčđżđ┤ĐéđŞđ┐",
+          "protocol": "đčĐÇđżĐéđżđ║đżđ╗",
           "token": "Token",
           "key": "Key"
         },
-        "description": "Настройка устройства",
-        "title": "Новое устройство"
+        "description": "đŁđ░ĐüĐéĐÇđżđ╣đ║đ░ ĐâĐüĐéĐÇđżđ╣ĐüĐéđ▓đ░",
+        "title": "đŁđżđ▓đżđÁ ĐâĐüĐéĐÇđżđ╣ĐüĐéđ▓đż"
       }
     }
   },
   "entity": {
     "binary_sensor": {
-      "alarm_on": {
-        "name": "Ошибка - Авария"
-      },
-      "aux_heat_on": {
-        "name": "ТЭН - Дополнительный источник"
-      },
       "bar_door": {
         "name": "Bar Door"
       },
@@ -87,68 +81,50 @@
       "bottom_compartment_preheating": {
         "name": "Bottom Compartment Preheating"
       },
-      "bottom_elec_heat": {
-        "name": "Нижний электронагрев"
-      },
       "burning_state": {
         "name": "Burning State"
       },
-      "cleaning_reminder": {
-        "name": "Требуется очистка"
+      "clean_scale": {
+        "name": "đ×ĐçđŞĐüĐéđ║đ░ đżĐé đŻđ░đ║đŞđ┐đŞ"
       },
-      "compressor_on": {
-        "name": "Компрессор - Работает"
+      "clean_sink_ponding": {
+        "name": "đíđ║đżđ┐đ╗đÁđŻđŞđÁ đ▓đżđ┤Đő đ▓ ĐÇđ░đ║đżđ▓đŞđŻđÁ"
+      },
+      "cleaning_reminder": {
+        "name": "đóĐÇđÁđ▒ĐâđÁĐéĐüĐĆ đżĐçđŞĐüĐéđ║đ░"
       },
       "compressor_status": {
-        "name": "Статус компрессора"
+        "name": "đíĐéđ░ĐéĐâĐü đ║đżđ╝đ┐ĐÇđÁĐüĐüđżĐÇđ░"
       },
       "cooking": {
-        "name": "Приготовление"
+        "name": "đčĐÇđŞđ│đżĐéđżđ▓đ╗đÁđŻđŞđÁ"
       },
-      "cool_capability": {
-        "name": "Возможность - Охлаждение"
+      "dissipate_heat": {
+        "name": "đ×Đéđ▓đżđ┤ ĐéđÁđ┐đ╗đ░"
       },
-      "crankcase_heater_on": {
-        "name": "ТЭН - Картер компрессора"
-      },
-      "dhw_capability": {
-        "name": "Возможность - ГВС"
-      },
-      "disinfect_run": {
-        "name": "ГВС - Дезинфекция идёт"
-      },
-      "double_zone": {
-        "name": "Возможность - Две зоны"
-      },
-      "eco": {
-        "name": "ECO"
-      },
-      "eco_function_state": {
-        "name": "Режим - Функция ECO"
-      },
-      "eco_timer_state": {
-        "name": "Режим - Таймер ECO"
-      },
-      "electronic_smell": {
-        "name": "Дезодорация и стерилизация"
+      "door": {
+        "name": "đöđ▓đÁĐÇĐćđ░"
       },
       "error_code": {
-        "name": "Код ошибки"
+        "name": "đÜđżđ┤ đżĐłđŞđ▒đ║đŞ"
       },
       "filter_change_reminder": {
-        "name": "Требуется замена фильтра"
+        "name": "đóĐÇđÁđ▒ĐâđÁĐéĐüĐĆ đĚđ░đ╝đÁđŻđ░ ĐäđŞđ╗ĐîĐéĐÇđ░"
       },
       "filter_cleaning_reminder": {
-        "name": "Требуется очистка фильтра"
+        "name": "đóĐÇđÁđ▒ĐâđÁĐéĐüĐĆ đżĐçđŞĐüĐéđ║đ░ ĐäđŞđ╗ĐîĐéĐÇđ░"
       },
       "finished": {
-        "name": "Завершено"
+        "name": "đŚđ░đ▓đÁĐÇĐłđÁđŻđż"
       },
       "flex_zone_door": {
         "name": "Flex Door"
       },
       "flex_zone_door_overtime": {
         "name": "Flex Zone Door"
+      },
+      "flip_side": {
+        "name": "đčđÁĐÇđÁđ▓đÁĐÇđŻĐâĐéĐî"
       },
       "freezer_door": {
         "name": "Freezer Door"
@@ -157,46 +133,46 @@
         "name": "Freezer Door Overtime"
       },
       "full_dust": {
-        "name": "Загрязнение"
-      },
-      "heat_capability": {
-        "name": "Возможность - Отопление"
+        "name": "đŚđ░đ│ĐÇĐĆđĚđŻđÁđŻđŞđÁ"
       },
       "heating": {
-        "name": "Нагрев"
+        "name": "đŁđ░đ│ĐÇđÁđ▓"
+      },
+      "dispensing": {
+        "name": "đčđżđ┤đ░Đçđ░ đ▓đżđ┤Đő"
+      },
+      "lack_water": {
+        "name": "đŁđÁđ┤đżĐüĐéđ░Đéđżđ║ đ▓đżđ┤Đő"
+      },
+      "standby": {
+        "name": "đ×đÂđŞđ┤đ░đŻđŞđÁ"
+      },
+      "hot_water_dispensing": {
+        "name": "đčđżđ┤đ░Đçđ░ đ│đżĐÇĐĆĐçđÁđ╣ đ▓đżđ┤Đő"
+      },
+      "fault": {
+        "name": "đŁđÁđŞĐüđ┐ĐÇđ░đ▓đŻđżĐüĐéĐî"
       },
       "heating_working": {
         "name": "Heating Working Status"
       },
-      "hmi_energy_ana_set_en": {
-        "name": "Возможность - Анализ энергии (HMI)"
+      "high_temperature": {
+        "name": "đĺĐőĐüđżđ║đ░ĐĆ ĐéđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇđ░"
       },
-      "ibh1_on": {
-        "name": "ТЭН - IBH1"
+      "high_temperature_lock": {
+        "name": "đĹđ╗đżđ║đŞĐÇđżđ▓đ║đ░ đ▓ĐőĐüđżđ║đżđ╣ ĐéđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇĐő"
       },
-      "ibh2_on": {
-        "name": "ТЭН - IBH2"
+      "high_temperature_work": {
+        "name": "đáđ░đ▒đżĐéđ░ đ┐ĐÇđŞ đ▓ĐőĐüđżđ║đżđ╣ ĐéđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇđÁ"
       },
       "keep_warm": {
-        "name": "Поддержание температуры"
+        "name": "đčđżđ┤đ┤đÁĐÇđÂđ░đŻđŞđÁ ĐéđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇĐő"
       },
       "leak_water": {
-        "name": "Протечка воды"
+        "name": "đčĐÇđżĐéđÁĐçđ║đ░ đ▓đżđ┤Đő"
       },
       "lid_status": {
-        "name": "Крышка"
-      },
-      "load_output_tbh": {
-        "name": "ТЭН - Бак (TBH)"
-      },
-      "maintain_warn": {
-        "name": "Предупреждение об обслуживании"
-      },
-      "maintenance_reminder": {
-        "name": "Напоминание об обслуживании"
-      },
-      "microcrystal_fresh": {
-        "name": "Микрокристаллическая свежесть"
+        "name": "đÜĐÇĐőĐłđ║đ░"
       },
       "middle_compartment_cooling": {
         "name": "Middle Compartment Cooling"
@@ -207,41 +183,41 @@
       "middle_compartment_preheating": {
         "name": "Middle Compartment Preheating"
       },
-      "multi_terminal": {
-        "name": "Мультитерминал"
+      "top_elec_heat": {
+        "name": "đĺđÁĐÇĐůđŻđŞđ╣ ĐŹđ╗đÁđ║ĐéĐÇđżđŻđ░đ│ĐÇđÁđ▓"
+      },
+      "bottom_elec_heat": {
+        "name": "đŁđŞđÂđŻđŞđ╣ ĐŹđ╗đÁđ║ĐéĐÇđżđŻđ░đ│ĐÇđÁđ▓"
       },
       "mute_effect": {
-        "name": "Эффект тихого режима"
+        "name": "đşĐäĐäđÁđ║Đé ĐéđŞĐůđżđ│đż ĐÇđÁđÂđŞđ╝đ░"
       },
       "mute_status": {
-        "name": "Статус тихого режима"
+        "name": "đíĐéđ░ĐéĐâĐü ĐéđŞĐůđżđ│đż ĐÇđÁđÂđŞđ╝đ░"
+      },
+      "multi_terminal": {
+        "name": "đťĐâđ╗ĐîĐéđŞĐéđÁĐÇđ╝đŞđŻđ░đ╗"
       },
       "oilcup_full": {
         "name": "Oil-cup Full"
       },
-      "order1_effect": {
-        "name": "Расписание 1 активно"
+      "ota": {
+        "name": "OTA"
       },
-      "order2_effect": {
-        "name": "Расписание 2 активно"
+      "pre_heat": {
+        "name": "đčĐÇđÁđ┤đ▓đ░ĐÇđŞĐéđÁđ╗ĐîđŻĐőđ╣ đŻđ░đ│ĐÇđÁđ▓"
+      },
+      "probe": {
+        "name": "đęĐâđ┐"
+      },
+      "probe_mode": {
+        "name": "đáđÁđÂđŞđ╝ ĐëĐâđ┐đ░"
       },
       "protection": {
-        "name": "Защита"
+        "name": "đŚđ░ĐëđŞĐéđ░"
       },
-      "pump_c_running": {
-        "name": "Pump_C - Смесительный контур зоны 2"
-      },
-      "pump_d_running": {
-        "name": "Pump_D - ГВС"
-      },
-      "pump_i_running": {
-        "name": "Pump_I - Внутренний"
-      },
-      "pump_o_running": {
-        "name": "Pump_O - Внешний"
-      },
-      "pump_s_running": {
-        "name": "Pump_S - Солнечный контур"
+      "reaction": {
+        "name": "đáđÁđ░đ║ĐćđŞĐĆ"
       },
       "refrigerator_door": {
         "name": "Refrigerator Door"
@@ -249,38 +225,101 @@
       "refrigerator_door_overtime": {
         "name": "Refrigerator Door Overtime"
       },
-      "remote_onoff": {
-        "name": "Возможность - Удалённое вкл/выкл"
-      },
       "rinse_aid": {
-        "name": "Нехватка ополаскивателя"
-      },
-      "room_thermal_state": {
-        "name": "Состояние - Комнатный термостат"
-      },
-      "room_thermal_support": {
-        "name": "Возможность - Комнатный термостат"
+        "name": "đŁđÁĐůđ▓đ░Đéđ║đ░ đżđ┐đżđ╗đ░Đüđ║đŞđ▓đ░ĐéđÁđ╗ĐĆ"
       },
       "rsj_stand_by": {
-        "name": "Ожидание"
+        "name": "đ×đÂđŞđ┤đ░đŻđŞđÁ"
       },
       "salt": {
-        "name": "Соль"
+        "name": "đíđżđ╗Đî"
       },
       "seat_status": {
-        "name": "Сиденье"
+        "name": "đíđŞđ┤đÁđŻĐîđÁ"
       },
       "smart_grid": {
-        "name": "Умная сеть"
+        "name": "đúđ╝đŻđ░ĐĆ ĐüđÁĐéĐî"
       },
-      "status_cool": {
-        "name": "Состояние - Охлаждение"
+      "eco": {
+        "name": "ECO"
+      },
+      "maintenance_reminder": {
+        "name": "đŁđ░đ┐đżđ╝đŞđŻđ░đŻđŞđÁ đżđ▒ đżđ▒Đüđ╗ĐâđÂđŞđ▓đ░đŻđŞđŞ"
+      },
+      "dr_enable": {
+        "name": "đ×Đéđ║đ╗đŞđ║ đŻđ░ Đüđ┐ĐÇđżĐü"
+      },
+      "electric_rod_exception": {
+        "name": "đŁđÁđŞĐüđ┐ĐÇđ░đ▓đŻđżĐüĐéĐî ĐŹđ╗đÁđ║ĐéĐÇđŞĐçđÁĐüđ║đżđ│đż đŻđ░đ│ĐÇđÁđ▓đ░ĐéđÁđ╗ĐĆ"
+      },
+      "ac_heater_priority": {
+        "name": "đčĐÇđŞđżĐÇđŞĐéđÁĐé ĐéđÁđ┐đ╗đżđ▓đżđ│đż đŻđ░ĐüđżĐüđ░"
+      },
+      "high_temp_reminder": {
+        "name": "đŁđ░đ┐đżđ╝đŞđŻđ░đŻđŞđÁ đż đ▓ĐőĐüđżđ║đżđ╣ ĐéđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇđÁ"
+      },
+      "new_version_water_heater": {
+        "name": "đáđ░ĐüĐłđŞĐÇđÁđŻđŻĐőđ╣ đ┐ĐÇđżĐéđżđ║đżđ╗ đ▓đżđ┤đżđŻđ░đ│ĐÇđÁđ▓đ░ĐéđÁđ╗ĐĆ"
+      },
+      "heat_recovery_status": {
+        "name": "đáđÁđ║Đâđ┐đÁĐÇđ░ĐćđŞĐĆ ĐéđÁđ┐đ╗đ░"
+      },
+      "holiday_mode": {
+        "name": "đáđÁđÂđŞđ╝ đżĐéđ┐ĐâĐüđ║đ░"
+      },
+      "hybrid_motion_mode": {
+        "name": "đôđŞđ▒ĐÇđŞđ┤đŻĐőđ╣ ĐÇđÁđÂđŞđ╝ đ┤đ▓đŞđÂđÁđŻđŞĐĆ"
+      },
+      "support_boost_mode": {
+        "name": "đčđżđ┤đ┤đÁĐÇđÂđ║đ░ ĐÇđÁđÂđŞđ╝đ░ Boost"
+      },
+      "support_silent_mode": {
+        "name": "đčđżđ┤đ┤đÁĐÇđÂđ║đ░ ĐéđŞĐůđżđ│đż ĐÇđÁđÂđŞđ╝đ░"
+      },
+      "support_remaining_hot_water": {
+        "name": "đčđżđ┤đ┤đÁĐÇđÂđ║đ░ đżĐüĐéđ░Đéđ║đ░ đ│đżĐÇĐĆĐçđÁđ╣ đ▓đżđ┤Đő"
+      },
+      "support_electric_mode": {
+        "name": "đčđżđ┤đ┤đÁĐÇđÂđ║đ░ ĐŹđ╗đÁđ║ĐéĐÇđŞĐçđÁĐüđ║đżđ│đż ĐÇđÁđÂđŞđ╝đ░"
+      },
+      "support_auto_disinfect": {
+        "name": "đčđżđ┤đ┤đÁĐÇđÂđ║đ░ đ░đ▓Đéđżđ╝đ░ĐéđŞĐçđÁĐüđ║đżđ╣ đ┤đÁđĚđŞđŻĐäđÁđ║ĐćđŞđŞ"
+      },
+      "support_force_e_heating": {
+        "name": "đčđżđ┤đ┤đÁĐÇđÂđ║đ░ đ┐ĐÇđŞđŻĐâđ┤đŞĐéđÁđ╗ĐîđŻđżđ│đż ĐŹđ╗đÁđ║ĐéĐÇđŞĐçđÁĐüđ║đżđ│đż đŻđ░đ│ĐÇđÁđ▓đ░"
+      },
+      "support_tou": {
+        "name": "đčđżđ┤đ┤đÁĐÇđÂđ║đ░ Đéđ░ĐÇđŞĐäđżđ▓ đ┐đż đ▓ĐÇđÁđ╝đÁđŻđŞ"
+      },
+      "support_ac_heater_priority": {
+        "name": "đčđżđ┤đ┤đÁĐÇđÂđ║đ░ đ┐ĐÇđŞđżĐÇđŞĐéđÁĐéđ░ ĐéđÁđ┐đ╗đżđ▓đżđ│đż đŻđ░ĐüđżĐüđ░"
+      },
+      "support_heat_recovery": {
+        "name": "đčđżđ┤đ┤đÁĐÇđÂđ║đ░ ĐÇđÁđ║Đâđ┐đÁĐÇđ░ĐćđŞđŞ ĐéđÁđ┐đ╗đ░"
+      },
+      "support_heat_pump_mode": {
+        "name": "đčđżđ┤đ┤đÁĐÇđÂđ║đ░ ĐÇđÁđÂđŞđ╝đ░ ĐéđÁđ┐đ╗đżđ▓đżđ│đż đŻđ░ĐüđżĐüđ░"
+      },
+      "support_smart_mode": {
+        "name": "đčđżđ┤đ┤đÁĐÇđÂđ║đ░ đŞđŻĐéđÁđ╗đ╗đÁđ║ĐéĐâđ░đ╗ĐîđŻđżđ│đż ĐÇđÁđÂđŞđ╝đ░"
+      },
+      "support_negative_temperature": {
+        "name": "đčđżđ┤đ┤đÁĐÇđÂđ║đ░ đżĐéĐÇđŞĐćđ░ĐéđÁđ╗ĐîđŻĐőĐů ĐéđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇ"
+      },
+      "maintain_warn": {
+        "name": "đčĐÇđÁđ┤Đâđ┐ĐÇđÁđÂđ┤đÁđŻđŞđÁ đżđ▒ đżđ▒Đüđ╗ĐâđÂđŞđ▓đ░đŻđŞđŞ"
+      },
+      "order1_effect": {
+        "name": "đáđ░Đüđ┐đŞĐüđ░đŻđŞđÁ 1 đ░đ║ĐéđŞđ▓đŻđż"
+      },
+      "order2_effect": {
+        "name": "đáđ░Đüđ┐đŞĐüđ░đŻđŞđÁ 2 đ░đ║ĐéđŞđ▓đŻđż"
       },
       "status_dhw": {
         "name": "DHW status"
       },
       "status_heating": {
-        "name": "Подогрев"
+        "name": "đčđżđ┤đżđ│ĐÇđÁđ▓"
       },
       "status_ibh": {
         "name": "IBH status"
@@ -288,29 +327,11 @@
       "status_tbh": {
         "name": "TBH status"
       },
-      "sv1_open": {
-        "name": "SV1 - Клапан (ГВС)"
-      },
-      "sv2_open": {
-        "name": "SV2 - Клапан (Отопление)"
-      },
-      "sv3_open": {
-        "name": "SV3 - Клапан"
-      },
-      "sys_energy_ana_en": {
-        "name": "Возможность - Анализ энергии (Система)"
-      },
       "tank_ejected": {
         "name": "Tank Ejected"
       },
       "tank_full": {
         "name": "Tank status"
-      },
-      "tbh_control": {
-        "name": "Возможность - Управление TBH"
-      },
-      "time_set": {
-        "name": "Возможность - Время установлено"
       },
       "top_compartment_cooling": {
         "name": "Top Compartment Cooling"
@@ -321,23 +342,11 @@
       "top_compartment_preheating": {
         "name": "Top Compartment Preheating"
       },
-      "top_elec_heat": {
-        "name": "Верхний электронагрев"
-      },
-      "unit_demand": {
-        "name": "Диагностика - Запрос установки (кандидат)"
-      },
       "water_change_reminder": {
         "name": "Water Change Reminder"
       },
-      "water_circuit_active": {
-        "name": "Вода - Контур активен"
-      },
-      "water_pump_running": {
-        "name": "Работа водяного насоса"
-      },
       "water_shortage": {
-        "name": "Нехватка воды"
+        "name": "đŁđÁĐůđ▓đ░Đéđ║đ░ đ▓đżđ┤Đő"
       },
       "with_pressure": {
         "name": "With Pressure"
@@ -353,29 +362,128 @@
       },
       "zone2_water_temp_mode": {
         "name": "Zone2 Water-temperature Mode"
+      },
+      "microcrystal_fresh": {
+        "name": "đťđŞđ║ĐÇđżđ║ĐÇđŞĐüĐéđ░đ╗đ╗đŞĐçđÁĐüđ║đ░ĐĆ Đüđ▓đÁđÂđÁĐüĐéĐî"
+      },
+      "electronic_smell": {
+        "name": "đöđÁđĚđżđ┤đżĐÇđ░ĐćđŞĐĆ đŞ ĐüĐéđÁĐÇđŞđ╗đŞđĚđ░ĐćđŞĐĆ"
+      },
+      "water_pump_running": {
+        "name": "đáđ░đ▒đżĐéđ░ đ▓đżđ┤ĐĆđŻđżđ│đż đŻđ░ĐüđżĐüđ░"
+      },
+      "alarm_on": {
+        "name": "đ×ĐłđŞđ▒đ║đ░ - đÉđ▓đ░ĐÇđŞĐĆ"
+      },
+      "aux_heat_on": {
+        "name": "đóđşđŁ - đöđżđ┐đżđ╗đŻđŞĐéđÁđ╗ĐîđŻĐőđ╣ đŞĐüĐéđżĐçđŻđŞđ║"
+      },
+      "compressor_on": {
+        "name": "đÜđżđ╝đ┐ĐÇđÁĐüĐüđżĐÇ - đáđ░đ▒đżĐéđ░đÁĐé"
+      },
+      "cool_capability": {
+        "name": "đĺđżđĚđ╝đżđÂđŻđżĐüĐéĐî - đ×Đůđ╗đ░đÂđ┤đÁđŻđŞđÁ"
+      },
+      "crankcase_heater_on": {
+        "name": "đóđşđŁ - đÜđ░ĐÇĐéđÁĐÇ đ║đżđ╝đ┐ĐÇđÁĐüĐüđżĐÇđ░"
+      },
+      "dhw_capability": {
+        "name": "đĺđżđĚđ╝đżđÂđŻđżĐüĐéĐî - đôđĺđí"
+      },
+      "disinfect_run": {
+        "name": "đôđĺđí - đöđÁđĚđŞđŻĐäđÁđ║ĐćđŞĐĆ đŞđ┤ĐĹĐé"
+      },
+      "double_zone": {
+        "name": "đĺđżđĚđ╝đżđÂđŻđżĐüĐéĐî - đöđ▓đÁ đĚđżđŻĐő"
+      },
+      "eco_function_state": {
+        "name": "đáđÁđÂđŞđ╝ - đĄĐâđŻđ║ĐćđŞĐĆ ECO"
+      },
+      "eco_timer_state": {
+        "name": "đáđÁđÂđŞđ╝ - đóđ░đ╣đ╝đÁĐÇ ECO"
+      },
+      "heat_capability": {
+        "name": "đĺđżđĚđ╝đżđÂđŻđżĐüĐéĐî - đ×Đéđżđ┐đ╗đÁđŻđŞđÁ"
+      },
+      "hmi_energy_ana_set_en": {
+        "name": "đĺđżđĚđ╝đżđÂđŻđżĐüĐéĐî - đÉđŻđ░đ╗đŞđĚ ĐŹđŻđÁĐÇđ│đŞđŞ (HMI)"
+      },
+      "ibh1_on": {
+        "name": "đóđşđŁ - IBH1"
+      },
+      "ibh2_on": {
+        "name": "đóđşđŁ - IBH2"
+      },
+      "load_output_tbh": {
+        "name": "đóđşđŁ - đĹđ░đ║ (TBH)"
+      },
+      "pump_c_running": {
+        "name": "Pump_C - đíđ╝đÁĐüđŞĐéđÁđ╗ĐîđŻĐőđ╣ đ║đżđŻĐéĐâĐÇ đĚđżđŻĐő 2"
+      },
+      "pump_d_running": {
+        "name": "Pump_D - đôđĺđí"
+      },
+      "pump_i_running": {
+        "name": "Pump_I - đĺđŻĐâĐéĐÇđÁđŻđŻđŞđ╣"
+      },
+      "pump_o_running": {
+        "name": "Pump_O - đĺđŻđÁĐłđŻđŞđ╣"
+      },
+      "pump_s_running": {
+        "name": "Pump_S - đíđżđ╗đŻđÁĐçđŻĐőđ╣ đ║đżđŻĐéĐâĐÇ"
+      },
+      "remote_onoff": {
+        "name": "đĺđżđĚđ╝đżđÂđŻđżĐüĐéĐî - đúđ┤đ░đ╗ĐĹđŻđŻđżđÁ đ▓đ║đ╗/đ▓Đőđ║đ╗"
+      },
+      "room_thermal_state": {
+        "name": "đíđżĐüĐéđżĐĆđŻđŞđÁ - đÜđżđ╝đŻđ░ĐéđŻĐőđ╣ ĐéđÁĐÇđ╝đżĐüĐéđ░Đé"
+      },
+      "room_thermal_support": {
+        "name": "đĺđżđĚđ╝đżđÂđŻđżĐüĐéĐî - đÜđżđ╝đŻđ░ĐéđŻĐőđ╣ ĐéđÁĐÇđ╝đżĐüĐéđ░Đé"
+      },
+      "status_cool": {
+        "name": "đíđżĐüĐéđżĐĆđŻđŞđÁ - đ×Đůđ╗đ░đÂđ┤đÁđŻđŞđÁ"
+      },
+      "sv1_open": {
+        "name": "SV1 - đÜđ╗đ░đ┐đ░đŻ (đôđĺđí)"
+      },
+      "sv2_open": {
+        "name": "SV2 - đÜđ╗đ░đ┐đ░đŻ (đ×Đéđżđ┐đ╗đÁđŻđŞđÁ)"
+      },
+      "sv3_open": {
+        "name": "SV3 - đÜđ╗đ░đ┐đ░đŻ"
+      },
+      "sys_energy_ana_en": {
+        "name": "đĺđżđĚđ╝đżđÂđŻđżĐüĐéĐî - đÉđŻđ░đ╗đŞđĚ ĐŹđŻđÁĐÇđ│đŞđŞ (đíđŞĐüĐéđÁđ╝đ░)"
+      },
+      "tbh_control": {
+        "name": "đĺđżđĚđ╝đżđÂđŻđżĐüĐéĐî - đúđ┐ĐÇđ░đ▓đ╗đÁđŻđŞđÁ TBH"
+      },
+      "time_set": {
+        "name": "đĺđżđĚđ╝đżđÂđŻđżĐüĐéĐî - đĺĐÇđÁđ╝ĐĆ ĐâĐüĐéđ░đŻđżđ▓đ╗đÁđŻđż"
       }
     },
     "button": {
       "start": {
-        "name": "Старт"
+        "name": "đíĐéđ░ĐÇĐé"
       }
     },
     "climate": {
-      "climate_key": {
-        "state_attributes": {
-          "fan_mode": {
-            "state": {
-              "silent": "Тихий",
-              "full": "Полная"
-            }
-          }
-        }
-      },
       "climate_zone1": {
         "name": "Zone1 Thermostat"
       },
       "climate_zone2": {
         "name": "Zone2 Thermostat"
+      },
+      "climate_key": {
+        "state_attributes": {
+          "fan_mode": {
+            "state": {
+              "silent": "đóđŞĐůđŞđ╣",
+              "full": "đčđżđ╗đŻđ░ĐĆ"
+            }
+          }
+        }
       }
     },
     "fan": {
@@ -383,41 +491,56 @@
         "name": "Fresh Air"
       },
       "fresh_air_exhaust": {
-        "name": "Вытяжка свежего воздуха"
+        "name": "đĺĐőĐéĐĆđÂđ║đ░ Đüđ▓đÁđÂđÁđ│đż đ▓đżđĚđ┤ĐâĐůđ░"
       }
     },
     "lock": {
       "child_lock": {
-        "name": "Блокировка"
+        "name": "đĹđ╗đżđ║đŞĐÇđżđ▓đ║đ░"
       }
     },
     "number": {
       "dry_level": {
         "name": "Dry Level"
       },
-      "fan_speed_percent": {
-        "name": "Скорость вентилятора (%)"
-      },
-      "flushing_days": {
-        "name": "Дни регенерации"
-      },
       "heating_level": {
         "name": "Heating Level"
-      },
-      "leak_water_protection_value": {
-        "name": "Значение защиты от протечек"
       },
       "seat_temp_level": {
         "name": "Seat Temperature Level"
       },
-      "vacation_days": {
-        "name": "Дни отпуска"
-      },
-      "water_hardness": {
-        "name": "Жёсткость воды"
-      },
       "water_temp_level": {
         "name": "Water Temperature Level"
+      },
+      "fan_speed_percent": {
+        "name": "đíđ║đżĐÇđżĐüĐéĐî đ▓đÁđŻĐéđŞđ╗ĐĆĐéđżĐÇđ░ (%)"
+      },
+      "vacation_days": {
+        "name": "đöđŻđŞ đżĐéđ┐ĐâĐüđ║đ░"
+      },
+      "max_temperature": {
+        "name": "đťđ░đ║ĐüđŞđ╝đ░đ╗ĐîđŻđ░ĐĆ ĐćđÁđ╗đÁđ▓đ░ĐĆ ĐéđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇđ░"
+      },
+      "disinfection_temperature": {
+        "name": "đóđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇđ░ đ┤đÁđĚđŞđŻĐäđÁđ║ĐćđŞđŞ"
+      },
+      "schedule_mode": {
+        "name": "đáđÁđÂđŞđ╝ ĐÇđ░Đüđ┐đŞĐüđ░đŻđŞĐĆ"
+      },
+      "leak_water_protection_value": {
+        "name": "đŚđŻđ░ĐçđÁđŻđŞđÁ đĚđ░ĐëđŞĐéĐő đżĐé đ┐ĐÇđżĐéđÁĐçđÁđ║"
+      },
+      "flushing_days": {
+        "name": "đöđŻđŞ ĐÇđÁđ│đÁđŻđÁĐÇđ░ĐćđŞđŞ"
+      },
+      "water_hardness": {
+        "name": "đľĐĹĐüĐéđ║đżĐüĐéĐî đ▓đżđ┤Đő"
+      },
+      "boil_temperature": {
+        "name": "đŽđÁđ╗đÁđ▓đ░ĐĆ ĐéđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇđ░ đ║đŞđ┐ĐĆĐçđÁđŻđŞĐĆ"
+      },
+      "keep_warm_time": {
+        "name": "đĺĐÇđÁđ╝ĐĆ đ┐đżđ┤đ┤đÁĐÇđÂđ░đŻđŞĐĆ ĐéđÁđ┐đ╗đ░"
       }
     },
     "select": {
@@ -425,32 +548,32 @@
         "name": "Detect Mode"
       },
       "direction": {
-        "name": "Направление"
+        "name": "đŁđ░đ┐ĐÇđ░đ▓đ╗đÁđŻđŞđÁ"
       },
       "fan_speed": {
-        "name": "Скорость"
+        "name": "đíđ║đżĐÇđżĐüĐéĐî"
       },
       "fresh_air_exhaust_mode": {
-        "name": "Скорость вытяжки свежего воздуха",
+        "name": "đíđ║đżĐÇđżĐüĐéĐî đ▓ĐőĐéĐĆđÂđ║đŞ Đüđ▓đÁđÂđÁđ│đż đ▓đżđĚđ┤ĐâĐůđ░",
         "state": {
-          "off": "Выкл",
-          "silent": "Низкая",
-          "high": "Высокая",
-          "full": "Максимальная"
+          "off": "đĺĐőđ║đ╗",
+          "silent": "đŁđŞđĚđ║đ░ĐĆ",
+          "high": "đĺĐőĐüđżđ║đ░ĐĆ",
+          "full": "đťđ░đ║ĐüđŞđ╝đ░đ╗ĐîđŻđ░ĐĆ"
         }
       },
       "fresh_air_mode": {
-        "name": "Скорость свежего воздуха",
+        "name": "đíđ║đżĐÇđżĐüĐéĐî Đüđ▓đÁđÂđÁđ│đż đ▓đżđĚđ┤ĐâĐůđ░",
         "state": {
-          "off": "Выкл",
-          "low": "Низкая",
-          "medium": "Средняя",
-          "high": "Высокая",
-          "full": "Максимальная"
+          "off": "đĺĐőđ║đ╗",
+          "low": "đŁđŞđĚđ║đ░ĐĆ",
+          "medium": "đíĐÇđÁđ┤đŻĐĆĐĆ",
+          "high": "đĺĐőĐüđżđ║đ░ĐĆ",
+          "full": "đťđ░đ║ĐüđŞđ╝đ░đ╗ĐîđŻđ░ĐĆ"
         }
       },
       "mode": {
-        "name": "Режим"
+        "name": "đáđÁđÂđŞđ╝"
       },
       "oscillation_angle": {
         "name": "Oscillation Angle"
@@ -459,69 +582,73 @@
         "name": "Oscillation Mode"
       },
       "rate_select": {
-        "name": "Ограничение мощности"
+        "name": "đ×đ│ĐÇđ░đŻđŞĐçđÁđŻđŞđÁ đ╝đżĐëđŻđżĐüĐéđŞ"
       },
       "screen_display": {
         "name": "Screen Display"
       },
       "silent_level": {
-        "name": "Silent Level",
-        "state": {
-          "off": "Выкл",
-          "silent": "Тихий",
-          "super_silent": "Сверхтихий"
-        }
+        "name": "Silent Level"
       },
       "tilting_angle": {
-        "name": "Угол поворота"
+        "name": "đúđ│đżđ╗ đ┐đżđ▓đżĐÇđżĐéđ░"
       },
       "wash_mode": {
-        "name": "Режим мойки"
+        "name": "đáđÁđÂđŞđ╝ đ╝đżđ╣đ║đŞ"
       },
       "water_level_set": {
         "name": "Water Level Setting"
       },
       "wind_lr_angle": {
-        "name": "Горизонтальный поток воздуха",
+        "name": "đôđżĐÇđŞđĚđżđŻĐéđ░đ╗ĐîđŻĐőđ╣ đ┐đżĐéđżđ║ đ▓đżđĚđ┤ĐâĐůđ░",
         "state": {
-          "off": "Выкл",
-          "left": "Влево",
-          "left-mid": "Влево-центр",
-          "middle": "Центр",
-          "right-mid": "Вправо-центр",
-          "right": "Вправо"
+          "off": "đĺĐőđ║đ╗",
+          "left": "đĺđ╗đÁđ▓đż",
+          "left-mid": "đĺđ╗đÁđ▓đż-ĐćđÁđŻĐéĐÇ",
+          "middle": "đŽđÁđŻĐéĐÇ",
+          "right-mid": "đĺđ┐ĐÇđ░đ▓đż-ĐćđÁđŻĐéĐÇ",
+          "right": "đĺđ┐ĐÇđ░đ▓đż"
         }
       },
       "wind_ud_angle": {
-        "name": "Вертикальный поток воздуха",
+        "name": "đĺđÁĐÇĐéđŞđ║đ░đ╗ĐîđŻĐőđ╣ đ┐đżĐéđżđ║ đ▓đżđĚđ┤ĐâĐůđ░",
         "state": {
-          "off": "Выкл",
-          "up": "Вверх",
-          "up-mid": "Вверх-центр",
-          "middle": "Центр",
-          "down-mid": "Вниз-центр",
-          "down": "Вниз"
+          "off": "đĺĐőđ║đ╗",
+          "up": "đĺđ▓đÁĐÇĐů",
+          "up-mid": "đĺđ▓đÁĐÇĐů-ĐćđÁđŻĐéĐÇ",
+          "middle": "đŽđÁđŻĐéĐÇ",
+          "down-mid": "đĺđŻđŞđĚ-ĐćđÁđŻĐéĐÇ",
+          "down": "đĺđŻđŞđĚ"
         }
       }
     },
+    "time": {
+      "timing_regeneration": {
+        "name": "đáđÁđ│đÁđŻđÁĐÇđ░ĐćđŞĐĆ đ┐đż Đéđ░đ╣đ╝đÁĐÇĐâ"
+      }
+    },
     "sensor": {
-      "ai_switch": {
-        "name": "AI Switch"
-      },
-      "auto_sterilize_hour": {
-        "name": "Час автостерилизации"
-      },
-      "auto_sterilize_minute": {
-        "name": "Минута автостерилизации"
-      },
-      "auto_sterilize_week": {
-        "name": "День недели автостерилизации"
-      },
-      "back_water": {
-        "name": "Обратная вода"
-      },
       "bathing_leaving_temperature": {
         "name": "Bathing Leaving Water Temperature"
+      },
+      "bf_status": {
+        "name": "đíĐéđ░ĐéĐâĐü",
+        "state": {
+          "save_power": "đşđŻđÁĐÇđ│đżĐüđ▒đÁĐÇđÁđÂđÁđŻđŞđÁ",
+          "standby": "đ×đÂđŞđ┤đ░đŻđŞđÁ",
+          "work": "đáđ░đ▒đżĐéđ░đÁĐé",
+          "work_finish": "đŚđ░đ▓đÁĐÇĐłđÁđŻđż",
+          "order": "đŚđ░đ┤đÁĐÇđÂđ║đ░",
+          "pause": "đčđ░ĐâđĚđ░",
+          "pause_c": "đčđ░ĐâđĚđ░ C",
+          "three": "đóĐÇđŞ",
+          "wait_to_start": "đ×đÂđŞđ┤đ░đŻđŞđÁ đĚđ░đ┐ĐâĐüđ║đ░",
+          "self_inspection": "đíđ░đ╝đżđ┤đŞđ░đ│đŻđżĐüĐéđŞđ║đ░",
+          "query_version": "đŚđ░đ┐ĐÇđżĐü đ▓đÁĐÇĐüđŞđŞ",
+          "demo": "đöđÁđ╝đż",
+          "after_checking": "đčđżĐüđ╗đÁ đ┐ĐÇđżđ▓đÁĐÇđ║đŞ",
+          "unknown": "đŁđÁđŞđĚđ▓đÁĐüĐéđŻđż"
+        }
       },
       "bottom_compartment_remaining": {
         "name": "Bottom Compartment Remaining"
@@ -538,44 +665,32 @@
       "bright": {
         "name": "Bright Level"
       },
-      "comp_run_freq": {
-        "name": "Компрессор - Частота"
+      "cbs_version": {
+        "name": "đĺđÁĐÇĐüđŞĐĆ CBS"
       },
-      "comp_total_run_time": {
-        "name": "Энергия - Наработка компрессора"
-      },
-      "compressor_current": {
-        "name": "Ток компрессора"
-      },
-      "compressor_frequency": {
-        "name": "Частота компрессора"
-      },
-      "compressor_power": {
-        "name": "Мощность компрессора"
-      },
-      "compressor_status_raw": {
-        "name": "Компрессор - Битовая карта состояния (сырая)"
+      "cloudmenuid": {
+        "name": "ID đżđ▒đ╗đ░ĐçđŻđżđ│đż đ╝đÁđŻĐÄ"
       },
       "compressor_temperature": {
         "name": "Compressor Temperature"
       },
-      "compressor_voltage": {
-        "name": "Напряжение компрессора"
-      },
       "condenser_temperature": {
         "name": "Condenser Temperature"
+      },
+      "cur_probe_temperature": {
+        "name": "đóđÁđ║ĐâĐëđ░ĐĆ ĐéđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇđ░ ĐëĐâđ┐đ░"
+      },
+      "cur_temperature_above": {
+        "name": "đóđÁđ║ĐâĐëđ░ĐĆ đ▓đÁĐÇĐůđŻĐĆĐĆ ĐéđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇđ░"
+      },
+      "cur_temperature_underside": {
+        "name": "đóđÁđ║ĐâĐëđ░ĐĆ đŻđŞđÂđŻĐĆĐĆ ĐéđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇđ░"
       },
       "current_energy_consumption": {
         "name": "Current Energy Consumption"
       },
       "current_temperature": {
-        "name": "Текущая температура"
-      },
-      "dc_bus_voltage": {
-        "name": "Наружный блок - Напряжение шины постоянного тока"
-      },
-      "dc_current": {
-        "name": "Наружный блок - Ток шины постоянного тока"
+        "name": "đóđÁđ║ĐâĐëđ░ĐĆ ĐéđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇđ░"
       },
       "dehydration_speed": {
         "name": "Dehydration speed"
@@ -586,79 +701,126 @@
       "dehydration_time_value": {
         "name": "Dehydration time value"
       },
-      "detergent": {
-        "name": "Моющее средство"
+      "execute_status": {
+        "name": "đíĐéđ░ĐéĐâĐü đ▓Đőđ┐đżđ╗đŻđÁđŻđŞĐĆ",
+        "state": {
+          "ok": "OK",
+          "status_nonsupport": "đíĐéđ░ĐéĐâĐü đŻđÁ đ┐đżđ┤đ┤đÁĐÇđÂđŞđ▓đ░đÁĐéĐüĐĆ",
+          "function_nonsupport": "đĄĐâđŻđ║ĐćđŞĐĆ đŻđÁ đ┐đżđ┤đ┤đÁĐÇđÂđŞđ▓đ░đÁĐéĐüĐĆ",
+          "param_range_error": "đ×ĐłđŞđ▒đ║đ░ đ┤đŞđ░đ┐đ░đĚđżđŻđ░ đ┐đ░ĐÇđ░đ╝đÁĐéĐÇđżđ▓"
+        }
+      },
+      "fire_power": {
+        "name": "đťđżĐëđŻđżĐüĐéĐî đŻđ░đ│ĐÇđÁđ▓đ░",
+        "state": {
+          "fire_power_0": "đúĐÇđżđ▓đÁđŻĐî 0",
+          "fire_power_1": "đúĐÇđżđ▓đÁđŻĐî 1",
+          "fire_power_2": "đúĐÇđżđ▓đÁđŻĐî 2",
+          "fire_power_3": "đúĐÇđżđ▓đÁđŻĐî 3",
+          "fire_power_4": "đúĐÇđżđ▓đÁđŻĐî 4",
+          "fire_power_5": "đúĐÇđżđ▓đÁđŻĐî 5",
+          "fire_power_6": "đúĐÇđżđ▓đÁđŻĐî 6",
+          "fire_power_7": "đúĐÇđżđ▓đÁđŻĐî 7",
+          "fire_power_8": "đúĐÇđżđ▓đÁđŻĐî 8",
+          "fire_power_9": "đúĐÇđżđ▓đÁđŻĐî 9",
+          "fire_power_10": "đúĐÇđżđ▓đÁđŻĐî 10",
+          "unknown": "đŁđÁđŞđĚđ▓đÁĐüĐéđŻđż"
+        }
+      },
+      "minute_set": {
+        "name": "đúĐüĐéđ░đŻđżđ▓đ║đ░ đ╝đŞđŻĐâĐéĐő"
+      },
+      "people_number": {
+        "name": "đÜđżđ╗đŞĐçđÁĐüĐéđ▓đż ĐçđÁđ╗đżđ▓đÁđ║"
+      },
+      "probe_temperature": {
+        "name": "đóđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇđ░ ĐëĐâđ┐đ░"
+      },
+      "second_set": {
+        "name": "đúĐüĐéđ░đŻđżđ▓đ║đ░ ĐüđÁđ║ĐâđŻđ┤Đő"
+      },
+      "steam_quantity": {
+        "name": "đÜđżđ╗đŞĐçđÁĐüĐéđ▓đż đ┐đ░ĐÇđ░"
+      },
+      "stepnum": {
+        "name": "đóđÁđ║ĐâĐëđŞđ╣ Đłđ░đ│"
+      },
+      "temperature": {
+        "name": "đóđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇđ░"
+      },
+      "temperature_above": {
+        "name": "đĺđÁĐÇĐůđŻĐĆĐĆ ĐéđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇđ░"
+      },
+      "temperature_underside": {
+        "name": "đŁđŞđÂđŻĐĆĐĆ ĐéđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇđ░"
+      },
+      "totalstep": {
+        "name": "đĺĐüđÁđ│đż Đłđ░đ│đżđ▓"
+      },
+      "wash_time_value": {
+        "name": "Wash time value"
+      },
+      "stains": {
+        "name": "Stains"
       },
       "dirty_degree": {
         "name": "Dirty degree"
       },
-      "discharge_pipe_temperature": {
-        "name": "Температура нагнетательной трубы(TP)"
+      "detergent": {
+        "name": "đťđżĐÄĐëđÁđÁ ĐüĐÇđÁđ┤ĐüĐéđ▓đż"
       },
-      "disinfect_set_weekday": {
-        "name": "ГВС - День дезинфекции"
-      },
-      "disinfect_start_hour": {
-        "name": "ГВС - Час начала дезинфекции"
-      },
-      "disinfect_start_minutes": {
-        "name": "ГВС - Минута начала дезинфекции"
-      },
-      "disinfection_temperature": {
-        "name": "Температура дезинфекции"
-      },
-      "door_warn": {
-        "name": "Door Warn"
-      },
-      "dry_temperature": {
-        "name": "Dry Temperature"
+      "intensity": {
+        "name": "đśđŻĐéđÁđŻĐüđŞđ▓đŻđżĐüĐéĐî"
       },
       "dryness_level": {
         "name": "Dryness Level"
       },
-      "elec_heat": {
-        "name": "Электронагрев"
+      "dry_temperature": {
+        "name": "Dry Temperature"
+      },
+      "door_warn": {
+        "name": "Door Warn"
+      },
+      "ai_switch": {
+        "name": "AI Switch"
+      },
+      "material": {
+        "name": "đťđ░ĐéđÁĐÇđŞđ░đ╗"
+      },
+      "water_box": {
+        "name": "Water Box"
       },
       "energy_consumption": {
-        "name": "Энергопотребление"
+        "name": "đşđŻđÁĐÇđ│đżđ┐đżĐéĐÇđÁđ▒đ╗đÁđŻđŞđÁ"
       },
       "error": {
-        "name": "Ошибка",
+        "name": "đ×ĐłđŞđ▒đ║đ░",
         "state": {
-          "no_error": "Нет ошибок",
-          "e1_position_not_found": "E1 Позиция не найдена",
-          "e2_photo_sensor_no_signal": "E2 Датчик не даёт сигнал",
-          "e3_motor_not_running": "E3 Двигатель не работает",
-          "e4_wrong_position": "E4 Неправильная позиция",
-          "e1_motor_fault": "E1 Неисправность двигателя",
-          "e5_communication_fault": "E5 Ошибка связи",
-          "e6_salt_sensor_fault": "E6 Неисправность датчика соли",
-          "e7_chlorine_sterilization_fault": "E7 Неисправность хлорной стерилизации"
+          "no_error": "đŁđÁĐé đżĐłđŞđ▒đżđ║",
+          "e1_position_not_found": "E1 đčđżđĚđŞĐćđŞĐĆ đŻđÁ đŻđ░đ╣đ┤đÁđŻđ░",
+          "e2_photo_sensor_no_signal": "E2 đöđ░ĐéĐçđŞđ║ đŻđÁ đ┤đ░ĐĹĐé ĐüđŞđ│đŻđ░đ╗",
+          "e3_motor_not_running": "E3 đöđ▓đŞđ│đ░ĐéđÁđ╗Đî đŻđÁ ĐÇđ░đ▒đżĐéđ░đÁĐé",
+          "e4_wrong_position": "E4 đŁđÁđ┐ĐÇđ░đ▓đŞđ╗ĐîđŻđ░ĐĆ đ┐đżđĚđŞĐćđŞĐĆ",
+          "e1_motor_fault": "E1 đŁđÁđŞĐüđ┐ĐÇđ░đ▓đŻđżĐüĐéĐî đ┤đ▓đŞđ│đ░ĐéđÁđ╗ĐĆ",
+          "e5_communication_fault": "E5 đ×ĐłđŞđ▒đ║đ░ Đüđ▓ĐĆđĚđŞ",
+          "e6_salt_sensor_fault": "E6 đŁđÁđŞĐüđ┐ĐÇđ░đ▓đŻđżĐüĐéĐî đ┤đ░ĐéĐçđŞđ║đ░ Đüđżđ╗đŞ",
+          "e7_chlorine_sterilization_fault": "E7 đŁđÁđŞĐüđ┐ĐÇđ░đ▓đŻđżĐüĐéĐî Đůđ╗đżĐÇđŻđżđ╣ ĐüĐéđÁĐÇđŞđ╗đŞđĚđ░ĐćđŞđŞ"
         }
       },
       "error_code": {
-        "name": "Код ошибки"
-      },
-      "error_code_description": {
-        "name": "Ошибка - Описание"
+        "name": "đÜđżđ┤ đżĐłđŞđ▒đ║đŞ"
       },
       "estimated_energy_consumption": {
-        "name": "Расчётное энергопотребление"
+        "name": "đáđ░ĐüĐçĐĹĐéđŻđżđÁ ĐŹđŻđÁĐÇđ│đżđ┐đżĐéĐÇđÁđ▒đ╗đÁđŻđŞđÁ"
       },
       "estimated_water_consumption": {
-        "name": "Расчётный расход воды"
-      },
-      "exv_opening": {
-        "name": "Хладагент - Открытие ЭРВ1"
+        "name": "đáđ░ĐüĐçĐĹĐéđŻĐőđ╣ ĐÇđ░ĐüĐůđżđ┤ đ▓đżđ┤Đő"
       },
       "fan_level": {
         "name": "Fan level"
       },
-      "fan_speed": {
-        "name": "Наружный блок - Скорость вентилятора"
-      },
-      "fg_capacity_need": {
-        "name": "Диагностика - Требуемая мощность (сырое)"
+      "filter_life": {
+        "name": "đíđżĐüĐéđżĐĆđŻđŞđÁ ĐäđŞđ╗ĐîĐéĐÇđ░"
       },
       "filter1_days": {
         "name": "Filter1 Available Days"
@@ -678,17 +840,11 @@
       "filter3_life": {
         "name": "Filter3 Life Level"
       },
-      "filter_life": {
-        "name": "Состояние фильтра"
-      },
       "flex_zone_actual_temp": {
         "name": "Flex Zone Actual Temperature"
       },
       "flex_zone_setting_temp": {
         "name": "Flex Zone Setting Temperature"
-      },
-      "four_way": {
-        "name": "Четырёхходовой клапан"
       },
       "freezer_actual_temp": {
         "name": "Freezer Actual Temperature"
@@ -697,46 +853,19 @@
         "name": "Freezer Setting Temperature"
       },
       "hcho": {
-        "name": "Формальдегид"
+        "name": "đĄđżĐÇđ╝đ░đ╗Đîđ┤đÁđ│đŞđ┤"
       },
       "heating_leaving_temperature": {
         "name": "Heating Leaving Water Temperature"
       },
       "heating_power": {
-        "name": "Мощность нагрева"
+        "name": "đťđżĐëđŻđżĐüĐéĐî đŻđ░đ│ĐÇđÁđ▓đ░"
       },
       "heating_time_remaining": {
         "name": "Heating Time Remaining"
       },
-      "humidity": {
-        "name": "Влажность"
-      },
-      "hydbox_subtype": {
-        "name": "Инфо - Подтип гидромодуля"
-      },
-      "hydrobox_capacity": {
-        "name": "Инфо - Мощность гидромодуля"
-      },
-      "idu_software_version_str": {
-        "name": "Инфо - Версия ПО внутреннего блока"
-      },
-      "idu_t1s1": {
-        "name": "Температура - Зона 1 расчётная (T1s)"
-      },
-      "idu_t1s2": {
-        "name": "Температура - Зона 2 расчётная (T1s)"
-      },
       "in_tds": {
         "name": "In TDS"
-      },
-      "indoor_ambient_temperature": {
-        "name": "Комнатная температура(T1)"
-      },
-      "indoor_coil_temperature": {
-        "name": "Температура внутреннего теплообменника(T2)"
-      },
-      "indoor_fan_speed": {
-        "name": "Скорость внутреннего вентилятора"
       },
       "indoor_humidity": {
         "name": "Indoor Humidity"
@@ -744,38 +873,17 @@
       "indoor_temperature": {
         "name": "Indoor Temperature"
       },
-      "instant_cop": {
-        "name": "Мощность - COP отопления"
-      },
-      "instant_power": {
-        "name": "Мощность - Тепловая мощность"
-      },
-      "instant_power0": {
-        "name": "Мощность - Потребление на отопление"
-      },
-      "instant_renew_power0": {
-        "name": "Мощность - Возобновляемая тепловая мощность"
-      },
-      "intensity": {
-        "name": "Интенсивность"
-      },
       "keep_warm_remaining": {
         "name": "Keep Warm Remaining"
+      },
+      "fault_code": {
+        "name": "đÜđżđ┤ đŻđÁđŞĐüđ┐ĐÇđ░đ▓đŻđżĐüĐéđŞ"
       },
       "keep_warm_time": {
         "name": "Keep Warm Time"
       },
       "left_salt": {
-        "name": "Остаток соли"
-      },
-      "machine_type": {
-        "name": "Инфо - Тип машины"
-      },
-      "material": {
-        "name": "Материал"
-      },
-      "max_temperature": {
-        "name": "Максимальная целевая температура"
+        "name": "đ×ĐüĐéđ░Đéđżđ║ Đüđżđ╗đŞ"
       },
       "middle_compartment_remaining": {
         "name": "Middle Compartment Remaining"
@@ -787,58 +895,83 @@
         "name": "Middle Compartment Temperature"
       },
       "mode": {
-        "name": "Режим"
-      },
-      "odu_comp_current": {
-        "name": "Компрессор - Ток"
-      },
-      "odu_model": {
-        "name": "Инфо - Код модели наружного блока"
-      },
-      "odu_software_version_str": {
-        "name": "Инфо - Версия ПО наружного блока"
-      },
-      "odu_target_fre": {
-        "name": "Компрессор - Целевая частота"
-      },
-      "odu_voltage": {
-        "name": "Наружный блок - Напряжение"
+        "name": "đáđÁđÂđŞđ╝"
       },
       "out_tds": {
         "name": "Out TDS"
       },
-      "outdoor_ambient_temperature": {
-        "name": "Наружная температура окружающей среды(T4)"
-      },
-      "outdoor_coil_temperature": {
-        "name": "Температура наружного теплообменника(T3)"
-      },
       "outdoor_temperature": {
         "name": "Outdoor Temperature"
       },
-      "pmv": {
-        "name": "PMV"
+      "comp_run_freq": {
+        "name": "Compressor Frequency"
+      },
+      "outdoor_fan_speed": {
+        "name": "Outdoor Fan Speed"
+      },
+      "unit_mode_run": {
+        "name": "Unit Run Mode",
+        "state": {
+          "off": "Off",
+          "auto": "Auto",
+          "cool": "Cool",
+          "heat": "Heat",
+          "dhw": "DHW"
+        }
+      },
+      "odu_target_fre": {
+        "name": "Target Compressor Frequency"
+      },
+      "odu_voltage": {
+        "name": "Outdoor Unit Voltage"
+      },
+      "odu_comp_current": {
+        "name": "Compressor Current"
+      },
+      "exv_current": {
+        "name": "Electronic Expansion Valve Opening"
+      },
+      "fg_capacity_need": {
+        "name": "Capacity Demand"
       },
       "pressure_high": {
-        "name": "Хладагент - Высокое давление (P1)"
+        "name": "Refrigerant Pressure (High Side)"
       },
       "pressure_low": {
-        "name": "Хладагент - Низкое давление (P2)"
+        "name": "Refrigerant Pressure (Low Side)"
+      },
+      "temp_t1": {
+        "name": "Temperature Sensor T1"
+      },
+      "temp_t2": {
+        "name": "Plate Heat Exchanger Temperature (T2)"
+      },
+      "temp_t2b": {
+        "name": "Plate Heat Exchanger Outlet Temperature (T2B)"
+      },
+      "temp_t3": {
+        "name": "Outdoor Coil Temperature (T3)"
+      },
+      "temp_tp": {
+        "name": "Discharge Pipe Temperature (TP)"
+      },
+      "temp_th": {
+        "name": "Suction Temperature (TH)"
+      },
+      "temp_tf": {
+        "name": "Power Module Temperature (TF)"
       },
       "program": {
-        "name": "Программа"
+        "name": "đčĐÇđżđ│ĐÇđ░đ╝đ╝đ░"
       },
       "progress": {
-        "name": "Этап"
-      },
-      "raw_b31": {
-        "name": "Диагностика - Сырой байт 31"
-      },
-      "raw_b65": {
-        "name": "Диагностика - Сырой байт 65"
+        "name": "đşĐéđ░đ┐"
       },
       "realtime_power": {
-        "name": "Энергопотребление"
+        "name": "đşđŻđÁĐÇđ│đżđ┐đżĐéĐÇđÁđ▒đ╗đÁđŻđŞđÁ"
+      },
+      "pmv": {
+        "name": "PMV"
       },
       "refrigerator_actual_temp": {
         "name": "Refrigerator Actual Temperature"
@@ -847,10 +980,10 @@
         "name": "Refrigerator Setting Temperature"
       },
       "regeneration_left_seconds": {
-        "name": "Оставшиеся секунды регенерации"
+        "name": "đ×ĐüĐéđ░đ▓ĐłđŞđÁĐüĐĆ ĐüđÁđ║ĐâđŻđ┤Đő ĐÇđÁđ│đÁđŻđÁĐÇđ░ĐćđŞđŞ"
       },
       "remaining_days": {
-        "name": "Оставшиеся дни"
+        "name": "đ×ĐüĐéđ░đ▓ĐłđŞđÁĐüĐĆ đ┤đŻđŞ"
       },
       "right_flex_zone_actual_temp": {
         "name": "Right Flex Zone Actual Temperature"
@@ -862,43 +995,31 @@
         "name": "Rinse count"
       },
       "rinse_level": {
-        "name": "Уровень ополаскивателя"
-      },
-      "room_rel_hum": {
-        "name": "Относительная влажность в помещении"
+        "name": "đúĐÇđżđ▓đÁđŻĐî đżđ┐đżđ╗đ░Đüđ║đŞđ▓đ░ĐéđÁđ╗ĐĆ"
       },
       "salt_setting": {
-        "name": "Настройка соли"
+        "name": "đŁđ░ĐüĐéĐÇđżđ╣đ║đ░ Đüđżđ╗đŞ"
       },
       "seat_temperature": {
-        "name": "Температура сиденья"
+        "name": "đóđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇđ░ ĐüđŞđ┤đÁđŻĐîĐĆ"
       },
       "soak_time": {
-        "name": "Время замачивания"
+        "name": "đĺĐÇđÁđ╝ĐĆ đĚđ░đ╝đ░ĐçđŞđ▓đ░đŻđŞĐĆ"
       },
       "soft_available": {
-        "name": "Доступная мягкая вода"
+        "name": "đöđżĐüĐéĐâđ┐đŻđ░ĐĆ đ╝ĐĆđ│đ║đ░ĐĆ đ▓đżđ┤đ░"
       },
       "softener": {
-        "name": "Умягчитель"
+        "name": "đúđ╝ĐĆđ│ĐçđŞĐéđÁđ╗Đî"
       },
       "softwater": {
-        "name": "Уровень умягчителя"
-      },
-      "stains": {
-        "name": "Stains"
+        "name": "đúĐÇđżđ▓đÁđŻĐî Đâđ╝ĐĆđ│ĐçđŞĐéđÁđ╗ĐĆ"
       },
       "status": {
-        "name": "Статус"
-      },
-      "sterilize": {
-        "name": "Стерилизация"
+        "name": "đíĐéđ░ĐéĐâĐü"
       },
       "storage_remaining": {
         "name": "Storage Remaining"
-      },
-      "t5s": {
-        "name": "Температура T5s - Уставка ГВС"
       },
       "tank": {
         "name": "Tank"
@@ -906,71 +1027,11 @@
       "tank_actual_temperature": {
         "name": "Tank Actual Temperature"
       },
-      "target_compressor_frequency": {
-        "name": "Целевая частота компрессора"
-      },
-      "target_indoor_fan_speed": {
-        "name": "Целевая скорость внутреннего вентилятора"
-      },
       "target_temperature": {
-        "name": "Целевая температура"
-      },
-      "tas": {
-        "name": "Температура Tas - Уставка воздуха"
-      },
-      "temp_t1": {
-        "name": "Температура T1 - Общая подача воды"
-      },
-      "temp_t2": {
-        "name": "Температура T2 - Хладагент, жидкостная сторона"
-      },
-      "temp_t2b": {
-        "name": "Температура T2B - Хладагент, газовая сторона"
-      },
-      "temp_t3": {
-        "name": "Температура T3 - Наружный теплообменник"
-      },
-      "temp_t4": {
-        "name": "Температура T4 - Наружный воздух"
-      },
-      "temp_t5": {
-        "name": "Температура T5 - Бак ГВС"
-      },
-      "temp_ta": {
-        "name": "Температура Ta - Комнатный воздух"
-      },
-      "temp_tb_t1": {
-        "name": "Температура TB-T1 - Буферная ёмкость, верх"
-      },
-      "temp_tb_t2": {
-        "name": "Температура TB-T2 - Буферная ёмкость, низ"
-      },
-      "temp_tf": {
-        "name": "Температура TF - Силовой модуль"
-      },
-      "temp_th": {
-        "name": "Температура TH - Всасывание компрессора"
-      },
-      "temp_tp": {
-        "name": "Температура TP - Нагнетание компрессора"
-      },
-      "temp_tsolar": {
-        "name": "Температура Tsolar - Солнечный коллектор"
-      },
-      "temp_tw2": {
-        "name": "Температура Tw2 - Вода зоны 2"
-      },
-      "temp_tw_in": {
-        "name": "Температура Tw_in - Вход воды"
-      },
-      "temp_tw_out": {
-        "name": "Температура Tw_out - Выход воды"
-      },
-      "temperature": {
-        "name": "Температура"
+        "name": "đŽđÁđ╗đÁđ▓đ░ĐĆ ĐéđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇđ░"
       },
       "time_remaining": {
-        "name": "Время цикла"
+        "name": "đĺĐÇđÁđ╝ĐĆ ĐćđŞđ║đ╗đ░"
       },
       "top_compartment_remaining": {
         "name": "Top Compartment Remaining"
@@ -985,7 +1046,7 @@
         "name": "Top Temperature"
       },
       "total_energy_consumption": {
-        "name": "Общее энергопотребление"
+        "name": "đ×đ▒ĐëđÁđÁ ĐŹđŻđÁĐÇđ│đżđ┐đżĐéĐÇđÁđ▒đ╗đÁđŻđŞđÁ"
       },
       "total_produced_energy": {
         "name": "Total produced energy"
@@ -993,89 +1054,372 @@
       "tvoc": {
         "name": "TVOC"
       },
-      "typeinfo": {
-        "name": "Информация о типе"
-      },
-      "unit_mode_run": {
-        "name": "Состояние - Режим работы",
-        "state": {
-          "off": "Выкл",
-          "cool": "Охлаждение",
-          "heat": "Отопление",
-          "dhw": "Горячее водоснабжение"
-        }
-      },
-      "use_days": {
-        "name": "Дни использования"
-      },
-      "vacation_start_day": {
-        "name": "День начала отпуска"
-      },
-      "vacation_start_month": {
-        "name": "Месяц начала отпуска"
-      },
-      "vacation_start_year": {
-        "name": "Год начала отпуска"
-      },
-      "variable_mode": {
-        "name": "Переменный режим"
-      },
-      "velocity": {
-        "name": "Скорость"
-      },
       "wash_level": {
-        "name": "Уровень стирки"
+        "name": "đúĐÇđżđ▓đÁđŻĐî ĐüĐéđŞĐÇđ║đŞ"
       },
       "wash_strength": {
         "name": "Wash strength"
       },
       "wash_time": {
-        "name": "Время мойки"
-      },
-      "wash_time_value": {
-        "name": "Wash time value"
-      },
-      "water_box": {
-        "name": "Water Box"
+        "name": "đĺĐÇđÁđ╝ĐĆ đ╝đżđ╣đ║đŞ"
       },
       "water_consumption": {
         "name": "Water Consumption"
       },
       "water_consumption_average": {
-        "name": "Средний расход воды"
+        "name": "đíĐÇđÁđ┤đŻđŞđ╣ ĐÇđ░ĐüĐůđżđ┤ đ▓đżđ┤Đő"
       },
       "water_consumption_big": {
-        "name": "Потребление воды"
-      },
-      "water_flow": {
-        "name": "Вода - Расход"
-      },
-      "water_level": {
-        "name": "Уровень воды"
-      },
-      "water_pressure": {
-        "name": "Вода - Давление"
-      },
-      "water_pump": {
-        "name": "Водяной насос"
+        "name": "đčđżĐéĐÇđÁđ▒đ╗đÁđŻđŞđÁ đ▓đżđ┤Đő"
       },
       "water_temperature": {
-        "name": "Температура воды"
+        "name": "đóđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇđ░ đ▓đżđ┤Đő"
       },
-      "wifi_module_serial": {
-        "name": "Инфо - Серийный номер модуля WiFi"
+      "water_level": {
+        "name": "đúĐÇđżđ▓đÁđŻĐî đ▓đżđ┤Đő"
       },
       "wind": {
-        "name": "Поток воздуха"
+        "name": "đčđżĐéđżđ║ đ▓đżđĚđ┤ĐâĐůđ░"
+      },
+      "typeinfo": {
+        "name": "đśđŻĐäđżĐÇđ╝đ░ĐćđŞĐĆ đż ĐéđŞđ┐đÁ"
+      },
+      "use_days": {
+        "name": "đöđŻđŞ đŞĐüđ┐đżđ╗ĐîđĚđżđ▓đ░đŻđŞĐĆ"
+      },
+      "elec_heat": {
+        "name": "đşđ╗đÁđ║ĐéĐÇđżđŻđ░đ│ĐÇđÁđ▓"
+      },
+      "water_pump": {
+        "name": "đĺđżđ┤ĐĆđŻđżđ╣ đŻđ░ĐüđżĐü"
+      },
+      "four_way": {
+        "name": "đžđÁĐéĐőĐÇĐĹĐůĐůđżđ┤đżđ▓đżđ╣ đ║đ╗đ░đ┐đ░đŻ"
+      },
+      "back_water": {
+        "name": "đ×đ▒ĐÇđ░ĐéđŻđ░ĐĆ đ▓đżđ┤đ░"
+      },
+      "sterilize": {
+        "name": "đíĐéđÁĐÇđŞđ╗đŞđĚđ░ĐćđŞĐĆ"
+      },
+      "disinfection_temperature": {
+        "name": "đóđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇđ░ đ┤đÁđĚđŞđŻĐäđÁđ║ĐćđŞđŞ"
+      },
+      "max_temperature": {
+        "name": "đťđ░đ║ĐüđŞđ╝đ░đ╗ĐîđŻđ░ĐĆ ĐćđÁđ╗đÁđ▓đ░ĐĆ ĐéđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇđ░"
+      },
+      "max_temperature_upper_limit": {
+        "name": "đĺđÁĐÇĐůđŻđŞđ╣ đ┐ĐÇđÁđ┤đÁđ╗ đ╝đ░đ║ĐüđŞđ╝đ░đ╗ĐîđŻđżđ╣ ĐéđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇĐő"
+      },
+      "max_temperature_lower_limit": {
+        "name": "đŁđŞđÂđŻđŞđ╣ đ┐ĐÇđÁđ┤đÁđ╗ đ╝đ░đ║ĐüđŞđ╝đ░đ╗ĐîđŻđżđ╣ ĐéđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇĐő"
+      },
+      "disinfection_temperature_upper_limit": {
+        "name": "đĺđÁĐÇĐůđŻđŞđ╣ đ┐ĐÇđÁđ┤đÁđ╗ ĐéđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇĐő đ┤đÁđĚđŞđŻĐäđÁđ║ĐćđŞđŞ"
+      },
+      "disinfection_temperature_lower_limit": {
+        "name": "đŁđŞđÂđŻđŞđ╣ đ┐ĐÇđÁđ┤đÁđ╗ ĐéđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇĐő đ┤đÁđĚđŞđŻĐäđÁđ║ĐćđŞđŞ"
+      },
+      "dr_option": {
+        "name": "đčđ░ĐÇđ░đ╝đÁĐéĐÇ đżĐéđ║đ╗đŞđ║đ░ đŻđ░ Đüđ┐ĐÇđżĐü"
+      },
+      "remaining_hot_water_max": {
+        "name": "đťđ░đ║ĐüđŞđ╝đ░đ╗ĐîđŻĐőđ╣ đżĐüĐéđ░Đéđżđ║ đ│đżĐÇĐĆĐçđÁđ╣ đ▓đżđ┤Đő"
+      },
+      "force_e_heating_status": {
+        "name": "đíĐéđ░ĐéĐâĐü đ┐ĐÇđŞđŻĐâđ┤đŞĐéđÁđ╗ĐîđŻđżđ│đż ĐŹđ╗đÁđ║ĐéĐÇđŞĐçđÁĐüđ║đżđ│đż đŻđ░đ│ĐÇđÁđ▓đ░"
+      },
+      "holiday_max": {
+        "name": "đťđ░đ║ĐüđŞđ╝đ░đ╗ĐîđŻđ░ĐĆ đ┤đ╗đŞĐéđÁđ╗ĐîđŻđżĐüĐéĐî đżĐéđ┐ĐâĐüđ║đ░"
+      },
+      "holiday_min": {
+        "name": "đťđŞđŻđŞđ╝đ░đ╗ĐîđŻđ░ĐĆ đ┤đ╗đŞĐéđÁđ╗ĐîđŻđżĐüĐéĐî đżĐéđ┐ĐâĐüđ║đ░"
+      },
+      "timer_step_gap": {
+        "name": "đĘđ░đ│ Đéđ░đ╣đ╝đÁĐÇđ░"
+      },
+      "vacation_start_year": {
+        "name": "đôđżđ┤ đŻđ░Đçđ░đ╗đ░ đżĐéđ┐ĐâĐüđ║đ░"
+      },
+      "vacation_start_month": {
+        "name": "đťđÁĐüĐĆĐć đŻđ░Đçđ░đ╗đ░ đżĐéđ┐ĐâĐüđ║đ░"
+      },
+      "vacation_start_day": {
+        "name": "đöđÁđŻĐî đŻđ░Đçđ░đ╗đ░ đżĐéđ┐ĐâĐüđ║đ░"
+      },
+      "auto_sterilize_week": {
+        "name": "đöđÁđŻĐî đŻđÁđ┤đÁđ╗đŞ đ░đ▓ĐéđżĐüĐéđÁĐÇđŞđ╗đŞđĚđ░ĐćđŞđŞ"
+      },
+      "auto_sterilize_hour": {
+        "name": "đžđ░Đü đ░đ▓ĐéđżĐüĐéđÁĐÇđŞđ╗đŞđĚđ░ĐćđŞđŞ"
+      },
+      "auto_sterilize_minute": {
+        "name": "đťđŞđŻĐâĐéđ░ đ░đ▓ĐéđżĐüĐéđÁĐÇđŞđ╗đŞđĚđ░ĐćđŞđŞ"
+      },
+      "weight": {
+        "name": "đĺđÁĐü"
+      },
+      "work_mode": {
+        "name": "đáđ░đ▒đżĐçđŞđ╣ ĐÇđÁđÂđŞđ╝",
+        "state": {
+          "microwave": "đťđŞđ║ĐÇđżđ▓đżđ╗đŻĐő",
+          "microwave_1": "đťđŞđ║ĐÇđżđ▓đżđ╗đŻĐő 1",
+          "microwave_2": "đťđŞđ║ĐÇđżđ▓đżđ╗đŻĐő 2",
+          "microwave_3": "đťđŞđ║ĐÇđżđ▓đżđ╗đŻĐő 3",
+          "microwave_4": "đťđŞđ║ĐÇđżđ▓đżđ╗đŻĐő 4",
+          "microwave_5": "đťđŞđ║ĐÇđżđ▓đżđ╗đŻĐő 5",
+          "microwave_steam_above_tube": "đťđŞđ║ĐÇđżđ▓đżđ╗đŻĐő đčđ░ĐÇ đĺđÁĐÇĐůđŻđŞđ╣ đóĐŹđŻ",
+          "microwave_double_tube": "đťđŞđ║ĐÇđżđ▓đżđ╗đŻĐő đöđ▓đżđ╣đŻđżđ╣ đóĐŹđŻ",
+          "microwave_hot_wind_tube_fan": "đťđŞđ║ĐÇđżđ▓đżđ╗đŻĐő đôđżĐÇĐĆĐçđŞđ╣ đ▓đżđĚđ┤ĐâĐů đóĐŹđŻ đĺđÁđŻĐéđŞđ╗ĐĆĐéđżĐÇ",
+          "microwave_underside_tube_hot_wind_tube_fan": "đťđŞđ║ĐÇđżđ▓đżđ╗đŻĐő đŁđŞđÂđŻđŞđ╣ đóĐŹđŻ đôđżĐÇĐĆĐçđŞđ╣ đ▓đżđĚđ┤ĐâĐů đĺđÁđŻĐéđŞđ╗ĐĆĐéđżĐÇ",
+          "microwave_double_tube_hot_wind_tube_fan": "đťđŞđ║ĐÇđżđ▓đżđ╗đŻĐő đöđ▓đżđ╣đŻđżđ╣ đóĐŹđŻ đôđżĐÇĐĆĐçđŞđ╣ đ▓đżđĚđ┤ĐâĐů đĺđÁđŻĐéđŞđ╗ĐĆĐéđżĐÇ",
+          "microwave_steam": "đťđŞđ║ĐÇđżđ▓đżđ╗đŻĐő đčđ░ĐÇ",
+          "microwave_steam_1": "đťđŞđ║ĐÇđżđ▓đżđ╗đŻĐő đčđ░ĐÇ 1",
+          "unfreeze": "đáđ░đĚđ╝đżĐÇđżđĚđ║đ░",
+          "unfreeze_1": "đáđ░đĚđ╝đżĐÇđżđĚđ║đ░ 1",
+          "unfreeze_2": "đáđ░đĚđ╝đżĐÇđżđĚđ║đ░ 2",
+          "unfreeze_3": "đáđ░đĚđ╝đżĐÇđżđĚđ║đ░ 3",
+          "unfreeze_t": "đáđ░đĚđ╝đżĐÇđżđĚđ║đ░ T",
+          "microwave_above_tube": "đťđŞđ║ĐÇđżđ▓đżđ╗đŻĐő đĺđÁĐÇĐůđŻđŞđ╣ đóĐŹđŻ",
+          "microwave_above_tube_1": "đťđŞđ║ĐÇđżđ▓đżđ╗đŻĐő đĺđÁĐÇĐůđŻđŞđ╣ đóĐŹđŻ 1",
+          "microwave_above_tube_2": "đťđŞđ║ĐÇđżđ▓đżđ╗đŻĐő đĺđÁĐÇĐůđŻđŞđ╣ đóĐŹđŻ 2",
+          "microwave_above_tube_fan": "đťđŞđ║ĐÇđżđ▓đżđ╗đŻĐő đĺđÁĐÇĐůđŻđŞđ╣ đóĐŹđŻ đĺđÁđŻĐéđŞđ╗ĐĆĐéđżĐÇ",
+          "fast_unfreeze": "đĹĐőĐüĐéĐÇđ░ĐĆ ĐÇđ░đĚđ╝đżĐÇđżđĚđ║đ░",
+          "fresh_unfreeze": "đíđ▓đÁđÂđ░ĐĆ ĐÇđ░đĚđ╝đżĐÇđżđĚđ║đ░",
+          "microwave_zymosis": "đťđŞđ║ĐÇđżđ▓đżđ╗đŻĐő đĹĐÇđżđÂđÁđŻđŞđÁ",
+          "pure_steam": "đžđŞĐüĐéĐőđ╣ đčđ░ĐÇ",
+          "pure_steam_1": "đžđŞĐüĐéĐőđ╣ đčđ░ĐÇ 1",
+          "pure_steam_2": "đžđŞĐüĐéĐőđ╣ đčđ░ĐÇ 2",
+          "pure_steam_3": "đžđŞĐüĐéĐőđ╣ đčđ░ĐÇ 3",
+          "pure_steam_4": "đžđŞĐüĐéĐőđ╣ đčđ░ĐÇ 4",
+          "pure_steam_5": "đžđŞĐüĐéĐőđ╣ đčđ░ĐÇ 5",
+          "pure_steam_6": "đžđŞĐüĐéĐőđ╣ đčđ░ĐÇ 6",
+          "pure_steam_7": "đžđŞĐüĐéĐőđ╣ đčđ░ĐÇ 7",
+          "pure_steam_8": "đžđŞĐüĐéĐőđ╣ đčđ░ĐÇ 8",
+          "pure_steam_9": "đžđŞĐüĐéĐőđ╣ đčđ░ĐÇ 9",
+          "steam_above_tube": "đčđ░ĐÇ đĺđÁĐÇĐůđŻđŞđ╣ đóĐŹđŻ",
+          "steam_underside_tube": "đčđ░ĐÇ đŁđŞđÂđŻđŞđ╣ đóĐŹđŻ",
+          "steam_double_tube": "đčđ░ĐÇ đöđ▓đżđ╣đŻđżđ╣ đóĐŹđŻ",
+          "steam_hot_wind_tube_fan": "đčđ░ĐÇ đôđżĐÇĐĆĐçđŞđ╣ đ▓đżđĚđ┤ĐâĐů đóĐŹđŻ đĺđÁđŻĐéđŞđ╗ĐĆĐéđżĐÇ",
+          "steam_hot_wind_tube_fan_1": "đčđ░ĐÇ đôđżĐÇĐĆĐçđŞđ╣ đ▓đżđĚđ┤ĐâĐů đóĐŹđŻ đĺđÁđŻĐéđŞđ╗ĐĆĐéđżĐÇ 1",
+          "steam_hot_wind_tube_fan_2": "đčđ░ĐÇ đôđżĐÇĐĆĐçđŞđ╣ đ▓đżđĚđ┤ĐâĐů đóĐŹđŻ đĺđÁđŻĐéđŞđ╗ĐĆĐéđżĐÇ 2",
+          "steam_hot_wind_tube": "đčđ░ĐÇ đôđżĐÇĐĆĐçđŞđ╣ đ▓đżđĚđ┤ĐâĐů đóĐŹđŻ",
+          "steam_double_tube_fan": "đčđ░ĐÇ đöđ▓đżđ╣đŻđżđ╣ đóĐŹđŻ đĺđÁđŻĐéđŞđ╗ĐĆĐéđżĐÇ",
+          "steam_above_inside_outside_tube_fan": "đčđ░ĐÇ đĺđÁĐÇĐůđŻđŞđ╣ đĺđŻĐâĐéĐÇđÁđŻđŻđŞđ╣ đĺđŻđÁĐłđŻđŞđ╣ đóĐŹđŻ đĺđÁđŻĐéđŞđ╗ĐĆĐéđżĐÇ",
+          "steam_above_inside_tube_fan": "đčđ░ĐÇ đĺđÁĐÇĐůđŻđŞđ╣ đĺđŻĐâĐéĐÇđÁđŻđŻđŞđ╣ đóĐŹđŻ đĺđÁđŻĐéđŞđ╗ĐĆĐéđżĐÇ",
+          "above_tube": "đĺđÁĐÇĐůđŻđŞđ╣ đóĐŹđŻ",
+          "underside_tube": "đŁđŞđÂđŻđŞđ╣ đóĐŹđŻ",
+          "double_tube": "đöđ▓đżđ╣đŻđżđ╣ đóĐŹđŻ",
+          "hot_wind_tube_fan": "đôđżĐÇĐĆĐçđŞđ╣ đ▓đżđĚđ┤ĐâĐů đóĐŹđŻ đĺđÁđŻĐéđŞđ╗ĐĆĐéđżĐÇ",
+          "pure_preheat": "đžđŞĐüĐéĐőđ╣ đčĐÇđÁđ┤đŻđ░đ│ĐÇđÁđ▓",
+          "above_tube_hot_wind_tube_fan": "đĺđÁĐÇĐůđŻđŞđ╣ đóĐŹđŻ đôđżĐÇĐĆĐçđŞđ╣ đ▓đżđĚđ┤ĐâĐů đĺđÁđŻĐéđŞđ╗ĐĆĐéđżĐÇ",
+          "underside_tube_hot_wind_tube_fan": "đŁđŞđÂđŻđŞđ╣ đóĐŹđŻ đôđżĐÇĐĆĐçđŞđ╣ đ▓đżđĚđ┤ĐâĐů đĺđÁđŻĐéđŞđ╗ĐĆĐéđżĐÇ",
+          "zymosis": "đĹĐÇđżđÂđÁđŻđŞđÁ",
+          "double_tube_hot_wind_tube_fan": "đöđ▓đżđ╣đŻđżđ╣ đóĐŹđŻ đôđżĐÇĐĆĐçđŞđ╣ đ▓đżđĚđ┤ĐâĐů đĺđÁđŻĐéđŞđ╗ĐĆĐéđżĐÇ",
+          "above_tube_revolve": "đĺđÁĐÇĐůđŻđŞđ╣ đóĐŹđŻ đĺĐÇđ░ĐëđÁđŻđŞđÁ",
+          "underside_tube_revolve": "đŁđŞđÂđŻđŞđ╣ đóĐŹđŻ đĺĐÇđ░ĐëđÁđŻđŞđÁ",
+          "double_tube_revolve": "đöđ▓đżđ╣đŻđżđ╣ đóĐŹđŻ đĺĐÇđ░ĐëđÁđŻđŞđÁ",
+          "hot_wind_tube_fan_revolve": "đôđżĐÇĐĆĐçđŞđ╣ đ▓đżđĚđ┤ĐâĐů đóĐŹđŻ đĺđÁđŻĐéđŞđ╗ĐĆĐéđżĐÇ đĺĐÇđ░ĐëđÁđŻđŞđÁ",
+          "warm": "đčđżđ┤đżđ│ĐÇđÁđ▓",
+          "double_tube_fan": "đöđ▓đżđ╣đŻđżđ╣ đóĐŹđŻ đĺđÁđŻĐéđŞđ╗ĐĆĐéđżĐÇ",
+          "double_tube_fan_1": "đöđ▓đżđ╣đŻđżđ╣ đóĐŹđŻ đĺđÁđŻĐéđŞđ╗ĐĆĐéđżĐÇ 1",
+          "double_tube_fan_2": "đöđ▓đżđ╣đŻđżđ╣ đóĐŹđŻ đĺđÁđŻĐéđŞđ╗ĐĆĐéđżĐÇ 2",
+          "double_tube_fan_3": "đöđ▓đżđ╣đŻđżđ╣ đóĐŹđŻ đĺđÁđŻĐéđŞđ╗ĐĆĐéđżĐÇ 3",
+          "above_inside_tube_revolve": "đĺđÁĐÇĐůđŻđŞđ╣ đĺđŻĐâĐéĐÇđÁđŻđŻđŞđ╣ đóĐŹđŻ đĺĐÇđ░ĐëđÁđŻđŞđÁ",
+          "above_inside_tube_fan": "đĺđÁĐÇĐůđŻđŞđ╣ đĺđŻĐâĐéĐÇđÁđŻđŻđŞđ╣ đóĐŹđŻ đĺđÁđŻĐéđŞđ╗ĐĆĐéđżĐÇ",
+          "above_inside_outside_tube_revolve": "đĺđÁĐÇĐůđŻđŞđ╣ đĺđŻĐâĐéĐÇđÁđŻđŻđŞđ╣ đĺđŻđÁĐłđŻđŞđ╣ đóĐŹđŻ đĺĐÇđ░ĐëđÁđŻđŞđÁ",
+          "above_inside_outside_tube_fan": "đĺđÁĐÇĐůđŻđŞđ╣ đĺđŻĐâĐéĐÇđÁđŻđŻđŞđ╣ đĺđŻđÁĐłđŻđŞđ╣ đóĐŹđŻ đĺđÁđŻĐéđŞđ╗ĐĆĐéđżĐÇ",
+          "above_inside_underside_tube": "đĺđÁĐÇĐůđŻđŞđ╣ đĺđŻĐâĐéĐÇđÁđŻđŻđŞđ╣ đŁđŞđÂđŻđŞđ╣ đóĐŹđŻ",
+          "above_inside_underside_tube_1": "đĺđÁĐÇĐůđŻđŞđ╣ đĺđŻĐâĐéĐÇđÁđŻđŻđŞđ╣ đŁđŞđÂđŻđŞđ╣ đóĐŹđŻ 1",
+          "above_inside_underside_tube_fan": "đĺđÁĐÇĐůđŻđŞđ╣ đĺđŻĐâĐéĐÇđÁđŻđŻđŞđ╣ đŁđŞđÂđŻđŞđ╣ đóĐŹđŻ đĺđÁđŻĐéđŞđ╗ĐĆĐéđżĐÇ",
+          "above_inside_underside_tube_fan_1": "đĺđÁĐÇĐůđŻđŞđ╣ đĺđŻĐâĐéĐÇđÁđŻđŻđŞđ╣ đŁđŞđÂđŻđŞđ╣ đóĐŹđŻ đĺđÁđŻĐéđŞđ╗ĐĆĐéđżĐÇ 1",
+          "above_inside_tube": "đĺđÁĐÇĐůđŻđŞđ╣ đĺđŻĐâĐéĐÇđÁđŻđŻđŞđ╣ đóĐŹđŻ",
+          "above_inside_outside_tube": "đĺđÁĐÇĐůđŻđŞđ╣ đĺđŻĐâĐéĐÇđÁđŻđŻđŞđ╣ đĺđŻđÁĐłđŻđŞđ╣ đóĐŹđŻ",
+          "underside_tube_fan": "đŁđŞđÂđŻđŞđ╣ đóĐŹđŻ đĺđÁđŻĐéđŞđ╗ĐĆĐéđżĐÇ",
+          "above_tube_fan": "đĺđÁĐÇĐůđŻđŞđ╣ đóĐŹđŻ đĺđÁđŻĐéđŞđ╗ĐĆĐéđżĐÇ",
+          "above_tube_fan_1": "đĺđÁĐÇĐůđŻđŞđ╣ đóĐŹđŻ đĺđÁđŻĐéđŞđ╗ĐĆĐéđżĐÇ 1",
+          "above_tube_fan_2": "đĺđÁĐÇĐůđŻđŞđ╣ đóĐŹđŻ đĺđÁđŻĐéđŞđ╗ĐĆĐéđżĐÇ 2",
+          "scale_clean": "đúđ┤đ░đ╗đÁđŻđŞđÁ đŻđ░đ║đŞđ┐đŞ",
+          "clean": "đ×ĐçđŞĐüĐéđ║đ░",
+          "remove_odor": "đúđ┤đ░đ╗đÁđŻđŞđÁ đĚđ░đ┐đ░Đůđ░",
+          "remove_odor_2": "đúđ┤đ░đ╗đÁđŻđŞđÁ đĚđ░đ┐đ░Đůđ░ 2",
+          "high_temperature_clean": "đĺĐőĐüđżđ║đ░ĐĆ ĐéđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇđ░ đ×ĐçđŞĐüĐéđ║đ░",
+          "dining_utensils_clean": "đíĐéđżđ╗đżđ▓ĐőđÁ đ┐ĐÇđŞđ▒đżĐÇĐő đ×ĐçđŞĐüĐéđ║đ░",
+          "auto_menu": "đÉđ▓Đéđżđ╝đÁđŻĐÄ",
+          "eco": "đşđ║đż",
+          "above_tube_1": "đĺđÁĐÇĐůđŻđŞđ╣ đóĐŹđŻ 1",
+          "above_tube_2": "đĺđÁĐÇĐůđŻđŞđ╣ đóĐŹđŻ 2",
+          "above_tube_3": "đĺđÁĐÇĐůđŻđŞđ╣ đóĐŹđŻ 3",
+          "underside_tube_1": "đŁđŞđÂđŻđŞđ╣ đóĐŹđŻ 1",
+          "underside_tube_2": "đŁđŞđÂđŻđŞđ╣ đóĐŹđŻ 2",
+          "double_tube_1": "đöđ▓đżđ╣đŻđżđ╣ đóĐŹđŻ 1",
+          "double_tube_2": "đöđ▓đżđ╣đŻđżđ╣ đóĐŹđŻ 2",
+          "double_tube_3": "đöđ▓đżđ╣đŻđżđ╣ đóĐŹđŻ 3",
+          "double_tube_4": "đöđ▓đżđ╣đŻđżđ╣ đóĐŹđŻ 4",
+          "double_tube_5": "đöđ▓đżđ╣đŻđżđ╣ đóĐŹđŻ 5",
+          "double_tube_6": "đöđ▓đżđ╣đŻđżđ╣ đóĐŹđŻ 6",
+          "hot_wind_tube_fan_1": "đôđżĐÇĐĆĐçđŞđ╣ đ▓đżđĚđ┤ĐâĐů đóĐŹđŻ đĺđÁđŻĐéđŞđ╗ĐĆĐéđżĐÇ 1",
+          "hot_wind_tube_fan_2": "đôđżĐÇĐĆĐçđŞđ╣ đ▓đżđĚđ┤ĐâĐů đóĐŹđŻ đĺđÁđŻĐéđŞđ╗ĐĆĐéđżĐÇ 2",
+          "hot_wind_tube_fan_3": "đôđżĐÇĐĆĐçđŞđ╣ đ▓đżđĚđ┤ĐâĐů đóĐŹđŻ đĺđÁđŻĐéđŞđ╗ĐĆĐéđżĐÇ 3",
+          "hot_wind_tube_fan_4": "đôđżĐÇĐĆĐçđŞđ╣ đ▓đżđĚđ┤ĐâĐů đóĐŹđŻ đĺđÁđŻĐéđŞđ╗ĐĆĐéđżĐÇ 4",
+          "hot_wind_tube_fan_5": "đôđżĐÇĐĆĐçđŞđ╣ đ▓đżđĚđ┤ĐâĐů đóĐŹđŻ đĺđÁđŻĐéđŞđ╗ĐĆĐéđżĐÇ 5",
+          "double_tube_hot_wind_tube_fan_1": "đöđ▓đżđ╣đŻđżđ╣ đóĐŹđŻ đôđżĐÇĐĆĐçđŞđ╣ đ▓đżđĚđ┤ĐâĐů đĺđÁđŻĐéđŞđ╗ĐĆĐéđżĐÇ 1",
+          "double_tube_hot_wind_tube_fan_2": "đöđ▓đżđ╣đŻđżđ╣ đóĐŹđŻ đôđżĐÇĐĆĐçđŞđ╣ đ▓đżđĚđ┤ĐâĐů đĺđÁđŻĐéđŞđ╗ĐĆĐéđżĐÇ 2",
+          "double_tube_hot_wind_tube_fan_3": "đöđ▓đżđ╣đŻđżđ╣ đóĐŹđŻ đôđżĐÇĐĆĐçđŞđ╣ đ▓đżđĚđ┤ĐâĐů đĺđÁđŻĐéđŞđ╗ĐĆĐéđżĐÇ 3",
+          "double_tube_hot_wind_tube_fan_4": "đöđ▓đżđ╣đŻđżđ╣ đóĐŹđŻ đôđżĐÇĐĆĐçđŞđ╣ đ▓đżđĚđ┤ĐâĐů đĺđÁđŻĐéđŞđ╗ĐĆĐéđżĐÇ 4",
+          "double_tube_hot_wind_tube_fan_5": "đöđ▓đżđ╣đŻđżđ╣ đóĐŹđŻ đôđżĐÇĐĆĐçđŞđ╣ đ▓đżđĚđ┤ĐâĐů đĺđÁđŻĐéđŞđ╗ĐĆĐéđżĐÇ 5",
+          "unknown": "đŁđÁđŞđĚđ▓đÁĐüĐéđŻđż"
+        }
       },
       "working_time": {
-        "name": "Время работы"
+        "name": "đĺĐÇđÁđ╝ĐĆ ĐÇđ░đ▒đżĐéĐő"
+      },
+      "humidity": {
+        "name": "đĺđ╗đ░đÂđŻđżĐüĐéĐî"
+      },
+      "variable_mode": {
+        "name": "đčđÁĐÇđÁđ╝đÁđŻđŻĐőđ╣ ĐÇđÁđÂđŞđ╝"
+      },
+      "compressor_frequency": {
+        "name": "đžđ░ĐüĐéđżĐéđ░ đ║đżđ╝đ┐ĐÇđÁĐüĐüđżĐÇđ░"
+      },
+      "target_compressor_frequency": {
+        "name": "đŽđÁđ╗đÁđ▓đ░ĐĆ Đçđ░ĐüĐéđżĐéđ░ đ║đżđ╝đ┐ĐÇđÁĐüĐüđżĐÇđ░"
+      },
+      "compressor_current": {
+        "name": "đóđżđ║ đ║đżđ╝đ┐ĐÇđÁĐüĐüđżĐÇđ░"
+      },
+      "compressor_voltage": {
+        "name": "đŁđ░đ┐ĐÇĐĆđÂđÁđŻđŞđÁ đ║đżđ╝đ┐ĐÇđÁĐüĐüđżĐÇđ░"
+      },
+      "compressor_power": {
+        "name": "đťđżĐëđŻđżĐüĐéĐî đ║đżđ╝đ┐ĐÇđÁĐüĐüđżĐÇđ░"
+      },
+      "indoor_ambient_temperature": {
+        "name": "đÜđżđ╝đŻđ░ĐéđŻđ░ĐĆ ĐéđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇđ░(T1)"
+      },
+      "indoor_coil_temperature": {
+        "name": "đóđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇđ░ đ▓đŻĐâĐéĐÇđÁđŻđŻđÁđ│đż ĐéđÁđ┐đ╗đżđżđ▒đ╝đÁđŻđŻđŞđ║đ░(T2)"
+      },
+      "outdoor_coil_temperature": {
+        "name": "đóđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇđ░ đŻđ░ĐÇĐâđÂđŻđżđ│đż ĐéđÁđ┐đ╗đżđżđ▒đ╝đÁđŻđŻđŞđ║đ░(T3)"
+      },
+      "outdoor_ambient_temperature": {
+        "name": "đŁđ░ĐÇĐâđÂđŻđ░ĐĆ ĐéđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇđ░ đżđ║ĐÇĐâđÂđ░ĐÄĐëđÁđ╣ ĐüĐÇđÁđ┤Đő(T4)"
+      },
+      "discharge_pipe_temperature": {
+        "name": "đóđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇđ░ đŻđ░đ│đŻđÁĐéđ░ĐéđÁđ╗ĐîđŻđżđ╣ ĐéĐÇĐâđ▒Đő(TP)"
+      },
+      "indoor_fan_speed": {
+        "name": "đíđ║đżĐÇđżĐüĐéĐî đ▓đŻĐâĐéĐÇđÁđŻđŻđÁđ│đż đ▓đÁđŻĐéđŞđ╗ĐĆĐéđżĐÇđ░"
+      },
+      "target_indoor_fan_speed": {
+        "name": "đŽđÁđ╗đÁđ▓đ░ĐĆ Đüđ║đżĐÇđżĐüĐéĐî đ▓đŻĐâĐéĐÇđÁđŻđŻđÁđ│đż đ▓đÁđŻĐéđŞđ╗ĐĆĐéđżĐÇđ░"
+      },
+      "velocity": {
+        "name": "đíđ║đżĐÇđżĐüĐéĐî"
+      },
+      "comp_total_run_time": {
+        "name": "đşđŻđÁĐÇđ│đŞĐĆ - đŁđ░ĐÇđ░đ▒đżĐéđ║đ░ đ║đżđ╝đ┐ĐÇđÁĐüĐüđżĐÇđ░"
+      },
+      "dc_bus_voltage": {
+        "name": "đŁđ░ĐÇĐâđÂđŻĐőđ╣ đ▒đ╗đżđ║ - đŁđ░đ┐ĐÇĐĆđÂđÁđŻđŞđÁ ĐłđŞđŻĐő đ┐đżĐüĐéđżĐĆđŻđŻđżđ│đż Đéđżđ║đ░"
+      },
+      "dc_current": {
+        "name": "đŁđ░ĐÇĐâđÂđŻĐőđ╣ đ▒đ╗đżđ║ - đóđżđ║ ĐłđŞđŻĐő đ┐đżĐüĐéđżĐĆđŻđŻđżđ│đż Đéđżđ║đ░"
+      },
+      "disinfect_set_weekday": {
+        "name": "đôđĺđí - đöđÁđŻĐî đ┤đÁđĚđŞđŻĐäđÁđ║ĐćđŞđŞ"
+      },
+      "disinfect_start_hour": {
+        "name": "đôđĺđí - đžđ░Đü đŻđ░Đçđ░đ╗đ░ đ┤đÁđĚđŞđŻĐäđÁđ║ĐćđŞđŞ"
+      },
+      "disinfect_start_minutes": {
+        "name": "đôđĺđí - đťđŞđŻĐâĐéđ░ đŻđ░Đçđ░đ╗đ░ đ┤đÁđĚđŞđŻĐäđÁđ║ĐćđŞđŞ"
+      },
+      "error_code_description": {
+        "name": "đ×ĐłđŞđ▒đ║đ░ - đ×đ┐đŞĐüđ░đŻđŞđÁ"
+      },
+      "hydbox_subtype": {
+        "name": "đśđŻĐäđż - đčđżđ┤ĐéđŞđ┐ đ│đŞđ┤ĐÇđżđ╝đżđ┤Đâđ╗ĐĆ"
+      },
+      "hydrobox_capacity": {
+        "name": "đśđŻĐäđż - đťđżĐëđŻđżĐüĐéĐî đ│đŞđ┤ĐÇđżđ╝đżđ┤Đâđ╗ĐĆ"
+      },
+      "idu_software_version_str": {
+        "name": "đśđŻĐäđż - đĺđÁĐÇĐüđŞĐĆ đčđ× đ▓đŻĐâĐéĐÇđÁđŻđŻđÁđ│đż đ▒đ╗đżđ║đ░"
+      },
+      "idu_t1s1": {
+        "name": "đóđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇđ░ - đŚđżđŻđ░ 1 ĐÇđ░ĐüĐçĐĹĐéđŻđ░ĐĆ (T1s)"
+      },
+      "idu_t1s2": {
+        "name": "đóđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇđ░ - đŚđżđŻđ░ 2 ĐÇđ░ĐüĐçĐĹĐéđŻđ░ĐĆ (T1s)"
+      },
+      "instant_power0": {
+        "name": "đťđżĐëđŻđżĐüĐéĐî - đčđżĐéĐÇđÁđ▒đ╗đÁđŻđŞđÁ đŻđ░ đżĐéđżđ┐đ╗đÁđŻđŞđÁ"
+      },
+      "instant_renew_power0": {
+        "name": "đťđżĐëđŻđżĐüĐéĐî - đĺđżđĚđżđ▒đŻđżđ▓đ╗ĐĆđÁđ╝đ░ĐĆ ĐéđÁđ┐đ╗đżđ▓đ░ĐĆ đ╝đżĐëđŻđżĐüĐéĐî"
+      },
+      "machine_type": {
+        "name": "đśđŻĐäđż - đóđŞđ┐ đ╝đ░ĐłđŞđŻĐő"
+      },
+      "odu_model": {
+        "name": "đśđŻĐäđż - đÜđżđ┤ đ╝đżđ┤đÁđ╗đŞ đŻđ░ĐÇĐâđÂđŻđżđ│đż đ▒đ╗đżđ║đ░"
+      },
+      "odu_software_version_str": {
+        "name": "đśđŻĐäđż - đĺđÁĐÇĐüđŞĐĆ đčđ× đŻđ░ĐÇĐâđÂđŻđżđ│đż đ▒đ╗đżđ║đ░"
+      },
+      "room_rel_hum": {
+        "name": "đ×ĐéđŻđżĐüđŞĐéđÁđ╗ĐîđŻđ░ĐĆ đ▓đ╗đ░đÂđŻđżĐüĐéĐî đ▓ đ┐đżđ╝đÁĐëđÁđŻđŞđŞ"
+      },
+      "t5s": {
+        "name": "đóđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇđ░ T5s - đúĐüĐéđ░đ▓đ║đ░ đôđĺđí"
+      },
+      "tas": {
+        "name": "đóđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇđ░ Tas - đúĐüĐéđ░đ▓đ║đ░ đ▓đżđĚđ┤ĐâĐůđ░"
+      },
+      "temp_t4": {
+        "name": "đóđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇđ░ T4 - đŁđ░ĐÇĐâđÂđŻĐőđ╣ đ▓đżđĚđ┤ĐâĐů"
+      },
+      "temp_t5": {
+        "name": "đóđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇđ░ T5 - đĹđ░đ║ đôđĺđí"
+      },
+      "temp_ta": {
+        "name": "đóđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇđ░ Ta - đÜđżđ╝đŻđ░ĐéđŻĐőđ╣ đ▓đżđĚđ┤ĐâĐů"
+      },
+      "temp_tb_t1": {
+        "name": "đóđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇđ░ TB-T1 - đĹĐâĐäđÁĐÇđŻđ░ĐĆ ĐĹđ╝đ║đżĐüĐéĐî, đ▓đÁĐÇĐů"
+      },
+      "temp_tb_t2": {
+        "name": "đóđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇđ░ TB-T2 - đĹĐâĐäđÁĐÇđŻđ░ĐĆ ĐĹđ╝đ║đżĐüĐéĐî, đŻđŞđĚ"
+      },
+      "temp_tsolar": {
+        "name": "đóđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇđ░ Tsolar - đíđżđ╗đŻđÁĐçđŻĐőđ╣ đ║đżđ╗đ╗đÁđ║ĐéđżĐÇ"
+      },
+      "temp_tw2": {
+        "name": "đóđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇđ░ Tw2 - đĺđżđ┤đ░ đĚđżđŻĐő 2"
+      },
+      "temp_tw_in": {
+        "name": "đóđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇđ░ Tw_in - đĺĐůđżđ┤ đ▓đżđ┤Đő"
+      },
+      "temp_tw_out": {
+        "name": "đóđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇđ░ Tw_out - đĺĐőĐůđżđ┤ đ▓đżđ┤Đő"
+      },
+      "water_flow": {
+        "name": "đĺđżđ┤đ░ - đáđ░ĐüĐůđżđ┤"
+      },
+      "water_pressure": {
+        "name": "đĺđżđ┤đ░ - đöđ░đ▓đ╗đÁđŻđŞđÁ"
+      },
+      "hmi_sn_code": {
+        "name": "đśđŻĐäđż - đíđÁĐÇđŞđ╣đŻĐőđ╣ đŻđżđ╝đÁĐÇ đ╝đżđ┤Đâđ╗ĐĆ WiFi"
       },
       "zone1_temp_set": {
-        "name": "Температура - Уставка зоны 1"
+        "name": "đóđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇđ░ - đúĐüĐéđ░đ▓đ║đ░ đĚđżđŻĐő 1"
       },
       "zone2_temp_set": {
-        "name": "Температура - Уставка зоны 2"
+        "name": "đóđÁđ╝đ┐đÁĐÇđ░ĐéĐâĐÇđ░ - đúĐüĐéđ░đ▓đ║đ░ đĚđżđŻĐő 2"
       }
     },
     "switch": {
@@ -1092,34 +1436,40 @@
         "name": "Breezeless"
       },
       "child_lock": {
-        "name": "Блокировка от детей"
+        "name": "đĹđ╗đżđ║đŞĐÇđżđ▓đ║đ░ đżĐé đ┤đÁĐéđÁđ╣"
       },
       "cl_sterilization": {
-        "name": "CL-стерилизация"
-      },
-      "cold_water_dot": {
-        "name": "Холодная вода (порционно)"
-      },
-      "cold_water_single": {
-        "name": "Холодная вода (однократно)"
+        "name": "CL-ĐüĐéđÁĐÇđŞđ╗đŞđĚđ░ĐćđŞĐĆ"
       },
       "comfort_mode": {
         "name": "Comfort Mode"
-      },
-      "dhw_disinfect": {
-        "name": "ГВС - Дезинфекция"
       },
       "dhw_power": {
         "name": "DHW Power"
       },
       "disinfect": {
-        "name": "Дезинфекция"
+        "name": "đöđÁđĚđŞđŻĐäđÁđ║ĐćđŞĐĆ"
+      },
+      "maintenance_reminder": {
+        "name": "đŁđ░đ┐đżđ╝đŞđŻđ░đŻđŞđÁ đżđ▒ đżđ▒Đüđ╗ĐâđÂđŞđ▓đ░đŻđŞđŞ"
+      },
+      "vacation_mode": {
+        "name": "đáđÁđÂđŞđ╝ đżĐéđ┐ĐâĐüđ║đ░"
       },
       "dry": {
         "name": "Dry"
       },
+      "cold_water_single": {
+        "name": "đąđżđ╗đżđ┤đŻđ░ĐĆ đ▓đżđ┤đ░ (đżđ┤đŻđżđ║ĐÇđ░ĐéđŻđż)"
+      },
+      "cold_water_dot": {
+        "name": "đąđżđ╗đżđ┤đŻđ░ĐĆ đ▓đżđ┤đ░ (đ┐đżĐÇĐćđŞđżđŻđŻđż)"
+      },
       "eco_mode": {
-        "name": "Эко-режим"
+        "name": "đşđ║đż-ĐÇđÁđÂđŞđ╝"
+      },
+      "memory": {
+        "name": "Memo U"
       },
       "fast_dhw": {
         "name": "Fast DHW"
@@ -1128,22 +1478,25 @@
         "name": "Foam Shield"
       },
       "frost_protect": {
-        "name": "Защита от замерзания"
+        "name": "đŚđ░ĐëđŞĐéđ░ đżĐé đĚđ░đ╝đÁĐÇđĚđ░đŻđŞĐĆ"
+      },
+      "furnace_light": {
+        "name": "đíđ▓đÁĐé đ┤ĐâĐůđżđ▓đ║đŞ"
       },
       "heating_power": {
-        "name": "Нагреватель"
+        "name": "đŁđ░đ│ĐÇđÁđ▓đ░ĐéđÁđ╗Đî"
       },
-      "holiday_on": {
-        "name": "Режим - Отпуск"
+      "hot_wind": {
+        "name": "đôđżĐÇĐĆĐçđŞđ╣ đ▓đżđĚđ┤ĐâĐů"
       },
       "indirect_wind": {
         "name": "Indirect Wind"
       },
       "leak_water_protection": {
-        "name": "Защита от протечек"
+        "name": "đŚđ░ĐëđŞĐéđ░ đżĐé đ┐ĐÇđżĐéđÁĐçđÁđ║"
       },
       "light": {
-        "name": "Свет"
+        "name": "đíđ▓đÁĐé"
       },
       "link_to_ac": {
         "name": "Link to AC"
@@ -1154,9 +1507,6 @@
       "main_power": {
         "name": "Main Power"
       },
-      "memory": {
-        "name": "Memo U"
-      },
       "natural_wind": {
         "name": "Natural Wind"
       },
@@ -1164,13 +1514,10 @@
         "name": "Night Light"
       },
       "oscillate": {
-        "name": "Режим поворота"
-      },
-      "out_silent": {
-        "name": "Тихий режим наружного блока"
+        "name": "đáđÁđÂđŞđ╝ đ┐đżđ▓đżĐÇđżĐéđ░"
       },
       "power": {
-        "name": "Питание"
+        "name": "đčđŞĐéđ░đŻđŞđÁ"
       },
       "powerful_purify": {
         "name": "Powerful Purification"
@@ -1179,16 +1526,22 @@
         "name": "Prompt Tone"
       },
       "regeneration": {
-        "name": "Регенерация"
+        "name": "đáđÁđ│đÁđŻđÁĐÇđ░ĐćđŞĐĆ"
+      },
+      "turntable": {
+        "name": "đĺĐÇđ░Đëđ░ĐÄĐëđŞđ╣ĐüĐĆ đ┐đżđ┤đŻđżĐü"
+      },
+      "water_pump": {
+        "name": "đĺđżđ┤ĐĆđŻđżđ╣ đŻđ░ĐüđżĐü"
+      },
+      "water_way": {
+        "name": "đĺđżđ┤đŻĐőđ╣ đ┐ĐâĐéĐî"
       },
       "screen_display": {
         "name": "Screen Display"
       },
       "screen_display_alternate": {
         "name": "Screen Display Alternate"
-      },
-      "self_clean": {
-        "name": "Self Clean"
       },
       "sensor_light": {
         "name": "Sensor Light"
@@ -1198,6 +1551,9 @@
       },
       "sleep_mode": {
         "name": "Sleep Mode"
+      },
+      "out_silent": {
+        "name": "đóđŞĐůđŞđ╣ ĐÇđÁđÂđŞđ╝ đŻđ░ĐÇĐâđÂđŻđżđ│đż đ▒đ╗đżđ║đ░"
       },
       "smart_eye": {
         "name": "Smart Eye"
@@ -1209,19 +1565,16 @@
         "name": "Smelly Sensor"
       },
       "soften": {
-        "name": "Умягчение"
-      },
-      "sound": {
-        "name": "Sound"
+        "name": "đúđ╝ĐĆđ│ĐçđÁđŻđŞđÁ"
       },
       "standby": {
-        "name": "Ожидание"
+        "name": "đ×đÂđŞđ┤đ░đŻđŞđÁ"
       },
       "start": {
-        "name": "Старт"
+        "name": "đíĐéđ░ĐÇĐé"
       },
       "sterilization": {
-        "name": "Стерилизация"
+        "name": "đíĐéđÁĐÇđŞđ╗đŞđĚđ░ĐćđŞĐĆ"
       },
       "storage": {
         "name": "Storage"
@@ -1235,23 +1588,23 @@
       "swing_vertical": {
         "name": "Swing Vertical"
       },
+      "self_clean": {
+        "name": "Self Clean"
+      },
+      "ieco": {
+        "name": "iECO"
+      },
+      "sound": {
+        "name": "Sound"
+      },
       "tbh": {
         "name": "TBH"
-      },
-      "vacation_mode": {
-        "name": "Режим отпуска"
       },
       "variable_heating": {
         "name": "Variable Heating"
       },
       "ventilation": {
-        "name": "Вентиляция"
-      },
-      "water_pump": {
-        "name": "Водяной насос"
-      },
-      "water_way": {
-        "name": "Водный путь"
+        "name": "đĺđÁđŻĐéđŞđ╗ĐĆĐćđŞĐĆ"
       },
       "whole_tank_heating": {
         "name": "Whole Tank Heating"
@@ -1273,19 +1626,38 @@
       },
       "zone2_power": {
         "name": "Zone2 Power"
-      }
-    },
-    "time": {
-      "timing_regeneration": {
-        "name": "Регенерация по таймеру"
+      },
+      "boiling": {
+        "name": "đÜđŞđ┐ĐĆĐçđÁđŻđŞđÁ đ▓đżđ┤Đő"
+      },
+      "tea_bar_boil": {
+        "name": "đĺĐőđ║đ╗ĐÄĐçđ░ĐéđÁđ╗Đî đ║đŞđ┐ĐĆĐçđÁđŻđŞĐĆ"
+      },
+      "tea_bar_child_lock": {
+        "name": "đĹđ╗đżđ║đŞĐÇđżđ▓đ║đ░"
+      },
+      "keep_warm": {
+        "name": "đčđżđ┤đ┤đÁĐÇđÂđ░đŻđŞđÁ ĐéđÁđ┐đ╗đ░"
+      },
+      "tea_bar_cooling": {
+        "name": "đ×Đůđ╗đ░đÂđ┤đÁđŻđŞđÁ"
+      },
+      "screen_off": {
+        "name": "đĺĐőđ║đ╗ĐÄĐçđÁđŻđŞđÁ ĐŹđ║ĐÇđ░đŻđ░"
+      },
+      "dhw_disinfect": {
+        "name": "đôđĺđí - đöđÁđĚđŞđŻĐäđÁđ║ĐćđŞĐĆ"
+      },
+      "holiday_on": {
+        "name": "đáđÁđÂđŞđ╝ - đ×Đéđ┐ĐâĐüđ║"
       }
     },
     "water_heater": {
-      "bathing": {
-        "name": "Bathing"
-      },
       "domestic_hot_water": {
         "name": "Domestic hot water"
+      },
+      "bathing": {
+        "name": "Bathing"
       },
       "heating": {
         "name": "Heating"
@@ -1296,13 +1668,13 @@
     "step": {
       "init": {
         "data": {
-          "ip_address": "IP-адрес",
-          "refresh_interval": "Интервал обновления (0 не выполняет активное обновление)",
-          "sensors": "Дополнительные сенсоры",
-          "switches": "Дополнительные элементы управления",
-          "customize": "Настроить"
+          "ip_address": "IP-đ░đ┤ĐÇđÁĐü",
+          "refresh_interval": "đśđŻĐéđÁĐÇđ▓đ░đ╗ đżđ▒đŻđżđ▓đ╗đÁđŻđŞĐĆ (0 đŻđÁ đ▓Đőđ┐đżđ╗đŻĐĆđÁĐé đ░đ║ĐéđŞđ▓đŻđżđÁ đżđ▒đŻđżđ▓đ╗đÁđŻđŞđÁ)",
+          "sensors": "đöđżđ┐đżđ╗đŻđŞĐéđÁđ╗ĐîđŻĐőđÁ ĐüđÁđŻĐüđżĐÇĐő",
+          "switches": "đöđżđ┐đżđ╗đŻđŞĐéđÁđ╗ĐîđŻĐőđÁ ĐŹđ╗đÁđ╝đÁđŻĐéĐő Đâđ┐ĐÇđ░đ▓đ╗đÁđŻđŞĐĆ",
+          "customize": "đŁđ░ĐüĐéĐÇđżđŞĐéĐî"
         },
-        "title": "Конфигурация"
+        "title": "đÜđżđŻĐäđŞđ│ĐâĐÇđ░ĐćđŞĐĆ"
       }
     },
     "abort": {
@@ -1311,38 +1683,38 @@
   },
   "services": {
     "set_attribute": {
-      "name": "Установить атрибут",
-      "description": "Установить значение атрибута устройства",
+      "name": "đúĐüĐéđ░đŻđżđ▓đŞĐéĐî đ░ĐéĐÇđŞđ▒ĐâĐé",
+      "description": "đúĐüĐéđ░đŻđżđ▓đŞĐéĐî đĚđŻđ░ĐçđÁđŻđŞđÁ đ░ĐéĐÇđŞđ▒ĐâĐéđ░ ĐâĐüĐéĐÇđżđ╣ĐüĐéđ▓đ░",
       "fields": {
         "device_id": {
-          "name": "Идентификатор устройства",
-          "description": "Код (Идентификатор) устройства"
+          "name": "đśđ┤đÁđŻĐéđŞĐäđŞđ║đ░ĐéđżĐÇ ĐâĐüĐéĐÇđżđ╣ĐüĐéđ▓đ░",
+          "description": "đÜđżđ┤ (đśđ┤đÁđŻĐéđŞĐäđŞđ║đ░ĐéđżĐÇ) ĐâĐüĐéĐÇđżđ╣ĐüĐéđ▓đ░"
         },
         "attribute": {
-          "name": "Атрибут",
-          "description": "Название атрибута для установки"
+          "name": "đÉĐéĐÇđŞđ▒ĐâĐé",
+          "description": "đŁđ░đĚđ▓đ░đŻđŞđÁ đ░ĐéĐÇđŞđ▒ĐâĐéđ░ đ┤đ╗ĐĆ ĐâĐüĐéđ░đŻđżđ▓đ║đŞ"
         },
         "value": {
-          "name": "Значение",
-          "description": "Значение атрибута для установки"
+          "name": "đŚđŻđ░ĐçđÁđŻđŞđÁ",
+          "description": "đŚđŻđ░ĐçđÁđŻđŞđÁ đ░ĐéĐÇđŞđ▒ĐâĐéđ░ đ┤đ╗ĐĆ ĐâĐüĐéđ░đŻđżđ▓đ║đŞ"
         }
       }
     },
     "send_command": {
-      "name": "Пользовательская команда",
-      "description": "Отправить пользовательскую команду на устройство",
+      "name": "đčđżđ╗ĐîđĚđżđ▓đ░ĐéđÁđ╗ĐîĐüđ║đ░ĐĆ đ║đżđ╝đ░đŻđ┤đ░",
+      "description": "đ×Đéđ┐ĐÇđ░đ▓đŞĐéĐî đ┐đżđ╗ĐîđĚđżđ▓đ░ĐéđÁđ╗ĐîĐüđ║ĐâĐÄ đ║đżđ╝đ░đŻđ┤Đâ đŻđ░ ĐâĐüĐéĐÇđżđ╣ĐüĐéđ▓đż",
       "fields": {
         "device_id": {
-          "name": "Идентификатор устройства",
-          "description": "Код (Идентификатор) устройства"
+          "name": "đśđ┤đÁđŻĐéđŞĐäđŞđ║đ░ĐéđżĐÇ ĐâĐüĐéĐÇđżđ╣ĐüĐéđ▓đ░",
+          "description": "đÜđżđ┤ (đśđ┤đÁđŻĐéđŞĐäđŞđ║đ░ĐéđżĐÇ) ĐâĐüĐéĐÇđżđ╣ĐüĐéđ▓đ░"
         },
         "cmd_type": {
-          "name": "Тип команды",
-          "description": "Тип команды, может быть 3 (запрос) или 2 (установка значения)"
+          "name": "đóđŞđ┐ đ║đżđ╝đ░đŻđ┤Đő",
+          "description": "đóđŞđ┐ đ║đżđ╝đ░đŻđ┤Đő, đ╝đżđÂđÁĐé đ▒ĐőĐéĐî 3 (đĚđ░đ┐ĐÇđżĐü) đŞđ╗đŞ 2 (ĐâĐüĐéđ░đŻđżđ▓đ║đ░ đĚđŻđ░ĐçđÁđŻđŞĐĆ)"
         },
         "cmd_body": {
-          "name": "Тело команды",
-          "description": "Тело команды (без заголовков протокола MSmart и контрольной суммы в конце)"
+          "name": "đóđÁđ╗đż đ║đżđ╝đ░đŻđ┤Đő",
+          "description": "đóđÁđ╗đż đ║đżđ╝đ░đŻđ┤Đő (đ▒đÁđĚ đĚđ░đ│đżđ╗đżđ▓đ║đżđ▓ đ┐ĐÇđżĐéđżđ║đżđ╗đ░ MSmart đŞ đ║đżđŻĐéĐÇđżđ╗ĐîđŻđżđ╣ ĐüĐâđ╝đ╝Đő đ▓ đ║đżđŻĐćđÁ)"
         }
       }
     }

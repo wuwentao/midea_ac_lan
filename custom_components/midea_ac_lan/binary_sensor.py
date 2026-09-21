@@ -11,7 +11,7 @@ from homeassistant.const import CONF_DEVICE_ID, CONF_SENSORS, Platform
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
-from .const import DEVICES, DOMAIN
+from .const import DEVICES, DOMAIN, supports_device
 from .midea_devices import MIDEA_DEVICES
 from .midea_entity import MideaEntity
 
@@ -30,7 +30,11 @@ async def async_setup_entry(
         "dict",
         MIDEA_DEVICES[device.device_type]["entities"],
     ).items():
-        if config["type"] != Platform.BINARY_SENSOR or entity_key not in extra_sensors:
+        if (
+            config["type"] != Platform.BINARY_SENSOR
+            or not supports_device(device.model, device.subtype, config)
+            or (not config.get("default") and entity_key not in extra_sensors)
+        ):
             continue
         required_attribute = config.get("required_attribute")
         if (

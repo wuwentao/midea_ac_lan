@@ -33,7 +33,7 @@ from midealan.devices.e3 import MideaE3Device
 from midealan.devices.e6 import DeviceAttributes as E6Attributes
 from midealan.devices.e6 import MideaE6Device
 
-from .const import DEVICES, DOMAIN
+from .const import DEVICES, DOMAIN, supports_device
 from .midea_devices import MIDEA_DEVICES
 from .midea_entity import MideaEntity
 
@@ -65,8 +65,10 @@ async def async_setup_entry(
         "dict",
         MIDEA_DEVICES[device.device_type]["entities"],
     ).items():
-        if config["type"] == Platform.WATER_HEATER and (
-            config.get("default") or entity_key in extra_switches
+        if (
+            config["type"] == Platform.WATER_HEATER
+            and supports_device(device.model, device.subtype, config)
+            and (config.get("default") or entity_key in extra_switches)
         ):
             if device.device_type == DeviceType.E2:
                 devs.append(MideaE2WaterHeater(device, entity_key))
@@ -471,6 +473,7 @@ class MideaCDWaterHeater(MideaWaterHeater):
         """Midea CD Water Heater supported features."""
         return (
             WaterHeaterEntityFeature.TARGET_TEMPERATURE
+            | WaterHeaterEntityFeature.ON_OFF
             | WaterHeaterEntityFeature.OPERATION_MODE
         )
 
