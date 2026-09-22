@@ -159,14 +159,12 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:  # ruff:
             item = None
             if dev_ := MIDEA_DEVICES.get(dev.device_type):
                 item = cast("dict", dev_["entities"]).get(attr)
-            if (
-                item
-                and (item.get("type") in EXTRA_SWITCH)
-                or (
-                    dev.device_type == DeviceType.AC
-                    and attr == "fan_speed"
-                    and value in range(103)
-                )
+            if item is not None and item.get("type") in EXTRA_SWITCH:
+                dev.set_attribute(attr=item.get("attribute", attr), value=value)
+            elif (
+                dev.device_type == DeviceType.AC
+                and attr == "fan_speed"
+                and value in range(103)
             ):
                 dev.set_attribute(attr=attr, value=value)
             else:

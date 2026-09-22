@@ -63,6 +63,7 @@
 | B3   | 消毒碗柜                    | [B3_hans.md](doc/B3_hans.md) |
 | B4   | 小烤箱                      | [B4_hans.md](doc/B4_hans.md) |
 | B6   | 油烟机                      | [B6_hans.md](doc/B6_hans.md) |
+| B8   | 扫地机器人                  | [B8_hans.md](doc/B8_hans.md) |
 | BF   | 微蒸烤一体机                | [BF_hans.md](doc/BF_hans.md) |
 | C2   | 智能马桶                    | [C2_hans.md](doc/C2_hans.md) |
 | C3   | 热泵空调Wi-Fi线控器         | [C3_hans.md](doc/C3_hans.md) |
