@@ -90,27 +90,6 @@ ED_SOFT_WATER_SUBTYPES = [703]
 BF_WORK_MODES = list(BF_WORK_MODE_MAP)
 BF_FIRE_POWERS = list(BFFirePower.__members__)
 BF_TEMPERATURES = list(range(251))
-B8_CLEAN_MODES = [
-    "none",
-    "random",
-    "arc",
-    "edge",
-    "emphases",
-    "screw",
-    "bed",
-    "wide_screw",
-    "auto",
-    "area",
-    "zone_index",
-    "zone_rect",
-    "path",
-]
-B8_FAN_LEVELS = ["off", "soft", "normal", "high", "low"]
-B8_WATER_LEVELS = ["off", "low", "normal", "high"]
-B8_SPEAK_LEVELS = ["none", "off", "low", "normal", "high"]
-B8_MOVE_DIRECTIONS = ["none", "forward", "back", "left", "right"]
-B8_WORK_STATUS_OPTIONS = ["charge", "work", "stop", "pause"]
-
 # C3 outdoor-unit telemetry attributes. Referenced by string so the entity
 # table still imports on a midea-lan release that predates the parser support;
 # the matching sensors carry a required_attribute guard and are skipped there.
@@ -1500,39 +1479,39 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             "clean_mode": {
                 "type": Platform.SELECT,
                 "name": "Clean Mode",
-                "options": B8_CLEAN_MODES,
+                "options": "clean_modes",
                 "icon": "mdi:robot-vacuum",
             },
             "fan_level": {
                 "type": Platform.SELECT,
                 "name": "Fan Level",
-                "options": B8_FAN_LEVELS,
+                "options": "fan_levels",
                 "icon": "mdi:fan",
             },
             "water_level": {
                 "type": Platform.SELECT,
                 "name": "Water Level",
-                "options": B8_WATER_LEVELS,
+                "options": "water_levels",
                 "icon": "mdi:water",
             },
             "speak_level": {
                 "type": Platform.SELECT,
                 "name": "Speak Level",
-                "options": B8_SPEAK_LEVELS,
+                "options": "speak_levels",
                 "icon": "mdi:volume-high",
                 "required_attribute": "speak_level",
             },
             "move_direction": {
                 "type": Platform.SELECT,
                 "name": "Move Direction",
-                "options": B8_MOVE_DIRECTIONS,
+                "options": "move_directions",
                 "icon": "mdi:arrow-decision",
             },
             "work_status_control": {
                 "type": Platform.SELECT,
                 "name": "Work Status Control",
                 "attribute": "work_status",
-                "options": B8_WORK_STATUS_OPTIONS,
+                "options": "work_status_controls",
                 "icon": "mdi:robot-vacuum",
             },
             "voice_volume": {
