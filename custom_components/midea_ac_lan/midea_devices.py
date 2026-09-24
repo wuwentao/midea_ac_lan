@@ -3934,6 +3934,14 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "unit": UnitOfTemperature.CELSIUS,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
+            E2Attributes.top_temp: {
+                "type": Platform.SENSOR,
+                "translation_key": "top_temperature",
+                "name": "Top Temperature",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
             E2Attributes.heating_time_remaining: {
                 "type": Platform.SENSOR,
                 "translation_key": "heating_time_remaining",
