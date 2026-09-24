@@ -57,6 +57,7 @@
 | binary_sensor.{DEVICEID}\_protection      | binary_sensor | Protection          | 安全防护 |
 | sensor.{DEVICEID}\_heating_power          | sensor        | Heating Power       | 加热功率 |
 | sensor.{DEVICEID}\_current_temperature    | sensor        | Current Temperature | 当前温度 |
+| sensor.{DEVICEID}\_top_temp               | sensor        | Top Temperature     | 顶部温度 |
 | switch.{DEVICEID}\_auto_cut_out           | switch        | Auto Cut-out        | 出水断电 |
 | switch.{DEVICEID}\_memory                 | switch        | Memo U              | 记忆模式 |
 | switch.{DEVICEID}\_power                  | switch        | Power               | 电源开关 |
