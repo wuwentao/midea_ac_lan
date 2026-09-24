@@ -447,13 +447,25 @@
     },
     "select": {
       "detect_mode": {
-        "name": "Detektions-Modus"
+        "name": "Detektions-Modus",
+        "state": {
+          "off": "Aus",
+          "pm_2_5": "PM 2.5",
+          "methanal": "Methanal"
+        }
       },
       "direction": {
         "name": "Richtung"
       },
       "fan_speed": {
-        "name": "Lüftergeschwindigkeit"
+        "name": "Lüftergeschwindigkeit",
+        "state": {
+          "auto": "Auto",
+          "standby": "Standby",
+          "low": "Niedrig",
+          "medium": "Mittel",
+          "high": "Hoch"
+        }
       },
       "fresh_air_exhaust_mode": {
         "name": "Frischluft-Abluftgeschwindigkeit",
@@ -475,7 +487,15 @@
         }
       },
       "mode": {
-        "name": "Modus"
+        "name": "Modus",
+        "state": {
+          "standby": "Standby",
+          "auto": "Auto",
+          "manual": "Manuell",
+          "sleep": "Schlaf",
+          "fast": "Schnell",
+          "smoke": "Rauch"
+        }
       },
       "oscillation_angle": {
         "name": "Oszillationswinkel"
@@ -487,7 +507,12 @@
         "name": "Leistungslimit"
       },
       "screen_display": {
-        "name": "Bildschirmanzeige"
+        "name": "Bildschirmanzeige",
+        "state": {
+          "bright": "Hell",
+          "dim": "Gedimmt",
+          "off": "Aus"
+        }
       },
       "silent_level": {
         "name": "Silent-Stufe"

@@ -447,13 +447,25 @@
     },
     "select": {
       "detect_mode": {
-        "name": "Detect Mode"
+        "name": "Detect Mode",
+        "state": {
+          "off": "Ki",
+          "pm_2_5": "PM 2.5",
+          "methanal": "Methanal"
+        }
       },
       "direction": {
         "name": "Direction"
       },
       "fan_speed": {
-        "name": "Fan Speed"
+        "name": "Fan Speed",
+        "state": {
+          "auto": "Automatikus",
+          "standby": "Készenlét",
+          "low": "Alacsony",
+          "medium": "Közepes",
+          "high": "Magas"
+        }
       },
       "fresh_air_exhaust_mode": {
         "name": "Frisslevegő elszívás sebessége",
@@ -475,7 +487,15 @@
         }
       },
       "mode": {
-        "name": "Mode"
+        "name": "Mode",
+        "state": {
+          "standby": "Készenlét",
+          "auto": "Automatikus",
+          "manual": "Manuális",
+          "sleep": "Alvó",
+          "fast": "Gyors",
+          "smoke": "Füst"
+        }
       },
       "oscillation_angle": {
         "name": "Oscillation Angle"
@@ -487,7 +507,12 @@
         "name": "Power Rate Limit"
       },
       "screen_display": {
-        "name": "Screen Display"
+        "name": "Screen Display",
+        "state": {
+          "bright": "Világos",
+          "dim": "Halvány",
+          "off": "Ki"
+        }
       },
       "silent_level": {
         "name": "Silent Level"
