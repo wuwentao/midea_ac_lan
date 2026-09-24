@@ -450,7 +450,10 @@
         "name": "Detect Mode"
       },
       "direction": {
-        "name": "Direction"
+        "name": "Direction",
+        "state": {
+          "oscillate": "Oszcillálás"
+        }
       },
       "fan_speed": {
         "name": "Fan Speed"
@@ -475,7 +478,16 @@
         }
       },
       "mode": {
-        "name": "Mode"
+        "name": "Mode",
+        "state": {
+          "off": "Ki",
+          "heat_high": "Fűtés (magas)",
+          "heat_low": "Fűtés (alacsony)",
+          "bath": "Fürdés",
+          "blow": "Fújás",
+          "ventilation": "Szellőztetés",
+          "dry": "Szárítás"
+        }
       },
       "oscillation_angle": {
         "name": "Oscillation Angle"

@@ -450,7 +450,10 @@
         "name": "Detect Mode"
       },
       "direction": {
-        "name": "Направление"
+        "name": "Направление",
+        "state": {
+          "oscillate": "Колебание"
+        }
       },
       "fan_speed": {
         "name": "Скорость"
@@ -475,7 +478,16 @@
         }
       },
       "mode": {
-        "name": "Режим"
+        "name": "Режим",
+        "state": {
+          "off": "Выкл",
+          "heat_high": "Нагрев (высокий)",
+          "heat_low": "Нагрев (низкий)",
+          "bath": "Ванна",
+          "blow": "Обдув",
+          "ventilation": "Вентиляция",
+          "dry": "Сушка"
+        }
       },
       "oscillation_angle": {
         "name": "Oscillation Angle"

@@ -407,7 +407,10 @@
         "name": "Modalità Rilevamento"
       },
       "direction": {
-        "name": "Direzione"
+        "name": "Direzione",
+        "state": {
+          "oscillate": "Oscillazione"
+        }
       },
       "fan_speed": {
         "name": "Velocità Ventola"
@@ -432,7 +435,16 @@
         }
       },
       "mode": {
-        "name": "Modalità"
+        "name": "Modalità",
+        "state": {
+          "off": "Spento",
+          "heat_high": "Riscaldamento (alto)",
+          "heat_low": "Riscaldamento (basso)",
+          "bath": "Bagno",
+          "blow": "Soffio",
+          "ventilation": "Ventilazione",
+          "dry": "Asciugatura"
+        }
       },
       "oscillation_angle": {
         "name": "Angolo Oscillazione"

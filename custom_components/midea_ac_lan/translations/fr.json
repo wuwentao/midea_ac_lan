@@ -450,7 +450,10 @@
         "name": "Detect Mode"
       },
       "direction": {
-        "name": "Direction"
+        "name": "Direction",
+        "state": {
+          "oscillate": "Oscillation"
+        }
       },
       "fan_speed": {
         "name": "Fan Speed"
@@ -475,7 +478,16 @@
         }
       },
       "mode": {
-        "name": "Mode"
+        "name": "Mode",
+        "state": {
+          "off": "Arrêt",
+          "heat_high": "Chauffage (fort)",
+          "heat_low": "Chauffage (faible)",
+          "bath": "Bain",
+          "blow": "Soufflage",
+          "ventilation": "Ventilation",
+          "dry": "Séchage"
+        }
       },
       "oscillation_angle": {
         "name": "Oscillation Angle"

@@ -455,7 +455,10 @@
         "name": "检测模式"
       },
       "direction": {
-        "name": "摇摆方向"
+        "name": "摇摆方向",
+        "state": {
+          "oscillate": "摆动"
+        }
       },
       "fan_speed": {
         "name": "风速设定"
@@ -480,7 +483,16 @@
         }
       },
       "mode": {
-        "name": "模式"
+        "name": "模式",
+        "state": {
+          "off": "关闭",
+          "heat_high": "高温加热",
+          "heat_low": "低温加热",
+          "bath": "洗浴",
+          "blow": "吹风",
+          "ventilation": "换气",
+          "dry": "干燥"
+        }
       },
       "oscillation_angle": {
         "name": "水平摆头角度"
