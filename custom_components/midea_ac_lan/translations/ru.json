@@ -533,13 +533,28 @@
     },
     "select": {
       "detect_mode": {
-        "name": "Detect Mode"
+        "name": "Detect Mode",
+        "state": {
+          "off": "Выкл",
+          "pm_2_5": "PM 2.5",
+          "methanal": "Формальдегид"
+        }
       },
       "direction": {
-        "name": "đŁđ░đ┐ĐÇđ░đ▓đ╗đÁđŻđŞđÁ"
+        "name": "Направление",
+        "state": {
+          "oscillate": "Колебание"
+        }
       },
       "fan_speed": {
-        "name": "đíđ║đżĐÇđżĐüĐéĐî"
+        "name": "Скорость",
+        "state": {
+          "auto": "Авто",
+          "standby": "Режим ожидания",
+          "low": "Низкая",
+          "medium": "Средняя",
+          "high": "Высокая"
+        }
       },
       "fresh_air_exhaust_mode": {
         "name": "đíđ║đżĐÇđżĐüĐéĐî đ▓ĐőĐéĐĆđÂđ║đŞ Đüđ▓đÁđÂđÁđ│đż đ▓đżđĚđ┤ĐâĐůđ░",
@@ -561,7 +576,22 @@
         }
       },
       "mode": {
-        "name": "đáđÁđÂđŞđ╝"
+        "name": "Режим",
+        "state": {
+          "standby": "Режим ожидания",
+          "auto": "Авто",
+          "manual": "Ручной",
+          "sleep": "Сон",
+          "fast": "Быстрый",
+          "smoke": "Дым",
+          "off": "Выкл",
+          "heat_high": "Нагрев (высокий)",
+          "heat_low": "Нагрев (низкий)",
+          "bath": "Ванна",
+          "blow": "Обдув",
+          "ventilation": "Вентиляция",
+          "dry": "Сушка"
+        }
       },
       "oscillation_angle": {
         "name": "Oscillation Angle"
@@ -573,7 +603,12 @@
         "name": "đ×đ│ĐÇđ░đŻđŞĐçđÁđŻđŞđÁ đ╝đżĐëđŻđżĐüĐéđŞ"
       },
       "screen_display": {
-        "name": "Screen Display"
+        "name": "Screen Display",
+        "state": {
+          "bright": "Яркий",
+          "dim": "Тусклый",
+          "off": "Выкл"
+        }
       },
       "silent_level": {
         "name": "Silent Level"
@@ -1434,6 +1469,9 @@
       },
       "comfort_mode": {
         "name": "Comfort Mode"
+      },
+      "degerming": {
+        "name": "Обеззараживание"
       },
       "dhw_power": {
         "name": "DHW Power"

@@ -51,25 +51,25 @@ Set the attribute of appliance. Service data:
 | --------- | ------------------------------------------- |
 | device_id | The Appliance code (Device ID) of appliance |
 | attribute | "detect_mode"                               |
-| value     | "Off"<br/>"PM 2.5"<br/>"Methanal"           |
+| value     | "off"<br/>"pm_2_5"<br/>"methanal"           |
 
 | Name      | Description                                            |
 | --------- | ------------------------------------------------------ |
 | device_id | The Appliance code (Device ID) of appliance            |
 | attribute | "mode"                                                 |
-| value     | "Auto"<br/>"Manual"<br/>"Sleep"<br/>"Fast"<br/>"Smoke" |
+| value     | "auto"<br/>"manual"<br/>"sleep"<br/>"fast"<br/>"smoke" |
 
 | Name      | Description                                 |
 | --------- | ------------------------------------------- |
 | device_id | The Appliance code (Device ID) of appliance |
 | attribute | "fan_speed"                                 |
-| value     | "Auto"<br/>"Low"<br/>"Medium"<br/>"High"    |
+| value     | "auto"<br/>"low"<br/>"medium"<br/>"high"    |
 
 | Name      | Description                                 |
 | --------- | ------------------------------------------- |
 | device_id | The Appliance code (Device ID) of appliance |
 | attribute | "screen_display"                            |
-| value     | "Bright"<br/>"Dim"<br/>"Off"                |
+| value     | "bright"<br/>"dim"<br/>"off"                |
 
 Example
 
@@ -86,5 +86,5 @@ service: midea_ac_lan.set_attribute
 data:
   device_id: XXXXXXXXXXXX
   attribute: fan_speed
-  value: Auto
+  value: auto
 ```

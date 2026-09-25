@@ -533,13 +533,28 @@
     },
     "select": {
       "detect_mode": {
-        "name": "Modo de detecci├│n"
+        "name": "Modo de detección",
+        "state": {
+          "off": "Apagado",
+          "pm_2_5": "PM 2.5",
+          "methanal": "Formaldehído"
+        }
       },
       "direction": {
-        "name": "Direcci├│n"
+        "name": "Dirección",
+        "state": {
+          "oscillate": "Oscilar"
+        }
       },
       "fan_speed": {
-        "name": "Velocidad del ventilador"
+        "name": "Velocidad del ventilador",
+        "state": {
+          "auto": "Automático",
+          "standby": "En espera",
+          "low": "Baja",
+          "medium": "Media",
+          "high": "Alta"
+        }
       },
       "fresh_air_exhaust_mode": {
         "name": "Velocidad de extracci├│n de aire fresco",
@@ -561,7 +576,22 @@
         }
       },
       "mode": {
-        "name": "Modo"
+        "name": "Modo",
+        "state": {
+          "standby": "En espera",
+          "auto": "Automático",
+          "manual": "Manual",
+          "sleep": "Sueño",
+          "fast": "Rápido",
+          "smoke": "Humo",
+          "off": "Apagado",
+          "heat_high": "Calor (alto)",
+          "heat_low": "Calor (bajo)",
+          "bath": "Baño",
+          "blow": "Soplado",
+          "ventilation": "Ventilación",
+          "dry": "Secado"
+        }
       },
       "oscillation_angle": {
         "name": "├üngulo de oscilaci├│n"
@@ -573,7 +603,12 @@
         "name": "L├şmite de tasa de potencia"
       },
       "screen_display": {
-        "name": "Visualizaci├│n de pantalla"
+        "name": "Visualización de pantalla",
+        "state": {
+          "bright": "Brillante",
+          "dim": "Atenuado",
+          "off": "Apagado"
+        }
       },
       "silent_level": {
         "name": "Nivel de silencio"
@@ -1434,6 +1469,9 @@
       },
       "comfort_mode": {
         "name": "Modo confort"
+      },
+      "degerming": {
+        "name": "Desinfección"
       },
       "dhw_power": {
         "name": "Potencia ACS"

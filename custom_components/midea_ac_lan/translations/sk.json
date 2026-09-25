@@ -533,13 +533,28 @@
     },
     "select": {
       "detect_mode": {
-        "name": "Detect Mode"
+        "name": "Detect Mode",
+        "state": {
+          "off": "Vypnuté",
+          "pm_2_5": "PM 2.5",
+          "methanal": "Methanal"
+        }
       },
       "direction": {
-        "name": "Direction"
+        "name": "Direction",
+        "state": {
+          "oscillate": "Oscilovať"
+        }
       },
       "fan_speed": {
-        "name": "Fan Speed"
+        "name": "Fan Speed",
+        "state": {
+          "auto": "Automatická",
+          "standby": "Pohotovostný režim",
+          "low": "Nízka",
+          "medium": "Stredná",
+          "high": "Vysoká"
+        }
       },
       "fresh_air_exhaust_mode": {
         "name": "R├Żchlos┼ą odvodu ─Źerstv├ęho vzduchu",
@@ -561,7 +576,22 @@
         }
       },
       "mode": {
-        "name": "Mode"
+        "name": "Mode",
+        "state": {
+          "standby": "Pohotovostný režim",
+          "auto": "Automatický",
+          "manual": "Manuálny",
+          "sleep": "Spánok",
+          "fast": "Rýchly",
+          "smoke": "Dym",
+          "off": "Vypnuté",
+          "heat_high": "Kúrenie (vysoké)",
+          "heat_low": "Kúrenie (nízke)",
+          "bath": "Kúpanie",
+          "blow": "Fúkanie",
+          "ventilation": "Vetranie",
+          "dry": "Sušenie"
+        }
       },
       "oscillation_angle": {
         "name": "Oscillation Angle"
@@ -573,7 +603,12 @@
         "name": "Power Rate Limit"
       },
       "screen_display": {
-        "name": "Screen Display"
+        "name": "Screen Display",
+        "state": {
+          "bright": "Jasný",
+          "dim": "Tlmený",
+          "off": "Vypnuté"
+        }
       },
       "silent_level": {
         "name": "Silent Level"
@@ -1434,6 +1469,9 @@
       },
       "comfort_mode": {
         "name": "Comfort Mode"
+      },
+      "degerming": {
+        "name": "Sterilizácia"
       },
       "dhw_power": {
         "name": "DHW Power"

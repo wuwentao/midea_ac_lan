@@ -533,13 +533,28 @@
     },
     "select": {
       "detect_mode": {
-        "name": "Detect Mode"
+        "name": "Detect Mode",
+        "state": {
+          "off": "Arrêt",
+          "pm_2_5": "PM 2.5",
+          "methanal": "Methanal"
+        }
       },
       "direction": {
-        "name": "Direction"
+        "name": "Direction",
+        "state": {
+          "oscillate": "Oscillation"
+        }
       },
       "fan_speed": {
-        "name": "Fan Speed"
+        "name": "Fan Speed",
+        "state": {
+          "auto": "Auto",
+          "standby": "Veille",
+          "low": "Faible",
+          "medium": "Moyenne",
+          "high": "Élevée"
+        }
       },
       "fresh_air_exhaust_mode": {
         "name": "Vitesse d'extraction d'air frais",
@@ -561,7 +576,22 @@
         }
       },
       "mode": {
-        "name": "Mode"
+        "name": "Mode",
+        "state": {
+          "standby": "Veille",
+          "auto": "Auto",
+          "manual": "Manuel",
+          "sleep": "Sommeil",
+          "fast": "Rapide",
+          "smoke": "Fumée",
+          "off": "Arrêt",
+          "heat_high": "Chauffage (fort)",
+          "heat_low": "Chauffage (faible)",
+          "bath": "Bain",
+          "blow": "Soufflage",
+          "ventilation": "Ventilation",
+          "dry": "Séchage"
+        }
       },
       "oscillation_angle": {
         "name": "Oscillation Angle"
@@ -573,7 +603,12 @@
         "name": "Power Rate Limit"
       },
       "screen_display": {
-        "name": "Screen Display"
+        "name": "Screen Display",
+        "state": {
+          "bright": "Lumineux",
+          "dim": "Atténué",
+          "off": "Arrêt"
+        }
       },
       "silent_level": {
         "name": "Silent Level"
@@ -1434,6 +1469,9 @@
       },
       "comfort_mode": {
         "name": "Comfort Mode"
+      },
+      "degerming": {
+        "name": "Stérilisation"
       },
       "dhw_power": {
         "name": "DHW Power"

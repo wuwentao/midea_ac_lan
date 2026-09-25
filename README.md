@@ -64,6 +64,7 @@ Please check the document links below for the supported features and usage of ea
 | B3   | Dish Sterilizer            | [B3.md](doc/B3.md) |
 | B4   | Toaster                    | [B4.md](doc/B4.md) |
 | B6   | Range Hood                 | [B6.md](doc/B6.md) |
+| B8   | Robot Vacuum               | [B8.md](doc/B8.md) |
 | BF   | Microwave Steam Oven       | [BF.md](doc/BF.md) |
 | C2   | Toilet                     | [C2.md](doc/C2.md) |
 | C3   | Heat Pump Wi-Fi Controller | [C3.md](doc/C3.md) |

@@ -530,13 +530,28 @@
     },
     "select": {
       "detect_mode": {
-        "name": "ŠúÇŠÁőŠĘíň╝Ć"
+        "name": "检测模式",
+        "state": {
+          "off": "关闭",
+          "pm_2_5": "PM 2.5",
+          "methanal": "甲醛"
+        }
       },
       "direction": {
-        "name": "ŠĹçŠĹćŠľ╣ňÉĹ"
+        "name": "摇摆方向",
+        "state": {
+          "oscillate": "摆动"
+        }
       },
       "fan_speed": {
-        "name": "ÚúÄÚÇčŔ«żň«Ü"
+        "name": "风速设定",
+        "state": {
+          "auto": "自动",
+          "standby": "待机",
+          "low": "低速",
+          "medium": "中速",
+          "high": "高速"
+        }
       },
       "fresh_air_exhaust_mode": {
         "name": "ŠÄĺÚúÄÚúÄÚÇč",
@@ -558,7 +573,22 @@
         }
       },
       "mode": {
-        "name": "ŠĘíň╝Ć"
+        "name": "模式",
+        "state": {
+          "standby": "待机",
+          "auto": "自动",
+          "manual": "手动",
+          "sleep": "睡眠",
+          "fast": "快速",
+          "smoke": "烟雾",
+          "off": "关闭",
+          "heat_high": "高温加热",
+          "heat_low": "低温加热",
+          "bath": "洗浴",
+          "blow": "吹风",
+          "ventilation": "换气",
+          "dry": "干燥"
+        }
       },
       "oscillation_angle": {
         "name": "Š░┤ň╣│ŠĹćňĄ┤Ŕžĺň║Ž"
@@ -570,7 +600,12 @@
         "name": "ňŐčšÄçÚÖÉňłÂ"
       },
       "screen_display": {
-        "name": "ň▒Ćň╣ĽŠśżšĄ║"
+        "name": "屏幕显示",
+        "state": {
+          "bright": "明亮",
+          "dim": "暗淡",
+          "off": "关闭"
+        }
       },
       "silent_level": {
         "name": "ÚŁÖÚč│š║žňłź"
@@ -1428,6 +1463,9 @@
       },
       "comfort_mode": {
         "name": "ŔłĺšťüŠĘíň╝Ć"
+      },
+      "degerming": {
+        "name": "除菌"
       },
       "dhw_power": {
         "name": "šöčŠ┤╗šâşŠ░┤šöÁŠ║Éň╝Çňů│"

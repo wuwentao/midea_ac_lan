@@ -530,13 +530,28 @@
     },
     "select": {
       "detect_mode": {
-        "name": "Modalit├á Rilevamento"
+        "name": "Modalità Rilevamento",
+        "state": {
+          "off": "Spento",
+          "pm_2_5": "PM 2.5",
+          "methanal": "Metanale"
+        }
       },
       "direction": {
-        "name": "Direzione"
+        "name": "Direzione",
+        "state": {
+          "oscillate": "Oscillazione"
+        }
       },
       "fan_speed": {
-        "name": "Velocit├á Ventola"
+        "name": "Velocità Ventola",
+        "state": {
+          "auto": "Auto",
+          "standby": "Standby",
+          "low": "Bassa",
+          "medium": "Media",
+          "high": "Alta"
+        }
       },
       "fresh_air_exhaust_mode": {
         "name": "Velocit├á Estrazione Aria Fresca",
@@ -558,7 +573,22 @@
         }
       },
       "mode": {
-        "name": "Modalit├á"
+        "name": "Modalità",
+        "state": {
+          "standby": "Standby",
+          "auto": "Auto",
+          "manual": "Manuale",
+          "sleep": "Sleep",
+          "fast": "Veloce",
+          "smoke": "Fumo",
+          "off": "Spento",
+          "heat_high": "Riscaldamento (alto)",
+          "heat_low": "Riscaldamento (basso)",
+          "bath": "Bagno",
+          "blow": "Soffio",
+          "ventilation": "Ventilazione",
+          "dry": "Asciugatura"
+        }
       },
       "oscillation_angle": {
         "name": "Angolo Oscillazione"
@@ -570,7 +600,12 @@
         "name": "Limite Potenza"
       },
       "screen_display": {
-        "name": "Display Schermo"
+        "name": "Display Schermo",
+        "state": {
+          "bright": "Luminoso",
+          "dim": "Attenuato",
+          "off": "Spento"
+        }
       },
       "silent_level": {
         "name": "Livello Silenzioso"
@@ -1422,6 +1457,9 @@
       },
       "comfort_mode": {
         "name": "Modalit├á Comfort"
+      },
+      "degerming": {
+        "name": "Sterilizzazione"
       },
       "dhw_power": {
         "name": "Potenza ACS"

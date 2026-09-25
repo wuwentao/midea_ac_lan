@@ -530,13 +530,28 @@
     },
     "select": {
       "detect_mode": {
-        "name": "Detect Mode"
+        "name": "Detect Mode",
+        "state": {
+          "off": "Off",
+          "pm_2_5": "PM 2.5",
+          "methanal": "Methanal"
+        }
       },
       "direction": {
-        "name": "Direction"
+        "name": "Direction",
+        "state": {
+          "oscillate": "Oscillate"
+        }
       },
       "fan_speed": {
-        "name": "Fan Speed"
+        "name": "Fan Speed",
+        "state": {
+          "auto": "Auto",
+          "standby": "Standby",
+          "low": "Low",
+          "medium": "Medium",
+          "high": "High"
+        }
       },
       "fresh_air_exhaust_mode": {
         "name": "Fresh Air Exhaust Speed",
@@ -558,7 +573,22 @@
         }
       },
       "mode": {
-        "name": "Mode"
+        "name": "Mode",
+        "state": {
+          "standby": "Standby",
+          "auto": "Auto",
+          "manual": "Manual",
+          "sleep": "Sleep",
+          "fast": "Fast",
+          "smoke": "Smoke",
+          "off": "Off",
+          "heat_high": "Heat (High)",
+          "heat_low": "Heat (Low)",
+          "bath": "Bath",
+          "blow": "Blow",
+          "ventilation": "Ventilation",
+          "dry": "Dry"
+        }
       },
       "oscillation_angle": {
         "name": "Oscillation Angle"
@@ -570,7 +600,12 @@
         "name": "Power Rate Limit"
       },
       "screen_display": {
-        "name": "Screen Display"
+        "name": "Screen Display",
+        "state": {
+          "bright": "Bright",
+          "dim": "Dim",
+          "off": "Off"
+        }
       },
       "silent_level": {
         "name": "Silent Level"
@@ -1428,6 +1463,9 @@
       },
       "comfort_mode": {
         "name": "Comfort Mode"
+      },
+      "degerming": {
+        "name": "Degerming"
       },
       "dhw_power": {
         "name": "DHW Power"
