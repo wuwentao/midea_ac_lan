@@ -455,7 +455,10 @@
         }
       },
       "direction": {
-        "name": "Направление"
+        "name": "Направление",
+        "state": {
+          "oscillate": "Колебание"
+        }
       },
       "fan_speed": {
         "name": "Скорость",
@@ -494,7 +497,14 @@
           "manual": "Ручной",
           "sleep": "Сон",
           "fast": "Быстрый",
-          "smoke": "Дым"
+          "smoke": "Дым",
+          "off": "Выкл",
+          "heat_high": "Нагрев (высокий)",
+          "heat_low": "Нагрев (низкий)",
+          "bath": "Ванна",
+          "blow": "Обдув",
+          "ventilation": "Вентиляция",
+          "dry": "Сушка"
         }
       },
       "oscillation_angle": {

@@ -412,7 +412,10 @@
         }
       },
       "direction": {
-        "name": "Direzione"
+        "name": "Direzione",
+        "state": {
+          "oscillate": "Oscillazione"
+        }
       },
       "fan_speed": {
         "name": "Velocità Ventola",
@@ -451,7 +454,14 @@
           "manual": "Manuale",
           "sleep": "Sleep",
           "fast": "Veloce",
-          "smoke": "Fumo"
+          "smoke": "Fumo",
+          "off": "Spento",
+          "heat_high": "Riscaldamento (alto)",
+          "heat_low": "Riscaldamento (basso)",
+          "bath": "Bagno",
+          "blow": "Soffio",
+          "ventilation": "Ventilazione",
+          "dry": "Asciugatura"
         }
       },
       "oscillation_angle": {

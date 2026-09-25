@@ -455,7 +455,10 @@
         }
       },
       "direction": {
-        "name": "Direction"
+        "name": "Direction",
+        "state": {
+          "oscillate": "Oscillation"
+        }
       },
       "fan_speed": {
         "name": "Fan Speed",
@@ -494,7 +497,14 @@
           "manual": "Manuel",
           "sleep": "Sommeil",
           "fast": "Rapide",
-          "smoke": "Fumée"
+          "smoke": "Fumée",
+          "off": "Arrêt",
+          "heat_high": "Chauffage (fort)",
+          "heat_low": "Chauffage (faible)",
+          "bath": "Bain",
+          "blow": "Soufflage",
+          "ventilation": "Ventilation",
+          "dry": "Séchage"
         }
       },
       "oscillation_angle": {

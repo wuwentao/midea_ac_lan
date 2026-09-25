@@ -460,7 +460,10 @@
         }
       },
       "direction": {
-        "name": "摇摆方向"
+        "name": "摇摆方向",
+        "state": {
+          "oscillate": "摆动"
+        }
       },
       "fan_speed": {
         "name": "风速设定",
@@ -499,7 +502,14 @@
           "manual": "手动",
           "sleep": "睡眠",
           "fast": "快速",
-          "smoke": "烟雾"
+          "smoke": "烟雾",
+          "off": "关闭",
+          "heat_high": "高温加热",
+          "heat_low": "低温加热",
+          "bath": "洗浴",
+          "blow": "吹风",
+          "ventilation": "换气",
+          "dry": "干燥"
         }
       },
       "oscillation_angle": {

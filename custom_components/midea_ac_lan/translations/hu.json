@@ -455,7 +455,10 @@
         }
       },
       "direction": {
-        "name": "Direction"
+        "name": "Direction",
+        "state": {
+          "oscillate": "Oszcillálás"
+        }
       },
       "fan_speed": {
         "name": "Fan Speed",
@@ -494,7 +497,14 @@
           "manual": "Manuális",
           "sleep": "Alvó",
           "fast": "Gyors",
-          "smoke": "Füst"
+          "smoke": "Füst",
+          "off": "Ki",
+          "heat_high": "Fűtés (magas)",
+          "heat_low": "Fűtés (alacsony)",
+          "bath": "Fürdés",
+          "blow": "Fújás",
+          "ventilation": "Szellőztetés",
+          "dry": "Szárítás"
         }
       },
       "oscillation_angle": {

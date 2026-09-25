@@ -455,7 +455,10 @@
         }
       },
       "direction": {
-        "name": "Dirección"
+        "name": "Dirección",
+        "state": {
+          "oscillate": "Oscilar"
+        }
       },
       "fan_speed": {
         "name": "Velocidad del ventilador",
@@ -494,7 +497,14 @@
           "manual": "Manual",
           "sleep": "Sueño",
           "fast": "Rápido",
-          "smoke": "Humo"
+          "smoke": "Humo",
+          "off": "Apagado",
+          "heat_high": "Calor (alto)",
+          "heat_low": "Calor (bajo)",
+          "bath": "Baño",
+          "blow": "Soplado",
+          "ventilation": "Ventilación",
+          "dry": "Secado"
         }
       },
       "oscillation_angle": {

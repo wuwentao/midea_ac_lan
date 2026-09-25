@@ -455,7 +455,10 @@
         }
       },
       "direction": {
-        "name": "Direction"
+        "name": "Direction",
+        "state": {
+          "oscillate": "Oscilovať"
+        }
       },
       "fan_speed": {
         "name": "Fan Speed",
@@ -494,7 +497,14 @@
           "manual": "Manuálny",
           "sleep": "Spánok",
           "fast": "Rýchly",
-          "smoke": "Dym"
+          "smoke": "Dym",
+          "off": "Vypnuté",
+          "heat_high": "Kúrenie (vysoké)",
+          "heat_low": "Kúrenie (nízke)",
+          "bath": "Kúpanie",
+          "blow": "Fúkanie",
+          "ventilation": "Vetranie",
+          "dry": "Sušenie"
         }
       },
       "oscillation_angle": {
