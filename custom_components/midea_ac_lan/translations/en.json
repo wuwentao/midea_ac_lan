@@ -330,6 +330,24 @@
       },
       "water_pump_running": {
         "name": "Water Pump Running"
+      },
+      "filter_status": {
+        "name": "Filter Alarm"
+      },
+      "standby_status": {
+        "name": "Standby Status"
+      },
+      "out_water": {
+        "name": "Out Water"
+      },
+      "out_hot_water": {
+        "name": "Out Hot Water"
+      },
+      "backflow": {
+        "name": "Backflow"
+      },
+      "sleep_status": {
+        "name": "Sleep Status"
       }
     },
     "button": {
@@ -1166,6 +1184,48 @@
       },
       "velocity": {
         "name": "Velocity"
+      },
+      "filter4_life": {
+        "name": "Filter4 Life Level"
+      },
+      "filter5_life": {
+        "name": "Filter5 Life Level"
+      },
+      "filter1_maxlife": {
+        "name": "Filter1 Lifetime Limit"
+      },
+      "filter2_maxlife": {
+        "name": "Filter2 Lifetime Limit"
+      },
+      "filter3_maxlife": {
+        "name": "Filter3 Lifetime Limit"
+      },
+      "filter4_maxlife": {
+        "name": "Filter4 Lifetime Limit"
+      },
+      "filter5_maxlife": {
+        "name": "Filter5 Lifetime Limit"
+      },
+      "hot_pot_temperature": {
+        "name": "Hot Pot Temperature"
+      },
+      "ice_gall_status": {
+        "name": "Ice Gall Status"
+      },
+      "water_kind": {
+        "name": "Water Kind",
+        "state": {
+          "idle": "Idle",
+          "warm": "Warm",
+          "cold": "Cold"
+        }
+      },
+      "heat_start": {
+        "name": "Heat Start",
+        "state": {
+          "heating": "Heating",
+          "keep_warm": "Keeping Warm"
+        }
       }
     },
     "switch": {
@@ -1391,6 +1451,12 @@
       },
       "screen_off": {
         "name": "Screen Off"
+      },
+      "wash": {
+        "name": "Filter Wash"
+      },
+      "antifreeze": {
+        "name": "Antifreeze"
       }
     },
     "water_heater": {
