@@ -447,13 +447,25 @@
     },
     "select": {
       "detect_mode": {
-        "name": "Detect Mode"
+        "name": "Detect Mode",
+        "state": {
+          "off": "Выкл",
+          "pm_2_5": "PM 2.5",
+          "methanal": "Формальдегид"
+        }
       },
       "direction": {
         "name": "Направление"
       },
       "fan_speed": {
-        "name": "Скорость"
+        "name": "Скорость",
+        "state": {
+          "auto": "Авто",
+          "standby": "Режим ожидания",
+          "low": "Низкая",
+          "medium": "Средняя",
+          "high": "Высокая"
+        }
       },
       "fresh_air_exhaust_mode": {
         "name": "Скорость вытяжки свежего воздуха",
@@ -475,7 +487,15 @@
         }
       },
       "mode": {
-        "name": "Режим"
+        "name": "Режим",
+        "state": {
+          "standby": "Режим ожидания",
+          "auto": "Авто",
+          "manual": "Ручной",
+          "sleep": "Сон",
+          "fast": "Быстрый",
+          "smoke": "Дым"
+        }
       },
       "oscillation_angle": {
         "name": "Oscillation Angle"
@@ -487,7 +507,12 @@
         "name": "Ограничение мощности"
       },
       "screen_display": {
-        "name": "Screen Display"
+        "name": "Screen Display",
+        "state": {
+          "bright": "Яркий",
+          "dim": "Тусклый",
+          "off": "Выкл"
+        }
       },
       "silent_level": {
         "name": "Silent Level"

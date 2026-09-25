@@ -452,13 +452,25 @@
     },
     "select": {
       "detect_mode": {
-        "name": "检测模式"
+        "name": "检测模式",
+        "state": {
+          "off": "关闭",
+          "pm_2_5": "PM 2.5",
+          "methanal": "甲醛"
+        }
       },
       "direction": {
         "name": "摇摆方向"
       },
       "fan_speed": {
-        "name": "风速设定"
+        "name": "风速设定",
+        "state": {
+          "auto": "自动",
+          "standby": "待机",
+          "low": "低速",
+          "medium": "中速",
+          "high": "高速"
+        }
       },
       "fresh_air_exhaust_mode": {
         "name": "排风风速",
@@ -480,7 +492,15 @@
         }
       },
       "mode": {
-        "name": "模式"
+        "name": "模式",
+        "state": {
+          "standby": "待机",
+          "auto": "自动",
+          "manual": "手动",
+          "sleep": "睡眠",
+          "fast": "快速",
+          "smoke": "烟雾"
+        }
       },
       "oscillation_angle": {
         "name": "水平摆头角度"
@@ -492,7 +512,12 @@
         "name": "功率限制"
       },
       "screen_display": {
-        "name": "屏幕显示"
+        "name": "屏幕显示",
+        "state": {
+          "bright": "明亮",
+          "dim": "暗淡",
+          "off": "关闭"
+        }
       },
       "silent_level": {
         "name": "静音级别"
