@@ -594,6 +594,12 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Self Clean",
                 "icon": "mdi:air-filter",
             },
+            ACAttributes.degerming: {
+                "type": Platform.SWITCH,
+                "translation_key": "degerming",
+                "name": "Degerming",
+                "icon": "mdi:bacteria-outline",
+            },
             ACAttributes.ieco: {
                 "type": Platform.SWITCH,
                 "translation_key": "ieco",
