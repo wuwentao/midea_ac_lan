@@ -63,6 +63,18 @@
   },
   "entity": {
     "binary_sensor": {
+      "warm_power": {
+        "name": "Heizbetrieb"
+      },
+      "cold_power": {
+        "name": "Kühlbetrieb"
+      },
+      "sleep_power": {
+        "name": "Schlafbetrieb"
+      },
+      "pump_on": {
+        "name": "Pumpe Ein"
+      },
       "bar_door": {
         "name": "Bar-Tür"
       },
@@ -402,6 +414,9 @@
       }
     },
     "number": {
+      "heating_target_temperature": {
+        "name": "Heizungs-Solltemperatur"
+      },
       "dry_level": {
         "name": "Trocken-Level"
       },
@@ -446,6 +461,15 @@
       }
     },
     "select": {
+      "heating_mode": {
+        "name": "Heizmodus",
+        "state": {
+          "user": "Benutzer",
+          "activity": "Aktivität",
+          "sleep": "Schlaf",
+          "unknown": "Unbekannt"
+        }
+      },
       "detect_mode": {
         "name": "Detektions-Modus",
         "state": {
@@ -565,6 +589,36 @@
       }
     },
     "sensor": {
+      "three_way_mode": {
+        "name": "Dreiwegemodus"
+      },
+      "heating_unit_type": {
+        "name": "Heizkörpertyp"
+      },
+      "return_temperature": {
+        "name": "Rücklauftemperatur"
+      },
+      "heating_temperature": {
+        "name": "Heiztemperatur"
+      },
+      "heating_gap_temperature": {
+        "name": "Heizungs-Hysteresetemperatur"
+      },
+      "user_mode_target_temperature": {
+        "name": "Solltemperatur Benutzermodus"
+      },
+      "activity_mode_target_temperature": {
+        "name": "Solltemperatur Aktivitätsmodus"
+      },
+      "sleep_mode_target_temperature": {
+        "name": "Solltemperatur Schlafmodus"
+      },
+      "last_time": {
+        "name": "Laufzeit"
+      },
+      "flow_volume": {
+        "name": "Durchfluss"
+      },
       "bathing_leaving_temperature": {
         "name": "Bathing Leaving Water Temperature"
       },

@@ -63,6 +63,18 @@
   },
   "entity": {
     "binary_sensor": {
+      "warm_power": {
+        "name": "Fonctionnement chauffage"
+      },
+      "cold_power": {
+        "name": "Fonctionnement refroidissement"
+      },
+      "sleep_power": {
+        "name": "Fonctionnement nuit"
+      },
+      "pump_on": {
+        "name": "Pompe en marche"
+      },
       "bar_door": {
         "name": "Bar Door"
       },
@@ -402,6 +414,9 @@
       }
     },
     "number": {
+      "heating_target_temperature": {
+        "name": "Température cible de chauffage"
+      },
       "dry_level": {
         "name": "Dry Level"
       },
@@ -446,6 +461,15 @@
       }
     },
     "select": {
+      "heating_mode": {
+        "name": "Mode de chauffage",
+        "state": {
+          "user": "Utilisateur",
+          "activity": "Activité",
+          "sleep": "Nuit",
+          "unknown": "Inconnu"
+        }
+      },
       "detect_mode": {
         "name": "Detect Mode",
         "state": {
@@ -565,6 +589,36 @@
       }
     },
     "sensor": {
+      "three_way_mode": {
+        "name": "Mode trois voies"
+      },
+      "heating_unit_type": {
+        "name": "Type d'émetteur"
+      },
+      "return_temperature": {
+        "name": "Température de retour"
+      },
+      "heating_temperature": {
+        "name": "Température de chauffage"
+      },
+      "heating_gap_temperature": {
+        "name": "Température d'hystérésis de chauffage"
+      },
+      "user_mode_target_temperature": {
+        "name": "Température cible mode utilisateur"
+      },
+      "activity_mode_target_temperature": {
+        "name": "Température cible mode activité"
+      },
+      "sleep_mode_target_temperature": {
+        "name": "Température cible mode nuit"
+      },
+      "last_time": {
+        "name": "Durée de fonctionnement"
+      },
+      "flow_volume": {
+        "name": "Débit"
+      },
       "bathing_leaving_temperature": {
         "name": "Bathing Leaving Water Temperature"
       },

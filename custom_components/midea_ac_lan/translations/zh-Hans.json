@@ -63,6 +63,18 @@
   },
   "entity": {
     "binary_sensor": {
+      "warm_power": {
+        "name": "制热运行"
+      },
+      "cold_power": {
+        "name": "制冷运行"
+      },
+      "sleep_power": {
+        "name": "睡眠运行"
+      },
+      "pump_on": {
+        "name": "水泵运行"
+      },
       "bar_door": {
         "name": "吧台门状态"
       },
@@ -407,6 +419,9 @@
       }
     },
     "number": {
+      "heating_target_temperature": {
+        "name": "采暖目标温度"
+      },
       "dry_level": {
         "name": "烘干档位"
       },
@@ -451,6 +466,15 @@
       }
     },
     "select": {
+      "heating_mode": {
+        "name": "采暖模式",
+        "state": {
+          "user": "用户",
+          "activity": "活动",
+          "sleep": "睡眠",
+          "unknown": "未知"
+        }
+      },
       "detect_mode": {
         "name": "检测模式",
         "state": {
@@ -570,6 +594,36 @@
       }
     },
     "sensor": {
+      "three_way_mode": {
+        "name": "三通模式"
+      },
+      "heating_unit_type": {
+        "name": "末端类型"
+      },
+      "return_temperature": {
+        "name": "回水温度"
+      },
+      "heating_temperature": {
+        "name": "采暖温度"
+      },
+      "heating_gap_temperature": {
+        "name": "采暖回差温度"
+      },
+      "user_mode_target_temperature": {
+        "name": "用户模式目标温度"
+      },
+      "activity_mode_target_temperature": {
+        "name": "活动模式目标温度"
+      },
+      "sleep_mode_target_temperature": {
+        "name": "睡眠模式目标温度"
+      },
+      "last_time": {
+        "name": "持续时间"
+      },
+      "flow_volume": {
+        "name": "水流量"
+      },
       "bathing_leaving_temperature": {
         "name": "淋浴出水温度"
       },

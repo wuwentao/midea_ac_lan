@@ -63,6 +63,18 @@
   },
   "entity": {
     "binary_sensor": {
+      "warm_power": {
+        "name": "Prevádzka kúrenia"
+      },
+      "cold_power": {
+        "name": "Prevádzka chladenia"
+      },
+      "sleep_power": {
+        "name": "Nočná prevádzka"
+      },
+      "pump_on": {
+        "name": "Čerpadlo zapnuté"
+      },
       "bar_door": {
         "name": "Bar Door"
       },
@@ -402,6 +414,9 @@
       }
     },
     "number": {
+      "heating_target_temperature": {
+        "name": "Cieľová teplota kúrenia"
+      },
       "dry_level": {
         "name": "Dry Level"
       },
@@ -446,6 +461,15 @@
       }
     },
     "select": {
+      "heating_mode": {
+        "name": "Režim kúrenia",
+        "state": {
+          "user": "Používateľ",
+          "activity": "Aktivita",
+          "sleep": "Spánok",
+          "unknown": "Neznáme"
+        }
+      },
       "detect_mode": {
         "name": "Detect Mode",
         "state": {
@@ -565,6 +589,36 @@
       }
     },
     "sensor": {
+      "three_way_mode": {
+        "name": "Trojcestný režim"
+      },
+      "heating_unit_type": {
+        "name": "Typ vykurovacieho telesa"
+      },
+      "return_temperature": {
+        "name": "Teplota spiatočky"
+      },
+      "heating_temperature": {
+        "name": "Teplota kúrenia"
+      },
+      "heating_gap_temperature": {
+        "name": "Teplota hysterézie kúrenia"
+      },
+      "user_mode_target_temperature": {
+        "name": "Cieľová teplota používateľského režimu"
+      },
+      "activity_mode_target_temperature": {
+        "name": "Cieľová teplota režimu aktivity"
+      },
+      "sleep_mode_target_temperature": {
+        "name": "Cieľová teplota nočného režimu"
+      },
+      "last_time": {
+        "name": "Doba prevádzky"
+      },
+      "flow_volume": {
+        "name": "Prietok"
+      },
       "bathing_leaving_temperature": {
         "name": "Bathing Leaving Water Temperature"
       },
