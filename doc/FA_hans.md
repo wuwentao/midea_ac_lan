@@ -6,6 +6,9 @@
 - 支持预设模式
 - 支持水平摆头
 - 支持垂直摆头
+- 支持加湿、水离子、负离子和驱蚊
+- 支持显示屏、自动关机和体感扫描
+- 上报湿度、目标温度和故障代码
 
 ## 自定义
 
@@ -25,14 +28,27 @@
 
 ### 额外生成实体
 
-| EntityID                             | 类型   | 名称              | 描述         |
-| ------------------------------------ | ------ | ----------------- | ------------ |
-| select.{DEVICEID}\_oscillation_mode  | select | Oscillation Mode  | 摆头模式     |
-| select.{DEVICEID}\_oscillation_angle | select | Oscillation Angle | 水平摆头角度 |
-| select.{DEVICEID}\_tilting_angle     | select | Tilting Angle     | 垂直摆头角度 |
-| lock.{DEVICEID}\_child_lock          | lock   | Child Lock        | 童锁         |
-| switch.{DEVICEID}\_oscillate         | switch | Oscillate         | 摆头开关     |
-| switch.{DEVICEID}\_power             | switch | Power             | 电源开关     |
+| EntityID                                | 类型   | 名称                 | 描述         |
+| --------------------------------------- | ------ | -------------------- | ------------ |
+| select.{DEVICEID}\_oscillation_mode     | select | Oscillation Mode     | 摆头模式     |
+| select.{DEVICEID}\_oscillation_angle    | select | Oscillation Angle    | 水平摆头角度 |
+| select.{DEVICEID}\_tilting_angle        | select | Tilting Angle        | 垂直摆头角度 |
+| lock.{DEVICEID}\_child_lock             | lock   | Child Lock           | 童锁         |
+| switch.{DEVICEID}\_oscillate            | switch | Oscillate            | 摆头开关     |
+| switch.{DEVICEID}\_power                | switch | Power                | 电源开关     |
+| switch.{DEVICEID}\_humidify             | switch | Humidify             | 加湿         |
+| switch.{DEVICEID}\_waterions            | switch | Water Ions           | 水离子       |
+| switch.{DEVICEID}\_anion                | switch | Anion                | 负离子       |
+| switch.{DEVICEID}\_anophelifuge         | switch | Anti-Mosquito        | 驱蚊         |
+| switch.{DEVICEID}\_display_on_off       | switch | Display              | 显示屏       |
+| switch.{DEVICEID}\_auto_power_off       | switch | Auto Power Off       | 自动关机     |
+| switch.{DEVICEID}\_body_feeling_scan    | switch | Body Feeling Scan    | 体感扫描     |
+| sensor.{DEVICEID}\_humidity             | sensor | Humidity             | 湿度         |
+| sensor.{DEVICEID}\_target_temperature   | sensor | Target Temperature   | 目标温度     |
+| sensor.{DEVICEID}\_humidify_feedback    | sensor | Humidity Feedback    | 湿度反馈     |
+| sensor.{DEVICEID}\_temperature_feedback | sensor | Temperature Feedback | 温度反馈     |
+| sensor.{DEVICEID}\_humidify_mode        | sensor | Humidify Mode        | 加湿模式     |
+| sensor.{DEVICEID}\_error_code           | sensor | Error Code           | 故障代码     |
 
 ## 服务
 
@@ -42,29 +58,41 @@
 
 设置设备属性, 服务数据:
 
-| 名称      | 描述                         |
-| --------- | ---------------------------- |
-| device_id | 设备的编号(Device ID)        |
-| attribute | "child_lock"<br/>"oscillate" |
-| value     | true 或 false                |
+| 名称      | 描述                                                                                                                                                         |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| device_id | 设备的编号(Device ID)                                                                                                                                        |
+| attribute | "child_lock"<br/>"oscillate"<br/>"humidify"<br/>"waterions"<br/>"anion"<br/>"anophelifuge"<br/>"display_on_off"<br/>"auto_power_off"<br/>"body_feeling_scan" |
+| value     | true 或 false                                                                                                                                                |
 
-| 名称      | 描述                                                                                        |
-| --------- | ------------------------------------------------------------------------------------------- |
-| device_id | 设备的编号(Device ID)                                                                       |
-| attribute | "oscillation_mode"                                                                          |
-| value     | "Off"<br/>"Oscillation"<br/>"Tilting"<br/>"Curve-W"<br/>"Curve-8"<br/>"Reserved"<br/>"Both" |
+| 名称      | 描述                                                                                                     |
+| --------- | -------------------------------------------------------------------------------------------------------- |
+| device_id | 设备的编号(Device ID)                                                                                    |
+| attribute | "oscillation_mode"                                                                                       |
+| value     | "off"<br/>"oscillation"<br/>"tilting"<br/>"curve_w"<br/>"curve_8"<br/>"reserved"<br/>"both"<br/>"custom" |
 
 | 名称      | 描述                                                           |
 | --------- | -------------------------------------------------------------- |
 | device_id | 设备的编号(Device ID)                                          |
 | attribute | "oscillation_angle"                                            |
-| value     | "Off"<br/>"30"<br/>"60"<br/>"90"<br/>"120"<br/>"180"<br/>"360" |
+| value     | "off"<br/>"30"<br/>"60"<br/>"90"<br/>"120"<br/>"180"<br/>"360" |
 
 | 名称      | 描述                                                                                        |
 | --------- | ------------------------------------------------------------------------------------------- |
 | device_id | 设备的编号(Device ID)                                                                       |
 | attribute | "tilting_angle"                                                                             |
-| value     | "Off"<br/>"30"<br/>"60"<br/>"90"<br/>"120"<br/>"180"<br/>"360"<br/>"+60"<br/>"-60"<br/>"40" |
+| value     | "off"<br/>"30"<br/>"60"<br/>"90"<br/>"120"<br/>"180"<br/>"360"<br/>"+60"<br/>"-60"<br/>"40" |
+
+| 名称      | 描述                  |
+| --------- | --------------------- |
+| device_id | 设备的编号(Device ID) |
+| attribute | "target_temperature"  |
+| value     | 目标温度(°C)          |
+
+| 名称      | 描述                  |
+| --------- | --------------------- |
+| device_id | 设备的编号(Device ID) |
+| attribute | "humidity"            |
+| value     | 目标湿度(% 1-100)     |
 
 示例
 
