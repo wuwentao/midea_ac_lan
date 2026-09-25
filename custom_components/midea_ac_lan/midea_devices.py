@@ -5,7 +5,6 @@ from typing import Any
 from homeassistant.components.binary_sensor import BinarySensorDeviceClass
 from homeassistant.components.number import NumberDeviceClass
 from homeassistant.components.sensor import SensorDeviceClass, SensorStateClass
-from homeassistant.helpers.entity import EntityCategory
 from homeassistant.const import (
     MAJOR_VERSION,
     MINOR_VERSION,
@@ -23,6 +22,7 @@ from homeassistant.const import (
     UnitOfVolume,
     UnitOfVolumeFlowRate,
 )
+from homeassistant.helpers.entity import EntityCategory
 
 # HA 2026.7 added UnitOfDensity/UnitOfRatio, and HA 2026.8 started deprecating
 # CONCENTRATION_MICROGRAMS_PER_CUBIC_METER / CONCENTRATION_PARTS_PER_MILLION in favor of
@@ -2061,7 +2061,8 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             # NOTE: pressure_high and pressure_low also come from upstream's
             # guarded block.
-            C3Attributes.water_flower: {  # midea-lan attribute name has an upstream typo
+            # midea-lan attribute name has an upstream typo (water_flower)
+            C3Attributes.water_flower: {
                 "type": Platform.SENSOR,
                 "translation_key": "water_flow",
                 "name": "Water Flow Rate",
@@ -2282,7 +2283,8 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Error Description",
                 "icon": "mdi:alert-circle-outline",
             },
-            C3Attributes.hmi_sn_code: {  # renamed upstream in midea-lan#81 (it's the HMI serial, not Wi-Fi module's)
+            # renamed upstream in midea-lan#81 (HMI serial, not Wi-Fi module's)
+            C3Attributes.hmi_sn_code: {
                 "type": Platform.SENSOR,
                 "translation_key": "hmi_sn_code",
                 "name": "HMI Serial",
