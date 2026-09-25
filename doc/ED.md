@@ -94,6 +94,46 @@ subtype 703. They are not offered to tea bar appliance subtype 395.
 | sensor.{DEVICEID}\_water_consumption_average | sensor | Water Consumption Average (L)                              |
 | sensor.{DEVICEID}\_error                     | sensor | Error (enum: 0=none, 1=E1 position, 230=E6 salt sensor...) |
 
+#### Water-purifier entities (FF body)
+
+The entities below are reported by water purifiers that answer with the FF
+status body. They are extra (opt-in) entities and are only populated on models
+that report the matching records.
+
+##### Sensors
+
+| EntityID                               | Class  | Description                           |
+| -------------------------------------- | ------ | ------------------------------------- |
+| sensor.{DEVICEID}\_filter4_life        | sensor | Filter4 Life Level (%)                |
+| sensor.{DEVICEID}\_filter5_life        | sensor | Filter5 Life Level (%)                |
+| sensor.{DEVICEID}\_filter1_maxlife     | sensor | Filter1 lifetime limit (months)       |
+| sensor.{DEVICEID}\_filter2_maxlife     | sensor | Filter2 lifetime limit (months)       |
+| sensor.{DEVICEID}\_filter3_maxlife     | sensor | Filter3 lifetime limit (months)       |
+| sensor.{DEVICEID}\_filter4_maxlife     | sensor | Filter4 lifetime limit (months)       |
+| sensor.{DEVICEID}\_filter5_maxlife     | sensor | Filter5 lifetime limit (months)       |
+| sensor.{DEVICEID}\_hot_pot_temperature | sensor | Hot pot / hot water temperature (°C)  |
+| sensor.{DEVICEID}\_ice_gall_status     | sensor | Ice gall status byte (vendor-defined) |
+| sensor.{DEVICEID}\_water_kind          | sensor | Water kind (enum: idle, warm, cold)   |
+| sensor.{DEVICEID}\_heat_start          | sensor | Heat start (enum: heating, keep_warm) |
+
+##### Binary sensors
+
+| EntityID                                 | Class         | Description                          |
+| ---------------------------------------- | ------------- | ------------------------------------ |
+| binary_sensor.{DEVICEID}\_filter_status  | binary_sensor | Filter alarm (a filter needs action) |
+| binary_sensor.{DEVICEID}\_standby_status | binary_sensor | Appliance is in standby              |
+| binary_sensor.{DEVICEID}\_out_water      | binary_sensor | Water is being dispensed             |
+| binary_sensor.{DEVICEID}\_out_hot_water  | binary_sensor | Hot water is being dispensed         |
+| binary_sensor.{DEVICEID}\_backflow       | binary_sensor | Backflow is active                   |
+| binary_sensor.{DEVICEID}\_sleep_status   | binary_sensor | Appliance is in sleep mode           |
+
+##### Switches
+
+| EntityID                      | Class  | Description                                      |
+| ----------------------------- | ------ | ------------------------------------------------ |
+| switch.{DEVICEID}\_wash       | switch | Start a filter wash cycle (fixed 60 s duration). |
+| switch.{DEVICEID}\_antifreeze | switch | Toggle antifreeze protection.                    |
+
 ## Service
 
 No services.

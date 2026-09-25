@@ -363,6 +363,24 @@
       },
       "water_pump_running": {
         "name": "Pompe à eau en marche"
+      },
+      "filter_status": {
+        "name": "Alarme filtre"
+      },
+      "standby_status": {
+        "name": "État de veille"
+      },
+      "out_water": {
+        "name": "Sortie d'eau"
+      },
+      "out_hot_water": {
+        "name": "Sortie d'eau chaude"
+      },
+      "backflow": {
+        "name": "Reflux"
+      },
+      "sleep_status": {
+        "name": "État de veille prolongée"
       }
     },
     "button": {
@@ -1253,6 +1271,48 @@
       },
       "velocity": {
         "name": "Vitesse"
+      },
+      "filter4_life": {
+        "name": "Durée de vie du filtre 4"
+      },
+      "filter5_life": {
+        "name": "Durée de vie du filtre 5"
+      },
+      "filter1_maxlife": {
+        "name": "Limite de vie du filtre 1"
+      },
+      "filter2_maxlife": {
+        "name": "Limite de vie du filtre 2"
+      },
+      "filter3_maxlife": {
+        "name": "Limite de vie du filtre 3"
+      },
+      "filter4_maxlife": {
+        "name": "Limite de vie du filtre 4"
+      },
+      "filter5_maxlife": {
+        "name": "Limite de vie du filtre 5"
+      },
+      "hot_pot_temperature": {
+        "name": "Température d'eau chaude"
+      },
+      "ice_gall_status": {
+        "name": "État du réservoir à glace"
+      },
+      "water_kind": {
+        "name": "Type d'eau",
+        "state": {
+          "idle": "Inactif",
+          "warm": "Tiède",
+          "cold": "Froide"
+        }
+      },
+      "heat_start": {
+        "name": "Démarrage du chauffage",
+        "state": {
+          "heating": "Chauffage",
+          "keep_warm": "Maintien au chaud"
+        }
       }
     },
     "switch": {
@@ -1480,6 +1540,12 @@
       },
       "screen_off": {
         "name": "Écran éteint"
+      },
+      "wash": {
+        "name": "Lavage du filtre"
+      },
+      "antifreeze": {
+        "name": "Antigel"
       }
     },
     "water_heater": {

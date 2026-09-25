@@ -363,6 +363,24 @@
       },
       "water_pump_running": {
         "name": "Bomba de agua en funcionamiento"
+      },
+      "filter_status": {
+        "name": "Alarma de filtro"
+      },
+      "standby_status": {
+        "name": "Estado de espera"
+      },
+      "out_water": {
+        "name": "Salida de agua"
+      },
+      "out_hot_water": {
+        "name": "Salida de agua caliente"
+      },
+      "backflow": {
+        "name": "Reflujo"
+      },
+      "sleep_status": {
+        "name": "Estado de reposo"
       }
     },
     "button": {
@@ -1253,6 +1271,48 @@
       },
       "velocity": {
         "name": "Velocidad"
+      },
+      "filter4_life": {
+        "name": "Vida del filtro 4"
+      },
+      "filter5_life": {
+        "name": "Vida del filtro 5"
+      },
+      "filter1_maxlife": {
+        "name": "Límite de vida del filtro 1"
+      },
+      "filter2_maxlife": {
+        "name": "Límite de vida del filtro 2"
+      },
+      "filter3_maxlife": {
+        "name": "Límite de vida del filtro 3"
+      },
+      "filter4_maxlife": {
+        "name": "Límite de vida del filtro 4"
+      },
+      "filter5_maxlife": {
+        "name": "Límite de vida del filtro 5"
+      },
+      "hot_pot_temperature": {
+        "name": "Temperatura de agua caliente"
+      },
+      "ice_gall_status": {
+        "name": "Estado del depósito de hielo"
+      },
+      "water_kind": {
+        "name": "Tipo de agua",
+        "state": {
+          "idle": "Inactivo",
+          "warm": "Templada",
+          "cold": "Fría"
+        }
+      },
+      "heat_start": {
+        "name": "Inicio de calentamiento",
+        "state": {
+          "heating": "Calentando",
+          "keep_warm": "Manteniendo caliente"
+        }
       }
     },
     "switch": {
@@ -1483,6 +1543,12 @@
       },
       "screen_off": {
         "name": "Pantalla apagada"
+      },
+      "wash": {
+        "name": "Lavado de filtro"
+      },
+      "antifreeze": {
+        "name": "Anticongelante"
       }
     },
     "water_heater": {

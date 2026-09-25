@@ -363,6 +363,24 @@
       },
       "water_pump_running": {
         "name": "Работа водяного насоса"
+      },
+      "filter_status": {
+        "name": "Тревога фильтра"
+      },
+      "standby_status": {
+        "name": "Состояние ожидания"
+      },
+      "out_water": {
+        "name": "Подача воды"
+      },
+      "out_hot_water": {
+        "name": "Подача горячей воды"
+      },
+      "backflow": {
+        "name": "Обратный поток"
+      },
+      "sleep_status": {
+        "name": "Спящий режим"
       }
     },
     "button": {
@@ -1253,6 +1271,48 @@
       },
       "velocity": {
         "name": "Скорость"
+      },
+      "filter4_life": {
+        "name": "Ресурс фильтра 4"
+      },
+      "filter5_life": {
+        "name": "Ресурс фильтра 5"
+      },
+      "filter1_maxlife": {
+        "name": "Предел ресурса фильтра 1"
+      },
+      "filter2_maxlife": {
+        "name": "Предел ресурса фильтра 2"
+      },
+      "filter3_maxlife": {
+        "name": "Предел ресурса фильтра 3"
+      },
+      "filter4_maxlife": {
+        "name": "Предел ресурса фильтра 4"
+      },
+      "filter5_maxlife": {
+        "name": "Предел ресурса фильтра 5"
+      },
+      "hot_pot_temperature": {
+        "name": "Температура горячей воды"
+      },
+      "ice_gall_status": {
+        "name": "Состояние резервуара для льда"
+      },
+      "water_kind": {
+        "name": "Тип воды",
+        "state": {
+          "idle": "Простой",
+          "warm": "Тёплая",
+          "cold": "Холодная"
+        }
+      },
+      "heat_start": {
+        "name": "Запуск нагрева",
+        "state": {
+          "heating": "Нагрев",
+          "keep_warm": "Поддержание тепла"
+        }
       }
     },
     "switch": {
@@ -1480,6 +1540,12 @@
       },
       "screen_off": {
         "name": "Выключение экрана"
+      },
+      "wash": {
+        "name": "Промывка фильтра"
+      },
+      "antifreeze": {
+        "name": "Защита от замерзания"
       }
     },
     "water_heater": {

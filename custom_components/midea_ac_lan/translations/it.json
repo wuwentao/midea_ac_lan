@@ -326,6 +326,24 @@
       },
       "water_pump_running": {
         "name": "Pompa Acqua in Funzione"
+      },
+      "filter_status": {
+        "name": "Allarme filtro"
+      },
+      "standby_status": {
+        "name": "Stato di standby"
+      },
+      "out_water": {
+        "name": "Erogazione acqua"
+      },
+      "out_hot_water": {
+        "name": "Erogazione acqua calda"
+      },
+      "backflow": {
+        "name": "Riflusso"
+      },
+      "sleep_status": {
+        "name": "Stato di sospensione"
       }
     },
     "button": {
@@ -1191,6 +1209,48 @@
       },
       "velocity": {
         "name": "Velocità"
+      },
+      "filter4_life": {
+        "name": "Durata filtro 4"
+      },
+      "filter5_life": {
+        "name": "Durata filtro 5"
+      },
+      "filter1_maxlife": {
+        "name": "Limite durata filtro 1"
+      },
+      "filter2_maxlife": {
+        "name": "Limite durata filtro 2"
+      },
+      "filter3_maxlife": {
+        "name": "Limite durata filtro 3"
+      },
+      "filter4_maxlife": {
+        "name": "Limite durata filtro 4"
+      },
+      "filter5_maxlife": {
+        "name": "Limite durata filtro 5"
+      },
+      "hot_pot_temperature": {
+        "name": "Temperatura acqua calda"
+      },
+      "ice_gall_status": {
+        "name": "Stato serbatoio ghiaccio"
+      },
+      "water_kind": {
+        "name": "Tipo di acqua",
+        "state": {
+          "idle": "Inattivo",
+          "warm": "Tiepida",
+          "cold": "Fredda"
+        }
+      },
+      "heat_start": {
+        "name": "Avvio riscaldamento",
+        "state": {
+          "heating": "Riscaldamento",
+          "keep_warm": "Mantenimento in caldo"
+        }
       }
     },
     "switch": {
@@ -1416,6 +1476,12 @@
       },
       "screen_off": {
         "name": "Spegnimento schermo"
+      },
+      "wash": {
+        "name": "Lavaggio filtro"
+      },
+      "antifreeze": {
+        "name": "Antigelo"
       }
     },
     "water_heater": {

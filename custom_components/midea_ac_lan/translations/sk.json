@@ -363,6 +363,24 @@
       },
       "water_pump_running": {
         "name": "Vodné čerpadlo beží"
+      },
+      "filter_status": {
+        "name": "Alarm filtra"
+      },
+      "standby_status": {
+        "name": "Pohotovostný stav"
+      },
+      "out_water": {
+        "name": "Výdaj vody"
+      },
+      "out_hot_water": {
+        "name": "Výdaj horúcej vody"
+      },
+      "backflow": {
+        "name": "Spätný tok"
+      },
+      "sleep_status": {
+        "name": "Režim spánku"
       }
     },
     "button": {
@@ -1253,6 +1271,48 @@
       },
       "velocity": {
         "name": "Rýchlosť"
+      },
+      "filter4_life": {
+        "name": "Životnosť filtra 4"
+      },
+      "filter5_life": {
+        "name": "Životnosť filtra 5"
+      },
+      "filter1_maxlife": {
+        "name": "Limit životnosti filtra 1"
+      },
+      "filter2_maxlife": {
+        "name": "Limit životnosti filtra 2"
+      },
+      "filter3_maxlife": {
+        "name": "Limit životnosti filtra 3"
+      },
+      "filter4_maxlife": {
+        "name": "Limit životnosti filtra 4"
+      },
+      "filter5_maxlife": {
+        "name": "Limit životnosti filtra 5"
+      },
+      "hot_pot_temperature": {
+        "name": "Teplota horúcej vody"
+      },
+      "ice_gall_status": {
+        "name": "Stav zásobníka ľadu"
+      },
+      "water_kind": {
+        "name": "Druh vody",
+        "state": {
+          "idle": "Nečinné",
+          "warm": "Teplá",
+          "cold": "Studená"
+        }
+      },
+      "heat_start": {
+        "name": "Spustenie ohrevu",
+        "state": {
+          "heating": "Ohrev",
+          "keep_warm": "Udržiavanie teploty"
+        }
       }
     },
     "switch": {
@@ -1483,6 +1543,12 @@
       },
       "screen_off": {
         "name": "Vypnutie obrazovky"
+      },
+      "wash": {
+        "name": "Preplach filtra"
+      },
+      "antifreeze": {
+        "name": "Ochrana proti zamrznutiu"
       }
     },
     "water_heater": {

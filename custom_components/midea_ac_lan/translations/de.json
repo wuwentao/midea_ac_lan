@@ -363,6 +363,24 @@
       },
       "water_pump_running": {
         "name": "Wasserpumpe läuft"
+      },
+      "filter_status": {
+        "name": "Filteralarm"
+      },
+      "standby_status": {
+        "name": "Standby-Status"
+      },
+      "out_water": {
+        "name": "Wasserausgabe"
+      },
+      "out_hot_water": {
+        "name": "Heißwasserausgabe"
+      },
+      "backflow": {
+        "name": "Rückfluss"
+      },
+      "sleep_status": {
+        "name": "Schlafstatus"
       }
     },
     "button": {
@@ -1253,6 +1271,48 @@
       },
       "velocity": {
         "name": "Durchflussgeschwindigkeit"
+      },
+      "filter4_life": {
+        "name": "Filter4 Lebensdauer"
+      },
+      "filter5_life": {
+        "name": "Filter5 Lebensdauer"
+      },
+      "filter1_maxlife": {
+        "name": "Filter1 Lebensdauergrenze"
+      },
+      "filter2_maxlife": {
+        "name": "Filter2 Lebensdauergrenze"
+      },
+      "filter3_maxlife": {
+        "name": "Filter3 Lebensdauergrenze"
+      },
+      "filter4_maxlife": {
+        "name": "Filter4 Lebensdauergrenze"
+      },
+      "filter5_maxlife": {
+        "name": "Filter5 Lebensdauergrenze"
+      },
+      "hot_pot_temperature": {
+        "name": "Heißwassertopf-Temperatur"
+      },
+      "ice_gall_status": {
+        "name": "Eisbehälterstatus"
+      },
+      "water_kind": {
+        "name": "Wasserart",
+        "state": {
+          "idle": "Leerlauf",
+          "warm": "Warm",
+          "cold": "Kalt"
+        }
+      },
+      "heat_start": {
+        "name": "Heizstart",
+        "state": {
+          "heating": "Heizen",
+          "keep_warm": "Warmhalten"
+        }
       }
     },
     "switch": {
@@ -1483,6 +1543,12 @@
       },
       "screen_off": {
         "name": "Bildschirm aus"
+      },
+      "wash": {
+        "name": "Filterspülung"
+      },
+      "antifreeze": {
+        "name": "Frostschutz"
       }
     },
     "water_heater": {

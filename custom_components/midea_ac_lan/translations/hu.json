@@ -363,6 +363,24 @@
       },
       "water_pump_running": {
         "name": "Vízszivattyú működik"
+      },
+      "filter_status": {
+        "name": "Szűrő riasztás"
+      },
+      "standby_status": {
+        "name": "Készenléti állapot"
+      },
+      "out_water": {
+        "name": "Vízkiadás"
+      },
+      "out_hot_water": {
+        "name": "Melegvíz-kiadás"
+      },
+      "backflow": {
+        "name": "Visszafolyás"
+      },
+      "sleep_status": {
+        "name": "Alvó állapot"
       }
     },
     "button": {
@@ -1253,6 +1271,48 @@
       },
       "velocity": {
         "name": "Sebesség"
+      },
+      "filter4_life": {
+        "name": "4. szűrő élettartama"
+      },
+      "filter5_life": {
+        "name": "5. szűrő élettartama"
+      },
+      "filter1_maxlife": {
+        "name": "1. szűrő élettartam-korlát"
+      },
+      "filter2_maxlife": {
+        "name": "2. szűrő élettartam-korlát"
+      },
+      "filter3_maxlife": {
+        "name": "3. szűrő élettartam-korlát"
+      },
+      "filter4_maxlife": {
+        "name": "4. szűrő élettartam-korlát"
+      },
+      "filter5_maxlife": {
+        "name": "5. szűrő élettartam-korlát"
+      },
+      "hot_pot_temperature": {
+        "name": "Forróvíz hőmérséklet"
+      },
+      "ice_gall_status": {
+        "name": "Jégtartály állapota"
+      },
+      "water_kind": {
+        "name": "Víz típusa",
+        "state": {
+          "idle": "Tétlen",
+          "warm": "Meleg",
+          "cold": "Hideg"
+        }
+      },
+      "heat_start": {
+        "name": "Fűtés indítás",
+        "state": {
+          "heating": "Fűtés",
+          "keep_warm": "Melegen tartás"
+        }
       }
     },
     "switch": {
@@ -1480,6 +1540,12 @@
       },
       "screen_off": {
         "name": "Kijelző kikapcsolása"
+      },
+      "wash": {
+        "name": "Szűrő mosás"
+      },
+      "antifreeze": {
+        "name": "Fagyvédelem"
       }
     },
     "water_heater": {

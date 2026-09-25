@@ -368,6 +368,24 @@
       },
       "water_pump_running": {
         "name": "水泵运行"
+      },
+      "filter_status": {
+        "name": "滤芯报警"
+      },
+      "standby_status": {
+        "name": "待机状态"
+      },
+      "out_water": {
+        "name": "出水"
+      },
+      "out_hot_water": {
+        "name": "出热水"
+      },
+      "backflow": {
+        "name": "回流"
+      },
+      "sleep_status": {
+        "name": "睡眠状态"
       }
     },
     "button": {
@@ -1257,6 +1275,48 @@
       },
       "velocity": {
         "name": "流速"
+      },
+      "filter4_life": {
+        "name": "滤芯4寿命"
+      },
+      "filter5_life": {
+        "name": "滤芯5寿命"
+      },
+      "filter1_maxlife": {
+        "name": "滤芯1寿命上限"
+      },
+      "filter2_maxlife": {
+        "name": "滤芯2寿命上限"
+      },
+      "filter3_maxlife": {
+        "name": "滤芯3寿命上限"
+      },
+      "filter4_maxlife": {
+        "name": "滤芯4寿命上限"
+      },
+      "filter5_maxlife": {
+        "name": "滤芯5寿命上限"
+      },
+      "hot_pot_temperature": {
+        "name": "热罐温度"
+      },
+      "ice_gall_status": {
+        "name": "制冰仓状态"
+      },
+      "water_kind": {
+        "name": "出水类型",
+        "state": {
+          "idle": "空闲",
+          "warm": "温水",
+          "cold": "冷水"
+        }
+      },
+      "heat_start": {
+        "name": "加热启动",
+        "state": {
+          "heating": "加热中",
+          "keep_warm": "保温中"
+        }
       }
     },
     "switch": {
@@ -1487,6 +1547,12 @@
       },
       "screen_off": {
         "name": "熄屏"
+      },
+      "wash": {
+        "name": "滤芯冲洗"
+      },
+      "antifreeze": {
+        "name": "防冻"
       }
     },
     "water_heater": {
