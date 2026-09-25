@@ -90,7 +90,6 @@ ED_SOFT_WATER_SUBTYPES = [703]
 BF_WORK_MODES = list(BF_WORK_MODE_MAP)
 BF_FIRE_POWERS = list(BFFirePower.__members__)
 BF_TEMPERATURES = list(range(251))
-
 # C3 outdoor-unit telemetry attributes. Referenced by string so the entity
 # table still imports on a midea-lan release that predates the parser support;
 # the matching sensors carry a required_attribute guard and are skipped there.
@@ -1302,6 +1301,227 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Fan level",
                 "icon": "mdi:fan",
                 "state_class": SensorStateClass.MEASUREMENT,
+            },
+        },
+    },
+    0xB8: {
+        "name": "Robot Vacuum",
+        "entities": {
+            "work_status": {
+                "type": Platform.SENSOR,
+                "name": "Work Status",
+                "icon": "mdi:robot-vacuum",
+            },
+            "function_type": {
+                "type": Platform.SENSOR,
+                "name": "Function Type",
+                "icon": "mdi:function",
+            },
+            "control_type": {
+                "type": Platform.SENSOR,
+                "name": "Control Type",
+                "icon": "mdi:remote",
+            },
+            "area": {
+                "type": Platform.SENSOR,
+                "name": "Cleaned Area",
+                "icon": "mdi:floor-plan",
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            "battery_percent": {
+                "type": Platform.SENSOR,
+                "name": "Battery",
+                "device_class": SensorDeviceClass.BATTERY,
+                "unit": PERCENTAGE,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            "work_time": {
+                "type": Platform.SENSOR,
+                "name": "Work Time",
+                "icon": "mdi:timer-outline",
+                "unit": UnitOfTime.MINUTES,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            "mop": {
+                "type": Platform.SENSOR,
+                "name": "Mop State",
+                "icon": "mdi:water",
+            },
+            "speed": {
+                "type": Platform.SENSOR,
+                "name": "Speed",
+                "icon": "mdi:speedometer",
+            },
+            "error_type": {
+                "type": Platform.SENSOR,
+                "name": "Error Type",
+                "icon": "mdi:alert-circle",
+            },
+            "error_desc": {
+                "type": Platform.SENSOR,
+                "name": "Error Description",
+                "icon": "mdi:alert",
+            },
+            "disturb_start_time": {
+                "type": Platform.SENSOR,
+                "name": "Do Not Disturb Start Time",
+                "icon": "mdi:weather-night",
+                "required_attribute": "disturb_start_time",
+            },
+            "disturb_end_time": {
+                "type": Platform.SENSOR,
+                "name": "Do Not Disturb End Time",
+                "icon": "mdi:weather-sunny",
+                "required_attribute": "disturb_end_time",
+            },
+            "side_brush_rest_time": {
+                "type": Platform.SENSOR,
+                "name": "Side Brush Remaining Time",
+                "icon": "mdi:broom",
+                "state_class": SensorStateClass.MEASUREMENT,
+                "required_attribute": "side_brush_rest_time",
+            },
+            "side_brush_life_time": {
+                "type": Platform.SENSOR,
+                "name": "Side Brush Life Time",
+                "icon": "mdi:broom",
+                "state_class": SensorStateClass.MEASUREMENT,
+                "required_attribute": "side_brush_life_time",
+            },
+            "filter_net_rest_time": {
+                "type": Platform.SENSOR,
+                "name": "Filter Remaining Time",
+                "icon": "mdi:air-filter",
+                "state_class": SensorStateClass.MEASUREMENT,
+                "required_attribute": "filter_net_rest_time",
+            },
+            "filter_net_life_time": {
+                "type": Platform.SENSOR,
+                "name": "Filter Life Time",
+                "icon": "mdi:air-filter",
+                "state_class": SensorStateClass.MEASUREMENT,
+                "required_attribute": "filter_net_life_time",
+            },
+            "roll_brush_rest_time": {
+                "type": Platform.SENSOR,
+                "name": "Roll Brush Remaining Time",
+                "icon": "mdi:brush",
+                "state_class": SensorStateClass.MEASUREMENT,
+                "required_attribute": "roll_brush_rest_time",
+            },
+            "roll_brush_life_time": {
+                "type": Platform.SENSOR,
+                "name": "Roll Brush Life Time",
+                "icon": "mdi:brush",
+                "state_class": SensorStateClass.MEASUREMENT,
+                "required_attribute": "roll_brush_life_time",
+            },
+            "have_reserve_task": {
+                "type": Platform.BINARY_SENSOR,
+                "name": "Reserve Task",
+                "icon": "mdi:calendar-clock",
+            },
+            "uv_switch": {
+                "type": Platform.BINARY_SENSOR,
+                "name": "UV Light",
+                "icon": "mdi:lightbulb-on-outline",
+            },
+            "wifi_switch": {
+                "type": Platform.BINARY_SENSOR,
+                "name": "Wi-Fi Light",
+                "icon": "mdi:wifi",
+            },
+            "voice_switch": {
+                "type": Platform.BINARY_SENSOR,
+                "name": "Voice Prompt",
+                "icon": "mdi:volume-high",
+            },
+            "command_source": {
+                "type": Platform.BINARY_SENSOR,
+                "name": "Command Source",
+                "icon": "mdi:flash",
+            },
+            "device_error": {
+                "type": Platform.BINARY_SENSOR,
+                "name": "Device Error",
+                "icon": "mdi:alert-circle",
+                "device_class": BinarySensorDeviceClass.PROBLEM,
+            },
+            "carpet_switch": {
+                "type": Platform.BINARY_SENSOR,
+                "name": "Carpet Detection",
+                "icon": "mdi:rug",
+            },
+            "board_communication_error": {
+                "type": Platform.BINARY_SENSOR,
+                "name": "Board Communication Error",
+                "icon": "mdi:alert-circle",
+                "device_class": BinarySensorDeviceClass.PROBLEM,
+            },
+            "laser_sensor_shelter": {
+                "type": Platform.BINARY_SENSOR,
+                "name": "Laser Sensor Shelter",
+                "icon": "mdi:alert-circle",
+                "device_class": BinarySensorDeviceClass.PROBLEM,
+            },
+            "laser_sensor_error": {
+                "type": Platform.BINARY_SENSOR,
+                "name": "Laser Sensor Error",
+                "icon": "mdi:alert-circle",
+                "device_class": BinarySensorDeviceClass.PROBLEM,
+            },
+            "disturb_switch": {
+                "type": Platform.BINARY_SENSOR,
+                "name": "Do Not Disturb",
+                "icon": "mdi:minus-circle",
+                "required_attribute": "disturb_switch",
+            },
+            "clean_mode": {
+                "type": Platform.SELECT,
+                "name": "Clean Mode",
+                "options": "clean_modes",
+                "icon": "mdi:robot-vacuum",
+            },
+            "fan_level": {
+                "type": Platform.SELECT,
+                "name": "Fan Level",
+                "options": "fan_levels",
+                "icon": "mdi:fan",
+            },
+            "water_level": {
+                "type": Platform.SELECT,
+                "name": "Water Level",
+                "options": "water_levels",
+                "icon": "mdi:water",
+            },
+            "speak_level": {
+                "type": Platform.SELECT,
+                "name": "Speak Level",
+                "options": "speak_levels",
+                "icon": "mdi:volume-high",
+                "required_attribute": "speak_level",
+            },
+            "move_direction": {
+                "type": Platform.SELECT,
+                "name": "Move Direction",
+                "options": "move_directions",
+                "icon": "mdi:arrow-decision",
+            },
+            "work_status_control": {
+                "type": Platform.SELECT,
+                "name": "Work Status Control",
+                "attribute": "work_status",
+                "options": "work_status_controls",
+                "icon": "mdi:robot-vacuum",
+            },
+            "voice_volume": {
+                "type": Platform.NUMBER,
+                "name": "Voice Volume",
+                "icon": "mdi:volume-high",
+                "min": 0,
+                "max": 100,
+                "step": 1,
+                "unit": PERCENTAGE,
             },
         },
     },
