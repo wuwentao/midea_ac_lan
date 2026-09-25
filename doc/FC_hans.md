@@ -51,25 +51,25 @@
 | --------- | --------------------------------- |
 | device_id | 设备的编号(Device ID)             |
 | attribute | "detect_mode"                     |
-| value     | "Off"<br/>"PM 2.5"<br/>"Methanal" |
+| value     | "off"<br/>"pm_2_5"<br/>"methanal" |
 
 | 名称      | 描述                                                   |
 | --------- | ------------------------------------------------------ |
 | device_id | 设备的编号(Device ID)                                  |
 | attribute | "mode"                                                 |
-| value     | "Auto"<br/>"Manual"<br/>"Sleep"<br/>"Fast"<br/>"Smoke" |
+| value     | "auto"<br/>"manual"<br/>"sleep"<br/>"fast"<br/>"smoke" |
 
 | 名称      | 描述                                     |
 | --------- | ---------------------------------------- |
 | device_id | 设备的编号(Device ID)                    |
 | attribute | "fan_speed"                              |
-| value     | "Auto"<br/>"Low"<br/>"Medium"<br/>"High" |
+| value     | "auto"<br/>"low"<br/>"medium"<br/>"high" |
 
 | 名称      | 描述                         |
 | --------- | ---------------------------- |
 | device_id | 设备的编号(Device ID)        |
 | attribute | "screen_display"             |
-| value     | "Bright"<br/>"Dim"<br/>"Off" |
+| value     | "bright"<br/>"dim"<br/>"off" |
 
 示例
 
@@ -86,5 +86,5 @@ service: midea_ac_lan.set_attribute
 data:
   device_id: XXXXXXXXXXXX
   attribute: fan_speed
-  value: Auto
+  value: auto
 ```

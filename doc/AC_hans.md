@@ -171,6 +171,7 @@
 | switch.{DEVICEID}\_boost_mode                  | switch        | Boost Mode                       | 强劲模式          |
 | switch.{DEVICEID}\_breezeless                  | switch        | Breezeless                       | 无风感            |
 | switch.{DEVICEID}\_comfort_mode                | switch        | Comfort Mode                     | 舒省模式          |
+| switch.{DEVICEID}\_degerming                   | switch        | Degerming                        | 除菌              |
 | switch.{DEVICEID}\_dry                         | switch        | Dry                              | 干燥              |
 | switch.{DEVICEID}\_eco_mode                    | switch        | ECO Mode                         | ECO模式           |
 | switch.{DEVICEID}\_ieco                        | switch        | iECO                             | iECO 节能         |
