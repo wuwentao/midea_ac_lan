@@ -63,6 +63,18 @@
   },
   "entity": {
     "binary_sensor": {
+      "warm_power": {
+        "name": "Fűtés üzem"
+      },
+      "cold_power": {
+        "name": "Hűtés üzem"
+      },
+      "sleep_power": {
+        "name": "Alvó üzem"
+      },
+      "pump_on": {
+        "name": "Szivattyú be"
+      },
       "bar_door": {
         "name": "Bar Door"
       },
@@ -402,6 +414,9 @@
       }
     },
     "number": {
+      "heating_target_temperature": {
+        "name": "Fűtés célhőmérséklet"
+      },
       "dry_level": {
         "name": "Dry Level"
       },
@@ -446,6 +461,15 @@
       }
     },
     "select": {
+      "heating_mode": {
+        "name": "Fűtési mód",
+        "state": {
+          "user": "Felhasználó",
+          "activity": "Aktivitás",
+          "sleep": "Alvás",
+          "unknown": "Ismeretlen"
+        }
+      },
       "detect_mode": {
         "name": "Detect Mode",
         "state": {
@@ -565,6 +589,36 @@
       }
     },
     "sensor": {
+      "three_way_mode": {
+        "name": "Háromjáratú mód"
+      },
+      "heating_unit_type": {
+        "name": "Fűtőegység típusa"
+      },
+      "return_temperature": {
+        "name": "Visszatérő hőmérséklet"
+      },
+      "heating_temperature": {
+        "name": "Fűtési hőmérséklet"
+      },
+      "heating_gap_temperature": {
+        "name": "Fűtési hiszterézis hőmérséklet"
+      },
+      "user_mode_target_temperature": {
+        "name": "Felhasználói mód célhőmérséklet"
+      },
+      "activity_mode_target_temperature": {
+        "name": "Aktivitás mód célhőmérséklet"
+      },
+      "sleep_mode_target_temperature": {
+        "name": "Alvó mód célhőmérséklet"
+      },
+      "last_time": {
+        "name": "Üzemidő"
+      },
+      "flow_volume": {
+        "name": "Térfogatáram"
+      },
       "bathing_leaving_temperature": {
         "name": "Bathing Leaving Water Temperature"
       },

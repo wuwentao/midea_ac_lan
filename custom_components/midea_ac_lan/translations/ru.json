@@ -63,6 +63,18 @@
   },
   "entity": {
     "binary_sensor": {
+      "warm_power": {
+        "name": "Режим обогрева"
+      },
+      "cold_power": {
+        "name": "Режим охлаждения"
+      },
+      "sleep_power": {
+        "name": "Ночной режим"
+      },
+      "pump_on": {
+        "name": "Насос включен"
+      },
       "bar_door": {
         "name": "Bar Door"
       },
@@ -402,6 +414,9 @@
       }
     },
     "number": {
+      "heating_target_temperature": {
+        "name": "Целевая температура отопления"
+      },
       "dry_level": {
         "name": "Dry Level"
       },
@@ -446,6 +461,15 @@
       }
     },
     "select": {
+      "heating_mode": {
+        "name": "Режим отопления",
+        "state": {
+          "user": "Пользовательский",
+          "activity": "Активность",
+          "sleep": "Сон",
+          "unknown": "Неизвестно"
+        }
+      },
       "detect_mode": {
         "name": "Detect Mode",
         "state": {
@@ -565,6 +589,36 @@
       }
     },
     "sensor": {
+      "three_way_mode": {
+        "name": "Трёхходовой режим"
+      },
+      "heating_unit_type": {
+        "name": "Тип отопительного прибора"
+      },
+      "return_temperature": {
+        "name": "Температура обратной линии"
+      },
+      "heating_temperature": {
+        "name": "Температура отопления"
+      },
+      "heating_gap_temperature": {
+        "name": "Температура гистерезиса отопления"
+      },
+      "user_mode_target_temperature": {
+        "name": "Целевая температура пользовательского режима"
+      },
+      "activity_mode_target_temperature": {
+        "name": "Целевая температура режима активности"
+      },
+      "sleep_mode_target_temperature": {
+        "name": "Целевая температура ночного режима"
+      },
+      "last_time": {
+        "name": "Время работы"
+      },
+      "flow_volume": {
+        "name": "Расход"
+      },
       "bathing_leaving_temperature": {
         "name": "Bathing Leaving Water Temperature"
       },

@@ -63,6 +63,18 @@
   },
   "entity": {
     "binary_sensor": {
+      "warm_power": {
+        "name": "Funzionamento riscaldamento"
+      },
+      "cold_power": {
+        "name": "Funzionamento raffreddamento"
+      },
+      "sleep_power": {
+        "name": "Funzionamento notturno"
+      },
+      "pump_on": {
+        "name": "Pompa accesa"
+      },
       "bar_door": {
         "name": "Porta Bar"
       },
@@ -365,6 +377,9 @@
       }
     },
     "number": {
+      "heating_target_temperature": {
+        "name": "Temperatura target riscaldamento"
+      },
       "dry_level": {
         "name": "Livello Asciugatura"
       },
@@ -403,6 +418,15 @@
       }
     },
     "select": {
+      "heating_mode": {
+        "name": "Modalità riscaldamento",
+        "state": {
+          "user": "Utente",
+          "activity": "Attività",
+          "sleep": "Notte",
+          "unknown": "Sconosciuto"
+        }
+      },
       "detect_mode": {
         "name": "Modalità Rilevamento",
         "state": {
@@ -522,6 +546,36 @@
       }
     },
     "sensor": {
+      "three_way_mode": {
+        "name": "Modalità a tre vie"
+      },
+      "heating_unit_type": {
+        "name": "Tipo di unità di riscaldamento"
+      },
+      "return_temperature": {
+        "name": "Temperatura di ritorno"
+      },
+      "heating_temperature": {
+        "name": "Temperatura di riscaldamento"
+      },
+      "heating_gap_temperature": {
+        "name": "Temperatura di isteresi riscaldamento"
+      },
+      "user_mode_target_temperature": {
+        "name": "Temperatura target modalità utente"
+      },
+      "activity_mode_target_temperature": {
+        "name": "Temperatura target modalità attività"
+      },
+      "sleep_mode_target_temperature": {
+        "name": "Temperatura target modalità notte"
+      },
+      "last_time": {
+        "name": "Tempo di funzionamento"
+      },
+      "flow_volume": {
+        "name": "Portata"
+      },
       "bathing_leaving_temperature": {
         "name": "Temperatura Acqua in Uscita Bagno"
       },

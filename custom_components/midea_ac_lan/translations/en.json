@@ -63,6 +63,18 @@
   },
   "entity": {
     "binary_sensor": {
+      "warm_power": {
+        "name": "Warm Power"
+      },
+      "cold_power": {
+        "name": "Cold Power"
+      },
+      "sleep_power": {
+        "name": "Sleep Power"
+      },
+      "pump_on": {
+        "name": "Pump On"
+      },
       "bar_door": {
         "name": "Bar Door"
       },
@@ -369,6 +381,9 @@
       }
     },
     "number": {
+      "heating_target_temperature": {
+        "name": "Heating Target Temperature"
+      },
       "dry_level": {
         "name": "Dry Level"
       },
@@ -407,6 +422,15 @@
       }
     },
     "select": {
+      "heating_mode": {
+        "name": "Heating Mode",
+        "state": {
+          "user": "User",
+          "activity": "Activity",
+          "sleep": "Sleep",
+          "unknown": "Unknown"
+        }
+      },
       "detect_mode": {
         "name": "Detect Mode",
         "state": {
@@ -526,6 +550,36 @@
       }
     },
     "sensor": {
+      "three_way_mode": {
+        "name": "Three-way Mode"
+      },
+      "heating_unit_type": {
+        "name": "Heating Unit Type"
+      },
+      "return_temperature": {
+        "name": "Return Temperature"
+      },
+      "heating_temperature": {
+        "name": "Heating Temperature"
+      },
+      "heating_gap_temperature": {
+        "name": "Heating Gap Temperature"
+      },
+      "user_mode_target_temperature": {
+        "name": "User Mode Target Temperature"
+      },
+      "activity_mode_target_temperature": {
+        "name": "Activity Mode Target Temperature"
+      },
+      "sleep_mode_target_temperature": {
+        "name": "Sleep Mode Target Temperature"
+      },
+      "last_time": {
+        "name": "Last Time"
+      },
+      "flow_volume": {
+        "name": "Flow Volume"
+      },
       "bathing_leaving_temperature": {
         "name": "Bathing Leaving Water Temperature"
       },

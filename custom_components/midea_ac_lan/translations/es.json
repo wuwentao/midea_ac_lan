@@ -63,6 +63,18 @@
   },
   "entity": {
     "binary_sensor": {
+      "warm_power": {
+        "name": "Funcionamiento de calefacción"
+      },
+      "cold_power": {
+        "name": "Funcionamiento de refrigeración"
+      },
+      "sleep_power": {
+        "name": "Funcionamiento nocturno"
+      },
+      "pump_on": {
+        "name": "Bomba encendida"
+      },
       "bar_door": {
         "name": "Puerta del bar"
       },
@@ -402,6 +414,9 @@
       }
     },
     "number": {
+      "heating_target_temperature": {
+        "name": "Temperatura objetivo de calefacción"
+      },
       "dry_level": {
         "name": "Nivel de secado"
       },
@@ -446,6 +461,15 @@
       }
     },
     "select": {
+      "heating_mode": {
+        "name": "Modo de calefacción",
+        "state": {
+          "user": "Usuario",
+          "activity": "Actividad",
+          "sleep": "Reposo",
+          "unknown": "Desconocido"
+        }
+      },
       "detect_mode": {
         "name": "Modo de detección",
         "state": {
@@ -565,6 +589,36 @@
       }
     },
     "sensor": {
+      "three_way_mode": {
+        "name": "Modo de tres vías"
+      },
+      "heating_unit_type": {
+        "name": "Tipo de unidad de calefacción"
+      },
+      "return_temperature": {
+        "name": "Temperatura de retorno"
+      },
+      "heating_temperature": {
+        "name": "Temperatura de calefacción"
+      },
+      "heating_gap_temperature": {
+        "name": "Temperatura de histéresis de calefacción"
+      },
+      "user_mode_target_temperature": {
+        "name": "Temperatura objetivo modo usuario"
+      },
+      "activity_mode_target_temperature": {
+        "name": "Temperatura objetivo modo actividad"
+      },
+      "sleep_mode_target_temperature": {
+        "name": "Temperatura objetivo modo reposo"
+      },
+      "last_time": {
+        "name": "Tiempo de funcionamiento"
+      },
+      "flow_volume": {
+        "name": "Caudal"
+      },
       "bathing_leaving_temperature": {
         "name": "Temperatura de salida del agua de baño"
       },
