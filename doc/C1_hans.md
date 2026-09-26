@@ -4,11 +4,12 @@
 
 ### 默认实体
 
-| EntityID                                      | Class  | Description                | 描述         |
-| --------------------------------------------- | ------ | -------------------------- | ------------ |
-| switch.{DEVICEID}\_power                      | switch | Power                      | 电源         |
-| number.{DEVICEID}\_heating_target_temperature | number | Heating Target Temperature | 采暖目标温度 |
-| select.{DEVICEID}\_heating_mode               | select | Heating Mode               | 采暖模式     |
+| EntityID                                      | Class   | Description                | 描述         |
+| --------------------------------------------- | ------- | -------------------------- | ------------ |
+| climate.{DEVICEID}\_climate                   | climate | Climate                    | 气候         |
+| switch.{DEVICEID}\_power                      | switch  | Power                      | 电源         |
+| number.{DEVICEID}\_heating_target_temperature | number  | Heating Target Temperature | 采暖目标温度 |
+| select.{DEVICEID}\_heating_mode               | select  | Heating Mode               | 采暖模式     |
 
 ### 扩展实体
 
