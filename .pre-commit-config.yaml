@@ -59,7 +59,7 @@ repos:
     hooks:
       - id: codespell
         args: ["-L hass,lookin,nam,astroid,moteur,Foto,pary", "-w"]
-        exclude: "uv\\.lock|custom_components/midea_ac_lan/translations/(de|es|fr|hu|it).json"
+        exclude: "uv\\.lock|custom_components/midea_ac_lan/translations/(de|es|fr|hu|it|sk).json"
   - repo: local
     hooks:
       - id: mypy

@@ -363,6 +363,96 @@
       },
       "water_pump_running": {
         "name": "Работа водяного насоса"
+      },
+      "alarm_on": {
+        "name": "Ошибка - Авария"
+      },
+      "aux_heat_on": {
+        "name": "ТЭН - Дополнительный источник"
+      },
+      "compressor_on": {
+        "name": "Компрессор - Работает"
+      },
+      "cool_capability": {
+        "name": "Возможность - Охлаждение"
+      },
+      "crankcase_heater_on": {
+        "name": "ТЭН - Картер компрессора"
+      },
+      "dhw_capability": {
+        "name": "Возможность - ГВС"
+      },
+      "disinfect_run": {
+        "name": "ГВС - Дезинфекция идёт"
+      },
+      "double_zone": {
+        "name": "Возможность - Две зоны"
+      },
+      "eco_function_state": {
+        "name": "Режим - Функция ECO"
+      },
+      "eco_timer_state": {
+        "name": "Режим - Таймер ECO"
+      },
+      "heat_capability": {
+        "name": "Возможность - Отопление"
+      },
+      "hmi_energy_ana_set_en": {
+        "name": "Возможность - Анализ энергии (HMI)"
+      },
+      "ibh1_on": {
+        "name": "ТЭН - IBH1"
+      },
+      "ibh2_on": {
+        "name": "ТЭН - IBH2"
+      },
+      "load_output_tbh": {
+        "name": "ТЭН - Бак (TBH)"
+      },
+      "pump_c_running": {
+        "name": "Pump_C - Смесительный контур зоны 2"
+      },
+      "pump_d_running": {
+        "name": "Pump_D - ГВС"
+      },
+      "pump_i_running": {
+        "name": "Pump_I - Внутренний"
+      },
+      "pump_o_running": {
+        "name": "Pump_O - Внешний"
+      },
+      "pump_s_running": {
+        "name": "Pump_S - Солнечный контур"
+      },
+      "remote_onoff": {
+        "name": "Возможность - Удалённое вкл/выкл"
+      },
+      "room_thermal_state": {
+        "name": "Состояние - Комнатный термостат"
+      },
+      "room_thermal_support": {
+        "name": "Возможность - Комнатный термостат"
+      },
+      "status_cool": {
+        "name": "Состояние - Охлаждение"
+      },
+      "sv1_open": {
+        "name": "SV1 - Клапан (ГВС)"
+      },
+      "sv2_open": {
+        "name": "SV2 - Клапан (Отопление)"
+      },
+      "sv3_open": {
+        "name": "SV3 - Клапан"
+      },
+      "sys_energy_ana_en": {
+        "name": "Возможность - Анализ энергии (Система)"
+      },
+      "tbh_control": {
+        "name": "Возможность - Управление TBH"
+      },
+      "time_set": {
+        "name": "Возможность - Время установлено"
       }
     },
     "button": {
@@ -1262,6 +1352,111 @@
       },
       "velocity": {
         "name": "Скорость"
+      },
+      "comp_total_run_time": {
+        "name": "Энергия - Наработка компрессора"
+      },
+      "dc_bus_voltage": {
+        "name": "Наружный блок - Напряжение шины постоянного тока"
+      },
+      "dc_current": {
+        "name": "Наружный блок - Ток шины постоянного тока"
+      },
+      "disinfect_set_weekday": {
+        "name": "ГВС - День дезинфекции"
+      },
+      "disinfect_start_hour": {
+        "name": "ГВС - Час начала дезинфекции"
+      },
+      "disinfect_start_minutes": {
+        "name": "ГВС - Минута начала дезинфекции"
+      },
+      "error_code_description": {
+        "name": "Ошибка - Описание"
+      },
+      "hydbox_subtype": {
+        "name": "Инфо - Подтип гидромодуля"
+      },
+      "hydrobox_capacity": {
+        "name": "Инфо - Мощность гидромодуля"
+      },
+      "idu_software_version_str": {
+        "name": "Инфо - Версия ПО внутреннего блока"
+      },
+      "idu_t1s1": {
+        "name": "Температура - Зона 1 расчётная (T1s)"
+      },
+      "idu_t1s2": {
+        "name": "Температура - Зона 2 расчётная (T1s)"
+      },
+      "current_unit_capacity": {
+        "name": "Текущая мощность агрегата (сырое значение)"
+      },
+      "instant_power0": {
+        "name": "Мощность - Потребление на отопление"
+      },
+      "instant_renew_power0": {
+        "name": "Мощность - Возобновляемая тепловая мощность"
+      },
+      "machine_type": {
+        "name": "Инфо - Тип машины"
+      },
+      "odu_model": {
+        "name": "Инфо - Код модели наружного блока"
+      },
+      "odu_software_version_str": {
+        "name": "Инфо - Версия ПО наружного блока"
+      },
+      "room_rel_hum": {
+        "name": "Относительная влажность в помещении"
+      },
+      "t5s": {
+        "name": "Температура T5s - Уставка ГВС"
+      },
+      "tas": {
+        "name": "Температура Tas - Уставка воздуха"
+      },
+      "temp_t4": {
+        "name": "Температура T4 - Наружный воздух"
+      },
+      "temp_t5": {
+        "name": "Температура T5 - Бак ГВС"
+      },
+      "temp_ta": {
+        "name": "Температура Ta - Комнатный воздух"
+      },
+      "temp_tb_t1": {
+        "name": "Температура TB-T1 - Буферная ёмкость, верх"
+      },
+      "temp_tb_t2": {
+        "name": "Температура TB-T2 - Буферная ёмкость, низ"
+      },
+      "temp_tsolar": {
+        "name": "Температура Tsolar - Солнечный коллектор"
+      },
+      "temp_tw2": {
+        "name": "Температура Tw2 - Вода зоны 2"
+      },
+      "temp_tw_in": {
+        "name": "Температура Tw_in - Вход воды"
+      },
+      "temp_tw_out": {
+        "name": "Температура Tw_out - Выход воды"
+      },
+      "water_flow": {
+        "name": "Вода - Расход"
+      },
+      "water_pressure": {
+        "name": "Вода - Давление"
+      },
+      "hmi_sn_code": {
+        "name": "Инфо - Серийный номер HMI"
+      },
+      "zone1_temp_set": {
+        "name": "Температура - Уставка зоны 1"
+      },
+      "zone2_temp_set": {
+        "name": "Температура - Уставка зоны 2"
       }
     },
     "switch": {
@@ -1507,6 +1702,12 @@
       },
       "screen_off": {
         "name": "Выключение экрана"
+      },
+      "dhw_disinfect": {
+        "name": "ГВС - Дезинфекция"
+      },
+      "holiday_on": {
+        "name": "Режим - Отпуск"
       }
     },
     "water_heater": {
