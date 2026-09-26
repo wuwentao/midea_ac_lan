@@ -4,9 +4,9 @@
       "preset_account": "Accesso con account predefinito non riuscito, per favore segnala questo problema",
       "login_failed": "Accesso non riuscito, account o password errati",
       "no_devices": "Nessun nuovo elettrodomestico disponibile trovato nella rete",
-      "device_exist": "LÔÇÖelettrodomestico ├Ę gi├á configurato",
-      "config_incorrect": "La configurazione non ├Ę corretta",
-      "connect_error": "Impossibile connettersi allÔÇÖelettrodomestico",
+      "device_exist": "L’elettrodomestico è già configurato",
+      "config_incorrect": "La configurazione non è corretta",
+      "connect_error": "Impossibile connettersi all’elettrodomestico",
       "invalid_token": "Token o Chiave in un formato non corretto"
     },
     "step": {
@@ -56,7 +56,7 @@
           "token": "Token",
           "key": "Chiave"
         },
-        "description": "Configurazione dellÔÇÖelettrodomestico",
+        "description": "Configurazione dell’elettrodomestico",
         "title": "Nuovo elettrodomestico"
       }
     }
@@ -141,18 +141,10 @@
       "dispensing": {
         "name": "Erogazione acqua"
       },
-      "lack_water": {
-        "name": "Mancanza acqua"
-      },
-      "standby": {
-        "name": "Standby"
-      },
-      "hot_water_dispensing": {
-        "name": "Erogazione acqua calda"
-      },
-      "fault": {
-        "name": "Guasto"
-      },
+      "lack_water": { "name": "Mancanza acqua" },
+      "standby": { "name": "Standby" },
+      "hot_water_dispensing": { "name": "Erogazione acqua calda" },
+      "fault": { "name": "Guasto" },
       "heating_working": {
         "name": "Stato Funzionamento Riscaldamento"
       },
@@ -190,7 +182,7 @@
         "name": "Sonda"
       },
       "probe_mode": {
-        "name": "Modalit├á sonda"
+        "name": "Modalità sonda"
       },
       "reaction": {
         "name": "Reazione"
@@ -243,63 +235,29 @@
       "maintenance_reminder": {
         "name": "Promemoria Manutenzione"
       },
-      "dr_enable": {
-        "name": "Demand Response"
-      },
-      "electric_rod_exception": {
-        "name": "Guasto Resistenza Elettrica"
-      },
-      "ac_heater_priority": {
-        "name": "Priorit├á Pompa di Calore"
-      },
-      "high_temp_reminder": {
-        "name": "Promemoria Temperatura Elevata"
-      },
-      "new_version_water_heater": {
-        "name": "Protocollo Scaldacqua Esteso"
-      },
-      "heat_recovery_status": {
-        "name": "Recupero di Calore"
-      },
-      "holiday_mode": {
-        "name": "Modalit├á Vacanza"
-      },
-      "hybrid_motion_mode": {
-        "name": "Modalit├á Ibrida Dinamica"
-      },
-      "support_boost_mode": {
-        "name": "Supporto Modalit├á Boost"
-      },
-      "support_silent_mode": {
-        "name": "Supporto Modalit├á Silenziosa"
-      },
-      "support_remaining_hot_water": {
-        "name": "Supporto Acqua Calda Residua"
-      },
-      "support_electric_mode": {
-        "name": "Supporto Modalit├á Elettrica"
-      },
-      "support_auto_disinfect": {
-        "name": "Supporto Disinfezione Automatica"
-      },
+      "dr_enable": { "name": "Demand Response" },
+      "electric_rod_exception": { "name": "Guasto Resistenza Elettrica" },
+      "ac_heater_priority": { "name": "Priorità Pompa di Calore" },
+      "high_temp_reminder": { "name": "Promemoria Temperatura Elevata" },
+      "new_version_water_heater": { "name": "Protocollo Scaldacqua Esteso" },
+      "heat_recovery_status": { "name": "Recupero di Calore" },
+      "holiday_mode": { "name": "Modalità Vacanza" },
+      "hybrid_motion_mode": { "name": "Modalità Ibrida Dinamica" },
+      "support_boost_mode": { "name": "Supporto Modalità Boost" },
+      "support_silent_mode": { "name": "Supporto Modalità Silenziosa" },
+      "support_remaining_hot_water": { "name": "Supporto Acqua Calda Residua" },
+      "support_electric_mode": { "name": "Supporto Modalità Elettrica" },
+      "support_auto_disinfect": { "name": "Supporto Disinfezione Automatica" },
       "support_force_e_heating": {
         "name": "Supporto Riscaldamento Elettrico Forzato"
       },
-      "support_tou": {
-        "name": "Supporto Fasce Orarie"
-      },
+      "support_tou": { "name": "Supporto Fasce Orarie" },
       "support_ac_heater_priority": {
-        "name": "Supporto Priorit├á Pompa di Calore"
+        "name": "Supporto Priorità Pompa di Calore"
       },
-      "support_heat_recovery": {
-        "name": "Supporto Recupero di Calore"
-      },
-      "support_heat_pump_mode": {
-        "name": "Supporto Modalit├á Pompa di Calore"
-      },
-      "support_smart_mode": {
-        "name": "Supporto Modalit├á Smart"
-      },
+      "support_heat_recovery": { "name": "Supporto Recupero di Calore" },
+      "support_heat_pump_mode": { "name": "Supporto Modalità Pompa di Calore" },
+      "support_smart_mode": { "name": "Supporto Modalità Smart" },
       "support_negative_temperature": {
         "name": "Supporto Temperature Negative"
       },
@@ -348,6 +306,18 @@
       "with_pressure": {
         "name": "Con Pressione"
       },
+      "zone1_room_temp_mode": {
+        "name": "Zona1 Modalità Temperatura Ambiente"
+      },
+      "zone1_water_temp_mode": {
+        "name": "Zona1 Modalità Temperatura Acqua"
+      },
+      "zone2_room_temp_mode": {
+        "name": "Zona2 Modalità Temperatura Ambiente"
+      },
+      "zone2_water_temp_mode": {
+        "name": "Zona2 Modalità Temperatura Acqua"
+      },
       "microcrystal_fresh": {
         "name": "Freschezza Microcristalli"
       },
@@ -367,31 +337,31 @@
         "name": "Compressore - In funzione"
       },
       "cool_capability": {
-        "name": "Capacit├á - Raffrescamento"
+        "name": "Capacità - Raffrescamento"
       },
       "crankcase_heater_on": {
         "name": "Resistenza - Carter"
       },
       "dhw_capability": {
-        "name": "Capacit├á - ACS"
+        "name": "Capacità - ACS"
       },
       "disinfect_run": {
         "name": "ACS - Disinfezione in corso"
       },
       "double_zone": {
-        "name": "Capacit├á - Doppia zona"
+        "name": "Capacità - Doppia zona"
       },
       "eco_function_state": {
-        "name": "Modalit├á - Funzione ECO"
+        "name": "Modalità - Funzione ECO"
       },
       "eco_timer_state": {
-        "name": "Modalit├á - Timer ECO"
+        "name": "Modalità - Timer ECO"
       },
       "heat_capability": {
-        "name": "Capacit├á - Riscaldamento"
+        "name": "Capacità - Riscaldamento"
       },
       "hmi_energy_ana_set_en": {
-        "name": "Capacit├á - Analisi energetica (HMI)"
+        "name": "Capacità - Analisi energetica (HMI)"
       },
       "ibh1_on": {
         "name": "Resistenza - IBH1"
@@ -418,13 +388,13 @@
         "name": "Pump_S - Solare"
       },
       "remote_onoff": {
-        "name": "Capacit├á - Accensione remota"
+        "name": "Capacità - Accensione remota"
       },
       "room_thermal_state": {
         "name": "Stato - Termostato ambiente"
       },
       "room_thermal_support": {
-        "name": "Capacit├á - Termostato ambiente"
+        "name": "Capacità - Termostato ambiente"
       },
       "status_cool": {
         "name": "Stato - Raffrescamento"
@@ -439,13 +409,13 @@
         "name": "SV3 - Valvola"
       },
       "sys_energy_ana_en": {
-        "name": "Capacit├á - Analisi energetica (Sistema)"
+        "name": "Capacità - Analisi energetica (Sistema)"
       },
       "tbh_control": {
-        "name": "Capacit├á - Controllo TBH"
+        "name": "Capacità - Controllo TBH"
       },
       "time_set": {
-        "name": "Capacit├á - Ora impostata"
+        "name": "Capacità - Ora impostata"
       }
     },
     "button": {
@@ -498,20 +468,14 @@
         "name": "Livello Temperatura Acqua"
       },
       "fan_speed_percent": {
-        "name": "Percentuale Velocit├á Ventola"
+        "name": "Percentuale Velocità Ventola"
       },
       "vacation_days": {
         "name": "Giorni Vacanza"
       },
-      "max_temperature": {
-        "name": "Temperatura Obiettivo Massima"
-      },
-      "disinfection_temperature": {
-        "name": "Temperatura Disinfezione"
-      },
-      "schedule_mode": {
-        "name": "Modalit├á Programmazione"
-      },
+      "max_temperature": { "name": "Temperatura Obiettivo Massima" },
+      "disinfection_temperature": { "name": "Temperatura Disinfezione" },
+      "schedule_mode": { "name": "Modalità Programmazione" },
       "leak_water_protection_value": {
         "name": "Valore Protezione Perdita Acqua"
       },
@@ -554,7 +518,7 @@
         }
       },
       "fresh_air_exhaust_mode": {
-        "name": "Velocit├á Estrazione Aria Fresca",
+        "name": "Velocità Estrazione Aria Fresca",
         "state": {
           "off": "Spento",
           "silent": "Bassa",
@@ -563,7 +527,7 @@
         }
       },
       "fresh_air_mode": {
-        "name": "Velocit├á Aria Fresca",
+        "name": "Velocità Aria Fresca",
         "state": {
           "off": "Spento",
           "low": "Bassa",
@@ -594,7 +558,7 @@
         "name": "Angolo Oscillazione"
       },
       "oscillation_mode": {
-        "name": "Modalit├á Oscillazione"
+        "name": "Modalità Oscillazione"
       },
       "rate_select": {
         "name": "Limite Potenza"
@@ -614,7 +578,7 @@
         "name": "Angolo Inclinazione"
       },
       "wash_mode": {
-        "name": "Modalit├á Lavaggio"
+        "name": "Modalità Lavaggio"
       },
       "water_level_set": {
         "name": "Impostazione Livello Acqua"
@@ -637,8 +601,8 @@
           "up": "Su",
           "up-mid": "Su-Medio",
           "middle": "Centro",
-          "down-mid": "Gi├╣-Medio",
-          "down": "Gi├╣"
+          "down-mid": "Giù-Medio",
+          "down": "Giù"
         }
       }
     },
@@ -683,7 +647,7 @@
         "name": "Temperatura Inferiore"
       },
       "bright": {
-        "name": "Livello Luminosit├á"
+        "name": "Livello Luminosità"
       },
       "cloudmenuid": {
         "name": "ID menu cloud"
@@ -710,7 +674,7 @@
         "name": "Temperatura Attuale"
       },
       "dehydration_speed": {
-        "name": "Velocit├á Centrifuga"
+        "name": "Velocità Centrifuga"
       },
       "dehydration_time": {
         "name": "Tempo Centrifuga"
@@ -751,7 +715,7 @@
         "name": "Temperatura sonda"
       },
       "steam_quantity": {
-        "name": "Quantit├á vapore"
+        "name": "Quantità vapore"
       },
       "stepnum": {
         "name": "Passo corrente"
@@ -781,7 +745,7 @@
         "name": "Detersivo"
       },
       "intensity": {
-        "name": "Intensit├á"
+        "name": "Intensità"
       },
       "dryness_level": {
         "name": "Livello Asciugatura"
@@ -888,7 +852,7 @@
         "name": "TDS Ingresso"
       },
       "indoor_humidity": {
-        "name": "Umidit├á Interna"
+        "name": "Umidità Interna"
       },
       "indoor_temperature": {
         "name": "Temperatura Interna"
@@ -896,9 +860,7 @@
       "keep_warm_remaining": {
         "name": "Tempo Rimanente Mantenimento Caldo"
       },
-      "fault_code": {
-        "name": "Codice guasto"
-      },
+      "fault_code": { "name": "Codice guasto" },
       "keep_warm_time": {
         "name": "Tempo Mantenimento Caldo"
       },
@@ -915,7 +877,7 @@
         "name": "Temperatura Scomparto Centrale"
       },
       "mode": {
-        "name": "Modalit├á"
+        "name": "Modalità"
       },
       "out_tds": {
         "name": "TDS Uscita"
@@ -1078,7 +1040,7 @@
         "name": "Livello di lavaggio"
       },
       "wash_strength": {
-        "name": "Intensit├á Lavaggio"
+        "name": "Intensità Lavaggio"
       },
       "wash_time": {
         "name": "Tempo Lavaggio"
@@ -1143,24 +1105,14 @@
       "disinfection_temperature_lower_limit": {
         "name": "Limite Inferiore Temperatura Disinfezione"
       },
-      "dr_option": {
-        "name": "Opzione Demand Response"
-      },
-      "remaining_hot_water_max": {
-        "name": "Acqua Calda Residua Massima"
-      },
+      "dr_option": { "name": "Opzione Demand Response" },
+      "remaining_hot_water_max": { "name": "Acqua Calda Residua Massima" },
       "force_e_heating_status": {
         "name": "Stato Riscaldamento Elettrico Forzato"
       },
-      "holiday_max": {
-        "name": "Durata Massima Vacanza"
-      },
-      "holiday_min": {
-        "name": "Durata Minima Vacanza"
-      },
-      "timer_step_gap": {
-        "name": "Intervallo Timer"
-      },
+      "holiday_max": { "name": "Durata Massima Vacanza" },
+      "holiday_min": { "name": "Durata Minima Vacanza" },
+      "timer_step_gap": { "name": "Intervallo Timer" },
       "vacation_start_year": {
         "name": "Anno Inizio Vacanza"
       },
@@ -1180,7 +1132,7 @@
         "name": "Minuto Sterilizzazione Automatica"
       },
       "work_mode": {
-        "name": "Modalit├á cottura",
+        "name": "Modalità cottura",
         "state": {
           "microwave": "Microonde",
           "microwave_1": "Microonde 1",
@@ -1295,10 +1247,10 @@
         "name": "Tempo di Lavoro"
       },
       "humidity": {
-        "name": "Umidit├á"
+        "name": "Umidità"
       },
       "variable_mode": {
-        "name": "Modalit├á Variabile"
+        "name": "Modalità Variabile"
       },
       "compressor_frequency": {
         "name": "Frequenza Compressore"
@@ -1331,22 +1283,22 @@
         "name": "Temperatura Tubo di Scarico(TP)"
       },
       "indoor_fan_speed": {
-        "name": "Velocit├á Ventola Interna"
+        "name": "Velocità Ventola Interna"
       },
       "target_indoor_fan_speed": {
-        "name": "Velocit├á Obiettivo Ventola Interna"
+        "name": "Velocità Obiettivo Ventola Interna"
       },
       "velocity": {
-        "name": "Velocit├á"
+        "name": "Velocità"
       },
       "comp_total_run_time": {
         "name": "Energia - Ore di funzionamento compressore"
       },
       "dc_bus_voltage": {
-        "name": "Unit├á esterna - Tensione bus CC"
+        "name": "Unità esterna - Tensione bus CC"
       },
       "dc_current": {
-        "name": "Unit├á esterna - Corrente bus CC"
+        "name": "Unità esterna - Corrente bus CC"
       },
       "disinfect_set_weekday": {
         "name": "ACS - Giorno disinfezione"
@@ -1367,7 +1319,7 @@
         "name": "Info - Potenza modulo idraulico"
       },
       "idu_software_version_str": {
-        "name": "Info - Versione software unit├á interna"
+        "name": "Info - Versione software unità interna"
       },
       "idu_t1s1": {
         "name": "Temperatura - Zona 1 calcolata (T1s)"
@@ -1382,19 +1334,19 @@
         "name": "Potenza - Consumo di riscaldamento"
       },
       "instant_renew_power0": {
-        "name": "Potenza - Capacit├á rinnovabile di riscaldamento"
+        "name": "Potenza - Capacità rinnovabile di riscaldamento"
       },
       "machine_type": {
         "name": "Info - Tipo di macchina"
       },
       "odu_model": {
-        "name": "Info - Codice modello unit├á esterna"
+        "name": "Info - Codice modello unità esterna"
       },
       "odu_software_version_str": {
-        "name": "Info - Versione software unit├á esterna"
+        "name": "Info - Versione software unità esterna"
       },
       "room_rel_hum": {
-        "name": "Umidit├á relativa ambiente"
+        "name": "Umidità relativa ambiente"
       },
       "t5s": {
         "name": "Temperatura T5s - Setpoint ACS"
@@ -1436,7 +1388,7 @@
         "name": "Acqua - Pressione"
       },
       "hmi_sn_code": {
-        "name": "Info - Numero di serie modulo WiFi"
+        "name": "Info - Numero di serie HMI"
       },
       "zone1_temp_set": {
         "name": "Temperatura - Setpoint zona 1"
@@ -1471,10 +1423,10 @@
         "name": "Riscaldamento Ausiliario"
       },
       "boost_mode": {
-        "name": "Modalit├á Boost"
+        "name": "Modalità Boost"
       },
       "breezeless": {
-        "name": "Senza Corrente dÔÇÖAria"
+        "name": "Senza Corrente d’Aria"
       },
       "child_lock": {
         "name": "Blocco Bambini"
@@ -1483,7 +1435,7 @@
         "name": "Sterilizzazione al Cloro"
       },
       "comfort_mode": {
-        "name": "Modalit├á Comfort"
+        "name": "Modalità Comfort"
       },
       "degerming": {
         "name": "Sterilizzazione"
@@ -1503,11 +1455,9 @@
       "turntable": {
         "name": "Piatto rotante"
       },
-      "maintenance_reminder": {
-        "name": "Promemoria Manutenzione"
-      },
+      "maintenance_reminder": { "name": "Promemoria Manutenzione" },
       "vacation_mode": {
-        "name": "Modalit├á Vacanza"
+        "name": "Modalità Vacanza"
       },
       "dry": {
         "name": "Asciugatura"
@@ -1519,7 +1469,7 @@
         "name": "Acqua Fredda Punto"
       },
       "eco_mode": {
-        "name": "Modalit├á ECO"
+        "name": "Modalità ECO"
       },
       "memory": {
         "name": "Memo U"
@@ -1591,13 +1541,13 @@
         "name": "Luce Sensore"
       },
       "silent_mode": {
-        "name": "Modalit├á Silenziosa"
+        "name": "Modalità Silenziosa"
       },
       "sleep_mode": {
-        "name": "Modalit├á Sonno"
+        "name": "Modalità Sonno"
       },
       "out_silent": {
-        "name": "Modalit├á Silenziosa Esterna"
+        "name": "Modalità Silenziosa Esterna"
       },
       "smart_eye": {
         "name": "Occhio Intelligente"
@@ -1672,7 +1622,7 @@
         "name": "Potenza Zona2"
       },
       "boiling": {
-        "name": "Bollire lÔÇÖacqua"
+        "name": "Bollire l’acqua"
       },
       "tea_bar_boil": {
         "name": "Interruttore bollitura"
@@ -1693,7 +1643,7 @@
         "name": "ACS - Disinfezione"
       },
       "holiday_on": {
-        "name": "Modalit├á - Vacanza"
+        "name": "Modalità - Vacanza"
       }
     },
     "water_heater": {
@@ -1722,25 +1672,25 @@
       }
     },
     "abort": {
-      "account_option": "LÔÇÖaccount non supporta questa operazione.\nClicca \"AGGIUNGI DISPOSITIVO\" per aggiungere un nuovo dispositivo."
+      "account_option": "L’account non supporta questa operazione.\nClicca \"AGGIUNGI DISPOSITIVO\" per aggiungere un nuovo dispositivo."
     }
   },
   "services": {
     "set_attribute": {
       "name": "Imposta attributo",
-      "description": "Imposta il valore dellÔÇÖattributo del dispositivo",
+      "description": "Imposta il valore dell’attributo del dispositivo",
       "fields": {
         "device_id": {
           "name": "Codice elettrodomestico",
-          "description": "Il codice elettrodomestico (ID dispositivo) dellÔÇÖelettrodomestico"
+          "description": "Il codice elettrodomestico (ID dispositivo) dell’elettrodomestico"
         },
         "attribute": {
           "name": "Attributo",
-          "description": "Il nome dellÔÇÖattributo da impostare"
+          "description": "Il nome dell’attributo da impostare"
         },
         "value": {
           "name": "Valore",
-          "description": "Il valore dellÔÇÖattributo da impostare"
+          "description": "Il valore dell’attributo da impostare"
         }
       }
     },
@@ -1750,7 +1700,7 @@
       "fields": {
         "device_id": {
           "name": "Codice elettrodomestico",
-          "description": "Il codice elettrodomestico (ID dispositivo) dellÔÇÖelettrodomestico"
+          "description": "Il codice elettrodomestico (ID dispositivo) dell’elettrodomestico"
         },
         "cmd_type": {
           "name": "Tipo di comando",
@@ -1758,7 +1708,7 @@
         },
         "cmd_body": {
           "name": "Corpo del comando",
-          "description": "Il corpo del comando (non include lÔÇÖintestazione del protocollo MSmart e il checksum finale)"
+          "description": "Il corpo del comando (non include l’intestazione del protocollo MSmart e il checksum finale)"
         }
       }
     }

@@ -2052,6 +2052,34 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Zone2 Power",
                 "icon": "mdi:power",
             },
+            C3Attributes.zone1_water_temp_mode: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "zone1_water_temp_mode",
+                "name": "Zone1 Water-temperature Mode",
+                "icon": "mdi:coolant-temperature",
+                "device_class": BinarySensorDeviceClass.RUNNING,
+            },
+            C3Attributes.zone2_water_temp_mode: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "zone2_water_temp_mode",
+                "name": "Zone2 Water-temperature Mode",
+                "icon": "mdi:coolant-temperature",
+                "device_class": BinarySensorDeviceClass.RUNNING,
+            },
+            C3Attributes.zone1_room_temp_mode: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "zone1_room_temp_mode",
+                "name": "Zone1 Room-temperature Mode",
+                "icon": "mdi:home-thermometer-outline",
+                "device_class": BinarySensorDeviceClass.RUNNING,
+            },
+            C3Attributes.zone2_room_temp_mode: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "zone2_room_temp_mode",
+                "name": "Zone2 Room-temperature Mode",
+                "icon": "mdi:home-thermometer-outline",
+                "device_class": BinarySensorDeviceClass.RUNNING,
+            },
             C3Attributes.error_code: {
                 "type": Platform.SENSOR,
                 "translation_key": "error_code",
@@ -2356,7 +2384,8 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "instant_power0",
                 "name": "Power Consumption",
                 "device_class": SensorDeviceClass.POWER,
-                "unit": UnitOfPower.KILO_WATT,
+                # midea-lan returns the raw 16-bit value in watts (unscaled)
+                "unit": UnitOfPower.WATT,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
             C3Attributes.instant_renew_power0: {
@@ -2364,7 +2393,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "instant_renew_power0",
                 "name": "Renewable Heating Capacity",
                 "device_class": SensorDeviceClass.POWER,
-                "unit": UnitOfPower.KILO_WATT,
+                "unit": UnitOfPower.WATT,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
             # instant_cop (thermal capacity / electrical draw) is not computed

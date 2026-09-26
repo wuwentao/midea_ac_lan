@@ -1,471 +1,483 @@
 {
   "config": {
     "error": {
-      "preset_account": "ÚóäšŻ«Ŕ┤ŽŠłĚšÖ╗ňŻĽňĄ▒Ŕ┤ą´╝îŔ»ĚŠŐąňĹŐŠşĄÚŚ«Úóś",
-      "login_failed": "šÖ╗ňŻĽňĄ▒Ŕ┤ą, šöĘŠłĚňÉŹŠłľň»ćšáüÚöÖ",
-      "no_devices": "Šť¬ňťĘšŻĹš╗ťńŞŐňĆĹšÄ░ňĆ»šöĘŠľ░Ŕ«żňĄç",
-      "device_exist": "Ŕ«żňĄçňĚ▓š╗ĆňşśňťĘ, Ŕ»ĚŠĚ╗ňŐáňůÂň«âŔ«żňĄç",
-      "config_incorrect": "ÚůŹšŻ«ń┐íŠü»ńŞŹŠşúší«, Ŕ»ĚŠúÇŠčąňÉÄÚçŹŠľ░Ŕżôňůą",
-      "connect_error": "ŠŚáŠ│ĽŔ┐×ŠÄąňł░Šîçň«ÜŔ«żňĄç",
-      "invalid_token": "TokenŠłľKeyŠá╝ň╝ĆńŞŹŠşúší«"
+      "preset_account": "预置账户登录失败，请报告此问题",
+      "login_failed": "登录失败, 用户名或密码错",
+      "no_devices": "未在网络上发现可用新设备",
+      "device_exist": "设备已经存在, 请添加其它设备",
+      "config_incorrect": "配置信息不正确, 请检查后重新输入",
+      "connect_error": "无法连接到指定设备",
+      "invalid_token": "Token或Key格式不正确"
     },
     "step": {
       "user": {
         "data": {
-          "way": "ŠĚ╗ňŐáŠľ╣ň╝Ć"
+          "way": "添加方式"
         },
-        "description": "ÚÇëŠőęŠĚ╗ňŐáŔ«żňĄçšÜäŠľ╣ň╝Ć",
-        "title": "ŠĚ╗ňŐáŠľ░Ŕ«żňĄç"
+        "description": "选择添加设备的方式",
+        "title": "添加新设备"
       },
       "login": {
         "data": {
-          "account": "Ŕ┤ŽňĆĚ",
-          "password": "ň»ćšáü"
+          "account": "账号",
+          "password": "密码"
         },
-        "description": "šÖ╗ňŻĽň╣ÂŔÄĚňĆľŔ«żňĄç TokenŃÇé\n\n\nšŤ«ňëŹń╗ůńŞ¬ń║║ SmartHome ňĺî Meiju Ŕ┤ŽňĆĚňĆ»ŔÄĚňĆľŔ«żňĄç TokenŃÇéŔ»ŽŠâůŔ»ĚňĆéŔÇâ README ŠľçŠíúŃÇé",
-        "title": "šÖ╗ňŻĽ"
+        "description": "登录并获取设备 Token。\n\n\n目前仅个人 SmartHome 和 Meiju 账号可获取设备 Token。详情请参考 README 文档。",
+        "title": "登录"
       },
       "discovery": {
-        "description": "ŔżôňůąŔ«żňĄçšÜäIPňť░ňŁÇ, Ŕżôňůą\"auto\"Ŕç¬ňŐĘŠÉťš┤óŔ«żňĄç\nńŻáń╣čňĆ»ń╗ąńŻ┐šöĘIPňť░ňŁÇňťĘŠîçň«ÜšŻĹš╗ťńŞşŠÉťš┤ó, Š»öňŽé`192.168.1.255`",
-        "title": "ŠÉťš┤ó",
+        "description": "输入设备的IP地址, 输入\"auto\"自动搜索设备\n你也可以使用IP地址在指定网络中搜索, 比如`192.168.1.255`",
+        "title": "搜索",
         "data": {
-          "ip_address": "IPňť░ňŁÇ"
+          "ip_address": "IP地址"
         }
       },
       "list": {
         "description": "{table}",
-        "title": "Ŕ«żňĄç"
+        "title": "设备"
       },
       "auto": {
         "data": {
-          "device": "Ŕ«żňĄç"
+          "device": "设备"
         },
-        "description": "ÚÇëŠőęŔ«żňĄçň╣ÂŠĚ╗ňŐá",
-        "title": "ňĆĹšÄ░Šľ░Ŕ«żňĄç"
+        "description": "选择设备并添加",
+        "title": "发现新设备"
       },
       "manually": {
         "data": {
-          "name": "ňÉŹšž░(ňŽéň«óňÄůšę║Ŕ░â)",
-          "device_id": "Ŕ«żňĄçš╝ľňĆĚ",
-          "type": "Ŕ«żňĄçš▒╗ň×ő",
-          "ip_address": "IPňť░ňŁÇ",
-          "port": "šź»ňĆú",
-          "model": "ň×őňĆĚ",
-          "subtype": "ňşÉň×őňĆĚ",
-          "protocol": "ňŹĆŔ««šëłŠťČ",
+          "name": "名称(如客厅空调)",
+          "device_id": "设备编号",
+          "type": "设备类型",
+          "ip_address": "IP地址",
+          "port": "端口",
+          "model": "型号",
+          "subtype": "子型号",
+          "protocol": "协议版本",
           "token": "Token",
           "key": "Key"
         },
-        "description": "ÚůŹšŻ«Ŕ«żňĄçňĆéŠĽ░",
-        "title": "Šľ░Ŕ«żňĄç"
+        "description": "配置设备参数",
+        "title": "新设备"
       }
     }
   },
   "entity": {
     "binary_sensor": {
       "bar_door": {
-        "name": "ňÉžňĆ░ÚŚĘšŐÂŠÇü"
+        "name": "吧台门状态"
       },
       "bar_door_overtime": {
-        "name": "ňÉžňĆ░ÚŚĘŔÂůŠŚÂ"
+        "name": "吧台门超时"
       },
       "bathing_working": {
-        "name": "ŠĚőŠÁ┤ňĚąńŻťšŐÂŠÇü"
+        "name": "淋浴工作状态"
       },
       "bottom_compartment_cooling": {
-        "name": "ńŞőň▒éňćĚňŹ┤"
+        "name": "下层冷却"
       },
       "bottom_compartment_door": {
-        "name": "ńŞőň▒éÚŚĘšŐÂŠÇü"
+        "name": "下层门状态"
       },
       "bottom_compartment_preheating": {
-        "name": "ńŞőň▒éÚóäšâş"
+        "name": "下层预热"
       },
       "burning_state": {
-        "name": "šçâšâžšŐÂŠÇü"
+        "name": "燃烧状态"
       },
       "clean_scale": {
-        "name": "ÚÖĄň×ó"
+        "name": "除垢"
       },
       "clean_sink_ponding": {
-        "name": "Š░┤ŠžŻšž»Š░┤"
+        "name": "水槽积水"
       },
       "cleaning_reminder": {
-        "name": "ŠŞůŠ┤üŠĆÉšĄ║"
+        "name": "清洁提示"
       },
       "compressor_status": {
-        "name": "ňÄőš╝ęŠť║šŐÂŠÇü"
+        "name": "压缩机状态"
       },
       "cooking": {
-        "name": "šâ╣Úą¬ńŞş"
+        "name": "烹饪中"
       },
       "dissipate_heat": {
-        "name": "ŠĽúšâş"
+        "name": "散热"
       },
       "door": {
-        "name": "ÚŚĘ"
+        "name": "门"
       },
       "error_code": {
-        "name": "ÚöÖŔ»»ń╗úšáü"
+        "name": "错误代码"
       },
       "filter_change_reminder": {
-        "name": "Š╗ĄŔŐ»ŠŤ┤ŠŹóŠĆÉÚćĺ"
+        "name": "滤芯更换提醒"
       },
       "filter_cleaning_reminder": {
-        "name": "Š╗ĄŔŐ»ŠŞůŠ┤üŠĆÉÚćĺ"
+        "name": "滤芯清洁提醒"
       },
       "finished": {
-        "name": "ň«îŠłÉ"
+        "name": "完成"
       },
       "flex_zone_door": {
-        "name": "ňĆśŠŞęňî║ÚŚĘšŐÂŠÇü"
+        "name": "变温区门状态"
       },
       "flex_zone_door_overtime": {
-        "name": "ňĆśŠŞęňî║ÚŚĘŔÂůŠŚÂ"
+        "name": "变温区门超时"
       },
       "flip_side": {
-        "name": "š┐╗ÚŁóŠĆÉÚćĺ"
+        "name": "翻面提醒"
       },
       "freezer_door": {
-        "name": "ňćĚňć╗ň«ĄÚŚĘšŐÂŠÇü"
+        "name": "冷冻室门状态"
       },
       "freezer_door_overtime": {
-        "name": "ňćĚňć╗ň«ĄÚŚĘŔÂůŠŚÂ"
+        "name": "冷冻室门超时"
       },
       "full_dust": {
-        "name": "ň░śŠ╗í"
+        "name": "尘满"
       },
       "heating": {
-        "name": "ňŐášâş"
+        "name": "加热"
       },
       "dispensing": {
-        "name": "ŠşúňťĘňĆľŠ░┤"
+        "name": "正在取水"
       },
       "lack_water": {
-        "name": "š╝║Š░┤"
+        "name": "缺水"
       },
       "standby": {
-        "name": "ňżůŠť║"
+        "name": "待机"
       },
       "hot_water_dispensing": {
-        "name": "ŠşúňťĘŔżôňç║šâşŠ░┤"
+        "name": "正在输出热水"
       },
       "fault": {
-        "name": "Ŕ«żňĄçŠĽůÚÜť"
+        "name": "设备故障"
       },
       "heating_working": {
-        "name": "ňĆľŠÜľňĚąńŻťšŐÂŠÇü"
+        "name": "取暖工作状态"
       },
       "high_temperature": {
-        "name": "ÚźśŠŞę"
+        "name": "高温"
       },
       "high_temperature_lock": {
-        "name": "ÚźśŠŞęÚöü"
+        "name": "高温锁"
       },
       "high_temperature_work": {
-        "name": "ÚźśŠŞęňĚąńŻť"
+        "name": "高温工作"
       },
       "keep_warm": {
-        "name": "ń┐ŁŠŞę"
+        "name": "保温"
       },
       "leak_water": {
-        "name": "Š╝ĆŠ░┤ŠŐąŔşŽ"
+        "name": "漏水报警"
       },
       "lid_status": {
-        "name": "šŤľňşÉšŐÂŠÇü"
+        "name": "盖子状态"
       },
       "middle_compartment_cooling": {
-        "name": "ńŞşň▒éňćĚňŹ┤"
+        "name": "中层冷却"
       },
       "middle_compartment_door": {
-        "name": "ńŞşň▒éÚŚĘšŐÂŠÇü"
+        "name": "中层门状态"
       },
       "middle_compartment_preheating": {
-        "name": "ńŞşň▒éÚóäšâş"
+        "name": "中层预热"
       },
       "top_elec_heat": {
-        "name": "ÚíÂÚâĘšöÁňŐášâş"
+        "name": "顶部电加热"
       },
       "bottom_elec_heat": {
-        "name": "ň║ĽÚâĘšöÁňŐášâş"
+        "name": "底部电加热"
       },
       "mute_effect": {
-        "name": "ÚŁÖÚč│ŠĽłŠ×ť"
+        "name": "静音效果"
       },
       "mute_status": {
-        "name": "ÚŁÖÚč│šŐÂŠÇü"
+        "name": "静音状态"
       },
       "multi_terminal": {
-        "name": "ňĄÜš╗łšź»"
+        "name": "多终端"
       },
       "oilcup_full": {
-        "name": "Š▓╣ŠŁ»Š╗íŠĆÉšĄ║"
+        "name": "油杯满提示"
       },
       "pre_heat": {
-        "name": "Úóäšâş"
+        "name": "预热"
       },
       "probe": {
-        "name": "ŠÄóÚĺł"
+        "name": "探针"
       },
       "probe_mode": {
-        "name": "ŠÄóÚĺłŠĘíň╝Ć"
+        "name": "探针模式"
       },
       "protection": {
-        "name": "ň«ëňůĘÚś▓ŠŐĄ"
+        "name": "安全防护"
       },
       "reaction": {
-        "name": "ňĆŹň║ö"
+        "name": "反应"
       },
       "refrigerator_door": {
-        "name": "ňćĚŔŚĆň«ĄÚŚĘšŐÂŠÇü"
+        "name": "冷藏室门状态"
       },
       "refrigerator_door_overtime": {
-        "name": "ňćĚŔŚĆň«ĄÚŚĘŔÂůŠŚÂ"
+        "name": "冷藏室门超时"
       },
       "rinse_aid": {
-        "name": "Š╝éŠ┤ŚňëéńŞŹŔÂ│"
+        "name": "漂洗剂不足"
       },
       "rsj_stand_by": {
-        "name": "ňżůŠť║šŐÂŠÇü"
+        "name": "待机状态"
       },
       "salt": {
-        "name": "ŔŻ»Š░┤šŤÉńŞŹŔÂ│"
+        "name": "软水盐不足"
       },
       "seat_status": {
-        "name": "ňůąň║žšŐÂŠÇü"
+        "name": "入座状态"
       },
       "smart_grid": {
-        "name": "ŠÖ║ŔâŻšöÁšŻĹ"
+        "name": "智能电网"
       },
       "eco": {
         "name": "ECO"
       },
       "maintenance_reminder": {
-        "name": "š╗┤ŠŐĄŠĆÉÚćĺ"
+        "name": "维护提醒"
       },
       "dr_enable": {
-        "name": "ÚťÇŠ▒éňôŹň║ö"
+        "name": "需求响应"
       },
       "electric_rod_exception": {
-        "name": "šöÁňŐášâşŠĽůÚÜť"
+        "name": "电加热故障"
       },
       "ac_heater_priority": {
-        "name": "šâşŠ│Áń╝śňůł"
+        "name": "热泵优先"
       },
       "high_temp_reminder": {
-        "name": "ÚźśŠŞęŠĆÉÚćĺ"
+        "name": "高温提醒"
       },
       "new_version_water_heater": {
-        "name": "Šëęň▒ĽšâşŠ░┤ňÖĘňŹĆŔ««"
+        "name": "扩展热水器协议"
       },
       "heat_recovery_status": {
-        "name": "šâşňŤ×ŠöÂ"
+        "name": "热回收"
       },
       "holiday_mode": {
-        "name": "ňüçŠŚąŠĘíň╝Ć"
+        "name": "假日模式"
       },
       "hybrid_motion_mode": {
-        "name": "ŠĚĚňÉłŔ┐ÉňŐĘŠĘíň╝Ć"
+        "name": "混合运动模式"
       },
       "support_boost_mode": {
-        "name": "Boost ŠĘíň╝ĆŠö»Šîü"
+        "name": "Boost 模式支持"
       },
       "support_silent_mode": {
-        "name": "ÚŁÖÚč│ŠĘíň╝ĆŠö»Šîü"
+        "name": "静音模式支持"
       },
       "support_remaining_hot_water": {
-        "name": "ňëęńŻÖšâşŠ░┤Šö»Šîü"
+        "name": "剩余热水支持"
       },
       "support_electric_mode": {
-        "name": "šöÁňŐášâşŠĘíň╝ĆŠö»Šîü"
+        "name": "电加热模式支持"
       },
       "support_auto_disinfect": {
-        "name": "Ŕç¬ňŐĘŠÂłŠ»ĺŠö»Šîü"
+        "name": "自动消毒支持"
       },
       "support_force_e_heating": {
-        "name": "ň╝║ňłÂšöÁňŐášâşŠö»Šîü"
+        "name": "强制电加热支持"
       },
       "support_tou": {
-        "name": "ňłćŠŚÂšöÁń╗ĚŠö»Šîü"
+        "name": "分时电价支持"
       },
       "support_ac_heater_priority": {
-        "name": "šâşŠ│Áń╝śňůłŠö»Šîü"
+        "name": "热泵优先支持"
       },
       "support_heat_recovery": {
-        "name": "šâşňŤ×ŠöÂŠö»Šîü"
+        "name": "热回收支持"
       },
       "support_heat_pump_mode": {
-        "name": "šâşŠ│ÁŠĘíň╝ĆŠö»Šîü"
+        "name": "热泵模式支持"
       },
       "support_smart_mode": {
-        "name": "ŠÖ║ŔâŻŠĘíň╝ĆŠö»Šîü"
+        "name": "智能模式支持"
       },
       "support_negative_temperature": {
-        "name": "Ŕ┤čŠŞęŠö»Šîü"
+        "name": "负温支持"
       },
       "maintain_warn": {
-        "name": "š╗┤ŠŐĄŔşŽňĹŐ"
+        "name": "维护警告"
       },
       "order1_effect": {
-        "name": "ň«ÜŠŚÂ1šöčŠĽł"
+        "name": "定时1生效"
       },
       "order2_effect": {
-        "name": "ň«ÜŠŚÂ2šöčŠĽł"
+        "name": "定时2生效"
       },
       "status_dhw": {
-        "name": "DHWšŐÂŠÇü"
+        "name": "DHW状态"
       },
       "status_heating": {
-        "name": "ňŐášâşšŐÂŠÇü"
+        "name": "加热状态"
       },
       "status_ibh": {
-        "name": "IBHšŐÂŠÇü"
+        "name": "IBH状态"
       },
       "status_tbh": {
-        "name": "TBHšŐÂŠÇü"
+        "name": "TBH状态"
       },
       "tank_ejected": {
-        "name": "Š░┤š«▒ň╝╣ňç║"
+        "name": "水箱弹出"
       },
       "tank_full": {
-        "name": "Š░┤š«▒šŐÂŠÇü"
+        "name": "水箱状态"
       },
       "top_compartment_cooling": {
-        "name": "ńŞŐň▒éňćĚňŹ┤"
+        "name": "上层冷却"
       },
       "top_compartment_door": {
-        "name": "ńŞŐň▒éÚŚĘšŐÂŠÇü"
+        "name": "上层门状态"
       },
       "top_compartment_preheating": {
-        "name": "ńŞŐň▒éÚóäšâş"
+        "name": "上层预热"
       },
       "water_change_reminder": {
-        "name": "ŠŹóŠ░┤ŠĆÉÚćĺ"
+        "name": "换水提醒"
       },
       "water_shortage": {
-        "name": "š╝║Š░┤"
+        "name": "缺水"
       },
       "with_pressure": {
-        "name": "ňŞŽňÄőńŞş"
+        "name": "带压中"
+      },
+      "zone1_room_temp_mode": {
+        "name": "区域1室温模式"
+      },
+      "zone1_water_temp_mode": {
+        "name": "区域1水温模式"
+      },
+      "zone2_room_temp_mode": {
+        "name": "区域2室温模式"
+      },
+      "zone2_water_temp_mode": {
+        "name": "区域2水温模式"
       },
       "microcrystal_fresh": {
-        "name": "ňż«ŠÖÂńŞÇňĹĘÚ▓ť"
+        "name": "微晶一周鲜"
       },
       "electronic_smell": {
-        "name": "ňçÇňĹ│ŠŁÇŔĆî"
+        "name": "净味杀菌"
       },
       "water_pump_running": {
-        "name": "Š░┤Š│ÁŔ┐ÉŔíî"
+        "name": "水泵运行"
       },
       "alarm_on": {
-        "name": "ŠĽůÚÜť - ŠŐąŔşŽ"
+        "name": "故障 - 报警"
       },
       "aux_heat_on": {
-        "name": "šöÁňŐášâş - ŔżůňŐęšâşŠ║É"
+        "name": "电加热 - 辅助热源"
       },
       "compressor_on": {
-        "name": "ňÄőš╝ęŠť║ - Ŕ┐ÉŔíîńŞş"
+        "name": "压缩机 - 运行中"
       },
       "cool_capability": {
-        "name": "ňŐčŔâŻ - ňłÂňćĚ"
+        "name": "功能 - 制冷"
       },
       "crankcase_heater_on": {
-        "name": "šöÁňŐášâş - ŠŤ▓ŔŻ┤š«▒"
+        "name": "电加热 - 曲轴箱"
       },
       "dhw_capability": {
-        "name": "ňŐčŔâŻ - šöčŠ┤╗šâşŠ░┤"
+        "name": "功能 - 生活热水"
       },
       "disinfect_run": {
-        "name": "šöčŠ┤╗šâşŠ░┤ - ŠŁÇŔĆîŔ┐ÉŔíîńŞş"
+        "name": "生活热水 - 杀菌运行中"
       },
       "double_zone": {
-        "name": "ňŐčŔâŻ - ňĆîňî║"
+        "name": "功能 - 双区"
       },
       "eco_function_state": {
-        "name": "ŠĘíň╝Ć - ECO ňŐčŔâŻ"
+        "name": "模式 - ECO 功能"
       },
       "eco_timer_state": {
-        "name": "ŠĘíň╝Ć - ECO ň«ÜŠŚÂ"
+        "name": "模式 - ECO 定时"
       },
       "heat_capability": {
-        "name": "ňŐčŔâŻ - ňłÂšâş"
+        "name": "功能 - 制热"
       },
       "hmi_energy_ana_set_en": {
-        "name": "ňŐčŔâŻ - ŔâŻŔÇŚňłćŠ×É (HMI)"
+        "name": "功能 - 能耗分析 (HMI)"
       },
       "ibh1_on": {
-        "name": "šöÁňŐášâş - IBH1"
+        "name": "电加热 - IBH1"
       },
       "ibh2_on": {
-        "name": "šöÁňŐášâş - IBH2"
+        "name": "电加热 - IBH2"
       },
       "load_output_tbh": {
-        "name": "šöÁňŐášâş - Š░┤š«▒ (TBH)"
+        "name": "电加热 - 水箱 (TBH)"
       },
       "pump_c_running": {
-        "name": "Pump_C - ń║îňî║ŠĚĚŠ░┤ňŤ×ŔĚ»"
+        "name": "Pump_C - 二区混水回路"
       },
       "pump_d_running": {
-        "name": "Pump_D - šöčŠ┤╗šâşŠ░┤"
+        "name": "Pump_D - 生活热水"
       },
       "pump_i_running": {
-        "name": "Pump_I - ňćůšŻ«"
+        "name": "Pump_I - 内置"
       },
       "pump_o_running": {
-        "name": "Pump_O - ňĄľšŻ«"
+        "name": "Pump_O - 外置"
       },
       "pump_s_running": {
-        "name": "Pump_S - ňĄ¬Úś│ŔâŻ"
+        "name": "Pump_S - 太阳能"
       },
       "remote_onoff": {
-        "name": "ňŐčŔâŻ - Ŕ┐ťšĘőň╝Çňů│"
+        "name": "功能 - 远程开关"
       },
       "room_thermal_state": {
-        "name": "šŐÂŠÇü - ň«ĄňćůŠŞęŠÄžňÖĘ"
+        "name": "状态 - 室内温控器"
       },
       "room_thermal_support": {
-        "name": "ňŐčŔâŻ - ň«ĄňćůŠŞęŠÄžňÖĘ"
+        "name": "功能 - 室内温控器"
       },
       "status_cool": {
-        "name": "šŐÂŠÇü - ňłÂňćĚ"
+        "name": "状态 - 制冷"
       },
       "sv1_open": {
-        "name": "SV1 - ÚśÇÚŚĘ (šöčŠ┤╗šâşŠ░┤)"
+        "name": "SV1 - 阀门 (生活热水)"
       },
       "sv2_open": {
-        "name": "SV2 - ÚśÇÚŚĘ (ňłÂšâş)"
+        "name": "SV2 - 阀门 (制热)"
       },
       "sv3_open": {
-        "name": "SV3 - ÚśÇÚŚĘ"
+        "name": "SV3 - 阀门"
       },
       "sys_energy_ana_en": {
-        "name": "ňŐčŔâŻ - ŔâŻŔÇŚňłćŠ×É (š│╗š╗č)"
+        "name": "功能 - 能耗分析 (系统)"
       },
       "tbh_control": {
-        "name": "ňŐčŔâŻ - TBH ŠÄžňłÂ"
+        "name": "功能 - TBH 控制"
       },
       "time_set": {
-        "name": "ňŐčŔâŻ - ŠŚÂÚŚ┤ňĚ▓Ŕ«żšŻ«"
+        "name": "功能 - 时间已设置"
       }
     },
     "button": {
       "start": {
-        "name": "ňÉ»ňŐĘ"
+        "name": "启动"
       }
     },
     "climate": {
       "climate_zone1": {
-        "name": "ňî║ňčč1ŠüĺŠŞęňÖĘ"
+        "name": "区域1恒温器"
       },
       "climate_zone2": {
-        "name": "ňî║ňčč2ŠüĺŠŞęňÖĘ"
+        "name": "区域2恒温器"
       },
       "climate_key": {
         "state_attributes": {
           "fan_mode": {
             "state": {
-              "silent": "ÚŁÖÚč│",
-              "full": "ňůĘÚÇč"
+              "silent": "静音",
+              "full": "全速"
             }
           }
         }
@@ -473,59 +485,59 @@
     },
     "fan": {
       "fresh_air": {
-        "name": "Šľ░ÚúÄ"
+        "name": "新风"
       },
       "fresh_air_exhaust": {
-        "name": "ŠÄĺÚúÄ"
+        "name": "排风"
       }
     },
     "lock": {
       "child_lock": {
-        "name": "šźąÚöü"
+        "name": "童锁"
       }
     },
     "number": {
       "dry_level": {
-        "name": "šâśň╣▓ŠíúńŻŹ"
+        "name": "烘干档位"
       },
       "heating_level": {
-        "name": "ňŐášâşŠíúńŻŹ"
+        "name": "加热档位"
       },
       "seat_temp_level": {
-        "name": "ň║žŠŞęŠíúńŻŹ"
+        "name": "座温档位"
       },
       "water_temp_level": {
-        "name": "Š░┤ŠŞęŠíúńŻŹ"
+        "name": "水温档位"
       },
       "fan_speed_percent": {
-        "name": "ÚúÄÚÇčšÖżňłćŠ»ö"
+        "name": "风速百分比"
       },
       "vacation_days": {
-        "name": "ňüçŠťčňĄęŠĽ░"
+        "name": "假期天数"
       },
       "max_temperature": {
-        "name": "ŠťÇÚźśšŤ«ŠáçŠŞęň║Ž"
+        "name": "最高目标温度"
       },
       "disinfection_temperature": {
-        "name": "ŠÂłŠ»ĺŠŞęň║Ž"
+        "name": "消毒温度"
       },
       "schedule_mode": {
-        "name": "Ŕ«íňłĺŠĘíň╝Ć"
+        "name": "计划模式"
       },
       "leak_water_protection_value": {
-        "name": "Š╝ĆŠ░┤ń┐ŁŠŐĄÚśłňÇ╝"
+        "name": "漏水保护阈值"
       },
       "flushing_days": {
-        "name": "ňćŹšöčňĄęŠĽ░"
+        "name": "再生天数"
       },
       "water_hardness": {
-        "name": "Ŕ┐ŤŠ░┤šíČň║Ž"
+        "name": "进水硬度"
       },
       "boil_temperature": {
-        "name": "šâžŠ░┤šŤ«ŠáçŠŞęň║Ž"
+        "name": "烧水目标温度"
       },
       "keep_warm_time": {
-        "name": "ń┐ŁŠŞęŠŚÂÚŚ┤"
+        "name": "保温时间"
       }
     },
     "select": {
@@ -554,22 +566,22 @@
         }
       },
       "fresh_air_exhaust_mode": {
-        "name": "ŠÄĺÚúÄÚúÄÚÇč",
+        "name": "排风风速",
         "state": {
-          "off": "ňů│ÚŚş",
-          "silent": "ńŻÄÚÇč",
-          "high": "ÚźśÚÇč",
-          "full": "ň╝║ňŐ▓"
+          "off": "关闭",
+          "silent": "低速",
+          "high": "高速",
+          "full": "强劲"
         }
       },
       "fresh_air_mode": {
-        "name": "Šľ░ÚúÄÚúÄÚÇč",
+        "name": "新风风速",
         "state": {
-          "off": "ňů│ÚŚş",
-          "low": "ńŻÄÚÇč",
-          "medium": "ńŞşÚÇč",
-          "high": "ÚźśÚÇč",
-          "full": "ň╝║ňŐ▓"
+          "off": "关闭",
+          "low": "低速",
+          "medium": "中速",
+          "high": "高速",
+          "full": "强劲"
         }
       },
       "mode": {
@@ -591,13 +603,13 @@
         }
       },
       "oscillation_angle": {
-        "name": "Š░┤ň╣│ŠĹćňĄ┤Ŕžĺň║Ž"
+        "name": "水平摆头角度"
       },
       "oscillation_mode": {
-        "name": "Š░┤ň╣│ŠĹćňĄ┤ŠĘíň╝Ć"
+        "name": "水平摆头模式"
       },
       "rate_select": {
-        "name": "ňŐčšÄçÚÖÉňłÂ"
+        "name": "功率限制"
       },
       "screen_display": {
         "name": "屏幕显示",
@@ -608,224 +620,224 @@
         }
       },
       "silent_level": {
-        "name": "ÚŁÖÚč│š║žňłź"
+        "name": "静音级别"
       },
       "tilting_angle": {
-        "name": "ň×éšŤ┤ŠĹćňĄ┤Ŕžĺň║Ž"
+        "name": "垂直摆头角度"
       },
       "wash_mode": {
-        "name": "Š┤ŚŠÂĄŠĘíň╝Ć"
+        "name": "洗涤模式"
       },
       "water_level_set": {
-        "name": "Š░┤ńŻŹŔ«żň«Ü"
+        "name": "水位设定"
       },
       "wind_lr_angle": {
-        "name": "Š░┤ň╣│ňç║ÚúÄ",
+        "name": "水平出风",
         "state": {
-          "off": "ňüťŠşó",
-          "left": "ňĚŽŠľ╣",
-          "left-mid": "ňĚŽńŞş",
-          "middle": "ńŞşÚâĘ",
-          "right-mid": "ňĆ│ńŞş",
-          "right": "ňĆ│Šľ╣"
+          "off": "停止",
+          "left": "左方",
+          "left-mid": "左中",
+          "middle": "中部",
+          "right-mid": "右中",
+          "right": "右方"
         }
       },
       "wind_ud_angle": {
-        "name": "ň×éšŤ┤ňç║ÚúÄ",
+        "name": "垂直出风",
         "state": {
-          "off": "ňüťŠşó",
-          "up": "ńŞŐŠľ╣",
-          "up-mid": "ńŞşńŞŐ",
-          "middle": "ńŞşÚâĘ",
-          "down-mid": "ńŞşńŞő",
-          "down": "ńŞőŠľ╣"
+          "off": "停止",
+          "up": "上方",
+          "up-mid": "中上",
+          "middle": "中部",
+          "down-mid": "中下",
+          "down": "下方"
         }
       }
     },
     "time": {
       "timing_regeneration": {
-        "name": "ň«ÜŠŚÂňćŹšöčŠŚÂÚŚ┤"
+        "name": "定时再生时间"
       }
     },
     "sensor": {
       "bathing_leaving_temperature": {
-        "name": "ŠĚőŠÁ┤ňç║Š░┤ŠŞęň║Ž"
+        "name": "淋浴出水温度"
       },
       "bf_status": {
-        "name": "šŐÂŠÇü",
+        "name": "状态",
         "state": {
-          "save_power": "šťüšöÁ",
-          "standby": "ňżůŠť║",
-          "work": "ňĚąńŻťńŞş",
-          "work_finish": "ňĚ▓ň«îŠłÉ",
-          "order": "Úóäš║Ž",
-          "pause": "ŠÜéňüť",
-          "pause_c": "ŠÜéňüť C",
-          "three": "ńŞë",
-          "wait_to_start": "šşëňżůňÉ»ňŐĘ",
-          "self_inspection": "Ŕç¬ŠúÇ",
-          "query_version": "ŠčąŔ»óšëłŠťČ",
-          "demo": "Š╝öšĄ║",
-          "after_checking": "ŠúÇŠčąňÉÄ",
-          "unknown": "Šť¬ščą"
+          "save_power": "省电",
+          "standby": "待机",
+          "work": "工作中",
+          "work_finish": "已完成",
+          "order": "预约",
+          "pause": "暂停",
+          "pause_c": "暂停 C",
+          "three": "三",
+          "wait_to_start": "等待启动",
+          "self_inspection": "自检",
+          "query_version": "查询版本",
+          "demo": "演示",
+          "after_checking": "检查后",
+          "unknown": "未知"
         }
       },
       "bottom_compartment_remaining": {
-        "name": "ńŞőň▒éňëęńŻÖŠŚÂÚŚ┤"
+        "name": "下层剩余时间"
       },
       "bottom_compartment_status": {
-        "name": "ńŞőň▒éšŐÂŠÇü"
+        "name": "下层状态"
       },
       "bottom_compartment_temperature": {
-        "name": "ńŞőň▒éŠŞęň║Ž"
+        "name": "下层温度"
       },
       "bottom_temperature": {
-        "name": "ň║ĽÚâĘŠŞęň║Ž"
+        "name": "底部温度"
       },
       "bright": {
-        "name": "ń║«šóčňëéŠíúńŻŹ"
+        "name": "亮碟剂档位"
       },
       "cloudmenuid": {
-        "name": "ń║ĹŔĆťňŹĽ ID"
+        "name": "云菜单 ID"
       },
       "compressor_temperature": {
-        "name": "ňÄőš╝ęŠť║ŠŞęň║Ž"
+        "name": "压缩机温度"
       },
       "condenser_temperature": {
-        "name": "ňćĚňçŁňÖĘŠŞęň║Ž"
+        "name": "冷凝器温度"
       },
       "cur_probe_temperature": {
-        "name": "ňŻôňëŹŠÄóÚĺłŠŞęň║Ž"
+        "name": "当前探针温度"
       },
       "cur_temperature_above": {
-        "name": "ňŻôňëŹńŞŐš«íŠŞęň║Ž"
+        "name": "当前上管温度"
       },
       "cur_temperature_underside": {
-        "name": "ňŻôňëŹńŞőš«íŠŞęň║Ž"
+        "name": "当前下管温度"
       },
       "current_energy_consumption": {
-        "name": "ňŻôňëŹŔâŻŔÇŚ"
+        "name": "当前能耗"
       },
       "current_temperature": {
-        "name": "ňŻôňëŹŠŞęň║Ž"
+        "name": "当前温度"
       },
       "dehydration_speed": {
-        "name": "Ŕä▒Š░┤ÚÇčň║Ž"
+        "name": "脱水速度"
       },
       "dehydration_time": {
-        "name": "Ŕä▒Š░┤ŠŚÂÚŚ┤ŠíúńŻŹ"
+        "name": "脱水时间档位"
       },
       "dehydration_time_value": {
-        "name": "Ŕä▒Š░┤ŠŚÂÚŚ┤ňÇ╝"
+        "name": "脱水时间值"
       },
       "execute_status": {
-        "name": "ŠëžŔíîšŐÂŠÇü",
+        "name": "执行状态",
         "state": {
-          "ok": "ŠşúňŞŞ",
-          "status_nonsupport": "ńŞŹŠö»ŠîüŔ»ąšŐÂŠÇü",
-          "function_nonsupport": "ńŞŹŠö»ŠîüŔ»ąňŐčŔâŻ",
-          "param_range_error": "ňĆéŠĽ░ŔîâňŤ┤ÚöÖŔ»»"
+          "ok": "正常",
+          "status_nonsupport": "不支持该状态",
+          "function_nonsupport": "不支持该功能",
+          "param_range_error": "参数范围错误"
         }
       },
       "fire_power": {
-        "name": "šüźňŐŤ",
+        "name": "火力",
         "state": {
-          "fire_power_0": "0 Šíú",
-          "fire_power_1": "1 Šíú",
-          "fire_power_2": "2 Šíú",
-          "fire_power_3": "3 Šíú",
-          "fire_power_4": "4 Šíú",
-          "fire_power_5": "5 Šíú",
-          "fire_power_6": "6 Šíú",
-          "fire_power_7": "7 Šíú",
-          "fire_power_8": "8 Šíú",
-          "fire_power_9": "9 Šíú",
-          "fire_power_10": "10 Šíú",
-          "unknown": "Šť¬ščą"
+          "fire_power_0": "0 档",
+          "fire_power_1": "1 档",
+          "fire_power_2": "2 档",
+          "fire_power_3": "3 档",
+          "fire_power_4": "4 档",
+          "fire_power_5": "5 档",
+          "fire_power_6": "6 档",
+          "fire_power_7": "7 档",
+          "fire_power_8": "8 档",
+          "fire_power_9": "9 档",
+          "fire_power_10": "10 档",
+          "unknown": "未知"
         }
       },
       "minute_set": {
-        "name": "ňłćÚĺčŔ«żšŻ«"
+        "name": "分钟设置"
       },
       "people_number": {
-        "name": "ń║║ŠĽ░"
+        "name": "人数"
       },
       "probe_temperature": {
-        "name": "ŠÄóÚĺłŠŞęň║Ž"
+        "name": "探针温度"
       },
       "second_set": {
-        "name": "šžĺÚĺčŔ«żšŻ«"
+        "name": "秒钟设置"
       },
       "steam_quantity": {
-        "name": "ŔĺŞŠ▒ŻÚçĆ"
+        "name": "蒸汽量"
       },
       "stepnum": {
-        "name": "ňŻôňëŹŠşąŠĽ░"
+        "name": "当前步数"
       },
       "temperature": {
-        "name": "šŤ«ŠáçŠŞęň║Ž"
+        "name": "目标温度"
       },
       "temperature_above": {
-        "name": "ńŞŐš«íŠŞęň║Ž"
+        "name": "上管温度"
       },
       "temperature_underside": {
-        "name": "ńŞőš«íŠŞęň║Ž"
+        "name": "下管温度"
       },
       "totalstep": {
-        "name": "ŠÇ╗ŠşąŠĽ░"
+        "name": "总步数"
       },
       "wash_time_value": {
-        "name": "Š┤ŚŠÂĄŠŚÂÚŚ┤ňÇ╝"
+        "name": "洗涤时间值"
       },
       "stains": {
-        "name": "Š▒íŠŞŹ"
+        "name": "污渍"
       },
       "dirty_degree": {
-        "name": "ŔäĆň║Ž"
+        "name": "脏度"
       },
       "detergent": {
-        "name": "Š┤ŚŠÂĄňëé"
+        "name": "洗涤剂"
       },
       "intensity": {
-        "name": "ň╝║ň║Ž"
+        "name": "强度"
       },
       "dryness_level": {
-        "name": "ň╣▓šçąŠíúńŻŹ"
+        "name": "干燥档位"
       },
       "dry_temperature": {
-        "name": "ň╣▓šçąŠŞęň║Ž"
+        "name": "干燥温度"
       },
       "door_warn": {
-        "name": "ň╝ÇÚŚĘŔşŽňĹŐ"
+        "name": "开门警告"
       },
       "ai_switch": {
-        "name": "AIň╝Çňů│"
+        "name": "AI开关"
       },
       "material": {
-        "name": "ŠŁÉŔ┤Ę"
+        "name": "材质"
       },
       "water_box": {
-        "name": "Š░┤š«▒"
+        "name": "水箱"
       },
       "energy_consumption": {
-        "name": "ŔâŻŔÇŚ"
+        "name": "能耗"
       },
       "error": {
-        "name": "ÚöÖŔ»»",
+        "name": "错误",
         "state": {
-          "no_error": "ŠŚáŠĽůÚÜť",
-          "e1_position_not_found": "E1 ńŞÇšŤ┤ŠëżńŞŹňł░ňĚąńŻťńŻŹ",
-          "e2_photo_sensor_no_signal": "E2 ňůëŠäčŠ▓íŠťëňĆĹňç║ń┐íňĆĚ",
-          "e3_motor_not_running": "E3 šöÁŠť║ńŞŹŔŻČ",
-          "e4_wrong_position": "E4 ňĚąńŻťńŻŹńŞŹŠşúší«",
-          "e1_motor_fault": "E1 šöÁŠť║ŠĽůÚÜť",
-          "e5_communication_fault": "E5 ÚÇÜń┐íŠĽůÚÜť",
-          "e6_salt_sensor_fault": "E6 šŤÉńŻŹń╝áŠäčňÖĘŠĽůÚÜť",
-          "e7_chlorine_sterilization_fault": "E7 ńŻÖŠ░»ŠŁÇŔĆîŠĽůÚÜť"
+          "no_error": "无故障",
+          "e1_position_not_found": "E1 一直找不到工作位",
+          "e2_photo_sensor_no_signal": "E2 光感没有发出信号",
+          "e3_motor_not_running": "E3 电机不转",
+          "e4_wrong_position": "E4 工作位不正确",
+          "e1_motor_fault": "E1 电机故障",
+          "e5_communication_fault": "E5 通信故障",
+          "e6_salt_sensor_fault": "E6 盐位传感器故障",
+          "e7_chlorine_sterilization_fault": "E7 余氯杀菌故障"
         }
       },
       "error_code": {
-        "name": "ÚöÖŔ»»šáü"
+        "name": "错误码"
       },
       "humidify_feedback": {
         "name": "湿度反馈"
@@ -837,97 +849,97 @@
         "name": "加湿模式"
       },
       "estimated_energy_consumption": {
-        "name": "Úóäń╝░ŔâŻŔÇŚ"
+        "name": "预估能耗"
       },
       "estimated_water_consumption": {
-        "name": "Úóäń╝░Š░┤ŔÇŚ"
+        "name": "预估水耗"
       },
       "fan_level": {
-        "name": "ňŻôňëŹÚúÄŠëçŠíúńŻŹ"
+        "name": "当前风扇档位"
       },
       "filter_life": {
-        "name": "Š╗ĄŔŐ»ň»┐ňĹŻ"
+        "name": "滤芯寿命"
       },
       "filter1_days": {
-        "name": "Š╗ĄŔŐ»1ňĆ»šöĘňĄęŠĽ░"
+        "name": "滤芯1可用天数"
       },
       "filter1_life": {
-        "name": "Š╗ĄŔŐ»1ňëęńŻÖň»┐ňĹŻ"
+        "name": "滤芯1剩余寿命"
       },
       "filter2_days": {
-        "name": "Š╗ĄŔŐ»2ňĆ»šöĘňĄęŠĽ░"
+        "name": "滤芯2可用天数"
       },
       "filter2_life": {
-        "name": "Š╗ĄŔŐ»2ňëęńŻÖň»┐ňĹŻ"
+        "name": "滤芯2剩余寿命"
       },
       "filter3_days": {
-        "name": "Š╗ĄŔŐ»3ňĆ»šöĘňĄęŠĽ░"
+        "name": "滤芯3可用天数"
       },
       "filter3_life": {
-        "name": "Š╗ĄŔŐ»3ňëęńŻÖň»┐ňĹŻ"
+        "name": "滤芯3剩余寿命"
       },
       "flex_zone_actual_temp": {
-        "name": "ňĆśŠŞęňî║ň«×ÚÖůŠŞęň║Ž"
+        "name": "变温区实际温度"
       },
       "flex_zone_setting_temp": {
-        "name": "ňĆśŠŞęňî║Ŕ«żšŻ«ŠŞęň║Ž"
+        "name": "变温区设置温度"
       },
       "freezer_actual_temp": {
-        "name": "ňćĚňć╗ň«Ąň«×ÚÖůŠŞęň║Ž"
+        "name": "冷冻室实际温度"
       },
       "freezer_setting_temp": {
-        "name": "ňćĚňć╗ň«ĄŔ«żšŻ«ŠŞęň║Ž"
+        "name": "冷冻室设置温度"
       },
       "hcho": {
-        "name": "šö▓ÚćŤ"
+        "name": "甲醛"
       },
       "heating_leaving_temperature": {
-        "name": "ňĆľŠÜľňç║Š░┤ŠŞęň║Ž"
+        "name": "取暖出水温度"
       },
       "heating_power": {
-        "name": "ňŐášâşňŐčšÄç"
+        "name": "加热功率"
       },
       "heating_time_remaining": {
-        "name": "ňŐášâşňëęńŻÖŠŚÂÚŚ┤"
+        "name": "加热剩余时间"
       },
       "in_tds": {
-        "name": "Ŕ┐ŤŠ░┤TDS"
+        "name": "进水TDS"
       },
       "indoor_humidity": {
-        "name": "ň«ĄňćůŠ╣┐ň║Ž"
+        "name": "室内湿度"
       },
       "indoor_temperature": {
-        "name": "ň«ĄňćůŠŞęň║Ž"
+        "name": "室内温度"
       },
       "keep_warm_remaining": {
-        "name": "ń┐ŁŠŞęňëęńŻÖŠŚÂÚŚ┤"
+        "name": "保温剩余时间"
       },
       "fault_code": {
-        "name": "ŠĽůÚÜťń╗úšáü"
+        "name": "故障代码"
       },
       "keep_warm_time": {
-        "name": "ń┐ŁŠŞęŠŚÂÚŚ┤"
+        "name": "保温时间"
       },
       "left_salt": {
-        "name": "ňëęńŻÖšŤÉÚçĆ"
+        "name": "剩余盐量"
       },
       "middle_compartment_remaining": {
-        "name": "ńŞşň▒éňëęńŻÖŠŚÂÚŚ┤"
+        "name": "中层剩余时间"
       },
       "middle_compartment_status": {
-        "name": "ńŞşň▒éšŐÂŠÇü"
+        "name": "中层状态"
       },
       "middle_compartment_temperature": {
-        "name": "ńŞşň▒éŠŞęň║Ž"
+        "name": "中层温度"
       },
       "mode": {
-        "name": "ŠĘíň╝Ć"
+        "name": "模式"
       },
       "out_tds": {
-        "name": "ňç║Š░┤TDS"
+        "name": "出水TDS"
       },
       "outdoor_temperature": {
-        "name": "ň«ĄňĄľŠŞęň║Ž"
+        "name": "室外温度"
       },
       "comp_run_freq": {
         "name": "Compressor Frequency"
@@ -988,472 +1000,472 @@
         "name": "Power Module Temperature (TF)"
       },
       "program": {
-        "name": "šĘőň║Ć"
+        "name": "程序"
       },
       "progress": {
-        "name": "ňŻôňëŹšĘőň║Ć"
+        "name": "当前程序"
       },
       "realtime_power": {
-        "name": "ň«×ŠŚÂňŐčšÄç"
+        "name": "实时功率"
       },
       "pmv": {
         "name": "PMV"
       },
       "refrigerator_actual_temp": {
-        "name": "ňćĚŔŚĆň«Ąň«×ÚÖůŠŞęň║Ž"
+        "name": "冷藏室实际温度"
       },
       "refrigerator_setting_temp": {
-        "name": "ňćĚŔŚĆň«ĄŔ«żšŻ«ŠŞęň║Ž"
+        "name": "冷藏室设置温度"
       },
       "regeneration_left_seconds": {
-        "name": "ňćŹšöčňëęńŻÖšžĺŠĽ░"
+        "name": "再生剩余秒数"
       },
       "remaining_days": {
-        "name": "ňëęńŻÖňĄęŠĽ░"
+        "name": "剩余天数"
       },
       "right_flex_zone_actual_temp": {
-        "name": "ňĆ│ňĆśŠŞęňî║ň«×ÚÖůŠŞęň║Ž"
+        "name": "右变温区实际温度"
       },
       "right_flex_zone_setting_temp": {
-        "name": "ňĆ│ňĆśŠŞęňî║Ŕ«żšŻ«ŠŞęň║Ž"
+        "name": "右变温区设置温度"
       },
       "rinse_count": {
-        "name": "Š╝éŠ┤ŚŠČíŠĽ░"
+        "name": "漂洗次数"
       },
       "rinse_level": {
-        "name": "Š╝éŠ┤ŚŠíúńŻŹ"
+        "name": "漂洗档位"
       },
       "salt_setting": {
-        "name": "šŤÉÚçĆŔ«żšŻ«"
+        "name": "盐量设置"
       },
       "seat_temperature": {
-        "name": "ňŻôňëŹň║žŠŞę"
+        "name": "当前座温"
       },
       "soak_time": {
-        "name": "ŠÁŞŠ│íŠŚÂÚŚ┤"
+        "name": "浸泡时间"
       },
       "soft_available": {
-        "name": "ŔŻ»ňîľŠ░┤ňĆ»šöĘÚçĆ"
+        "name": "软化水可用量"
       },
       "softener": {
-        "name": "ŠčöÚí║ňëé"
+        "name": "柔顺剂"
       },
       "softwater": {
-        "name": "ŔŻ»Š░┤šŤÉŠíúńŻŹ"
+        "name": "软水盐档位"
       },
       "status": {
-        "name": "šŐÂŠÇü"
+        "name": "状态"
       },
       "storage_remaining": {
-        "name": "ń┐Łš«íňëęńŻÖŠŚÂÚŚ┤"
+        "name": "保管剩余时间"
       },
       "tank": {
-        "name": "Š░┤š«▒Š░┤ńŻŹ"
+        "name": "水箱水位"
       },
       "tank_actual_temperature": {
-        "name": "Š░┤š«▒ň«×ÚÖůŠŞęň║Ž"
+        "name": "水箱实际温度"
       },
       "target_temperature": {
-        "name": "Ŕ«żň«ÜŠŞęň║Ž"
+        "name": "设定温度"
       },
       "time_remaining": {
-        "name": "ňëęńŻÖŠŚÂÚŚ┤"
+        "name": "剩余时间"
       },
       "top_compartment_remaining": {
-        "name": "ńŞŐň▒éňëęńŻÖŠŚÂÚŚ┤"
+        "name": "上层剩余时间"
       },
       "top_compartment_status": {
-        "name": "ńŞŐň▒éšŐÂŠÇü"
+        "name": "上层状态"
       },
       "top_compartment_temperature": {
-        "name": "ńŞŐň▒éŠŞęň║Ž"
+        "name": "上层温度"
       },
       "top_temperature": {
-        "name": "ÚíÂÚâĘŠŞęň║Ž"
+        "name": "顶部温度"
       },
       "total_energy_consumption": {
-        "name": "ŠÇ╗ŔâŻŔÇŚ"
+        "name": "总能耗"
       },
       "total_produced_energy": {
-        "name": "ŠÇ╗Ŕ«íń║žšöčŔâŻÚçĆ"
+        "name": "总计产生能量"
       },
       "tvoc": {
         "name": "TVOC"
       },
       "wash_level": {
-        "name": "Š┤ŚŠÂĄŠíúńŻŹ"
+        "name": "洗涤档位"
       },
       "wash_strength": {
-        "name": "Š┤ŚŠÂĄň╝║ň║Ž"
+        "name": "洗涤强度"
       },
       "wash_time": {
-        "name": "Š┤ŚŠÂĄŠŚÂÚŚ┤ŠíúńŻŹ"
+        "name": "洗涤时间档位"
       },
       "water_consumption": {
-        "name": "ŠÇ╗ŔÇŚŠ░┤ÚçĆ"
+        "name": "总耗水量"
       },
       "water_consumption_average": {
-        "name": "ň╣│ňŁçŔÇŚŠ░┤ÚçĆ"
+        "name": "平均耗水量"
       },
       "water_consumption_big": {
-        "name": "ŠÇ╗ŔÇŚŠ░┤ÚçĆ"
+        "name": "总耗水量"
       },
       "water_temperature": {
-        "name": "Š░┤ŠŞę"
+        "name": "水温"
       },
       "water_level": {
-        "name": "Š░┤ńŻŹ"
+        "name": "水位"
       },
       "wind": {
-        "name": "ÚúÄ"
+        "name": "风"
       },
       "typeinfo": {
-        "name": "š▒╗ň×őń┐íŠü»"
+        "name": "类型信息"
       },
       "use_days": {
-        "name": "ńŻ┐šöĘňĄęŠĽ░"
+        "name": "使用天数"
       },
       "elec_heat": {
-        "name": "šöÁňŐášâş"
+        "name": "电加热"
       },
       "water_pump": {
-        "name": "Š░┤Š│Á"
+        "name": "水泵"
       },
       "four_way": {
-        "name": "ňŤŤÚÇÜÚśÇ"
+        "name": "四通阀"
       },
       "back_water": {
-        "name": "ňŤ×Š░┤"
+        "name": "回水"
       },
       "sterilize": {
-        "name": "ŠŁÇŔĆî"
+        "name": "杀菌"
       },
       "disinfection_temperature": {
-        "name": "ŠÂłŠ»ĺŠŞęň║Ž"
+        "name": "消毒温度"
       },
       "max_temperature": {
-        "name": "ŠťÇÚźśšŤ«ŠáçŠŞęň║Ž"
+        "name": "最高目标温度"
       },
       "max_temperature_upper_limit": {
-        "name": "ŠťÇÚźśŠŞęň║ŽńŞŐÚÖÉ"
+        "name": "最高温度上限"
       },
       "max_temperature_lower_limit": {
-        "name": "ŠťÇÚźśŠŞęň║ŽńŞőÚÖÉ"
+        "name": "最高温度下限"
       },
       "disinfection_temperature_upper_limit": {
-        "name": "ŠÂłŠ»ĺŠŞęň║ŽńŞŐÚÖÉ"
+        "name": "消毒温度上限"
       },
       "disinfection_temperature_lower_limit": {
-        "name": "ŠÂłŠ»ĺŠŞęň║ŽńŞőÚÖÉ"
+        "name": "消毒温度下限"
       },
       "dr_option": {
-        "name": "ÚťÇŠ▒éňôŹň║öÚÇëÚí╣"
+        "name": "需求响应选项"
       },
       "remaining_hot_water_max": {
-        "name": "ŠťÇňĄžňëęńŻÖšâşŠ░┤"
+        "name": "最大剩余热水"
       },
       "force_e_heating_status": {
-        "name": "ň╝║ňłÂšöÁňŐášâşšŐÂŠÇü"
+        "name": "强制电加热状态"
       },
       "holiday_max": {
-        "name": "ňüçŠŚąŠťÇňĄžŠŚÂÚĽ┐"
+        "name": "假日最大时长"
       },
       "holiday_min": {
-        "name": "ňüçŠŚąŠťÇň░ĆŠŚÂÚĽ┐"
+        "name": "假日最小时长"
       },
       "timer_step_gap": {
-        "name": "ň«ÜŠŚÂŠşąÚĽ┐"
+        "name": "定时步长"
       },
       "vacation_start_year": {
-        "name": "ňüçŠťčň╝Çňžőň╣┤"
+        "name": "假期开始年"
       },
       "vacation_start_month": {
-        "name": "ňüçŠťčň╝ÇňžőŠťł"
+        "name": "假期开始月"
       },
       "vacation_start_day": {
-        "name": "ňüçŠťčň╝ÇňžőŠŚą"
+        "name": "假期开始日"
       },
       "auto_sterilize_week": {
-        "name": "Ŕç¬ňŐĘŠŁÇŔĆîŠśčŠťč"
+        "name": "自动杀菌星期"
       },
       "auto_sterilize_hour": {
-        "name": "Ŕç¬ňŐĘŠŁÇŔĆîň░ĆŠŚÂ"
+        "name": "自动杀菌小时"
       },
       "auto_sterilize_minute": {
-        "name": "Ŕç¬ňŐĘŠŁÇŔĆîňłćÚĺč"
+        "name": "自动杀菌分钟"
       },
       "weight": {
-        "name": "ÚçŹÚçĆ"
+        "name": "重量"
       },
       "work_mode": {
-        "name": "ňĚąńŻťŠĘíň╝Ć",
+        "name": "工作模式",
         "state": {
-          "microwave": "ňż«Š│ó",
-          "microwave_1": "ňż«Š│ó 1",
-          "microwave_2": "ňż«Š│ó 2",
-          "microwave_3": "ňż«Š│ó 3",
-          "microwave_4": "ňż«Š│ó 4",
-          "microwave_5": "ňż«Š│ó 5",
-          "microwave_steam_above_tube": "ňż«Š│óŔĺŞŠ▒ŻńŞŐš«í",
-          "microwave_double_tube": "ňż«Š│óňĆîš«í",
-          "microwave_hot_wind_tube_fan": "ňż«Š│óšâşÚúÄš«íÚúÄŠëç",
-          "microwave_underside_tube_hot_wind_tube_fan": "ňż«Š│óńŞőš«íšâşÚúÄÚúÄŠëç",
-          "microwave_double_tube_hot_wind_tube_fan": "ňż«Š│óňĆîš«íšâşÚúÄÚúÄŠëç",
-          "microwave_steam": "ňż«Š│óŔĺŞŠ▒Ż",
-          "microwave_steam_1": "ňż«Š│óŔĺŞŠ▒Ż 1",
-          "unfreeze": "Ŕžúňć╗",
-          "unfreeze_1": "Ŕžúňć╗ 1",
-          "unfreeze_2": "Ŕžúňć╗ 2",
-          "unfreeze_3": "Ŕžúňć╗ 3",
-          "unfreeze_t": "Ŕžúňć╗ T",
-          "microwave_above_tube": "ňż«Š│óńŞŐš«í",
-          "microwave_above_tube_1": "ňż«Š│óńŞŐš«í 1",
-          "microwave_above_tube_2": "ňż«Š│óńŞŐš«í 2",
-          "microwave_above_tube_fan": "ňż«Š│óńŞŐš«íÚúÄŠëç",
-          "fast_unfreeze": "ň┐źÚÇčŔžúňć╗",
-          "fresh_unfreeze": "šöčÚ▓ťŔžúňć╗",
-          "microwave_zymosis": "ňż«Š│óňĆĹÚůÁ",
-          "pure_steam": "š║»ŔĺŞ",
-          "pure_steam_1": "š║»ŔĺŞ 1",
-          "pure_steam_2": "š║»ŔĺŞ 2",
-          "pure_steam_3": "š║»ŔĺŞ 3",
-          "pure_steam_4": "š║»ŔĺŞ 4",
-          "pure_steam_5": "š║»ŔĺŞ 5",
-          "pure_steam_6": "š║»ŔĺŞ 6",
-          "pure_steam_7": "š║»ŔĺŞ 7",
-          "pure_steam_8": "š║»ŔĺŞ 8",
-          "pure_steam_9": "š║»ŔĺŞ 9",
-          "steam_above_tube": "ŔĺŞŠ▒ŻńŞŐš«í",
-          "steam_underside_tube": "ŔĺŞŠ▒ŻńŞőš«í",
-          "steam_double_tube": "ŔĺŞŠ▒ŻňĆîš«í",
-          "steam_hot_wind_tube_fan": "ŔĺŞŠ▒ŻšâşÚúÄš«íÚúÄŠëç",
-          "steam_hot_wind_tube_fan_1": "ŔĺŞŠ▒ŻšâşÚúÄš«íÚúÄŠëç 1",
-          "steam_hot_wind_tube_fan_2": "ŔĺŞŠ▒ŻšâşÚúÄš«íÚúÄŠëç 2",
-          "steam_hot_wind_tube": "ŔĺŞŠ▒ŻšâşÚúÄš«í",
-          "steam_double_tube_fan": "ŔĺŞŠ▒ŻňĆîš«íÚúÄŠëç",
-          "steam_above_inside_outside_tube_fan": "ŔĺŞŠ▒ŻńŞŐňćůňĄľš«íÚúÄŠëç",
-          "steam_above_inside_tube_fan": "ŔĺŞŠ▒ŻńŞŐňćůš«íÚúÄŠëç",
-          "above_tube": "ńŞŐš«í",
-          "underside_tube": "ńŞőš«í",
-          "double_tube": "ňĆîš«í",
-          "hot_wind_tube_fan": "šâşÚúÄš«íÚúÄŠëç",
-          "pure_preheat": "š║»Úóäšâş",
-          "above_tube_hot_wind_tube_fan": "ńŞŐš«íšâşÚúÄÚúÄŠëç",
-          "underside_tube_hot_wind_tube_fan": "ńŞőš«íšâşÚúÄÚúÄŠëç",
-          "zymosis": "ňĆĹÚůÁ",
-          "double_tube_hot_wind_tube_fan": "ňĆîš«íšâşÚúÄÚúÄŠëç",
-          "above_tube_revolve": "ńŞŐš«íŠŚőŔŻČ",
-          "underside_tube_revolve": "ńŞőš«íŠŚőŔŻČ",
-          "double_tube_revolve": "ňĆîš«íŠŚőŔŻČ",
-          "hot_wind_tube_fan_revolve": "šâşÚúÄš«íÚúÄŠëçŠŚőŔŻČ",
-          "warm": "ń┐ŁŠŞę",
-          "double_tube_fan": "ňĆîš«íÚúÄŠëç",
-          "double_tube_fan_1": "ňĆîš«íÚúÄŠëç 1",
-          "double_tube_fan_2": "ňĆîš«íÚúÄŠëç 2",
-          "double_tube_fan_3": "ňĆîš«íÚúÄŠëç 3",
-          "above_inside_tube_revolve": "ńŞŐňćůš«íŠŚőŔŻČ",
-          "above_inside_tube_fan": "ńŞŐňćůš«íÚúÄŠëç",
-          "above_inside_outside_tube_revolve": "ńŞŐňćůňĄľš«íŠŚőŔŻČ",
-          "above_inside_outside_tube_fan": "ńŞŐňćůňĄľš«íÚúÄŠëç",
-          "above_inside_underside_tube": "ńŞŐňćůńŞőš«í",
-          "above_inside_underside_tube_1": "ńŞŐňćůńŞőš«í 1",
-          "above_inside_underside_tube_fan": "ńŞŐňćůńŞőš«íÚúÄŠëç",
-          "above_inside_underside_tube_fan_1": "ńŞŐňćůńŞőš«íÚúÄŠëç 1",
-          "above_inside_tube": "ńŞŐňćůš«í",
-          "above_inside_outside_tube": "ńŞŐňćůňĄľš«í",
-          "underside_tube_fan": "ńŞőš«íÚúÄŠëç",
-          "above_tube_fan": "ńŞŐš«íÚúÄŠëç",
-          "above_tube_fan_1": "ńŞŐš«íÚúÄŠëç 1",
-          "above_tube_fan_2": "ńŞŐš«íÚúÄŠëç 2",
-          "scale_clean": "ÚÖĄň×ó",
-          "clean": "ŠŞůŠ┤ü",
-          "remove_odor": "ÚÖĄňĹ│",
-          "remove_odor_2": "ÚÖĄňĹ│ 2",
-          "high_temperature_clean": "ÚźśŠŞęŠŞůŠ┤ü",
-          "dining_utensils_clean": "ÚĄÉňůĚŠŞůŠ┤ü",
-          "auto_menu": "Ŕç¬ňŐĘŔĆťňŹĽ",
-          "eco": "ŔŐéŔâŻ",
-          "above_tube_1": "ńŞŐš«í 1",
-          "above_tube_2": "ńŞŐš«í 2",
-          "above_tube_3": "ńŞŐš«í 3",
-          "underside_tube_1": "ńŞőš«í 1",
-          "underside_tube_2": "ńŞőš«í 2",
-          "double_tube_1": "ňĆîš«í 1",
-          "double_tube_2": "ňĆîš«í 2",
-          "double_tube_3": "ňĆîš«í 3",
-          "double_tube_4": "ňĆîš«í 4",
-          "double_tube_5": "ňĆîš«í 5",
-          "double_tube_6": "ňĆîš«í 6",
-          "hot_wind_tube_fan_1": "šâşÚúÄš«íÚúÄŠëç 1",
-          "hot_wind_tube_fan_2": "šâşÚúÄš«íÚúÄŠëç 2",
-          "hot_wind_tube_fan_3": "šâşÚúÄš«íÚúÄŠëç 3",
-          "hot_wind_tube_fan_4": "šâşÚúÄš«íÚúÄŠëç 4",
-          "hot_wind_tube_fan_5": "šâşÚúÄš«íÚúÄŠëç 5",
-          "double_tube_hot_wind_tube_fan_1": "ňĆîš«íšâşÚúÄÚúÄŠëç 1",
-          "double_tube_hot_wind_tube_fan_2": "ňĆîš«íšâşÚúÄÚúÄŠëç 2",
-          "double_tube_hot_wind_tube_fan_3": "ňĆîš«íšâşÚúÄÚúÄŠëç 3",
-          "double_tube_hot_wind_tube_fan_4": "ňĆîš«íšâşÚúÄÚúÄŠëç 4",
-          "double_tube_hot_wind_tube_fan_5": "ňĆîš«íšâşÚúÄÚúÄŠëç 5",
-          "unknown": "Šť¬ščą"
+          "microwave": "微波",
+          "microwave_1": "微波 1",
+          "microwave_2": "微波 2",
+          "microwave_3": "微波 3",
+          "microwave_4": "微波 4",
+          "microwave_5": "微波 5",
+          "microwave_steam_above_tube": "微波蒸汽上管",
+          "microwave_double_tube": "微波双管",
+          "microwave_hot_wind_tube_fan": "微波热风管风扇",
+          "microwave_underside_tube_hot_wind_tube_fan": "微波下管热风风扇",
+          "microwave_double_tube_hot_wind_tube_fan": "微波双管热风风扇",
+          "microwave_steam": "微波蒸汽",
+          "microwave_steam_1": "微波蒸汽 1",
+          "unfreeze": "解冻",
+          "unfreeze_1": "解冻 1",
+          "unfreeze_2": "解冻 2",
+          "unfreeze_3": "解冻 3",
+          "unfreeze_t": "解冻 T",
+          "microwave_above_tube": "微波上管",
+          "microwave_above_tube_1": "微波上管 1",
+          "microwave_above_tube_2": "微波上管 2",
+          "microwave_above_tube_fan": "微波上管风扇",
+          "fast_unfreeze": "快速解冻",
+          "fresh_unfreeze": "生鲜解冻",
+          "microwave_zymosis": "微波发酵",
+          "pure_steam": "纯蒸",
+          "pure_steam_1": "纯蒸 1",
+          "pure_steam_2": "纯蒸 2",
+          "pure_steam_3": "纯蒸 3",
+          "pure_steam_4": "纯蒸 4",
+          "pure_steam_5": "纯蒸 5",
+          "pure_steam_6": "纯蒸 6",
+          "pure_steam_7": "纯蒸 7",
+          "pure_steam_8": "纯蒸 8",
+          "pure_steam_9": "纯蒸 9",
+          "steam_above_tube": "蒸汽上管",
+          "steam_underside_tube": "蒸汽下管",
+          "steam_double_tube": "蒸汽双管",
+          "steam_hot_wind_tube_fan": "蒸汽热风管风扇",
+          "steam_hot_wind_tube_fan_1": "蒸汽热风管风扇 1",
+          "steam_hot_wind_tube_fan_2": "蒸汽热风管风扇 2",
+          "steam_hot_wind_tube": "蒸汽热风管",
+          "steam_double_tube_fan": "蒸汽双管风扇",
+          "steam_above_inside_outside_tube_fan": "蒸汽上内外管风扇",
+          "steam_above_inside_tube_fan": "蒸汽上内管风扇",
+          "above_tube": "上管",
+          "underside_tube": "下管",
+          "double_tube": "双管",
+          "hot_wind_tube_fan": "热风管风扇",
+          "pure_preheat": "纯预热",
+          "above_tube_hot_wind_tube_fan": "上管热风风扇",
+          "underside_tube_hot_wind_tube_fan": "下管热风风扇",
+          "zymosis": "发酵",
+          "double_tube_hot_wind_tube_fan": "双管热风风扇",
+          "above_tube_revolve": "上管旋转",
+          "underside_tube_revolve": "下管旋转",
+          "double_tube_revolve": "双管旋转",
+          "hot_wind_tube_fan_revolve": "热风管风扇旋转",
+          "warm": "保温",
+          "double_tube_fan": "双管风扇",
+          "double_tube_fan_1": "双管风扇 1",
+          "double_tube_fan_2": "双管风扇 2",
+          "double_tube_fan_3": "双管风扇 3",
+          "above_inside_tube_revolve": "上内管旋转",
+          "above_inside_tube_fan": "上内管风扇",
+          "above_inside_outside_tube_revolve": "上内外管旋转",
+          "above_inside_outside_tube_fan": "上内外管风扇",
+          "above_inside_underside_tube": "上内下管",
+          "above_inside_underside_tube_1": "上内下管 1",
+          "above_inside_underside_tube_fan": "上内下管风扇",
+          "above_inside_underside_tube_fan_1": "上内下管风扇 1",
+          "above_inside_tube": "上内管",
+          "above_inside_outside_tube": "上内外管",
+          "underside_tube_fan": "下管风扇",
+          "above_tube_fan": "上管风扇",
+          "above_tube_fan_1": "上管风扇 1",
+          "above_tube_fan_2": "上管风扇 2",
+          "scale_clean": "除垢",
+          "clean": "清洁",
+          "remove_odor": "除味",
+          "remove_odor_2": "除味 2",
+          "high_temperature_clean": "高温清洁",
+          "dining_utensils_clean": "餐具清洁",
+          "auto_menu": "自动菜单",
+          "eco": "节能",
+          "above_tube_1": "上管 1",
+          "above_tube_2": "上管 2",
+          "above_tube_3": "上管 3",
+          "underside_tube_1": "下管 1",
+          "underside_tube_2": "下管 2",
+          "double_tube_1": "双管 1",
+          "double_tube_2": "双管 2",
+          "double_tube_3": "双管 3",
+          "double_tube_4": "双管 4",
+          "double_tube_5": "双管 5",
+          "double_tube_6": "双管 6",
+          "hot_wind_tube_fan_1": "热风管风扇 1",
+          "hot_wind_tube_fan_2": "热风管风扇 2",
+          "hot_wind_tube_fan_3": "热风管风扇 3",
+          "hot_wind_tube_fan_4": "热风管风扇 4",
+          "hot_wind_tube_fan_5": "热风管风扇 5",
+          "double_tube_hot_wind_tube_fan_1": "双管热风风扇 1",
+          "double_tube_hot_wind_tube_fan_2": "双管热风风扇 2",
+          "double_tube_hot_wind_tube_fan_3": "双管热风风扇 3",
+          "double_tube_hot_wind_tube_fan_4": "双管热风风扇 4",
+          "double_tube_hot_wind_tube_fan_5": "双管热风风扇 5",
+          "unknown": "未知"
         }
       },
       "working_time": {
-        "name": "ňĚąńŻťŠŚÂÚŚ┤"
+        "name": "工作时间"
       },
       "humidity": {
-        "name": "Š╣┐ň║Ž"
+        "name": "湿度"
       },
       "variable_mode": {
-        "name": "ňĆśŠŞęňî║ŠĘíň╝Ć"
+        "name": "变温区模式"
       },
       "compressor_frequency": {
-        "name": "ňÄőš╝ęŠť║ÚóĹšÄç"
+        "name": "压缩机频率"
       },
       "target_compressor_frequency": {
-        "name": "šŤ«ŠáçňÄőš╝ęŠť║ÚóĹšÄç"
+        "name": "目标压缩机频率"
       },
       "compressor_current": {
-        "name": "ňÄőš╝ęŠť║šöÁŠÁü"
+        "name": "压缩机电流"
       },
       "compressor_voltage": {
-        "name": "ňÄőš╝ęŠť║šöÁňÄő"
+        "name": "压缩机电压"
       },
       "compressor_power": {
-        "name": "ňÄőš╝ęŠť║ňŐčšÄç"
+        "name": "压缩机功率"
       },
       "indoor_ambient_temperature": {
-        "name": "ň«ĄňćůšÄ»ňóâŠŞęň║Ž(T1)"
+        "name": "室内环境温度(T1)"
       },
       "indoor_coil_temperature": {
-        "name": "ň«ĄňćůšŤśš«íŠŞęň║Ž(T2)"
+        "name": "室内盘管温度(T2)"
       },
       "outdoor_coil_temperature": {
-        "name": "ň«ĄňĄľšŤśš«íŠŞęň║Ž(T3)"
+        "name": "室外盘管温度(T3)"
       },
       "outdoor_ambient_temperature": {
-        "name": "ň«ĄňĄľšÄ»ňóâŠŞęň║Ž(T4)"
+        "name": "室外环境温度(T4)"
       },
       "discharge_pipe_temperature": {
-        "name": "ŠÄĺŠ░öš«íŠŞęň║Ž(TP)"
+        "name": "排气管温度(TP)"
       },
       "indoor_fan_speed": {
-        "name": "ň«ĄňćůÚúÄŠť║ŔŻČÚÇč"
+        "name": "室内风机转速"
       },
       "target_indoor_fan_speed": {
-        "name": "šŤ«Šáçň«ĄňćůÚúÄŠť║ŔŻČÚÇč"
+        "name": "目标室内风机转速"
       },
       "velocity": {
-        "name": "ŠÁüÚÇč"
+        "name": "流速"
       },
       "comp_total_run_time": {
-        "name": "ŔâŻŔÇŚ - ňÄőš╝ęŠť║š┤»Ŕ«íŔ┐ÉŔíîŠŚÂÚŚ┤"
+        "name": "能耗 - 压缩机累计运行时间"
       },
       "dc_bus_voltage": {
-        "name": "ň«ĄňĄľŠť║ - šŤ┤ŠÁüŠ»Źš║┐šöÁňÄő"
+        "name": "室外机 - 直流母线电压"
       },
       "dc_current": {
-        "name": "ň«ĄňĄľŠť║ - šŤ┤ŠÁüŠ»Źš║┐šöÁŠÁü"
+        "name": "室外机 - 直流母线电流"
       },
       "disinfect_set_weekday": {
-        "name": "šöčŠ┤╗šâşŠ░┤ - ŠŁÇŔĆîŠśčŠťč"
+        "name": "生活热水 - 杀菌星期"
       },
       "disinfect_start_hour": {
-        "name": "šöčŠ┤╗šâşŠ░┤ - ŠŁÇŔĆîň╝Çňžőň░ĆŠŚÂ"
+        "name": "生活热水 - 杀菌开始小时"
       },
       "disinfect_start_minutes": {
-        "name": "šöčŠ┤╗šâşŠ░┤ - ŠŁÇŔĆîň╝ÇňžőňłćÚĺč"
+        "name": "生活热水 - 杀菌开始分钟"
       },
       "error_code_description": {
-        "name": "ŠĽůÚÜť - Ŕ»┤ŠśÄ"
+        "name": "故障 - 说明"
       },
       "hydbox_subtype": {
-        "name": "ń┐íŠü» - Š░┤ňŐŤŠĘíňŁŚňşÉš▒╗ň×ő"
+        "name": "信息 - 水力模块子类型"
       },
       "hydrobox_capacity": {
-        "name": "ń┐íŠü» - Š░┤ňŐŤŠĘíňŁŚň«╣ÚçĆ"
+        "name": "信息 - 水力模块容量"
       },
       "idu_software_version_str": {
-        "name": "ń┐íŠü» - ň«ĄňćůŠť║ŔŻ»ń╗ÂšëłŠťČ"
+        "name": "信息 - 室内机软件版本"
       },
       "idu_t1s1": {
-        "name": "ŠŞęň║Ž - ńŞÇňî║Ŕ«íš«ŚňÇ╝ (T1s)"
+        "name": "温度 - 一区计算值 (T1s)"
       },
       "idu_t1s2": {
-        "name": "ŠŞęň║Ž - ń║îňî║Ŕ«íš«ŚňÇ╝ (T1s)"
+        "name": "温度 - 二区计算值 (T1s)"
       },
       "current_unit_capacity": {
         "name": "当前机组能力（原始值）"
       },
       "instant_power0": {
-        "name": "ňŐčšÄç - ňłÂšâşŔÇŚšöÁ"
+        "name": "功率 - 制热耗电"
       },
       "instant_renew_power0": {
-        "name": "ňŐčšÄç - ňĆ»ňćŹšöčňłÂšâşŔâŻňŐŤ"
+        "name": "功率 - 可再生制热能力"
       },
       "machine_type": {
-        "name": "ń┐íŠü» - Šť║ň×ő"
+        "name": "信息 - 机型"
       },
       "odu_model": {
-        "name": "ń┐íŠü» - ň«ĄňĄľŠť║ň×őňĆĚń╗úšáü"
+        "name": "信息 - 室外机型号代码"
       },
       "odu_software_version_str": {
-        "name": "ń┐íŠü» - ň«ĄňĄľŠť║ŔŻ»ń╗ÂšëłŠťČ"
+        "name": "信息 - 室外机软件版本"
       },
       "room_rel_hum": {
-        "name": "ň«ĄňćůšŤŞň»╣Š╣┐ň║Ž"
+        "name": "室内相对湿度"
       },
       "t5s": {
-        "name": "ŠŞęň║Ž T5s - šöčŠ┤╗šâşŠ░┤Ŕ«żň«ÜňÇ╝"
+        "name": "温度 T5s - 生活热水设定值"
       },
       "tas": {
-        "name": "ŠŞęň║Ž Tas - šę║Š░öŔ«żň«ÜňÇ╝"
+        "name": "温度 Tas - 空气设定值"
       },
       "temp_t4": {
-        "name": "ŠŞęň║Ž T4 - ň«ĄňĄľšÄ»ňóâ"
+        "name": "温度 T4 - 室外环境"
       },
       "temp_t5": {
-        "name": "ŠŞęň║Ž T5 - Š░┤š«▒"
+        "name": "温度 T5 - 水箱"
       },
       "temp_ta": {
-        "name": "ŠŞęň║Ž Ta - ň«ĄňćůšÄ»ňóâ"
+        "name": "温度 Ta - 室内环境"
       },
       "temp_tb_t1": {
-        "name": "ŠŞęň║Ž TB-T1 - š╝ôňć▓Š░┤š«▒ńŞŐÚâĘ"
+        "name": "温度 TB-T1 - 缓冲水箱上部"
       },
       "temp_tb_t2": {
-        "name": "ŠŞęň║Ž TB-T2 - š╝ôňć▓Š░┤š«▒ńŞőÚâĘ"
+        "name": "温度 TB-T2 - 缓冲水箱下部"
       },
       "temp_tsolar": {
-        "name": "ŠŞęň║Ž Tsolar - ňĄ¬Úś│ŔâŻŠŁ┐"
+        "name": "温度 Tsolar - 太阳能板"
       },
       "temp_tw2": {
-        "name": "ŠŞęň║Ž Tw2 - ń║îňî║Š░┤ŠŞę"
+        "name": "温度 Tw2 - 二区水温"
       },
       "temp_tw_in": {
-        "name": "ŠŞęň║Ž Tw_in - Ŕ┐ŤŠ░┤"
+        "name": "温度 Tw_in - 进水"
       },
       "temp_tw_out": {
-        "name": "ŠŞęň║Ž Tw_out - ňç║Š░┤"
+        "name": "温度 Tw_out - 出水"
       },
       "water_flow": {
-        "name": "Š░┤ - ŠÁüÚçĆ"
+        "name": "水 - 流量"
       },
       "water_pressure": {
-        "name": "Š░┤ - ňÄőňŐŤ"
+        "name": "水 - 压力"
       },
       "hmi_sn_code": {
-        "name": "ń┐íŠü» - WiFi ŠĘíňŁŚň║ĆňłŚňĆĚ"
+        "name": "信息 - 线控器序列号"
       },
       "zone1_temp_set": {
-        "name": "ŠŞęň║Ž - ńŞÇňî║Ŕ«żň«ÜňÇ╝"
+        "name": "温度 - 一区设定值"
       },
       "zone2_temp_set": {
-        "name": "ŠŞęň║Ž - ń║îňî║Ŕ«żň«ÜňÇ╝"
+        "name": "温度 - 二区设定值"
       }
     },
     "switch": {
       "anion": {
-        "name": "Ŕ┤čšŽ╗ňşÉň╝Çňů│"
+        "name": "负离子开关"
       },
       "humidify": {
         "name": "加湿"
@@ -1474,178 +1486,178 @@
         "name": "体感扫描"
       },
       "aux_heating": {
-        "name": "šöÁŔżůšâş"
+        "name": "电辅热"
       },
       "boost_mode": {
-        "name": "ň╝║ňŐ▓ŠĘíň╝Ć"
+        "name": "强劲模式"
       },
       "breezeless": {
-        "name": "ŠŚáÚúÄŠäč"
+        "name": "无风感"
       },
       "child_lock": {
-        "name": "šźąÚöü"
+        "name": "童锁"
       },
       "cl_sterilization": {
-        "name": "CL ŠŁÇŔĆî"
+        "name": "CL 杀菌"
       },
       "comfort_mode": {
-        "name": "ŔłĺšťüŠĘíň╝Ć"
+        "name": "舒省模式"
       },
       "degerming": {
         "name": "除菌"
       },
       "dhw_power": {
-        "name": "šöčŠ┤╗šâşŠ░┤šöÁŠ║Éň╝Çňů│"
+        "name": "生活热水电源开关"
       },
       "disinfect": {
-        "name": "ŠÂłŠ»ĺ"
+        "name": "消毒"
       },
       "maintenance_reminder": {
-        "name": "š╗┤ŠŐĄŠĆÉÚćĺ"
+        "name": "维护提醒"
       },
       "vacation_mode": {
-        "name": "ňüçŠťčŠĘíň╝Ć"
+        "name": "假期模式"
       },
       "dry": {
-        "name": "ň╣▓šçą"
+        "name": "干燥"
       },
       "cold_water_single": {
-        "name": "ňŹĽŠČíÚŤÂňćĚŠ░┤"
+        "name": "单次零冷水"
       },
       "cold_water_dot": {
-        "name": "šé╣ňŐĘÚŤÂňćĚŠ░┤"
+        "name": "点动零冷水"
       },
       "eco_mode": {
-        "name": "ECOŠĘíň╝Ć"
+        "name": "ECO模式"
       },
       "memory": {
-        "name": "Ŕ«░ň┐ć"
+        "name": "记忆"
       },
       "fast_dhw": {
-        "name": "ň┐źÚÇčšöčŠ┤╗šâşŠ░┤"
+        "name": "快速生活热水"
       },
       "foam_shield": {
-        "name": "Š│íŠ▓źšŤż"
+        "name": "泡沫盾"
       },
       "frost_protect": {
-        "name": "Úś▓Úťťňć╗"
+        "name": "防霜冻"
       },
       "furnace_light": {
-        "name": "šéëšü»"
+        "name": "炉灯"
       },
       "heating_power": {
-        "name": "ňŐášâş"
+        "name": "加热"
       },
       "hot_wind": {
-        "name": "šâşÚúÄ"
+        "name": "热风"
       },
       "ramadan": {
-        "name": "ŠľőŠťłŠĘíň╝Ć"
+        "name": "斋月模式"
       },
       "indirect_wind": {
-        "name": "Úś▓šŤ┤ňÉ╣"
+        "name": "防直吹"
       },
       "leak_water_protection": {
-        "name": "Š╝ĆŠ░┤ń┐ŁŠŐĄ"
+        "name": "漏水保护"
       },
       "light": {
-        "name": "šü»ňůë"
+        "name": "灯光"
       },
       "link_to_ac": {
-        "name": "šę║Ŕ░âŔüöňŐĘň╝Çňů│"
+        "name": "空调联动开关"
       },
       "main_light": {
-        "name": "ńŞ╗šü»"
+        "name": "主灯"
       },
       "main_power": {
-        "name": "ńŞ╗šöÁŠ║É"
+        "name": "主电源"
       },
       "natural_wind": {
-        "name": "Ŕç¬šäÂÚúÄ"
+        "name": "自然风"
       },
       "night_light": {
-        "name": "ňĄťšü»"
+        "name": "夜灯"
       },
       "oscillate": {
-        "name": "ŠĹćňĄ┤ň╝Çňů│"
+        "name": "摆头开关"
       },
       "power": {
-        "name": "šöÁŠ║Éň╝Çňů│"
+        "name": "电源开关"
       },
       "powerful_purify": {
-        "name": "ň╝║ňçÇň╝Çňů│"
+        "name": "强净开关"
       },
       "prompt_tone": {
-        "name": "ŠĆÉšĄ║Úč│"
+        "name": "提示音"
       },
       "regeneration": {
-        "name": "ňćŹšöč"
+        "name": "再生"
       },
       "turntable": {
-        "name": "ŔŻČšŤś"
+        "name": "转盘"
       },
       "water_pump": {
-        "name": "Š░┤Š│Á"
+        "name": "水泵"
       },
       "water_way": {
-        "name": "Š░┤ŔĚ»"
+        "name": "水路"
       },
       "screen_display": {
-        "name": "ň▒Ćň╣ĽŠśżšĄ║"
+        "name": "屏幕显示"
       },
       "screen_display_alternate": {
-        "name": "ň▒Ćň╣ĽŠśżšĄ║ňĄçšöĘň╝Çňů│"
+        "name": "屏幕显示备用开关"
       },
       "sensor_light": {
-        "name": "Šäčň║öňĄťšü»"
+        "name": "感应夜灯"
       },
       "silent_mode": {
-        "name": "ÚŁÖÚč│ŠĘíň╝Ć"
+        "name": "静音模式"
       },
       "sleep_mode": {
-        "name": "šŁíšťáŠĘíň╝Ć"
+        "name": "睡眠模式"
       },
       "out_silent": {
-        "name": "ň«ĄňĄľÚŁÖÚč│ŠĘíň╝Ć"
+        "name": "室外静音模式"
       },
       "smart_eye": {
-        "name": "ŠÖ║Šůžšť╝"
+        "name": "智慧眼"
       },
       "smart_volume": {
-        "name": "ŠÖ║ŔâŻňĆśň«╣"
+        "name": "智能变容"
       },
       "smelly_sensor": {
-        "name": "ň╝éňĹ│Šäčň║ö"
+        "name": "异味感应"
       },
       "soften": {
-        "name": "ŔŻ»ňîľňŐčŔâŻ"
+        "name": "软化功能"
       },
       "standby": {
-        "name": "ňżůŠť║"
+        "name": "待机"
       },
       "start": {
-        "name": "ňÉ»ňŐĘ"
+        "name": "启动"
       },
       "sterilization": {
-        "name": "ŠŁÇŔĆî"
+        "name": "杀菌"
       },
       "storage": {
-        "name": "ń┐Łš«íň╝Çňů│"
+        "name": "保管开关"
       },
       "swing": {
-        "name": "ŠĹćÚúÄň╝Çňů│"
+        "name": "摆风开关"
       },
       "swing_horizontal": {
-        "name": "Š░┤ň╣│ŠĹćÚúÄ"
+        "name": "水平摆风"
       },
       "swing_vertical": {
-        "name": "ň×éšŤ┤ŠĹćÚúÄ"
+        "name": "垂直摆风"
       },
       "self_clean": {
         "name": "智清洁"
       },
       "ieco": {
-        "name": "iECO ŔŐéŔâŻ"
+        "name": "iECO 节能"
       },
       "sound": {
         "name": "Sound"
@@ -1654,66 +1666,66 @@
         "name": "TBH"
       },
       "variable_heating": {
-        "name": "ňĆśÚóĹňŐášâş"
+        "name": "变频加热"
       },
       "ventilation": {
-        "name": "ŠŹóŠ░ö"
+        "name": "换气"
       },
       "whole_tank_heating": {
-        "name": "ňůĘŔâćÚÇčšâş"
+        "name": "全胆速热"
       },
       "zero_cold_pulse": {
-        "name": "ÚŤÂňćĚŠ░┤(šé╣ňŐĘ)"
+        "name": "零冷水(点动)"
       },
       "zero_cold_water": {
-        "name": "ÚŤÂňćĚŠ░┤"
+        "name": "零冷水"
       },
       "zone1_curve": {
-        "name": "ňî║ňčč1ŠŤ▓š║┐"
+        "name": "区域1曲线"
       },
       "zone1_power": {
-        "name": "ňî║ňčč1ŠüĺŠŞęňÖĘň╝Çňů│"
+        "name": "区域1恒温器开关"
       },
       "zone2_curve": {
-        "name": "ňî║ňčč2ŠŤ▓š║┐"
+        "name": "区域2曲线"
       },
       "zone2_power": {
-        "name": "ňî║ňčč2ŠüĺŠŞęňÖĘň╝Çňů│"
+        "name": "区域2恒温器开关"
       },
       "boiling": {
-        "name": "šâžŠ░┤"
+        "name": "烧水"
       },
       "tea_bar_boil": {
-        "name": "šâžŠ░┤ň╝Çňů│"
+        "name": "烧水开关"
       },
       "tea_bar_child_lock": {
-        "name": "šźąÚöü"
+        "name": "童锁"
       },
       "keep_warm": {
-        "name": "ń┐ŁŠŞę"
+        "name": "保温"
       },
       "tea_bar_cooling": {
-        "name": "ňłÂňćĚ"
+        "name": "制冷"
       },
       "screen_off": {
-        "name": "šćäň▒Ć"
+        "name": "熄屏"
       },
       "dhw_disinfect": {
-        "name": "šöčŠ┤╗šâşŠ░┤ - ŠŁÇŔĆî"
+        "name": "生活热水 - 杀菌"
       },
       "holiday_on": {
-        "name": "ŠĘíň╝Ć - ňüçŠťč"
+        "name": "模式 - 假期"
       }
     },
     "water_heater": {
       "domestic_hot_water": {
-        "name": "šöčŠ┤╗šâşŠ░┤"
+        "name": "生活热水"
       },
       "bathing": {
-        "name": "ŠĚőŠÁ┤"
+        "name": "淋浴"
       },
       "heating": {
-        "name": "ňŐášâş"
+        "name": "加热"
       }
     }
   },
@@ -1721,53 +1733,53 @@
     "step": {
       "init": {
         "data": {
-          "ip_address": "IPňť░ňŁÇ",
-          "refresh_interval": "ňłĚŠľ░ÚŚ┤ÚÜö(Ŕ«ż0ńŞ║ńŞŹŔ┐ŤŔíîńŞ╗ňŐĘňłĚŠľ░)",
-          "sensors": "Šëęň▒Ľń╝áŠäčňÖĘ",
-          "switches": "Šëęň▒ĽŠÄžňłÂ",
-          "customize": "Ŕç¬ň«Üń╣ë"
+          "ip_address": "IP地址",
+          "refresh_interval": "刷新间隔(设0为不进行主动刷新)",
+          "sensors": "扩展传感器",
+          "switches": "扩展控制",
+          "customize": "自定义"
         },
-        "title": "ÚůŹšŻ«"
+        "title": "配置"
       }
     },
     "abort": {
-      "account_option": "Ŕ┤ŽŠłĚÚůŹšŻ«ńŞŹŠö»ŠîüŠşĄŠôŹńŻť.\nšé╣ňç╗\"ŠĚ╗ňŐáŔ«żňĄç\"ň«îŠłÉŠĚ╗ňŐáŠľ░Ŕ«żňĄçšÜäŠôŹńŻť"
+      "account_option": "账户配置不支持此操作.\n点击\"添加设备\"完成添加新设备的操作"
     }
   },
   "services": {
     "set_attribute": {
-      "name": "Ŕ«żšŻ«ň▒×ŠÇž",
-      "description": "Ŕ«żšŻ«Ŕ«żňĄçšÜäň▒×ŠÇžňÇ╝",
+      "name": "设置属性",
+      "description": "设置设备的属性值",
       "fields": {
         "device_id": {
-          "name": "Ŕ«żňĄçš╝ľšáü",
-          "description": "Ŕ«żňĄçš╝ľšáü(Device ID)"
+          "name": "设备编码",
+          "description": "设备编码(Device ID)"
         },
         "attribute": {
-          "name": "ň▒×ŠÇž",
-          "description": "ŔŽüŔ«żšŻ«šÜäň▒×ŠÇžňÉŹšž░"
+          "name": "属性",
+          "description": "要设置的属性名称"
         },
         "value": {
-          "name": "ňÇ╝",
-          "description": "ŔŽüŔ«żšŻ«šÜäň▒×ŠÇžňÇ╝"
+          "name": "值",
+          "description": "要设置的属性值"
         }
       }
     },
     "send_command": {
-      "name": "Ŕç¬ň«Üń╣ëňĹŻń╗Ą",
-      "description": "ňÉĹŔ«żňĄçňĆĹÚÇüńŞÇńŞ¬Ŕç¬ň«Üń╣ëňĹŻń╗Ą",
+      "name": "自定义命令",
+      "description": "向设备发送一个自定义命令",
       "fields": {
         "device_id": {
-          "name": "Ŕ«żňĄçš╝ľšáü",
-          "description": "Ŕ«żňĄçš╝ľšáü(Device ID)"
+          "name": "设备编码",
+          "description": "设备编码(Device ID)"
         },
         "cmd_type": {
-          "name": "ňĹŻń╗Ąš▒╗ň×ő",
-          "description": "ňĹŻń╗Ąš▒╗ň×ő´╝îňĆ»ń╗ąńŞ║2(ŠčąŔ»ó)Šłľ3(Ŕ«żšŻ«)"
+          "name": "命令类型",
+          "description": "命令类型，可以为2(查询)或3(设置)"
         },
         "cmd_body": {
-          "name": "ňĹŻń╗ĄńŻô",
-          "description": "ňĹŻń╗ĄšÜäŠÂłŠü»ńŻô(ńŞŹňîůŠőČňëŹÚâĘšÜäMSmartňŹĆŔ««ňĄ┤ňĆŐňÉÄÚâĘšÜäŠáíÚ¬îšáü)"
+          "name": "命令体",
+          "description": "命令的消息体(不包括前部的MSmart协议头及后部的校验码)"
         }
       }
     }
