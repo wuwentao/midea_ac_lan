@@ -70,9 +70,9 @@
 | sensor.{DEVICEID}\_total_energy_consumption     | sensor        | Total Energy Consumption                      | 总能耗。</br>第一个值可能会延迟，因为更新仅在设备处于活动状态时发送 |
 | sensor.{DEVICEID}\_total_produced_energy        | sensor        | Total Produced Energy                         | 总计产生能量                                                        |
 | sensor.{DEVICEID}\_outdoor_temperature          | sensor        | Outdoor Temperature                           | 室外温度                                                            |
-| sensor.{DEVICEID}\_temp_tw_in                   | sensor        | Water Inlet Temperature                       | 进水温度                                                            |
-| sensor.{DEVICEID}\_temp_tw_out                  | sensor        | Water Outlet Temperature                      | 出水温度                                                            |
-| sensor.{DEVICEID}\_instant_power0               | sensor        | Current Power                                 | 当前功率                                                            |
+| sensor.{DEVICEID}\_temp_tw_in                   | sensor        | Temperature Tw_in - Water Inlet               | 温度 Tw_in - 进水                                                   |
+| sensor.{DEVICEID}\_temp_tw_out                  | sensor        | Temperature Tw_out - Water Outlet             | 温度 Tw_out - 出水                                                  |
+| sensor.{DEVICEID}\_instant_power0               | sensor        | Power - Heating Consumption                   | 功率 - 制热耗电                                                     |
 | sensor.{DEVICEID}\_comp_run_freq                | sensor        | Compressor Frequency                          | 压缩机运行频率                                                      |
 | sensor.{DEVICEID}\_fan_speed                    | sensor        | Outdoor Fan Speed                             | 室外风机转速                                                        |
 | sensor.{DEVICEID}\_unit_mode_run                | sensor        | Unit Run Mode                                 | 机组运行模式                                                        |
@@ -122,7 +122,7 @@
 | sensor.{DEVICEID}\_disinfect_set_weekday        | sensor        | DHW - Disinfect Weekday                       | 生活热水 - 杀菌星期                                                 |
 | sensor.{DEVICEID}\_disinfect_start_hour         | sensor        | DHW - Disinfect Start Hour                    | 生活热水 - 杀菌开始小时                                             |
 | sensor.{DEVICEID}\_disinfect_start_minutes      | sensor        | DHW - Disinfect Start Minute                  | 生活热水 - 杀菌开始分钟                                             |
-| switch.{DEVICEID}\_disinfect                    | switch        | Disinfect                                     | 消毒                                                                |
+| switch.{DEVICEID}\_disinfect                    | switch        | DHW - Disinfect                               | 生活热水 - 杀菌                                                     |
 | switch.{DEVICEID}\_dhw_power                    | switch        | DHW Power                                     | 生活热水电源开关                                                    |
 | switch.{DEVICEID}\_eco_mode                     | switch        | ECO Mode                                      | ECO模式                                                             |
 | switch.{DEVICEID}\_fast_dhw                     | switch        | Fast DHW                                      | 快速生活热水                                                        |
