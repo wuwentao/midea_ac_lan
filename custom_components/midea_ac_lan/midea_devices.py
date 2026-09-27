@@ -20,6 +20,7 @@ from homeassistant.const import (
     UnitOfTemperature,
     UnitOfTime,
     UnitOfVolume,
+    UnitOfVolumeFlowRate,
 )
 
 # HA 2026.7 added UnitOfDensity/UnitOfRatio, and HA 2026.8 started deprecating
@@ -1877,7 +1878,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "icon": "mdi:thermometer-lines",
                 "device_class": NumberDeviceClass.TEMPERATURE,
                 "unit": UnitOfTemperature.CELSIUS,
-                "min": 25,
+                "min": 30,
                 "max": 60,
                 "step": "temperature_step",
                 "default": True,
@@ -1983,7 +1984,8 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "flow_volume",
                 "name": "Flow Volume",
                 "icon": "mdi:water",
-                "unit": UnitOfVolume.LITERS,
+                "device_class": SensorDeviceClass.VOLUME_FLOW_RATE,
+                "unit": UnitOfVolumeFlowRate.LITERS_PER_MINUTE,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
             C1Attributes.standby: {

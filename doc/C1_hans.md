@@ -53,7 +53,7 @@
 | --------- | ------------------------------------------- |
 | device_id | The Appliance code (Device ID) of appliance |
 | attribute | "heating_target_temperature"                |
-| value     | 25 到 60                                    |
+| value     | 30 到 60                                    |
 
 | 名称      | 描述                                        |
 | --------- | ------------------------------------------- |
