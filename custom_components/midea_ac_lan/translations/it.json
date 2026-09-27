@@ -326,6 +326,96 @@
       },
       "water_pump_running": {
         "name": "Pompa Acqua in Funzione"
+      },
+      "alarm_on": {
+        "name": "Errore - Allarme"
+      },
+      "aux_heat_on": {
+        "name": "Resistenza - Fonte ausiliaria"
+      },
+      "compressor_on": {
+        "name": "Compressore - In funzione"
+      },
+      "cool_capability": {
+        "name": "Capacità - Raffrescamento"
+      },
+      "crankcase_heater_on": {
+        "name": "Resistenza - Carter"
+      },
+      "dhw_capability": {
+        "name": "Capacità - ACS"
+      },
+      "disinfect_run": {
+        "name": "ACS - Disinfezione in corso"
+      },
+      "double_zone": {
+        "name": "Capacità - Doppia zona"
+      },
+      "eco_function_state": {
+        "name": "Modalità - Funzione ECO"
+      },
+      "eco_timer_state": {
+        "name": "Modalità - Timer ECO"
+      },
+      "heat_capability": {
+        "name": "Capacità - Riscaldamento"
+      },
+      "hmi_energy_ana_set_en": {
+        "name": "Capacità - Analisi energetica (HMI)"
+      },
+      "ibh1_on": {
+        "name": "Resistenza - IBH1"
+      },
+      "ibh2_on": {
+        "name": "Resistenza - IBH2"
+      },
+      "load_output_tbh": {
+        "name": "Resistenza - Accumulo (TBH)"
+      },
+      "pump_c_running": {
+        "name": "Pump_C - Circuito miscelato zona 2"
+      },
+      "pump_d_running": {
+        "name": "Pump_D - ACS"
+      },
+      "pump_i_running": {
+        "name": "Pump_I - Interna"
+      },
+      "pump_o_running": {
+        "name": "Pump_O - Esterna"
+      },
+      "pump_s_running": {
+        "name": "Pump_S - Solare"
+      },
+      "remote_onoff": {
+        "name": "Capacità - Accensione remota"
+      },
+      "room_thermal_state": {
+        "name": "Stato - Termostato ambiente"
+      },
+      "room_thermal_support": {
+        "name": "Capacità - Termostato ambiente"
+      },
+      "status_cool": {
+        "name": "Stato - Raffrescamento"
+      },
+      "sv1_open": {
+        "name": "SV1 - Valvola (ACS)"
+      },
+      "sv2_open": {
+        "name": "SV2 - Valvola (Riscaldamento)"
+      },
+      "sv3_open": {
+        "name": "SV3 - Valvola"
+      },
+      "sys_energy_ana_en": {
+        "name": "Capacità - Analisi energetica (Sistema)"
+      },
+      "tbh_control": {
+        "name": "Capacità - Controllo TBH"
+      },
+      "time_set": {
+        "name": "Capacità - Ora impostata"
       }
     },
     "button": {
@@ -1200,6 +1290,111 @@
       },
       "velocity": {
         "name": "Velocità"
+      },
+      "comp_total_run_time": {
+        "name": "Energia - Ore di funzionamento compressore"
+      },
+      "dc_bus_voltage": {
+        "name": "Unità esterna - Tensione bus CC"
+      },
+      "dc_current": {
+        "name": "Unità esterna - Corrente bus CC"
+      },
+      "disinfect_set_weekday": {
+        "name": "ACS - Giorno disinfezione"
+      },
+      "disinfect_start_hour": {
+        "name": "ACS - Ora di inizio disinfezione"
+      },
+      "disinfect_start_minutes": {
+        "name": "ACS - Minuto di inizio disinfezione"
+      },
+      "error_code_description": {
+        "name": "Errore - Descrizione"
+      },
+      "hydbox_subtype": {
+        "name": "Info - Sottotipo modulo idraulico"
+      },
+      "hydrobox_capacity": {
+        "name": "Info - Potenza modulo idraulico"
+      },
+      "idu_software_version_str": {
+        "name": "Info - Versione software unità interna"
+      },
+      "idu_t1s1": {
+        "name": "Temperatura - Zona 1 calcolata (T1s)"
+      },
+      "idu_t1s2": {
+        "name": "Temperatura - Zona 2 calcolata (T1s)"
+      },
+      "current_unit_capacity": {
+        "name": "Capacità attuale dell'unità (grezzo)"
+      },
+      "instant_power0": {
+        "name": "Potenza - Consumo di riscaldamento"
+      },
+      "instant_renew_power0": {
+        "name": "Potenza - Capacità rinnovabile di riscaldamento"
+      },
+      "machine_type": {
+        "name": "Info - Tipo di macchina"
+      },
+      "odu_model": {
+        "name": "Info - Codice modello unità esterna"
+      },
+      "odu_software_version_str": {
+        "name": "Info - Versione software unità esterna"
+      },
+      "room_rel_hum": {
+        "name": "Umidità relativa ambiente"
+      },
+      "t5s": {
+        "name": "Temperatura T5s - Setpoint ACS"
+      },
+      "tas": {
+        "name": "Temperatura Tas - Setpoint aria"
+      },
+      "temp_t4": {
+        "name": "Temperatura T4 - Aria esterna"
+      },
+      "temp_t5": {
+        "name": "Temperatura T5 - Serbatoio ACS"
+      },
+      "temp_ta": {
+        "name": "Temperatura Ta - Ambiente interno"
+      },
+      "temp_tb_t1": {
+        "name": "Temperatura TB-T1 - Puffer alto"
+      },
+      "temp_tb_t2": {
+        "name": "Temperatura TB-T2 - Puffer basso"
+      },
+      "temp_tsolar": {
+        "name": "Temperatura Tsolar - Pannello solare"
+      },
+      "temp_tw2": {
+        "name": "Temperatura Tw2 - Acqua zona 2"
+      },
+      "temp_tw_in": {
+        "name": "Temperatura Tw_in - Ingresso acqua"
+      },
+      "temp_tw_out": {
+        "name": "Temperatura Tw_out - Uscita acqua"
+      },
+      "water_flow": {
+        "name": "Acqua - Portata"
+      },
+      "water_pressure": {
+        "name": "Acqua - Pressione"
+      },
+      "hmi_sn_code": {
+        "name": "Info - Numero di serie HMI"
+      },
+      "zone1_temp_set": {
+        "name": "Temperatura - Setpoint zona 1"
+      },
+      "zone2_temp_set": {
+        "name": "Temperatura - Setpoint zona 2"
       }
     },
     "switch": {
@@ -1443,6 +1638,12 @@
       },
       "screen_off": {
         "name": "Spegnimento schermo"
+      },
+      "dhw_disinfect": {
+        "name": "ACS - Disinfezione"
+      },
+      "holiday_on": {
+        "name": "Modalità - Vacanza"
       }
     },
     "water_heater": {

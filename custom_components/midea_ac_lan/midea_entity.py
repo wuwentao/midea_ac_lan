@@ -89,6 +89,20 @@ class MideaEntity(Entity):
         else:
             self._attr_name = None
 
+        # Optional entity registry hints from the device config:
+        # - entity_category: mark an entity as CONFIG/DIAGNOSTIC so HA groups it
+        #   away from the main controls.
+        # - entity_registry_enabled_default: hide noisy/raw entities by default;
+        #   users can still opt in from the entity registry.
+        entity_category = self._config.get("entity_category")
+        if entity_category is not None:
+            self._attr_entity_category = entity_category
+        registry_enabled_default = self._config.get(
+            "entity_registry_enabled_default",
+        )
+        if registry_enabled_default is not None:
+            self._attr_entity_registry_enabled_default = registry_enabled_default
+
     @property
     def device(self) -> MideaDevice:
         """Underlying Midea device instance."""

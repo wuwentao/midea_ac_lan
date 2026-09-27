@@ -363,6 +363,96 @@
       },
       "water_pump_running": {
         "name": "Vízszivattyú működik"
+      },
+      "alarm_on": {
+        "name": "Hiba - Riasztás"
+      },
+      "aux_heat_on": {
+        "name": "Fűtőbetét - Kiegészítő hőforrás"
+      },
+      "compressor_on": {
+        "name": "Kompresszor - Működik"
+      },
+      "cool_capability": {
+        "name": "Képesség - Hűtés"
+      },
+      "crankcase_heater_on": {
+        "name": "Fűtőbetét - Forgattyúház"
+      },
+      "dhw_capability": {
+        "name": "Képesség - HMV"
+      },
+      "disinfect_run": {
+        "name": "HMV - Fertőtlenítés fut"
+      },
+      "double_zone": {
+        "name": "Képesség - Két zóna"
+      },
+      "eco_function_state": {
+        "name": "Üzemmód - ECO funkció"
+      },
+      "eco_timer_state": {
+        "name": "Üzemmód - ECO időzítő"
+      },
+      "heat_capability": {
+        "name": "Képesség - Fűtés"
+      },
+      "hmi_energy_ana_set_en": {
+        "name": "Képesség - Energiaelemzés (HMI)"
+      },
+      "ibh1_on": {
+        "name": "Fűtőbetét - IBH1"
+      },
+      "ibh2_on": {
+        "name": "Fűtőbetét - IBH2"
+      },
+      "load_output_tbh": {
+        "name": "Fűtőbetét - Tároló (TBH)"
+      },
+      "pump_c_running": {
+        "name": "Pump_C - Kevert kör 2. zóna"
+      },
+      "pump_d_running": {
+        "name": "Pump_D - HMV"
+      },
+      "pump_i_running": {
+        "name": "Pump_I - Belső"
+      },
+      "pump_o_running": {
+        "name": "Pump_O - Külső"
+      },
+      "pump_s_running": {
+        "name": "Pump_S - Napkollektor"
+      },
+      "remote_onoff": {
+        "name": "Képesség - Távoli be/ki"
+      },
+      "room_thermal_state": {
+        "name": "Állapot - Szobatermosztát"
+      },
+      "room_thermal_support": {
+        "name": "Képesség - Szobatermosztát"
+      },
+      "status_cool": {
+        "name": "Állapot - Hűtés"
+      },
+      "sv1_open": {
+        "name": "SV1 - Szelep (HMV)"
+      },
+      "sv2_open": {
+        "name": "SV2 - Szelep (Fűtés)"
+      },
+      "sv3_open": {
+        "name": "SV3 - Szelep"
+      },
+      "sys_energy_ana_en": {
+        "name": "Képesség - Energiaelemzés (Rendszer)"
+      },
+      "tbh_control": {
+        "name": "Képesség - TBH vezérlés"
+      },
+      "time_set": {
+        "name": "Képesség - Idő beállítva"
       }
     },
     "button": {
@@ -1262,6 +1352,111 @@
       },
       "velocity": {
         "name": "Sebesség"
+      },
+      "comp_total_run_time": {
+        "name": "Energia - Kompresszor üzemidő"
+      },
+      "dc_bus_voltage": {
+        "name": "Kültéri egység - DC busz feszültség"
+      },
+      "dc_current": {
+        "name": "Kültéri egység - DC busz áram"
+      },
+      "disinfect_set_weekday": {
+        "name": "HMV - Fertőtlenítés napja"
+      },
+      "disinfect_start_hour": {
+        "name": "HMV - Fertőtlenítés kezdő óra"
+      },
+      "disinfect_start_minutes": {
+        "name": "HMV - Fertőtlenítés kezdő perc"
+      },
+      "error_code_description": {
+        "name": "Hiba - Leírás"
+      },
+      "hydbox_subtype": {
+        "name": "Info - Hidraulikus modul altípus"
+      },
+      "hydrobox_capacity": {
+        "name": "Info - Hidraulikus modul teljesítmény"
+      },
+      "idu_software_version_str": {
+        "name": "Info - Beltéri egység szoftververzió"
+      },
+      "idu_t1s1": {
+        "name": "Hőmérséklet - 1. zóna számított (T1s)"
+      },
+      "idu_t1s2": {
+        "name": "Hőmérséklet - 2. zóna számított (T1s)"
+      },
+      "current_unit_capacity": {
+        "name": "Aktuális egységteljesítmény (nyers)"
+      },
+      "instant_power0": {
+        "name": "Teljesítmény - Fűtési fogyasztás"
+      },
+      "instant_renew_power0": {
+        "name": "Teljesítmény - Megújuló fűtési teljesítmény"
+      },
+      "machine_type": {
+        "name": "Info - Gép típusa"
+      },
+      "odu_model": {
+        "name": "Info - Kültéri egység modellkód"
+      },
+      "odu_software_version_str": {
+        "name": "Info - Kültéri egység szoftververzió"
+      },
+      "room_rel_hum": {
+        "name": "Relatív páratartalom"
+      },
+      "t5s": {
+        "name": "Hőmérséklet T5s - HMV alapjel"
+      },
+      "tas": {
+        "name": "Hőmérséklet Tas - Levegő alapjel"
+      },
+      "temp_t4": {
+        "name": "Hőmérséklet T4 - Külső levegő"
+      },
+      "temp_t5": {
+        "name": "Hőmérséklet T5 - HMV tároló"
+      },
+      "temp_ta": {
+        "name": "Hőmérséklet Ta - Szobalevegő"
+      },
+      "temp_tb_t1": {
+        "name": "Hőmérséklet TB-T1 - Puffertartály felső"
+      },
+      "temp_tb_t2": {
+        "name": "Hőmérséklet TB-T2 - Puffertartály alsó"
+      },
+      "temp_tsolar": {
+        "name": "Hőmérséklet Tsolar - Napkollektor"
+      },
+      "temp_tw2": {
+        "name": "Hőmérséklet Tw2 - 2. zóna víz"
+      },
+      "temp_tw_in": {
+        "name": "Hőmérséklet Tw_in - Vízbemenet"
+      },
+      "temp_tw_out": {
+        "name": "Hőmérséklet Tw_out - Vízkimenet"
+      },
+      "water_flow": {
+        "name": "Víz - Térfogatáram"
+      },
+      "water_pressure": {
+        "name": "Víz - Nyomás"
+      },
+      "hmi_sn_code": {
+        "name": "Info - HMI sorozatszám"
+      },
+      "zone1_temp_set": {
+        "name": "Hőmérséklet - 1. zóna alapjel"
+      },
+      "zone2_temp_set": {
+        "name": "Hőmérséklet - 2. zóna alapjel"
       }
     },
     "switch": {
@@ -1507,6 +1702,12 @@
       },
       "screen_off": {
         "name": "Kijelző kikapcsolása"
+      },
+      "dhw_disinfect": {
+        "name": "HMV - Fertőtlenítés"
+      },
+      "holiday_on": {
+        "name": "Üzemmód - Nyaralás"
       }
     },
     "water_heater": {
