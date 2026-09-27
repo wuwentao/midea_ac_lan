@@ -26,7 +26,7 @@
 | sensor.{DEVICEID}\_activity_mode_target_temperature | sensor        | Activity Mode Target Temperature | 活动模式目标温度 |
 | sensor.{DEVICEID}\_sleep_mode_target_temperature    | sensor        | Sleep Mode Target Temperature    | 睡眠模式目标温度 |
 | sensor.{DEVICEID}\_last_time                        | sensor        | Last Time                        | 持续时间         |
-| sensor.{DEVICEID}\_flow_volume                      | sensor        | Flow Volume                      | 水流量           |
+| sensor.{DEVICEID}\_flow_volume                      | sensor        | Flow Rate                        | 水流量           |
 | binary_sensor.{DEVICEID}\_standby                   | binary_sensor | Standby                          | 待机             |
 | binary_sensor.{DEVICEID}\_heating                   | binary_sensor | Heating                          | 采暖中           |
 | binary_sensor.{DEVICEID}\_warm_power                | binary_sensor | Warm Power                       | 制热运行         |

@@ -1982,7 +1982,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             C1Attributes.flow_volume: {
                 "type": Platform.SENSOR,
                 "translation_key": "flow_volume",
-                "name": "Flow Volume",
+                "name": "Flow Rate",
                 "icon": "mdi:water",
                 "device_class": SensorDeviceClass.VOLUME_FLOW_RATE,
                 "unit": UnitOfVolumeFlowRate.LITERS_PER_MINUTE,
