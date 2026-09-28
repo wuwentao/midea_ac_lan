@@ -1730,6 +1730,24 @@
       "whole_tank_heating": {
         "name": "Whole Tank Heating"
       },
+      "gas_usage_daily": {
+        "name": "Daily Gas Usage"
+      },
+      "gas_usage_last_month": {
+        "name": "Last Month Gas Usage"
+      },
+      "gas_usage_monthly": {
+        "name": "Monthly Gas Usage"
+      },
+      "water_usage_daily": {
+        "name": "Daily Water Usage"
+      },
+      "water_usage_last_month": {
+        "name": "Last Month Water Usage"
+      },
+      "water_usage_monthly": {
+        "name": "Monthly Water Usage"
+      },
       "zero_cold_pulse": {
         "name": "Zero Cold Water (Pulse)"
       },
@@ -1799,7 +1817,10 @@
           "refresh_interval": "Refresh interval (0 means not refreshing actively)",
           "sensors": "Extra sensors",
           "switches": "Extra controls",
-          "customize": "Customize"
+          "customize": "Customize",
+          "account": "Midea cloud account (for the usage statistics sensors)",
+          "password": "Midea cloud account password (for the usage statistics sensors)",
+          "server": "Midea cloud server of the account (for the usage statistics sensors)"
         },
         "title": "Configure"
       }

@@ -53,7 +53,7 @@ from midealan.cloud import (
     MideaCloud,
     get_midea_cloud,
 )
-from midealan.device import MideaDevice, ProtocolVersion
+from midealan.device import DeviceType, MideaDevice, ProtocolVersion
 from midealan.discover import discover
 
 if TYPE_CHECKING:
@@ -75,6 +75,7 @@ from .const import (
     CONF_SERVER,
     CONF_SN,
     CONF_SUBTYPE,
+    DEFAULT_CLOUD,
     DEVICES,
     DOMAIN,
     EXTRA_CONTROL,
@@ -92,8 +93,6 @@ ADD_WAY = {
     "cache": "Remove login cache",
 }
 
-# Select DEFAULT_CLOUD from the list of supported cloud
-DEFAULT_CLOUD: str = list(SUPPORTED_CLOUDS)[3]
 
 STORAGE_PATH = f".storage/{DOMAIN}"
 
@@ -1016,6 +1015,29 @@ class MideaLanOptionsFlowHandler(OptionsFlow):
                         CONF_SWITCHES,
                         default=extra_switches,
                     ): cv.multi_select(switches),
+                },
+            )
+        # E3 gas water heaters report water/gas usage only through the
+        # Midea cloud day report; the optional usage statistics sensors
+        # (see cloud_usage.py) need the user's own Midea app account.
+        if self._device_type == DeviceType.E3:
+            data_schema = data_schema.extend(
+                {
+                    vol.Optional(
+                        CONF_ACCOUNT,
+                        default=self._config_entry.options.get(CONF_ACCOUNT, ""),
+                    ): str,
+                    vol.Optional(
+                        CONF_PASSWORD,
+                        default=self._config_entry.options.get(CONF_PASSWORD, ""),
+                    ): str,
+                    vol.Optional(
+                        CONF_SERVER,
+                        default=self._config_entry.options.get(
+                            CONF_SERVER,
+                            DEFAULT_CLOUD,
+                        ),
+                    ): vol.In(list(SUPPORTED_CLOUDS)),
                 },
             )
         data_schema = data_schema.extend(
