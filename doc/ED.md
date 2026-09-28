@@ -102,19 +102,19 @@ that report the matching records.
 
 ##### Sensors
 
-| EntityID                               | Class  | Description                           |
-| -------------------------------------- | ------ | ------------------------------------- |
-| sensor.{DEVICEID}\_filter4_life        | sensor | Filter4 Life Level (%)                |
-| sensor.{DEVICEID}\_filter5_life        | sensor | Filter5 Life Level (%)                |
-| sensor.{DEVICEID}\_filter1_maxlife     | sensor | Filter1 lifetime limit (months)       |
-| sensor.{DEVICEID}\_filter2_maxlife     | sensor | Filter2 lifetime limit (months)       |
-| sensor.{DEVICEID}\_filter3_maxlife     | sensor | Filter3 lifetime limit (months)       |
-| sensor.{DEVICEID}\_filter4_maxlife     | sensor | Filter4 lifetime limit (months)       |
-| sensor.{DEVICEID}\_filter5_maxlife     | sensor | Filter5 lifetime limit (months)       |
-| sensor.{DEVICEID}\_hot_pot_temperature | sensor | Hot pot / hot water temperature (°C)  |
-| sensor.{DEVICEID}\_ice_gall_status     | sensor | Ice gall status byte (vendor-defined) |
-| sensor.{DEVICEID}\_water_kind          | sensor | Water kind (enum: idle, warm, cold)   |
-| sensor.{DEVICEID}\_heat_start          | sensor | Heat start (enum: heating, keep_warm) |
+| EntityID                               | Class  | Description                                                                                                                        |
+| -------------------------------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------- |
+| sensor.{DEVICEID}\_filter4_life        | sensor | Filter4 Life Level (%)                                                                                                             |
+| sensor.{DEVICEID}\_filter5_life        | sensor | Filter5 Life Level (%)                                                                                                             |
+| sensor.{DEVICEID}\_filter1_maxlife     | sensor | Filter1 lifetime limit (months)                                                                                                    |
+| sensor.{DEVICEID}\_filter2_maxlife     | sensor | Filter2 lifetime limit (months)                                                                                                    |
+| sensor.{DEVICEID}\_filter3_maxlife     | sensor | Filter3 lifetime limit (months)                                                                                                    |
+| sensor.{DEVICEID}\_filter4_maxlife     | sensor | Filter4 lifetime limit (months)                                                                                                    |
+| sensor.{DEVICEID}\_filter5_maxlife     | sensor | Filter5 lifetime limit (months)                                                                                                    |
+| sensor.{DEVICEID}\_hot_pot_temperature | sensor | Hot pot / hot water temperature (°C)                                                                                               |
+| sensor.{DEVICEID}\_ice_gall_status     | sensor | Ice gall status byte (vendor-defined)                                                                                              |
+| sensor.{DEVICEID}\_water_kind          | sensor | Water kind (enum: idle, warm, cold); `idle` (value 0) may also indicate boiling, so do not treat it as proof the appliance is idle |
+| sensor.{DEVICEID}\_heat_start          | sensor | Heat start (enum: heating, keep_warm)                                                                                              |
 
 ##### Binary sensors
 

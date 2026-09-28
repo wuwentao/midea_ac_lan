@@ -100,19 +100,19 @@
 
 ##### 传感器
 
-| EntityID                               | 类型   | 名称                | 描述                         |
-| -------------------------------------- | ------ | ------------------- | ---------------------------- |
-| sensor.{DEVICEID}\_filter4_life        | sensor | Filter4 Life Level  | 滤芯4剩余寿命（%）           |
-| sensor.{DEVICEID}\_filter5_life        | sensor | Filter5 Life Level  | 滤芯5剩余寿命（%）           |
-| sensor.{DEVICEID}\_filter1_maxlife     | sensor | Filter1 Life Limit  | 滤芯1寿命上限（月）          |
-| sensor.{DEVICEID}\_filter2_maxlife     | sensor | Filter2 Life Limit  | 滤芯2寿命上限（月）          |
-| sensor.{DEVICEID}\_filter3_maxlife     | sensor | Filter3 Life Limit  | 滤芯3寿命上限（月）          |
-| sensor.{DEVICEID}\_filter4_maxlife     | sensor | Filter4 Life Limit  | 滤芯4寿命上限（月）          |
-| sensor.{DEVICEID}\_filter5_maxlife     | sensor | Filter5 Life Limit  | 滤芯5寿命上限（月）          |
-| sensor.{DEVICEID}\_hot_pot_temperature | sensor | Hot Pot Temperature | 热罐/热水温度（°C）          |
-| sensor.{DEVICEID}\_ice_gall_status     | sensor | Ice Gall Status     | 制冰仓状态字节（厂商定义）   |
-| sensor.{DEVICEID}\_water_kind          | sensor | Water Kind          | 出水类型（枚举：空闲/温/冷） |
-| sensor.{DEVICEID}\_heat_start          | sensor | Heat Start          | 加热启动（枚举：加热/保温）  |
+| EntityID                               | 类型   | 名称                | 描述                                                                                           |
+| -------------------------------------- | ------ | ------------------- | ---------------------------------------------------------------------------------------------- |
+| sensor.{DEVICEID}\_filter4_life        | sensor | Filter4 Life Level  | 滤芯4剩余寿命（%）                                                                             |
+| sensor.{DEVICEID}\_filter5_life        | sensor | Filter5 Life Level  | 滤芯5剩余寿命（%）                                                                             |
+| sensor.{DEVICEID}\_filter1_maxlife     | sensor | Filter1 Life Limit  | 滤芯1寿命上限（月）                                                                            |
+| sensor.{DEVICEID}\_filter2_maxlife     | sensor | Filter2 Life Limit  | 滤芯2寿命上限（月）                                                                            |
+| sensor.{DEVICEID}\_filter3_maxlife     | sensor | Filter3 Life Limit  | 滤芯3寿命上限（月）                                                                            |
+| sensor.{DEVICEID}\_filter4_maxlife     | sensor | Filter4 Life Limit  | 滤芯4寿命上限（月）                                                                            |
+| sensor.{DEVICEID}\_filter5_maxlife     | sensor | Filter5 Life Limit  | 滤芯5寿命上限（月）                                                                            |
+| sensor.{DEVICEID}\_hot_pot_temperature | sensor | Hot Pot Temperature | 热罐/热水温度（°C）                                                                            |
+| sensor.{DEVICEID}\_ice_gall_status     | sensor | Ice Gall Status     | 制冰仓状态字节（厂商定义）                                                                     |
+| sensor.{DEVICEID}\_water_kind          | sensor | Water Kind          | 出水类型（枚举：空闲/温/冷）；`idle`（值 0）也可能表示正在烧水，请勿将其视为设备处于空闲的凭据 |
+| sensor.{DEVICEID}\_heat_start          | sensor | Heat Start          | 加热启动（枚举：加热/保温）                                                                    |
 
 ##### 二元传感器
 
