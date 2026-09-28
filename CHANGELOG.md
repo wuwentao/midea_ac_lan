@@ -1,5 +1,33 @@
 # Changelog
 
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+## [2026.9.2](https://github.com/wuwentao/midea_ac_lan/compare/v2026.9.1...v2026.9.2) (2026-09-28)
+
+### Features
+- Replace release-please with manual release workflow [#1050](https://github.com/wuwentao/midea_ac_lan/pull/1050) ([4eccd95](https://github.com/wuwentao/midea_ac_lan/commit/4eccd95c47c0726c54b7553b834f147e1424df7d))
+- **e2:** Expose top temperature sensor [#1058](https://github.com/wuwentao/midea_ac_lan/pull/1058) ([2988f59](https://github.com/wuwentao/midea_ac_lan/commit/2988f5902a5998366ece614face69c7113507c36))
+- **b8:** Add robot vacuum support [#1065](https://github.com/wuwentao/midea_ac_lan/pull/1065) ([1814404](https://github.com/wuwentao/midea_ac_lan/commit/181440424f8a730b30e8ea1313e96b8a233487da))
+- **b1:** Add oven mode and target temperature sensors [#1057](https://github.com/wuwentao/midea_ac_lan/pull/1057) ([b20202b](https://github.com/wuwentao/midea_ac_lan/commit/b20202bdb52d3d0ee72b55ed7fda3d222c98c4c9))
+- **ac:** Expose degerming as a switch [#1063](https://github.com/wuwentao/midea_ac_lan/pull/1063) ([1b58507](https://github.com/wuwentao/midea_ac_lan/commit/1b585076c04b266d5db61863732ed355f4cefe8c))
+- **fa:** Expose new fan attributes as entities [#1071](https://github.com/wuwentao/midea_ac_lan/pull/1071) ([9c5b9c4](https://github.com/wuwentao/midea_ac_lan/commit/9c5b9c459117d61af354b2a0d116be9e9ed7a701))
+- **c3:** Expand C3 heat pump sensor coverage and align with midea-lan v2026.9.2 [#1011](https://github.com/wuwentao/midea_ac_lan/pull/1011) ([120c311](https://github.com/wuwentao/midea_ac_lan/commit/120c31192355fbeded465489b50e16901b32328e))
+- **c1:** Add Electric Wall-hung Boiler (0xC1) support [#1072](https://github.com/wuwentao/midea_ac_lan/pull/1072) ([993994c](https://github.com/wuwentao/midea_ac_lan/commit/993994c40f06cce08c640bfaf331131ce8375153))
+- **c1:** Add Midea C1 boiler climate entity [#1076](https://github.com/wuwentao/midea_ac_lan/pull/1076) ([e263927](https://github.com/wuwentao/midea_ac_lan/commit/e263927e4e1c4fc4e424f62998c82ab719297409))
+- **ed:** Expose FF-body water purifier attributes [#1070](https://github.com/wuwentao/midea_ac_lan/pull/1070) ([c579aec](https://github.com/wuwentao/midea_ac_lan/commit/c579aec85b87dd411bc26175137ef530e2bd9e5a))
+
+### Bug Fixes
+- **ac:** Avoid false energy meter resets [#1059](https://github.com/wuwentao/midea_ac_lan/pull/1059) ([5e99eac](https://github.com/wuwentao/midea_ac_lan/commit/5e99eac8e96321357b003fbaed219d65c1aae33e))
+- **fc:** Sync underscore value translations [#1068](https://github.com/wuwentao/midea_ac_lan/pull/1068) ([c3b4690](https://github.com/wuwentao/midea_ac_lan/commit/c3b4690351af59b43eca9e47bfedf79cc2c68ad0))
+- **x26:** Sync underscore value translations [#1067](https://github.com/wuwentao/midea_ac_lan/pull/1067) ([581fb26](https://github.com/wuwentao/midea_ac_lan/commit/581fb2648a7277920292b75b0bd5ec221e6cc3c4))
+
+### Miscellaneous Tasks
+- Remove myself from codeowners [#1052](https://github.com/wuwentao/midea_ac_lan/pull/1052) ([9a62bcc](https://github.com/wuwentao/midea_ac_lan/commit/9a62bcc0684f783ca46200989ab6de547482bf53))
+- **i18n:** Translate self_clean entity name to 智清洁 (zh-Hans) [#1061](https://github.com/wuwentao/midea_ac_lan/pull/1061) ([07a7dca](https://github.com/wuwentao/midea_ac_lan/commit/07a7dcafa4e7a0a5228698aa3e4647842f5923fe))
+# Changelog
+
 ## [2026.9.1](https://github.com/wuwentao/midea_ac_lan/compare/v2026.9.0...v2026.9.1) (2026-09-09)
 
 
