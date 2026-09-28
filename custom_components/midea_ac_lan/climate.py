@@ -1095,6 +1095,12 @@ class MideaC1Climate(MideaClimate):
         if hvac_mode == HVACMode.OFF:
             self.turn_off()
             return
+        # Writing heating_target_temperature only sends MessageSetHeating, not a
+        # power-on command. When the service call carries an explicit non-OFF
+        # mode, turn the boiler on first so a combined change on an off device
+        # actually starts heating instead of silently staying off.
+        if hvac_mode is not None:
+            self.turn_on()
         self._device.set_attribute(
             attr=C1Attributes.heating_target_temperature,
             value=temperature,
