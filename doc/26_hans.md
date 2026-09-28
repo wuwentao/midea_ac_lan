@@ -37,17 +37,17 @@
 | attribute | "main_light"<br/>"night_light" |
 | value     | true 或 false                  |
 
-| 名称      | 描述                                                                                     |
-| --------- | ---------------------------------------------------------------------------------------- |
-| device_id | 设备的编号(Device ID)                                                                    |
-| attribute | "mode"                                                                                   |
-| value     | "Off"<br/>"Heat(high)"<br/>"Heat(low)"<br/>"Bath"<br/>"Blow"<br/>"Ventilation"<br/>"Dry" |
+| 名称      | 描述                                                                                   |
+| --------- | -------------------------------------------------------------------------------------- |
+| device_id | 设备的编号(Device ID)                                                                  |
+| attribute | "mode"                                                                                 |
+| value     | "off"<br/>"heat_high"<br/>"heat_low"<br/>"bath"<br/>"blow"<br/>"ventilation"<br/>"dry" |
 
 | 名称      | 描述                                                    |
 | --------- | ------------------------------------------------------- |
 | device_id | 设备的编号(Device ID)                                   |
 | attribute | "direction"                                             |
-| value     | 60<br/>70<br/>80<br/>90<br/>100<br/>110<br/>"Oscillate" |
+| value     | 60<br/>70<br/>80<br/>90<br/>100<br/>110<br/>"oscillate" |
 
 示例
 
@@ -64,7 +64,7 @@ service: midea_ac_lan.set_attribute
 data:
   device_id: XXXXXXXXXXXX
   attribute: mode
-  value: Bath
+  value: bath
 ```
 
 ```yaml

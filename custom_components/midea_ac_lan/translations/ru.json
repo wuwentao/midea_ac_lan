@@ -63,6 +63,18 @@
   },
   "entity": {
     "binary_sensor": {
+      "warm_power": {
+        "name": "Режим обогрева"
+      },
+      "cold_power": {
+        "name": "Режим охлаждения"
+      },
+      "sleep_power": {
+        "name": "Ночной режим"
+      },
+      "pump_on": {
+        "name": "Насос включен"
+      },
       "bar_door": {
         "name": "Bar Door"
       },
@@ -381,6 +393,96 @@
       },
       "sleep_status": {
         "name": "Спящий режим"
+      },
+      "alarm_on": {
+        "name": "Ошибка - Авария"
+      },
+      "aux_heat_on": {
+        "name": "ТЭН - Дополнительный источник"
+      },
+      "compressor_on": {
+        "name": "Компрессор - Работает"
+      },
+      "cool_capability": {
+        "name": "Возможность - Охлаждение"
+      },
+      "crankcase_heater_on": {
+        "name": "ТЭН - Картер компрессора"
+      },
+      "dhw_capability": {
+        "name": "Возможность - ГВС"
+      },
+      "disinfect_run": {
+        "name": "ГВС - Дезинфекция идёт"
+      },
+      "double_zone": {
+        "name": "Возможность - Две зоны"
+      },
+      "eco_function_state": {
+        "name": "Режим - Функция ECO"
+      },
+      "eco_timer_state": {
+        "name": "Режим - Таймер ECO"
+      },
+      "heat_capability": {
+        "name": "Возможность - Отопление"
+      },
+      "hmi_energy_ana_set_en": {
+        "name": "Возможность - Анализ энергии (HMI)"
+      },
+      "ibh1_on": {
+        "name": "ТЭН - IBH1"
+      },
+      "ibh2_on": {
+        "name": "ТЭН - IBH2"
+      },
+      "load_output_tbh": {
+        "name": "ТЭН - Бак (TBH)"
+      },
+      "pump_c_running": {
+        "name": "Pump_C - Смесительный контур зоны 2"
+      },
+      "pump_d_running": {
+        "name": "Pump_D - ГВС"
+      },
+      "pump_i_running": {
+        "name": "Pump_I - Внутренний"
+      },
+      "pump_o_running": {
+        "name": "Pump_O - Внешний"
+      },
+      "pump_s_running": {
+        "name": "Pump_S - Солнечный контур"
+      },
+      "remote_onoff": {
+        "name": "Возможность - Удалённое вкл/выкл"
+      },
+      "room_thermal_state": {
+        "name": "Состояние - Комнатный термостат"
+      },
+      "room_thermal_support": {
+        "name": "Возможность - Комнатный термостат"
+      },
+      "status_cool": {
+        "name": "Состояние - Охлаждение"
+      },
+      "sv1_open": {
+        "name": "SV1 - Клапан (ГВС)"
+      },
+      "sv2_open": {
+        "name": "SV2 - Клапан (Отопление)"
+      },
+      "sv3_open": {
+        "name": "SV3 - Клапан"
+      },
+      "sys_energy_ana_en": {
+        "name": "Возможность - Анализ энергии (Система)"
+      },
+      "tbh_control": {
+        "name": "Возможность - Управление TBH"
+      },
+      "time_set": {
+        "name": "Возможность - Время установлено"
       }
     },
     "button": {
@@ -420,6 +522,9 @@
       }
     },
     "number": {
+      "heating_target_temperature": {
+        "name": "Целевая температура отопления"
+      },
       "dry_level": {
         "name": "Dry Level"
       },
@@ -464,14 +569,38 @@
       }
     },
     "select": {
+      "heating_mode": {
+        "name": "Режим отопления",
+        "state": {
+          "user": "Пользовательский",
+          "activity": "Активность",
+          "sleep": "Сон",
+          "unknown": "Неизвестно"
+        }
+      },
       "detect_mode": {
-        "name": "Detect Mode"
+        "name": "Detect Mode",
+        "state": {
+          "off": "Выкл",
+          "pm_2_5": "PM 2.5",
+          "methanal": "Формальдегид"
+        }
       },
       "direction": {
-        "name": "Направление"
+        "name": "Направление",
+        "state": {
+          "oscillate": "Колебание"
+        }
       },
       "fan_speed": {
-        "name": "Скорость"
+        "name": "Скорость",
+        "state": {
+          "auto": "Авто",
+          "standby": "Режим ожидания",
+          "low": "Низкая",
+          "medium": "Средняя",
+          "high": "Высокая"
+        }
       },
       "fresh_air_exhaust_mode": {
         "name": "Скорость вытяжки свежего воздуха",
@@ -493,7 +622,22 @@
         }
       },
       "mode": {
-        "name": "Режим"
+        "name": "Режим",
+        "state": {
+          "standby": "Режим ожидания",
+          "auto": "Авто",
+          "manual": "Ручной",
+          "sleep": "Сон",
+          "fast": "Быстрый",
+          "smoke": "Дым",
+          "off": "Выкл",
+          "heat_high": "Нагрев (высокий)",
+          "heat_low": "Нагрев (низкий)",
+          "bath": "Ванна",
+          "blow": "Обдув",
+          "ventilation": "Вентиляция",
+          "dry": "Сушка"
+        }
       },
       "oscillation_angle": {
         "name": "Oscillation Angle"
@@ -505,7 +649,12 @@
         "name": "Ограничение мощности"
       },
       "screen_display": {
-        "name": "Screen Display"
+        "name": "Screen Display",
+        "state": {
+          "bright": "Яркий",
+          "dim": "Тусклый",
+          "off": "Выкл"
+        }
       },
       "silent_level": {
         "name": "Silent Level"
@@ -548,6 +697,36 @@
       }
     },
     "sensor": {
+      "three_way_mode": {
+        "name": "Трёхходовой режим"
+      },
+      "heating_unit_type": {
+        "name": "Тип отопительного прибора"
+      },
+      "return_temperature": {
+        "name": "Температура обратной линии"
+      },
+      "heating_temperature": {
+        "name": "Температура отопления"
+      },
+      "heating_gap_temperature": {
+        "name": "Температура гистерезиса отопления"
+      },
+      "user_mode_target_temperature": {
+        "name": "Целевая температура пользовательского режима"
+      },
+      "activity_mode_target_temperature": {
+        "name": "Целевая температура режима активности"
+      },
+      "sleep_mode_target_temperature": {
+        "name": "Целевая температура ночного режима"
+      },
+      "last_time": {
+        "name": "Время работы"
+      },
+      "flow_volume": {
+        "name": "Расход"
+      },
       "bathing_leaving_temperature": {
         "name": "Bathing Leaving Water Temperature"
       },
@@ -729,6 +908,15 @@
       },
       "error_code": {
         "name": "Код ошибки"
+      },
+      "humidify_feedback": {
+        "name": "Обратная связь по влажности"
+      },
+      "temperature_feedback": {
+        "name": "Обратная связь по температуре"
+      },
+      "humidify_mode": {
+        "name": "Режим увлажнения"
       },
       "estimated_energy_consumption": {
         "name": "Расчётное энергопотребление"
@@ -1278,11 +1466,134 @@
           "heating": "Нагрев",
           "keep_warm": "Поддержание тепла"
         }
+      },
+      "comp_total_run_time": {
+        "name": "Энергия - Наработка компрессора"
+      },
+      "dc_bus_voltage": {
+        "name": "Наружный блок - Напряжение шины постоянного тока"
+      },
+      "dc_current": {
+        "name": "Наружный блок - Ток шины постоянного тока"
+      },
+      "disinfect_set_weekday": {
+        "name": "ГВС - День дезинфекции"
+      },
+      "disinfect_start_hour": {
+        "name": "ГВС - Час начала дезинфекции"
+      },
+      "disinfect_start_minutes": {
+        "name": "ГВС - Минута начала дезинфекции"
+      },
+      "error_code_description": {
+        "name": "Ошибка - Описание"
+      },
+      "hydbox_subtype": {
+        "name": "Инфо - Подтип гидромодуля"
+      },
+      "hydrobox_capacity": {
+        "name": "Инфо - Мощность гидромодуля"
+      },
+      "idu_software_version_str": {
+        "name": "Инфо - Версия ПО внутреннего блока"
+      },
+      "idu_t1s1": {
+        "name": "Температура - Зона 1 расчётная (T1s)"
+      },
+      "idu_t1s2": {
+        "name": "Температура - Зона 2 расчётная (T1s)"
+      },
+      "current_unit_capacity": {
+        "name": "Текущая мощность агрегата (сырое значение)"
+      },
+      "instant_power0": {
+        "name": "Мощность - Потребление на отопление"
+      },
+      "instant_renew_power0": {
+        "name": "Мощность - Возобновляемая тепловая мощность"
+      },
+      "machine_type": {
+        "name": "Инфо - Тип машины"
+      },
+      "odu_model": {
+        "name": "Инфо - Код модели наружного блока"
+      },
+      "odu_software_version_str": {
+        "name": "Инфо - Версия ПО наружного блока"
+      },
+      "room_rel_hum": {
+        "name": "Относительная влажность в помещении"
+      },
+      "t5s": {
+        "name": "Температура T5s - Уставка ГВС"
+      },
+      "tas": {
+        "name": "Температура Tas - Уставка воздуха"
+      },
+      "temp_t4": {
+        "name": "Температура T4 - Наружный воздух"
+      },
+      "temp_t5": {
+        "name": "Температура T5 - Бак ГВС"
+      },
+      "temp_ta": {
+        "name": "Температура Ta - Комнатный воздух"
+      },
+      "temp_tb_t1": {
+        "name": "Температура TB-T1 - Буферная ёмкость, верх"
+      },
+      "temp_tb_t2": {
+        "name": "Температура TB-T2 - Буферная ёмкость, низ"
+      },
+      "temp_tsolar": {
+        "name": "Температура Tsolar - Солнечный коллектор"
+      },
+      "temp_tw2": {
+        "name": "Температура Tw2 - Вода зоны 2"
+      },
+      "temp_tw_in": {
+        "name": "Температура Tw_in - Вход воды"
+      },
+      "temp_tw_out": {
+        "name": "Температура Tw_out - Выход воды"
+      },
+      "water_flow": {
+        "name": "Вода - Расход"
+      },
+      "water_pressure": {
+        "name": "Вода - Давление"
+      },
+      "hmi_sn_code": {
+        "name": "Инфо - Серийный номер HMI"
+      },
+      "zone1_temp_set": {
+        "name": "Температура - Уставка зоны 1"
+      },
+      "zone2_temp_set": {
+        "name": "Температура - Уставка зоны 2"
       }
     },
     "switch": {
       "anion": {
         "name": "Anion"
+      },
+      "humidify": {
+        "name": "Увлажнение"
+      },
+      "waterions": {
+        "name": "Ионы воды"
+      },
+      "anophelifuge": {
+        "name": "Отпугивание комаров"
+      },
+      "display_on_off": {
+        "name": "Дисплей"
+      },
+      "auto_power_off": {
+        "name": "Автовыключение"
+      },
+      "body_feeling_scan": {
+        "name": "Сканирование присутствия"
       },
       "aux_heating": {
         "name": "Aux Heating"
@@ -1301,6 +1612,9 @@
       },
       "comfort_mode": {
         "name": "Comfort Mode"
+      },
+      "degerming": {
+        "name": "Обеззараживание"
       },
       "dhw_power": {
         "name": "DHW Power"
@@ -1508,6 +1822,12 @@
       },
       "antifreeze": {
         "name": "Защита от замерзания"
+      },
+      "dhw_disinfect": {
+        "name": "ГВС - Дезинфекция"
+      },
+      "holiday_on": {
+        "name": "Режим - Отпуск"
       }
     },
     "water_heater": {

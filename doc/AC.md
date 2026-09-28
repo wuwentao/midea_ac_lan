@@ -191,6 +191,7 @@ Known settings:
 | switch.{DEVICEID}\_boost_mode                  | switch        | Boost Mode                       |
 | switch.{DEVICEID}\_breezeless                  | switch        | Breezeless                       |
 | switch.{DEVICEID}\_comfort_mode                | switch        | Comfort Mode                     |
+| switch.{DEVICEID}\_degerming                   | switch        | Degerming                        |
 | switch.{DEVICEID}\_dry                         | switch        | Dry                              |
 | switch.{DEVICEID}\_eco_mode                    | switch        | ECO Mode                         |
 | switch.{DEVICEID}\_ieco                        | switch        | iECO                             |

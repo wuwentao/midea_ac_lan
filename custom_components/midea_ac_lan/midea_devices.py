@@ -20,7 +20,9 @@ from homeassistant.const import (
     UnitOfTemperature,
     UnitOfTime,
     UnitOfVolume,
+    UnitOfVolumeFlowRate,
 )
+from homeassistant.helpers.entity import EntityCategory
 
 # HA 2026.7 added UnitOfDensity/UnitOfRatio, and HA 2026.8 started deprecating
 # CONCENTRATION_MICROGRAMS_PER_CUBIC_METER / CONCENTRATION_PARTS_PER_MILLION in favor of
@@ -53,6 +55,7 @@ from midealan.devices.b6 import DeviceAttributes as B6Attributes
 from midealan.devices.bf import WORK_MODE_MAP as BF_WORK_MODE_MAP
 from midealan.devices.bf import DeviceAttributes as BFAttributes
 from midealan.devices.bf import FirePower as BFFirePower
+from midealan.devices.c1 import DeviceAttributes as C1Attributes
 from midealan.devices.c2 import DeviceAttributes as C2Attributes
 from midealan.devices.c3 import DeviceAttributes as C3Attributes
 from midealan.devices.ca import DeviceAttributes as CAAttributes
@@ -90,7 +93,6 @@ ED_SOFT_WATER_SUBTYPES = [703]
 BF_WORK_MODES = list(BF_WORK_MODE_MAP)
 BF_FIRE_POWERS = list(BFFirePower.__members__)
 BF_TEMPERATURES = list(range(251))
-
 # C3 outdoor-unit telemetry attributes. Referenced by string so the entity
 # table still imports on a midea-lan release that predates the parser support;
 # the matching sensors carry a required_attribute guard and are skipped there.
@@ -595,6 +597,12 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Self Clean",
                 "icon": "mdi:air-filter",
             },
+            ACAttributes.degerming: {
+                "type": Platform.SWITCH,
+                "translation_key": "degerming",
+                "name": "Degerming",
+                "icon": "mdi:bacteria-outline",
+            },
             ACAttributes.ieco: {
                 "type": Platform.SWITCH,
                 "translation_key": "ieco",
@@ -1076,6 +1084,20 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "unit": UnitOfTime.SECONDS,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
+            B1Attributes.mode: {
+                "type": Platform.SENSOR,
+                "translation_key": "mode",
+                "name": "Mode",
+                "icon": "mdi:chef-hat",
+            },
+            B1Attributes.target_temperature: {
+                "type": Platform.SENSOR,
+                "translation_key": "target_temperature",
+                "name": "Target Temperature",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
         },
     },
     0xB3: {
@@ -1302,6 +1324,227 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Fan level",
                 "icon": "mdi:fan",
                 "state_class": SensorStateClass.MEASUREMENT,
+            },
+        },
+    },
+    0xB8: {
+        "name": "Robot Vacuum",
+        "entities": {
+            "work_status": {
+                "type": Platform.SENSOR,
+                "name": "Work Status",
+                "icon": "mdi:robot-vacuum",
+            },
+            "function_type": {
+                "type": Platform.SENSOR,
+                "name": "Function Type",
+                "icon": "mdi:function",
+            },
+            "control_type": {
+                "type": Platform.SENSOR,
+                "name": "Control Type",
+                "icon": "mdi:remote",
+            },
+            "area": {
+                "type": Platform.SENSOR,
+                "name": "Cleaned Area",
+                "icon": "mdi:floor-plan",
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            "battery_percent": {
+                "type": Platform.SENSOR,
+                "name": "Battery",
+                "device_class": SensorDeviceClass.BATTERY,
+                "unit": PERCENTAGE,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            "work_time": {
+                "type": Platform.SENSOR,
+                "name": "Work Time",
+                "icon": "mdi:timer-outline",
+                "unit": UnitOfTime.MINUTES,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            "mop": {
+                "type": Platform.SENSOR,
+                "name": "Mop State",
+                "icon": "mdi:water",
+            },
+            "speed": {
+                "type": Platform.SENSOR,
+                "name": "Speed",
+                "icon": "mdi:speedometer",
+            },
+            "error_type": {
+                "type": Platform.SENSOR,
+                "name": "Error Type",
+                "icon": "mdi:alert-circle",
+            },
+            "error_desc": {
+                "type": Platform.SENSOR,
+                "name": "Error Description",
+                "icon": "mdi:alert",
+            },
+            "disturb_start_time": {
+                "type": Platform.SENSOR,
+                "name": "Do Not Disturb Start Time",
+                "icon": "mdi:weather-night",
+                "required_attribute": "disturb_start_time",
+            },
+            "disturb_end_time": {
+                "type": Platform.SENSOR,
+                "name": "Do Not Disturb End Time",
+                "icon": "mdi:weather-sunny",
+                "required_attribute": "disturb_end_time",
+            },
+            "side_brush_rest_time": {
+                "type": Platform.SENSOR,
+                "name": "Side Brush Remaining Time",
+                "icon": "mdi:broom",
+                "state_class": SensorStateClass.MEASUREMENT,
+                "required_attribute": "side_brush_rest_time",
+            },
+            "side_brush_life_time": {
+                "type": Platform.SENSOR,
+                "name": "Side Brush Life Time",
+                "icon": "mdi:broom",
+                "state_class": SensorStateClass.MEASUREMENT,
+                "required_attribute": "side_brush_life_time",
+            },
+            "filter_net_rest_time": {
+                "type": Platform.SENSOR,
+                "name": "Filter Remaining Time",
+                "icon": "mdi:air-filter",
+                "state_class": SensorStateClass.MEASUREMENT,
+                "required_attribute": "filter_net_rest_time",
+            },
+            "filter_net_life_time": {
+                "type": Platform.SENSOR,
+                "name": "Filter Life Time",
+                "icon": "mdi:air-filter",
+                "state_class": SensorStateClass.MEASUREMENT,
+                "required_attribute": "filter_net_life_time",
+            },
+            "roll_brush_rest_time": {
+                "type": Platform.SENSOR,
+                "name": "Roll Brush Remaining Time",
+                "icon": "mdi:brush",
+                "state_class": SensorStateClass.MEASUREMENT,
+                "required_attribute": "roll_brush_rest_time",
+            },
+            "roll_brush_life_time": {
+                "type": Platform.SENSOR,
+                "name": "Roll Brush Life Time",
+                "icon": "mdi:brush",
+                "state_class": SensorStateClass.MEASUREMENT,
+                "required_attribute": "roll_brush_life_time",
+            },
+            "have_reserve_task": {
+                "type": Platform.BINARY_SENSOR,
+                "name": "Reserve Task",
+                "icon": "mdi:calendar-clock",
+            },
+            "uv_switch": {
+                "type": Platform.BINARY_SENSOR,
+                "name": "UV Light",
+                "icon": "mdi:lightbulb-on-outline",
+            },
+            "wifi_switch": {
+                "type": Platform.BINARY_SENSOR,
+                "name": "Wi-Fi Light",
+                "icon": "mdi:wifi",
+            },
+            "voice_switch": {
+                "type": Platform.BINARY_SENSOR,
+                "name": "Voice Prompt",
+                "icon": "mdi:volume-high",
+            },
+            "command_source": {
+                "type": Platform.BINARY_SENSOR,
+                "name": "Command Source",
+                "icon": "mdi:flash",
+            },
+            "device_error": {
+                "type": Platform.BINARY_SENSOR,
+                "name": "Device Error",
+                "icon": "mdi:alert-circle",
+                "device_class": BinarySensorDeviceClass.PROBLEM,
+            },
+            "carpet_switch": {
+                "type": Platform.BINARY_SENSOR,
+                "name": "Carpet Detection",
+                "icon": "mdi:rug",
+            },
+            "board_communication_error": {
+                "type": Platform.BINARY_SENSOR,
+                "name": "Board Communication Error",
+                "icon": "mdi:alert-circle",
+                "device_class": BinarySensorDeviceClass.PROBLEM,
+            },
+            "laser_sensor_shelter": {
+                "type": Platform.BINARY_SENSOR,
+                "name": "Laser Sensor Shelter",
+                "icon": "mdi:alert-circle",
+                "device_class": BinarySensorDeviceClass.PROBLEM,
+            },
+            "laser_sensor_error": {
+                "type": Platform.BINARY_SENSOR,
+                "name": "Laser Sensor Error",
+                "icon": "mdi:alert-circle",
+                "device_class": BinarySensorDeviceClass.PROBLEM,
+            },
+            "disturb_switch": {
+                "type": Platform.BINARY_SENSOR,
+                "name": "Do Not Disturb",
+                "icon": "mdi:minus-circle",
+                "required_attribute": "disturb_switch",
+            },
+            "clean_mode": {
+                "type": Platform.SELECT,
+                "name": "Clean Mode",
+                "options": "clean_modes",
+                "icon": "mdi:robot-vacuum",
+            },
+            "fan_level": {
+                "type": Platform.SELECT,
+                "name": "Fan Level",
+                "options": "fan_levels",
+                "icon": "mdi:fan",
+            },
+            "water_level": {
+                "type": Platform.SELECT,
+                "name": "Water Level",
+                "options": "water_levels",
+                "icon": "mdi:water",
+            },
+            "speak_level": {
+                "type": Platform.SELECT,
+                "name": "Speak Level",
+                "options": "speak_levels",
+                "icon": "mdi:volume-high",
+                "required_attribute": "speak_level",
+            },
+            "move_direction": {
+                "type": Platform.SELECT,
+                "name": "Move Direction",
+                "options": "move_directions",
+                "icon": "mdi:arrow-decision",
+            },
+            "work_status_control": {
+                "type": Platform.SELECT,
+                "name": "Work Status Control",
+                "attribute": "work_status",
+                "options": "work_status_controls",
+                "icon": "mdi:robot-vacuum",
+            },
+            "voice_volume": {
+                "type": Platform.NUMBER,
+                "name": "Voice Volume",
+                "icon": "mdi:volume-high",
+                "min": 0,
+                "max": 100,
+                "step": 1,
+                "unit": PERCENTAGE,
             },
         },
     },
@@ -1619,6 +1862,189 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
         },
     },
+    0xC1: {
+        "name": "Electric Wall-hung Boiler",
+        "entities": {
+            "climate": {
+                "type": Platform.CLIMATE,
+                "icon": "mdi:radiator",
+                "default": True,
+            },
+            C1Attributes.power: {
+                "type": Platform.SWITCH,
+                "translation_key": "power",
+                "name": "Power",
+                "icon": "mdi:power",
+                "default": True,
+            },
+            C1Attributes.heating_target_temperature: {
+                "type": Platform.NUMBER,
+                "translation_key": "heating_target_temperature",
+                "name": "Heating Target Temperature",
+                "icon": "mdi:thermometer-lines",
+                "device_class": NumberDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "min": 30,
+                "max": 60,
+                "step": "temperature_step",
+                "default": True,
+            },
+            C1Attributes.heating_mode: {
+                "type": Platform.SELECT,
+                "translation_key": "heating_mode",
+                "name": "Heating Mode",
+                "icon": "mdi:radiator",
+                "options": "heating_modes",
+                "default": True,
+            },
+            C1Attributes.status: {
+                "type": Platform.SENSOR,
+                "translation_key": "status",
+                "name": "Status",
+                "icon": "mdi:radiator",
+            },
+            C1Attributes.error_code: {
+                "type": Platform.SENSOR,
+                "translation_key": "error_code",
+                "name": "Error Code",
+                "icon": "mdi:alert-circle",
+            },
+            C1Attributes.three_way_mode: {
+                "type": Platform.SENSOR,
+                "translation_key": "three_way_mode",
+                "name": "Three-way Mode",
+                "icon": "mdi:valve",
+            },
+            C1Attributes.heating_unit_type: {
+                "type": Platform.SENSOR,
+                "translation_key": "heating_unit_type",
+                "name": "Heating Unit Type",
+                "icon": "mdi:heating-coil",
+            },
+            C1Attributes.return_temperature: {
+                "type": Platform.SENSOR,
+                "translation_key": "return_temperature",
+                "name": "Return Temperature",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C1Attributes.current_temperature: {
+                "type": Platform.SENSOR,
+                "name": "Current Temperature",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C1Attributes.heating_temperature: {
+                "type": Platform.SENSOR,
+                "translation_key": "heating_temperature",
+                "name": "Heating Temperature",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C1Attributes.heating_gap_temperature: {
+                "type": Platform.SENSOR,
+                "translation_key": "heating_gap_temperature",
+                "name": "Heating Gap Temperature",
+                "icon": "mdi:thermometer-lines",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C1Attributes.user_mode_target_temperature: {
+                "type": Platform.SENSOR,
+                "translation_key": "user_mode_target_temperature",
+                "name": "User Mode Target Temperature",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C1Attributes.activity_mode_target_temperature: {
+                "type": Platform.SENSOR,
+                "translation_key": "activity_mode_target_temperature",
+                "name": "Activity Mode Target Temperature",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C1Attributes.sleep_mode_target_temperature: {
+                "type": Platform.SENSOR,
+                "translation_key": "sleep_mode_target_temperature",
+                "name": "Sleep Mode Target Temperature",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C1Attributes.last_time: {
+                "type": Platform.SENSOR,
+                "translation_key": "last_time",
+                "name": "Last Time",
+                "icon": "mdi:timer-outline",
+                "unit": UnitOfTime.MINUTES,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C1Attributes.flow_volume: {
+                "type": Platform.SENSOR,
+                "translation_key": "flow_volume",
+                "name": "Flow Rate",
+                "icon": "mdi:water",
+                "device_class": SensorDeviceClass.VOLUME_FLOW_RATE,
+                "unit": UnitOfVolumeFlowRate.LITERS_PER_MINUTE,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C1Attributes.standby: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "standby",
+                "name": "Standby",
+                "icon": "mdi:power-standby",
+                "device_class": BinarySensorDeviceClass.RUNNING,
+            },
+            C1Attributes.heating: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "heating",
+                "name": "Heating",
+                "icon": "mdi:heat-wave",
+                "device_class": BinarySensorDeviceClass.RUNNING,
+            },
+            C1Attributes.warm_power: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "warm_power",
+                "name": "Warm Power",
+                "icon": "mdi:radiator",
+                "device_class": BinarySensorDeviceClass.RUNNING,
+            },
+            C1Attributes.cold_power: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "cold_power",
+                "name": "Cold Power",
+                "icon": "mdi:snowflake",
+                "device_class": BinarySensorDeviceClass.RUNNING,
+            },
+            C1Attributes.sleep_power: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "sleep_power",
+                "name": "Sleep Power",
+                "icon": "mdi:sleep",
+                "device_class": BinarySensorDeviceClass.RUNNING,
+            },
+            C1Attributes.pump_on: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "pump_on",
+                "name": "Pump On",
+                "icon": "mdi:pump",
+                "device_class": BinarySensorDeviceClass.RUNNING,
+            },
+            C1Attributes.fault: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "fault",
+                "name": "Fault",
+                "icon": "mdi:alert",
+                "device_class": BinarySensorDeviceClass.PROBLEM,
+            },
+        },
+    },
     0xC2: {
         "name": "Toilet",
         "entities": {
@@ -1744,8 +2170,8 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             C3Attributes.disinfect: {
                 "type": Platform.SWITCH,
-                "translation_key": "disinfect",
-                "name": "Disinfect",
+                "translation_key": "dhw_disinfect",
+                "name": "DHW - Disinfect",
                 "icon": "mdi:water-plus-outline",
             },
             C3Attributes.dhw_power: {
@@ -1784,6 +2210,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "tbh",
                 "name": "TBH",
                 "icon": "mdi:water-boiler",
+                "default": False,
             },
             C3Attributes.zone1_curve: {
                 "type": Platform.SWITCH,
@@ -1905,6 +2332,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             C3Attributes.temp_tw_in: {
                 "type": Platform.SENSOR,
+                "translation_key": "temp_tw_in",
                 "name": "Water Inlet Temperature",
                 "device_class": SensorDeviceClass.TEMPERATURE,
                 "unit": UnitOfTemperature.CELSIUS,
@@ -1912,18 +2340,451 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             C3Attributes.temp_tw_out: {
                 "type": Platform.SENSOR,
+                "translation_key": "temp_tw_out",
                 "name": "Water Outlet Temperature",
                 "device_class": SensorDeviceClass.TEMPERATURE,
                 "unit": UnitOfTemperature.CELSIUS,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
+            # ---- Newly exposed C3 attributes (device capability + telemetry) ----
+            C3Attributes.holiday_on: {
+                "type": Platform.SWITCH,
+                "translation_key": "holiday_on",
+                "name": "Holiday Mode",
+                "icon": "mdi:palm-tree",
+            },
+            C3Attributes.status_cool: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "status_cool",
+                "name": "Cooling status",
+                "icon": "mdi:snowflake",
+                "device_class": BinarySensorDeviceClass.RUNNING,
+            },
+            C3Attributes.eco_function_state: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "eco_function_state",
+                "name": "ECO Function",
+                "icon": "mdi:leaf",
+                "device_class": BinarySensorDeviceClass.RUNNING,
+            },
+            C3Attributes.eco_timer_state: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "eco_timer_state",
+                "name": "ECO Timer",
+                "icon": "mdi:leaf-clock",
+                "device_class": BinarySensorDeviceClass.RUNNING,
+            },
+            C3Attributes.heat: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "heat_capability",
+                "name": "Heat Capability",
+                "icon": "mdi:fire",
+            },
+            C3Attributes.cool: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "cool_capability",
+                "name": "Cool Capability",
+                "icon": "mdi:snowflake",
+            },
+            C3Attributes.dhw: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "dhw_capability",
+                "name": "DHW Capability",
+                "icon": "mdi:water-boiler",
+            },
+            C3Attributes.double_zone: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "double_zone",
+                "name": "Double Zone Enabled",
+                "icon": "mdi:home-floor-2",
+            },
+            C3Attributes.room_thermal_support: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "room_thermal_support",
+                "name": "Room Thermostat Support",
+                "icon": "mdi:thermostat",
+            },
+            C3Attributes.room_thermal_state: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "room_thermal_state",
+                "name": "Room Thermostat State",
+                "icon": "mdi:thermostat",
+                "device_class": BinarySensorDeviceClass.RUNNING,
+            },
+            C3Attributes.time_set: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "time_set",
+                "name": "Time Set",
+                "icon": "mdi:clock-check",
+            },
+            C3Attributes.disinfect_run: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "disinfect_run",
+                "name": "Disinfect Running",
+                "icon": "mdi:water-plus",
+                "device_class": BinarySensorDeviceClass.RUNNING,
+            },
+            C3Attributes.remote_onoff: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "remote_onoff",
+                "name": "Remote On/Off",
+                "icon": "mdi:remote",
+            },
+            C3Attributes.tbh_control: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "tbh_control",
+                "name": "TBH Control",
+                "icon": "mdi:water-boiler",
+            },
+            C3Attributes.sys_energy_ana_en: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "sys_energy_ana_en",
+                "name": "System Energy Analysis Enabled",
+                "icon": "mdi:chart-line",
+            },
+            C3Attributes.hmi_energy_ana_set_en: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "hmi_energy_ana_set_en",
+                "name": "HMI Energy Analysis Set Enabled",
+                "icon": "mdi:chart-line",
+            },
+            # NOTE: comp_run_freq, fan_speed, unit_mode_run, temp_t1, temp_t2,
+            # temp_t2b and temp_t3 are provided by upstream's required_attribute
+            # -guarded telemetry block further below (from midea_ac_lan main),
+            # which also fixes unit_mode_run's options (int-keyed, matching the
+            # library's actual int return type) - do not re-add direct
+            # C3Attributes references for them here.
+            C3Attributes.temp_t4: {
+                "type": Platform.SENSOR,
+                "translation_key": "temp_t4",
+                "name": "Outdoor Ambient Temperature (T4)",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C3Attributes.temp_t5: {
+                "type": Platform.SENSOR,
+                "translation_key": "temp_t5",
+                "name": "Water Tank Temperature (T5)",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C3Attributes.temp_ta: {
+                "type": Platform.SENSOR,
+                "translation_key": "temp_ta",
+                "name": "Room Ambient Temperature (Ta)",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            # NOTE: temp_tp and temp_th also come from upstream's guarded block.
+            C3Attributes.temp_tw2: {
+                "type": Platform.SENSOR,
+                "translation_key": "temp_tw2",
+                "name": "Zone 2 Outlet Water Temperature (Tw2)",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C3Attributes.temp_tb_t1: {
+                "type": Platform.SENSOR,
+                "translation_key": "temp_tb_t1",
+                "name": "Buffer Tank Upper Temperature (Tbt1)",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C3Attributes.temp_tb_t2: {
+                "type": Platform.SENSOR,
+                "translation_key": "temp_tb_t2",
+                "name": "Buffer Tank Lower Temperature (Tbt2)",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C3Attributes.temp_tsolar: {
+                "type": Platform.SENSOR,
+                "translation_key": "temp_tsolar",
+                "name": "Solar Temperature (Tsolar)",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            # NOTE: pressure_high and pressure_low also come from upstream's
+            # guarded block.
+            # midea-lan attribute name has an upstream typo (water_flower)
+            C3Attributes.water_flower: {
+                "type": Platform.SENSOR,
+                "translation_key": "water_flow",
+                "name": "Water Flow Rate",
+                "icon": "mdi:water-pump",
+                "device_class": SensorDeviceClass.VOLUME_FLOW_RATE,
+                # parser scales to m3/h (raw/100); verified against wired HMI
+                "unit": UnitOfVolumeFlowRate.CUBIC_METERS_PER_HOUR,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C3Attributes.water_pressure: {
+                "type": Platform.SENSOR,
+                "translation_key": "water_pressure",
+                "name": "Water Pressure",
+                "device_class": SensorDeviceClass.PRESSURE,
+                "unit": UnitOfPressure.KPA,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            # NOTE: exv_current (translation_key "exv_current" upstream, was
+            # "exv_opening") and odu_voltage also come from upstream's guarded
+            # block.
+            C3Attributes.dc_current: {
+                "type": Platform.SENSOR,
+                "translation_key": "dc_current",
+                "name": "DC Current",
+                "device_class": SensorDeviceClass.CURRENT,
+                "unit": UnitOfElectricCurrent.AMPERE,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C3Attributes.dc_bus_voltage: {
+                "type": Platform.SENSOR,
+                "translation_key": "dc_bus_voltage",
+                "name": "DC Bus Voltage",
+                "device_class": SensorDeviceClass.VOLTAGE,
+                "unit": UnitOfElectricPotential.VOLT,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            # NOTE: instant_power (kW, /100 scaled) never made it into
+            # midea-lan; main exposes the same two raw bytes unscaled as
+            # current_unit_capacity. Surfaced as a raw diagnostic until a
+            # future lib PR adds the /100 scaling.
+            C3Attributes.current_unit_capacity: {
+                "type": Platform.SENSOR,
+                "translation_key": "current_unit_capacity",
+                "name": "Current Unit Capacity (raw)",
+                "icon": "mdi:heat-wave",
+                "entity_category": EntityCategory.DIAGNOSTIC,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
             C3Attributes.instant_power0: {
                 "type": Platform.SENSOR,
-                "name": "Current Power",
+                "translation_key": "instant_power0",
+                "name": "Power Consumption",
+                "device_class": SensorDeviceClass.POWER,
+                # midea-lan returns the raw 16-bit value in watts (unscaled)
+                "unit": UnitOfPower.WATT,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C3Attributes.instant_renew_power0: {
+                "type": Platform.SENSOR,
+                "translation_key": "instant_renew_power0",
+                "name": "Renewable Heating Capacity",
                 "device_class": SensorDeviceClass.POWER,
                 "unit": UnitOfPower.WATT,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
+            # instant_cop (thermal capacity / electrical draw) is not computed
+            # by midea-lan yet - deferred until a future lib PR adds it.
+            # --- Pump / valve statuses (LOAD_OUTPUT bitmap, X10 byte[33]) ---
+            C3Attributes.pump_i_running: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "pump_i_running",
+                "name": "Pump Interior (Pump_I)",
+                "icon": "mdi:pump",
+                "device_class": BinarySensorDeviceClass.RUNNING,
+            },
+            C3Attributes.pump_o_running: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "pump_o_running",
+                "name": "Pump Outdoor (Pump_O)",
+                "icon": "mdi:pump",
+                "device_class": BinarySensorDeviceClass.RUNNING,
+            },
+            C3Attributes.pump_d_running: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "pump_d_running",
+                "name": "Pump D (Pump_D)",
+                "icon": "mdi:pump",
+                "device_class": BinarySensorDeviceClass.RUNNING,
+            },
+            C3Attributes.pump_c_running: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "pump_c_running",
+                "name": "Pump C - Zone 2 (Pump_C, reg129 BIT8)",
+                "icon": "mdi:pump",
+                "device_class": BinarySensorDeviceClass.RUNNING,
+            },
+            C3Attributes.pump_s_running: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "pump_s_running",
+                "name": "Pump S - Solar (Pump_S, reg129 BIT11)",
+                "icon": "mdi:pump",
+                "device_class": BinarySensorDeviceClass.RUNNING,
+                "entity_category": EntityCategory.DIAGNOSTIC,
+                "entity_registry_enabled_default": False,
+            },
+            C3Attributes.sv1_open: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "sv1_open",
+                "name": "3-way Valve DHW (SV1)",
+                "icon": "mdi:valve",
+                "device_class": BinarySensorDeviceClass.OPENING,
+            },
+            C3Attributes.sv2_open: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "sv2_open",
+                "name": "Heating Valve (SV2)",
+                "icon": "mdi:valve",
+                "device_class": BinarySensorDeviceClass.OPENING,
+            },
+            C3Attributes.load_output_tbh: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "load_output_tbh",
+                "name": "Tank Backup Heater (TBH)",
+                "icon": "mdi:radiator",
+                "device_class": BinarySensorDeviceClass.RUNNING,
+            },
+            C3Attributes.ibh1_on: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "ibh1_on",
+                "name": "Electric Heater IBH1",
+                "icon": "mdi:radiator",
+                "device_class": BinarySensorDeviceClass.RUNNING,
+            },
+            C3Attributes.ibh2_on: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "ibh2_on",
+                "name": "Electric Heater IBH2",
+                "icon": "mdi:radiator",
+                "device_class": BinarySensorDeviceClass.RUNNING,
+            },
+            C3Attributes.sv3_open: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "sv3_open",
+                "name": "3-way Valve SV3",
+                "icon": "mdi:valve",
+                "device_class": BinarySensorDeviceClass.OPENING,
+                "entity_category": EntityCategory.DIAGNOSTIC,
+                "entity_registry_enabled_default": False,
+            },
+            C3Attributes.crankcase_heater_on: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "crankcase_heater_on",
+                "name": "Crankcase Heater",
+                "icon": "mdi:heating-coil",
+                "device_class": BinarySensorDeviceClass.RUNNING,
+                "entity_category": EntityCategory.DIAGNOSTIC,
+                "entity_registry_enabled_default": False,
+            },
+            C3Attributes.alarm_on: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "alarm_on",
+                "name": "Alarm (Reg 129 BIT12)",
+                "icon": "mdi:alert",
+                "device_class": BinarySensorDeviceClass.PROBLEM,
+                "entity_category": EntityCategory.DIAGNOSTIC,
+                "entity_registry_enabled_default": False,
+            },
+            C3Attributes.aux_heat_on: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "aux_heat_on",
+                "name": "Auxiliary Heat Source",
+                "icon": "mdi:fire",
+                "device_class": BinarySensorDeviceClass.RUNNING,
+                "entity_category": EntityCategory.DIAGNOSTIC,
+                "entity_registry_enabled_default": False,
+            },
+            # ---- New (Aug-18): compressor telemetry ----
+            C3Attributes.compressor_on: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "compressor_on",
+                "name": "Compressor Running",
+                "icon": "mdi:engine",
+                "device_class": BinarySensorDeviceClass.RUNNING,
+            },
+            # compressor_status_raw superseded by the verified compressor_on
+            # binary sensor above; no raw diagnostic needed.
+            # raw_b31, water_circuit_active (b31 bit6) and unit_demand (b31
+            # bit5) were this PR's own unverified guesses at the run-state
+            # byte. midea-lan#83 decoded that byte against the Modbus doc and
+            # real hardware instead, replacing it with named, verified flags
+            # (cool_run, heat_run, dhw_run, fact_req_solar_on,
+            # fact_req_ther_cool_on, fact_req_ther_heat_on, edge_version_type).
+            # None of those guesses survived, so nothing to alias here; the
+            # verified flags can be added as their own entities in a follow-up.
+            # raw_b65 has no Modbus register match and was dropped from the
+            # library entirely (midea-lan#46 discussion) - no replacement.
+            # odu_comp_current is provided by upstream's required_attribute
+            # -guarded telemetry block below.
+            C3Attributes.room_rel_hum: {
+                "type": Platform.SENSOR,
+                "translation_key": "room_rel_hum",
+                "name": "Room Relative Humidity",
+                "device_class": SensorDeviceClass.HUMIDITY,
+                "unit": PERCENTAGE,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C3Attributes.comp_total_run_time: {
+                "type": Platform.SENSOR,
+                "translation_key": "comp_total_run_time",
+                "name": "Compressor Total Run Time",
+                "icon": "mdi:timer-outline",
+                "device_class": SensorDeviceClass.DURATION,
+                "unit": UnitOfTime.HOURS,
+                "state_class": SensorStateClass.TOTAL_INCREASING,
+            },
+            C3Attributes.error_code_description: {
+                "type": Platform.SENSOR,
+                "translation_key": "error_code_description",
+                "name": "Error Description",
+                "icon": "mdi:alert-circle-outline",
+            },
+            # renamed upstream in midea-lan#81 (HMI serial, not Wi-Fi module's)
+            C3Attributes.hmi_sn_code: {
+                "type": Platform.SENSOR,
+                "translation_key": "hmi_sn_code",
+                "name": "HMI Serial",
+                "icon": "mdi:identifier",
+            },
+            # --- Additional low-level diagnostic sensors ---
+            C3Attributes.hydbox_subtype: {
+                "type": Platform.SENSOR,
+                "translation_key": "hydbox_subtype",
+                "name": "Hydrobox Subtype",
+                "icon": "mdi:identifier",
+            },
+            C3Attributes.hydrobox_capacity: {
+                "type": Platform.SENSOR,
+                "translation_key": "hydrobox_capacity",
+                "name": "Hydrobox Capacity",
+                "icon": "mdi:heat-pump-outline",
+            },
+            # IDU / ODU firmware versions - parsed from X10 telemetry
+            # bytes 94/95 (verified against wired HMI: V14 / V64).
+            # SW version strings including build date (parsed from X10 tail).
+            C3Attributes.idu_software_version_str: {
+                "type": Platform.SENSOR,
+                "translation_key": "idu_software_version_str",
+                "name": "IDU Software Version (with date)",
+                "icon": "mdi:chip",
+            },
+            C3Attributes.odu_software_version_str: {
+                "type": Platform.SENSOR,
+                "translation_key": "odu_software_version_str",
+                "name": "ODU Software Version (with date)",
+                "icon": "mdi:chip",
+            },
+            C3Attributes.machine_type: {
+                "type": Platform.SENSOR,
+                "translation_key": "machine_type",
+                "name": "Machine Type",
+                "icon": "mdi:identifier",
+            },
+            C3Attributes.odu_model: {
+                "type": Platform.SENSOR,
+                "translation_key": "odu_model",
+                "name": "Outdoor Unit Model",
+                "icon": "mdi:identifier",
+            },
+            # odu_target_fre is provided by upstream's required_attribute
+            # -guarded telemetry block below.
             # Outdoor-unit runtime telemetry. Parsed by midea-lan since the
             # MSG_TYPE_UP_UNITPARA / X10 UnitPara work; older library releases
             # omit these keys, so each carries a required_attribute guard.
@@ -1936,6 +2797,8 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "unit": UnitOfFrequency.HERTZ,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
+            # fg_capacity_need and temp_tf are provided by upstream's
+            # required_attribute-guarded telemetry block below.
             C3_FAN_SPEED: {
                 "type": Platform.SENSOR,
                 "required_attribute": C3_FAN_SPEED,
@@ -2079,6 +2942,72 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "device_class": SensorDeviceClass.TEMPERATURE,
                 "unit": UnitOfTemperature.CELSIUS,
                 "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C3Attributes.t5s: {
+                "type": Platform.SENSOR,
+                "translation_key": "t5s",
+                "name": "Tank Setpoint (T5s)",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C3Attributes.tas: {
+                "type": Platform.SENSOR,
+                "translation_key": "tas",
+                "name": "Room Ambient Setpoint (Tas)",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C3Attributes.idu_t1s1: {
+                "type": Platform.SENSOR,
+                "translation_key": "idu_t1s1",
+                "name": "Indoor Unit T1 Setpoint 1",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C3Attributes.idu_t1s2: {
+                "type": Platform.SENSOR,
+                "translation_key": "idu_t1s2",
+                "name": "Indoor Unit T1 Setpoint 2",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C3Attributes.zone1_temp_set: {
+                "type": Platform.SENSOR,
+                "translation_key": "zone1_temp_set",
+                "name": "Zone 1 Temperature Setpoint (echo)",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C3Attributes.zone2_temp_set: {
+                "type": Platform.SENSOR,
+                "translation_key": "zone2_temp_set",
+                "name": "Zone 2 Temperature Setpoint (echo)",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            C3Attributes.disinfect_set_weekday: {
+                "type": Platform.SENSOR,
+                "translation_key": "disinfect_set_weekday",
+                "name": "Disinfect Scheduled Weekday",
+                "icon": "mdi:calendar-week",
+            },
+            C3Attributes.disinfect_start_hour: {
+                "type": Platform.SENSOR,
+                "translation_key": "disinfect_start_hour",
+                "name": "DHW - Disinfect Start Hour",
+                "icon": "mdi:clock-outline",
+            },
+            C3Attributes.disinfect_start_minutes: {
+                "type": Platform.SENSOR,
+                "translation_key": "disinfect_start_minutes",
+                "name": "DHW - Disinfect Start Minute",
+                "icon": "mdi:clock-outline",
             },
         },
     },
@@ -4555,6 +5484,92 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "power",
                 "name": "Power",
                 "icon": "mdi:power",
+            },
+            FAAttributes.humidify: {
+                "type": Platform.SWITCH,
+                "translation_key": "humidify",
+                "name": "Humidify",
+                "icon": "mdi:water-percent",
+            },
+            FAAttributes.waterions: {
+                "type": Platform.SWITCH,
+                "translation_key": "waterions",
+                "name": "Water Ions",
+                "icon": "mdi:atom-variant",
+            },
+            FAAttributes.anion: {
+                "type": Platform.SWITCH,
+                "translation_key": "anion",
+                "name": "Anion",
+                "icon": "mdi:atom",
+            },
+            FAAttributes.anophelifuge: {
+                "type": Platform.SWITCH,
+                "translation_key": "anophelifuge",
+                "name": "Anti-Mosquito",
+                "icon": "mdi:mosquito-off",
+            },
+            FAAttributes.display_on_off: {
+                "type": Platform.SWITCH,
+                "translation_key": "display_on_off",
+                "name": "Display",
+                "icon": "mdi:television",
+            },
+            FAAttributes.auto_power_off: {
+                "type": Platform.SWITCH,
+                "translation_key": "auto_power_off",
+                "name": "Auto Power Off",
+                "icon": "mdi:timer-off",
+            },
+            FAAttributes.body_feeling_scan: {
+                "type": Platform.SWITCH,
+                "translation_key": "body_feeling_scan",
+                "name": "Body Feeling Scan",
+                "icon": "mdi:motion-sensor",
+            },
+            FAAttributes.humidity: {
+                "type": Platform.SENSOR,
+                "translation_key": "humidity",
+                "name": "Humidity",
+                "device_class": SensorDeviceClass.HUMIDITY,
+                "unit": PERCENTAGE,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            FAAttributes.target_temperature: {
+                "type": Platform.SENSOR,
+                "translation_key": "target_temperature",
+                "name": "Target Temperature",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            FAAttributes.humidify_feedback: {
+                "type": Platform.SENSOR,
+                "translation_key": "humidify_feedback",
+                "name": "Humidity Feedback",
+                "device_class": SensorDeviceClass.HUMIDITY,
+                "unit": PERCENTAGE,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            FAAttributes.temperature_feedback: {
+                "type": Platform.SENSOR,
+                "translation_key": "temperature_feedback",
+                "name": "Temperature Feedback",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            FAAttributes.humidify_mode: {
+                "type": Platform.SENSOR,
+                "translation_key": "humidify_mode",
+                "name": "Humidify Mode",
+                "icon": "mdi:water-percent",
+            },
+            FAAttributes.error_code: {
+                "type": Platform.SENSOR,
+                "translation_key": "error_code",
+                "name": "Error Code",
+                "icon": "mdi:alert-circle",
             },
         },
     },

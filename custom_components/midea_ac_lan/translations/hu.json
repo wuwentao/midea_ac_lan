@@ -63,6 +63,18 @@
   },
   "entity": {
     "binary_sensor": {
+      "warm_power": {
+        "name": "Fűtés üzem"
+      },
+      "cold_power": {
+        "name": "Hűtés üzem"
+      },
+      "sleep_power": {
+        "name": "Alvó üzem"
+      },
+      "pump_on": {
+        "name": "Szivattyú be"
+      },
       "bar_door": {
         "name": "Bar Door"
       },
@@ -381,6 +393,96 @@
       },
       "sleep_status": {
         "name": "Alvó állapot"
+      },
+      "alarm_on": {
+        "name": "Hiba - Riasztás"
+      },
+      "aux_heat_on": {
+        "name": "Fűtőbetét - Kiegészítő hőforrás"
+      },
+      "compressor_on": {
+        "name": "Kompresszor - Működik"
+      },
+      "cool_capability": {
+        "name": "Képesség - Hűtés"
+      },
+      "crankcase_heater_on": {
+        "name": "Fűtőbetét - Forgattyúház"
+      },
+      "dhw_capability": {
+        "name": "Képesség - HMV"
+      },
+      "disinfect_run": {
+        "name": "HMV - Fertőtlenítés fut"
+      },
+      "double_zone": {
+        "name": "Képesség - Két zóna"
+      },
+      "eco_function_state": {
+        "name": "Üzemmód - ECO funkció"
+      },
+      "eco_timer_state": {
+        "name": "Üzemmód - ECO időzítő"
+      },
+      "heat_capability": {
+        "name": "Képesség - Fűtés"
+      },
+      "hmi_energy_ana_set_en": {
+        "name": "Képesség - Energiaelemzés (HMI)"
+      },
+      "ibh1_on": {
+        "name": "Fűtőbetét - IBH1"
+      },
+      "ibh2_on": {
+        "name": "Fűtőbetét - IBH2"
+      },
+      "load_output_tbh": {
+        "name": "Fűtőbetét - Tároló (TBH)"
+      },
+      "pump_c_running": {
+        "name": "Pump_C - Kevert kör 2. zóna"
+      },
+      "pump_d_running": {
+        "name": "Pump_D - HMV"
+      },
+      "pump_i_running": {
+        "name": "Pump_I - Belső"
+      },
+      "pump_o_running": {
+        "name": "Pump_O - Külső"
+      },
+      "pump_s_running": {
+        "name": "Pump_S - Napkollektor"
+      },
+      "remote_onoff": {
+        "name": "Képesség - Távoli be/ki"
+      },
+      "room_thermal_state": {
+        "name": "Állapot - Szobatermosztát"
+      },
+      "room_thermal_support": {
+        "name": "Képesség - Szobatermosztát"
+      },
+      "status_cool": {
+        "name": "Állapot - Hűtés"
+      },
+      "sv1_open": {
+        "name": "SV1 - Szelep (HMV)"
+      },
+      "sv2_open": {
+        "name": "SV2 - Szelep (Fűtés)"
+      },
+      "sv3_open": {
+        "name": "SV3 - Szelep"
+      },
+      "sys_energy_ana_en": {
+        "name": "Képesség - Energiaelemzés (Rendszer)"
+      },
+      "tbh_control": {
+        "name": "Képesség - TBH vezérlés"
+      },
+      "time_set": {
+        "name": "Képesség - Idő beállítva"
       }
     },
     "button": {
@@ -420,6 +522,9 @@
       }
     },
     "number": {
+      "heating_target_temperature": {
+        "name": "Fűtés célhőmérséklet"
+      },
       "dry_level": {
         "name": "Dry Level"
       },
@@ -464,14 +569,38 @@
       }
     },
     "select": {
+      "heating_mode": {
+        "name": "Fűtési mód",
+        "state": {
+          "user": "Felhasználó",
+          "activity": "Aktivitás",
+          "sleep": "Alvás",
+          "unknown": "Ismeretlen"
+        }
+      },
       "detect_mode": {
-        "name": "Detect Mode"
+        "name": "Detect Mode",
+        "state": {
+          "off": "Ki",
+          "pm_2_5": "PM 2.5",
+          "methanal": "Methanal"
+        }
       },
       "direction": {
-        "name": "Direction"
+        "name": "Direction",
+        "state": {
+          "oscillate": "Oszcillálás"
+        }
       },
       "fan_speed": {
-        "name": "Fan Speed"
+        "name": "Fan Speed",
+        "state": {
+          "auto": "Automatikus",
+          "standby": "Készenlét",
+          "low": "Alacsony",
+          "medium": "Közepes",
+          "high": "Magas"
+        }
       },
       "fresh_air_exhaust_mode": {
         "name": "Frisslevegő elszívás sebessége",
@@ -493,7 +622,22 @@
         }
       },
       "mode": {
-        "name": "Mode"
+        "name": "Mode",
+        "state": {
+          "standby": "Készenlét",
+          "auto": "Automatikus",
+          "manual": "Manuális",
+          "sleep": "Alvó",
+          "fast": "Gyors",
+          "smoke": "Füst",
+          "off": "Ki",
+          "heat_high": "Fűtés (magas)",
+          "heat_low": "Fűtés (alacsony)",
+          "bath": "Fürdés",
+          "blow": "Fújás",
+          "ventilation": "Szellőztetés",
+          "dry": "Szárítás"
+        }
       },
       "oscillation_angle": {
         "name": "Oscillation Angle"
@@ -505,7 +649,12 @@
         "name": "Power Rate Limit"
       },
       "screen_display": {
-        "name": "Screen Display"
+        "name": "Screen Display",
+        "state": {
+          "bright": "Világos",
+          "dim": "Halvány",
+          "off": "Ki"
+        }
       },
       "silent_level": {
         "name": "Silent Level"
@@ -548,6 +697,36 @@
       }
     },
     "sensor": {
+      "three_way_mode": {
+        "name": "Háromjáratú mód"
+      },
+      "heating_unit_type": {
+        "name": "Fűtőegység típusa"
+      },
+      "return_temperature": {
+        "name": "Visszatérő hőmérséklet"
+      },
+      "heating_temperature": {
+        "name": "Fűtési hőmérséklet"
+      },
+      "heating_gap_temperature": {
+        "name": "Fűtési hiszterézis hőmérséklet"
+      },
+      "user_mode_target_temperature": {
+        "name": "Felhasználói mód célhőmérséklet"
+      },
+      "activity_mode_target_temperature": {
+        "name": "Aktivitás mód célhőmérséklet"
+      },
+      "sleep_mode_target_temperature": {
+        "name": "Alvó mód célhőmérséklet"
+      },
+      "last_time": {
+        "name": "Üzemidő"
+      },
+      "flow_volume": {
+        "name": "Térfogatáram"
+      },
       "bathing_leaving_temperature": {
         "name": "Bathing Leaving Water Temperature"
       },
@@ -676,6 +855,15 @@
       },
       "error_code": {
         "name": "Error Code"
+      },
+      "humidify_feedback": {
+        "name": "Páratartalom visszajelzés"
+      },
+      "temperature_feedback": {
+        "name": "Hőmérséklet visszajelzés"
+      },
+      "humidify_mode": {
+        "name": "Párásítási mód"
       },
       "estimated_energy_consumption": {
         "name": "Becsült energiafogyasztás"
@@ -1278,11 +1466,134 @@
           "heating": "Fűtés",
           "keep_warm": "Melegen tartás"
         }
+      },
+      "comp_total_run_time": {
+        "name": "Energia - Kompresszor üzemidő"
+      },
+      "dc_bus_voltage": {
+        "name": "Kültéri egység - DC busz feszültség"
+      },
+      "dc_current": {
+        "name": "Kültéri egység - DC busz áram"
+      },
+      "disinfect_set_weekday": {
+        "name": "HMV - Fertőtlenítés napja"
+      },
+      "disinfect_start_hour": {
+        "name": "HMV - Fertőtlenítés kezdő óra"
+      },
+      "disinfect_start_minutes": {
+        "name": "HMV - Fertőtlenítés kezdő perc"
+      },
+      "error_code_description": {
+        "name": "Hiba - Leírás"
+      },
+      "hydbox_subtype": {
+        "name": "Info - Hidraulikus modul altípus"
+      },
+      "hydrobox_capacity": {
+        "name": "Info - Hidraulikus modul teljesítmény"
+      },
+      "idu_software_version_str": {
+        "name": "Info - Beltéri egység szoftververzió"
+      },
+      "idu_t1s1": {
+        "name": "Hőmérséklet - 1. zóna számított (T1s)"
+      },
+      "idu_t1s2": {
+        "name": "Hőmérséklet - 2. zóna számított (T1s)"
+      },
+      "current_unit_capacity": {
+        "name": "Aktuális egységteljesítmény (nyers)"
+      },
+      "instant_power0": {
+        "name": "Teljesítmény - Fűtési fogyasztás"
+      },
+      "instant_renew_power0": {
+        "name": "Teljesítmény - Megújuló fűtési teljesítmény"
+      },
+      "machine_type": {
+        "name": "Info - Gép típusa"
+      },
+      "odu_model": {
+        "name": "Info - Kültéri egység modellkód"
+      },
+      "odu_software_version_str": {
+        "name": "Info - Kültéri egység szoftververzió"
+      },
+      "room_rel_hum": {
+        "name": "Relatív páratartalom"
+      },
+      "t5s": {
+        "name": "Hőmérséklet T5s - HMV alapjel"
+      },
+      "tas": {
+        "name": "Hőmérséklet Tas - Levegő alapjel"
+      },
+      "temp_t4": {
+        "name": "Hőmérséklet T4 - Külső levegő"
+      },
+      "temp_t5": {
+        "name": "Hőmérséklet T5 - HMV tároló"
+      },
+      "temp_ta": {
+        "name": "Hőmérséklet Ta - Szobalevegő"
+      },
+      "temp_tb_t1": {
+        "name": "Hőmérséklet TB-T1 - Puffertartály felső"
+      },
+      "temp_tb_t2": {
+        "name": "Hőmérséklet TB-T2 - Puffertartály alsó"
+      },
+      "temp_tsolar": {
+        "name": "Hőmérséklet Tsolar - Napkollektor"
+      },
+      "temp_tw2": {
+        "name": "Hőmérséklet Tw2 - 2. zóna víz"
+      },
+      "temp_tw_in": {
+        "name": "Hőmérséklet Tw_in - Vízbemenet"
+      },
+      "temp_tw_out": {
+        "name": "Hőmérséklet Tw_out - Vízkimenet"
+      },
+      "water_flow": {
+        "name": "Víz - Térfogatáram"
+      },
+      "water_pressure": {
+        "name": "Víz - Nyomás"
+      },
+      "hmi_sn_code": {
+        "name": "Info - HMI sorozatszám"
+      },
+      "zone1_temp_set": {
+        "name": "Hőmérséklet - 1. zóna alapjel"
+      },
+      "zone2_temp_set": {
+        "name": "Hőmérséklet - 2. zóna alapjel"
       }
     },
     "switch": {
       "anion": {
         "name": "Anion"
+      },
+      "humidify": {
+        "name": "Párásítás"
+      },
+      "waterions": {
+        "name": "Vízionok"
+      },
+      "anophelifuge": {
+        "name": "Szúnyogriasztó"
+      },
+      "display_on_off": {
+        "name": "Kijelző"
+      },
+      "auto_power_off": {
+        "name": "Automatikus kikapcsolás"
+      },
+      "body_feeling_scan": {
+        "name": "Testérzékelés"
       },
       "aux_heating": {
         "name": "Aux Heating"
@@ -1301,6 +1612,9 @@
       },
       "comfort_mode": {
         "name": "Comfort Mode"
+      },
+      "degerming": {
+        "name": "Csírátlanítás"
       },
       "dhw_power": {
         "name": "DHW Power"
@@ -1508,6 +1822,12 @@
       },
       "antifreeze": {
         "name": "Fagyvédelem"
+      },
+      "dhw_disinfect": {
+        "name": "HMV - Fertőtlenítés"
+      },
+      "holiday_on": {
+        "name": "Üzemmód - Nyaralás"
       }
     },
     "water_heater": {
