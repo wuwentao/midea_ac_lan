@@ -1865,6 +1865,11 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
     0xC1: {
         "name": "Electric Wall-hung Boiler",
         "entities": {
+            "climate": {
+                "type": Platform.CLIMATE,
+                "icon": "mdi:radiator",
+                "default": True,
+            },
             C1Attributes.power: {
                 "type": Platform.SWITCH,
                 "translation_key": "power",
