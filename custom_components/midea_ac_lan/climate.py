@@ -1108,7 +1108,30 @@ class MideaC1Climate(MideaClimate):
             self.turn_on()
 
     def set_preset_mode(self, preset_mode: str) -> None:
-        """Midea C1 climate set heating schedule mode."""
+        """Midea C1 climate set heating schedule mode.
+
+        Send the requested preset's own stored setpoint together with the mode
+        change. The device library's plain ``heating_mode`` setter re-applies
+        the cached general ``heating_target_temperature`` under the new mode, so
+        switching presets would otherwise carry over the previous mode's target
+        instead of that preset's per-mode setpoint. Fall back to the plain mode
+        change when the per-mode setpoint has not been reported yet.
+        """
+        # Lua mode codes: user=1, activity=2, sleep=3 (see midealan c1.message).
+        per_mode = {
+            "user": (1, C1Attributes.user_mode_target_temperature),
+            "activity": (2, C1Attributes.activity_mode_target_temperature),
+            "sleep": (3, C1Attributes.sleep_mode_target_temperature),
+        }.get(preset_mode)
+        if per_mode is not None:
+            mode_code, per_mode_attr = per_mode
+            raw = self._device.get_attribute(per_mode_attr)
+            if isinstance(raw, int | float):
+                self._device.set_heating_target_temperature(
+                    float(raw),
+                    heating_mode=mode_code,
+                )
+                return
         self._device.set_attribute(
             attr=C1Attributes.heating_mode,
             value=preset_mode,
