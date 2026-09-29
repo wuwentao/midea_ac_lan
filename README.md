@@ -74,6 +74,7 @@ Please check the document links below for the supported features and usage of ea
 | CD   | Heat Pump Water Heater     | [CD.md](doc/CD.md) |
 | CE   | Fresh Air Appliance        | [CE.md](doc/CE.md) |
 | CF   | Heat Pump                  | [CF.md](doc/CF.md) |
+| D9   | Washer Dryer Combo         | [D9.md](doc/D9.md) |
 | DA   | Top Load Washer            | [DA.md](doc/DA.md) |
 | DB   | Front Load Washer          | [DB.md](doc/DB.md) |
 | DC   | Clothes Dryer              | [DC.md](doc/DC.md) |
