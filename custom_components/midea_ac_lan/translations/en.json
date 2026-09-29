@@ -658,6 +658,90 @@
       }
     },
     "sensor": {
+      "db_running_status": {
+        "name": "Washer status"
+      },
+      "db_progress": {
+        "name": "Washer progress"
+      },
+      "db_program": {
+        "name": "Washer program"
+      },
+      "db_remain_time": {
+        "name": "Washer time remaining"
+      },
+      "db_wash_time": {
+        "name": "Washer wash time"
+      },
+      "db_dehydration_time": {
+        "name": "Washer dehydration time"
+      },
+      "db_dehydration_speed": {
+        "name": "Washer dehydration speed"
+      },
+      "db_water_level": {
+        "name": "Washer water level"
+      },
+      "db_temperature": {
+        "name": "Washer temperature"
+      },
+      "db_rinse_count": {
+        "name": "Washer rinse count"
+      },
+      "db_detergent": {
+        "name": "Washer detergent"
+      },
+      "db_softener": {
+        "name": "Washer softener"
+      },
+      "db_appointment_time": {
+        "name": "Washer appointment time"
+      },
+      "db_appointment_end_time": {
+        "name": "Washer appointment end time"
+      },
+      "db_error_code": {
+        "name": "Washer error code"
+      },
+      "db_water_consumption": {
+        "name": "Washer water consumption"
+      },
+      "db_power_consumption": {
+        "name": "Washer power consumption"
+      },
+      "dc_running_status": {
+        "name": "Dryer status"
+      },
+      "dc_dry_status": {
+        "name": "Dryer dry status"
+      },
+      "dc_program": {
+        "name": "Dryer program"
+      },
+      "dc_remain_time": {
+        "name": "Dryer time remaining"
+      },
+      "dc_dry_time": {
+        "name": "Dryer dry time"
+      },
+      "dc_intensity": {
+        "name": "Dryer intensity"
+      },
+      "dc_appointment_time": {
+        "name": "Dryer appointment time"
+      },
+      "dc_appointment_end_time": {
+        "name": "Dryer appointment end time"
+      },
+      "dc_error_code": {
+        "name": "Dryer error code"
+      },
+      "dc_water_consumption": {
+        "name": "Dryer water consumption"
+      },
+      "dc_power_consumption": {
+        "name": "Dryer power consumption"
+      },
       "three_way_mode": {
         "name": "Three-way Mode"
       },
@@ -1522,6 +1606,12 @@
       }
     },
     "switch": {
+      "db_power": {
+        "name": "Washer power"
+      },
+      "dc_power": {
+        "name": "Dryer power"
+      },
       "anion": {
         "name": "Anion"
       },

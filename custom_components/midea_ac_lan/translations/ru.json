@@ -697,6 +697,90 @@
       }
     },
     "sensor": {
+      "db_running_status": {
+        "name": "Состояние стиральной машины"
+      },
+      "db_progress": {
+        "name": "Прогресс стирки"
+      },
+      "db_program": {
+        "name": "Программа стирки"
+      },
+      "db_remain_time": {
+        "name": "Оставшееся время стирки"
+      },
+      "db_wash_time": {
+        "name": "Время стирки"
+      },
+      "db_dehydration_time": {
+        "name": "Время отжима"
+      },
+      "db_dehydration_speed": {
+        "name": "Скорость отжима"
+      },
+      "db_water_level": {
+        "name": "Уровень воды"
+      },
+      "db_temperature": {
+        "name": "Температура стирки"
+      },
+      "db_rinse_count": {
+        "name": "Количество полосканий"
+      },
+      "db_detergent": {
+        "name": "Моющее средство"
+      },
+      "db_softener": {
+        "name": "Кондиционер"
+      },
+      "db_appointment_time": {
+        "name": "Время отложенного старта"
+      },
+      "db_appointment_end_time": {
+        "name": "Время окончания отложенного старта"
+      },
+      "db_error_code": {
+        "name": "Код ошибки стирки"
+      },
+      "db_water_consumption": {
+        "name": "Расход воды стирки"
+      },
+      "db_power_consumption": {
+        "name": "Энергопотребление стирки"
+      },
+      "dc_running_status": {
+        "name": "Состояние сушки"
+      },
+      "dc_dry_status": {
+        "name": "Состояние сушки"
+      },
+      "dc_program": {
+        "name": "Программа сушки"
+      },
+      "dc_remain_time": {
+        "name": "Оставшееся время сушки"
+      },
+      "dc_dry_time": {
+        "name": "Время сушки"
+      },
+      "dc_intensity": {
+        "name": "Интенсивность сушки"
+      },
+      "dc_appointment_time": {
+        "name": "Время отложенного старта сушки"
+      },
+      "dc_appointment_end_time": {
+        "name": "Время окончания отложенного старта сушки"
+      },
+      "dc_error_code": {
+        "name": "Код ошибки сушки"
+      },
+      "dc_water_consumption": {
+        "name": "Расход воды сушки"
+      },
+      "dc_power_consumption": {
+        "name": "Энергопотребление сушки"
+      },
       "three_way_mode": {
         "name": "Трёхходовой режим"
       },
@@ -1574,6 +1658,12 @@
       }
     },
     "switch": {
+      "db_power": {
+        "name": "Питание стиральной машины"
+      },
+      "dc_power": {
+        "name": "Питание сушки"
+      },
       "anion": {
         "name": "Anion"
       },

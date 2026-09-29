@@ -73,6 +73,7 @@
 | CD   | 空气能热水器                | [CD_hans.md](doc/CD_hans.md) |
 | CE   | 新风设备                    | [CE_hans.md](doc/CE_hans.md) |
 | CF   | 中央空调暖家(水机)          | [CF_hans.md](doc/CF_hans.md) |
+| D9   | 洗烘一体机                  | [D9_hans.md](doc/D9_hans.md) |
 | DA   | 波轮洗衣机                  | [DA_hans.md](doc/DA_hans.md) |
 | DB   | 滚筒洗衣机                  | [DB_hans.md](doc/DB_hans.md) |
 | DC   | 干衣机                      | [DC_hans.md](doc/DC_hans.md) |

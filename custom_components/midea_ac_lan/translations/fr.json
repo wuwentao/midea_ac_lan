@@ -697,6 +697,90 @@
       }
     },
     "sensor": {
+      "db_running_status": {
+        "name": "État du lave-linge"
+      },
+      "db_progress": {
+        "name": "Progression du lave-linge"
+      },
+      "db_program": {
+        "name": "Programme du lave-linge"
+      },
+      "db_remain_time": {
+        "name": "Temps restant du lave-linge"
+      },
+      "db_wash_time": {
+        "name": "Durée de lavage"
+      },
+      "db_dehydration_time": {
+        "name": "Durée d'essorage"
+      },
+      "db_dehydration_speed": {
+        "name": "Vitesse d'essorage"
+      },
+      "db_water_level": {
+        "name": "Niveau d'eau du lave-linge"
+      },
+      "db_temperature": {
+        "name": "Température du lave-linge"
+      },
+      "db_rinse_count": {
+        "name": "Nombre de rinçages"
+      },
+      "db_detergent": {
+        "name": "Lessive du lave-linge"
+      },
+      "db_softener": {
+        "name": "Assouplissant"
+      },
+      "db_appointment_time": {
+        "name": "Heure programmée du lave-linge"
+      },
+      "db_appointment_end_time": {
+        "name": "Heure de fin programmée"
+      },
+      "db_error_code": {
+        "name": "Code d'erreur du lave-linge"
+      },
+      "db_water_consumption": {
+        "name": "Consommation d'eau du lave-linge"
+      },
+      "db_power_consumption": {
+        "name": "Consommation d'énergie du lave-linge"
+      },
+      "dc_running_status": {
+        "name": "État du sèche-linge"
+      },
+      "dc_dry_status": {
+        "name": "État de séchage"
+      },
+      "dc_program": {
+        "name": "Programme du sèche-linge"
+      },
+      "dc_remain_time": {
+        "name": "Temps restant du sèche-linge"
+      },
+      "dc_dry_time": {
+        "name": "Durée de séchage"
+      },
+      "dc_intensity": {
+        "name": "Intensité du sèche-linge"
+      },
+      "dc_appointment_time": {
+        "name": "Heure programmée du sèche-linge"
+      },
+      "dc_appointment_end_time": {
+        "name": "Heure de fin programmée du sèche-linge"
+      },
+      "dc_error_code": {
+        "name": "Code d'erreur du sèche-linge"
+      },
+      "dc_water_consumption": {
+        "name": "Consommation d'eau du sèche-linge"
+      },
+      "dc_power_consumption": {
+        "name": "Consommation d'énergie du sèche-linge"
+      },
       "three_way_mode": {
         "name": "Mode trois voies"
       },
@@ -1574,6 +1658,12 @@
       }
     },
     "switch": {
+      "db_power": {
+        "name": "Alimentation du lave-linge"
+      },
+      "dc_power": {
+        "name": "Alimentation du sèche-linge"
+      },
       "anion": {
         "name": "Anion"
       },

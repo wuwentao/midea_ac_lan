@@ -697,6 +697,90 @@
       }
     },
     "sensor": {
+      "db_running_status": {
+        "name": "Mosógép állapota"
+      },
+      "db_progress": {
+        "name": "Mosógép folyamata"
+      },
+      "db_program": {
+        "name": "Mosógép program"
+      },
+      "db_remain_time": {
+        "name": "Mosógép hátralévő idő"
+      },
+      "db_wash_time": {
+        "name": "Mosógép mosási idő"
+      },
+      "db_dehydration_time": {
+        "name": "Mosógép centrifugálási idő"
+      },
+      "db_dehydration_speed": {
+        "name": "Mosógép centrifugálási sebesség"
+      },
+      "db_water_level": {
+        "name": "Mosógép vízszint"
+      },
+      "db_temperature": {
+        "name": "Mosógép hőmérséklet"
+      },
+      "db_rinse_count": {
+        "name": "Mosógép öblítések száma"
+      },
+      "db_detergent": {
+        "name": "Mosógép mosószer"
+      },
+      "db_softener": {
+        "name": "Mosógép öblítőszer"
+      },
+      "db_appointment_time": {
+        "name": "Mosógép időzítés"
+      },
+      "db_appointment_end_time": {
+        "name": "Mosógép időzítés vége"
+      },
+      "db_error_code": {
+        "name": "Mosógép hibakód"
+      },
+      "db_water_consumption": {
+        "name": "Mosógép vízfogyasztás"
+      },
+      "db_power_consumption": {
+        "name": "Mosógép energiafogyasztás"
+      },
+      "dc_running_status": {
+        "name": "Szárítógép állapota"
+      },
+      "dc_dry_status": {
+        "name": "Szárítási állapot"
+      },
+      "dc_program": {
+        "name": "Szárítógép program"
+      },
+      "dc_remain_time": {
+        "name": "Szárítógép hátralévő idő"
+      },
+      "dc_dry_time": {
+        "name": "Szárítási idő"
+      },
+      "dc_intensity": {
+        "name": "Szárítógép intenzitás"
+      },
+      "dc_appointment_time": {
+        "name": "Szárítógép időzítés"
+      },
+      "dc_appointment_end_time": {
+        "name": "Szárítógép időzítés vége"
+      },
+      "dc_error_code": {
+        "name": "Szárítógép hibakód"
+      },
+      "dc_water_consumption": {
+        "name": "Szárítógép vízfogyasztás"
+      },
+      "dc_power_consumption": {
+        "name": "Szárítógép energiafogyasztás"
+      },
       "three_way_mode": {
         "name": "Háromjáratú mód"
       },
@@ -1574,6 +1658,12 @@
       }
     },
     "switch": {
+      "db_power": {
+        "name": "Mosógép bekapcsolás"
+      },
+      "dc_power": {
+        "name": "Szárítógép bekapcsolás"
+      },
       "anion": {
         "name": "Anion"
       },
