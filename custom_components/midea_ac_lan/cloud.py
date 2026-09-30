@@ -88,11 +88,12 @@ def create_cloud_coordinator(
     options = config_entry.options
     account = options.get(CONF_ACCOUNT)
     password = options.get(CONF_PASSWORD)
-    # DEFAULT_CLOUD is report-capable. An unknown stored server makes
+    # DEFAULT_CLOUD is report-capable. Fall back to it when no server is
+    # stored or the stored value is empty. An unknown stored server makes
     # E3CloudClient raise CloudError below (logged, sensors skipped); a known
     # but report-incapable one fails later in the coordinator fetch and leaves
     # the sensors unavailable.
-    server = options.get(CONF_SERVER, DEFAULT_CLOUD)
+    server = options.get(CONF_SERVER) or DEFAULT_CLOUD
     if not account or not password:
         return None
     try:
