@@ -702,6 +702,90 @@
       }
     },
     "sensor": {
+      "db_running_status": {
+        "name": "洗衣机状态"
+      },
+      "db_progress": {
+        "name": "洗衣机进度"
+      },
+      "db_program": {
+        "name": "洗衣机程序"
+      },
+      "db_remain_time": {
+        "name": "洗衣机剩余时间"
+      },
+      "db_wash_time": {
+        "name": "洗衣机洗涤时间"
+      },
+      "db_dehydration_time": {
+        "name": "洗衣机脱水时间"
+      },
+      "db_dehydration_speed": {
+        "name": "洗衣机脱水速度"
+      },
+      "db_water_level": {
+        "name": "洗衣机水位"
+      },
+      "db_temperature": {
+        "name": "洗衣机温度"
+      },
+      "db_rinse_count": {
+        "name": "洗衣机漂洗次数"
+      },
+      "db_detergent": {
+        "name": "洗衣机洗涤剂"
+      },
+      "db_softener": {
+        "name": "洗衣机柔顺剂"
+      },
+      "db_appointment_time": {
+        "name": "洗衣机预约时间"
+      },
+      "db_appointment_end_time": {
+        "name": "洗衣机预约结束时间"
+      },
+      "db_error_code": {
+        "name": "洗衣机错误代码"
+      },
+      "db_water_consumption": {
+        "name": "洗衣机耗水量"
+      },
+      "db_power_consumption": {
+        "name": "洗衣机耗电量"
+      },
+      "dc_running_status": {
+        "name": "烘干机状态"
+      },
+      "dc_dry_status": {
+        "name": "烘干机烘干状态"
+      },
+      "dc_program": {
+        "name": "烘干机程序"
+      },
+      "dc_remain_time": {
+        "name": "烘干机剩余时间"
+      },
+      "dc_dry_time": {
+        "name": "烘干机烘干时间"
+      },
+      "dc_intensity": {
+        "name": "烘干机强度"
+      },
+      "dc_appointment_time": {
+        "name": "烘干机预约时间"
+      },
+      "dc_appointment_end_time": {
+        "name": "烘干机预约结束时间"
+      },
+      "dc_error_code": {
+        "name": "烘干机错误代码"
+      },
+      "dc_water_consumption": {
+        "name": "烘干机耗水量"
+      },
+      "dc_power_consumption": {
+        "name": "烘干机耗电量"
+      },
       "three_way_mode": {
         "name": "三通模式"
       },
@@ -1578,6 +1662,12 @@
       }
     },
     "switch": {
+      "db_power": {
+        "name": "洗衣机电源"
+      },
+      "dc_power": {
+        "name": "烘干机电源"
+      },
       "anion": {
         "name": "负离子开关"
       },

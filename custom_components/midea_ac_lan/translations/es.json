@@ -697,6 +697,90 @@
       }
     },
     "sensor": {
+      "db_running_status": {
+        "name": "Estado de la lavadora"
+      },
+      "db_progress": {
+        "name": "Progreso de la lavadora"
+      },
+      "db_program": {
+        "name": "Programa de la lavadora"
+      },
+      "db_remain_time": {
+        "name": "Tiempo restante de la lavadora"
+      },
+      "db_wash_time": {
+        "name": "Tiempo de lavado de la lavadora"
+      },
+      "db_dehydration_time": {
+        "name": "Tiempo de centrifugado"
+      },
+      "db_dehydration_speed": {
+        "name": "Velocidad de centrifugado"
+      },
+      "db_water_level": {
+        "name": "Nivel de agua de la lavadora"
+      },
+      "db_temperature": {
+        "name": "Temperatura de la lavadora"
+      },
+      "db_rinse_count": {
+        "name": "Número de aclarados"
+      },
+      "db_detergent": {
+        "name": "Detergente de la lavadora"
+      },
+      "db_softener": {
+        "name": "Suavizante de la lavadora"
+      },
+      "db_appointment_time": {
+        "name": "Hora programada de la lavadora"
+      },
+      "db_appointment_end_time": {
+        "name": "Hora de finalización programada"
+      },
+      "db_error_code": {
+        "name": "Código de error de la lavadora"
+      },
+      "db_water_consumption": {
+        "name": "Consumo de agua de la lavadora"
+      },
+      "db_power_consumption": {
+        "name": "Consumo de energía de la lavadora"
+      },
+      "dc_running_status": {
+        "name": "Estado de la secadora"
+      },
+      "dc_dry_status": {
+        "name": "Estado de secado"
+      },
+      "dc_program": {
+        "name": "Programa de la secadora"
+      },
+      "dc_remain_time": {
+        "name": "Tiempo restante de la secadora"
+      },
+      "dc_dry_time": {
+        "name": "Tiempo de secado"
+      },
+      "dc_intensity": {
+        "name": "Intensidad de la secadora"
+      },
+      "dc_appointment_time": {
+        "name": "Hora programada de la secadora"
+      },
+      "dc_appointment_end_time": {
+        "name": "Hora de finalización programada de la secadora"
+      },
+      "dc_error_code": {
+        "name": "Código de error de la secadora"
+      },
+      "dc_water_consumption": {
+        "name": "Consumo de agua de la secadora"
+      },
+      "dc_power_consumption": {
+        "name": "Consumo de energía de la secadora"
+      },
       "three_way_mode": {
         "name": "Modo de tres vías"
       },
@@ -1574,6 +1658,12 @@
       }
     },
     "switch": {
+      "db_power": {
+        "name": "Encendido de la lavadora"
+      },
+      "dc_power": {
+        "name": "Encendido de la secadora"
+      },
       "anion": {
         "name": "Anión"
       },

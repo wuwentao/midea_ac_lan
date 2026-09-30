@@ -697,6 +697,90 @@
       }
     },
     "sensor": {
+      "db_running_status": {
+        "name": "Waschmaschinen-Status"
+      },
+      "db_progress": {
+        "name": "Waschmaschinen-Fortschritt"
+      },
+      "db_program": {
+        "name": "Waschmaschinen-Programm"
+      },
+      "db_remain_time": {
+        "name": "Waschmaschine Restzeit"
+      },
+      "db_wash_time": {
+        "name": "Waschmaschine Waschzeit"
+      },
+      "db_dehydration_time": {
+        "name": "Waschmaschine Schleuderzeit"
+      },
+      "db_dehydration_speed": {
+        "name": "Waschmaschine Schleuderdrehzahl"
+      },
+      "db_water_level": {
+        "name": "Waschmaschine Wasserstand"
+      },
+      "db_temperature": {
+        "name": "Waschmaschinen-Temperatur"
+      },
+      "db_rinse_count": {
+        "name": "Waschmaschine Spülgänge"
+      },
+      "db_detergent": {
+        "name": "Waschmaschine Waschmittel"
+      },
+      "db_softener": {
+        "name": "Waschmaschine Weichspüler"
+      },
+      "db_appointment_time": {
+        "name": "Waschmaschine Startzeitvorwahl"
+      },
+      "db_appointment_end_time": {
+        "name": "Waschmaschine Startzeitvorwahl Ende"
+      },
+      "db_error_code": {
+        "name": "Waschmaschine Fehlercode"
+      },
+      "db_water_consumption": {
+        "name": "Waschmaschine Wasserverbrauch"
+      },
+      "db_power_consumption": {
+        "name": "Waschmaschine Stromverbrauch"
+      },
+      "dc_running_status": {
+        "name": "Trockner-Status"
+      },
+      "dc_dry_status": {
+        "name": "Trockner Trocknungsstatus"
+      },
+      "dc_program": {
+        "name": "Trockner-Programm"
+      },
+      "dc_remain_time": {
+        "name": "Trockner Restzeit"
+      },
+      "dc_dry_time": {
+        "name": "Trockner Trocknungszeit"
+      },
+      "dc_intensity": {
+        "name": "Trockner-Intensität"
+      },
+      "dc_appointment_time": {
+        "name": "Trockner Startzeitvorwahl"
+      },
+      "dc_appointment_end_time": {
+        "name": "Trockner Startzeitvorwahl Ende"
+      },
+      "dc_error_code": {
+        "name": "Trockner Fehlercode"
+      },
+      "dc_water_consumption": {
+        "name": "Trockner Wasserverbrauch"
+      },
+      "dc_power_consumption": {
+        "name": "Trockner Stromverbrauch"
+      },
       "three_way_mode": {
         "name": "Dreiwegemodus"
       },
@@ -1574,6 +1658,12 @@
       }
     },
     "switch": {
+      "db_power": {
+        "name": "Waschmaschine Ein/Aus"
+      },
+      "dc_power": {
+        "name": "Trockner Ein/Aus"
+      },
       "anion": {
         "name": "Anion"
       },

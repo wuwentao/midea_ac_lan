@@ -654,6 +654,90 @@
       }
     },
     "sensor": {
+      "db_running_status": {
+        "name": "Stato lavatrice"
+      },
+      "db_progress": {
+        "name": "Avanzamento lavatrice"
+      },
+      "db_program": {
+        "name": "Programma lavatrice"
+      },
+      "db_remain_time": {
+        "name": "Tempo rimanente lavatrice"
+      },
+      "db_wash_time": {
+        "name": "Tempo di lavaggio"
+      },
+      "db_dehydration_time": {
+        "name": "Tempo di centrifuga"
+      },
+      "db_dehydration_speed": {
+        "name": "Velocità di centrifuga"
+      },
+      "db_water_level": {
+        "name": "Livello acqua lavatrice"
+      },
+      "db_temperature": {
+        "name": "Temperatura lavatrice"
+      },
+      "db_rinse_count": {
+        "name": "Numero di risciacqui"
+      },
+      "db_detergent": {
+        "name": "Detersivo lavatrice"
+      },
+      "db_softener": {
+        "name": "Ammorbidente"
+      },
+      "db_appointment_time": {
+        "name": "Orario programmato lavatrice"
+      },
+      "db_appointment_end_time": {
+        "name": "Orario fine programmato lavatrice"
+      },
+      "db_error_code": {
+        "name": "Codice errore lavatrice"
+      },
+      "db_water_consumption": {
+        "name": "Consumo acqua lavatrice"
+      },
+      "db_power_consumption": {
+        "name": "Consumo energetico lavatrice"
+      },
+      "dc_running_status": {
+        "name": "Stato asciugatrice"
+      },
+      "dc_dry_status": {
+        "name": "Stato asciugatura"
+      },
+      "dc_program": {
+        "name": "Programma asciugatrice"
+      },
+      "dc_remain_time": {
+        "name": "Tempo rimanente asciugatrice"
+      },
+      "dc_dry_time": {
+        "name": "Tempo di asciugatura"
+      },
+      "dc_intensity": {
+        "name": "Intensità asciugatrice"
+      },
+      "dc_appointment_time": {
+        "name": "Orario programmato asciugatrice"
+      },
+      "dc_appointment_end_time": {
+        "name": "Orario fine programmato asciugatrice"
+      },
+      "dc_error_code": {
+        "name": "Codice errore asciugatrice"
+      },
+      "dc_water_consumption": {
+        "name": "Consumo acqua asciugatrice"
+      },
+      "dc_power_consumption": {
+        "name": "Consumo energetico asciugatrice"
+      },
       "three_way_mode": {
         "name": "Modalità a tre vie"
       },
@@ -1512,6 +1596,12 @@
       }
     },
     "switch": {
+      "db_power": {
+        "name": "Accensione lavatrice"
+      },
+      "dc_power": {
+        "name": "Accensione asciugatrice"
+      },
       "anion": {
         "name": "Anioni"
       },

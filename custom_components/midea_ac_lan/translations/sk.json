@@ -697,6 +697,90 @@
       }
     },
     "sensor": {
+      "db_running_status": {
+        "name": "Stav práčky"
+      },
+      "db_progress": {
+        "name": "Priebeh prania"
+      },
+      "db_program": {
+        "name": "Program prania"
+      },
+      "db_remain_time": {
+        "name": "Zostávajúci čas prania"
+      },
+      "db_wash_time": {
+        "name": "Čas prania"
+      },
+      "db_dehydration_time": {
+        "name": "Čas odstreďovania"
+      },
+      "db_dehydration_speed": {
+        "name": "Rýchlosť odstreďovania"
+      },
+      "db_water_level": {
+        "name": "Hladina vody"
+      },
+      "db_temperature": {
+        "name": "Teplota prania"
+      },
+      "db_rinse_count": {
+        "name": "Počet plákaní"
+      },
+      "db_detergent": {
+        "name": "Prací prostriedok"
+      },
+      "db_softener": {
+        "name": "Aviváž"
+      },
+      "db_appointment_time": {
+        "name": "Čas naplánovania prania"
+      },
+      "db_appointment_end_time": {
+        "name": "Čas ukončenia naplánovania prania"
+      },
+      "db_error_code": {
+        "name": "Kód chyby práčky"
+      },
+      "db_water_consumption": {
+        "name": "Spotreba vody práčky"
+      },
+      "db_power_consumption": {
+        "name": "Spotreba energie práčky"
+      },
+      "dc_running_status": {
+        "name": "Stav sušičky"
+      },
+      "dc_dry_status": {
+        "name": "Stav sušenia"
+      },
+      "dc_program": {
+        "name": "Program sušenia"
+      },
+      "dc_remain_time": {
+        "name": "Zostávajúci čas sušenia"
+      },
+      "dc_dry_time": {
+        "name": "Čas sušenia"
+      },
+      "dc_intensity": {
+        "name": "Intenzita sušenia"
+      },
+      "dc_appointment_time": {
+        "name": "Čas naplánovania sušenia"
+      },
+      "dc_appointment_end_time": {
+        "name": "Čas ukončenia naplánovania sušenia"
+      },
+      "dc_error_code": {
+        "name": "Kód chyby sušičky"
+      },
+      "dc_water_consumption": {
+        "name": "Spotreba vody sušičky"
+      },
+      "dc_power_consumption": {
+        "name": "Spotreba energie sušičky"
+      },
       "three_way_mode": {
         "name": "Trojcestný režim"
       },
@@ -1574,6 +1658,12 @@
       }
     },
     "switch": {
+      "db_power": {
+        "name": "Napájanie práčky"
+      },
+      "dc_power": {
+        "name": "Napájanie sušičky"
+      },
       "anion": {
         "name": "Anion"
       },
