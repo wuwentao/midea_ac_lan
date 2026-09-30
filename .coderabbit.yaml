@@ -1,0 +1,97 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+# CodeRabbit configuration for the midea_ac_lan Home Assistant integration.
+# Docs: https://docs.coderabbit.ai/reference/yaml-template
+language: en-US
+early_access: false
+enable_free_tier: true
+
+reviews:
+  profile: assertive
+  # Do not gate merges on CodeRabbit; CI (ruff/mypy/pylint) is the gate.
+  request_changes_workflow: false
+  high_level_summary: true
+  review_status: true
+  collapse_walkthrough: true
+  changed_files_summary: true
+  sequence_diagrams: true
+  assess_linked_issues: true
+  related_issues: true
+  poem: false
+
+  auto_review:
+    enabled: true
+    auto_incremental_review: true
+    drafts: false
+    base_branches:
+      - main
+
+  path_filters:
+    - "!uv.lock"
+    - "!CHANGELOG.md"
+    - "!**/*.min.*"
+    - "!node_modules/**"
+    - "!.venv/**"
+    - "!brands/**"
+    # Machine/community-translated locale files - review en/zh only, skip the rest.
+    - "!custom_components/midea_ac_lan/translations/de.json"
+    - "!custom_components/midea_ac_lan/translations/es.json"
+    - "!custom_components/midea_ac_lan/translations/fr.json"
+    - "!custom_components/midea_ac_lan/translations/hu.json"
+    - "!custom_components/midea_ac_lan/translations/it.json"
+    - "!custom_components/midea_ac_lan/translations/sk.json"
+
+  path_instructions:
+    - path: "custom_components/midea_ac_lan/**/*.py"
+      instructions: >-
+        This is a thin Home Assistant glue layer; all device protocol, discovery,
+        encryption, and cloud-token logic lives in the external midea-lan library
+        (imported as midealan, pinned in manifest.json requirements). If a device
+        attribute or behavior is missing, the fix usually belongs in midea-lan, not
+        here. The device registry midea_devices.py (MIDEA_DEVICES: dict[int, ...]) is
+        the center: it maps a device-type hex code to entity config dicts keyed by a
+        DeviceAttributes enum member. Adding a new attribute/entity should be a row
+        here, not edits to platform files. Simple platforms (switch, sensor,
+        binary_sensor, select, number, lock) are generic and data-driven - flag any
+        per-device special-casing added to them. Complex platforms (climate,
+        water_heater, fan) use per-device-type subclasses selected by
+        device.device_type. Respect the entity-name/translation precedence documented
+        in midea_entity.py. Follow HA async conventions: no blocking I/O in the event
+        loop. Minimum HA 2024.4.1, Python 3.12+.
+    - path: "custom_components/midea_ac_lan/translations/*.json"
+      instructions: >-
+        UI translation files. Verify new keys exist in en.json first and that keys
+        match translation_key values referenced from midea_devices.py. Do not review
+        machine-translated wording.
+    - path: "**/*.py"
+      instructions: >-
+        Follow Conventional Commits for PR titles (feat:, fix:, chore:, docs:,
+        refactor:, test:). Do not introduce blocking calls inside async functions.
+
+  tools:
+    ruff:
+      enabled: true
+    pylint:
+      enabled: true
+    yamllint:
+      enabled: true
+    actionlint:
+      enabled: true
+    gitleaks:
+      enabled: true
+    markdownlint:
+      enabled: true
+    shellcheck:
+      enabled: true
+    languagetool:
+      enabled: false
+
+chat:
+  auto_reply: true
+
+knowledge_base:
+  code_guidelines:
+    enabled: true
+    filePatterns:
+      - "AGENTS.md"
+      - ".github/copilot-instructions.md"
+      - "pylintrc"
