@@ -1,4 +1,4 @@
-# 为 Home Assistant 集成新增一款设备
+# 为 midea_ac_lan 集成新增一款设备
 
 > [English version / 英文版](./adding-a-new-device.md)
 
@@ -27,7 +27,7 @@
 ## 目录
 
 1. [集成是如何串起来的](#1-集成是如何串起来的)
-2. [步骤 1 —— 升级 `midea-lan` 依赖](#2-步骤-1--升级-midea-lan-依赖)
+2. [步骤 1 —— 把 `midea-lan` 依赖指向你的库改动（仅本地）](#2-步骤-1--把-midea-lan-依赖指向你的库改动仅本地)
 3. [步骤 2 —— 在 `midea_devices.py` 中注册设备](#3-步骤-2--在-midea_devicespy-中注册设备)
 4. [步骤 3 —— 为每个属性选择 platform、`device_class`、`unit`](#4-步骤-3--为每个属性选择-platformdevice_classunit)
 5. [步骤 4 —— 添加 `translation_key` 与翻译文件](#5-步骤-4--添加-translation_key-与翻译文件)
@@ -79,7 +79,7 @@ sensor/switch **无需**改任何 platform 文件。复杂 platform（`climate.p
 
 ---
 
-## 2. 步骤 1 —— 升级 `midea-lan` 依赖
+## 2. 步骤 1 —— 把 `midea-lan` 依赖指向你的库改动（仅本地）
 
 集成在 `custom_components/midea_ac_lan/manifest.json` 中固定库版本：
 
@@ -87,10 +87,28 @@ sensor/switch **无需**改任何 platform 文件。复杂 platform（`climate.p
 "requirements": ["midea-lan==2026.9.2"]
 ```
 
-将其升级到第一个包含你新增 `devices/<type>/` 包的 `midea-lan` 发布版本，使得
-`from midealan.devices.<type> import DeviceAttributes` 在用户运行时可以解析。
-（在本地针对尚未发布的库开发时，你可能会遇到固定版本导入错误 —— 在库发布落地前
-这是预期现象；不要通过在提交的 manifest 里取消固定来绕过。）
+你新增的设备位于 `midea-lan` fork 的某个分支/提交上，尚未发布到 PyPI。因此**仅
+在本地开发和测试时**，临时把该条目指向你 fork 的 Git ref。例如，编辑
+`/config/custom_components/midea_ac_lan/manifest.json`：
+
+```json
+"requirements": [
+  "midea-lan @ git+https://github.com/wuwentao/midea-lan.git@b59cfbc"
+]
+```
+
+把 `b59cfbc` 替换为你想测试的提交哈希、分支名或 tag。这样 Home Assistant 就会安装
+你尚未发布的库代码，便于你端到端地开发与验证集成。
+
+**不要把这处 manifest 修改提交到你的 PR 里。** 保持 manifest 编辑纯本地。设备 PR
+只应包含功能支持本身（注册条目、翻译、文档），并基于最新的库改动构建。
+
+由于已发布的 `midea-lan` 尚不包含你的设备，PR 的 CI / GitHub Actions 预计会因
+“库不支持 / 导入错误”而失败，还可能有发布版本不匹配的告警 —— **暂时忽略这些。**
+它们是预期的，不是设备 PR 需要修的东西。维护者会根据 PR 和 bug 修复情况决定合适的
+`midea-lan` 发布版本号，发布该版本，并提交一个后续 PR 来同步 `midea_ac_lan` 中的
+固定版本。等库发布落地、固定版本同步后，失败的 CI 检查会自动通过 —— 设备 PR 无需
+再做任何处理。
 
 ---
 
@@ -167,6 +185,22 @@ BFFirePower`。
 > 提示：对于有相互独立子单元的设备（D9 的洗衣机/干衣机），库侧用了带前缀的属性名
 > （`db_*`、`dc_*`）。在这里直接复用这些名字作为 `translation_key`，就无需任何
 > 重命名 —— 这正是库侧指南坚持使用干净的小写 `snake_case` 属性名的原因。
+
+### 3.3 默认与可选（opt-in）实体
+
+针对每个属性，决定该实体是自动创建，还是仅当用户启用时才创建：
+
+- **默认（default）** —— 一个**所有** model/subtype 都支持的功能，适合设为默认
+  实体：主控设 `"default": True`；你确信普遍适用的 sensor/switch 也可保持启用。
+  默认实体无需用户手动启用即会出现。
+- **可选（opt-in）** —— 当你**不确定**某功能是否在所有 model/subtype 上都存在时，
+  优先设为可选实体（用户在选项流中启用的额外 sensor/switch，和/或用
+  `"entity_registry_enabled_default": False` 让它默认禁用发布）。这样用户可根据
+  自己设备的实际支持情况自行启用或禁用，也避免在缺少该功能的型号上暴露一个什么都
+  不上报的实体。
+
+拿不准时，倾向可选 —— 让用户启用一个隐藏实体，比让他们被一个损坏/空白的实体困惑
+要容易得多。
 
 ---
 
@@ -320,6 +354,15 @@ Markdown 转义下划线）。把你在 `midea_devices.py` 中注册的每个实
 D9 示例（PR #1086）随附了 `doc/D9.md` / `doc/D9_hans.md`，描述了 `db_*` 洗衣机与
 `dc_*` 干衣机实体。
 
+### customize 选项在哪里实现
+
+如果某设备需要 `customize` 选项（例如温度步长 temperature step、协议版本开关，
+或精度/校准系数），**请在 `midea-lan` 库侧实现该行为**，而不是在本集成里。库拥有
+协议与设备语义，因此该选项应放在库里，以便一致地应用并测试。在 `midea_ac_lan` 侧，
+你只需在设备文档的 `## Customize`（自定义）小节里**说明**该选项（附带一段示例
+JSON，就像 `doc/E2.md` 对 `old_protocol` / `precision_halves` / `temperature_step`
+所做的那样）。让集成保持为一层很薄的胶水层 —— 这里不放任何按设备的协议逻辑。
+
 ---
 
 ## 7. 步骤 6 —— 更新 README 设备表
@@ -361,8 +404,11 @@ uv run pylint custom_components
 scripts/run.sh                        # 用 ./config 启动 HA，集成在 PYTHONPATH 上
 ```
 
-提交前修复 `pre-commit` 报告的所有问题 —— CI（`linter.yml` + `validate.yml`）会在
-失败时阻止合并。
+提交前修复 `pre-commit` 报告的所有问题。CI（`linter.yml` + `validate.yml`）会跑
+相同的检查。注意：`validate.yml`（HACS/hassfest）可能因已发布的 `midea-lan` 尚不
+包含你的设备而失败 —— 这个“库不支持”的失败是预期的，且不在设备 PR 的处理范围内
+（见[步骤 1](#2-步骤-1--把-midea-lan-依赖指向你的库改动仅本地)）。你要做的是让
+lint/format/类型检查通过；依赖库的检查会在维护者发布库并同步固定版本后自动变绿。
 
 ---
 
@@ -372,10 +418,13 @@ scripts/run.sh                        # 用 ./config 启动 HA，集成在 PYTHO
   `feat/d9-washer-dryer-combo`。
 - **Conventional Commits**：`feat(d9): add washer/dryer combo support`。
   commitlint/commitizen 强制格式；发布由这些提交消息自动完成。
-- **`manifest.json` 版本**：版本升级交给自动发布流程 —— 不要在特性 PR 中手改
-  `version`。
-- **PR 描述**：概述该设备、列出实体，并链接配套的 `midea-lan` 库 PR/发布。如实
-  陈述你验证了什么（lint 通过、在 HA 中冒烟测试等）。
+- **`manifest.json`**：**不要**提交[步骤 1](#2-步骤-1--把-midea-lan-依赖指向你的库改动仅本地)
+  里那处临时的 fork/Git-ref `requirements` 修改，也不要手改 `version`。库的固定
+  版本与发布版本号都由维护者决定 —— 他们会在库发布后用一个后续 PR 去升级固定版本。
+  你的 PR 只保留功能本身。
+- **PR 描述**：概述该设备、列出实体，并链接你依赖的配套 `midea-lan` 库 PR/提交。
+  如实陈述你验证了什么（lint 通过、基于你的 fork 在 HA 中冒烟测试等），并说明
+  依赖库的 CI 检查在库发布同步前会一直是红色。
 - **CodeRabbit**：该 AI 评审会跳过草稿 PR。要让草稿获得评审，评论
   `@coderabbitai review`，随后在对应线程中逐条处理所有意见。
 
@@ -391,7 +440,8 @@ scripts/run.sh                        # 用 ./config 启动 HA，集成在 PYTHO
 
 - [ ] 库先行：`midealan/devices/<type>/` 已存在且已发布；若未，先完成
       [`midea-lan` 指南](https://github.com/wuwentao/midea-lan/blob/main/docs/adding-a-new-device.zh-Hans.md)。
-- [ ] 已把 `manifest.json` 中的 `midea-lan` 固定版本升级到含该设备的发布版本。
+- [ ] 仅本地测试：已把 `manifest.json` 的 `requirements` 指向你的 `midea-lan`
+      fork 的 Git ref —— 且**未**把该修改提交到 PR。
 - [ ] 已在 `midea_devices.py` 中导入 `DeviceAttributes as <X>Attributes`。
 - [ ] 已添加含 `name` 与逐属性 `entities` 行的 `0xXX` 条目。
 - [ ] 每行都有正确的 `type`（platform），sensor/number 带来自 HA 常量的
@@ -403,6 +453,7 @@ scripts/run.sh                        # 用 ./config 启动 HA，集成在 PYTHO
 - [ ] 已把设备行加入 `README.md` 与 `README_hans.md`（十六进制顺序）。
 - [ ] `uv run pre-commit run --all-files` 通过；可选地用 `scripts/run.sh` 冒烟
       测试。
-- [ ] 在特性分支上提 PR，Conventional Commit 标题，链接库 PR/发布，处理完
-    CodeRabbit 意见。
-</content>
+- [ ] PR 中只有功能本身（无 manifest 固定版本/version 修改）；已知会失败的依赖库
+      CI 检查已说明，留给维护者通过库发布 + 固定版本同步来解决。
+- [ ] 在特性分支上提 PR，Conventional Commit 标题，链接库 PR/提交，处理完
+      CodeRabbit 意见。

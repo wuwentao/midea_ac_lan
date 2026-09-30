@@ -1,4 +1,4 @@
-# Adding a New Device to the Home Assistant Integration
+# Adding a New Device to the midea_ac_lan Integration
 
 > [中文版 / Chinese version](./adding-a-new-device.zh-Hans.md)
 
@@ -32,7 +32,7 @@ steps below.
 ## Contents
 
 1. [How the integration is wired](#1-how-the-integration-is-wired)
-2. [Step 1 — Bump the `midea-lan` dependency](#2-step-1--bump-the-midea-lan-dependency)
+2. [Step 1 — Point the `midea-lan` dependency at your library work (local only)](#2-step-1--point-the-midea-lan-dependency-at-your-library-work-local-only)
 3. [Step 2 — Register the device in `midea_devices.py`](#3-step-2--register-the-device-in-midea_devicespy)
 4. [Step 3 — Choose the platform, `device_class`, and `unit` per attribute](#4-step-3--choose-the-platform-device_class-and-unit-per-attribute)
 5. [Step 4 — Add `translation_key`s and translation files](#5-step-4--add-translation_keys-and-translation-files)
@@ -88,7 +88,7 @@ and
 
 ---
 
-## 2. Step 1 — Bump the `midea-lan` dependency
+## 2. Step 1 — Point the `midea-lan` dependency at your library work (local only)
 
 The integration pins the library version in
 `custom_components/midea_ac_lan/manifest.json`:
@@ -97,12 +97,33 @@ The integration pins the library version in
 "requirements": ["midea-lan==2026.9.2"]
 ```
 
-Bump this to the first `midea-lan` release that contains your new
-`devices/<type>/` package, so `from midealan.devices.<type> import DeviceAttributes`
-resolves at runtime for users. (During local development against an unreleased
-library you may hit a pinned-version import error — that is expected until the
-library release lands; do not work around it by unpinning in the committed
-manifest.)
+Your new device lives on a branch/commit of your `midea-lan` fork that has not
+been released to PyPI yet. So for **local development and testing only**,
+temporarily point this entry at your fork's Git ref. For example, edit
+`/config/custom_components/midea_ac_lan/manifest.json`:
+
+```json
+"requirements": [
+  "midea-lan @ git+https://github.com/wuwentao/midea-lan.git@b59cfbc"
+]
+```
+
+Replace `b59cfbc` with the commit hash, branch name, or tag you want to test
+against. This lets Home Assistant install your unreleased library code so you can
+develop and verify the integration end to end.
+
+**Do not commit this manifest change to your PR.** Keep the manifest edit purely
+local. The device PR should contain only the feature support itself (registry
+entry, translations, docs) built against the latest library changes.
+
+Because the released `midea-lan` does not yet contain your device, expect the PR's
+CI / GitHub Actions to fail with library-not-supported / import errors, and any
+release-version mismatch warnings — **ignore these for now.** They are expected
+and are not something the device PR fixes. The maintainer decides the appropriate
+`midea-lan` release version based on the PR and the bug-fix situation, cuts that
+release, and opens a follow-up PR to bump the pin in `midea_ac_lan`. Once the
+library release lands and the pin is synced, the failing CI checks pass
+automatically — no further action needed on the device PR.
 
 ---
 
@@ -183,6 +204,25 @@ The config-dict keys the integration understands:
 > uses prefixed attribute names (`db_*`, `dc_*`). Reuse those same names as the
 > `translation_key` so nothing has to be renamed here — this is why the library
 > guide insists on clean lowercase `snake_case` attribute names.
+
+### 3.3 Default vs optional (opt-in) entities
+
+Decide, per attribute, whether the entity is created automatically or only when
+the user opts in:
+
+- **Default** — a feature that **every** model/subtype of this device type
+  supports is a good candidate to be a default entity: main controls set
+  `"default": True`; a sensor/switch you're confident applies universally can be
+  left enabled. Default entities show up without the user having to enable them.
+- **Optional (opt-in)** — when you're **not sure** a feature exists on every
+  model/subtype, prefer making it an optional entity (extra sensor/switch the user
+  enables from the options flow, and/or `"entity_registry_enabled_default": False`
+  to ship it disabled by default). This lets users turn it on or off based on what
+  their specific device actually supports, and avoids surfacing entities that
+  report nothing on models that lack the feature.
+
+When in doubt, lean optional — it's easier for a user to enable a hidden entity
+than to be confused by a broken/empty one.
 
 ---
 
@@ -344,6 +384,18 @@ escapes the underscore for Markdown). List every entity you registered in
 The D9 example (PR #1086) shipped `doc/D9.md` / `doc/D9_hans.md` describing the
 `db_*` washer and `dc_*` dryer entities.
 
+### Where to implement `customize` options
+
+If a device needs a `customize` option (e.g. a temperature step, a protocol
+version toggle, or a precision/calibration factor), **implement the behavior in
+the `midea-lan` library**, not in this integration. The library owns the protocol
+and device semantics, so the option belongs there where it can be applied
+consistently and tested. On the `midea_ac_lan` side you only **document** the
+option in the device doc's `## Customize` section (with an example JSON snippet,
+like `doc/E2.md` does for `old_protocol` / `precision_halves` /
+`temperature_step`). Keep the integration a thin glue layer — no per-device
+protocol logic here.
+
 ---
 
 ## 7. Step 6 — Update the README appliance table
@@ -386,8 +438,13 @@ entities:
 scripts/run.sh                        # starts HA with ./config, integration on PYTHONPATH
 ```
 
-Fix everything `pre-commit` reports before committing — CI (`linter.yml` +
-`validate.yml`) blocks merge on failure.
+Fix everything `pre-commit` reports before committing. CI (`linter.yml` +
+`validate.yml`) runs the same checks. Note: `validate.yml` (HACS/hassfest) may
+fail because the released `midea-lan` does not yet contain your device — that
+library-not-supported failure is expected and out of scope for the device PR (see
+[Step 1](#2-step-1--point-the-midea-lan-dependency-at-your-library-work-local-only)).
+Your job is to make the lint/format/type checks pass; the library-dependent
+checks go green once the maintainer releases the library and syncs the pin.
 
 ---
 
@@ -398,11 +455,15 @@ Fix everything `pre-commit` reports before committing — CI (`linter.yml` +
 - **Conventional Commits**: `feat(d9): add washer/dryer combo support`.
   commitlint/commitizen enforce the format; releases are automated from these
   messages.
-- **`manifest.json` version**: leave the release bump to the automated release
-  flow — do not hand-edit `version` in a feature PR.
+- **`manifest.json`**: do **not** commit the temporary fork/Git-ref
+  `requirements` edit from [Step 1](#2-step-1--point-the-midea-lan-dependency-at-your-library-work-local-only),
+  and do not hand-edit the `version`. Both the library pin and the release version
+  are the maintainer's to set — they'll bump the pin in a follow-up PR after the
+  library release. Keep your PR to the feature itself.
 - **PR description**: summarize the device, list the entities, and link the paired
-  `midea-lan` library PR/release. State plainly what you verified (lint clean,
-  smoke-tested in HA, etc.).
+  `midea-lan` library PR/commit your work depends on. State plainly what you
+  verified (lint clean, smoke-tested in HA against your fork, etc.), and note that
+  the library-dependent CI checks will stay red until the library release is synced.
 - **CodeRabbit**: the AI reviewer skips draft PRs. To get a review on a draft,
   comment `@coderabbitai review`, then address every finding in-thread.
 
@@ -418,7 +479,8 @@ locale files, `doc/D9.md` + `doc/D9_hans.md`, and the README rows.
 
 - [ ] Library first: `midealan/devices/<type>/` exists and is published; if not,
       finish the [`midea-lan` guide](https://github.com/wuwentao/midea-lan/blob/main/docs/adding-a-new-device.md).
-- [ ] Bumped the `midea-lan` pin in `manifest.json` to the release with the device.
+- [ ] For local testing only: pointed `manifest.json` `requirements` at your
+      `midea-lan` fork's Git ref — and did **not** commit that change to the PR.
 - [ ] Imported `DeviceAttributes as <X>Attributes` in `midea_devices.py`.
 - [ ] Added the `0xXX` entry with `name` and an `entities` row per attribute.
 - [ ] Each row has the right `type` (platform), and sensors/numbers have
@@ -430,6 +492,8 @@ locale files, `doc/D9.md` + `doc/D9_hans.md`, and the README rows.
 - [ ] Added the appliance row to `README.md` and `README_hans.md` (hex order).
 - [ ] `uv run pre-commit run --all-files` passes; optionally smoke-tested with
       `scripts/run.sh`.
-- [ ] PR on a feature branch, Conventional Commit title, library PR/release linked,
-    CodeRabbit findings resolved.
-</content>
+- [ ] Only the feature is in the PR (no manifest pin/version edit); expected
+      library-dependent CI failures noted and left for the maintainer to resolve
+      via the library release + pin sync.
+- [ ] PR on a feature branch, Conventional Commit title, library PR/commit linked,
+      CodeRabbit findings resolved.
