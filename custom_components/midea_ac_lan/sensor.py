@@ -20,9 +20,9 @@ from homeassistant.helpers.restore_state import RestoreEntity
 from homeassistant.helpers.typing import StateType
 from midealan.device import MideaDevice
 
-from .cloud_usage import (
-    MideaCloudUsageCoordinator,
-    create_cloud_usage_coordinator,
+from .cloud import (
+    MideaCloudCoordinator,
+    create_cloud_coordinator,
 )
 from .const import DEVICES, DOMAIN, supports_device
 from .midea_devices import MIDEA_DEVICES
@@ -43,7 +43,7 @@ async def async_setup_entry(
     sensors = []
     # Shared by all cloud usage sensors of the device; created lazily by the
     # first opted-in one and left None when no cloud account is stored.
-    cloud_coordinator: MideaCloudUsageCoordinator | None = None
+    cloud_coordinator: MideaCloudCoordinator | None = None
     cloud_unconfigured = False
     for entity_key, config in cast(
         "dict",
@@ -63,7 +63,7 @@ async def async_setup_entry(
             continue
         if config.get("cloud_report") is not None:
             if cloud_coordinator is None and not cloud_unconfigured:
-                cloud_coordinator = create_cloud_usage_coordinator(
+                cloud_coordinator = create_cloud_coordinator(
                     hass,
                     config_entry,
                     device_id,
@@ -227,7 +227,7 @@ class MideaCloudUsageSensor(MideaSensor):
         self,
         device: MideaDevice,
         entity_key: str,
-        coordinator: MideaCloudUsageCoordinator,
+        coordinator: MideaCloudCoordinator,
     ) -> None:
         """Initialize cloud usage sensor."""
         super().__init__(device, entity_key)

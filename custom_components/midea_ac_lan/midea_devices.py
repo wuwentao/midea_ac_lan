@@ -4507,7 +4507,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "icon": "mdi:restore-alert",
             },
             # Optional water/gas usage statistics. E3 appliances report them
-            # only through the Midea cloud day report (see cloud_usage.py),
+            # only through the Midea cloud day report (see cloud.py),
             # so besides opting in here the user must also store their Midea
             # app account in the integration options of the device.
             "water_usage_daily": {

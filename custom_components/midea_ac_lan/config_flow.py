@@ -46,10 +46,14 @@ from homeassistant.const import (
 from homeassistant.core import callback
 from homeassistant.helpers.aiohttp_client import async_create_clientsession
 from homeassistant.helpers.json import save_json
+from homeassistant.helpers.selector import (
+    TextSelector,
+    TextSelectorConfig,
+    TextSelectorType,
+)
 from homeassistant.util.json import load_json
 from midealan.cloud import (
     PRESET_ACCOUNT_DATA,
-    SUPPORTED_CLOUDS,
     MideaCloud,
     get_midea_cloud,
 )
@@ -76,10 +80,12 @@ from .const import (
     CONF_SN,
     CONF_SUBTYPE,
     DEFAULT_CLOUD,
+    DEFAULT_REPORT_CLOUD,
     DEVICES,
     DOMAIN,
     EXTRA_CONTROL,
     EXTRA_SENSOR,
+    REPORT_CLOUDS,
     supports_device,
 )
 from .midea_devices import MIDEA_DEVICES
@@ -1019,8 +1025,17 @@ class MideaLanOptionsFlowHandler(OptionsFlow):
             )
         # E3 gas water heaters report water/gas usage only through the
         # Midea cloud day report; the optional usage statistics sensors
-        # (see cloud_usage.py) need the user's own Midea app account.
+        # (see cloud.py) need the user's own Midea app account. Only the
+        # report-capable clouds (REPORT_CLOUDS) are offered here; normalize a
+        # previously stored non-report server so the restricted schema accepts
+        # it as a default.
         if self._device_type == DeviceType.E3:
+            stored_server = self._config_entry.options.get(
+                CONF_SERVER,
+                DEFAULT_REPORT_CLOUD,
+            )
+            if stored_server not in REPORT_CLOUDS:
+                stored_server = DEFAULT_REPORT_CLOUD
             data_schema = data_schema.extend(
                 {
                     vol.Optional(
@@ -1030,14 +1045,13 @@ class MideaLanOptionsFlowHandler(OptionsFlow):
                     vol.Optional(
                         CONF_PASSWORD,
                         default=self._config_entry.options.get(CONF_PASSWORD, ""),
-                    ): str,
+                    ): TextSelector(
+                        TextSelectorConfig(type=TextSelectorType.PASSWORD),
+                    ),
                     vol.Optional(
                         CONF_SERVER,
-                        default=self._config_entry.options.get(
-                            CONF_SERVER,
-                            DEFAULT_CLOUD,
-                        ),
-                    ): vol.In(list(SUPPORTED_CLOUDS)),
+                        default=stored_server,
+                    ): vol.In(list(REPORT_CLOUDS)),
                 },
             )
         data_schema = data_schema.extend(
