@@ -4,6 +4,7 @@ from enum import IntEnum
 from typing import Any, cast
 
 from homeassistant.const import Platform
+from midealan.cloud import SUPPORTED_CLOUDS
 
 DOMAIN = "midea_ac_lan"
 COMPONENT = "component"
@@ -14,9 +15,14 @@ CONF_MODEL = "model"
 CONF_SUBTYPE = "subtype"
 CONF_ACCOUNT = "account"
 CONF_SERVER = "server"
+CONF_SN = "sn"
 CONF_REFRESH_INTERVAL = "refresh_interval"
 CONF_MAC = "mac"
-CONF_SN = "sn"
+
+# Select DEFAULT_CLOUD from the list of supported cloud. Index 1 (SmartHome)
+# exposes the E3 dayReportV2 usage report through its per-cloud proxy alias, so
+# the preset-login flow and the E3 usage sensors share the same default cloud.
+DEFAULT_CLOUD: str = list(SUPPORTED_CLOUDS)[1]
 
 EXTRA_SENSOR = [Platform.SENSOR, Platform.BINARY_SENSOR]
 EXTRA_SWITCH = [
