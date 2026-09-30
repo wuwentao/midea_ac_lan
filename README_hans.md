@@ -218,3 +218,12 @@ cd midea_ac_lan
 ```
 
 完整的环境搭建、本地运行 Home Assistant、代码风格与提交规范，请参考 [中文版CONTRIBUTING](.github/CONTRIBUTING.zh.md)。
+
+### 新增设备支持
+
+想在本集成中暴露一款新的美的设备类型？从升级 `midea-lan` 固定版本、在 `midea_devices.py` 中注册设备、为每个属性选择 platform / `device_class` / `unit` / `translation_key`、添加翻译文件、编写设备文档，到提交 PR 的完整流程都有文档说明，并以 `0xD9` 洗烘一体机（[PR #1086](https://github.com/wuwentao/midea_ac_lan/pull/1086)）作为贯穿示例：
+
+- [为 Home Assistant 集成新增一款设备（中文）](doc/adding-a-new-device.zh-Hans.md)
+- [Adding a New Device to the HA Integration（English）](doc/adding-a-new-device.md)
+
+协议库侧的配套指南位于 `midea-lan` 仓库：[新增设备类型支持指南](https://github.com/wuwentao/midea-lan/blob/main/docs/adding-a-new-device.zh-Hans.md)。
