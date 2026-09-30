@@ -19,15 +19,10 @@ CONF_SN = "sn"
 CONF_REFRESH_INTERVAL = "refresh_interval"
 CONF_MAC = "mac"
 
-# Select DEFAULT_CLOUD from the list of supported cloud
-DEFAULT_CLOUD: str = list(SUPPORTED_CLOUDS)[3]
-
-# Only these clouds expose the E3 dayReportV2 usage report (their API URL uses
-# the per-cloud proxy alias); the others raise CloudError before sending the
-# request. Keep DEFAULT_CLOUD for the preset-login flow and use these for the
-# E3 usage statistics options and coordinator fallback.
-REPORT_CLOUDS: tuple[str, ...] = ("美的美居", "SmartHome")
-DEFAULT_REPORT_CLOUD: str = REPORT_CLOUDS[0]
+# Select DEFAULT_CLOUD from the list of supported cloud. Index 1 (SmartHome)
+# exposes the E3 dayReportV2 usage report through its per-cloud proxy alias, so
+# the preset-login flow and the E3 usage sensors share the same default cloud.
+DEFAULT_CLOUD: str = list(SUPPORTED_CLOUDS)[1]
 
 EXTRA_SENSOR = [Platform.SENSOR, Platform.BINARY_SENSOR]
 EXTRA_SWITCH = [
