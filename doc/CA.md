@@ -32,6 +32,18 @@ No default entity.
 | sensor.{DEVICEID}\_humidity                          | sensor        | Humidity                            |
 | sensor.{DEVICEID}\_variable_mode                     | sensor        | Variable Mode                       |
 
+### 310A2111 flex-zone mode
+
+For model `310A2111`, subtype `56`, the optional `variable_mode` sensor derives
+the App preset from the reported flex-zone **setting** temperature: 6°C is
+Mother & Infant (`baby`), 2°C is Treasure (`treasure`), and 0°C is Zero Degree
+(`zero`). Other temperatures, missing values, and non-numeric values are
+reported as unknown. This is a read-only interpretation; it sends no commands.
+Other refrigerator models and subtypes retain their existing mode behavior.
+
+Enable Variable Mode under the integration's extra sensor options. The entity
+ID remains `sensor.{DEVICEID}_variable_mode`.
+
 ## Service
 
 No services.

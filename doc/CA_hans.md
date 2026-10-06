@@ -32,6 +32,16 @@
 | sensor.{DEVICEID}\_humidity                          | sensor        | Humidity                            | 湿度             |
 | sensor.{DEVICEID}\_variable_mode                     | sensor        | Variable Mode                       | 变温区模式       |
 
+### 310A2111 变温区模式
+
+型号 `310A2111`、subtype `56` 的可选 `variable_mode` 传感器根据设备上报的
+变温区**设置**温度推导 App 模式：6°C 为母婴（`baby`），2°C 为珍品
+（`treasure`），0°C 为零度（`zero`）。其他温度、缺失值和非数值均显示未知。
+该功能只读，不发送控制命令；其他冰箱型号和 subtype 保留原有模式行为。
+
+在集成的额外传感器选项中启用“变温区模式”。实体 ID 仍为
+`sensor.{DEVICEID}_variable_mode`。
+
 ## 服务
 
 无服务

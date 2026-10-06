@@ -1332,7 +1332,12 @@
         "name": "Humidity"
       },
       "variable_mode": {
-        "name": "Variable Mode"
+        "name": "Variable Mode",
+        "state": {
+          "baby": "Mother & Infant",
+          "treasure": "Treasure",
+          "zero": "Zero Degree"
+        }
       },
       "compressor_frequency": {
         "name": "Compressor Frequency"
