@@ -153,10 +153,18 @@
       "dispensing": {
         "name": "Dispensando agua"
       },
-      "lack_water": { "name": "Falta de agua" },
-      "standby": { "name": "En espera" },
-      "hot_water_dispensing": { "name": "Dispensando agua caliente" },
-      "fault": { "name": "Avería" },
+      "lack_water": {
+        "name": "Falta de agua"
+      },
+      "standby": {
+        "name": "En espera"
+      },
+      "hot_water_dispensing": {
+        "name": "Dispensando agua caliente"
+      },
+      "fault": {
+        "name": "Avería"
+      },
       "heating_working": {
         "name": "Estado de funcionamiento de calefacción"
       },
@@ -483,6 +491,342 @@
       },
       "time_set": {
         "name": "Capacidad - Hora configurada"
+      },
+      "ac_air_direction": {
+        "name": "Dirección del aire del AC"
+      },
+      "ac_cooling_fan": {
+        "name": "Ventilador de refrigeración del AC"
+      },
+      "ac_draining_pump": {
+        "name": "Bomba de drenaje del AC"
+      },
+      "ac_low_temperature": {
+        "name": "Temperatura baja del AC"
+      },
+      "ac_over_temperature": {
+        "name": "Sobretemperatura del AC"
+      },
+      "ac_swing": {
+        "name": "Oscilación del AC"
+      },
+      "ac_water_full": {
+        "name": "Depósito de agua lleno del AC"
+      },
+      "b2_downstair_clean_tips": {
+        "name": "Aviso de limpieza del horno de vapor inferior"
+      },
+      "b2_downstair_door": {
+        "name": "Puerta del horno de vapor inferior"
+      },
+      "b2_downstair_fresh_water": {
+        "name": "Agua limpia del horno de vapor inferior"
+      },
+      "b2_downstair_light": {
+        "name": "Luz del horno de vapor inferior"
+      },
+      "b2_downstair_lock": {
+        "name": "Bloqueo del horno de vapor inferior"
+      },
+      "b2_downstair_must_clean_tips": {
+        "name": "Aviso de limpieza obligatoria del horno de vapor inferior"
+      },
+      "b2_downstair_water_shortage": {
+        "name": "Falta de agua del horno de vapor inferior"
+      },
+      "b2_upstair_clean_tips": {
+        "name": "Aviso de limpieza del horno de vapor superior"
+      },
+      "b2_upstair_door": {
+        "name": "Puerta del horno de vapor superior"
+      },
+      "b2_upstair_fresh_water": {
+        "name": "Agua limpia del horno de vapor superior"
+      },
+      "b2_upstair_light": {
+        "name": "Luz del horno de vapor superior"
+      },
+      "b2_upstair_lock": {
+        "name": "Bloqueo del horno de vapor superior"
+      },
+      "b2_upstair_must_clean_tips": {
+        "name": "Aviso de limpieza obligatoria del horno de vapor superior"
+      },
+      "b2_upstair_water_shortage": {
+        "name": "Falta de agua del horno de vapor superior"
+      },
+      "b3_downstair_door": {
+        "name": "Puerta del armario de vapor inferior"
+      },
+      "b3_downstair_door_lock": {
+        "name": "Bloqueo de puerta del armario de vapor inferior"
+      },
+      "b3_downstair_infrared": {
+        "name": "Infrarrojos del armario de vapor inferior"
+      },
+      "b3_downstair_ultraviolet": {
+        "name": "Ultravioleta del armario de vapor inferior"
+      },
+      "b3_upstair_door": {
+        "name": "Puerta del armario de vapor superior"
+      },
+      "b3_upstair_door_lock": {
+        "name": "Bloqueo de puerta del armario de vapor superior"
+      },
+      "b3_upstair_infrared": {
+        "name": "Infrarrojos del armario de vapor superior"
+      },
+      "b3_upstair_ultraviolet": {
+        "name": "Ultravioleta del armario de vapor superior"
+      },
+      "b6_TVOC_status": {
+        "name": "Estado TVOC de la campana"
+      },
+      "b6_delay_gear_linkage": {
+        "name": "Vinculación de nivel con retardo de la campana"
+      },
+      "b6_delay_time": {
+        "name": "Tiempo de retardo de la campana"
+      },
+      "b6_gesture_status": {
+        "name": "Estado de gestos de la campana"
+      },
+      "b6_infrared_status": {
+        "name": "Estado de infrarrojos de la campana"
+      },
+      "b6_lock": {
+        "name": "Bloqueo de la campana"
+      },
+      "b6_power_on_light": {
+        "name": "Luz al encender la campana"
+      },
+      "b6_smoke_detector": {
+        "name": "Detector de humo de la campana"
+      },
+      "b6_smoke_stove_linkage": {
+        "name": "Vinculación campana-placa de humos"
+      },
+      "b7_left_dry_burning": {
+        "name": "Quemado en seco de la placa de gas izquierda"
+      },
+      "b7_left_dry_burning_invalid": {
+        "name": "Quemado en seco no válido de la placa de gas izquierda"
+      },
+      "b7_left_gas_leakage": {
+        "name": "Fuga de gas de la placa de gas izquierda"
+      },
+      "b7_left_has_fire": {
+        "name": "Llama presente en la placa de gas izquierda"
+      },
+      "b7_left_has_pot": {
+        "name": "Recipiente presente en la placa de gas izquierda"
+      },
+      "b7_right_dry_burning": {
+        "name": "Quemado en seco de la placa de gas derecha"
+      },
+      "b7_right_dry_burning_invalid": {
+        "name": "Quemado en seco no válido de la placa de gas derecha"
+      },
+      "b7_right_gas_leakage": {
+        "name": "Fuga de gas de la placa de gas derecha"
+      },
+      "b7_right_has_fire": {
+        "name": "Llama presente en la placa de gas derecha"
+      },
+      "b7_right_has_pot": {
+        "name": "Recipiente presente en la placa de gas derecha"
+      },
+      "bf_door": {
+        "name": "Puerta del horno"
+      },
+      "bf_error": {
+        "name": "Error del horno"
+      },
+      "bf_flip": {
+        "name": "Giro del horno"
+      },
+      "bf_hightemp_error": {
+        "name": "Error de alta temperatura del horno"
+      },
+      "bf_hightemp_lock": {
+        "name": "Bloqueo por alta temperatura del horno"
+      },
+      "bf_hightemp_over": {
+        "name": "Alta temperatura superada del horno"
+      },
+      "bf_hotwind": {
+        "name": "Aire caliente del horno"
+      },
+      "bf_hotwind_set": {
+        "name": "Ajuste de aire caliente del horno"
+      },
+      "bf_hydrops_full": {
+        "name": "Depósito de condensación lleno del horno"
+      },
+      "bf_light": {
+        "name": "Luz del horno"
+      },
+      "bf_lock": {
+        "name": "Bloqueo del horno"
+      },
+      "bf_off_fromapp": {
+        "name": "Apagado desde la app del horno"
+      },
+      "bf_on_smart": {
+        "name": "Encendido inteligente del horno"
+      },
+      "bf_order": {
+        "name": "Reserva del horno"
+      },
+      "bf_order_time_isabsolute": {
+        "name": "Hora de reserva absoluta del horno"
+      },
+      "bf_overheat": {
+        "name": "Sobrecalentamiento del horno"
+      },
+      "bf_preheat": {
+        "name": "Precalentamiento del horno"
+      },
+      "bf_preheat_done": {
+        "name": "Precalentamiento finalizado del horno"
+      },
+      "bf_preheat_set": {
+        "name": "Ajuste de precalentamiento del horno"
+      },
+      "bf_probe": {
+        "name": "Sonda del horno"
+      },
+      "bf_probe_meat": {
+        "name": "Sonda de carne del horno"
+      },
+      "bf_radiating": {
+        "name": "Radiación del horno"
+      },
+      "bf_repair_cook": {
+        "name": "Reanudar cocción del horno"
+      },
+      "bf_sabbath": {
+        "name": "Modo sabático del horno"
+      },
+      "bf_scalehandling_remind": {
+        "name": "Aviso de descalcificación del horno"
+      },
+      "bf_sensor": {
+        "name": "Sensor del horno"
+      },
+      "bf_stove_1": {
+        "name": "Quemador 1 del horno"
+      },
+      "bf_stove_2": {
+        "name": "Quemador 2 del horno"
+      },
+      "bf_stove_3": {
+        "name": "Quemador 3 del horno"
+      },
+      "bf_stove_4": {
+        "name": "Quemador 4 del horno"
+      },
+      "bf_stove_5": {
+        "name": "Quemador 5 del horno"
+      },
+      "bf_temp_fahrenheit": {
+        "name": "Temp. en Fahrenheit del horno"
+      },
+      "bf_time_synchronization": {
+        "name": "Sincronización horaria del horno"
+      },
+      "bf_turntable": {
+        "name": "Plato giratorio del horno"
+      },
+      "bf_turntable_reset": {
+        "name": "Reinicio del plato giratorio del horno"
+      },
+      "bf_upload_interval": {
+        "name": "Intervalo de envío del horno"
+      },
+      "bf_voice_identify": {
+        "name": "Identificación por voz del horno"
+      },
+      "bf_voice_module": {
+        "name": "Módulo de voz del horno"
+      },
+      "bf_water_box": {
+        "name": "Depósito de agua del horno"
+      },
+      "bf_water_change": {
+        "name": "Cambio de agua del horno"
+      },
+      "bf_water_shortage": {
+        "name": "Falta de agua del horno"
+      },
+      "bf_wintersummertime": {
+        "name": "Horario de invierno/verano del horno"
+      },
+      "e7_left_bottom_has_pot": {
+        "name": "Recipiente presente en la placa de inducción izquierda inferior"
+      },
+      "e7_left_has_pot": {
+        "name": "Recipiente presente en la placa de inducción izquierda"
+      },
+      "e7_left_top_has_pot": {
+        "name": "Recipiente presente en la placa de inducción izquierda superior"
+      },
+      "e7_right_bottom_has_pot": {
+        "name": "Recipiente presente en la placa de inducción derecha inferior"
+      },
+      "e7_right_has_pot": {
+        "name": "Recipiente presente en la placa de inducción derecha"
+      },
+      "e7_right_top_has_pot": {
+        "name": "Recipiente presente en la placa de inducción derecha superior"
+      },
+      "sp_fandrying_door": {
+        "name": "Puerta de secado por ventilador del cajón"
+      },
+      "sp_fandrying_setting_automode": {
+        "name": "Modo automático de secado por ventilador del cajón"
+      },
+      "sp_fandrying_setting_linkage": {
+        "name": "Vinculación de secado por ventilador del cajón"
+      },
+      "sp_fandrying_setting_linkcooker": {
+        "name": "Vinculación con la placa de secado por ventilador del cajón"
+      },
+      "sp_fandrying_setting_sync": {
+        "name": "Sincronización de secado por ventilador del cajón"
+      },
+      "sp_heatingdisk_door": {
+        "name": "Puerta de la placa calefactora del cajón"
+      },
+      "sp_heatingdisk_setting_automode": {
+        "name": "Modo automático de la placa calefactora del cajón"
+      },
+      "sp_heatingdisk_setting_linkage": {
+        "name": "Vinculación de la placa calefactora del cajón"
+      },
+      "sp_heatingdisk_setting_linkcooker": {
+        "name": "Vinculación con la placa de la placa calefactora del cajón"
+      },
+      "sp_heatingdisk_setting_sync": {
+        "name": "Sincronización de la placa calefactora del cajón"
+      },
+      "sp_uvc_door": {
+        "name": "Puerta UVC del cajón"
+      },
+      "sp_uvc_setting_automode": {
+        "name": "Modo automático UVC del cajón"
+      },
+      "sp_uvc_setting_linkage": {
+        "name": "Vinculación UVC del cajón"
+      },
+      "sp_uvc_setting_linkcooker": {
+        "name": "Vinculación con la placa UVC del cajón"
+      },
+      "sp_uvc_setting_sync": {
+        "name": "Sincronización UVC del cajón"
+      },
+      "total_water_shortage": {
+        "name": "Falta de agua"
       }
     },
     "button": {
@@ -566,6 +910,9 @@
       },
       "keep_warm_time": {
         "name": "Tiempo de conservación"
+      },
+      "ai_voice_volume": {
+        "name": "Volumen de voz IA"
       }
     },
     "select": {
@@ -984,7 +1331,9 @@
       "keep_warm_remaining": {
         "name": "Tiempo restante de mantener caliente"
       },
-      "fault_code": { "name": "Código de avería" },
+      "fault_code": {
+        "name": "Código de avería"
+      },
       "keep_warm_time": {
         "name": "Tiempo de mantener caliente"
       },
@@ -1571,6 +1920,1303 @@
       },
       "zone2_temp_set": {
         "name": "Temperatura - Consigna zona 2"
+      },
+      "ac_air_direction_gear": {
+        "name": "Nivel de dirección del aire del AC"
+      },
+      "ac_air_direction_max_angle": {
+        "name": "Ángulo máx. de dirección del aire del AC"
+      },
+      "ac_air_direction_min_angle": {
+        "name": "Ángulo mín. de dirección del aire del AC"
+      },
+      "ac_ambient_temperature": {
+        "name": "Temperatura ambiente del AC"
+      },
+      "ac_current_temp": {
+        "name": "Temp. actual del AC"
+      },
+      "ac_destination_temp": {
+        "name": "Temp. objetivo del AC"
+      },
+      "ac_destination_time": {
+        "name": "Tiempo objetivo del AC"
+      },
+      "ac_gear": {
+        "name": "Nivel del AC"
+      },
+      "ac_mode": {
+        "name": "Modo del AC",
+        "state": {
+          "air_supply": "Suministro de aire",
+          "dehumidification": "Deshumidificación",
+          "net_flavour": "Depuración de olores",
+          "none": "Ninguno",
+          "refrigeration": "Refrigeración"
+        }
+      },
+      "ac_order_destination_time": {
+        "name": "Tiempo objetivo de reserva del AC"
+      },
+      "ac_order_remaining_time": {
+        "name": "Tiempo restante de reserva del AC"
+      },
+      "ac_remaining_time": {
+        "name": "Tiempo restante del AC"
+      },
+      "ac_swing_gear": {
+        "name": "Nivel de oscilación del AC"
+      },
+      "ac_swing_max_angle": {
+        "name": "Ángulo máx. de oscilación del AC"
+      },
+      "ac_swing_min_angle": {
+        "name": "Ángulo mín. de oscilación del AC"
+      },
+      "ac_work_status": {
+        "name": "Estado de funcionamiento del AC",
+        "state": {
+          "order": "Reserva",
+          "power_off": "Apagado",
+          "reservation": "Reserva",
+          "reservation_and_order_ordering": "Reserva y pedido: en pedido",
+          "reservation_and_order_reserving": "Reserva y pedido: reservando",
+          "working": "En funcionamiento"
+        }
+      },
+      "ai_voice_microphone_status": {
+        "name": "Estado del micrófono de voz IA",
+        "state": {
+          "failure": "Fallo",
+          "success": "Correcto"
+        }
+      },
+      "ai_voice_status": {
+        "name": "Estado de voz IA",
+        "state": {
+          "connecting": "Conectando",
+          "off": "Apagado",
+          "on": "Encendido"
+        }
+      },
+      "ai_voice_volume_status": {
+        "name": "Estado del volumen de voz IA",
+        "state": {
+          "failure": "Fallo",
+          "success": "Correcto"
+        }
+      },
+      "b2_downstair_current_temp": {
+        "name": "Temp. actual del horno de vapor inferior"
+      },
+      "b2_downstair_destination_temp": {
+        "name": "Temp. objetivo del horno de vapor inferior"
+      },
+      "b2_downstair_light_off_type": {
+        "name": "Tipo de apagado de la luz del horno de vapor inferior",
+        "state": {
+          "app": "App",
+          "local": "Local"
+        }
+      },
+      "b2_downstair_light_on_type": {
+        "name": "Tipo de encendido de la luz del horno de vapor inferior",
+        "state": {
+          "app": "App",
+          "local": "Local"
+        }
+      },
+      "b2_downstair_order_destination_time": {
+        "name": "Tiempo objetivo de reserva del horno de vapor inferior"
+      },
+      "b2_downstair_order_remaining_time": {
+        "name": "Tiempo restante de reserva del horno de vapor inferior"
+      },
+      "b2_downstair_power_off_type": {
+        "name": "Tipo de apagado del horno de vapor inferior",
+        "state": {
+          "app": "App",
+          "auto": "Automático",
+          "error": "Error",
+          "local": "Local",
+          "wifi": "Wifi"
+        }
+      },
+      "b2_downstair_power_on_type": {
+        "name": "Tipo de encendido del horno de vapor inferior",
+        "state": {
+          "app": "App",
+          "local": "Local",
+          "order": "Reserva"
+        }
+      },
+      "b2_downstair_preheating": {
+        "name": "Precalentamiento del horno de vapor inferior",
+        "state": {
+          "finish": "Finalizar",
+          "none": "Ninguno",
+          "preheating": "Precalentamiento"
+        }
+      },
+      "b2_downstair_recipe_after": {
+        "name": "Receta posterior del horno de vapor inferior"
+      },
+      "b2_downstair_recipe_code": {
+        "name": "Código de receta del horno de vapor inferior"
+      },
+      "b2_downstair_recipe_current_mode": {
+        "name": "Modo actual de receta del horno de vapor inferior"
+      },
+      "b2_downstair_recipe_current_step": {
+        "name": "Paso actual de receta del horno de vapor inferior"
+      },
+      "b2_downstair_recipe_off_type": {
+        "name": "Tipo de apagado de receta del horno de vapor inferior",
+        "state": {
+          "app": "App",
+          "auto": "Automático",
+          "error": "Error",
+          "local": "Local",
+          "wifi": "Wifi"
+        }
+      },
+      "b2_downstair_recipe_on_type": {
+        "name": "Tipo de encendido de receta del horno de vapor inferior",
+        "state": {
+          "app": "App",
+          "local": "Local",
+          "order": "Reserva"
+        }
+      },
+      "b2_downstair_recipe_total_steps": {
+        "name": "Pasos totales de receta del horno de vapor inferior"
+      },
+      "b2_downstair_work_destination_time": {
+        "name": "Tiempo objetivo de funcionamiento del horno de vapor inferior"
+      },
+      "b2_downstair_work_func": {
+        "name": "Función de funcionamiento del horno de vapor inferior"
+      },
+      "b2_downstair_work_menu": {
+        "name": "Menú de funcionamiento del horno de vapor inferior"
+      },
+      "b2_downstair_work_remaining_time": {
+        "name": "Tiempo restante de funcionamiento del horno de vapor inferior"
+      },
+      "b2_downstair_work_status": {
+        "name": "Estado de funcionamiento del horno de vapor inferior",
+        "state": {
+          "auto": "Automático",
+          "drying": "Secado",
+          "finish": "Finalizar",
+          "order": "Reserva",
+          "pause": "Pausa",
+          "power_off": "Apagado",
+          "standby": "En espera",
+          "working": "En funcionamiento"
+        }
+      },
+      "b2_upstair_current_temp": {
+        "name": "Temp. actual del horno de vapor superior"
+      },
+      "b2_upstair_destination_temp": {
+        "name": "Temp. objetivo del horno de vapor superior"
+      },
+      "b2_upstair_light_off_type": {
+        "name": "Tipo de apagado de la luz del horno de vapor superior",
+        "state": {
+          "app": "App",
+          "local": "Local"
+        }
+      },
+      "b2_upstair_light_on_type": {
+        "name": "Tipo de encendido de la luz del horno de vapor superior",
+        "state": {
+          "app": "App",
+          "local": "Local"
+        }
+      },
+      "b2_upstair_order_destination_time": {
+        "name": "Tiempo objetivo de reserva del horno de vapor superior"
+      },
+      "b2_upstair_order_remaining_time": {
+        "name": "Tiempo restante de reserva del horno de vapor superior"
+      },
+      "b2_upstair_power_off_type": {
+        "name": "Tipo de apagado del horno de vapor superior",
+        "state": {
+          "app": "App",
+          "auto": "Automático",
+          "error": "Error",
+          "local": "Local",
+          "wifi": "Wifi"
+        }
+      },
+      "b2_upstair_power_on_type": {
+        "name": "Tipo de encendido del horno de vapor superior",
+        "state": {
+          "app": "App",
+          "local": "Local",
+          "order": "Reserva"
+        }
+      },
+      "b2_upstair_preheating": {
+        "name": "Precalentamiento del horno de vapor superior",
+        "state": {
+          "finish": "Finalizar",
+          "none": "Ninguno",
+          "preheating": "Precalentamiento"
+        }
+      },
+      "b2_upstair_recipe_after": {
+        "name": "Receta posterior del horno de vapor superior"
+      },
+      "b2_upstair_recipe_code": {
+        "name": "Código de receta del horno de vapor superior"
+      },
+      "b2_upstair_recipe_current_mode": {
+        "name": "Modo actual de receta del horno de vapor superior"
+      },
+      "b2_upstair_recipe_current_step": {
+        "name": "Paso actual de receta del horno de vapor superior"
+      },
+      "b2_upstair_recipe_off_type": {
+        "name": "Tipo de apagado de receta del horno de vapor superior",
+        "state": {
+          "app": "App",
+          "auto": "Automático",
+          "error": "Error",
+          "local": "Local",
+          "wifi": "Wifi"
+        }
+      },
+      "b2_upstair_recipe_on_type": {
+        "name": "Tipo de encendido de receta del horno de vapor superior",
+        "state": {
+          "app": "App",
+          "local": "Local",
+          "order": "Reserva"
+        }
+      },
+      "b2_upstair_recipe_total_steps": {
+        "name": "Pasos totales de receta del horno de vapor superior"
+      },
+      "b2_upstair_work_destination_time": {
+        "name": "Tiempo objetivo de funcionamiento del horno de vapor superior"
+      },
+      "b2_upstair_work_func": {
+        "name": "Función de funcionamiento del horno de vapor superior"
+      },
+      "b2_upstair_work_menu": {
+        "name": "Menú de funcionamiento del horno de vapor superior"
+      },
+      "b2_upstair_work_remaining_time": {
+        "name": "Tiempo restante de funcionamiento del horno de vapor superior"
+      },
+      "b2_upstair_work_status": {
+        "name": "Estado de funcionamiento del horno de vapor superior",
+        "state": {
+          "auto": "Automático",
+          "drying": "Secado",
+          "finish": "Finalizar",
+          "order": "Reserva",
+          "pause": "Pausa",
+          "power_off": "Apagado",
+          "standby": "En espera",
+          "working": "En funcionamiento"
+        }
+      },
+      "b3_disinfect_off_type": {
+        "name": "Tipo de apagado de desinfección del armario de vapor",
+        "state": {
+          "app": "App",
+          "local": "Local"
+        }
+      },
+      "b3_disinfect_on_type": {
+        "name": "Tipo de encendido de desinfección del armario de vapor",
+        "state": {
+          "app": "App",
+          "local": "Local"
+        }
+      },
+      "b3_downstair_current_temp": {
+        "name": "Temp. actual del armario de vapor inferior"
+      },
+      "b3_downstair_destination_temp": {
+        "name": "Temp. objetivo del armario de vapor inferior"
+      },
+      "b3_downstair_destination_time": {
+        "name": "Tiempo objetivo del armario de vapor inferior"
+      },
+      "b3_downstair_remaining_time": {
+        "name": "Tiempo restante del armario de vapor inferior"
+      },
+      "b3_downstair_sensor": {
+        "name": "Sensor del armario de vapor inferior"
+      },
+      "b3_downstair_status": {
+        "name": "Estado del armario de vapor inferior",
+        "state": {
+          "drying": "Secado",
+          "drying_pause": "Secado en pausa",
+          "ion_drying": "Secado por iones",
+          "ion_drying_pause": "Secado por iones en pausa",
+          "power_off": "Apagado",
+          "uperization": "Uperización",
+          "uperization_pause": "Uperización en pausa",
+          "warm_drink": "Bebida caliente",
+          "warm_drink_pause": "Bebida caliente en pausa"
+        }
+      },
+      "b3_thermotank_off_type": {
+        "name": "Tipo de apagado del termotanque del armario de vapor",
+        "state": {
+          "app": "App",
+          "local": "Local"
+        }
+      },
+      "b3_thermotank_on_type": {
+        "name": "Tipo de encendido del termotanque del armario de vapor",
+        "state": {
+          "app": "App",
+          "local": "Local"
+        }
+      },
+      "b3_upstair_current_temp": {
+        "name": "Temp. actual del armario de vapor superior"
+      },
+      "b3_upstair_destination_temp": {
+        "name": "Temp. objetivo del armario de vapor superior"
+      },
+      "b3_upstair_destination_time": {
+        "name": "Tiempo objetivo del armario de vapor superior"
+      },
+      "b3_upstair_remaining_time": {
+        "name": "Tiempo restante del armario de vapor superior"
+      },
+      "b3_upstair_sensor": {
+        "name": "Sensor del armario de vapor superior"
+      },
+      "b3_upstair_status": {
+        "name": "Estado del armario de vapor superior",
+        "state": {
+          "drying": "Secado",
+          "drying_pause": "Secado en pausa",
+          "ion_drying": "Secado por iones",
+          "ion_drying_pause": "Secado por iones en pausa",
+          "power_off": "Apagado",
+          "uperization": "Uperización",
+          "uperization_pause": "Uperización en pausa",
+          "warm_drink": "Bebida caliente",
+          "warm_drink_pause": "Bebida caliente en pausa"
+        }
+      },
+      "b6_TVOC_value": {
+        "name": "Valor TVOC de la campana",
+        "state": {
+          "中": "Moderado",
+          "优": "Excelente",
+          "良": "Bueno"
+        }
+      },
+      "b6_air_duct_detection_score": {
+        "name": "Puntuación de detección del conducto de la campana"
+      },
+      "b6_air_duct_detection_state": {
+        "name": "Estado de detección del conducto de la campana"
+      },
+      "b6_air_duct_detection_time": {
+        "name": "Tiempo de detección del conducto de la campana"
+      },
+      "b6_air_duct_detection_windage": {
+        "name": "Resistencia del conducto detectada por la campana"
+      },
+      "b6_air_volume": {
+        "name": "Caudal de aire de la campana"
+      },
+      "b6_delay_gear_linkage_gear": {
+        "name": "Nivel de vinculación con retardo de la campana"
+      },
+      "b6_delay_time_value": {
+        "name": "Valor del tiempo de retardo de la campana"
+      },
+      "b6_destination_time": {
+        "name": "Tiempo objetivo de la campana"
+      },
+      "b6_gear": {
+        "name": "Nivel de la campana"
+      },
+      "b6_gear_control_type": {
+        "name": "Tipo de control de nivel de la campana",
+        "state": {
+          "app": "App",
+          "gesture": "Gesto",
+          "linkage": "Vinculación",
+          "local": "Local",
+          "smoke_detector": "Detector de humo"
+        }
+      },
+      "b6_gesture_sensitivity": {
+        "name": "Sensibilidad de gestos de la campana",
+        "state": {
+          "1": "1",
+          "2": "2",
+          "3": "3"
+        }
+      },
+      "b6_gesture_value": {
+        "name": "Valor de gestos de la campana",
+        "state": {
+          "light": "Luz",
+          "power": "Encendido",
+          "wind": "Viento"
+        }
+      },
+      "b6_hotclean_tips": {
+        "name": "Aviso de limpieza en caliente de la campana"
+      },
+      "b6_infrared_value": {
+        "name": "Valor de infrarrojos de la campana",
+        "state": {
+          "power": "Encendido",
+          "wind": "Viento"
+        }
+      },
+      "b6_inverter_ac_frequency": {
+        "name": "Frecuencia CA del inversor de la campana"
+      },
+      "b6_inverter_back_electromotive_force": {
+        "name": "Fuerza contraelectromotriz del inversor de la campana"
+      },
+      "b6_inverter_capacity": {
+        "name": "Capacidad del inversor de la campana"
+      },
+      "b6_inverter_efficiency": {
+        "name": "Eficiencia del inversor de la campana"
+      },
+      "b6_inverter_motor_compensation_angle": {
+        "name": "Ángulo de compensación del motor del inversor de la campana"
+      },
+      "b6_inverter_motor_speed": {
+        "name": "Velocidad del motor del inversor de la campana"
+      },
+      "b6_inverter_q_axis_current": {
+        "name": "Corriente del eje Q del inversor de la campana"
+      },
+      "b6_inverter_start_time": {
+        "name": "Tiempo de arranque del inversor de la campana"
+      },
+      "b6_inverter_temperature": {
+        "name": "Temperatura del inversor de la campana"
+      },
+      "b6_inverter_temperature_limit_sign": {
+        "name": "Indicador de límite de temperatura del inversor de la campana"
+      },
+      "b6_inverter_voltage": {
+        "name": "Voltaje del inversor de la campana"
+      },
+      "b6_inverter_wind_flow": {
+        "name": "Flujo de aire del inversor de la campana"
+      },
+      "b6_inverter_wind_presssure": {
+        "name": "Presión de aire del inversor de la campana"
+      },
+      "b6_inverter_windage": {
+        "name": "Resistencia al aire del inversor de la campana"
+      },
+      "b6_inverter_work_gear": {
+        "name": "Nivel de funcionamiento del inversor de la campana"
+      },
+      "b6_last_hotclean_hour": {
+        "name": "Hora de la última limpieza en caliente de la campana"
+      },
+      "b6_light": {
+        "name": "Luz de la campana"
+      },
+      "b6_light_off_type": {
+        "name": "Tipo de apagado de la luz de la campana",
+        "state": {
+          "app": "App",
+          "error": "Error",
+          "gesture": "Gesto",
+          "local": "Local"
+        }
+      },
+      "b6_light_on_type": {
+        "name": "Tipo de encendido de la luz de la campana",
+        "state": {
+          "app": "App",
+          "gesture": "Gesto",
+          "local": "Local"
+        }
+      },
+      "b6_lightness": {
+        "name": "Brillo de la campana"
+      },
+      "b6_lock_off_type": {
+        "name": "Tipo de desbloqueo de la campana",
+        "state": {
+          "local": "Local"
+        }
+      },
+      "b6_lock_on_type": {
+        "name": "Tipo de bloqueo de la campana",
+        "state": {
+          "app": "App",
+          "local": "Local"
+        }
+      },
+      "b6_power": {
+        "name": "Encendido de la campana",
+        "state": {
+          "delay_off": "Apagado con retardo",
+          "off": "Apagado",
+          "on": "Encendido"
+        }
+      },
+      "b6_power_off_type": {
+        "name": "Tipo de apagado de la campana",
+        "state": {
+          "app": "App",
+          "delay": "Retardo",
+          "gesture": "Gesto",
+          "linkage": "Vinculación",
+          "local": "Local"
+        }
+      },
+      "b6_power_on_type": {
+        "name": "Tipo de encendido de la campana",
+        "state": {
+          "app": "App",
+          "gesture": "Gesto",
+          "linkage": "Vinculación",
+          "local": "Local"
+        }
+      },
+      "b6_remaining_time": {
+        "name": "Tiempo restante de la campana"
+      },
+      "b6_smoke_detector_value": {
+        "name": "Valor del detector de humo de la campana"
+      },
+      "b6_smoke_potency": {
+        "name": "Intensidad de humo de la campana"
+      },
+      "b6_smoke_stove_linkage_flowin": {
+        "name": "Entrada de flujo de vinculación campana-placa de humos",
+        "state": {
+          "no": "No",
+          "yes": "Sí"
+        }
+      },
+      "b6_smoke_stove_linkage_gear": {
+        "name": "Nivel de vinculación campana-placa de humos"
+      },
+      "b6_smoke_stove_linkage_gear_fix": {
+        "name": "Nivel fijo de vinculación campana-placa de humos",
+        "state": {
+          "negative": "Negativo",
+          "positive": "Positivo"
+        }
+      },
+      "b6_steaming": {
+        "name": "Vaporización de la campana",
+        "state": {
+          "off": "Apagado",
+          "on": "Encendido"
+        }
+      },
+      "b6_steaming_stage": {
+        "name": "Fase de vaporización de la campana"
+      },
+      "b6_wind_pressure": {
+        "name": "Presión de aire de la campana"
+      },
+      "b6_work_status": {
+        "name": "Estado de funcionamiento de la campana",
+        "state": {
+          "ai_dry_clean": "Limpieza en seco con IA",
+          "air_duct_detection": "Detección del conducto de aire",
+          "check": "Comprobar",
+          "clean": "Limpiar",
+          "clean_finish": "Limpieza finalizada",
+          "error": "Error",
+          "hotclean": "Limpieza en caliente",
+          "initial": "Inicial",
+          "mute_gear": "Nivel silencioso",
+          "power_off": "Apagado",
+          "power_off_delay": "Apagado con retardo",
+          "standby": "En espera",
+          "vvvf_gear": "Nivel VVVF",
+          "working": "En funcionamiento"
+        }
+      },
+      "b7_left_current_temp": {
+        "name": "Temp. actual de la placa de gas izquierda"
+      },
+      "b7_left_destination_temp": {
+        "name": "Temp. objetivo de la placa de gas izquierda"
+      },
+      "b7_left_destination_time": {
+        "name": "Tiempo objetivo de la placa de gas izquierda"
+      },
+      "b7_left_gear": {
+        "name": "Nivel de la placa de gas izquierda"
+      },
+      "b7_left_power_off_type": {
+        "name": "Tipo de apagado de la placa de gas izquierda",
+        "state": {
+          "app": "App",
+          "auto": "Automático",
+          "error": "Error",
+          "local": "Local",
+          "wifi": "Wifi"
+        }
+      },
+      "b7_left_remaining_time": {
+        "name": "Tiempo restante de la placa de gas izquierda"
+      },
+      "b7_left_status": {
+        "name": "Estado de la placa de gas izquierda",
+        "state": {
+          "drying": "Secado",
+          "drying_pause": "Secado en pausa",
+          "ion_drying": "Secado por iones",
+          "ion_drying_pause": "Secado por iones en pausa",
+          "power_off": "Apagado",
+          "uperization": "Uperización",
+          "uperization_pause": "Uperización en pausa",
+          "warm_drink": "Bebida caliente",
+          "warm_drink_pause": "Bebida caliente en pausa"
+        }
+      },
+      "b7_left_work_time": {
+        "name": "Tiempo de funcionamiento de la placa de gas izquierda"
+      },
+      "b7_right_current_temp": {
+        "name": "Temp. actual de la placa de gas derecha"
+      },
+      "b7_right_destination_temp": {
+        "name": "Temp. objetivo de la placa de gas derecha"
+      },
+      "b7_right_destination_time": {
+        "name": "Tiempo objetivo de la placa de gas derecha"
+      },
+      "b7_right_gear": {
+        "name": "Nivel de la placa de gas derecha"
+      },
+      "b7_right_power_off_type": {
+        "name": "Tipo de apagado de la placa de gas derecha",
+        "state": {
+          "app": "App",
+          "auto": "Automático",
+          "error": "Error",
+          "local": "Local",
+          "wifi": "Wifi"
+        }
+      },
+      "b7_right_remaining_time": {
+        "name": "Tiempo restante de la placa de gas derecha"
+      },
+      "b7_right_status": {
+        "name": "Estado de la placa de gas derecha",
+        "state": {
+          "drying": "Secado",
+          "drying_pause": "Secado en pausa",
+          "ion_drying": "Secado por iones",
+          "ion_drying_pause": "Secado por iones en pausa",
+          "power_off": "Apagado",
+          "uperization": "Uperización",
+          "uperization_pause": "Uperización en pausa",
+          "warm_drink": "Bebida caliente",
+          "warm_drink_pause": "Bebida caliente en pausa"
+        }
+      },
+      "b7_right_work_time": {
+        "name": "Tiempo de funcionamiento de la placa de gas derecha"
+      },
+      "bf_cavity": {
+        "name": "Cavidad del horno",
+        "state": {
+          "down": "Abajo",
+          "up": "Arriba"
+        }
+      },
+      "bf_control_back": {
+        "name": "Retorno de control del horno",
+        "state": {
+          "func_notsupport": "Función no compatible",
+          "status_notsupport": "Estado no compatible",
+          "success": "Correcto",
+          "value_notsupport": "Valor no compatible"
+        }
+      },
+      "bf_end_next": {
+        "name": "Fin y siguiente del horno"
+      },
+      "bf_fire": {
+        "name": "Llama del horno"
+      },
+      "bf_mode": {
+        "name": "Modo del horno"
+      },
+      "bf_quick_btn_bake_id": {
+        "name": "ID de botón rápido de horneado del horno"
+      },
+      "bf_quick_btn_bake_set": {
+        "name": "Ajuste de botón rápido de horneado del horno"
+      },
+      "bf_quick_btn_bake_time": {
+        "name": "Tiempo de botón rápido de horneado del horno"
+      },
+      "bf_quick_btn_microwave_id": {
+        "name": "ID de botón rápido de microondas del horno"
+      },
+      "bf_quick_btn_microwave_set": {
+        "name": "Ajuste de botón rápido de microondas del horno"
+      },
+      "bf_quick_btn_microwave_time": {
+        "name": "Tiempo de botón rápido de microondas del horno"
+      },
+      "bf_quick_btn_steam_id": {
+        "name": "ID de botón rápido de vapor del horno"
+      },
+      "bf_quick_btn_steam_set": {
+        "name": "Ajuste de botón rápido de vapor del horno"
+      },
+      "bf_quick_btn_steam_time": {
+        "name": "Tiempo de botón rápido de vapor del horno"
+      },
+      "bf_recipe_code": {
+        "name": "Código de receta del horno"
+      },
+      "bf_remaining_time": {
+        "name": "Tiempo restante del horno"
+      },
+      "bf_steam": {
+        "name": "Vapor del horno"
+      },
+      "bf_step_current": {
+        "name": "Paso actual del horno"
+      },
+      "bf_step_total": {
+        "name": "Pasos totales del horno"
+      },
+      "bf_temp_down": {
+        "name": "Temp. inferior del horno"
+      },
+      "bf_temp_down_set": {
+        "name": "Ajuste de temp. inferior del horno"
+      },
+      "bf_temp_probe": {
+        "name": "Temp. de la sonda del horno"
+      },
+      "bf_temp_probe_set": {
+        "name": "Ajuste de temp. de la sonda del horno"
+      },
+      "bf_temp_up": {
+        "name": "Temp. superior del horno"
+      },
+      "bf_temp_up_set": {
+        "name": "Ajuste de temp. superior del horno"
+      },
+      "bf_tips_mark": {
+        "name": "Marca de aviso del horno",
+        "state": {
+          "apply": "Aplicar",
+          "change_attachments": "Cambiar accesorios",
+          "door_open": "Puerta abierta",
+          "feed": "Alimentación",
+          "recipe_tips": "Avisos de receta",
+          "stir": "Remover"
+        }
+      },
+      "bf_weight_mount": {
+        "name": "Soporte de peso del horno"
+      },
+      "bf_weight_multiple": {
+        "name": "Múltiplo de peso del horno",
+        "state": {
+          "g": "g",
+          "kg": "kg",
+          "ounce": "Onza",
+          "pound": "Libra"
+        }
+      },
+      "bf_weight_unit": {
+        "name": "Unidad de peso del horno",
+        "state": {
+          "g": "g",
+          "kg": "kg",
+          "other": "Otro",
+          "ounce": "Onza",
+          "pound": "Libra"
+        }
+      },
+      "bf_work_status": {
+        "name": "Estado de funcionamiento del horno",
+        "state": {
+          "after_sale": "Posventa",
+          "check_version": "Comprobar versión",
+          "cloudmenu_setting": "Ajuste del menú en la nube",
+          "demo": "Demostración",
+          "done": "Hecho",
+          "keep": "Mantener",
+          "love_three_seconds": "Tres segundos de amor",
+          "open": "Abierto",
+          "order": "Reserva",
+          "pause": "Pausa",
+          "pause_temporarily": "Pausa temporal",
+          "power_off": "Apagado",
+          "self_check": "Autodiagnóstico",
+          "working": "En funcionamiento"
+        }
+      },
+      "bf_working_time": {
+        "name": "Tiempo de funcionamiento del horno"
+      },
+      "e7_left_bottom_bridge_link": {
+        "name": "Enlace puente de la placa de inducción izquierda inferior",
+        "state": {
+          "off": "Apagado",
+          "on": "Encendido"
+        }
+      },
+      "e7_left_bottom_destination_time": {
+        "name": "Tiempo objetivo de la placa de inducción izquierda inferior"
+      },
+      "e7_left_bottom_efficiency": {
+        "name": "Eficiencia de la placa de inducción izquierda inferior"
+      },
+      "e7_left_bottom_gear": {
+        "name": "Nivel de la placa de inducción izquierda inferior"
+      },
+      "e7_left_bottom_mode": {
+        "name": "Modo de la placa de inducción izquierda inferior",
+        "state": {
+          "boiling": "Hirviendo",
+          "heat_preservation": "Mantenimiento del calor",
+          "none": "Ninguno",
+          "stew_soup": "Guisar sopa",
+          "stir_frying": "Saltear"
+        }
+      },
+      "e7_left_bottom_remaining_time": {
+        "name": "Tiempo restante de la placa de inducción izquierda inferior"
+      },
+      "e7_left_bottom_work_status": {
+        "name": "Estado de funcionamiento de la placa de inducción izquierda inferior",
+        "state": {
+          "auto": "Automático",
+          "drying": "Secado",
+          "finish": "Finalizar",
+          "order": "Reserva",
+          "pause": "Pausa",
+          "power_off": "Apagado",
+          "standby": "En espera",
+          "working": "En funcionamiento"
+        }
+      },
+      "e7_left_bottom_work_time": {
+        "name": "Tiempo de funcionamiento de la placa de inducción izquierda inferior"
+      },
+      "e7_left_bridge_link": {
+        "name": "Enlace puente de la placa de inducción izquierda",
+        "state": {
+          "off": "Apagado",
+          "on": "Encendido"
+        }
+      },
+      "e7_left_destination_time": {
+        "name": "Tiempo objetivo de la placa de inducción izquierda"
+      },
+      "e7_left_efficiency": {
+        "name": "Eficiencia de la placa de inducción izquierda"
+      },
+      "e7_left_gear": {
+        "name": "Nivel de la placa de inducción izquierda"
+      },
+      "e7_left_mode": {
+        "name": "Modo de la placa de inducción izquierda",
+        "state": {
+          "boiling": "Hirviendo",
+          "heat_preservation": "Mantenimiento del calor",
+          "none": "Ninguno",
+          "stew_soup": "Guisar sopa",
+          "stir_frying": "Saltear"
+        }
+      },
+      "e7_left_remaining_time": {
+        "name": "Tiempo restante de la placa de inducción izquierda"
+      },
+      "e7_left_top_bridge_link": {
+        "name": "Enlace puente de la placa de inducción izquierda superior",
+        "state": {
+          "off": "Apagado",
+          "on": "Encendido"
+        }
+      },
+      "e7_left_top_destination_time": {
+        "name": "Tiempo objetivo de la placa de inducción izquierda superior"
+      },
+      "e7_left_top_efficiency": {
+        "name": "Eficiencia de la placa de inducción izquierda superior"
+      },
+      "e7_left_top_gear": {
+        "name": "Nivel de la placa de inducción izquierda superior"
+      },
+      "e7_left_top_mode": {
+        "name": "Modo de la placa de inducción izquierda superior",
+        "state": {
+          "boiling": "Hirviendo",
+          "heat_preservation": "Mantenimiento del calor",
+          "none": "Ninguno",
+          "stew_soup": "Guisar sopa",
+          "stir_frying": "Saltear"
+        }
+      },
+      "e7_left_top_remaining_time": {
+        "name": "Tiempo restante de la placa de inducción izquierda superior"
+      },
+      "e7_left_top_work_status": {
+        "name": "Estado de funcionamiento de la placa de inducción izquierda superior",
+        "state": {
+          "auto": "Automático",
+          "drying": "Secado",
+          "finish": "Finalizar",
+          "order": "Reserva",
+          "pause": "Pausa",
+          "power_off": "Apagado",
+          "standby": "En espera",
+          "working": "En funcionamiento"
+        }
+      },
+      "e7_left_top_work_time": {
+        "name": "Tiempo de funcionamiento de la placa de inducción izquierda superior"
+      },
+      "e7_left_work_status": {
+        "name": "Estado de funcionamiento de la placa de inducción izquierda",
+        "state": {
+          "auto": "Automático",
+          "drying": "Secado",
+          "finish": "Finalizar",
+          "order": "Reserva",
+          "pause": "Pausa",
+          "power_off": "Apagado",
+          "standby": "En espera",
+          "working": "En funcionamiento"
+        }
+      },
+      "e7_left_work_time": {
+        "name": "Tiempo de funcionamiento de la placa de inducción izquierda"
+      },
+      "e7_right_bottom_bridge_link": {
+        "name": "Enlace puente de la placa de inducción derecha inferior",
+        "state": {
+          "off": "Apagado",
+          "on": "Encendido"
+        }
+      },
+      "e7_right_bottom_destination_time": {
+        "name": "Tiempo objetivo de la placa de inducción derecha inferior"
+      },
+      "e7_right_bottom_efficiency": {
+        "name": "Eficiencia de la placa de inducción derecha inferior"
+      },
+      "e7_right_bottom_gear": {
+        "name": "Nivel de la placa de inducción derecha inferior"
+      },
+      "e7_right_bottom_mode": {
+        "name": "Modo de la placa de inducción derecha inferior",
+        "state": {
+          "boiling": "Hirviendo",
+          "heat_preservation": "Mantenimiento del calor",
+          "none": "Ninguno",
+          "stew_soup": "Guisar sopa",
+          "stir_frying": "Saltear"
+        }
+      },
+      "e7_right_bottom_remaining_time": {
+        "name": "Tiempo restante de la placa de inducción derecha inferior"
+      },
+      "e7_right_bottom_work_status": {
+        "name": "Estado de funcionamiento de la placa de inducción derecha inferior",
+        "state": {
+          "auto": "Automático",
+          "drying": "Secado",
+          "finish": "Finalizar",
+          "order": "Reserva",
+          "pause": "Pausa",
+          "power_off": "Apagado",
+          "standby": "En espera",
+          "working": "En funcionamiento"
+        }
+      },
+      "e7_right_bottom_work_time": {
+        "name": "Tiempo de funcionamiento de la placa de inducción derecha inferior"
+      },
+      "e7_right_bridge_link": {
+        "name": "Enlace puente de la placa de inducción derecha",
+        "state": {
+          "off": "Apagado",
+          "on": "Encendido"
+        }
+      },
+      "e7_right_destination_time": {
+        "name": "Tiempo objetivo de la placa de inducción derecha"
+      },
+      "e7_right_efficiency": {
+        "name": "Eficiencia de la placa de inducción derecha"
+      },
+      "e7_right_gear": {
+        "name": "Nivel de la placa de inducción derecha"
+      },
+      "e7_right_mode": {
+        "name": "Modo de la placa de inducción derecha",
+        "state": {
+          "boiling": "Hirviendo",
+          "heat_preservation": "Mantenimiento del calor",
+          "none": "Ninguno",
+          "stew_soup": "Guisar sopa",
+          "stir_frying": "Saltear"
+        }
+      },
+      "e7_right_remaining_time": {
+        "name": "Tiempo restante de la placa de inducción derecha"
+      },
+      "e7_right_top_bridge_link": {
+        "name": "Enlace puente de la placa de inducción derecha superior",
+        "state": {
+          "off": "Apagado",
+          "on": "Encendido"
+        }
+      },
+      "e7_right_top_destination_time": {
+        "name": "Tiempo objetivo de la placa de inducción derecha superior"
+      },
+      "e7_right_top_efficiency": {
+        "name": "Eficiencia de la placa de inducción derecha superior"
+      },
+      "e7_right_top_gear": {
+        "name": "Nivel de la placa de inducción derecha superior"
+      },
+      "e7_right_top_mode": {
+        "name": "Modo de la placa de inducción derecha superior",
+        "state": {
+          "boiling": "Hirviendo",
+          "heat_preservation": "Mantenimiento del calor",
+          "none": "Ninguno",
+          "stew_soup": "Guisar sopa",
+          "stir_frying": "Saltear"
+        }
+      },
+      "e7_right_top_remaining_time": {
+        "name": "Tiempo restante de la placa de inducción derecha superior"
+      },
+      "e7_right_top_work_status": {
+        "name": "Estado de funcionamiento de la placa de inducción derecha superior",
+        "state": {
+          "auto": "Automático",
+          "drying": "Secado",
+          "finish": "Finalizar",
+          "order": "Reserva",
+          "pause": "Pausa",
+          "power_off": "Apagado",
+          "standby": "En espera",
+          "working": "En funcionamiento"
+        }
+      },
+      "e7_right_top_work_time": {
+        "name": "Tiempo de funcionamiento de la placa de inducción derecha superior"
+      },
+      "e7_right_work_status": {
+        "name": "Estado de funcionamiento de la placa de inducción derecha",
+        "state": {
+          "auto": "Automático",
+          "drying": "Secado",
+          "finish": "Finalizar",
+          "order": "Reserva",
+          "pause": "Pausa",
+          "power_off": "Apagado",
+          "standby": "En espera",
+          "working": "En funcionamiento"
+        }
+      },
+      "e7_right_work_time": {
+        "name": "Tiempo de funcionamiento de la placa de inducción derecha"
+      },
+      "electronic_version": {
+        "name": "Versión electrónica"
+      },
+      "error_list": {
+        "name": "Lista de errores"
+      },
+      "sp_fandrying_destination_time": {
+        "name": "Tiempo objetivo de secado por ventilador del cajón"
+      },
+      "sp_fandrying_order_destination_time": {
+        "name": "Tiempo objetivo de reserva de secado por ventilador del cajón"
+      },
+      "sp_fandrying_order_remaining_time": {
+        "name": "Tiempo restante de reserva de secado por ventilador del cajón"
+      },
+      "sp_fandrying_remaining_time": {
+        "name": "Tiempo restante de secado por ventilador del cajón"
+      },
+      "sp_fandrying_setting_automode_day": {
+        "name": "Día del modo automático de secado por ventilador del cajón"
+      },
+      "sp_fandrying_setting_automode_starthour": {
+        "name": "Hora de inicio del modo automático de secado por ventilador del cajón"
+      },
+      "sp_fandrying_setting_automode_startminute": {
+        "name": "Minuto de inicio del modo automático de secado por ventilador del cajón"
+      },
+      "sp_fandrying_status": {
+        "name": "Estado de secado por ventilador del cajón",
+        "state": {
+          "drying": "Secado",
+          "drying_pause": "Secado en pausa",
+          "ion_drying": "Secado por iones",
+          "ion_drying_pause": "Secado por iones en pausa",
+          "power_off": "Apagado",
+          "uperization": "Uperización",
+          "uperization_pause": "Uperización en pausa",
+          "warm_drink": "Bebida caliente",
+          "warm_drink_pause": "Bebida caliente en pausa"
+        }
+      },
+      "sp_fandrying_temperature": {
+        "name": "Temperatura de secado por ventilador del cajón"
+      },
+      "sp_heatingdisk_destination_time": {
+        "name": "Tiempo objetivo de la placa calefactora del cajón"
+      },
+      "sp_heatingdisk_order_destination_time": {
+        "name": "Tiempo objetivo de reserva de la placa calefactora del cajón"
+      },
+      "sp_heatingdisk_order_remaining_time": {
+        "name": "Tiempo restante de reserva de la placa calefactora del cajón"
+      },
+      "sp_heatingdisk_remaining_time": {
+        "name": "Tiempo restante de la placa calefactora del cajón"
+      },
+      "sp_heatingdisk_setting_automode_day": {
+        "name": "Día del modo automático de la placa calefactora del cajón"
+      },
+      "sp_heatingdisk_setting_automode_starthour": {
+        "name": "Hora de inicio del modo automático de la placa calefactora del cajón"
+      },
+      "sp_heatingdisk_setting_automode_startminute": {
+        "name": "Minuto de inicio del modo automático de la placa calefactora del cajón"
+      },
+      "sp_heatingdisk_status": {
+        "name": "Estado de la placa calefactora del cajón",
+        "state": {
+          "drying": "Secado",
+          "drying_pause": "Secado en pausa",
+          "ion_drying": "Secado por iones",
+          "ion_drying_pause": "Secado por iones en pausa",
+          "power_off": "Apagado",
+          "uperization": "Uperización",
+          "uperization_pause": "Uperización en pausa",
+          "warm_drink": "Bebida caliente",
+          "warm_drink_pause": "Bebida caliente en pausa"
+        }
+      },
+      "sp_heatingdisk_temperature": {
+        "name": "Temperatura de la placa calefactora del cajón"
+      },
+      "sp_uvc_destination_time": {
+        "name": "Tiempo objetivo UVC del cajón"
+      },
+      "sp_uvc_order_destination_time": {
+        "name": "Tiempo objetivo de reserva UVC del cajón"
+      },
+      "sp_uvc_order_remaining_time": {
+        "name": "Tiempo restante de reserva UVC del cajón"
+      },
+      "sp_uvc_remaining_time": {
+        "name": "Tiempo restante UVC del cajón"
+      },
+      "sp_uvc_setting_automode_day": {
+        "name": "Día del modo automático UVC del cajón"
+      },
+      "sp_uvc_setting_automode_starthour": {
+        "name": "Hora de inicio del modo automático UVC del cajón"
+      },
+      "sp_uvc_setting_automode_startminute": {
+        "name": "Minuto de inicio del modo automático UVC del cajón"
+      },
+      "sp_uvc_status": {
+        "name": "Estado UVC del cajón",
+        "state": {
+          "drying": "Secado",
+          "drying_pause": "Secado en pausa",
+          "ion_drying": "Secado por iones",
+          "ion_drying_pause": "Secado por iones en pausa",
+          "power_off": "Apagado",
+          "uperization": "Uperización",
+          "uperization_pause": "Uperización en pausa",
+          "warm_drink": "Bebida caliente",
+          "warm_drink_pause": "Bebida caliente en pausa"
+        }
+      },
+      "sp_uvc_temperature": {
+        "name": "Temperatura UVC del cajón"
+      },
+      "total_error_code": {
+        "name": "Código de error"
+      },
+      "total_error_type": {
+        "name": "Tipo de error"
+      },
+      "total_firewall_temp": {
+        "name": "Temp. del cortafuegos"
+      },
+      "total_gesture": {
+        "name": "Gesto",
+        "state": {
+          "off": "Apagado",
+          "on": "Encendido"
+        }
+      },
+      "total_ir": {
+        "name": "IR",
+        "state": {
+          "off": "Apagado",
+          "on": "Encendido"
+        }
+      },
+      "total_lock_off_type": {
+        "name": "Tipo de desbloqueo",
+        "state": {
+          "local": "Local"
+        }
+      },
+      "total_lock_on_type": {
+        "name": "Tipo de bloqueo",
+        "state": {
+          "app": "App",
+          "local": "Local"
+        }
+      },
+      "total_shelving_unit_temp": {
+        "name": "Temp. de la estantería"
+      },
+      "total_speak": {
+        "name": "Hablar",
+        "state": {
+          "off": "Apagado",
+          "on": "Encendido"
+        }
+      },
+      "total_tips_code": {
+        "name": "Código de aviso"
+      },
+      "total_tips_type": {
+        "name": "Tipo de aviso"
       }
     },
     "switch": {
@@ -1831,6 +3477,15 @@
       },
       "holiday_on": {
         "name": "Modo - Vacaciones"
+      },
+      "ai_voice_microphone": {
+        "name": "Micrófono de voz IA"
+      },
+      "total_lock": {
+        "name": "Bloqueo infantil"
+      },
+      "total_power": {
+        "name": "Encendido"
       }
     },
     "water_heater": {

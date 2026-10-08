@@ -153,10 +153,18 @@
       "dispensing": {
         "name": "Подача воды"
       },
-      "lack_water": { "name": "Недостаток воды" },
-      "standby": { "name": "Ожидание" },
-      "hot_water_dispensing": { "name": "Подача горячей воды" },
-      "fault": { "name": "Неисправность" },
+      "lack_water": {
+        "name": "Недостаток воды"
+      },
+      "standby": {
+        "name": "Ожидание"
+      },
+      "hot_water_dispensing": {
+        "name": "Подача горячей воды"
+      },
+      "fault": {
+        "name": "Неисправность"
+      },
       "heating_working": {
         "name": "Heating Working Status"
       },
@@ -483,6 +491,342 @@
       },
       "time_set": {
         "name": "Возможность - Время установлено"
+      },
+      "ac_air_direction": {
+        "name": "Кондиционер: направление воздуха"
+      },
+      "ac_cooling_fan": {
+        "name": "Кондиционер: вентилятор охлаждения"
+      },
+      "ac_draining_pump": {
+        "name": "Кондиционер: дренажный насос"
+      },
+      "ac_low_temperature": {
+        "name": "Кондиционер: низкая температура"
+      },
+      "ac_over_temperature": {
+        "name": "Кондиционер: перегрев"
+      },
+      "ac_swing": {
+        "name": "Кондиционер: качание"
+      },
+      "ac_water_full": {
+        "name": "Кондиционер: бак полон"
+      },
+      "b2_downstair_clean_tips": {
+        "name": "Пароварка (нижняя): подсказка очистки"
+      },
+      "b2_downstair_door": {
+        "name": "Пароварка (нижняя): дверца"
+      },
+      "b2_downstair_fresh_water": {
+        "name": "Пароварка (нижняя): чистая вода"
+      },
+      "b2_downstair_light": {
+        "name": "Пароварка (нижняя): подсветка"
+      },
+      "b2_downstair_lock": {
+        "name": "Пароварка (нижняя): блокировка"
+      },
+      "b2_downstair_must_clean_tips": {
+        "name": "Пароварка (нижняя): подсказка обязательной очистки"
+      },
+      "b2_downstair_water_shortage": {
+        "name": "Пароварка (нижняя): нехватка воды"
+      },
+      "b2_upstair_clean_tips": {
+        "name": "Пароварка (верхняя): подсказка очистки"
+      },
+      "b2_upstair_door": {
+        "name": "Пароварка (верхняя): дверца"
+      },
+      "b2_upstair_fresh_water": {
+        "name": "Пароварка (верхняя): чистая вода"
+      },
+      "b2_upstair_light": {
+        "name": "Пароварка (верхняя): подсветка"
+      },
+      "b2_upstair_lock": {
+        "name": "Пароварка (верхняя): блокировка"
+      },
+      "b2_upstair_must_clean_tips": {
+        "name": "Пароварка (верхняя): подсказка обязательной очистки"
+      },
+      "b2_upstair_water_shortage": {
+        "name": "Пароварка (верхняя): нехватка воды"
+      },
+      "b3_downstair_door": {
+        "name": "Паровой шкаф (нижний): дверца"
+      },
+      "b3_downstair_door_lock": {
+        "name": "Паровой шкаф (нижний): блокировка дверцы"
+      },
+      "b3_downstair_infrared": {
+        "name": "Паровой шкаф (нижний): ИК-датчик"
+      },
+      "b3_downstair_ultraviolet": {
+        "name": "Паровой шкаф (нижний): ультрафиолет"
+      },
+      "b3_upstair_door": {
+        "name": "Паровой шкаф (верхний): дверца"
+      },
+      "b3_upstair_door_lock": {
+        "name": "Паровой шкаф (верхний): блокировка дверцы"
+      },
+      "b3_upstair_infrared": {
+        "name": "Паровой шкаф (верхний): ИК-датчик"
+      },
+      "b3_upstair_ultraviolet": {
+        "name": "Паровой шкаф (верхний): ультрафиолет"
+      },
+      "b6_TVOC_status": {
+        "name": "Вытяжка: состояние TVOC"
+      },
+      "b6_delay_gear_linkage": {
+        "name": "Вытяжка: связь задержки по ступени"
+      },
+      "b6_delay_time": {
+        "name": "Вытяжка: задержка выключения"
+      },
+      "b6_gesture_status": {
+        "name": "Вытяжка: состояние жестов"
+      },
+      "b6_infrared_status": {
+        "name": "Вытяжка: состояние ИК-датчика"
+      },
+      "b6_lock": {
+        "name": "Вытяжка: блокировка"
+      },
+      "b6_power_on_light": {
+        "name": "Вытяжка: подсветка при включении"
+      },
+      "b6_smoke_detector": {
+        "name": "Вытяжка: датчик дыма"
+      },
+      "b6_smoke_stove_linkage": {
+        "name": "Вытяжка: связь с плитой по дыму"
+      },
+      "b7_left_dry_burning": {
+        "name": "Газовая плита (левая): сухое горение"
+      },
+      "b7_left_dry_burning_invalid": {
+        "name": "Газовая плита (левая): защита от сухого горения неактивна"
+      },
+      "b7_left_gas_leakage": {
+        "name": "Газовая плита (левая): утечка газа"
+      },
+      "b7_left_has_fire": {
+        "name": "Газовая плита (левая): есть пламя"
+      },
+      "b7_left_has_pot": {
+        "name": "Газовая плита (левая): есть посуда"
+      },
+      "b7_right_dry_burning": {
+        "name": "Газовая плита (правая): сухое горение"
+      },
+      "b7_right_dry_burning_invalid": {
+        "name": "Газовая плита (правая): защита от сухого горения неактивна"
+      },
+      "b7_right_gas_leakage": {
+        "name": "Газовая плита (правая): утечка газа"
+      },
+      "b7_right_has_fire": {
+        "name": "Газовая плита (правая): есть пламя"
+      },
+      "b7_right_has_pot": {
+        "name": "Газовая плита (правая): есть посуда"
+      },
+      "bf_door": {
+        "name": "Духовка: дверца"
+      },
+      "bf_error": {
+        "name": "Духовка: ошибка"
+      },
+      "bf_flip": {
+        "name": "Духовка: переворот"
+      },
+      "bf_hightemp_error": {
+        "name": "Духовка: ошибка перегрева"
+      },
+      "bf_hightemp_lock": {
+        "name": "Духовка: блокировка при высокой температуре"
+      },
+      "bf_hightemp_over": {
+        "name": "Духовка: превышение высокой температуры"
+      },
+      "bf_hotwind": {
+        "name": "Духовка: конвекция"
+      },
+      "bf_hotwind_set": {
+        "name": "Духовка: настройка конвекции"
+      },
+      "bf_hydrops_full": {
+        "name": "Духовка: поддон полон"
+      },
+      "bf_light": {
+        "name": "Духовка: подсветка"
+      },
+      "bf_lock": {
+        "name": "Духовка: блокировка"
+      },
+      "bf_off_fromapp": {
+        "name": "Духовка: выключение из приложения"
+      },
+      "bf_on_smart": {
+        "name": "Духовка: умное включение"
+      },
+      "bf_order": {
+        "name": "Духовка: таймер"
+      },
+      "bf_order_time_isabsolute": {
+        "name": "Духовка: абсолютное время таймера"
+      },
+      "bf_overheat": {
+        "name": "Духовка: перегрев"
+      },
+      "bf_preheat": {
+        "name": "Духовка: предварительный нагрев"
+      },
+      "bf_preheat_done": {
+        "name": "Духовка: предварительный нагрев завершён"
+      },
+      "bf_preheat_set": {
+        "name": "Духовка: настройка предварительного нагрева"
+      },
+      "bf_probe": {
+        "name": "Духовка: термощуп"
+      },
+      "bf_probe_meat": {
+        "name": "Духовка: термощуп для мяса"
+      },
+      "bf_radiating": {
+        "name": "Духовка: гриль"
+      },
+      "bf_repair_cook": {
+        "name": "Духовка: восстановление приготовления"
+      },
+      "bf_sabbath": {
+        "name": "Духовка: субботний режим"
+      },
+      "bf_scalehandling_remind": {
+        "name": "Духовка: напоминание об удалении накипи"
+      },
+      "bf_sensor": {
+        "name": "Духовка: датчик"
+      },
+      "bf_stove_1": {
+        "name": "Духовка: конфорка 1"
+      },
+      "bf_stove_2": {
+        "name": "Духовка: конфорка 2"
+      },
+      "bf_stove_3": {
+        "name": "Духовка: конфорка 3"
+      },
+      "bf_stove_4": {
+        "name": "Духовка: конфорка 4"
+      },
+      "bf_stove_5": {
+        "name": "Духовка: конфорка 5"
+      },
+      "bf_temp_fahrenheit": {
+        "name": "Духовка: температура по Фаренгейту"
+      },
+      "bf_time_synchronization": {
+        "name": "Духовка: синхронизация времени"
+      },
+      "bf_turntable": {
+        "name": "Духовка: поворотный стол"
+      },
+      "bf_turntable_reset": {
+        "name": "Духовка: сброс поворотного стола"
+      },
+      "bf_upload_interval": {
+        "name": "Духовка: интервал передачи данных"
+      },
+      "bf_voice_identify": {
+        "name": "Духовка: распознавание голоса"
+      },
+      "bf_voice_module": {
+        "name": "Духовка: голосовой модуль"
+      },
+      "bf_water_box": {
+        "name": "Духовка: резервуар для воды"
+      },
+      "bf_water_change": {
+        "name": "Духовка: замена воды"
+      },
+      "bf_water_shortage": {
+        "name": "Духовка: нехватка воды"
+      },
+      "bf_wintersummertime": {
+        "name": "Духовка: зимнее/летнее время"
+      },
+      "e7_left_bottom_has_pot": {
+        "name": "Индукция (левая нижняя): есть посуда"
+      },
+      "e7_left_has_pot": {
+        "name": "Индукция (левая): есть посуда"
+      },
+      "e7_left_top_has_pot": {
+        "name": "Индукция (левая верхняя): есть посуда"
+      },
+      "e7_right_bottom_has_pot": {
+        "name": "Индукция (правая нижняя): есть посуда"
+      },
+      "e7_right_has_pot": {
+        "name": "Индукция (правая): есть посуда"
+      },
+      "e7_right_top_has_pot": {
+        "name": "Индукция (правая верхняя): есть посуда"
+      },
+      "sp_fandrying_door": {
+        "name": "Поддон: дверца сушки вентилятором"
+      },
+      "sp_fandrying_setting_automode": {
+        "name": "Поддон: автоматический режим сушки вентилятором"
+      },
+      "sp_fandrying_setting_linkage": {
+        "name": "Поддон: связь сушки вентилятором"
+      },
+      "sp_fandrying_setting_linkcooker": {
+        "name": "Поддон: связь сушки вентилятором с плитой"
+      },
+      "sp_fandrying_setting_sync": {
+        "name": "Поддон: синхронизация сушки вентилятором"
+      },
+      "sp_heatingdisk_door": {
+        "name": "Поддон: дверца нагревательного диска"
+      },
+      "sp_heatingdisk_setting_automode": {
+        "name": "Поддон: автоматический режим нагревательного диска"
+      },
+      "sp_heatingdisk_setting_linkage": {
+        "name": "Поддон: связь нагревательного диска"
+      },
+      "sp_heatingdisk_setting_linkcooker": {
+        "name": "Поддон: связь нагревательного диска с плитой"
+      },
+      "sp_heatingdisk_setting_sync": {
+        "name": "Поддон: синхронизация нагревательного диска"
+      },
+      "sp_uvc_door": {
+        "name": "Поддон: дверца UVC"
+      },
+      "sp_uvc_setting_automode": {
+        "name": "Поддон: автоматический режим UVC"
+      },
+      "sp_uvc_setting_linkage": {
+        "name": "Поддон: связь UVC"
+      },
+      "sp_uvc_setting_linkcooker": {
+        "name": "Поддон: связь UVC с плитой"
+      },
+      "sp_uvc_setting_sync": {
+        "name": "Поддон: синхронизация UVC"
+      },
+      "total_water_shortage": {
+        "name": "Нехватка воды"
       }
     },
     "button": {
@@ -566,6 +910,9 @@
       },
       "keep_warm_time": {
         "name": "Время поддержания тепла"
+      },
+      "ai_voice_volume": {
+        "name": "AI-голос: громкость"
       }
     },
     "select": {
@@ -984,7 +1331,9 @@
       "keep_warm_remaining": {
         "name": "Keep Warm Remaining"
       },
-      "fault_code": { "name": "Код неисправности" },
+      "fault_code": {
+        "name": "Код неисправности"
+      },
       "keep_warm_time": {
         "name": "Keep Warm Time"
       },
@@ -1571,6 +1920,1303 @@
       },
       "zone2_temp_set": {
         "name": "Температура - Уставка зоны 2"
+      },
+      "ac_air_direction_gear": {
+        "name": "Кондиционер: ступень направления воздуха"
+      },
+      "ac_air_direction_max_angle": {
+        "name": "Кондиционер: макс. угол направления воздуха"
+      },
+      "ac_air_direction_min_angle": {
+        "name": "Кондиционер: мин. угол направления воздуха"
+      },
+      "ac_ambient_temperature": {
+        "name": "Кондиционер: температура окружающей среды"
+      },
+      "ac_current_temp": {
+        "name": "Кондиционер: текущая температура"
+      },
+      "ac_destination_temp": {
+        "name": "Кондиционер: заданная температура"
+      },
+      "ac_destination_time": {
+        "name": "Кондиционер: заданное время"
+      },
+      "ac_gear": {
+        "name": "Кондиционер: ступень"
+      },
+      "ac_mode": {
+        "name": "Кондиционер: режим",
+        "state": {
+          "air_supply": "Подача воздуха",
+          "dehumidification": "Осушение",
+          "net_flavour": "Удаление запахов",
+          "none": "Нет",
+          "refrigeration": "Охлаждение"
+        }
+      },
+      "ac_order_destination_time": {
+        "name": "Кондиционер: заданное время таймера"
+      },
+      "ac_order_remaining_time": {
+        "name": "Кондиционер: оставшееся время таймера"
+      },
+      "ac_remaining_time": {
+        "name": "Кондиционер: оставшееся время"
+      },
+      "ac_swing_gear": {
+        "name": "Кондиционер: ступень качания"
+      },
+      "ac_swing_max_angle": {
+        "name": "Кондиционер: макс. угол качания"
+      },
+      "ac_swing_min_angle": {
+        "name": "Кондиционер: мин. угол качания"
+      },
+      "ac_work_status": {
+        "name": "Кондиционер: состояние работы",
+        "state": {
+          "order": "Таймер",
+          "power_off": "Выключение",
+          "reservation": "Резервирование",
+          "reservation_and_order_ordering": "Резервирование и таймер: выполнение",
+          "reservation_and_order_reserving": "Резервирование и таймер: ожидание",
+          "working": "Работает"
+        }
+      },
+      "ai_voice_microphone_status": {
+        "name": "AI-голос: состояние микрофона",
+        "state": {
+          "failure": "Сбой",
+          "success": "Успешно"
+        }
+      },
+      "ai_voice_status": {
+        "name": "AI-голос: состояние",
+        "state": {
+          "connecting": "Подключение",
+          "off": "Выкл",
+          "on": "Вкл"
+        }
+      },
+      "ai_voice_volume_status": {
+        "name": "AI-голос: состояние громкости",
+        "state": {
+          "failure": "Сбой",
+          "success": "Успешно"
+        }
+      },
+      "b2_downstair_current_temp": {
+        "name": "Пароварка (нижняя): текущая температура"
+      },
+      "b2_downstair_destination_temp": {
+        "name": "Пароварка (нижняя): заданная температура"
+      },
+      "b2_downstair_light_off_type": {
+        "name": "Пароварка (нижняя): тип выключения подсветки",
+        "state": {
+          "app": "Приложение",
+          "local": "Локально"
+        }
+      },
+      "b2_downstair_light_on_type": {
+        "name": "Пароварка (нижняя): тип включения подсветки",
+        "state": {
+          "app": "Приложение",
+          "local": "Локально"
+        }
+      },
+      "b2_downstair_order_destination_time": {
+        "name": "Пароварка (нижняя): заданное время таймера"
+      },
+      "b2_downstair_order_remaining_time": {
+        "name": "Пароварка (нижняя): оставшееся время таймера"
+      },
+      "b2_downstair_power_off_type": {
+        "name": "Пароварка (нижняя): тип выключения",
+        "state": {
+          "app": "Приложение",
+          "auto": "Авто",
+          "error": "Ошибка",
+          "local": "Локально",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b2_downstair_power_on_type": {
+        "name": "Пароварка (нижняя): тип включения",
+        "state": {
+          "app": "Приложение",
+          "local": "Локально",
+          "order": "Таймер"
+        }
+      },
+      "b2_downstair_preheating": {
+        "name": "Пароварка (нижняя): предварительный нагрев",
+        "state": {
+          "finish": "Завершено",
+          "none": "Нет",
+          "preheating": "Предварительный нагрев"
+        }
+      },
+      "b2_downstair_recipe_after": {
+        "name": "Пароварка (нижняя): действие после рецепта"
+      },
+      "b2_downstair_recipe_code": {
+        "name": "Пароварка (нижняя): код рецепта"
+      },
+      "b2_downstair_recipe_current_mode": {
+        "name": "Пароварка (нижняя): текущий режим рецепта"
+      },
+      "b2_downstair_recipe_current_step": {
+        "name": "Пароварка (нижняя): текущий шаг рецепта"
+      },
+      "b2_downstair_recipe_off_type": {
+        "name": "Пароварка (нижняя): тип выключения рецепта",
+        "state": {
+          "app": "Приложение",
+          "auto": "Авто",
+          "error": "Ошибка",
+          "local": "Локально",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b2_downstair_recipe_on_type": {
+        "name": "Пароварка (нижняя): тип включения рецепта",
+        "state": {
+          "app": "Приложение",
+          "local": "Локально",
+          "order": "Таймер"
+        }
+      },
+      "b2_downstair_recipe_total_steps": {
+        "name": "Пароварка (нижняя): всего шагов рецепта"
+      },
+      "b2_downstair_work_destination_time": {
+        "name": "Пароварка (нижняя): заданное время работы"
+      },
+      "b2_downstair_work_func": {
+        "name": "Пароварка (нижняя): рабочая функция"
+      },
+      "b2_downstair_work_menu": {
+        "name": "Пароварка (нижняя): рабочее меню"
+      },
+      "b2_downstair_work_remaining_time": {
+        "name": "Пароварка (нижняя): оставшееся время работы"
+      },
+      "b2_downstair_work_status": {
+        "name": "Пароварка (нижняя): состояние работы",
+        "state": {
+          "auto": "Авто",
+          "drying": "Сушка",
+          "finish": "Завершено",
+          "order": "Таймер",
+          "pause": "Пауза",
+          "power_off": "Выключение",
+          "standby": "Ожидание",
+          "working": "Работает"
+        }
+      },
+      "b2_upstair_current_temp": {
+        "name": "Пароварка (верхняя): текущая температура"
+      },
+      "b2_upstair_destination_temp": {
+        "name": "Пароварка (верхняя): заданная температура"
+      },
+      "b2_upstair_light_off_type": {
+        "name": "Пароварка (верхняя): тип выключения подсветки",
+        "state": {
+          "app": "Приложение",
+          "local": "Локально"
+        }
+      },
+      "b2_upstair_light_on_type": {
+        "name": "Пароварка (верхняя): тип включения подсветки",
+        "state": {
+          "app": "Приложение",
+          "local": "Локально"
+        }
+      },
+      "b2_upstair_order_destination_time": {
+        "name": "Пароварка (верхняя): заданное время таймера"
+      },
+      "b2_upstair_order_remaining_time": {
+        "name": "Пароварка (верхняя): оставшееся время таймера"
+      },
+      "b2_upstair_power_off_type": {
+        "name": "Пароварка (верхняя): тип выключения",
+        "state": {
+          "app": "Приложение",
+          "auto": "Авто",
+          "error": "Ошибка",
+          "local": "Локально",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b2_upstair_power_on_type": {
+        "name": "Пароварка (верхняя): тип включения",
+        "state": {
+          "app": "Приложение",
+          "local": "Локально",
+          "order": "Таймер"
+        }
+      },
+      "b2_upstair_preheating": {
+        "name": "Пароварка (верхняя): предварительный нагрев",
+        "state": {
+          "finish": "Завершено",
+          "none": "Нет",
+          "preheating": "Предварительный нагрев"
+        }
+      },
+      "b2_upstair_recipe_after": {
+        "name": "Пароварка (верхняя): действие после рецепта"
+      },
+      "b2_upstair_recipe_code": {
+        "name": "Пароварка (верхняя): код рецепта"
+      },
+      "b2_upstair_recipe_current_mode": {
+        "name": "Пароварка (верхняя): текущий режим рецепта"
+      },
+      "b2_upstair_recipe_current_step": {
+        "name": "Пароварка (верхняя): текущий шаг рецепта"
+      },
+      "b2_upstair_recipe_off_type": {
+        "name": "Пароварка (верхняя): тип выключения рецепта",
+        "state": {
+          "app": "Приложение",
+          "auto": "Авто",
+          "error": "Ошибка",
+          "local": "Локально",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b2_upstair_recipe_on_type": {
+        "name": "Пароварка (верхняя): тип включения рецепта",
+        "state": {
+          "app": "Приложение",
+          "local": "Локально",
+          "order": "Таймер"
+        }
+      },
+      "b2_upstair_recipe_total_steps": {
+        "name": "Пароварка (верхняя): всего шагов рецепта"
+      },
+      "b2_upstair_work_destination_time": {
+        "name": "Пароварка (верхняя): заданное время работы"
+      },
+      "b2_upstair_work_func": {
+        "name": "Пароварка (верхняя): рабочая функция"
+      },
+      "b2_upstair_work_menu": {
+        "name": "Пароварка (верхняя): рабочее меню"
+      },
+      "b2_upstair_work_remaining_time": {
+        "name": "Пароварка (верхняя): оставшееся время работы"
+      },
+      "b2_upstair_work_status": {
+        "name": "Пароварка (верхняя): состояние работы",
+        "state": {
+          "auto": "Авто",
+          "drying": "Сушка",
+          "finish": "Завершено",
+          "order": "Таймер",
+          "pause": "Пауза",
+          "power_off": "Выключение",
+          "standby": "Ожидание",
+          "working": "Работает"
+        }
+      },
+      "b3_disinfect_off_type": {
+        "name": "Паровой шкаф: тип выключения дезинфекции",
+        "state": {
+          "app": "Приложение",
+          "local": "Локально"
+        }
+      },
+      "b3_disinfect_on_type": {
+        "name": "Паровой шкаф: тип включения дезинфекции",
+        "state": {
+          "app": "Приложение",
+          "local": "Локально"
+        }
+      },
+      "b3_downstair_current_temp": {
+        "name": "Паровой шкаф (нижний): текущая температура"
+      },
+      "b3_downstair_destination_temp": {
+        "name": "Паровой шкаф (нижний): заданная температура"
+      },
+      "b3_downstair_destination_time": {
+        "name": "Паровой шкаф (нижний): заданное время"
+      },
+      "b3_downstair_remaining_time": {
+        "name": "Паровой шкаф (нижний): оставшееся время"
+      },
+      "b3_downstair_sensor": {
+        "name": "Паровой шкаф (нижний): датчик"
+      },
+      "b3_downstair_status": {
+        "name": "Паровой шкаф (нижний): состояние",
+        "state": {
+          "drying": "Сушка",
+          "drying_pause": "Сушка на паузе",
+          "ion_drying": "Ионная сушка",
+          "ion_drying_pause": "Ионная сушка на паузе",
+          "power_off": "Выключение",
+          "uperization": "Ультрапастеризация",
+          "uperization_pause": "Ультрапастеризация на паузе",
+          "warm_drink": "Подогрев напитков",
+          "warm_drink_pause": "Подогрев напитков на паузе"
+        }
+      },
+      "b3_thermotank_off_type": {
+        "name": "Паровой шкаф: тип выключения термобака",
+        "state": {
+          "app": "Приложение",
+          "local": "Локально"
+        }
+      },
+      "b3_thermotank_on_type": {
+        "name": "Паровой шкаф: тип включения термобака",
+        "state": {
+          "app": "Приложение",
+          "local": "Локально"
+        }
+      },
+      "b3_upstair_current_temp": {
+        "name": "Паровой шкаф (верхний): текущая температура"
+      },
+      "b3_upstair_destination_temp": {
+        "name": "Паровой шкаф (верхний): заданная температура"
+      },
+      "b3_upstair_destination_time": {
+        "name": "Паровой шкаф (верхний): заданное время"
+      },
+      "b3_upstair_remaining_time": {
+        "name": "Паровой шкаф (верхний): оставшееся время"
+      },
+      "b3_upstair_sensor": {
+        "name": "Паровой шкаф (верхний): датчик"
+      },
+      "b3_upstair_status": {
+        "name": "Паровой шкаф (верхний): состояние",
+        "state": {
+          "drying": "Сушка",
+          "drying_pause": "Сушка на паузе",
+          "ion_drying": "Ионная сушка",
+          "ion_drying_pause": "Ионная сушка на паузе",
+          "power_off": "Выключение",
+          "uperization": "Ультрапастеризация",
+          "uperization_pause": "Ультрапастеризация на паузе",
+          "warm_drink": "Подогрев напитков",
+          "warm_drink_pause": "Подогрев напитков на паузе"
+        }
+      },
+      "b6_TVOC_value": {
+        "name": "Вытяжка: значение TVOC",
+        "state": {
+          "中": "Средне",
+          "优": "Отлично",
+          "良": "Хорошо"
+        }
+      },
+      "b6_air_duct_detection_score": {
+        "name": "Вытяжка: оценка проверки воздуховода"
+      },
+      "b6_air_duct_detection_state": {
+        "name": "Вытяжка: состояние проверки воздуховода"
+      },
+      "b6_air_duct_detection_time": {
+        "name": "Вытяжка: время проверки воздуховода"
+      },
+      "b6_air_duct_detection_windage": {
+        "name": "Вытяжка: сопротивление воздуховода при проверке"
+      },
+      "b6_air_volume": {
+        "name": "Вытяжка: объём воздуха"
+      },
+      "b6_delay_gear_linkage_gear": {
+        "name": "Вытяжка: ступень связи задержки"
+      },
+      "b6_delay_time_value": {
+        "name": "Вытяжка: значение задержки выключения"
+      },
+      "b6_destination_time": {
+        "name": "Вытяжка: заданное время"
+      },
+      "b6_gear": {
+        "name": "Вытяжка: ступень"
+      },
+      "b6_gear_control_type": {
+        "name": "Вытяжка: тип управления ступенью",
+        "state": {
+          "app": "Приложение",
+          "gesture": "Жест",
+          "linkage": "Связь",
+          "local": "Локально",
+          "smoke_detector": "Датчик дыма"
+        }
+      },
+      "b6_gesture_sensitivity": {
+        "name": "Вытяжка: чувствительность жестов",
+        "state": {
+          "1": "1",
+          "2": "2",
+          "3": "3"
+        }
+      },
+      "b6_gesture_value": {
+        "name": "Вытяжка: значение жеста",
+        "state": {
+          "light": "Подсветка",
+          "power": "Питание",
+          "wind": "Обдув"
+        }
+      },
+      "b6_hotclean_tips": {
+        "name": "Вытяжка: подсказка горячей очистки"
+      },
+      "b6_infrared_value": {
+        "name": "Вытяжка: значение ИК-датчика",
+        "state": {
+          "power": "Питание",
+          "wind": "Обдув"
+        }
+      },
+      "b6_inverter_ac_frequency": {
+        "name": "Вытяжка: частота переменного тока инвертора"
+      },
+      "b6_inverter_back_electromotive_force": {
+        "name": "Вытяжка: обратная ЭДС инвертора"
+      },
+      "b6_inverter_capacity": {
+        "name": "Вытяжка: мощность инвертора"
+      },
+      "b6_inverter_efficiency": {
+        "name": "Вытяжка: эффективность инвертора"
+      },
+      "b6_inverter_motor_compensation_angle": {
+        "name": "Вытяжка: угол компенсации двигателя инвертора"
+      },
+      "b6_inverter_motor_speed": {
+        "name": "Вытяжка: скорость двигателя инвертора"
+      },
+      "b6_inverter_q_axis_current": {
+        "name": "Вытяжка: ток оси Q инвертора"
+      },
+      "b6_inverter_start_time": {
+        "name": "Вытяжка: время запуска инвертора"
+      },
+      "b6_inverter_temperature": {
+        "name": "Вытяжка: температура инвертора"
+      },
+      "b6_inverter_temperature_limit_sign": {
+        "name": "Вытяжка: признак ограничения температуры инвертора"
+      },
+      "b6_inverter_voltage": {
+        "name": "Вытяжка: напряжение инвертора"
+      },
+      "b6_inverter_wind_flow": {
+        "name": "Вытяжка: воздушный поток инвертора"
+      },
+      "b6_inverter_wind_presssure": {
+        "name": "Вытяжка: давление воздуха инвертора"
+      },
+      "b6_inverter_windage": {
+        "name": "Вытяжка: сопротивление воздуха инвертора"
+      },
+      "b6_inverter_work_gear": {
+        "name": "Вытяжка: рабочая ступень инвертора"
+      },
+      "b6_last_hotclean_hour": {
+        "name": "Вытяжка: время последней горячей очистки"
+      },
+      "b6_light": {
+        "name": "Вытяжка: подсветка"
+      },
+      "b6_light_off_type": {
+        "name": "Вытяжка: тип выключения подсветки",
+        "state": {
+          "app": "Приложение",
+          "error": "Ошибка",
+          "gesture": "Жест",
+          "local": "Локально"
+        }
+      },
+      "b6_light_on_type": {
+        "name": "Вытяжка: тип включения подсветки",
+        "state": {
+          "app": "Приложение",
+          "gesture": "Жест",
+          "local": "Локально"
+        }
+      },
+      "b6_lightness": {
+        "name": "Вытяжка: яркость"
+      },
+      "b6_lock_off_type": {
+        "name": "Вытяжка: тип снятия блокировки",
+        "state": {
+          "local": "Локально"
+        }
+      },
+      "b6_lock_on_type": {
+        "name": "Вытяжка: тип включения блокировки",
+        "state": {
+          "app": "Приложение",
+          "local": "Локально"
+        }
+      },
+      "b6_power": {
+        "name": "Вытяжка: питание",
+        "state": {
+          "delay_off": "Выключение с задержкой",
+          "off": "Выкл",
+          "on": "Вкл"
+        }
+      },
+      "b6_power_off_type": {
+        "name": "Вытяжка: тип выключения",
+        "state": {
+          "app": "Приложение",
+          "delay": "Задержка",
+          "gesture": "Жест",
+          "linkage": "Связь",
+          "local": "Локально"
+        }
+      },
+      "b6_power_on_type": {
+        "name": "Вытяжка: тип включения",
+        "state": {
+          "app": "Приложение",
+          "gesture": "Жест",
+          "linkage": "Связь",
+          "local": "Локально"
+        }
+      },
+      "b6_remaining_time": {
+        "name": "Вытяжка: оставшееся время"
+      },
+      "b6_smoke_detector_value": {
+        "name": "Вытяжка: значение датчика дыма"
+      },
+      "b6_smoke_potency": {
+        "name": "Вытяжка: интенсивность дыма"
+      },
+      "b6_smoke_stove_linkage_flowin": {
+        "name": "Вытяжка: приток при связи с плитой по дыму",
+        "state": {
+          "no": "Нет",
+          "yes": "Да"
+        }
+      },
+      "b6_smoke_stove_linkage_gear": {
+        "name": "Вытяжка: ступень связи с плитой по дыму"
+      },
+      "b6_smoke_stove_linkage_gear_fix": {
+        "name": "Вытяжка: фиксация ступени связи с плитой по дыму",
+        "state": {
+          "negative": "Отрицательный",
+          "positive": "Положительный"
+        }
+      },
+      "b6_steaming": {
+        "name": "Вытяжка: паровая очистка",
+        "state": {
+          "off": "Выкл",
+          "on": "Вкл"
+        }
+      },
+      "b6_steaming_stage": {
+        "name": "Вытяжка: этап паровой очистки"
+      },
+      "b6_wind_pressure": {
+        "name": "Вытяжка: давление воздуха"
+      },
+      "b6_work_status": {
+        "name": "Вытяжка: состояние работы",
+        "state": {
+          "ai_dry_clean": "ИИ-сухая очистка",
+          "air_duct_detection": "Проверка воздуховода",
+          "check": "Проверка",
+          "clean": "Очистка",
+          "clean_finish": "Очистка завершена",
+          "error": "Ошибка",
+          "hotclean": "Горячая очистка",
+          "initial": "Начальное",
+          "mute_gear": "Тихая ступень",
+          "power_off": "Выключение",
+          "power_off_delay": "Выключение с задержкой",
+          "standby": "Ожидание",
+          "vvvf_gear": "Частотная ступень",
+          "working": "Работает"
+        }
+      },
+      "b7_left_current_temp": {
+        "name": "Газовая плита (левая): текущая температура"
+      },
+      "b7_left_destination_temp": {
+        "name": "Газовая плита (левая): заданная температура"
+      },
+      "b7_left_destination_time": {
+        "name": "Газовая плита (левая): заданное время"
+      },
+      "b7_left_gear": {
+        "name": "Газовая плита (левая): ступень"
+      },
+      "b7_left_power_off_type": {
+        "name": "Газовая плита (левая): тип выключения",
+        "state": {
+          "app": "Приложение",
+          "auto": "Авто",
+          "error": "Ошибка",
+          "local": "Локально",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b7_left_remaining_time": {
+        "name": "Газовая плита (левая): оставшееся время"
+      },
+      "b7_left_status": {
+        "name": "Газовая плита (левая): состояние",
+        "state": {
+          "drying": "Сушка",
+          "drying_pause": "Сушка на паузе",
+          "ion_drying": "Ионная сушка",
+          "ion_drying_pause": "Ионная сушка на паузе",
+          "power_off": "Выключение",
+          "uperization": "Ультрапастеризация",
+          "uperization_pause": "Ультрапастеризация на паузе",
+          "warm_drink": "Подогрев напитков",
+          "warm_drink_pause": "Подогрев напитков на паузе"
+        }
+      },
+      "b7_left_work_time": {
+        "name": "Газовая плита (левая): время работы"
+      },
+      "b7_right_current_temp": {
+        "name": "Газовая плита (правая): текущая температура"
+      },
+      "b7_right_destination_temp": {
+        "name": "Газовая плита (правая): заданная температура"
+      },
+      "b7_right_destination_time": {
+        "name": "Газовая плита (правая): заданное время"
+      },
+      "b7_right_gear": {
+        "name": "Газовая плита (правая): ступень"
+      },
+      "b7_right_power_off_type": {
+        "name": "Газовая плита (правая): тип выключения",
+        "state": {
+          "app": "Приложение",
+          "auto": "Авто",
+          "error": "Ошибка",
+          "local": "Локально",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b7_right_remaining_time": {
+        "name": "Газовая плита (правая): оставшееся время"
+      },
+      "b7_right_status": {
+        "name": "Газовая плита (правая): состояние",
+        "state": {
+          "drying": "Сушка",
+          "drying_pause": "Сушка на паузе",
+          "ion_drying": "Ионная сушка",
+          "ion_drying_pause": "Ионная сушка на паузе",
+          "power_off": "Выключение",
+          "uperization": "Ультрапастеризация",
+          "uperization_pause": "Ультрапастеризация на паузе",
+          "warm_drink": "Подогрев напитков",
+          "warm_drink_pause": "Подогрев напитков на паузе"
+        }
+      },
+      "b7_right_work_time": {
+        "name": "Газовая плита (правая): время работы"
+      },
+      "bf_cavity": {
+        "name": "Духовка: камера",
+        "state": {
+          "down": "Вниз",
+          "up": "Вверх"
+        }
+      },
+      "bf_control_back": {
+        "name": "Духовка: возврат управления",
+        "state": {
+          "func_notsupport": "Функция не поддерживается",
+          "status_notsupport": "Состояние не поддерживается",
+          "success": "Успешно",
+          "value_notsupport": "Значение не поддерживается"
+        }
+      },
+      "bf_end_next": {
+        "name": "Духовка: следующий по завершении"
+      },
+      "bf_fire": {
+        "name": "Духовка: нагрев"
+      },
+      "bf_mode": {
+        "name": "Духовка: режим"
+      },
+      "bf_quick_btn_bake_id": {
+        "name": "Духовка: ID быстрой кнопки выпечки"
+      },
+      "bf_quick_btn_bake_set": {
+        "name": "Духовка: настройка быстрой кнопки выпечки"
+      },
+      "bf_quick_btn_bake_time": {
+        "name": "Духовка: время быстрой кнопки выпечки"
+      },
+      "bf_quick_btn_microwave_id": {
+        "name": "Духовка: ID быстрой кнопки СВЧ"
+      },
+      "bf_quick_btn_microwave_set": {
+        "name": "Духовка: настройка быстрой кнопки СВЧ"
+      },
+      "bf_quick_btn_microwave_time": {
+        "name": "Духовка: время быстрой кнопки СВЧ"
+      },
+      "bf_quick_btn_steam_id": {
+        "name": "Духовка: ID быстрой кнопки пара"
+      },
+      "bf_quick_btn_steam_set": {
+        "name": "Духовка: настройка быстрой кнопки пара"
+      },
+      "bf_quick_btn_steam_time": {
+        "name": "Духовка: время быстрой кнопки пара"
+      },
+      "bf_recipe_code": {
+        "name": "Духовка: код рецепта"
+      },
+      "bf_remaining_time": {
+        "name": "Духовка: оставшееся время"
+      },
+      "bf_steam": {
+        "name": "Духовка: пар"
+      },
+      "bf_step_current": {
+        "name": "Духовка: текущий шаг"
+      },
+      "bf_step_total": {
+        "name": "Духовка: всего шагов"
+      },
+      "bf_temp_down": {
+        "name": "Духовка: нижний нагрев"
+      },
+      "bf_temp_down_set": {
+        "name": "Духовка: настройка нижнего нагрева"
+      },
+      "bf_temp_probe": {
+        "name": "Духовка: температура термощупа"
+      },
+      "bf_temp_probe_set": {
+        "name": "Духовка: настройка температуры термощупа"
+      },
+      "bf_temp_up": {
+        "name": "Духовка: верхний нагрев"
+      },
+      "bf_temp_up_set": {
+        "name": "Духовка: настройка верхнего нагрева"
+      },
+      "bf_tips_mark": {
+        "name": "Духовка: метка подсказки",
+        "state": {
+          "apply": "Применить",
+          "change_attachments": "Замена аксессуаров",
+          "door_open": "Дверца открыта",
+          "feed": "Подача",
+          "recipe_tips": "Подсказка по рецепту",
+          "stir": "Помешивание"
+        }
+      },
+      "bf_weight_mount": {
+        "name": "Духовка: установка взвешивания"
+      },
+      "bf_weight_multiple": {
+        "name": "Духовка: множитель веса",
+        "state": {
+          "g": "г",
+          "kg": "кг",
+          "ounce": "Унция",
+          "pound": "Фунт"
+        }
+      },
+      "bf_weight_unit": {
+        "name": "Духовка: единица веса",
+        "state": {
+          "g": "г",
+          "kg": "кг",
+          "other": "Другое",
+          "ounce": "Унция",
+          "pound": "Фунт"
+        }
+      },
+      "bf_work_status": {
+        "name": "Духовка: состояние работы",
+        "state": {
+          "after_sale": "Сервис",
+          "check_version": "Проверка версии",
+          "cloudmenu_setting": "Настройка облачного меню",
+          "demo": "Демо",
+          "done": "Готово",
+          "keep": "Сохранить",
+          "love_three_seconds": "Три секунды любви",
+          "open": "Открыто",
+          "order": "Таймер",
+          "pause": "Пауза",
+          "pause_temporarily": "Временная пауза",
+          "power_off": "Выключение",
+          "self_check": "Самодиагностика",
+          "working": "Работает"
+        }
+      },
+      "bf_working_time": {
+        "name": "Духовка: время работы"
+      },
+      "e7_left_bottom_bridge_link": {
+        "name": "Индукция (левая нижняя): объединение зон",
+        "state": {
+          "off": "Выкл",
+          "on": "Вкл"
+        }
+      },
+      "e7_left_bottom_destination_time": {
+        "name": "Индукция (левая нижняя): заданное время"
+      },
+      "e7_left_bottom_efficiency": {
+        "name": "Индукция (левая нижняя): эффективность"
+      },
+      "e7_left_bottom_gear": {
+        "name": "Индукция (левая нижняя): ступень"
+      },
+      "e7_left_bottom_mode": {
+        "name": "Индукция (левая нижняя): режим",
+        "state": {
+          "boiling": "Кипячение",
+          "heat_preservation": "Поддержание тепла",
+          "none": "Нет",
+          "stew_soup": "Тушение супа",
+          "stir_frying": "Жарка с помешиванием"
+        }
+      },
+      "e7_left_bottom_remaining_time": {
+        "name": "Индукция (левая нижняя): оставшееся время"
+      },
+      "e7_left_bottom_work_status": {
+        "name": "Индукция (левая нижняя): состояние работы",
+        "state": {
+          "auto": "Авто",
+          "drying": "Сушка",
+          "finish": "Завершено",
+          "order": "Таймер",
+          "pause": "Пауза",
+          "power_off": "Выключение",
+          "standby": "Ожидание",
+          "working": "Работает"
+        }
+      },
+      "e7_left_bottom_work_time": {
+        "name": "Индукция (левая нижняя): время работы"
+      },
+      "e7_left_bridge_link": {
+        "name": "Индукция (левая): объединение зон",
+        "state": {
+          "off": "Выкл",
+          "on": "Вкл"
+        }
+      },
+      "e7_left_destination_time": {
+        "name": "Индукция (левая): заданное время"
+      },
+      "e7_left_efficiency": {
+        "name": "Индукция (левая): эффективность"
+      },
+      "e7_left_gear": {
+        "name": "Индукция (левая): ступень"
+      },
+      "e7_left_mode": {
+        "name": "Индукция (левая): режим",
+        "state": {
+          "boiling": "Кипячение",
+          "heat_preservation": "Поддержание тепла",
+          "none": "Нет",
+          "stew_soup": "Тушение супа",
+          "stir_frying": "Жарка с помешиванием"
+        }
+      },
+      "e7_left_remaining_time": {
+        "name": "Индукция (левая): оставшееся время"
+      },
+      "e7_left_top_bridge_link": {
+        "name": "Индукция (левая верхняя): объединение зон",
+        "state": {
+          "off": "Выкл",
+          "on": "Вкл"
+        }
+      },
+      "e7_left_top_destination_time": {
+        "name": "Индукция (левая верхняя): заданное время"
+      },
+      "e7_left_top_efficiency": {
+        "name": "Индукция (левая верхняя): эффективность"
+      },
+      "e7_left_top_gear": {
+        "name": "Индукция (левая верхняя): ступень"
+      },
+      "e7_left_top_mode": {
+        "name": "Индукция (левая верхняя): режим",
+        "state": {
+          "boiling": "Кипячение",
+          "heat_preservation": "Поддержание тепла",
+          "none": "Нет",
+          "stew_soup": "Тушение супа",
+          "stir_frying": "Жарка с помешиванием"
+        }
+      },
+      "e7_left_top_remaining_time": {
+        "name": "Индукция (левая верхняя): оставшееся время"
+      },
+      "e7_left_top_work_status": {
+        "name": "Индукция (левая верхняя): состояние работы",
+        "state": {
+          "auto": "Авто",
+          "drying": "Сушка",
+          "finish": "Завершено",
+          "order": "Таймер",
+          "pause": "Пауза",
+          "power_off": "Выключение",
+          "standby": "Ожидание",
+          "working": "Работает"
+        }
+      },
+      "e7_left_top_work_time": {
+        "name": "Индукция (левая верхняя): время работы"
+      },
+      "e7_left_work_status": {
+        "name": "Индукция (левая): состояние работы",
+        "state": {
+          "auto": "Авто",
+          "drying": "Сушка",
+          "finish": "Завершено",
+          "order": "Таймер",
+          "pause": "Пауза",
+          "power_off": "Выключение",
+          "standby": "Ожидание",
+          "working": "Работает"
+        }
+      },
+      "e7_left_work_time": {
+        "name": "Индукция (левая): время работы"
+      },
+      "e7_right_bottom_bridge_link": {
+        "name": "Индукция (правая нижняя): объединение зон",
+        "state": {
+          "off": "Выкл",
+          "on": "Вкл"
+        }
+      },
+      "e7_right_bottom_destination_time": {
+        "name": "Индукция (правая нижняя): заданное время"
+      },
+      "e7_right_bottom_efficiency": {
+        "name": "Индукция (правая нижняя): эффективность"
+      },
+      "e7_right_bottom_gear": {
+        "name": "Индукция (правая нижняя): ступень"
+      },
+      "e7_right_bottom_mode": {
+        "name": "Индукция (правая нижняя): режим",
+        "state": {
+          "boiling": "Кипячение",
+          "heat_preservation": "Поддержание тепла",
+          "none": "Нет",
+          "stew_soup": "Тушение супа",
+          "stir_frying": "Жарка с помешиванием"
+        }
+      },
+      "e7_right_bottom_remaining_time": {
+        "name": "Индукция (правая нижняя): оставшееся время"
+      },
+      "e7_right_bottom_work_status": {
+        "name": "Индукция (правая нижняя): состояние работы",
+        "state": {
+          "auto": "Авто",
+          "drying": "Сушка",
+          "finish": "Завершено",
+          "order": "Таймер",
+          "pause": "Пауза",
+          "power_off": "Выключение",
+          "standby": "Ожидание",
+          "working": "Работает"
+        }
+      },
+      "e7_right_bottom_work_time": {
+        "name": "Индукция (правая нижняя): время работы"
+      },
+      "e7_right_bridge_link": {
+        "name": "Индукция (правая): объединение зон",
+        "state": {
+          "off": "Выкл",
+          "on": "Вкл"
+        }
+      },
+      "e7_right_destination_time": {
+        "name": "Индукция (правая): заданное время"
+      },
+      "e7_right_efficiency": {
+        "name": "Индукция (правая): эффективность"
+      },
+      "e7_right_gear": {
+        "name": "Индукция (правая): ступень"
+      },
+      "e7_right_mode": {
+        "name": "Индукция (правая): режим",
+        "state": {
+          "boiling": "Кипячение",
+          "heat_preservation": "Поддержание тепла",
+          "none": "Нет",
+          "stew_soup": "Тушение супа",
+          "stir_frying": "Жарка с помешиванием"
+        }
+      },
+      "e7_right_remaining_time": {
+        "name": "Индукция (правая): оставшееся время"
+      },
+      "e7_right_top_bridge_link": {
+        "name": "Индукция (правая верхняя): объединение зон",
+        "state": {
+          "off": "Выкл",
+          "on": "Вкл"
+        }
+      },
+      "e7_right_top_destination_time": {
+        "name": "Индукция (правая верхняя): заданное время"
+      },
+      "e7_right_top_efficiency": {
+        "name": "Индукция (правая верхняя): эффективность"
+      },
+      "e7_right_top_gear": {
+        "name": "Индукция (правая верхняя): ступень"
+      },
+      "e7_right_top_mode": {
+        "name": "Индукция (правая верхняя): режим",
+        "state": {
+          "boiling": "Кипячение",
+          "heat_preservation": "Поддержание тепла",
+          "none": "Нет",
+          "stew_soup": "Тушение супа",
+          "stir_frying": "Жарка с помешиванием"
+        }
+      },
+      "e7_right_top_remaining_time": {
+        "name": "Индукция (правая верхняя): оставшееся время"
+      },
+      "e7_right_top_work_status": {
+        "name": "Индукция (правая верхняя): состояние работы",
+        "state": {
+          "auto": "Авто",
+          "drying": "Сушка",
+          "finish": "Завершено",
+          "order": "Таймер",
+          "pause": "Пауза",
+          "power_off": "Выключение",
+          "standby": "Ожидание",
+          "working": "Работает"
+        }
+      },
+      "e7_right_top_work_time": {
+        "name": "Индукция (правая верхняя): время работы"
+      },
+      "e7_right_work_status": {
+        "name": "Индукция (правая): состояние работы",
+        "state": {
+          "auto": "Авто",
+          "drying": "Сушка",
+          "finish": "Завершено",
+          "order": "Таймер",
+          "pause": "Пауза",
+          "power_off": "Выключение",
+          "standby": "Ожидание",
+          "working": "Работает"
+        }
+      },
+      "e7_right_work_time": {
+        "name": "Индукция (правая): время работы"
+      },
+      "electronic_version": {
+        "name": "Версия электроники"
+      },
+      "error_list": {
+        "name": "Список ошибок"
+      },
+      "sp_fandrying_destination_time": {
+        "name": "Поддон: заданное время сушки вентилятором"
+      },
+      "sp_fandrying_order_destination_time": {
+        "name": "Поддон: заданное время таймера сушки вентилятором"
+      },
+      "sp_fandrying_order_remaining_time": {
+        "name": "Поддон: оставшееся время таймера сушки вентилятором"
+      },
+      "sp_fandrying_remaining_time": {
+        "name": "Поддон: оставшееся время сушки вентилятором"
+      },
+      "sp_fandrying_setting_automode_day": {
+        "name": "Поддон: день автоматической сушки вентилятором"
+      },
+      "sp_fandrying_setting_automode_starthour": {
+        "name": "Поддон: час начала автосушки вентилятором"
+      },
+      "sp_fandrying_setting_automode_startminute": {
+        "name": "Поддон: минута начала автосушки вентилятором"
+      },
+      "sp_fandrying_status": {
+        "name": "Поддон: состояние сушки вентилятором",
+        "state": {
+          "drying": "Сушка",
+          "drying_pause": "Сушка на паузе",
+          "ion_drying": "Ионная сушка",
+          "ion_drying_pause": "Ионная сушка на паузе",
+          "power_off": "Выключение",
+          "uperization": "Ультрапастеризация",
+          "uperization_pause": "Ультрапастеризация на паузе",
+          "warm_drink": "Подогрев напитков",
+          "warm_drink_pause": "Подогрев напитков на паузе"
+        }
+      },
+      "sp_fandrying_temperature": {
+        "name": "Поддон: температура сушки вентилятором"
+      },
+      "sp_heatingdisk_destination_time": {
+        "name": "Поддон: заданное время нагревательного диска"
+      },
+      "sp_heatingdisk_order_destination_time": {
+        "name": "Поддон: заданное время таймера нагревательного диска"
+      },
+      "sp_heatingdisk_order_remaining_time": {
+        "name": "Поддон: оставшееся время таймера нагревательного диска"
+      },
+      "sp_heatingdisk_remaining_time": {
+        "name": "Поддон: оставшееся время нагревательного диска"
+      },
+      "sp_heatingdisk_setting_automode_day": {
+        "name": "Поддон: день автонагрева диска"
+      },
+      "sp_heatingdisk_setting_automode_starthour": {
+        "name": "Поддон: час начала автонагрева диска"
+      },
+      "sp_heatingdisk_setting_automode_startminute": {
+        "name": "Поддон: минута начала автонагрева диска"
+      },
+      "sp_heatingdisk_status": {
+        "name": "Поддон: состояние нагревательного диска",
+        "state": {
+          "drying": "Сушка",
+          "drying_pause": "Сушка на паузе",
+          "ion_drying": "Ионная сушка",
+          "ion_drying_pause": "Ионная сушка на паузе",
+          "power_off": "Выключение",
+          "uperization": "Ультрапастеризация",
+          "uperization_pause": "Ультрапастеризация на паузе",
+          "warm_drink": "Подогрев напитков",
+          "warm_drink_pause": "Подогрев напитков на паузе"
+        }
+      },
+      "sp_heatingdisk_temperature": {
+        "name": "Поддон: температура нагревательного диска"
+      },
+      "sp_uvc_destination_time": {
+        "name": "Поддон: заданное время UVC"
+      },
+      "sp_uvc_order_destination_time": {
+        "name": "Поддон: заданное время таймера UVC"
+      },
+      "sp_uvc_order_remaining_time": {
+        "name": "Поддон: оставшееся время таймера UVC"
+      },
+      "sp_uvc_remaining_time": {
+        "name": "Поддон: оставшееся время UVC"
+      },
+      "sp_uvc_setting_automode_day": {
+        "name": "Поддон: день автоматического UVC"
+      },
+      "sp_uvc_setting_automode_starthour": {
+        "name": "Поддон: час начала автоматического UVC"
+      },
+      "sp_uvc_setting_automode_startminute": {
+        "name": "Поддон: минута начала автоматического UVC"
+      },
+      "sp_uvc_status": {
+        "name": "Поддон: состояние UVC",
+        "state": {
+          "drying": "Сушка",
+          "drying_pause": "Сушка на паузе",
+          "ion_drying": "Ионная сушка",
+          "ion_drying_pause": "Ионная сушка на паузе",
+          "power_off": "Выключение",
+          "uperization": "Ультрапастеризация",
+          "uperization_pause": "Ультрапастеризация на паузе",
+          "warm_drink": "Подогрев напитков",
+          "warm_drink_pause": "Подогрев напитков на паузе"
+        }
+      },
+      "sp_uvc_temperature": {
+        "name": "Поддон: температура UVC"
+      },
+      "total_error_code": {
+        "name": "Код ошибки"
+      },
+      "total_error_type": {
+        "name": "Тип ошибки"
+      },
+      "total_firewall_temp": {
+        "name": "Температура термобарьера"
+      },
+      "total_gesture": {
+        "name": "Жест",
+        "state": {
+          "off": "Выкл",
+          "on": "Вкл"
+        }
+      },
+      "total_ir": {
+        "name": "ИК",
+        "state": {
+          "off": "Выкл",
+          "on": "Вкл"
+        }
+      },
+      "total_lock_off_type": {
+        "name": "Тип снятия блокировки",
+        "state": {
+          "local": "Локально"
+        }
+      },
+      "total_lock_on_type": {
+        "name": "Тип включения блокировки",
+        "state": {
+          "app": "Приложение",
+          "local": "Локально"
+        }
+      },
+      "total_shelving_unit_temp": {
+        "name": "Температура стеллажа"
+      },
+      "total_speak": {
+        "name": "Голос",
+        "state": {
+          "off": "Выкл",
+          "on": "Вкл"
+        }
+      },
+      "total_tips_code": {
+        "name": "Код подсказки"
+      },
+      "total_tips_type": {
+        "name": "Тип подсказки"
       }
     },
     "switch": {
@@ -1828,6 +3474,15 @@
       },
       "holiday_on": {
         "name": "Режим - Отпуск"
+      },
+      "ai_voice_microphone": {
+        "name": "AI-голос: микрофон"
+      },
+      "total_lock": {
+        "name": "Блокировка от детей"
+      },
+      "total_power": {
+        "name": "Питание"
       }
     },
     "water_heater": {
