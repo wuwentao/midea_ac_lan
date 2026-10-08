@@ -224,3 +224,12 @@ cd midea_ac_lan
 ```
 
 See [CONTRIBUTING](.github/CONTRIBUTING.md) for full setup, running Home Assistant locally, and the code style / commit rules.
+
+### Adding a new device
+
+Want to expose a new Midea appliance type in this integration? The end-to-end recipe — pointing the `midea-lan` dependency at your library work for local testing, registering the device in `midea_devices.py`, choosing each attribute's platform / `device_class` / `unit` / `translation_key`, adding the translation files, writing the device docs, and opening a PR — is documented, using the `0xD9` washer/dryer combo ([PR #1086](https://github.com/wuwentao/midea_ac_lan/pull/1086)) as the running example and the `0x9B` oven ([PR #1096](https://github.com/wuwentao/midea_ac_lan/pull/1096)) as a second, larger example:
+
+- [Adding a New Device to the midea_ac_lan Integration](doc/adding-a-new-device.md)
+- [为 midea_ac_lan 集成新增一款设备（中文）](doc/adding-a-new-device.zh-Hans.md)
+
+The companion guide for the protocol library side lives in the `midea-lan` repo: [Adding a New Device Type](https://github.com/wuwentao/midea-lan/blob/main/docs/adding-a-new-device.md).
