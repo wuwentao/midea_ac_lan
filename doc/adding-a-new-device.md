@@ -13,7 +13,11 @@ Home Assistant entities.
 It is written for both human contributors and AI coding agents, using the `0xD9`
 washer/dryer combo ([PR #1086](https://github.com/wuwentao/midea_ac_lan/pull/1086),
 paired with `midea-lan` [PR #175](https://github.com/wuwentao/midea-lan/pull/175))
-as the worked example.
+as the running example, and the `0x9B` microwave/steam/convection oven
+([PR #1096](https://github.com/wuwentao/midea_ac_lan/pull/1096), paired with
+`midea-lan` [PR #181](https://github.com/wuwentao/midea-lan/pull/181)) as a second,
+larger example (61 entities) that surfaces pitfalls D9 does not — see
+[Step 9](#10-second-worked-example--0x9b-pitfalls-beyond-d9).
 
 ## Prerequisite: the library must support the device first
 
@@ -40,7 +44,8 @@ steps below.
 7. [Step 6 — Update the README appliance table](#7-step-6--update-the-readme-appliance-table)
 8. [Step 7 — Lint and validate](#8-step-7--lint-and-validate)
 9. [Step 8 — Submit the PR](#9-step-8--submit-the-pr)
-10. [Checklist](#10-checklist)
+10. [Second worked example: 0x9B — pitfalls beyond D9](#10-second-worked-example--0x9b-pitfalls-beyond-d9)
+11. [Checklist](#11-checklist)
 
 ---
 
@@ -475,7 +480,91 @@ locale files, `doc/D9.md` + `doc/D9_hans.md`, and the README rows.
 
 ---
 
-## 10. Checklist
+## 10. Second worked example — 0x9B pitfalls beyond D9
+
+D9 is a small, tidy device (30 entities, two prefixed sub-units). The `0x9B`
+oven ([PR #1096](https://github.com/wuwentao/midea_ac_lan/pull/1096), paired with
+`midea-lan` [PR #181](https://github.com/wuwentao/midea-lan/pull/181)) registered
+**61 entities** and, at that size, hit a few integration-side pitfalls the D9
+walkthrough never triggers. If your device is large or shares attribute names with
+an already-supported device, read this before you start.
+
+### 10.1 Duplicate translation keys across devices (CI-breaking)
+
+Translation files group keys **by platform** (`entity.sensor.*`,
+`entity.switch.*`, …), not by device. So two different devices that both expose,
+say, a `clean_scale` sensor would each want an `entity.sensor.clean_scale` entry —
+and a JSON object cannot have the same key twice. `check-json` in pre-commit (and
+CI) parses strictly and **fails on a duplicate key within an object**
+(`Duplicate key: clean_scale`).
+
+0x9B shares several state names with the already-supported `0x9C` device
+(`clean_scale`, `probe`, `high_temperature`, …). The fix is to add a key only if
+that platform section does not already define it:
+
+- Before adding `entity.<platform>.<key>`, check whether another device already
+  contributed that exact key in the same platform section. If it exists and means
+  the same thing, **reuse it** — don't add a second copy.
+- If it exists but means something different for your device, give yours a
+  **namespaced** `translation_key` (see §10.2) so the keys don't collide.
+
+When injecting many keys programmatically, make the script dedup-aware: compute
+the set of keys already present per platform and skip any that are already there.
+(0x9B's injection initially added ~a dozen keys 0x9C had already defined, and CI
+caught the duplicates in `fr.json`/`sk.json`.)
+
+### 10.2 Namespace a `translation_key` when states collide
+
+The library guide recommends using the attribute name verbatim as the
+`translation_key`. That works until two devices use the **same attribute name for
+a different concept**. 0x9B's `fire_power` is one such case, so its entity uses a
+device-namespaced key:
+
+```python
+X9BAttributes.fire_power: {
+    "type": Platform.SELECT,
+    "translation_key": "x9b_fire_power",   # namespaced to avoid colliding
+    "name": "Fire Power",                  # with another device's fire_power
+    "options": "fire_power_options",
+},
+```
+
+Only namespace when there's an actual collision — reuse the shared key when the
+meaning is identical (§10.1). Keep the attribute name itself clean; the
+namespacing lives purely in the `translation_key`.
+
+### 10.3 Read sensor + write control on the same underlying value → distinct keys
+
+0x9B exposes some values both as a read-only sensor **and** a writable control
+(the user can see the current value and also set it). These are two separate
+entities on two platforms, so give each a **distinct `translation_key`** — a
+sensor key and a control (number/select/switch) key — rather than sharing one.
+Sharing a single key across a sensor and a control makes HA's name/state lookups
+ambiguous and surfaces confusing labels. Distinct keys keep each entity's name and
+(for selects) state map independent.
+
+### 10.4 Boolean flags must decode to real `bool`, not `"on"`/`"off"`
+
+This is a library-side (`midea-lan`) correctness point that bites hardest here, so
+it's worth repeating on the HA side: any attribute you render as a
+`Platform.SWITCH`, `Platform.BINARY_SENSOR`, or `Platform.LOCK` must arrive as a
+Python `bool`. Home Assistant treats **any non-empty string as truthy**, so a flag
+decoded as the string `"off"` shows as **on** and never turns off. If a switch is
+stuck on, check the library decoder returns `bool(...)`, not a string. (0x9B fixed
+exactly this while building this PR.)
+
+### 10.5 Opt-in by default for a large, multi-model device
+
+0x9B has 61 entities and ships across firmware variants (V1/V2) that don't all
+expose every feature. Follow [§3.3](#33-default-vs-optional-opt-in-entities) and
+lean **optional**: register most sensors/switches as extra (opt-in) entities,
+and/or set `"entity_registry_enabled_default": False` on anything a given model
+might not report, so users aren't shown empty/broken entities for features their
+specific oven lacks.
+
+---
+
+## 11. Checklist
 
 - [ ] Library first: `midealan/devices/<type>/` exists and is published; if not,
       finish the [`midea-lan` guide](https://github.com/wuwentao/midea-lan/blob/main/docs/adding-a-new-device.md).

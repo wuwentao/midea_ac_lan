@@ -10,7 +10,11 @@
 
 本文同时面向人工贡献者与 AI 编码助手，以 `0xD9` 洗烘一体机
 （[PR #1086](https://github.com/wuwentao/midea_ac_lan/pull/1086)，与 `midea-lan`
-[PR #175](https://github.com/wuwentao/midea-lan/pull/175) 配套）作为贯穿示例。
+[PR #175](https://github.com/wuwentao/midea-lan/pull/175) 配套）作为贯穿示例，另以
+`0x9B` 微蒸烤一体机（[PR #1096](https://github.com/wuwentao/midea_ac_lan/pull/1096)，
+与 `midea-lan` [PR #181](https://github.com/wuwentao/midea-lan/pull/181) 配套）作为
+第二个、更大的范例（61 个实体），它暴露了 D9 不会触发的若干坑 ——
+参见[步骤 9](#10-第二个范例--0x9b-超出-d9-的坑)。
 
 ## 前置条件：库侧必须先支持该设备
 
@@ -35,7 +39,8 @@
 7. [步骤 6 —— 更新 README 设备表](#7-步骤-6--更新-readme-设备表)
 8. [步骤 7 —— Lint 与校验](#8-步骤-7--lint-与校验)
 9. [步骤 8 —— 提交 PR](#9-步骤-8--提交-pr)
-10. [检查清单](#10-检查清单)
+10. [第二个范例：0x9B —— 超出 D9 的坑](#10-第二个范例--0x9b-超出-d9-的坑)
+11. [检查清单](#11-检查清单)
 
 ---
 
@@ -436,7 +441,78 @@ lint/format/类型检查通过；依赖库的检查会在维护者发布库并�
 
 ---
 
-## 10. 检查清单
+## 10. 第二个范例 —— 0x9B 超出 D9 的坑
+
+D9 是一款小而整洁的设备（30 个实体，两个带前缀的子单元）。`0x9B` 烤箱
+（[PR #1096](https://github.com/wuwentao/midea_ac_lan/pull/1096)，与 `midea-lan`
+[PR #181](https://github.com/wuwentao/midea-lan/pull/181) 配套）注册了 **61 个
+实体**，到了这个规模，就踩到几个 D9 流程从不触发的集成侧坑。如果你的设备很大，或与
+已支持设备共用属性名，开工前请先读本节。
+
+### 10.1 跨设备的重复翻译键（会让 CI 失败）
+
+翻译文件**按 platform** 分组键（`entity.sensor.*`、`entity.switch.*`……），而不是
+按设备。于是两个不同设备若都暴露比如 `clean_scale` 传感器，就都会想要一个
+`entity.sensor.clean_scale` 条目 —— 而一个 JSON 对象里不能有两个相同的键。
+pre-commit（以及 CI）里的 `check-json` 严格解析，并会**因对象内重复键而失败**
+（`Duplicate key: clean_scale`）。
+
+0x9B 与已支持的 `0x9C` 设备共用了多个状态名（`clean_scale`、`probe`、
+`high_temperature`……）。修法是：仅当该 platform 小节尚未定义某键时才添加它：
+
+- 添加 `entity.<platform>.<key>` 之前，先检查是否有别的设备已在同一 platform 小节
+  贡献过这个确切的键。若已存在且含义相同，就**复用它** —— 不要再加一份副本。
+- 若已存在但对你的设备含义不同，给你的键一个**带命名空间**的 `translation_key`
+  （见 §10.2），以免键冲突。
+
+当用脚本批量注入键时，让脚本具备去重意识：先算出每个 platform 已有的键集合，跳过
+已存在的键。（0x9B 的注入最初加了约十来个 0x9C 已定义的键，CI 在 `fr.json`/`sk.json`
+里抓到了重复。）
+
+### 10.2 状态冲突时给 `translation_key` 加命名空间
+
+库侧指南建议直接用属性名作为 `translation_key`。这在两个设备**用同名属性表示不同
+概念**之前都好使。0x9B 的 `fire_power` 正是这种情况，于是它的实体用了一个带设备
+命名空间的键：
+
+```python
+X9BAttributes.fire_power: {
+    "type": Platform.SELECT,
+    "translation_key": "x9b_fire_power",   # 加命名空间，避免与另一个设备的
+    "name": "Fire Power",                  # fire_power 冲突
+    "options": "fire_power_options",
+},
+```
+
+仅在确实冲突时才加命名空间 —— 含义相同就复用共享键（§10.1）。属性名本身保持干净；
+命名空间只存在于 `translation_key` 里。
+
+### 10.3 同一底层值既做读传感器又做写控制 → 用不同的键
+
+0x9B 把某些值既暴露为只读传感器**又**暴露为可写控制（用户既能看到当前值，也能设置
+它）。这是两个分属不同 platform 的独立实体，所以要给各自一个**不同的
+`translation_key`** —— 一个传感器键和一个控制（number/select/switch）键，而不是共用
+一个。让一个键跨传感器与控制共用，会让 HA 的名称/状态查找产生歧义，并显示令人困惑的
+标签。不同的键让每个实体的名称、以及（select 的）状态映射各自独立。
+
+### 10.4 布尔标志必须解码为真正的 `bool`，而非 `"on"`/`"off"`
+
+这是一个库侧（`midea-lan`）的正确性要点，但在这里影响最严重，所以在 HA 侧值得重申：
+任何你渲染为 `Platform.SWITCH`、`Platform.BINARY_SENSOR` 或 `Platform.LOCK` 的属性，
+都必须以 Python `bool` 到达。Home Assistant 把**任何非空字符串都当作真值**，所以一个
+被解码成字符串 `"off"` 的标志会显示为**开**，且永远关不掉。如果某个开关卡在开，检查
+库侧解码器是否返回 `bool(...)`，而不是字符串。（0x9B 在构建本 PR 时正是修了这个。）
+
+### 10.5 对大型、多型号设备默认倾向可选（opt-in）
+
+0x9B 有 61 个实体，并发行于并非都暴露全部功能的固件变体（V1/V2）。遵循
+[§3.3](#33-默认与可选opt-in实体)，倾向**可选**：把大多数 sensor/switch 注册为额外
+（opt-in）实体，和/或对某型号可能不上报的项设 `"entity_registry_enabled_default":
+False`，这样就不会在缺少某功能的型号上给用户显示空白/损坏的实体。
+
+---
+
+## 11. 检查清单
 
 - [ ] 库先行：`midealan/devices/<type>/` 已存在且已发布；若未，先完成
       [`midea-lan` 指南](https://github.com/wuwentao/midea-lan/blob/main/docs/adding-a-new-device.zh-Hans.md)。
