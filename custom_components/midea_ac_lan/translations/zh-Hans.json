@@ -702,6 +702,24 @@
       }
     },
     "sensor": {
+      "gas_usage_daily": {
+        "name": "日用气量"
+      },
+      "gas_usage_last_month": {
+        "name": "上月用气量"
+      },
+      "gas_usage_monthly": {
+        "name": "本月用气量"
+      },
+      "water_usage_daily": {
+        "name": "日用水量"
+      },
+      "water_usage_last_month": {
+        "name": "上月用水量"
+      },
+      "water_usage_monthly": {
+        "name": "本月用水量"
+      },
       "three_way_mode": {
         "name": "三通模式"
       },
@@ -1857,7 +1875,10 @@
           "refresh_interval": "刷新间隔(设0为不进行主动刷新)",
           "sensors": "扩展传感器",
           "switches": "扩展控制",
-          "customize": "自定义"
+          "customize": "自定义",
+          "account": "美的云账号（用于用水/用气量统计传感器）",
+          "password": "美的云账号密码（用于用水/用气量统计传感器）",
+          "server": "账号所属美的云服务器（用于用水/用气量统计传感器）"
         },
         "title": "配置"
       }
