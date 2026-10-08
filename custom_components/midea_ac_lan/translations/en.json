@@ -1350,7 +1350,20 @@
         "name": "Humidity"
       },
       "variable_mode": {
-        "name": "Variable Mode"
+        "name": "Variable Mode",
+        "state": {
+          "none": "None",
+          "soft_freezing": "Soft Freezing",
+          "zero_fresh": "Zero Fresh",
+          "cold_drink": "Cold Drink",
+          "fresh_product": "Fresh Produce",
+          "partial_freezing": "Partial Freezing",
+          "dry_zone": "Dry Zone",
+          "freeze_warm": "Freeze / Warm",
+          "baby": "Mother & Infant",
+          "treasure": "Treasure",
+          "zero": "Zero Degree"
+        }
       },
       "compressor_frequency": {
         "name": "Compressor Frequency"
