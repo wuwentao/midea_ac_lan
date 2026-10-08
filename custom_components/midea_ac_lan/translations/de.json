@@ -63,6 +63,11 @@
   },
   "entity": {
     "binary_sensor": {
+      "door_open": { "name": "Tür Offen" },
+      "turntable": { "name": "Drehteller" },
+      "lack_box": { "name": "Behälter Fehlt" },
+      "change_water": { "name": "Wasserwechsel Erinnerung" },
+      "ramadan": { "name": "Ramadan" },
       "warm_power": {
         "name": "Heizbetrieb"
       },
@@ -522,6 +527,16 @@
       }
     },
     "number": {
+      "screen_luminance": { "name": "Bildschirmhelligkeit" },
+      "volume": { "name": "Lautstärke" },
+      "temperature": { "name": "Zieltemperatur" },
+      "temperature_above": { "name": "Zieltemperatur Oben" },
+      "temperature_underside": { "name": "Zieltemperatur Unten" },
+      "probe_temperature": { "name": "Ziel-Fühlertemperatur" },
+      "steam_quantity": { "name": "Dampfmenge" },
+      "hour_set": { "name": "Stunde Einstellen" },
+      "minute_set": { "name": "Minute Einstellen" },
+      "second_set": { "name": "Sekunde Einstellen" },
       "heating_target_temperature": {
         "name": "Heizungs-Solltemperatur"
       },
@@ -569,6 +584,44 @@
       }
     },
     "select": {
+      "work_status": {
+        "name": "Betriebsstatus",
+        "state": {
+          "save_power": "Energiesparen",
+          "standby": "Standby",
+          "work": "In Betrieb",
+          "pause": "Pausiert",
+          "work_finish": "Fertig",
+          "order": "Verzögerung",
+          "pause_c": "Pausiert C",
+          "three": "Drei",
+          "self_inspection": "Selbsttest",
+          "query_version": "Version Abfragen",
+          "demo": "Demo",
+          "ramadan": "Ramadan",
+          "after_checking": "Nach Prüfung",
+          "wait_to_start": "Startbereit",
+          "ff": "Unbekannt"
+        }
+      },
+      "x9b_fire_power": {
+        "name": "Heizleistung",
+        "state": {
+          "high_power": "Hoch",
+          "medium_high_power": "Mittelhoch",
+          "medium_power": "Mittel",
+          "medium_low_power": "Mittelniedrig",
+          "low_power": "Niedrig",
+          "ff": "Unbekannt"
+        }
+      },
+      "door": {
+        "name": "Tür",
+        "state": {
+          "open": "Öffnen",
+          "close": "Schließen"
+        }
+      },
       "heating_mode": {
         "name": "Heizmodus",
         "state": {
@@ -697,6 +750,82 @@
       }
     },
     "sensor": {
+      "work_status": {
+        "name": "Betriebsstatus",
+        "state": {
+          "save_power": "Energiesparen",
+          "standby": "Standby",
+          "work": "In Betrieb",
+          "pause": "Pausiert",
+          "work_finish": "Fertig",
+          "order": "Verzögerung",
+          "pause_c": "Pausiert C",
+          "three": "Drei",
+          "self_inspection": "Selbsttest",
+          "query_version": "Version Abfragen",
+          "demo": "Demo",
+          "ramadan": "Ramadan",
+          "after_checking": "Nach Prüfung",
+          "wait_to_start": "Startbereit",
+          "ff": "Unbekannt"
+        }
+      },
+      "x9b_fire_power": {
+        "name": "Heizleistung",
+        "state": {
+          "high_power": "Hoch",
+          "medium_high_power": "Mittelhoch",
+          "medium_power": "Mittel",
+          "medium_low_power": "Mittelniedrig",
+          "low_power": "Niedrig",
+          "ff": "Unbekannt"
+        }
+      },
+      "pre_heat": {
+        "name": "Vorheizen",
+        "state": {
+          "off": "Aus",
+          "work": "Vorheizen",
+          "end": "Vorheizen Beendet"
+        }
+      },
+      "water_status": {
+        "name": "Wasserstatus",
+        "state": {
+          "normal": "Normal",
+          "lack_box": "Behälter Fehlt",
+          "lack_water": "Wassermangel",
+          "change_water": "Wasser Wechseln"
+        }
+      },
+      "dissipate_heat": {
+        "name": "Wärmeabfuhr",
+        "state": {
+          "off": "Aus",
+          "work": "Wärmeabfuhr"
+        }
+      },
+      "execute": {
+        "name": "Ausführungsstatus",
+        "state": {
+          "ok": "OK",
+          "status_nonsupport": "Status Nicht Unterstützt",
+          "function_nonsupport": "Funktion Nicht Unterstützt",
+          "param_range_error": "Parameterbereichsfehler"
+        }
+      },
+      "sys_time_src": {
+        "name": "Systemzeitquelle",
+        "state": {
+          "module": "Modul",
+          "app": "App",
+          "user_defined": "Benutzerdefiniert"
+        }
+      },
+      "cur_temperature": { "name": "Aktuelle Temperatur" },
+      "work_hour": { "name": "Betriebsstunde" },
+      "work_minute": { "name": "Betriebsminute" },
+      "work_second": { "name": "Betriebssekunde" },
       "three_way_mode": {
         "name": "Dreiwegemodus"
       },
@@ -1318,6 +1447,7 @@
           "double_tube": "Doppel Heizstab",
           "hot_wind_tube_fan": "Heißluft Heizstab Lüfter",
           "pure_preheat": "Rein Vorheizen",
+          "pure_preheat_2": "Rein Vorheizen 2",
           "above_tube_hot_wind_tube_fan": "Ober Heizstab Heißluft Lüfter",
           "underside_tube_hot_wind_tube_fan": "Unter Heizstab Heißluft Lüfter",
           "zymosis": "Gärung",
@@ -1574,6 +1704,8 @@
       }
     },
     "switch": {
+      "lock": { "name": "Kindersicherung" },
+      "camera": { "name": "Kamera" },
       "anion": {
         "name": "Anion"
       },

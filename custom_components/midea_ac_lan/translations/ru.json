@@ -63,6 +63,11 @@
   },
   "entity": {
     "binary_sensor": {
+      "door_open": { "name": "Дверца открыта" },
+      "turntable": { "name": "Поворотный стол" },
+      "lack_box": { "name": "Нет контейнера" },
+      "change_water": { "name": "Напоминание о смене воды" },
+      "ramadan": { "name": "Рамадан" },
       "warm_power": {
         "name": "Режим обогрева"
       },
@@ -522,6 +527,16 @@
       }
     },
     "number": {
+      "screen_luminance": { "name": "Яркость экрана" },
+      "volume": { "name": "Громкость" },
+      "temperature": { "name": "Целевая температура" },
+      "temperature_above": { "name": "Целевая температура (верх)" },
+      "temperature_underside": { "name": "Целевая температура (низ)" },
+      "probe_temperature": { "name": "Целевая температура щупа" },
+      "steam_quantity": { "name": "Количество пара" },
+      "hour_set": { "name": "Установка часов" },
+      "minute_set": { "name": "Установка минут" },
+      "second_set": { "name": "Установка секунд" },
       "heating_target_temperature": {
         "name": "Целевая температура отопления"
       },
@@ -569,6 +584,44 @@
       }
     },
     "select": {
+      "work_status": {
+        "name": "Статус работы",
+        "state": {
+          "save_power": "Энергосбережение",
+          "standby": "Ожидание",
+          "work": "Работает",
+          "pause": "Пауза",
+          "work_finish": "Завершено",
+          "order": "Отложенный старт",
+          "pause_c": "Пауза C",
+          "three": "Три",
+          "self_inspection": "Самодиагностика",
+          "query_version": "Запрос версии",
+          "demo": "Демо",
+          "ramadan": "Рамадан",
+          "after_checking": "После проверки",
+          "wait_to_start": "Ожидание запуска",
+          "ff": "Неизвестно"
+        }
+      },
+      "x9b_fire_power": {
+        "name": "Мощность нагрева",
+        "state": {
+          "high_power": "Высокая",
+          "medium_high_power": "Средне-высокая",
+          "medium_power": "Средняя",
+          "medium_low_power": "Средне-низкая",
+          "low_power": "Низкая",
+          "ff": "Неизвестно"
+        }
+      },
+      "door": {
+        "name": "Дверца",
+        "state": {
+          "open": "Открыть",
+          "close": "Закрыть"
+        }
+      },
       "heating_mode": {
         "name": "Режим отопления",
         "state": {
@@ -697,6 +750,82 @@
       }
     },
     "sensor": {
+      "work_status": {
+        "name": "Статус работы",
+        "state": {
+          "save_power": "Энергосбережение",
+          "standby": "Ожидание",
+          "work": "Работает",
+          "pause": "Пауза",
+          "work_finish": "Завершено",
+          "order": "Отложенный старт",
+          "pause_c": "Пауза C",
+          "three": "Три",
+          "self_inspection": "Самодиагностика",
+          "query_version": "Запрос версии",
+          "demo": "Демо",
+          "ramadan": "Рамадан",
+          "after_checking": "После проверки",
+          "wait_to_start": "Ожидание запуска",
+          "ff": "Неизвестно"
+        }
+      },
+      "x9b_fire_power": {
+        "name": "Мощность нагрева",
+        "state": {
+          "high_power": "Высокая",
+          "medium_high_power": "Средне-высокая",
+          "medium_power": "Средняя",
+          "medium_low_power": "Средне-низкая",
+          "low_power": "Низкая",
+          "ff": "Неизвестно"
+        }
+      },
+      "pre_heat": {
+        "name": "Предварительный нагрев",
+        "state": {
+          "off": "Выкл",
+          "work": "Прогрев",
+          "end": "Прогрев завершён"
+        }
+      },
+      "water_status": {
+        "name": "Состояние воды",
+        "state": {
+          "normal": "Норма",
+          "lack_box": "Нет контейнера",
+          "lack_water": "Нет воды",
+          "change_water": "Смените воду"
+        }
+      },
+      "dissipate_heat": {
+        "name": "Отвод тепла",
+        "state": {
+          "off": "Выкл",
+          "work": "Отвод тепла"
+        }
+      },
+      "execute": {
+        "name": "Статус выполнения",
+        "state": {
+          "ok": "ОК",
+          "status_nonsupport": "Статус не поддерживается",
+          "function_nonsupport": "Функция не поддерживается",
+          "param_range_error": "Ошибка диапазона параметра"
+        }
+      },
+      "sys_time_src": {
+        "name": "Источник системного времени",
+        "state": {
+          "module": "Модуль",
+          "app": "Приложение",
+          "user_defined": "Пользовательское"
+        }
+      },
+      "cur_temperature": { "name": "Текущая температура" },
+      "work_hour": { "name": "Часы работы" },
+      "work_minute": { "name": "Минуты работы" },
+      "work_second": { "name": "Секунды работы" },
       "three_way_mode": {
         "name": "Трёхходовой режим"
       },
@@ -1318,6 +1447,7 @@
           "double_tube": "Двойной Тэн",
           "hot_wind_tube_fan": "Горячий воздух Тэн Вентилятор",
           "pure_preheat": "Чистый Преднагрев",
+          "pure_preheat_2": "Чистый Преднагрев 2",
           "above_tube_hot_wind_tube_fan": "Верхний Тэн Горячий воздух Вентилятор",
           "underside_tube_hot_wind_tube_fan": "Нижний Тэн Горячий воздух Вентилятор",
           "zymosis": "Брожение",
@@ -1574,6 +1704,8 @@
       }
     },
     "switch": {
+      "lock": { "name": "Блокировка от детей" },
+      "camera": { "name": "Камера" },
       "anion": {
         "name": "Anion"
       },

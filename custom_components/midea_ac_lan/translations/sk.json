@@ -63,6 +63,11 @@
   },
   "entity": {
     "binary_sensor": {
+      "door_open": { "name": "Dvere otvorené" },
+      "turntable": { "name": "Otočný tanier" },
+      "lack_box": { "name": "Chýba nádoba" },
+      "change_water": { "name": "Pripomienka výmeny vody" },
+      "ramadan": { "name": "Ramadán" },
       "warm_power": {
         "name": "Prevádzka kúrenia"
       },
@@ -522,6 +527,16 @@
       }
     },
     "number": {
+      "screen_luminance": { "name": "Jas obrazovky" },
+      "volume": { "name": "Hlasitosť" },
+      "temperature": { "name": "Cieľová teplota" },
+      "temperature_above": { "name": "Cieľová teplota hore" },
+      "temperature_underside": { "name": "Cieľová teplota dole" },
+      "probe_temperature": { "name": "Cieľová teplota sondy" },
+      "steam_quantity": { "name": "Množstvo pary" },
+      "hour_set": { "name": "Nastavenie hodín" },
+      "minute_set": { "name": "Nastavenie minút" },
+      "second_set": { "name": "Nastavenie sekúnd" },
       "heating_target_temperature": {
         "name": "Cieľová teplota kúrenia"
       },
@@ -569,6 +584,44 @@
       }
     },
     "select": {
+      "work_status": {
+        "name": "Stav prevádzky",
+        "state": {
+          "save_power": "Úspora energie",
+          "standby": "Pohotovosť",
+          "work": "Pracuje",
+          "pause": "Pozastavené",
+          "work_finish": "Dokončené",
+          "order": "Oneskorenie",
+          "pause_c": "Pozastavené C",
+          "three": "Tri",
+          "self_inspection": "Samokontrola",
+          "query_version": "Zistiť verziu",
+          "demo": "Demo",
+          "ramadan": "Ramadán",
+          "after_checking": "Po kontrole",
+          "wait_to_start": "Čaká na spustenie",
+          "ff": "Neznáme"
+        }
+      },
+      "x9b_fire_power": {
+        "name": "Výkon ohrevu",
+        "state": {
+          "high_power": "Vysoká",
+          "medium_high_power": "Stredne vysoká",
+          "medium_power": "Stredná",
+          "medium_low_power": "Stredne nízka",
+          "low_power": "Nízka",
+          "ff": "Neznáme"
+        }
+      },
+      "door": {
+        "name": "Dvere",
+        "state": {
+          "open": "Otvoriť",
+          "close": "Zavrieť"
+        }
+      },
       "heating_mode": {
         "name": "Režim kúrenia",
         "state": {
@@ -697,6 +750,82 @@
       }
     },
     "sensor": {
+      "work_status": {
+        "name": "Stav prevádzky",
+        "state": {
+          "save_power": "Úspora energie",
+          "standby": "Pohotovosť",
+          "work": "Pracuje",
+          "pause": "Pozastavené",
+          "work_finish": "Dokončené",
+          "order": "Oneskorenie",
+          "pause_c": "Pozastavené C",
+          "three": "Tri",
+          "self_inspection": "Samokontrola",
+          "query_version": "Zistiť verziu",
+          "demo": "Demo",
+          "ramadan": "Ramadán",
+          "after_checking": "Po kontrole",
+          "wait_to_start": "Čaká na spustenie",
+          "ff": "Neznáme"
+        }
+      },
+      "x9b_fire_power": {
+        "name": "Výkon ohrevu",
+        "state": {
+          "high_power": "Vysoká",
+          "medium_high_power": "Stredne vysoká",
+          "medium_power": "Stredná",
+          "medium_low_power": "Stredne nízka",
+          "low_power": "Nízka",
+          "ff": "Neznáme"
+        }
+      },
+      "pre_heat": {
+        "name": "Predhrievanie",
+        "state": {
+          "off": "Vyp",
+          "work": "Predhrievanie",
+          "end": "Predhrievanie dokončené"
+        }
+      },
+      "water_status": {
+        "name": "Stav vody",
+        "state": {
+          "normal": "Normálne",
+          "lack_box": "Chýba nádoba",
+          "lack_water": "Nedostatok vody",
+          "change_water": "Vymeňte vodu"
+        }
+      },
+      "dissipate_heat": {
+        "name": "Odvod tepla",
+        "state": {
+          "off": "Vyp",
+          "work": "Odvod tepla"
+        }
+      },
+      "execute": {
+        "name": "Stav vykonávania",
+        "state": {
+          "ok": "OK",
+          "status_nonsupport": "Stav nie je podporovaný",
+          "function_nonsupport": "Funkcia nie je podporovaná",
+          "param_range_error": "Chyba rozsahu parametra"
+        }
+      },
+      "sys_time_src": {
+        "name": "Zdroj systémového času",
+        "state": {
+          "module": "Modul",
+          "app": "Aplikácia",
+          "user_defined": "Používateľom definované"
+        }
+      },
+      "cur_temperature": { "name": "Aktuálna teplota" },
+      "work_hour": { "name": "Pracovná hodina" },
+      "work_minute": { "name": "Pracovná minúta" },
+      "work_second": { "name": "Pracovná sekunda" },
       "three_way_mode": {
         "name": "Trojcestný režim"
       },
@@ -1318,6 +1447,7 @@
           "double_tube": "Dvojitý Trubica",
           "hot_wind_tube_fan": "Horúci vzduch Trubica Ventilátor",
           "pure_preheat": "Čistý Predhrievanie",
+          "pure_preheat_2": "Čistý Predhrievanie 2",
           "above_tube_hot_wind_tube_fan": "Horný Trubica Horúci vzduch Ventilátor",
           "underside_tube_hot_wind_tube_fan": "Dolný Trubica Horúci vzduch Ventilátor",
           "zymosis": "Kvasenie",
@@ -1574,6 +1704,8 @@
       }
     },
     "switch": {
+      "lock": { "name": "Detská poistka" },
+      "camera": { "name": "Kamera" },
       "anion": {
         "name": "Anion"
       },

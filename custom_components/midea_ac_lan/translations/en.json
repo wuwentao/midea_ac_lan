@@ -63,6 +63,12 @@
   },
   "entity": {
     "binary_sensor": {
+      "door_open": { "name": "Door Open" },
+      "turntable": { "name": "Turntable" },
+      "lack_box": { "name": "Lack Box" },
+      "change_water": { "name": "Change Water Reminder" },
+      "ramadan": { "name": "Ramadan" },
+      "ota": { "name": "OTA" },
       "warm_power": {
         "name": "Warm Power"
       },
@@ -489,6 +495,16 @@
       }
     },
     "number": {
+      "screen_luminance": { "name": "Screen Luminance" },
+      "volume": { "name": "Volume" },
+      "temperature": { "name": "Target Temperature" },
+      "temperature_above": { "name": "Target Temperature Above" },
+      "temperature_underside": { "name": "Target Temperature Underside" },
+      "probe_temperature": { "name": "Target Probe Temperature" },
+      "steam_quantity": { "name": "Steam Quantity" },
+      "hour_set": { "name": "Hour Set" },
+      "minute_set": { "name": "Minute Set" },
+      "second_set": { "name": "Second Set" },
       "heating_target_temperature": {
         "name": "Heating Target Temperature"
       },
@@ -530,6 +546,44 @@
       }
     },
     "select": {
+      "work_status": {
+        "name": "Work Status",
+        "state": {
+          "save_power": "Save Power",
+          "standby": "Standby",
+          "work": "Working",
+          "pause": "Paused",
+          "work_finish": "Finished",
+          "order": "Delay",
+          "pause_c": "Paused C",
+          "three": "Three",
+          "self_inspection": "Self Inspection",
+          "query_version": "Query Version",
+          "demo": "Demo",
+          "ramadan": "Ramadan",
+          "after_checking": "After Checking",
+          "wait_to_start": "Wait to Start",
+          "ff": "Unknown"
+        }
+      },
+      "x9b_fire_power": {
+        "name": "Fire Power",
+        "state": {
+          "high_power": "High",
+          "medium_high_power": "Medium-High",
+          "medium_power": "Medium",
+          "medium_low_power": "Medium-Low",
+          "low_power": "Low",
+          "ff": "Unknown"
+        }
+      },
+      "door": {
+        "name": "Door",
+        "state": {
+          "open": "Open",
+          "close": "Close"
+        }
+      },
       "heating_mode": {
         "name": "Heating Mode",
         "state": {
@@ -658,6 +712,83 @@
       }
     },
     "sensor": {
+      "work_status": {
+        "name": "Work Status",
+        "state": {
+          "save_power": "Save Power",
+          "standby": "Standby",
+          "work": "Working",
+          "pause": "Paused",
+          "work_finish": "Finished",
+          "order": "Delay",
+          "pause_c": "Paused C",
+          "three": "Three",
+          "self_inspection": "Self Inspection",
+          "query_version": "Query Version",
+          "demo": "Demo",
+          "ramadan": "Ramadan",
+          "after_checking": "After Checking",
+          "wait_to_start": "Wait to Start",
+          "ff": "Unknown"
+        }
+      },
+      "x9b_fire_power": {
+        "name": "Fire Power",
+        "state": {
+          "high_power": "High",
+          "medium_high_power": "Medium-High",
+          "medium_power": "Medium",
+          "medium_low_power": "Medium-Low",
+          "low_power": "Low",
+          "ff": "Unknown"
+        }
+      },
+      "pre_heat": {
+        "name": "Pre Heat",
+        "state": {
+          "off": "Off",
+          "work": "Preheating",
+          "end": "Preheat Finished"
+        }
+      },
+      "water_status": {
+        "name": "Water Status",
+        "state": {
+          "normal": "Normal",
+          "lack_box": "Box Missing",
+          "lack_water": "Water Shortage",
+          "change_water": "Change Water"
+        }
+      },
+      "dissipate_heat": {
+        "name": "Dissipate Heat",
+        "state": {
+          "off": "Off",
+          "work": "Dissipating"
+        }
+      },
+      "execute": {
+        "name": "Execute Status",
+        "state": {
+          "ok": "OK",
+          "status_nonsupport": "Status Not Supported",
+          "function_nonsupport": "Function Not Supported",
+          "param_range_error": "Parameter Range Error"
+        }
+      },
+      "sys_time_src": {
+        "name": "System Time Source",
+        "state": {
+          "module": "Module",
+          "app": "App",
+          "user_defined": "User Defined"
+        }
+      },
+      "cur_temperature": { "name": "Current Temperature" },
+      "work_hour": { "name": "Work Hour" },
+      "work_minute": { "name": "Work Minute" },
+      "work_second": { "name": "Work Second" },
+      "cbs_version": { "name": "CBS Version" },
       "gas_usage_daily": {
         "name": "Daily Gas Usage"
       },
@@ -1284,6 +1415,7 @@
           "double_tube": "Double Tube",
           "hot_wind_tube_fan": "Hot Wind Tube Fan",
           "pure_preheat": "Pure Preheat",
+          "pure_preheat_2": "Pure Preheat 2",
           "above_tube_hot_wind_tube_fan": "Above Tube Hot Wind Fan",
           "underside_tube_hot_wind_tube_fan": "Underside Tube Hot Wind Fan",
           "zymosis": "Fermentation",
@@ -1540,6 +1672,8 @@
       }
     },
     "switch": {
+      "lock": { "name": "Child Lock" },
+      "camera": { "name": "Camera" },
       "anion": {
         "name": "Anion"
       },

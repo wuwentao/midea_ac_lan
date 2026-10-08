@@ -63,6 +63,12 @@
   },
   "entity": {
     "binary_sensor": {
+      "door_open": { "name": "Porta Aperta" },
+      "turntable": { "name": "Piatto Girevole" },
+      "lack_box": { "name": "Vaschetta Mancante" },
+      "change_water": { "name": "Promemoria Cambio Acqua" },
+      "ramadan": { "name": "Ramadan" },
+      "ota": { "name": "OTA" },
       "warm_power": {
         "name": "Funzionamento riscaldamento"
       },
@@ -485,6 +491,16 @@
       }
     },
     "number": {
+      "screen_luminance": { "name": "Luminosità Schermo" },
+      "volume": { "name": "Volume" },
+      "temperature": { "name": "Temperatura Target" },
+      "temperature_above": { "name": "Temperatura Target Superiore" },
+      "temperature_underside": { "name": "Temperatura Target Inferiore" },
+      "probe_temperature": { "name": "Temperatura Target Sonda" },
+      "steam_quantity": { "name": "Quantità di Vapore" },
+      "hour_set": { "name": "Impostazione Ora" },
+      "minute_set": { "name": "Impostazione Minuti" },
+      "second_set": { "name": "Impostazione Secondi" },
       "heating_target_temperature": {
         "name": "Temperatura target riscaldamento"
       },
@@ -526,6 +542,44 @@
       }
     },
     "select": {
+      "work_status": {
+        "name": "Stato di Lavoro",
+        "state": {
+          "save_power": "Risparmio Energetico",
+          "standby": "Standby",
+          "work": "In Funzione",
+          "pause": "In Pausa",
+          "work_finish": "Terminato",
+          "order": "Ritardo",
+          "pause_c": "In Pausa C",
+          "three": "Tre",
+          "self_inspection": "Autodiagnosi",
+          "query_version": "Richiedi Versione",
+          "demo": "Demo",
+          "ramadan": "Ramadan",
+          "after_checking": "Dopo il Controllo",
+          "wait_to_start": "In Attesa di Avvio",
+          "ff": "Sconosciuto"
+        }
+      },
+      "x9b_fire_power": {
+        "name": "Potenza",
+        "state": {
+          "high_power": "Alta",
+          "medium_high_power": "Medio-Alta",
+          "medium_power": "Media",
+          "medium_low_power": "Medio-Bassa",
+          "low_power": "Bassa",
+          "ff": "Sconosciuto"
+        }
+      },
+      "door": {
+        "name": "Porta",
+        "state": {
+          "open": "Apri",
+          "close": "Chiudi"
+        }
+      },
       "heating_mode": {
         "name": "Modalità riscaldamento",
         "state": {
@@ -654,6 +708,83 @@
       }
     },
     "sensor": {
+      "work_status": {
+        "name": "Stato di Lavoro",
+        "state": {
+          "save_power": "Risparmio Energetico",
+          "standby": "Standby",
+          "work": "In Funzione",
+          "pause": "In Pausa",
+          "work_finish": "Terminato",
+          "order": "Ritardo",
+          "pause_c": "In Pausa C",
+          "three": "Tre",
+          "self_inspection": "Autodiagnosi",
+          "query_version": "Richiedi Versione",
+          "demo": "Demo",
+          "ramadan": "Ramadan",
+          "after_checking": "Dopo il Controllo",
+          "wait_to_start": "In Attesa di Avvio",
+          "ff": "Sconosciuto"
+        }
+      },
+      "x9b_fire_power": {
+        "name": "Potenza",
+        "state": {
+          "high_power": "Alta",
+          "medium_high_power": "Medio-Alta",
+          "medium_power": "Media",
+          "medium_low_power": "Medio-Bassa",
+          "low_power": "Bassa",
+          "ff": "Sconosciuto"
+        }
+      },
+      "pre_heat": {
+        "name": "Preriscaldamento",
+        "state": {
+          "off": "Spento",
+          "work": "Preriscaldamento",
+          "end": "Preriscaldamento Terminato"
+        }
+      },
+      "water_status": {
+        "name": "Stato Acqua",
+        "state": {
+          "normal": "Normale",
+          "lack_box": "Vaschetta Mancante",
+          "lack_water": "Mancanza Acqua",
+          "change_water": "Cambiare Acqua"
+        }
+      },
+      "dissipate_heat": {
+        "name": "Dissipazione Calore",
+        "state": {
+          "off": "Spento",
+          "work": "Dissipazione"
+        }
+      },
+      "execute": {
+        "name": "Stato di Esecuzione",
+        "state": {
+          "ok": "OK",
+          "status_nonsupport": "Stato Non Supportato",
+          "function_nonsupport": "Funzione Non Supportata",
+          "param_range_error": "Errore Intervallo Parametro"
+        }
+      },
+      "sys_time_src": {
+        "name": "Fonte Ora di Sistema",
+        "state": {
+          "module": "Modulo",
+          "app": "App",
+          "user_defined": "Definito dall'Utente"
+        }
+      },
+      "cur_temperature": { "name": "Temperatura Attuale" },
+      "work_hour": { "name": "Ora di Lavoro" },
+      "work_minute": { "name": "Minuto di Lavoro" },
+      "work_second": { "name": "Secondo di Lavoro" },
+      "cbs_version": { "name": "Versione CBS" },
       "three_way_mode": {
         "name": "Modalità a tre vie"
       },
@@ -1256,6 +1387,7 @@
           "double_tube": "Doppia Resistenza",
           "hot_wind_tube_fan": "Aria calda Resistenza Ventilatore",
           "pure_preheat": "Puro Preriscaldamento",
+          "pure_preheat_2": "Puro Preriscaldamento 2",
           "above_tube_hot_wind_tube_fan": "Superiore Resistenza Aria calda Ventilatore",
           "underside_tube_hot_wind_tube_fan": "Inferiore Resistenza Aria calda Ventilatore",
           "zymosis": "Fermentazione",
@@ -1512,6 +1644,8 @@
       }
     },
     "switch": {
+      "lock": { "name": "Blocco Bambini" },
+      "camera": { "name": "Fotocamera" },
       "anion": {
         "name": "Anioni"
       },
