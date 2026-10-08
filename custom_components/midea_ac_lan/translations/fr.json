@@ -153,10 +153,18 @@
       "dispensing": {
         "name": "Distribution d’eau"
       },
-      "lack_water": { "name": "Manque d’eau" },
-      "standby": { "name": "Veille" },
-      "hot_water_dispensing": { "name": "Distribution d’eau chaude" },
-      "fault": { "name": "Défaut" },
+      "lack_water": {
+        "name": "Manque d’eau"
+      },
+      "standby": {
+        "name": "Veille"
+      },
+      "hot_water_dispensing": {
+        "name": "Distribution d’eau chaude"
+      },
+      "fault": {
+        "name": "Défaut"
+      },
       "heating_working": {
         "name": "Heating Working Status"
       },
@@ -483,6 +491,342 @@
       },
       "time_set": {
         "name": "Fonction - Heure réglée"
+      },
+      "ac_air_direction": {
+        "name": "Direction d'air clim"
+      },
+      "ac_cooling_fan": {
+        "name": "Ventilateur de refroidissement clim"
+      },
+      "ac_draining_pump": {
+        "name": "Pompe de vidange clim"
+      },
+      "ac_low_temperature": {
+        "name": "Basse température clim"
+      },
+      "ac_over_temperature": {
+        "name": "Surchauffe clim"
+      },
+      "ac_swing": {
+        "name": "Oscillation clim"
+      },
+      "ac_water_full": {
+        "name": "Réservoir plein clim"
+      },
+      "b2_downstair_clean_tips": {
+        "name": "Conseils nettoyage four vapeur inférieur"
+      },
+      "b2_downstair_door": {
+        "name": "Porte four vapeur inférieur"
+      },
+      "b2_downstair_fresh_water": {
+        "name": "Eau fraîche four vapeur inférieur"
+      },
+      "b2_downstair_light": {
+        "name": "Éclairage four vapeur inférieur"
+      },
+      "b2_downstair_lock": {
+        "name": "Verrouillage four vapeur inférieur"
+      },
+      "b2_downstair_must_clean_tips": {
+        "name": "Conseils nettoyage obligatoire four vapeur inférieur"
+      },
+      "b2_downstair_water_shortage": {
+        "name": "Manque d'eau four vapeur inférieur"
+      },
+      "b2_upstair_clean_tips": {
+        "name": "Conseils nettoyage four vapeur supérieur"
+      },
+      "b2_upstair_door": {
+        "name": "Porte four vapeur supérieur"
+      },
+      "b2_upstair_fresh_water": {
+        "name": "Eau fraîche four vapeur supérieur"
+      },
+      "b2_upstair_light": {
+        "name": "Éclairage four vapeur supérieur"
+      },
+      "b2_upstair_lock": {
+        "name": "Verrouillage four vapeur supérieur"
+      },
+      "b2_upstair_must_clean_tips": {
+        "name": "Conseils nettoyage obligatoire four vapeur supérieur"
+      },
+      "b2_upstair_water_shortage": {
+        "name": "Manque d'eau four vapeur supérieur"
+      },
+      "b3_downstair_door": {
+        "name": "Porte armoire vapeur inférieure"
+      },
+      "b3_downstair_door_lock": {
+        "name": "Verrou de porte armoire vapeur inférieure"
+      },
+      "b3_downstair_infrared": {
+        "name": "Infrarouge armoire vapeur inférieure"
+      },
+      "b3_downstair_ultraviolet": {
+        "name": "Ultraviolet armoire vapeur inférieure"
+      },
+      "b3_upstair_door": {
+        "name": "Porte armoire vapeur supérieure"
+      },
+      "b3_upstair_door_lock": {
+        "name": "Verrou de porte armoire vapeur supérieure"
+      },
+      "b3_upstair_infrared": {
+        "name": "Infrarouge armoire vapeur supérieure"
+      },
+      "b3_upstair_ultraviolet": {
+        "name": "Ultraviolet armoire vapeur supérieure"
+      },
+      "b6_TVOC_status": {
+        "name": "État TVOC hotte"
+      },
+      "b6_delay_gear_linkage": {
+        "name": "Couplage niveau différé hotte"
+      },
+      "b6_delay_time": {
+        "name": "Temporisation hotte"
+      },
+      "b6_gesture_status": {
+        "name": "État gestuel hotte"
+      },
+      "b6_infrared_status": {
+        "name": "État infrarouge hotte"
+      },
+      "b6_lock": {
+        "name": "Verrouillage hotte"
+      },
+      "b6_power_on_light": {
+        "name": "Éclairage à l'allumage hotte"
+      },
+      "b6_smoke_detector": {
+        "name": "Détecteur de fumée hotte"
+      },
+      "b6_smoke_stove_linkage": {
+        "name": "Couplage fumée-brûleur hotte"
+      },
+      "b7_left_dry_burning": {
+        "name": "Chauffe à sec brûleur gauche"
+      },
+      "b7_left_dry_burning_invalid": {
+        "name": "Chauffe à sec invalide brûleur gauche"
+      },
+      "b7_left_gas_leakage": {
+        "name": "Fuite de gaz brûleur gauche"
+      },
+      "b7_left_has_fire": {
+        "name": "Flamme présente brûleur gauche"
+      },
+      "b7_left_has_pot": {
+        "name": "Casserole présente brûleur gauche"
+      },
+      "b7_right_dry_burning": {
+        "name": "Chauffe à sec brûleur droit"
+      },
+      "b7_right_dry_burning_invalid": {
+        "name": "Chauffe à sec invalide brûleur droit"
+      },
+      "b7_right_gas_leakage": {
+        "name": "Fuite de gaz brûleur droit"
+      },
+      "b7_right_has_fire": {
+        "name": "Flamme présente brûleur droit"
+      },
+      "b7_right_has_pot": {
+        "name": "Casserole présente brûleur droit"
+      },
+      "bf_door": {
+        "name": "Porte du four"
+      },
+      "bf_error": {
+        "name": "Erreur four"
+      },
+      "bf_flip": {
+        "name": "Retournement four"
+      },
+      "bf_hightemp_error": {
+        "name": "Erreur haute température four"
+      },
+      "bf_hightemp_lock": {
+        "name": "Verrouillage haute température four"
+      },
+      "bf_hightemp_over": {
+        "name": "Dépassement haute température four"
+      },
+      "bf_hotwind": {
+        "name": "Air chaud four"
+      },
+      "bf_hotwind_set": {
+        "name": "Réglage air chaud four"
+      },
+      "bf_hydrops_full": {
+        "name": "Bac à condensats plein four"
+      },
+      "bf_light": {
+        "name": "Éclairage four"
+      },
+      "bf_lock": {
+        "name": "Verrouillage four"
+      },
+      "bf_off_fromapp": {
+        "name": "Arrêt four depuis l'appli"
+      },
+      "bf_on_smart": {
+        "name": "Mise en marche intelligente four"
+      },
+      "bf_order": {
+        "name": "Programmation four"
+      },
+      "bf_order_time_isabsolute": {
+        "name": "Heure de programmation absolue four"
+      },
+      "bf_overheat": {
+        "name": "Surchauffe four"
+      },
+      "bf_preheat": {
+        "name": "Préchauffage four"
+      },
+      "bf_preheat_done": {
+        "name": "Préchauffage terminé four"
+      },
+      "bf_preheat_set": {
+        "name": "Réglage préchauffage four"
+      },
+      "bf_probe": {
+        "name": "Sonde four"
+      },
+      "bf_probe_meat": {
+        "name": "Sonde à viande four"
+      },
+      "bf_radiating": {
+        "name": "Rayonnement four"
+      },
+      "bf_repair_cook": {
+        "name": "Reprise de cuisson four"
+      },
+      "bf_sabbath": {
+        "name": "Mode shabbat four"
+      },
+      "bf_scalehandling_remind": {
+        "name": "Rappel détartrage four"
+      },
+      "bf_sensor": {
+        "name": "Capteur four"
+      },
+      "bf_stove_1": {
+        "name": "Foyer four 1"
+      },
+      "bf_stove_2": {
+        "name": "Foyer four 2"
+      },
+      "bf_stove_3": {
+        "name": "Foyer four 3"
+      },
+      "bf_stove_4": {
+        "name": "Foyer four 4"
+      },
+      "bf_stove_5": {
+        "name": "Foyer four 5"
+      },
+      "bf_temp_fahrenheit": {
+        "name": "Température en Fahrenheit four"
+      },
+      "bf_time_synchronization": {
+        "name": "Synchronisation de l'heure four"
+      },
+      "bf_turntable": {
+        "name": "Plateau tournant four"
+      },
+      "bf_turntable_reset": {
+        "name": "Réinitialisation plateau tournant four"
+      },
+      "bf_upload_interval": {
+        "name": "Intervalle d'envoi four"
+      },
+      "bf_voice_identify": {
+        "name": "Identification vocale four"
+      },
+      "bf_voice_module": {
+        "name": "Module vocal four"
+      },
+      "bf_water_box": {
+        "name": "Réservoir d'eau four"
+      },
+      "bf_water_change": {
+        "name": "Changement d'eau four"
+      },
+      "bf_water_shortage": {
+        "name": "Manque d'eau four"
+      },
+      "bf_wintersummertime": {
+        "name": "Heure d'été/hiver four"
+      },
+      "e7_left_bottom_has_pot": {
+        "name": "Casserole présente induction gauche bas"
+      },
+      "e7_left_has_pot": {
+        "name": "Casserole présente induction gauche"
+      },
+      "e7_left_top_has_pot": {
+        "name": "Casserole présente induction gauche haut"
+      },
+      "e7_right_bottom_has_pot": {
+        "name": "Casserole présente induction droite bas"
+      },
+      "e7_right_has_pot": {
+        "name": "Casserole présente induction droite"
+      },
+      "e7_right_top_has_pot": {
+        "name": "Casserole présente induction droite haut"
+      },
+      "sp_fandrying_door": {
+        "name": "Porte séchage ventilé panier"
+      },
+      "sp_fandrying_setting_automode": {
+        "name": "Mode auto séchage ventilé panier"
+      },
+      "sp_fandrying_setting_linkage": {
+        "name": "Couplage séchage ventilé panier"
+      },
+      "sp_fandrying_setting_linkcooker": {
+        "name": "Couplage cuisson séchage ventilé panier"
+      },
+      "sp_fandrying_setting_sync": {
+        "name": "Synchronisation séchage ventilé panier"
+      },
+      "sp_heatingdisk_door": {
+        "name": "Porte plaque chauffante panier"
+      },
+      "sp_heatingdisk_setting_automode": {
+        "name": "Mode auto plaque chauffante panier"
+      },
+      "sp_heatingdisk_setting_linkage": {
+        "name": "Couplage plaque chauffante panier"
+      },
+      "sp_heatingdisk_setting_linkcooker": {
+        "name": "Couplage cuisson plaque chauffante panier"
+      },
+      "sp_heatingdisk_setting_sync": {
+        "name": "Synchronisation plaque chauffante panier"
+      },
+      "sp_uvc_door": {
+        "name": "Porte UVC panier"
+      },
+      "sp_uvc_setting_automode": {
+        "name": "Mode auto UVC panier"
+      },
+      "sp_uvc_setting_linkage": {
+        "name": "Couplage UVC panier"
+      },
+      "sp_uvc_setting_linkcooker": {
+        "name": "Couplage cuisson UVC panier"
+      },
+      "sp_uvc_setting_sync": {
+        "name": "Synchronisation UVC panier"
+      },
+      "total_water_shortage": {
+        "name": "Manque d'eau"
       }
     },
     "button": {
@@ -566,6 +910,9 @@
       },
       "keep_warm_time": {
         "name": "Durée de maintien au chaud"
+      },
+      "ai_voice_volume": {
+        "name": "Volume voix IA"
       }
     },
     "select": {
@@ -957,7 +1304,9 @@
       "keep_warm_remaining": {
         "name": "Keep Warm Remaining"
       },
-      "fault_code": { "name": "Code défaut" },
+      "fault_code": {
+        "name": "Code défaut"
+      },
       "keep_warm_time": {
         "name": "Keep Warm Time"
       },
@@ -1571,6 +1920,1303 @@
       },
       "zone2_temp_set": {
         "name": "Température - Consigne zone 2"
+      },
+      "ac_air_direction_gear": {
+        "name": "Niveau direction d'air clim"
+      },
+      "ac_air_direction_max_angle": {
+        "name": "Angle max direction d'air clim"
+      },
+      "ac_air_direction_min_angle": {
+        "name": "Angle min direction d'air clim"
+      },
+      "ac_ambient_temperature": {
+        "name": "Température ambiante clim"
+      },
+      "ac_current_temp": {
+        "name": "Température actuelle clim"
+      },
+      "ac_destination_temp": {
+        "name": "Température cible clim"
+      },
+      "ac_destination_time": {
+        "name": "Durée cible clim"
+      },
+      "ac_gear": {
+        "name": "Niveau clim"
+      },
+      "ac_mode": {
+        "name": "Mode clim",
+        "state": {
+          "air_supply": "Soufflage d'air",
+          "dehumidification": "Déshumidification",
+          "net_flavour": "Assainissement de l'air",
+          "none": "Aucun",
+          "refrigeration": "Réfrigération"
+        }
+      },
+      "ac_order_destination_time": {
+        "name": "Durée cible programmée clim"
+      },
+      "ac_order_remaining_time": {
+        "name": "Temps restant programmé clim"
+      },
+      "ac_remaining_time": {
+        "name": "Temps restant clim"
+      },
+      "ac_swing_gear": {
+        "name": "Niveau d'oscillation clim"
+      },
+      "ac_swing_max_angle": {
+        "name": "Angle max d'oscillation clim"
+      },
+      "ac_swing_min_angle": {
+        "name": "Angle min d'oscillation clim"
+      },
+      "ac_work_status": {
+        "name": "État de fonctionnement clim",
+        "state": {
+          "order": "Programmation",
+          "power_off": "Éteint",
+          "reservation": "Réservation",
+          "reservation_and_order_ordering": "Réservation et programmation en cours",
+          "reservation_and_order_reserving": "Réservation et programmation réservée",
+          "working": "En fonctionnement"
+        }
+      },
+      "ai_voice_microphone_status": {
+        "name": "État du microphone voix IA",
+        "state": {
+          "failure": "Échec",
+          "success": "Succès"
+        }
+      },
+      "ai_voice_status": {
+        "name": "État voix IA",
+        "state": {
+          "connecting": "Connexion en cours",
+          "off": "Arrêt",
+          "on": "Marche"
+        }
+      },
+      "ai_voice_volume_status": {
+        "name": "État du volume voix IA",
+        "state": {
+          "failure": "Échec",
+          "success": "Succès"
+        }
+      },
+      "b2_downstair_current_temp": {
+        "name": "Température actuelle four vapeur inférieur"
+      },
+      "b2_downstair_destination_temp": {
+        "name": "Température cible four vapeur inférieur"
+      },
+      "b2_downstair_light_off_type": {
+        "name": "Type d'extinction éclairage four vapeur inférieur",
+        "state": {
+          "app": "Appli",
+          "local": "Local"
+        }
+      },
+      "b2_downstair_light_on_type": {
+        "name": "Type d'allumage éclairage four vapeur inférieur",
+        "state": {
+          "app": "Appli",
+          "local": "Local"
+        }
+      },
+      "b2_downstair_order_destination_time": {
+        "name": "Durée cible programmée four vapeur inférieur"
+      },
+      "b2_downstair_order_remaining_time": {
+        "name": "Temps restant programmé four vapeur inférieur"
+      },
+      "b2_downstair_power_off_type": {
+        "name": "Type d'extinction four vapeur inférieur",
+        "state": {
+          "app": "Appli",
+          "auto": "Auto",
+          "error": "Erreur",
+          "local": "Local",
+          "wifi": "Wifi"
+        }
+      },
+      "b2_downstair_power_on_type": {
+        "name": "Type d'allumage four vapeur inférieur",
+        "state": {
+          "app": "Appli",
+          "local": "Local",
+          "order": "Programmation"
+        }
+      },
+      "b2_downstair_preheating": {
+        "name": "Préchauffage four vapeur inférieur",
+        "state": {
+          "finish": "Terminer",
+          "none": "Aucun",
+          "preheating": "Préchauffage"
+        }
+      },
+      "b2_downstair_recipe_after": {
+        "name": "Recette suivante four vapeur inférieur"
+      },
+      "b2_downstair_recipe_code": {
+        "name": "Code recette four vapeur inférieur"
+      },
+      "b2_downstair_recipe_current_mode": {
+        "name": "Mode actuel de recette four vapeur inférieur"
+      },
+      "b2_downstair_recipe_current_step": {
+        "name": "Étape actuelle de recette four vapeur inférieur"
+      },
+      "b2_downstair_recipe_off_type": {
+        "name": "Type d'arrêt recette four vapeur inférieur",
+        "state": {
+          "app": "Appli",
+          "auto": "Auto",
+          "error": "Erreur",
+          "local": "Local",
+          "wifi": "Wifi"
+        }
+      },
+      "b2_downstair_recipe_on_type": {
+        "name": "Type de mise en marche recette four vapeur inférieur",
+        "state": {
+          "app": "Appli",
+          "local": "Local",
+          "order": "Programmation"
+        }
+      },
+      "b2_downstair_recipe_total_steps": {
+        "name": "Nombre total d'étapes de recette four vapeur inférieur"
+      },
+      "b2_downstair_work_destination_time": {
+        "name": "Durée cible de fonctionnement four vapeur inférieur"
+      },
+      "b2_downstair_work_func": {
+        "name": "Fonction en cours four vapeur inférieur"
+      },
+      "b2_downstair_work_menu": {
+        "name": "Menu en cours four vapeur inférieur"
+      },
+      "b2_downstair_work_remaining_time": {
+        "name": "Temps restant de fonctionnement four vapeur inférieur"
+      },
+      "b2_downstair_work_status": {
+        "name": "État de fonctionnement four vapeur inférieur",
+        "state": {
+          "auto": "Auto",
+          "drying": "Séchage",
+          "finish": "Terminer",
+          "order": "Programmation",
+          "pause": "Pause",
+          "power_off": "Éteint",
+          "standby": "Veille",
+          "working": "En fonctionnement"
+        }
+      },
+      "b2_upstair_current_temp": {
+        "name": "Température actuelle four vapeur supérieur"
+      },
+      "b2_upstair_destination_temp": {
+        "name": "Température cible four vapeur supérieur"
+      },
+      "b2_upstair_light_off_type": {
+        "name": "Type d'extinction éclairage four vapeur supérieur",
+        "state": {
+          "app": "Appli",
+          "local": "Local"
+        }
+      },
+      "b2_upstair_light_on_type": {
+        "name": "Type d'allumage éclairage four vapeur supérieur",
+        "state": {
+          "app": "Appli",
+          "local": "Local"
+        }
+      },
+      "b2_upstair_order_destination_time": {
+        "name": "Durée cible programmée four vapeur supérieur"
+      },
+      "b2_upstair_order_remaining_time": {
+        "name": "Temps restant programmé four vapeur supérieur"
+      },
+      "b2_upstair_power_off_type": {
+        "name": "Type d'extinction four vapeur supérieur",
+        "state": {
+          "app": "Appli",
+          "auto": "Auto",
+          "error": "Erreur",
+          "local": "Local",
+          "wifi": "Wifi"
+        }
+      },
+      "b2_upstair_power_on_type": {
+        "name": "Type d'allumage four vapeur supérieur",
+        "state": {
+          "app": "Appli",
+          "local": "Local",
+          "order": "Programmation"
+        }
+      },
+      "b2_upstair_preheating": {
+        "name": "Préchauffage four vapeur supérieur",
+        "state": {
+          "finish": "Terminer",
+          "none": "Aucun",
+          "preheating": "Préchauffage"
+        }
+      },
+      "b2_upstair_recipe_after": {
+        "name": "Recette suivante four vapeur supérieur"
+      },
+      "b2_upstair_recipe_code": {
+        "name": "Code recette four vapeur supérieur"
+      },
+      "b2_upstair_recipe_current_mode": {
+        "name": "Mode actuel de recette four vapeur supérieur"
+      },
+      "b2_upstair_recipe_current_step": {
+        "name": "Étape actuelle de recette four vapeur supérieur"
+      },
+      "b2_upstair_recipe_off_type": {
+        "name": "Type d'arrêt recette four vapeur supérieur",
+        "state": {
+          "app": "Appli",
+          "auto": "Auto",
+          "error": "Erreur",
+          "local": "Local",
+          "wifi": "Wifi"
+        }
+      },
+      "b2_upstair_recipe_on_type": {
+        "name": "Type de mise en marche recette four vapeur supérieur",
+        "state": {
+          "app": "Appli",
+          "local": "Local",
+          "order": "Programmation"
+        }
+      },
+      "b2_upstair_recipe_total_steps": {
+        "name": "Nombre total d'étapes de recette four vapeur supérieur"
+      },
+      "b2_upstair_work_destination_time": {
+        "name": "Durée cible de fonctionnement four vapeur supérieur"
+      },
+      "b2_upstair_work_func": {
+        "name": "Fonction en cours four vapeur supérieur"
+      },
+      "b2_upstair_work_menu": {
+        "name": "Menu en cours four vapeur supérieur"
+      },
+      "b2_upstair_work_remaining_time": {
+        "name": "Temps restant de fonctionnement four vapeur supérieur"
+      },
+      "b2_upstair_work_status": {
+        "name": "État de fonctionnement four vapeur supérieur",
+        "state": {
+          "auto": "Auto",
+          "drying": "Séchage",
+          "finish": "Terminer",
+          "order": "Programmation",
+          "pause": "Pause",
+          "power_off": "Éteint",
+          "standby": "Veille",
+          "working": "En fonctionnement"
+        }
+      },
+      "b3_disinfect_off_type": {
+        "name": "Type d'arrêt désinfection armoire vapeur",
+        "state": {
+          "app": "Appli",
+          "local": "Local"
+        }
+      },
+      "b3_disinfect_on_type": {
+        "name": "Type de mise en marche désinfection armoire vapeur",
+        "state": {
+          "app": "Appli",
+          "local": "Local"
+        }
+      },
+      "b3_downstair_current_temp": {
+        "name": "Température actuelle armoire vapeur inférieure"
+      },
+      "b3_downstair_destination_temp": {
+        "name": "Température cible armoire vapeur inférieure"
+      },
+      "b3_downstair_destination_time": {
+        "name": "Durée cible armoire vapeur inférieure"
+      },
+      "b3_downstair_remaining_time": {
+        "name": "Temps restant armoire vapeur inférieure"
+      },
+      "b3_downstair_sensor": {
+        "name": "Capteur armoire vapeur inférieure"
+      },
+      "b3_downstair_status": {
+        "name": "État armoire vapeur inférieure",
+        "state": {
+          "drying": "Séchage",
+          "drying_pause": "Séchage en pause",
+          "ion_drying": "Séchage ionique",
+          "ion_drying_pause": "Séchage ionique en pause",
+          "power_off": "Éteint",
+          "uperization": "Stérilisation UHT",
+          "uperization_pause": "Stérilisation UHT en pause",
+          "warm_drink": "Boisson chaude",
+          "warm_drink_pause": "Boisson chaude en pause"
+        }
+      },
+      "b3_thermotank_off_type": {
+        "name": "Type d'arrêt chauffe-eau armoire vapeur",
+        "state": {
+          "app": "Appli",
+          "local": "Local"
+        }
+      },
+      "b3_thermotank_on_type": {
+        "name": "Type de mise en marche chauffe-eau armoire vapeur",
+        "state": {
+          "app": "Appli",
+          "local": "Local"
+        }
+      },
+      "b3_upstair_current_temp": {
+        "name": "Température actuelle armoire vapeur supérieure"
+      },
+      "b3_upstair_destination_temp": {
+        "name": "Température cible armoire vapeur supérieure"
+      },
+      "b3_upstair_destination_time": {
+        "name": "Durée cible armoire vapeur supérieure"
+      },
+      "b3_upstair_remaining_time": {
+        "name": "Temps restant armoire vapeur supérieure"
+      },
+      "b3_upstair_sensor": {
+        "name": "Capteur armoire vapeur supérieure"
+      },
+      "b3_upstair_status": {
+        "name": "État armoire vapeur supérieure",
+        "state": {
+          "drying": "Séchage",
+          "drying_pause": "Séchage en pause",
+          "ion_drying": "Séchage ionique",
+          "ion_drying_pause": "Séchage ionique en pause",
+          "power_off": "Éteint",
+          "uperization": "Stérilisation UHT",
+          "uperization_pause": "Stérilisation UHT en pause",
+          "warm_drink": "Boisson chaude",
+          "warm_drink_pause": "Boisson chaude en pause"
+        }
+      },
+      "b6_TVOC_value": {
+        "name": "Valeur TVOC hotte",
+        "state": {
+          "中": "Moyen",
+          "优": "Excellent",
+          "良": "Bon"
+        }
+      },
+      "b6_air_duct_detection_score": {
+        "name": "Score de détection du conduit d'air hotte"
+      },
+      "b6_air_duct_detection_state": {
+        "name": "État de détection du conduit d'air hotte"
+      },
+      "b6_air_duct_detection_time": {
+        "name": "Durée de détection du conduit d'air hotte"
+      },
+      "b6_air_duct_detection_windage": {
+        "name": "Résistance au vent détection conduit hotte"
+      },
+      "b6_air_volume": {
+        "name": "Volume d'air hotte"
+      },
+      "b6_delay_gear_linkage_gear": {
+        "name": "Niveau couplage niveau différé hotte"
+      },
+      "b6_delay_time_value": {
+        "name": "Valeur de temporisation hotte"
+      },
+      "b6_destination_time": {
+        "name": "Durée cible hotte"
+      },
+      "b6_gear": {
+        "name": "Niveau hotte"
+      },
+      "b6_gear_control_type": {
+        "name": "Type de commande de niveau hotte",
+        "state": {
+          "app": "Appli",
+          "gesture": "Geste",
+          "linkage": "Couplage",
+          "local": "Local",
+          "smoke_detector": "Détecteur de fumée"
+        }
+      },
+      "b6_gesture_sensitivity": {
+        "name": "Sensibilité gestuelle hotte",
+        "state": {
+          "1": "1",
+          "2": "2",
+          "3": "3"
+        }
+      },
+      "b6_gesture_value": {
+        "name": "Valeur gestuelle hotte",
+        "state": {
+          "light": "Éclairage",
+          "power": "Alimentation",
+          "wind": "Ventilation"
+        }
+      },
+      "b6_hotclean_tips": {
+        "name": "Conseils nettoyage à chaud hotte"
+      },
+      "b6_infrared_value": {
+        "name": "Valeur infrarouge hotte",
+        "state": {
+          "power": "Alimentation",
+          "wind": "Ventilation"
+        }
+      },
+      "b6_inverter_ac_frequency": {
+        "name": "Fréquence onduleur AC hotte"
+      },
+      "b6_inverter_back_electromotive_force": {
+        "name": "Force contre-électromotrice onduleur hotte"
+      },
+      "b6_inverter_capacity": {
+        "name": "Capacité onduleur hotte"
+      },
+      "b6_inverter_efficiency": {
+        "name": "Rendement onduleur hotte"
+      },
+      "b6_inverter_motor_compensation_angle": {
+        "name": "Angle de compensation moteur onduleur hotte"
+      },
+      "b6_inverter_motor_speed": {
+        "name": "Vitesse moteur onduleur hotte"
+      },
+      "b6_inverter_q_axis_current": {
+        "name": "Courant axe Q onduleur hotte"
+      },
+      "b6_inverter_start_time": {
+        "name": "Durée de démarrage onduleur hotte"
+      },
+      "b6_inverter_temperature": {
+        "name": "Température onduleur hotte"
+      },
+      "b6_inverter_temperature_limit_sign": {
+        "name": "Indicateur de limite de température onduleur hotte"
+      },
+      "b6_inverter_voltage": {
+        "name": "Tension onduleur hotte"
+      },
+      "b6_inverter_wind_flow": {
+        "name": "Débit d'air onduleur hotte"
+      },
+      "b6_inverter_wind_presssure": {
+        "name": "Pression d'air onduleur hotte"
+      },
+      "b6_inverter_windage": {
+        "name": "Résistance au vent onduleur hotte"
+      },
+      "b6_inverter_work_gear": {
+        "name": "Niveau de fonctionnement onduleur hotte"
+      },
+      "b6_last_hotclean_hour": {
+        "name": "Dernier nettoyage à chaud (heures) hotte"
+      },
+      "b6_light": {
+        "name": "Éclairage hotte"
+      },
+      "b6_light_off_type": {
+        "name": "Type d'extinction éclairage hotte",
+        "state": {
+          "app": "Appli",
+          "error": "Erreur",
+          "gesture": "Geste",
+          "local": "Local"
+        }
+      },
+      "b6_light_on_type": {
+        "name": "Type d'allumage éclairage hotte",
+        "state": {
+          "app": "Appli",
+          "gesture": "Geste",
+          "local": "Local"
+        }
+      },
+      "b6_lightness": {
+        "name": "Luminosité hotte"
+      },
+      "b6_lock_off_type": {
+        "name": "Type de déverrouillage hotte",
+        "state": {
+          "local": "Local"
+        }
+      },
+      "b6_lock_on_type": {
+        "name": "Type de verrouillage hotte",
+        "state": {
+          "app": "Appli",
+          "local": "Local"
+        }
+      },
+      "b6_power": {
+        "name": "Alimentation hotte",
+        "state": {
+          "delay_off": "Arrêt différé",
+          "off": "Arrêt",
+          "on": "Marche"
+        }
+      },
+      "b6_power_off_type": {
+        "name": "Type d'extinction hotte",
+        "state": {
+          "app": "Appli",
+          "delay": "Différé",
+          "gesture": "Geste",
+          "linkage": "Couplage",
+          "local": "Local"
+        }
+      },
+      "b6_power_on_type": {
+        "name": "Type d'allumage hotte",
+        "state": {
+          "app": "Appli",
+          "gesture": "Geste",
+          "linkage": "Couplage",
+          "local": "Local"
+        }
+      },
+      "b6_remaining_time": {
+        "name": "Temps restant hotte"
+      },
+      "b6_smoke_detector_value": {
+        "name": "Valeur détecteur de fumée hotte"
+      },
+      "b6_smoke_potency": {
+        "name": "Intensité de la fumée hotte"
+      },
+      "b6_smoke_stove_linkage_flowin": {
+        "name": "Entrée couplage fumée-brûleur hotte",
+        "state": {
+          "no": "Non",
+          "yes": "Oui"
+        }
+      },
+      "b6_smoke_stove_linkage_gear": {
+        "name": "Niveau couplage fumée-brûleur hotte"
+      },
+      "b6_smoke_stove_linkage_gear_fix": {
+        "name": "Niveau fixe couplage fumée-brûleur hotte",
+        "state": {
+          "negative": "Négatif",
+          "positive": "Positif"
+        }
+      },
+      "b6_steaming": {
+        "name": "Vapeur hotte",
+        "state": {
+          "off": "Arrêt",
+          "on": "Marche"
+        }
+      },
+      "b6_steaming_stage": {
+        "name": "Étape vapeur hotte"
+      },
+      "b6_wind_pressure": {
+        "name": "Pression d'air hotte"
+      },
+      "b6_work_status": {
+        "name": "État de fonctionnement hotte",
+        "state": {
+          "ai_dry_clean": "Nettoyage à sec IA",
+          "air_duct_detection": "Détection du conduit d'air",
+          "check": "Vérifier",
+          "clean": "Nettoyage",
+          "clean_finish": "Nettoyage terminé",
+          "error": "Erreur",
+          "hotclean": "Nettoyage à chaud",
+          "initial": "Initial",
+          "mute_gear": "Niveau silencieux",
+          "power_off": "Éteint",
+          "power_off_delay": "Arrêt différé",
+          "standby": "Veille",
+          "vvvf_gear": "Niveau à vitesse variable",
+          "working": "En fonctionnement"
+        }
+      },
+      "b7_left_current_temp": {
+        "name": "Température actuelle brûleur gauche"
+      },
+      "b7_left_destination_temp": {
+        "name": "Température cible brûleur gauche"
+      },
+      "b7_left_destination_time": {
+        "name": "Durée cible brûleur gauche"
+      },
+      "b7_left_gear": {
+        "name": "Niveau brûleur gauche"
+      },
+      "b7_left_power_off_type": {
+        "name": "Type d'extinction brûleur gauche",
+        "state": {
+          "app": "Appli",
+          "auto": "Auto",
+          "error": "Erreur",
+          "local": "Local",
+          "wifi": "Wifi"
+        }
+      },
+      "b7_left_remaining_time": {
+        "name": "Temps restant brûleur gauche"
+      },
+      "b7_left_status": {
+        "name": "État brûleur gauche",
+        "state": {
+          "drying": "Séchage",
+          "drying_pause": "Séchage en pause",
+          "ion_drying": "Séchage ionique",
+          "ion_drying_pause": "Séchage ionique en pause",
+          "power_off": "Éteint",
+          "uperization": "Stérilisation UHT",
+          "uperization_pause": "Stérilisation UHT en pause",
+          "warm_drink": "Boisson chaude",
+          "warm_drink_pause": "Boisson chaude en pause"
+        }
+      },
+      "b7_left_work_time": {
+        "name": "Durée de fonctionnement brûleur gauche"
+      },
+      "b7_right_current_temp": {
+        "name": "Température actuelle brûleur droit"
+      },
+      "b7_right_destination_temp": {
+        "name": "Température cible brûleur droit"
+      },
+      "b7_right_destination_time": {
+        "name": "Durée cible brûleur droit"
+      },
+      "b7_right_gear": {
+        "name": "Niveau brûleur droit"
+      },
+      "b7_right_power_off_type": {
+        "name": "Type d'extinction brûleur droit",
+        "state": {
+          "app": "Appli",
+          "auto": "Auto",
+          "error": "Erreur",
+          "local": "Local",
+          "wifi": "Wifi"
+        }
+      },
+      "b7_right_remaining_time": {
+        "name": "Temps restant brûleur droit"
+      },
+      "b7_right_status": {
+        "name": "État brûleur droit",
+        "state": {
+          "drying": "Séchage",
+          "drying_pause": "Séchage en pause",
+          "ion_drying": "Séchage ionique",
+          "ion_drying_pause": "Séchage ionique en pause",
+          "power_off": "Éteint",
+          "uperization": "Stérilisation UHT",
+          "uperization_pause": "Stérilisation UHT en pause",
+          "warm_drink": "Boisson chaude",
+          "warm_drink_pause": "Boisson chaude en pause"
+        }
+      },
+      "b7_right_work_time": {
+        "name": "Durée de fonctionnement brûleur droit"
+      },
+      "bf_cavity": {
+        "name": "Cavité du four",
+        "state": {
+          "down": "Bas",
+          "up": "Haut"
+        }
+      },
+      "bf_control_back": {
+        "name": "Retour commande four",
+        "state": {
+          "func_notsupport": "Fonction non prise en charge",
+          "status_notsupport": "État non pris en charge",
+          "success": "Succès",
+          "value_notsupport": "Valeur non prise en charge"
+        }
+      },
+      "bf_end_next": {
+        "name": "Fin suivante four"
+      },
+      "bf_fire": {
+        "name": "Flamme four"
+      },
+      "bf_mode": {
+        "name": "Mode four"
+      },
+      "bf_quick_btn_bake_id": {
+        "name": "ID bouton rapide cuisson four"
+      },
+      "bf_quick_btn_bake_set": {
+        "name": "Réglage bouton rapide cuisson four"
+      },
+      "bf_quick_btn_bake_time": {
+        "name": "Durée bouton rapide cuisson four"
+      },
+      "bf_quick_btn_microwave_id": {
+        "name": "ID bouton rapide micro-ondes four"
+      },
+      "bf_quick_btn_microwave_set": {
+        "name": "Réglage bouton rapide micro-ondes four"
+      },
+      "bf_quick_btn_microwave_time": {
+        "name": "Durée bouton rapide micro-ondes four"
+      },
+      "bf_quick_btn_steam_id": {
+        "name": "ID bouton rapide vapeur four"
+      },
+      "bf_quick_btn_steam_set": {
+        "name": "Réglage bouton rapide vapeur four"
+      },
+      "bf_quick_btn_steam_time": {
+        "name": "Durée bouton rapide vapeur four"
+      },
+      "bf_recipe_code": {
+        "name": "Code recette four"
+      },
+      "bf_remaining_time": {
+        "name": "Temps restant four"
+      },
+      "bf_steam": {
+        "name": "Vapeur four"
+      },
+      "bf_step_current": {
+        "name": "Étape actuelle four"
+      },
+      "bf_step_total": {
+        "name": "Nombre total d'étapes four"
+      },
+      "bf_temp_down": {
+        "name": "Température inférieure four"
+      },
+      "bf_temp_down_set": {
+        "name": "Réglage température inférieure four"
+      },
+      "bf_temp_probe": {
+        "name": "Température sonde four"
+      },
+      "bf_temp_probe_set": {
+        "name": "Réglage température sonde four"
+      },
+      "bf_temp_up": {
+        "name": "Température supérieure four"
+      },
+      "bf_temp_up_set": {
+        "name": "Réglage température supérieure four"
+      },
+      "bf_tips_mark": {
+        "name": "Marque conseils four",
+        "state": {
+          "apply": "Appliquer",
+          "change_attachments": "Changer les accessoires",
+          "door_open": "Porte ouverte",
+          "feed": "Alimentation",
+          "recipe_tips": "Conseils recette",
+          "stir": "Remuer"
+        }
+      },
+      "bf_weight_mount": {
+        "name": "Support de poids four"
+      },
+      "bf_weight_multiple": {
+        "name": "Multiplicateur de poids four",
+        "state": {
+          "g": "G",
+          "kg": "kg",
+          "ounce": "Once",
+          "pound": "Livre"
+        }
+      },
+      "bf_weight_unit": {
+        "name": "Unité de poids four",
+        "state": {
+          "g": "G",
+          "kg": "kg",
+          "other": "Autre",
+          "ounce": "Once",
+          "pound": "Livre"
+        }
+      },
+      "bf_work_status": {
+        "name": "État de fonctionnement four",
+        "state": {
+          "after_sale": "Après-vente",
+          "check_version": "Vérifier la version",
+          "cloudmenu_setting": "Réglage menu cloud",
+          "demo": "Démo",
+          "done": "Terminé",
+          "keep": "Maintenir",
+          "love_three_seconds": "Trois secondes d'amour",
+          "open": "Ouvert",
+          "order": "Programmation",
+          "pause": "Pause",
+          "pause_temporarily": "Pause temporaire",
+          "power_off": "Éteint",
+          "self_check": "Autodiagnostic",
+          "working": "En fonctionnement"
+        }
+      },
+      "bf_working_time": {
+        "name": "Durée de fonctionnement four"
+      },
+      "e7_left_bottom_bridge_link": {
+        "name": "Liaison pont induction gauche bas",
+        "state": {
+          "off": "Arrêt",
+          "on": "Marche"
+        }
+      },
+      "e7_left_bottom_destination_time": {
+        "name": "Durée cible induction gauche bas"
+      },
+      "e7_left_bottom_efficiency": {
+        "name": "Rendement induction gauche bas"
+      },
+      "e7_left_bottom_gear": {
+        "name": "Niveau induction gauche bas"
+      },
+      "e7_left_bottom_mode": {
+        "name": "Mode induction gauche bas",
+        "state": {
+          "boiling": "Ébullition",
+          "heat_preservation": "Maintien au chaud",
+          "none": "Aucun",
+          "stew_soup": "Mijoter la soupe",
+          "stir_frying": "Sauter à la poêle"
+        }
+      },
+      "e7_left_bottom_remaining_time": {
+        "name": "Temps restant induction gauche bas"
+      },
+      "e7_left_bottom_work_status": {
+        "name": "État de fonctionnement induction gauche bas",
+        "state": {
+          "auto": "Auto",
+          "drying": "Séchage",
+          "finish": "Terminer",
+          "order": "Programmation",
+          "pause": "Pause",
+          "power_off": "Éteint",
+          "standby": "Veille",
+          "working": "En fonctionnement"
+        }
+      },
+      "e7_left_bottom_work_time": {
+        "name": "Durée de fonctionnement induction gauche bas"
+      },
+      "e7_left_bridge_link": {
+        "name": "Liaison pont induction gauche",
+        "state": {
+          "off": "Arrêt",
+          "on": "Marche"
+        }
+      },
+      "e7_left_destination_time": {
+        "name": "Durée cible induction gauche"
+      },
+      "e7_left_efficiency": {
+        "name": "Rendement induction gauche"
+      },
+      "e7_left_gear": {
+        "name": "Niveau induction gauche"
+      },
+      "e7_left_mode": {
+        "name": "Mode induction gauche",
+        "state": {
+          "boiling": "Ébullition",
+          "heat_preservation": "Maintien au chaud",
+          "none": "Aucun",
+          "stew_soup": "Mijoter la soupe",
+          "stir_frying": "Sauter à la poêle"
+        }
+      },
+      "e7_left_remaining_time": {
+        "name": "Temps restant induction gauche"
+      },
+      "e7_left_top_bridge_link": {
+        "name": "Liaison pont induction gauche haut",
+        "state": {
+          "off": "Arrêt",
+          "on": "Marche"
+        }
+      },
+      "e7_left_top_destination_time": {
+        "name": "Durée cible induction gauche haut"
+      },
+      "e7_left_top_efficiency": {
+        "name": "Rendement induction gauche haut"
+      },
+      "e7_left_top_gear": {
+        "name": "Niveau induction gauche haut"
+      },
+      "e7_left_top_mode": {
+        "name": "Mode induction gauche haut",
+        "state": {
+          "boiling": "Ébullition",
+          "heat_preservation": "Maintien au chaud",
+          "none": "Aucun",
+          "stew_soup": "Mijoter la soupe",
+          "stir_frying": "Sauter à la poêle"
+        }
+      },
+      "e7_left_top_remaining_time": {
+        "name": "Temps restant induction gauche haut"
+      },
+      "e7_left_top_work_status": {
+        "name": "État de fonctionnement induction gauche haut",
+        "state": {
+          "auto": "Auto",
+          "drying": "Séchage",
+          "finish": "Terminer",
+          "order": "Programmation",
+          "pause": "Pause",
+          "power_off": "Éteint",
+          "standby": "Veille",
+          "working": "En fonctionnement"
+        }
+      },
+      "e7_left_top_work_time": {
+        "name": "Durée de fonctionnement induction gauche haut"
+      },
+      "e7_left_work_status": {
+        "name": "État de fonctionnement induction gauche",
+        "state": {
+          "auto": "Auto",
+          "drying": "Séchage",
+          "finish": "Terminer",
+          "order": "Programmation",
+          "pause": "Pause",
+          "power_off": "Éteint",
+          "standby": "Veille",
+          "working": "En fonctionnement"
+        }
+      },
+      "e7_left_work_time": {
+        "name": "Durée de fonctionnement induction gauche"
+      },
+      "e7_right_bottom_bridge_link": {
+        "name": "Liaison pont induction droite bas",
+        "state": {
+          "off": "Arrêt",
+          "on": "Marche"
+        }
+      },
+      "e7_right_bottom_destination_time": {
+        "name": "Durée cible induction droite bas"
+      },
+      "e7_right_bottom_efficiency": {
+        "name": "Rendement induction droite bas"
+      },
+      "e7_right_bottom_gear": {
+        "name": "Niveau induction droite bas"
+      },
+      "e7_right_bottom_mode": {
+        "name": "Mode induction droite bas",
+        "state": {
+          "boiling": "Ébullition",
+          "heat_preservation": "Maintien au chaud",
+          "none": "Aucun",
+          "stew_soup": "Mijoter la soupe",
+          "stir_frying": "Sauter à la poêle"
+        }
+      },
+      "e7_right_bottom_remaining_time": {
+        "name": "Temps restant induction droite bas"
+      },
+      "e7_right_bottom_work_status": {
+        "name": "État de fonctionnement induction droite bas",
+        "state": {
+          "auto": "Auto",
+          "drying": "Séchage",
+          "finish": "Terminer",
+          "order": "Programmation",
+          "pause": "Pause",
+          "power_off": "Éteint",
+          "standby": "Veille",
+          "working": "En fonctionnement"
+        }
+      },
+      "e7_right_bottom_work_time": {
+        "name": "Durée de fonctionnement induction droite bas"
+      },
+      "e7_right_bridge_link": {
+        "name": "Liaison pont induction droite",
+        "state": {
+          "off": "Arrêt",
+          "on": "Marche"
+        }
+      },
+      "e7_right_destination_time": {
+        "name": "Durée cible induction droite"
+      },
+      "e7_right_efficiency": {
+        "name": "Rendement induction droite"
+      },
+      "e7_right_gear": {
+        "name": "Niveau induction droite"
+      },
+      "e7_right_mode": {
+        "name": "Mode induction droite",
+        "state": {
+          "boiling": "Ébullition",
+          "heat_preservation": "Maintien au chaud",
+          "none": "Aucun",
+          "stew_soup": "Mijoter la soupe",
+          "stir_frying": "Sauter à la poêle"
+        }
+      },
+      "e7_right_remaining_time": {
+        "name": "Temps restant induction droite"
+      },
+      "e7_right_top_bridge_link": {
+        "name": "Liaison pont induction droite haut",
+        "state": {
+          "off": "Arrêt",
+          "on": "Marche"
+        }
+      },
+      "e7_right_top_destination_time": {
+        "name": "Durée cible induction droite haut"
+      },
+      "e7_right_top_efficiency": {
+        "name": "Rendement induction droite haut"
+      },
+      "e7_right_top_gear": {
+        "name": "Niveau induction droite haut"
+      },
+      "e7_right_top_mode": {
+        "name": "Mode induction droite haut",
+        "state": {
+          "boiling": "Ébullition",
+          "heat_preservation": "Maintien au chaud",
+          "none": "Aucun",
+          "stew_soup": "Mijoter la soupe",
+          "stir_frying": "Sauter à la poêle"
+        }
+      },
+      "e7_right_top_remaining_time": {
+        "name": "Temps restant induction droite haut"
+      },
+      "e7_right_top_work_status": {
+        "name": "État de fonctionnement induction droite haut",
+        "state": {
+          "auto": "Auto",
+          "drying": "Séchage",
+          "finish": "Terminer",
+          "order": "Programmation",
+          "pause": "Pause",
+          "power_off": "Éteint",
+          "standby": "Veille",
+          "working": "En fonctionnement"
+        }
+      },
+      "e7_right_top_work_time": {
+        "name": "Durée de fonctionnement induction droite haut"
+      },
+      "e7_right_work_status": {
+        "name": "État de fonctionnement induction droite",
+        "state": {
+          "auto": "Auto",
+          "drying": "Séchage",
+          "finish": "Terminer",
+          "order": "Programmation",
+          "pause": "Pause",
+          "power_off": "Éteint",
+          "standby": "Veille",
+          "working": "En fonctionnement"
+        }
+      },
+      "e7_right_work_time": {
+        "name": "Durée de fonctionnement induction droite"
+      },
+      "electronic_version": {
+        "name": "Version électronique"
+      },
+      "error_list": {
+        "name": "Liste d'erreurs"
+      },
+      "sp_fandrying_destination_time": {
+        "name": "Durée cible séchage ventilé panier"
+      },
+      "sp_fandrying_order_destination_time": {
+        "name": "Durée cible programmée séchage ventilé panier"
+      },
+      "sp_fandrying_order_remaining_time": {
+        "name": "Temps restant programmé séchage ventilé panier"
+      },
+      "sp_fandrying_remaining_time": {
+        "name": "Temps restant séchage ventilé panier"
+      },
+      "sp_fandrying_setting_automode_day": {
+        "name": "Jour mode auto séchage ventilé panier"
+      },
+      "sp_fandrying_setting_automode_starthour": {
+        "name": "Heure de début mode auto séchage ventilé panier"
+      },
+      "sp_fandrying_setting_automode_startminute": {
+        "name": "Minute de début mode auto séchage ventilé panier"
+      },
+      "sp_fandrying_status": {
+        "name": "État séchage ventilé panier",
+        "state": {
+          "drying": "Séchage",
+          "drying_pause": "Séchage en pause",
+          "ion_drying": "Séchage ionique",
+          "ion_drying_pause": "Séchage ionique en pause",
+          "power_off": "Éteint",
+          "uperization": "Stérilisation UHT",
+          "uperization_pause": "Stérilisation UHT en pause",
+          "warm_drink": "Boisson chaude",
+          "warm_drink_pause": "Boisson chaude en pause"
+        }
+      },
+      "sp_fandrying_temperature": {
+        "name": "Température séchage ventilé panier"
+      },
+      "sp_heatingdisk_destination_time": {
+        "name": "Durée cible plaque chauffante panier"
+      },
+      "sp_heatingdisk_order_destination_time": {
+        "name": "Durée cible programmée plaque chauffante panier"
+      },
+      "sp_heatingdisk_order_remaining_time": {
+        "name": "Temps restant programmé plaque chauffante panier"
+      },
+      "sp_heatingdisk_remaining_time": {
+        "name": "Temps restant plaque chauffante panier"
+      },
+      "sp_heatingdisk_setting_automode_day": {
+        "name": "Jour mode auto plaque chauffante panier"
+      },
+      "sp_heatingdisk_setting_automode_starthour": {
+        "name": "Heure de début mode auto plaque chauffante panier"
+      },
+      "sp_heatingdisk_setting_automode_startminute": {
+        "name": "Minute de début mode auto plaque chauffante panier"
+      },
+      "sp_heatingdisk_status": {
+        "name": "État plaque chauffante panier",
+        "state": {
+          "drying": "Séchage",
+          "drying_pause": "Séchage en pause",
+          "ion_drying": "Séchage ionique",
+          "ion_drying_pause": "Séchage ionique en pause",
+          "power_off": "Éteint",
+          "uperization": "Stérilisation UHT",
+          "uperization_pause": "Stérilisation UHT en pause",
+          "warm_drink": "Boisson chaude",
+          "warm_drink_pause": "Boisson chaude en pause"
+        }
+      },
+      "sp_heatingdisk_temperature": {
+        "name": "Température plaque chauffante panier"
+      },
+      "sp_uvc_destination_time": {
+        "name": "Durée cible UVC panier"
+      },
+      "sp_uvc_order_destination_time": {
+        "name": "Durée cible programmée UVC panier"
+      },
+      "sp_uvc_order_remaining_time": {
+        "name": "Temps restant programmé UVC panier"
+      },
+      "sp_uvc_remaining_time": {
+        "name": "Temps restant UVC panier"
+      },
+      "sp_uvc_setting_automode_day": {
+        "name": "Jour mode auto UVC panier"
+      },
+      "sp_uvc_setting_automode_starthour": {
+        "name": "Heure de début mode auto UVC panier"
+      },
+      "sp_uvc_setting_automode_startminute": {
+        "name": "Minute de début mode auto UVC panier"
+      },
+      "sp_uvc_status": {
+        "name": "État UVC panier",
+        "state": {
+          "drying": "Séchage",
+          "drying_pause": "Séchage en pause",
+          "ion_drying": "Séchage ionique",
+          "ion_drying_pause": "Séchage ionique en pause",
+          "power_off": "Éteint",
+          "uperization": "Stérilisation UHT",
+          "uperization_pause": "Stérilisation UHT en pause",
+          "warm_drink": "Boisson chaude",
+          "warm_drink_pause": "Boisson chaude en pause"
+        }
+      },
+      "sp_uvc_temperature": {
+        "name": "Température UVC panier"
+      },
+      "total_error_code": {
+        "name": "Code d'erreur"
+      },
+      "total_error_type": {
+        "name": "Type d'erreur"
+      },
+      "total_firewall_temp": {
+        "name": "Température pare-feu"
+      },
+      "total_gesture": {
+        "name": "Geste",
+        "state": {
+          "off": "Arrêt",
+          "on": "Marche"
+        }
+      },
+      "total_ir": {
+        "name": "IR",
+        "state": {
+          "off": "Arrêt",
+          "on": "Marche"
+        }
+      },
+      "total_lock_off_type": {
+        "name": "Type de déverrouillage",
+        "state": {
+          "local": "Local"
+        }
+      },
+      "total_lock_on_type": {
+        "name": "Type de verrouillage",
+        "state": {
+          "app": "Appli",
+          "local": "Local"
+        }
+      },
+      "total_shelving_unit_temp": {
+        "name": "Température étagère"
+      },
+      "total_speak": {
+        "name": "Parler",
+        "state": {
+          "off": "Arrêt",
+          "on": "Marche"
+        }
+      },
+      "total_tips_code": {
+        "name": "Code conseils"
+      },
+      "total_tips_type": {
+        "name": "Type de conseils"
       }
     },
     "switch": {
@@ -1828,6 +3474,15 @@
       },
       "holiday_on": {
         "name": "Mode - Vacances"
+      },
+      "ai_voice_microphone": {
+        "name": "Microphone voix IA"
+      },
+      "total_lock": {
+        "name": "Sécurité enfant"
+      },
+      "total_power": {
+        "name": "Alimentation"
       }
     },
     "water_heater": {

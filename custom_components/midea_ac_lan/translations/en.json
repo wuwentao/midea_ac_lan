@@ -255,25 +255,63 @@
       "maintenance_reminder": {
         "name": "Maintenance Reminder"
       },
-      "dr_enable": { "name": "Demand Response" },
-      "electric_rod_exception": { "name": "Electric Heater Fault" },
-      "ac_heater_priority": { "name": "Heat Pump Priority" },
-      "high_temp_reminder": { "name": "High Temperature Reminder" },
-      "new_version_water_heater": { "name": "Extended Water Heater Protocol" },
-      "heat_recovery_status": { "name": "Heat Recovery" },
-      "holiday_mode": { "name": "Holiday Mode" },
-      "hybrid_motion_mode": { "name": "Hybrid Motion Mode" },
-      "support_boost_mode": { "name": "Boost Mode Support" },
-      "support_silent_mode": { "name": "Silent Mode Support" },
-      "support_remaining_hot_water": { "name": "Remaining Hot Water Support" },
-      "support_electric_mode": { "name": "Electric Mode Support" },
-      "support_auto_disinfect": { "name": "Automatic Disinfection Support" },
-      "support_force_e_heating": { "name": "Forced Electric Heating Support" },
-      "support_tou": { "name": "Time-of-use Support" },
-      "support_ac_heater_priority": { "name": "Heat Pump Priority Support" },
-      "support_heat_recovery": { "name": "Heat Recovery Support" },
-      "support_heat_pump_mode": { "name": "Heat Pump Mode Support" },
-      "support_smart_mode": { "name": "Smart Mode Support" },
+      "dr_enable": {
+        "name": "Demand Response"
+      },
+      "electric_rod_exception": {
+        "name": "Electric Heater Fault"
+      },
+      "ac_heater_priority": {
+        "name": "Heat Pump Priority"
+      },
+      "high_temp_reminder": {
+        "name": "High Temperature Reminder"
+      },
+      "new_version_water_heater": {
+        "name": "Extended Water Heater Protocol"
+      },
+      "heat_recovery_status": {
+        "name": "Heat Recovery"
+      },
+      "holiday_mode": {
+        "name": "Holiday Mode"
+      },
+      "hybrid_motion_mode": {
+        "name": "Hybrid Motion Mode"
+      },
+      "support_boost_mode": {
+        "name": "Boost Mode Support"
+      },
+      "support_silent_mode": {
+        "name": "Silent Mode Support"
+      },
+      "support_remaining_hot_water": {
+        "name": "Remaining Hot Water Support"
+      },
+      "support_electric_mode": {
+        "name": "Electric Mode Support"
+      },
+      "support_auto_disinfect": {
+        "name": "Automatic Disinfection Support"
+      },
+      "support_force_e_heating": {
+        "name": "Forced Electric Heating Support"
+      },
+      "support_tou": {
+        "name": "Time-of-use Support"
+      },
+      "support_ac_heater_priority": {
+        "name": "Heat Pump Priority Support"
+      },
+      "support_heat_recovery": {
+        "name": "Heat Recovery Support"
+      },
+      "support_heat_pump_mode": {
+        "name": "Heat Pump Mode Support"
+      },
+      "support_smart_mode": {
+        "name": "Smart Mode Support"
+      },
       "support_negative_temperature": {
         "name": "Negative Temperature Support"
       },
@@ -450,6 +488,342 @@
       },
       "aux_heat_on": {
         "name": "Heater - Auxiliary Source"
+      },
+      "ac_air_direction": {
+        "name": "AC Air Direction"
+      },
+      "ac_cooling_fan": {
+        "name": "AC Cooling Fan"
+      },
+      "ac_draining_pump": {
+        "name": "AC Draining Pump"
+      },
+      "ac_low_temperature": {
+        "name": "AC Low Temperature"
+      },
+      "ac_over_temperature": {
+        "name": "AC Over Temperature"
+      },
+      "ac_swing": {
+        "name": "AC Swing"
+      },
+      "ac_water_full": {
+        "name": "AC Water Full"
+      },
+      "b2_downstair_clean_tips": {
+        "name": "Steam Oven Lower Clean Tips"
+      },
+      "b2_downstair_door": {
+        "name": "Steam Oven Lower Door"
+      },
+      "b2_downstair_fresh_water": {
+        "name": "Steam Oven Lower Fresh Water"
+      },
+      "b2_downstair_light": {
+        "name": "Steam Oven Lower Light"
+      },
+      "b2_downstair_lock": {
+        "name": "Steam Oven Lower Lock"
+      },
+      "b2_downstair_must_clean_tips": {
+        "name": "Steam Oven Lower Must Clean Tips"
+      },
+      "b2_downstair_water_shortage": {
+        "name": "Steam Oven Lower Water Shortage"
+      },
+      "b2_upstair_clean_tips": {
+        "name": "Steam Oven Upper Clean Tips"
+      },
+      "b2_upstair_door": {
+        "name": "Steam Oven Upper Door"
+      },
+      "b2_upstair_fresh_water": {
+        "name": "Steam Oven Upper Fresh Water"
+      },
+      "b2_upstair_light": {
+        "name": "Steam Oven Upper Light"
+      },
+      "b2_upstair_lock": {
+        "name": "Steam Oven Upper Lock"
+      },
+      "b2_upstair_must_clean_tips": {
+        "name": "Steam Oven Upper Must Clean Tips"
+      },
+      "b2_upstair_water_shortage": {
+        "name": "Steam Oven Upper Water Shortage"
+      },
+      "b3_downstair_door": {
+        "name": "Steam Cabinet Lower Door"
+      },
+      "b3_downstair_door_lock": {
+        "name": "Steam Cabinet Lower Door Lock"
+      },
+      "b3_downstair_infrared": {
+        "name": "Steam Cabinet Lower Infrared"
+      },
+      "b3_downstair_ultraviolet": {
+        "name": "Steam Cabinet Lower Ultraviolet"
+      },
+      "b3_upstair_door": {
+        "name": "Steam Cabinet Upper Door"
+      },
+      "b3_upstair_door_lock": {
+        "name": "Steam Cabinet Upper Door Lock"
+      },
+      "b3_upstair_infrared": {
+        "name": "Steam Cabinet Upper Infrared"
+      },
+      "b3_upstair_ultraviolet": {
+        "name": "Steam Cabinet Upper Ultraviolet"
+      },
+      "b6_TVOC_status": {
+        "name": "Range Hood TVOC Status"
+      },
+      "b6_delay_gear_linkage": {
+        "name": "Range Hood Delay Gear Linkage"
+      },
+      "b6_delay_time": {
+        "name": "Range Hood Delay Time"
+      },
+      "b6_gesture_status": {
+        "name": "Range Hood Gesture Status"
+      },
+      "b6_infrared_status": {
+        "name": "Range Hood Infrared Status"
+      },
+      "b6_lock": {
+        "name": "Range Hood Lock"
+      },
+      "b6_power_on_light": {
+        "name": "Range Hood Power On Light"
+      },
+      "b6_smoke_detector": {
+        "name": "Range Hood Smoke Detector"
+      },
+      "b6_smoke_stove_linkage": {
+        "name": "Range Hood Smoke Stove Linkage"
+      },
+      "b7_left_dry_burning": {
+        "name": "Gas Hob Left Dry Burning"
+      },
+      "b7_left_dry_burning_invalid": {
+        "name": "Gas Hob Left Dry Burning Invalid"
+      },
+      "b7_left_gas_leakage": {
+        "name": "Gas Hob Left Gas Leakage"
+      },
+      "b7_left_has_fire": {
+        "name": "Gas Hob Left Has Fire"
+      },
+      "b7_left_has_pot": {
+        "name": "Gas Hob Left Has Pot"
+      },
+      "b7_right_dry_burning": {
+        "name": "Gas Hob Right Dry Burning"
+      },
+      "b7_right_dry_burning_invalid": {
+        "name": "Gas Hob Right Dry Burning Invalid"
+      },
+      "b7_right_gas_leakage": {
+        "name": "Gas Hob Right Gas Leakage"
+      },
+      "b7_right_has_fire": {
+        "name": "Gas Hob Right Has Fire"
+      },
+      "b7_right_has_pot": {
+        "name": "Gas Hob Right Has Pot"
+      },
+      "bf_door": {
+        "name": "Oven Door"
+      },
+      "bf_error": {
+        "name": "Oven Error"
+      },
+      "bf_flip": {
+        "name": "Oven Flip"
+      },
+      "bf_hightemp_error": {
+        "name": "Oven Hightemp Error"
+      },
+      "bf_hightemp_lock": {
+        "name": "Oven Hightemp Lock"
+      },
+      "bf_hightemp_over": {
+        "name": "Oven Hightemp Over"
+      },
+      "bf_hotwind": {
+        "name": "Oven Hotwind"
+      },
+      "bf_hotwind_set": {
+        "name": "Oven Hotwind Set"
+      },
+      "bf_hydrops_full": {
+        "name": "Oven Hydrops Full"
+      },
+      "bf_light": {
+        "name": "Oven Light"
+      },
+      "bf_lock": {
+        "name": "Oven Lock"
+      },
+      "bf_off_fromapp": {
+        "name": "Oven Off Fromapp"
+      },
+      "bf_on_smart": {
+        "name": "Oven On Smart"
+      },
+      "bf_order": {
+        "name": "Oven Order"
+      },
+      "bf_order_time_isabsolute": {
+        "name": "Oven Order Time Isabsolute"
+      },
+      "bf_overheat": {
+        "name": "Oven Overheat"
+      },
+      "bf_preheat": {
+        "name": "Oven Preheat"
+      },
+      "bf_preheat_done": {
+        "name": "Oven Preheat Done"
+      },
+      "bf_preheat_set": {
+        "name": "Oven Preheat Set"
+      },
+      "bf_probe": {
+        "name": "Oven Probe"
+      },
+      "bf_probe_meat": {
+        "name": "Oven Probe Meat"
+      },
+      "bf_radiating": {
+        "name": "Oven Radiating"
+      },
+      "bf_repair_cook": {
+        "name": "Oven Repair Cook"
+      },
+      "bf_sabbath": {
+        "name": "Oven Sabbath"
+      },
+      "bf_scalehandling_remind": {
+        "name": "Oven Scalehandling Remind"
+      },
+      "bf_sensor": {
+        "name": "Oven Sensor"
+      },
+      "bf_stove_1": {
+        "name": "Oven Stove 1"
+      },
+      "bf_stove_2": {
+        "name": "Oven Stove 2"
+      },
+      "bf_stove_3": {
+        "name": "Oven Stove 3"
+      },
+      "bf_stove_4": {
+        "name": "Oven Stove 4"
+      },
+      "bf_stove_5": {
+        "name": "Oven Stove 5"
+      },
+      "bf_temp_fahrenheit": {
+        "name": "Oven Temp Fahrenheit"
+      },
+      "bf_time_synchronization": {
+        "name": "Oven Time Synchronization"
+      },
+      "bf_turntable": {
+        "name": "Oven Turntable"
+      },
+      "bf_turntable_reset": {
+        "name": "Oven Turntable Reset"
+      },
+      "bf_upload_interval": {
+        "name": "Oven Upload Interval"
+      },
+      "bf_voice_identify": {
+        "name": "Oven Voice Identify"
+      },
+      "bf_voice_module": {
+        "name": "Oven Voice Module"
+      },
+      "bf_water_box": {
+        "name": "Oven Water Box"
+      },
+      "bf_water_change": {
+        "name": "Oven Water Change"
+      },
+      "bf_water_shortage": {
+        "name": "Oven Water Shortage"
+      },
+      "bf_wintersummertime": {
+        "name": "Oven Wintersummertime"
+      },
+      "e7_left_bottom_has_pot": {
+        "name": "Induction Left Bottom Has Pot"
+      },
+      "e7_left_has_pot": {
+        "name": "Induction Left Has Pot"
+      },
+      "e7_left_top_has_pot": {
+        "name": "Induction Left Top Has Pot"
+      },
+      "e7_right_bottom_has_pot": {
+        "name": "Induction Right Bottom Has Pot"
+      },
+      "e7_right_has_pot": {
+        "name": "Induction Right Has Pot"
+      },
+      "e7_right_top_has_pot": {
+        "name": "Induction Right Top Has Pot"
+      },
+      "sp_fandrying_door": {
+        "name": "Plate Fan Drying Door"
+      },
+      "sp_fandrying_setting_automode": {
+        "name": "Plate Fan Drying Setting Automode"
+      },
+      "sp_fandrying_setting_linkage": {
+        "name": "Plate Fan Drying Setting Linkage"
+      },
+      "sp_fandrying_setting_linkcooker": {
+        "name": "Plate Fan Drying Setting Linkcooker"
+      },
+      "sp_fandrying_setting_sync": {
+        "name": "Plate Fan Drying Setting Sync"
+      },
+      "sp_heatingdisk_door": {
+        "name": "Plate Heating Disk Door"
+      },
+      "sp_heatingdisk_setting_automode": {
+        "name": "Plate Heating Disk Setting Automode"
+      },
+      "sp_heatingdisk_setting_linkage": {
+        "name": "Plate Heating Disk Setting Linkage"
+      },
+      "sp_heatingdisk_setting_linkcooker": {
+        "name": "Plate Heating Disk Setting Linkcooker"
+      },
+      "sp_heatingdisk_setting_sync": {
+        "name": "Plate Heating Disk Setting Sync"
+      },
+      "sp_uvc_door": {
+        "name": "Plate UVC Door"
+      },
+      "sp_uvc_setting_automode": {
+        "name": "Plate UVC Setting Automode"
+      },
+      "sp_uvc_setting_linkage": {
+        "name": "Plate UVC Setting Linkage"
+      },
+      "sp_uvc_setting_linkcooker": {
+        "name": "Plate UVC Setting Linkcooker"
+      },
+      "sp_uvc_setting_sync": {
+        "name": "Plate UVC Setting Sync"
+      },
+      "total_water_shortage": {
+        "name": "Water Shortage"
       }
     },
     "button": {
@@ -510,9 +884,15 @@
       "vacation_days": {
         "name": "Vacation Days"
       },
-      "max_temperature": { "name": "Maximum Target Temperature" },
-      "disinfection_temperature": { "name": "Disinfection Temperature" },
-      "schedule_mode": { "name": "Schedule Mode" },
+      "max_temperature": {
+        "name": "Maximum Target Temperature"
+      },
+      "disinfection_temperature": {
+        "name": "Disinfection Temperature"
+      },
+      "schedule_mode": {
+        "name": "Schedule Mode"
+      },
       "leak_water_protection_value": {
         "name": "Leak Water Protection Value"
       },
@@ -527,6 +907,9 @@
       },
       "keep_warm_time": {
         "name": "Keep Warm Time"
+      },
+      "ai_voice_volume": {
+        "name": "AI Voice Volume"
       }
     },
     "select": {
@@ -1189,12 +1572,24 @@
       "disinfection_temperature_lower_limit": {
         "name": "Disinfection Temperature Lower Limit"
       },
-      "dr_option": { "name": "Demand Response Option" },
-      "remaining_hot_water_max": { "name": "Maximum Remaining Hot Water" },
-      "force_e_heating_status": { "name": "Forced Electric Heating Status" },
-      "holiday_max": { "name": "Maximum Holiday Duration" },
-      "holiday_min": { "name": "Minimum Holiday Duration" },
-      "timer_step_gap": { "name": "Timer Step" },
+      "dr_option": {
+        "name": "Demand Response Option"
+      },
+      "remaining_hot_water_max": {
+        "name": "Maximum Remaining Hot Water"
+      },
+      "force_e_heating_status": {
+        "name": "Forced Electric Heating Status"
+      },
+      "holiday_max": {
+        "name": "Maximum Holiday Duration"
+      },
+      "holiday_min": {
+        "name": "Minimum Holiday Duration"
+      },
+      "timer_step_gap": {
+        "name": "Timer Step"
+      },
       "vacation_start_year": {
         "name": "Vacation Start Year"
       },
@@ -1519,6 +1914,1303 @@
       },
       "odu_software_version_str": {
         "name": "Info - ODU Software Version"
+      },
+      "ac_air_direction_gear": {
+        "name": "AC Air Direction Gear"
+      },
+      "ac_air_direction_max_angle": {
+        "name": "AC Air Direction Max Angle"
+      },
+      "ac_air_direction_min_angle": {
+        "name": "AC Air Direction Min Angle"
+      },
+      "ac_ambient_temperature": {
+        "name": "AC Ambient Temperature"
+      },
+      "ac_current_temp": {
+        "name": "AC Current Temp"
+      },
+      "ac_destination_temp": {
+        "name": "AC Destination Temp"
+      },
+      "ac_destination_time": {
+        "name": "AC Destination Time"
+      },
+      "ac_gear": {
+        "name": "AC Gear"
+      },
+      "ac_mode": {
+        "name": "AC Mode",
+        "state": {
+          "air_supply": "Air Supply",
+          "dehumidification": "Dehumidification",
+          "net_flavour": "Net Flavour",
+          "none": "None",
+          "refrigeration": "Refrigeration"
+        }
+      },
+      "ac_order_destination_time": {
+        "name": "AC Order Destination Time"
+      },
+      "ac_order_remaining_time": {
+        "name": "AC Order Remaining Time"
+      },
+      "ac_remaining_time": {
+        "name": "AC Remaining Time"
+      },
+      "ac_swing_gear": {
+        "name": "AC Swing Gear"
+      },
+      "ac_swing_max_angle": {
+        "name": "AC Swing Max Angle"
+      },
+      "ac_swing_min_angle": {
+        "name": "AC Swing Min Angle"
+      },
+      "ac_work_status": {
+        "name": "AC Work Status",
+        "state": {
+          "order": "Order",
+          "power_off": "Power Off",
+          "reservation": "Reservation",
+          "reservation_and_order_ordering": "Reservation And Order Ordering",
+          "reservation_and_order_reserving": "Reservation And Order Reserving",
+          "working": "Working"
+        }
+      },
+      "ai_voice_microphone_status": {
+        "name": "AI Voice Microphone Status",
+        "state": {
+          "failure": "Failure",
+          "success": "Success"
+        }
+      },
+      "ai_voice_status": {
+        "name": "AI Voice Status",
+        "state": {
+          "connecting": "Connecting",
+          "off": "Off",
+          "on": "On"
+        }
+      },
+      "ai_voice_volume_status": {
+        "name": "AI Voice Volume Status",
+        "state": {
+          "failure": "Failure",
+          "success": "Success"
+        }
+      },
+      "b2_downstair_current_temp": {
+        "name": "Steam Oven Lower Current Temp"
+      },
+      "b2_downstair_destination_temp": {
+        "name": "Steam Oven Lower Destination Temp"
+      },
+      "b2_downstair_light_off_type": {
+        "name": "Steam Oven Lower Light Off Type",
+        "state": {
+          "app": "App",
+          "local": "Local"
+        }
+      },
+      "b2_downstair_light_on_type": {
+        "name": "Steam Oven Lower Light On Type",
+        "state": {
+          "app": "App",
+          "local": "Local"
+        }
+      },
+      "b2_downstair_order_destination_time": {
+        "name": "Steam Oven Lower Order Destination Time"
+      },
+      "b2_downstair_order_remaining_time": {
+        "name": "Steam Oven Lower Order Remaining Time"
+      },
+      "b2_downstair_power_off_type": {
+        "name": "Steam Oven Lower Power Off Type",
+        "state": {
+          "app": "App",
+          "auto": "Auto",
+          "error": "Error",
+          "local": "Local",
+          "wifi": "Wifi"
+        }
+      },
+      "b2_downstair_power_on_type": {
+        "name": "Steam Oven Lower Power On Type",
+        "state": {
+          "app": "App",
+          "local": "Local",
+          "order": "Order"
+        }
+      },
+      "b2_downstair_preheating": {
+        "name": "Steam Oven Lower Preheating",
+        "state": {
+          "finish": "Finish",
+          "none": "None",
+          "preheating": "Preheating"
+        }
+      },
+      "b2_downstair_recipe_after": {
+        "name": "Steam Oven Lower Recipe After"
+      },
+      "b2_downstair_recipe_code": {
+        "name": "Steam Oven Lower Recipe Code"
+      },
+      "b2_downstair_recipe_current_mode": {
+        "name": "Steam Oven Lower Recipe Current Mode"
+      },
+      "b2_downstair_recipe_current_step": {
+        "name": "Steam Oven Lower Recipe Current Step"
+      },
+      "b2_downstair_recipe_off_type": {
+        "name": "Steam Oven Lower Recipe Off Type",
+        "state": {
+          "app": "App",
+          "auto": "Auto",
+          "error": "Error",
+          "local": "Local",
+          "wifi": "Wifi"
+        }
+      },
+      "b2_downstair_recipe_on_type": {
+        "name": "Steam Oven Lower Recipe On Type",
+        "state": {
+          "app": "App",
+          "local": "Local",
+          "order": "Order"
+        }
+      },
+      "b2_downstair_recipe_total_steps": {
+        "name": "Steam Oven Lower Recipe Total Steps"
+      },
+      "b2_downstair_work_destination_time": {
+        "name": "Steam Oven Lower Work Destination Time"
+      },
+      "b2_downstair_work_func": {
+        "name": "Steam Oven Lower Work Func"
+      },
+      "b2_downstair_work_menu": {
+        "name": "Steam Oven Lower Work Menu"
+      },
+      "b2_downstair_work_remaining_time": {
+        "name": "Steam Oven Lower Work Remaining Time"
+      },
+      "b2_downstair_work_status": {
+        "name": "Steam Oven Lower Work Status",
+        "state": {
+          "auto": "Auto",
+          "drying": "Drying",
+          "finish": "Finish",
+          "order": "Order",
+          "pause": "Pause",
+          "power_off": "Power Off",
+          "standby": "Standby",
+          "working": "Working"
+        }
+      },
+      "b2_upstair_current_temp": {
+        "name": "Steam Oven Upper Current Temp"
+      },
+      "b2_upstair_destination_temp": {
+        "name": "Steam Oven Upper Destination Temp"
+      },
+      "b2_upstair_light_off_type": {
+        "name": "Steam Oven Upper Light Off Type",
+        "state": {
+          "app": "App",
+          "local": "Local"
+        }
+      },
+      "b2_upstair_light_on_type": {
+        "name": "Steam Oven Upper Light On Type",
+        "state": {
+          "app": "App",
+          "local": "Local"
+        }
+      },
+      "b2_upstair_order_destination_time": {
+        "name": "Steam Oven Upper Order Destination Time"
+      },
+      "b2_upstair_order_remaining_time": {
+        "name": "Steam Oven Upper Order Remaining Time"
+      },
+      "b2_upstair_power_off_type": {
+        "name": "Steam Oven Upper Power Off Type",
+        "state": {
+          "app": "App",
+          "auto": "Auto",
+          "error": "Error",
+          "local": "Local",
+          "wifi": "Wifi"
+        }
+      },
+      "b2_upstair_power_on_type": {
+        "name": "Steam Oven Upper Power On Type",
+        "state": {
+          "app": "App",
+          "local": "Local",
+          "order": "Order"
+        }
+      },
+      "b2_upstair_preheating": {
+        "name": "Steam Oven Upper Preheating",
+        "state": {
+          "finish": "Finish",
+          "none": "None",
+          "preheating": "Preheating"
+        }
+      },
+      "b2_upstair_recipe_after": {
+        "name": "Steam Oven Upper Recipe After"
+      },
+      "b2_upstair_recipe_code": {
+        "name": "Steam Oven Upper Recipe Code"
+      },
+      "b2_upstair_recipe_current_mode": {
+        "name": "Steam Oven Upper Recipe Current Mode"
+      },
+      "b2_upstair_recipe_current_step": {
+        "name": "Steam Oven Upper Recipe Current Step"
+      },
+      "b2_upstair_recipe_off_type": {
+        "name": "Steam Oven Upper Recipe Off Type",
+        "state": {
+          "app": "App",
+          "auto": "Auto",
+          "error": "Error",
+          "local": "Local",
+          "wifi": "Wifi"
+        }
+      },
+      "b2_upstair_recipe_on_type": {
+        "name": "Steam Oven Upper Recipe On Type",
+        "state": {
+          "app": "App",
+          "local": "Local",
+          "order": "Order"
+        }
+      },
+      "b2_upstair_recipe_total_steps": {
+        "name": "Steam Oven Upper Recipe Total Steps"
+      },
+      "b2_upstair_work_destination_time": {
+        "name": "Steam Oven Upper Work Destination Time"
+      },
+      "b2_upstair_work_func": {
+        "name": "Steam Oven Upper Work Func"
+      },
+      "b2_upstair_work_menu": {
+        "name": "Steam Oven Upper Work Menu"
+      },
+      "b2_upstair_work_remaining_time": {
+        "name": "Steam Oven Upper Work Remaining Time"
+      },
+      "b2_upstair_work_status": {
+        "name": "Steam Oven Upper Work Status",
+        "state": {
+          "auto": "Auto",
+          "drying": "Drying",
+          "finish": "Finish",
+          "order": "Order",
+          "pause": "Pause",
+          "power_off": "Power Off",
+          "standby": "Standby",
+          "working": "Working"
+        }
+      },
+      "b3_disinfect_off_type": {
+        "name": "Steam Cabinet Disinfect Off Type",
+        "state": {
+          "app": "App",
+          "local": "Local"
+        }
+      },
+      "b3_disinfect_on_type": {
+        "name": "Steam Cabinet Disinfect On Type",
+        "state": {
+          "app": "App",
+          "local": "Local"
+        }
+      },
+      "b3_downstair_current_temp": {
+        "name": "Steam Cabinet Lower Current Temp"
+      },
+      "b3_downstair_destination_temp": {
+        "name": "Steam Cabinet Lower Destination Temp"
+      },
+      "b3_downstair_destination_time": {
+        "name": "Steam Cabinet Lower Destination Time"
+      },
+      "b3_downstair_remaining_time": {
+        "name": "Steam Cabinet Lower Remaining Time"
+      },
+      "b3_downstair_sensor": {
+        "name": "Steam Cabinet Lower Sensor"
+      },
+      "b3_downstair_status": {
+        "name": "Steam Cabinet Lower Status",
+        "state": {
+          "drying": "Drying",
+          "drying_pause": "Drying Pause",
+          "ion_drying": "Ion Drying",
+          "ion_drying_pause": "Ion Drying Pause",
+          "power_off": "Power Off",
+          "uperization": "Uperization",
+          "uperization_pause": "Uperization Pause",
+          "warm_drink": "Warm Drink",
+          "warm_drink_pause": "Warm Drink Pause"
+        }
+      },
+      "b3_thermotank_off_type": {
+        "name": "Steam Cabinet Thermotank Off Type",
+        "state": {
+          "app": "App",
+          "local": "Local"
+        }
+      },
+      "b3_thermotank_on_type": {
+        "name": "Steam Cabinet Thermotank On Type",
+        "state": {
+          "app": "App",
+          "local": "Local"
+        }
+      },
+      "b3_upstair_current_temp": {
+        "name": "Steam Cabinet Upper Current Temp"
+      },
+      "b3_upstair_destination_temp": {
+        "name": "Steam Cabinet Upper Destination Temp"
+      },
+      "b3_upstair_destination_time": {
+        "name": "Steam Cabinet Upper Destination Time"
+      },
+      "b3_upstair_remaining_time": {
+        "name": "Steam Cabinet Upper Remaining Time"
+      },
+      "b3_upstair_sensor": {
+        "name": "Steam Cabinet Upper Sensor"
+      },
+      "b3_upstair_status": {
+        "name": "Steam Cabinet Upper Status",
+        "state": {
+          "drying": "Drying",
+          "drying_pause": "Drying Pause",
+          "ion_drying": "Ion Drying",
+          "ion_drying_pause": "Ion Drying Pause",
+          "power_off": "Power Off",
+          "uperization": "Uperization",
+          "uperization_pause": "Uperization Pause",
+          "warm_drink": "Warm Drink",
+          "warm_drink_pause": "Warm Drink Pause"
+        }
+      },
+      "b6_TVOC_value": {
+        "name": "Range Hood TVOC Value",
+        "state": {
+          "中": "中",
+          "优": "优",
+          "良": "良"
+        }
+      },
+      "b6_air_duct_detection_score": {
+        "name": "Range Hood Air Duct Detection Score"
+      },
+      "b6_air_duct_detection_state": {
+        "name": "Range Hood Air Duct Detection State"
+      },
+      "b6_air_duct_detection_time": {
+        "name": "Range Hood Air Duct Detection Time"
+      },
+      "b6_air_duct_detection_windage": {
+        "name": "Range Hood Air Duct Detection Windage"
+      },
+      "b6_air_volume": {
+        "name": "Range Hood Air Volume"
+      },
+      "b6_delay_gear_linkage_gear": {
+        "name": "Range Hood Delay Gear Linkage Gear"
+      },
+      "b6_delay_time_value": {
+        "name": "Range Hood Delay Time Value"
+      },
+      "b6_destination_time": {
+        "name": "Range Hood Destination Time"
+      },
+      "b6_gear": {
+        "name": "Range Hood Gear"
+      },
+      "b6_gear_control_type": {
+        "name": "Range Hood Gear Control Type",
+        "state": {
+          "app": "App",
+          "gesture": "Gesture",
+          "linkage": "Linkage",
+          "local": "Local",
+          "smoke_detector": "Smoke Detector"
+        }
+      },
+      "b6_gesture_sensitivity": {
+        "name": "Range Hood Gesture Sensitivity",
+        "state": {
+          "1": "1",
+          "2": "2",
+          "3": "3"
+        }
+      },
+      "b6_gesture_value": {
+        "name": "Range Hood Gesture Value",
+        "state": {
+          "light": "Light",
+          "power": "Power",
+          "wind": "Wind"
+        }
+      },
+      "b6_hotclean_tips": {
+        "name": "Range Hood Hotclean Tips"
+      },
+      "b6_infrared_value": {
+        "name": "Range Hood Infrared Value",
+        "state": {
+          "power": "Power",
+          "wind": "Wind"
+        }
+      },
+      "b6_inverter_ac_frequency": {
+        "name": "Range Hood Inverter AC Frequency"
+      },
+      "b6_inverter_back_electromotive_force": {
+        "name": "Range Hood Inverter Back Electromotive Force"
+      },
+      "b6_inverter_capacity": {
+        "name": "Range Hood Inverter Capacity"
+      },
+      "b6_inverter_efficiency": {
+        "name": "Range Hood Inverter Efficiency"
+      },
+      "b6_inverter_motor_compensation_angle": {
+        "name": "Range Hood Inverter Motor Compensation Angle"
+      },
+      "b6_inverter_motor_speed": {
+        "name": "Range Hood Inverter Motor Speed"
+      },
+      "b6_inverter_q_axis_current": {
+        "name": "Range Hood Inverter Q Axis Current"
+      },
+      "b6_inverter_start_time": {
+        "name": "Range Hood Inverter Start Time"
+      },
+      "b6_inverter_temperature": {
+        "name": "Range Hood Inverter Temperature"
+      },
+      "b6_inverter_temperature_limit_sign": {
+        "name": "Range Hood Inverter Temperature Limit Sign"
+      },
+      "b6_inverter_voltage": {
+        "name": "Range Hood Inverter Voltage"
+      },
+      "b6_inverter_wind_flow": {
+        "name": "Range Hood Inverter Wind Flow"
+      },
+      "b6_inverter_wind_presssure": {
+        "name": "Range Hood Inverter Wind Pressure"
+      },
+      "b6_inverter_windage": {
+        "name": "Range Hood Inverter Windage"
+      },
+      "b6_inverter_work_gear": {
+        "name": "Range Hood Inverter Work Gear"
+      },
+      "b6_last_hotclean_hour": {
+        "name": "Range Hood Last Hotclean Hour"
+      },
+      "b6_light": {
+        "name": "Range Hood Light"
+      },
+      "b6_light_off_type": {
+        "name": "Range Hood Light Off Type",
+        "state": {
+          "app": "App",
+          "error": "Error",
+          "gesture": "Gesture",
+          "local": "Local"
+        }
+      },
+      "b6_light_on_type": {
+        "name": "Range Hood Light On Type",
+        "state": {
+          "app": "App",
+          "gesture": "Gesture",
+          "local": "Local"
+        }
+      },
+      "b6_lightness": {
+        "name": "Range Hood Lightness"
+      },
+      "b6_lock_off_type": {
+        "name": "Range Hood Lock Off Type",
+        "state": {
+          "local": "Local"
+        }
+      },
+      "b6_lock_on_type": {
+        "name": "Range Hood Lock On Type",
+        "state": {
+          "app": "App",
+          "local": "Local"
+        }
+      },
+      "b6_power": {
+        "name": "Range Hood Power",
+        "state": {
+          "delay_off": "Delay Off",
+          "off": "Off",
+          "on": "On"
+        }
+      },
+      "b6_power_off_type": {
+        "name": "Range Hood Power Off Type",
+        "state": {
+          "app": "App",
+          "delay": "Delay",
+          "gesture": "Gesture",
+          "linkage": "Linkage",
+          "local": "Local"
+        }
+      },
+      "b6_power_on_type": {
+        "name": "Range Hood Power On Type",
+        "state": {
+          "app": "App",
+          "gesture": "Gesture",
+          "linkage": "Linkage",
+          "local": "Local"
+        }
+      },
+      "b6_remaining_time": {
+        "name": "Range Hood Remaining Time"
+      },
+      "b6_smoke_detector_value": {
+        "name": "Range Hood Smoke Detector Value"
+      },
+      "b6_smoke_potency": {
+        "name": "Range Hood Smoke Potency"
+      },
+      "b6_smoke_stove_linkage_flowin": {
+        "name": "Range Hood Smoke Stove Linkage Flow In",
+        "state": {
+          "no": "No",
+          "yes": "Yes"
+        }
+      },
+      "b6_smoke_stove_linkage_gear": {
+        "name": "Range Hood Smoke Stove Linkage Gear"
+      },
+      "b6_smoke_stove_linkage_gear_fix": {
+        "name": "Range Hood Smoke Stove Linkage Gear Fix",
+        "state": {
+          "negative": "Negative",
+          "positive": "Positive"
+        }
+      },
+      "b6_steaming": {
+        "name": "Range Hood Steaming",
+        "state": {
+          "off": "Off",
+          "on": "On"
+        }
+      },
+      "b6_steaming_stage": {
+        "name": "Range Hood Steaming Stage"
+      },
+      "b6_wind_pressure": {
+        "name": "Range Hood Wind Pressure"
+      },
+      "b6_work_status": {
+        "name": "Range Hood Work Status",
+        "state": {
+          "ai_dry_clean": "AI Dry Clean",
+          "air_duct_detection": "Air Duct Detection",
+          "check": "Check",
+          "clean": "Clean",
+          "clean_finish": "Clean Finish",
+          "error": "Error",
+          "hotclean": "Hotclean",
+          "initial": "Initial",
+          "mute_gear": "Mute Gear",
+          "power_off": "Power Off",
+          "power_off_delay": "Power Off Delay",
+          "standby": "Standby",
+          "vvvf_gear": "Vvvf Gear",
+          "working": "Working"
+        }
+      },
+      "b7_left_current_temp": {
+        "name": "Gas Hob Left Current Temp"
+      },
+      "b7_left_destination_temp": {
+        "name": "Gas Hob Left Destination Temp"
+      },
+      "b7_left_destination_time": {
+        "name": "Gas Hob Left Destination Time"
+      },
+      "b7_left_gear": {
+        "name": "Gas Hob Left Gear"
+      },
+      "b7_left_power_off_type": {
+        "name": "Gas Hob Left Power Off Type",
+        "state": {
+          "app": "App",
+          "auto": "Auto",
+          "error": "Error",
+          "local": "Local",
+          "wifi": "Wifi"
+        }
+      },
+      "b7_left_remaining_time": {
+        "name": "Gas Hob Left Remaining Time"
+      },
+      "b7_left_status": {
+        "name": "Gas Hob Left Status",
+        "state": {
+          "drying": "Drying",
+          "drying_pause": "Drying Pause",
+          "ion_drying": "Ion Drying",
+          "ion_drying_pause": "Ion Drying Pause",
+          "power_off": "Power Off",
+          "uperization": "Uperization",
+          "uperization_pause": "Uperization Pause",
+          "warm_drink": "Warm Drink",
+          "warm_drink_pause": "Warm Drink Pause"
+        }
+      },
+      "b7_left_work_time": {
+        "name": "Gas Hob Left Work Time"
+      },
+      "b7_right_current_temp": {
+        "name": "Gas Hob Right Current Temp"
+      },
+      "b7_right_destination_temp": {
+        "name": "Gas Hob Right Destination Temp"
+      },
+      "b7_right_destination_time": {
+        "name": "Gas Hob Right Destination Time"
+      },
+      "b7_right_gear": {
+        "name": "Gas Hob Right Gear"
+      },
+      "b7_right_power_off_type": {
+        "name": "Gas Hob Right Power Off Type",
+        "state": {
+          "app": "App",
+          "auto": "Auto",
+          "error": "Error",
+          "local": "Local",
+          "wifi": "Wifi"
+        }
+      },
+      "b7_right_remaining_time": {
+        "name": "Gas Hob Right Remaining Time"
+      },
+      "b7_right_status": {
+        "name": "Gas Hob Right Status",
+        "state": {
+          "drying": "Drying",
+          "drying_pause": "Drying Pause",
+          "ion_drying": "Ion Drying",
+          "ion_drying_pause": "Ion Drying Pause",
+          "power_off": "Power Off",
+          "uperization": "Uperization",
+          "uperization_pause": "Uperization Pause",
+          "warm_drink": "Warm Drink",
+          "warm_drink_pause": "Warm Drink Pause"
+        }
+      },
+      "b7_right_work_time": {
+        "name": "Gas Hob Right Work Time"
+      },
+      "bf_cavity": {
+        "name": "Oven Cavity",
+        "state": {
+          "down": "Down",
+          "up": "Up"
+        }
+      },
+      "bf_control_back": {
+        "name": "Oven Control Back",
+        "state": {
+          "func_notsupport": "Func Notsupport",
+          "status_notsupport": "Status Notsupport",
+          "success": "Success",
+          "value_notsupport": "Value Notsupport"
+        }
+      },
+      "bf_end_next": {
+        "name": "Oven End Next"
+      },
+      "bf_fire": {
+        "name": "Oven Fire"
+      },
+      "bf_mode": {
+        "name": "Oven Mode"
+      },
+      "bf_quick_btn_bake_id": {
+        "name": "Oven Quick Btn Bake Id"
+      },
+      "bf_quick_btn_bake_set": {
+        "name": "Oven Quick Btn Bake Set"
+      },
+      "bf_quick_btn_bake_time": {
+        "name": "Oven Quick Btn Bake Time"
+      },
+      "bf_quick_btn_microwave_id": {
+        "name": "Oven Quick Btn Microwave Id"
+      },
+      "bf_quick_btn_microwave_set": {
+        "name": "Oven Quick Btn Microwave Set"
+      },
+      "bf_quick_btn_microwave_time": {
+        "name": "Oven Quick Btn Microwave Time"
+      },
+      "bf_quick_btn_steam_id": {
+        "name": "Oven Quick Btn Steam Id"
+      },
+      "bf_quick_btn_steam_set": {
+        "name": "Oven Quick Btn Steam Set"
+      },
+      "bf_quick_btn_steam_time": {
+        "name": "Oven Quick Btn Steam Time"
+      },
+      "bf_recipe_code": {
+        "name": "Oven Recipe Code"
+      },
+      "bf_remaining_time": {
+        "name": "Oven Remaining Time"
+      },
+      "bf_steam": {
+        "name": "Oven Steam"
+      },
+      "bf_step_current": {
+        "name": "Oven Step Current"
+      },
+      "bf_step_total": {
+        "name": "Oven Step Total"
+      },
+      "bf_temp_down": {
+        "name": "Oven Temp Down"
+      },
+      "bf_temp_down_set": {
+        "name": "Oven Temp Down Set"
+      },
+      "bf_temp_probe": {
+        "name": "Oven Temp Probe"
+      },
+      "bf_temp_probe_set": {
+        "name": "Oven Temp Probe Set"
+      },
+      "bf_temp_up": {
+        "name": "Oven Temp Up"
+      },
+      "bf_temp_up_set": {
+        "name": "Oven Temp Up Set"
+      },
+      "bf_tips_mark": {
+        "name": "Oven Tips Mark",
+        "state": {
+          "apply": "Apply",
+          "change_attachments": "Change Attachments",
+          "door_open": "Door Open",
+          "feed": "Feed",
+          "recipe_tips": "Recipe Tips",
+          "stir": "Stir"
+        }
+      },
+      "bf_weight_mount": {
+        "name": "Oven Weight Mount"
+      },
+      "bf_weight_multiple": {
+        "name": "Oven Weight Multiple",
+        "state": {
+          "g": "G",
+          "kg": "Kg",
+          "ounce": "Ounce",
+          "pound": "Pound"
+        }
+      },
+      "bf_weight_unit": {
+        "name": "Oven Weight Unit",
+        "state": {
+          "g": "G",
+          "kg": "Kg",
+          "other": "Other",
+          "ounce": "Ounce",
+          "pound": "Pound"
+        }
+      },
+      "bf_work_status": {
+        "name": "Oven Work Status",
+        "state": {
+          "after_sale": "After Sale",
+          "check_version": "Check Version",
+          "cloudmenu_setting": "Cloudmenu Setting",
+          "demo": "Demo",
+          "done": "Done",
+          "keep": "Keep",
+          "love_three_seconds": "Love Three Seconds",
+          "open": "Open",
+          "order": "Order",
+          "pause": "Pause",
+          "pause_temporarily": "Pause Temporarily",
+          "power_off": "Power Off",
+          "self_check": "Self Check",
+          "working": "Working"
+        }
+      },
+      "bf_working_time": {
+        "name": "Oven Working Time"
+      },
+      "e7_left_bottom_bridge_link": {
+        "name": "Induction Left Bottom Bridge Link",
+        "state": {
+          "off": "Off",
+          "on": "On"
+        }
+      },
+      "e7_left_bottom_destination_time": {
+        "name": "Induction Left Bottom Destination Time"
+      },
+      "e7_left_bottom_efficiency": {
+        "name": "Induction Left Bottom Efficiency"
+      },
+      "e7_left_bottom_gear": {
+        "name": "Induction Left Bottom Gear"
+      },
+      "e7_left_bottom_mode": {
+        "name": "Induction Left Bottom Mode",
+        "state": {
+          "boiling": "Boiling",
+          "heat_preservation": "Heat Preservation",
+          "none": "None",
+          "stew_soup": "Stew Soup",
+          "stir_frying": "Stir Frying"
+        }
+      },
+      "e7_left_bottom_remaining_time": {
+        "name": "Induction Left Bottom Remaining Time"
+      },
+      "e7_left_bottom_work_status": {
+        "name": "Induction Left Bottom Work Status",
+        "state": {
+          "auto": "Auto",
+          "drying": "Drying",
+          "finish": "Finish",
+          "order": "Order",
+          "pause": "Pause",
+          "power_off": "Power Off",
+          "standby": "Standby",
+          "working": "Working"
+        }
+      },
+      "e7_left_bottom_work_time": {
+        "name": "Induction Left Bottom Work Time"
+      },
+      "e7_left_bridge_link": {
+        "name": "Induction Left Bridge Link",
+        "state": {
+          "off": "Off",
+          "on": "On"
+        }
+      },
+      "e7_left_destination_time": {
+        "name": "Induction Left Destination Time"
+      },
+      "e7_left_efficiency": {
+        "name": "Induction Left Efficiency"
+      },
+      "e7_left_gear": {
+        "name": "Induction Left Gear"
+      },
+      "e7_left_mode": {
+        "name": "Induction Left Mode",
+        "state": {
+          "boiling": "Boiling",
+          "heat_preservation": "Heat Preservation",
+          "none": "None",
+          "stew_soup": "Stew Soup",
+          "stir_frying": "Stir Frying"
+        }
+      },
+      "e7_left_remaining_time": {
+        "name": "Induction Left Remaining Time"
+      },
+      "e7_left_top_bridge_link": {
+        "name": "Induction Left Top Bridge Link",
+        "state": {
+          "off": "Off",
+          "on": "On"
+        }
+      },
+      "e7_left_top_destination_time": {
+        "name": "Induction Left Top Destination Time"
+      },
+      "e7_left_top_efficiency": {
+        "name": "Induction Left Top Efficiency"
+      },
+      "e7_left_top_gear": {
+        "name": "Induction Left Top Gear"
+      },
+      "e7_left_top_mode": {
+        "name": "Induction Left Top Mode",
+        "state": {
+          "boiling": "Boiling",
+          "heat_preservation": "Heat Preservation",
+          "none": "None",
+          "stew_soup": "Stew Soup",
+          "stir_frying": "Stir Frying"
+        }
+      },
+      "e7_left_top_remaining_time": {
+        "name": "Induction Left Top Remaining Time"
+      },
+      "e7_left_top_work_status": {
+        "name": "Induction Left Top Work Status",
+        "state": {
+          "auto": "Auto",
+          "drying": "Drying",
+          "finish": "Finish",
+          "order": "Order",
+          "pause": "Pause",
+          "power_off": "Power Off",
+          "standby": "Standby",
+          "working": "Working"
+        }
+      },
+      "e7_left_top_work_time": {
+        "name": "Induction Left Top Work Time"
+      },
+      "e7_left_work_status": {
+        "name": "Induction Left Work Status",
+        "state": {
+          "auto": "Auto",
+          "drying": "Drying",
+          "finish": "Finish",
+          "order": "Order",
+          "pause": "Pause",
+          "power_off": "Power Off",
+          "standby": "Standby",
+          "working": "Working"
+        }
+      },
+      "e7_left_work_time": {
+        "name": "Induction Left Work Time"
+      },
+      "e7_right_bottom_bridge_link": {
+        "name": "Induction Right Bottom Bridge Link",
+        "state": {
+          "off": "Off",
+          "on": "On"
+        }
+      },
+      "e7_right_bottom_destination_time": {
+        "name": "Induction Right Bottom Destination Time"
+      },
+      "e7_right_bottom_efficiency": {
+        "name": "Induction Right Bottom Efficiency"
+      },
+      "e7_right_bottom_gear": {
+        "name": "Induction Right Bottom Gear"
+      },
+      "e7_right_bottom_mode": {
+        "name": "Induction Right Bottom Mode",
+        "state": {
+          "boiling": "Boiling",
+          "heat_preservation": "Heat Preservation",
+          "none": "None",
+          "stew_soup": "Stew Soup",
+          "stir_frying": "Stir Frying"
+        }
+      },
+      "e7_right_bottom_remaining_time": {
+        "name": "Induction Right Bottom Remaining Time"
+      },
+      "e7_right_bottom_work_status": {
+        "name": "Induction Right Bottom Work Status",
+        "state": {
+          "auto": "Auto",
+          "drying": "Drying",
+          "finish": "Finish",
+          "order": "Order",
+          "pause": "Pause",
+          "power_off": "Power Off",
+          "standby": "Standby",
+          "working": "Working"
+        }
+      },
+      "e7_right_bottom_work_time": {
+        "name": "Induction Right Bottom Work Time"
+      },
+      "e7_right_bridge_link": {
+        "name": "Induction Right Bridge Link",
+        "state": {
+          "off": "Off",
+          "on": "On"
+        }
+      },
+      "e7_right_destination_time": {
+        "name": "Induction Right Destination Time"
+      },
+      "e7_right_efficiency": {
+        "name": "Induction Right Efficiency"
+      },
+      "e7_right_gear": {
+        "name": "Induction Right Gear"
+      },
+      "e7_right_mode": {
+        "name": "Induction Right Mode",
+        "state": {
+          "boiling": "Boiling",
+          "heat_preservation": "Heat Preservation",
+          "none": "None",
+          "stew_soup": "Stew Soup",
+          "stir_frying": "Stir Frying"
+        }
+      },
+      "e7_right_remaining_time": {
+        "name": "Induction Right Remaining Time"
+      },
+      "e7_right_top_bridge_link": {
+        "name": "Induction Right Top Bridge Link",
+        "state": {
+          "off": "Off",
+          "on": "On"
+        }
+      },
+      "e7_right_top_destination_time": {
+        "name": "Induction Right Top Destination Time"
+      },
+      "e7_right_top_efficiency": {
+        "name": "Induction Right Top Efficiency"
+      },
+      "e7_right_top_gear": {
+        "name": "Induction Right Top Gear"
+      },
+      "e7_right_top_mode": {
+        "name": "Induction Right Top Mode",
+        "state": {
+          "boiling": "Boiling",
+          "heat_preservation": "Heat Preservation",
+          "none": "None",
+          "stew_soup": "Stew Soup",
+          "stir_frying": "Stir Frying"
+        }
+      },
+      "e7_right_top_remaining_time": {
+        "name": "Induction Right Top Remaining Time"
+      },
+      "e7_right_top_work_status": {
+        "name": "Induction Right Top Work Status",
+        "state": {
+          "auto": "Auto",
+          "drying": "Drying",
+          "finish": "Finish",
+          "order": "Order",
+          "pause": "Pause",
+          "power_off": "Power Off",
+          "standby": "Standby",
+          "working": "Working"
+        }
+      },
+      "e7_right_top_work_time": {
+        "name": "Induction Right Top Work Time"
+      },
+      "e7_right_work_status": {
+        "name": "Induction Right Work Status",
+        "state": {
+          "auto": "Auto",
+          "drying": "Drying",
+          "finish": "Finish",
+          "order": "Order",
+          "pause": "Pause",
+          "power_off": "Power Off",
+          "standby": "Standby",
+          "working": "Working"
+        }
+      },
+      "e7_right_work_time": {
+        "name": "Induction Right Work Time"
+      },
+      "electronic_version": {
+        "name": "Electronic Version"
+      },
+      "error_list": {
+        "name": "Error List"
+      },
+      "sp_fandrying_destination_time": {
+        "name": "Plate Fan Drying Destination Time"
+      },
+      "sp_fandrying_order_destination_time": {
+        "name": "Plate Fan Drying Order Destination Time"
+      },
+      "sp_fandrying_order_remaining_time": {
+        "name": "Plate Fan Drying Order Remaining Time"
+      },
+      "sp_fandrying_remaining_time": {
+        "name": "Plate Fan Drying Remaining Time"
+      },
+      "sp_fandrying_setting_automode_day": {
+        "name": "Plate Fan Drying Setting Automode Day"
+      },
+      "sp_fandrying_setting_automode_starthour": {
+        "name": "Plate Fan Drying Setting Automode Starthour"
+      },
+      "sp_fandrying_setting_automode_startminute": {
+        "name": "Plate Fan Drying Setting Automode Startminute"
+      },
+      "sp_fandrying_status": {
+        "name": "Plate Fan Drying Status",
+        "state": {
+          "drying": "Drying",
+          "drying_pause": "Drying Pause",
+          "ion_drying": "Ion Drying",
+          "ion_drying_pause": "Ion Drying Pause",
+          "power_off": "Power Off",
+          "uperization": "Uperization",
+          "uperization_pause": "Uperization Pause",
+          "warm_drink": "Warm Drink",
+          "warm_drink_pause": "Warm Drink Pause"
+        }
+      },
+      "sp_fandrying_temperature": {
+        "name": "Plate Fan Drying Temperature"
+      },
+      "sp_heatingdisk_destination_time": {
+        "name": "Plate Heating Disk Destination Time"
+      },
+      "sp_heatingdisk_order_destination_time": {
+        "name": "Plate Heating Disk Order Destination Time"
+      },
+      "sp_heatingdisk_order_remaining_time": {
+        "name": "Plate Heating Disk Order Remaining Time"
+      },
+      "sp_heatingdisk_remaining_time": {
+        "name": "Plate Heating Disk Remaining Time"
+      },
+      "sp_heatingdisk_setting_automode_day": {
+        "name": "Plate Heating Disk Setting Automode Day"
+      },
+      "sp_heatingdisk_setting_automode_starthour": {
+        "name": "Plate Heating Disk Setting Automode Starthour"
+      },
+      "sp_heatingdisk_setting_automode_startminute": {
+        "name": "Plate Heating Disk Setting Automode Startminute"
+      },
+      "sp_heatingdisk_status": {
+        "name": "Plate Heating Disk Status",
+        "state": {
+          "drying": "Drying",
+          "drying_pause": "Drying Pause",
+          "ion_drying": "Ion Drying",
+          "ion_drying_pause": "Ion Drying Pause",
+          "power_off": "Power Off",
+          "uperization": "Uperization",
+          "uperization_pause": "Uperization Pause",
+          "warm_drink": "Warm Drink",
+          "warm_drink_pause": "Warm Drink Pause"
+        }
+      },
+      "sp_heatingdisk_temperature": {
+        "name": "Plate Heating Disk Temperature"
+      },
+      "sp_uvc_destination_time": {
+        "name": "Plate UVC Destination Time"
+      },
+      "sp_uvc_order_destination_time": {
+        "name": "Plate UVC Order Destination Time"
+      },
+      "sp_uvc_order_remaining_time": {
+        "name": "Plate UVC Order Remaining Time"
+      },
+      "sp_uvc_remaining_time": {
+        "name": "Plate UVC Remaining Time"
+      },
+      "sp_uvc_setting_automode_day": {
+        "name": "Plate UVC Setting Automode Day"
+      },
+      "sp_uvc_setting_automode_starthour": {
+        "name": "Plate UVC Setting Automode Starthour"
+      },
+      "sp_uvc_setting_automode_startminute": {
+        "name": "Plate UVC Setting Automode Startminute"
+      },
+      "sp_uvc_status": {
+        "name": "Plate UVC Status",
+        "state": {
+          "drying": "Drying",
+          "drying_pause": "Drying Pause",
+          "ion_drying": "Ion Drying",
+          "ion_drying_pause": "Ion Drying Pause",
+          "power_off": "Power Off",
+          "uperization": "Uperization",
+          "uperization_pause": "Uperization Pause",
+          "warm_drink": "Warm Drink",
+          "warm_drink_pause": "Warm Drink Pause"
+        }
+      },
+      "sp_uvc_temperature": {
+        "name": "Plate UVC Temperature"
+      },
+      "total_error_code": {
+        "name": "Error Code"
+      },
+      "total_error_type": {
+        "name": "Error Type"
+      },
+      "total_firewall_temp": {
+        "name": "Firewall Temp"
+      },
+      "total_gesture": {
+        "name": "Gesture",
+        "state": {
+          "off": "Off",
+          "on": "On"
+        }
+      },
+      "total_ir": {
+        "name": "IR",
+        "state": {
+          "off": "Off",
+          "on": "On"
+        }
+      },
+      "total_lock_off_type": {
+        "name": "Lock Off Type",
+        "state": {
+          "local": "Local"
+        }
+      },
+      "total_lock_on_type": {
+        "name": "Lock On Type",
+        "state": {
+          "app": "App",
+          "local": "Local"
+        }
+      },
+      "total_shelving_unit_temp": {
+        "name": "Shelving Unit Temp"
+      },
+      "total_speak": {
+        "name": "Speak",
+        "state": {
+          "off": "Off",
+          "on": "On"
+        }
+      },
+      "total_tips_code": {
+        "name": "Tips Code"
+      },
+      "total_tips_type": {
+        "name": "Tips Type"
       }
     },
     "switch": {
@@ -1582,7 +3274,9 @@
       "turntable": {
         "name": "Turntable"
       },
-      "maintenance_reminder": { "name": "Maintenance Reminder" },
+      "maintenance_reminder": {
+        "name": "Maintenance Reminder"
+      },
       "vacation_mode": {
         "name": "Vacation Mode"
       },
@@ -1777,6 +3471,15 @@
       },
       "dhw_disinfect": {
         "name": "DHW - Disinfect"
+      },
+      "ai_voice_microphone": {
+        "name": "AI Voice Microphone"
+      },
+      "total_lock": {
+        "name": "Child Lock"
+      },
+      "total_power": {
+        "name": "Power"
       }
     },
     "water_heater": {
