@@ -220,6 +220,7 @@ platform：
 | 只读数值（温度、时间、电量） | `Platform.SENSOR`                                 | 加 `device_class` + `unit` + `state_class`。     |
 | 只读文本/枚举（状态、程序）  | `Platform.SENSOR`                                 | 无单位；用图标。                                 |
 | 可写布尔                     | `Platform.SWITCH`                                 | 开/关控制。                                      |
+| 可写上锁/解锁                | `Platform.LOCK`                                   | 锁定/解锁控制（童锁、门锁）。                    |
 | 从固定集合中可写选择         | `Platform.SELECT`                                 | `options` 指向设备的选项列表。                   |
 | 范围内可写数值               | `Platform.NUMBER`                                 | 加 `min` / `max` / `step`（+ `unit`）。          |
 | 瞬时动作                     | `Platform.BUTTON`                                 | 如启动/停止一个循环。                            |
@@ -500,8 +501,19 @@ X9BAttributes.fire_power: {
 这是一个库侧（`midea-lan`）的正确性要点，但在这里影响最严重，所以在 HA 侧值得重申：
 任何你渲染为 `Platform.SWITCH`、`Platform.BINARY_SENSOR` 或 `Platform.LOCK` 的属性，
 都必须以 Python `bool` 到达。Home Assistant 把**任何非空字符串都当作真值**，所以一个
-被解码成字符串 `"off"` 的标志会显示为**开**，且永远关不掉。如果某个开关卡在开，检查
-库侧解码器是否返回 `bool(...)`，而不是字符串。（0x9B 在构建本 PR 时正是修了这个。）
+被解码成字符串 `"off"` 的标志会显示为**开**，且永远关不掉。注意 `bool("off")` 本身
+就是 `True`——把原始协议字符串用 `bool()` 包一层**并不能**解决问题。库侧解码器必须
+显式解析协议值并返回真正的 `bool`，例如：
+
+```python
+# 错误：bool("off") 是 True —— 开关会卡在开
+attrs["lock"] = bool(raw)
+# 正确：与协议上报的实际开值做比较
+attrs["lock"] = raw == LOCK_ON   # 或：raw not in (LOCK_OFF, VALUE_FF)
+```
+
+如果某个开关卡在开，检查库侧解码器是否按这种方式解析值，而不是对字符串调用
+`bool()`。（0x9B 在构建本 PR 时正是修了这个。）
 
 ### 10.5 对大型、多型号设备默认倾向可选（opt-in）
 
@@ -522,7 +534,8 @@ False`，这样就不会在缺少某功能的型号上给用户显示空白/损�
 - [ ] 已添加含 `name` 与逐属性 `entities` 行的 `0xXX` 条目。
 - [ ] 每行都有正确的 `type`（platform），sensor/number 带来自 HA 常量的
       `device_class` / `unit` / `state_class`。
-- [ ] 每个实体都设了 `translation_key`，与属性名一致。
+- [ ] 每个实体都设了 `translation_key` —— 默认用属性名，仅当与别的设备的键冲突时
+      才加命名空间（如 `x9b_fire_power`，见 §10.1–§10.2）。
 - [ ] 已把键加入 `translations/en.json`、`zh-Hans.json` 及其他语言（select 含
       states）。
 - [ ] 已编写 `doc/<TYPE>.md` 与 `doc/<TYPE>_hans.md`。

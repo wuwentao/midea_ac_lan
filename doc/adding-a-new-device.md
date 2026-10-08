@@ -242,6 +242,7 @@ attribute's data type to a platform:
 | Read-only number (temp, time, energy) | `Platform.SENSOR`                                 | Add `device_class` + `unit` + `state_class`.      |
 | Read-only text/enum (status, program) | `Platform.SENSOR`                                 | No unit; use an icon.                             |
 | Writable boolean                      | `Platform.SWITCH`                                 | on/off control.                                   |
+| Writable lock/unlock                  | `Platform.LOCK`                                   | locked/unlocked control (child lock, door lock).  |
 | Writable choice from a fixed set      | `Platform.SELECT`                                 | `options` points at the device's option list.     |
 | Writable number in a range            | `Platform.NUMBER`                                 | Add `min` / `max` / `step` (+ `unit`).            |
 | Momentary action                      | `Platform.BUTTON`                                 | e.g. start/stop a cycle.                          |
@@ -549,9 +550,21 @@ This is a library-side (`midea-lan`) correctness point that bites hardest here, 
 it's worth repeating on the HA side: any attribute you render as a
 `Platform.SWITCH`, `Platform.BINARY_SENSOR`, or `Platform.LOCK` must arrive as a
 Python `bool`. Home Assistant treats **any non-empty string as truthy**, so a flag
-decoded as the string `"off"` shows as **on** and never turns off. If a switch is
-stuck on, check the library decoder returns `bool(...)`, not a string. (0x9B fixed
-exactly this while building this PR.)
+decoded as the string `"off"` shows as **on** and never turns off. Note that
+`bool("off")` is itself `True` — wrapping the raw protocol string in `bool()` does
+**not** fix this. The library decoder must parse the protocol value explicitly and
+return a real `bool`, for example:
+
+```python
+# wrong: bool("off") is True — the switch gets stuck on
+attrs["lock"] = bool(raw)
+# right: compare against the actual on-value the protocol reports
+attrs["lock"] = raw == LOCK_ON   # or: raw not in (LOCK_OFF, VALUE_FF)
+```
+
+If a switch is stuck on, check the library decoder parses the value this way
+rather than calling `bool()` on a string. (0x9B fixed exactly this while building
+this PR.)
 
 ### 10.5 Opt-in by default for a large, multi-model device
 
@@ -574,7 +587,9 @@ specific oven lacks.
 - [ ] Added the `0xXX` entry with `name` and an `entities` row per attribute.
 - [ ] Each row has the right `type` (platform), and sensors/numbers have
       `device_class` / `unit` / `state_class` from HA constants.
-- [ ] `translation_key` set on each entity, matching the attribute name.
+- [ ] `translation_key` set on each entity — the attribute name by default,
+      namespaced (e.g. `x9b_fire_power`) only where it collides with another
+      device's key (see §10.1–§10.2).
 - [ ] Added the keys to `translations/en.json`, `zh-Hans.json`, and other locales
       (states included for selects).
 - [ ] Wrote `doc/<TYPE>.md` and `doc/<TYPE>_hans.md`.
