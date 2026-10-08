@@ -34,8 +34,8 @@ No default entity.
 
 ### 310A2111 flex-zone mode
 
-For model `310A2111`, subtype `56`, the optional `variable_mode` sensor derives
-the App preset from the reported flex-zone **setting** temperature: 6°C is
+For model `310A2111`, subtype `56`, the `midea-lan` library derives the App preset
+for `variable_mode` from the reported flex-zone **setting** temperature: 6°C is
 Mother & Infant (`baby`), 2°C is Treasure (`treasure`), and 0°C is Zero Degree
 (`zero`). Other temperatures, missing values, and non-numeric values are
 reported as unknown. This is a read-only interpretation; it sends no commands.
@@ -43,6 +43,10 @@ Other refrigerator models and subtypes retain their existing mode behavior.
 
 Enable Variable Mode under the integration's extra sensor options. The entity
 ID remains `sensor.{DEVICEID}_variable_mode`.
+
+Home Assistant only displays the library's mode keys through translations.
+The derived presets require a library release containing the 310A2111 mapping;
+the pinned `midea-lan==2026.9.2` does not yet contain this migration.
 
 ## Service
 

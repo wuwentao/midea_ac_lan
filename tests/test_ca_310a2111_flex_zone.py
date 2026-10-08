@@ -25,11 +25,7 @@ sys.path.insert(0, str(CUSTOM_COMPONENTS_ROOT))
 from homeassistant.components.sensor import SensorDeviceClass
 from homeassistant.const import CONF_DEVICE_ID, CONF_SENSORS
 from midea_ac_lan.const import DEVICES, DOMAIN
-from midea_ac_lan.sensor import (
-    MideaCA310A2111FlexZoneModeSensor,
-    MideaSensor,
-    async_setup_entry,
-)
+from midea_ac_lan.sensor import MideaSensor, async_setup_entry
 from midealan.devices.ca import DeviceAttributes as CAAttributes
 
 
@@ -45,38 +41,38 @@ class FakeRefrigeratorDevice:
     serial_number = None
     available = True
 
-    def __init__(self, temperature: object = 2) -> None:
-        """Store the temperature with its original representation."""
-        self.temperature = temperature
+    def __init__(self, mode: str | None = "treasure") -> None:
+        """Store canonical values supplied by the library."""
+        self.mode = mode
         self.attributes = {
-            CAAttributes.variable_mode: "none",
+            CAAttributes.variable_mode: mode,
             CAAttributes.flex_zone_setting_temp: 2,
         }
 
     def get_attribute(self, attribute: object) -> object:
-        """Return the reported source value or the generic raw mode.
+        """Return the library's canonical mode or setting temperature.
 
         Returns
         -------
-        The original setting temperature, raw mode, or missing value.
+        The canonical mode, setting temperature, or missing value.
 
         """
         if attribute == CAAttributes.flex_zone_setting_temp:
-            return self.temperature
+            return 2
         if attribute == CAAttributes.variable_mode:
-            return "none"
+            return self.mode
         return None
 
 
-def mode_sensor(device: FakeRefrigeratorDevice) -> MideaCA310A2111FlexZoneModeSensor:
-    """Construct the specialized entity using the public device contract.
+def mode_sensor(device: FakeRefrigeratorDevice) -> MideaSensor:
+    """Construct the generic entity using the public device contract.
 
     Returns
     -------
     The read-only mode sensor.
 
     """
-    return MideaCA310A2111FlexZoneModeSensor(
+    return MideaSensor(
         cast("MideaDevice", device),
         CAAttributes.variable_mode,
     )
@@ -86,44 +82,26 @@ class RefrigeratorFlexZoneModeTests(unittest.IsolatedAsyncioTestCase):
     """Cover interpretation, setup gates, translations, and push updates."""
 
     def test_verified_presets(self) -> None:
-        """Integer and float source values map to the three verified modes."""
+        """HA presents canonical library keys without temperature mapping."""
         device = FakeRefrigeratorDevice()
         entity = mode_sensor(device)
-        for temperature, expected in (
-            (6, "baby"),
-            (6.0, "baby"),
-            (2, "treasure"),
-            (2.0, "treasure"),
-            (0, "zero"),
-            (0.0, "zero"),
-        ):
-            with self.subTest(temperature=temperature):
-                device.temperature = temperature
-                self.assertEqual(entity.native_value, expected)
+        for mode in entity.options or []:
+            with self.subTest(mode=mode):
+                device.mode = mode
+                self.assertEqual(entity.native_value, mode)
         self.assertEqual(entity.device_class, SensorDeviceClass.ENUM)
-        self.assertEqual(entity.options, ["baby", "treasure", "zero"])
+        self.assertTrue(
+            {"baby", "treasure", "zero", "none"}.issubset(entity.options or []),
+        )
         self.assertEqual(entity.capability_attributes, {"options": entity.options})
         self.assertEqual(entity.entity_id, "sensor.456_variable_mode")
 
     def test_unverified_values_remain_unknown(self) -> None:
-        """Unknown, malformed, and boolean values never guess a preset."""
+        """A missing library mode stays unknown, not derived from temperature."""
         device = FakeRefrigeratorDevice()
         entity = mode_sensor(device)
-        for value in (
-            3,
-            -1,
-            None,
-            "0",
-            "2",
-            "6",
-            False,
-            True,
-            float("nan"),
-            float("inf"),
-        ):
-            with self.subTest(value=value):
-                device.temperature = value
-                self.assertIsNone(entity.native_value)
+        device.mode = None
+        self.assertIsNone(entity.native_value)
 
     @staticmethod
     async def setup_sensors(
@@ -151,11 +129,11 @@ class RefrigeratorFlexZoneModeTests(unittest.IsolatedAsyncioTestCase):
         return entities
 
     async def test_setup_gates_exact_model_and_subtype(self) -> None:
-        """Only the opted-in target uses derived mode behavior."""
-        for model, subtype, expected in (
-            ("310A2111", 56, MideaCA310A2111FlexZoneModeSensor),
-            ("other", 56, MideaSensor),
-            ("310A2111", 1, MideaSensor),
+        """All opted-in devices use the same generic sensor class."""
+        for model, subtype in (
+            ("310A2111", 56),
+            ("other", 56),
+            ("310A2111", 1),
         ):
             with self.subTest(model=model, subtype=subtype):
                 device = FakeRefrigeratorDevice()
@@ -166,9 +144,8 @@ class RefrigeratorFlexZoneModeTests(unittest.IsolatedAsyncioTestCase):
                     [CAAttributes.variable_mode],
                 )
                 self.assertEqual(len(entities), 1)
-                self.assertIs(type(entities[0]), expected)
-                if expected is MideaSensor:
-                    self.assertEqual(entities[0].native_value, "none")
+                self.assertIs(type(entities[0]), MideaSensor)
+                self.assertEqual(entities[0].native_value, "treasure")
         self.assertEqual(await self.setup_sensors(FakeRefrigeratorDevice(), []), [])
 
     async def test_other_attributes_keep_generic_sensor(self) -> None:
@@ -186,7 +163,10 @@ class RefrigeratorFlexZoneModeTests(unittest.IsolatedAsyncioTestCase):
         entity = mode_sensor(FakeRefrigeratorDevice())
         entity.hass = cast("HomeAssistant", Mock())
         for status in (
-            {CAAttributes.flex_zone_setting_temp: 6},
+            {
+                CAAttributes.flex_zone_setting_temp: 6,
+                CAAttributes.variable_mode: "baby",
+            },
             {
                 CAAttributes.flex_zone_setting_temp: 2,
                 CAAttributes.variable_mode: "none",
@@ -223,7 +203,10 @@ class RefrigeratorFlexZoneModeTests(unittest.IsolatedAsyncioTestCase):
                     (translations / filename).read_text(encoding="utf-8"),
                 )
                 self.assertEqual(
-                    document["entity"]["sensor"]["variable_mode"]["state"],
+                    {
+                        key: document["entity"]["sensor"]["variable_mode"]["state"][key]
+                        for key in expected
+                    },
                     expected,
                 )
 

@@ -3,7 +3,7 @@
 import math
 import time
 from datetime import timedelta
-from typing import Any, Final, cast
+from typing import Any, cast
 
 from homeassistant.components.sensor import (
     SensorDeviceClass,
@@ -17,20 +17,11 @@ from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.event import async_track_time_interval
 from homeassistant.helpers.restore_state import RestoreEntity
 from homeassistant.helpers.typing import StateType
-from midealan.const import DeviceType
 from midealan.device import MideaDevice
-from midealan.devices.ca import DeviceAttributes as CAAttributes
 
 from .const import DEVICES, DOMAIN, supports_device
 from .midea_devices import MIDEA_DEVICES
 from .midea_entity import MideaEntity
-
-SUBTYPE_310A2111: Final = 56
-FLEX_ZONE_MODE_BY_TEMPERATURE: Final[dict[float, str]] = {
-    6.0: "baby",
-    2.0: "treasure",
-    0.0: "zero",
-}
 
 
 async def async_setup_entry(
@@ -63,13 +54,6 @@ async def async_setup_entry(
             sensor = MideaEstimatedUsageSensor(device, entity_key)
         elif config.get("duration_from_minutes"):
             sensor = MideaMinuteDurationSensor(device, entity_key)
-        elif (
-            device.device_type == DeviceType.CA
-            and device.model == "310A2111"
-            and device.subtype == SUBTYPE_310A2111
-            and entity_key == CAAttributes.variable_mode
-        ):
-            sensor = MideaCA310A2111FlexZoneModeSensor(device, entity_key)
         else:
             sensor = MideaSensor(device, entity_key)
         sensors.append(sensor)
@@ -191,37 +175,6 @@ class MideaSensor(MideaEntity, SensorEntity):
     def _async_timer_update(self, _now: Any) -> None:  # ruff:ignore[any-type]
         """Update timer state every second."""
         self.schedule_update_ha_state()
-
-
-class MideaCA310A2111FlexZoneModeSensor(MideaSensor):
-    """Derive the read-only flex-zone preset for model 310A2111, subtype 56."""
-
-    @property
-    def native_value(self) -> StateType:
-        """Map only verified setting temperatures to their App presets."""
-        temperature = self._device.get_attribute(CAAttributes.flex_zone_setting_temp)
-        if isinstance(temperature, (int, float)) and not isinstance(temperature, bool):
-            return FLEX_ZONE_MODE_BY_TEMPERATURE.get(temperature)
-        return None
-
-    @property
-    def device_class(self) -> SensorDeviceClass:
-        """Expose the derived preset as a translated enum."""
-        return SensorDeviceClass.ENUM
-
-    @property
-    def options(self) -> list[str]:
-        """The three verified presets."""
-        return list(FLEX_ZONE_MODE_BY_TEMPERATURE.values())
-
-    @callback
-    def update_state(self, status: Any) -> None:  # ruff:ignore[any-type]
-        """Refresh the mode when its source temperature changes."""
-        if CAAttributes.flex_zone_setting_temp in status:
-            # The base callback watches variable_mode rather than its source.
-            super().update_state({**status, self._entity_key: None})
-        else:
-            super().update_state(status)
 
 
 class MideaMinuteDurationSensor(MideaSensor):
