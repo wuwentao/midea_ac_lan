@@ -9,6 +9,7 @@ integration load process:
 3. unloading a config entry: `async_unload_entry`
 """
 
+import asyncio
 import logging
 from typing import Any, cast
 
@@ -232,6 +233,11 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
     -------
     True if entry is configured.
 
+    Raises
+    ------
+    CancelledError
+        If setup is cancelled (e.g. Home Assistant stops), after closing the device.
+
     """
     device_type = config_entry.data.get(CONF_TYPE)
     if device_type == CONF_ACCOUNT:
@@ -299,21 +305,6 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
             device.set_refresh_interval(refresh_interval)
         device.open()
         _device_store(hass)[device_id] = device
-        try:
-            _remove_unsupported_entities(hass, device)
-            # Forward the setup of an entry to all platforms
-            await hass.config_entries.async_forward_entry_setups(
-                config_entry,
-                ALL_PLATFORM,
-            )
-        except Exception:
-            _device_store(hass).pop(device_id, None)
-            _close_device(device)
-            raise
-        # Listener `update_listener` is
-        # attached when the entry is loaded
-        # and detached when it's unloaded
-        config_entry.async_on_unload(config_entry.add_update_listener(update_listener))
 
         @callback
         def _async_close_on_stop(_event: Event) -> None:
@@ -323,9 +314,26 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
         # Home Assistant does not unload config entries on shutdown, so without
         # this the non-daemon device thread keeps running (e.g. sleeping up to
         # 600 s between reconnect attempts) and delays the process exit.
+        # Registered before the platform forward so a stop during setup is covered.
         config_entry.async_on_unload(
             hass.bus.async_listen_once(EVENT_HOMEASSISTANT_STOP, _async_close_on_stop),
         )
+        try:
+            _remove_unsupported_entities(hass, device)
+            # Forward the setup of an entry to all platforms
+            await hass.config_entries.async_forward_entry_setups(
+                config_entry,
+                ALL_PLATFORM,
+            )
+        except (Exception, asyncio.CancelledError):
+            _device_store(hass).pop(device_id, None)
+            _close_device(device)
+            raise
+        # Listener `update_listener` is
+        # attached when the entry is loaded
+        # and detached when it's unloaded
+        config_entry.async_on_unload(config_entry.add_update_listener(update_listener))
+
         return True
     return False
 
