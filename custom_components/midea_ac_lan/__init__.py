@@ -26,10 +26,11 @@ from homeassistant.const import (
     CONF_PROTOCOL,
     CONF_TOKEN,
     CONF_TYPE,
+    EVENT_HOMEASSISTANT_STOP,
     MAJOR_VERSION,
     MINOR_VERSION,
 )
-from homeassistant.core import HomeAssistant
+from homeassistant.core import Event, HomeAssistant, callback
 from homeassistant.helpers.typing import ConfigType
 from midealan.device import DeviceType, MideaDevice, ProtocolVersion
 from midealan.devices import device_selector
@@ -313,6 +314,18 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
         # attached when the entry is loaded
         # and detached when it's unloaded
         config_entry.async_on_unload(config_entry.add_update_listener(update_listener))
+
+        @callback
+        def _async_close_on_stop(_event: Event) -> None:
+            """Stop the device thread so it can't hold up Home Assistant's exit."""
+            _close_device(device)
+
+        # Home Assistant does not unload config entries on shutdown, so without
+        # this the non-daemon device thread keeps running (e.g. sleeping up to
+        # 600 s between reconnect attempts) and delays the process exit.
+        config_entry.async_on_unload(
+            hass.bus.async_listen_once(EVENT_HOMEASSISTANT_STOP, _async_close_on_stop),
+        )
         return True
     return False
 
