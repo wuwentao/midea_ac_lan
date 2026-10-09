@@ -31,7 +31,7 @@ from homeassistant.const import (
     MAJOR_VERSION,
     MINOR_VERSION,
 )
-from homeassistant.core import Event, HomeAssistant, callback
+from homeassistant.core import Event, HomeAssistant
 from homeassistant.helpers.typing import ConfigType
 from midealan.device import DeviceType, MideaDevice, ProtocolVersion
 from midealan.devices import device_selector
@@ -306,10 +306,11 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
         device.open()
         _device_store(hass)[device_id] = device
 
-        @callback
-        def _async_close_on_stop(_event: Event) -> None:
+        async def _async_close_on_stop(_event: Event) -> None:
             """Stop the device thread so it can't hold up Home Assistant's exit."""
-            _close_device(device)
+            # close() waits for the socket lock, which connect() holds for the
+            # whole connection attempt, so keep it off the event loop.
+            await hass.async_add_executor_job(_close_device, device)
 
         # Home Assistant does not unload config entries on shutdown, so without
         # this the non-daemon device thread keeps running (e.g. sleeping up to
@@ -327,7 +328,7 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
             )
         except (Exception, asyncio.CancelledError):
             _device_store(hass).pop(device_id, None)
-            _close_device(device)
+            await hass.async_add_executor_job(_close_device, device)
             raise
         # Listener `update_listener` is
         # attached when the entry is loaded
