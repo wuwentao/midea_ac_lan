@@ -226,7 +226,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:  # ruff:
     return True
 
 
-async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> bool:
+async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> bool:  # ruff: ignore[too-many-locals]
     """Set up platform for current integration.
 
     Returns
@@ -316,8 +316,9 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
         # this the non-daemon device thread keeps running (e.g. sleeping up to
         # 600 s between reconnect attempts) and delays the process exit.
         # Registered before the platform forward so a stop during setup is covered.
-        config_entry.async_on_unload(
-            hass.bus.async_listen_once(EVENT_HOMEASSISTANT_STOP, _async_close_on_stop),
+        remove_stop_listener = hass.bus.async_listen_once(
+            EVENT_HOMEASSISTANT_STOP,
+            _async_close_on_stop,
         )
         try:
             _remove_unsupported_entities(hass, device)
@@ -327,9 +328,15 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
                 ALL_PLATFORM,
             )
         except (Exception, asyncio.CancelledError):
+            # On supported HA versions a forwarding failure or cancellation
+            # bypasses `async_on_unload`, so detach the listener explicitly to
+            # avoid leaking it (and the closed device) on the EventBus.
+            remove_stop_listener()
             _device_store(hass).pop(device_id, None)
             await hass.async_add_executor_job(_close_device, device)
             raise
+        # Keep the stop listener until the entry is unloaded or reloaded.
+        config_entry.async_on_unload(remove_stop_listener)
         # Listener `update_listener` is
         # attached when the entry is loaded
         # and detached when it's unloaded
