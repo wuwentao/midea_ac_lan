@@ -9,6 +9,7 @@ integration load process:
 3. unloading a config entry: `async_unload_entry`
 """
 
+import asyncio
 import logging
 from typing import Any, cast
 
@@ -26,10 +27,11 @@ from homeassistant.const import (
     CONF_PROTOCOL,
     CONF_TOKEN,
     CONF_TYPE,
+    EVENT_HOMEASSISTANT_STOP,
     MAJOR_VERSION,
     MINOR_VERSION,
 )
-from homeassistant.core import HomeAssistant
+from homeassistant.core import Event, HomeAssistant
 from homeassistant.helpers.typing import ConfigType
 from midealan.device import DeviceType, MideaDevice, ProtocolVersion
 from midealan.devices import device_selector
@@ -224,12 +226,17 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:  # ruff:
     return True
 
 
-async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> bool:
+async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> bool:  # ruff: ignore[too-many-locals]
     """Set up platform for current integration.
 
     Returns
     -------
     True if entry is configured.
+
+    Raises
+    ------
+    CancelledError
+        If setup is cancelled (e.g. Home Assistant stops), after closing the device.
 
     """
     device_type = config_entry.data.get(CONF_TYPE)
@@ -298,6 +305,21 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
             device.set_refresh_interval(refresh_interval)
         device.open()
         _device_store(hass)[device_id] = device
+
+        async def _async_close_on_stop(_event: Event) -> None:
+            """Stop the device thread so it can't hold up Home Assistant's exit."""
+            # close() waits for the socket lock, which connect() holds for the
+            # whole connection attempt, so keep it off the event loop.
+            await hass.async_add_executor_job(_close_device, device)
+
+        # Home Assistant does not unload config entries on shutdown, so without
+        # this the non-daemon device thread keeps running (e.g. sleeping up to
+        # 600 s between reconnect attempts) and delays the process exit.
+        # Registered before the platform forward so a stop during setup is covered.
+        remove_stop_listener = hass.bus.async_listen_once(
+            EVENT_HOMEASSISTANT_STOP,
+            _async_close_on_stop,
+        )
         try:
             _remove_unsupported_entities(hass, device)
             # Forward the setup of an entry to all platforms
@@ -305,14 +327,21 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
                 config_entry,
                 ALL_PLATFORM,
             )
-        except Exception:
+        except (Exception, asyncio.CancelledError):
+            # On supported HA versions a forwarding failure or cancellation
+            # bypasses `async_on_unload`, so detach the listener explicitly to
+            # avoid leaking it (and the closed device) on the EventBus.
+            remove_stop_listener()
             _device_store(hass).pop(device_id, None)
-            _close_device(device)
+            await hass.async_add_executor_job(_close_device, device)
             raise
+        # Keep the stop listener until the entry is unloaded or reloaded.
+        config_entry.async_on_unload(remove_stop_listener)
         # Listener `update_listener` is
         # attached when the entry is loaded
         # and detached when it's unloaded
         config_entry.async_on_unload(config_entry.add_update_listener(update_listener))
+
         return True
     return False
 
