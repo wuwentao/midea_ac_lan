@@ -1433,6 +1433,17 @@
           "keep_warm": "Keeping Warm"
         }
       },
+      "no_obsolete_water_mode": {
+        "name": "Zero Stagnant Water (Basic)",
+        "state": {
+          "water_quality_priority": "Water Quality Priority",
+          "water_saving_priority": "Water Saving Priority",
+          "custom": "Custom"
+        }
+      },
+      "input_temperature_sensing": {
+        "name": "Input Temperature"
+      },
       "temp_ta": {
         "name": "Temperature Ta - Room Ambient"
       },
@@ -1789,6 +1800,9 @@
       },
       "antifreeze": {
         "name": "Antifreeze"
+      },
+      "heat": {
+        "name": "Heat"
       },
       "holiday_on": {
         "name": "Mode - Holiday"

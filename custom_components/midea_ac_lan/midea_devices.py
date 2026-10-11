@@ -5501,6 +5501,40 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Antifreeze",
                 "icon": "mdi:snowflake-melt",
             },
+            EDAttributes.heat: {
+                "type": Platform.SWITCH,
+                "translation_key": "heat",
+                "name": "Heat",
+                "icon": "mdi:fire",
+                "excluded_devices": ED_TEA_BAR_DEVICES,
+                "excluded_subtypes": ED_SOFT_WATER_SUBTYPES,
+            },
+            EDAttributes.input_temperature_sensing: {
+                "type": Platform.SENSOR,
+                "translation_key": "input_temperature_sensing",
+                "name": "Input Temperature",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+                "excluded_devices": ED_TEA_BAR_DEVICES,
+                "excluded_subtypes": ED_SOFT_WATER_SUBTYPES,
+            },
+            # Basic no-obsolete-water setting: the device keeps exactly one of
+            # the three flags set; the sensor reports the matching state.
+            "no_obsolete_water_mode": {
+                "type": Platform.SENSOR,
+                "translation_key": "no_obsolete_water_mode",
+                "name": "Zero Stagnant Water (Basic)",
+                "icon": "mdi:water-sync",
+                "device_class": SensorDeviceClass.ENUM,
+                "state_from_flags": {
+                    "no_obsolete_water": "water_quality_priority",
+                    "save_mode": "water_saving_priority",
+                    "smart_no_obsolete_water": "custom",
+                },
+                "excluded_devices": ED_TEA_BAR_DEVICES,
+                "excluded_subtypes": ED_SOFT_WATER_SUBTYPES,
+            },
         },
     },
     0xFA: {
