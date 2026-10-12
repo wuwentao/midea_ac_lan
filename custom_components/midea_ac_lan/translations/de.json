@@ -153,10 +153,18 @@
       "dispensing": {
         "name": "Wasserentnahme"
       },
-      "lack_water": { "name": "Wassermangel" },
-      "standby": { "name": "Bereitschaft" },
-      "hot_water_dispensing": { "name": "Heißwasserausgabe" },
-      "fault": { "name": "Störung" },
+      "lack_water": {
+        "name": "Wassermangel"
+      },
+      "standby": {
+        "name": "Bereitschaft"
+      },
+      "hot_water_dispensing": {
+        "name": "Heißwasserausgabe"
+      },
+      "fault": {
+        "name": "Störung"
+      },
       "heating_working": {
         "name": "Heizen Arbeitsstatus"
       },
@@ -483,6 +491,342 @@
       },
       "time_set": {
         "name": "Funktion - Zeit gesetzt"
+      },
+      "ac_air_direction": {
+        "name": "AC Luftrichtung"
+      },
+      "ac_cooling_fan": {
+        "name": "AC Kühlventilator"
+      },
+      "ac_draining_pump": {
+        "name": "AC Ablaufpumpe"
+      },
+      "ac_low_temperature": {
+        "name": "AC Niedrigtemperatur"
+      },
+      "ac_over_temperature": {
+        "name": "AC Übertemperatur"
+      },
+      "ac_swing": {
+        "name": "AC Schwenken"
+      },
+      "ac_water_full": {
+        "name": "AC Wasser voll"
+      },
+      "b2_downstair_clean_tips": {
+        "name": "Dampfgarer unten Reinigungshinweis"
+      },
+      "b2_downstair_door": {
+        "name": "Dampfgarer unten Tür"
+      },
+      "b2_downstair_fresh_water": {
+        "name": "Dampfgarer unten Frischwasser"
+      },
+      "b2_downstair_light": {
+        "name": "Dampfgarer unten Licht"
+      },
+      "b2_downstair_lock": {
+        "name": "Dampfgarer unten Sperre"
+      },
+      "b2_downstair_must_clean_tips": {
+        "name": "Dampfgarer unten Reinigung erforderlich-Hinweis"
+      },
+      "b2_downstair_water_shortage": {
+        "name": "Dampfgarer unten Wassermangel"
+      },
+      "b2_upstair_clean_tips": {
+        "name": "Dampfgarer oben Reinigungshinweis"
+      },
+      "b2_upstair_door": {
+        "name": "Dampfgarer oben Tür"
+      },
+      "b2_upstair_fresh_water": {
+        "name": "Dampfgarer oben Frischwasser"
+      },
+      "b2_upstair_light": {
+        "name": "Dampfgarer oben Licht"
+      },
+      "b2_upstair_lock": {
+        "name": "Dampfgarer oben Sperre"
+      },
+      "b2_upstair_must_clean_tips": {
+        "name": "Dampfgarer oben Reinigung erforderlich-Hinweis"
+      },
+      "b2_upstair_water_shortage": {
+        "name": "Dampfgarer oben Wassermangel"
+      },
+      "b3_downstair_door": {
+        "name": "Dampfschrank unten Tür"
+      },
+      "b3_downstair_door_lock": {
+        "name": "Dampfschrank unten Türverriegelung"
+      },
+      "b3_downstair_infrared": {
+        "name": "Dampfschrank unten Infrarot"
+      },
+      "b3_downstair_ultraviolet": {
+        "name": "Dampfschrank unten Ultraviolett"
+      },
+      "b3_upstair_door": {
+        "name": "Dampfschrank oben Tür"
+      },
+      "b3_upstair_door_lock": {
+        "name": "Dampfschrank oben Türverriegelung"
+      },
+      "b3_upstair_infrared": {
+        "name": "Dampfschrank oben Infrarot"
+      },
+      "b3_upstair_ultraviolet": {
+        "name": "Dampfschrank oben Ultraviolett"
+      },
+      "b6_TVOC_status": {
+        "name": "Dunstabzugshaube TVOC-Status"
+      },
+      "b6_delay_gear_linkage": {
+        "name": "Dunstabzugshaube Nachlaufstufe-Verknüpfung"
+      },
+      "b6_delay_time": {
+        "name": "Dunstabzugshaube Nachlaufzeit"
+      },
+      "b6_gesture_status": {
+        "name": "Dunstabzugshaube Gestenstatus"
+      },
+      "b6_infrared_status": {
+        "name": "Dunstabzugshaube Infrarotstatus"
+      },
+      "b6_lock": {
+        "name": "Dunstabzugshaube Sperre"
+      },
+      "b6_power_on_light": {
+        "name": "Dunstabzugshaube Licht beim Einschalten"
+      },
+      "b6_smoke_detector": {
+        "name": "Dunstabzugshaube Rauchmelder"
+      },
+      "b6_smoke_stove_linkage": {
+        "name": "Dunstabzugshaube Rauch-Kochfeld-Verknüpfung"
+      },
+      "b7_left_dry_burning": {
+        "name": "Gaskochfeld links Trockenbrand"
+      },
+      "b7_left_dry_burning_invalid": {
+        "name": "Gaskochfeld links Trockenbrand ungültig"
+      },
+      "b7_left_gas_leakage": {
+        "name": "Gaskochfeld links Gasleck"
+      },
+      "b7_left_has_fire": {
+        "name": "Gaskochfeld links Flamme vorhanden"
+      },
+      "b7_left_has_pot": {
+        "name": "Gaskochfeld links Topf erkannt"
+      },
+      "b7_right_dry_burning": {
+        "name": "Gaskochfeld rechts Trockenbrand"
+      },
+      "b7_right_dry_burning_invalid": {
+        "name": "Gaskochfeld rechts Trockenbrand ungültig"
+      },
+      "b7_right_gas_leakage": {
+        "name": "Gaskochfeld rechts Gasleck"
+      },
+      "b7_right_has_fire": {
+        "name": "Gaskochfeld rechts Flamme vorhanden"
+      },
+      "b7_right_has_pot": {
+        "name": "Gaskochfeld rechts Topf erkannt"
+      },
+      "bf_door": {
+        "name": "Ofen Tür"
+      },
+      "bf_error": {
+        "name": "Ofen Fehler"
+      },
+      "bf_flip": {
+        "name": "Ofen Wenden"
+      },
+      "bf_hightemp_error": {
+        "name": "Ofen Übertemperatur-Fehler"
+      },
+      "bf_hightemp_lock": {
+        "name": "Ofen Übertemperatur-Sperre"
+      },
+      "bf_hightemp_over": {
+        "name": "Ofen Übertemperatur überschritten"
+      },
+      "bf_hotwind": {
+        "name": "Ofen Heißluft"
+      },
+      "bf_hotwind_set": {
+        "name": "Ofen Heißluft einstellen"
+      },
+      "bf_hydrops_full": {
+        "name": "Ofen Kondenswasser voll"
+      },
+      "bf_light": {
+        "name": "Ofen Licht"
+      },
+      "bf_lock": {
+        "name": "Ofen Sperre"
+      },
+      "bf_off_fromapp": {
+        "name": "Ofen Aus per App"
+      },
+      "bf_on_smart": {
+        "name": "Ofen Ein Smart"
+      },
+      "bf_order": {
+        "name": "Ofen Vorwahl"
+      },
+      "bf_order_time_isabsolute": {
+        "name": "Ofen Vorwahlzeit absolut"
+      },
+      "bf_overheat": {
+        "name": "Ofen Überhitzung"
+      },
+      "bf_preheat": {
+        "name": "Ofen Vorheizen"
+      },
+      "bf_preheat_done": {
+        "name": "Ofen Vorheizen fertig"
+      },
+      "bf_preheat_set": {
+        "name": "Ofen Vorheizen einstellen"
+      },
+      "bf_probe": {
+        "name": "Ofen Fühler"
+      },
+      "bf_probe_meat": {
+        "name": "Ofen Fleischfühler"
+      },
+      "bf_radiating": {
+        "name": "Ofen Strahlung"
+      },
+      "bf_repair_cook": {
+        "name": "Ofen Garvorgang fortsetzen"
+      },
+      "bf_sabbath": {
+        "name": "Ofen Sabbat-Modus"
+      },
+      "bf_scalehandling_remind": {
+        "name": "Ofen Entkalkungserinnerung"
+      },
+      "bf_sensor": {
+        "name": "Ofen Sensor"
+      },
+      "bf_stove_1": {
+        "name": "Ofen Kochzone 1"
+      },
+      "bf_stove_2": {
+        "name": "Ofen Kochzone 2"
+      },
+      "bf_stove_3": {
+        "name": "Ofen Kochzone 3"
+      },
+      "bf_stove_4": {
+        "name": "Ofen Kochzone 4"
+      },
+      "bf_stove_5": {
+        "name": "Ofen Kochzone 5"
+      },
+      "bf_temp_fahrenheit": {
+        "name": "Ofen Temperatur Fahrenheit"
+      },
+      "bf_time_synchronization": {
+        "name": "Ofen Zeitsynchronisation"
+      },
+      "bf_turntable": {
+        "name": "Ofen Drehteller"
+      },
+      "bf_turntable_reset": {
+        "name": "Ofen Drehteller zurücksetzen"
+      },
+      "bf_upload_interval": {
+        "name": "Ofen Übertragungsintervall"
+      },
+      "bf_voice_identify": {
+        "name": "Ofen Spracherkennung"
+      },
+      "bf_voice_module": {
+        "name": "Ofen Sprachmodul"
+      },
+      "bf_water_box": {
+        "name": "Ofen Wasserbehälter"
+      },
+      "bf_water_change": {
+        "name": "Ofen Wasserwechsel"
+      },
+      "bf_water_shortage": {
+        "name": "Ofen Wassermangel"
+      },
+      "bf_wintersummertime": {
+        "name": "Ofen Sommer-/Winterzeit"
+      },
+      "e7_left_bottom_has_pot": {
+        "name": "Induktion links unten Topf erkannt"
+      },
+      "e7_left_has_pot": {
+        "name": "Induktion links Topf erkannt"
+      },
+      "e7_left_top_has_pot": {
+        "name": "Induktion links oben Topf erkannt"
+      },
+      "e7_right_bottom_has_pot": {
+        "name": "Induktion rechts unten Topf erkannt"
+      },
+      "e7_right_has_pot": {
+        "name": "Induktion rechts Topf erkannt"
+      },
+      "e7_right_top_has_pot": {
+        "name": "Induktion rechts oben Topf erkannt"
+      },
+      "sp_fandrying_door": {
+        "name": "Geschirrfach Lüftertrocknung Tür"
+      },
+      "sp_fandrying_setting_automode": {
+        "name": "Geschirrfach Lüftertrocknung Automatikmodus"
+      },
+      "sp_fandrying_setting_linkage": {
+        "name": "Geschirrfach Lüftertrocknung Verknüpfung"
+      },
+      "sp_fandrying_setting_linkcooker": {
+        "name": "Geschirrfach Lüftertrocknung Kochfeld-Verknüpfung"
+      },
+      "sp_fandrying_setting_sync": {
+        "name": "Geschirrfach Lüftertrocknung Synchronisation"
+      },
+      "sp_heatingdisk_door": {
+        "name": "Geschirrfach Heizplatte Tür"
+      },
+      "sp_heatingdisk_setting_automode": {
+        "name": "Geschirrfach Heizplatte Automatikmodus"
+      },
+      "sp_heatingdisk_setting_linkage": {
+        "name": "Geschirrfach Heizplatte Verknüpfung"
+      },
+      "sp_heatingdisk_setting_linkcooker": {
+        "name": "Geschirrfach Heizplatte Kochfeld-Verknüpfung"
+      },
+      "sp_heatingdisk_setting_sync": {
+        "name": "Geschirrfach Heizplatte Synchronisation"
+      },
+      "sp_uvc_door": {
+        "name": "Geschirrfach UVC Tür"
+      },
+      "sp_uvc_setting_automode": {
+        "name": "Geschirrfach UVC Automatikmodus"
+      },
+      "sp_uvc_setting_linkage": {
+        "name": "Geschirrfach UVC Verknüpfung"
+      },
+      "sp_uvc_setting_linkcooker": {
+        "name": "Geschirrfach UVC Kochfeld-Verknüpfung"
+      },
+      "sp_uvc_setting_sync": {
+        "name": "Geschirrfach UVC Synchronisation"
+      },
+      "total_water_shortage": {
+        "name": "Wassermangel"
       }
     },
     "button": {
@@ -566,6 +910,9 @@
       },
       "keep_warm_time": {
         "name": "Warmhaltezeit"
+      },
+      "ai_voice_volume": {
+        "name": "AI-Sprache Lautstärke"
       }
     },
     "select": {
@@ -957,7 +1304,9 @@
       "keep_warm_remaining": {
         "name": "Keep Warm Remaining"
       },
-      "fault_code": { "name": "Fehlercode" },
+      "fault_code": {
+        "name": "Fehlercode"
+      },
       "keep_warm_time": {
         "name": "Keep Warm Time"
       },
@@ -1571,6 +1920,1303 @@
       },
       "zone2_temp_set": {
         "name": "Temperatur - Sollwert Zone 2"
+      },
+      "ac_air_direction_gear": {
+        "name": "AC Luftrichtung Stufe"
+      },
+      "ac_air_direction_max_angle": {
+        "name": "AC Luftrichtung Max. Winkel"
+      },
+      "ac_air_direction_min_angle": {
+        "name": "AC Luftrichtung Min. Winkel"
+      },
+      "ac_ambient_temperature": {
+        "name": "AC Umgebungstemperatur"
+      },
+      "ac_current_temp": {
+        "name": "AC Aktuelle Temperatur"
+      },
+      "ac_destination_temp": {
+        "name": "AC Zieltemperatur"
+      },
+      "ac_destination_time": {
+        "name": "AC Zielzeit"
+      },
+      "ac_gear": {
+        "name": "AC Stufe"
+      },
+      "ac_mode": {
+        "name": "AC Modus",
+        "state": {
+          "air_supply": "Luftzufuhr",
+          "dehumidification": "Entfeuchtung",
+          "net_flavour": "Geruchsneutralisierung",
+          "none": "Keine",
+          "refrigeration": "Kühlung"
+        }
+      },
+      "ac_order_destination_time": {
+        "name": "AC Vorwahl-Zielzeit"
+      },
+      "ac_order_remaining_time": {
+        "name": "AC Vorwahl-Restzeit"
+      },
+      "ac_remaining_time": {
+        "name": "AC Restzeit"
+      },
+      "ac_swing_gear": {
+        "name": "AC Schwenkstufe"
+      },
+      "ac_swing_max_angle": {
+        "name": "AC Schwenk Max. Winkel"
+      },
+      "ac_swing_min_angle": {
+        "name": "AC Schwenk Min. Winkel"
+      },
+      "ac_work_status": {
+        "name": "AC Betriebsstatus",
+        "state": {
+          "order": "Vorwahl",
+          "power_off": "Ausgeschaltet",
+          "reservation": "Reservierung",
+          "reservation_and_order_ordering": "Reservierung und Vorwahl: Vorwahl läuft",
+          "reservation_and_order_reserving": "Reservierung und Vorwahl: Reservierung läuft",
+          "working": "In Betrieb"
+        }
+      },
+      "ai_voice_microphone_status": {
+        "name": "AI-Sprache Mikrofonstatus",
+        "state": {
+          "failure": "Störung",
+          "success": "Erfolgreich"
+        }
+      },
+      "ai_voice_status": {
+        "name": "AI-Sprache Status",
+        "state": {
+          "connecting": "Verbindung wird hergestellt",
+          "off": "Aus",
+          "on": "Ein"
+        }
+      },
+      "ai_voice_volume_status": {
+        "name": "AI-Sprache Lautstärkestatus",
+        "state": {
+          "failure": "Störung",
+          "success": "Erfolgreich"
+        }
+      },
+      "b2_downstair_current_temp": {
+        "name": "Dampfgarer unten Aktuelle Temperatur"
+      },
+      "b2_downstair_destination_temp": {
+        "name": "Dampfgarer unten Zieltemperatur"
+      },
+      "b2_downstair_light_off_type": {
+        "name": "Dampfgarer unten Licht-Aus-Typ",
+        "state": {
+          "app": "App",
+          "local": "Lokal"
+        }
+      },
+      "b2_downstair_light_on_type": {
+        "name": "Dampfgarer unten Licht-Ein-Typ",
+        "state": {
+          "app": "App",
+          "local": "Lokal"
+        }
+      },
+      "b2_downstair_order_destination_time": {
+        "name": "Dampfgarer unten Vorwahl-Zielzeit"
+      },
+      "b2_downstair_order_remaining_time": {
+        "name": "Dampfgarer unten Vorwahl-Restzeit"
+      },
+      "b2_downstair_power_off_type": {
+        "name": "Dampfgarer unten Ausschalttyp",
+        "state": {
+          "app": "App",
+          "auto": "Automatisch",
+          "error": "Fehler",
+          "local": "Lokal",
+          "wifi": "WLAN"
+        }
+      },
+      "b2_downstair_power_on_type": {
+        "name": "Dampfgarer unten Einschalttyp",
+        "state": {
+          "app": "App",
+          "local": "Lokal",
+          "order": "Vorwahl"
+        }
+      },
+      "b2_downstair_preheating": {
+        "name": "Dampfgarer unten Vorheizen",
+        "state": {
+          "finish": "Beendet",
+          "none": "Keine",
+          "preheating": "Vorheizen"
+        }
+      },
+      "b2_downstair_recipe_after": {
+        "name": "Dampfgarer unten Rezept danach"
+      },
+      "b2_downstair_recipe_code": {
+        "name": "Dampfgarer unten Rezeptcode"
+      },
+      "b2_downstair_recipe_current_mode": {
+        "name": "Dampfgarer unten Rezept aktueller Modus"
+      },
+      "b2_downstair_recipe_current_step": {
+        "name": "Dampfgarer unten Rezept aktueller Schritt"
+      },
+      "b2_downstair_recipe_off_type": {
+        "name": "Dampfgarer unten Rezept-Aus-Typ",
+        "state": {
+          "app": "App",
+          "auto": "Automatisch",
+          "error": "Fehler",
+          "local": "Lokal",
+          "wifi": "WLAN"
+        }
+      },
+      "b2_downstair_recipe_on_type": {
+        "name": "Dampfgarer unten Rezept-Ein-Typ",
+        "state": {
+          "app": "App",
+          "local": "Lokal",
+          "order": "Vorwahl"
+        }
+      },
+      "b2_downstair_recipe_total_steps": {
+        "name": "Dampfgarer unten Rezept Schritte gesamt"
+      },
+      "b2_downstair_work_destination_time": {
+        "name": "Dampfgarer unten Betrieb-Zielzeit"
+      },
+      "b2_downstair_work_func": {
+        "name": "Dampfgarer unten Betriebsfunktion"
+      },
+      "b2_downstair_work_menu": {
+        "name": "Dampfgarer unten Betriebsmenü"
+      },
+      "b2_downstair_work_remaining_time": {
+        "name": "Dampfgarer unten Betrieb-Restzeit"
+      },
+      "b2_downstair_work_status": {
+        "name": "Dampfgarer unten Betriebsstatus",
+        "state": {
+          "auto": "Automatisch",
+          "drying": "Trocknen",
+          "finish": "Beendet",
+          "order": "Vorwahl",
+          "pause": "Pause",
+          "power_off": "Ausgeschaltet",
+          "standby": "Standby",
+          "working": "In Betrieb"
+        }
+      },
+      "b2_upstair_current_temp": {
+        "name": "Dampfgarer oben Aktuelle Temperatur"
+      },
+      "b2_upstair_destination_temp": {
+        "name": "Dampfgarer oben Zieltemperatur"
+      },
+      "b2_upstair_light_off_type": {
+        "name": "Dampfgarer oben Licht-Aus-Typ",
+        "state": {
+          "app": "App",
+          "local": "Lokal"
+        }
+      },
+      "b2_upstair_light_on_type": {
+        "name": "Dampfgarer oben Licht-Ein-Typ",
+        "state": {
+          "app": "App",
+          "local": "Lokal"
+        }
+      },
+      "b2_upstair_order_destination_time": {
+        "name": "Dampfgarer oben Vorwahl-Zielzeit"
+      },
+      "b2_upstair_order_remaining_time": {
+        "name": "Dampfgarer oben Vorwahl-Restzeit"
+      },
+      "b2_upstair_power_off_type": {
+        "name": "Dampfgarer oben Ausschalttyp",
+        "state": {
+          "app": "App",
+          "auto": "Automatisch",
+          "error": "Fehler",
+          "local": "Lokal",
+          "wifi": "WLAN"
+        }
+      },
+      "b2_upstair_power_on_type": {
+        "name": "Dampfgarer oben Einschalttyp",
+        "state": {
+          "app": "App",
+          "local": "Lokal",
+          "order": "Vorwahl"
+        }
+      },
+      "b2_upstair_preheating": {
+        "name": "Dampfgarer oben Vorheizen",
+        "state": {
+          "finish": "Beendet",
+          "none": "Keine",
+          "preheating": "Vorheizen"
+        }
+      },
+      "b2_upstair_recipe_after": {
+        "name": "Dampfgarer oben Rezept danach"
+      },
+      "b2_upstair_recipe_code": {
+        "name": "Dampfgarer oben Rezeptcode"
+      },
+      "b2_upstair_recipe_current_mode": {
+        "name": "Dampfgarer oben Rezept aktueller Modus"
+      },
+      "b2_upstair_recipe_current_step": {
+        "name": "Dampfgarer oben Rezept aktueller Schritt"
+      },
+      "b2_upstair_recipe_off_type": {
+        "name": "Dampfgarer oben Rezept-Aus-Typ",
+        "state": {
+          "app": "App",
+          "auto": "Automatisch",
+          "error": "Fehler",
+          "local": "Lokal",
+          "wifi": "WLAN"
+        }
+      },
+      "b2_upstair_recipe_on_type": {
+        "name": "Dampfgarer oben Rezept-Ein-Typ",
+        "state": {
+          "app": "App",
+          "local": "Lokal",
+          "order": "Vorwahl"
+        }
+      },
+      "b2_upstair_recipe_total_steps": {
+        "name": "Dampfgarer oben Rezept Schritte gesamt"
+      },
+      "b2_upstair_work_destination_time": {
+        "name": "Dampfgarer oben Betrieb-Zielzeit"
+      },
+      "b2_upstair_work_func": {
+        "name": "Dampfgarer oben Betriebsfunktion"
+      },
+      "b2_upstair_work_menu": {
+        "name": "Dampfgarer oben Betriebsmenü"
+      },
+      "b2_upstair_work_remaining_time": {
+        "name": "Dampfgarer oben Betrieb-Restzeit"
+      },
+      "b2_upstair_work_status": {
+        "name": "Dampfgarer oben Betriebsstatus",
+        "state": {
+          "auto": "Automatisch",
+          "drying": "Trocknen",
+          "finish": "Beendet",
+          "order": "Vorwahl",
+          "pause": "Pause",
+          "power_off": "Ausgeschaltet",
+          "standby": "Standby",
+          "working": "In Betrieb"
+        }
+      },
+      "b3_disinfect_off_type": {
+        "name": "Dampfschrank Desinfektion-Aus-Typ",
+        "state": {
+          "app": "App",
+          "local": "Lokal"
+        }
+      },
+      "b3_disinfect_on_type": {
+        "name": "Dampfschrank Desinfektion-Ein-Typ",
+        "state": {
+          "app": "App",
+          "local": "Lokal"
+        }
+      },
+      "b3_downstair_current_temp": {
+        "name": "Dampfschrank unten Aktuelle Temperatur"
+      },
+      "b3_downstair_destination_temp": {
+        "name": "Dampfschrank unten Zieltemperatur"
+      },
+      "b3_downstair_destination_time": {
+        "name": "Dampfschrank unten Zielzeit"
+      },
+      "b3_downstair_remaining_time": {
+        "name": "Dampfschrank unten Restzeit"
+      },
+      "b3_downstair_sensor": {
+        "name": "Dampfschrank unten Sensor"
+      },
+      "b3_downstair_status": {
+        "name": "Dampfschrank unten Status",
+        "state": {
+          "drying": "Trocknen",
+          "drying_pause": "Trocknen pausiert",
+          "ion_drying": "Ionentrocknung",
+          "ion_drying_pause": "Ionentrocknung pausiert",
+          "power_off": "Ausgeschaltet",
+          "uperization": "Ultrahocherhitzung",
+          "uperization_pause": "Ultrahocherhitzung pausiert",
+          "warm_drink": "Getränk warmhalten",
+          "warm_drink_pause": "Getränk warmhalten pausiert"
+        }
+      },
+      "b3_thermotank_off_type": {
+        "name": "Dampfschrank Warmhaltebehälter-Aus-Typ",
+        "state": {
+          "app": "App",
+          "local": "Lokal"
+        }
+      },
+      "b3_thermotank_on_type": {
+        "name": "Dampfschrank Warmhaltebehälter-Ein-Typ",
+        "state": {
+          "app": "App",
+          "local": "Lokal"
+        }
+      },
+      "b3_upstair_current_temp": {
+        "name": "Dampfschrank oben Aktuelle Temperatur"
+      },
+      "b3_upstair_destination_temp": {
+        "name": "Dampfschrank oben Zieltemperatur"
+      },
+      "b3_upstair_destination_time": {
+        "name": "Dampfschrank oben Zielzeit"
+      },
+      "b3_upstair_remaining_time": {
+        "name": "Dampfschrank oben Restzeit"
+      },
+      "b3_upstair_sensor": {
+        "name": "Dampfschrank oben Sensor"
+      },
+      "b3_upstair_status": {
+        "name": "Dampfschrank oben Status",
+        "state": {
+          "drying": "Trocknen",
+          "drying_pause": "Trocknen pausiert",
+          "ion_drying": "Ionentrocknung",
+          "ion_drying_pause": "Ionentrocknung pausiert",
+          "power_off": "Ausgeschaltet",
+          "uperization": "Ultrahocherhitzung",
+          "uperization_pause": "Ultrahocherhitzung pausiert",
+          "warm_drink": "Getränk warmhalten",
+          "warm_drink_pause": "Getränk warmhalten pausiert"
+        }
+      },
+      "b6_TVOC_value": {
+        "name": "Dunstabzugshaube TVOC-Wert",
+        "state": {
+          "中": "Mittel",
+          "优": "Ausgezeichnet",
+          "良": "Gut"
+        }
+      },
+      "b6_air_duct_detection_score": {
+        "name": "Dunstabzugshaube Luftkanalerkennung Bewertung"
+      },
+      "b6_air_duct_detection_state": {
+        "name": "Dunstabzugshaube Luftkanalerkennung Status"
+      },
+      "b6_air_duct_detection_time": {
+        "name": "Dunstabzugshaube Luftkanalerkennung Zeit"
+      },
+      "b6_air_duct_detection_windage": {
+        "name": "Dunstabzugshaube Luftkanalerkennung Luftwiderstand"
+      },
+      "b6_air_volume": {
+        "name": "Dunstabzugshaube Luftmenge"
+      },
+      "b6_delay_gear_linkage_gear": {
+        "name": "Dunstabzugshaube Nachlaufstufe-Verknüpfung Stufe"
+      },
+      "b6_delay_time_value": {
+        "name": "Dunstabzugshaube Nachlaufzeit-Wert"
+      },
+      "b6_destination_time": {
+        "name": "Dunstabzugshaube Zielzeit"
+      },
+      "b6_gear": {
+        "name": "Dunstabzugshaube Stufe"
+      },
+      "b6_gear_control_type": {
+        "name": "Dunstabzugshaube Stufensteuerungstyp",
+        "state": {
+          "app": "App",
+          "gesture": "Geste",
+          "linkage": "Verknüpfung",
+          "local": "Lokal",
+          "smoke_detector": "Rauchmelder"
+        }
+      },
+      "b6_gesture_sensitivity": {
+        "name": "Dunstabzugshaube Gestenempfindlichkeit",
+        "state": {
+          "1": "1",
+          "2": "2",
+          "3": "3"
+        }
+      },
+      "b6_gesture_value": {
+        "name": "Dunstabzugshaube Gestenwert",
+        "state": {
+          "light": "Licht",
+          "power": "Ein/Aus",
+          "wind": "Wind"
+        }
+      },
+      "b6_hotclean_tips": {
+        "name": "Dunstabzugshaube Hitzereinigung-Hinweis"
+      },
+      "b6_infrared_value": {
+        "name": "Dunstabzugshaube Infrarotwert",
+        "state": {
+          "power": "Ein/Aus",
+          "wind": "Wind"
+        }
+      },
+      "b6_inverter_ac_frequency": {
+        "name": "Dunstabzugshaube Inverter AC-Frequenz"
+      },
+      "b6_inverter_back_electromotive_force": {
+        "name": "Dunstabzugshaube Inverter Gegen-EMK"
+      },
+      "b6_inverter_capacity": {
+        "name": "Dunstabzugshaube Inverter Leistung"
+      },
+      "b6_inverter_efficiency": {
+        "name": "Dunstabzugshaube Inverter Effizienz"
+      },
+      "b6_inverter_motor_compensation_angle": {
+        "name": "Dunstabzugshaube Inverter Motor-Kompensationswinkel"
+      },
+      "b6_inverter_motor_speed": {
+        "name": "Dunstabzugshaube Inverter Motordrehzahl"
+      },
+      "b6_inverter_q_axis_current": {
+        "name": "Dunstabzugshaube Inverter Q-Achsen-Strom"
+      },
+      "b6_inverter_start_time": {
+        "name": "Dunstabzugshaube Inverter Startzeit"
+      },
+      "b6_inverter_temperature": {
+        "name": "Dunstabzugshaube Inverter Temperatur"
+      },
+      "b6_inverter_temperature_limit_sign": {
+        "name": "Dunstabzugshaube Inverter Temperaturgrenze-Kennzeichen"
+      },
+      "b6_inverter_voltage": {
+        "name": "Dunstabzugshaube Inverter Spannung"
+      },
+      "b6_inverter_wind_flow": {
+        "name": "Dunstabzugshaube Inverter Luftstrom"
+      },
+      "b6_inverter_wind_presssure": {
+        "name": "Dunstabzugshaube Inverter Luftdruck"
+      },
+      "b6_inverter_windage": {
+        "name": "Dunstabzugshaube Inverter Luftwiderstand"
+      },
+      "b6_inverter_work_gear": {
+        "name": "Dunstabzugshaube Inverter Betriebsstufe"
+      },
+      "b6_last_hotclean_hour": {
+        "name": "Dunstabzugshaube Letzte Hitzereinigung Stunde"
+      },
+      "b6_light": {
+        "name": "Dunstabzugshaube Licht"
+      },
+      "b6_light_off_type": {
+        "name": "Dunstabzugshaube Licht-Aus-Typ",
+        "state": {
+          "app": "App",
+          "error": "Fehler",
+          "gesture": "Geste",
+          "local": "Lokal"
+        }
+      },
+      "b6_light_on_type": {
+        "name": "Dunstabzugshaube Licht-Ein-Typ",
+        "state": {
+          "app": "App",
+          "gesture": "Geste",
+          "local": "Lokal"
+        }
+      },
+      "b6_lightness": {
+        "name": "Dunstabzugshaube Helligkeit"
+      },
+      "b6_lock_off_type": {
+        "name": "Dunstabzugshaube Sperre-Aus-Typ",
+        "state": {
+          "local": "Lokal"
+        }
+      },
+      "b6_lock_on_type": {
+        "name": "Dunstabzugshaube Sperre-Ein-Typ",
+        "state": {
+          "app": "App",
+          "local": "Lokal"
+        }
+      },
+      "b6_power": {
+        "name": "Dunstabzugshaube Ein/Aus",
+        "state": {
+          "delay_off": "Ausschaltverzögerung",
+          "off": "Aus",
+          "on": "Ein"
+        }
+      },
+      "b6_power_off_type": {
+        "name": "Dunstabzugshaube Ausschalttyp",
+        "state": {
+          "app": "App",
+          "delay": "Verzögerung",
+          "gesture": "Geste",
+          "linkage": "Verknüpfung",
+          "local": "Lokal"
+        }
+      },
+      "b6_power_on_type": {
+        "name": "Dunstabzugshaube Einschalttyp",
+        "state": {
+          "app": "App",
+          "gesture": "Geste",
+          "linkage": "Verknüpfung",
+          "local": "Lokal"
+        }
+      },
+      "b6_remaining_time": {
+        "name": "Dunstabzugshaube Restzeit"
+      },
+      "b6_smoke_detector_value": {
+        "name": "Dunstabzugshaube Rauchmelderwert"
+      },
+      "b6_smoke_potency": {
+        "name": "Dunstabzugshaube Rauchintensität"
+      },
+      "b6_smoke_stove_linkage_flowin": {
+        "name": "Dunstabzugshaube Rauch-Kochfeld-Verknüpfung Zustrom",
+        "state": {
+          "no": "Nein",
+          "yes": "Ja"
+        }
+      },
+      "b6_smoke_stove_linkage_gear": {
+        "name": "Dunstabzugshaube Rauch-Kochfeld-Verknüpfung Stufe"
+      },
+      "b6_smoke_stove_linkage_gear_fix": {
+        "name": "Dunstabzugshaube Rauch-Kochfeld-Verknüpfung Stufe fest",
+        "state": {
+          "negative": "Negativ",
+          "positive": "Positiv"
+        }
+      },
+      "b6_steaming": {
+        "name": "Dunstabzugshaube Bedampfung",
+        "state": {
+          "off": "Aus",
+          "on": "Ein"
+        }
+      },
+      "b6_steaming_stage": {
+        "name": "Dunstabzugshaube Bedampfungsstufe"
+      },
+      "b6_wind_pressure": {
+        "name": "Dunstabzugshaube Luftdruck"
+      },
+      "b6_work_status": {
+        "name": "Dunstabzugshaube Betriebsstatus",
+        "state": {
+          "ai_dry_clean": "AI-Trockenreinigung",
+          "air_duct_detection": "Luftkanalerkennung",
+          "check": "Prüfen",
+          "clean": "Reinigen",
+          "clean_finish": "Reinigung beendet",
+          "error": "Fehler",
+          "hotclean": "Hitzereinigung",
+          "initial": "Anfangszustand",
+          "mute_gear": "Flüsterstufe",
+          "power_off": "Ausgeschaltet",
+          "power_off_delay": "Ausschaltverzögerung",
+          "standby": "Standby",
+          "vvvf_gear": "VVVF-Stufe",
+          "working": "In Betrieb"
+        }
+      },
+      "b7_left_current_temp": {
+        "name": "Gaskochfeld links Aktuelle Temperatur"
+      },
+      "b7_left_destination_temp": {
+        "name": "Gaskochfeld links Zieltemperatur"
+      },
+      "b7_left_destination_time": {
+        "name": "Gaskochfeld links Zielzeit"
+      },
+      "b7_left_gear": {
+        "name": "Gaskochfeld links Stufe"
+      },
+      "b7_left_power_off_type": {
+        "name": "Gaskochfeld links Ausschalttyp",
+        "state": {
+          "app": "App",
+          "auto": "Automatisch",
+          "error": "Fehler",
+          "local": "Lokal",
+          "wifi": "WLAN"
+        }
+      },
+      "b7_left_remaining_time": {
+        "name": "Gaskochfeld links Restzeit"
+      },
+      "b7_left_status": {
+        "name": "Gaskochfeld links Status",
+        "state": {
+          "drying": "Trocknen",
+          "drying_pause": "Trocknen pausiert",
+          "ion_drying": "Ionentrocknung",
+          "ion_drying_pause": "Ionentrocknung pausiert",
+          "power_off": "Ausgeschaltet",
+          "uperization": "Ultrahocherhitzung",
+          "uperization_pause": "Ultrahocherhitzung pausiert",
+          "warm_drink": "Getränk warmhalten",
+          "warm_drink_pause": "Getränk warmhalten pausiert"
+        }
+      },
+      "b7_left_work_time": {
+        "name": "Gaskochfeld links Betriebszeit"
+      },
+      "b7_right_current_temp": {
+        "name": "Gaskochfeld rechts Aktuelle Temperatur"
+      },
+      "b7_right_destination_temp": {
+        "name": "Gaskochfeld rechts Zieltemperatur"
+      },
+      "b7_right_destination_time": {
+        "name": "Gaskochfeld rechts Zielzeit"
+      },
+      "b7_right_gear": {
+        "name": "Gaskochfeld rechts Stufe"
+      },
+      "b7_right_power_off_type": {
+        "name": "Gaskochfeld rechts Ausschalttyp",
+        "state": {
+          "app": "App",
+          "auto": "Automatisch",
+          "error": "Fehler",
+          "local": "Lokal",
+          "wifi": "WLAN"
+        }
+      },
+      "b7_right_remaining_time": {
+        "name": "Gaskochfeld rechts Restzeit"
+      },
+      "b7_right_status": {
+        "name": "Gaskochfeld rechts Status",
+        "state": {
+          "drying": "Trocknen",
+          "drying_pause": "Trocknen pausiert",
+          "ion_drying": "Ionentrocknung",
+          "ion_drying_pause": "Ionentrocknung pausiert",
+          "power_off": "Ausgeschaltet",
+          "uperization": "Ultrahocherhitzung",
+          "uperization_pause": "Ultrahocherhitzung pausiert",
+          "warm_drink": "Getränk warmhalten",
+          "warm_drink_pause": "Getränk warmhalten pausiert"
+        }
+      },
+      "b7_right_work_time": {
+        "name": "Gaskochfeld rechts Betriebszeit"
+      },
+      "bf_cavity": {
+        "name": "Ofen Garraum",
+        "state": {
+          "down": "Unten",
+          "up": "Oben"
+        }
+      },
+      "bf_control_back": {
+        "name": "Ofen Steuerung zurück",
+        "state": {
+          "func_notsupport": "Funktion nicht unterstützt",
+          "status_notsupport": "Status nicht unterstützt",
+          "success": "Erfolgreich",
+          "value_notsupport": "Wert nicht unterstützt"
+        }
+      },
+      "bf_end_next": {
+        "name": "Ofen Ende nächster"
+      },
+      "bf_fire": {
+        "name": "Ofen Flamme"
+      },
+      "bf_mode": {
+        "name": "Ofen Modus"
+      },
+      "bf_quick_btn_bake_id": {
+        "name": "Ofen Schnelltaste Backen ID"
+      },
+      "bf_quick_btn_bake_set": {
+        "name": "Ofen Schnelltaste Backen einstellen"
+      },
+      "bf_quick_btn_bake_time": {
+        "name": "Ofen Schnelltaste Backen Zeit"
+      },
+      "bf_quick_btn_microwave_id": {
+        "name": "Ofen Schnelltaste Mikrowelle ID"
+      },
+      "bf_quick_btn_microwave_set": {
+        "name": "Ofen Schnelltaste Mikrowelle einstellen"
+      },
+      "bf_quick_btn_microwave_time": {
+        "name": "Ofen Schnelltaste Mikrowelle Zeit"
+      },
+      "bf_quick_btn_steam_id": {
+        "name": "Ofen Schnelltaste Dampf ID"
+      },
+      "bf_quick_btn_steam_set": {
+        "name": "Ofen Schnelltaste Dampf einstellen"
+      },
+      "bf_quick_btn_steam_time": {
+        "name": "Ofen Schnelltaste Dampf Zeit"
+      },
+      "bf_recipe_code": {
+        "name": "Ofen Rezeptcode"
+      },
+      "bf_remaining_time": {
+        "name": "Ofen Restzeit"
+      },
+      "bf_steam": {
+        "name": "Ofen Dampf"
+      },
+      "bf_step_current": {
+        "name": "Ofen Aktueller Schritt"
+      },
+      "bf_step_total": {
+        "name": "Ofen Schritte gesamt"
+      },
+      "bf_temp_down": {
+        "name": "Ofen Temperatur unten"
+      },
+      "bf_temp_down_set": {
+        "name": "Ofen Temperatur unten einstellen"
+      },
+      "bf_temp_probe": {
+        "name": "Ofen Temperaturfühler"
+      },
+      "bf_temp_probe_set": {
+        "name": "Ofen Temperaturfühler einstellen"
+      },
+      "bf_temp_up": {
+        "name": "Ofen Temperatur oben"
+      },
+      "bf_temp_up_set": {
+        "name": "Ofen Temperatur oben einstellen"
+      },
+      "bf_tips_mark": {
+        "name": "Ofen Hinweismarkierung",
+        "state": {
+          "apply": "Anwenden",
+          "change_attachments": "Zubehör wechseln",
+          "door_open": "Tür offen",
+          "feed": "Zufuhr",
+          "recipe_tips": "Rezepthinweis",
+          "stir": "Rühren"
+        }
+      },
+      "bf_weight_mount": {
+        "name": "Ofen Gewichtshalterung"
+      },
+      "bf_weight_multiple": {
+        "name": "Ofen Gewichtsfaktor",
+        "state": {
+          "g": "g",
+          "kg": "kg",
+          "ounce": "Unze",
+          "pound": "Pfund"
+        }
+      },
+      "bf_weight_unit": {
+        "name": "Ofen Gewichtseinheit",
+        "state": {
+          "g": "g",
+          "kg": "kg",
+          "other": "Sonstige",
+          "ounce": "Unze",
+          "pound": "Pfund"
+        }
+      },
+      "bf_work_status": {
+        "name": "Ofen Betriebsstatus",
+        "state": {
+          "after_sale": "Kundendienst",
+          "check_version": "Version prüfen",
+          "cloudmenu_setting": "Cloud-Menü-Einstellung",
+          "demo": "Demo",
+          "done": "Fertig",
+          "keep": "Beibehalten",
+          "love_three_seconds": "Drei-Sekunden-Modus",
+          "open": "Offen",
+          "order": "Vorwahl",
+          "pause": "Pause",
+          "pause_temporarily": "Vorübergehend pausiert",
+          "power_off": "Ausgeschaltet",
+          "self_check": "Selbsttest",
+          "working": "In Betrieb"
+        }
+      },
+      "bf_working_time": {
+        "name": "Ofen Betriebszeit"
+      },
+      "e7_left_bottom_bridge_link": {
+        "name": "Induktion links unten Brückenverbindung",
+        "state": {
+          "off": "Aus",
+          "on": "Ein"
+        }
+      },
+      "e7_left_bottom_destination_time": {
+        "name": "Induktion links unten Zielzeit"
+      },
+      "e7_left_bottom_efficiency": {
+        "name": "Induktion links unten Effizienz"
+      },
+      "e7_left_bottom_gear": {
+        "name": "Induktion links unten Stufe"
+      },
+      "e7_left_bottom_mode": {
+        "name": "Induktion links unten Modus",
+        "state": {
+          "boiling": "Kochen",
+          "heat_preservation": "Warmhalten",
+          "none": "Keine",
+          "stew_soup": "Suppe köcheln",
+          "stir_frying": "Pfannenrühren"
+        }
+      },
+      "e7_left_bottom_remaining_time": {
+        "name": "Induktion links unten Restzeit"
+      },
+      "e7_left_bottom_work_status": {
+        "name": "Induktion links unten Betriebsstatus",
+        "state": {
+          "auto": "Automatisch",
+          "drying": "Trocknen",
+          "finish": "Beendet",
+          "order": "Vorwahl",
+          "pause": "Pause",
+          "power_off": "Ausgeschaltet",
+          "standby": "Standby",
+          "working": "In Betrieb"
+        }
+      },
+      "e7_left_bottom_work_time": {
+        "name": "Induktion links unten Betriebszeit"
+      },
+      "e7_left_bridge_link": {
+        "name": "Induktion links Brückenverbindung",
+        "state": {
+          "off": "Aus",
+          "on": "Ein"
+        }
+      },
+      "e7_left_destination_time": {
+        "name": "Induktion links Zielzeit"
+      },
+      "e7_left_efficiency": {
+        "name": "Induktion links Effizienz"
+      },
+      "e7_left_gear": {
+        "name": "Induktion links Stufe"
+      },
+      "e7_left_mode": {
+        "name": "Induktion links Modus",
+        "state": {
+          "boiling": "Kochen",
+          "heat_preservation": "Warmhalten",
+          "none": "Keine",
+          "stew_soup": "Suppe köcheln",
+          "stir_frying": "Pfannenrühren"
+        }
+      },
+      "e7_left_remaining_time": {
+        "name": "Induktion links Restzeit"
+      },
+      "e7_left_top_bridge_link": {
+        "name": "Induktion links oben Brückenverbindung",
+        "state": {
+          "off": "Aus",
+          "on": "Ein"
+        }
+      },
+      "e7_left_top_destination_time": {
+        "name": "Induktion links oben Zielzeit"
+      },
+      "e7_left_top_efficiency": {
+        "name": "Induktion links oben Effizienz"
+      },
+      "e7_left_top_gear": {
+        "name": "Induktion links oben Stufe"
+      },
+      "e7_left_top_mode": {
+        "name": "Induktion links oben Modus",
+        "state": {
+          "boiling": "Kochen",
+          "heat_preservation": "Warmhalten",
+          "none": "Keine",
+          "stew_soup": "Suppe köcheln",
+          "stir_frying": "Pfannenrühren"
+        }
+      },
+      "e7_left_top_remaining_time": {
+        "name": "Induktion links oben Restzeit"
+      },
+      "e7_left_top_work_status": {
+        "name": "Induktion links oben Betriebsstatus",
+        "state": {
+          "auto": "Automatisch",
+          "drying": "Trocknen",
+          "finish": "Beendet",
+          "order": "Vorwahl",
+          "pause": "Pause",
+          "power_off": "Ausgeschaltet",
+          "standby": "Standby",
+          "working": "In Betrieb"
+        }
+      },
+      "e7_left_top_work_time": {
+        "name": "Induktion links oben Betriebszeit"
+      },
+      "e7_left_work_status": {
+        "name": "Induktion links Betriebsstatus",
+        "state": {
+          "auto": "Automatisch",
+          "drying": "Trocknen",
+          "finish": "Beendet",
+          "order": "Vorwahl",
+          "pause": "Pause",
+          "power_off": "Ausgeschaltet",
+          "standby": "Standby",
+          "working": "In Betrieb"
+        }
+      },
+      "e7_left_work_time": {
+        "name": "Induktion links Betriebszeit"
+      },
+      "e7_right_bottom_bridge_link": {
+        "name": "Induktion rechts unten Brückenverbindung",
+        "state": {
+          "off": "Aus",
+          "on": "Ein"
+        }
+      },
+      "e7_right_bottom_destination_time": {
+        "name": "Induktion rechts unten Zielzeit"
+      },
+      "e7_right_bottom_efficiency": {
+        "name": "Induktion rechts unten Effizienz"
+      },
+      "e7_right_bottom_gear": {
+        "name": "Induktion rechts unten Stufe"
+      },
+      "e7_right_bottom_mode": {
+        "name": "Induktion rechts unten Modus",
+        "state": {
+          "boiling": "Kochen",
+          "heat_preservation": "Warmhalten",
+          "none": "Keine",
+          "stew_soup": "Suppe köcheln",
+          "stir_frying": "Pfannenrühren"
+        }
+      },
+      "e7_right_bottom_remaining_time": {
+        "name": "Induktion rechts unten Restzeit"
+      },
+      "e7_right_bottom_work_status": {
+        "name": "Induktion rechts unten Betriebsstatus",
+        "state": {
+          "auto": "Automatisch",
+          "drying": "Trocknen",
+          "finish": "Beendet",
+          "order": "Vorwahl",
+          "pause": "Pause",
+          "power_off": "Ausgeschaltet",
+          "standby": "Standby",
+          "working": "In Betrieb"
+        }
+      },
+      "e7_right_bottom_work_time": {
+        "name": "Induktion rechts unten Betriebszeit"
+      },
+      "e7_right_bridge_link": {
+        "name": "Induktion rechts Brückenverbindung",
+        "state": {
+          "off": "Aus",
+          "on": "Ein"
+        }
+      },
+      "e7_right_destination_time": {
+        "name": "Induktion rechts Zielzeit"
+      },
+      "e7_right_efficiency": {
+        "name": "Induktion rechts Effizienz"
+      },
+      "e7_right_gear": {
+        "name": "Induktion rechts Stufe"
+      },
+      "e7_right_mode": {
+        "name": "Induktion rechts Modus",
+        "state": {
+          "boiling": "Kochen",
+          "heat_preservation": "Warmhalten",
+          "none": "Keine",
+          "stew_soup": "Suppe köcheln",
+          "stir_frying": "Pfannenrühren"
+        }
+      },
+      "e7_right_remaining_time": {
+        "name": "Induktion rechts Restzeit"
+      },
+      "e7_right_top_bridge_link": {
+        "name": "Induktion rechts oben Brückenverbindung",
+        "state": {
+          "off": "Aus",
+          "on": "Ein"
+        }
+      },
+      "e7_right_top_destination_time": {
+        "name": "Induktion rechts oben Zielzeit"
+      },
+      "e7_right_top_efficiency": {
+        "name": "Induktion rechts oben Effizienz"
+      },
+      "e7_right_top_gear": {
+        "name": "Induktion rechts oben Stufe"
+      },
+      "e7_right_top_mode": {
+        "name": "Induktion rechts oben Modus",
+        "state": {
+          "boiling": "Kochen",
+          "heat_preservation": "Warmhalten",
+          "none": "Keine",
+          "stew_soup": "Suppe köcheln",
+          "stir_frying": "Pfannenrühren"
+        }
+      },
+      "e7_right_top_remaining_time": {
+        "name": "Induktion rechts oben Restzeit"
+      },
+      "e7_right_top_work_status": {
+        "name": "Induktion rechts oben Betriebsstatus",
+        "state": {
+          "auto": "Automatisch",
+          "drying": "Trocknen",
+          "finish": "Beendet",
+          "order": "Vorwahl",
+          "pause": "Pause",
+          "power_off": "Ausgeschaltet",
+          "standby": "Standby",
+          "working": "In Betrieb"
+        }
+      },
+      "e7_right_top_work_time": {
+        "name": "Induktion rechts oben Betriebszeit"
+      },
+      "e7_right_work_status": {
+        "name": "Induktion rechts Betriebsstatus",
+        "state": {
+          "auto": "Automatisch",
+          "drying": "Trocknen",
+          "finish": "Beendet",
+          "order": "Vorwahl",
+          "pause": "Pause",
+          "power_off": "Ausgeschaltet",
+          "standby": "Standby",
+          "working": "In Betrieb"
+        }
+      },
+      "e7_right_work_time": {
+        "name": "Induktion rechts Betriebszeit"
+      },
+      "electronic_version": {
+        "name": "Elektronikversion"
+      },
+      "error_list": {
+        "name": "Fehlerliste"
+      },
+      "sp_fandrying_destination_time": {
+        "name": "Geschirrfach Lüftertrocknung Zielzeit"
+      },
+      "sp_fandrying_order_destination_time": {
+        "name": "Geschirrfach Lüftertrocknung Vorwahl-Zielzeit"
+      },
+      "sp_fandrying_order_remaining_time": {
+        "name": "Geschirrfach Lüftertrocknung Vorwahl-Restzeit"
+      },
+      "sp_fandrying_remaining_time": {
+        "name": "Geschirrfach Lüftertrocknung Restzeit"
+      },
+      "sp_fandrying_setting_automode_day": {
+        "name": "Geschirrfach Lüftertrocknung Automatikmodus Tag"
+      },
+      "sp_fandrying_setting_automode_starthour": {
+        "name": "Geschirrfach Lüftertrocknung Automatikmodus Startstunde"
+      },
+      "sp_fandrying_setting_automode_startminute": {
+        "name": "Geschirrfach Lüftertrocknung Automatikmodus Startminute"
+      },
+      "sp_fandrying_status": {
+        "name": "Geschirrfach Lüftertrocknung Status",
+        "state": {
+          "drying": "Trocknen",
+          "drying_pause": "Trocknen pausiert",
+          "ion_drying": "Ionentrocknung",
+          "ion_drying_pause": "Ionentrocknung pausiert",
+          "power_off": "Ausgeschaltet",
+          "uperization": "Ultrahocherhitzung",
+          "uperization_pause": "Ultrahocherhitzung pausiert",
+          "warm_drink": "Getränk warmhalten",
+          "warm_drink_pause": "Getränk warmhalten pausiert"
+        }
+      },
+      "sp_fandrying_temperature": {
+        "name": "Geschirrfach Lüftertrocknung Temperatur"
+      },
+      "sp_heatingdisk_destination_time": {
+        "name": "Geschirrfach Heizplatte Zielzeit"
+      },
+      "sp_heatingdisk_order_destination_time": {
+        "name": "Geschirrfach Heizplatte Vorwahl-Zielzeit"
+      },
+      "sp_heatingdisk_order_remaining_time": {
+        "name": "Geschirrfach Heizplatte Vorwahl-Restzeit"
+      },
+      "sp_heatingdisk_remaining_time": {
+        "name": "Geschirrfach Heizplatte Restzeit"
+      },
+      "sp_heatingdisk_setting_automode_day": {
+        "name": "Geschirrfach Heizplatte Automatikmodus Tag"
+      },
+      "sp_heatingdisk_setting_automode_starthour": {
+        "name": "Geschirrfach Heizplatte Automatikmodus Startstunde"
+      },
+      "sp_heatingdisk_setting_automode_startminute": {
+        "name": "Geschirrfach Heizplatte Automatikmodus Startminute"
+      },
+      "sp_heatingdisk_status": {
+        "name": "Geschirrfach Heizplatte Status",
+        "state": {
+          "drying": "Trocknen",
+          "drying_pause": "Trocknen pausiert",
+          "ion_drying": "Ionentrocknung",
+          "ion_drying_pause": "Ionentrocknung pausiert",
+          "power_off": "Ausgeschaltet",
+          "uperization": "Ultrahocherhitzung",
+          "uperization_pause": "Ultrahocherhitzung pausiert",
+          "warm_drink": "Getränk warmhalten",
+          "warm_drink_pause": "Getränk warmhalten pausiert"
+        }
+      },
+      "sp_heatingdisk_temperature": {
+        "name": "Geschirrfach Heizplatte Temperatur"
+      },
+      "sp_uvc_destination_time": {
+        "name": "Geschirrfach UVC Zielzeit"
+      },
+      "sp_uvc_order_destination_time": {
+        "name": "Geschirrfach UVC Vorwahl-Zielzeit"
+      },
+      "sp_uvc_order_remaining_time": {
+        "name": "Geschirrfach UVC Vorwahl-Restzeit"
+      },
+      "sp_uvc_remaining_time": {
+        "name": "Geschirrfach UVC Restzeit"
+      },
+      "sp_uvc_setting_automode_day": {
+        "name": "Geschirrfach UVC Automatikmodus Tag"
+      },
+      "sp_uvc_setting_automode_starthour": {
+        "name": "Geschirrfach UVC Automatikmodus Startstunde"
+      },
+      "sp_uvc_setting_automode_startminute": {
+        "name": "Geschirrfach UVC Automatikmodus Startminute"
+      },
+      "sp_uvc_status": {
+        "name": "Geschirrfach UVC Status",
+        "state": {
+          "drying": "Trocknen",
+          "drying_pause": "Trocknen pausiert",
+          "ion_drying": "Ionentrocknung",
+          "ion_drying_pause": "Ionentrocknung pausiert",
+          "power_off": "Ausgeschaltet",
+          "uperization": "Ultrahocherhitzung",
+          "uperization_pause": "Ultrahocherhitzung pausiert",
+          "warm_drink": "Getränk warmhalten",
+          "warm_drink_pause": "Getränk warmhalten pausiert"
+        }
+      },
+      "sp_uvc_temperature": {
+        "name": "Geschirrfach UVC Temperatur"
+      },
+      "total_error_code": {
+        "name": "Fehlercode"
+      },
+      "total_error_type": {
+        "name": "Fehlertyp"
+      },
+      "total_firewall_temp": {
+        "name": "Brandschutztemperatur"
+      },
+      "total_gesture": {
+        "name": "Geste",
+        "state": {
+          "off": "Aus",
+          "on": "Ein"
+        }
+      },
+      "total_ir": {
+        "name": "IR",
+        "state": {
+          "off": "Aus",
+          "on": "Ein"
+        }
+      },
+      "total_lock_off_type": {
+        "name": "Sperre-Aus-Typ",
+        "state": {
+          "local": "Lokal"
+        }
+      },
+      "total_lock_on_type": {
+        "name": "Sperre-Ein-Typ",
+        "state": {
+          "app": "App",
+          "local": "Lokal"
+        }
+      },
+      "total_shelving_unit_temp": {
+        "name": "Regaltemperatur"
+      },
+      "total_speak": {
+        "name": "Sprechen",
+        "state": {
+          "off": "Aus",
+          "on": "Ein"
+        }
+      },
+      "total_tips_code": {
+        "name": "Hinweiscode"
+      },
+      "total_tips_type": {
+        "name": "Hinweistyp"
       }
     },
     "switch": {
@@ -1831,6 +3477,15 @@
       },
       "holiday_on": {
         "name": "Modus - Urlaub"
+      },
+      "ai_voice_microphone": {
+        "name": "AI-Sprache Mikrofon"
+      },
+      "total_lock": {
+        "name": "Kindersicherung"
+      },
+      "total_power": {
+        "name": "Ein/Aus"
       }
     },
     "water_heater": {

@@ -15,6 +15,11 @@ from .const import DEVICES, DOMAIN, supports_device
 from .midea_devices import MIDEA_DEVICES
 from .midea_entity import MideaEntity
 
+# 0x9C controls whose library setter expects "on"/"off" strings, not booleans.
+X9C_ON_OFF_SWITCHES = ("total_power", "ai_voice_microphone")
+X9C_STATE_ON = "on"
+X9C_STATE_OFF = "off"
+
 
 async def async_setup_entry(
     hass: HomeAssistant,
@@ -46,6 +51,8 @@ async def async_setup_entry(
             dev = MideaEDTeaBarBoilSwitch(device, entity_key)
         elif device.device_type == DeviceType.ED and entity_key == "tea_bar_child_lock":
             dev = MideaEDTeaBarChildLockSwitch(device, entity_key)
+        elif device.device_type == DeviceType.X9C and entity_key in X9C_ON_OFF_SWITCHES:
+            dev = MideaX9COnOffSwitch(device, entity_key)
         else:
             dev = MideaSwitch(device, entity_key)
         switches.append(dev)
@@ -108,3 +115,26 @@ class MideaEDTeaBarChildLockSwitch(MideaSwitch):
     def turn_off(self, **kwargs: Any) -> None:  # ruff:ignore[any-type, unused-method-argument]
         """Disable the child lock using the official model command."""
         self._device.set_attribute(EDAttributes.child_lock, False)
+
+
+class MideaX9COnOffSwitch(MideaSwitch):
+    """Switch for 0x9C controls that expect "on"/"off" strings, not booleans.
+
+    The 0x9C library rejects a bare ``bool`` for ``total_power`` and
+    ``ai_voice_microphone`` (they map to protocol enums), so translate the
+    Home Assistant toggle into the string values the device expects, and read
+    the string state back as a boolean.
+    """
+
+    @property
+    def is_on(self) -> bool:
+        """Whether the control reports the "on" state."""
+        return bool(self._device.get_attribute(self._entity_key) == X9C_STATE_ON)
+
+    def turn_on(self, **kwargs: Any) -> None:  # ruff:ignore[any-type, unused-method-argument]
+        """Turn on the control using its string on value."""
+        self._device.set_attribute(attr=self._entity_key, value=X9C_STATE_ON)
+
+    def turn_off(self, **kwargs: Any) -> None:  # ruff:ignore[any-type, unused-method-argument]
+        """Turn off the control using its string off value."""
+        self._device.set_attribute(attr=self._entity_key, value=X9C_STATE_OFF)
