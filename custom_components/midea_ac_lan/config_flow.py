@@ -606,6 +606,12 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                     CONF_SUBTYPE: storage_device.get(CONF_SUBTYPE),
                     CONF_TOKEN: storage_device.get(CONF_TOKEN),
                     CONF_KEY: storage_device.get(CONF_KEY),
+                    # Re-adding from the local record (no cloud call): carry the
+                    # cloud identity saved on the first add so it is not lost.
+                    CONF_SN8: storage_device.get(CONF_SN8),
+                    CONF_MANUFACTURER_CODE: storage_device.get(
+                        CONF_MANUFACTURER_CODE,
+                    ),
                 }
                 _LOGGER.debug(
                     "Loaded configuration for device %s from storage",
