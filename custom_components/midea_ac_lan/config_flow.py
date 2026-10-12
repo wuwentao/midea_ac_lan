@@ -800,6 +800,11 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                 CONF_MODEL: user_input[CONF_MODEL],
                 CONF_TOKEN: user_input[CONF_TOKEN],
                 CONF_KEY: user_input[CONF_KEY],
+                # Preserve the cloud identity captured in async_step_auto; the
+                # right-hand side reads the previous dict before reassignment, so
+                # these survive the reset. The manual-entry path leaves them None.
+                CONF_SN8: self.found_device.get(CONF_SN8),
+                CONF_MANUFACTURER_CODE: self.found_device.get(CONF_MANUFACTURER_CODE),
             }
 
             # check device connection with all the input
