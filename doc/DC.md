@@ -8,22 +8,32 @@ No default entity
 
 ### Extra entities
 
-| EntityID                           | Class  | Description     |
-| ---------------------------------- | ------ | --------------- |
-| sensor.{DEVICEID}\_progress        | sensor | Progress        |
-| sensor.{DEVICEID}\_time_remaining  | sensor | Time Remaining  |
-| sensor.{DEVICEID}\_status          | sensor | Status          |
-| sensor.{DEVICEID}\_program         | sensor | Program         |
-| sensor.{DEVICEID}\_dryness_level   | sensor | Dryness Level   |
-| sensor.{DEVICEID}\_dry_temperature | sensor | Dry Temperature |
-| sensor.{DEVICEID}\_intensity       | sensor | Intensity       |
-| sensor.{DEVICEID}\_material        | sensor | Material        |
-| sensor.{DEVICEID}\_water_box       | sensor | Water Box       |
-| sensor.{DEVICEID}\_door_warn       | sensor | Door Warn       |
-| sensor.{DEVICEID}\_ai_switch       | sensor | AI Switch       |
-| sensor.{DEVICEID}\_error_code      | sensor | Error Code      |
-| switch.{DEVICEID}\_power           | switch | Power           |
-| switch.{DEVICEID}\_start           | switch | Start           |
+| EntityID                               | Class  | Description                    |
+| -------------------------------------- | ------ | ------------------------------ |
+| sensor.{DEVICEID}\_progress            | sensor | Progress                       |
+| sensor.{DEVICEID}\_time_remaining      | sensor | Time Remaining                 |
+| sensor.{DEVICEID}\_status              | sensor | Status                         |
+| sensor.{DEVICEID}\_program             | sensor | Program                        |
+| sensor.{DEVICEID}\_dryness_level       | sensor | Dryness Level                  |
+| sensor.{DEVICEID}\_dry_temperature     | sensor | Dry Temperature                |
+| sensor.{DEVICEID}\_intensity           | sensor | Intensity                      |
+| sensor.{DEVICEID}\_material            | sensor | Material                       |
+| sensor.{DEVICEID}\_water_box           | sensor | Water Box                      |
+| sensor.{DEVICEID}\_door_warn           | sensor | Door Warn                      |
+| sensor.{DEVICEID}\_ai_switch           | sensor | AI Switch                      |
+| sensor.{DEVICEID}\_error_code          | sensor | Error Code                     |
+| switch.{DEVICEID}\_power               | switch | Power                          |
+| switch.{DEVICEID}\_start               | switch | Start                          |
+| select.{DEVICEID}\_program_control     | select | Dryer program                  |
+| select.{DEVICEID}\_dryness_control     | select | Dryness                        |
+| select.{DEVICEID}\_temperature_control | select | Drying temperature             |
+| switch.{DEVICEID}\_sterilize           | switch | Multidimensional sterilization |
+| switch.{DEVICEID}\_anti_wrinkle        | switch | Smart anti-wrinkle             |
+| number.{DEVICEID}\_timed_extra         | number | Timed drying extension         |
+
+Parameter entities require the verified model/subtype and a supporting SDK.
+Availability also depends on the current program and appliance state; see the
+verified parameter controls section below.
 
 ## Service
 
@@ -36,8 +46,23 @@ Set the attribute of appliance. Service data:
 | Name      | Description                                 |
 | --------- | ------------------------------------------- |
 | device_id | The Appliance code (Device ID) of appliance |
-| attribute | "power"<br/>"start"                         |
-| value     | true or false                               |
+| attribute | A writable attribute listed below           |
+| value     | The value for that attribute, listed below  |
+
+| Writable attribute    | Accepted value                                                                 |
+| --------------------- | ------------------------------------------------------------------------------ |
+| `power`, `start`      | `true` or `false`                                                              |
+| `program_control`     | Program option key from the program select entity's current `options`          |
+| `dryness_control`     | `"ready_to_wear"` or `"storage"`; only `"ready_to_wear"` with sterilization on |
+| `temperature_control` | `"standard"` or `"low"`                                                        |
+| `sterilize`           | `true` or `false`                                                              |
+| `anti_wrinkle`        | `true` or `false`                                                              |
+| `timed_extra`         | A number from 0 to 170 minutes, step 10, only in the timed drying program      |
+
+Select values use option keys, not translated UI labels. Use an option currently
+offered by the corresponding entity. Parameter writes have the same model, SDK,
+program and state restrictions as the entities. `timed_extra: 0` means 10 total
+minutes, while `timed_extra: 170` means 180 total minutes.
 
 Example
 

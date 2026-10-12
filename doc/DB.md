@@ -28,6 +28,19 @@ No default entity
 | sensor.{DEVICEID}\_dirty_degree           | sensor | Dirty Degree           |
 | switch.{DEVICEID}\_power                  | switch | Power                  |
 | switch.{DEVICEID}\_start                  | switch | Start                  |
+| select.{DEVICEID}\_program_control        | select | Washer program         |
+| select.{DEVICEID}\_temperature_control    | select | Water temperature      |
+| select.{DEVICEID}\_spin_speed_control     | select | Spin speed             |
+| select.{DEVICEID}\_rinse_count            | select | Rinse count            |
+| select.{DEVICEID}\_water_level_control    | select | Water level            |
+| select.{DEVICEID}\_detergent_control      | select | Detergent dosing       |
+| select.{DEVICEID}\_wash_time_control      | select | Wash time (min)        |
+| select.{DEVICEID}\_spin_time_control      | select | Spin time (min)        |
+| switch.{DEVICEID}\_forget_free            | switch | Forget-free care       |
+
+Parameter entities require the verified model/subtype and a supporting SDK.
+Availability also depends on the current program and appliance state; see the
+verified parameter controls section below.
 
 ## Service
 
@@ -40,8 +53,26 @@ Set the attribute of appliance. Service data:
 | Name      | Description                                 |
 | --------- | ------------------------------------------- |
 | device_id | The Appliance code (Device ID) of appliance |
-| attribute | "power"<br/>"start"                         |
-| value     | true or false                               |
+| attribute | A writable attribute listed below           |
+| value     | The value for that attribute, listed below  |
+
+| Writable attribute    | Accepted value                                                        |
+| --------------------- | --------------------------------------------------------------------- |
+| `power`, `start`      | `true` or `false`                                                     |
+| `program_control`     | Program option key from the program select entity's current `options` |
+| `temperature_control` | `"cold"`, `"20"`, `"30"`, `"40"`, `"60"`, `"95"`                      |
+| `spin_speed_control`  | `"0"`, `"400"`, `"600"`, `"800"`, `"1000"`, `"1200"`, `"1400"`        |
+| `rinse_count`         | `"1"`, `"2"`, `"3"`, `"4"`                                            |
+| `water_level_control` | `"auto"`, `"l1"`, `"l2"`, `"l3"`, `"l4"`                              |
+| `detergent_control`   | `"smart"`, `"off"`, `"l1"`, `"l2"`, `"l3"`, `"l4"`                    |
+| `wash_time_control`   | Actual minutes as a string from the select entity's current `options` |
+| `spin_time_control`   | Actual minutes as a string from the select entity's current `options` |
+| `forget_free`         | `true` or `false`                                                     |
+
+Select values use option keys, not translated UI labels. Use an option currently
+offered by the corresponding entity. For example, `wash_time_control: "45"`
+selects 45 actual minutes; it does not write request code 45. Parameter writes
+have the same model, SDK, program and state restrictions as the entities.
 
 Example
 

@@ -8,22 +8,30 @@
 
 ### 额外生成实体
 
-| EntityID                           | 类型   | 名称            | 描述     |
-| ---------------------------------- | ------ | --------------- | -------- |
-| sensor.{DEVICEID}\_progress        | sensor | Progress        | 进度     |
-| sensor.{DEVICEID}\_time_remaining  | sensor | Time Remaining  | 剩余时间 |
-| sensor.{DEVICEID}\_status          | sensor | Status          | 状态     |
-| sensor.{DEVICEID}\_program         | sensor | Program         | 程序     |
-| sensor.{DEVICEID}\_dryness_level   | sensor | Dryness Level   | 干燥档位 |
-| sensor.{DEVICEID}\_dry_temperature | sensor | Dry Temperature | 干燥温度 |
-| sensor.{DEVICEID}\_intensity       | sensor | Intensity       | 强度     |
-| sensor.{DEVICEID}\_material        | sensor | Material        | 材质     |
-| sensor.{DEVICEID}\_water_box       | sensor | Water Box       | 水箱     |
-| sensor.{DEVICEID}\_door_warn       | sensor | Door Warn       | 开门警告 |
-| sensor.{DEVICEID}\_ai_switch       | sensor | AI Switch       | AI开关   |
-| sensor.{DEVICEID}\_error_code      | sensor | Error Code      | 错误码   |
-| switch.{DEVICEID}\_power           | switch | Power           | 电源开关 |
-| switch.{DEVICEID}\_start           | switch | Start           | 启动暂停 |
+| EntityID                               | 类型   | 名称                           | 描述     |
+| -------------------------------------- | ------ | ------------------------------ | -------- |
+| sensor.{DEVICEID}\_progress            | sensor | Progress                       | 进度     |
+| sensor.{DEVICEID}\_time_remaining      | sensor | Time Remaining                 | 剩余时间 |
+| sensor.{DEVICEID}\_status              | sensor | Status                         | 状态     |
+| sensor.{DEVICEID}\_program             | sensor | Program                        | 程序     |
+| sensor.{DEVICEID}\_dryness_level       | sensor | Dryness Level                  | 干燥档位 |
+| sensor.{DEVICEID}\_dry_temperature     | sensor | Dry Temperature                | 干燥温度 |
+| sensor.{DEVICEID}\_intensity           | sensor | Intensity                      | 强度     |
+| sensor.{DEVICEID}\_material            | sensor | Material                       | 材质     |
+| sensor.{DEVICEID}\_water_box           | sensor | Water Box                      | 水箱     |
+| sensor.{DEVICEID}\_door_warn           | sensor | Door Warn                      | 开门警告 |
+| sensor.{DEVICEID}\_ai_switch           | sensor | AI Switch                      | AI开关   |
+| sensor.{DEVICEID}\_error_code          | sensor | Error Code                     | 错误码   |
+| switch.{DEVICEID}\_power               | switch | Power                          | 电源开关 |
+| switch.{DEVICEID}\_start               | switch | Start                          | 启动暂停 |
+| select.{DEVICEID}\_program_control     | select | Dryer program                  | 烘干程序 |
+| select.{DEVICEID}\_dryness_control     | select | Dryness                        | 烘干度   |
+| select.{DEVICEID}\_temperature_control | select | Drying temperature             | 烘干温度 |
+| switch.{DEVICEID}\_sterilize           | switch | Multidimensional sterilization | 多维除菌 |
+| switch.{DEVICEID}\_anti_wrinkle        | switch | Smart anti-wrinkle             | 智能防皱 |
+| number.{DEVICEID}\_timed_extra         | number | Timed drying extension         | 定时加时 |
+
+参数实体需要已验证的型号／子类型和支持该功能的 SDK。可用性还取决于当前程序和设备状态，详见下方已验证型号的参数控制说明。
 
 ## 服务
 
@@ -36,8 +44,20 @@
 | 名称      | 描述                  |
 | --------- | --------------------- |
 | device_id | 设备的编号(Device ID) |
-| attribute | "power"<br/>"start"   |
-| value     | true 或 false         |
+| attribute | 下表列出的可写属性    |
+| value     | 下表中该属性的值      |
+
+| 可写属性              | 可用值                                                                    |
+| --------------------- | ------------------------------------------------------------------------- |
+| `power`, `start`      | `true` 或 `false`                                                         |
+| `program_control`     | 程序选择实体当前 `options` 中的程序选项键                                 |
+| `dryness_control`     | `"ready_to_wear"`（即穿）或 `"storage"`（储藏）；多维除菌开启时只能选即穿 |
+| `temperature_control` | `"standard"`（标准）或 `"low"`（低温）                                    |
+| `sterilize`           | `true` 或 `false`                                                         |
+| `anti_wrinkle`        | `true` 或 `false`                                                         |
+| `timed_extra`         | 0–170 分钟的数值，步长 10，仅定时烘程序可用                               |
+
+选择参数时使用选项键，不使用界面翻译后的名称，并且只能选择对应实体当前提供的选项。服务写入与实体有相同的型号、SDK、程序和状态限制。`timed_extra: 0` 对应总时长 10 分钟，`timed_extra: 170` 对应总时长 180 分钟。
 
 示例
 
