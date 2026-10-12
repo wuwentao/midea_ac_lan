@@ -94,6 +94,39 @@ LAUNDRY_SELECT_CONFIG = {
     "options_method": "get_parameter_options",
 }
 
+# Reservations remain editable while queued, independently of ordinary parameters.
+LAUNDRY_APPOINTMENT_CONFIG = {
+    "required_attribute": "appointment_control_supported",
+    "available_attribute": "appointment_controls_available",
+}
+LAUNDRY_APPOINTMENT_ENTITIES = {
+    "appointment_finish": {
+        **LAUNDRY_APPOINTMENT_CONFIG,
+        "type": Platform.TIME,
+        "translation_key": "laundry_appointment_finish",
+        "name": "Finish time (sets reservation)",
+        "icon": "mdi:clock-end",
+        "completion_attribute": "appointment_finish",
+    },
+    "cancel_appointment": {
+        **LAUNDRY_APPOINTMENT_CONFIG,
+        "type": Platform.BUTTON,
+        "translation_key": "laundry_cancel_appointment",
+        "name": "Cancel reservation",
+        "icon": "mdi:calendar-remove",
+        "attribute": "appointment",
+        "press_value": False,
+    },
+    "appointment": {
+        "type": Platform.BINARY_SENSOR,
+        "required_attribute": "appointment_control_supported",
+        "available_value_attribute": "appointment",
+        "translation_key": "laundry_appointment",
+        "name": "Reservation",
+        "icon": "mdi:calendar-clock",
+    },
+}
+
 FRESH_AIR_EXHAUST = "fresh_air_exhaust"
 FRESH_AIR_EXHAUST_MODE = "fresh_air_exhaust_mode"
 FRESH_AIR_EXHAUST_POWER = "fresh_air_exhaust_power"
@@ -3976,6 +4009,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
     0xDB: {
         "name": "Front Load Washer",
         "entities": {
+            **LAUNDRY_APPOINTMENT_ENTITIES,
             "program_control": {
                 **LAUNDRY_SELECT_CONFIG,
                 "translation_key": "washer_program_control",
@@ -4160,6 +4194,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
     0xDC: {
         "name": "Clothes Dryer",
         "entities": {
+            **LAUNDRY_APPOINTMENT_ENTITIES,
             "program_control": {
                 **LAUNDRY_SELECT_CONFIG,
                 "translation_key": "dryer_program_control",
