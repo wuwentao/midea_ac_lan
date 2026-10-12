@@ -73,12 +73,15 @@ else:
 
 from .const import (
     CONF_ACCOUNT,
+    CONF_CLOUD_NAME,
     CONF_KEY,
     CONF_MAC,
+    CONF_MANUFACTURER_CODE,
     CONF_MODEL,
     CONF_REFRESH_INTERVAL,
     CONF_SERVER,
     CONF_SN,
+    CONF_SN8,
     CONF_SUBTYPE,
     DEFAULT_CLOUD,
     DEVICES,
@@ -139,6 +142,20 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
             format((PRESET_ACCOUNT_DATA[0] ^ PRESET_ACCOUNT_DATA[2]), "X"),
         ).decode("utf-8", errors="ignore")
         self.preset_cloud_name: str = DEFAULT_CLOUD
+
+    def _added_with_cloud_name(self) -> str | None:
+        """Return the cloud account/service the device is being added with.
+
+        Falls back to the preset cloud name when no interactive login happened
+        (e.g. the "skip login" path reuses the preset account).
+
+        Returns
+        -------
+        The cloud server name, or None when it cannot be determined.
+
+        """
+        login_data = self.hass.data.get(DOMAIN, {}).get("login_data", {})
+        return login_data.get(CONF_SERVER) or self.preset_cloud_name
 
     def _save_device_config(self, data: dict[str, Any]) -> None:
         """Save device config to json file with device id."""
@@ -626,6 +643,12 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                 # set subtype with model_number
                 self.found_device[CONF_NAME] = device_info.get("name")
                 self.found_device[CONF_SUBTYPE] = device_info.get("model_number")
+                # sn8/manufacturer_code identify the device model/vendor; keep
+                # them so they can be persisted with the config entry below.
+                self.found_device[CONF_SN8] = device_info.get("sn8")
+                self.found_device[CONF_MANUFACTURER_CODE] = device_info.get(
+                    "manufacturer_code",
+                )
 
             # MUST get a auth passed token/key for v3 device, disable add before pass
             if device.get(CONF_PROTOCOL) == ProtocolVersion.V3:
@@ -810,6 +833,14 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                     CONF_KEY: user_input[CONF_KEY],
                     CONF_MAC: device.get(CONF_MAC),
                     CONF_SN: device.get(CONF_SN),
+                    # Cloud-derived identity: sn8/manufacturer_code come from the
+                    # cloud device info (async_step_auto), cloud_name records which
+                    # cloud account the device was added with.
+                    CONF_SN8: self.found_device.get(CONF_SN8),
+                    CONF_MANUFACTURER_CODE: self.found_device.get(
+                        CONF_MANUFACTURER_CODE,
+                    ),
+                    CONF_CLOUD_NAME: self._added_with_cloud_name(),
                 }
                 # save device json config when adding new device
                 await self.hass.async_add_executor_job(self._save_device_config, data)
