@@ -63,6 +63,9 @@
   },
   "entity": {
     "binary_sensor": {
+      "door_auto_open": {
+        "name": "Door Auto-Open"
+      },
       "warm_power": {
         "name": "Warm Power"
       },
@@ -453,6 +456,12 @@
       }
     },
     "button": {
+      "e1_cancel": {
+        "name": "Cancel"
+      },
+      "e1_cancel_delayed_start": {
+        "name": "Cancel Delayed Start"
+      },
       "start": {
         "name": "Start"
       }
@@ -658,6 +667,9 @@
       }
     },
     "sensor": {
+      "delay_remaining": {
+        "name": "Delayed Start Remaining"
+      },
       "gas_usage_daily": {
         "name": "Daily Gas Usage"
       },

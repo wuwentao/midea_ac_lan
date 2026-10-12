@@ -63,6 +63,9 @@
   },
   "entity": {
     "binary_sensor": {
+      "door_auto_open": {
+        "name": "Ouverture automatique de la porte"
+      },
       "warm_power": {
         "name": "Fonctionnement chauffage"
       },
@@ -486,6 +489,12 @@
       }
     },
     "button": {
+      "e1_cancel": {
+        "name": "Annuler"
+      },
+      "e1_cancel_delayed_start": {
+        "name": "Annuler le départ différé"
+      },
       "start": {
         "name": "Démarrer"
       }
@@ -697,6 +706,9 @@
       }
     },
     "sensor": {
+      "delay_remaining": {
+        "name": "Temps restant avant le départ différé"
+      },
       "three_way_mode": {
         "name": "Mode trois voies"
       },

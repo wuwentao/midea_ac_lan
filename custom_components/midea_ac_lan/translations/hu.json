@@ -63,6 +63,9 @@
   },
   "entity": {
     "binary_sensor": {
+      "door_auto_open": {
+        "name": "Automatikus ajtónyitás"
+      },
       "warm_power": {
         "name": "Fűtés üzem"
       },
@@ -486,6 +489,12 @@
       }
     },
     "button": {
+      "e1_cancel": {
+        "name": "Megszakítás"
+      },
+      "e1_cancel_delayed_start": {
+        "name": "Késleltetett indítás törlése"
+      },
       "start": {
         "name": "Indítás"
       }
@@ -697,6 +706,9 @@
       }
     },
     "sensor": {
+      "delay_remaining": {
+        "name": "Késleltetett indításig hátralévő idő"
+      },
       "three_way_mode": {
         "name": "Háromjáratú mód"
       },

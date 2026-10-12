@@ -61,8 +61,13 @@ class MideaButton(MideaEntity, ButtonEntity):
 
     def press(self) -> None:
         """Press button."""
-        if self._config.get("set_message") == "e1_start":
+        set_message = self._config.get("set_message")
+        if set_message == "e1_start":
             self._press_e1_start()
+        elif set_message == "e1_cancel":
+            cast("MideaE1Device", self._device).cancel_work()
+        elif set_message == "e1_cancel_delayed_start":
+            cast("MideaE1Device", self._device).cancel_delayed_start()
 
     def _press_e1_start(self) -> None:
         """Start E1 dishwasher using the current mode.

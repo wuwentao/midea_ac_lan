@@ -63,6 +63,9 @@
   },
   "entity": {
     "binary_sensor": {
+      "door_auto_open": {
+        "name": "Автооткрывание двери"
+      },
       "warm_power": {
         "name": "Режим обогрева"
       },
@@ -486,6 +489,12 @@
       }
     },
     "button": {
+      "e1_cancel": {
+        "name": "Отмена"
+      },
+      "e1_cancel_delayed_start": {
+        "name": "Отменить отложенный старт"
+      },
       "start": {
         "name": "Старт"
       }
@@ -697,6 +706,9 @@
       }
     },
     "sensor": {
+      "delay_remaining": {
+        "name": "Осталось до отложенного старта"
+      },
       "three_way_mode": {
         "name": "Трёхходовой режим"
       },

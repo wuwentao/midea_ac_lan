@@ -63,6 +63,9 @@
   },
   "entity": {
     "binary_sensor": {
+      "door_auto_open": {
+        "name": "Automatische Türöffnung"
+      },
       "warm_power": {
         "name": "Heizbetrieb"
       },
@@ -486,6 +489,12 @@
       }
     },
     "button": {
+      "e1_cancel": {
+        "name": "Abbrechen"
+      },
+      "e1_cancel_delayed_start": {
+        "name": "Startzeitvorwahl abbrechen"
+      },
       "start": {
         "name": "Start"
       }
@@ -697,6 +706,9 @@
       }
     },
     "sensor": {
+      "delay_remaining": {
+        "name": "Verbleibende Startverzögerung"
+      },
       "three_way_mode": {
         "name": "Dreiwegemodus"
       },

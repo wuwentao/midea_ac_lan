@@ -63,6 +63,9 @@
   },
   "entity": {
     "binary_sensor": {
+      "door_auto_open": {
+        "name": "Apertura automatica della porta"
+      },
       "warm_power": {
         "name": "Funzionamento riscaldamento"
       },
@@ -449,6 +452,12 @@
       }
     },
     "button": {
+      "e1_cancel": {
+        "name": "Annulla"
+      },
+      "e1_cancel_delayed_start": {
+        "name": "Annulla partenza ritardata"
+      },
       "start": {
         "name": "Avvio"
       }
@@ -654,6 +663,9 @@
       }
     },
     "sensor": {
+      "delay_remaining": {
+        "name": "Tempo rimanente alla partenza ritardata"
+      },
       "three_way_mode": {
         "name": "Modalità a tre vie"
       },

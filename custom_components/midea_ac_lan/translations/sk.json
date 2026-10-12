@@ -63,6 +63,9 @@
   },
   "entity": {
     "binary_sensor": {
+      "door_auto_open": {
+        "name": "Automatické otváranie dverí"
+      },
       "warm_power": {
         "name": "Prevádzka kúrenia"
       },
@@ -486,6 +489,12 @@
       }
     },
     "button": {
+      "e1_cancel": {
+        "name": "Zrušiť"
+      },
+      "e1_cancel_delayed_start": {
+        "name": "Zrušiť odložený štart"
+      },
       "start": {
         "name": "Štart"
       }
@@ -697,6 +706,9 @@
       }
     },
     "sensor": {
+      "delay_remaining": {
+        "name": "Zostáva do odloženého štartu"
+      },
       "three_way_mode": {
         "name": "Trojcestný režim"
       },

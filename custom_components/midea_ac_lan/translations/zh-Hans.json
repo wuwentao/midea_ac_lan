@@ -63,6 +63,9 @@
   },
   "entity": {
     "binary_sensor": {
+      "door_auto_open": {
+        "name": "自动开门"
+      },
       "warm_power": {
         "name": "制热运行"
       },
@@ -491,6 +494,12 @@
       }
     },
     "button": {
+      "e1_cancel": {
+        "name": "取消"
+      },
+      "e1_cancel_delayed_start": {
+        "name": "取消预约"
+      },
       "start": {
         "name": "启动"
       }
@@ -702,6 +711,9 @@
       }
     },
     "sensor": {
+      "delay_remaining": {
+        "name": "预约剩余时间"
+      },
       "gas_usage_daily": {
         "name": "日用气量"
       },
