@@ -64,7 +64,7 @@
   "entity": {
     "binary_sensor": {
       "door_auto_open": {
-        "name": "Apertura automatica della porta"
+        "name": "Apertura automatica della porta (ultimo programma)"
       },
       "warm_power": {
         "name": "Funzionamento riscaldamento"
@@ -452,11 +452,17 @@
       }
     },
     "button": {
+      "e1_start_delayed": {
+        "name": "Partenza ritardata"
+      },
+      "e1_pause": {
+        "name": "Pausa"
+      },
+      "e1_resume": {
+        "name": "Riprendi"
+      },
       "e1_cancel": {
         "name": "Annulla"
-      },
-      "e1_cancel_delayed_start": {
-        "name": "Annulla partenza ritardata"
       },
       "start": {
         "name": "Avvio"
@@ -494,6 +500,9 @@
       }
     },
     "number": {
+      "e1_delay_minutes": {
+        "name": "Ritardo"
+      },
       "heating_target_temperature": {
         "name": "Temperatura target riscaldamento"
       },
@@ -535,6 +544,16 @@
       }
     },
     "select": {
+      "e1_program": {
+        "name": "Programma"
+      },
+      "e1_load": {
+        "name": "Carico",
+        "state": {
+          "0": "Pieno",
+          "2": "Mezzo"
+        }
+      },
       "heating_mode": {
         "name": "Modalità riscaldamento",
         "state": {
@@ -663,6 +682,9 @@
       }
     },
     "sensor": {
+      "e1_operator": {
+        "name": "Stato di funzionamento"
+      },
       "delay_remaining": {
         "name": "Tempo rimanente alla partenza ritardata"
       },
@@ -1524,6 +1546,9 @@
       }
     },
     "switch": {
+      "e1_door_auto_open_setting": {
+        "name": "Apertura automatica della porta"
+      },
       "anion": {
         "name": "Anioni"
       },

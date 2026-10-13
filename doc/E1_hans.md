@@ -4,46 +4,55 @@
 
 ### 默认实体
 
-| EntityID                                        | 类型   | 名称                         | 描述                              |
-| ----------------------------------------------- | ------ | ---------------------------- | --------------------------------- |
-| select.{DEVICEID}\_mode_select                  | select | Wash Mode                    | 洗涤模式                          |
-| button.{DEVICEID}\_start                        | button | Start                        | 启动 (仅 `7600024L` 型号)         |
-| button.{DEVICEID}\_cancel                       | button | Cancel                       | 取消当前程序 (仅 `76000228` 型号) |
-| button.{DEVICEID}\_cancel_delayed_start         | button | Cancel Delayed Start         | 取消预约 (仅 `76000228` 型号)     |
-| sensor.{DEVICEID}\_estimated_energy_consumption | sensor | Estimated Energy Consumption | 预估能耗 (仅 `7600024L`)          |
-| sensor.{DEVICEID}\_estimated_water_consumption  | sensor | Estimated Water Consumption  | 预估水耗 (仅 `7600024L`)          |
+| EntityID                                        | 类型   | 名称                         | 描述                           |
+| ----------------------------------------------- | ------ | ---------------------------- | ------------------------------ |
+| select.{DEVICEID}\_mode_select                  | select | Wash Mode                    | 洗涤模式 (选择后立即启动)      |
+| select.{DEVICEID}\_program                      | select | Program                      | 下次启动的程序 (不会立即启动)  |
+| number.{DEVICEID}\_delay_minutes                | number | Delay                        | 预约时间, 分钟 (1-1440)        |
+| switch.{DEVICEID}\_door_auto_open_setting       | switch | Door Auto-Open               | 下次启动时自动开门             |
+| select.{DEVICEID}\_additional_setting           | select | Load                         | 满载/半载 (仅 `76000228` 型号) |
+| button.{DEVICEID}\_start                        | button | Start                        | 启动                           |
+| button.{DEVICEID}\_start_delayed                | button | Start Delayed                | 预约启动                       |
+| button.{DEVICEID}\_cancel                       | button | Cancel                       | 取消 (运行中的程序或预约)      |
+| button.{DEVICEID}\_pause                        | button | Pause                        | 暂停                           |
+| button.{DEVICEID}\_resume                       | button | Resume                       | 继续                           |
+| sensor.{DEVICEID}\_estimated_energy_consumption | sensor | Estimated Energy Consumption | 预估能耗 (仅 `7600024L`)       |
+| sensor.{DEVICEID}\_estimated_water_consumption  | sensor | Estimated Water Consumption  | 预估水耗 (仅 `7600024L`)       |
 
-> `select.{DEVICEID}_mode_select` 对所有 E1 洗碗机生成, 展示设备上报的模式列表
-> (在 `7600024L` 型号上限定为 7 个已验证模式)。`button.{DEVICEID}_start` 和
-> `sensor.{DEVICEID}_estimated_*` 仅在 `7600024L` 型号上生成; 每个模式的能耗/水耗
-> 预估值来自产品手册, 在一次洗涤完成时累加为总量。以上实体仅在洗碗机开机时可用。
-> 请通过 select 实体设置洗涤模式 (而非 `set_attribute`)。
+> 启动程序: 在 **Program** 中选择程序, 按需设置 **Door Auto-Open** 和 **Load**,
+> 然后按 **Start**。预约启动: 再设置 **Delay** 并按 **Start Delayed**。未选择
+> Program 时, Start 使用设备上报的程序 (上次使用的程序)。**Wash Mode** 保持原有
+> 行为, 选择后立即启动。
 >
-> `button.{DEVICEID}_cancel` 停止正在运行的程序, 洗碗机保持开机; 在 `76000228`
-> 型号上, 关闭电源开关不会停止正在运行的程序。
+> **Cancel** 停止正在运行的程序, 或取消预约。在 `76000228` 型号上, 关闭电源开关
+> 不会停止正在运行的程序。
+>
+> Program、Delay、Door Auto-Open 和 Load 保存在内存中, Home Assistant 重启后重置。
+> 以上控制仅在洗碗机开机时可用。
 
 ### 额外生成实体
 
-| EntityID                                 | 类型          | 名称                    | 描述                |
-| ---------------------------------------- | ------------- | ----------------------- | ------------------- |
-| binary_sensor.{DEVICEID}\_door           | binary_sensor | Door                    | 门状态              |
-| binary_sensor.{DEVICEID}\_rinse_aid      | binary_sensor | Rinse Aid Shortage      | 漂洗剂不足          |
-| binary_sensor.{DEVICEID}\_salt           | binary_sensor | Salt Shortage           | 软水盐不足          |
-| sensor.{DEVICEID}\_humidity              | sensor        | Humidity                | 湿度                |
-| sensor.{DEVICEID}\_progress              | sensor        | Progress                | 当前程序            |
-| sensor.{DEVICEID}\_status                | sensor        | Status                  | 状态                |
-| sensor.{DEVICEID}\_storage_remaining     | sensor        | Storage Time Remaining  | 保管剩余时间        |
-| sensor.{DEVICEID}\_time_remaining        | sensor        | Time Remaining          | 剩余时间            |
-| sensor.{DEVICEID}\_delay_remaining       | sensor        | Delayed Start Remaining | 预约剩余时间 (分钟) |
-| binary_sensor.{DEVICEID}\_door_auto_open | binary_sensor | Door Auto-Open          | 自动开门            |
-| sensor.{DEVICEID}\_temperature           | sensor        | Temperature             | 温度                |
-| sensor.{DEVICEID}\_mode                  | sensor        | Working Mode            | 工作模式            |
-| sensor.{DEVICEID}\_error_code            | sensor        | Error Code              | 错误码              |
-| sensor.{DEVICEID}\_softwater             | sensor        | Softwater Level         | 软水盐档位          |
-| sensor.{DEVICEID}\_bright                | sensor        | Bright Level            | 亮碟剂档位          |
-| lock.{DEVICEID}\_child_lock              | lock          | Child Lock              | 童锁                |
-| switch.{DEVICEID}\_power                 | switch        | Power                   | 电源开关            |
-| switch.{DEVICEID}\_storage               | switch        | Storage                 | 保管开关            |
+| EntityID                                 | 类型          | 名称                        | 描述                                          |
+| ---------------------------------------- | ------------- | --------------------------- | --------------------------------------------- |
+| binary_sensor.{DEVICEID}\_door           | binary_sensor | Door                        | 门状态                                        |
+| binary_sensor.{DEVICEID}\_rinse_aid      | binary_sensor | Rinse Aid Shortage          | 漂洗剂不足                                    |
+| binary_sensor.{DEVICEID}\_salt           | binary_sensor | Salt Shortage               | 软水盐不足                                    |
+| sensor.{DEVICEID}\_humidity              | sensor        | Humidity                    | 湿度                                          |
+| sensor.{DEVICEID}\_progress              | sensor        | Progress                    | 当前程序                                      |
+| sensor.{DEVICEID}\_status                | sensor        | Status                      | 状态                                          |
+| sensor.{DEVICEID}\_storage_remaining     | sensor        | Storage Time Remaining      | 保管剩余时间                                  |
+| sensor.{DEVICEID}\_time_remaining        | sensor        | Time Remaining              | 剩余时间                                      |
+| sensor.{DEVICEID}\_delay_remaining       | sensor        | Delayed Start Remaining     | 预约剩余时间 (分钟)                           |
+| sensor.{DEVICEID}\_operator              | sensor        | Run State                   | 运行状态 (start 或 pause)                     |
+| binary_sensor.{DEVICEID}\_door_auto_open | binary_sensor | Last Program Door Auto-Open | 上一程序是否自动开门 (断电或新程序启动前保持) |
+| sensor.{DEVICEID}\_temperature           | sensor        | Temperature                 | 温度                                          |
+| sensor.{DEVICEID}\_mode                  | sensor        | Working Mode                | 工作模式                                      |
+| sensor.{DEVICEID}\_error_code            | sensor        | Error Code                  | 错误码                                        |
+| sensor.{DEVICEID}\_softwater             | sensor        | Softwater Level             | 软水盐档位                                    |
+| sensor.{DEVICEID}\_bright                | sensor        | Bright Level                | 亮碟剂档位                                    |
+| lock.{DEVICEID}\_child_lock              | lock          | Child Lock                  | 童锁                                          |
+| switch.{DEVICEID}\_power                 | switch        | Power                       | 电源开关                                      |
+| switch.{DEVICEID}\_storage               | switch        | Storage                     | 保管开关                                      |
 
 ## 服务
 

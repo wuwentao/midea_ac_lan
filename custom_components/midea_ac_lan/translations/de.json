@@ -64,7 +64,7 @@
   "entity": {
     "binary_sensor": {
       "door_auto_open": {
-        "name": "Automatische Türöffnung"
+        "name": "Automatische Türöffnung (letztes Programm)"
       },
       "warm_power": {
         "name": "Heizbetrieb"
@@ -489,11 +489,17 @@
       }
     },
     "button": {
+      "e1_start_delayed": {
+        "name": "Verzögert starten"
+      },
+      "e1_pause": {
+        "name": "Pause"
+      },
+      "e1_resume": {
+        "name": "Fortsetzen"
+      },
       "e1_cancel": {
         "name": "Abbrechen"
-      },
-      "e1_cancel_delayed_start": {
-        "name": "Startzeitvorwahl abbrechen"
       },
       "start": {
         "name": "Start"
@@ -531,6 +537,9 @@
       }
     },
     "number": {
+      "e1_delay_minutes": {
+        "name": "Startverzögerung"
+      },
       "heating_target_temperature": {
         "name": "Heizungs-Solltemperatur"
       },
@@ -578,6 +587,16 @@
       }
     },
     "select": {
+      "e1_program": {
+        "name": "Programm"
+      },
+      "e1_load": {
+        "name": "Beladung",
+        "state": {
+          "0": "Voll",
+          "2": "Halb"
+        }
+      },
       "heating_mode": {
         "name": "Heizmodus",
         "state": {
@@ -706,6 +725,9 @@
       }
     },
     "sensor": {
+      "e1_operator": {
+        "name": "Laufstatus"
+      },
       "delay_remaining": {
         "name": "Verbleibende Startverzögerung"
       },
@@ -1586,6 +1608,9 @@
       }
     },
     "switch": {
+      "e1_door_auto_open_setting": {
+        "name": "Automatische Türöffnung"
+      },
       "anion": {
         "name": "Anion"
       },

@@ -64,7 +64,7 @@
   "entity": {
     "binary_sensor": {
       "door_auto_open": {
-        "name": "Door Auto-Open"
+        "name": "Last Program Door Auto-Open"
       },
       "warm_power": {
         "name": "Warm Power"
@@ -456,11 +456,17 @@
       }
     },
     "button": {
+      "e1_start_delayed": {
+        "name": "Start Delayed"
+      },
+      "e1_pause": {
+        "name": "Pause"
+      },
+      "e1_resume": {
+        "name": "Resume"
+      },
       "e1_cancel": {
         "name": "Cancel"
-      },
-      "e1_cancel_delayed_start": {
-        "name": "Cancel Delayed Start"
       },
       "start": {
         "name": "Start"
@@ -498,6 +504,9 @@
       }
     },
     "number": {
+      "e1_delay_minutes": {
+        "name": "Delay"
+      },
       "heating_target_temperature": {
         "name": "Heating Target Temperature"
       },
@@ -539,6 +548,16 @@
       }
     },
     "select": {
+      "e1_program": {
+        "name": "Program"
+      },
+      "e1_load": {
+        "name": "Load",
+        "state": {
+          "0": "Full",
+          "2": "Half"
+        }
+      },
       "heating_mode": {
         "name": "Heating Mode",
         "state": {
@@ -667,6 +686,9 @@
       }
     },
     "sensor": {
+      "e1_operator": {
+        "name": "Run State"
+      },
       "delay_remaining": {
         "name": "Delayed Start Remaining"
       },
@@ -1552,6 +1574,9 @@
       }
     },
     "switch": {
+      "e1_door_auto_open_setting": {
+        "name": "Door Auto-Open"
+      },
       "anion": {
         "name": "Anion"
       },

@@ -64,7 +64,7 @@
   "entity": {
     "binary_sensor": {
       "door_auto_open": {
-        "name": "Automatické otváranie dverí"
+        "name": "Automatické otváranie dverí (posledný program)"
       },
       "warm_power": {
         "name": "Prevádzka kúrenia"
@@ -489,11 +489,17 @@
       }
     },
     "button": {
+      "e1_start_delayed": {
+        "name": "Odložený štart"
+      },
+      "e1_pause": {
+        "name": "Pozastaviť"
+      },
+      "e1_resume": {
+        "name": "Pokračovať"
+      },
       "e1_cancel": {
         "name": "Zrušiť"
-      },
-      "e1_cancel_delayed_start": {
-        "name": "Zrušiť odložený štart"
       },
       "start": {
         "name": "Štart"
@@ -531,6 +537,9 @@
       }
     },
     "number": {
+      "e1_delay_minutes": {
+        "name": "Oneskorenie"
+      },
       "heating_target_temperature": {
         "name": "Cieľová teplota kúrenia"
       },
@@ -578,6 +587,16 @@
       }
     },
     "select": {
+      "e1_program": {
+        "name": "Program"
+      },
+      "e1_load": {
+        "name": "Náplň",
+        "state": {
+          "0": "Plná",
+          "2": "Polovičná"
+        }
+      },
       "heating_mode": {
         "name": "Režim kúrenia",
         "state": {
@@ -706,6 +725,9 @@
       }
     },
     "sensor": {
+      "e1_operator": {
+        "name": "Stav chodu"
+      },
       "delay_remaining": {
         "name": "Zostáva do odloženého štartu"
       },
@@ -1586,6 +1608,9 @@
       }
     },
     "switch": {
+      "e1_door_auto_open_setting": {
+        "name": "Automatické otváranie dverí"
+      },
       "anion": {
         "name": "Anion"
       },

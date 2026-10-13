@@ -64,7 +64,7 @@
   "entity": {
     "binary_sensor": {
       "door_auto_open": {
-        "name": "自动开门"
+        "name": "自动开门（上一程序）"
       },
       "warm_power": {
         "name": "制热运行"
@@ -494,11 +494,17 @@
       }
     },
     "button": {
+      "e1_start_delayed": {
+        "name": "预约启动"
+      },
+      "e1_pause": {
+        "name": "暂停"
+      },
+      "e1_resume": {
+        "name": "继续"
+      },
       "e1_cancel": {
         "name": "取消"
-      },
-      "e1_cancel_delayed_start": {
-        "name": "取消预约"
       },
       "start": {
         "name": "启动"
@@ -536,6 +542,9 @@
       }
     },
     "number": {
+      "e1_delay_minutes": {
+        "name": "预约时间"
+      },
       "heating_target_temperature": {
         "name": "采暖目标温度"
       },
@@ -583,6 +592,16 @@
       }
     },
     "select": {
+      "e1_program": {
+        "name": "程序"
+      },
+      "e1_load": {
+        "name": "负载",
+        "state": {
+          "0": "满载",
+          "2": "半载"
+        }
+      },
       "heating_mode": {
         "name": "采暖模式",
         "state": {
@@ -711,6 +730,9 @@
       }
     },
     "sensor": {
+      "e1_operator": {
+        "name": "运行状态"
+      },
       "delay_remaining": {
         "name": "预约剩余时间"
       },
@@ -1608,6 +1630,9 @@
       }
     },
     "switch": {
+      "e1_door_auto_open_setting": {
+        "name": "自动开门"
+      },
       "anion": {
         "name": "负离子开关"
       },

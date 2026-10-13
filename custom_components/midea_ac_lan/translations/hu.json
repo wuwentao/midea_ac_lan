@@ -64,7 +64,7 @@
   "entity": {
     "binary_sensor": {
       "door_auto_open": {
-        "name": "Automatikus ajtónyitás"
+        "name": "Automatikus ajtónyitás (utolsó program)"
       },
       "warm_power": {
         "name": "Fűtés üzem"
@@ -489,11 +489,17 @@
       }
     },
     "button": {
+      "e1_start_delayed": {
+        "name": "Késleltetett indítás"
+      },
+      "e1_pause": {
+        "name": "Szünet"
+      },
+      "e1_resume": {
+        "name": "Folytatás"
+      },
       "e1_cancel": {
         "name": "Megszakítás"
-      },
-      "e1_cancel_delayed_start": {
-        "name": "Késleltetett indítás törlése"
       },
       "start": {
         "name": "Indítás"
@@ -531,6 +537,9 @@
       }
     },
     "number": {
+      "e1_delay_minutes": {
+        "name": "Késleltetés"
+      },
       "heating_target_temperature": {
         "name": "Fűtés célhőmérséklet"
       },
@@ -578,6 +587,16 @@
       }
     },
     "select": {
+      "e1_program": {
+        "name": "Program"
+      },
+      "e1_load": {
+        "name": "Töltet",
+        "state": {
+          "0": "Teljes",
+          "2": "Fél"
+        }
+      },
       "heating_mode": {
         "name": "Fűtési mód",
         "state": {
@@ -706,6 +725,9 @@
       }
     },
     "sensor": {
+      "e1_operator": {
+        "name": "Futási állapot"
+      },
       "delay_remaining": {
         "name": "Késleltetett indításig hátralévő idő"
       },
@@ -1586,6 +1608,9 @@
       }
     },
     "switch": {
+      "e1_door_auto_open_setting": {
+        "name": "Automatikus ajtónyitás"
+      },
       "anion": {
         "name": "Anion"
       },

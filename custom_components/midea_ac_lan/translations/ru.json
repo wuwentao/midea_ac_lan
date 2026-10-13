@@ -64,7 +64,7 @@
   "entity": {
     "binary_sensor": {
       "door_auto_open": {
-        "name": "Автооткрывание двери"
+        "name": "Автооткрывание двери (последняя программа)"
       },
       "warm_power": {
         "name": "Режим обогрева"
@@ -489,11 +489,17 @@
       }
     },
     "button": {
+      "e1_start_delayed": {
+        "name": "Отложенный старт"
+      },
+      "e1_pause": {
+        "name": "Пауза"
+      },
+      "e1_resume": {
+        "name": "Продолжить"
+      },
       "e1_cancel": {
         "name": "Отмена"
-      },
-      "e1_cancel_delayed_start": {
-        "name": "Отменить отложенный старт"
       },
       "start": {
         "name": "Старт"
@@ -531,6 +537,9 @@
       }
     },
     "number": {
+      "e1_delay_minutes": {
+        "name": "Задержка"
+      },
       "heating_target_temperature": {
         "name": "Целевая температура отопления"
       },
@@ -578,6 +587,16 @@
       }
     },
     "select": {
+      "e1_program": {
+        "name": "Программа"
+      },
+      "e1_load": {
+        "name": "Загрузка",
+        "state": {
+          "0": "Полная",
+          "2": "Половинная"
+        }
+      },
       "heating_mode": {
         "name": "Режим отопления",
         "state": {
@@ -706,6 +725,9 @@
       }
     },
     "sensor": {
+      "e1_operator": {
+        "name": "Состояние работы"
+      },
       "delay_remaining": {
         "name": "Осталось до отложенного старта"
       },
@@ -1586,6 +1608,9 @@
       }
     },
     "switch": {
+      "e1_door_auto_open_setting": {
+        "name": "Автооткрывание двери"
+      },
       "anion": {
         "name": "Anion"
       },

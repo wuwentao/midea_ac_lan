@@ -64,7 +64,7 @@
   "entity": {
     "binary_sensor": {
       "door_auto_open": {
-        "name": "Apertura automática de puerta"
+        "name": "Apertura automática de puerta (último programa)"
       },
       "warm_power": {
         "name": "Funcionamiento de calefacción"
@@ -489,11 +489,17 @@
       }
     },
     "button": {
+      "e1_start_delayed": {
+        "name": "Inicio diferido"
+      },
+      "e1_pause": {
+        "name": "Pausa"
+      },
+      "e1_resume": {
+        "name": "Reanudar"
+      },
       "e1_cancel": {
         "name": "Cancelar"
-      },
-      "e1_cancel_delayed_start": {
-        "name": "Cancelar inicio diferido"
       },
       "start": {
         "name": "Iniciar"
@@ -531,6 +537,9 @@
       }
     },
     "number": {
+      "e1_delay_minutes": {
+        "name": "Retraso"
+      },
       "heating_target_temperature": {
         "name": "Temperatura objetivo de calefacción"
       },
@@ -578,6 +587,16 @@
       }
     },
     "select": {
+      "e1_program": {
+        "name": "Programa"
+      },
+      "e1_load": {
+        "name": "Carga",
+        "state": {
+          "0": "Completa",
+          "2": "Media"
+        }
+      },
       "heating_mode": {
         "name": "Modo de calefacción",
         "state": {
@@ -706,6 +725,9 @@
       }
     },
     "sensor": {
+      "e1_operator": {
+        "name": "Estado de ejecución"
+      },
       "delay_remaining": {
         "name": "Tiempo restante del inicio diferido"
       },
@@ -1586,6 +1608,9 @@
       }
     },
     "switch": {
+      "e1_door_auto_open_setting": {
+        "name": "Apertura automática de puerta"
+      },
       "anion": {
         "name": "Anión"
       },
