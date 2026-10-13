@@ -5524,7 +5524,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             "no_obsolete_water_mode": {
                 "type": Platform.SENSOR,
                 "translation_key": "no_obsolete_water_mode",
-                "name": "Zero Stagnant Water (Basic)",
+                "name": "No Obsolete Water Mode",
                 "icon": "mdi:water-sync",
                 "device_class": SensorDeviceClass.ENUM,
                 "state_from_flags": {

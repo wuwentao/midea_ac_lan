@@ -116,9 +116,9 @@ that report the matching records.
 | sensor.{DEVICEID}\_water_kind                | sensor | Water kind (enum: idle, warm, cold); `idle` (value 0) may also indicate boiling, so do not treat it as proof the appliance is idle |
 | sensor.{DEVICEID}\_heat_start                | sensor | Heat start (enum: heating, keep_warm)                                                                                              |
 | sensor.{DEVICEID}\_input_temperature_sensing | sensor | Input Temperature (°C)                                                                                                             |
-| sensor.{DEVICEID}\_no_obsolete_water_mode    | sensor | Basic zero stagnant water mode (enum: water_quality_priority, water_saving_priority, custom)                                       |
+| sensor.{DEVICEID}\_no_obsolete_water_mode    | sensor | No Obsolete Water Mode (enum: water_quality_priority, water_saving_priority, custom)                                               |
 
-The basic zero stagnant water sensor is read-only. Flags are evaluated in
+The No Obsolete Water Mode sensor is read-only. Flags are evaluated in
 configuration order: water_quality_priority, water_saving_priority, custom.
 If several flags are set, the first wins; if none is set, the state is unknown.
 This is a display priority, not a guarantee that device flags are exclusive.
