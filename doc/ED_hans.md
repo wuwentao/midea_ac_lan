@@ -116,6 +116,10 @@
 | sensor.{DEVICEID}\_input_temperature_sensing | sensor | Input Temperature           | 进水温度（°C）                                                                                 |
 | sensor.{DEVICEID}\_no_obsolete_water_mode    | sensor | Zero Stagnant Water (Basic) | 基础零陈水模式（枚举：水质优先/省水优先/自定义）                                               |
 
+基础零陈水模式为只读实体，按水质优先、省水优先、自定义的顺序检查标志。
+多个标志同时置位时取首项，全部未置位时显示 unknown。
+该顺序是展示优先级，不表示设备或库保证三个标志互斥。
+
 ##### 二元传感器
 
 | EntityID                                 | 类型          | 名称           | 描述       |
@@ -134,6 +138,17 @@
 | switch.{DEVICEID}\_wash       | switch | Filter Wash | 启动滤芯冲洗（固定 60 秒）。 |
 | switch.{DEVICEID}\_antifreeze | switch | Antifreeze  | 切换防冻保护。               |
 | switch.{DEVICEID}\_heat       | switch | Heat        | 开启/关闭加热功能。          |
+
+##### 下拉选择
+
+| EntityID                        | 类型   | 名称         | 描述               |
+| ------------------------------- | ------ | ------------ | ------------------ |
+| select.{DEVICEID}\_cur_quantify | select | 当前定量预设 | 无 / 定量预设1–5。 |
+
+原始值 0 对应「无」（不定量），21–25 对应「定量预设1–5」。该实体选择
+`quantify_21`–`quantify_25` 定义的预设，不修改预设水量。设备首次回报
+`cur_quantify` 前，库会忽略写请求；状态只随设备回报更新，不随请求更新。
+不向茶吧机（型号 63000622、子型号 395）或软水机（子型号 703）提供。
 
 ## 服务
 

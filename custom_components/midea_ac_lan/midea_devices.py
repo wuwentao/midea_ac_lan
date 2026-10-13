@@ -5519,8 +5519,8 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "excluded_devices": ED_TEA_BAR_DEVICES,
                 "excluded_subtypes": ED_SOFT_WATER_SUBTYPES,
             },
-            # Basic no-obsolete-water setting: the device keeps exactly one of
-            # the three flags set; the sensor reports the matching state.
+            # Synthetic read-only state: map the reported flags in priority order.
+            # Multiple set flags use the first match; no set flags is unknown.
             "no_obsolete_water_mode": {
                 "type": Platform.SENSOR,
                 "translation_key": "no_obsolete_water_mode",
@@ -5531,6 +5531,22 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                     "no_obsolete_water": "water_quality_priority",
                     "save_mode": "water_saving_priority",
                     "smart_no_obsolete_water": "custom",
+                },
+                "excluded_devices": ED_TEA_BAR_DEVICES,
+                "excluded_subtypes": ED_SOFT_WATER_SUBTYPES,
+            },
+            EDAttributes.cur_quantify: {
+                "type": Platform.SELECT,
+                "translation_key": "cur_quantify",
+                "name": "Current Quantity Preset",
+                "icon": "mdi:faucet",
+                "options": {
+                    0: "none",
+                    21: "preset_1",
+                    22: "preset_2",
+                    23: "preset_3",
+                    24: "preset_4",
+                    25: "preset_5",
                 },
                 "excluded_devices": ED_TEA_BAR_DEVICES,
                 "excluded_subtypes": ED_SOFT_WATER_SUBTYPES,

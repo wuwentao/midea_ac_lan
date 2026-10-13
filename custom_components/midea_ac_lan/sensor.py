@@ -313,13 +313,12 @@ class MideaMinuteDurationSensor(MideaSensor):
 
 
 class MideaFlagStateSensor(MideaSensor):
-    """Derive one state from mutually exclusive boolean attributes.
+    """Derive one state from boolean attributes in configured priority order.
 
-    Some mutually exclusive appliance settings have no combined-state
-    attribute of their own; the device only reports one flag per state. The
-    ``state_from_flags`` config maps each flag attribute to the state string
-    it represents; the sensor reports the state of the first flag that is
-    currently set, and is unknown (None) while none of them is.
+    The required ``state_from_flags`` config maps each flag attribute to its
+    state string. The sensor reports the first set flag, even if multiple
+    flags are set, and is unknown (None) while none of them is.
+    This derived state does not enforce mutual exclusion on the device.
     """
 
     @property
@@ -351,7 +350,7 @@ class MideaFlagStateSensor(MideaSensor):
 
         Returns
         -------
-        Flag attribute names keyed by their state string.
+        State strings keyed by their flag attribute names.
 
         """
         return cast("dict[str, str]", self._config["state_from_flags"])
