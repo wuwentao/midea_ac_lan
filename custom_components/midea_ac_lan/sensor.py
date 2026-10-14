@@ -88,6 +88,9 @@ async def async_setup_entry(
         elif config.get("duration_from_minutes"):
             sensor = MideaMinuteDurationSensor(device, entity_key)
             sensors.append(sensor)
+        elif config.get("state_from_flags"):
+            sensor = MideaFlagStateSensor(device, entity_key)
+            sensors.append(sensor)
         else:
             sensor = MideaSensor(device, entity_key)
             sensors.append(sensor)
@@ -307,6 +310,50 @@ class MideaMinuteDurationSensor(MideaSensor):
         return {
             "remaining_minutes": max(0, int(cast("int", raw_value or 0))),
         }
+
+
+class MideaFlagStateSensor(MideaSensor):
+    """Derive one state from boolean attributes in configured priority order.
+
+    The required ``state_from_flags`` config maps each flag attribute to its
+    state string. The sensor reports the first set flag, even if multiple
+    flags are set, and is unknown (None) while none of them is.
+    This derived state does not enforce mutual exclusion on the device.
+    """
+
+    @property
+    def native_value(self) -> StateType:
+        """State of the first flag that is currently set."""
+        for attribute, state in self._flags_to_state().items():
+            if self._device.get_attribute(attribute):
+                return state
+        return None
+
+    @property
+    def options(self) -> list[str] | None:
+        """States the sensor can report."""
+        if self.device_class != SensorDeviceClass.ENUM:
+            return None
+        return list(self._flags_to_state().values())
+
+    @callback
+    def update_state(self, status: Any) -> None:  # ruff:ignore[any-type]
+        """Update the state when any of the mapped flags changes."""
+        super().update_state(status)
+        if self.hass and any(
+            attribute in status for attribute in self._flags_to_state()
+        ):
+            self.schedule_update_if_running()
+
+    def _flags_to_state(self) -> dict[str, str]:
+        """Flag attribute to state mapping from the entity config.
+
+        Returns
+        -------
+        State strings keyed by their flag attribute names.
+
+        """
+        return cast("dict[str, str]", self._config["state_from_flags"])
 
 
 class MideaEstimatedUsageSensor(MideaSensor, RestoreEntity):
