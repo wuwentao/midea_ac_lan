@@ -4569,7 +4569,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "unit": PERCENTAGE,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
-            E1Attributes.wash_region: {
+            E1Attributes.wash_region_setting: {
                 "type": Platform.NUMBER,
                 "translation_key": "e1_wash_region",
                 "name": "Wash Region",
@@ -4579,7 +4579,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "step": 1,
                 "default": True,
             },
-            E1Attributes.water_level: {
+            E1Attributes.water_level_setting: {
                 "type": Platform.NUMBER,
                 "translation_key": "e1_water_level",
                 "name": "Water Level",
@@ -4589,7 +4589,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "step": 1,
                 "default": True,
             },
-            E1Attributes.water_strong_level: {
+            E1Attributes.water_strong_level_setting: {
                 "type": Platform.NUMBER,
                 "translation_key": "e1_water_strong_level",
                 "name": "Water Pressure Level",

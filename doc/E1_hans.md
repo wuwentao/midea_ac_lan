@@ -11,9 +11,9 @@
 | number.{DEVICEID}\_delay_minutes                | number | Delay                        | 预约时间, 分钟 (1-1440)        |
 | switch.{DEVICEID}\_door_auto_open_setting       | switch | Door Auto-Open               | 下次启动时自动开门             |
 | select.{DEVICEID}\_additional_setting           | select | Load                         | 满载/半载 (仅 `76000228` 型号) |
-| number.{DEVICEID}\_wash_region                  | number | Wash Region                  | 下次启动的洗涤区域 (0-255)     |
-| number.{DEVICEID}\_water_level                  | number | Water Level                  | 下次启动的水位 (0-255)         |
-| number.{DEVICEID}\_water_strong_level           | number | Water Pressure Level         | 下次启动的水压档位 (0-255)     |
+| number.{DEVICEID}\_wash_region_setting          | number | Wash Region                  | 下次启动的洗涤区域 (0-255)     |
+| number.{DEVICEID}\_water_level_setting          | number | Water Level                  | 下次启动的水位 (0-255)         |
+| number.{DEVICEID}\_water_strong_level_setting   | number | Water Pressure Level         | 下次启动的水压档位 (0-255)     |
 | button.{DEVICEID}\_start                        | button | Start                        | 启动                           |
 | button.{DEVICEID}\_start_delayed                | button | Start Delayed                | 预约启动                       |
 | button.{DEVICEID}\_cancel                       | button | Cancel                       | 取消 (运行中的程序或预约)      |
@@ -91,19 +91,19 @@
 | attribute | 见下表                |
 | value     | 见下表                |
 
-| attribute              | value                                    |
-| ---------------------- | ---------------------------------------- |
-| child_lock             | true 或 false                            |
-| power                  | true 或 false                            |
-| storage                | true 或 false                            |
-| mode_select            | 程序名, 如 `eco_wash`; 立即启动          |
-| program                | 程序名, 如 `eco_wash` (不会启动)         |
-| delay_minutes          | 1 至 1440                                |
-| door_auto_open_setting | true 或 false                            |
-| additional_setting     | 0 (满载) 或 2 (半载), 仅 `76000228` 型号 |
-| wash_region            | 0 至 255                                 |
-| water_level            | 0 至 255                                 |
-| water_strong_level     | 0 至 255                                 |
+| attribute                  | value                                    |
+| -------------------------- | ---------------------------------------- |
+| child_lock                 | true 或 false                            |
+| power                      | true 或 false                            |
+| storage                    | true 或 false                            |
+| mode_select                | 程序名, 如 `eco_wash`; 立即启动          |
+| program                    | 程序名, 如 `eco_wash` (不会启动)         |
+| delay_minutes              | 1 至 1440                                |
+| door_auto_open_setting     | true 或 false                            |
+| additional_setting         | 0 (满载) 或 2 (半载), 仅 `76000228` 型号 |
+| wash_region_setting        | 0 至 255                                 |
+| water_level_setting        | 0 至 255                                 |
+| water_strong_level_setting | 0 至 255                                 |
 
 示例
 
