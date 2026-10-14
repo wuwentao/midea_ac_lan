@@ -64,11 +64,21 @@
 
 设置设备属性, 服务数据:
 
-| 名称      | 描述                                      |
-| --------- | ----------------------------------------- |
-| device_id | 设备的编号(Device ID)                     |
-| attribute | "child_lock"<br />"power"<br /> "storage" |
-| value     | true 或 false                             |
+| 名称      | 描述                  |
+| --------- | --------------------- |
+| device_id | 设备的编号(Device ID) |
+| attribute | 见下表                |
+| value     | 见下表                |
+
+| attribute              | value                                    |
+| ---------------------- | ---------------------------------------- |
+| child_lock             | true 或 false                            |
+| power                  | true 或 false                            |
+| storage                | true 或 false                            |
+| program                | 程序名, 如 `eco_wash` (不会启动)         |
+| delay_minutes          | 1 至 1440                                |
+| door_auto_open_setting | true 或 false                            |
+| additional_setting     | 0 (满载) 或 2 (半载), 仅 `76000228` 型号 |
 
 示例
 
@@ -78,4 +88,27 @@ data:
   device_id: XXXXXXXXXXXX
   attribute: power
   value: true
+```
+
+示例: ECO 程序, 自动开门, 2 小时后启动
+
+```yaml
+- service: midea_ac_lan.set_attribute
+  data:
+    device_id: XXXXXXXXXXXX
+    attribute: program
+    value: eco_wash
+- service: midea_ac_lan.set_attribute
+  data:
+    device_id: XXXXXXXXXXXX
+    attribute: door_auto_open_setting
+    value: true
+- service: midea_ac_lan.set_attribute
+  data:
+    device_id: XXXXXXXXXXXX
+    attribute: delay_minutes
+    value: 120
+- service: button.press
+  target:
+    entity_id: button.XXXXXXXXXXXX_start_delayed
 ```
