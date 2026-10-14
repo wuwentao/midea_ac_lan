@@ -66,6 +66,42 @@
       "door_auto_open": {
         "name": "Автооткрывание двери (последняя программа)"
       },
+      "e1_uv": {
+        "name": "УФ"
+      },
+      "e1_dry": {
+        "name": "Сушка"
+      },
+      "e1_dry_status": {
+        "name": "Идёт сушка"
+      },
+      "e1_storage_status": {
+        "name": "Хранение активно"
+      },
+      "e1_waterswitch": {
+        "name": "Водяной клапан"
+      },
+      "e1_water_lack": {
+        "name": "Нехватка воды"
+      },
+      "e1_wifi_unabled": {
+        "name": "WiFi отключён"
+      },
+      "e1_auto_throw": {
+        "name": "Автодозация"
+      },
+      "e1_lock_power": {
+        "name": "Блокировка питания"
+      },
+      "e1_beep_control": {
+        "name": "Звуковой сигнал"
+      },
+      "e1_light_btn_on": {
+        "name": "Подсветка кнопок"
+      },
+      "e1_light_strip_on": {
+        "name": "Световая полоса"
+      },
       "warm_power": {
         "name": "Режим обогрева"
       },
@@ -540,6 +576,15 @@
       "e1_delay_minutes": {
         "name": "Задержка"
       },
+      "e1_wash_region": {
+        "name": "Зона мойки"
+      },
+      "e1_water_level": {
+        "name": "Уровень воды"
+      },
+      "e1_water_strong_level": {
+        "name": "Уровень напора воды"
+      },
       "heating_target_temperature": {
         "name": "Целевая температура отопления"
       },
@@ -727,6 +772,24 @@
     "sensor": {
       "e1_operator": {
         "name": "Состояние работы"
+      },
+      "e1_wrong_operation": {
+        "name": "Неверная операция"
+      },
+      "e1_dry_set_min": {
+        "name": "Время сушки"
+      },
+      "e1_clean_left_hour": {
+        "name": "Осталось до чистки"
+      },
+      "e1_kitchenware_left_hour": {
+        "name": "Осталось для посуды"
+      },
+      "e1_device_version": {
+        "name": "Версия устройства"
+      },
+      "e1_throw_percent": {
+        "name": "Уровень дозатора"
       },
       "delay_remaining": {
         "name": "Осталось до отложенного старта"

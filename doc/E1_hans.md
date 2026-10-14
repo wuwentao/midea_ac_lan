@@ -11,6 +11,9 @@
 | number.{DEVICEID}\_delay_minutes                | number | Delay                        | 预约时间, 分钟 (1-1440)        |
 | switch.{DEVICEID}\_door_auto_open_setting       | switch | Door Auto-Open               | 下次启动时自动开门             |
 | select.{DEVICEID}\_additional_setting           | select | Load                         | 满载/半载 (仅 `76000228` 型号) |
+| number.{DEVICEID}\_wash_region                  | number | Wash Region                  | 下次启动的洗涤区域 (0-255)     |
+| number.{DEVICEID}\_water_level                  | number | Water Level                  | 下次启动的水位 (0-255)         |
+| number.{DEVICEID}\_water_strong_level           | number | Water Pressure Level         | 下次启动的水压档位 (0-255)     |
 | button.{DEVICEID}\_start                        | button | Start                        | 启动                           |
 | button.{DEVICEID}\_start_delayed                | button | Start Delayed                | 预约启动                       |
 | button.{DEVICEID}\_cancel                       | button | Cancel                       | 取消 (运行中的程序或预约)      |
@@ -50,6 +53,24 @@
 | sensor.{DEVICEID}\_error_code            | sensor        | Error Code                  | 错误码                                        |
 | sensor.{DEVICEID}\_softwater             | sensor        | Softwater Level             | 软水盐档位                                    |
 | sensor.{DEVICEID}\_bright                | sensor        | Bright Level                | 亮碟剂档位                                    |
+| sensor.{DEVICEID}\_wrong_operation       | sensor        | Wrong Operation             | 误操作 (诊断)                                 |
+| sensor.{DEVICEID}\_dry_set_min           | sensor        | Dry Set Time                | 烘干设定时间 (分钟)                           |
+| sensor.{DEVICEID}\_clean_left_hour       | sensor        | Clean Remaining             | 剩余清洁时间 (小时)                           |
+| sensor.{DEVICEID}\_kitchenware_left_hour | sensor        | Kitchenware Remaining       | 剩余餐具时间 (小时)                           |
+| sensor.{DEVICEID}\_device_version        | sensor        | Device Version              | 设备版本 (诊断)                               |
+| sensor.{DEVICEID}\_throw_percent         | sensor        | Dispense Level              | 投放余量 (百分比)                             |
+| binary_sensor.{DEVICEID}\_uv             | binary_sensor | UV                          | 紫外线                                        |
+| binary_sensor.{DEVICEID}\_dry            | binary_sensor | Dry                         | 烘干                                          |
+| binary_sensor.{DEVICEID}\_dry_status     | binary_sensor | Drying                      | 烘干中                                        |
+| binary_sensor.{DEVICEID}\_storage_status | binary_sensor | Storage Running             | 存储运行中                                    |
+| binary_sensor.{DEVICEID}\_waterswitch    | binary_sensor | Water Switch                | 水路开关                                      |
+| binary_sensor.{DEVICEID}\_water_lack     | binary_sensor | Water Shortage              | 缺水                                          |
+| binary_sensor.{DEVICEID}\_wifi_unabled   | binary_sensor | WiFi Disabled               | WiFi 已禁用 (诊断)                            |
+| binary_sensor.{DEVICEID}\_auto_throw     | binary_sensor | Auto Dispense               | 自动投放                                      |
+| binary_sensor.{DEVICEID}\_lock_power     | binary_sensor | Power Lock                  | 电源锁                                        |
+| binary_sensor.{DEVICEID}\_beep_control   | binary_sensor | Beep                        | 提示音                                        |
+| binary_sensor.{DEVICEID}\_light_btn_on   | binary_sensor | Button Light                | 按键灯                                        |
+| binary_sensor.{DEVICEID}\_light_strip_on | binary_sensor | Light Strip                 | 灯带                                          |
 | lock.{DEVICEID}\_child_lock              | lock          | Child Lock                  | 童锁                                          |
 | switch.{DEVICEID}\_power                 | switch        | Power                       | 电源开关                                      |
 | switch.{DEVICEID}\_storage               | switch        | Storage                     | 保管开关                                      |
@@ -80,6 +101,9 @@
 | delay_minutes          | 1 至 1440                                |
 | door_auto_open_setting | true 或 false                            |
 | additional_setting     | 0 (满载) 或 2 (半载), 仅 `76000228` 型号 |
+| wash_region            | 0 至 255                                 |
+| water_level            | 0 至 255                                 |
+| water_strong_level     | 0 至 255                                 |
 
 示例
 

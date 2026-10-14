@@ -66,6 +66,42 @@
       "door_auto_open": {
         "name": "Last Program Door Auto-Open"
       },
+      "e1_uv": {
+        "name": "UV"
+      },
+      "e1_dry": {
+        "name": "Dry"
+      },
+      "e1_dry_status": {
+        "name": "Drying"
+      },
+      "e1_storage_status": {
+        "name": "Storage Running"
+      },
+      "e1_waterswitch": {
+        "name": "Water Switch"
+      },
+      "e1_water_lack": {
+        "name": "Water Shortage"
+      },
+      "e1_wifi_unabled": {
+        "name": "WiFi Disabled"
+      },
+      "e1_auto_throw": {
+        "name": "Auto Dispense"
+      },
+      "e1_lock_power": {
+        "name": "Power Lock"
+      },
+      "e1_beep_control": {
+        "name": "Beep"
+      },
+      "e1_light_btn_on": {
+        "name": "Button Light"
+      },
+      "e1_light_strip_on": {
+        "name": "Light Strip"
+      },
       "warm_power": {
         "name": "Warm Power"
       },
@@ -507,6 +543,15 @@
       "e1_delay_minutes": {
         "name": "Delay"
       },
+      "e1_wash_region": {
+        "name": "Wash Region"
+      },
+      "e1_water_level": {
+        "name": "Water Level"
+      },
+      "e1_water_strong_level": {
+        "name": "Water Pressure Level"
+      },
       "heating_target_temperature": {
         "name": "Heating Target Temperature"
       },
@@ -688,6 +733,24 @@
     "sensor": {
       "e1_operator": {
         "name": "Run State"
+      },
+      "e1_wrong_operation": {
+        "name": "Wrong Operation"
+      },
+      "e1_dry_set_min": {
+        "name": "Dry Set Time"
+      },
+      "e1_clean_left_hour": {
+        "name": "Clean Remaining"
+      },
+      "e1_kitchenware_left_hour": {
+        "name": "Kitchenware Remaining"
+      },
+      "e1_device_version": {
+        "name": "Device Version"
+      },
+      "e1_throw_percent": {
+        "name": "Dispense Level"
       },
       "delay_remaining": {
         "name": "Delayed Start Remaining"
