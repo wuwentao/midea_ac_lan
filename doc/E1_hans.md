@@ -75,6 +75,7 @@
 | child_lock             | true 或 false                            |
 | power                  | true 或 false                            |
 | storage                | true 或 false                            |
+| mode_select            | 程序名, 如 `eco_wash`; 立即启动          |
 | program                | 程序名, 如 `eco_wash` (不会启动)         |
 | delay_minutes          | 1 至 1440                                |
 | door_auto_open_setting | true 或 false                            |
