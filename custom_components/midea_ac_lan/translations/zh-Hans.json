@@ -1406,7 +1406,20 @@
         "name": "湿度"
       },
       "variable_mode": {
-        "name": "变温区模式"
+        "name": "变温区模式",
+        "state": {
+          "none": "无",
+          "soft_freezing": "软冷冻",
+          "zero_fresh": "零度保鲜",
+          "cold_drink": "冷饮",
+          "fresh_product": "鲜品",
+          "partial_freezing": "微冻",
+          "dry_zone": "干燥区",
+          "freeze_warm": "冷冻 / 保温",
+          "baby": "母婴",
+          "treasure": "珍品",
+          "zero": "零度"
+        }
       },
       "compressor_frequency": {
         "name": "压缩机频率"
