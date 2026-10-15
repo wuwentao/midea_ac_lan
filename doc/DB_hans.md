@@ -8,35 +8,35 @@
 
 ### 额外生成实体
 
-| EntityID                                  | 类型          | 名称                       | 描述             |
-| ----------------------------------------- | ------------- | -------------------------- | ---------------- |
-| sensor.{DEVICEID}\_status                 | sensor        | Status                     | 状态             |
-| sensor.{DEVICEID}\_mode                   | sensor        | Mode                       | 模式             |
-| sensor.{DEVICEID}\_progress               | sensor        | Progress                   | 进度             |
-| sensor.{DEVICEID}\_program                | sensor        | Program                    | 程序             |
-| sensor.{DEVICEID}\_water_level            | sensor        | Water Level                | 水位             |
-| sensor.{DEVICEID}\_temperature            | sensor        | Temperature                | 温度             |
-| sensor.{DEVICEID}\_dehydration_speed      | sensor        | Dehydration Speed          | 脱水速度         |
-| sensor.{DEVICEID}\_dehydration_time       | sensor        | dehydration Time           | 脱水时间档位     |
-| sensor.{DEVICEID}\_dehydration_time_value | sensor        | Dehydration Time Value     | 脱水时间值       |
-| sensor.{DEVICEID}\_wash_time              | sensor        | Wash Time                  | 洗涤时间档位     |
-| sensor.{DEVICEID}\_wash_time_value        | sensor        | Wash Time Value            | 洗涤时间值       |
-| sensor.{DEVICEID}\_time_remaining         | sensor        | Time Remaining             | 剩余时间         |
-| sensor.{DEVICEID}\_detergent              | sensor        | Detergent                  | 洗涤剂           |
-| sensor.{DEVICEID}\_softener               | sensor        | Softener                   | 柔顺剂           |
-| sensor.{DEVICEID}\_stains                 | sensor        | Stains                     | 污渍             |
-| sensor.{DEVICEID}\_dirty_degree           | sensor        | Dirty Degree               | 脏度             |
-| switch.{DEVICEID}\_power                  | switch        | Power                      | 电源开关         |
-| switch.{DEVICEID}\_start                  | switch        | Start                      | 启动暂停         |
-| select.{DEVICEID}\_program_control        | select        | Washer program             | 洗衣程序         |
-| select.{DEVICEID}\_temperature_control    | select        | Water temperature          | 水温             |
-| select.{DEVICEID}\_spin_speed_control     | select        | Spin speed                 | 转速             |
-| select.{DEVICEID}\_rinse_count            | select        | Rinse count                | 漂洗次数         |
-| select.{DEVICEID}\_water_level_control    | select        | Water level                | 水位             |
-| select.{DEVICEID}\_detergent_control      | select        | Detergent dosing           | 洗衣液           |
-| select.{DEVICEID}\_wash_time_control      | select        | Wash time (min)            | 洗涤时间（分钟） |
-| select.{DEVICEID}\_spin_time_control      | select        | Spin time (min)            | 脱水时间（分钟） |
-| switch.{DEVICEID}\_forget_free            | switch        | Forget-free care           | 忘取无忧         |
+| EntityID                                  | 类型          | 描述                       |
+| ----------------------------------------- | ------------- | -------------------------- |
+| sensor.{DEVICEID}\_status                 | sensor        | 状态                       |
+| sensor.{DEVICEID}\_mode                   | sensor        | 模式                       |
+| sensor.{DEVICEID}\_progress               | sensor        | 进度                       |
+| sensor.{DEVICEID}\_program                | sensor        | 程序                       |
+| sensor.{DEVICEID}\_water_level            | sensor        | 水位                       |
+| sensor.{DEVICEID}\_temperature            | sensor        | 温度                       |
+| sensor.{DEVICEID}\_dehydration_speed      | sensor        | 脱水速度                   |
+| sensor.{DEVICEID}\_dehydration_time       | sensor        | 脱水时间档位               |
+| sensor.{DEVICEID}\_dehydration_time_value | sensor        | 脱水时间值                 |
+| sensor.{DEVICEID}\_wash_time              | sensor        | 洗涤时间档位               |
+| sensor.{DEVICEID}\_wash_time_value        | sensor        | 洗涤时间值                 |
+| sensor.{DEVICEID}\_time_remaining         | sensor        | 剩余时间                   |
+| sensor.{DEVICEID}\_detergent              | sensor        | 洗涤剂                     |
+| sensor.{DEVICEID}\_softener               | sensor        | 柔顺剂                     |
+| sensor.{DEVICEID}\_stains                 | sensor        | 污渍                       |
+| sensor.{DEVICEID}\_dirty_degree           | sensor        | 脏度                       |
+| switch.{DEVICEID}\_power                  | switch        | 电源开关                   |
+| switch.{DEVICEID}\_start                  | switch        | 启动暂停                   |
+| select.{DEVICEID}\_program_control        | select        | 洗衣程序                   |
+| select.{DEVICEID}\_temperature_control    | select        | 水温                       |
+| select.{DEVICEID}\_spin_speed_control     | select        | 转速                       |
+| select.{DEVICEID}\_rinse_count            | select        | 漂洗次数                   |
+| select.{DEVICEID}\_water_level_control    | select        | 水位                       |
+| select.{DEVICEID}\_detergent_control      | select        | 洗衣液                     |
+| select.{DEVICEID}\_wash_time_control      | select        | 洗涤时间（分钟）           |
+| select.{DEVICEID}\_spin_time_control      | select        | 脱水时间（分钟）           |
+| switch.{DEVICEID}\_forget_free            | switch        | 忘取无忧                   |
 | time.{DEVICEID}\_appointment_finish       | time          | 预约完成时间（设置即预约） |
 | button.{DEVICEID}\_cancel_appointment     | button        | 取消预约                   |
 | binary_sensor.{DEVICEID}\_appointment     | binary_sensor | 已预约                     |
@@ -102,3 +102,9 @@ data:
 **设置完成时间即登记未来自动洗涤／烘干。** 协议等待分钟数为“目标完成时间－当前时间－当前程序预计时长”。过早的目标、零等待、缺少程序时长和运行中的机器均拒绝设置。预计时长取设备回报，实际完成时刻仍受机器调整影响。
 
 用 `button.press` 按下取消预约，会同时暂停、清除预约标志和等待分钟数，保留其他程序参数；以真实回报确认取消，不乐观显示成功。预约等待时普通参数不可编辑，预约时间和取消入口仍可用。`binary_sensor.*_appointment` 单独显示真实预约标志。
+
+夏令时结束时，重复钟点选择未来 24 小时内最早的有效时刻，包括当前重复小时的第二次出现；夏令时开始跳过的钟点会拒绝设置。若下次有效钟点超过 24 小时，也会拒绝设置。
+
+## 其他滚筒洗衣机型号
+
+`38132386 / subtype 0`（MF201W110WB/GK-01）尚未启用本型号配置。相同的 `T_0000_DB_41.lua` 只能说明协议可能包含哪些字段，不能确认本机程序表和扩展功能。新增独立型号配置所需的匿名待机回报及美居参数信息见[协议库 PR 的核对清单](https://github.com/wuwentao/midea-lan/pull/206)。请保留真实型号和子类型，避免借用已验证型号后发送错误指令。

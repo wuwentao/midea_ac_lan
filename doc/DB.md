@@ -124,3 +124,9 @@ Enable the `appointment_finish` time entity, `cancel_appointment` button and `ap
 **Setting the completion time registers a future automatic cycle.** The protocol wait is the target deadline minus the current time minus the device-reported program duration. Targets that leave no positive wait, missing durations and running appliances are rejected. Completion remains an estimate that the appliance can adjust.
 
 Use `button.press` on the cancel button to pause and clear both the reservation flag and wait while retaining other program parameters. State changes require real device replies. Ordinary parameters remain unavailable while queued, but reservation editing and cancellation remain available. The binary sensor independently reports the actual reservation flag.
+
+When daylight saving time ends, repeated local times select the earliest valid future occurrence within 24 hours, including the second occurrence in the current repeated hour. Nonexistent times during a spring-forward gap and next occurrences beyond 24 hours are rejected.
+
+## Other DB models
+
+Model `38132386 / subtype 0` (MF201W110WB/GK-01) is not enabled by this profile. The reported shared `T_0000_DB_41.lua` describes possible protocol fields, not the model-specific program list or extended capabilities. See [the SDK verification checklist](https://github.com/wuwentao/midea-lan/pull/206) for the anonymized standby reports and app parameter values needed to add a separate profile. Keep the real model/subtype; changing them to impersonate the verified model can select incorrect commands.
