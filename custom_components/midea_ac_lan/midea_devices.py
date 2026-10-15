@@ -82,6 +82,51 @@ from midealan.devices.x26 import DeviceAttributes as X26Attributes
 from midealan.devices.x34 import DeviceAttributes as X34Attributes
 from midealan.devices.x40 import DeviceAttributes as X40Attributes
 
+# The protocol library exposes this capability only for verified model/subtype
+# pairs. String keys keep imports compatible with the currently released SDK.
+LAUNDRY_PARAMETER_CONFIG = {
+    "required_attribute": "parameter_control_supported",
+    "available_attribute": "parameter_controls_available",
+}
+LAUNDRY_SELECT_CONFIG = {
+    **LAUNDRY_PARAMETER_CONFIG,
+    "type": Platform.SELECT,
+    "options_method": "get_parameter_options",
+}
+
+# Reservations remain editable while queued, independently of ordinary parameters.
+LAUNDRY_APPOINTMENT_CONFIG = {
+    "required_attribute": "appointment_control_supported",
+    "available_attribute": "appointment_controls_available",
+}
+LAUNDRY_APPOINTMENT_ENTITIES = {
+    "appointment_finish": {
+        **LAUNDRY_APPOINTMENT_CONFIG,
+        "type": Platform.TIME,
+        "translation_key": "laundry_appointment_finish",
+        "name": "Finish time (sets reservation)",
+        "icon": "mdi:clock-end",
+        "completion_attribute": "appointment_finish",
+    },
+    "cancel_appointment": {
+        **LAUNDRY_APPOINTMENT_CONFIG,
+        "type": Platform.BUTTON,
+        "translation_key": "laundry_cancel_appointment",
+        "name": "Cancel reservation",
+        "icon": "mdi:calendar-remove",
+        "attribute": "appointment",
+        "press_value": False,
+    },
+    "appointment": {
+        "type": Platform.BINARY_SENSOR,
+        "required_attribute": "appointment_control_supported",
+        "available_value_attribute": "appointment",
+        "translation_key": "laundry_appointment",
+        "name": "Reservation",
+        "icon": "mdi:calendar-clock",
+    },
+}
+
 FRESH_AIR_EXHAUST = "fresh_air_exhaust"
 FRESH_AIR_EXHAUST_MODE = "fresh_air_exhaust_mode"
 FRESH_AIR_EXHAUST_POWER = "fresh_air_exhaust_power"
@@ -4085,6 +4130,55 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
     0xDC: {
         "name": "Clothes Dryer",
         "entities": {
+            **LAUNDRY_APPOINTMENT_ENTITIES,
+            "program_control": {
+                **LAUNDRY_SELECT_CONFIG,
+                "translation_key": "dryer_program_control",
+                "name": "Dryer program",
+                "icon": "mdi:tumble-dryer",
+            },
+            "dryness_control": {
+                **LAUNDRY_SELECT_CONFIG,
+                "translation_key": "dryer_dryness_control",
+                "name": "Dryness",
+                "icon": "mdi:tumble-dryer",
+                "available_value_attribute": "dryness_control",
+            },
+            "temperature_control": {
+                **LAUNDRY_SELECT_CONFIG,
+                "translation_key": "dryer_temperature_control",
+                "name": "Drying temperature",
+                "icon": "mdi:thermometer",
+                "available_value_attribute": "temperature_control",
+            },
+            "sterilize": {
+                **LAUNDRY_PARAMETER_CONFIG,
+                "type": Platform.SWITCH,
+                "translation_key": "dryer_sterilize",
+                "name": "Multidimensional sterilization",
+                "icon": "mdi:air-filter",
+                "available_value_attribute": "sterilize",
+            },
+            "anti_wrinkle": {
+                **LAUNDRY_PARAMETER_CONFIG,
+                "type": Platform.SWITCH,
+                "translation_key": "dryer_anti_wrinkle",
+                "name": "Smart anti-wrinkle",
+                "icon": "mdi:air-filter",
+                "available_value_attribute": "anti_wrinkle",
+            },
+            "timed_extra": {
+                **LAUNDRY_PARAMETER_CONFIG,
+                "type": Platform.NUMBER,
+                "translation_key": "dryer_timed_extra",
+                "name": "Timed drying extension",
+                "icon": "mdi:timer-plus-outline",
+                "available_value_attribute": "timed_extra",
+                "min": 0,
+                "max": 170,
+                "step": 10,
+                "unit": UnitOfTime.MINUTES,
+            },
             DCAttributes.time_remaining: {
                 "type": Platform.SENSOR,
                 "translation_key": "time_remaining",

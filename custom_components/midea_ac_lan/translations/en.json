@@ -450,11 +450,17 @@
       },
       "aux_heat_on": {
         "name": "Heater - Auxiliary Source"
+      },
+      "laundry_appointment": {
+        "name": "Reservation"
       }
     },
     "button": {
       "start": {
         "name": "Start"
+      },
+      "laundry_cancel_appointment": {
+        "name": "Cancel reservation"
       }
     },
     "climate": {
@@ -527,6 +533,9 @@
       },
       "keep_warm_time": {
         "name": "Keep Warm Time"
+      },
+      "dryer_timed_extra": {
+        "name": "Timed drying extension"
       }
     },
     "select": {
@@ -650,11 +659,69 @@
           "down_mid": "Down-Mid",
           "down": "Down"
         }
+      },
+      "dryer_program_control": {
+        "name": "Dryer program",
+        "state": {
+          "mixed_wash": "Mixed",
+          "wool": "Wool",
+          "night_dry": "Night drying",
+          "big_dry": "Bulky items",
+          "small_piece_dry": "Small items",
+          "baby_clothes": "Baby clothes",
+          "down_jacket": "Down jackets",
+          "quick_dry": "Quick dry",
+          "cotton": "Cotton and linen",
+          "shirt": "Shirts",
+          "jean": "Denim",
+          "underwear": "Underwear",
+          "school_uniform": "School uniforms",
+          "silk": "Silk",
+          "towel": "Bath towels",
+          "chiffon": "Chiffon",
+          "polar_fleece": "Polar fleece",
+          "hanfu": "Hanfu",
+          "hanfu_tang": "Hanfu™ Tang style",
+          "hanfu_song": "Hanfu™ Song style",
+          "hanfu_ming": "Hanfu™ Ming style",
+          "hanfu_modern": "Hanfu™ Modern style",
+          "sun_quilt": "Quilt airing",
+          "bucket_self_clean": "Drum clean",
+          "steam_care": "Steam care",
+          "fixed_time_dry": "Timed drying",
+          "warm_clothes": "Warm clothes",
+          "cold_air_fresh_air": "Cool-air refresh",
+          "sterilize_mite": "Sterilization and mite removal",
+          "bracket_dry": "Rack drying",
+          "pet_sterilize": "Pet sterilization",
+          "sport_clothes": "Sportswear",
+          "outdoor": "Outdoor clothes",
+          "quick_drying_clothes": "Quick-drying clothes",
+          "yoga": "Yoga clothes",
+          "air_wash": "Air wash"
+        }
+      },
+      "dryer_dryness_control": {
+        "name": "Dryness",
+        "state": {
+          "ready_to_wear": "Ready to wear",
+          "storage": "Storage"
+        }
+      },
+      "dryer_temperature_control": {
+        "name": "Drying temperature",
+        "state": {
+          "standard": "Standard",
+          "low": "Low"
+        }
       }
     },
     "time": {
       "timing_regeneration": {
         "name": "Timing Regeneration"
+      },
+      "laundry_appointment_finish": {
+        "name": "Finish time (sets reservation)"
       }
     },
     "sensor": {
@@ -1795,6 +1862,12 @@
       },
       "dhw_disinfect": {
         "name": "DHW - Disinfect"
+      },
+      "dryer_sterilize": {
+        "name": "Multidimensional sterilization"
+      },
+      "dryer_anti_wrinkle": {
+        "name": "Smart anti-wrinkle"
       }
     },
     "water_heater": {
