@@ -63,6 +63,11 @@
   },
   "entity": {
     "binary_sensor": {
+      "door_open": { "name": "Puerta Abierta" },
+      "turntable": { "name": "Plato Giratorio" },
+      "lack_box": { "name": "Falta Depósito" },
+      "change_water": { "name": "Aviso de Cambio de Agua" },
+      "ramadan": { "name": "Ramadán" },
       "warm_power": {
         "name": "Funcionamiento de calefacción"
       },
@@ -522,6 +527,16 @@
       }
     },
     "number": {
+      "screen_luminance": { "name": "Brillo de Pantalla" },
+      "volume": { "name": "Volumen" },
+      "temperature": { "name": "Temperatura Objetivo" },
+      "temperature_above": { "name": "Temperatura Objetivo Superior" },
+      "temperature_underside": { "name": "Temperatura Objetivo Inferior" },
+      "probe_temperature": { "name": "Temperatura Objetivo de la Sonda" },
+      "steam_quantity": { "name": "Cantidad de Vapor" },
+      "hour_set": { "name": "Ajuste de Hora" },
+      "minute_set": { "name": "Ajuste de Minutos" },
+      "second_set": { "name": "Ajuste de Segundos" },
       "heating_target_temperature": {
         "name": "Temperatura objetivo de calefacción"
       },
@@ -569,6 +584,44 @@
       }
     },
     "select": {
+      "work_status": {
+        "name": "Estado de Trabajo",
+        "state": {
+          "save_power": "Ahorro de Energía",
+          "standby": "En Espera",
+          "work": "Trabajando",
+          "pause": "Pausado",
+          "work_finish": "Finalizado",
+          "order": "Retraso",
+          "pause_c": "Pausado C",
+          "three": "Tres",
+          "self_inspection": "Autodiagnóstico",
+          "query_version": "Consultar Versión",
+          "demo": "Demostración",
+          "ramadan": "Ramadán",
+          "after_checking": "Tras Comprobación",
+          "wait_to_start": "Esperando Inicio",
+          "ff": "Desconocido"
+        }
+      },
+      "x9b_fire_power": {
+        "name": "Potencia",
+        "state": {
+          "high_power": "Alta",
+          "medium_high_power": "Media-Alta",
+          "medium_power": "Media",
+          "medium_low_power": "Media-Baja",
+          "low_power": "Baja",
+          "ff": "Desconocido"
+        }
+      },
+      "door": {
+        "name": "Puerta",
+        "state": {
+          "open": "Abrir",
+          "close": "Cerrar"
+        }
+      },
       "heating_mode": {
         "name": "Modo de calefacción",
         "state": {
@@ -697,6 +750,82 @@
       }
     },
     "sensor": {
+      "work_status": {
+        "name": "Estado de Trabajo",
+        "state": {
+          "save_power": "Ahorro de Energía",
+          "standby": "En Espera",
+          "work": "Trabajando",
+          "pause": "Pausado",
+          "work_finish": "Finalizado",
+          "order": "Retraso",
+          "pause_c": "Pausado C",
+          "three": "Tres",
+          "self_inspection": "Autodiagnóstico",
+          "query_version": "Consultar Versión",
+          "demo": "Demostración",
+          "ramadan": "Ramadán",
+          "after_checking": "Tras Comprobación",
+          "wait_to_start": "Esperando Inicio",
+          "ff": "Desconocido"
+        }
+      },
+      "x9b_fire_power": {
+        "name": "Potencia",
+        "state": {
+          "high_power": "Alta",
+          "medium_high_power": "Media-Alta",
+          "medium_power": "Media",
+          "medium_low_power": "Media-Baja",
+          "low_power": "Baja",
+          "ff": "Desconocido"
+        }
+      },
+      "pre_heat": {
+        "name": "Precalentamiento",
+        "state": {
+          "off": "Apagado",
+          "work": "Precalentando",
+          "end": "Precalentamiento Finalizado"
+        }
+      },
+      "water_status": {
+        "name": "Estado del Agua",
+        "state": {
+          "normal": "Normal",
+          "lack_box": "Falta Depósito",
+          "lack_water": "Falta de Agua",
+          "change_water": "Cambiar Agua"
+        }
+      },
+      "dissipate_heat": {
+        "name": "Disipar Calor",
+        "state": {
+          "off": "Apagado",
+          "work": "Disipando"
+        }
+      },
+      "execute": {
+        "name": "Estado de Ejecución",
+        "state": {
+          "ok": "OK",
+          "status_nonsupport": "Estado No Soportado",
+          "function_nonsupport": "Función No Soportada",
+          "param_range_error": "Error de Rango de Parámetro"
+        }
+      },
+      "sys_time_src": {
+        "name": "Fuente de Hora del Sistema",
+        "state": {
+          "module": "Módulo",
+          "app": "App",
+          "user_defined": "Definido por el Usuario"
+        }
+      },
+      "cur_temperature": { "name": "Temperatura Actual" },
+      "work_hour": { "name": "Hora de Trabajo" },
+      "work_minute": { "name": "Minuto de Trabajo" },
+      "work_second": { "name": "Segundo de Trabajo" },
       "three_way_mode": {
         "name": "Modo de tres vías"
       },
@@ -1318,6 +1447,7 @@
           "double_tube": "Doble Tubo",
           "hot_wind_tube_fan": "Aire caliente Tubo Ventilador",
           "pure_preheat": "Puro Precalentar",
+          "pure_preheat_2": "Puro Precalentar 2",
           "above_tube_hot_wind_tube_fan": "Superior Tubo Aire caliente Ventilador",
           "underside_tube_hot_wind_tube_fan": "Inferior Tubo Aire caliente Ventilador",
           "zymosis": "Fermentación",
@@ -1574,6 +1704,8 @@
       }
     },
     "switch": {
+      "lock": { "name": "Bloqueo Infantil" },
+      "camera": { "name": "Cámara" },
       "anion": {
         "name": "Anión"
       },

@@ -63,6 +63,11 @@
   },
   "entity": {
     "binary_sensor": {
+      "door_open": { "name": "Ajtó Nyitva" },
+      "turntable": { "name": "Forgótányér" },
+      "lack_box": { "name": "Hiányzó Tartály" },
+      "change_water": { "name": "Vízcsere Emlékeztető" },
+      "ramadan": { "name": "Ramadán" },
       "warm_power": {
         "name": "Fűtés üzem"
       },
@@ -522,6 +527,16 @@
       }
     },
     "number": {
+      "screen_luminance": { "name": "Képernyő Fényereje" },
+      "volume": { "name": "Hangerő" },
+      "temperature": { "name": "Cél Hőmérséklet" },
+      "temperature_above": { "name": "Cél Felső Hőmérséklet" },
+      "temperature_underside": { "name": "Cél Alsó Hőmérséklet" },
+      "probe_temperature": { "name": "Cél Szonda Hőmérséklet" },
+      "steam_quantity": { "name": "Gőzmennyiség" },
+      "hour_set": { "name": "Óra Beállítás" },
+      "minute_set": { "name": "Perc Beállítás" },
+      "second_set": { "name": "Másodperc Beállítás" },
       "heating_target_temperature": {
         "name": "Fűtés célhőmérséklet"
       },
@@ -569,6 +584,44 @@
       }
     },
     "select": {
+      "work_status": {
+        "name": "Munkaállapot",
+        "state": {
+          "save_power": "Energiatakarékos",
+          "standby": "Készenlét",
+          "work": "Működik",
+          "pause": "Szüneteltetve",
+          "work_finish": "Befejezve",
+          "order": "Késleltetés",
+          "pause_c": "Szüneteltetve C",
+          "three": "Három",
+          "self_inspection": "Önellenőrzés",
+          "query_version": "Verzió Lekérdezés",
+          "demo": "Demó",
+          "ramadan": "Ramadán",
+          "after_checking": "Ellenőrzés Után",
+          "wait_to_start": "Indításra Vár",
+          "ff": "Ismeretlen"
+        }
+      },
+      "x9b_fire_power": {
+        "name": "Teljesítmény",
+        "state": {
+          "high_power": "Magas",
+          "medium_high_power": "Közepes-Magas",
+          "medium_power": "Közepes",
+          "medium_low_power": "Közepes-Alacsony",
+          "low_power": "Alacsony",
+          "ff": "Ismeretlen"
+        }
+      },
+      "door": {
+        "name": "Ajtó",
+        "state": {
+          "open": "Nyitás",
+          "close": "Zárás"
+        }
+      },
       "heating_mode": {
         "name": "Fűtési mód",
         "state": {
@@ -697,6 +750,82 @@
       }
     },
     "sensor": {
+      "work_status": {
+        "name": "Munkaállapot",
+        "state": {
+          "save_power": "Energiatakarékos",
+          "standby": "Készenlét",
+          "work": "Működik",
+          "pause": "Szüneteltetve",
+          "work_finish": "Befejezve",
+          "order": "Késleltetés",
+          "pause_c": "Szüneteltetve C",
+          "three": "Három",
+          "self_inspection": "Önellenőrzés",
+          "query_version": "Verzió Lekérdezés",
+          "demo": "Demó",
+          "ramadan": "Ramadán",
+          "after_checking": "Ellenőrzés Után",
+          "wait_to_start": "Indításra Vár",
+          "ff": "Ismeretlen"
+        }
+      },
+      "x9b_fire_power": {
+        "name": "Teljesítmény",
+        "state": {
+          "high_power": "Magas",
+          "medium_high_power": "Közepes-Magas",
+          "medium_power": "Közepes",
+          "medium_low_power": "Közepes-Alacsony",
+          "low_power": "Alacsony",
+          "ff": "Ismeretlen"
+        }
+      },
+      "pre_heat": {
+        "name": "Előmelegítés",
+        "state": {
+          "off": "Ki",
+          "work": "Előmelegítés",
+          "end": "Előmelegítés Kész"
+        }
+      },
+      "water_status": {
+        "name": "Vízállapot",
+        "state": {
+          "normal": "Normál",
+          "lack_box": "Hiányzó Tartály",
+          "lack_water": "Vízhiány",
+          "change_water": "Vízcsere"
+        }
+      },
+      "dissipate_heat": {
+        "name": "Hőelvezetés",
+        "state": {
+          "off": "Ki",
+          "work": "Hőelvezetés"
+        }
+      },
+      "execute": {
+        "name": "Végrehajtási Állapot",
+        "state": {
+          "ok": "OK",
+          "status_nonsupport": "Állapot Nem Támogatott",
+          "function_nonsupport": "Funkció Nem Támogatott",
+          "param_range_error": "Paraméter Tartomány Hiba"
+        }
+      },
+      "sys_time_src": {
+        "name": "Rendszeridő Forrás",
+        "state": {
+          "module": "Modul",
+          "app": "Alkalmazás",
+          "user_defined": "Felhasználó Által Megadott"
+        }
+      },
+      "cur_temperature": { "name": "Jelenlegi Hőmérséklet" },
+      "work_hour": { "name": "Munkaóra" },
+      "work_minute": { "name": "Munkaperc" },
+      "work_second": { "name": "Munkamásodperc" },
       "three_way_mode": {
         "name": "Háromjáratú mód"
       },
@@ -1318,6 +1447,7 @@
           "double_tube": "Dupla Cső",
           "hot_wind_tube_fan": "Forró levegő Cső Ventilátor",
           "pure_preheat": "Tiszta Előmelegítés",
+          "pure_preheat_2": "Tiszta Előmelegítés 2",
           "above_tube_hot_wind_tube_fan": "Felső Cső Forró levegő Ventilátor",
           "underside_tube_hot_wind_tube_fan": "Alsó Cső Forró levegő Ventilátor",
           "zymosis": "Erjesztés",
@@ -1574,6 +1704,8 @@
       }
     },
     "switch": {
+      "lock": { "name": "Gyerekzár" },
+      "camera": { "name": "Kamera" },
       "anion": {
         "name": "Anion"
       },

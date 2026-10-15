@@ -63,6 +63,12 @@
   },
   "entity": {
     "binary_sensor": {
+      "door_open": { "name": "门已打开" },
+      "turntable": { "name": "转盘" },
+      "lack_box": { "name": "缺水盒" },
+      "change_water": { "name": "换水提醒" },
+      "ramadan": { "name": "斋月" },
+      "ota": { "name": "固件升级" },
       "warm_power": {
         "name": "制热运行"
       },
@@ -527,6 +533,16 @@
       }
     },
     "number": {
+      "screen_luminance": { "name": "屏幕亮度" },
+      "volume": { "name": "音量" },
+      "temperature": { "name": "目标温度" },
+      "temperature_above": { "name": "目标上部温度" },
+      "temperature_underside": { "name": "目标下部温度" },
+      "probe_temperature": { "name": "目标探针温度" },
+      "steam_quantity": { "name": "蒸汽量" },
+      "hour_set": { "name": "小时设置" },
+      "minute_set": { "name": "分钟设置" },
+      "second_set": { "name": "秒设置" },
       "heating_target_temperature": {
         "name": "采暖目标温度"
       },
@@ -574,6 +590,44 @@
       }
     },
     "select": {
+      "work_status": {
+        "name": "工作状态",
+        "state": {
+          "save_power": "节能",
+          "standby": "待机",
+          "work": "工作中",
+          "pause": "暂停",
+          "work_finish": "已完成",
+          "order": "预约",
+          "pause_c": "暂停C",
+          "three": "三",
+          "self_inspection": "自检",
+          "query_version": "查询版本",
+          "demo": "演示",
+          "ramadan": "斋月",
+          "after_checking": "检查后",
+          "wait_to_start": "等待开始",
+          "ff": "未知"
+        }
+      },
+      "x9b_fire_power": {
+        "name": "火力",
+        "state": {
+          "high_power": "大火",
+          "medium_high_power": "中大火",
+          "medium_power": "中火",
+          "medium_low_power": "中小火",
+          "low_power": "小火",
+          "ff": "未知"
+        }
+      },
+      "door": {
+        "name": "门",
+        "state": {
+          "open": "开门",
+          "close": "关门"
+        }
+      },
       "heating_mode": {
         "name": "采暖模式",
         "state": {
@@ -702,6 +756,83 @@
       }
     },
     "sensor": {
+      "work_status": {
+        "name": "工作状态",
+        "state": {
+          "save_power": "节能",
+          "standby": "待机",
+          "work": "工作中",
+          "pause": "暂停",
+          "work_finish": "已完成",
+          "order": "预约",
+          "pause_c": "暂停C",
+          "three": "三",
+          "self_inspection": "自检",
+          "query_version": "查询版本",
+          "demo": "演示",
+          "ramadan": "斋月",
+          "after_checking": "检查后",
+          "wait_to_start": "等待开始",
+          "ff": "未知"
+        }
+      },
+      "x9b_fire_power": {
+        "name": "火力",
+        "state": {
+          "high_power": "大火",
+          "medium_high_power": "中大火",
+          "medium_power": "中火",
+          "medium_low_power": "中小火",
+          "low_power": "小火",
+          "ff": "未知"
+        }
+      },
+      "pre_heat": {
+        "name": "预热",
+        "state": {
+          "off": "关闭",
+          "work": "预热中",
+          "end": "预热完成"
+        }
+      },
+      "water_status": {
+        "name": "水状态",
+        "state": {
+          "normal": "正常",
+          "lack_box": "缺水盒",
+          "lack_water": "缺水",
+          "change_water": "需换水"
+        }
+      },
+      "dissipate_heat": {
+        "name": "散热",
+        "state": {
+          "off": "关闭",
+          "work": "散热中"
+        }
+      },
+      "execute": {
+        "name": "执行状态",
+        "state": {
+          "ok": "正常",
+          "status_nonsupport": "状态不支持",
+          "function_nonsupport": "功能不支持",
+          "param_range_error": "参数范围错误"
+        }
+      },
+      "sys_time_src": {
+        "name": "系统时间源",
+        "state": {
+          "module": "模块",
+          "app": "App",
+          "user_defined": "用户自定义"
+        }
+      },
+      "cur_temperature": { "name": "当前温度" },
+      "work_hour": { "name": "工作小时" },
+      "work_minute": { "name": "工作分钟" },
+      "work_second": { "name": "工作秒" },
+      "cbs_version": { "name": "CBS版本" },
       "gas_usage_daily": {
         "name": "日用气量"
       },
@@ -1340,6 +1471,7 @@
           "double_tube": "双管",
           "hot_wind_tube_fan": "热风管风扇",
           "pure_preheat": "纯预热",
+          "pure_preheat_2": "纯预热 2",
           "above_tube_hot_wind_tube_fan": "上管热风风扇",
           "underside_tube_hot_wind_tube_fan": "下管热风风扇",
           "zymosis": "发酵",
@@ -1596,6 +1728,8 @@
       }
     },
     "switch": {
+      "lock": { "name": "童锁" },
+      "camera": { "name": "摄像头" },
       "anion": {
         "name": "负离子开关"
       },
