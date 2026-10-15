@@ -14,6 +14,8 @@ from .midea_devices import MIDEA_DEVICES
 from .midea_entity import MideaEntity
 
 if TYPE_CHECKING:
+    from collections.abc import Callable
+
     from midealan.devices.e1 import MideaE1Device
 
 
@@ -57,10 +59,17 @@ class MideaSelect(MideaEntity, SelectEntity):
         self._attribute_key = self._config.get("attribute", entity_key)
         self._options_name = self._config.get("options")
         self._options_dict_name = self._config.get("options_dict")
+        self._options_method = self._config.get("options_method")
 
     @property
     def options(self) -> list[str]:
         """Available options for the entity."""
+        if self._options_method:
+            get_options = cast(
+                "Callable[[str], list[str]]",
+                getattr(self._device, self._options_method),
+            )
+            return get_options(self._attribute_key)
         if self._options_dict_name:
             options = self._get_options_dict()
             codes_by_model = self._config.get("options_codes_by_model", {})

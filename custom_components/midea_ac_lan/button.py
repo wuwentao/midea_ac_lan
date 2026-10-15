@@ -36,6 +36,12 @@ async def async_setup_entry(
             and supports_device(device.model, device.subtype, config)
             and (config.get("default") or entity_key in extra_switches)
         ):
+            required_attribute = config.get("required_attribute")
+            if (
+                required_attribute is not None
+                and required_attribute not in device.attributes
+            ):
+                continue
             buttons.append(MideaButton(device, entity_key))
     async_add_entities(buttons)
 
@@ -57,12 +63,19 @@ class MideaButton(MideaEntity, ButtonEntity):
             self._power_attribute,
         ):
             return False
-        return self._get_current_mode_code() not in {None, 0}
+        if self._config.get("set_message") == "e1_start":
+            return self._get_current_mode_code() not in {None, 0}
+        return True
 
     def press(self) -> None:
         """Press button."""
         if self._config.get("set_message") == "e1_start":
             self._press_e1_start()
+        elif "press_value" in self._config:
+            self._device.set_attribute(
+                self._config.get("attribute", self._entity_key),
+                self._config["press_value"],
+            )
 
     def _press_e1_start(self) -> None:
         """Start E1 dishwasher using the current mode.
@@ -98,5 +111,9 @@ class MideaButton(MideaEntity, ButtonEntity):
     def update_state(self, status: Any) -> None:  # ruff:ignore[any-type]
         """Update entity state."""
         super().update_state(status)
-        if self.hass and ("mode" in status or self._power_attribute in status):
+        if self.hass and (
+            "mode" in status
+            or self._power_attribute in status
+            or self._config.get("available_attribute") in status
+        ):
             self.schedule_update_if_running()
