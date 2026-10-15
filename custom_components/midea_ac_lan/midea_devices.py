@@ -82,6 +82,51 @@ from midealan.devices.x26 import DeviceAttributes as X26Attributes
 from midealan.devices.x34 import DeviceAttributes as X34Attributes
 from midealan.devices.x40 import DeviceAttributes as X40Attributes
 
+# The protocol library exposes this capability only for verified model/subtype
+# pairs. String keys keep imports compatible with the currently released SDK.
+LAUNDRY_PARAMETER_CONFIG = {
+    "required_attribute": "parameter_control_supported",
+    "available_attribute": "parameter_controls_available",
+}
+LAUNDRY_SELECT_CONFIG = {
+    **LAUNDRY_PARAMETER_CONFIG,
+    "type": Platform.SELECT,
+    "options_method": "get_parameter_options",
+}
+
+# Reservations remain editable while queued, independently of ordinary parameters.
+LAUNDRY_APPOINTMENT_CONFIG = {
+    "required_attribute": "appointment_control_supported",
+    "available_attribute": "appointment_controls_available",
+}
+LAUNDRY_APPOINTMENT_ENTITIES = {
+    "appointment_finish": {
+        **LAUNDRY_APPOINTMENT_CONFIG,
+        "type": Platform.TIME,
+        "translation_key": "laundry_appointment_finish",
+        "name": "Finish time (sets reservation)",
+        "icon": "mdi:clock-end",
+        "completion_attribute": "appointment_finish",
+    },
+    "cancel_appointment": {
+        **LAUNDRY_APPOINTMENT_CONFIG,
+        "type": Platform.BUTTON,
+        "translation_key": "laundry_cancel_appointment",
+        "name": "Cancel reservation",
+        "icon": "mdi:calendar-remove",
+        "attribute": "appointment",
+        "press_value": False,
+    },
+    "appointment": {
+        "type": Platform.BINARY_SENSOR,
+        "required_attribute": "appointment_control_supported",
+        "available_value_attribute": "appointment",
+        "translation_key": "laundry_appointment",
+        "name": "Reservation",
+        "icon": "mdi:calendar-clock",
+    },
+}
+
 FRESH_AIR_EXHAUST = "fresh_air_exhaust"
 FRESH_AIR_EXHAUST_MODE = "fresh_air_exhaust_mode"
 FRESH_AIR_EXHAUST_POWER = "fresh_air_exhaust_power"
@@ -3964,6 +4009,70 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
     0xDB: {
         "name": "Front Load Washer",
         "entities": {
+            **LAUNDRY_APPOINTMENT_ENTITIES,
+            "program_control": {
+                **LAUNDRY_SELECT_CONFIG,
+                "translation_key": "washer_program_control",
+                "name": "Washer program",
+                "icon": "mdi:washing-machine",
+            },
+            "temperature_control": {
+                **LAUNDRY_SELECT_CONFIG,
+                "translation_key": "washer_temperature_control",
+                "name": "Water temperature",
+                "icon": "mdi:thermometer",
+                "available_value_attribute": "temperature_control",
+            },
+            "spin_speed_control": {
+                **LAUNDRY_SELECT_CONFIG,
+                "translation_key": "washer_spin_speed_control",
+                "name": "Spin speed",
+                "icon": "mdi:rotate-right",
+                "available_value_attribute": "spin_speed_control",
+            },
+            "rinse_count": {
+                **LAUNDRY_SELECT_CONFIG,
+                "translation_key": "washer_rinse_count",
+                "name": "Rinse count",
+                "icon": "mdi:waves",
+                "available_value_attribute": "rinse_count",
+            },
+            "water_level_control": {
+                **LAUNDRY_SELECT_CONFIG,
+                "translation_key": "washer_water_level_control",
+                "name": "Water level",
+                "icon": "mdi:water",
+                "available_value_attribute": "water_level_control",
+            },
+            "detergent_control": {
+                **LAUNDRY_SELECT_CONFIG,
+                "translation_key": "washer_detergent_control",
+                "name": "Detergent dosing",
+                "icon": "mdi:bottle-tonic",
+                "available_value_attribute": "detergent_control",
+            },
+            "wash_time_control": {
+                **LAUNDRY_SELECT_CONFIG,
+                "translation_key": "washer_wash_time_control",
+                "name": "Wash time (min)",
+                "icon": "mdi:timer-outline",
+                "available_value_attribute": "wash_time_control",
+            },
+            "spin_time_control": {
+                **LAUNDRY_SELECT_CONFIG,
+                "translation_key": "washer_spin_time_control",
+                "name": "Spin time (min)",
+                "icon": "mdi:timer-outline",
+                "available_value_attribute": "spin_time_control",
+            },
+            "forget_free": {
+                **LAUNDRY_PARAMETER_CONFIG,
+                "type": Platform.SWITCH,
+                "translation_key": "washer_forget_free",
+                "name": "Forget-free care",
+                "icon": "mdi:air-filter",
+                "available_value_attribute": "forget_free",
+            },
             DBAttributes.time_remaining: {
                 "type": Platform.SENSOR,
                 "translation_key": "time_remaining",
