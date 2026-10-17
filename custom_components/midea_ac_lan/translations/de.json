@@ -63,6 +63,45 @@
   },
   "entity": {
     "binary_sensor": {
+      "door_auto_open": {
+        "name": "Automatische Türöffnung (letztes Programm)"
+      },
+      "uv": {
+        "name": "UV"
+      },
+      "dry": {
+        "name": "Trocknen"
+      },
+      "dry_status": {
+        "name": "Trocknet"
+      },
+      "storage_status": {
+        "name": "Aufbewahrung aktiv"
+      },
+      "waterswitch": {
+        "name": "Wasserschalter"
+      },
+      "water_lack": {
+        "name": "Wassermangel"
+      },
+      "wifi_unabled": {
+        "name": "WLAN deaktiviert"
+      },
+      "auto_throw": {
+        "name": "Automatische Dosierung"
+      },
+      "lock_power": {
+        "name": "Einschaltsperre"
+      },
+      "beep_control": {
+        "name": "Signalton"
+      },
+      "light_btn_on": {
+        "name": "Tastenbeleuchtung"
+      },
+      "light_strip_on": {
+        "name": "Lichtleiste"
+      },
       "warm_power": {
         "name": "Heizbetrieb"
       },
@@ -486,6 +525,18 @@
       }
     },
     "button": {
+      "start_delayed": {
+        "name": "Verzögert starten"
+      },
+      "pause": {
+        "name": "Pause"
+      },
+      "resume": {
+        "name": "Fortsetzen"
+      },
+      "cancel": {
+        "name": "Abbrechen"
+      },
       "start": {
         "name": "Start"
       }
@@ -522,6 +573,18 @@
       }
     },
     "number": {
+      "delay_minutes": {
+        "name": "Startverzögerung"
+      },
+      "wash_region": {
+        "name": "Spülzone"
+      },
+      "water_level": {
+        "name": "Wasserstand"
+      },
+      "water_strong_level": {
+        "name": "Wasserdruckstufe"
+      },
       "heating_target_temperature": {
         "name": "Heizungs-Solltemperatur"
       },
@@ -569,6 +632,22 @@
       }
     },
     "select": {
+      "wash_mode_76000228": {
+        "name": "Waschmodus"
+      },
+      "program_76000228": {
+        "name": "Programm"
+      },
+      "program": {
+        "name": "Programm"
+      },
+      "load": {
+        "name": "Beladung",
+        "state": {
+          "0": "Voll",
+          "2": "Halb"
+        }
+      },
       "heating_mode": {
         "name": "Heizmodus",
         "state": {
@@ -697,6 +776,42 @@
       }
     },
     "sensor": {
+      "dishwasher_mode": {
+        "name": "Mode"
+      },
+      "dishwasher_mode_76000228": {
+        "name": "Mode"
+      },
+      "dishwasher_status": {
+        "name": "Status"
+      },
+      "dishwasher_progress": {
+        "name": "Progress"
+      },
+      "operator": {
+        "name": "Laufstatus"
+      },
+      "wrong_operation": {
+        "name": "Fehlbedienung"
+      },
+      "dry_set_min": {
+        "name": "Trocknungszeit"
+      },
+      "clean_left_hour": {
+        "name": "Reinigung verbleibend"
+      },
+      "kitchenware_left_hour": {
+        "name": "Geschirr verbleibend"
+      },
+      "device_version": {
+        "name": "Geräteversion"
+      },
+      "throw_percent": {
+        "name": "Dosierfüllstand"
+      },
+      "delay_remaining": {
+        "name": "Verbleibende Startverzögerung"
+      },
       "three_way_mode": {
         "name": "Dreiwegemodus"
       },
@@ -1574,6 +1689,9 @@
       }
     },
     "switch": {
+      "door_auto_open_setting": {
+        "name": "Automatische Türöffnung"
+      },
       "anion": {
         "name": "Anion"
       },

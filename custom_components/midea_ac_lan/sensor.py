@@ -4,7 +4,7 @@ import logging
 import math
 import time
 from datetime import timedelta
-from typing import Any, cast
+from typing import TYPE_CHECKING, Any, cast
 
 from homeassistant.components.sensor import (
     SensorDeviceClass,
@@ -27,6 +27,9 @@ from .cloud import (
 from .const import DEVICES, DOMAIN, supports_device
 from .midea_devices import MIDEA_DEVICES
 from .midea_entity import MideaEntity
+
+if TYPE_CHECKING:
+    from midealan.devices.e1 import MideaE1Device
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -315,12 +318,15 @@ class MideaEstimatedUsageSensor(MideaSensor, RestoreEntity):
     The dishwasher does not report actual energy/water usage, so this sensor
     accumulates a fixed per-mode estimate (from the product manual) once each
     time a wash run *completes*. Completion is detected by the device
-    ``progress`` attribute reaching ``"Complete"``; a cancelled or errored run
-    never reaches that state and is therefore not counted.
+    ``progress`` attribute reaching ``"complete"``; a cancelled or errored run
+    never reaches that state and is therefore not counted. The estimate table
+    is keyed by mode code, so it doesn't depend on the library's mode names,
+    and chosen per model (``values_by_model``), since figures differ by model.
     """
 
-    _COMPLETE_PROGRESS = "Complete"
-    _RUNNING_STATUS = "Running"
+    # Values reported by midea-lan since 2026.9.2 (lowercase keys).
+    _COMPLETE_PROGRESS = "complete"
+    _RUNNING_STATUS = "running"
 
     def __init__(self, device: MideaDevice, entity_key: str) -> None:
         """Initialize estimated usage sensor."""
@@ -352,13 +358,38 @@ class MideaEstimatedUsageSensor(MideaSensor, RestoreEntity):
     @property
     def extra_state_attributes(self) -> dict[str, Any]:
         """Estimate metadata for the sensor."""
-        estimate = cast("dict[str, Any]", self._config["estimate"])
+        modes = cast("MideaE1Device", self._device).modes
         return {
             "estimate_source": "fixed_per_wash_mode",
-            "known_modes": list(cast("dict[str, float]", estimate["values"]).keys()),
+            "known_modes": [modes.get(code, str(code)) for code in self._values()],
             "last_progress": self._last_progress,
             "running_mode": self._running_mode,
         }
+
+    def _values(self) -> dict[int, float]:
+        """Return this model's per-run estimate, keyed by mode code.
+
+        Returns
+        -------
+        Estimate per mode code, empty if the model has no figures.
+
+        """
+        by_model = cast(
+            "dict[str, dict[int, float]]",
+            self._config["estimate"]["values_by_model"],
+        )
+        return by_model.get(str(self._device.model), {})
+
+    def _mode_code(self, mode: str | None) -> int | None:
+        """Return the code of a reported mode name.
+
+        Returns
+        -------
+        The mode code, or None if the name is unknown.
+
+        """
+        modes = cast("MideaE1Device", self._device).modes
+        return next((code for code, name in modes.items() if name == mode), None)
 
     def update_state(self, status: Any) -> None:  # ruff:ignore[any-type]
         """Accumulate the estimate once when a dishwasher run completes."""
@@ -381,9 +412,10 @@ class MideaEstimatedUsageSensor(MideaSensor, RestoreEntity):
             and self._last_progress != self._COMPLETE_PROGRESS
         ):
             mode = self._running_mode or current_mode
-            values = cast("dict[str, float]", self._config["estimate"]["values"])
-            if mode in values:
-                self._native_value += values[mode]
+            values = self._values()
+            code = self._mode_code(mode)
+            if code in values:
+                self._native_value += values[code]
             self._running_mode = None
 
         self._last_progress = current_progress

@@ -63,6 +63,45 @@
   },
   "entity": {
     "binary_sensor": {
+      "door_auto_open": {
+        "name": "Автооткрывание двери (последняя программа)"
+      },
+      "uv": {
+        "name": "УФ"
+      },
+      "dry": {
+        "name": "Сушка"
+      },
+      "dry_status": {
+        "name": "Идёт сушка"
+      },
+      "storage_status": {
+        "name": "Хранение активно"
+      },
+      "waterswitch": {
+        "name": "Водяной клапан"
+      },
+      "water_lack": {
+        "name": "Нехватка воды"
+      },
+      "wifi_unabled": {
+        "name": "WiFi отключён"
+      },
+      "auto_throw": {
+        "name": "Автодозация"
+      },
+      "lock_power": {
+        "name": "Блокировка питания"
+      },
+      "beep_control": {
+        "name": "Звуковой сигнал"
+      },
+      "light_btn_on": {
+        "name": "Подсветка кнопок"
+      },
+      "light_strip_on": {
+        "name": "Световая полоса"
+      },
       "warm_power": {
         "name": "Режим обогрева"
       },
@@ -486,6 +525,18 @@
       }
     },
     "button": {
+      "start_delayed": {
+        "name": "Отложенный старт"
+      },
+      "pause": {
+        "name": "Пауза"
+      },
+      "resume": {
+        "name": "Продолжить"
+      },
+      "cancel": {
+        "name": "Отмена"
+      },
       "start": {
         "name": "Старт"
       }
@@ -522,6 +573,18 @@
       }
     },
     "number": {
+      "delay_minutes": {
+        "name": "Задержка"
+      },
+      "wash_region": {
+        "name": "Зона мойки"
+      },
+      "water_level": {
+        "name": "Уровень воды"
+      },
+      "water_strong_level": {
+        "name": "Уровень напора воды"
+      },
       "heating_target_temperature": {
         "name": "Целевая температура отопления"
       },
@@ -569,6 +632,22 @@
       }
     },
     "select": {
+      "wash_mode_76000228": {
+        "name": "Режим мойки"
+      },
+      "program_76000228": {
+        "name": "Программа"
+      },
+      "program": {
+        "name": "Программа"
+      },
+      "load": {
+        "name": "Загрузка",
+        "state": {
+          "0": "Полная",
+          "2": "Половинная"
+        }
+      },
       "heating_mode": {
         "name": "Режим отопления",
         "state": {
@@ -697,6 +776,42 @@
       }
     },
     "sensor": {
+      "dishwasher_mode": {
+        "name": "Режим"
+      },
+      "dishwasher_mode_76000228": {
+        "name": "Режим"
+      },
+      "dishwasher_status": {
+        "name": "Статус"
+      },
+      "dishwasher_progress": {
+        "name": "Этап"
+      },
+      "operator": {
+        "name": "Состояние работы"
+      },
+      "wrong_operation": {
+        "name": "Неверная операция"
+      },
+      "dry_set_min": {
+        "name": "Время сушки"
+      },
+      "clean_left_hour": {
+        "name": "Осталось до чистки"
+      },
+      "kitchenware_left_hour": {
+        "name": "Осталось для посуды"
+      },
+      "device_version": {
+        "name": "Версия устройства"
+      },
+      "throw_percent": {
+        "name": "Уровень дозатора"
+      },
+      "delay_remaining": {
+        "name": "Осталось до отложенного старта"
+      },
       "three_way_mode": {
         "name": "Трёхходовой режим"
       },
@@ -1574,6 +1689,9 @@
       }
     },
     "switch": {
+      "door_auto_open_setting": {
+        "name": "Автооткрывание двери"
+      },
       "anion": {
         "name": "Anion"
       },
