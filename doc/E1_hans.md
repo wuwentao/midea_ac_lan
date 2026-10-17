@@ -31,7 +31,7 @@
 > 不会停止正在运行的程序。
 >
 > Program、Delay、Door Auto-Open 和 Load 保存在内存中, Home Assistant 重启后重置。
-> 关机时也可以修改这些设置; Program、Wash Mode 和各按钮仅在洗碗机开机时可用。
+> 关机时也可以修改 Delay、Door Auto-Open 和 Load; Program、Wash Mode 和各按钮仅在洗碗机开机时可用。
 >
 > 程序、模式、状态、进度和运行状态显示可读名称 (英文和西班牙文; 其他语言显示英文),
 > `76000228` 型号使用其面板上的程序名称。实体状态值保持库中的原始值 (`eco_wash`、
