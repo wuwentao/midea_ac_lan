@@ -4,23 +4,23 @@
 
 ### 默认实体
 
-| EntityID                                        | 类型   | 名称                         | 描述                           |
-| ----------------------------------------------- | ------ | ---------------------------- | ------------------------------ |
-| select.{DEVICEID}\_mode_select                  | select | Wash Mode                    | 洗涤模式 (选择后立即启动)      |
-| select.{DEVICEID}\_program                      | select | Program                      | 下次启动的程序 (不会立即启动)  |
-| number.{DEVICEID}\_delay_minutes                | number | Delay                        | 预约时间, 分钟 (1-1440)        |
-| switch.{DEVICEID}\_door_auto_open_setting       | switch | Door Auto-Open               | 下次启动时自动开门             |
-| select.{DEVICEID}\_additional_setting           | select | Load                         | 满载/半载 (仅 `76000228` 型号) |
-| number.{DEVICEID}\_wash_region_setting          | number | Wash Region                  | 下次启动的洗涤区域 (0-255)     |
-| number.{DEVICEID}\_water_level_setting          | number | Water Level                  | 下次启动的水位 (0-255)         |
-| number.{DEVICEID}\_water_strong_level_setting   | number | Water Pressure Level         | 下次启动的水压档位 (0-255)     |
-| button.{DEVICEID}\_start                        | button | Start                        | 启动                           |
-| button.{DEVICEID}\_start_delayed                | button | Start Delayed                | 预约启动                       |
-| button.{DEVICEID}\_cancel                       | button | Cancel                       | 取消 (运行中的程序或预约)      |
-| button.{DEVICEID}\_pause                        | button | Pause                        | 暂停                           |
-| button.{DEVICEID}\_resume                       | button | Resume                       | 继续                           |
-| sensor.{DEVICEID}\_estimated_energy_consumption | sensor | Estimated Energy Consumption | 预估能耗 (仅 `7600024L`)       |
-| sensor.{DEVICEID}\_estimated_water_consumption  | sensor | Estimated Water Consumption  | 预估水耗 (仅 `7600024L`)       |
+| EntityID                                        | 类型   | 名称                         | 描述                                 |
+| ----------------------------------------------- | ------ | ---------------------------- | ------------------------------------ |
+| select.{DEVICEID}\_mode_select                  | select | Wash Mode                    | 洗涤模式 (选择后立即启动)            |
+| select.{DEVICEID}\_program                      | select | Program                      | 下次启动的程序 (不会立即启动)        |
+| number.{DEVICEID}\_delay_minutes                | number | Delay                        | 预约时间, 分钟 (1-1440)              |
+| switch.{DEVICEID}\_door_auto_open_setting       | switch | Door Auto-Open               | 下次启动时自动开门                   |
+| select.{DEVICEID}\_additional_setting           | select | Load                         | 满载/半载 (仅 `76000228` 型号)       |
+| number.{DEVICEID}\_wash_region_setting          | number | Wash Region                  | 下次启动的洗涤区域 (0-255)           |
+| number.{DEVICEID}\_water_level_setting          | number | Water Level                  | 下次启动的水位 (0-255)               |
+| number.{DEVICEID}\_water_strong_level_setting   | number | Water Pressure Level         | 下次启动的水压档位 (0-255)           |
+| button.{DEVICEID}\_start                        | button | Start                        | 启动                                 |
+| button.{DEVICEID}\_start_delayed                | button | Start Delayed                | 预约启动                             |
+| button.{DEVICEID}\_cancel                       | button | Cancel                       | 取消 (运行中的程序或预约)            |
+| button.{DEVICEID}\_pause                        | button | Pause                        | 暂停                                 |
+| button.{DEVICEID}\_resume                       | button | Resume                       | 继续                                 |
+| sensor.{DEVICEID}\_estimated_energy_consumption | sensor | Estimated Energy Consumption | 预估能耗 (仅 `7600024L`, `76000228`) |
+| sensor.{DEVICEID}\_estimated_water_consumption  | sensor | Estimated Water Consumption  | 预估水耗 (仅 `7600024L`, `76000228`) |
 
 > 启动程序: 在 **Program** 中选择程序, 按需设置 **Door Auto-Open** 和 **Load**,
 > 然后按 **Start**。预约启动: 再设置 **Delay** 并按 **Start Delayed**。未选择

@@ -4393,17 +4393,33 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "state_class": SensorStateClass.TOTAL_INCREASING,
                 "estimate": {
                     "kind": "energy",
-                    "values": {
-                        0x0D: 0.765,  # germ
-                        0x04: 0.99,  # eco_wash
-                        0x02: 1.28,  # strong_wash
-                        0x06: 0.91,  # hour_wash
-                        0x08: 0.02,  # soak_wash
-                        0x0A: 1.524,  # self_clean
-                        0x0B: 1.625,  # fruit_wash
+                    "values_by_model": {
+                        "7600024L": {
+                            0x0D: 0.765,  # germ
+                            0x04: 0.99,  # eco_wash
+                            0x02: 1.28,  # strong_wash
+                            0x06: 0.91,  # hour_wash
+                            0x08: 0.02,  # soak_wash
+                            0x0A: 1.524,  # self_clean
+                            0x0B: 1.625,  # fruit_wash
+                        },
+                        # MDWPF1433CSS-W-EU manual, programme table; only ECO
+                        # is measured to EN 60436, the rest are indicative.
+                        "76000228": {
+                            0x02: 1.615,  # strong_wash, Intensive
+                            0x03: 1.23,  # standard_wash, Universal
+                            0x04: 0.746,  # eco_wash, ECO
+                            0x05: 0.995,  # glass_wash, Glass
+                            0x06: 1.18,  # hour_wash, 90 min
+                            0x07: 0.82,  # fast_wash, Rapid
+                            0x08: 0.018,  # soak_wash, Soak
+                            0x0D: 0.771,  # germ, Whisper
+                            0x0F: 1.815,  # kill_germ, Hygiene
+                            0x10: 1.405,  # sea_food_wash, Self clean
+                        },
                     },
                 },
-                "models": ["7600024L"],
+                "models": ["7600024L", "76000228"],
                 "default": True,
             },
             "estimated_water_consumption": {
@@ -4416,17 +4432,33 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "state_class": SensorStateClass.TOTAL_INCREASING,
                 "estimate": {
                     "kind": "water",
-                    "values": {
-                        0x0D: 9.9,  # germ
-                        0x04: 10.4,  # eco_wash
-                        0x02: 13.9,  # strong_wash
-                        0x06: 10.4,  # hour_wash
-                        0x08: 3.4,  # soak_wash
-                        0x0A: 10.3,  # self_clean
-                        0x0B: 13.3,  # fruit_wash
+                    "values_by_model": {
+                        "7600024L": {
+                            0x0D: 9.9,  # germ
+                            0x04: 10.4,  # eco_wash
+                            0x02: 13.9,  # strong_wash
+                            0x06: 10.4,  # hour_wash
+                            0x08: 3.4,  # soak_wash
+                            0x0A: 10.3,  # self_clean
+                            0x0B: 13.3,  # fruit_wash
+                        },
+                        # MDWPF1433CSS-W-EU manual, programme table; only ECO
+                        # is measured to EN 60436, the rest are indicative.
+                        "76000228": {
+                            0x02: 18.6,  # strong_wash, Intensive
+                            0x03: 14.8,  # standard_wash, Universal
+                            0x04: 10.2,  # eco_wash, ECO
+                            0x05: 14.8,  # glass_wash, Glass
+                            0x06: 11.9,  # hour_wash, 90 min
+                            0x07: 11.3,  # fast_wash, Rapid
+                            0x08: 4.1,  # soak_wash, Soak
+                            0x0D: 10.2,  # germ, Whisper
+                            0x0F: 14.9,  # kill_germ, Hygiene
+                            0x10: 15.1,  # sea_food_wash, Self clean
+                        },
                     },
                 },
-                "models": ["7600024L"],
+                "models": ["7600024L", "76000228"],
                 "default": True,
             },
             E1Attributes.error_code: {

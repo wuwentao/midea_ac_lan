@@ -320,7 +320,8 @@ class MideaEstimatedUsageSensor(MideaSensor, RestoreEntity):
     time a wash run *completes*. Completion is detected by the device
     ``progress`` attribute reaching ``"complete"``; a cancelled or errored run
     never reaches that state and is therefore not counted. The estimate table
-    is keyed by mode code, so it doesn't depend on the library's mode names.
+    is keyed by mode code, so it doesn't depend on the library's mode names,
+    and chosen per model (``values_by_model``), since figures differ by model.
     """
 
     # Values reported by midea-lan since 2026.9.2 (lowercase keys).
@@ -357,17 +358,27 @@ class MideaEstimatedUsageSensor(MideaSensor, RestoreEntity):
     @property
     def extra_state_attributes(self) -> dict[str, Any]:
         """Estimate metadata for the sensor."""
-        estimate = cast("dict[str, Any]", self._config["estimate"])
         modes = cast("MideaE1Device", self._device).modes
         return {
             "estimate_source": "fixed_per_wash_mode",
-            "known_modes": [
-                modes.get(code, str(code))
-                for code in cast("dict[int, float]", estimate["values"])
-            ],
+            "known_modes": [modes.get(code, str(code)) for code in self._values()],
             "last_progress": self._last_progress,
             "running_mode": self._running_mode,
         }
+
+    def _values(self) -> dict[int, float]:
+        """Return this model's per-run estimate, keyed by mode code.
+
+        Returns
+        -------
+        Estimate per mode code, empty if the model has no figures.
+
+        """
+        by_model = cast(
+            "dict[str, dict[int, float]]",
+            self._config["estimate"]["values_by_model"],
+        )
+        return by_model.get(str(self._device.model), {})
 
     def _mode_code(self, mode: str | None) -> int | None:
         """Return the code of a reported mode name.
@@ -401,7 +412,7 @@ class MideaEstimatedUsageSensor(MideaSensor, RestoreEntity):
             and self._last_progress != self._COMPLETE_PROGRESS
         ):
             mode = self._running_mode or current_mode
-            values = cast("dict[int, float]", self._config["estimate"]["values"])
+            values = self._values()
             code = self._mode_code(mode)
             if code in values:
                 self._native_value += values[code]
