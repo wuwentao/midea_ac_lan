@@ -31,7 +31,7 @@
 > 不会停止正在运行的程序。
 >
 > Program、Delay、Door Auto-Open 和 Load 保存在内存中, Home Assistant 重启后重置。
-> 关机时也可以修改这些设置; Program、Wash Mode 和各按钮仅在洗碗机开机时可用。
+> 关机时也可以修改 Delay、Door Auto-Open 和 Load; Program、Wash Mode 和各按钮仅在洗碗机开机时可用。
 
 ### 额外生成实体
 
