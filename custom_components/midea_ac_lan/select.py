@@ -67,9 +67,14 @@ class MideaSelect(MideaEntity, SelectEntity):
             codes = codes_by_model.get(str(self._device.model)) or self._config.get(
                 "options_codes",
             )
+            exclude = self._config.get("options_exclude_codes", [])
             if codes:
-                return [options[code] for code in codes if code in options]
-            return list(options.values())
+                return [
+                    options[code]
+                    for code in codes
+                    if code in options and code not in exclude
+                ]
+            return [name for code, name in options.items() if code not in exclude]
         if isinstance(self._options_name, list):
             return [str(option) for option in self._options_name]
         return cast("list", getattr(self._device, self._options_name))
