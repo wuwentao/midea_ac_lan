@@ -593,8 +593,99 @@
       }
     },
     "select": {
+      "wash_mode_76000228": {
+        "name": "Wash Mode",
+        "state": {
+          "neutral_gear": "None",
+          "auto_wash": "Auto",
+          "strong_wash": "Intensive",
+          "standard_wash": "Universal",
+          "eco_wash": "ECO",
+          "glass_wash": "Glass",
+          "hour_wash": "90 min",
+          "fast_wash": "Rapid",
+          "soak_wash": "Soak",
+          "90min": "90 min",
+          "self_clean": "Self clean",
+          "fruit_wash": "Fruit",
+          "self_define": "Custom",
+          "germ": "Whisper",
+          "bowl_wash": "Bowl",
+          "kill_germ": "Hygiene",
+          "sea_food_wash": "Self clean",
+          "hot_pot_wash": "Hot pot",
+          "quiet_night_wash": "Quiet night",
+          "less_wash": "Light",
+          "max_rapid_wash": "Max rapid",
+          "oil_net_wash": "Oil filter",
+          "cloud_wash": "Cloud program",
+          "single_dry": "Dry only",
+          "single_disinfect": "Disinfect only",
+          "high_temp_wash": "High temperature",
+          "wash_dry": "Wash and dry"
+        }
+      },
+      "program_76000228": {
+        "name": "Program",
+        "state": {
+          "auto_wash": "Auto",
+          "strong_wash": "Intensive",
+          "standard_wash": "Universal",
+          "eco_wash": "ECO",
+          "glass_wash": "Glass",
+          "hour_wash": "90 min",
+          "fast_wash": "Rapid",
+          "soak_wash": "Soak",
+          "90min": "90 min",
+          "self_clean": "Self clean",
+          "fruit_wash": "Fruit",
+          "self_define": "Custom",
+          "germ": "Whisper",
+          "bowl_wash": "Bowl",
+          "kill_germ": "Hygiene",
+          "sea_food_wash": "Self clean",
+          "hot_pot_wash": "Hot pot",
+          "quiet_night_wash": "Quiet night",
+          "less_wash": "Light",
+          "max_rapid_wash": "Max rapid",
+          "oil_net_wash": "Oil filter",
+          "cloud_wash": "Cloud program",
+          "single_dry": "Dry only",
+          "single_disinfect": "Disinfect only",
+          "high_temp_wash": "High temperature",
+          "wash_dry": "Wash and dry"
+        }
+      },
       "program": {
-        "name": "Program"
+        "name": "Program",
+        "state": {
+          "auto_wash": "Auto",
+          "strong_wash": "Intensive",
+          "standard_wash": "Standard",
+          "eco_wash": "ECO",
+          "glass_wash": "Glass",
+          "hour_wash": "1 hour",
+          "fast_wash": "Rapid",
+          "soak_wash": "Soak",
+          "90min": "90 min",
+          "self_clean": "Self clean",
+          "fruit_wash": "Fruit",
+          "self_define": "Custom",
+          "germ": "Germ",
+          "bowl_wash": "Bowl",
+          "kill_germ": "Hygiene",
+          "sea_food_wash": "Seafood",
+          "hot_pot_wash": "Hot pot",
+          "quiet_night_wash": "Quiet night",
+          "less_wash": "Light",
+          "max_rapid_wash": "Max rapid",
+          "oil_net_wash": "Oil filter",
+          "cloud_wash": "Cloud program",
+          "single_dry": "Dry only",
+          "single_disinfect": "Disinfect only",
+          "high_temp_wash": "High temperature",
+          "wash_dry": "Wash and dry"
+        }
       },
       "load": {
         "name": "Load",
@@ -697,7 +788,36 @@
         "name": "Tilting Angle"
       },
       "wash_mode": {
-        "name": "Wash Mode"
+        "name": "Wash Mode",
+        "state": {
+          "neutral_gear": "None",
+          "auto_wash": "Auto",
+          "strong_wash": "Intensive",
+          "standard_wash": "Standard",
+          "eco_wash": "ECO",
+          "glass_wash": "Glass",
+          "hour_wash": "1 hour",
+          "fast_wash": "Rapid",
+          "soak_wash": "Soak",
+          "90min": "90 min",
+          "self_clean": "Self clean",
+          "fruit_wash": "Fruit",
+          "self_define": "Custom",
+          "germ": "Germ",
+          "bowl_wash": "Bowl",
+          "kill_germ": "Hygiene",
+          "sea_food_wash": "Seafood",
+          "hot_pot_wash": "Hot pot",
+          "quiet_night_wash": "Quiet night",
+          "less_wash": "Light",
+          "max_rapid_wash": "Max rapid",
+          "oil_net_wash": "Oil filter",
+          "cloud_wash": "Cloud program",
+          "single_dry": "Dry only",
+          "single_disinfect": "Disinfect only",
+          "high_temp_wash": "High temperature",
+          "wash_dry": "Wash and dry"
+        }
       },
       "water_level_set": {
         "name": "Water Level Setting"
@@ -731,8 +851,97 @@
       }
     },
     "sensor": {
+      "dishwasher_mode": {
+        "name": "Mode",
+        "state": {
+          "neutral_gear": "None",
+          "auto_wash": "Auto",
+          "strong_wash": "Intensive",
+          "standard_wash": "Standard",
+          "eco_wash": "ECO",
+          "glass_wash": "Glass",
+          "hour_wash": "1 hour",
+          "fast_wash": "Rapid",
+          "soak_wash": "Soak",
+          "90min": "90 min",
+          "self_clean": "Self clean",
+          "fruit_wash": "Fruit",
+          "self_define": "Custom",
+          "germ": "Germ",
+          "bowl_wash": "Bowl",
+          "kill_germ": "Hygiene",
+          "sea_food_wash": "Seafood",
+          "hot_pot_wash": "Hot pot",
+          "quiet_night_wash": "Quiet night",
+          "less_wash": "Light",
+          "max_rapid_wash": "Max rapid",
+          "oil_net_wash": "Oil filter",
+          "cloud_wash": "Cloud program",
+          "single_dry": "Dry only",
+          "single_disinfect": "Disinfect only",
+          "high_temp_wash": "High temperature",
+          "wash_dry": "Wash and dry"
+        }
+      },
+      "dishwasher_mode_76000228": {
+        "name": "Mode",
+        "state": {
+          "neutral_gear": "None",
+          "auto_wash": "Auto",
+          "strong_wash": "Intensive",
+          "standard_wash": "Universal",
+          "eco_wash": "ECO",
+          "glass_wash": "Glass",
+          "hour_wash": "90 min",
+          "fast_wash": "Rapid",
+          "soak_wash": "Soak",
+          "90min": "90 min",
+          "self_clean": "Self clean",
+          "fruit_wash": "Fruit",
+          "self_define": "Custom",
+          "germ": "Whisper",
+          "bowl_wash": "Bowl",
+          "kill_germ": "Hygiene",
+          "sea_food_wash": "Self clean",
+          "hot_pot_wash": "Hot pot",
+          "quiet_night_wash": "Quiet night",
+          "less_wash": "Light",
+          "max_rapid_wash": "Max rapid",
+          "oil_net_wash": "Oil filter",
+          "cloud_wash": "Cloud program",
+          "single_dry": "Dry only",
+          "single_disinfect": "Disinfect only",
+          "high_temp_wash": "High temperature",
+          "wash_dry": "Wash and dry"
+        }
+      },
+      "dishwasher_status": {
+        "name": "Status",
+        "state": {
+          "power_off": "Off",
+          "cancel": "Idle",
+          "delay": "Delayed start",
+          "running": "Running",
+          "error": "Error"
+        }
+      },
+      "dishwasher_progress": {
+        "name": "Progress",
+        "state": {
+          "idle": "Idle",
+          "pre_wash": "Pre-wash",
+          "wash": "Wash",
+          "rinse": "Rinse",
+          "dry": "Dry",
+          "complete": "Complete"
+        }
+      },
       "operator": {
-        "name": "Run State"
+        "name": "Run State",
+        "state": {
+          "start": "Running",
+          "pause": "Paused"
+        }
       },
       "wrong_operation": {
         "name": "Wrong Operation"

@@ -4207,13 +4207,13 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             E1Attributes.progress: {
                 "type": Platform.SENSOR,
-                "translation_key": "progress",
+                "translation_key": "dishwasher_progress",
                 "name": "Progress",
                 "icon": "mdi:rotate-360",
             },
             E1Attributes.status: {
                 "type": Platform.SENSOR,
-                "translation_key": "status",
+                "translation_key": "dishwasher_status",
                 "name": "Status",
                 "icon": "mdi:information",
             },
@@ -4305,11 +4305,14 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             E1Attributes.program: {
                 "type": Platform.SELECT,
                 "translation_key": "program",
+                "translation_key_by_model": {"76000228": "program_76000228"},
                 "name": "Program",
                 "icon": "mdi:dishwasher",
                 "options_dict": "modes",
                 "options_codes_by_model": {
                     "7600024L": [13, 4, 8, 6, 2, 11, 10],
+                    # From the Midea app (wuwentao/midea_ac_lan#709)
+                    "76000228": [2, 3, 4, 5, 6, 7, 8, 13, 15, 16],
                 },
                 "options_exclude_codes": [0],
                 "available_power_attribute": E1Attributes.power,
@@ -4365,7 +4368,8 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             E1Attributes.mode: {
                 "type": Platform.SENSOR,
-                "translation_key": "mode",
+                "translation_key": "dishwasher_mode",
+                "translation_key_by_model": {"76000228": "dishwasher_mode_76000228"},
                 "name": "Working Mode",
                 "icon": "mdi:dishwasher",
             },
@@ -4373,10 +4377,13 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "type": Platform.SELECT,
                 "attribute": E1Attributes.mode,
                 "translation_key": "wash_mode",
+                "translation_key_by_model": {"76000228": "wash_mode_76000228"},
                 "name": "Wash Mode",
                 "options_dict": "modes",
                 "options_codes_by_model": {
                     "7600024L": [13, 4, 8, 6, 2, 11, 10],
+                    # From the Midea app (wuwentao/midea_ac_lan#709)
+                    "76000228": [2, 3, 4, 5, 6, 7, 8, 13, 15, 16],
                 },
                 "set_message": "e1_work_mode",
                 "available_power_attribute": E1Attributes.power,
