@@ -24,7 +24,7 @@ dev = [
   # by the ruff-pre-commit hook in .pre-commit-config.yaml (v0.16.0).
   "ruff==0.16.10",
   "mypy==2.4.0",
-  "pylint==4.1.2",
+  "pylint==4.1.3",
   "pre-commit==4.6.2",
   # pydantic is required by dev/CI: mypy loads it as a plugin (mypy.ini ->
   # `plugins = pydantic.mypy`), so it must stay installed for `scripts/mypy.sh`.
