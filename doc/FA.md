@@ -18,7 +18,24 @@ Set the levels of the fan device except "Off" (3 by default).
 { "speed_count": 5 }
 ```
 
+For a fan with 12 actual speed levels, use `{"speed_count": 12}` and reload the
+integration. With the default value of 3, low/medium/high send speeds 1/2/3
+rather than spanning the full 12-speed range.
+
+If adding the device again causes a duplicate entity unique ID error, keep only
+one configuration entry for that device and verify its current IP address.
+When replacing the integration manually, keep backups outside `custom_components`
+so Home Assistant does not discover them as integrations.
+
 ## Entities
+
+### BGF10000 (subtype 15) presets
+
+Supported presets are normal, forest, beach, countryside, baby, sleep 1, sleep 2,
+and strong. Comfort and sleep presets encode their submode in speed values 1/2/3,
+so no speed percentage is reported in these modes. Selecting a speed returns to
+normal mode. Strong selects the device's strong mode at speed 12.
+The normal speed range still uses the `speed_count` customization.
 
 ### Default entity
 

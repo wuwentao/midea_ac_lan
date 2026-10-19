@@ -1,7 +1,7 @@
 """Midea Fan entries."""
 
 import logging
-from typing import Any, cast
+from typing import Any, ClassVar, cast
 
 from homeassistant.components.fan import FanEntity, FanEntityFeature
 from homeassistant.config_entries import ConfigEntry
@@ -33,6 +33,7 @@ from .midea_devices import (
 from .midea_entity import MideaEntity
 
 _LOGGER = logging.getLogger(__name__)
+BGF10000_SUBTYPE = 15
 
 
 async def async_setup_entry(
@@ -61,7 +62,10 @@ async def async_setup_entry(
             config.get("default") or entity_key in extra_switches
         ):
             if device.device_type == DeviceType.FA:
-                devs.append(MideaFAFan(device, entity_key))
+                if device.model == "BGF10000" and device.subtype == BGF10000_SUBTYPE:
+                    devs.append(MideaBGF10000Fan(device, entity_key))
+                else:
+                    devs.append(MideaFAFan(device, entity_key))
             elif device.device_type == DeviceType.B6:
                 devs.append(MideaB6Fan(device, entity_key))
             elif device.device_type == DeviceType.AC:
@@ -186,6 +190,73 @@ class MideaFAFan(MideaFan):
         """Midea FA Fan turn on."""
         fan_speed = int(percentage / self.percentage_step + 0.5) if percentage else None
         self._device.turn_on(fan_speed=fan_speed, mode=preset_mode)
+
+
+class MideaBGF10000Fan(MideaFAFan):
+    """Represent BGF10000 presets encoded by both mode and speed."""
+
+    _presets: ClassVar[dict[str, tuple[str, int | None]]] = {
+        "normal": ("normal", None),
+        "forest": ("comfort", 1),
+        "beach": ("comfort", 2),
+        "countryside": ("comfort", 3),
+        "baby": ("sleep", 1),
+        "sleep_1": ("sleep", 2),
+        "sleep_2": ("sleep", 3),
+        "strong": ("strong", 12),
+    }
+
+    def __init__(self, device: MideaFADevice, entity_key: str) -> None:
+        """Initialize the model-specific translation key."""
+        super().__init__(device, entity_key)
+        self._attr_translation_key = "bgf10000"
+
+    @property
+    def preset_modes(self) -> list[str]:
+        """Presets observed on this model."""
+        return list(self._presets)
+
+    @property
+    def preset_mode(self) -> str | None:
+        """Decode the submode carried in the speed field."""
+        mode = self._device.get_attribute("mode")
+        for preset, (device_mode, speed) in self._presets.items():
+            if mode == device_mode and (speed is None or speed == self.fan_speed):
+                return preset
+        return None
+
+    @property
+    def percentage(self) -> int | None:
+        """Avoid presenting a comfort/sleep submode as a motor speed."""
+        if self._device.get_attribute("mode") in {"comfort", "sleep"}:
+            return None
+        return super().percentage
+
+    def set_preset_mode(self, preset_mode: str) -> None:
+        """Send the mode and submode together in one command."""
+        mode, speed = self._presets[preset_mode]
+        self._device.turn_on(fan_speed=speed, mode=mode)
+
+    def set_percentage(self, percentage: int) -> None:
+        """Return to normal wind when selecting a motor speed."""
+        self._device.turn_on(
+            fan_speed=round(percentage / self.percentage_step),
+            mode="normal",
+        )
+
+    def turn_on(
+        self,
+        percentage: int | None = None,
+        preset_mode: str | None = None,
+        **kwargs: Any,  # ruff:ignore[any-type, unused-method-argument]
+    ) -> None:
+        """Apply explicit presets before speed, otherwise preserve the mode."""
+        if preset_mode is not None:
+            self.set_preset_mode(preset_mode)
+        elif percentage is not None and percentage > 0:
+            self.set_percentage(percentage)
+        else:
+            self._device.turn_on()
 
 
 class MideaB6Fan(MideaFan):
