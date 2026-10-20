@@ -31,6 +31,11 @@ so Home Assistant does not discover them as integrations.
 
 ### BGF10000 (subtype 15) presets
 
+These presets require the corresponding BGF10000 support in `midea-lan`.
+The library owns the mode/speed mapping and defaults this profile to 12 speeds;
+this integration only selects the display translations. A custom `speed_count`
+still overrides the library default.
+
 Supported presets are normal, forest, beach, countryside, baby, sleep 1, sleep 2,
 and strong. Comfort and sleep presets encode their submode in speed values 1/2/3,
 so no speed percentage is reported in these modes. Selecting a speed returns to

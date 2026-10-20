@@ -1,7 +1,7 @@
-"""Regression tests for BGF10000 presets using captured FA responses."""
+"""Tests for the HA fan glue; wire mappings are tested in midea-lan."""
 
 import unittest
-from unittest.mock import MagicMock, Mock, patch
+from unittest.mock import MagicMock, Mock, PropertyMock, patch
 
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_DEVICE_ID
@@ -10,14 +10,7 @@ from midealan.const import ProtocolVersion
 from midealan.devices.fa import MideaFADevice
 
 from custom_components.midea_ac_lan.const import DEVICES, DOMAIN
-from custom_components.midea_ac_lan.fan import (
-    MideaBGF10000Fan,
-    MideaFAFan,
-    async_setup_entry,
-)
-
-FULL_PERCENTAGE = 100
-COMFORT_MODE_CODE = 4
+from custom_components.midea_ac_lan.fan import MideaFAFan, async_setup_entry
 
 
 def make_device(model: str = "BGF10000", subtype: int = 15) -> MideaFADevice:
@@ -41,117 +34,60 @@ def make_device(model: str = "BGF10000", subtype: int = 15) -> MideaFADevice:
     )
 
 
-class TestBGF10000Presets(unittest.TestCase):
-    """Exercise the HA entity against the pinned protocol library."""
+class TestFAFanDelegation(unittest.TestCase):
+    """Expose library capabilities without duplicating protocol mappings."""
 
     def setUp(self) -> None:
-        """Create a fresh entity for each test."""
+        """Create a fresh device and entity."""
         self.device = make_device()
-        self.fan = MideaBGF10000Fan(self.device, "fan")
+        self.fan = MideaFAFan(self.device, "fan")
 
-    def test_captured_responses(self) -> None:
-        """Decode all seven App presets from captured query responses."""
-        samples = [
-            ("forest", "0901", "98"),
-            ("beach", "0902", "97"),
-            ("countryside", "0903", "96"),
-            ("baby", "0701", "9a"),
-            ("sleep_1", "0702", "99"),
-            ("sleep_2", "0703", "98"),
-            ("strong", "130c", "83"),
-            ("normal", "030c", "93"),
-        ]
-        for preset, mode_speed, checksum in samples:
-            with self.subTest(preset=preset):
-                raw = bytes.fromhex(
-                    "aa1efa0000000000000300000000"
-                    f"{mode_speed}00004300000000000000ffff0200{checksum}",
-                )
-                self.device.process_message(raw)
-                assert self.fan.preset_mode == preset
-                if preset not in {"normal", "strong"}:
-                    assert self.fan.percentage is None
-                else:
-                    assert self.fan.percentage == FULL_PERCENTAGE
+    def test_presets_come_from_library(self) -> None:
+        """Forward library options and decoded state without hardcoded lists."""
+        presets = ["normal", "forest", "sleep_1"]
+        with patch.object(
+            MideaFADevice,
+            "preset_modes",
+            new_callable=PropertyMock,
+            return_value=presets,
+        ):
+            assert self.fan.preset_modes == presets
+        with patch.object(self.device, "get_attribute", return_value="forest"):
+            assert self.fan.preset_mode == "forest"
+        with patch.object(self.device, "get_attribute", return_value=None):
+            assert self.fan.percentage is None
 
-    def test_presets_send_one_combined_command(self) -> None:
-        """Send both fields, also when turn_on contains a percentage."""
-        presets = [
-            ("normal", 1, None),
-            ("forest", 4, 1),
-            ("beach", 4, 2),
-            ("countryside", 4, 3),
-            ("baby", 3, 1),
-            ("sleep_1", 3, 2),
-            ("sleep_2", 3, 3),
-            ("strong", 9, 12),
-        ]
-        assert self.fan.preset_modes == [item[0] for item in presets]
-        for preset, mode, speed in presets:
-            for turn_on in (False, True):
-                with (
-                    self.subTest(preset=preset, turn_on=turn_on),
-                    patch.object(self.device, "build_send") as send,
-                ):
-                    if turn_on:
-                        self.fan.turn_on(percentage=100, preset_mode=preset)
-                    else:
-                        self.fan.set_preset_mode(preset)
-                    send.assert_called_once()
-                    message = send.call_args.args[0]
-                    assert message.mode == mode
-                    assert message.fan_speed == speed
-                    assert message.power
-                    if speed is not None:
-                        assert message.body[5] == speed
+    def test_set_preset_delegates(self) -> None:
+        """Let the library construct the complete mode/speed command."""
+        with patch.object(self.device, "set_attribute") as setter:
+            self.fan.set_preset_mode("forest")
+        setter.assert_called_once_with(attr="mode", value="forest")
 
-    def test_speed_selects_normal_mode(self) -> None:
-        """Use the customized range and explicitly leave submode presets."""
-        for percentage, speed in [(25, 3), (50, 6), (100, 12)]:
-            with (
-                self.subTest(percentage=percentage),
-                patch.object(self.device, "build_send") as send,
-            ):
-                self.fan.set_percentage(percentage)
-                message = send.call_args.args[0]
-                assert (message.mode, message.fan_speed) == (1, speed)
-
-    def test_plain_turn_on_preserves_mode(self) -> None:
-        """Avoid replacing the mode or speed on a plain power command."""
-        with patch.object(self.device, "build_send") as send:
+    def test_turn_on_delegates(self) -> None:
+        """Leave combined preset and speed precedence to the library."""
+        with patch.object(self.device, "turn_on") as turn_on:
+            self.fan.turn_on(percentage=50, preset_mode="forest")
+        turn_on.assert_called_once_with(fan_speed=6, mode="forest")
+        with patch.object(self.device, "turn_on") as turn_on:
             self.fan.turn_on()
-        message = send.call_args.args[0]
-        assert message.mode is None
-        assert message.fan_speed is None
-        assert message.power
+        turn_on.assert_called_once_with(fan_speed=None, mode=None)
 
-    def test_turn_on_with_speed(self) -> None:
-        """Apply a normal speed when turn_on explicitly requests one."""
-        with patch.object(self.device, "build_send") as send:
-            self.fan.turn_on(percentage=50)
-        message = send.call_args.args[0]
-        assert (message.mode, message.fan_speed) == (1, 6)
-        assert message.power
-
-    def test_unknown_submode(self) -> None:
-        """Avoid guessing a preset for an unrecognized submode."""
-        self.device.process_message(
-            bytes.fromhex(
-                "aa1efa0000000000000300000000090400004300000000000000ffff020095",
-            ),
-        )
-        assert self.fan.preset_mode is None
+    def test_set_speed_delegates(self) -> None:
+        """Convert percentage using the device speed count."""
+        with patch.object(self.device, "set_attribute") as setter:
+            self.fan.set_percentage(50)
+        setter.assert_called_once_with(attr="fan_speed", value=6)
 
 
 class TestFanSelection(unittest.IsolatedAsyncioTestCase):
-    """Keep the new adapter isolated to the confirmed model and subtype."""
+    """Keep model-specific display labels isolated from other FA devices."""
 
-    async def test_model_and_subtype_guard(self) -> None:
-        """Use generic FA entities for every nonmatching combination."""
-        for model, subtype, expected in [
-            ("BGF10000", 15, MideaBGF10000Fan),
-            ("BGF10000", 14, MideaFAFan),
-            ("56000211", 15, MideaFAFan),
+    async def test_only_matching_model_gets_translation_key(self) -> None:
+        """Use the generic entity everywhere and specialize only the labels."""
+        for model, subtype, key in [
+            ("BGF10000", 15, "bgf10000"),
+            ("BGF10000", 14, None),
+            ("56000211", 15, None),
         ]:
             with self.subTest(model=model, subtype=subtype):
                 device = make_device(model, subtype)
@@ -162,11 +98,7 @@ class TestFanSelection(unittest.IsolatedAsyncioTestCase):
                 entry.options = {}
                 add = Mock()
                 await async_setup_entry(hass, entry, add)
-                assert type(add.call_args.args[0][0]) is expected
-                if expected is MideaFAFan:
-                    entity = add.call_args.args[0][0]
-                    assert entity.preset_modes == device.preset_modes
-                    with patch.object(device, "build_send") as send:
-                        entity.set_preset_mode("comfort")
-                    assert send.call_args.args[0].mode == COMFORT_MODE_CODE
-                    assert send.call_args.args[0].fan_speed is None
+                entity = add.call_args.args[0][0]
+                assert type(entity) is MideaFAFan
+                assert entity.translation_key == key
+                assert entity.preset_modes == device.preset_modes
