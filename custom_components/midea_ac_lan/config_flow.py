@@ -369,10 +369,17 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
             red = "<font color=red>NO</font>"
             for device_id, device in all_devices.items():
                 supported = device.get(CONF_TYPE) in self.supports
+                # TLS devices (udp_version >= 4) encrypt their SN on the LAN,
+                # so discover() returns an empty sn and flags sn_encrypted.
+                # Show a hint instead of a blank cell so the user understands
+                # the SN is resolved from the cloud, not missing due to a bug.
+                sn = device.get("sn") or (
+                    "encrypted (from cloud)" if device.get("sn_encrypted") else ""
+                )
                 table += (
                     f"\n{device_id}|{f'{device.get(CONF_TYPE):02X}'}|"
                     f"{device.get(CONF_IP_ADDRESS)}|"
-                    f"{device.get('sn')}|"
+                    f"{sn}|"
                     f"{green if supported else red}"
                 )
         # no available device
@@ -411,6 +418,16 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
             )
             self.available_device = {}
             for device_id, device in self.devices.items():
+                # TLS devices (udp_version >= 4) can't expose their SN on the
+                # LAN; token/key and SN are resolved from the cloud by
+                # device_id, so an empty LAN SN here is expected, not a bug.
+                if device.get("sn_encrypted"):
+                    _LOGGER.debug(
+                        "Device %s (%s) is a TLS device: its SN is encrypted "
+                        "on the LAN and is resolved from the cloud account",
+                        device_id,
+                        device.get(CONF_IP_ADDRESS),
+                    )
                 # remove exist devices and only return new devices
                 if not self._already_configured(
                     str(device_id),
