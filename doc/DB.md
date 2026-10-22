@@ -113,9 +113,9 @@ current program settings, including custom wash/spin time selections. Displayed
 state always follows the appliance's real reply. No cloud connection is needed
 for these parameter writes.
 
-These controls require the companion protocol-library feature to be released
-and the integration's `midea-lan` dependency updated by the maintainer. They are
-safely skipped on older SDK versions; this feature does not change the pin.
+These controls are included in the released `midea-lan==2026.10.0` dependency
+selected by the maintainer. They are safely skipped on older SDK versions;
+this feature adds no separate dependency change.
 
 ## Completion-time reservations
 
@@ -129,4 +129,6 @@ When daylight saving time ends, repeated local times select the earliest valid f
 
 ## Other DB models
 
-Model `38132386 / subtype 0` (MF201W110WB/GK-01) is not enabled by this profile. The reported shared `T_0000_DB_41.lua` describes possible protocol fields, not the model-specific program list or extended capabilities. See [the SDK verification checklist](https://github.com/wuwentao/midea-lan/pull/206) for the anonymized standby reports and app parameter values needed to add a separate profile. Keep the real model/subtype; changing them to impersonate the verified model can select incorrect commands.
+SDK `midea-lan==2026.10.0` includes a separate read-only v41 status profile for `38132386 / subtype 0` (MF201W110WB/GK-01), added in [SDK PR #223](https://github.com/wuwentao/midea-lan/pull/223). It recognizes the model or SN8 and decodes v41 program names and temperature codes without enabling the verified v33 controls.
+
+The SDK exposes no parameter or reservation capabilities for this profile, so this integration skips the new selectors, forget-free switch and reservation entities. The SDK also rejects power/start writes for this profile; existing power/start switches cannot control it. Write support still requires separate protocol verification. Keep the real model/subtype; changing them to impersonate the verified model can select incorrect commands.

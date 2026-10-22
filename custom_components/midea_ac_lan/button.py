@@ -74,8 +74,5 @@ class MideaButton(MideaEntity, ButtonEntity):
     def update_state(self, status: Any) -> None:  # ruff:ignore[any-type]
         """Update entity state."""
         super().update_state(status)
-        if self.hass and (
-            self._power_attribute in status
-            or self._config.get("available_attribute") in status
-        ):
+        if self.hass and self._power_attribute in status:
             self.schedule_update_if_running()

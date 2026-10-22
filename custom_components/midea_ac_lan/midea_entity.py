@@ -229,7 +229,11 @@ class MideaEntity(Entity):
             )
             return
 
-        if self._entity_key not in status and "available" not in status:
+        if (
+            self._entity_key not in status
+            and "available" not in status
+            and self._config.get("available_attribute") not in status
+        ):
             return
 
         self.schedule_update_if_running()
