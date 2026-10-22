@@ -40,11 +40,14 @@ from midealan.discover import discover
 from .const import (
     ALL_PLATFORM,
     CONF_ACCOUNT,
+    CONF_CLOUD_NAME,
     CONF_KEY,
     CONF_MAC,
+    CONF_MANUFACTURER_CODE,
     CONF_MODEL,
     CONF_REFRESH_INTERVAL,
     CONF_SN,
+    CONF_SN8,
     CONF_SUBTYPE,
     DEVICES,
     DOMAIN,
@@ -261,6 +264,9 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
     customize: str = config_entry.options.get(CONF_CUSTOMIZE, "")
     mac: str | None = config_entry.data.get(CONF_MAC)
     serial_number: str | None = config_entry.data.get(CONF_SN)
+    # Cloud-derived identity fields (sn8/manufacturer_code/cloud_name) are read
+    # inline at the device_selector call below to keep the local-variable count
+    # within the lint limit.
     if protocol == ProtocolVersion.V3 and (key == "" or token == ""):
         _LOGGER.error("For V3 devices, the key and the token is required")
         return False
@@ -282,6 +288,9 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
             customize,
             mac,
             serial_number,
+            config_entry.data.get(CONF_SN8),
+            config_entry.data.get(CONF_MANUFACTURER_CODE),
+            config_entry.data.get(CONF_CLOUD_NAME),
         )
     # hass core version < 2024.3
     else:
@@ -299,6 +308,9 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
             customize=customize,
             mac=mac,
             serial_number=serial_number,
+            sn8=config_entry.data.get(CONF_SN8),
+            manufacturer_code=config_entry.data.get(CONF_MANUFACTURER_CODE),
+            cloud_name=config_entry.data.get(CONF_CLOUD_NAME),
         )
     if device:
         if refresh_interval is not None:
