@@ -4548,12 +4548,14 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "light_btn_on",
                 "name": "Button Light",
                 "icon": "mdi:lightbulb",
+                "device_class": BinarySensorDeviceClass.LIGHT,
             },
             E1Attributes.light_strip_on: {
                 "type": Platform.BINARY_SENSOR,
                 "translation_key": "light_strip_on",
                 "name": "Light Strip",
                 "icon": "mdi:led-strip-variant",
+                "device_class": BinarySensorDeviceClass.LIGHT,
             },
             E1Attributes.wrong_operation: {
                 "type": Platform.SENSOR,
