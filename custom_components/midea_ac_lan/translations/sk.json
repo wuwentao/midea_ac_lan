@@ -63,6 +63,45 @@
   },
   "entity": {
     "binary_sensor": {
+      "door_auto_open": {
+        "name": "Automatické otváranie dverí (posledný program)"
+      },
+      "uv": {
+        "name": "UV"
+      },
+      "dry": {
+        "name": "Sušenie"
+      },
+      "dry_status": {
+        "name": "Prebieha sušenie"
+      },
+      "storage_status": {
+        "name": "Uchovávanie aktívne"
+      },
+      "waterswitch": {
+        "name": "Vodný spínač"
+      },
+      "water_lack": {
+        "name": "Nedostatok vody"
+      },
+      "wifi_unabled": {
+        "name": "WiFi vypnuté"
+      },
+      "auto_throw": {
+        "name": "Automatické dávkovanie"
+      },
+      "lock_power": {
+        "name": "Zámok napájania"
+      },
+      "beep_control": {
+        "name": "Pípnutie"
+      },
+      "light_btn_on": {
+        "name": "Podsvietenie tlačidiel"
+      },
+      "light_strip_on": {
+        "name": "Svetelný pás"
+      },
       "warm_power": {
         "name": "Prevádzka kúrenia"
       },
@@ -486,6 +525,18 @@
       }
     },
     "button": {
+      "start_delayed": {
+        "name": "Odložený štart"
+      },
+      "pause": {
+        "name": "Pozastaviť"
+      },
+      "resume": {
+        "name": "Pokračovať"
+      },
+      "cancel": {
+        "name": "Zrušiť"
+      },
       "start": {
         "name": "Štart"
       }
@@ -522,6 +573,18 @@
       }
     },
     "number": {
+      "delay_minutes": {
+        "name": "Oneskorenie"
+      },
+      "wash_region": {
+        "name": "Zóna umývania"
+      },
+      "water_level": {
+        "name": "Hladina vody"
+      },
+      "water_strong_level": {
+        "name": "Úroveň tlaku vody"
+      },
       "heating_target_temperature": {
         "name": "Cieľová teplota kúrenia"
       },
@@ -569,6 +632,16 @@
       }
     },
     "select": {
+      "program": {
+        "name": "Program"
+      },
+      "load": {
+        "name": "Náplň",
+        "state": {
+          "0": "Plná",
+          "2": "Polovičná"
+        }
+      },
       "heating_mode": {
         "name": "Režim kúrenia",
         "state": {
@@ -697,6 +770,30 @@
       }
     },
     "sensor": {
+      "operator": {
+        "name": "Stav chodu"
+      },
+      "wrong_operation": {
+        "name": "Nesprávna operácia"
+      },
+      "dry_set_min": {
+        "name": "Čas sušenia"
+      },
+      "clean_left_hour": {
+        "name": "Zostávajúce čistenie"
+      },
+      "kitchenware_left_hour": {
+        "name": "Zostávajúci riad"
+      },
+      "device_version": {
+        "name": "Verzia zariadenia"
+      },
+      "throw_percent": {
+        "name": "Úroveň dávkovača"
+      },
+      "delay_remaining": {
+        "name": "Zostáva do odloženého štartu"
+      },
       "three_way_mode": {
         "name": "Trojcestný režim"
       },
@@ -1574,6 +1671,9 @@
       }
     },
     "switch": {
+      "door_auto_open_setting": {
+        "name": "Automatické otváranie dverí"
+      },
       "anion": {
         "name": "Anion"
       },

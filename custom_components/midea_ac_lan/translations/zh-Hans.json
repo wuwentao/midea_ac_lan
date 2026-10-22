@@ -63,6 +63,45 @@
   },
   "entity": {
     "binary_sensor": {
+      "door_auto_open": {
+        "name": "自动开门（上一程序）"
+      },
+      "uv": {
+        "name": "紫外线"
+      },
+      "dry": {
+        "name": "烘干"
+      },
+      "dry_status": {
+        "name": "烘干中"
+      },
+      "storage_status": {
+        "name": "存储运行中"
+      },
+      "waterswitch": {
+        "name": "水路开关"
+      },
+      "water_lack": {
+        "name": "缺水"
+      },
+      "wifi_unabled": {
+        "name": "WiFi 已禁用"
+      },
+      "auto_throw": {
+        "name": "自动投放"
+      },
+      "lock_power": {
+        "name": "电源锁"
+      },
+      "beep_control": {
+        "name": "提示音"
+      },
+      "light_btn_on": {
+        "name": "按键灯"
+      },
+      "light_strip_on": {
+        "name": "灯带"
+      },
       "warm_power": {
         "name": "制热运行"
       },
@@ -494,6 +533,18 @@
       }
     },
     "button": {
+      "start_delayed": {
+        "name": "预约启动"
+      },
+      "pause": {
+        "name": "暂停"
+      },
+      "resume": {
+        "name": "继续"
+      },
+      "cancel": {
+        "name": "取消"
+      },
       "start": {
         "name": "启动"
       },
@@ -533,6 +584,18 @@
       }
     },
     "number": {
+      "delay_minutes": {
+        "name": "预约时间"
+      },
+      "wash_region": {
+        "name": "洗涤区域"
+      },
+      "water_level": {
+        "name": "水位"
+      },
+      "water_strong_level": {
+        "name": "水压档位"
+      },
       "heating_target_temperature": {
         "name": "采暖目标温度"
       },
@@ -580,6 +643,16 @@
       }
     },
     "select": {
+      "program": {
+        "name": "程序"
+      },
+      "load": {
+        "name": "负载",
+        "state": {
+          "0": "满载",
+          "2": "半载"
+        }
+      },
       "washer_program_control": {
         "name": "洗衣程序",
         "state": {
@@ -805,6 +878,30 @@
       }
     },
     "sensor": {
+      "operator": {
+        "name": "运行状态"
+      },
+      "wrong_operation": {
+        "name": "误操作"
+      },
+      "dry_set_min": {
+        "name": "烘干设定时间"
+      },
+      "clean_left_hour": {
+        "name": "剩余清洁时间"
+      },
+      "kitchenware_left_hour": {
+        "name": "剩余餐具时间"
+      },
+      "device_version": {
+        "name": "设备版本"
+      },
+      "throw_percent": {
+        "name": "投放余量"
+      },
+      "delay_remaining": {
+        "name": "预约剩余时间"
+      },
       "gas_usage_daily": {
         "name": "日用气量"
       },
@@ -1699,6 +1796,9 @@
       }
     },
     "switch": {
+      "door_auto_open_setting": {
+        "name": "自动开门"
+      },
       "washer_forget_free": {
         "name": "忘取无忧"
       },
