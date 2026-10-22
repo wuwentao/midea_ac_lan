@@ -632,8 +632,98 @@
       }
     },
     "select": {
+      "wash_mode_76000228": {
+        "name": "Modo de lavado",
+        "state": {
+          "neutral_gear": "Ninguno",
+          "auto_wash": "Automático",
+          "strong_wash": "Intensivo",
+          "standard_wash": "Universal",
+          "eco_wash": "ECO",
+          "glass_wash": "Vidrio",
+          "hour_wash": "90 min",
+          "fast_wash": "Rápido",
+          "soak_wash": "Remojado",
+          "90min": "90 min",
+          "self_clean": "Limpieza automática",
+          "fruit_wash": "Fruta",
+          "self_define": "Personalizado",
+          "bowl_wash": "Cuencos",
+          "kill_germ": "Higiene",
+          "sea_food_wash": "Limpieza automática",
+          "hot_pot_wash": "Olla",
+          "quiet_night_wash": "Noche silenciosa",
+          "less_wash": "Ligero",
+          "max_rapid_wash": "Rápido máximo",
+          "oil_net_wash": "Filtro de grasa",
+          "cloud_wash": "Programa de la nube",
+          "single_dry": "Solo secado",
+          "single_disinfect": "Solo desinfección",
+          "high_temp_wash": "Alta temperatura",
+          "wash_dry": "Lavado y secado",
+          "germ": "Susurro"
+        }
+      },
+      "program_76000228": {
+        "name": "Programa",
+        "state": {
+          "auto_wash": "Automático",
+          "strong_wash": "Intensivo",
+          "standard_wash": "Universal",
+          "eco_wash": "ECO",
+          "glass_wash": "Vidrio",
+          "hour_wash": "90 min",
+          "fast_wash": "Rápido",
+          "soak_wash": "Remojado",
+          "90min": "90 min",
+          "self_clean": "Limpieza automática",
+          "fruit_wash": "Fruta",
+          "self_define": "Personalizado",
+          "bowl_wash": "Cuencos",
+          "kill_germ": "Higiene",
+          "sea_food_wash": "Limpieza automática",
+          "hot_pot_wash": "Olla",
+          "quiet_night_wash": "Noche silenciosa",
+          "less_wash": "Ligero",
+          "max_rapid_wash": "Rápido máximo",
+          "oil_net_wash": "Filtro de grasa",
+          "cloud_wash": "Programa de la nube",
+          "single_dry": "Solo secado",
+          "single_disinfect": "Solo desinfección",
+          "high_temp_wash": "Alta temperatura",
+          "wash_dry": "Lavado y secado",
+          "germ": "Susurro"
+        }
+      },
       "program": {
-        "name": "Programa"
+        "name": "Programa",
+        "state": {
+          "auto_wash": "Automático",
+          "strong_wash": "Intensivo",
+          "standard_wash": "Estándar",
+          "eco_wash": "ECO",
+          "glass_wash": "Vidrio",
+          "hour_wash": "1 hora",
+          "fast_wash": "Rápido",
+          "soak_wash": "Remojado",
+          "90min": "90 min",
+          "self_clean": "Limpieza automática",
+          "fruit_wash": "Fruta",
+          "self_define": "Personalizado",
+          "bowl_wash": "Cuencos",
+          "kill_germ": "Higiene",
+          "sea_food_wash": "Marisco",
+          "hot_pot_wash": "Olla",
+          "quiet_night_wash": "Noche silenciosa",
+          "less_wash": "Ligero",
+          "max_rapid_wash": "Rápido máximo",
+          "oil_net_wash": "Filtro de grasa",
+          "cloud_wash": "Programa de la nube",
+          "single_dry": "Solo secado",
+          "single_disinfect": "Solo desinfección",
+          "high_temp_wash": "Alta temperatura",
+          "wash_dry": "Lavado y secado"
+        }
       },
       "load": {
         "name": "Carga",
@@ -736,7 +826,35 @@
         "name": "Ángulo de inclinación"
       },
       "wash_mode": {
-        "name": "Modo de lavado"
+        "name": "Modo de lavado",
+        "state": {
+          "neutral_gear": "Ninguno",
+          "auto_wash": "Automático",
+          "strong_wash": "Intensivo",
+          "standard_wash": "Estándar",
+          "eco_wash": "ECO",
+          "glass_wash": "Vidrio",
+          "hour_wash": "1 hora",
+          "fast_wash": "Rápido",
+          "soak_wash": "Remojado",
+          "90min": "90 min",
+          "self_clean": "Limpieza automática",
+          "fruit_wash": "Fruta",
+          "self_define": "Personalizado",
+          "bowl_wash": "Cuencos",
+          "kill_germ": "Higiene",
+          "sea_food_wash": "Marisco",
+          "hot_pot_wash": "Olla",
+          "quiet_night_wash": "Noche silenciosa",
+          "less_wash": "Ligero",
+          "max_rapid_wash": "Rápido máximo",
+          "oil_net_wash": "Filtro de grasa",
+          "cloud_wash": "Programa de la nube",
+          "single_dry": "Solo secado",
+          "single_disinfect": "Solo desinfección",
+          "high_temp_wash": "Alta temperatura",
+          "wash_dry": "Lavado y secado"
+        }
       },
       "water_level_set": {
         "name": "Ajuste de nivel de agua"
@@ -770,8 +888,96 @@
       }
     },
     "sensor": {
+      "dishwasher_mode": {
+        "name": "Modo",
+        "state": {
+          "neutral_gear": "Ninguno",
+          "auto_wash": "Automático",
+          "strong_wash": "Intensivo",
+          "standard_wash": "Estándar",
+          "eco_wash": "ECO",
+          "glass_wash": "Vidrio",
+          "hour_wash": "1 hora",
+          "fast_wash": "Rápido",
+          "soak_wash": "Remojado",
+          "90min": "90 min",
+          "self_clean": "Limpieza automática",
+          "fruit_wash": "Fruta",
+          "self_define": "Personalizado",
+          "bowl_wash": "Cuencos",
+          "kill_germ": "Higiene",
+          "sea_food_wash": "Marisco",
+          "hot_pot_wash": "Olla",
+          "quiet_night_wash": "Noche silenciosa",
+          "less_wash": "Ligero",
+          "max_rapid_wash": "Rápido máximo",
+          "oil_net_wash": "Filtro de grasa",
+          "cloud_wash": "Programa de la nube",
+          "single_dry": "Solo secado",
+          "single_disinfect": "Solo desinfección",
+          "high_temp_wash": "Alta temperatura",
+          "wash_dry": "Lavado y secado"
+        }
+      },
+      "dishwasher_mode_76000228": {
+        "name": "Modo",
+        "state": {
+          "neutral_gear": "Ninguno",
+          "auto_wash": "Automático",
+          "strong_wash": "Intensivo",
+          "standard_wash": "Universal",
+          "eco_wash": "ECO",
+          "glass_wash": "Vidrio",
+          "hour_wash": "90 min",
+          "fast_wash": "Rápido",
+          "soak_wash": "Remojado",
+          "90min": "90 min",
+          "self_clean": "Limpieza automática",
+          "fruit_wash": "Fruta",
+          "self_define": "Personalizado",
+          "bowl_wash": "Cuencos",
+          "kill_germ": "Higiene",
+          "sea_food_wash": "Limpieza automática",
+          "hot_pot_wash": "Olla",
+          "quiet_night_wash": "Noche silenciosa",
+          "less_wash": "Ligero",
+          "max_rapid_wash": "Rápido máximo",
+          "oil_net_wash": "Filtro de grasa",
+          "cloud_wash": "Programa de la nube",
+          "single_dry": "Solo secado",
+          "single_disinfect": "Solo desinfección",
+          "high_temp_wash": "Alta temperatura",
+          "wash_dry": "Lavado y secado",
+          "germ": "Susurro"
+        }
+      },
+      "dishwasher_status": {
+        "name": "Estado",
+        "state": {
+          "power_off": "Apagado",
+          "cancel": "En espera",
+          "delay": "Inicio diferido",
+          "running": "En marcha",
+          "error": "Error"
+        }
+      },
+      "dishwasher_progress": {
+        "name": "Progreso",
+        "state": {
+          "idle": "En espera",
+          "pre_wash": "Prelavado",
+          "wash": "Lavado",
+          "rinse": "Aclarado",
+          "dry": "Secado",
+          "complete": "Finalizado"
+        }
+      },
       "operator": {
-        "name": "Estado de ejecución"
+        "name": "Estado de ejecución",
+        "state": {
+          "start": "En marcha",
+          "pause": "En pausa"
+        }
       },
       "wrong_operation": {
         "name": "Operación incorrecta"
