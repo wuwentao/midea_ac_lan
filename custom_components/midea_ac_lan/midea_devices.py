@@ -4503,13 +4503,13 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "estimate": {
                     "kind": "energy",
                     "values": {
-                        "Germ": 0.765,
-                        "ECO Wash": 0.99,
-                        "Strong Wash": 1.28,
-                        "Hour Wash": 0.91,
-                        "Soak Wash": 0.02,
-                        "Self Clean": 1.524,
-                        "Fruit Wash": 1.625,
+                        0x0D: 0.765,  # germ
+                        0x04: 0.99,  # eco_wash
+                        0x02: 1.28,  # strong_wash
+                        0x06: 0.91,  # hour_wash
+                        0x08: 0.02,  # soak_wash
+                        0x0A: 1.524,  # self_clean
+                        0x0B: 1.625,  # fruit_wash
                     },
                 },
                 "models": ["7600024L"],
@@ -4526,13 +4526,13 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "estimate": {
                     "kind": "water",
                     "values": {
-                        "Germ": 9.9,
-                        "ECO Wash": 10.4,
-                        "Strong Wash": 13.9,
-                        "Hour Wash": 10.4,
-                        "Soak Wash": 3.4,
-                        "Self Clean": 10.3,
-                        "Fruit Wash": 13.3,
+                        0x0D: 9.9,  # germ
+                        0x04: 10.4,  # eco_wash
+                        0x02: 13.9,  # strong_wash
+                        0x06: 10.4,  # hour_wash
+                        0x08: 3.4,  # soak_wash
+                        0x0A: 10.3,  # self_clean
+                        0x0B: 13.3,  # fruit_wash
                     },
                 },
                 "models": ["7600024L"],
