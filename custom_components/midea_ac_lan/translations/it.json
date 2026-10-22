@@ -63,6 +63,45 @@
   },
   "entity": {
     "binary_sensor": {
+      "door_auto_open": {
+        "name": "Apertura automatica della porta (ultimo programma)"
+      },
+      "uv": {
+        "name": "UV"
+      },
+      "dry": {
+        "name": "Asciugatura"
+      },
+      "dry_status": {
+        "name": "Asciugatura in corso"
+      },
+      "storage_status": {
+        "name": "Conservazione attiva"
+      },
+      "waterswitch": {
+        "name": "Interruttore acqua"
+      },
+      "water_lack": {
+        "name": "Mancanza d'acqua"
+      },
+      "wifi_unabled": {
+        "name": "WiFi disattivato"
+      },
+      "auto_throw": {
+        "name": "Dosaggio automatico"
+      },
+      "lock_power": {
+        "name": "Blocco accensione"
+      },
+      "beep_control": {
+        "name": "Segnale acustico"
+      },
+      "light_btn_on": {
+        "name": "Luce pulsanti"
+      },
+      "light_strip_on": {
+        "name": "Striscia luminosa"
+      },
       "warm_power": {
         "name": "Funzionamento riscaldamento"
       },
@@ -449,6 +488,18 @@
       }
     },
     "button": {
+      "start_delayed": {
+        "name": "Partenza ritardata"
+      },
+      "pause": {
+        "name": "Pausa"
+      },
+      "resume": {
+        "name": "Riprendi"
+      },
+      "cancel": {
+        "name": "Annulla"
+      },
       "start": {
         "name": "Avvio"
       }
@@ -485,6 +536,18 @@
       }
     },
     "number": {
+      "delay_minutes": {
+        "name": "Ritardo"
+      },
+      "wash_region": {
+        "name": "Zona di lavaggio"
+      },
+      "water_level": {
+        "name": "Livello acqua"
+      },
+      "water_strong_level": {
+        "name": "Livello pressione acqua"
+      },
       "heating_target_temperature": {
         "name": "Temperatura target riscaldamento"
       },
@@ -526,6 +589,22 @@
       }
     },
     "select": {
+      "wash_mode_76000228": {
+        "name": "Modalità Lavaggio"
+      },
+      "program_76000228": {
+        "name": "Programma"
+      },
+      "program": {
+        "name": "Programma"
+      },
+      "load": {
+        "name": "Carico",
+        "state": {
+          "0": "Pieno",
+          "2": "Mezzo"
+        }
+      },
       "heating_mode": {
         "name": "Modalità riscaldamento",
         "state": {
@@ -654,6 +733,126 @@
       }
     },
     "sensor": {
+      "db_running_status": {
+        "name": "Stato lavatrice"
+      },
+      "db_progress": {
+        "name": "Avanzamento lavatrice"
+      },
+      "db_program": {
+        "name": "Programma lavatrice"
+      },
+      "db_remain_time": {
+        "name": "Tempo rimanente lavatrice"
+      },
+      "db_wash_time": {
+        "name": "Tempo di lavaggio"
+      },
+      "db_dehydration_time": {
+        "name": "Tempo di centrifuga"
+      },
+      "db_dehydration_speed": {
+        "name": "Velocità di centrifuga"
+      },
+      "db_water_level": {
+        "name": "Livello acqua lavatrice"
+      },
+      "db_temperature": {
+        "name": "Temperatura lavatrice"
+      },
+      "db_rinse_count": {
+        "name": "Numero di risciacqui"
+      },
+      "db_detergent": {
+        "name": "Detersivo lavatrice"
+      },
+      "db_softener": {
+        "name": "Ammorbidente"
+      },
+      "db_appointment_time": {
+        "name": "Orario programmato lavatrice"
+      },
+      "db_appointment_end_time": {
+        "name": "Orario fine programmato lavatrice"
+      },
+      "db_error_code": {
+        "name": "Codice errore lavatrice"
+      },
+      "db_water_consumption": {
+        "name": "Consumo acqua lavatrice"
+      },
+      "db_power_consumption": {
+        "name": "Consumo energetico lavatrice"
+      },
+      "dc_running_status": {
+        "name": "Stato asciugatrice"
+      },
+      "dc_dry_status": {
+        "name": "Stato asciugatura"
+      },
+      "dc_program": {
+        "name": "Programma asciugatrice"
+      },
+      "dc_remain_time": {
+        "name": "Tempo rimanente asciugatrice"
+      },
+      "dc_dry_time": {
+        "name": "Tempo di asciugatura"
+      },
+      "dc_intensity": {
+        "name": "Intensità asciugatrice"
+      },
+      "dc_appointment_time": {
+        "name": "Orario programmato asciugatrice"
+      },
+      "dc_appointment_end_time": {
+        "name": "Orario fine programmato asciugatrice"
+      },
+      "dc_error_code": {
+        "name": "Codice errore asciugatrice"
+      },
+      "dc_water_consumption": {
+        "name": "Consumo acqua asciugatrice"
+      },
+      "dc_power_consumption": {
+        "name": "Consumo energetico asciugatrice"
+      },
+      "dishwasher_mode": {
+        "name": "Modalità"
+      },
+      "dishwasher_mode_76000228": {
+        "name": "Modalità"
+      },
+      "dishwasher_status": {
+        "name": "Stato"
+      },
+      "dishwasher_progress": {
+        "name": "Avanzamento"
+      },
+      "operator": {
+        "name": "Stato di funzionamento"
+      },
+      "wrong_operation": {
+        "name": "Operazione errata"
+      },
+      "dry_set_min": {
+        "name": "Tempo asciugatura"
+      },
+      "clean_left_hour": {
+        "name": "Pulizia rimanente"
+      },
+      "kitchenware_left_hour": {
+        "name": "Stoviglie rimanenti"
+      },
+      "device_version": {
+        "name": "Versione dispositivo"
+      },
+      "throw_percent": {
+        "name": "Livello dosaggio"
+      },
+      "delay_remaining": {
+        "name": "Tempo rimanente alla partenza ritardata"
+      },
       "three_way_mode": {
         "name": "Modalità a tre vie"
       },
@@ -1512,6 +1711,15 @@
       }
     },
     "switch": {
+      "db_power": {
+        "name": "Accensione lavatrice"
+      },
+      "dc_power": {
+        "name": "Accensione asciugatrice"
+      },
+      "door_auto_open_setting": {
+        "name": "Apertura automatica della porta"
+      },
       "anion": {
         "name": "Anioni"
       },

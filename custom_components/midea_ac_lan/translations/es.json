@@ -63,6 +63,45 @@
   },
   "entity": {
     "binary_sensor": {
+      "door_auto_open": {
+        "name": "Apertura automática de puerta (último programa)"
+      },
+      "uv": {
+        "name": "UV"
+      },
+      "dry": {
+        "name": "Secado"
+      },
+      "dry_status": {
+        "name": "Secando"
+      },
+      "storage_status": {
+        "name": "Almacenamiento activo"
+      },
+      "waterswitch": {
+        "name": "Interruptor de agua"
+      },
+      "water_lack": {
+        "name": "Falta de agua"
+      },
+      "wifi_unabled": {
+        "name": "WiFi desactivado"
+      },
+      "auto_throw": {
+        "name": "Dosificación automática"
+      },
+      "lock_power": {
+        "name": "Bloqueo de encendido"
+      },
+      "beep_control": {
+        "name": "Pitido"
+      },
+      "light_btn_on": {
+        "name": "Luz de botones"
+      },
+      "light_strip_on": {
+        "name": "Tira de luz"
+      },
       "warm_power": {
         "name": "Funcionamiento de calefacción"
       },
@@ -486,6 +525,18 @@
       }
     },
     "button": {
+      "start_delayed": {
+        "name": "Inicio diferido"
+      },
+      "pause": {
+        "name": "Pausa"
+      },
+      "resume": {
+        "name": "Reanudar"
+      },
+      "cancel": {
+        "name": "Cancelar"
+      },
       "start": {
         "name": "Iniciar"
       }
@@ -522,6 +573,18 @@
       }
     },
     "number": {
+      "delay_minutes": {
+        "name": "Retraso"
+      },
+      "wash_region": {
+        "name": "Zona de lavado"
+      },
+      "water_level": {
+        "name": "Nivel de agua"
+      },
+      "water_strong_level": {
+        "name": "Nivel de presión de agua"
+      },
       "heating_target_temperature": {
         "name": "Temperatura objetivo de calefacción"
       },
@@ -569,6 +632,106 @@
       }
     },
     "select": {
+      "wash_mode_76000228": {
+        "name": "Modo de lavado",
+        "state": {
+          "neutral_gear": "Ninguno",
+          "auto_wash": "Automático",
+          "strong_wash": "Intensivo",
+          "standard_wash": "Universal",
+          "eco_wash": "ECO",
+          "glass_wash": "Vidrio",
+          "hour_wash": "90 min",
+          "fast_wash": "Rápido",
+          "soak_wash": "Remojado",
+          "90min": "90 min",
+          "self_clean": "Limpieza automática",
+          "fruit_wash": "Fruta",
+          "self_define": "Personalizado",
+          "bowl_wash": "Cuencos",
+          "kill_germ": "Higiene",
+          "sea_food_wash": "Limpieza automática",
+          "hot_pot_wash": "Olla",
+          "quiet_night_wash": "Noche silenciosa",
+          "less_wash": "Ligero",
+          "max_rapid_wash": "Rápido máximo",
+          "oil_net_wash": "Filtro de grasa",
+          "cloud_wash": "Programa de la nube",
+          "single_dry": "Solo secado",
+          "single_disinfect": "Solo desinfección",
+          "high_temp_wash": "Alta temperatura",
+          "wash_dry": "Lavado y secado",
+          "germ": "Susurro"
+        }
+      },
+      "program_76000228": {
+        "name": "Programa",
+        "state": {
+          "auto_wash": "Automático",
+          "strong_wash": "Intensivo",
+          "standard_wash": "Universal",
+          "eco_wash": "ECO",
+          "glass_wash": "Vidrio",
+          "hour_wash": "90 min",
+          "fast_wash": "Rápido",
+          "soak_wash": "Remojado",
+          "90min": "90 min",
+          "self_clean": "Limpieza automática",
+          "fruit_wash": "Fruta",
+          "self_define": "Personalizado",
+          "bowl_wash": "Cuencos",
+          "kill_germ": "Higiene",
+          "sea_food_wash": "Limpieza automática",
+          "hot_pot_wash": "Olla",
+          "quiet_night_wash": "Noche silenciosa",
+          "less_wash": "Ligero",
+          "max_rapid_wash": "Rápido máximo",
+          "oil_net_wash": "Filtro de grasa",
+          "cloud_wash": "Programa de la nube",
+          "single_dry": "Solo secado",
+          "single_disinfect": "Solo desinfección",
+          "high_temp_wash": "Alta temperatura",
+          "wash_dry": "Lavado y secado",
+          "germ": "Susurro"
+        }
+      },
+      "program": {
+        "name": "Programa",
+        "state": {
+          "auto_wash": "Automático",
+          "strong_wash": "Intensivo",
+          "standard_wash": "Estándar",
+          "eco_wash": "ECO",
+          "glass_wash": "Vidrio",
+          "hour_wash": "1 hora",
+          "fast_wash": "Rápido",
+          "soak_wash": "Remojado",
+          "90min": "90 min",
+          "self_clean": "Limpieza automática",
+          "fruit_wash": "Fruta",
+          "self_define": "Personalizado",
+          "bowl_wash": "Cuencos",
+          "kill_germ": "Higiene",
+          "sea_food_wash": "Marisco",
+          "hot_pot_wash": "Olla",
+          "quiet_night_wash": "Noche silenciosa",
+          "less_wash": "Ligero",
+          "max_rapid_wash": "Rápido máximo",
+          "oil_net_wash": "Filtro de grasa",
+          "cloud_wash": "Programa de la nube",
+          "single_dry": "Solo secado",
+          "single_disinfect": "Solo desinfección",
+          "high_temp_wash": "Alta temperatura",
+          "wash_dry": "Lavado y secado"
+        }
+      },
+      "load": {
+        "name": "Carga",
+        "state": {
+          "0": "Completa",
+          "2": "Media"
+        }
+      },
       "heating_mode": {
         "name": "Modo de calefacción",
         "state": {
@@ -663,7 +826,35 @@
         "name": "Ángulo de inclinación"
       },
       "wash_mode": {
-        "name": "Modo de lavado"
+        "name": "Modo de lavado",
+        "state": {
+          "neutral_gear": "Ninguno",
+          "auto_wash": "Automático",
+          "strong_wash": "Intensivo",
+          "standard_wash": "Estándar",
+          "eco_wash": "ECO",
+          "glass_wash": "Vidrio",
+          "hour_wash": "1 hora",
+          "fast_wash": "Rápido",
+          "soak_wash": "Remojado",
+          "90min": "90 min",
+          "self_clean": "Limpieza automática",
+          "fruit_wash": "Fruta",
+          "self_define": "Personalizado",
+          "bowl_wash": "Cuencos",
+          "kill_germ": "Higiene",
+          "sea_food_wash": "Marisco",
+          "hot_pot_wash": "Olla",
+          "quiet_night_wash": "Noche silenciosa",
+          "less_wash": "Ligero",
+          "max_rapid_wash": "Rápido máximo",
+          "oil_net_wash": "Filtro de grasa",
+          "cloud_wash": "Programa de la nube",
+          "single_dry": "Solo secado",
+          "single_disinfect": "Solo desinfección",
+          "high_temp_wash": "Alta temperatura",
+          "wash_dry": "Lavado y secado"
+        }
       },
       "water_level_set": {
         "name": "Ajuste de nivel de agua"
@@ -697,6 +888,202 @@
       }
     },
     "sensor": {
+      "db_running_status": {
+        "name": "Estado de la lavadora"
+      },
+      "db_progress": {
+        "name": "Progreso de la lavadora"
+      },
+      "db_program": {
+        "name": "Programa de la lavadora"
+      },
+      "db_remain_time": {
+        "name": "Tiempo restante de la lavadora"
+      },
+      "db_wash_time": {
+        "name": "Tiempo de lavado de la lavadora"
+      },
+      "db_dehydration_time": {
+        "name": "Tiempo de centrifugado"
+      },
+      "db_dehydration_speed": {
+        "name": "Velocidad de centrifugado"
+      },
+      "db_water_level": {
+        "name": "Nivel de agua de la lavadora"
+      },
+      "db_temperature": {
+        "name": "Temperatura de la lavadora"
+      },
+      "db_rinse_count": {
+        "name": "Número de aclarados"
+      },
+      "db_detergent": {
+        "name": "Detergente de la lavadora"
+      },
+      "db_softener": {
+        "name": "Suavizante de la lavadora"
+      },
+      "db_appointment_time": {
+        "name": "Hora programada de la lavadora"
+      },
+      "db_appointment_end_time": {
+        "name": "Hora de finalización programada"
+      },
+      "db_error_code": {
+        "name": "Código de error de la lavadora"
+      },
+      "db_water_consumption": {
+        "name": "Consumo de agua de la lavadora"
+      },
+      "db_power_consumption": {
+        "name": "Consumo de energía de la lavadora"
+      },
+      "dc_running_status": {
+        "name": "Estado de la secadora"
+      },
+      "dc_dry_status": {
+        "name": "Estado de secado"
+      },
+      "dc_program": {
+        "name": "Programa de la secadora"
+      },
+      "dc_remain_time": {
+        "name": "Tiempo restante de la secadora"
+      },
+      "dc_dry_time": {
+        "name": "Tiempo de secado"
+      },
+      "dc_intensity": {
+        "name": "Intensidad de la secadora"
+      },
+      "dc_appointment_time": {
+        "name": "Hora programada de la secadora"
+      },
+      "dc_appointment_end_time": {
+        "name": "Hora de finalización programada de la secadora"
+      },
+      "dc_error_code": {
+        "name": "Código de error de la secadora"
+      },
+      "dc_water_consumption": {
+        "name": "Consumo de agua de la secadora"
+      },
+      "dc_power_consumption": {
+        "name": "Consumo de energía de la secadora"
+      },
+      "dishwasher_mode": {
+        "name": "Modo",
+        "state": {
+          "neutral_gear": "Ninguno",
+          "auto_wash": "Automático",
+          "strong_wash": "Intensivo",
+          "standard_wash": "Estándar",
+          "eco_wash": "ECO",
+          "glass_wash": "Vidrio",
+          "hour_wash": "1 hora",
+          "fast_wash": "Rápido",
+          "soak_wash": "Remojado",
+          "90min": "90 min",
+          "self_clean": "Limpieza automática",
+          "fruit_wash": "Fruta",
+          "self_define": "Personalizado",
+          "bowl_wash": "Cuencos",
+          "kill_germ": "Higiene",
+          "sea_food_wash": "Marisco",
+          "hot_pot_wash": "Olla",
+          "quiet_night_wash": "Noche silenciosa",
+          "less_wash": "Ligero",
+          "max_rapid_wash": "Rápido máximo",
+          "oil_net_wash": "Filtro de grasa",
+          "cloud_wash": "Programa de la nube",
+          "single_dry": "Solo secado",
+          "single_disinfect": "Solo desinfección",
+          "high_temp_wash": "Alta temperatura",
+          "wash_dry": "Lavado y secado"
+        }
+      },
+      "dishwasher_mode_76000228": {
+        "name": "Modo",
+        "state": {
+          "neutral_gear": "Ninguno",
+          "auto_wash": "Automático",
+          "strong_wash": "Intensivo",
+          "standard_wash": "Universal",
+          "eco_wash": "ECO",
+          "glass_wash": "Vidrio",
+          "hour_wash": "90 min",
+          "fast_wash": "Rápido",
+          "soak_wash": "Remojado",
+          "90min": "90 min",
+          "self_clean": "Limpieza automática",
+          "fruit_wash": "Fruta",
+          "self_define": "Personalizado",
+          "bowl_wash": "Cuencos",
+          "kill_germ": "Higiene",
+          "sea_food_wash": "Limpieza automática",
+          "hot_pot_wash": "Olla",
+          "quiet_night_wash": "Noche silenciosa",
+          "less_wash": "Ligero",
+          "max_rapid_wash": "Rápido máximo",
+          "oil_net_wash": "Filtro de grasa",
+          "cloud_wash": "Programa de la nube",
+          "single_dry": "Solo secado",
+          "single_disinfect": "Solo desinfección",
+          "high_temp_wash": "Alta temperatura",
+          "wash_dry": "Lavado y secado",
+          "germ": "Susurro"
+        }
+      },
+      "dishwasher_status": {
+        "name": "Estado",
+        "state": {
+          "power_off": "Apagado",
+          "cancel": "En espera",
+          "delay": "Inicio diferido",
+          "running": "En marcha",
+          "error": "Error"
+        }
+      },
+      "dishwasher_progress": {
+        "name": "Progreso",
+        "state": {
+          "idle": "En espera",
+          "pre_wash": "Prelavado",
+          "wash": "Lavado",
+          "rinse": "Aclarado",
+          "dry": "Secado",
+          "complete": "Finalizado"
+        }
+      },
+      "operator": {
+        "name": "Estado de ejecución",
+        "state": {
+          "start": "En marcha",
+          "pause": "En pausa"
+        }
+      },
+      "wrong_operation": {
+        "name": "Operación incorrecta"
+      },
+      "dry_set_min": {
+        "name": "Tiempo de secado"
+      },
+      "clean_left_hour": {
+        "name": "Limpieza restante"
+      },
+      "kitchenware_left_hour": {
+        "name": "Vajilla restante"
+      },
+      "device_version": {
+        "name": "Versión del dispositivo"
+      },
+      "throw_percent": {
+        "name": "Nivel de dosificación"
+      },
+      "delay_remaining": {
+        "name": "Tiempo restante del inicio diferido"
+      },
       "three_way_mode": {
         "name": "Modo de tres vías"
       },
@@ -1574,6 +1961,15 @@
       }
     },
     "switch": {
+      "db_power": {
+        "name": "Encendido de la lavadora"
+      },
+      "dc_power": {
+        "name": "Encendido de la secadora"
+      },
+      "door_auto_open_setting": {
+        "name": "Apertura automática de puerta"
+      },
       "anion": {
         "name": "Anión"
       },
