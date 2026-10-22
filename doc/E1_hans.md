@@ -32,6 +32,9 @@
 >
 > Program、Delay、Door Auto-Open 和 Load 保存在内存中, Home Assistant 重启后重置。
 > 关机时也可以修改 Delay、Door Auto-Open 和 Load; Program、Wash Mode 和各按钮仅在洗碗机开机时可用。
+>
+> 能耗/水耗预估值来自各型号的说明书, 在一次洗涤完成时累加为总量。`76000228` 型号仅 ECO
+> 程序的数据按 EN 60436 测得, 说明书称其余数据仅供参考。
 
 ### 额外生成实体
 
