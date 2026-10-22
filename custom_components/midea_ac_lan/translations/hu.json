@@ -63,6 +63,45 @@
   },
   "entity": {
     "binary_sensor": {
+      "door_auto_open": {
+        "name": "Automatikus ajtónyitás (utolsó program)"
+      },
+      "uv": {
+        "name": "UV"
+      },
+      "dry": {
+        "name": "Szárítás"
+      },
+      "dry_status": {
+        "name": "Szárítás folyamatban"
+      },
+      "storage_status": {
+        "name": "Tárolás aktív"
+      },
+      "waterswitch": {
+        "name": "Vízkapcsoló"
+      },
+      "water_lack": {
+        "name": "Vízhiány"
+      },
+      "wifi_unabled": {
+        "name": "WiFi letiltva"
+      },
+      "auto_throw": {
+        "name": "Automatikus adagolás"
+      },
+      "lock_power": {
+        "name": "Bekapcsolás-zár"
+      },
+      "beep_control": {
+        "name": "Hangjelzés"
+      },
+      "light_btn_on": {
+        "name": "Gombvilágítás"
+      },
+      "light_strip_on": {
+        "name": "Fénycsík"
+      },
       "warm_power": {
         "name": "Fűtés üzem"
       },
@@ -486,6 +525,18 @@
       }
     },
     "button": {
+      "start_delayed": {
+        "name": "Késleltetett indítás"
+      },
+      "pause": {
+        "name": "Szünet"
+      },
+      "resume": {
+        "name": "Folytatás"
+      },
+      "cancel": {
+        "name": "Megszakítás"
+      },
       "start": {
         "name": "Indítás"
       }
@@ -522,6 +573,18 @@
       }
     },
     "number": {
+      "delay_minutes": {
+        "name": "Késleltetés"
+      },
+      "wash_region": {
+        "name": "Mosási zóna"
+      },
+      "water_level": {
+        "name": "Vízszint"
+      },
+      "water_strong_level": {
+        "name": "Víznyomásszint"
+      },
       "heating_target_temperature": {
         "name": "Fűtés célhőmérséklet"
       },
@@ -569,6 +632,16 @@
       }
     },
     "select": {
+      "program": {
+        "name": "Program"
+      },
+      "load": {
+        "name": "Töltet",
+        "state": {
+          "0": "Teljes",
+          "2": "Fél"
+        }
+      },
       "heating_mode": {
         "name": "Fűtési mód",
         "state": {
@@ -697,6 +770,30 @@
       }
     },
     "sensor": {
+      "operator": {
+        "name": "Futási állapot"
+      },
+      "wrong_operation": {
+        "name": "Hibás művelet"
+      },
+      "dry_set_min": {
+        "name": "Szárítási idő"
+      },
+      "clean_left_hour": {
+        "name": "Hátralévő tisztítás"
+      },
+      "kitchenware_left_hour": {
+        "name": "Hátralévő edények"
+      },
+      "device_version": {
+        "name": "Eszközverzió"
+      },
+      "throw_percent": {
+        "name": "Adagolási szint"
+      },
+      "delay_remaining": {
+        "name": "Késleltetett indításig hátralévő idő"
+      },
       "three_way_mode": {
         "name": "Háromjáratú mód"
       },
@@ -1574,6 +1671,9 @@
       }
     },
     "switch": {
+      "door_auto_open_setting": {
+        "name": "Automatikus ajtónyitás"
+      },
       "anion": {
         "name": "Anion"
       },
