@@ -4,7 +4,7 @@ import logging
 import math
 import time
 from datetime import timedelta
-from typing import TYPE_CHECKING, Any, cast
+from typing import Any, cast
 
 from homeassistant.components.sensor import (
     SensorDeviceClass,
@@ -19,6 +19,7 @@ from homeassistant.helpers.event import async_track_time_interval
 from homeassistant.helpers.restore_state import RestoreEntity
 from homeassistant.helpers.typing import StateType
 from midealan.device import MideaDevice
+from midealan.devices.e1 import MideaE1Device
 
 from .cloud import (
     MideaCloudCoordinator,
@@ -27,9 +28,6 @@ from .cloud import (
 from .const import DEVICES, DOMAIN, supports_device
 from .midea_devices import MIDEA_DEVICES
 from .midea_entity import MideaEntity
-
-if TYPE_CHECKING:
-    from midealan.devices.e1 import MideaE1Device
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -358,7 +356,7 @@ class MideaEstimatedUsageSensor(MideaSensor, RestoreEntity):
     def extra_state_attributes(self) -> dict[str, Any]:
         """Estimate metadata for the sensor."""
         estimate = cast("dict[str, Any]", self._config["estimate"])
-        modes = cast("MideaE1Device", self._device).modes
+        modes = self._modes()
         return {
             "estimate_source": "fixed_per_wash_mode",
             "known_modes": [
@@ -369,6 +367,18 @@ class MideaEstimatedUsageSensor(MideaSensor, RestoreEntity):
             "running_mode": self._running_mode,
         }
 
+    def _modes(self) -> dict[int, str]:
+        """Return the dishwasher's mode names keyed by code.
+
+        Returns
+        -------
+        Mode names keyed by mode code.
+
+        """
+        if isinstance(self._device, MideaE1Device):
+            return self._device.modes
+        return {}
+
     def _mode_code(self, mode: str | None) -> int | None:
         """Return the code of a reported mode name.
 
@@ -377,7 +387,7 @@ class MideaEstimatedUsageSensor(MideaSensor, RestoreEntity):
         The mode code, or None if the name is unknown.
 
         """
-        modes = cast("MideaE1Device", self._device).modes
+        modes = self._modes()
         return next((code for code, name in modes.items() if name == mode), None)
 
     def update_state(self, status: Any) -> None:  # ruff:ignore[any-type]
