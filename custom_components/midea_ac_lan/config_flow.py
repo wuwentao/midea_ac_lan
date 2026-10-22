@@ -612,6 +612,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                     CONF_MANUFACTURER_CODE: storage_device.get(
                         CONF_MANUFACTURER_CODE,
                     ),
+                    CONF_CLOUD_NAME: storage_device.get(CONF_CLOUD_NAME),
                 }
                 _LOGGER.debug(
                     "Loaded configuration for device %s from storage",
@@ -811,6 +812,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                 # these survive the reset. The manual-entry path leaves them None.
                 CONF_SN8: self.found_device.get(CONF_SN8),
                 CONF_MANUFACTURER_CODE: self.found_device.get(CONF_MANUFACTURER_CODE),
+                CONF_CLOUD_NAME: self.found_device.get(CONF_CLOUD_NAME),
             }
 
             # check device connection with all the input
@@ -851,7 +853,10 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                     CONF_MANUFACTURER_CODE: self.found_device.get(
                         CONF_MANUFACTURER_CODE,
                     ),
-                    CONF_CLOUD_NAME: self._added_with_cloud_name(),
+                    CONF_CLOUD_NAME: (
+                        self.found_device.get(CONF_CLOUD_NAME)
+                        or self._added_with_cloud_name()
+                    ),
                 }
                 # save device json config when adding new device
                 await self.hass.async_add_executor_job(self._save_device_config, data)
