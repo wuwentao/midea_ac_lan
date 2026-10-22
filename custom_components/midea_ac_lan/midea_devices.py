@@ -3970,6 +3970,8 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "db_water_consumption",
                 "name": "Washer Water Consumption",
                 "icon": "mdi:water-percent",
+                "device_class": SensorDeviceClass.WATER,
+                "unit": UnitOfVolume.LITERS,
                 "state_class": SensorStateClass.TOTAL_INCREASING,
             },
             D9Attributes.db_power_consumption: {
@@ -4054,6 +4056,8 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "dc_water_consumption",
                 "name": "Dryer Water Consumption",
                 "icon": "mdi:water-percent",
+                "device_class": SensorDeviceClass.WATER,
+                "unit": UnitOfVolume.LITERS,
                 "state_class": SensorStateClass.TOTAL_INCREASING,
             },
             D9Attributes.dc_power_consumption: {

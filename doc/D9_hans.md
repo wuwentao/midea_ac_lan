@@ -52,11 +52,11 @@
 
 设置设备属性, 服务数据:
 
-| 名称      | 描述                                                                                                        |
-| --------- | ----------------------------------------------------------------------------------------------------------- |
-| device_id | 设备的编号(Device ID)                                                                                       |
-| attribute | "db_power"<br/>"dc_power"<br/>"db_running_status"<br/>"dc_running_status"<br/>"db_program"<br/>"dc_program" |
-| value     | 电源/运行状态为 true 或 false; 程序为程序编号(整数)或程序名称(字符串)                                       |
+| 名称      | 描述                      |
+| --------- | ------------------------- |
+| device_id | 设备的编号(Device ID)     |
+| attribute | "db_power"<br/>"dc_power" |
+| value     | true 或 false             |
 
 示例
 
