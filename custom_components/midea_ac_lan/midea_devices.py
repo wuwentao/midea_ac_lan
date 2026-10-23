@@ -1591,6 +1591,8 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "b6_tvoc_value",
                 "name": "Range Hood TVOC Value",
                 "icon": "mdi:air-filter",
+                "device_class": SensorDeviceClass.ENUM,
+                "options": {"中": "medium", "优": "excellent", "良": "good"},
             },
             X9CAttributes.b6_air_duct_detection_score: {
                 "type": Platform.SENSOR,
