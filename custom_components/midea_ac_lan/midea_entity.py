@@ -57,7 +57,13 @@ class MideaEntity(Entity):
         # translation in translations/<lang>.json.
         # If translation exists -> UI shows the translated string.
         # If translation not found -> fallback to "name" / device_class / entity_id.
-        self._attr_translation_key = self._config.get("translation_key")
+        # translation_key_by_model: a model whose panel names differ (e.g. a
+        # dishwasher's programs) can use its own key, so its state names match.
+        by_model = self._config.get("translation_key_by_model", {})
+        self._attr_translation_key = by_model.get(
+            str(self._device.model),
+            self._config.get("translation_key"),
+        )
 
         # has_entity_name: MUST be True in modern HA (old False behavior is deprecated).
         self._attr_has_entity_name = True
