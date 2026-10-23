@@ -63,6 +63,7 @@ from midealan.devices.cc import DeviceAttributes as CCAttributes
 from midealan.devices.cd import DeviceAttributes as CDAttributes
 from midealan.devices.ce import DeviceAttributes as CEAttributes
 from midealan.devices.cf import DeviceAttributes as CFAttributes
+from midealan.devices.d9 import DeviceAttributes as D9Attributes
 from midealan.devices.da import DeviceAttributes as DAAttributes
 from midealan.devices.db import DeviceAttributes as DBAttributes
 from midealan.devices.dc import DeviceAttributes as DCAttributes
@@ -78,10 +79,14 @@ from midealan.devices.fa import DeviceAttributes as FAAttributes
 from midealan.devices.fb import DeviceAttributes as FBAttributes
 from midealan.devices.fc import DeviceAttributes as FCAttributes
 from midealan.devices.fd import DeviceAttributes as FDAttributes
-from midealan.devices.x9c import DeviceAttributes as X9CAttributes
+from midealan.devices.x9c import DeviceAttributes as _X9CAttributes
 from midealan.devices.x26 import DeviceAttributes as X26Attributes
 from midealan.devices.x34 import DeviceAttributes as X34Attributes
 from midealan.devices.x40 import DeviceAttributes as X40Attributes
+
+# 0x9C builds this enum dynamically from its decoder's attribute list, so static
+# type checkers cannot see the generated members.
+X9CAttributes: Any = _X9CAttributes
 
 FRESH_AIR_EXHAUST = "fresh_air_exhaust"
 FRESH_AIR_EXHAUST_MODE = "fresh_air_exhaust_mode"
@@ -6359,6 +6364,223 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
         },
     },
+    0xD9: {
+        "name": "Washer Dryer Combo",
+        "entities": {
+            # --- DB washer bucket ---
+            D9Attributes.db_power: {
+                "type": Platform.SWITCH,
+                "translation_key": "db_power",
+                "name": "Washer Power",
+                "icon": "mdi:power",
+            },
+            D9Attributes.db_running_status: {
+                "type": Platform.SENSOR,
+                "translation_key": "db_running_status",
+                "name": "Washer Status",
+                "icon": "mdi:auto-mode",
+            },
+            D9Attributes.db_progress: {
+                "type": Platform.SENSOR,
+                "translation_key": "db_progress",
+                "name": "Washer Progress",
+                "icon": "mdi:rotate-360",
+            },
+            D9Attributes.db_program: {
+                "type": Platform.SENSOR,
+                "translation_key": "db_program",
+                "name": "Washer Program",
+                "icon": "mdi:washing-machine",
+            },
+            D9Attributes.db_remain_time: {
+                "type": Platform.SENSOR,
+                "translation_key": "db_remain_time",
+                "name": "Washer Time Remaining",
+                "icon": "mdi:progress-clock",
+                "unit": UnitOfTime.MINUTES,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            D9Attributes.db_wash_time: {
+                "type": Platform.SENSOR,
+                "translation_key": "db_wash_time",
+                "name": "Washer Wash Time",
+                "icon": "mdi:progress-clock",
+                "unit": UnitOfTime.MINUTES,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            D9Attributes.db_dehydration_time: {
+                "type": Platform.SENSOR,
+                "translation_key": "db_dehydration_time",
+                "name": "Washer Dehydration Time",
+                "icon": "mdi:progress-clock",
+                "unit": UnitOfTime.MINUTES,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            D9Attributes.db_dehydration_speed: {
+                "type": Platform.SENSOR,
+                "translation_key": "db_dehydration_speed",
+                "name": "Washer Dehydration Speed",
+                "icon": "mdi:speedometer",
+            },
+            D9Attributes.db_water_level: {
+                "type": Platform.SENSOR,
+                "translation_key": "db_water_level",
+                "name": "Washer Water Level",
+                "icon": "mdi:cup-water",
+            },
+            D9Attributes.db_temperature: {
+                "type": Platform.SENSOR,
+                "translation_key": "db_temperature",
+                "name": "Washer Temperature",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            D9Attributes.db_rinse_count: {
+                "type": Platform.SENSOR,
+                "translation_key": "db_rinse_count",
+                "name": "Washer Rinse Count",
+                "icon": "mdi:water-sync",
+            },
+            D9Attributes.db_detergent: {
+                "type": Platform.SENSOR,
+                "translation_key": "db_detergent",
+                "name": "Washer Detergent",
+                "icon": "mdi:water",
+            },
+            D9Attributes.db_softener: {
+                "type": Platform.SENSOR,
+                "translation_key": "db_softener",
+                "name": "Washer Softener",
+                "icon": "mdi:water-outline",
+            },
+            D9Attributes.db_appointment_time: {
+                "type": Platform.SENSOR,
+                "translation_key": "db_appointment_time",
+                "name": "Washer Appointment Time",
+                "icon": "mdi:clock-outline",
+                "unit": UnitOfTime.MINUTES,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            D9Attributes.db_appointment_end_time: {
+                "type": Platform.SENSOR,
+                "translation_key": "db_appointment_end_time",
+                "name": "Washer Appointment End Time",
+                "icon": "mdi:clock-check-outline",
+                "unit": UnitOfTime.MINUTES,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            D9Attributes.db_error_code: {
+                "type": Platform.SENSOR,
+                "translation_key": "db_error_code",
+                "name": "Washer Error Code",
+                "icon": "mdi:code-block-tags",
+            },
+            D9Attributes.db_water_consumption: {
+                "type": Platform.SENSOR,
+                "translation_key": "db_water_consumption",
+                "name": "Washer Water Consumption",
+                "icon": "mdi:water-percent",
+                "device_class": SensorDeviceClass.WATER,
+                "unit": UnitOfVolume.LITERS,
+                "state_class": SensorStateClass.TOTAL_INCREASING,
+            },
+            D9Attributes.db_power_consumption: {
+                "type": Platform.SENSOR,
+                "translation_key": "db_power_consumption",
+                "name": "Washer Power Consumption",
+                "device_class": SensorDeviceClass.ENERGY,
+                "unit": UnitOfEnergy.WATT_HOUR,
+                "state_class": SensorStateClass.TOTAL_INCREASING,
+            },
+            # --- DC dryer bucket ---
+            D9Attributes.dc_power: {
+                "type": Platform.SWITCH,
+                "translation_key": "dc_power",
+                "name": "Dryer Power",
+                "icon": "mdi:power",
+            },
+            D9Attributes.dc_running_status: {
+                "type": Platform.SENSOR,
+                "translation_key": "dc_running_status",
+                "name": "Dryer Status",
+                "icon": "mdi:auto-mode",
+            },
+            D9Attributes.dc_dry_status: {
+                "type": Platform.SENSOR,
+                "translation_key": "dc_dry_status",
+                "name": "Dryer Dry Status",
+                "icon": "mdi:tumble-dryer",
+            },
+            D9Attributes.dc_program: {
+                "type": Platform.SENSOR,
+                "translation_key": "dc_program",
+                "name": "Dryer Program",
+                "icon": "mdi:tumble-dryer",
+            },
+            D9Attributes.dc_remain_time: {
+                "type": Platform.SENSOR,
+                "translation_key": "dc_remain_time",
+                "name": "Dryer Time Remaining",
+                "icon": "mdi:progress-clock",
+                "unit": UnitOfTime.MINUTES,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            D9Attributes.dc_dry_time: {
+                "type": Platform.SENSOR,
+                "translation_key": "dc_dry_time",
+                "name": "Dryer Dry Time",
+                "icon": "mdi:progress-clock",
+                "unit": UnitOfTime.MINUTES,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            D9Attributes.dc_intensity: {
+                "type": Platform.SENSOR,
+                "translation_key": "dc_intensity",
+                "name": "Dryer Intensity",
+                "icon": "mdi:waves-arrow-up",
+            },
+            D9Attributes.dc_appointment_time: {
+                "type": Platform.SENSOR,
+                "translation_key": "dc_appointment_time",
+                "name": "Dryer Appointment Time",
+                "icon": "mdi:clock-outline",
+                "unit": UnitOfTime.MINUTES,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            D9Attributes.dc_appointment_end_time: {
+                "type": Platform.SENSOR,
+                "translation_key": "dc_appointment_end_time",
+                "name": "Dryer Appointment End Time",
+                "icon": "mdi:clock-check-outline",
+                "unit": UnitOfTime.MINUTES,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            D9Attributes.dc_error_code: {
+                "type": Platform.SENSOR,
+                "translation_key": "dc_error_code",
+                "name": "Dryer Error Code",
+                "icon": "mdi:code-block-tags",
+            },
+            D9Attributes.dc_water_consumption: {
+                "type": Platform.SENSOR,
+                "translation_key": "dc_water_consumption",
+                "name": "Dryer Water Consumption",
+                "icon": "mdi:water-percent",
+                "device_class": SensorDeviceClass.WATER,
+                "unit": UnitOfVolume.LITERS,
+                "state_class": SensorStateClass.TOTAL_INCREASING,
+            },
+            D9Attributes.dc_power_consumption: {
+                "type": Platform.SENSOR,
+                "translation_key": "dc_power_consumption",
+                "name": "Dryer Power Consumption",
+                "device_class": SensorDeviceClass.ENERGY,
+                "unit": UnitOfEnergy.WATT_HOUR,
+                "state_class": SensorStateClass.TOTAL_INCREASING,
+            },
+        },
+    },
     0xDA: {
         "name": "Top Load Washer",
         "entities": {
@@ -6714,13 +6936,13 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             E1Attributes.progress: {
                 "type": Platform.SENSOR,
-                "translation_key": "progress",
+                "translation_key": "dishwasher_progress",
                 "name": "Progress",
                 "icon": "mdi:rotate-360",
             },
             E1Attributes.status: {
                 "type": Platform.SENSOR,
-                "translation_key": "status",
+                "translation_key": "dishwasher_status",
                 "name": "Status",
                 "icon": "mdi:information",
             },
@@ -6769,14 +6991,114 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "start",
                 "name": "Start",
                 "icon": "mdi:play",
-                "set_message": "e1_start",
+                "press_status": "work",
                 "available_power_attribute": E1Attributes.power,
-                "models": ["7600024L"],
                 "default": True,
+            },
+            "start_delayed": {
+                "type": Platform.BUTTON,
+                "translation_key": "start_delayed",
+                "name": "Start Delayed",
+                "icon": "mdi:timer-play-outline",
+                "press_status": "order",
+                "available_power_attribute": E1Attributes.power,
+                "default": True,
+            },
+            "cancel": {
+                "type": Platform.BUTTON,
+                "translation_key": "cancel",
+                "name": "Cancel",
+                "icon": "mdi:stop",
+                "press_status": "cancel",
+                "available_power_attribute": E1Attributes.power,
+                "default": True,
+            },
+            "pause": {
+                "type": Platform.BUTTON,
+                "translation_key": "pause",
+                "name": "Pause",
+                "icon": "mdi:pause",
+                "press_status": "pause",
+                "available_power_attribute": E1Attributes.power,
+                "default": True,
+            },
+            "resume": {
+                "type": Platform.BUTTON,
+                "translation_key": "resume",
+                "name": "Resume",
+                "icon": "mdi:play-pause",
+                "press_status": "resume",
+                "available_power_attribute": E1Attributes.power,
+                "default": True,
+            },
+            E1Attributes.program: {
+                "type": Platform.SELECT,
+                "translation_key": "program",
+                "translation_key_by_model": {"76000228": "program_76000228"},
+                "name": "Program",
+                "icon": "mdi:dishwasher",
+                "options_dict": "modes",
+                "options_codes_by_model": {
+                    "7600024L": [13, 4, 8, 6, 2, 11, 10],
+                    # From the Midea app (wuwentao/midea_ac_lan#709)
+                    "76000228": [2, 3, 4, 5, 6, 7, 8, 13, 15, 16],
+                },
+                "options_exclude_codes": [0],
+                "available_power_attribute": E1Attributes.power,
+                "default": True,
+            },
+            E1Attributes.delay_minutes: {
+                "type": Platform.NUMBER,
+                "translation_key": "delay_minutes",
+                "name": "Delay",
+                "icon": "mdi:timer-outline",
+                "min": 1,
+                "max": 1440,
+                "step": 1,
+                "unit": UnitOfTime.MINUTES,
+                "default": True,
+            },
+            E1Attributes.door_auto_open_setting: {
+                "type": Platform.SWITCH,
+                "translation_key": "door_auto_open_setting",
+                "name": "Door Auto-Open",
+                "icon": "mdi:door-open",
+                "default": True,
+            },
+            E1Attributes.additional_setting: {
+                "type": Platform.SELECT,
+                "translation_key": "load",
+                "name": "Load",
+                "icon": "mdi:silverware-clean",
+                "options": [0, 2],
+                "option_type": "int",
+                "models": ["76000228"],
+                "default": True,
+            },
+            E1Attributes.delay_remaining: {
+                "type": Platform.SENSOR,
+                "translation_key": "delay_remaining",
+                "name": "Delayed Start Remaining",
+                "icon": "mdi:timer-sand",
+                "unit": UnitOfTime.MINUTES,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            E1Attributes.operator: {
+                "type": Platform.SENSOR,
+                "translation_key": "operator",
+                "name": "Run State",
+                "icon": "mdi:play-pause",
+            },
+            E1Attributes.door_auto_open: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "door_auto_open",
+                "name": "Last Program Door Auto-Open",
+                "icon": "mdi:door-open",
             },
             E1Attributes.mode: {
                 "type": Platform.SENSOR,
-                "translation_key": "mode",
+                "translation_key": "dishwasher_mode",
+                "translation_key_by_model": {"76000228": "dishwasher_mode_76000228"},
                 "name": "Working Mode",
                 "icon": "mdi:dishwasher",
             },
@@ -6784,10 +7106,13 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "type": Platform.SELECT,
                 "attribute": E1Attributes.mode,
                 "translation_key": "wash_mode",
+                "translation_key_by_model": {"76000228": "wash_mode_76000228"},
                 "name": "Wash Mode",
                 "options_dict": "modes",
                 "options_codes_by_model": {
                     "7600024L": [13, 4, 8, 6, 2, 11, 10],
+                    # From the Midea app (wuwentao/midea_ac_lan#709)
+                    "76000228": [2, 3, 4, 5, 6, 7, 8, 13, 15, 16],
                 },
                 "set_message": "e1_work_mode",
                 "available_power_attribute": E1Attributes.power,
@@ -6804,17 +7129,33 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "state_class": SensorStateClass.TOTAL_INCREASING,
                 "estimate": {
                     "kind": "energy",
-                    "values": {
-                        "Germ": 0.765,
-                        "ECO Wash": 0.99,
-                        "Strong Wash": 1.28,
-                        "Hour Wash": 0.91,
-                        "Soak Wash": 0.02,
-                        "Self Clean": 1.524,
-                        "Fruit Wash": 1.625,
+                    "values_by_model": {
+                        "7600024L": {
+                            0x0D: 0.765,  # germ
+                            0x04: 0.99,  # eco_wash
+                            0x02: 1.28,  # strong_wash
+                            0x06: 0.91,  # hour_wash
+                            0x08: 0.02,  # soak_wash
+                            0x0A: 1.524,  # self_clean
+                            0x0B: 1.625,  # fruit_wash
+                        },
+                        # MDWPF1433CSS-W-EU manual, programme table; only ECO
+                        # is measured to EN 60436, the rest are indicative.
+                        "76000228": {
+                            0x02: 1.615,  # strong_wash, Intensive
+                            0x03: 1.23,  # standard_wash, Universal
+                            0x04: 0.746,  # eco_wash, ECO
+                            0x05: 0.995,  # glass_wash, Glass
+                            0x06: 1.18,  # hour_wash, 90 min
+                            0x07: 0.82,  # fast_wash, Rapid
+                            0x08: 0.018,  # soak_wash, Soak
+                            0x0D: 0.771,  # germ, Whisper
+                            0x0F: 1.815,  # kill_germ, Hygiene
+                            0x10: 1.405,  # sea_food_wash, Self clean
+                        },
                     },
                 },
-                "models": ["7600024L"],
+                "models": ["7600024L", "76000228"],
                 "default": True,
             },
             "estimated_water_consumption": {
@@ -6827,17 +7168,33 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "state_class": SensorStateClass.TOTAL_INCREASING,
                 "estimate": {
                     "kind": "water",
-                    "values": {
-                        "Germ": 9.9,
-                        "ECO Wash": 10.4,
-                        "Strong Wash": 13.9,
-                        "Hour Wash": 10.4,
-                        "Soak Wash": 3.4,
-                        "Self Clean": 10.3,
-                        "Fruit Wash": 13.3,
+                    "values_by_model": {
+                        "7600024L": {
+                            0x0D: 9.9,  # germ
+                            0x04: 10.4,  # eco_wash
+                            0x02: 13.9,  # strong_wash
+                            0x06: 10.4,  # hour_wash
+                            0x08: 3.4,  # soak_wash
+                            0x0A: 10.3,  # self_clean
+                            0x0B: 13.3,  # fruit_wash
+                        },
+                        # MDWPF1433CSS-W-EU manual, programme table; only ECO
+                        # is measured to EN 60436, the rest are indicative.
+                        "76000228": {
+                            0x02: 18.6,  # strong_wash, Intensive
+                            0x03: 14.8,  # standard_wash, Universal
+                            0x04: 10.2,  # eco_wash, ECO
+                            0x05: 14.8,  # glass_wash, Glass
+                            0x06: 11.9,  # hour_wash, 90 min
+                            0x07: 11.3,  # fast_wash, Rapid
+                            0x08: 4.1,  # soak_wash, Soak
+                            0x0D: 10.2,  # germ, Whisper
+                            0x0F: 14.9,  # kill_germ, Hygiene
+                            0x10: 15.1,  # sea_food_wash, Self clean
+                        },
                     },
                 },
-                "models": ["7600024L"],
+                "models": ["7600024L", "76000228"],
                 "default": True,
             },
             E1Attributes.error_code: {
@@ -6857,6 +7214,160 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "bright",
                 "name": "Bright Level",
                 "icon": "mdi:star-four-points",
+            },
+            E1Attributes.uv: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "uv",
+                "name": "UV",
+                "icon": "mdi:sun-wireless",
+            },
+            E1Attributes.dry: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "dry",
+                "name": "Dry",
+                "icon": "mdi:hair-dryer",
+            },
+            E1Attributes.dry_status: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "dry_status",
+                "name": "Drying",
+                "icon": "mdi:hair-dryer",
+                "device_class": BinarySensorDeviceClass.RUNNING,
+            },
+            E1Attributes.storage_status: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "storage_status",
+                "name": "Storage Running",
+                "icon": "mdi:repeat-variant",
+                "device_class": BinarySensorDeviceClass.RUNNING,
+            },
+            E1Attributes.waterswitch: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "waterswitch",
+                "name": "Water Switch",
+                "icon": "mdi:water-boiler",
+            },
+            E1Attributes.water_lack: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "water_lack",
+                "name": "Water Shortage",
+                "icon": "mdi:water-alert",
+                "device_class": BinarySensorDeviceClass.PROBLEM,
+            },
+            E1Attributes.wifi_unabled: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "wifi_unabled",
+                "name": "WiFi Disabled",
+                "icon": "mdi:wifi-off",
+                "entity_category": EntityCategory.DIAGNOSTIC,
+            },
+            E1Attributes.auto_throw: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "auto_throw",
+                "name": "Auto Dispense",
+                "icon": "mdi:tray-arrow-down",
+            },
+            E1Attributes.lock_power: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "lock_power",
+                "name": "Power Lock",
+                "icon": "mdi:lock",
+            },
+            E1Attributes.beep_control: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "beep_control",
+                "name": "Beep",
+                "icon": "mdi:volume-high",
+            },
+            E1Attributes.light_btn_on: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "light_btn_on",
+                "name": "Button Light",
+                "icon": "mdi:lightbulb",
+                "device_class": BinarySensorDeviceClass.LIGHT,
+            },
+            E1Attributes.light_strip_on: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "light_strip_on",
+                "name": "Light Strip",
+                "icon": "mdi:led-strip-variant",
+                "device_class": BinarySensorDeviceClass.LIGHT,
+            },
+            E1Attributes.wrong_operation: {
+                "type": Platform.SENSOR,
+                "translation_key": "wrong_operation",
+                "name": "Wrong Operation",
+                "icon": "mdi:alert-circle",
+                "entity_category": EntityCategory.DIAGNOSTIC,
+            },
+            E1Attributes.dry_set_min: {
+                "type": Platform.SENSOR,
+                "translation_key": "dry_set_min",
+                "name": "Dry Set Time",
+                "icon": "mdi:timer-outline",
+                "unit": UnitOfTime.MINUTES,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            E1Attributes.clean_left_hour: {
+                "type": Platform.SENSOR,
+                "translation_key": "clean_left_hour",
+                "name": "Clean Remaining",
+                "icon": "mdi:timer-sand",
+                "unit": UnitOfTime.HOURS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            E1Attributes.kitchenware_left_hour: {
+                "type": Platform.SENSOR,
+                "translation_key": "kitchenware_left_hour",
+                "name": "Kitchenware Remaining",
+                "icon": "mdi:timer-sand",
+                "unit": UnitOfTime.HOURS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            E1Attributes.device_version: {
+                "type": Platform.SENSOR,
+                "translation_key": "device_version",
+                "name": "Device Version",
+                "icon": "mdi:information-outline",
+                "entity_category": EntityCategory.DIAGNOSTIC,
+            },
+            E1Attributes.throw_percent: {
+                "type": Platform.SENSOR,
+                "translation_key": "throw_percent",
+                "name": "Dispense Level",
+                "icon": "mdi:tray-arrow-down",
+                "unit": PERCENTAGE,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            E1Attributes.wash_region_setting: {
+                "type": Platform.NUMBER,
+                "translation_key": "wash_region",
+                "name": "Wash Region",
+                "icon": "mdi:select-group",
+                "min": 0,
+                "max": 255,
+                "step": 1,
+                "default": True,
+            },
+            E1Attributes.water_level_setting: {
+                "type": Platform.NUMBER,
+                "translation_key": "water_level",
+                "name": "Water Level",
+                "icon": "mdi:cup-water",
+                "min": 0,
+                "max": 255,
+                "step": 1,
+                "default": True,
+            },
+            E1Attributes.water_strong_level_setting: {
+                "type": Platform.NUMBER,
+                "translation_key": "water_strong_level",
+                "name": "Water Pressure Level",
+                "icon": "mdi:car-wash",
+                "min": 0,
+                "max": 255,
+                "step": 1,
+                "default": True,
             },
         },
     },
@@ -7012,6 +7523,70 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "zero_cold_pulse",
                 "name": "Zero Cold Water (Pulse)",
                 "icon": "mdi:restore-alert",
+            },
+            # Optional water/gas usage statistics. E3 appliances report them
+            # only through the Midea cloud day report (see cloud.py),
+            # so besides opting in here the user must also store their Midea
+            # app account in the integration options of the device.
+            "water_usage_daily": {
+                "type": Platform.SENSOR,
+                "translation_key": "water_usage_daily",
+                "name": "Daily Water Usage",
+                "device_class": SensorDeviceClass.WATER,
+                "unit": UnitOfVolume.LITERS,
+                "state_class": SensorStateClass.MEASUREMENT,
+                "suggested_display_precision": 1,
+                "cloud_report": "water_daily",
+            },
+            "gas_usage_daily": {
+                "type": Platform.SENSOR,
+                "translation_key": "gas_usage_daily",
+                "name": "Daily Gas Usage",
+                "device_class": SensorDeviceClass.GAS,
+                "unit": UnitOfVolume.CUBIC_METERS,
+                "state_class": SensorStateClass.MEASUREMENT,
+                "suggested_display_precision": 2,
+                "cloud_report": "gas_daily",
+            },
+            "water_usage_monthly": {
+                "type": Platform.SENSOR,
+                "translation_key": "water_usage_monthly",
+                "name": "Monthly Water Usage",
+                "device_class": SensorDeviceClass.WATER,
+                "unit": UnitOfVolume.LITERS,
+                "state_class": SensorStateClass.MEASUREMENT,
+                "suggested_display_precision": 1,
+                "cloud_report": "water_monthly",
+            },
+            "gas_usage_monthly": {
+                "type": Platform.SENSOR,
+                "translation_key": "gas_usage_monthly",
+                "name": "Monthly Gas Usage",
+                "device_class": SensorDeviceClass.GAS,
+                "unit": UnitOfVolume.CUBIC_METERS,
+                "state_class": SensorStateClass.MEASUREMENT,
+                "suggested_display_precision": 2,
+                "cloud_report": "gas_monthly",
+            },
+            "water_usage_last_month": {
+                "type": Platform.SENSOR,
+                "translation_key": "water_usage_last_month",
+                "name": "Last Month Water Usage",
+                "device_class": SensorDeviceClass.WATER,
+                "unit": UnitOfVolume.LITERS,
+                "state_class": SensorStateClass.MEASUREMENT,
+                "suggested_display_precision": 1,
+                "cloud_report": "water_last_month",
+            },
+            "gas_usage_last_month": {
+                "type": Platform.SENSOR,
+                "translation_key": "gas_usage_last_month",
+                "name": "Last Month Gas Usage",
+                "device_class": SensorDeviceClass.GAS,
+                "unit": UnitOfVolume.CUBIC_METERS,
+                "state_class": SensorStateClass.MEASUREMENT,
+                "suggested_display_precision": 2,
+                "cloud_report": "gas_last_month",
             },
         },
     },

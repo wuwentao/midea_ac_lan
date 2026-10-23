@@ -1,5 +1,6 @@
 """Sensor for Midea Lan."""
 
+import logging
 import math
 import time
 from datetime import timedelta
@@ -18,10 +19,17 @@ from homeassistant.helpers.event import async_track_time_interval
 from homeassistant.helpers.restore_state import RestoreEntity
 from homeassistant.helpers.typing import StateType
 from midealan.device import MideaDevice
+from midealan.devices.e1 import MideaE1Device
 
+from .cloud import (
+    MideaCloudCoordinator,
+    create_cloud_coordinator,
+)
 from .const import DEVICES, DOMAIN, supports_device
 from .midea_devices import MIDEA_DEVICES
 from .midea_entity import MideaEntity
+
+_LOGGER = logging.getLogger(__name__)
 
 
 async def async_setup_entry(
@@ -34,6 +42,10 @@ async def async_setup_entry(
     device = hass.data[DOMAIN][DEVICES].get(device_id)
     extra_sensors = config_entry.options.get(CONF_SENSORS, [])
     sensors = []
+    # Shared by all cloud usage sensors of the device; created lazily by the
+    # first opted-in one and left None when no cloud account is stored.
+    cloud_coordinator: MideaCloudCoordinator | None = None
+    cloud_unconfigured = False
     for entity_key, config in cast(
         "dict",
         MIDEA_DEVICES[device.device_type]["entities"],
@@ -50,13 +62,40 @@ async def async_setup_entry(
             and required_attribute not in device.attributes
         ):
             continue
-        if config.get("estimate"):
+        if config.get("cloud_report") is not None:
+            if cloud_coordinator is None and not cloud_unconfigured:
+                cloud_coordinator = create_cloud_coordinator(
+                    hass,
+                    config_entry,
+                    device_id,
+                    device.name,
+                )
+                if cloud_coordinator is None:
+                    cloud_unconfigured = True
+                    _LOGGER.warning(
+                        "Usage statistics sensors of device %s are selected, "
+                        "but no Midea cloud account is stored in the "
+                        "integration options; skipping them",
+                        device_id,
+                    )
+            if cloud_coordinator is None:
+                continue
+            sensors.append(
+                MideaCloudUsageSensor(device, entity_key, cloud_coordinator),
+            )
+        elif config.get("estimate"):
             sensor = MideaEstimatedUsageSensor(device, entity_key)
+            sensors.append(sensor)
         elif config.get("duration_from_minutes"):
             sensor = MideaMinuteDurationSensor(device, entity_key)
+            sensors.append(sensor)
         else:
             sensor = MideaSensor(device, entity_key)
-        sensors.append(sensor)
+            sensors.append(sensor)
+    if cloud_coordinator is not None:
+        # Prime the sensors with the current report; failures keep them
+        # unavailable and are reported by the coordinator.
+        await cloud_coordinator.async_refresh()
     async_add_entities(sensors)
 
 
@@ -177,6 +216,70 @@ class MideaSensor(MideaEntity, SensorEntity):
         self.schedule_update_ha_state()
 
 
+class MideaCloudUsageSensor(MideaSensor):
+    """Represent a usage statistic from the Midea cloud day report.
+
+    The value does not come from the LAN device but from the cloud report
+    coordinator, so availability follows the coordinator instead of the
+    device connection.
+    """
+
+    def __init__(
+        self,
+        device: MideaDevice,
+        entity_key: str,
+        coordinator: MideaCloudCoordinator,
+    ) -> None:
+        """Initialize cloud usage sensor."""
+        super().__init__(device, entity_key)
+        self._coordinator = coordinator
+
+    @property
+    def native_value(self) -> StateType:
+        """Newest value of the configured cloud report field."""
+        report = self._coordinator.data
+        if report is None:
+            return None
+        return cast(
+            "StateType",
+            getattr(report, cast("str", self._config["cloud_report"])),
+        )
+
+    @property
+    def available(self) -> bool:
+        """Whether the last cloud report fetch succeeded."""
+        return bool(
+            self._coordinator.last_update_success
+            and self._coordinator.data is not None,
+        )
+
+    @property
+    def extra_state_attributes(self) -> dict[str, str]:
+        """Date the underlying cloud day report covers."""
+        report = self._coordinator.data
+        return (
+            {}
+            if report is None
+            else {
+                "report_date": report.report_date.isoformat(),
+            }
+        )
+
+    async def async_added_to_hass(self) -> None:
+        """Subscribe to device and coordinator updates."""
+        await super().async_added_to_hass()
+        self.async_on_remove(
+            self._coordinator.async_add_listener(
+                self._handle_coordinator_update,
+            ),
+        )
+
+    @callback
+    def _handle_coordinator_update(self) -> None:
+        """Write the refreshed cloud report value."""
+        self.schedule_update_if_running()
+
+
 class MideaMinuteDurationSensor(MideaSensor):
     """Present a whole-minute appliance duration as hours and minutes."""
 
@@ -213,12 +316,15 @@ class MideaEstimatedUsageSensor(MideaSensor, RestoreEntity):
     The dishwasher does not report actual energy/water usage, so this sensor
     accumulates a fixed per-mode estimate (from the product manual) once each
     time a wash run *completes*. Completion is detected by the device
-    ``progress`` attribute reaching ``"Complete"``; a cancelled or errored run
-    never reaches that state and is therefore not counted.
+    ``progress`` attribute reaching ``"complete"``; a cancelled or errored run
+    never reaches that state and is therefore not counted. The estimate table
+    is keyed by mode code, so it doesn't depend on the library's mode names,
+    and chosen per model (``values_by_model``), since figures differ by model.
     """
 
-    _COMPLETE_PROGRESS = "Complete"
-    _RUNNING_STATUS = "Running"
+    # Values reported by midea-lan since 2026.9.2 (lowercase keys).
+    _COMPLETE_PROGRESS = "complete"
+    _RUNNING_STATUS = "running"
 
     def __init__(self, device: MideaDevice, entity_key: str) -> None:
         """Initialize estimated usage sensor."""
@@ -250,13 +356,50 @@ class MideaEstimatedUsageSensor(MideaSensor, RestoreEntity):
     @property
     def extra_state_attributes(self) -> dict[str, Any]:
         """Estimate metadata for the sensor."""
-        estimate = cast("dict[str, Any]", self._config["estimate"])
+        modes = self._modes()
         return {
             "estimate_source": "fixed_per_wash_mode",
-            "known_modes": list(cast("dict[str, float]", estimate["values"]).keys()),
+            "known_modes": [modes.get(code, str(code)) for code in self._values()],
             "last_progress": self._last_progress,
             "running_mode": self._running_mode,
         }
+
+    def _values(self) -> dict[int, float]:
+        """Return this model's per-run estimate, keyed by mode code.
+
+        Returns
+        -------
+        Estimate per mode code, empty if the model has no figures.
+
+        """
+        by_model = cast(
+            "dict[str, dict[int, float]]",
+            self._config["estimate"]["values_by_model"],
+        )
+        return by_model.get(str(self._device.model), {})
+
+    def _modes(self) -> dict[int, str]:
+        """Return the dishwasher's mode names keyed by code.
+
+        Returns
+        -------
+        Mode names keyed by mode code.
+
+        """
+        if isinstance(self._device, MideaE1Device):
+            return self._device.modes
+        return {}
+
+    def _mode_code(self, mode: str | None) -> int | None:
+        """Return the code of a reported mode name.
+
+        Returns
+        -------
+        The mode code, or None if the name is unknown.
+
+        """
+        modes = self._modes()
+        return next((code for code, name in modes.items() if name == mode), None)
 
     def update_state(self, status: Any) -> None:  # ruff:ignore[any-type]
         """Accumulate the estimate once when a dishwasher run completes."""
@@ -279,9 +422,10 @@ class MideaEstimatedUsageSensor(MideaSensor, RestoreEntity):
             and self._last_progress != self._COMPLETE_PROGRESS
         ):
             mode = self._running_mode or current_mode
-            values = cast("dict[str, float]", self._config["estimate"]["values"])
-            if mode in values:
-                self._native_value += values[mode]
+            values = self._values()
+            code = self._mode_code(mode)
+            if code in values:
+                self._native_value += values[code]
             self._running_mode = None
 
         self._last_progress = current_progress

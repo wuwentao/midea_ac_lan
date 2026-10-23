@@ -63,6 +63,45 @@
   },
   "entity": {
     "binary_sensor": {
+      "door_auto_open": {
+        "name": "自动开门（上一程序）"
+      },
+      "uv": {
+        "name": "紫外线"
+      },
+      "dry": {
+        "name": "烘干"
+      },
+      "dry_status": {
+        "name": "烘干中"
+      },
+      "storage_status": {
+        "name": "存储运行中"
+      },
+      "waterswitch": {
+        "name": "水路开关"
+      },
+      "water_lack": {
+        "name": "缺水"
+      },
+      "wifi_unabled": {
+        "name": "WiFi 已禁用"
+      },
+      "auto_throw": {
+        "name": "自动投放"
+      },
+      "lock_power": {
+        "name": "电源锁"
+      },
+      "beep_control": {
+        "name": "提示音"
+      },
+      "light_btn_on": {
+        "name": "按键灯"
+      },
+      "light_strip_on": {
+        "name": "灯带"
+      },
       "warm_power": {
         "name": "制热运行"
       },
@@ -827,6 +866,18 @@
       }
     },
     "button": {
+      "start_delayed": {
+        "name": "预约启动"
+      },
+      "pause": {
+        "name": "暂停"
+      },
+      "resume": {
+        "name": "继续"
+      },
+      "cancel": {
+        "name": "取消"
+      },
       "start": {
         "name": "启动"
       }
@@ -863,6 +914,18 @@
       }
     },
     "number": {
+      "delay_minutes": {
+        "name": "预约时间"
+      },
+      "wash_region": {
+        "name": "洗涤区域"
+      },
+      "water_level": {
+        "name": "水位"
+      },
+      "water_strong_level": {
+        "name": "水压档位"
+      },
       "heating_target_temperature": {
         "name": "采暖目标温度"
       },
@@ -913,6 +976,22 @@
       }
     },
     "select": {
+      "wash_mode_76000228": {
+        "name": "洗涤模式"
+      },
+      "program_76000228": {
+        "name": "程序"
+      },
+      "program": {
+        "name": "程序"
+      },
+      "load": {
+        "name": "负载",
+        "state": {
+          "0": "满载",
+          "2": "半载"
+        }
+      },
       "heating_mode": {
         "name": "采暖模式",
         "state": {
@@ -1041,6 +1120,144 @@
       }
     },
     "sensor": {
+      "db_running_status": {
+        "name": "洗衣机状态"
+      },
+      "db_progress": {
+        "name": "洗衣机进度"
+      },
+      "db_program": {
+        "name": "洗衣机程序"
+      },
+      "db_remain_time": {
+        "name": "洗衣机剩余时间"
+      },
+      "db_wash_time": {
+        "name": "洗衣机洗涤时间"
+      },
+      "db_dehydration_time": {
+        "name": "洗衣机脱水时间"
+      },
+      "db_dehydration_speed": {
+        "name": "洗衣机脱水速度"
+      },
+      "db_water_level": {
+        "name": "洗衣机水位"
+      },
+      "db_temperature": {
+        "name": "洗衣机温度"
+      },
+      "db_rinse_count": {
+        "name": "洗衣机漂洗次数"
+      },
+      "db_detergent": {
+        "name": "洗衣机洗涤剂"
+      },
+      "db_softener": {
+        "name": "洗衣机柔顺剂"
+      },
+      "db_appointment_time": {
+        "name": "洗衣机预约时间"
+      },
+      "db_appointment_end_time": {
+        "name": "洗衣机预约结束时间"
+      },
+      "db_error_code": {
+        "name": "洗衣机错误代码"
+      },
+      "db_water_consumption": {
+        "name": "洗衣机耗水量"
+      },
+      "db_power_consumption": {
+        "name": "洗衣机耗电量"
+      },
+      "dc_running_status": {
+        "name": "烘干机状态"
+      },
+      "dc_dry_status": {
+        "name": "烘干机烘干状态"
+      },
+      "dc_program": {
+        "name": "烘干机程序"
+      },
+      "dc_remain_time": {
+        "name": "烘干机剩余时间"
+      },
+      "dc_dry_time": {
+        "name": "烘干机烘干时间"
+      },
+      "dc_intensity": {
+        "name": "烘干机强度"
+      },
+      "dc_appointment_time": {
+        "name": "烘干机预约时间"
+      },
+      "dc_appointment_end_time": {
+        "name": "烘干机预约结束时间"
+      },
+      "dc_error_code": {
+        "name": "烘干机错误代码"
+      },
+      "dc_water_consumption": {
+        "name": "烘干机耗水量"
+      },
+      "dc_power_consumption": {
+        "name": "烘干机耗电量"
+      },
+      "dishwasher_mode": {
+        "name": "模式"
+      },
+      "dishwasher_mode_76000228": {
+        "name": "模式"
+      },
+      "dishwasher_status": {
+        "name": "状态"
+      },
+      "dishwasher_progress": {
+        "name": "当前程序"
+      },
+      "operator": {
+        "name": "运行状态"
+      },
+      "wrong_operation": {
+        "name": "误操作"
+      },
+      "dry_set_min": {
+        "name": "烘干设定时间"
+      },
+      "clean_left_hour": {
+        "name": "剩余清洁时间"
+      },
+      "kitchenware_left_hour": {
+        "name": "剩余餐具时间"
+      },
+      "device_version": {
+        "name": "设备版本"
+      },
+      "throw_percent": {
+        "name": "投放余量"
+      },
+      "delay_remaining": {
+        "name": "预约剩余时间"
+      },
+      "gas_usage_daily": {
+        "name": "日用气量"
+      },
+      "gas_usage_last_month": {
+        "name": "上月用气量"
+      },
+      "gas_usage_monthly": {
+        "name": "本月用气量"
+      },
+      "water_usage_daily": {
+        "name": "日用水量"
+      },
+      "water_usage_last_month": {
+        "name": "上月用水量"
+      },
+      "water_usage_monthly": {
+        "name": "本月用水量"
+      },
       "three_way_mode": {
         "name": "三通模式"
       },
@@ -3214,6 +3431,15 @@
       }
     },
     "switch": {
+      "db_power": {
+        "name": "洗衣机电源"
+      },
+      "dc_power": {
+        "name": "烘干机电源"
+      },
+      "door_auto_open_setting": {
+        "name": "自动开门"
+      },
       "anion": {
         "name": "负离子开关"
       },
@@ -3502,7 +3728,10 @@
           "refresh_interval": "刷新间隔(设0为不进行主动刷新)",
           "sensors": "扩展传感器",
           "switches": "扩展控制",
-          "customize": "自定义"
+          "customize": "自定义",
+          "account": "美的云账号（用于用水/用气量统计传感器）",
+          "password": "美的云账号密码（用于用水/用气量统计传感器）",
+          "server": "账号所属美的云服务器（用于用水/用气量统计传感器）"
         },
         "title": "配置"
       }

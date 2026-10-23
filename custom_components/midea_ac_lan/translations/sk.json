@@ -63,6 +63,45 @@
   },
   "entity": {
     "binary_sensor": {
+      "door_auto_open": {
+        "name": "Automatické otváranie dverí (posledný program)"
+      },
+      "uv": {
+        "name": "UV"
+      },
+      "dry": {
+        "name": "Sušenie"
+      },
+      "dry_status": {
+        "name": "Prebieha sušenie"
+      },
+      "storage_status": {
+        "name": "Uchovávanie aktívne"
+      },
+      "waterswitch": {
+        "name": "Vodný spínač"
+      },
+      "water_lack": {
+        "name": "Nedostatok vody"
+      },
+      "wifi_unabled": {
+        "name": "WiFi vypnuté"
+      },
+      "auto_throw": {
+        "name": "Automatické dávkovanie"
+      },
+      "lock_power": {
+        "name": "Zámok napájania"
+      },
+      "beep_control": {
+        "name": "Pípnutie"
+      },
+      "light_btn_on": {
+        "name": "Podsvietenie tlačidiel"
+      },
+      "light_strip_on": {
+        "name": "Svetelný pás"
+      },
       "warm_power": {
         "name": "Prevádzka kúrenia"
       },
@@ -830,6 +869,18 @@
       }
     },
     "button": {
+      "start_delayed": {
+        "name": "Odložený štart"
+      },
+      "pause": {
+        "name": "Pozastaviť"
+      },
+      "resume": {
+        "name": "Pokračovať"
+      },
+      "cancel": {
+        "name": "Zrušiť"
+      },
       "start": {
         "name": "Štart"
       }
@@ -866,6 +917,18 @@
       }
     },
     "number": {
+      "delay_minutes": {
+        "name": "Oneskorenie"
+      },
+      "wash_region": {
+        "name": "Zóna umývania"
+      },
+      "water_level": {
+        "name": "Hladina vody"
+      },
+      "water_strong_level": {
+        "name": "Úroveň tlaku vody"
+      },
       "heating_target_temperature": {
         "name": "Cieľová teplota kúrenia"
       },
@@ -916,6 +979,22 @@
       }
     },
     "select": {
+      "wash_mode_76000228": {
+        "name": "Režim prania"
+      },
+      "program_76000228": {
+        "name": "Program"
+      },
+      "program": {
+        "name": "Program"
+      },
+      "load": {
+        "name": "Náplň",
+        "state": {
+          "0": "Plná",
+          "2": "Polovičná"
+        }
+      },
       "heating_mode": {
         "name": "Režim kúrenia",
         "state": {
@@ -1044,6 +1123,126 @@
       }
     },
     "sensor": {
+      "db_running_status": {
+        "name": "Stav práčky"
+      },
+      "db_progress": {
+        "name": "Priebeh prania"
+      },
+      "db_program": {
+        "name": "Program prania"
+      },
+      "db_remain_time": {
+        "name": "Zostávajúci čas prania"
+      },
+      "db_wash_time": {
+        "name": "Čas prania"
+      },
+      "db_dehydration_time": {
+        "name": "Čas odstreďovania"
+      },
+      "db_dehydration_speed": {
+        "name": "Rýchlosť odstreďovania"
+      },
+      "db_water_level": {
+        "name": "Hladina vody"
+      },
+      "db_temperature": {
+        "name": "Teplota prania"
+      },
+      "db_rinse_count": {
+        "name": "Počet plákaní"
+      },
+      "db_detergent": {
+        "name": "Prací prostriedok"
+      },
+      "db_softener": {
+        "name": "Aviváž"
+      },
+      "db_appointment_time": {
+        "name": "Čas naplánovania prania"
+      },
+      "db_appointment_end_time": {
+        "name": "Čas ukončenia naplánovania prania"
+      },
+      "db_error_code": {
+        "name": "Kód chyby práčky"
+      },
+      "db_water_consumption": {
+        "name": "Spotreba vody práčky"
+      },
+      "db_power_consumption": {
+        "name": "Spotreba energie práčky"
+      },
+      "dc_running_status": {
+        "name": "Stav sušičky"
+      },
+      "dc_dry_status": {
+        "name": "Stav sušenia"
+      },
+      "dc_program": {
+        "name": "Program sušenia"
+      },
+      "dc_remain_time": {
+        "name": "Zostávajúci čas sušenia"
+      },
+      "dc_dry_time": {
+        "name": "Čas sušenia"
+      },
+      "dc_intensity": {
+        "name": "Intenzita sušenia"
+      },
+      "dc_appointment_time": {
+        "name": "Čas naplánovania sušenia"
+      },
+      "dc_appointment_end_time": {
+        "name": "Čas ukončenia naplánovania sušenia"
+      },
+      "dc_error_code": {
+        "name": "Kód chyby sušičky"
+      },
+      "dc_water_consumption": {
+        "name": "Spotreba vody sušičky"
+      },
+      "dc_power_consumption": {
+        "name": "Spotreba energie sušičky"
+      },
+      "dishwasher_mode": {
+        "name": "Mode"
+      },
+      "dishwasher_mode_76000228": {
+        "name": "Mode"
+      },
+      "dishwasher_status": {
+        "name": "Status"
+      },
+      "dishwasher_progress": {
+        "name": "Progress"
+      },
+      "operator": {
+        "name": "Stav chodu"
+      },
+      "wrong_operation": {
+        "name": "Nesprávna operácia"
+      },
+      "dry_set_min": {
+        "name": "Čas sušenia"
+      },
+      "clean_left_hour": {
+        "name": "Zostávajúce čistenie"
+      },
+      "kitchenware_left_hour": {
+        "name": "Zostávajúci riad"
+      },
+      "device_version": {
+        "name": "Verzia zariadenia"
+      },
+      "throw_percent": {
+        "name": "Úroveň dávkovača"
+      },
+      "delay_remaining": {
+        "name": "Zostáva do odloženého štartu"
+      },
       "three_way_mode": {
         "name": "Trojcestný režim"
       },
@@ -3220,6 +3419,15 @@
       }
     },
     "switch": {
+      "db_power": {
+        "name": "Napájanie práčky"
+      },
+      "dc_power": {
+        "name": "Napájanie sušičky"
+      },
+      "door_auto_open_setting": {
+        "name": "Automatické otváranie dverí"
+      },
       "anion": {
         "name": "Anion"
       },
