@@ -2226,7 +2226,20 @@
         "name": "Humedad"
       },
       "variable_mode": {
-        "name": "Modo variable"
+        "name": "Modo variable",
+        "state": {
+          "none": "Ninguno",
+          "soft_freezing": "Congelación suave",
+          "zero_fresh": "Frescura a cero grados",
+          "cold_drink": "Bebidas frías",
+          "fresh_product": "Alimentos frescos",
+          "partial_freezing": "Congelación parcial",
+          "dry_zone": "Zona seca",
+          "freeze_warm": "Congelar / Mantener caliente",
+          "baby": "Madre y bebé",
+          "treasure": "Delicatessen",
+          "zero": "Cero grados"
+        }
       },
       "compressor_frequency": {
         "name": "Frecuencia del compresor"

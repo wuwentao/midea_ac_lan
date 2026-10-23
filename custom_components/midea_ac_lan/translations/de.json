@@ -2038,7 +2038,20 @@
         "name": "Luftfeuchtigkeit"
       },
       "variable_mode": {
-        "name": "Variabler Modus"
+        "name": "Variabler Modus",
+        "state": {
+          "none": "Keiner",
+          "soft_freezing": "Sanftes Gefrieren",
+          "zero_fresh": "Null-Grad-Frische",
+          "cold_drink": "Kalte Getränke",
+          "fresh_product": "Frische Lebensmittel",
+          "partial_freezing": "Teilweises Gefrieren",
+          "dry_zone": "Trockenzone",
+          "freeze_warm": "Gefrieren / Warmhalten",
+          "baby": "Mutter und Kind",
+          "treasure": "Feinkost",
+          "zero": "Null Grad"
+        }
       },
       "compressor_frequency": {
         "name": "Kompressorfrequenz"
