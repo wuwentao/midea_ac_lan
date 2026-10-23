@@ -97,8 +97,8 @@ class MideaNumber(MideaEntity, NumberEntity):
     @property
     def native_value(self) -> float:
         """Native value of the entity."""
-        return cast("float", self._device.get_attribute(self._entity_key))
+        return cast("float", self._device.get_attribute(self._attribute_key))
 
     def set_native_value(self, value: Any) -> None:  # ruff:ignore[any-type]
         """Set value."""
-        self._device.set_attribute(self._entity_key, value)
+        self._device.set_attribute(self._attribute_key, value)

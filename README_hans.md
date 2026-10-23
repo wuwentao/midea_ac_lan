@@ -56,6 +56,7 @@
 | 34   | 水槽式洗碗机                | [34_hans.md](doc/34_hans.md) |
 | 40   | 凉霸                        | [40_hans.md](doc/40_hans.md) |
 | 9B   | 微波蒸汽热风一体机          | [9B_hans.md](doc/9B_hans.md) |
+| 9C   | 集成灶                      | [9C_hans.md](doc/9C_hans.md) |
 | A1   | 除湿器                      | [A1_hans.md](doc/A1_hans.md) |
 | AC   | 空调器                      | [AC_hans.md](doc/AC_hans.md) |
 | AD   | 空气盒子                    | [AD_hans.md](doc/AD_hans.md) |
@@ -74,6 +75,7 @@
 | CD   | 空气能热水器                | [CD_hans.md](doc/CD_hans.md) |
 | CE   | 新风设备                    | [CE_hans.md](doc/CE_hans.md) |
 | CF   | 中央空调暖家(水机)          | [CF_hans.md](doc/CF_hans.md) |
+| D9   | 洗烘一体机                  | [D9_hans.md](doc/D9_hans.md) |
 | DA   | 波轮洗衣机                  | [DA_hans.md](doc/DA_hans.md) |
 | DB   | 滚筒洗衣机                  | [DB_hans.md](doc/DB_hans.md) |
 | DC   | 干衣机                      | [DC_hans.md](doc/DC_hans.md) |
@@ -219,3 +221,12 @@ cd midea_ac_lan
 ```
 
 完整的环境搭建、本地运行 Home Assistant、代码风格与提交规范，请参考 [中文版CONTRIBUTING](.github/CONTRIBUTING.zh.md)。
+
+### 新增设备支持
+
+想在本集成中暴露一款新的美的设备类型？从把 `midea-lan` 依赖指向你的库改动以便本地测试、在 `midea_devices.py` 中注册设备、为每个属性选择 platform / `device_class` / `unit` / `translation_key`、添加翻译文件、编写设备文档，到提交 PR 的完整流程都有文档说明，并以 `0xD9` 洗烘一体机（[PR #1086](https://github.com/wuwentao/midea_ac_lan/pull/1086)）作为贯穿示例，另以 `0x9B` 烤箱（[PR #1096](https://github.com/wuwentao/midea_ac_lan/pull/1096)）作为第二个、更大的范例：
+
+- [为 midea_ac_lan 集成新增一款设备（中文）](doc/adding-a-new-device.zh-Hans.md)
+- [Adding a New Device to the midea_ac_lan Integration（English）](doc/adding-a-new-device.md)
+
+协议库侧的配套指南位于 `midea-lan` 仓库：[新增设备类型支持指南](https://github.com/wuwentao/midea-lan/blob/main/docs/adding-a-new-device.zh-Hans.md)。
