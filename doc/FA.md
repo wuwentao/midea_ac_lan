@@ -12,35 +12,24 @@
 
 ## Customize
 
-Set the levels of the fan device except "Off" (3 by default).
+Set the levels of the fan device except "Off" (3 by default; BGF10000 subtype
+15 defaults to 12).
 
 ```json
 { "speed_count": 5 }
 ```
 
-For a fan with 12 actual speed levels, use `{"speed_count": 12}` and reload the
-integration. With the default value of 3, low/medium/high send speeds 1/2/3
-rather than spanning the full 12-speed range.
-
-If adding the device again causes a duplicate entity unique ID error, keep only
-one configuration entry for that device and verify its current IP address.
-When replacing the integration manually, keep backups outside `custom_components`
-so Home Assistant does not discover them as integrations.
-
 ## Entities
 
 ### BGF10000 (subtype 15) presets
 
-These presets require the corresponding BGF10000 support in `midea-lan`.
-The library owns the mode/speed mapping and defaults this profile to 12 speeds;
-this integration only selects the display translations. A custom `speed_count`
-still overrides the library default.
-
-Supported presets are normal, forest, beach, countryside, baby, sleep 1, sleep 2,
-and strong. Comfort and sleep presets encode their submode in speed values 1/2/3,
-so no speed percentage is reported in these modes. Selecting a speed returns to
-normal mode. Strong selects the device's strong mode at speed 12.
-The normal speed range still uses the `speed_count` customization.
+BGF10000 subtype 15 defaults to 12 speed levels and supports Normal, Forest,
+Beach, Countryside, Baby wind, Sleep 1, Sleep 2, and Strong.
+Forest/Beach/Countryside use comfort submodes 1/2/3; Baby wind/Sleep 1/Sleep 2
+use sleep submodes 1/2/3. These values are submode identifiers rather than motor
+speeds, so Home Assistant does not report a speed percentage in those modes.
+Selecting a speed returns the fan to Normal mode. Strong uses the device's fixed
+level 12; a custom `speed_count` overrides the Normal-mode speed scale.
 
 ### Default entity
 

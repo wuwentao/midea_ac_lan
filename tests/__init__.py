@@ -1,1 +1,0 @@
-"""Integration regression tests."""
