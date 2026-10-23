@@ -118,6 +118,8 @@ class MideaSensor(MideaEntity, SensorEntity):
     def native_value(self) -> StateType:
         """Native value of the sensor."""
         value = self._device.get_attribute(self._entity_key)
+        if value in self._config.get("missing_values", []):
+            return None
         # If an options mapping exists, translate the raw value to its enum key.
         options = self._config.get("options")
         if options is not None and isinstance(value, int | str):

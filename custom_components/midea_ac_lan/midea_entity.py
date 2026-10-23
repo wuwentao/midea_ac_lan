@@ -33,6 +33,11 @@ class MideaEntity(Entity):
             MIDEA_DEVICES[self._device.device_type]["entities"],
         )[entity_key]
         self._entity_key = entity_key
+        self._attribute_key = self._config.get("attribute", entity_key)
+        self._state_attribute_key = self._config.get(
+            "state_attribute",
+            self._attribute_key,
+        )
         self._unique_id = f"{DOMAIN}.{self._device.device_id}_{entity_key}"
         # Build entity_id with the correct platform domain (sensor.*, switch.*, …)
         # instead of the integration domain. Keeps the legacy "<device_id>_<key>"
@@ -226,7 +231,7 @@ class MideaEntity(Entity):
             )
             return
 
-        if self._entity_key not in status and "available" not in status:
+        if self._state_attribute_key not in status and "available" not in status:
             return
 
         self.schedule_update_if_running()

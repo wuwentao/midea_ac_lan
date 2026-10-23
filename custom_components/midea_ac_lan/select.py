@@ -54,7 +54,6 @@ class MideaSelect(MideaEntity, SelectEntity):
     def __init__(self, device: MideaDevice, entity_key: str) -> None:
         """Midea select init."""
         super().__init__(device, entity_key)
-        self._attribute_key = self._config.get("attribute", entity_key)
         self._options_name = self._config.get("options")
         self._options_dict_name = self._config.get("options_dict")
 
@@ -84,9 +83,12 @@ class MideaSelect(MideaEntity, SelectEntity):
     @property
     def current_option(self) -> str | None:
         """Currently selected option."""
-        value = self._device.get_attribute(self._attribute_key)
+        value = self._device.get_attribute(self._state_attribute_key)
         if value is None:
             return None
+        state_map = self._config.get("state_map")
+        if state_map is not None:
+            value = state_map.get(value)
         if isinstance(self._options_name, dict):
             return cast("str | None", self._options_name.get(value))
         option = (
