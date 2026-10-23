@@ -99,6 +99,8 @@ class MideaNumber(MideaEntity, NumberEntity):
     def native_value(self) -> float | None:
         """Native value of the entity."""
         value = self._device.get_attribute(self._state_attribute_key)
+        if value in self._config.get("missing_values", []):
+            return None
         if value is None and self._config.get("optimistic"):
             return self._optimistic_value
         return cast("float | None", value)

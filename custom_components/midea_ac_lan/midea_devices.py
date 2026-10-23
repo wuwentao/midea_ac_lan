@@ -487,6 +487,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "min": 0,
                 "max": 100,
                 "step": 1,
+                "missing_values": ["ff"],
             },
             X9BAttributes.hour_set: {
                 "type": Platform.NUMBER,
@@ -737,6 +738,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "steam_quantity",
                 "name": "Steam Quantity",
                 "icon": "mdi:water",
+                "missing_values": ["ff"],
             },
             X9BAttributes.weight: {
                 "type": Platform.SENSOR,
@@ -752,6 +754,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "people_number",
                 "name": "People Number",
                 "icon": "mdi:account-group",
+                "missing_values": ["ff"],
             },
             X9BAttributes.work_hour: {
                 "type": Platform.SENSOR,
