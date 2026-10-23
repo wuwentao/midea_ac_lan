@@ -73,12 +73,15 @@ else:
 
 from .const import (
     CONF_ACCOUNT,
+    CONF_CLOUD_NAME,
     CONF_KEY,
     CONF_MAC,
+    CONF_MANUFACTURER_CODE,
     CONF_MODEL,
     CONF_REFRESH_INTERVAL,
     CONF_SERVER,
     CONF_SN,
+    CONF_SN8,
     CONF_SUBTYPE,
     DEFAULT_CLOUD,
     DEVICES,
@@ -139,6 +142,20 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
             format((PRESET_ACCOUNT_DATA[0] ^ PRESET_ACCOUNT_DATA[2]), "X"),
         ).decode("utf-8", errors="ignore")
         self.preset_cloud_name: str = DEFAULT_CLOUD
+
+    def _added_with_cloud_name(self) -> str | None:
+        """Return the cloud account/service the device is being added with.
+
+        Falls back to the preset cloud name when no interactive login happened
+        (e.g. the "skip login" path reuses the preset account).
+
+        Returns
+        -------
+        The cloud server name, or None when it cannot be determined.
+
+        """
+        login_data = self.hass.data.get(DOMAIN, {}).get("login_data", {})
+        return login_data.get(CONF_SERVER) or self.preset_cloud_name
 
     def _save_device_config(self, data: dict[str, Any]) -> None:
         """Save device config to json file with device id."""
@@ -369,10 +386,17 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
             red = "<font color=red>NO</font>"
             for device_id, device in all_devices.items():
                 supported = device.get(CONF_TYPE) in self.supports
+                # TLS devices (udp_version >= 4) encrypt their SN on the LAN,
+                # so discover() returns an empty sn and flags sn_encrypted.
+                # Show a hint instead of a blank cell so the user understands
+                # the SN is resolved from the cloud, not missing due to a bug.
+                sn = device.get("sn") or (
+                    "encrypted (from cloud)" if device.get("sn_encrypted") else ""
+                )
                 table += (
                     f"\n{device_id}|{f'{device.get(CONF_TYPE):02X}'}|"
                     f"{device.get(CONF_IP_ADDRESS)}|"
-                    f"{device.get('sn')}|"
+                    f"{sn}|"
                     f"{green if supported else red}"
                 )
         # no available device
@@ -411,6 +435,16 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
             )
             self.available_device = {}
             for device_id, device in self.devices.items():
+                # TLS devices (udp_version >= 4) can't expose their SN on the
+                # LAN; token/key and SN are resolved from the cloud by
+                # device_id, so an empty LAN SN here is expected, not a bug.
+                if device.get("sn_encrypted"):
+                    _LOGGER.debug(
+                        "Device %s (%s) is a TLS device: its SN is encrypted "
+                        "on the LAN and is resolved from the cloud account",
+                        device_id,
+                        device.get(CONF_IP_ADDRESS),
+                    )
                 # remove exist devices and only return new devices
                 if not self._already_configured(
                     str(device_id),
@@ -589,6 +623,13 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                     CONF_SUBTYPE: storage_device.get(CONF_SUBTYPE),
                     CONF_TOKEN: storage_device.get(CONF_TOKEN),
                     CONF_KEY: storage_device.get(CONF_KEY),
+                    # Re-adding from the local record (no cloud call): carry the
+                    # cloud identity saved on the first add so it is not lost.
+                    CONF_SN8: storage_device.get(CONF_SN8),
+                    CONF_MANUFACTURER_CODE: storage_device.get(
+                        CONF_MANUFACTURER_CODE,
+                    ),
+                    CONF_CLOUD_NAME: storage_device.get(CONF_CLOUD_NAME),
                 }
                 _LOGGER.debug(
                     "Loaded configuration for device %s from storage",
@@ -626,6 +667,12 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                 # set subtype with model_number
                 self.found_device[CONF_NAME] = device_info.get("name")
                 self.found_device[CONF_SUBTYPE] = device_info.get("model_number")
+                # sn8/manufacturer_code identify the device model/vendor; keep
+                # them so they can be persisted with the config entry below.
+                self.found_device[CONF_SN8] = device_info.get("sn8")
+                self.found_device[CONF_MANUFACTURER_CODE] = device_info.get(
+                    "manufacturer_code",
+                )
 
             # MUST get a auth passed token/key for v3 device, disable add before pass
             if device.get(CONF_PROTOCOL) == ProtocolVersion.V3:
@@ -777,6 +824,12 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                 CONF_MODEL: user_input[CONF_MODEL],
                 CONF_TOKEN: user_input[CONF_TOKEN],
                 CONF_KEY: user_input[CONF_KEY],
+                # Preserve the cloud identity captured in async_step_auto; the
+                # right-hand side reads the previous dict before reassignment, so
+                # these survive the reset. The manual-entry path leaves them None.
+                CONF_SN8: self.found_device.get(CONF_SN8),
+                CONF_MANUFACTURER_CODE: self.found_device.get(CONF_MANUFACTURER_CODE),
+                CONF_CLOUD_NAME: self.found_device.get(CONF_CLOUD_NAME),
             }
 
             # check device connection with all the input
@@ -810,6 +863,17 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                     CONF_KEY: user_input[CONF_KEY],
                     CONF_MAC: device.get(CONF_MAC),
                     CONF_SN: device.get(CONF_SN),
+                    # Cloud-derived identity: sn8/manufacturer_code come from the
+                    # cloud device info (async_step_auto), cloud_name records which
+                    # cloud account the device was added with.
+                    CONF_SN8: self.found_device.get(CONF_SN8),
+                    CONF_MANUFACTURER_CODE: self.found_device.get(
+                        CONF_MANUFACTURER_CODE,
+                    ),
+                    CONF_CLOUD_NAME: (
+                        self.found_device.get(CONF_CLOUD_NAME)
+                        or self._added_with_cloud_name()
+                    ),
                 }
                 # save device json config when adding new device
                 await self.hass.async_add_executor_job(self._save_device_config, data)

@@ -58,15 +58,24 @@ class MideaSwitch(MideaEntity, ToggleEntity):
     @property
     def is_on(self) -> bool:
         """Whether the switch is on."""
-        return cast("bool", self._device.get_attribute(self._entity_key))
+        value = self._device.get_attribute(self._entity_key)
+        if "on_value" in self._config:
+            return bool(value == self._config["on_value"])
+        return cast("bool", value)
 
     def turn_on(self, **kwargs: Any) -> None:  # ruff:ignore[any-type, unused-method-argument]
         """Turn on switch."""
-        self._device.set_attribute(attr=self._entity_key, value=True)
+        self._device.set_attribute(
+            attr=self._entity_key,
+            value=self._config.get("on_value", True),
+        )
 
     def turn_off(self, **kwargs: Any) -> None:  # ruff:ignore[any-type, unused-method-argument]
         """Turn off switch."""
-        self._device.set_attribute(attr=self._entity_key, value=False)
+        self._device.set_attribute(
+            attr=self._entity_key,
+            value=self._config.get("off_value", False),
+        )
 
 
 class MideaEDTeaBarBoilSwitch(MideaSwitch):
