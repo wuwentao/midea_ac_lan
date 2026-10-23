@@ -81,9 +81,12 @@ class MideaSelect(MideaEntity, SelectEntity):
     @property
     def current_option(self) -> str | None:
         """Currently selected option."""
-        value = self._device.get_attribute(self._attribute_key)
+        value = self._device.get_attribute(self._state_attribute_key)
         if value is None:
             return None
+        state_map = self._config.get("state_map")
+        if state_map is not None:
+            value = state_map.get(value)
         option = (
             str(value) if isinstance(self._options_name, list) else cast("str", value)
         )

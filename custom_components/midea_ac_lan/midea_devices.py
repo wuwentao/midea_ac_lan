@@ -384,12 +384,13 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "camera",
                 "name": "Camera",
                 "icon": "mdi:camera",
+                "optimistic": True,
             },
             # - Selects (controls) -
             "work_status_select": {
                 "type": Platform.SELECT,
                 "attribute": X9BAttributes.work_status,
-                "translation_key": "work_status",
+                "translation_key": "work_status_select",
                 "name": "Work Status",
                 "icon": "mdi:play-pause",
                 "options": X9B_WORK_STATUSES,
@@ -397,7 +398,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             "fire_power_select": {
                 "type": Platform.SELECT,
                 "attribute": X9BAttributes.fire_power,
-                "translation_key": "x9b_fire_power",
+                "translation_key": "x9b_fire_power_select",
                 "name": "Fire Power",
                 "icon": "mdi:fire",
                 "options": X9B_FIRE_POWERS,
@@ -405,6 +406,8 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             "door_select": {
                 "type": Platform.SELECT,
                 "attribute": X9BAttributes.door,
+                "state_attribute": X9BAttributes.door_open,
+                "state_map": {True: "open", False: "close"},
                 "translation_key": "door",
                 "name": "Door",
                 "icon": "mdi:box-shadow",
@@ -419,6 +422,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "min": 0,
                 "max": 100,
                 "step": 1,
+                "optimistic": True,
             },
             X9BAttributes.volume: {
                 "type": Platform.NUMBER,
@@ -428,11 +432,12 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "min": 0,
                 "max": 100,
                 "step": 1,
+                "optimistic": True,
             },
             "temperature_number": {
                 "type": Platform.NUMBER,
                 "attribute": X9BAttributes.temperature,
-                "translation_key": "temperature",
+                "translation_key": "temperature_number",
                 "name": "Target Temperature",
                 "device_class": NumberDeviceClass.TEMPERATURE,
                 "unit": UnitOfTemperature.CELSIUS,
@@ -443,7 +448,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             "temperature_above_number": {
                 "type": Platform.NUMBER,
                 "attribute": X9BAttributes.temperature_above,
-                "translation_key": "temperature_above",
+                "translation_key": "temperature_above_number",
                 "name": "Target Temperature Above",
                 "device_class": NumberDeviceClass.TEMPERATURE,
                 "unit": UnitOfTemperature.CELSIUS,
@@ -454,7 +459,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             "temperature_underside_number": {
                 "type": Platform.NUMBER,
                 "attribute": X9BAttributes.temperature_underside,
-                "translation_key": "temperature_underside",
+                "translation_key": "temperature_underside_number",
                 "name": "Target Temperature Underside",
                 "device_class": NumberDeviceClass.TEMPERATURE,
                 "unit": UnitOfTemperature.CELSIUS,
@@ -465,7 +470,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             "probe_temperature_number": {
                 "type": Platform.NUMBER,
                 "attribute": X9BAttributes.probe_temperature,
-                "translation_key": "probe_temperature",
+                "translation_key": "probe_temperature_number",
                 "name": "Target Probe Temperature",
                 "device_class": NumberDeviceClass.TEMPERATURE,
                 "unit": UnitOfTemperature.CELSIUS,
@@ -476,7 +481,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             "steam_quantity_number": {
                 "type": Platform.NUMBER,
                 "attribute": X9BAttributes.steam_quantity,
-                "translation_key": "steam_quantity",
+                "translation_key": "steam_quantity_number",
                 "name": "Steam Quantity",
                 "icon": "mdi:water",
                 "min": 0,
@@ -578,7 +583,6 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "high_temperature_lock",
                 "name": "High Temperature Lock",
                 "icon": "mdi:lock-alert",
-                "device_class": BinarySensorDeviceClass.LOCK,
             },
             X9BAttributes.high_temperature_work: {
                 "type": Platform.BINARY_SENSOR,
@@ -741,6 +745,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "icon": "mdi:scale",
                 "unit": "g",
                 "state_class": SensorStateClass.MEASUREMENT,
+                "missing_values": ["ff"],
             },
             X9BAttributes.people_number: {
                 "type": Platform.SENSOR,

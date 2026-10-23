@@ -998,19 +998,19 @@
       "volume": {
         "name": "Volume"
       },
-      "temperature": {
+      "temperature_number": {
         "name": "Target Temperature"
       },
-      "temperature_above": {
+      "temperature_above_number": {
         "name": "Target Temperature Above"
       },
-      "temperature_underside": {
+      "temperature_underside_number": {
         "name": "Target Temperature Underside"
       },
-      "probe_temperature": {
+      "probe_temperature_number": {
         "name": "Target Probe Temperature"
       },
-      "steam_quantity": {
+      "steam_quantity_number": {
         "name": "Steam Quantity"
       },
       "hour_set": {
@@ -1275,7 +1275,7 @@
           "down": "Down"
         }
       },
-      "work_status": {
+      "work_status_select": {
         "name": "Work Status",
         "state": {
           "save_power": "Save Power",
@@ -1295,7 +1295,7 @@
           "ff": "Unknown"
         }
       },
-      "x9b_fire_power": {
+      "x9b_fire_power_select": {
         "name": "Fire Power",
         "state": {
           "high_power": "High",

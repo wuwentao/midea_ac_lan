@@ -998,19 +998,19 @@
       "volume": {
         "name": "Lautstärke"
       },
-      "temperature": {
+      "temperature_number": {
         "name": "Zieltemperatur"
       },
-      "temperature_above": {
+      "temperature_above_number": {
         "name": "Zieltemperatur Oben"
       },
-      "temperature_underside": {
+      "temperature_underside_number": {
         "name": "Zieltemperatur Unten"
       },
-      "probe_temperature": {
+      "probe_temperature_number": {
         "name": "Ziel-Fühlertemperatur"
       },
-      "steam_quantity": {
+      "steam_quantity_number": {
         "name": "Dampfmenge"
       },
       "hour_set": {
@@ -1161,7 +1161,7 @@
           "down": "Unten"
         }
       },
-      "work_status": {
+      "work_status_select": {
         "name": "Betriebsstatus",
         "state": {
           "save_power": "Energiesparen",
@@ -1181,7 +1181,7 @@
           "ff": "Unbekannt"
         }
       },
-      "x9b_fire_power": {
+      "x9b_fire_power_select": {
         "name": "Heizleistung",
         "state": {
           "high_power": "Hoch",

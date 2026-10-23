@@ -7,7 +7,7 @@ from homeassistant.const import CONF_DEVICE_ID, CONF_SWITCHES, Platform
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity import ToggleEntity
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
-from midealan.device import DeviceType
+from midealan.device import DeviceType, MideaDevice
 from midealan.devices.ed import DeviceAttributes as EDAttributes
 from midealan.devices.ed import MideaEDDevice
 
@@ -55,27 +55,47 @@ async def async_setup_entry(
 class MideaSwitch(MideaEntity, ToggleEntity):
     """Represent a Midea switch."""
 
+    def __init__(self, device: MideaDevice, entity_key: str) -> None:
+        """Initialize a Midea switch."""
+        super().__init__(device, entity_key)
+        self._optimistic_value: bool | None = None
+
     @property
-    def is_on(self) -> bool:
+    def is_on(self) -> bool | None:
         """Whether the switch is on."""
-        value = self._device.get_attribute(self._entity_key)
+        value = self._device.get_attribute(self._state_attribute_key)
+        if value is None and self._config.get("optimistic"):
+            return self._optimistic_value
         if "on_value" in self._config:
             return bool(value == self._config["on_value"])
         return cast("bool", value)
 
+    @property
+    def assumed_state(self) -> bool:
+        """Whether the switch state is based on the last command."""
+        return bool(self._config.get("optimistic"))
+
     def turn_on(self, **kwargs: Any) -> None:  # ruff:ignore[any-type, unused-method-argument]
         """Turn on switch."""
         self._device.set_attribute(
-            attr=self._entity_key,
+            attr=self._attribute_key,
             value=self._config.get("on_value", True),
         )
+        if self._config.get("optimistic"):
+            self._optimistic_value = True
+            if self.hass:
+                self.schedule_update_if_running()
 
     def turn_off(self, **kwargs: Any) -> None:  # ruff:ignore[any-type, unused-method-argument]
         """Turn off switch."""
         self._device.set_attribute(
-            attr=self._entity_key,
+            attr=self._attribute_key,
             value=self._config.get("off_value", False),
         )
+        if self._config.get("optimistic"):
+            self._optimistic_value = False
+            if self.hass:
+                self.schedule_update_if_running()
 
 
 class MideaEDTeaBarBoilSwitch(MideaSwitch):

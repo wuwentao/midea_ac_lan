@@ -998,19 +998,19 @@
       "volume": {
         "name": "Громкость"
       },
-      "temperature": {
+      "temperature_number": {
         "name": "Целевая температура"
       },
-      "temperature_above": {
+      "temperature_above_number": {
         "name": "Целевая температура (верх)"
       },
-      "temperature_underside": {
+      "temperature_underside_number": {
         "name": "Целевая температура (низ)"
       },
-      "probe_temperature": {
+      "probe_temperature_number": {
         "name": "Целевая температура щупа"
       },
-      "steam_quantity": {
+      "steam_quantity_number": {
         "name": "Количество пара"
       },
       "hour_set": {
@@ -1161,7 +1161,7 @@
           "down": "Вниз"
         }
       },
-      "work_status": {
+      "work_status_select": {
         "name": "Статус работы",
         "state": {
           "save_power": "Энергосбережение",
@@ -1181,7 +1181,7 @@
           "ff": "Неизвестно"
         }
       },
-      "x9b_fire_power": {
+      "x9b_fire_power_select": {
         "name": "Мощность нагрева",
         "state": {
           "high_power": "Высокая",
