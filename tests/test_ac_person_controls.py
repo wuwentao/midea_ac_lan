@@ -199,7 +199,7 @@ class TestPreservedACRegistry(TestCase):
 
     @staticmethod
     def test_supported_selected_record_can_be_reenabled_without_recreation() -> None:
-        """Reenable an integration-disabled selected record without replacing it."""
+        """Re-enable an integration-disabled selected record without replacing it."""
         device, _ = make_device()
         key = ACAttributes.swing_horizontal
         entities = cast("dict[str, dict[str, Any]]", MIDEA_DEVICES[172]["entities"])
