@@ -45,8 +45,8 @@ Enable Variable Mode under the integration's extra sensor options. The entity
 ID remains `sensor.{DEVICEID}_variable_mode`.
 
 Home Assistant only displays the library's mode keys through translations.
-The derived presets require a library release containing the 310A2111 mapping;
-the pinned `midea-lan==2026.9.2` does not yet contain this migration.
+The pinned `midea-lan==2026.10.0` release contains the 310A2111 mapping, and all
+locales shipped by the integration provide labels for every variable-mode key.
 
 ## Service
 
