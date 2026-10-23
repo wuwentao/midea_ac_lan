@@ -34,9 +34,10 @@ No default entity
 | button.{DEVICEID}\_cancel_appointment  | button        | Cancel reservation             |
 | binary_sensor.{DEVICEID}\_appointment  | binary_sensor | Reservation                    |
 
-Parameter entities require the verified model/subtype and a supporting SDK.
-Availability also depends on the current program and appliance state; see the
-verified parameter controls section below.
+Available controls depend on protocol-library support, the model, the current
+program and appliance state. Dryness, temperature and timed extension require
+the verified model/subtype below; other models can expose the generic controls
+described under **Other dryer models**.
 
 ## Service
 
@@ -83,7 +84,7 @@ data:
 In **CONFIGURE**, enable the additional **Dryer program**, **Dryness** and
 **Drying temperature** selectors, **Multidimensional sterilization** and
 **Smart anti-wrinkle** switches, and **Timed drying extension** number entity.
-The protocol library exposes them only for this verified model/subtype pair.
+The protocol library exposes this full set for the verified model/subtype pair.
 Existing sensor, power and start entity identifiers are unchanged.
 
 There are 36 confirmed ordinary programs, including school uniforms, chiffon,
@@ -105,18 +106,24 @@ updates, and unsupported per-program fields are unavailable.
   The machine's total duration is 10–180 minutes; the remaining-time sensor
   continues to use the real device report.
 
-These controls require the companion protocol-library feature to be released
-and the integration's `midea-lan` dependency updated by the maintainer. They are
-safely skipped on older SDK versions; this feature does not change the pin.
+Older protocol-library versions skip these controls safely.
+
+## Other dryer models
+
+Other models use the generic program list and can expose the program selector,
+sterilization and anti-wrinkle switches, and reservation controls. The extended
+dryness, temperature and timed-extension controls remain limited to the verified
+model/subtype above. Options and availability follow the actual device report;
+fields that the appliance reports as unsupported remain unavailable.
 
 ## Completion-time reservations
 
-Enable the `appointment_finish` time entity, `cancel_appointment` button and `appointment` binary sensor in the integration options. These require the verified model/subtype above and the companion SDK. In powered-on standby, use `time.set_value` to choose the completion clock time in one-minute steps. A past clock time means tomorrow; the window is the next 24 hours. One atomic command sets the reservation rather than separate hour/minute writes.
+Enable the `appointment_finish` time entity, `cancel_appointment` button and `appointment` binary sensor in the integration options. These are available when the protocol library reports reservation support and the current appliance state permits it. In powered-on standby, use `time.set_value` to choose the completion clock time in one-minute steps. A past clock time means tomorrow; the window is the next 24 hours. One atomic command sets the reservation rather than separate hour/minute writes.
 
 **Setting the completion time registers a future automatic cycle.** The protocol wait is the target deadline minus the current time minus the device-reported program duration. Targets that leave no positive wait, missing durations and running appliances are rejected. Completion remains an estimate that the appliance can adjust.
 
 Use `button.press` on the cancel button to pause and clear both the reservation flag and wait while retaining other program parameters. State changes require real device replies. Ordinary parameters remain unavailable while queued, but reservation editing and cancellation remain available. The binary sensor independently reports the actual reservation flag.
 
-For this model, start is on during active reservation wait (status 8) and off during reservation pause (status 9). Start/resume retains the high byte of the wait minutes.
+For model `38208801 / subtype 13367`, start is on during active reservation wait (status 8) and off during reservation pause (status 9). Start/resume retains the high byte of the wait minutes.
 
 When daylight saving time ends, repeated local times select the earliest valid future occurrence within 24 hours, including the second occurrence in the current repeated hour. Nonexistent times during a spring-forward gap and next occurrences beyond 24 hours are rejected.
