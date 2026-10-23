@@ -33,6 +33,7 @@ from .midea_devices import (
 from .midea_entity import MideaEntity
 
 _LOGGER = logging.getLogger(__name__)
+BGF10000_SUBTYPE = 15
 
 
 async def async_setup_entry(
@@ -176,6 +177,10 @@ class MideaFAFan(MideaFan):
             | FAN_FEATURE_TURN_ON_OFF
         )
         self._attr_speed_count = self._device.speed_count
+        if device.model == "BGF10000" and device.subtype == BGF10000_SUBTYPE:
+            # Preset encoding and decoding belong to midea-lan; only the
+            # model-specific display labels are selected here.
+            self._attr_translation_key = "bgf10000"
 
     def turn_on(
         self,
