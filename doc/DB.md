@@ -113,9 +113,7 @@ current program settings, including custom wash/spin time selections. Displayed
 state always follows the appliance's real reply. No cloud connection is needed
 for these parameter writes.
 
-These controls are included in the released `midea-lan==2026.10.0` dependency
-selected by the maintainer. They are safely skipped on older SDK versions;
-this feature adds no separate dependency change.
+Older protocol-library versions skip these controls safely.
 
 ## Completion-time reservations
 
@@ -129,6 +127,13 @@ When daylight saving time ends, repeated local times select the earliest valid f
 
 ## Other DB models
 
-SDK `midea-lan==2026.10.0` includes a separate read-only v41 status profile for `38132386 / subtype 0` (MF201W110WB/GK-01), added in [SDK PR #223](https://github.com/wuwentao/midea-lan/pull/223). It recognizes the model or SN8 and decodes v41 program names and temperature codes without enabling the verified v33 controls.
+Model `38132386 / subtype 0` (MF201W110WB/GK-01) uses a separate read-only v41
+status profile. The protocol library recognizes it by model or SN8 and decodes
+its program names and temperature codes, but does not enable the verified v33
+controls.
 
-The SDK exposes no parameter or reservation capabilities for this profile, so this integration skips the new selectors, forget-free switch and reservation entities. The SDK also rejects power/start writes for this profile; existing power/start switches cannot control it. Write support still requires separate protocol verification. Keep the real model/subtype; changing them to impersonate the verified model can select incorrect commands.
+This profile exposes no parameter or reservation capabilities, so the new
+selectors, forget-free switch and reservation entities are skipped. Power and
+start writes are also rejected for it, so the existing power/start switches
+cannot control it. Keep the real model/subtype; impersonating the verified model
+can send incorrect commands.

@@ -881,6 +881,9 @@
       },
       "ota": {
         "name": "OTA"
+      },
+      "laundry_appointment": {
+        "name": "Prenotazione"
       }
     },
     "button": {
@@ -898,6 +901,9 @@
       },
       "start": {
         "name": "Avvio"
+      },
+      "laundry_cancel_appointment": {
+        "name": "Annulla prenotazione"
       }
     },
     "climate": {
@@ -1209,11 +1215,108 @@
           "open": "Apri",
           "close": "Chiudi"
         }
+      },
+      "washer_program_control": {
+        "name": "Programma di lavaggio",
+        "state": {
+          "water_mixed_wash": "Lavaggio misto",
+          "fast_wash": "Lavaggio rapido 15 min",
+          "single_dehytration": "Solo centrifuga",
+          "rinsing_dehydration": "Risciacquo e centrifuga",
+          "fast_wash_30": "Lavaggio rapido 30 min",
+          "big": "Capi voluminosi",
+          "tub_clean": "Pulizia cestello",
+          "deep_tub_clean": "Pulizia profonda cestello",
+          "down_jacket": "Piumini",
+          "new_water_cotton": "Cotone e lino",
+          "baby_clothes": "Abbigliamento neonati",
+          "shirt": "Camicie",
+          "wool": "Lana",
+          "water_underwear": "Biancheria intima",
+          "silk": "Seta",
+          "jacket": "Giacche da esterno",
+          "new_clothes_wash": "Capi nuovi",
+          "jean": "Jeans",
+          "water_fiber": "Sintetici",
+          "water_eco": "Risparmio energetico",
+          "water_intelligent": "Lavaggio intelligente",
+          "water_steep": "Lavaggio in ammollo",
+          "water_cold_wash": "Lavaggio a freddo",
+          "sterilization_wash": "Lavaggio sterilizzante",
+          "water_remove_mite_wash": "Rimozione acari",
+          "disinfection_wash": "Lavaggio disinfettante",
+          "stain_wash": "Lavaggio antimacchia",
+          "sport_clothes": "Abbigliamento sportivo",
+          "yoga": "Abbigliamento yoga",
+          "quick_drying_clothes": "Capi ad asciugatura rapida"
+        }
+      },
+      "washer_temperature_control": {
+        "name": "Temperatura dell'acqua",
+        "state": {
+          "cold": "Freddo",
+          "20": "20 °C",
+          "30": "30 °C",
+          "40": "40 °C",
+          "60": "60 °C",
+          "95": "95 °C"
+        }
+      },
+      "washer_spin_speed_control": {
+        "name": "Velocità di centrifuga",
+        "state": {
+          "0": "Nessuna centrifuga",
+          "400": "400 rpm",
+          "600": "600 rpm",
+          "800": "800 rpm",
+          "1000": "1000 rpm",
+          "1200": "1200 rpm",
+          "1400": "1400 rpm"
+        }
+      },
+      "washer_rinse_count": {
+        "name": "Numero di risciacqui",
+        "state": {
+          "1": "1",
+          "2": "2",
+          "3": "3",
+          "4": "4"
+        }
+      },
+      "washer_water_level_control": {
+        "name": "Livello dell'acqua",
+        "state": {
+          "auto": "Automatico",
+          "l1": "L1",
+          "l2": "L2",
+          "l3": "L3",
+          "l4": "L4"
+        }
+      },
+      "washer_detergent_control": {
+        "name": "Dosaggio detersivo",
+        "state": {
+          "smart": "Intelligente",
+          "off": "Spento",
+          "l1": "L1",
+          "l2": "L2",
+          "l3": "L3",
+          "l4": "L4"
+        }
+      },
+      "washer_wash_time_control": {
+        "name": "Tempo di lavaggio (min)"
+      },
+      "washer_spin_time_control": {
+        "name": "Tempo di centrifuga (min)"
       }
     },
     "time": {
       "timing_regeneration": {
         "name": "Rigenerazione Programmata"
+      },
+      "laundry_appointment_finish": {
+        "name": "Ora di fine (imposta la prenotazione)"
       }
     },
     "sensor": {
@@ -3897,6 +4000,9 @@
       },
       "camera": {
         "name": "Fotocamera"
+      },
+      "washer_forget_free": {
+        "name": "Cura senza pensieri"
       }
     },
     "water_heater": {
