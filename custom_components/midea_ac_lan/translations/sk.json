@@ -1040,6 +1040,17 @@
           "2": "Polovičná"
         }
       },
+      "cur_quantify": {
+        "name": "Aktuálna predvoľba množstva",
+        "state": {
+          "none": "Žiadna",
+          "preset_1": "Predvoľba 1",
+          "preset_2": "Predvoľba 2",
+          "preset_3": "Predvoľba 3",
+          "preset_4": "Predvoľba 4",
+          "preset_5": "Predvoľba 5"
+        }
+      },
       "heating_mode": {
         "name": "Režim kúrenia",
         "state": {
@@ -1802,6 +1813,17 @@
       },
       "water_consumption": {
         "name": "Water Consumption"
+      },
+      "no_obsolete_water_mode": {
+        "name": "Režim bez stojatej vody",
+        "state": {
+          "water_quality_priority": "Priorita kvality vody",
+          "water_saving_priority": "Priorita úspory vody",
+          "custom": "Vlastný"
+        }
+      },
+      "input_temperature_sensing": {
+        "name": "Vstupná teplota"
       },
       "water_consumption_average": {
         "name": "Priemerná spotreba vody"
@@ -3847,6 +3869,9 @@
       },
       "antifreeze": {
         "name": "Ochrana proti zamrznutiu"
+      },
+      "heat": {
+        "name": "Ohrev"
       },
       "dhw_disinfect": {
         "name": "TÚV - Dezinfekcia"

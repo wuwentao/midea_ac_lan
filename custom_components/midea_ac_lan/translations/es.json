@@ -1124,6 +1124,17 @@
           "2": "Media"
         }
       },
+      "cur_quantify": {
+        "name": "Preajuste de cantidad actual",
+        "state": {
+          "none": "Ninguno",
+          "preset_1": "Preajuste 1",
+          "preset_2": "Preajuste 2",
+          "preset_3": "Preajuste 3",
+          "preset_4": "Preajuste 4",
+          "preset_5": "Preajuste 5"
+        }
+      },
       "heating_mode": {
         "name": "Modo de calefacción",
         "state": {
@@ -1990,6 +2001,17 @@
       },
       "water_consumption": {
         "name": "Consumo de agua"
+      },
+      "no_obsolete_water_mode": {
+        "name": "Modo sin agua estancada",
+        "state": {
+          "water_quality_priority": "Prioridad de calidad del agua",
+          "water_saving_priority": "Prioridad de ahorro de agua",
+          "custom": "Personalizado"
+        }
+      },
+      "input_temperature_sensing": {
+        "name": "Temperatura de entrada"
       },
       "water_consumption_average": {
         "name": "Consumo promedio de agua"
@@ -4035,6 +4057,9 @@
       },
       "antifreeze": {
         "name": "Anticongelante"
+      },
+      "heat": {
+        "name": "Calefacción"
       },
       "dhw_disinfect": {
         "name": "ACS - Desinfección"

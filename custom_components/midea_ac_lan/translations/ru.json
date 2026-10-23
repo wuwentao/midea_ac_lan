@@ -1040,6 +1040,17 @@
           "2": "Половинная"
         }
       },
+      "cur_quantify": {
+        "name": "Текущая предустановка объёма",
+        "state": {
+          "none": "Нет",
+          "preset_1": "Предустановка 1",
+          "preset_2": "Предустановка 2",
+          "preset_3": "Предустановка 3",
+          "preset_4": "Предустановка 4",
+          "preset_5": "Предустановка 5"
+        }
+      },
       "heating_mode": {
         "name": "Режим отопления",
         "state": {
@@ -1802,6 +1813,17 @@
       },
       "water_consumption": {
         "name": "Water Consumption"
+      },
+      "no_obsolete_water_mode": {
+        "name": "Режим без застоя воды",
+        "state": {
+          "water_quality_priority": "Приоритет качества воды",
+          "water_saving_priority": "Приоритет экономии воды",
+          "custom": "Пользовательский"
+        }
+      },
+      "input_temperature_sensing": {
+        "name": "Температура воды на входе"
       },
       "water_consumption_average": {
         "name": "Средний расход воды"
@@ -3844,6 +3866,9 @@
       },
       "antifreeze": {
         "name": "Защита от замерзания"
+      },
+      "heat": {
+        "name": "Нагрев"
       },
       "dhw_disinfect": {
         "name": "ГВС - Дезинфекция"

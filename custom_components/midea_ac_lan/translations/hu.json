@@ -1040,6 +1040,17 @@
           "2": "Fél"
         }
       },
+      "cur_quantify": {
+        "name": "Aktuális mennyiségi előbeállítás",
+        "state": {
+          "none": "Nincs",
+          "preset_1": "1. előbeállítás",
+          "preset_2": "2. előbeállítás",
+          "preset_3": "3. előbeállítás",
+          "preset_4": "4. előbeállítás",
+          "preset_5": "5. előbeállítás"
+        }
+      },
       "heating_mode": {
         "name": "Fűtési mód",
         "state": {
@@ -1802,6 +1813,17 @@
       },
       "water_consumption": {
         "name": "Water Consumption"
+      },
+      "no_obsolete_water_mode": {
+        "name": "Pangóvízmentes mód",
+        "state": {
+          "water_quality_priority": "Vízminőség elsőbbsége",
+          "water_saving_priority": "Víztakarékosság elsőbbsége",
+          "custom": "Egyéni"
+        }
+      },
+      "input_temperature_sensing": {
+        "name": "Bemeneti hőmérséklet"
       },
       "water_consumption_average": {
         "name": "Átlagos vízfogyasztás"
@@ -3844,6 +3866,9 @@
       },
       "antifreeze": {
         "name": "Fagyvédelem"
+      },
+      "heat": {
+        "name": "Fűtés"
       },
       "dhw_disinfect": {
         "name": "HMV - Fertőtlenítés"

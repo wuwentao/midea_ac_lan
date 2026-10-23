@@ -9,7 +9,7 @@ from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from midealan.device import MideaDevice
 
-from .const import DEVICES, DOMAIN, supports_model
+from .const import DEVICES, DOMAIN, supports_device
 from .midea_devices import MIDEA_DEVICES
 from .midea_entity import MideaEntity
 
@@ -33,7 +33,7 @@ async def async_setup_entry(
     ).items():
         if (
             config["type"] != Platform.SELECT
-            or not supports_model(device.model, config)
+            or not supports_device(device.model, device.subtype, config)
             or (not config.get("default") and entity_key not in extra_switches)
         ):
             continue
@@ -74,6 +74,8 @@ class MideaSelect(MideaEntity, SelectEntity):
                     if code in options and code not in exclude
                 ]
             return [name for code, name in options.items() if code not in exclude]
+        if isinstance(self._options_name, dict):
+            return list(self._options_name.values())
         if isinstance(self._options_name, list):
             return [str(option) for option in self._options_name]
         return cast("list", getattr(self._device, self._options_name))
@@ -87,6 +89,8 @@ class MideaSelect(MideaEntity, SelectEntity):
         state_map = self._config.get("state_map")
         if state_map is not None:
             value = state_map.get(value)
+        if isinstance(self._options_name, dict):
+            return cast("str | None", self._options_name.get(value))
         option = (
             str(value) if isinstance(self._options_name, list) else cast("str", value)
         )
@@ -101,12 +105,23 @@ class MideaSelect(MideaEntity, SelectEntity):
         return not power_attribute or bool(self._device.get_attribute(power_attribute))
 
     def select_option(self, option: str) -> None:
-        """Select entity option."""
+        """Select entity option.
+
+        Raises
+        ------
+        ValueError
+            If a mapped option is not supported.
+
+        """
         if self._config.get("set_message") == "e1_work_mode":
             self._select_e1_work_mode(option)
             return
         value: Any = option
-        if self._config.get("option_type") == "int":
+        if isinstance(self._options_name, dict):
+            value = self._get_dict_key_by_value(self._options_name, option)
+            if value is None:
+                raise ValueError(f"Unsupported select option: {option}")
+        elif self._config.get("option_type") == "int":
             value = int(option)
         self._device.set_attribute(self._attribute_key, value)
 
