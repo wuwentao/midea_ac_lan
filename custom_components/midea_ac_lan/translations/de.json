@@ -866,6 +866,21 @@
       },
       "total_water_shortage": {
         "name": "Wassermangel"
+      },
+      "door_open": {
+        "name": "Tür Offen"
+      },
+      "turntable": {
+        "name": "Drehteller"
+      },
+      "lack_box": {
+        "name": "Behälter Fehlt"
+      },
+      "change_water": {
+        "name": "Wasserwechsel Erinnerung"
+      },
+      "ramadan": {
+        "name": "Ramadan"
       }
     },
     "button": {
@@ -976,6 +991,36 @@
       },
       "ai_voice_volume": {
         "name": "AI-Sprache Lautstärke"
+      },
+      "screen_luminance": {
+        "name": "Bildschirmhelligkeit"
+      },
+      "volume": {
+        "name": "Lautstärke"
+      },
+      "temperature_number": {
+        "name": "Zieltemperatur"
+      },
+      "temperature_above_number": {
+        "name": "Zieltemperatur Oben"
+      },
+      "temperature_underside_number": {
+        "name": "Zieltemperatur Unten"
+      },
+      "probe_temperature_number": {
+        "name": "Ziel-Fühlertemperatur"
+      },
+      "steam_quantity_number": {
+        "name": "Dampfmenge"
+      },
+      "hour_set": {
+        "name": "Stunde Einstellen"
+      },
+      "minute_set": {
+        "name": "Minute Einstellen"
+      },
+      "second_set": {
+        "name": "Sekunde Einstellen"
       }
     },
     "select": {
@@ -993,6 +1038,17 @@
         "state": {
           "0": "Voll",
           "2": "Halb"
+        }
+      },
+      "cur_quantify": {
+        "name": "Aktuelle Mengenvoreinstellung",
+        "state": {
+          "none": "Keine",
+          "preset_1": "Voreinstellung 1",
+          "preset_2": "Voreinstellung 2",
+          "preset_3": "Voreinstellung 3",
+          "preset_4": "Voreinstellung 4",
+          "preset_5": "Voreinstellung 5"
         }
       },
       "heating_mode": {
@@ -1114,6 +1170,44 @@
           "middle": "Mitte",
           "down_mid": "Unten-Mitte",
           "down": "Unten"
+        }
+      },
+      "work_status_select": {
+        "name": "Betriebsstatus",
+        "state": {
+          "save_power": "Energiesparen",
+          "standby": "Standby",
+          "work": "In Betrieb",
+          "pause": "Pausiert",
+          "work_finish": "Fertig",
+          "order": "Verzögerung",
+          "pause_c": "Pausiert C",
+          "three": "Drei",
+          "self_inspection": "Selbsttest",
+          "query_version": "Version Abfragen",
+          "demo": "Demo",
+          "ramadan": "Ramadan",
+          "after_checking": "Nach Prüfung",
+          "wait_to_start": "Startbereit",
+          "ff": "Unbekannt"
+        }
+      },
+      "x9b_fire_power_select": {
+        "name": "Heizleistung",
+        "state": {
+          "high_power": "Hoch",
+          "medium_high_power": "Mittelhoch",
+          "medium_power": "Mittel",
+          "medium_low_power": "Mittelniedrig",
+          "low_power": "Niedrig",
+          "ff": "Unbekannt"
+        }
+      },
+      "door": {
+        "name": "Tür",
+        "state": {
+          "open": "Öffnen",
+          "close": "Schließen"
         }
       }
     },
@@ -1720,6 +1814,17 @@
       "water_consumption": {
         "name": "Wasserverbrauch"
       },
+      "no_obsolete_water_mode": {
+        "name": "Modus ohne abgestandenes Wasser",
+        "state": {
+          "water_quality_priority": "Wasserqualität priorisieren",
+          "water_saving_priority": "Wassersparen priorisieren",
+          "custom": "Benutzerdefiniert"
+        }
+      },
+      "input_temperature_sensing": {
+        "name": "Zulauftemperatur"
+      },
       "water_consumption_average": {
         "name": "Durchschnittlicher Wasserverbrauch"
       },
@@ -1866,6 +1971,7 @@
           "double_tube": "Doppel Heizstab",
           "hot_wind_tube_fan": "Heißluft Heizstab Lüfter",
           "pure_preheat": "Rein Vorheizen",
+          "pure_preheat_2": "Rein Vorheizen 2",
           "above_tube_hot_wind_tube_fan": "Ober Heizstab Heißluft Lüfter",
           "underside_tube_hot_wind_tube_fan": "Unter Heizstab Heißluft Lüfter",
           "zymosis": "Gärung",
@@ -3416,6 +3522,90 @@
       },
       "total_tips_type": {
         "name": "Hinweistyp"
+      },
+      "work_status": {
+        "name": "Betriebsstatus",
+        "state": {
+          "save_power": "Energiesparen",
+          "standby": "Standby",
+          "work": "In Betrieb",
+          "pause": "Pausiert",
+          "work_finish": "Fertig",
+          "order": "Verzögerung",
+          "pause_c": "Pausiert C",
+          "three": "Drei",
+          "self_inspection": "Selbsttest",
+          "query_version": "Version Abfragen",
+          "demo": "Demo",
+          "ramadan": "Ramadan",
+          "after_checking": "Nach Prüfung",
+          "wait_to_start": "Startbereit",
+          "ff": "Unbekannt"
+        }
+      },
+      "x9b_fire_power": {
+        "name": "Heizleistung",
+        "state": {
+          "high_power": "Hoch",
+          "medium_high_power": "Mittelhoch",
+          "medium_power": "Mittel",
+          "medium_low_power": "Mittelniedrig",
+          "low_power": "Niedrig",
+          "ff": "Unbekannt"
+        }
+      },
+      "pre_heat": {
+        "name": "Vorheizen",
+        "state": {
+          "off": "Aus",
+          "work": "Vorheizen",
+          "end": "Vorheizen Beendet"
+        }
+      },
+      "water_status": {
+        "name": "Wasserstatus",
+        "state": {
+          "normal": "Normal",
+          "lack_box": "Behälter Fehlt",
+          "lack_water": "Wassermangel",
+          "change_water": "Wasser Wechseln"
+        }
+      },
+      "dissipate_heat": {
+        "name": "Wärmeabfuhr",
+        "state": {
+          "off": "Aus",
+          "work": "Wärmeabfuhr"
+        }
+      },
+      "execute": {
+        "name": "Ausführungsstatus",
+        "state": {
+          "ok": "OK",
+          "status_nonsupport": "Status Nicht Unterstützt",
+          "function_nonsupport": "Funktion Nicht Unterstützt",
+          "param_range_error": "Parameterbereichsfehler"
+        }
+      },
+      "sys_time_src": {
+        "name": "Systemzeitquelle",
+        "state": {
+          "module": "Modul",
+          "app": "App",
+          "user_defined": "Benutzerdefiniert"
+        }
+      },
+      "cur_temperature": {
+        "name": "Aktuelle Temperatur"
+      },
+      "work_hour": {
+        "name": "Betriebsstunde"
+      },
+      "work_minute": {
+        "name": "Betriebsminute"
+      },
+      "work_second": {
+        "name": "Betriebssekunde"
       }
     },
     "switch": {
@@ -3680,6 +3870,9 @@
       "antifreeze": {
         "name": "Frostschutz"
       },
+      "heat": {
+        "name": "Heizung"
+      },
       "dhw_disinfect": {
         "name": "WW - Desinfektion"
       },
@@ -3694,6 +3887,12 @@
       },
       "total_power": {
         "name": "Ein/Aus"
+      },
+      "lock": {
+        "name": "Kindersicherung"
+      },
+      "camera": {
+        "name": "Kamera"
       }
     },
     "water_heater": {

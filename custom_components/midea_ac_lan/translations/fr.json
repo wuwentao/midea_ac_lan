@@ -866,6 +866,21 @@
       },
       "total_water_shortage": {
         "name": "Manque d'eau"
+      },
+      "door_open": {
+        "name": "Porte Ouverte"
+      },
+      "turntable": {
+        "name": "Plateau Tournant"
+      },
+      "lack_box": {
+        "name": "Bac Manquant"
+      },
+      "change_water": {
+        "name": "Rappel de Changement d'Eau"
+      },
+      "ramadan": {
+        "name": "Ramadan"
       }
     },
     "button": {
@@ -976,6 +991,36 @@
       },
       "ai_voice_volume": {
         "name": "Volume voix IA"
+      },
+      "screen_luminance": {
+        "name": "Luminosité de l'Écran"
+      },
+      "volume": {
+        "name": "Volume"
+      },
+      "temperature_number": {
+        "name": "Température Cible"
+      },
+      "temperature_above_number": {
+        "name": "Température Cible Supérieure"
+      },
+      "temperature_underside_number": {
+        "name": "Température Cible Inférieure"
+      },
+      "probe_temperature_number": {
+        "name": "Température Cible de la Sonde"
+      },
+      "steam_quantity_number": {
+        "name": "Quantité de Vapeur"
+      },
+      "hour_set": {
+        "name": "Réglage de l'Heure"
+      },
+      "minute_set": {
+        "name": "Réglage des Minutes"
+      },
+      "second_set": {
+        "name": "Réglage des Secondes"
       }
     },
     "select": {
@@ -993,6 +1038,17 @@
         "state": {
           "0": "Pleine",
           "2": "Demi"
+        }
+      },
+      "cur_quantify": {
+        "name": "Préréglage de quantité actuel",
+        "state": {
+          "none": "Aucun",
+          "preset_1": "Préréglage 1",
+          "preset_2": "Préréglage 2",
+          "preset_3": "Préréglage 3",
+          "preset_4": "Préréglage 4",
+          "preset_5": "Préréglage 5"
         }
       },
       "heating_mode": {
@@ -1114,6 +1170,44 @@
           "middle": "Centre",
           "down_mid": "Centre-bas",
           "down": "Bas"
+        }
+      },
+      "work_status_select": {
+        "name": "État de Fonctionnement",
+        "state": {
+          "save_power": "Économie d'Énergie",
+          "standby": "Veille",
+          "work": "En Fonctionnement",
+          "pause": "En Pause",
+          "work_finish": "Terminé",
+          "order": "Différé",
+          "pause_c": "En Pause C",
+          "three": "Trois",
+          "self_inspection": "Autodiagnostic",
+          "query_version": "Interroger la Version",
+          "demo": "Démo",
+          "ramadan": "Ramadan",
+          "after_checking": "Après Vérification",
+          "wait_to_start": "En Attente de Démarrage",
+          "ff": "Inconnu"
+        }
+      },
+      "x9b_fire_power_select": {
+        "name": "Puissance",
+        "state": {
+          "high_power": "Élevée",
+          "medium_high_power": "Moyenne-Élevée",
+          "medium_power": "Moyenne",
+          "medium_low_power": "Moyenne-Faible",
+          "low_power": "Faible",
+          "ff": "Inconnu"
+        }
+      },
+      "door": {
+        "name": "Porte",
+        "state": {
+          "open": "Ouvrir",
+          "close": "Fermer"
         }
       }
     },
@@ -1720,6 +1814,17 @@
       "water_consumption": {
         "name": "Water Consumption"
       },
+      "no_obsolete_water_mode": {
+        "name": "Mode sans eau stagnante",
+        "state": {
+          "water_quality_priority": "Priorité à la qualité de l'eau",
+          "water_saving_priority": "Priorité aux économies d'eau",
+          "custom": "Personnalisé"
+        }
+      },
+      "input_temperature_sensing": {
+        "name": "Température d'entrée"
+      },
       "water_consumption_average": {
         "name": "Consommation moyenne d'eau"
       },
@@ -1866,6 +1971,7 @@
           "double_tube": "Double Tube",
           "hot_wind_tube_fan": "Air chaud Tube Ventilateur",
           "pure_preheat": "Pur Préchauffage",
+          "pure_preheat_2": "Pur Préchauffage 2",
           "above_tube_hot_wind_tube_fan": "Supérieur Tube Air chaud Ventilateur",
           "underside_tube_hot_wind_tube_fan": "Inférieur Tube Air chaud Ventilateur",
           "zymosis": "Fermentation",
@@ -3416,6 +3522,90 @@
       },
       "total_tips_type": {
         "name": "Type de conseils"
+      },
+      "work_status": {
+        "name": "État de Fonctionnement",
+        "state": {
+          "save_power": "Économie d'Énergie",
+          "standby": "Veille",
+          "work": "En Fonctionnement",
+          "pause": "En Pause",
+          "work_finish": "Terminé",
+          "order": "Différé",
+          "pause_c": "En Pause C",
+          "three": "Trois",
+          "self_inspection": "Autodiagnostic",
+          "query_version": "Interroger la Version",
+          "demo": "Démo",
+          "ramadan": "Ramadan",
+          "after_checking": "Après Vérification",
+          "wait_to_start": "En Attente de Démarrage",
+          "ff": "Inconnu"
+        }
+      },
+      "x9b_fire_power": {
+        "name": "Puissance",
+        "state": {
+          "high_power": "Élevée",
+          "medium_high_power": "Moyenne-Élevée",
+          "medium_power": "Moyenne",
+          "medium_low_power": "Moyenne-Faible",
+          "low_power": "Faible",
+          "ff": "Inconnu"
+        }
+      },
+      "pre_heat": {
+        "name": "Préchauffage",
+        "state": {
+          "off": "Arrêt",
+          "work": "Préchauffage",
+          "end": "Préchauffage Terminé"
+        }
+      },
+      "water_status": {
+        "name": "État de l'Eau",
+        "state": {
+          "normal": "Normal",
+          "lack_box": "Bac Manquant",
+          "lack_water": "Manque d'Eau",
+          "change_water": "Changer l'Eau"
+        }
+      },
+      "dissipate_heat": {
+        "name": "Dissipation de Chaleur",
+        "state": {
+          "off": "Arrêt",
+          "work": "Dissipation"
+        }
+      },
+      "execute": {
+        "name": "État d'Exécution",
+        "state": {
+          "ok": "OK",
+          "status_nonsupport": "État Non Pris en Charge",
+          "function_nonsupport": "Fonction Non Prise en Charge",
+          "param_range_error": "Erreur de Plage de Paramètre"
+        }
+      },
+      "sys_time_src": {
+        "name": "Source de l'Heure Système",
+        "state": {
+          "module": "Module",
+          "app": "Application",
+          "user_defined": "Défini par l'Utilisateur"
+        }
+      },
+      "cur_temperature": {
+        "name": "Température Actuelle"
+      },
+      "work_hour": {
+        "name": "Heure de Travail"
+      },
+      "work_minute": {
+        "name": "Minute de Travail"
+      },
+      "work_second": {
+        "name": "Seconde de Travail"
       }
     },
     "switch": {
@@ -3677,6 +3867,9 @@
       "antifreeze": {
         "name": "Antigel"
       },
+      "heat": {
+        "name": "Chauffage"
+      },
       "dhw_disinfect": {
         "name": "ECS - Désinfection"
       },
@@ -3691,6 +3884,12 @@
       },
       "total_power": {
         "name": "Alimentation"
+      },
+      "lock": {
+        "name": "Sécurité Enfant"
+      },
+      "camera": {
+        "name": "Caméra"
       }
     },
     "water_heater": {

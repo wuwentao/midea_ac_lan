@@ -1,4 +1,4 @@
-"""Refresh laundry controls when only SDK editability changes."""
+"""Refresh controls from SDK capabilities and mapped report attributes."""
 
 # ruff: file-ignore[pytest-unittest-assertion]
 
@@ -64,6 +64,30 @@ class ControlAvailabilityTests(unittest.TestCase):
                         entity.update_state({capability: available})
                     refresh.assert_called_once_with()
                     self.assertEqual(entity.available, available)
+
+    def test_mapped_report_updates_preserve_separate_write_attribute(self) -> None:
+        """Refresh the oven door select from its reported boolean state."""
+        attributes = {"door_open": False}
+        device = Mock()
+        device.device_type = 0x9B
+        device.device_id = 1
+        device.name = "Offline mapped attribute test"
+        device.get_attribute.side_effect = attributes.get
+        entity = MideaSelect(device, "door_select")
+        entity.hass = Mock()
+        entity.platform = Mock()
+        self.assertEqual(entity.options, ["open", "close"])
+        for opened, option in ((True, "open"), (False, "close")):
+            with self.subTest(opened=opened):
+                attributes["door_open"] = opened
+                with patch.object(entity, "schedule_update_if_running") as refresh:
+                    entity.update_state({"door_open": opened})
+                refresh.assert_called_once_with()
+                self.assertEqual(entity.current_option, option)
+                device.set_attribute.assert_not_called()
+                entity.select_option(option)
+                device.set_attribute.assert_called_once_with("door", option)
+                device.set_attribute.reset_mock()
 
     def test_unrelated_updates_do_not_publish(self) -> None:
         """Ignore reports that change neither the value nor availability."""
