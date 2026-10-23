@@ -57,6 +57,7 @@ class MideaNumber(MideaEntity, NumberEntity):
             "device_class",
         )
         self._attr_native_unit_of_measurement = self._config.get("unit")
+        self._optimistic_value: float | None = None
 
     def _resolve_bound(self, bound: Any) -> float:  # ruff:ignore[any-type]
         """Resolve a min/max/step config value to a concrete number.
@@ -95,10 +96,24 @@ class MideaNumber(MideaEntity, NumberEntity):
         return self._resolve_bound(self._step_value)
 
     @property
-    def native_value(self) -> float:
+    def native_value(self) -> float | None:
         """Native value of the entity."""
-        return cast("float", self._device.get_attribute(self._entity_key))
+        value = self._device.get_attribute(self._state_attribute_key)
+        if value in self._config.get("missing_values", []):
+            return None
+        if value is None and self._config.get("optimistic"):
+            return self._optimistic_value
+        return cast("float | None", value)
+
+    @property
+    def assumed_state(self) -> bool:
+        """Whether the number state is based on the last command."""
+        return bool(self._config.get("optimistic"))
 
     def set_native_value(self, value: Any) -> None:  # ruff:ignore[any-type]
         """Set value."""
-        self._device.set_attribute(self._entity_key, value)
+        self._device.set_attribute(self._attribute_key, value)
+        if self._config.get("optimistic"):
+            self._optimistic_value = cast("float", value)
+            if self.hass:
+                self.schedule_update_if_running()
