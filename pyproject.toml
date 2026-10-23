@@ -29,6 +29,15 @@ dev = [
   # pydantic is required by dev/CI: mypy loads it as a plugin (mypy.ini ->
   # `plugins = pydantic.mypy`), so it must stay installed for `scripts/mypy.sh`.
   "pydantic==2.14.1",
+  # pytest runs the offline regression tests under tests/ (see
+  # [tool.pytest.ini_options]). The suite only uses unittest.mock, so no Home
+  # Assistant test harness package is required.
+  "pytest==8.4.2",
+  # On Python 3.12 the minimum-supported HA 2024.4.1 bundles acme 2.9.0, whose
+  # crypto_util module still imports jose.ComparableX509 (removed in josepy 2.0).
+  # Importing custom_components.midea_ac_lan pulls in homeassistant.helpers.network
+  # -> hass_nabucasa -> acme, so pin josepy<2 there to keep test collection working.
+  "josepy==1.15.0 ; python_version == '3.12'",
 ]
 
 # Optional runtime extras for the local `uv run hass` dev/debug environment
@@ -47,6 +56,17 @@ run = [
 # This is a Home Assistant custom component, not a buildable/publishable package.
 # uv only manages the virtualenv and dependencies; it does not build this project.
 package = false
+
+# ----------------------------------------------------------------------------
+# pytest configuration. The tests under tests/ are offline regression checks for
+# the integration's own logic (completion-time math, entity dispatch and
+# availability); they mock the device and never open an appliance connection.
+# Run them with `uv run pytest`. `pythonpath` puts the integration package on
+# sys.path so `from midea_ac_lan...` imports resolve without PYTHONPATH tweaks.
+# ----------------------------------------------------------------------------
+[tool.pytest.ini_options]
+pythonpath = ["custom_components"]
+testpaths = ["tests"]
 
 # ----------------------------------------------------------------------------
 # ruff configuration (migrated from the former ruff.toml).
@@ -89,6 +109,8 @@ ignore = [
 ]
 "tests/*" = [
   "assert", # Use of `assert` detected
+  "private-member-access", # tests set up entities via their private _config/_device
+  "docstring-missing-returns", # test helpers/fixtures use one-line docstrings
 ]
 
 [tool.ruff.lint.mccabe]

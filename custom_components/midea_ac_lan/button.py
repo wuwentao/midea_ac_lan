@@ -33,6 +33,12 @@ async def async_setup_entry(
             and supports_device(device.model, device.subtype, config)
             and (config.get("default") or entity_key in extra_switches)
         ):
+            required_attribute = config.get("required_attribute")
+            if (
+                required_attribute is not None
+                and required_attribute not in device.attributes
+            ):
+                continue
             buttons.append(MideaButton(device, entity_key))
     async_add_entities(buttons)
 
@@ -55,8 +61,14 @@ class MideaButton(MideaEntity, ButtonEntity):
         )
 
     def press(self) -> None:
-        """Press button: write the configured status trigger."""
-        self._device.set_attribute("status", self._config["press_status"])
+        """Press button: write the configured attribute or status trigger."""
+        if "press_value" in self._config:
+            self._device.set_attribute(
+                self._config.get("attribute", self._entity_key),
+                self._config["press_value"],
+            )
+        else:
+            self._device.set_attribute("status", self._config["press_status"])
 
     @callback
     def update_state(self, status: Any) -> None:  # ruff:ignore[any-type]

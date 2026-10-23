@@ -881,6 +881,9 @@
       },
       "ramadan": {
         "name": "Ramadán"
+      },
+      "laundry_appointment": {
+        "name": "Rezervácia"
       }
     },
     "button": {
@@ -898,6 +901,9 @@
       },
       "start": {
         "name": "Štart"
+      },
+      "laundry_cancel_appointment": {
+        "name": "Zrušiť rezerváciu"
       }
     },
     "climate": {
@@ -1209,11 +1215,108 @@
           "open": "Otvoriť",
           "close": "Zavrieť"
         }
+      },
+      "washer_program_control": {
+        "name": "Program prania",
+        "state": {
+          "water_mixed_wash": "Zmiešané pranie",
+          "fast_wash": "Rýchle pranie 15 min",
+          "single_dehytration": "Iba odstreďovanie",
+          "rinsing_dehydration": "Plákanie a odstreďovanie",
+          "fast_wash_30": "Rýchle pranie 30 min",
+          "big": "Objemné kusy",
+          "tub_clean": "Čistenie bubna",
+          "deep_tub_clean": "Hĺbkové čistenie bubna",
+          "down_jacket": "Páperové bundy",
+          "new_water_cotton": "Bavlna a ľan",
+          "baby_clothes": "Detské oblečenie",
+          "shirt": "Košele",
+          "wool": "Vlna",
+          "water_underwear": "Spodná bielizeň",
+          "silk": "Hodváb",
+          "jacket": "Vonkajšie bundy",
+          "new_clothes_wash": "Nové oblečenie",
+          "jean": "Džínsovina",
+          "water_fiber": "Syntetika",
+          "water_eco": "Úsporné pranie",
+          "water_intelligent": "Inteligentné pranie",
+          "water_steep": "Namáčanie",
+          "water_cold_wash": "Pranie v studenej vode",
+          "sterilization_wash": "Sterilizačné pranie",
+          "water_remove_mite_wash": "Odstránenie roztočov",
+          "disinfection_wash": "Dezinfekčné pranie",
+          "stain_wash": "Pranie škvŕn",
+          "sport_clothes": "Športové oblečenie",
+          "yoga": "Oblečenie na jogu",
+          "quick_drying_clothes": "Rýchloschnúce oblečenie"
+        }
+      },
+      "washer_temperature_control": {
+        "name": "Teplota vody",
+        "state": {
+          "cold": "Studená",
+          "20": "20 °C",
+          "30": "30 °C",
+          "40": "40 °C",
+          "60": "60 °C",
+          "95": "95 °C"
+        }
+      },
+      "washer_spin_speed_control": {
+        "name": "Rýchlosť odstreďovania",
+        "state": {
+          "0": "Bez odstreďovania",
+          "400": "400 rpm",
+          "600": "600 rpm",
+          "800": "800 rpm",
+          "1000": "1000 rpm",
+          "1200": "1200 rpm",
+          "1400": "1400 rpm"
+        }
+      },
+      "washer_rinse_count": {
+        "name": "Počet plákaní",
+        "state": {
+          "1": "1",
+          "2": "2",
+          "3": "3",
+          "4": "4"
+        }
+      },
+      "washer_water_level_control": {
+        "name": "Hladina vody",
+        "state": {
+          "auto": "Automaticky",
+          "l1": "L1",
+          "l2": "L2",
+          "l3": "L3",
+          "l4": "L4"
+        }
+      },
+      "washer_detergent_control": {
+        "name": "Dávkovanie pracieho prostriedku",
+        "state": {
+          "smart": "Inteligentné",
+          "off": "Vypnuté",
+          "l1": "L1",
+          "l2": "L2",
+          "l3": "L3",
+          "l4": "L4"
+        }
+      },
+      "washer_wash_time_control": {
+        "name": "Čas prania (min)"
+      },
+      "washer_spin_time_control": {
+        "name": "Čas odstreďovania (min)"
       }
     },
     "time": {
       "timing_regeneration": {
         "name": "Časovaná regenerácia"
+      },
+      "laundry_appointment_finish": {
+        "name": "Čas dokončenia (nastaví rezerváciu)"
       }
     },
     "sensor": {
@@ -3906,6 +4009,9 @@
       },
       "camera": {
         "name": "Kamera"
+      },
+      "washer_forget_free": {
+        "name": "Bezstarostná starostlivosť"
       }
     },
     "water_heater": {

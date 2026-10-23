@@ -151,7 +151,16 @@ class MideaEntity(Entity):
     @property
     def available(self) -> bool:
         """Whether the entity is available."""
-        return bool(self._device.available)
+        if not self._device.available:
+            return False
+        state_attribute = self._config.get("available_attribute")
+        if state_attribute and not self._device.get_attribute(state_attribute):
+            return False
+        value_attribute = self._config.get("available_value_attribute")
+        return (
+            value_attribute is None
+            or self._device.get_attribute(value_attribute) is not None
+        )
 
     @property
     def icon(self) -> str:
@@ -231,7 +240,11 @@ class MideaEntity(Entity):
             )
             return
 
-        if self._state_attribute_key not in status and "available" not in status:
+        if (
+            self._state_attribute_key not in status
+            and "available" not in status
+            and self._config.get("available_attribute") not in status
+        ):
             return
 
         self.schedule_update_if_running()

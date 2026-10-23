@@ -56,10 +56,16 @@ class MideaSelect(MideaEntity, SelectEntity):
         super().__init__(device, entity_key)
         self._options_name = self._config.get("options")
         self._options_dict_name = self._config.get("options_dict")
+        self._options_method = self._config.get("options_method")
 
     @property
     def options(self) -> list[str]:
         """Available options for the entity."""
+        if self._options_method:
+            return cast(
+                "list[str]",
+                getattr(self._device, self._options_method)(self._attribute_key),
+            )
         if self._options_dict_name:
             options = self._get_options_dict()
             codes_by_model = self._config.get("options_codes_by_model", {})
