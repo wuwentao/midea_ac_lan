@@ -117,7 +117,7 @@ class MideaSensor(MideaEntity, SensorEntity):
         value = self._device.get_attribute(self._entity_key)
         # If an options mapping exists, translate the raw value to its enum key.
         options = self._config.get("options")
-        if options is not None and isinstance(value, int):
+        if options is not None and isinstance(value, int | str):
             # For an enum sensor an unmapped value is not a valid state, so
             # report it as unknown (None) instead of leaking the raw int.
             return cast("StateType", options.get(value))

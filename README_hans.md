@@ -55,6 +55,7 @@
 | 26   | 浴霸                        | [26_hans.md](doc/26_hans.md) |
 | 34   | 水槽式洗碗机                | [34_hans.md](doc/34_hans.md) |
 | 40   | 凉霸                        | [40_hans.md](doc/40_hans.md) |
+| 9C   | 集成灶                      | [9C_hans.md](doc/9C_hans.md) |
 | A1   | 除湿器                      | [A1_hans.md](doc/A1_hans.md) |
 | AC   | 空调器                      | [AC_hans.md](doc/AC_hans.md) |
 | AD   | 空气盒子                    | [AD_hans.md](doc/AD_hans.md) |
