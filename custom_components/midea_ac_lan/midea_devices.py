@@ -353,6 +353,8 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "ai_voice_microphone",
                 "name": "AI Voice Microphone",
                 "icon": "mdi:microphone",
+                "on_value": "on",
+                "off_value": "off",
                 "default": True,
             },
             X9CAttributes.total_lock: {
@@ -367,6 +369,8 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "total_power",
                 "name": "Power",
                 "icon": "mdi:power",
+                "on_value": "on",
+                "off_value": "off",
                 "default": True,
             },
             # --- number ---
@@ -1749,9 +1753,6 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "b6_inverter_temperature_limit_sign",
                 "name": "Range Hood Inverter Temperature Limit Sign",
                 "icon": "mdi:thermometer",
-                "device_class": SensorDeviceClass.TEMPERATURE,
-                "unit": UnitOfTemperature.CELSIUS,
-                "state_class": SensorStateClass.MEASUREMENT,
             },
             X9CAttributes.b6_inverter_voltage: {
                 "type": Platform.SENSOR,
