@@ -30,15 +30,36 @@
 
 ### 额外生成实体
 
-| 实体ID                                  | 类型          | 名称                    | 描述         |
-| --------------------------------------- | ------------- | ----------------------- | ------------ |
-| binary_sensor.{DEVICEID}\_burning_state | binary_sensor | Burning State           | 燃烧状态     |
-| binary_sensor.{DEVICEID}\_protection    | binary_sensor | Protection              | 安全防护     |
-| sensor.{DEVICEID}\_current_temperature  | sensor        | Current Temperature     | 温度         |
-| switch.{DEVICEID}\_power                | switch        | Power                   | 电源开关     |
-| switch.{DEVICEID}\_smart_volume         | switch        | Smart Volume            | 智能变容     |
-| switch.{DEVICEID}\_zero_cold_water      | switch        | Zero Cold Water         | 零冷水       |
-| switch.{DEVICEID}\_zero_cold_pulse      | switch        | Zero Cold Water (Pulse) | 零冷水(点动) |
+| 实体ID                                    | 类型          | 名称                    | 描述         |
+| ----------------------------------------- | ------------- | ----------------------- | ------------ |
+| binary_sensor.{DEVICEID}\_burning_state   | binary_sensor | Burning State           | 燃烧状态     |
+| binary_sensor.{DEVICEID}\_protection      | binary_sensor | Protection              | 安全防护     |
+| sensor.{DEVICEID}\_current_temperature    | sensor        | Current Temperature     | 温度         |
+| switch.{DEVICEID}\_power                  | switch        | Power                   | 电源开关     |
+| switch.{DEVICEID}\_smart_volume           | switch        | Smart Volume            | 智能变容     |
+| switch.{DEVICEID}\_zero_cold_water        | switch        | Zero Cold Water         | 零冷水       |
+| switch.{DEVICEID}\_zero_cold_pulse        | switch        | Zero Cold Water (Pulse) | 零冷水(点动) |
+| sensor.{DEVICEID}\_water_usage_daily      | sensor        | Daily Water Usage       | 日用水量     |
+| sensor.{DEVICEID}\_gas_usage_daily        | sensor        | Daily Gas Usage         | 日用气量     |
+| sensor.{DEVICEID}\_water_usage_monthly    | sensor        | Monthly Water Usage     | 本月用水量   |
+| sensor.{DEVICEID}\_gas_usage_monthly      | sensor        | Monthly Gas Usage       | 本月用气量   |
+| sensor.{DEVICEID}\_water_usage_last_month | sensor        | Last Month Water Usage  | 上月用水量   |
+| sensor.{DEVICEID}\_gas_usage_last_month   | sensor        | Last Month Gas Usage    | 上月用气量   |
+
+### 用水量/用气量统计（可选）
+
+水量和气量传感器并非来自设备本身：E3 燃气热水器只把用量上报到美的云
+（即官方 App 中展示的日报表）。使用方法：
+
+1. 在设备的集成选项中的 **额外传感器** 里勾选这些传感器。
+2. 在同一选项对话框中填写 **美的云账号**、**密码** 和 **云服务器**，
+   必须是设备在美的 App 中注册的个人账号；预置账号无法使用，它看不到
+   你的设备。请选择支持报表的云服务器（`美的美居` 或 `SmartHome`，后者
+   为默认值），其他云不提供用量报表。
+
+云端每天写入一次报表，集成每 6 小时检查一次。`日` 为最近一个完整天数
+（见传感器的 `report_date` 属性），`本月` 为当月至今，`上月` 为上一个
+自然月。水量单位为升，气量单位为立方米。
 
 ## 服务
 

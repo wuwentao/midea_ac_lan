@@ -50,45 +50,48 @@ And more.
 
 Please check the document links below for the supported features and usage of each appliance type.
 
-| Type | Name                       | Documents          |
-| ---- | -------------------------- | ------------------ |
-| 13   | Light                      | [13.md](doc/13.md) |
-| 26   | Bathroom Master            | [26.md](doc/26.md) |
-| 34   | Sink Dishwasher            | [34.md](doc/34.md) |
-| 40   | Integrated Ceiling Fan     | [40.md](doc/40.md) |
-| A1   | Dehumidifier               | [A1.md](doc/A1.md) |
-| AC   | Air Conditioner            | [AC.md](doc/AC.md) |
-| AD   | Air Box                    | [AD.md](doc/AD.md) |
-| B0   | Microwave Oven             | [B0.md](doc/B0.md) |
-| B1   | Electric Oven              | [B1.md](doc/B1.md) |
-| B3   | Dish Sterilizer            | [B3.md](doc/B3.md) |
-| B4   | Toaster                    | [B4.md](doc/B4.md) |
-| B6   | Range Hood                 | [B6.md](doc/B6.md) |
-| B8   | Robot Vacuum               | [B8.md](doc/B8.md) |
-| BF   | Microwave Steam Oven       | [BF.md](doc/BF.md) |
-| C1   | Electric Wall-hung Boiler  | [C1.md](doc/C1.md) |
-| C2   | Toilet                     | [C2.md](doc/C2.md) |
-| C3   | Heat Pump Wi-Fi Controller | [C3.md](doc/C3.md) |
-| CA   | Refrigerator               | [CA.md](doc/CA.md) |
-| CC   | MDV Wi-Fi Controller       | [CC.md](doc/CC.md) |
-| CD   | Heat Pump Water Heater     | [CD.md](doc/CD.md) |
-| CE   | Fresh Air Appliance        | [CE.md](doc/CE.md) |
-| CF   | Heat Pump                  | [CF.md](doc/CF.md) |
-| DA   | Top Load Washer            | [DA.md](doc/DA.md) |
-| DB   | Front Load Washer          | [DB.md](doc/DB.md) |
-| DC   | Clothes Dryer              | [DC.md](doc/DC.md) |
-| E1   | Dishwasher                 | [E1.md](doc/E1.md) |
-| E2   | Electric Water Heater      | [E2.md](doc/E2.md) |
-| E3   | Gas Water Heater           | [E3.md](doc/E3.md) |
-| E6   | Gas Stove                  | [E6.md](doc/E6.md) |
-| E8   | Electric Slow Cooker       | [E8.md](doc/E8.md) |
-| EA   | Electric Rice Cooker       | [EA.md](doc/EA.md) |
-| EC   | Electric Pressure Cooker   | [EC.md](doc/EC.md) |
-| ED   | Water Drinking Appliance   | [ED.md](doc/ED.md) |
-| FA   | Fan                        | [FA.md](doc/FA.md) |
-| FB   | Electric Heater            | [FB.md](doc/FB.md) |
-| FC   | Air Purifier               | [FC.md](doc/FC.md) |
-| FD   | Humidifier                 | [FD.md](doc/FD.md) |
+| Type | Name                            | Documents          |
+| ---- | ------------------------------- | ------------------ |
+| 13   | Light                           | [13.md](doc/13.md) |
+| 26   | Bathroom Master                 | [26.md](doc/26.md) |
+| 34   | Sink Dishwasher                 | [34.md](doc/34.md) |
+| 40   | Integrated Ceiling Fan          | [40.md](doc/40.md) |
+| 9B   | Microwave Steam Convection Oven | [9B.md](doc/9B.md) |
+| 9C   | Integrated Kitchen Appliance    | [9C.md](doc/9C.md) |
+| A1   | Dehumidifier                    | [A1.md](doc/A1.md) |
+| AC   | Air Conditioner                 | [AC.md](doc/AC.md) |
+| AD   | Air Box                         | [AD.md](doc/AD.md) |
+| B0   | Microwave Oven                  | [B0.md](doc/B0.md) |
+| B1   | Electric Oven                   | [B1.md](doc/B1.md) |
+| B3   | Dish Sterilizer                 | [B3.md](doc/B3.md) |
+| B4   | Toaster                         | [B4.md](doc/B4.md) |
+| B6   | Range Hood                      | [B6.md](doc/B6.md) |
+| B8   | Robot Vacuum                    | [B8.md](doc/B8.md) |
+| BF   | Microwave Steam Oven            | [BF.md](doc/BF.md) |
+| C1   | Electric Wall-hung Boiler       | [C1.md](doc/C1.md) |
+| C2   | Toilet                          | [C2.md](doc/C2.md) |
+| C3   | Heat Pump Wi-Fi Controller      | [C3.md](doc/C3.md) |
+| CA   | Refrigerator                    | [CA.md](doc/CA.md) |
+| CC   | MDV Wi-Fi Controller            | [CC.md](doc/CC.md) |
+| CD   | Heat Pump Water Heater          | [CD.md](doc/CD.md) |
+| CE   | Fresh Air Appliance             | [CE.md](doc/CE.md) |
+| CF   | Heat Pump                       | [CF.md](doc/CF.md) |
+| D9   | Washer Dryer Combo              | [D9.md](doc/D9.md) |
+| DA   | Top Load Washer                 | [DA.md](doc/DA.md) |
+| DB   | Front Load Washer               | [DB.md](doc/DB.md) |
+| DC   | Clothes Dryer                   | [DC.md](doc/DC.md) |
+| E1   | Dishwasher                      | [E1.md](doc/E1.md) |
+| E2   | Electric Water Heater           | [E2.md](doc/E2.md) |
+| E3   | Gas Water Heater                | [E3.md](doc/E3.md) |
+| E6   | Gas Stove                       | [E6.md](doc/E6.md) |
+| E8   | Electric Slow Cooker            | [E8.md](doc/E8.md) |
+| EA   | Electric Rice Cooker            | [EA.md](doc/EA.md) |
+| EC   | Electric Pressure Cooker        | [EC.md](doc/EC.md) |
+| ED   | Water Drinking Appliance        | [ED.md](doc/ED.md) |
+| FA   | Fan                             | [FA.md](doc/FA.md) |
+| FB   | Electric Heater                 | [FB.md](doc/FB.md) |
+| FC   | Air Purifier                    | [FC.md](doc/FC.md) |
+| FD   | Humidifier                      | [FD.md](doc/FD.md) |
 
 ## 5. Install midea_ac_lan
 
@@ -224,3 +227,12 @@ cd midea_ac_lan
 ```
 
 See [CONTRIBUTING](.github/CONTRIBUTING.md) for full setup, running Home Assistant locally, and the code style / commit rules.
+
+### Adding a new device
+
+Want to expose a new Midea appliance type in this integration? The end-to-end recipe — pointing the `midea-lan` dependency at your library work for local testing, registering the device in `midea_devices.py`, choosing each attribute's platform / `device_class` / `unit` / `translation_key`, adding the translation files, writing the device docs, and opening a PR — is documented, using the `0xD9` washer/dryer combo ([PR #1086](https://github.com/wuwentao/midea_ac_lan/pull/1086)) as the running example and the `0x9B` oven ([PR #1096](https://github.com/wuwentao/midea_ac_lan/pull/1096)) as a second, larger example:
+
+- [Adding a New Device to the midea_ac_lan Integration](doc/adding-a-new-device.md)
+- [为 midea_ac_lan 集成新增一款设备（中文）](doc/adding-a-new-device.zh-Hans.md)
+
+The companion guide for the protocol library side lives in the `midea-lan` repo: [Adding a New Device Type](https://github.com/wuwentao/midea-lan/blob/main/docs/adding-a-new-device.md).

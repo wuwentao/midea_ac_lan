@@ -12,13 +12,24 @@
 
 ## Customize
 
-Set the levels of the fan device except "Off" (3 by default).
+Set the levels of the fan device except "Off" (3 by default; BGF10000 subtype
+15 defaults to 12).
 
 ```json
 { "speed_count": 5 }
 ```
 
 ## Entities
+
+### BGF10000 (subtype 15) presets
+
+BGF10000 subtype 15 defaults to 12 speed levels and supports Normal, Forest,
+Beach, Countryside, Baby wind, Sleep 1, Sleep 2, and Strong.
+Forest/Beach/Countryside use comfort submodes 1/2/3; Baby wind/Sleep 1/Sleep 2
+use sleep submodes 1/2/3. These values are submode identifiers rather than motor
+speeds, so Home Assistant does not report a speed percentage in those modes.
+Selecting a speed returns the fan to Normal mode. Strong uses the device's fixed
+level 12; a custom `speed_count` overrides the Normal-mode speed scale.
 
 ### Default entity
 
