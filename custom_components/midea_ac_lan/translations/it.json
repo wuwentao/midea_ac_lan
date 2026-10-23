@@ -1027,6 +1027,9 @@
       },
       "second_set": {
         "name": "Impostazione Secondi"
+      },
+      "dryer_timed_extra": {
+        "name": "Prolungamento asciugatura a tempo"
       }
     },
     "select": {
@@ -1214,6 +1217,87 @@
         "state": {
           "open": "Apri",
           "close": "Chiudi"
+        }
+      },
+      "dryer_program_control": {
+        "name": "Programma di asciugatura",
+        "state": {
+          "mixed_wash": "Misto",
+          "wool": "Lana",
+          "night_dry": "Asciugatura notturna",
+          "big_dry": "Capi voluminosi",
+          "small_piece_dry": "Capi piccoli",
+          "baby_clothes": "Abbigliamento neonati",
+          "down_jacket": "Piumini",
+          "quick_dry": "Asciugatura rapida",
+          "cotton": "Cotone e lino",
+          "shirt": "Camicie",
+          "jean": "Jeans",
+          "underwear": "Biancheria intima",
+          "school_uniform": "Divise scolastiche",
+          "silk": "Seta",
+          "towel": "Asciugamani",
+          "chiffon": "Chiffon",
+          "polar_fleece": "Pile",
+          "hanfu": "Hanfu",
+          "hanfu_tang": "Hanfu™ stile Tang",
+          "hanfu_song": "Hanfu™ stile Song",
+          "hanfu_ming": "Hanfu™ stile Ming",
+          "hanfu_modern": "Hanfu™ stile moderno",
+          "sun_quilt": "Aerazione piumoni",
+          "bucket_self_clean": "Pulizia cestello",
+          "steam_care": "Trattamento a vapore",
+          "fixed_time_dry": "Asciugatura a tempo",
+          "warm_clothes": "Riscalda indumenti",
+          "cold_air_fresh_air": "Rinfresco ad aria fredda",
+          "sterilize_mite": "Sterilizzazione e rimozione acari",
+          "bracket_dry": "Asciugatura su rastrelliera",
+          "pet_sterilize": "Sterilizzazione animali domestici",
+          "sport_clothes": "Abbigliamento sportivo",
+          "outdoor": "Abbigliamento outdoor",
+          "quick_drying_clothes": "Capi ad asciugatura rapida",
+          "yoga": "Abbigliamento yoga",
+          "air_wash": "Lavaggio ad aria",
+          "fiber": "Sintetici",
+          "bedsheet": "Lenzuola",
+          "plush": "Peluche",
+          "dehumidify": "Deumidifica",
+          "hot_air_dry": "Asciugatura ad aria calda",
+          "standard": "Standard",
+          "fresh_air": "Aria fresca",
+          "low_temp_dry": "Asciugatura a bassa temperatura",
+          "eco_dry": "Asciugatura a risparmio energetico",
+          "quick_dry_30": "Asciugatura rapida 30 min",
+          "intelligent_dry": "Asciugatura intelligente",
+          "big": "Capi voluminosi",
+          "western_trouser": "Pantaloni eleganti",
+          "dehumidification": "Deumidificazione",
+          "smart_dry": "Asciugatura smart",
+          "four_piece_suit": "Set biancheria da letto",
+          "quick_dry_20": "Asciugatura rapida 20 min",
+          "steam_sterilize": "Sterilizzazione a vapore",
+          "enzyme": "Enzimi",
+          "big_60": "Capi voluminosi 60",
+          "steam_no_iron": "Vapore antipiega",
+          "bed_clothes": "Biancheria da letto",
+          "little_fast_dry": "Asciugatura rapida carico ridotto",
+          "wool_nurse": "Trattamento lana",
+          "fresh_remove_smell": "Rinfresco deodorante",
+          "sterilize": "Sterilizzazione"
+        }
+      },
+      "dryer_dryness_control": {
+        "name": "Grado di asciugatura",
+        "state": {
+          "ready_to_wear": "Pronto da indossare",
+          "storage": "Da riporre"
+        }
+      },
+      "dryer_temperature_control": {
+        "name": "Temperatura di asciugatura",
+        "state": {
+          "standard": "Standard",
+          "low": "Bassa"
         }
       },
       "washer_program_control": {
@@ -4000,6 +4084,12 @@
       },
       "camera": {
         "name": "Fotocamera"
+      },
+      "dryer_sterilize": {
+        "name": "Sterilizzazione multidimensionale"
+      },
+      "dryer_anti_wrinkle": {
+        "name": "Antipiega intelligente"
       },
       "washer_forget_free": {
         "name": "Cura senza pensieri"

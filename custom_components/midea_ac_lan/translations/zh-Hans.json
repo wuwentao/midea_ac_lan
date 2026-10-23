@@ -1043,6 +1043,9 @@
       },
       "second_set": {
         "name": "秒设置"
+      },
+      "dryer_timed_extra": {
+        "name": "定时加时"
       }
     },
     "select": {
@@ -1230,6 +1233,87 @@
         "state": {
           "open": "开门",
           "close": "关门"
+        }
+      },
+      "dryer_program_control": {
+        "name": "烘干程序",
+        "state": {
+          "mixed_wash": "混合",
+          "wool": "羊毛",
+          "night_dry": "夜间烘",
+          "big_dry": "大件烘",
+          "small_piece_dry": "小件烘",
+          "baby_clothes": "婴儿服",
+          "down_jacket": "羽绒服",
+          "quick_dry": "快烘",
+          "cotton": "棉麻",
+          "shirt": "衬衫",
+          "jean": "牛仔",
+          "underwear": "内衣",
+          "school_uniform": "校服",
+          "silk": "丝绸",
+          "towel": "浴巾",
+          "chiffon": "雪纺",
+          "polar_fleece": "摇粒绒",
+          "hanfu": "汉服",
+          "hanfu_tang": "汉服™唐制",
+          "hanfu_song": "汉服™宋制",
+          "hanfu_ming": "汉服™明制",
+          "hanfu_modern": "汉服™现代",
+          "sun_quilt": "晒被子",
+          "bucket_self_clean": "筒自洁",
+          "steam_care": "蒸汽护理",
+          "fixed_time_dry": "定时烘",
+          "warm_clothes": "热风暖衣",
+          "cold_air_fresh_air": "冷风清新",
+          "sterilize_mite": "除菌除螨",
+          "bracket_dry": "支架烘",
+          "pet_sterilize": "萌宠除菌",
+          "sport_clothes": "运动服",
+          "outdoor": "户外服",
+          "quick_drying_clothes": "速干衣",
+          "yoga": "瑜伽服",
+          "air_wash": "空气洗",
+          "fiber": "化纤",
+          "bedsheet": "床单",
+          "plush": "毛绒",
+          "dehumidify": "除湿",
+          "hot_air_dry": "热风烘干",
+          "standard": "标准",
+          "fresh_air": "清新",
+          "low_temp_dry": "低温烘",
+          "eco_dry": "节能烘",
+          "quick_dry_30": "快烘30分",
+          "intelligent_dry": "智能烘",
+          "big": "大件",
+          "western_trouser": "西裤",
+          "dehumidification": "除湿",
+          "smart_dry": "智慧烘",
+          "four_piece_suit": "床品四件套",
+          "quick_dry_20": "快烘20分",
+          "steam_sterilize": "蒸汽除菌",
+          "enzyme": "酵素",
+          "big_60": "大件60",
+          "steam_no_iron": "蒸汽免熨",
+          "bed_clothes": "床品",
+          "little_fast_dry": "少量快烘",
+          "wool_nurse": "羊毛护理",
+          "fresh_remove_smell": "清新除味",
+          "sterilize": "除菌"
+        }
+      },
+      "dryer_dryness_control": {
+        "name": "烘干度",
+        "state": {
+          "ready_to_wear": "即穿",
+          "storage": "储藏"
+        }
+      },
+      "dryer_temperature_control": {
+        "name": "烘干温度",
+        "state": {
+          "standard": "标准",
+          "low": "低温"
         }
       },
       "washer_program_control": {
@@ -4043,6 +4127,12 @@
       },
       "camera": {
         "name": "摄像头"
+      },
+      "dryer_sterilize": {
+        "name": "多维除菌"
+      },
+      "dryer_anti_wrinkle": {
+        "name": "智能防皱"
       },
       "washer_forget_free": {
         "name": "忘取无忧"

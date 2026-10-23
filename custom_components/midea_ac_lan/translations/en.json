@@ -1043,6 +1043,9 @@
       },
       "second_set": {
         "name": "Second Set"
+      },
+      "dryer_timed_extra": {
+        "name": "Timed drying extension"
       }
     },
     "select": {
@@ -1344,6 +1347,87 @@
         "state": {
           "open": "Open",
           "close": "Close"
+        }
+      },
+      "dryer_program_control": {
+        "name": "Dryer program",
+        "state": {
+          "mixed_wash": "Mixed",
+          "wool": "Wool",
+          "night_dry": "Night drying",
+          "big_dry": "Bulky items",
+          "small_piece_dry": "Small items",
+          "baby_clothes": "Baby clothes",
+          "down_jacket": "Down jackets",
+          "quick_dry": "Quick dry",
+          "cotton": "Cotton and linen",
+          "shirt": "Shirts",
+          "jean": "Denim",
+          "underwear": "Underwear",
+          "school_uniform": "School uniforms",
+          "silk": "Silk",
+          "towel": "Bath towels",
+          "chiffon": "Chiffon",
+          "polar_fleece": "Polar fleece",
+          "hanfu": "Hanfu",
+          "hanfu_tang": "Hanfu™ Tang style",
+          "hanfu_song": "Hanfu™ Song style",
+          "hanfu_ming": "Hanfu™ Ming style",
+          "hanfu_modern": "Hanfu™ Modern style",
+          "sun_quilt": "Quilt airing",
+          "bucket_self_clean": "Drum clean",
+          "steam_care": "Steam care",
+          "fixed_time_dry": "Timed drying",
+          "warm_clothes": "Warm clothes",
+          "cold_air_fresh_air": "Cool-air refresh",
+          "sterilize_mite": "Sterilization and mite removal",
+          "bracket_dry": "Rack drying",
+          "pet_sterilize": "Pet sterilization",
+          "sport_clothes": "Sportswear",
+          "outdoor": "Outdoor clothes",
+          "quick_drying_clothes": "Quick-drying clothes",
+          "yoga": "Yoga clothes",
+          "air_wash": "Air wash",
+          "fiber": "Synthetics",
+          "bedsheet": "Bed sheets",
+          "plush": "Plush",
+          "dehumidify": "Dehumidify",
+          "hot_air_dry": "Hot air drying",
+          "standard": "Standard",
+          "fresh_air": "Fresh air",
+          "low_temp_dry": "Low temperature drying",
+          "eco_dry": "Energy saving drying",
+          "quick_dry_30": "Quick dry 30 min",
+          "intelligent_dry": "Intelligent drying",
+          "big": "Bulky items",
+          "western_trouser": "Dress trousers",
+          "dehumidification": "Dehumidification",
+          "smart_dry": "Smart drying",
+          "four_piece_suit": "Bedding set",
+          "quick_dry_20": "Quick dry 20 min",
+          "steam_sterilize": "Steam sterilization",
+          "enzyme": "Enzyme",
+          "big_60": "Bulky items 60",
+          "steam_no_iron": "Steam no-iron care",
+          "bed_clothes": "Bedding",
+          "little_fast_dry": "Quick dry small load",
+          "wool_nurse": "Wool care",
+          "fresh_remove_smell": "Deodorizing refresh",
+          "sterilize": "Sterilization"
+        }
+      },
+      "dryer_dryness_control": {
+        "name": "Dryness",
+        "state": {
+          "ready_to_wear": "Ready to wear",
+          "storage": "Storage"
+        }
+      },
+      "dryer_temperature_control": {
+        "name": "Drying temperature",
+        "state": {
+          "standard": "Standard",
+          "low": "Low"
         }
       },
       "washer_program_control": {
@@ -4234,6 +4318,12 @@
       },
       "camera": {
         "name": "Camera"
+      },
+      "dryer_sterilize": {
+        "name": "Multidimensional sterilization"
+      },
+      "dryer_anti_wrinkle": {
+        "name": "Smart anti-wrinkle"
       },
       "washer_forget_free": {
         "name": "Forget-free care"

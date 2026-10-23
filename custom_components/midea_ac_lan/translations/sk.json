@@ -1027,6 +1027,9 @@
       },
       "second_set": {
         "name": "Nastavenie sekúnd"
+      },
+      "dryer_timed_extra": {
+        "name": "Predĺženie časovaného sušenia"
       }
     },
     "select": {
@@ -1214,6 +1217,87 @@
         "state": {
           "open": "Otvoriť",
           "close": "Zavrieť"
+        }
+      },
+      "dryer_program_control": {
+        "name": "Program sušenia",
+        "state": {
+          "mixed_wash": "Zmiešané",
+          "wool": "Vlna",
+          "night_dry": "Nočné sušenie",
+          "big_dry": "Objemné kusy",
+          "small_piece_dry": "Malé kusy",
+          "baby_clothes": "Detské oblečenie",
+          "down_jacket": "Páperové bundy",
+          "quick_dry": "Rýchle sušenie",
+          "cotton": "Bavlna a ľan",
+          "shirt": "Košele",
+          "jean": "Džínsovina",
+          "underwear": "Spodná bielizeň",
+          "school_uniform": "Školské uniformy",
+          "silk": "Hodváb",
+          "towel": "Osušky",
+          "chiffon": "Šifón",
+          "polar_fleece": "Polárny flís",
+          "hanfu": "Hanfu",
+          "hanfu_tang": "Hanfu™ štýl Tang",
+          "hanfu_song": "Hanfu™ štýl Song",
+          "hanfu_ming": "Hanfu™ štýl Ming",
+          "hanfu_modern": "Hanfu™ moderný štýl",
+          "sun_quilt": "Prevzdušnenie prikrývky",
+          "bucket_self_clean": "Čistenie bubna",
+          "steam_care": "Parná starostlivosť",
+          "fixed_time_dry": "Časované sušenie",
+          "warm_clothes": "Zohriatie oblečenia",
+          "cold_air_fresh_air": "Osvieženie studeným vzduchom",
+          "sterilize_mite": "Sterilizácia a odstránenie roztočov",
+          "bracket_dry": "Sušenie na stojane",
+          "pet_sterilize": "Sterilizácia pre domáce zvieratá",
+          "sport_clothes": "Športové oblečenie",
+          "outdoor": "Outdoorové oblečenie",
+          "quick_drying_clothes": "Rýchloschnúce oblečenie",
+          "yoga": "Oblečenie na jogu",
+          "air_wash": "Vzduchové pranie",
+          "fiber": "Syntetika",
+          "bedsheet": "Posteľné plachty",
+          "plush": "Plyš",
+          "dehumidify": "Odvlhčovanie",
+          "hot_air_dry": "Sušenie horúcim vzduchom",
+          "standard": "Štandardné",
+          "fresh_air": "Čerstvý vzduch",
+          "low_temp_dry": "Sušenie pri nízkej teplote",
+          "eco_dry": "Úsporné sušenie",
+          "quick_dry_30": "Rýchle sušenie 30 min",
+          "intelligent_dry": "Inteligentné sušenie",
+          "big": "Objemné kusy",
+          "western_trouser": "Spoločenské nohavice",
+          "dehumidification": "Odvlhčovanie",
+          "smart_dry": "Smart sušenie",
+          "four_piece_suit": "Posteľná súprava",
+          "quick_dry_20": "Rýchle sušenie 20 min",
+          "steam_sterilize": "Parná sterilizácia",
+          "enzyme": "Enzýmy",
+          "big_60": "Objemné kusy 60",
+          "steam_no_iron": "Parná starostlivosť bez žehlenia",
+          "bed_clothes": "Posteľná bielizeň",
+          "little_fast_dry": "Rýchle sušenie malej dávky",
+          "wool_nurse": "Starostlivosť o vlnu",
+          "fresh_remove_smell": "Osvieženie a odstránenie pachov",
+          "sterilize": "Sterilizácia"
+        }
+      },
+      "dryer_dryness_control": {
+        "name": "Stupeň vysušenia",
+        "state": {
+          "ready_to_wear": "Pripravené na nosenie",
+          "storage": "Na uskladnenie"
+        }
+      },
+      "dryer_temperature_control": {
+        "name": "Teplota sušenia",
+        "state": {
+          "standard": "Štandardná",
+          "low": "Nízka"
         }
       },
       "washer_program_control": {
@@ -4009,6 +4093,12 @@
       },
       "camera": {
         "name": "Kamera"
+      },
+      "dryer_sterilize": {
+        "name": "Viacrozmerná sterilizácia"
+      },
+      "dryer_anti_wrinkle": {
+        "name": "Inteligentné proti pokrčeniu"
       },
       "washer_forget_free": {
         "name": "Bezstarostná starostlivosť"
