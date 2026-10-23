@@ -2038,7 +2038,20 @@
         "name": "Влажность"
       },
       "variable_mode": {
-        "name": "Переменный режим"
+        "name": "Переменный режим",
+        "state": {
+          "none": "Нет",
+          "soft_freezing": "Мягкая заморозка",
+          "zero_fresh": "Зона свежести 0 °C",
+          "cold_drink": "Холодные напитки",
+          "fresh_product": "Свежие продукты",
+          "partial_freezing": "Частичная заморозка",
+          "dry_zone": "Сухая зона",
+          "freeze_warm": "Заморозка / Подогрев",
+          "baby": "Мама и малыш",
+          "treasure": "Деликатесы",
+          "zero": "Ноль градусов"
+        }
       },
       "compressor_frequency": {
         "name": "Частота компрессора"

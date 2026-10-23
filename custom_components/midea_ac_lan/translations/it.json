@@ -2029,7 +2029,20 @@
         "name": "Umidità"
       },
       "variable_mode": {
-        "name": "Modalità Variabile"
+        "name": "Modalità Variabile",
+        "state": {
+          "none": "Nessuno",
+          "soft_freezing": "Congelamento delicato",
+          "zero_fresh": "Freschezza zero gradi",
+          "cold_drink": "Bevande fredde",
+          "fresh_product": "Alimenti freschi",
+          "partial_freezing": "Congelamento parziale",
+          "dry_zone": "Zona secca",
+          "freeze_warm": "Congelamento / Mantenimento in caldo",
+          "baby": "Mamma e bambino",
+          "treasure": "Alimenti delicati",
+          "zero": "Zero gradi"
+        }
       },
       "compressor_frequency": {
         "name": "Frequenza Compressore"
