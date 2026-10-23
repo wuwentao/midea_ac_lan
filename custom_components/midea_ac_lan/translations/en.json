@@ -63,6 +63,15 @@
   },
   "entity": {
     "binary_sensor": {
+      "light_sensitive": {
+        "name": "Smart Light Sensing"
+      },
+      "wind_toward_person": {
+        "name": "Wind Toward Person"
+      },
+      "wind_avoid_person": {
+        "name": "Wind Avoid Person"
+      },
       "door_auto_open": {
         "name": "Last Program Door Auto-Open"
       },
@@ -1049,6 +1058,14 @@
       }
     },
     "select": {
+      "person_airflow_mode": {
+        "name": "Person Airflow Mode",
+        "state": {
+          "off": "Off",
+          "toward": "Wind Toward Person",
+          "avoid": "Wind Avoid Person"
+        }
+      },
       "cur_quantify": {
         "name": "Current Quantity Preset",
         "state": {
@@ -4034,6 +4051,9 @@
       }
     },
     "switch": {
+      "light_sensitive_control": {
+        "name": "Smart Light Sensing"
+      },
       "db_power": {
         "name": "Washer power"
       },

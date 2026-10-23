@@ -87,6 +87,8 @@ from midealan.devices.x26 import DeviceAttributes as X26Attributes
 from midealan.devices.x34 import DeviceAttributes as X34Attributes
 from midealan.devices.x40 import DeviceAttributes as X40Attributes
 
+from .const import LIGHT_SENSITIVE_CONTROL, PERSON_AIRFLOW_MODE
+
 # The protocol library exposes this capability only for verified model/subtype
 # pairs. String keys keep imports compatible with the currently released SDK.
 LAUNDRY_PARAMETER_CONFIG = {
@@ -3576,6 +3578,61 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Screen Display",
                 "icon": "mdi:television-ambient-light",
             },
+            LIGHT_SENSITIVE_CONTROL: {
+                "type": Platform.SWITCH,
+                "attribute": ACAttributes.light_sensitive,
+                "required_attribute": ACAttributes.light_sensitive,
+                "translation_key": "light_sensitive_control",
+                "name": "Smart Light Sensing",
+                "icon": "mdi:brightness-auto",
+                "models": ["220F4047"],
+                "subtypes": [8],
+                "preserve_registry": True,
+            },
+            ACAttributes.light_sensitive: {
+                "type": Platform.BINARY_SENSOR,
+                "required_attribute": ACAttributes.light_sensitive,
+                "translation_key": "light_sensitive",
+                "name": "Smart Light Sensing",
+                "icon": "mdi:brightness-auto",
+                "models": ["220F4047"],
+                "subtypes": [8],
+                "default": True,
+                "preserve_registry": True,
+            },
+            PERSON_AIRFLOW_MODE: {
+                "type": Platform.SELECT,
+                "translation_key": "person_airflow_mode",
+                "name": "Person Airflow Mode",
+                "icon": "mdi:account-switch",
+                "models": ["220F4047"],
+                "subtypes": [8],
+                "required_attribute": ACAttributes.wind_straight,
+                "options": ["off", "toward", "avoid"],
+                "preserve_registry": True,
+            },
+            ACAttributes.wind_straight: {
+                "type": Platform.BINARY_SENSOR,
+                "required_attribute": ACAttributes.wind_straight,
+                "translation_key": "wind_toward_person",
+                "name": "Wind Toward Person",
+                "icon": "mdi:account-arrow-right",
+                "models": ["220F4047"],
+                "subtypes": [8],
+                "default": True,
+                "preserve_registry": True,
+            },
+            ACAttributes.wind_avoid: {
+                "type": Platform.BINARY_SENSOR,
+                "required_attribute": ACAttributes.wind_avoid,
+                "translation_key": "wind_avoid_person",
+                "name": "Wind Avoid Person",
+                "icon": "mdi:account-arrow-left",
+                "models": ["220F4047"],
+                "subtypes": [8],
+                "default": True,
+                "preserve_registry": True,
+            },
             ACAttributes.screen_display_alternate: {
                 "type": Platform.SWITCH,
                 "translation_key": "screen_display_alternate",
@@ -3605,12 +3662,17 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "swing_horizontal",
                 "name": "Swing Horizontal",
                 "icon": "mdi:arrow-split-vertical",
+                # Tested command paths do not work; hardware capability is unknown.
+                "excluded_devices": [("220F4047", 8)],
+                "preserve_registry": True,
             },
             ACAttributes.swing_vertical: {
                 "type": Platform.SWITCH,
                 "translation_key": "swing_vertical",
                 "name": "Swing Vertical",
                 "icon": "mdi:arrow-split-horizontal",
+                "excluded_devices": [("220F4047", 8)],
+                "preserve_registry": True,
             },
             ACAttributes.anion: {
                 "type": Platform.SWITCH,

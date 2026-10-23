@@ -63,6 +63,15 @@
   },
   "entity": {
     "binary_sensor": {
+      "light_sensitive": {
+        "name": "智能光感"
+      },
+      "wind_toward_person": {
+        "name": "风吹人"
+      },
+      "wind_avoid_person": {
+        "name": "风避人"
+      },
       "door_auto_open": {
         "name": "自动开门（上一程序）"
       },
@@ -1049,6 +1058,14 @@
       }
     },
     "select": {
+      "person_airflow_mode": {
+        "name": "风随人模式",
+        "state": {
+          "off": "关闭",
+          "toward": "风吹人",
+          "avoid": "风避人"
+        }
+      },
       "cur_quantify": {
         "name": "当前定量预设",
         "state": {
@@ -3843,6 +3860,9 @@
       }
     },
     "switch": {
+      "light_sensitive_control": {
+        "name": "智能光感"
+      },
       "db_power": {
         "name": "洗衣机电源"
       },
