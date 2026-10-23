@@ -25,6 +25,8 @@ from homeassistant.const import (
     CONF_NAME,
     CONF_PORT,
     CONF_PROTOCOL,
+    CONF_SENSORS,
+    CONF_SWITCHES,
     CONF_TOKEN,
     CONF_TYPE,
     EVENT_HOMEASSISTANT_STOP,
@@ -84,15 +86,22 @@ def _device_store(hass: HomeAssistant) -> dict[int, MideaDevice]:
 def _remove_unsupported_entities(
     hass: HomeAssistant,
     device: MideaDevice,
+    *,
+    config_entry: ConfigEntry | None = None,
+    preserved_only: bool = False,
 ) -> None:
-    """Remove stale entities that do not apply to this model and subtype."""
+    """Reconcile applicability, preserving explicitly protected entity records."""
     registry = er.async_get(hass)
     entities = cast(
         "dict[str, dict[str, Any]]",
         MIDEA_DEVICES[device.device_type]["entities"],
     )
     for entity_key, config in entities.items():
-        if supports_device(device.model, device.subtype, config):
+        preserve_registry = bool(config.get("preserve_registry"))
+        supported = supports_device(device.model, device.subtype, config)
+        if (preserved_only and not preserve_registry) or (
+            supported and not preserve_registry
+        ):
             continue
         unique_id = f"{DOMAIN}.{device.device_id}_{entity_key}"
         entity_domain = cast("str", config["type"].value)
@@ -106,7 +115,39 @@ def _remove_unsupported_entities(
             if registry.async_get(legacy_entity_id) is not None:
                 entity_id = legacy_entity_id
         if entity_id is not None:
-            registry.async_remove(entity_id)
+            if not preserve_registry:
+                registry.async_remove(entity_id)
+                continue
+            entry = registry.async_get(entity_id)
+            if entry is None:
+                continue
+            # A legacy entity_id is not ownership evidence. The registry may
+            # contain another integration's record under that same old name.
+            if entry.platform != DOMAIN or entry.unique_id != unique_id:
+                continue
+            if (
+                config_entry is not None
+                and entry.config_entry_id != config_entry.entry_id
+            ):
+                continue
+            selected = bool(config.get("default"))
+            if config_entry is not None:
+                selected |= entity_key in config_entry.options.get(
+                    CONF_SENSORS,
+                    [],
+                ) or entity_key in config_entry.options.get(CONF_SWITCHES, [])
+            if not supported and entry.disabled_by is None:
+                registry.async_update_entity(
+                    entity_id,
+                    disabled_by=er.RegistryEntryDisabler.INTEGRATION,
+                )
+            elif (
+                supported
+                and entry.disabled_by is er.RegistryEntryDisabler.INTEGRATION
+                and config_entry is not None
+                and selected
+            ):
+                registry.async_update_entity(entity_id, disabled_by=None)
 
 
 async def update_listener(hass: HomeAssistant, config_entry: ConfigEntry) -> None:
@@ -333,11 +374,19 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
             _async_close_on_stop,
         )
         try:
-            _remove_unsupported_entities(hass, device)
+            _remove_unsupported_entities(hass, device, config_entry=config_entry)
             # Forward the setup of an entry to all platforms
             await hass.config_entries.async_forward_entry_setups(
                 config_entry,
                 ALL_PLATFORM,
+            )
+            # Platform reconciliation can change integration-disabled entries.
+            # Repeat only protected entries; do not repeat unrelated removals.
+            _remove_unsupported_entities(
+                hass,
+                device,
+                config_entry=config_entry,
+                preserved_only=True,
             )
         except (Exception, asyncio.CancelledError):
             # On supported HA versions a forwarding failure or cancellation

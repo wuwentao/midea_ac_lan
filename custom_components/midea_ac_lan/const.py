@@ -22,6 +22,19 @@ CONF_CLOUD_NAME = "cloud_name"
 CONF_REFRESH_INTERVAL = "refresh_interval"
 CONF_MAC = "mac"
 
+LIGHT_SENSITIVE_CONTROL = "light_sensitive_control"
+PERSON_AIRFLOW_MODE = "person_airflow_mode"
+PERSON_AIRFLOW_OFF = "off"
+PERSON_AIRFLOW_TOWARD = "toward"
+PERSON_AIRFLOW_AVOID = "avoid"
+PERSON_AIRFLOW_MODES = (
+    PERSON_AIRFLOW_OFF,
+    PERSON_AIRFLOW_TOWARD,
+    PERSON_AIRFLOW_AVOID,
+)
+MODEL_220F4047 = "220F4047"
+SUBTYPE_220F4047 = 8
+
 # Select DEFAULT_CLOUD from the list of supported cloud. Index 1 (SmartHome)
 # exposes the E3 dayReportV2 usage report through its per-cloud proxy alias, so
 # the preset-login flow and the E3 usage sensors share the same default cloud.
