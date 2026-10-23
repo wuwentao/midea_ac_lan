@@ -925,6 +925,22 @@
       }
     },
     "fan": {
+      "bgf10000": {
+        "state_attributes": {
+          "preset_mode": {
+            "state": {
+              "normal": "Normal",
+              "forest": "Forest",
+              "beach": "Beach",
+              "countryside": "Countryside",
+              "baby": "Baby wind",
+              "sleep_1": "Sleep 1",
+              "sleep_2": "Sleep 2",
+              "strong": "Strong"
+            }
+          }
+        }
+      },
       "fresh_air": {
         "name": "Fresh Air"
       },
@@ -2336,7 +2352,20 @@
         "name": "Humidity"
       },
       "variable_mode": {
-        "name": "Variable Mode"
+        "name": "Variable Mode",
+        "state": {
+          "none": "None",
+          "soft_freezing": "Soft Freezing",
+          "zero_fresh": "Zero Fresh",
+          "cold_drink": "Cold Drink",
+          "fresh_product": "Fresh Produce",
+          "partial_freezing": "Partial Freezing",
+          "dry_zone": "Dry Zone",
+          "freeze_warm": "Freeze / Warm",
+          "baby": "Mother & Infant",
+          "treasure": "Treasure",
+          "zero": "Zero Degree"
+        }
       },
       "compressor_frequency": {
         "name": "Compressor Frequency"
