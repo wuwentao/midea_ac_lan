@@ -881,6 +881,9 @@
       },
       "ramadan": {
         "name": "Ramadán"
+      },
+      "laundry_appointment": {
+        "name": "Reserva"
       }
     },
     "button": {
@@ -898,6 +901,9 @@
       },
       "start": {
         "name": "Iniciar"
+      },
+      "laundry_cancel_appointment": {
+        "name": "Cancelar reserva"
       }
     },
     "climate": {
@@ -1021,6 +1027,9 @@
       },
       "second_set": {
         "name": "Ajuste de Segundos"
+      },
+      "dryer_timed_extra": {
+        "name": "Extensión del secado temporizado"
       }
     },
     "select": {
@@ -1321,11 +1330,95 @@
           "open": "Abrir",
           "close": "Cerrar"
         }
+      },
+      "dryer_program_control": {
+        "name": "Programa de secado",
+        "state": {
+          "mixed_wash": "Mixto",
+          "wool": "Lana",
+          "night_dry": "Secado nocturno",
+          "big_dry": "Prendas voluminosas",
+          "small_piece_dry": "Prendas pequeñas",
+          "baby_clothes": "Ropa de bebé",
+          "down_jacket": "Plumíferos",
+          "quick_dry": "Secado rápido",
+          "cotton": "Algodón y lino",
+          "shirt": "Camisas",
+          "jean": "Vaqueros",
+          "underwear": "Ropa interior",
+          "school_uniform": "Uniformes escolares",
+          "silk": "Seda",
+          "towel": "Toallas de baño",
+          "chiffon": "Gasa",
+          "polar_fleece": "Forro polar",
+          "hanfu": "Hanfu",
+          "hanfu_tang": "Hanfu™ estilo Tang",
+          "hanfu_song": "Hanfu™ estilo Song",
+          "hanfu_ming": "Hanfu™ estilo Ming",
+          "hanfu_modern": "Hanfu™ estilo moderno",
+          "sun_quilt": "Aireado de edredones",
+          "bucket_self_clean": "Limpieza del tambor",
+          "steam_care": "Cuidado con vapor",
+          "fixed_time_dry": "Secado temporizado",
+          "warm_clothes": "Ropa caliente",
+          "cold_air_fresh_air": "Refresco con aire frío",
+          "sterilize_mite": "Esterilización y eliminación de ácaros",
+          "bracket_dry": "Secado en rejilla",
+          "pet_sterilize": "Esterilización de mascotas",
+          "sport_clothes": "Ropa deportiva",
+          "outdoor": "Ropa de exterior",
+          "quick_drying_clothes": "Ropa de secado rápido",
+          "yoga": "Ropa de yoga",
+          "air_wash": "Lavado con aire",
+          "fiber": "Sintéticos",
+          "bedsheet": "Sábanas",
+          "plush": "Peluche",
+          "dehumidify": "Deshumidificar",
+          "hot_air_dry": "Secado con aire caliente",
+          "standard": "Estándar",
+          "fresh_air": "Aire fresco",
+          "low_temp_dry": "Secado a baja temperatura",
+          "eco_dry": "Secado con ahorro de energía",
+          "quick_dry_30": "Secado rápido 30 min",
+          "intelligent_dry": "Secado inteligente",
+          "big": "Prendas voluminosas",
+          "western_trouser": "Pantalones de vestir",
+          "dehumidification": "Deshumidificación",
+          "smart_dry": "Secado inteligente",
+          "four_piece_suit": "Juego de cama",
+          "quick_dry_20": "Secado rápido 20 min",
+          "steam_sterilize": "Esterilización con vapor",
+          "enzyme": "Enzimas",
+          "big_60": "Prendas voluminosas 60",
+          "steam_no_iron": "Cuidado antiarrugas con vapor",
+          "bed_clothes": "Ropa de cama",
+          "little_fast_dry": "Secado rápido de poca carga",
+          "wool_nurse": "Cuidado de la lana",
+          "fresh_remove_smell": "Refresco desodorizante",
+          "sterilize": "Esterilización"
+        }
+      },
+      "dryer_dryness_control": {
+        "name": "Nivel de secado",
+        "state": {
+          "ready_to_wear": "Listo para vestir",
+          "storage": "Almacenamiento"
+        }
+      },
+      "dryer_temperature_control": {
+        "name": "Temperatura de secado",
+        "state": {
+          "standard": "Estándar",
+          "low": "Baja"
+        }
       }
     },
     "time": {
       "timing_regeneration": {
         "name": "Regeneración programada"
+      },
+      "laundry_appointment_finish": {
+        "name": "Hora de finalización (establece la reserva)"
       }
     },
     "sensor": {
@@ -4094,6 +4187,12 @@
       },
       "camera": {
         "name": "Cámara"
+      },
+      "dryer_sterilize": {
+        "name": "Esterilización multidimensional"
+      },
+      "dryer_anti_wrinkle": {
+        "name": "Antiarrugas inteligente"
       }
     },
     "water_heater": {

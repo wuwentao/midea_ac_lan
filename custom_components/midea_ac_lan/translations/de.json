@@ -881,6 +881,9 @@
       },
       "ramadan": {
         "name": "Ramadan"
+      },
+      "laundry_appointment": {
+        "name": "Vorprogrammierung"
       }
     },
     "button": {
@@ -898,6 +901,9 @@
       },
       "start": {
         "name": "Start"
+      },
+      "laundry_cancel_appointment": {
+        "name": "Vorprogrammierung abbrechen"
       }
     },
     "climate": {
@@ -1021,6 +1027,9 @@
       },
       "second_set": {
         "name": "Sekunde Einstellen"
+      },
+      "dryer_timed_extra": {
+        "name": "Trockenzeit verlängern"
       }
     },
     "select": {
@@ -1209,11 +1218,95 @@
           "open": "Öffnen",
           "close": "Schließen"
         }
+      },
+      "dryer_program_control": {
+        "name": "Trockenprogramm",
+        "state": {
+          "mixed_wash": "Mischwäsche",
+          "wool": "Wolle",
+          "night_dry": "Nachttrocknen",
+          "big_dry": "Große Teile",
+          "small_piece_dry": "Kleine Teile",
+          "baby_clothes": "Babykleidung",
+          "down_jacket": "Daunenjacken",
+          "quick_dry": "Schnelltrocknen",
+          "cotton": "Baumwolle und Leinen",
+          "shirt": "Hemden",
+          "jean": "Jeans",
+          "underwear": "Unterwäsche",
+          "school_uniform": "Schuluniformen",
+          "silk": "Seide",
+          "towel": "Badetücher",
+          "chiffon": "Chiffon",
+          "polar_fleece": "Polarfleece",
+          "hanfu": "Hanfu",
+          "hanfu_tang": "Hanfu™ Tang-Stil",
+          "hanfu_song": "Hanfu™ Song-Stil",
+          "hanfu_ming": "Hanfu™ Ming-Stil",
+          "hanfu_modern": "Hanfu™ Modern-Stil",
+          "sun_quilt": "Bettdecken lüften",
+          "bucket_self_clean": "Trommelreinigung",
+          "steam_care": "Dampfpflege",
+          "fixed_time_dry": "Zeitgesteuertes Trocknen",
+          "warm_clothes": "Kleidung vorwärmen",
+          "cold_air_fresh_air": "Kaltluft-Auffrischen",
+          "sterilize_mite": "Keim- und Milbenentfernung",
+          "bracket_dry": "Gestelltrocknen",
+          "pet_sterilize": "Haustier-Keimentfernung",
+          "sport_clothes": "Sportbekleidung",
+          "outdoor": "Outdoor-Kleidung",
+          "quick_drying_clothes": "Schnelltrocknende Kleidung",
+          "yoga": "Yoga-Kleidung",
+          "air_wash": "Luftwäsche",
+          "fiber": "Synthetik",
+          "bedsheet": "Bettlaken",
+          "plush": "Plüsch",
+          "dehumidify": "Entfeuchten",
+          "hot_air_dry": "Heißlufttrocknen",
+          "standard": "Standard",
+          "fresh_air": "Frischluft",
+          "low_temp_dry": "Niedertemperaturtrocknen",
+          "eco_dry": "Energiespartrocknen",
+          "quick_dry_30": "Schnelltrocknen 30 Min.",
+          "intelligent_dry": "Intelligentes Trocknen",
+          "big": "Große Teile",
+          "western_trouser": "Anzughosen",
+          "dehumidification": "Entfeuchtung",
+          "smart_dry": "Smart-Trocknen",
+          "four_piece_suit": "Bettwäsche-Set",
+          "quick_dry_20": "Schnelltrocknen 20 Min.",
+          "steam_sterilize": "Dampfentkeimung",
+          "enzyme": "Enzym",
+          "big_60": "Große Teile 60",
+          "steam_no_iron": "Dampf-Knitterschutz",
+          "bed_clothes": "Bettwäsche",
+          "little_fast_dry": "Schnelltrocknen kleine Menge",
+          "wool_nurse": "Wollpflege",
+          "fresh_remove_smell": "Auffrischen und Geruchsentfernung",
+          "sterilize": "Entkeimung"
+        }
+      },
+      "dryer_dryness_control": {
+        "name": "Trockenheitsgrad",
+        "state": {
+          "ready_to_wear": "Tragefertig",
+          "storage": "Schranktrocken"
+        }
+      },
+      "dryer_temperature_control": {
+        "name": "Trockentemperatur",
+        "state": {
+          "standard": "Standard",
+          "low": "Niedrig"
+        }
       }
     },
     "time": {
       "timing_regeneration": {
         "name": "Regenerationszeit"
+      },
+      "laundry_appointment_finish": {
+        "name": "Endzeit (legt Vorprogrammierung fest)"
       }
     },
     "sensor": {
@@ -3906,6 +3999,12 @@
       },
       "camera": {
         "name": "Kamera"
+      },
+      "dryer_sterilize": {
+        "name": "Mehrdimensionale Entkeimung"
+      },
+      "dryer_anti_wrinkle": {
+        "name": "Intelligenter Knitterschutz"
       }
     },
     "water_heater": {

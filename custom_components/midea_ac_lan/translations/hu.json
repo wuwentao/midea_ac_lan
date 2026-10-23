@@ -881,6 +881,9 @@
       },
       "ramadan": {
         "name": "Ramadán"
+      },
+      "laundry_appointment": {
+        "name": "Időzítés"
       }
     },
     "button": {
@@ -898,6 +901,9 @@
       },
       "start": {
         "name": "Indítás"
+      },
+      "laundry_cancel_appointment": {
+        "name": "Időzítés törlése"
       }
     },
     "climate": {
@@ -1021,6 +1027,9 @@
       },
       "second_set": {
         "name": "Másodperc Beállítás"
+      },
+      "dryer_timed_extra": {
+        "name": "Szárítási idő meghosszabbítása"
       }
     },
     "select": {
@@ -1209,11 +1218,95 @@
           "open": "Nyitás",
           "close": "Zárás"
         }
+      },
+      "dryer_program_control": {
+        "name": "Szárítóprogram",
+        "state": {
+          "mixed_wash": "Vegyes",
+          "wool": "Gyapjú",
+          "night_dry": "Éjszakai szárítás",
+          "big_dry": "Nagy méretű ruhák",
+          "small_piece_dry": "Kis méretű ruhák",
+          "baby_clothes": "Babaruha",
+          "down_jacket": "Pehelykabát",
+          "quick_dry": "Gyorsszárítás",
+          "cotton": "Pamut és len",
+          "shirt": "Ingek",
+          "jean": "Farmer",
+          "underwear": "Fehérnemű",
+          "school_uniform": "Iskolai egyenruha",
+          "silk": "Selyem",
+          "towel": "Fürdőtörölköző",
+          "chiffon": "Sifon",
+          "polar_fleece": "Polár",
+          "hanfu": "Hanfu",
+          "hanfu_tang": "Hanfu™ Tang stílus",
+          "hanfu_song": "Hanfu™ Song stílus",
+          "hanfu_ming": "Hanfu™ Ming stílus",
+          "hanfu_modern": "Hanfu™ Modern stílus",
+          "sun_quilt": "Paplanszellőztetés",
+          "bucket_self_clean": "Dobtisztítás",
+          "steam_care": "Gőzápolás",
+          "fixed_time_dry": "Időzített szárítás",
+          "warm_clothes": "Ruhamelegítés",
+          "cold_air_fresh_air": "Hideg levegős frissítés",
+          "sterilize_mite": "Fertőtlenítés és atkamentesítés",
+          "bracket_dry": "Állványos szárítás",
+          "pet_sterilize": "Háziállat fertőtlenítés",
+          "sport_clothes": "Sportruházat",
+          "outdoor": "Szabadtéri ruházat",
+          "quick_drying_clothes": "Gyorsan száradó ruhák",
+          "yoga": "Jógaruha",
+          "air_wash": "Légmosás",
+          "fiber": "Műszálas",
+          "bedsheet": "Lepedők",
+          "plush": "Plüss",
+          "dehumidify": "Páramentesítés",
+          "hot_air_dry": "Meleg levegős szárítás",
+          "standard": "Normál",
+          "fresh_air": "Frissítés",
+          "low_temp_dry": "Alacsony hőmérsékletű szárítás",
+          "eco_dry": "Energiatakarékos szárítás",
+          "quick_dry_30": "Gyorsszárítás 30 perc",
+          "intelligent_dry": "Intelligens szárítás",
+          "big": "Nagy méretű ruhák",
+          "western_trouser": "Szövetnadrág",
+          "dehumidification": "Páramentesítés",
+          "smart_dry": "Okos szárítás",
+          "four_piece_suit": "Ágyneműgarnitúra",
+          "quick_dry_20": "Gyorsszárítás 20 perc",
+          "steam_sterilize": "Gőzfertőtlenítés",
+          "enzyme": "Enzimes",
+          "big_60": "Nagy méretű ruhák 60",
+          "steam_no_iron": "Gőzös vasalásmentes ápolás",
+          "bed_clothes": "Ágynemű",
+          "little_fast_dry": "Gyorsszárítás kis adag",
+          "wool_nurse": "Gyapjúápolás",
+          "fresh_remove_smell": "Szagtalanító frissítés",
+          "sterilize": "Fertőtlenítés"
+        }
+      },
+      "dryer_dryness_control": {
+        "name": "Szárazsági fok",
+        "state": {
+          "ready_to_wear": "Viselésre kész",
+          "storage": "Tárolás"
+        }
+      },
+      "dryer_temperature_control": {
+        "name": "Szárítási hőmérséklet",
+        "state": {
+          "standard": "Normál",
+          "low": "Alacsony"
+        }
       }
     },
     "time": {
       "timing_regeneration": {
         "name": "Időzített regenerálás"
+      },
+      "laundry_appointment_finish": {
+        "name": "Befejezési idő (időzítést állít be)"
       }
     },
     "sensor": {
@@ -3903,6 +3996,12 @@
       },
       "camera": {
         "name": "Kamera"
+      },
+      "dryer_sterilize": {
+        "name": "Többdimenziós fertőtlenítés"
+      },
+      "dryer_anti_wrinkle": {
+        "name": "Okos gyűrődésgátlás"
       }
     },
     "water_heater": {

@@ -881,6 +881,9 @@
       },
       "ramadan": {
         "name": "Рамадан"
+      },
+      "laundry_appointment": {
+        "name": "Отложенный запуск"
       }
     },
     "button": {
@@ -898,6 +901,9 @@
       },
       "start": {
         "name": "Старт"
+      },
+      "laundry_cancel_appointment": {
+        "name": "Отменить отложенный запуск"
       }
     },
     "climate": {
@@ -1021,6 +1027,9 @@
       },
       "second_set": {
         "name": "Установка секунд"
+      },
+      "dryer_timed_extra": {
+        "name": "Продление времени сушки"
       }
     },
     "select": {
@@ -1209,11 +1218,95 @@
           "open": "Открыть",
           "close": "Закрыть"
         }
+      },
+      "dryer_program_control": {
+        "name": "Программа сушки",
+        "state": {
+          "mixed_wash": "Смешанное",
+          "wool": "Шерсть",
+          "night_dry": "Ночная сушка",
+          "big_dry": "Крупные вещи",
+          "small_piece_dry": "Мелкие вещи",
+          "baby_clothes": "Детская одежда",
+          "down_jacket": "Пуховики",
+          "quick_dry": "Быстрая сушка",
+          "cotton": "Хлопок и лён",
+          "shirt": "Рубашки",
+          "jean": "Джинсовая ткань",
+          "underwear": "Нижнее бельё",
+          "school_uniform": "Школьная форма",
+          "silk": "Шёлк",
+          "towel": "Банные полотенца",
+          "chiffon": "Шифон",
+          "polar_fleece": "Флис",
+          "hanfu": "Ханьфу",
+          "hanfu_tang": "Ханьфу™ стиль Тан",
+          "hanfu_song": "Ханьфу™ стиль Сун",
+          "hanfu_ming": "Ханьфу™ стиль Мин",
+          "hanfu_modern": "Ханьфу™ современный стиль",
+          "sun_quilt": "Проветривание одеял",
+          "bucket_self_clean": "Очистка барабана",
+          "steam_care": "Паровой уход",
+          "fixed_time_dry": "Сушка по таймеру",
+          "warm_clothes": "Подогрев одежды",
+          "cold_air_fresh_air": "Освежение холодным воздухом",
+          "sterilize_mite": "Стерилизация и удаление клещей",
+          "bracket_dry": "Сушка на стойке",
+          "pet_sterilize": "Стерилизация для питомцев",
+          "sport_clothes": "Спортивная одежда",
+          "outdoor": "Верхняя одежда",
+          "quick_drying_clothes": "Быстросохнущая одежда",
+          "yoga": "Одежда для йоги",
+          "air_wash": "Воздушная стирка",
+          "fiber": "Синтетика",
+          "bedsheet": "Простыни",
+          "plush": "Плюш",
+          "dehumidify": "Осушение",
+          "hot_air_dry": "Сушка горячим воздухом",
+          "standard": "Стандартная",
+          "fresh_air": "Свежий воздух",
+          "low_temp_dry": "Сушка при низкой температуре",
+          "eco_dry": "Экономичная сушка",
+          "quick_dry_30": "Быстрая сушка 30 мин",
+          "intelligent_dry": "Интеллектуальная сушка",
+          "big": "Крупные вещи",
+          "western_trouser": "Классические брюки",
+          "dehumidification": "Осушение",
+          "smart_dry": "Умная сушка",
+          "four_piece_suit": "Комплект постельного белья",
+          "quick_dry_20": "Быстрая сушка 20 мин",
+          "steam_sterilize": "Паровая стерилизация",
+          "enzyme": "Энзимная",
+          "big_60": "Крупные вещи 60",
+          "steam_no_iron": "Паровой уход без глажки",
+          "bed_clothes": "Постельное бельё",
+          "little_fast_dry": "Быстрая сушка малой загрузки",
+          "wool_nurse": "Уход за шерстью",
+          "fresh_remove_smell": "Освежение и устранение запахов",
+          "sterilize": "Стерилизация"
+        }
+      },
+      "dryer_dryness_control": {
+        "name": "Степень сушки",
+        "state": {
+          "ready_to_wear": "Готово к носке",
+          "storage": "Для хранения"
+        }
+      },
+      "dryer_temperature_control": {
+        "name": "Температура сушки",
+        "state": {
+          "standard": "Стандартная",
+          "low": "Низкая"
+        }
       }
     },
     "time": {
       "timing_regeneration": {
         "name": "Регенерация по таймеру"
+      },
+      "laundry_appointment_finish": {
+        "name": "Время завершения (задаёт отложенный запуск)"
       }
     },
     "sensor": {
@@ -3903,6 +3996,12 @@
       },
       "camera": {
         "name": "Камера"
+      },
+      "dryer_sterilize": {
+        "name": "Многомерная стерилизация"
+      },
+      "dryer_anti_wrinkle": {
+        "name": "Умная защита от складок"
       }
     },
     "water_heater": {

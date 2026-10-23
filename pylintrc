@@ -1,5 +1,10 @@
 [MAIN]
 
+# Put the integration package root on sys.path so files outside it (the offline
+# tests under tests/) can resolve `import midea_ac_lan...`, matching the pytest
+# `pythonpath` setting in pyproject.toml. Harmless when linting custom_components.
+init-hook='import sys; sys.path.insert(0, "custom_components")'
+
 # Use multiple processes to speed up Pylint. Specifying 0 will auto-detect the
 # number of processors available to use, and will cap the count on Windows to
 # avoid hangs.
