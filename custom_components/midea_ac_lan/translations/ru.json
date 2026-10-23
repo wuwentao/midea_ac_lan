@@ -883,7 +883,7 @@
         "name": "Рамадан"
       },
       "laundry_appointment": {
-        "name": "Отложенный запуск"
+        "name": "Отложенный старт"
       }
     },
     "button": {
@@ -903,7 +903,7 @@
         "name": "Старт"
       },
       "laundry_cancel_appointment": {
-        "name": "Отменить отложенный запуск"
+        "name": "Отменить отложенный старт"
       }
     },
     "climate": {
@@ -1299,6 +1299,100 @@
           "standard": "Стандартная",
           "low": "Низкая"
         }
+      },
+      "washer_program_control": {
+        "name": "Программа стирки",
+        "state": {
+          "water_mixed_wash": "Смешанная стирка",
+          "fast_wash": "Быстрая стирка 15 мин",
+          "single_dehytration": "Только отжим",
+          "rinsing_dehydration": "Полоскание и отжим",
+          "fast_wash_30": "Быстрая стирка 30 мин",
+          "big": "Объёмные вещи",
+          "tub_clean": "Очистка барабана",
+          "deep_tub_clean": "Глубокая очистка барабана",
+          "down_jacket": "Пуховики",
+          "new_water_cotton": "Хлопок и лён",
+          "baby_clothes": "Детская одежда",
+          "shirt": "Рубашки",
+          "wool": "Шерсть",
+          "water_underwear": "Нижнее бельё",
+          "silk": "Шёлк",
+          "jacket": "Верхняя одежда",
+          "new_clothes_wash": "Новая одежда",
+          "jean": "Джинсовая ткань",
+          "water_fiber": "Синтетика",
+          "water_eco": "Энергосбережение",
+          "water_intelligent": "Умная стирка",
+          "water_steep": "Стирка с замачиванием",
+          "water_cold_wash": "Стирка в холодной воде",
+          "sterilization_wash": "Стирка со стерилизацией",
+          "water_remove_mite_wash": "Удаление пылевых клещей",
+          "disinfection_wash": "Стирка с дезинфекцией",
+          "stain_wash": "Стирка от пятен",
+          "sport_clothes": "Спортивная одежда",
+          "yoga": "Одежда для йоги",
+          "quick_drying_clothes": "Быстросохнущая одежда"
+        }
+      },
+      "washer_temperature_control": {
+        "name": "Температура воды",
+        "state": {
+          "cold": "Холодная",
+          "20": "20 °C",
+          "30": "30 °C",
+          "40": "40 °C",
+          "60": "60 °C",
+          "95": "95 °C"
+        }
+      },
+      "washer_spin_speed_control": {
+        "name": "Скорость отжима",
+        "state": {
+          "0": "Без отжима",
+          "400": "400 об/мин",
+          "600": "600 об/мин",
+          "800": "800 об/мин",
+          "1000": "1000 об/мин",
+          "1200": "1200 об/мин",
+          "1400": "1400 об/мин"
+        }
+      },
+      "washer_rinse_count": {
+        "name": "Количество полосканий",
+        "state": {
+          "1": "1",
+          "2": "2",
+          "3": "3",
+          "4": "4"
+        }
+      },
+      "washer_water_level_control": {
+        "name": "Уровень воды",
+        "state": {
+          "auto": "Авто",
+          "l1": "L1",
+          "l2": "L2",
+          "l3": "L3",
+          "l4": "L4"
+        }
+      },
+      "washer_detergent_control": {
+        "name": "Дозировка моющего средства",
+        "state": {
+          "smart": "Умная",
+          "off": "Выкл",
+          "l1": "L1",
+          "l2": "L2",
+          "l3": "L3",
+          "l4": "L4"
+        }
+      },
+      "washer_wash_time_control": {
+        "name": "Время стирки (мин)"
+      },
+      "washer_spin_time_control": {
+        "name": "Время отжима (мин)"
       }
     },
     "time": {
@@ -1306,7 +1400,7 @@
         "name": "Регенерация по таймеру"
       },
       "laundry_appointment_finish": {
-        "name": "Время завершения (задаёт отложенный запуск)"
+        "name": "Время завершения (задаёт отложенный старт)"
       }
     },
     "sensor": {
@@ -4002,6 +4096,9 @@
       },
       "dryer_anti_wrinkle": {
         "name": "Умная защита от складок"
+      },
+      "washer_forget_free": {
+        "name": "Уход без контроля"
       }
     },
     "water_heater": {

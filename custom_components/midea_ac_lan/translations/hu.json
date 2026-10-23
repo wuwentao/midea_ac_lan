@@ -883,7 +883,7 @@
         "name": "Ramadán"
       },
       "laundry_appointment": {
-        "name": "Időzítés"
+        "name": "Foglalás"
       }
     },
     "button": {
@@ -903,7 +903,7 @@
         "name": "Indítás"
       },
       "laundry_cancel_appointment": {
-        "name": "Időzítés törlése"
+        "name": "Foglalás törlése"
       }
     },
     "climate": {
@@ -1299,6 +1299,100 @@
           "standard": "Normál",
           "low": "Alacsony"
         }
+      },
+      "washer_program_control": {
+        "name": "Mosóprogram",
+        "state": {
+          "water_mixed_wash": "Vegyes mosás",
+          "fast_wash": "Gyors mosás 15 perc",
+          "single_dehytration": "Csak centrifugálás",
+          "rinsing_dehydration": "Öblítés és centrifugálás",
+          "fast_wash_30": "Gyors mosás 30 perc",
+          "big": "Nagy darabok",
+          "tub_clean": "Dobtisztítás",
+          "deep_tub_clean": "Mély dobtisztítás",
+          "down_jacket": "Pehelykabátok",
+          "new_water_cotton": "Pamut és len",
+          "baby_clothes": "Babaruhák",
+          "shirt": "Ingek",
+          "wool": "Gyapjú",
+          "water_underwear": "Fehérnemű",
+          "silk": "Selyem",
+          "jacket": "Szabadtéri kabátok",
+          "new_clothes_wash": "Új ruhák",
+          "jean": "Farmer",
+          "water_fiber": "Műszálas anyagok",
+          "water_eco": "Energiatakarékos",
+          "water_intelligent": "Okos mosás",
+          "water_steep": "Áztatásos mosás",
+          "water_cold_wash": "Hideg mosás",
+          "sterilization_wash": "Sterilizáló mosás",
+          "water_remove_mite_wash": "Atkamentesítés",
+          "disinfection_wash": "Fertőtlenítő mosás",
+          "stain_wash": "Folttisztító mosás",
+          "sport_clothes": "Sportruházat",
+          "yoga": "Jógaruhák",
+          "quick_drying_clothes": "Gyorsan száradó ruhák"
+        }
+      },
+      "washer_temperature_control": {
+        "name": "Vízhőmérséklet",
+        "state": {
+          "cold": "Hideg",
+          "20": "20 °C",
+          "30": "30 °C",
+          "40": "40 °C",
+          "60": "60 °C",
+          "95": "95 °C"
+        }
+      },
+      "washer_spin_speed_control": {
+        "name": "Centrifugálási sebesség",
+        "state": {
+          "0": "Nincs centrifugálás",
+          "400": "400 rpm",
+          "600": "600 rpm",
+          "800": "800 rpm",
+          "1000": "1000 rpm",
+          "1200": "1200 rpm",
+          "1400": "1400 rpm"
+        }
+      },
+      "washer_rinse_count": {
+        "name": "Öblítések száma",
+        "state": {
+          "1": "1",
+          "2": "2",
+          "3": "3",
+          "4": "4"
+        }
+      },
+      "washer_water_level_control": {
+        "name": "Vízszint",
+        "state": {
+          "auto": "Automatikus",
+          "l1": "L1",
+          "l2": "L2",
+          "l3": "L3",
+          "l4": "L4"
+        }
+      },
+      "washer_detergent_control": {
+        "name": "Mosószer adagolás",
+        "state": {
+          "smart": "Okos",
+          "off": "Ki",
+          "l1": "L1",
+          "l2": "L2",
+          "l3": "L3",
+          "l4": "L4"
+        }
+      },
+      "washer_wash_time_control": {
+        "name": "Mosási idő (perc)"
+      },
+      "washer_spin_time_control": {
+        "name": "Centrifugálási idő (perc)"
       }
     },
     "time": {
@@ -1306,7 +1400,7 @@
         "name": "Időzített regenerálás"
       },
       "laundry_appointment_finish": {
-        "name": "Befejezési idő (időzítést állít be)"
+        "name": "Befejezési idő (foglalás beállítása)"
       }
     },
     "sensor": {
@@ -4002,6 +4096,9 @@
       },
       "dryer_anti_wrinkle": {
         "name": "Okos gyűrődésgátlás"
+      },
+      "washer_forget_free": {
+        "name": "Gondtalan ápolás"
       }
     },
     "water_heater": {

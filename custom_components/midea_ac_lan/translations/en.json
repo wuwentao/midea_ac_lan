@@ -1429,6 +1429,100 @@
           "standard": "Standard",
           "low": "Low"
         }
+      },
+      "washer_program_control": {
+        "name": "Washer program",
+        "state": {
+          "water_mixed_wash": "Mixed wash",
+          "fast_wash": "Quick wash 15 min",
+          "single_dehytration": "Spin only",
+          "rinsing_dehydration": "Rinse and spin",
+          "fast_wash_30": "Quick wash 30 min",
+          "big": "Bulky items",
+          "tub_clean": "Tub clean",
+          "deep_tub_clean": "Deep tub clean",
+          "down_jacket": "Down jackets",
+          "new_water_cotton": "Cotton and linen",
+          "baby_clothes": "Baby clothes",
+          "shirt": "Shirts",
+          "wool": "Wool",
+          "water_underwear": "Underwear",
+          "silk": "Silk",
+          "jacket": "Outdoor jackets",
+          "new_clothes_wash": "New clothes",
+          "jean": "Denim",
+          "water_fiber": "Synthetics",
+          "water_eco": "Energy saving",
+          "water_intelligent": "Smart wash",
+          "water_steep": "Soak wash",
+          "water_cold_wash": "Cold wash",
+          "sterilization_wash": "Sterilizing wash",
+          "water_remove_mite_wash": "Mite removal",
+          "disinfection_wash": "Disinfecting wash",
+          "stain_wash": "Stain wash",
+          "sport_clothes": "Sportswear",
+          "yoga": "Yoga clothes",
+          "quick_drying_clothes": "Quick-drying clothes"
+        }
+      },
+      "washer_temperature_control": {
+        "name": "Water temperature",
+        "state": {
+          "cold": "Cold",
+          "20": "20 °C",
+          "30": "30 °C",
+          "40": "40 °C",
+          "60": "60 °C",
+          "95": "95 °C"
+        }
+      },
+      "washer_spin_speed_control": {
+        "name": "Spin speed",
+        "state": {
+          "0": "No spin",
+          "400": "400 rpm",
+          "600": "600 rpm",
+          "800": "800 rpm",
+          "1000": "1000 rpm",
+          "1200": "1200 rpm",
+          "1400": "1400 rpm"
+        }
+      },
+      "washer_rinse_count": {
+        "name": "Rinse count",
+        "state": {
+          "1": "1",
+          "2": "2",
+          "3": "3",
+          "4": "4"
+        }
+      },
+      "washer_water_level_control": {
+        "name": "Water level",
+        "state": {
+          "auto": "Auto",
+          "l1": "L1",
+          "l2": "L2",
+          "l3": "L3",
+          "l4": "L4"
+        }
+      },
+      "washer_detergent_control": {
+        "name": "Detergent dosing",
+        "state": {
+          "smart": "Smart",
+          "off": "Off",
+          "l1": "L1",
+          "l2": "L2",
+          "l3": "L3",
+          "l4": "L4"
+        }
+      },
+      "washer_wash_time_control": {
+        "name": "Wash time (min)"
+      },
+      "washer_spin_time_control": {
+        "name": "Spin time (min)"
       }
     },
     "time": {
@@ -4230,6 +4324,9 @@
       },
       "dryer_anti_wrinkle": {
         "name": "Smart anti-wrinkle"
+      },
+      "washer_forget_free": {
+        "name": "Forget-free care"
       }
     },
     "water_heater": {

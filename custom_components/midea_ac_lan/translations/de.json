@@ -883,7 +883,7 @@
         "name": "Ramadan"
       },
       "laundry_appointment": {
-        "name": "Vorprogrammierung"
+        "name": "Reservierung"
       }
     },
     "button": {
@@ -903,7 +903,7 @@
         "name": "Start"
       },
       "laundry_cancel_appointment": {
-        "name": "Vorprogrammierung abbrechen"
+        "name": "Reservierung abbrechen"
       }
     },
     "climate": {
@@ -1299,6 +1299,100 @@
           "standard": "Standard",
           "low": "Niedrig"
         }
+      },
+      "washer_program_control": {
+        "name": "Waschprogramm",
+        "state": {
+          "water_mixed_wash": "Mischwäsche",
+          "fast_wash": "Schnellwäsche 15 Min.",
+          "single_dehytration": "Nur Schleudern",
+          "rinsing_dehydration": "Spülen und Schleudern",
+          "fast_wash_30": "Schnellwäsche 30 Min.",
+          "big": "Große Wäschestücke",
+          "tub_clean": "Trommelreinigung",
+          "deep_tub_clean": "Intensive Trommelreinigung",
+          "down_jacket": "Daunenjacken",
+          "new_water_cotton": "Baumwolle und Leinen",
+          "baby_clothes": "Babykleidung",
+          "shirt": "Hemden",
+          "wool": "Wolle",
+          "water_underwear": "Unterwäsche",
+          "silk": "Seide",
+          "jacket": "Outdoorjacken",
+          "new_clothes_wash": "Neue Kleidung",
+          "jean": "Jeans",
+          "water_fiber": "Synthetik",
+          "water_eco": "Energiesparen",
+          "water_intelligent": "Intelligentes Waschen",
+          "water_steep": "Einweichwäsche",
+          "water_cold_wash": "Kaltwäsche",
+          "sterilization_wash": "Sterilisationswäsche",
+          "water_remove_mite_wash": "Milbenentfernung",
+          "disinfection_wash": "Desinfektionswäsche",
+          "stain_wash": "Fleckenwäsche",
+          "sport_clothes": "Sportbekleidung",
+          "yoga": "Yoga-Kleidung",
+          "quick_drying_clothes": "Schnelltrocknende Kleidung"
+        }
+      },
+      "washer_temperature_control": {
+        "name": "Wassertemperatur",
+        "state": {
+          "cold": "Kalt",
+          "20": "20 °C",
+          "30": "30 °C",
+          "40": "40 °C",
+          "60": "60 °C",
+          "95": "95 °C"
+        }
+      },
+      "washer_spin_speed_control": {
+        "name": "Schleuderdrehzahl",
+        "state": {
+          "0": "Kein Schleudern",
+          "400": "400 rpm",
+          "600": "600 rpm",
+          "800": "800 rpm",
+          "1000": "1000 rpm",
+          "1200": "1200 rpm",
+          "1400": "1400 rpm"
+        }
+      },
+      "washer_rinse_count": {
+        "name": "Spülgänge",
+        "state": {
+          "1": "1",
+          "2": "2",
+          "3": "3",
+          "4": "4"
+        }
+      },
+      "washer_water_level_control": {
+        "name": "Wasserstand",
+        "state": {
+          "auto": "Automatisch",
+          "l1": "L1",
+          "l2": "L2",
+          "l3": "L3",
+          "l4": "L4"
+        }
+      },
+      "washer_detergent_control": {
+        "name": "Waschmitteldosierung",
+        "state": {
+          "smart": "Intelligent",
+          "off": "Aus",
+          "l1": "L1",
+          "l2": "L2",
+          "l3": "L3",
+          "l4": "L4"
+        }
+      },
+      "washer_wash_time_control": {
+        "name": "Waschzeit (Min.)"
+      },
+      "washer_spin_time_control": {
+        "name": "Schleuderzeit (Min.)"
       }
     },
     "time": {
@@ -1306,7 +1400,7 @@
         "name": "Regenerationszeit"
       },
       "laundry_appointment_finish": {
-        "name": "Endzeit (legt Vorprogrammierung fest)"
+        "name": "Endzeit (legt Reservierung fest)"
       }
     },
     "sensor": {
@@ -4005,6 +4099,9 @@
       },
       "dryer_anti_wrinkle": {
         "name": "Intelligenter Knitterschutz"
+      },
+      "washer_forget_free": {
+        "name": "Sorglos-Pflege"
       }
     },
     "water_heater": {

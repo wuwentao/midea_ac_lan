@@ -1315,6 +1315,100 @@
           "standard": "标准",
           "low": "低温"
         }
+      },
+      "washer_program_control": {
+        "name": "洗衣程序",
+        "state": {
+          "water_mixed_wash": "混合洗",
+          "fast_wash": "快洗15分",
+          "single_dehytration": "单脱水",
+          "rinsing_dehydration": "漂＋洗",
+          "fast_wash_30": "速洗30分",
+          "big": "大件",
+          "tub_clean": "筒自洁",
+          "deep_tub_clean": "深度筒自洁",
+          "down_jacket": "羽绒服",
+          "new_water_cotton": "棉麻",
+          "baby_clothes": "婴儿服",
+          "shirt": "衬衫",
+          "wool": "羊毛",
+          "water_underwear": "内衣",
+          "silk": "丝绸",
+          "jacket": "冲锋衣",
+          "new_clothes_wash": "新衣洗",
+          "jean": "牛仔",
+          "water_fiber": "化纤",
+          "water_eco": "节能",
+          "water_intelligent": "智能洗",
+          "water_steep": "浸泡洗",
+          "water_cold_wash": "冷水洗",
+          "sterilization_wash": "除菌洗",
+          "water_remove_mite_wash": "除螨洗",
+          "disinfection_wash": "消毒洗",
+          "stain_wash": "特渍洗",
+          "sport_clothes": "运动服",
+          "yoga": "瑜伽服",
+          "quick_drying_clothes": "速干衣"
+        }
+      },
+      "washer_temperature_control": {
+        "name": "水温",
+        "state": {
+          "cold": "冷水",
+          "20": "20℃",
+          "30": "30℃",
+          "40": "40℃",
+          "60": "60℃",
+          "95": "95℃"
+        }
+      },
+      "washer_spin_speed_control": {
+        "name": "转速",
+        "state": {
+          "0": "免脱水",
+          "400": "400转",
+          "600": "600转",
+          "800": "800转",
+          "1000": "1000转",
+          "1200": "1200转",
+          "1400": "1400转"
+        }
+      },
+      "washer_rinse_count": {
+        "name": "漂洗次数",
+        "state": {
+          "1": "1次",
+          "2": "2次",
+          "3": "3次",
+          "4": "4次"
+        }
+      },
+      "washer_water_level_control": {
+        "name": "水位",
+        "state": {
+          "auto": "自动",
+          "l1": "L1",
+          "l2": "L2",
+          "l3": "L3",
+          "l4": "L4"
+        }
+      },
+      "washer_detergent_control": {
+        "name": "洗衣液",
+        "state": {
+          "smart": "智能",
+          "off": "关闭",
+          "l1": "L1",
+          "l2": "L2",
+          "l3": "L3",
+          "l4": "L4"
+        }
+      },
+      "washer_wash_time_control": {
+        "name": "洗涤时间（分钟）"
+      },
+      "washer_spin_time_control": {
+        "name": "脱水时间（分钟）"
       }
     },
     "time": {
@@ -4039,6 +4133,9 @@
       },
       "dryer_anti_wrinkle": {
         "name": "智能防皱"
+      },
+      "washer_forget_free": {
+        "name": "忘取无忧"
       }
     },
     "water_heater": {

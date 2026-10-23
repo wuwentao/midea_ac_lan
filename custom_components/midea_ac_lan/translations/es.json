@@ -1411,6 +1411,100 @@
           "standard": "Estándar",
           "low": "Baja"
         }
+      },
+      "washer_program_control": {
+        "name": "Programa de lavado",
+        "state": {
+          "water_mixed_wash": "Lavado mixto",
+          "fast_wash": "Lavado rápido 15 min",
+          "single_dehytration": "Solo centrifugado",
+          "rinsing_dehydration": "Aclarado y centrifugado",
+          "fast_wash_30": "Lavado rápido 30 min",
+          "big": "Prendas voluminosas",
+          "tub_clean": "Limpieza del tambor",
+          "deep_tub_clean": "Limpieza profunda del tambor",
+          "down_jacket": "Prendas de plumón",
+          "new_water_cotton": "Algodón y lino",
+          "baby_clothes": "Ropa de bebé",
+          "shirt": "Camisas",
+          "wool": "Lana",
+          "water_underwear": "Ropa interior",
+          "silk": "Seda",
+          "jacket": "Chaquetas de exterior",
+          "new_clothes_wash": "Ropa nueva",
+          "jean": "Vaquero",
+          "water_fiber": "Sintéticos",
+          "water_eco": "Ahorro de energía",
+          "water_intelligent": "Lavado inteligente",
+          "water_steep": "Lavado en remojo",
+          "water_cold_wash": "Lavado en frío",
+          "sterilization_wash": "Lavado esterilizante",
+          "water_remove_mite_wash": "Eliminación de ácaros",
+          "disinfection_wash": "Lavado desinfectante",
+          "stain_wash": "Lavado de manchas",
+          "sport_clothes": "Ropa deportiva",
+          "yoga": "Ropa de yoga",
+          "quick_drying_clothes": "Ropa de secado rápido"
+        }
+      },
+      "washer_temperature_control": {
+        "name": "Temperatura del agua",
+        "state": {
+          "cold": "Frío",
+          "20": "20 °C",
+          "30": "30 °C",
+          "40": "40 °C",
+          "60": "60 °C",
+          "95": "95 °C"
+        }
+      },
+      "washer_spin_speed_control": {
+        "name": "Velocidad de centrifugado",
+        "state": {
+          "0": "Sin centrifugado",
+          "400": "400 rpm",
+          "600": "600 rpm",
+          "800": "800 rpm",
+          "1000": "1000 rpm",
+          "1200": "1200 rpm",
+          "1400": "1400 rpm"
+        }
+      },
+      "washer_rinse_count": {
+        "name": "Número de aclarados",
+        "state": {
+          "1": "1",
+          "2": "2",
+          "3": "3",
+          "4": "4"
+        }
+      },
+      "washer_water_level_control": {
+        "name": "Nivel de agua",
+        "state": {
+          "auto": "Automático",
+          "l1": "L1",
+          "l2": "L2",
+          "l3": "L3",
+          "l4": "L4"
+        }
+      },
+      "washer_detergent_control": {
+        "name": "Dosificación de detergente",
+        "state": {
+          "smart": "Inteligente",
+          "off": "Apagado",
+          "l1": "L1",
+          "l2": "L2",
+          "l3": "L3",
+          "l4": "L4"
+        }
+      },
+      "washer_wash_time_control": {
+        "name": "Tiempo de lavado (min)"
+      },
+      "washer_spin_time_control": {
+        "name": "Tiempo de centrifugado (min)"
       }
     },
     "time": {
@@ -4193,6 +4287,9 @@
       },
       "dryer_anti_wrinkle": {
         "name": "Antiarrugas inteligente"
+      },
+      "washer_forget_free": {
+        "name": "Cuidado sin preocupaciones"
       }
     },
     "water_heater": {
