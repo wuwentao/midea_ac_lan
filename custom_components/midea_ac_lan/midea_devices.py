@@ -557,7 +557,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             X9CAttributes.b6_TVOC_status: {
                 "type": Platform.BINARY_SENSOR,
-                "translation_key": "b6_TVOC_status",
+                "translation_key": "b6_tvoc_status",
                 "name": "Range Hood TVOC Status",
                 "icon": "mdi:air-filter",
             },
@@ -1588,7 +1588,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             X9CAttributes.b6_TVOC_value: {
                 "type": Platform.SENSOR,
-                "translation_key": "b6_TVOC_value",
+                "translation_key": "b6_tvoc_value",
                 "name": "Range Hood TVOC Value",
                 "icon": "mdi:air-filter",
             },
