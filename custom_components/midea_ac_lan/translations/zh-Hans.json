@@ -976,6 +976,17 @@
       }
     },
     "select": {
+      "cur_quantify": {
+        "name": "当前定量预设",
+        "state": {
+          "none": "无",
+          "preset_1": "定量预设1",
+          "preset_2": "定量预设2",
+          "preset_3": "定量预设3",
+          "preset_4": "定量预设4",
+          "preset_5": "定量预设5"
+        }
+      },
       "wash_mode_76000228": {
         "name": "洗涤模式"
       },
@@ -2026,6 +2037,17 @@
           "heating": "加热中",
           "keep_warm": "保温中"
         }
+      },
+      "no_obsolete_water_mode": {
+        "name": "基础零陈水模式",
+        "state": {
+          "water_quality_priority": "水质优先",
+          "water_saving_priority": "省水优先",
+          "custom": "自定义"
+        }
+      },
+      "input_temperature_sensing": {
+        "name": "进水温度"
       },
       "comp_total_run_time": {
         "name": "能耗 - 压缩机累计运行时间"
@@ -3691,6 +3713,9 @@
       },
       "antifreeze": {
         "name": "防冻"
+      },
+      "heat": {
+        "name": "加热"
       },
       "dhw_disinfect": {
         "name": "生活热水 - 杀菌"

@@ -992,6 +992,17 @@
           "2": "Mezzo"
         }
       },
+      "cur_quantify": {
+        "name": "Preimpostazione quantità corrente",
+        "state": {
+          "none": "Nessuna",
+          "preset_1": "Preimpostazione 1",
+          "preset_2": "Preimpostazione 2",
+          "preset_3": "Preimpostazione 3",
+          "preset_4": "Preimpostazione 4",
+          "preset_5": "Preimpostazione 5"
+        }
+      },
       "heating_mode": {
         "name": "Modalità riscaldamento",
         "state": {
@@ -1707,6 +1718,17 @@
       },
       "water_consumption": {
         "name": "Consumo Acqua"
+      },
+      "no_obsolete_water_mode": {
+        "name": "Modalità senza acqua stagnante",
+        "state": {
+          "water_quality_priority": "Priorità alla qualità dell'acqua",
+          "water_saving_priority": "Priorità al risparmio idrico",
+          "custom": "Personalizzata"
+        }
+      },
+      "input_temperature_sensing": {
+        "name": "Temperatura in ingresso"
       },
       "water_consumption_average": {
         "name": "Consumo Acqua Medio"
@@ -3664,6 +3686,9 @@
       },
       "antifreeze": {
         "name": "Antigelo"
+      },
+      "heat": {
+        "name": "Riscaldamento"
       },
       "dhw_disinfect": {
         "name": "ACS - Disinfezione"

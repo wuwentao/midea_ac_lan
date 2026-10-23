@@ -976,6 +976,17 @@
       }
     },
     "select": {
+      "cur_quantify": {
+        "name": "Current Quantity Preset",
+        "state": {
+          "none": "None",
+          "preset_1": "Preset 1",
+          "preset_2": "Preset 2",
+          "preset_3": "Preset 3",
+          "preset_4": "Preset 4",
+          "preset_5": "Preset 5"
+        }
+      },
       "wash_mode_76000228": {
         "name": "Wash Mode",
         "state": {
@@ -2217,6 +2228,17 @@
           "heating": "Heating",
           "keep_warm": "Keeping Warm"
         }
+      },
+      "no_obsolete_water_mode": {
+        "name": "No Obsolete Water Mode",
+        "state": {
+          "water_quality_priority": "Water Quality Priority",
+          "water_saving_priority": "Water Saving Priority",
+          "custom": "Custom"
+        }
+      },
+      "input_temperature_sensing": {
+        "name": "Input Temperature"
       },
       "temp_ta": {
         "name": "Temperature Ta - Room Ambient"
@@ -3882,6 +3904,9 @@
       },
       "antifreeze": {
         "name": "Antifreeze"
+      },
+      "heat": {
+        "name": "Heat"
       },
       "holiday_on": {
         "name": "Mode - Holiday"

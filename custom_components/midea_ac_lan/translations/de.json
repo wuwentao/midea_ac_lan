@@ -995,6 +995,17 @@
           "2": "Halb"
         }
       },
+      "cur_quantify": {
+        "name": "Aktuelle Mengenvoreinstellung",
+        "state": {
+          "none": "Keine",
+          "preset_1": "Voreinstellung 1",
+          "preset_2": "Voreinstellung 2",
+          "preset_3": "Voreinstellung 3",
+          "preset_4": "Voreinstellung 4",
+          "preset_5": "Voreinstellung 5"
+        }
+      },
       "heating_mode": {
         "name": "Heizmodus",
         "state": {
@@ -1719,6 +1730,17 @@
       },
       "water_consumption": {
         "name": "Wasserverbrauch"
+      },
+      "no_obsolete_water_mode": {
+        "name": "Modus ohne abgestandenes Wasser",
+        "state": {
+          "water_quality_priority": "Wasserqualität priorisieren",
+          "water_saving_priority": "Wassersparen priorisieren",
+          "custom": "Benutzerdefiniert"
+        }
+      },
+      "input_temperature_sensing": {
+        "name": "Zulauftemperatur"
       },
       "water_consumption_average": {
         "name": "Durchschnittlicher Wasserverbrauch"
@@ -3679,6 +3701,9 @@
       },
       "antifreeze": {
         "name": "Frostschutz"
+      },
+      "heat": {
+        "name": "Heizung"
       },
       "dhw_disinfect": {
         "name": "WW - Desinfektion"

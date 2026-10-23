@@ -995,6 +995,17 @@
           "2": "Demi"
         }
       },
+      "cur_quantify": {
+        "name": "Préréglage de quantité actuel",
+        "state": {
+          "none": "Aucun",
+          "preset_1": "Préréglage 1",
+          "preset_2": "Préréglage 2",
+          "preset_3": "Préréglage 3",
+          "preset_4": "Préréglage 4",
+          "preset_5": "Préréglage 5"
+        }
+      },
       "heating_mode": {
         "name": "Mode de chauffage",
         "state": {
@@ -1719,6 +1730,17 @@
       },
       "water_consumption": {
         "name": "Water Consumption"
+      },
+      "no_obsolete_water_mode": {
+        "name": "Mode sans eau stagnante",
+        "state": {
+          "water_quality_priority": "Priorité à la qualité de l'eau",
+          "water_saving_priority": "Priorité aux économies d'eau",
+          "custom": "Personnalisé"
+        }
+      },
+      "input_temperature_sensing": {
+        "name": "Température d'entrée"
       },
       "water_consumption_average": {
         "name": "Consommation moyenne d'eau"
@@ -3676,6 +3698,9 @@
       },
       "antifreeze": {
         "name": "Antigel"
+      },
+      "heat": {
+        "name": "Chauffage"
       },
       "dhw_disinfect": {
         "name": "ECS - Désinfection"
