@@ -4,6 +4,40 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+## [2026.10.0](https://github.com/wuwentao/midea_ac_lan/compare/v2026.9.2...v2026.10.0) (2026-10-23)
+
+### Features
+- **e3:** Add optional cloud water and gas usage statistics sensors [#1078](https://github.com/wuwentao/midea_ac_lan/pull/1078) ([13aba76](https://github.com/wuwentao/midea_ac_lan/commit/13aba7695b4273388a5aee2876550dcee40f5687))
+- **e1:** Full dishwasher controls: program, delayed start, pause, door auto-open [#1108](https://github.com/wuwentao/midea_ac_lan/pull/1108) ([0175318](https://github.com/wuwentao/midea_ac_lan/commit/0175318090f1679a3636ff31d617f9934fc5e5c8))
+- **config_flow:** Hint when a device SN is encrypted on the LAN [#1132](https://github.com/wuwentao/midea_ac_lan/pull/1132) ([bd7fd13](https://github.com/wuwentao/midea_ac_lan/commit/bd7fd131110b0e18951fa894d80078259c215e7a))
+- **e1:** Per-model dishwasher estimates, add model 76000228 [#1120](https://github.com/wuwentao/midea_ac_lan/pull/1120) ([289d322](https://github.com/wuwentao/midea_ac_lan/commit/289d3221be265c46981ceb751d4496179d4367d7))
+- **config:** Persist cloud identity sn8, manufacturer_code, cloud_name [#1105](https://github.com/wuwentao/midea_ac_lan/pull/1105) ([96cce7a](https://github.com/wuwentao/midea_ac_lan/commit/96cce7ae562367715155fc38710795fe7ba5937d))
+- **e1:** Readable program and status names, per-model labels [#1121](https://github.com/wuwentao/midea_ac_lan/pull/1121) ([5cb7895](https://github.com/wuwentao/midea_ac_lan/commit/5cb7895131885a1d1a1263d7a31fb5463e952998))
+- **d9:** Add washer dryer combo device support [#1086](https://github.com/wuwentao/midea_ac_lan/pull/1086) ([6e69432](https://github.com/wuwentao/midea_ac_lan/commit/6e69432f0f7f060dc795fdb6ebd6d2e2ee5933f1))
+- **9c:** Add 0x9C integrated kitchen appliance support [#1095](https://github.com/wuwentao/midea_ac_lan/pull/1095) ([18b48bc](https://github.com/wuwentao/midea_ac_lan/commit/18b48bc0eecfd87fcc907bc3f053eb0a5112136e))
+- **ed:** Add current quantity preset select and purifier status entities [#1110](https://github.com/wuwentao/midea_ac_lan/pull/1110) ([1d4b67e](https://github.com/wuwentao/midea_ac_lan/commit/1d4b67e22e5f88875beeda2cc99565d9d0a5046c))
+- **9b:** Add Microwave Steam Convection Oven device support [#1096](https://github.com/wuwentao/midea_ac_lan/pull/1096) ([e7575de](https://github.com/wuwentao/midea_ac_lan/commit/e7575deba5204d951ab9f966f221c83b7c02c2ba))
+- **db:** Expose washer controls and completion reservations [#1106](https://github.com/wuwentao/midea_ac_lan/pull/1106) ([e8050c7](https://github.com/wuwentao/midea_ac_lan/commit/e8050c7ded2c13fb5e13a84b0949ca35e4e4cdfa))
+- **dc:** Expose dryer controls and completion reservations [#1114](https://github.com/wuwentao/midea_ac_lan/pull/1114) ([658016c](https://github.com/wuwentao/midea_ac_lan/commit/658016c13a2e76e4dba8f320d7124427eba95199))
+
+### Bug Fixes
+- **deps:** Bump anyio 4.14.1 to 4.15.1 in uv.lock [#1082](https://github.com/wuwentao/midea_ac_lan/pull/1082) ([ef5ecbf](https://github.com/wuwentao/midea_ac_lan/commit/ef5ecbf6f4d73fe608a602015541ef87d14d518d))
+- **deps:** Bump pip 26.1.2 to 26.2.1 in uv.lock [#1083](https://github.com/wuwentao/midea_ac_lan/pull/1083) ([5fcaa11](https://github.com/wuwentao/midea_ac_lan/commit/5fcaa11f55d87128349f1929f73ecc034005354f))
+- **i18n:** Normalize wind angle state keys to underscores [#1089](https://github.com/wuwentao/midea_ac_lan/pull/1089) ([221a386](https://github.com/wuwentao/midea_ac_lan/commit/221a386e8e95277bb1a09b50093d8dee661a77a0))
+- **deps:** Bump multidict 6.7.1 to 6.9.1 [#1097](https://github.com/wuwentao/midea_ac_lan/pull/1097) ([07c5147](https://github.com/wuwentao/midea_ac_lan/commit/07c51478ef1986d6863f063798a13517ecb75ee2))
+- **deps:** Bump urllib3 2.7.0 to 2.8.0 [#1099](https://github.com/wuwentao/midea_ac_lan/pull/1099) ([cd5aa5c](https://github.com/wuwentao/midea_ac_lan/commit/cd5aa5c7f5efa33b99a01d9826cc682aeb96d38c))
+- **deps:** Bump virtualenv 21.5.1 to 21.14.5 [#1098](https://github.com/wuwentao/midea_ac_lan/pull/1098) ([1a3e662](https://github.com/wuwentao/midea_ac_lan/commit/1a3e662c733bc2eddfdb543f17fb6b8972eac1ed))
+- Close device connections on Home Assistant stop [#1101](https://github.com/wuwentao/midea_ac_lan/pull/1101) ([1f506bb](https://github.com/wuwentao/midea_ac_lan/commit/1f506bbb5da5c23d40e3acd75a60cb1387ea04cc))
+- **e1:** Count dishwasher estimates with the lowercase states [#1119](https://github.com/wuwentao/midea_ac_lan/pull/1119) ([d2cb2a5](https://github.com/wuwentao/midea_ac_lan/commit/d2cb2a5adf543c0a01d0f76a1558ebf8c7d58e52))
+- **fan:** Add BGF10000 preset labels via midea-lan [#1129](https://github.com/wuwentao/midea_ac_lan/pull/1129) ([714dc41](https://github.com/wuwentao/midea_ac_lan/commit/714dc417222fea6d6fb34478a964522c1c87ce8e))
+- **ca:** Derive 310A2111 flex-zone presets [#1094](https://github.com/wuwentao/midea_ac_lan/pull/1094) ([03c1b3d](https://github.com/wuwentao/midea_ac_lan/commit/03c1b3de2185a653cf1acdd3bdea351410b9a6a9))
+
+### Documentation
+- Add HA integration new-device guide (en/zh-Hans) [#1090](https://github.com/wuwentao/midea_ac_lan/pull/1090) ([2d58275](https://github.com/wuwentao/midea_ac_lan/commit/2d58275136f2bbd31c9567d36dc0dc7c2e9c2649))
+
+### Miscellaneous Tasks
+- Add CodeRabbit configuration [#1088](https://github.com/wuwentao/midea_ac_lan/pull/1088) ([5615348](https://github.com/wuwentao/midea_ac_lan/commit/56153480c663685d42002ee8bb424c2c7dcb8246))
+- Add funding links [#1109](https://github.com/wuwentao/midea_ac_lan/pull/1109) ([afbdf66](https://github.com/wuwentao/midea_ac_lan/commit/afbdf66c38cee3b2c91e5769b6c2b4651d6d5349))
 ## [2026.9.2](https://github.com/wuwentao/midea_ac_lan/compare/v2026.9.1...v2026.9.2) (2026-09-28)
 
 ### Features
