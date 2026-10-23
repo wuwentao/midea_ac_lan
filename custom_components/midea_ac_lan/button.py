@@ -1,6 +1,6 @@
 """Button for Midea Lan."""
 
-from typing import TYPE_CHECKING, Any, cast
+from typing import Any, cast
 
 from homeassistant.components.button import ButtonEntity
 from homeassistant.config_entries import ConfigEntry
@@ -12,9 +12,6 @@ from midealan.device import MideaDevice
 from .const import DEVICES, DOMAIN, supports_device
 from .midea_devices import MIDEA_DEVICES
 from .midea_entity import MideaEntity
-
-if TYPE_CHECKING:
-    from midealan.devices.e1 import MideaE1Device
 
 
 async def async_setup_entry(
@@ -53,50 +50,17 @@ class MideaButton(MideaEntity, ButtonEntity):
         """Whether the entity is available."""
         if not super().available:
             return False
-        if self._power_attribute and not self._device.get_attribute(
-            self._power_attribute,
-        ):
-            return False
-        return self._get_current_mode_code() not in {None, 0}
+        return not self._power_attribute or bool(
+            self._device.get_attribute(self._power_attribute),
+        )
 
     def press(self) -> None:
-        """Press button."""
-        if self._config.get("set_message") == "e1_start":
-            self._press_e1_start()
-
-    def _press_e1_start(self) -> None:
-        """Start E1 dishwasher using the current mode.
-
-        Raises
-        ------
-        ValueError
-            If the current dishwasher mode is not supported.
-
-        """
-        mode = self._get_current_mode_code()
-        if mode is None or mode == 0:
-            msg = "Unsupported dishwasher mode"
-            raise ValueError(msg)
-        cast("MideaE1Device", self._device).start_work()
-
-    def _get_current_mode_code(self) -> int | None:
-        """Return raw code for the current dishwasher mode.
-
-        Returns
-        -------
-        Raw mode code when the current mode is known.
-
-        """
-        mode_name = self._device.get_attribute("mode")
-        modes = cast("MideaE1Device", self._device).modes
-        for key, item in modes.items():
-            if item == mode_name:
-                return key
-        return None
+        """Press button: write the configured status trigger."""
+        self._device.set_attribute("status", self._config["press_status"])
 
     @callback
     def update_state(self, status: Any) -> None:  # ruff:ignore[any-type]
         """Update entity state."""
         super().update_state(status)
-        if self.hass and ("mode" in status or self._power_attribute in status):
+        if self.hass and self._power_attribute in status:
             self.schedule_update_if_running()

@@ -156,4 +156,34 @@ are excluded.
 
 ## Service
 
-No services.
+### midea_ac_lan.set_attribute
+
+[![Service](https://my.home-assistant.io/badges/developer_call_service.svg)](https://my.home-assistant.io/redirect/developer_call_service/?service=midea_ac_lan.set_attribute)
+
+Set a writable appliance attribute. The following values document the two new
+purifier controls above; other writable ED control entities can also be set by
+their attribute name and native value.
+
+| Name      | Description                                              |
+| --------- | -------------------------------------------------------- |
+| device_id | The appliance code (Device ID)                           |
+| attribute | New purifier example: `heat` or `cur_quantify`           |
+| value     | `true`/`false` for heat; `0` or `21`–`25` for the preset |
+
+Examples:
+
+```yaml
+service: midea_ac_lan.set_attribute
+data:
+  device_id: XXXXXXXXXXXX
+  attribute: heat
+  value: true
+```
+
+```yaml
+service: midea_ac_lan.set_attribute
+data:
+  device_id: XXXXXXXXXXXX
+  attribute: cur_quantify
+  value: 21
+```
