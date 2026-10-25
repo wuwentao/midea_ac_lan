@@ -194,6 +194,15 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "icon": "mdi:lightbulb",
                 "default": True,
             },
+            "fan": {
+                "type": Platform.FAN,
+                "has_entity_name": True,
+                "translation_key": "fan",
+                "icon": "mdi:fan",
+                "default": True,
+                # Only the fan-light model exposes the fan registers.
+                "models": ["M0200008"],
+            },
         },
     },
     0x26: {
