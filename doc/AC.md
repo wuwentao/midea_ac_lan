@@ -186,6 +186,7 @@ Known settings:
 | fan.{DEVICEID}\_fresh_air_exhaust              | fan           | Fresh Air Exhaust                |
 | select.{DEVICEID}\_fresh_air_mode              | select        | Fresh Air Speed                  |
 | select.{DEVICEID}\_fresh_air_exhaust_mode      | select        | Fresh Air Exhaust Speed          |
+| select.{DEVICEID}\_aux_heat_mode               | select        | Aux Heat Mode                    |
 | switch.{DEVICEID}\_anion                       | switch        | Anion (Ionizer)                  |
 | switch.{DEVICEID}\_aux_heating                 | switch        | Aux Heating                      |
 | switch.{DEVICEID}\_boost_mode                  | switch        | Boost Mode                       |
@@ -226,11 +227,11 @@ Some Midea appliance be named "Fresh Air Appliance", the protocol that actually 
 
 Set the attribute of appliance. Service data:
 
-| Name      | Description                                                                                                                                                                                                                                                              |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| device_id | The Appliance code (Device ID) of appliance                                                                                                                                                                                                                              |
-| attribute | "aux_heating"<br/>"breezeless"<br/>"comfort_mode"<br/>"dry"<br/>"eco_mode"<br/>"indirect_wind"<br/>"natural_wind"<br/>"prompt_tone"<br/>"power"<br/>"screen_display"<br/>"screen_display_2"<br/>"smart_eye"<br/>"swing_horizontal"<br/>"swing_vertical"<br/>"turbo_mode" |
-| value     | true or false                                                                                                                                                                                                                                                            |
+| Name      | Description                                                                                                                                                                                                                                                                                  |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| device_id | The Appliance code (Device ID) of appliance                                                                                                                                                                                                                                                  |
+| attribute | "aux_heating"<br/>"aux_heat_mode"<br/>"breezeless"<br/>"comfort_mode"<br/>"dry"<br/>"eco_mode"<br/>"indirect_wind"<br/>"natural_wind"<br/>"prompt_tone"<br/>"power"<br/>"screen_display"<br/>"screen_display_2"<br/>"smart_eye"<br/>"swing_horizontal"<br/>"swing_vertical"<br/>"turbo_mode" |
+| value     | true or false for switches; for "aux_heat_mode" one of "off" / "aux_heat" / "aux_only"                                                                                                                                                                                                       |
 
 | Name      | Description                                 |
 | --------- | ------------------------------------------- |
