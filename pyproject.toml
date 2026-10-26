@@ -32,7 +32,7 @@ dev = [
   # pytest runs the offline regression tests under tests/ (see
   # [tool.pytest.ini_options]). The suite only uses unittest.mock, so no Home
   # Assistant test harness package is required.
-  "pytest==8.4.2",
+  "pytest==9.1.1",
   # On Python 3.12 the minimum-supported HA 2024.4.1 bundles acme 2.9.0, whose
   # crypto_util module still imports jose.ComparableX509 (removed in josepy 2.0).
   # Importing custom_components.midea_ac_lan pulls in homeassistant.helpers.network
