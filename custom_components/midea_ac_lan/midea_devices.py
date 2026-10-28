@@ -7682,7 +7682,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             E1Attributes.program: {
                 "type": Platform.SELECT,
                 "translation_key": "program",
-                "translation_key_by_model": {"76000228": "program_76000228"},
+                "translation_key_by_model": {"76000228": "program_76000228", "760001EC": "program_76000228"},
                 "name": "Program",
                 "icon": "mdi:dishwasher",
                 "options_dict": "modes",
@@ -7690,6 +7690,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                     "7600024L": [13, 4, 8, 6, 2, 11, 10],
                     # From the Midea app (wuwentao/midea_ac_lan#709)
                     "76000228": [2, 3, 4, 5, 6, 7, 8, 13, 15, 16],
+                    "760001EC": [0x04, 0x01, 0x02, 0x06, 0x07, 0x0D, 0x05, 0x0F, 0x10, 0x15],
                 },
                 "options_exclude_codes": [0],
                 "available_power_attribute": E1Attributes.power,
@@ -7723,6 +7724,16 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "models": ["76000228"],
                 "default": True,
             },
+            E1Attributes.additional_setting: {
+                "type": Platform.SELECT,
+                "translation_key": "load",
+                "name": "Load",
+                "icon": "mdi:silverware-clean",
+                "options": [0, 1, 2, 3],
+                "option_type": "int",
+                "models": ["760001EC"],
+                "default": True,
+            },
             E1Attributes.delay_remaining: {
                 "type": Platform.SENSOR,
                 "translation_key": "delay_remaining",
@@ -7746,7 +7757,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             E1Attributes.mode: {
                 "type": Platform.SENSOR,
                 "translation_key": "dishwasher_mode",
-                "translation_key_by_model": {"76000228": "dishwasher_mode_76000228"},
+                "translation_key_by_model": {"76000228": "dishwasher_mode_76000228", "760001EC": "dishwasher_mode_76000228"},
                 "name": "Working Mode",
                 "icon": "mdi:dishwasher",
             },
@@ -7754,13 +7765,14 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "type": Platform.SELECT,
                 "attribute": E1Attributes.mode,
                 "translation_key": "wash_mode",
-                "translation_key_by_model": {"76000228": "wash_mode_76000228"},
+                "translation_key_by_model": {"76000228": "wash_mode_76000228", "760001EC": "wash_mode_76000228"},
                 "name": "Wash Mode",
                 "options_dict": "modes",
                 "options_codes_by_model": {
                     "7600024L": [13, 4, 8, 6, 2, 11, 10],
                     # From the Midea app (wuwentao/midea_ac_lan#709)
                     "76000228": [2, 3, 4, 5, 6, 7, 8, 13, 15, 16],
+                    "760001EC": [0x04, 0x01, 0x02, 0x06, 0x07, 0x0D, 0x05, 0x0F, 0x10, 0x15],
                 },
                 "set_message": "e1_work_mode",
                 "available_power_attribute": E1Attributes.power,
@@ -7801,9 +7813,21 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                             0x0F: 1.815,  # kill_germ, Hygiene
                             0x10: 1.405,  # sea_food_wash, Self clean
                         },
+                        "760001EC": {
+                            0x04: 0.660, 
+                            0x01: 1.51, 
+                            0x02: 1.352, 
+                            0x06: 1.120, 
+                            0x07: 0.810, 
+                            0x0D: 1.202, 
+                            0x05: 0.910, 
+                            0x0F: 1.281, 
+                            0x10: 1.106,
+                            0x15: 0.030,
+                        },
                     },
                 },
-                "models": ["7600024L", "76000228"],
+                "models": ["7600024L", "76000228", "760001EC"],
                 "default": True,
             },
             "estimated_water_consumption": {
@@ -7840,9 +7864,21 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                             0x0F: 14.9,  # kill_germ, Hygiene
                             0x10: 15.1,  # sea_food_wash, Self clean
                         },
+                        "760001EC": {
+                            0x04: 8.0, 
+                            0x01: 13.1, 
+                            0x02: 13.5, 
+                            0x06: 9.6, 
+                            0x07: 9.9, 
+                            0x0D: 11.4, 
+                            0x05: 11.2, 
+                            0x0F: 12.6, 
+                            0x10: 9.7,
+                            0x15: 0.0,
+                            },
                     },
                 },
-                "models": ["7600024L", "76000228"],
+                "models": ["7600024L", "76000228", "760001EC"],
                 "default": True,
             },
             E1Attributes.error_code: {
