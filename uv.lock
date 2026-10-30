@@ -2610,7 +2610,7 @@ run = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "midea-lan", git = "https://github.com/wuwentao/midea-lan.git?rev=06a0309777bd8f27476a6e1903c9d01672d1d1c8" }]
+requires-dist = [{ name = "midea-lan", git = "https://github.com/wuwentao/midea-lan.git?rev=8460c185060488ca55e05c5bfd288c9beb2f2b98" }]
 
 [package.metadata.requires-dev]
 dev = [
@@ -2633,8 +2633,8 @@ run = [
 
 [[package]]
 name = "midea-lan"
-version = "2026.9.2"
-source = { git = "https://github.com/wuwentao/midea-lan.git?rev=06a0309777bd8f27476a6e1903c9d01672d1d1c8#06a0309777bd8f27476a6e1903c9d01672d1d1c8" }
+version = "2026.10.0"
+source = { git = "https://github.com/wuwentao/midea-lan.git?rev=8460c185060488ca55e05c5bfd288c9beb2f2b98#8460c185060488ca55e05c5bfd288c9beb2f2b98" }
 dependencies = [
     { name = "aiofiles" },
     { name = "aiohttp", version = "3.9.3", source = { registry = "https://pypi.tuna.tsinghua.edu.cn/simple" }, marker = "python_full_version < '3.13'" },

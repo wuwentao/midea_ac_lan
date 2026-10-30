@@ -10,7 +10,7 @@ license = { text = "MIT" }
 # Runtime dependency, mirrors custom_components/midea_ac_lan/manifest.json so that
 # `import midealan` works inside the dev virtualenv.
 dependencies = [
-  "midea-lan @ git+https://github.com/wuwentao/midea-lan.git@06a0309777bd8f27476a6e1903c9d01672d1d1c8",
+  "midea-lan @ git+https://github.com/wuwentao/midea-lan.git@8460c185060488ca55e05c5bfd288c9beb2f2b98",
 ]
 
 # Development dependencies (PEP 735). Installed by default with `uv sync`.
