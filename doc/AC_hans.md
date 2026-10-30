@@ -167,6 +167,7 @@
 | fan.{DEVICEID}\_fresh_air_exhaust              | fan           | Fresh Air Exhaust                | 排风              |
 | select.{DEVICEID}\_fresh_air_mode              | select        | Fresh Air Speed                  | 新风风速          |
 | select.{DEVICEID}\_fresh_air_exhaust_mode      | select        | Fresh Air Exhaust Speed          | 排风风速          |
+| select.{DEVICEID}\_aux_heat_mode               | select        | Aux Heat Mode                    | 电辅热模式        |
 | switch.{DEVICEID}\_aux_heating                 | switch        | Aux Heating                      | 电辅热            |
 | switch.{DEVICEID}\_boost_mode                  | switch        | Boost Mode                       | 强劲模式          |
 | switch.{DEVICEID}\_breezeless                  | switch        | Breezeless                       | 无风感            |
@@ -203,11 +204,11 @@
 
 设置设备属性, 服务数据:
 
-| 名称      | 描述                                                                                                                                                                                                                                                                     |
-| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| device_id | 设备的编号(Device ID)                                                                                                                                                                                                                                                    |
-| attribute | "aux_heating"<br/>"breezeless"<br/>"comfort_mode"<br/>"dry"<br/>"eco_mode"<br/>"indirect_wind"<br/>"natural_wind"<br/>"prompt_tone"<br/>"power"<br/>"screen_display"<br/>"screen_display_2"<br/>"smart_eye"<br/>"swing_horizontal"<br/>"swing_vertical"<br/>"turbo_mode" |
-| value     | true 或 false                                                                                                                                                                                                                                                            |
+| 名称      | 描述                                                                                                                                                                                                                                                                                         |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| device_id | 设备的编号(Device ID)                                                                                                                                                                                                                                                                        |
+| attribute | "aux_heating"<br/>"aux_heat_mode"<br/>"breezeless"<br/>"comfort_mode"<br/>"dry"<br/>"eco_mode"<br/>"indirect_wind"<br/>"natural_wind"<br/>"prompt_tone"<br/>"power"<br/>"screen_display"<br/>"screen_display_2"<br/>"smart_eye"<br/>"swing_horizontal"<br/>"swing_vertical"<br/>"turbo_mode" |
+| value     | 开关类为 true 或 false；"aux_heat_mode" 取值为 "off" / "aux_heat" / "aux_only"                                                                                                                                                                                                               |
 
 | 名称      | 描述                  |
 | --------- | --------------------- |

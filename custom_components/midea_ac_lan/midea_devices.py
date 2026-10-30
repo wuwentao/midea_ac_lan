@@ -3510,6 +3510,13 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Aux Heating",
                 "icon": "mdi:heat-wave",
             },
+            ACAttributes.aux_heat_mode: {
+                "type": Platform.SELECT,
+                "translation_key": "aux_heat_mode",
+                "name": "Aux Heat Mode",
+                "icon": "mdi:heat-wave",
+                "options": "supported_aux_heat_modes",
+            },
             ACAttributes.boost_mode: {
                 "type": Platform.SWITCH,
                 "translation_key": "boost_mode",
