@@ -28,7 +28,7 @@ dev = [
   "pre-commit==4.7.0",
   # pydantic is required by dev/CI: mypy loads it as a plugin (mypy.ini ->
   # `plugins = pydantic.mypy`), so it must stay installed for `scripts/mypy.sh`.
-  "pydantic==2.14.1",
+  "pydantic==2.14.2",
   # pytest runs the offline regression tests under tests/ (see
   # [tool.pytest.ini_options]). The suite only uses unittest.mock, so no Home
   # Assistant test harness package is required.
