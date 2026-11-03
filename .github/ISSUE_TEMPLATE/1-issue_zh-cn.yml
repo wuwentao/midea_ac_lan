@@ -1,90 +1,103 @@
 ---
-name: 错误Bug报告
-description: 集成或实体无法正常工作
+name: Bug 报告（中文）
+description: 报告集成、设备或实体无法正常工作
+title: "[Bug] "
 labels: ["bug"]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢反馈。请完整填写模板并上传完整 debug 日志（附件形式）。
+        请勿公开账号、密码、Token、Key、完整设备 ID、MAC 地址或其他敏感信息。
+        若问题属于设备协议解析或控制命令，维护者可能会将其转至 midea-lan；本仓库主要负责 Home Assistant 集成层。
+
   - type: checkboxes
-    id: ensure
+    id: prerequisites
     attributes:
-      label: 验证issue输入
-      description: 在提交之前，请勾选以下选项以证明您已经按模板要求提交了，否则该 issue 将被关闭。
+      label: 提交前确认
       options:
-        - label: 我已阅读过 [README文档](https://github.com/wuwentao/midea_ac_lan/blob/main/README_hans.md)，并已掌握如何在HA中使用midea_ac_lan和开启debug log。
-          required: false
-        - label: 我已阅读过 README中当前issue所使用[设备的使用文档](https://github.com/wuwentao/midea_ac_lan/blob/main/README_hans.md#4-%E5%B7%B2%E6%94%AF%E6%8C%81%E7%9A%84%E8%AE%BE%E5%A4%87) ，但仍无法解决问题
-          required: false
-        - label: 我已经提交了设备类型和SN信息
+        - label: 我已阅读 [README](https://github.com/wuwentao/midea_ac_lan/blob/main/README_hans.md)、对应设备文档和 [Debug 文档](https://github.com/wuwentao/midea_ac_lan/blob/main/doc/debug_hans.md)。
           required: true
-        - label: 我已经上传了完整的debug log文件，而不是出于对自身的自信而仅粘贴了部分我认为有用的部分。
+        - label: 我已搜索现有 Issue，未找到相同问题。
           required: true
-        - label: 我已经准确清晰的描述了当前的错误是什么，预期正确的结果是什么
+        - label: 我已删除日志中的账号、密码、Token、Key 等敏感信息，并将完整日志作为附件上传。
           required: true
-        - label: 我是中文用户，使用美的美居，而非海外其他语言用户
-          required: false
-        - label: 我已在 [Issue Tracker](https://github.com/wuwentao/midea_ac_lan/issues) 中寻找过我要提出的问题，并且没有找到
-          required: false
+
   - type: input
+    id: ha_version
     attributes:
-      label: HA版本
-      placeholder: 2024.5.3
-  - type: input
+      label: Home Assistant Core 版本
+      placeholder: 2026.10.0
     validations:
       required: true
-    attributes:
-      label: 集成版本
-      placeholder: 0.6.8
+
   - type: input
+    id: integration_version
+    attributes:
+      label: midea_ac_lan 版本
+      placeholder: 2026.10.0
     validations:
       required: true
-    attributes:
-      label: 之前可正常使用的集成版本
-      placeholder: 0.6.7
+
   - type: input
+    id: last_working_version
+    attributes:
+      label: 最后正常工作的版本
+      description: 如果从未正常工作，请填写“不适用”。
+      placeholder: 不适用
     validations:
       required: true
-    attributes:
-      label: 设备类型及设备SN
-      placeholder: Air Conditioner 22012225
-      description: |
-        > 设备型号可以在 配置 -> 设备与服务 -> Midea AC LAN -> 设备 -> 设备信息 找到
-        > SN可以在 配置 -> 设备与服务 -> Midea AC LAN -> 添加设备 -> Just list appliances 找到
-        > SN也可以在美居app的设备信息中查看
-      value: |
-        > 设备型号可以在 配置 -> 设备与服务 -> Midea AC LAN -> 设备 -> 设备信息 找到
-        > SN可以在 配置 -> 设备与服务 -> Midea AC LAN -> 添加设备 -> Just list appliances 找到
-        > SN也可以在美居app的设备信息中查看
-        > SN可以通过首页README的debug文档中使用discovery功能获取
+
   - type: input
+    id: device
+    attributes:
+      label: 设备类型、型号与脱敏 SN
+      description: 提供设备类型（如 0xAC）、型号/SN8，并仅保留 SN 中排查所需的部分字符。
+      placeholder: 0xAC / KFR-xx / SN8 ABCD1234 / SN ...1234
     validations:
       required: true
+
+  - type: dropdown
+    id: cloud
     attributes:
-      label: 使用的App
-      placeholder: 美的美居
-      description: 使用哪个App控制该设备
-  - type: textarea
+      label: 设备所在 App / Cloud
+      description: 名称与集成配置界面保持一致。
+      options:
+        - 美的美居
+        - SmartHome
+        - Midea Air
+        - NetHome Plus
+        - Ariston Clima
+        - TSmartLife
+        - Toshiba Iolife
+        - 不适用 / 手工配置
     validations:
       required: true
-    attributes:
-      label: 问题/Bug详细描述
-      description: 请准确描述问题对应的设备和操作
-      value: |
-        1. 请准确描述问题对应的设备名称、类型（尤其是log里面有一堆设备，到底哪个设备的什么操作有问题，务必准确说明）
-        2. 请准确描述有问题的操作或错误提示信息，例如操作xxx，实际是yyy等，（禁止提交XXX不能用了，XXX不行了）
-        3. 汇总为： 设备SN说明设备详细信息，描述写清楚问题和错误是什么？ 对应正确的结果应该是什么？最后：如何证明你说的一定是正确的? debug log文件用来证明错误确实存在，app截图或其它数据用来证明预期正确结果
-        4. 未按模板要求提供信息的issue将直接关闭（如果你有不提交某部分信息的特殊理由，请单独说明）
-        5. 未按模板要求提供信息的issue将直接关闭（如果你有不提交某部分信息的特殊理由，请单独说明）
-        6. 未按模板要求提供信息的issue将直接关闭（如果你有不提交某部分信息的特殊理由，请单独说明）
 
   - type: textarea
+    id: problem
     attributes:
-      label: The logs
-      description: 必须先开启Debug Log(参考首页README)，并执行产生错误的操作，将完整的Debug log文件以附件上传（请勿粘贴log中内容)
-      value: |
-        1. 必须先开启Debug Log(参考首页README说明)，无debug log的issue将直接关闭
-        2. 执行产生错误的操作（请务必在问题详细描述中说明）
-        3. 将完整的Debug log文件以附件上传。
-        4. 汇总为：设备SN说明设备详细信息，描述写清楚问题和错误是什么？ 对应正确的结果应该是什么？最后：如何证明你说的一定是正确的? debug log文件用来证明错误确实存在，app截图或其它数据用来证明预期正确结果
-        5. 请勿直接粘贴log中的一部分内容！以附件上传完整debug log文件。
-        6. 请勿直接粘贴log中的一部分内容！以附件上传debug log文件。
-        7. 请勿直接粘贴log中的一部分内容！以附件上传debug log文件。
-        ...
+      label: 问题描述与复现步骤
+      description: 说明具体设备、操作步骤、实际结果、预期结果，以及官方 App 中的对应行为。
+      placeholder: |
+        1. 操作步骤：
+        2. 实际结果：
+        3. 预期结果：
+        4. 官方 App 中的结果：
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 完整 debug 日志
+      description: 开启 debug 后重现问题，将脱敏后的完整日志文件拖放到此处。不要只粘贴自认为相关的片段。预设账号错误可忽略；云端问题请提供本人账号登录阶段的日志。
+      placeholder: 将日志文件拖放到这里
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: 其他信息
+      description: 可添加官方 App 截图、诊断信息或相关 Issue 链接；请先移除敏感信息。
