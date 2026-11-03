@@ -47,8 +47,6 @@ release.
 
 ## Checklist
 
-- [ ] I removed credentials, passwords, Tokens, Keys, full device IDs, MAC addresses, and other secrets from the PR, screenshots, and logs.
-- [ ] I preserved official App / Cloud names without translating them.
 - [ ] I linked the exact `midea-lua` protocol source and related cross-repository PRs, or explained why they do not apply.
 - [ ] I updated the applicable English and Simplified Chinese documentation or explained why no documentation change is needed.
 - [ ] I will address actionable CodeRabbit comments, reply with test evidence, and resolve the conversations before merge.

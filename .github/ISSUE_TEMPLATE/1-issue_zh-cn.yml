@@ -9,7 +9,6 @@ body:
       value: |
         感谢反馈。请完整填写模板并上传完整 debug 日志（附件形式）。
         未提供设备信息和完整 debug log 将无法确认问题，Issue 将被关闭；其他信息无需填写。
-        若问题属于设备协议解析或控制命令，维护者可能会将其转至 midea-lan；本仓库主要负责 Home Assistant 集成层。
 
   - type: checkboxes
     id: prerequisites
@@ -20,7 +19,9 @@ body:
           required: true
         - label: 我已搜索现有 Issue，未找到相同问题。
           required: true
-        - label: 我已提供设备详情和完整 debug log。
+        - label: 我已提供设备详情和上传完整 debug log 文件。
+          required: true
+        - label: 我已尝试根据设备文档里的 customize 参数配置相关参数，并在 Issue 描述中写明了尝试的选项和对应的结果。
           required: true
 
   - type: input
@@ -43,8 +44,8 @@ body:
     id: last_working_version
     attributes:
       label: 最后正常工作的版本
-      description: 如果从未正常工作，请填写“不适用”。
-      placeholder: 不适用
+      description: 如果从未正常工作，请填写“不确定”。
+      placeholder: 不确定
     validations:
       required: true
 
@@ -52,12 +53,13 @@ body:
     id: device
     attributes:
       label: 设备类型及设备SN
-      placeholder: Air Conditioner 22012225
+      placeholder: Air Conditioner, 00000051222040013252605127980000
       description: |
         > 设备型号可以在 配置 -> 设备与服务 -> Midea AC LAN -> 设备 -> 设备信息 找到
         > SN可以在 配置 -> 设备与服务 -> Midea AC LAN -> 添加设备 -> Just list appliances 找到
         > SN也可以在美居app的设备信息中查看
         > SN可以通过首页README的debug文档中使用discovery功能获取
+        > 如不愿意提供SN，可补充设备对应的 `midea-lua` protocol file，以及设备的 subtype/model 等信息
     validations:
       required: true
 
@@ -95,7 +97,7 @@ body:
     id: logs
     attributes:
       label: 完整 debug 日志
-      description: 开启 debug 后重现问题，将完整日志文件拖放到此处。不要只粘贴自认为相关的片段。很多设备启动和初始化的参数对后续问题分析定位都有意义，bug 大部分情况只适合某个特殊的设备子类型，而不是所有设备 model/subtype。部分设备可以参考对应设备文档里的 customize 参数，通过自定义配置解决问题。
+      description: 开启 debug 后重现问题，将完整日志文件拖放到此处。不要只粘贴自认为相关的片段。很多设备启动和初始化的参数对后续问题分析定位都有意义，bug 大部分情况只适合某个特殊的设备子类型，而不是所有设备 model/subtype。设备配置的 customize 自定义参数已在 Issue 描述里面写明。
       placeholder: 将日志文件拖放到这里
     validations:
       required: true
