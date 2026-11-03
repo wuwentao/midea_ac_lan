@@ -48,7 +48,8 @@ release.
 ## Checklist
 
 - [ ] I linked the exact `midea-lua` protocol source and related cross-repository PRs, or explained why they do not apply.
-- [ ] I updated the applicable English and Simplified Chinese documentation or explained why no documentation change is needed.
+- [ ] I updated the device attribute translations.
+- [ ] I have added the new device attributes to the English and Chinese device documentation files.
 - [ ] I will address actionable CodeRabbit comments, reply with test evidence, and resolve the conversations before merge.
 - [ ] I linked the related `midea_ac_lan` issue, or explained why none applies.
 - [ ] I linked the related `midea-lan` PR, or explained why none applies.
