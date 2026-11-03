@@ -11,6 +11,8 @@ Control your Midea M-Smart appliances over the local network.
 - Create extra sensors and switches for appliance control.
 - Keep a long-lived TCP connection to synchronize appliance status in real time.
 
+> `midea_ac_lan` requires only a LAN connection for normal appliance control; it does not use the cloud for routine commands or status updates. However, the appliance's built-in Wi-Fi module is designed to maintain a connection to Midea Cloud after joining a Wi-Fi network. If Internet access is blocked, the module will repeatedly restart and probe for connectivity until it can reach Midea Cloud. This behavior comes from the appliance's Wi-Fi hardware/firmware design; it is not a cloud requirement of this integration.
+
 ⭐If this component is helpful for you, please star it, it encourages me a lot.
 
 **_❗Note: This integration requires Home Assistant 2024.4.1 or higher_**
