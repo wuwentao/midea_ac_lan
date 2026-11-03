@@ -8,18 +8,15 @@ body:
     attributes:
       value: |
         New device protocols commonly span three repositories: midea-lua preserves protocol sources, midea-lan implements the protocol, and midea_ac_lan exposes Home Assistant entities.
-        Never upload credentials, passwords, Tokens, Keys, or unredacted device identifiers.
 
   - type: checkboxes
     id: prerequisites
     attributes:
       label: Before submitting
       options:
-        - label: I have read the [README](https://github.com/wuwentao/midea_ac_lan/blob/main/README.md), my appliance documentation, and the [adding-a-new-device guide](https://github.com/wuwentao/midea_ac_lan/blob/main/doc/adding-a-new-device.md).
+        - label: I have read the [README](https://github.com/wuwentao/midea_ac_lan/blob/main/README.md) and my appliance documentation.
           required: true
-        - label: I searched existing issues and did not find the same request.
-          required: true
-        - label: I can provide a redacted official-app screenshot or other evidence that the requested feature exists.
+        - label: I can provide an official-app screenshot or other evidence that the requested feature exists.
           required: true
 
   - type: dropdown
@@ -36,9 +33,13 @@ body:
   - type: input
     id: device
     attributes:
-      label: Device type, model, and redacted serial number
-      description: Include the type and model/SN8, but retain only the full-serial characters needed for diagnosis.
-      placeholder: 0xD9 / model ABCD1234 / SN ...1234
+      label: Device type and Device SN
+      placeholder: Air Conditioner, SN 22012225xxxxxx
+      description: |
+        > The model can be found in Settings -> Devices & Services -> Midea AC LAN -> Devices -> Device Info
+        > The SN can be found in Settings -> Devices & Services -> Midea AC LAN -> Add device -> Just list appliances
+        > The SN also can be found in your SmartHome APP
+        > The SN also can be discovered via the discovery command in the debug guide
     validations:
       required: true
 
@@ -69,9 +70,9 @@ body:
   - type: textarea
     id: evidence
     attributes:
-      label: Screenshots, logs, and protocol sources
-      description: For a supported appliance, attach a redacted complete debug log and official-app screenshots. Link any relevant midea-lua file, midea-lan issue/PR, or protocol source.
-      placeholder: Drag files here and add related links
+      label: Screenshots and feature options
+      description: Upload an official-app feature screenshot and the corresponding selectable feature values.
+      placeholder: Drag screenshots here and list the selectable feature values
     validations:
       required: true
 

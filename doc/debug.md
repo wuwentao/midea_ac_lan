@@ -66,7 +66,7 @@ data:
   midealan: debug
 ```
 
-5. Go to **Settings → Devices & services → Midea AC LAN → Devices → Configure** (the same page that contains the appliance **Customize** option), then submit the current settings to reload `midea_ac_lan`.
+5. Go to **Settings → Devices & services → Midea AC LAN → Devices → Configure → Reload**.
 6. Trigger the problematic action.
 7. Download the log via **Settings → System → Logs**.
 

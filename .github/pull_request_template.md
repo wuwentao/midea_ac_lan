@@ -50,11 +50,7 @@ release.
 - [ ] I removed credentials, passwords, Tokens, Keys, full device IDs, MAC addresses, and other secrets from the PR, screenshots, and logs.
 - [ ] I preserved official App / Cloud names without translating them.
 - [ ] I linked the exact `midea-lua` protocol source and related cross-repository PRs, or explained why they do not apply.
-- [ ] I did not bump the `midea-lan` requirement as part of a device-feature change.
 - [ ] I updated the applicable English and Simplified Chinese documentation or explained why no documentation change is needed.
-- [ ] I ran `uv run pre-commit run --all-files` and fixed all failures.
 - [ ] I will address actionable CodeRabbit comments, reply with test evidence, and resolve the conversations before merge.
-
-## AI assistance
-
-<!-- Optional: identify any AI tool/model used and describe how its output was reviewed. -->
+- [ ] I linked the related `midea_ac_lan` issue, or explained why none applies.
+- [ ] I linked the related `midea-lan` PR, or explained why none applies.

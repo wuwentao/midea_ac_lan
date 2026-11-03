@@ -8,7 +8,7 @@ body:
     attributes:
       value: |
         Thanks for reporting a problem. Complete every required field and attach the full debug log as a file.
-        Never publish account credentials, passwords, Tokens, Keys, full device IDs, MAC addresses, or other secrets.
+        Without appliance details and a complete debug log, the problem cannot be confirmed and the issue will be closed; no other information is needed.
         Protocol parsing and device-command problems may need to be fixed in midea-lan; this repository primarily contains the Home Assistant integration layer.
 
   - type: checkboxes
@@ -20,7 +20,7 @@ body:
           required: true
         - label: I searched existing issues and did not find the same problem.
           required: true
-        - label: I removed credentials, passwords, Tokens, Keys, and other secrets, and will attach the complete debug log as a file.
+        - label: I provided the appliance details and complete debug log.
           required: true
 
   - type: input
@@ -51,9 +51,13 @@ body:
   - type: input
     id: device
     attributes:
-      label: Device type, model, and redacted serial number
-      description: Include the hexadecimal type (for example 0xAC), model/SN8, and only the serial-number characters needed for diagnosis.
-      placeholder: 0xAC / model KFR-xx / SN8 ABCD1234 / SN ...1234
+      label: Device type and Device SN
+      placeholder: Air Conditioner, SN 22012225xxxxxx
+      description: |
+        > The model can be found in Settings -> Devices & Services -> Midea AC LAN -> Devices -> Device Info
+        > The SN can be found in Settings -> Devices & Services -> Midea AC LAN -> Add device -> Just list appliances
+        > The SN also can be found in your SmartHome APP
+        > The SN also can be discovered via the discovery command in the debug guide
     validations:
       required: true
 
@@ -91,7 +95,7 @@ body:
     id: logs
     attributes:
       label: Complete debug log
-      description: Enable debug logging, reproduce the problem, redact secrets, and drag the complete log file here. Do not paste only selected lines. Ignore preset-account errors; for cloud failures, include logs from the login attempt using your own account.
+      description: Enable debug logging, reproduce the problem, and drag the complete log file here. Do not paste only selected lines. Many startup and initialization parameters are important for analysis. Bugs often apply only to a specific appliance subtype, not every model/subtype. For some appliances, the customize parameters in the corresponding appliance documentation may resolve the problem.
       placeholder: Drag the log file here
     validations:
       required: true
@@ -100,4 +104,4 @@ body:
     id: additional_context
     attributes:
       label: Additional context
-      description: Add redacted official-app screenshots, diagnostics, or related issue links if useful.
+      description: Add official-app screenshots, diagnostics, or related issue links if useful.
