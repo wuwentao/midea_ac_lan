@@ -16,7 +16,7 @@ from midea_ac_lan.sensor import MideaSensor, async_setup_entry
 from midea_ac_lan.water_heater import MideaC3WaterHeater
 
 C3 = 0xC3
-ENERGY_SENSOR_COUNT = 57
+ENERGY_SENSOR_COUNT = 56
 RECORDER_ATTRIBUTE_LIMIT = 16384
 TEST_POWER = 1234.56
 ENERGY_CONFIGS = {
@@ -81,15 +81,27 @@ def test_optional_entities_require_matching_library_attributes() -> None:
     hass.data = {DOMAIN: {DEVICES: {1: device}}}
     entry = Mock()
     entry.data = {CONF_DEVICE_ID: 1}
-    entry.options = {CONF_SENSORS: ["heating_power", "dhw_power_consumption"]}
+    entry.options = {
+        CONF_SENSORS: ["heating_power_consumption", "dhw_power_consumption"],
+    }
     add = Mock()
     asyncio.run(async_setup_entry(hass, entry, add))
     add.assert_called_once_with([])
-    device.attributes.update(heating_power=1.5, dhw_power_consumption=0.0)
+    device.attributes.update(heating_power_consumption=1.5, dhw_power_consumption=0.0)
     asyncio.run(async_setup_entry(hass, entry, add))
     entities = add.call_args.args[0]
     assert len(entities) == len(entry.options[CONF_SENSORS])
     assert [entity.native_value for entity in entities] == [1.5, 0.0]
+
+
+def test_current_unit_capacity_replaces_duplicate_heat_output() -> None:
+    """Remove the duplicate while retaining the shared legacy diagnostic."""
+    entities = cast("dict[str, dict[str, Any]]", MIDEA_DEVICES[C3]["entities"])
+    assert "heat_output" not in entities
+    config = entities["current_unit_capacity"]
+    assert "device_class" not in config
+    assert "unit" not in config
+    assert config["entity_category"] == EntityCategory.DIAGNOSTIC
 
 
 def test_curated_telemetry_fits_both_control_entities() -> None:
@@ -103,5 +115,5 @@ def test_curated_telemetry_fits_both_control_entities() -> None:
     ):
         attrs = entity.extra_state_attributes
         assert len(json.dumps(attrs).encode()) < RECORDER_ATTRIBUTE_LIMIT
-        assert attrs["heating_power"] == pytest.approx(TEST_POWER)
+        assert attrs["heating_power_consumption"] == pytest.approx(TEST_POWER)
         assert not any(key.startswith("c3_") for key in attrs)
