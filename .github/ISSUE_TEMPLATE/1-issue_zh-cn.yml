@@ -8,7 +8,7 @@ body:
     attributes:
       value: |
         感谢反馈。请完整填写模板并上传完整 debug 日志（附件形式）。
-        未提供设备信息和完整 debug log 将无法确认问题，Issue 将被关闭；其他信息无需填写。
+        未提供设备信息和完整 debug log 将无法确认问题，Issue 将被关闭。
 
   - type: checkboxes
     id: prerequisites
@@ -84,7 +84,7 @@ body:
     id: problem
     attributes:
       label: 问题描述与复现步骤
-      description: 说明具体设备、操作步骤、实际结果、预期结果，以及官方 App 中的对应行为。
+      description: 说明具体设备、操作步骤、实际结果、预期结果，以及官方 App 中的对应行为。如果设置或配置了 customize 参数，请说明当前的配置。
       placeholder: |
         1. 操作步骤：
         2. 实际结果：
@@ -97,7 +97,7 @@ body:
     id: logs
     attributes:
       label: 完整 debug 日志
-      description: 开启 debug 后重现问题，将完整日志文件拖放到此处。不要只粘贴自认为相关的片段。很多设备启动和初始化的参数对后续问题分析定位都有意义，bug 大部分情况只适合某个特殊的设备子类型，而不是所有设备 model/subtype。设备配置的 customize 参数已在 Issue 描述里面写明。
+      description: debug log 中已自动删除 user/passwd/token/key 等敏感信息。开启 debug 后重现问题，将完整日志文件拖放到此处。不要只粘贴自认为相关的片段。很多设备启动和初始化的参数对后续问题分析定位都有意义，bug 大部分情况只适合某个特殊的设备子类型，而不是所有设备 model/subtype。
       placeholder: 将日志文件拖放到这里
     validations:
       required: true

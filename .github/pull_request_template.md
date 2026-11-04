@@ -37,8 +37,6 @@ release.
 
 ## Tests and verification
 
-- Commands run:
-- Home Assistant version:
 - Hardware/device verification:
 
 ## Documentation and translations
