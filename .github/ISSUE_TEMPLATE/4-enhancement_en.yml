@@ -1,29 +1,37 @@
 ---
-name: New feature | Enhancement
-description: New feature support or new device support request
+name: New appliance or feature request (English)
+description: Request a new appliance type or a feature for an existing appliance
+title: "[Feature] "
 labels: ["enhancement"]
 body:
-  - type: checkboxes
-    id: ensure
+  - type: markdown
     attributes:
-      label: Verify Issue Submission
-      description: Before submitting, please check the following options to confirm you have followed the template requirements, otherwise this issue will be closed.
+      value: |
+        New device protocols commonly span three repositories: midea-lua preserves protocol sources, midea-lan implements the protocol, and midea_ac_lan exposes Home Assistant entities.
+
+  - type: checkboxes
+    id: prerequisites
+    attributes:
+      label: Before submitting
       options:
-        - label: I have read the [README documentation](https://github.com/wuwentao/midea_ac_lan/blob/main/README.md) , understand how to use midea_ac_lan and enable debug log.
-          required: false
-        - label: I have read the [device documentation](https://github.com/wuwentao/midea_ac_lan/blob/main/README.md#4-supported-appliances) for this issue in the README, but the problem still can't fix.
-          required: false
-        - label: I have submitted the device type and SN information.
+        - label: I have read the [README](https://github.com/wuwentao/midea_ac_lan/blob/main/README.md) and my appliance documentation.
           required: true
-        - label: I have uploaded the full debug log file, rather than just paste a parts of log based on my own judgment.
-          required: false
-        - label: I have accurately and clearly described what feature is being added, and also include corresponding app screenshots.
+        - label: I can provide an official-app screenshot or other evidence that the requested feature exists.
           required: true
-        - label: I have searched for my issue in the [Issue Tracker](https://github.com/wuwentao/midea_ac_lan/issues) and have not found it.
-          required: false
-  - type: input
+
+  - type: dropdown
+    id: request_type
+    attributes:
+      label: Request type
+      options:
+        - Support a new appliance type
+        - Add an attribute or control to a supported appliance
+        - Improve a Home Assistant entity or interaction
     validations:
       required: true
+
+  - type: input
+    id: device
     attributes:
       label: Device type and Device SN
       placeholder: Air Conditioner, SN 22012225xxxxxx
@@ -31,21 +39,45 @@ body:
         > The model can be found in Settings -> Devices & Services -> Midea AC LAN -> Devices -> Device Info
         > The SN can be found in Settings -> Devices & Services -> Midea AC LAN -> Add device -> Just list appliances
         > The SN also can be found in your SmartHome APP
-        > The SN also can be discovery via debug doc in README
-      value: |
-        > The model can be found in Settings -> Devices & Services -> Midea AC LAN -> Devices -> Device Info
-        > The SN can be found in Settings -> Devices & Services -> Midea AC LAN -> Add device -> Just list appliances
-        > The SN also can be found in your SmartHome APP
-        > The SN also can be discovery via debug doc in README
-  - type: textarea
+        > The SN also can be discovered via the discovery command in the debug guide
     validations:
       required: true
+
+  - type: dropdown
+    id: cloud
     attributes:
-      label: The detail description of new feature
-      value: |
-        1. support new device : description device type and features you want to support
-        2. support new feature: description the feature details with device type and details
-        3. Device SN describes detailed device information. Functional requirements must clearly describe what functionality is being added, and should include corresponding app screenshots or other documentation to prove the app actually supports this feature. Additionally, explain the current app's operational logic, display style, and expected results after execution.
-        4. you MUST attach a debug log for exist device, Submit Issue that don't follow the template's requirements will be closed immediately.
-        5. you MUST attach a debug log for exist device, Submit Issue that don't follow the template's requirements will be closed immediately.
-        6. you MUST attach a debug log for exist device, Submit Issue that don't follow the template's requirements will be closed immediately.
+      label: App / Cloud containing the appliance
+      options:
+        - 美的美居
+        - SmartHome
+        - Midea Air
+        - NetHome Plus
+        - Ariston Clima
+        - TSmartLife
+        - Toshiba Iolife
+        - N/A / manually configured
+    validations:
+      required: true
+
+  - type: textarea
+    id: feature
+    attributes:
+      label: Requested behavior and official-app workflow
+      description: Describe the value or control, how the official app operates and displays it, and how it should appear in Home Assistant.
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Screenshots and feature options
+      description: Upload an official-app feature screenshot and the corresponding selectable feature values.
+      placeholder: Drag screenshots here and list the selectable feature values
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional context
+      description: Add appliance variants, attempted solutions, or related issues if useful.

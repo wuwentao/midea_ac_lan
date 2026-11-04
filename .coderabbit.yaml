@@ -10,6 +10,9 @@ reviews:
   # Do not gate merges on CodeRabbit; CI (ruff/mypy/pylint) is the gate.
   request_changes_workflow: false
   high_level_summary: true
+  # Keep the contributor's PR description intact. Publish the summary in the
+  # walkthrough review comment instead of appending it to the description.
+  high_level_summary_in_walkthrough: true
   review_status: true
   collapse_walkthrough: true
   changed_files_summary: true

@@ -8,6 +8,16 @@ A Home Assistant custom integration (distributed via HACS) that controls Midea M
 
 Integration code lives entirely in `custom_components/midea_ac_lan/`. Minimum Home Assistant: **2024.4.1**; target Python **3.12+**.
 
+## Project family and change routing
+
+Device support commonly spans three repositories. Keep their responsibilities separate and cross-link related issues and PRs:
+
+- [`midea-lua`](https://github.com/wuwentao/midea-lua) archives vendor Lua protocol files used as research sources. It is **not** a runtime dependency. If the required protocol file is absent, obtain it as documented there and submit it before implementing the protocol.
+- [`midea-lan`](https://github.com/wuwentao/midea-lan) implements discovery, Cloud access, authentication, encryption, message parsing/encoding, appliance attributes, and LAN commands. Protocol and device-behavior fixes belong there and require tests.
+- [`midea_ac_lan`](https://github.com/wuwentao/midea_ac_lan) maps `midealan` attributes to Home Assistant entities, configuration flows, services, translations, and user documentation.
+
+For protocol-backed device work, link the exact `midea-lua` file, the related `midea-lan` issue/PR, and the matching `midea_ac_lan` issue/PR. Use `N/A` with a short explanation only when a layer genuinely does not apply. Do not bump the `midea-lan` requirement in a feature PR; the maintainer updates it after publishing the library release.
+
 ## Architecture
 
 ### The device registry (`midea_devices.py`) is the center of everything
@@ -45,6 +55,14 @@ Note: simple platforms (switch, sensor, …) are generic and data-driven. Comple
 
 `MideaLanConfigFlow` handles discovery/manual add and fetching Token+Key from the Midea cloud (`midealan.cloud`); `MideaLanOptionsFlowHandler` handles per-device options (IP, refresh interval, extra sensor/switch selection, customize). Successfully-added V3 devices are cached to `.storage/midea_ac_lan/<device_id>.json` and reloaded on re-add.
 
+In Home Assistant OS, the full cache path is `/config/.storage/midea_ac_lan/<device_id>.json`. A backed-up JSON file can be restored by copying it into that directory; adding the appliance then automatically loads the cached configuration and skips the Cloud Token/Key request.
+
+### Cloud and appliance Wi-Fi behavior
+
+`midea_ac_lan` controls appliances over the LAN after setup, but the appliance Wi-Fi hardware is designed to reach a Midea Cloud server after joining Wi-Fi. Blocking Internet access for the appliance may cause its Wi-Fi module to repeatedly reboot and probe until the Cloud is reachable; do not misdiagnose that hardware behavior as a LAN integration requirement.
+
+Keep official App / Cloud names unchanged in every language. Do not translate or normalize these names: `美的美居`, `SmartHome`, `Midea Air`, `NetHome Plus`, `Ariston Clima`, `TSmartLife`, and `Toshiba Iolife`. Current Midea Cloud endpoints accept personal accounts associated with a valid appliance. Preset-account login errors can be ignored because preset accounts contain no appliance and cannot provide its Token/Key; troubleshoot Cloud login with redacted debug logs from the user's own account.
+
 ### Home Assistant multi-version compatibility
 
 The integration supports a wide HA version range by branching on `(MAJOR_VERSION, MINOR_VERSION)` (imported from `homeassistant.const`). When using newer HA APIs, guard them this way — grep the codebase for `MAJOR_VERSION` for examples.
@@ -70,6 +88,8 @@ uv run pylint custom_components     # pylint (config: pylintrc)
 
 Dependencies (including the per-Python `homeassistant==` pins) live in `pyproject.toml` and are resolved by environment markers; `uv sync` installs the right set for your Python. There are no `requirements-dev-3.1x.txt` files anymore.
 
+The pinned Node version under `default_language_version` in `.pre-commit-config.yaml` keeps Prettier reproducible across platforms. Do not remove or change it without validating the full pre-commit suite on Windows as well as the primary development platform.
+
 ## Conventions
 
 - **Commits must follow Conventional Commits** — enforced by commitlint + commitizen on the `commit-msg` hook. Types: `feat`, `fix`, `chore`, `docs`, `refactor`, `test`. Releases are automated from these messages (see recent `chore(main): midea_ac_lan release vX.Y.Z` commits).
@@ -77,3 +97,13 @@ Dependencies (including the per-Python `homeassistant==` pins) live in `pyprojec
 - **Releasing** bumps `version` in `manifest.json`, which must be valid semver **without a `v` prefix** (HACS 2.0+ rejects `v`-prefixed); enforced by `.github/workflows/release.yml`.
 - **Adding a new device type**: add a `0xXX` entry to `MIDEA_DEVICES` in `midea_devices.py`, add a `doc/<TYPE>.md` (+ `_hans` Chinese variant) and a row in `README.md`'s supported-appliances table. Add UI strings to `custom_components/midea_ac_lan/translations/en.json` (and other locales) keyed by `translation_key`. Do **not** bump the `midea-lan` pin in `manifest.json` in the feature PR — the maintainer sets that in a follow-up PR after cutting the library release. The full step-by-step walkthrough is in [`doc/adding-a-new-device.md`](doc/adding-a-new-device.md) (and its `.zh-Hans.md` translation), which uses `0xD9` ([PR #1086](https://github.com/wuwentao/midea_ac_lan/pull/1086)) as its running example and `0x9B` ([PR #1096](https://github.com/wuwentao/midea_ac_lan/pull/1096)) as a second, larger example (61 entities) covering the duplicate-translation-key hazard (`check-json` fails on a duplicate key within a platform section — reuse a shared key or namespace yours, e.g. `x9b_fire_power`), distinct `translation_key`s for a coexisting read sensor + write control, and the bool-not-string requirement for switch/binary_sensor/lock states.
 - CI validation: `.github/workflows/linter.yml` (pre-commit) and `validate.yml` (HACS + hassfest).
+
+## Documentation, templates, and security
+
+- Keep English and Simplified Chinese documents aligned when both variants exist. Preserve commands, paths, App / Cloud names, warnings, and behavior across translations.
+- Issue forms must collect Home Assistant and integration versions, appliance type/model and redacted SN, exact App / Cloud, reproduction details, expected behavior, and complete redacted debug logs or feature evidence. Keep paired English/Chinese forms structurally equivalent.
+- The pull request template must retain cross-repository protocol-source links, testing/hardware evidence, documentation impact, and the security checklist. Use a UTF-8/LF Markdown body file with the applicable `gh` command's `--body-file` option for multiline GitHub text.
+- Never commit or publish account credentials, passwords, Tokens, Keys, full device IDs, MAC addresses, private keys, or unredacted logs. Examples must use clearly fictional or masked values.
+- Treat `.storage` device JSON as sensitive because it may contain identifiers and authentication material. Documentation may explain backup/restore paths, but repository fixtures and PR attachments must be sanitized.
+
+Reviewed and updated by OpenAI Codex (GPT-5).

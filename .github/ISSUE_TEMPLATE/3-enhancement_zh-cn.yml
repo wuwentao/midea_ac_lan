@@ -1,31 +1,37 @@
 ---
-name: 新功能请求
-description: 请求增加新设备支持或请求为已有设备增加新的功能
+name: 新设备或功能请求（中文）
+description: 请求支持新设备类型，或为已有设备增加功能
+title: "[Feature] "
 labels: ["enhancement"]
 body:
-  - type: checkboxes
-    id: ensure
+  - type: markdown
     attributes:
-      label: 验证issue输入
-      description: 在提交之前，请勾选以下选项以证明您已经按模板要求提交了，否则该 issue 将被关闭。
+      value: |
+        新设备协议通常需要三个仓库协作：midea-lua 保存协议来源，midea-lan 实现协议，midea_ac_lan 暴露 Home Assistant 实体。
+
+  - type: checkboxes
+    id: prerequisites
+    attributes:
+      label: 提交前确认
       options:
-        - label: 我确认已经完整阅读过 [README文档](https://github.com/wuwentao/midea_ac_lan/blob/main/README_hans.md)，并已掌握如何在HA中使用midea_ac_lan和开启debug log。
-          required: false
-        - label: 我确认已经阅读过 README中当前issue的[设备使用文档](https://github.com/wuwentao/midea_ac_lan/blob/main/README_hans.md#4-%E5%B7%B2%E6%94%AF%E6%8C%81%E7%9A%84%E8%AE%BE%E5%A4%87) ，但仍无法解决问题
-          required: false
-        - label: 我已经提交了设备类型和SN信息
+        - label: 我已阅读 [README](https://github.com/wuwentao/midea_ac_lan/blob/main/README_hans.md)、对应设备文档。
           required: true
-        - label: 我已经上传了完整的debug log文件，而不是出于对自身的自信而仅提供了部分认为有用的部分。
-          required: false
-        - label: 我已经准确清晰的描述了当前设备希望增加哪几个功能，对应app的操作截图也已上传
+        - label: 我能提供官方 App 中存在该功能的截图或其他证据。
           required: true
-        - label: 我是中文用户，使用美的美居，而非海外其他语言用户
-          required: false
-        - label: 我已在 [Issue Tracker](https://github.com/wuwentao/midea_ac_lan/issues) 中寻找过我要提出的问题，并且没有找到
-          required: false
-  - type: input
+
+  - type: dropdown
+    id: request_type
+    attributes:
+      label: 请求类型
+      options:
+        - 支持新的设备类型
+        - 为已支持的设备增加属性或控制功能
+        - 改进 Home Assistant 实体或交互
     validations:
       required: true
+
+  - type: input
+    id: device
     attributes:
       label: 设备类型及设备SN
       placeholder: Air Conditioner 22012225
@@ -33,23 +39,45 @@ body:
         > 设备型号可以在 配置 -> 设备与服务 -> Midea AC LAN -> 设备 -> 设备信息 找到
         > SN可以在 配置 -> 设备与服务 -> Midea AC LAN -> 添加设备 -> Just list appliances 找到
         > SN也可以在美居app的设备信息中查看
-      value: |
-        > 设备型号可以在 配置 -> 设备与服务 -> Midea AC LAN -> 设备 -> 设备信息 找到
-        > SN可以在 配置 -> 设备与服务 -> Midea AC LAN -> 添加设备 -> Just list appliances 找到
-        > SN也可以在美居app的设备信息中查看
         > SN可以通过首页README的debug文档中使用discovery功能获取
-  - type: textarea
     validations:
       required: true
+
+  - type: dropdown
+    id: cloud
     attributes:
-      label: 新功能的具体描述
-      value: |
-        1. 新增设备支持：希望支持的设备类型以及具体功能，例如查看状态、控制某个功能等，务必清晰准确描述。
-        2. 已有设备新增功能支持：app中可以查看数据，可以控制某个功能，目前不支持，请清晰准确描述。
-        3. 设备SN说明设备详细信息，功能需求必须描述清楚增加什么功能，还需要对应app截图或其它说明，用来证明app确实支持该功能，并且当前app的操作是什么逻辑，执行显示样式和结果
-        4. 已添加成功的设备，新增功能支持，必须上传Debug Log(参考首页README说明)，不按模板提交issue将直接关闭
-        5. 已添加成功的设备，新增功能支持，必须上传Debug Log(参考首页README说明)，不按模板提交issue将直接关闭
-        6. 已添加成功的设备，新增功能支持，必须上传Debug Log(参考首页README说明)，不按模板提交issue将直接关闭
-        7. 未按模板要求提供信息的issue将直接关闭（如果你有不提交某部分信息的特殊理由，请单独说明）
-        8. 未按模板要求提供信息的issue将直接关闭（如果你有不提交某部分信息的特殊理由，请单独说明）
-        9. 未按模板要求提供信息的issue将直接关闭（如果你有不提交某部分信息的特殊理由，请单独说明）
+      label: 设备所在 App / Cloud
+      options:
+        - 美的美居
+        - SmartHome
+        - Midea Air
+        - NetHome Plus
+        - Ariston Clima
+        - TSmartLife
+        - Toshiba Iolife
+        - 不适用 / 手工配置
+    validations:
+      required: true
+
+  - type: textarea
+    id: feature
+    attributes:
+      label: 功能需求与官方 App 行为
+      description: 准确描述要读取或控制的功能、官方 App 的操作逻辑、显示结果，以及希望在 Home Assistant 中如何呈现。
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 截图、日志与协议来源
+      description: 请上传官方 App 功能截图及对应的功能可选值。
+      placeholder: 将截图拖放到此处，并填写功能可选值
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: 其他信息
+      description: 可补充设备差异、已尝试方案或关联 Issue。
