@@ -16,13 +16,13 @@ body:
       label: 提交前确认
       options:
         - label: 我已阅读 [README](https://github.com/wuwentao/midea_ac_lan/blob/main/README_hans.md)、对应设备文档和 [Debug 文档](https://github.com/wuwentao/midea_ac_lan/blob/main/doc/debug_hans.md)。
-          required: true
+          required: false
         - label: 我已搜索现有 Issue，未找到相同问题。
-          required: true
+          required: false
         - label: 我已提供设备详情和上传完整 debug log 文件。
-          required: true
+          required: false
         - label: 我已尝试根据设备文档里的 customize 配置相关参数，并在 Issue 描述中写明了配置的值和对应的结果。
-          required: true
+          required: false
 
   - type: input
     id: ha_version
