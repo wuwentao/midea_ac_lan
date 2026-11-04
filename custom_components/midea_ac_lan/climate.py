@@ -57,7 +57,14 @@ from midealan.devices.ed import MideaEDDevice
 from midealan.devices.fb import DeviceAttributes as FBAttributes
 from midealan.devices.fb import MideaFBDevice
 
-from .const import DEVICES, DOMAIN, FanSpeed, supports_device
+from .const import (
+    DEVICES,
+    DOMAIN,
+    MODEL_220F4047,
+    SUBTYPE_220F4047,
+    FanSpeed,
+    supports_device,
+)
 from .midea_devices import MIDEA_DEVICES
 from .midea_entity import MideaEntity
 
@@ -503,12 +510,19 @@ class MideaACClimate(MideaClimate):
                 self._customize_fan_modes = wanted_f
 
     def _capability_swing(self) -> bool:
-        """Whether swing is available (customize > B5 capability > default).
+        """Whether the current control path supports swing.
 
         Returns:
             ``True`` when the swing control should be exposed.
 
         """
+        # This firmware did not execute the tested commands. Do not infer that
+        # the hardware lacks swing or apply this limitation to another subtype.
+        if (
+            str(self._device.model) == MODEL_220F4047
+            and int(self._device.subtype) == SUBTYPE_220F4047
+        ):
+            return False
         if self._customize_swing is not None:
             return self._customize_swing
         caps = getattr(self._device, "capabilities", {})
