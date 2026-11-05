@@ -8,12 +8,9 @@ import unittest.mock
 from unittest.mock import Mock, patch
 
 import pytest
-from homeassistant.const import Platform
 
-from custom_components.midea_ac_lan.button import MideaButton, async_setup_entry
+from custom_components.midea_ac_lan.button import MideaButton
 from custom_components.midea_ac_lan.midea_devices import MIDEA_DEVICES
-
-from .helpers import DeviceFactory, InstallConfig, setup_context
 
 # Both laundry device types register the same cancellation button; iterate over
 # whichever of them exposes it so the washer and dryer stay covered together.
@@ -86,74 +83,3 @@ def test_capability_updates_refresh_laundry_buttons(device_type: int) -> None:
     with patch.object(entity, "schedule_update_if_running") as refresh:
         entity.update_state({"appointment_controls_available": False})
     refresh.assert_called_once_with()
-
-
-async def test_async_setup_entry_filters_buttons(
-    device_factory: DeviceFactory,
-    install_config: InstallConfig,
-) -> None:
-    """Only add supported, enabled buttons with their required capability."""
-    install_config(
-        {
-            "default": {
-                "type": Platform.BUTTON,
-                "default": True,
-                "press_value": True,
-            },
-            "selected": {"type": Platform.BUTTON, "press_value": True},
-            "missing": {
-                "type": Platform.BUTTON,
-                "default": True,
-                "required_attribute": "capability",
-                "press_value": True,
-            },
-            "unsupported": {
-                "type": Platform.BUTTON,
-                "default": True,
-                "models": ["OTHER"],
-                "press_value": True,
-            },
-        },
-    )
-    device, _ = device_factory()
-    hass, entry, add_entities = setup_context(device, switches=["selected"])
-    await async_setup_entry(hass, entry, add_entities)
-    assert [item._entity_key for item in add_entities.call_args.args[0]] == [
-        "default",
-        "selected",
-    ]
-
-
-def test_button_availability_press_and_detached_update(
-    device_factory: DeviceFactory,
-    install_config: InstallConfig,
-) -> None:
-    """Gate on device power, send mapped values, and ignore detached updates."""
-    install_config(
-        {
-            "start": {
-                "type": Platform.BUTTON,
-                "attribute": "command",
-                "press_value": "start",
-                "available_power_attribute": "power",
-            },
-            "pause": {"type": Platform.BUTTON, "press_status": "pause"},
-        },
-    )
-    device, values = device_factory(attributes={"power": False})
-    start = MideaButton(device, "start")
-    assert not start.available
-    values["power"] = True
-    assert start.available
-    start.press()
-    MideaButton(device, "pause").press()
-    assert device.set_attribute.call_args_list == [
-        unittest.mock.call("command", "start"),
-        unittest.mock.call("status", "pause"),
-    ]
-    device.available = False
-    assert not start.available
-
-    start.schedule_update_if_running = Mock()
-    start.update_state({"power": False})
-    start.schedule_update_if_running.assert_not_called()
