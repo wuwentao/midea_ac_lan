@@ -999,8 +999,25 @@ class MideaC3Climate(MideaClimate):
 
     @property
     def native_current_temperature(self) -> float | None:
-        """Midea C3 Climate current temperature."""
-        return None
+        """Midea C3 Climate current temperature.
+
+        Select the sensor from the configured zone temperature type, which is
+        independent of whether the zone is currently powered. Water zones use
+        T1 for zone 1 and the mixed-circuit outlet Tw2 for zone 2; room zones
+        use the room sensor Ta.
+        """
+        temp_types = self._device.get_attribute(C3Attributes.zone_temp_type)
+        if not isinstance(temp_types, list) or len(temp_types) <= self._zone:
+            return None
+        water = temp_types[self._zone]
+        if water is None:
+            return None
+        if water:
+            attribute = (C3Attributes.temp_t1, C3Attributes.temp_tw2)[self._zone]
+        else:
+            attribute = C3Attributes.temp_ta
+        value = self._device.get_attribute(attribute)
+        return None if value is None else float(cast("float", value))
 
     def set_temperature(self, **kwargs: Any) -> None:  # ruff:ignore[any-type]
         """Midea C3 Climate set temperature."""

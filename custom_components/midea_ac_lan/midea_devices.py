@@ -5926,6 +5926,9 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "holiday_on",
                 "name": "Holiday Mode",
                 "icon": "mdi:palm-tree",
+                # 17100007 only reports holiday_on_state; the vendor Lua sets
+                # holidays through a dated schedule table, not an on/off write.
+                "excluded_models": ["17100007"],
             },
             C3Attributes.status_cool: {
                 "type": Platform.BINARY_SENSOR,
