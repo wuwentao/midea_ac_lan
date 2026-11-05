@@ -274,7 +274,7 @@ class MideaClimate(NativeTemperatureCompat, MideaEntity, ClimateEntity):
         self.schedule_update_if_running()
 
 
-class MideaEDTeaBarClimate(MideaEntity, ClimateEntity):
+class MideaEDTeaBarClimate(NativeTemperatureCompat, MideaEntity, ClimateEntity):
     """On/off heater and temperature control for the subtype-395 tea bar."""
 
     _enable_turn_on_off_backwards_compatibility = False
@@ -284,6 +284,8 @@ class MideaEDTeaBarClimate(MideaEntity, ClimateEntity):
     _attr_min_temp = 40
     _attr_target_temperature_step = PRECISION_WHOLE
     _attr_native_temperature_unit = UnitOfTemperature.CELSIUS
+    _attr_native_target_temperature_high: float | None = None
+    _attr_native_target_temperature_low: float | None = None
 
     @property
     def supported_features(self) -> ClimateEntityFeature:

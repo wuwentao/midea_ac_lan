@@ -12,9 +12,13 @@ from homeassistant.const import (
     Platform,
     UnitOfTemperature,
 )
+from midealan.devices.ed import DeviceAttributes as EDAttributes
 from midealan.devices.fb import DeviceAttributes as FBAttributes
 
-from custom_components.midea_ac_lan.climate import MideaFBClimate
+from custom_components.midea_ac_lan.climate import (
+    MideaEDTeaBarClimate,
+    MideaFBClimate,
+)
 from custom_components.midea_ac_lan.water_heater import MideaE2WaterHeater
 
 from .helpers import DeviceFactory, InstallConfig
@@ -94,3 +98,26 @@ def test_water_heater_legacy_names_forward_to_native(
     assert entity.temperature_unit == UnitOfTemperature.CELSIUS
     assert entity.current_temperature == pytest.approx(41.0)
     assert entity.target_temperature == pytest.approx(55.0)
+
+
+@pytest.mark.skipif(
+    (MAJOR_VERSION, MINOR_VERSION) >= (2026, 11),
+    reason="HA 2026.11+ reads native_* directly; the old names are deprecated there",
+)
+def test_tea_bar_legacy_names_forward_to_native(
+    device_factory: DeviceFactory,
+    install_config: InstallConfig,
+) -> None:
+    """Forward the tea bar's old names HA < 2026.11 reads to the native members."""
+    install_config({"ed": {"type": Platform.CLIMATE}})
+    device, _ = device_factory(
+        attributes={
+            EDAttributes.current_temperature: 60.0,
+            EDAttributes.target_temperature: 85.0,
+        },
+    )
+    entity = MideaEDTeaBarClimate(device, "ed")
+
+    assert entity.temperature_unit == UnitOfTemperature.CELSIUS
+    assert entity.current_temperature == pytest.approx(60.0)
+    assert entity.target_temperature == pytest.approx(85.0)
