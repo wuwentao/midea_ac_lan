@@ -100,6 +100,27 @@ def test_water_heater_legacy_names_forward_to_native(
     assert entity.target_temperature == pytest.approx(55.0)
 
 
+def test_tea_bar_temperature_members(
+    device_factory: DeviceFactory,
+    install_config: InstallConfig,
+) -> None:
+    """Report the tea bar's live temperatures and the Celsius unit."""
+    install_config({"ed": {"type": Platform.CLIMATE}})
+    device, values = device_factory(
+        attributes={
+            EDAttributes.current_temperature: 60.0,
+            EDAttributes.target_temperature: 85.0,
+        },
+    )
+    entity = MideaEDTeaBarClimate(device, "ed")
+
+    assert entity.native_temperature_unit == UnitOfTemperature.CELSIUS
+    assert entity.native_current_temperature == pytest.approx(60.0)
+    assert entity.native_target_temperature == pytest.approx(85.0)
+    values[EDAttributes.target_temperature] = 90.0
+    assert entity.native_target_temperature == pytest.approx(90.0)
+
+
 @pytest.mark.skipif(
     (MAJOR_VERSION, MINOR_VERSION) >= (2026, 11),
     reason="HA 2026.11+ reads native_* directly; the old names are deprecated there",
