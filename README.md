@@ -251,7 +251,7 @@ cd midea_ac_lan
 ./scripts/setup.sh
 ```
 
-See [CONTRIBUTING](.github/CONTRIBUTING.md) for full setup, running Home Assistant locally, and the code style / commit rules.
+See [CONTRIBUTING](.github/CONTRIBUTING.md) for full setup, running Home Assistant locally, and the code style / commit rules. The [testing guide](doc/testing.md) describes the Home Assistant pytest harness, coverage reports, and supported-version matrix.
 
 ### Adding a new device
 

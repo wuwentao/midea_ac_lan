@@ -8,8 +8,9 @@ import unittest.mock
 from unittest.mock import Mock, patch
 
 import pytest
-from midea_ac_lan.button import MideaButton
-from midea_ac_lan.midea_devices import MIDEA_DEVICES
+
+from custom_components.midea_ac_lan.button import MideaButton
+from custom_components.midea_ac_lan.midea_devices import MIDEA_DEVICES
 
 # Both laundry device types register the same cancellation button; iterate over
 # whichever of them exposes it so the washer and dryer stay covered together.
