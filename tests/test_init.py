@@ -3,7 +3,6 @@
 import asyncio
 from enum import StrEnum
 from types import SimpleNamespace
-from typing import cast
 from unittest.mock import AsyncMock, Mock, call, patch
 
 import pytest
@@ -67,12 +66,11 @@ def test_device_store_initializes_nested_mapping() -> None:
 
 def test_remove_unsupported_entities() -> None:
     """Remove current and legacy entity IDs only for unsupported configs."""
-    device = SimpleNamespace(
-        device_type=1,
-        device_id=42,
-        model="MODEL",
-        subtype=1,
-    )
+    device = Mock(spec=MideaDevice)
+    device.device_type = 1
+    device.device_id = 42
+    device.model = "MODEL"
+    device.subtype = 1
     registry = Mock()
     registry.async_get_entity_id.side_effect = [
         None,
@@ -92,7 +90,7 @@ def test_remove_unsupported_entities() -> None:
     ):
         midea_ac_lan._remove_unsupported_entities(
             Mock(),
-            cast("MideaDevice", device),
+            device,
         )
     assert registry.async_remove.call_args_list == [
         call("sensor.42_legacy"),
