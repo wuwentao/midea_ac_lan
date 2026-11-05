@@ -34,11 +34,15 @@ def test_supports_model(
         ("A", 1, {}, True),
         ("A", "1", {"removed": True}, False),
         ("A", 1, {"excluded_devices": [("A", 1)]}, False),
+        ("A", 1, {"excluded_devices": [("B", 2)]}, True),
         ("A", 1, {"excluded_subtypes": [1]}, False),
+        ("A", 1, {"excluded_subtypes": [2]}, True),
         ("A", 1, {"subtypes": [1, 2]}, True),
         ("A", 3, {"subtypes": [1, 2]}, False),
         ("B", 1, {"models": ["A"]}, False),
         ("A", 1, {"models": ["A"], "subtypes": [1]}, True),
+        ("B", 1, {"models": ["A"], "subtypes": [1]}, False),
+        ("A", 2, {"models": ["A"], "subtypes": [1]}, False),
     ],
 )
 def test_supports_device(
