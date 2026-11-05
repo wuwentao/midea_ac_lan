@@ -4,7 +4,7 @@ from typing import Any, cast
 from unittest.mock import Mock
 
 import pytest
-from homeassistant.const import PRECISION_TENTHS, PRECISION_WHOLE
+from homeassistant.const import PRECISION_TENTHS
 from midea_ac_lan.climate import MideaC3Climate
 from midea_ac_lan.const import supports_device
 from midea_ac_lan.midea_devices import MIDEA_DEVICES
@@ -28,40 +28,87 @@ def controller(attributes: dict[str, Any], model: str = "17100007") -> Mock:
     return device
 
 
+WATER = True
+ROOM = False
+
+
+@pytest.mark.parametrize("power", [True, False], ids=["on", "off"])
 @pytest.mark.parametrize(
-    ("zone", "attributes", "expected"),
+    ("zone", "temp_types", "expected"),
     [
-        (0, {"temp_t1": 26.1, "temp_ta": 21.5}, 26.1),
-        (0, {"zone1_room_temp_mode": True, "temp_t1": 26.1, "temp_ta": 21.5}, 21.5),
-        (1, {"temp_tw2": 31.4, "temp_t1": 26.1}, 31.4),
-        (1, {"zone2_room_temp_mode": True, "temp_ta": 22.0}, 22.0),
-        (0, {}, None),
-        (1, {"temp_t1": 26.1}, None),
+        (0, [WATER, WATER], 40.0),
+        (0, [ROOM, WATER], 21.5),
+        (1, [WATER, WATER], 31.4),
+        (1, [WATER, ROOM], 21.5),
+        (0, [None, WATER], None),
+        (1, [WATER, None], None),
     ],
 )
 def test_c3_climate_current_temperature(
     zone: int,
-    attributes: dict[str, Any],
+    temp_types: list[bool | None],
     expected: float | None,
+    *,
+    power: bool,
 ) -> None:
-    """Water zones report leaving water, room zones report the room sensor."""
+    """The sensor follows zone_temp_type, independent of zone power."""
+    attributes: dict[str, Any] = {
+        "zone_temp_type": temp_types,
+        "zone1_power": power,
+        "zone2_power": power,
+        # Derived flags are False while a zone is off; they must not matter.
+        "zone1_water_temp_mode": power and temp_types[0] is True,
+        "zone1_room_temp_mode": power and temp_types[0] is False,
+        "zone2_water_temp_mode": power and temp_types[1] is True,
+        "zone2_room_temp_mode": power and temp_types[1] is False,
+        "temp_t1": 40.0,
+        "temp_tw2": 31.4,
+        "temp_ta": 21.5,
+    }
+    climate = MideaC3Climate(controller(attributes), f"climate_zone{zone + 1}", zone)
+    assert climate.native_current_temperature == expected
+
+
+@pytest.mark.parametrize("temp_types", [None, [], [True]])
+def test_c3_climate_current_temperature_without_type(
+    temp_types: list[bool] | None,
+) -> None:
+    """A missing or short zone_temp_type list returns None."""
     climate = MideaC3Climate(
-        controller(attributes),
-        f"climate_zone{zone + 1}",
-        zone,
+        controller({"zone_temp_type": temp_types, "temp_t1": 40.0, "temp_tw2": 31.4}),
+        "climate_zone2",
+        1,
     )
-    assert climate.current_temperature == expected
+    assert climate.native_current_temperature is None
 
 
-def test_c3_water_heater_keeps_tank_tenths() -> None:
-    """Tank T5 is reported in 0.1 °C; targets stay in whole degrees."""
-    heater = MideaC3WaterHeater(
-        controller({"tank_actual_temperature": 50.5}),
-        "water_heater",
+def test_c3_climate_current_temperature_missing_sensor() -> None:
+    """A selected sensor the library has not decoded returns None."""
+    climate = MideaC3Climate(
+        controller({"zone_temp_type": [ROOM, WATER], "temp_t1": 40.0}),
+        "climate_zone1",
+        0,
     )
+    assert climate.native_current_temperature is None
+
+
+@pytest.mark.parametrize("step", [0.5, 1.0])
+def test_c3_water_heater_keeps_tank_tenths(step: float) -> None:
+    """Tank T5 shows tenths; the target step follows the device setting."""
+    device = controller({"tank_actual_temperature": 50.5})
+    device.temperature_step = step
+    heater = MideaC3WaterHeater(device, "water_heater")
     assert heater.precision == PRECISION_TENTHS
-    assert heater.target_temperature_step == PRECISION_WHOLE
-    assert heater.current_temperature == pytest.approx(50.5)
+    assert heater.target_temperature_step == step
+    assert heater.native_current_temperature == pytest.approx(50.5)
+
+
+def test_c3_water_heater_without_step() -> None:
+    """No device step leaves the HA default in place."""
+    device = controller({})
+    device.temperature_step = None
+    heater = MideaC3WaterHeater(device, "water_heater")
+    assert heater.target_temperature_step is None
 
 
 def test_c3_holiday_switch_hidden_for_native_model() -> None:

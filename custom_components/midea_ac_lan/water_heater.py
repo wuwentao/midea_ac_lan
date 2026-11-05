@@ -296,9 +296,10 @@ class MideaC3WaterHeater(MideaWaterHeater):
         return float(PRECISION_TENTHS)
 
     @property
-    def target_temperature_step(self) -> float:
-        """Midea C3 Water Heater target temperature step."""
-        return float(PRECISION_WHOLE)
+    def target_temperature_step(self) -> float | None:
+        """Midea C3 Water Heater target temperature step (from the device)."""
+        step = self._device.temperature_step
+        return None if step is None else float(step)
 
     @property
     def supported_features(self) -> WaterHeaterEntityFeature:

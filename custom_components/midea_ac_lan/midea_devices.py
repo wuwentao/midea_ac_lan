@@ -5734,6 +5734,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "icon": "mdi:air-conditioner",
                 "zone": 1,
                 "default": False,
+                "available_attribute": C3Attributes.double_zone,
             },
             "water_heater": {
                 "type": Platform.WATER_HEATER,

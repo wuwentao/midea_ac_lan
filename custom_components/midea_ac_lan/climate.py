@@ -1004,7 +1004,7 @@ class MideaC3Climate(MideaClimate):
         Select the sensor from the configured zone temperature type, which is
         independent of whether the zone is currently powered. Water zones use
         T1 for zone 1 and the mixed-circuit outlet Tw2 for zone 2; room zones
-        use the room sensor Ta.
+        use the room sensor Ta. An unknown type returns None.
         """
         temp_types = self._device.get_attribute(C3Attributes.zone_temp_type)
         if not isinstance(temp_types, list) or len(temp_types) <= self._zone:
