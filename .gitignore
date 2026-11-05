@@ -56,6 +56,7 @@ htmlcov/
 .cache
 nosetests.xml
 coverage.xml
+pytest-results.xml
 *.cover
 *.py,cover
 .hypothesis/
@@ -107,6 +108,7 @@ celerybeat.pid
 # Environments
 .env
 .venv
+.venv-test*/
 env/
 custom_components/midea_ac_lan/venv/
 ENV/

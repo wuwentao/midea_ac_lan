@@ -390,8 +390,8 @@ JSON，就像 `doc/E2.md` 对 `old_protocol` / `precision_halves` / `temperature
 
 ## 8. 步骤 7 —— Lint 与校验
 
-本仓库没有单元测试套件；CI 强制执行 lint 与 HACS/hassfest 校验器。开发环境由
-[uv](https://docs.astral.sh/uv/) 管理：
+CI 会运行基于 Home Assistant 的 pytest 测试套件、lint 与 HACS/hassfest 校验器。
+开发环境由 [uv](https://docs.astral.sh/uv/) 管理：
 
 ```bash
 scripts/setup.sh                      # uv sync + 安装 git 钩子
@@ -404,14 +404,16 @@ scripts/mypy.sh                       # mypy（不要直接 `mypy .`）
 uv run pylint custom_components
 ```
 
+集成行为必须增加测试，并按照[测试指南](testing.zh-Hans.md)运行受支持版本矩阵。
+
 你也可以带上你的设备在本地运行 Home Assistant 来冒烟测试实体：
 
 ```bash
 scripts/run.sh                        # 用 ./config 启动 HA，集成在 PYTHONPATH 上
 ```
 
-提交前修复 `pre-commit` 报告的所有问题。CI（`linter.yml` + `validate.yml`）会跑
-相同的检查。注意：`validate.yml`（HACS/hassfest）可能因已发布的 `midea-lan` 尚不
+提交前修复 `pre-commit` 报告的所有问题。CI（`tests.yml` + `linter.yml` +
+`validate.yml`）会跑相同的检查。注意：`validate.yml`（HACS/hassfest）可能因已发布的 `midea-lan` 尚不
 包含你的设备而失败 —— 这个“库不支持”的失败是预期的，且不在设备 PR 的处理范围内
 （见[步骤 1](#2-步骤-1--把-midea-lan-依赖指向你的库改动仅本地)）。你要做的是让
 lint/format/类型检查通过；依赖库的检查会在维护者发布库并同步固定版本后自动变绿。

@@ -245,7 +245,7 @@ cd midea_ac_lan
 ./scripts/setup.sh
 ```
 
-完整的环境搭建、本地运行 Home Assistant、代码风格与提交规范，请参考 [中文版CONTRIBUTING](.github/CONTRIBUTING.zh.md)。
+完整的环境搭建、本地运行 Home Assistant、代码风格与提交规范，请参考 [中文版CONTRIBUTING](.github/CONTRIBUTING.zh.md)。Home Assistant pytest 测试框架、覆盖率报告和版本兼容矩阵请参考[测试指南](doc/testing.zh-Hans.md)。
 
 ### 新增设备支持
 

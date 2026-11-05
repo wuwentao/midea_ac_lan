@@ -116,7 +116,7 @@ uv run hass --config config --debug
 
 ## 五、测试多个 Python 版本
 
-每个受支持的 Python 版本对应其必须兼容的最低 Home Assistant 版本。`uv` 会通过 `pyproject.toml` 中的环境标记自动选择对应的 Home Assistant：
+每个受支持的 Python 版本对应其必须兼容的最低 Home Assistant 版本。由于各 Home Assistant 测试框架会固定自己的测试依赖，pytest 环境应与开发环境分开：
 
 | Python | Home Assistant |
 | ------ | -------------- |
@@ -124,13 +124,14 @@ uv run hass --config config --debug
 | 3.13   | 2024.12.1      |
 | 3.14   | 2026.3.1       |
 
-随时切换到其他版本：
+创建并运行最低支持版本的测试环境：
 
 ```bash
-uv sync --python 3.13   # 或 3.14
+UV_PROJECT_ENVIRONMENT=.venv-test312 uv sync --locked --no-default-groups --group test --python 3.12
+UV_PROJECT_ENVIRONMENT=.venv-test312 uv run --no-sync pytest
 ```
 
-若本地没有对应解释器，uv 会自动下载。
+验证其他基线时，请修改环境目录和 `--python`。各版本对应的测试框架、当前 Home Assistant 预览版、覆盖率命令及测试编写规范见[测试指南](../doc/testing.zh-Hans.md)。
 
 ---
 

@@ -10,7 +10,8 @@ from unittest.mock import Mock, patch
 from zoneinfo import ZoneInfo
 
 import pytest
-from midea_ac_lan.time import MideaTime
+
+from custom_components.midea_ac_lan.time import MideaTime
 
 
 @pytest.fixture
@@ -84,7 +85,7 @@ def test_reservation_uses_earliest_future_instant(
 ) -> None:
     """Choose the earliest valid future occurrence within the next 24 hours."""
     item, device = entity
-    with patch("midea_ac_lan.time.dt_util.now", return_value=now):
+    with patch("custom_components.midea_ac_lan.time.dt_util.now", return_value=now):
         item.set_value(selected)
     device.set_attribute.assert_called_once_with(
         "appointment_finish",
@@ -126,7 +127,7 @@ def test_invalid_local_time_never_writes(
     """Reject spring gaps, over-24-hour deadlines, and sub-minute precision."""
     item, device = entity
     with (
-        patch("midea_ac_lan.time.dt_util.now", return_value=now),
+        patch("custom_components.midea_ac_lan.time.dt_util.now", return_value=now),
         pytest.raises(ValueError, match=r"Completion time|does not exist"),
     ):
         item.set_value(selected)
@@ -148,7 +149,7 @@ def test_cross_midnight_and_exact_24_hours(
     """Ordinary timezones retain next-day and whole-minute behavior."""
     item, device = entity
     now = datetime(2026, 10, 15, 23, 30, tzinfo=ZoneInfo("Asia/Shanghai"))
-    with patch("midea_ac_lan.time.dt_util.now", return_value=now):
+    with patch("custom_components.midea_ac_lan.time.dt_util.now", return_value=now):
         item.set_value(selected)
     device.set_attribute.assert_called_with("appointment_finish", expected)
 
@@ -165,7 +166,7 @@ def test_invalid_report_is_unknown(
     """Malformed and naive timestamps do not break HA state reads."""
     item, device = entity
     device.get_attribute.return_value = value
-    with caplog.at_level("WARNING", logger="midea_ac_lan.time"):
+    with caplog.at_level("WARNING", logger="custom_components.midea_ac_lan.time"):
         assert item.native_value is None
     assert caplog.records
 
@@ -186,7 +187,7 @@ def test_valid_report_remains_device_driven(entity: tuple[MideaTime, Mock]) -> N
     item, device = entity
     device.get_attribute.return_value = "2026-10-15T00:00:00+00:00"
     with patch(
-        "midea_ac_lan.time.dt_util.DEFAULT_TIME_ZONE",
+        "custom_components.midea_ac_lan.time.dt_util.DEFAULT_TIME_ZONE",
         ZoneInfo("Asia/Shanghai"),
     ):
         assert item.native_value == time(8)

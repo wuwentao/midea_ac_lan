@@ -423,7 +423,7 @@ and `README_hans.md`, kept in the table's hex order:
 
 ## 8. Step 7 — Lint and validate
 
-There is no unit-test suite in this repo; CI enforces linting and the HACS/hassfest
+CI runs the Home Assistant-backed pytest suite, linting, and the HACS/hassfest
 validators. The dev environment is managed by [uv](https://docs.astral.sh/uv/):
 
 ```bash
@@ -437,6 +437,9 @@ scripts/mypy.sh                       # mypy (NOT `mypy .` directly)
 uv run pylint custom_components
 ```
 
+Add tests for integration behavior and run the supported-version matrix described
+in the [testing guide](testing.md).
+
 You can also run Home Assistant locally with your device to smoke-test the
 entities:
 
@@ -444,8 +447,9 @@ entities:
 scripts/run.sh                        # starts HA with ./config, integration on PYTHONPATH
 ```
 
-Fix everything `pre-commit` reports before committing. CI (`linter.yml` +
-`validate.yml`) runs the same checks. Note: `validate.yml` (HACS/hassfest) may
+Fix everything `pre-commit` reports before committing. CI (`tests.yml` +
+`linter.yml` + `validate.yml`) runs the same checks. Note: `validate.yml`
+(HACS/hassfest) may
 fail because the released `midea-lan` does not yet contain your device — that
 library-not-supported failure is expected and out of scope for the device PR (see
 [Step 1](#2-step-1--point-the-midea-lan-dependency-at-your-library-work-local-only)).

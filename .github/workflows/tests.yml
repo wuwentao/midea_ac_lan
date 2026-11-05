@@ -1,0 +1,70 @@
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tests-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  pytest:
+    name: HA ${{ matrix.ha }} / Python ${{ matrix.python }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - python: "3.12"
+            ha: "2024.4.1"
+            group: test
+          - python: "3.13"
+            ha: "2024.12.1"
+            group: test
+          - python: "3.14"
+            ha: "2026.3.1"
+            group: test
+          - python: "3.14"
+            ha: "2026.11.0b4"
+            group: test-current
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+        with:
+          python-version: ${{ matrix.python }}
+          enable-cache: true
+
+      - name: Install matching HA test harness
+        run: >-
+          uv sync --locked --no-default-groups
+          --group ${{ matrix.group }} --python ${{ matrix.python }}
+
+      - name: Test and report coverage
+        run: >-
+          uv run --no-sync pytest
+          --cov=custom_components.midea_ac_lan
+          --cov-report=term-missing
+          --cov-report=xml
+          --cov-report=html
+          --junitxml=pytest-results.xml
+
+      - name: Upload test and coverage reports
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: coverage-${{ matrix.ha }}-py${{ matrix.python }}
+          path: |
+            coverage.xml
+            htmlcov/
+            pytest-results.xml
+          if-no-files-found: error
