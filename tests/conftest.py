@@ -27,6 +27,8 @@ from custom_components.midea_ac_lan.const import (
 
 from .ha import MockConfigEntry
 
+pytest_plugins = ["tests.helpers"]
+
 TEST_DEVICE_ID = 123456
 TEST_MAC = "02:00:00:00:00:01"
 TEST_SN = "00000000000000000000000000000000"
