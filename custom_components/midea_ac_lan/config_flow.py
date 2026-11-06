@@ -192,7 +192,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
             )
         )
 
-    def _already_configured(self, device_id: str, ip_address: str) -> bool:
+    def _already_configured(self, device_id: int | str, ip_address: str) -> bool:
         """Check device from json with device_id or ip address.
 
         Returns
@@ -201,8 +201,10 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
 
         """
         for entry in self._async_current_entries():
-            if device_id == entry.data.get(
-                CONF_DEVICE_ID,
+            configured_device_id = entry.data.get(CONF_DEVICE_ID)
+            if (
+                configured_device_id is not None
+                and str(device_id) == str(configured_device_id)
             ) or ip_address == entry.data.get(CONF_IP_ADDRESS):
                 return True
         return False

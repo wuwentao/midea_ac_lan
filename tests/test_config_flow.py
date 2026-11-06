@@ -199,17 +199,21 @@ def test_check_storage_device(
 
 
 def test_already_configured() -> None:
-    """Match current entries by device ID or IP address."""
+    """Match current entries by normalized device ID or IP address."""
     flow = make_flow()
     flow._async_current_entries = Mock(
         return_value=[
             SimpleNamespace(
                 data={CONF_DEVICE_ID: "one", CONF_IP_ADDRESS: "192.0.2.1"},
             ),
+            SimpleNamespace(
+                data={CONF_DEVICE_ID: DEVICE_ID, CONF_IP_ADDRESS: "192.0.2.2"},
+            ),
         ],
     )
     assert flow._already_configured("one", "other")
     assert flow._already_configured("other", "192.0.2.1")
+    assert flow._already_configured(str(DEVICE_ID), "other")
     assert not flow._already_configured("other", "other")
 
 
@@ -225,6 +229,11 @@ def test_already_configured() -> None:
 async def test_user_routes_actions(action: str, target: str) -> None:
     """Route each user action to its next flow step."""
     flow = make_flow()
+    if action == "manually":
+        flow.found_device = {
+            CONF_DEVICE_ID: DEVICE_ID,
+            CONF_CLOUD_NAME: "SmartHome",
+        }
     step = AsyncMock(return_value=target)
     setattr(flow, target, step)
     assert await flow.async_step_user({"action": action}) == target
@@ -282,14 +291,27 @@ async def test_login_form_and_input_paths() -> None:
             {CONF_SERVER: 99, CONF_ACCOUNT: "ignored", CONF_PASSWORD: "ignored"},
         )
         assert result == "auto"
+        flow._check_cloud_login.assert_awaited_once_with(
+            cloud_name=DEFAULT_CLOUD,
+            account=flow.preset_account,
+            password=flow.preset_password,
+            force_login=True,
+        )
         assert flow.hass.data[DOMAIN]["login_mode"] == "preset"
         assert flow.hass.data[DOMAIN]["login_data"][CONF_SERVER] == DEFAULT_CLOUD
 
         flow.hass.data = {}
+        flow._check_cloud_login.reset_mock()
         result = await flow.async_step_login(
             {CONF_SERVER: 2, CONF_ACCOUNT: "user", CONF_PASSWORD: "password"},
         )
         assert result == "auto"
+        flow._check_cloud_login.assert_awaited_once_with(
+            cloud_name="OtherCloud",
+            account="user",
+            password="password",  # ruff: ignore[hardcoded-password-func-arg]
+            force_login=True,
+        )
         assert flow.hass.data[DOMAIN]["login_mode"] == "input"
 
         flow._check_cloud_login.return_value = False
@@ -432,6 +454,12 @@ async def test_cloud_key_helper() -> None:
             "token": "22",
             "key": "33",
         }
+
+        flow.hass.async_add_executor_job.side_effect = [True]
+        assert await flow._check_key_from_cloud(
+            DEVICE_ID,
+            default_key=False,
+        ) == {"token": "22", "key": "33"}
 
         flow.hass.async_add_executor_job.side_effect = [False]
         assert await flow._check_key_from_cloud(
@@ -598,6 +626,10 @@ async def test_auto_v3_key_success_paths() -> None:
     flow._check_cloud_login = AsyncMock(return_value=True)
     assert await flow.async_step_auto({CONF_DEVICE: DEVICE_ID}) == "manual"
     assert flow.found_device[CONF_KEY] == "33"
+    flow._check_cloud_login.assert_awaited_once_with(force_login=True)
+    assert flow._check_key_from_cloud.await_args_list[-1].kwargs == {
+        "default_key": False,
+    }
 
 
 async def test_manual_form_and_validation_errors() -> None:
@@ -698,6 +730,10 @@ async def test_manual_connection_success_and_failure() -> None:
     assert result["data"][CONF_TOKEN] == "00"
     assert result["data"][CONF_CLOUD_NAME] == "SmartHome"
     assert result["data"][CONF_SN8] == "12345678"
+    flow.hass.async_add_executor_job.assert_any_await(
+        flow._save_device_config,
+        result["data"],
+    )
 
     flow = make_flow()
     flow.devices = {DEVICE_ID: discovered_device()}
