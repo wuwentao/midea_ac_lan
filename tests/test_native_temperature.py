@@ -5,6 +5,7 @@ through the compatibility mixin on HA < 2026.11, so both paths must report the s
 values.
 """
 
+import homeassistant.const as ha_const
 import pytest
 from homeassistant.const import (
     MAJOR_VERSION,
@@ -21,7 +22,38 @@ from custom_components.midea_ac_lan.climate import (
 )
 from custom_components.midea_ac_lan.water_heater import MideaE2WaterHeater
 
-from .helpers import DeviceFactory, InstallConfig
+from .helpers import DeviceFactory, InstallConfig, load_integration_module
+
+
+def test_opposite_version_temperature_compatibility(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """Execute the temperature shim branch opposite to the installed HA."""
+    installed_is_native = (MAJOR_VERSION, MINOR_VERSION) >= (2026, 11)
+    target_version = (2026, 10) if installed_is_native else (2026, 11)
+    monkeypatch.setattr(ha_const, "MAJOR_VERSION", target_version[0])
+    monkeypatch.setattr(ha_const, "MINOR_VERSION", target_version[1])
+
+    module = load_integration_module(
+        "native_temperature",
+        f"native_temperature_{target_version[1]}",
+    )
+
+    if target_version >= (2026, 11):
+        assert not hasattr(module.NativeTemperatureCompat(), "temperature_unit")
+        return
+
+    entity = module.NativeTemperatureCompat()
+    entity._attr_native_temperature_unit = UnitOfTemperature.CELSIUS
+    entity._attr_native_target_temperature_high = 30.0
+    entity._attr_native_target_temperature_low = 16.0
+    entity.native_current_temperature = 21.0
+    entity.native_target_temperature = 22.0
+    assert entity.temperature_unit == UnitOfTemperature.CELSIUS
+    assert entity.current_temperature == pytest.approx(21.0)
+    assert entity.target_temperature == pytest.approx(22.0)
+    assert entity.target_temperature_high == pytest.approx(30.0)
+    assert entity.target_temperature_low == pytest.approx(16.0)
 
 
 def test_climate_temperature_members(
