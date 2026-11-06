@@ -31,6 +31,19 @@ def test_opposite_version_concentration_units(
             SimpleNamespace(PARTS_PER_MILLION="ppm"),
             raising=False,
         )
+    else:
+        monkeypatch.setattr(
+            ha_const,
+            "CONCENTRATION_MICROGRAMS_PER_CUBIC_METER",
+            "μg/m³",
+            raising=False,
+        )
+        monkeypatch.setattr(
+            ha_const,
+            "CONCENTRATION_PARTS_PER_MILLION",
+            "ppm",
+            raising=False,
+        )
 
     module = load_integration_module(
         "midea_devices",
