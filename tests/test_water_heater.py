@@ -302,10 +302,18 @@ def test_e6_water_heater(
     heater.set_temperature(**{ATTR_TEMPERATURE: 55})
     heater.turn_on()
     heater.turn_off()
+    expected_target_attr = (
+        E6Attributes.heating_temperature,
+        E6Attributes.bathing_temperature,
+    )[use]
+    expected_power_attr = (
+        E6Attributes.heating_power,
+        E6Attributes.main_power,
+    )[use]
     assert device.set_attribute.call_args_list == [
-        call(heater._target_temperature_attr, 55.0),
-        call(attr=heater._power_attr, value=True),
-        call(attr=heater._power_attr, value=False),
+        call(expected_target_attr, 55.0),
+        call(attr=expected_power_attr, value=True),
+        call(attr=expected_power_attr, value=False),
     ]
     if use == 0:
         values[E6Attributes.heating_power] = False
