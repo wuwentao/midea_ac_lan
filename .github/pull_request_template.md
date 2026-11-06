@@ -27,6 +27,12 @@ implemented and tested in midea-lan, and is then exposed as Home Assistant
 entities here. Open and cross-link the applicable PRs. Do not bump the
 midea-lan requirement in a feature PR; maintainers update it after the library
 release.
+
+To test against unreleased midea-lan work, mark this PR as a draft and
+temporarily point the manifest.json requirements entry at the midea-lan test
+branch/commit (e.g. "midea-lan @ git+https://github.com/<owner>/midea-lan.git@<ref>").
+Remove that change and restore the released pin before marking the PR ready for
+review.
 -->
 
 ## Appliance and App / Cloud impact

@@ -117,9 +117,15 @@ Replace `b59cfbc` with the commit hash, branch name, or tag you want to test
 against. This lets Home Assistant install your unreleased library code so you can
 develop and verify the integration end to end.
 
-**Do not commit this manifest change to your PR.** Keep the manifest edit purely
-local. The device PR should contain only the feature support itself (registry
-entry, translations, docs) built against the latest library changes.
+**Do not commit this manifest change to a review-ready PR.** Keep the manifest
+edit purely local. The device PR should contain only the feature support itself
+(registry entry, translations, docs) built against the latest library changes.
+
+If you do want the manifest Git-ref in the PR so CI and reviewers can test
+against your unreleased library branch/commit, mark the PR as a **draft** while
+it carries that edit, then remove it and restore the released pin before marking
+the PR ready for review. The maintainer syncs the real pin after the library
+release.
 
 Because the released `midea-lan` does not yet contain your device, expect the PR's
 CI / GitHub Actions to fail with library-not-supported / import errors, and any
