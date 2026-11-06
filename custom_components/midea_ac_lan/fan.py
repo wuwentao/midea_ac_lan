@@ -74,11 +74,16 @@ async def async_setup_entry(
     async_add_entities(devs)
 
 
-# HA version >= 2024,8 support TURN_ON | TURN_OFF,for future changes, ref PR #285
-try:
-    FAN_FEATURE_TURN_ON_OFF = FanEntityFeature["TURN_ON"] | FanEntityFeature["TURN_OFF"]
-except KeyError:
-    FAN_FEATURE_TURN_ON_OFF = FanEntityFeature(0)
+# Home Assistant 2024.8 added explicit TURN_ON and TURN_OFF fan features.
+FAN_FEATURE_TURN_ON_OFF = getattr(
+    FanEntityFeature,
+    "TURN_ON",
+    FanEntityFeature(0),
+) | getattr(
+    FanEntityFeature,
+    "TURN_OFF",
+    FanEntityFeature(0),
+)
 
 
 class MideaFan(MideaEntity, FanEntity):
