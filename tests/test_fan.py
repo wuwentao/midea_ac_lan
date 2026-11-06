@@ -69,6 +69,10 @@ async def test_async_setup_entry_device_classes(
         expected_class,
         expected_class,
     ]
+    assert [item._entity_key for item in add_entities.call_args.args[0]] == [
+        "main",
+        "selected",
+    ]
 
 
 async def test_async_setup_entry_unknown_device(
@@ -239,8 +243,16 @@ async def test_ce_fan(
     device, _ = device_factory(device_type=DeviceType.CE)
     device.speed_count = 3
     fan = MideaCEFan(device, "main")
-    fan.turn_on(percentage=50, preset_mode="eco")
-    device.set_attribute.assert_called_once_with(attr=CEAttributes.power, value=True)
+    fan.turn_on(percentage=50)
+    fan.turn_on(preset_mode="eco_mode")
+    fan.turn_on()
+    assert device.set_attribute.call_args_list == [
+        call(attr="fan_speed", value=2),
+        call(attr=CEAttributes.power, value=True),
+        call(attr="mode", value="eco_mode"),
+        call(attr=CEAttributes.power, value=True),
+        call(attr=CEAttributes.power, value=True),
+    ]
     executor = AsyncMock()
     fan.hass = SimpleNamespace(async_add_executor_job=executor)
     await fan.async_set_percentage(0)

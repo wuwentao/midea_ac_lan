@@ -345,11 +345,15 @@ class MideaCEFan(MideaFan):
 
     def turn_on(
         self,
-        percentage: int | None = None,  # ruff:ignore[unused-method-argument]
-        preset_mode: str | None = None,  # ruff:ignore[unused-method-argument]
+        percentage: int | None = None,
+        preset_mode: str | None = None,
         **kwargs: Any,  # ruff:ignore[any-type, unused-method-argument]
     ) -> None:
         """Midea CE Fan turn on."""
+        if percentage is not None:
+            self.set_percentage(percentage)
+        if preset_mode is not None:
+            self.set_preset_mode(preset_mode)
         self._device.set_attribute(attr=CEAttributes.power, value=True)
 
     async def async_set_percentage(self, percentage: int) -> None:
