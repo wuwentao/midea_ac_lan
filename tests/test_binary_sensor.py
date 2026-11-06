@@ -1,5 +1,7 @@
 """Tests for Midea binary sensor entities."""
 
+from typing import Any, cast
+
 import pytest
 from homeassistant.components.binary_sensor import BinarySensorDeviceClass
 from homeassistant.const import Platform
@@ -12,6 +14,9 @@ from custom_components.midea_ac_lan.const import supports_device
 from custom_components.midea_ac_lan.midea_devices import MIDEA_DEVICES
 
 from .helpers import DeviceFactory, InstallConfig, setup_context
+
+AC_ENTITIES = cast("dict[str, Any]", MIDEA_DEVICES[0xAC]["entities"])
+HUMIDIFY_CONFIG = AC_ENTITIES["humidify"]
 
 
 async def test_async_setup_entry_filters_entities(
@@ -82,8 +87,7 @@ def test_humidify_registry_gate(
     expected: bool,
 ) -> None:
     """Gate the humidify sensor to the verified AC models and subtypes."""
-    config = MIDEA_DEVICES[0xAC]["entities"]["humidify"]
-    assert supports_device(model, subtype, config) is expected
+    assert supports_device(model, subtype, HUMIDIFY_CONFIG) is expected
 
 
 def test_humidify_state(
@@ -91,7 +95,7 @@ def test_humidify_state(
     install_config: InstallConfig,
 ) -> None:
     """Expose the parsed humidify flag as the binary sensor state."""
-    install_config({"humidify": MIDEA_DEVICES[0xAC]["entities"]["humidify"]})
+    install_config({"humidify": HUMIDIFY_CONFIG})
     device, values = device_factory(attributes={"humidify": True})
     entity = MideaBinarySensor(device, "humidify")
 
