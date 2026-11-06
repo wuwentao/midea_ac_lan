@@ -3,14 +3,30 @@
 from types import SimpleNamespace
 from unittest.mock import Mock
 
+import homeassistant.const as ha_const
+import homeassistant.helpers.entity as ha_entity
 import pytest
 from homeassistant.const import Platform
+from homeassistant.helpers.device_registry import DeviceInfo
 from homeassistant.helpers.entity import EntityCategory
 
 from custom_components.midea_ac_lan.const import DOMAIN
 from custom_components.midea_ac_lan.midea_entity import MideaEntity
 
-from .helpers import DeviceFactory, InstallConfig
+from .helpers import DeviceFactory, InstallConfig, load_integration_module
+
+
+def test_legacy_device_info_import(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """Keep the pre-2023.9 DeviceInfo import fallback executable."""
+    monkeypatch.setattr(ha_const, "MAJOR_VERSION", 2023)
+    monkeypatch.setattr(ha_const, "MINOR_VERSION", 8)
+    monkeypatch.setattr(ha_entity, "DeviceInfo", DeviceInfo, raising=False)
+
+    module = load_integration_module("midea_entity", "legacy_device_info")
+
+    assert module.DeviceInfo is DeviceInfo
 
 
 @pytest.mark.parametrize(

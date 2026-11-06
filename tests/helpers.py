@@ -1,6 +1,9 @@
 """Shared helpers for isolated entity unit tests."""
 
-from types import SimpleNamespace
+import importlib.util
+import sys
+from pathlib import Path
+from types import ModuleType, SimpleNamespace
 from typing import Any, Protocol
 from unittest.mock import Mock
 
@@ -11,6 +14,7 @@ from custom_components.midea_ac_lan.const import DEVICES, DOMAIN
 from custom_components.midea_ac_lan.midea_devices import MIDEA_DEVICES
 
 TEST_DEVICE_TYPE = 0xFFFF
+INTEGRATION_ROOT = Path(__file__).parent.parent / "custom_components" / "midea_ac_lan"
 
 
 class DeviceFactory(Protocol):
@@ -106,3 +110,27 @@ def setup_context(
         options={"sensors": sensors or [], "switches": switches or []},
     )
     return hass, entry, Mock()
+
+
+def load_integration_module(module_name: str, alias: str) -> ModuleType:
+    """Load an integration module under a temporary package-qualified name.
+
+    Raises:
+        ImportError: If Python cannot create a loader for the module path.
+
+    """
+    qualified_name = f"custom_components.midea_ac_lan._test_{alias}"
+    spec = importlib.util.spec_from_file_location(
+        qualified_name,
+        INTEGRATION_ROOT / f"{module_name}.py",
+    )
+    if spec is None or spec.loader is None:
+        msg = f"Unable to load integration module: {module_name}"
+        raise ImportError(msg)
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[qualified_name] = module
+    try:
+        spec.loader.exec_module(module)
+    finally:
+        sys.modules.pop(qualified_name, None)
+    return module
