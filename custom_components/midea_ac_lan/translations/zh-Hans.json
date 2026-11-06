@@ -1128,6 +1128,15 @@
           "full": "强劲"
         }
       },
+      "auxiliary_fan_mode": {
+        "name": "辅风速",
+        "state": {
+          "low": "低速",
+          "medium": "中速",
+          "high": "高速",
+          "full": "强劲"
+        }
+      },
       "mode": {
         "name": "模式",
         "state": {
@@ -3857,6 +3866,12 @@
       },
       "humidify": {
         "name": "加湿"
+      },
+      "purify": {
+        "name": "净化"
+      },
+      "fresh_air": {
+        "name": "新风"
       },
       "waterions": {
         "name": "水离子"
