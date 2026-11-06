@@ -9,11 +9,12 @@ import pytest
 from homeassistant.components.sensor import SensorDeviceClass, SensorStateClass
 from homeassistant.const import CONF_DEVICE_ID, CONF_SENSORS, Platform
 from homeassistant.helpers.entity import EntityCategory
-from midea_ac_lan.climate import MideaC3Climate
-from midea_ac_lan.const import DEVICES, DOMAIN, supports_device
-from midea_ac_lan.midea_devices import MIDEA_DEVICES
-from midea_ac_lan.sensor import MideaSensor, async_setup_entry
-from midea_ac_lan.water_heater import MideaC3WaterHeater
+
+from custom_components.midea_ac_lan.climate import MideaC3Climate
+from custom_components.midea_ac_lan.const import DEVICES, DOMAIN, supports_device
+from custom_components.midea_ac_lan.midea_devices import MIDEA_DEVICES
+from custom_components.midea_ac_lan.sensor import MideaSensor, async_setup_entry
+from custom_components.midea_ac_lan.water_heater import MideaC3WaterHeater
 
 C3 = 0xC3
 ENERGY_SENSOR_COUNT = 56

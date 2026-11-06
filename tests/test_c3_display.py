@@ -5,11 +5,12 @@ from unittest.mock import Mock
 
 import pytest
 from homeassistant.const import PRECISION_TENTHS
-from midea_ac_lan.climate import MideaC3Climate
-from midea_ac_lan.const import supports_device
-from midea_ac_lan.midea_devices import MIDEA_DEVICES
-from midea_ac_lan.water_heater import MideaC3WaterHeater
 from midealan.devices.c3 import DeviceAttributes as C3Attributes
+
+from custom_components.midea_ac_lan.climate import MideaC3Climate
+from custom_components.midea_ac_lan.const import supports_device
+from custom_components.midea_ac_lan.midea_devices import MIDEA_DEVICES
+from custom_components.midea_ac_lan.water_heater import MideaC3WaterHeater
 
 C3 = 0xC3
 
@@ -117,6 +118,16 @@ def test_c3_holiday_switch_hidden_for_native_model() -> None:
     config = entities[C3Attributes.holiday_on]
     assert not supports_device("17100007", 0, config)
     assert supports_device("17100003", 0, config)
+
+
+def test_c3_zone2_climate_follows_double_zone_capability() -> None:
+    """Keep an opted-in Zone 2 climate unavailable on a single-zone unit."""
+    attributes = {"double_zone": False, "zone_temp_type": [WATER, WATER]}
+    climate = MideaC3Climate(controller(attributes), "climate_zone2", 1)
+    assert not climate.available
+
+    attributes["double_zone"] = True
+    assert climate.available
 
 
 def test_excluded_models_does_not_affect_other_entities() -> None:
