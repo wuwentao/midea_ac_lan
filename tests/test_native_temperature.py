@@ -98,6 +98,11 @@ def test_water_heater_legacy_names_forward_to_native(
     assert entity.temperature_unit == UnitOfTemperature.CELSIUS
     assert entity.current_temperature == pytest.approx(41.0)
     assert entity.target_temperature == pytest.approx(55.0)
+    # WaterHeaterEntity.state_attributes reads the legacy range names on every
+    # state write; the mixin must return None (not raise) for entities without
+    # a target range, matching the HA base-class default.
+    assert entity.target_temperature_high is None
+    assert entity.target_temperature_low is None
 
 
 def test_tea_bar_temperature_members(

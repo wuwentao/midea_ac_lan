@@ -20,8 +20,10 @@ else:
         """Forward the native_* temperature members to the names HA < 2026.11 reads."""
 
         _attr_native_temperature_unit: str
-        _attr_native_target_temperature_high: float | None
-        _attr_native_target_temperature_low: float | None
+        # Default to None like the HA base class: entities without a target range
+        # (e.g. water heaters) must not raise when the base reads these names.
+        _attr_native_target_temperature_high: float | None = None
+        _attr_native_target_temperature_low: float | None = None
 
         @property
         def native_temperature_unit(self) -> str:
