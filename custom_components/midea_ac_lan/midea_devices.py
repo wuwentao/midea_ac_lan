@@ -3671,6 +3671,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "device_class": SensorDeviceClass.HUMIDITY,
                 "unit": PERCENTAGE,
                 "state_class": SensorStateClass.MEASUREMENT,
+                "missing_values": [0],
                 "required_attribute": "target_humidity",
                 "models": ["22396933", "22396945", "22396937"],
                 "subtypes": [0, 1],
