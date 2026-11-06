@@ -172,7 +172,12 @@ async def test_base_async_commands_and_updates(
     heater.hass = SimpleNamespace(async_add_executor_job=executor)
     await heater.async_turn_on(source="test")
     await heater.async_turn_off(source="test")
-    assert executor.await_count == 2
+    scheduled_on = executor.await_args_list[0].args[0]
+    scheduled_off = executor.await_args_list[1].args[0]
+    assert scheduled_on.func == heater.turn_on
+    assert scheduled_on.keywords == {"source": "test"}
+    assert scheduled_off.func == heater.turn_off
+    assert scheduled_off.keywords == {"source": "test"}
     heater.schedule_update_if_running = Mock()
     heater.update_state({})
     heater.schedule_update_if_running.assert_called_once_with()
