@@ -162,7 +162,7 @@ Known settings:
 | sensor.{DEVICEID}\_full_dust                   | binary_sensor | Full of Dust                     |
 | sensor.{DEVICEID}\_self_clean_active           | binary_sensor | Self Clean Active                |
 | sensor.{DEVICEID}\_indoor_humidity             | sensor        | Indoor humidity                  |
-| sensor.{DEVICEID}\_humidify                    | binary_sensor | Humidify                         |
+| binary_sensor.{DEVICEID}\_humidify             | binary_sensor | Humidify                         |
 | sensor.{DEVICEID}\_target_humidity             | sensor        | Target Humidity                  |
 | sensor.{DEVICEID}\_indoor_temperature          | sensor        | Indoor Temperature               |
 | sensor.{DEVICEID}\_outdoor_temperature         | sensor        | Outdoor Temperature              |
