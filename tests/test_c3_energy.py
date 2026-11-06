@@ -51,7 +51,7 @@ def test_native_sensor_metadata_and_value(key: str) -> None:
     device = controller({key: 2.5})
     sensor = MideaSensor(device, key)
     assert sensor.native_value == pytest.approx(2.5)
-    assert isinstance(config["type"], Platform)
+    assert config["type"] == Platform.SENSOR
     assert sensor.entity_category is None or isinstance(
         sensor.entity_category,
         EntityCategory,
