@@ -74,11 +74,16 @@ async def async_setup_entry(
     async_add_entities(devs)
 
 
-# HA version >= 2024,8 support TURN_ON | TURN_OFF,for future changes, ref PR #285
-try:
-    FAN_FEATURE_TURN_ON_OFF = FanEntityFeature["TURN_ON"] | FanEntityFeature["TURN_OFF"]
-except KeyError:
-    FAN_FEATURE_TURN_ON_OFF = FanEntityFeature(0)
+# Home Assistant 2024.8 added explicit TURN_ON and TURN_OFF fan features.
+FAN_FEATURE_TURN_ON_OFF = getattr(
+    FanEntityFeature,
+    "TURN_ON",
+    FanEntityFeature(0),
+) | getattr(
+    FanEntityFeature,
+    "TURN_OFF",
+    FanEntityFeature(0),
+)
 
 
 class MideaFan(MideaEntity, FanEntity):
@@ -340,11 +345,15 @@ class MideaCEFan(MideaFan):
 
     def turn_on(
         self,
-        percentage: int | None = None,  # ruff:ignore[unused-method-argument]
-        preset_mode: str | None = None,  # ruff:ignore[unused-method-argument]
+        percentage: int | None = None,
+        preset_mode: str | None = None,
         **kwargs: Any,  # ruff:ignore[any-type, unused-method-argument]
     ) -> None:
         """Midea CE Fan turn on."""
+        if percentage is not None:
+            self.set_percentage(percentage)
+        if preset_mode is not None:
+            self.set_preset_mode(preset_mode)
         self._device.set_attribute(attr=CEAttributes.power, value=True)
 
     async def async_set_percentage(self, percentage: int) -> None:
