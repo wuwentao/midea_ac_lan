@@ -2,6 +2,7 @@
 
 from datetime import date
 from types import SimpleNamespace
+from typing import Any, cast
 from unittest.mock import AsyncMock, Mock, patch
 
 import pytest
@@ -572,7 +573,8 @@ def test_estimated_usage_detached_update(
     sensor.schedule_update_if_running.assert_not_called()
 
 
-TARGET_HUMIDITY_CONFIG = MIDEA_DEVICES[0xAC]["entities"]["target_humidity"]
+AC_ENTITIES = cast("dict[str, Any]", MIDEA_DEVICES[0xAC]["entities"])
+TARGET_HUMIDITY_CONFIG = AC_ENTITIES["target_humidity"]
 
 
 @pytest.mark.parametrize(
