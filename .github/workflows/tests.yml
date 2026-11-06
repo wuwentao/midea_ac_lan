@@ -58,6 +58,11 @@ jobs:
           --cov-report=html
           --junitxml=pytest-results.xml
 
+      - name: Publish coverage summary
+        run: >-
+          uv run --no-sync coverage report --format=markdown
+          | tee coverage.md >> "$GITHUB_STEP_SUMMARY"
+
       - name: Upload test and coverage reports
         if: always()
         uses: actions/upload-artifact@v7
@@ -65,6 +70,44 @@ jobs:
           name: coverage-${{ matrix.ha }}-py${{ matrix.python }}
           path: |
             coverage.xml
+            coverage.md
             htmlcov/
             pytest-results.xml
           if-no-files-found: error
+
+  coverage:
+    name: Coverage gate
+    needs: pytest
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Require pytest matrix success
+        if: ${{ needs.pytest.result != 'success' }}
+        run: exit 1
+
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Download canonical coverage report
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: coverage-2024.4.1-py3.12
+          path: coverage-report
+
+      - name: Upload coverage to Codecov
+        continue-on-error: >-
+          ${{ github.event_name == 'pull_request' &&
+          github.event.pull_request.head.repo.fork }}
+        uses: codecov/codecov-action@303a32d7a59b442fa8d48b6a1cc6825c09c847a5 # v7.1.1
+        with:
+          disable_search: true
+          fail_ci_if_error: true
+          files: ./coverage-report/coverage.xml
+          name: ha-2024.4.1-py3.12
+          use_oidc: true
+          version: v11.3.2

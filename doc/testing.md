@@ -21,9 +21,8 @@ UV_PROJECT_ENVIRONMENT=.venv-test312 uv run --no-sync pytest --cov=custom_compon
 
 Open `htmlcov/index.html` to inspect missing lines and branches. Coverage includes
 the entire integration, including compatibility branches; production code must
-not be excluded just to increase the percentage. The initial test PRs report
-coverage without a percentage gate. The 100% gate is enabled after the suite
-covers the entire supported integration.
+not be excluded just to increase the percentage. `.coveragerc` enforces 100%
+line and branch coverage in every supported matrix environment.
 
 ## Compatibility matrix
 
@@ -55,5 +54,12 @@ tests for isolated conversions and boundary conditions, but exercise platform
 services, config/options flows, updates, setup failures, unload and migrations
 through HA's public managers. Use fictional device identifiers and credentials.
 
-The Tests workflow runs every matrix entry and uploads XML, HTML and JUnit
-reports. Linting remains in the separate Lint workflow.
+The Tests workflow runs every matrix entry, publishes a Markdown coverage
+summary, and uploads XML, HTML, Markdown, and JUnit reports. The minimum-version
+report is also uploaded to Codecov for the pull-request report and README badge.
+The `Coverage gate` check requires every matrix entry to reach 100%. For
+non-fork pull requests and pushes, the canonical report upload to Codecov must
+also succeed. For pull requests from forks, the upload is best-effort because
+upstream OIDC credentials are unavailable, so an upload failure does not fail
+the gate; the local 100% gate still applies. Linting remains in the separate
+Lint workflow.

@@ -17,8 +17,8 @@ UV_PROJECT_ENVIRONMENT=.venv-test312 uv run --no-sync pytest --cov=custom_compon
 ```
 
 打开 `htmlcov/index.html` 查看未覆盖的行和分支。覆盖率统计包含整个集成及兼容性
-分支，不得通过排除生产代码提高百分比。初期测试 PR 只报告覆盖率，不设置百分比
-门禁；整个受支持集成得到测试覆盖后，再启用 100% 门禁。
+分支，不得通过排除生产代码提高百分比。`.coveragerc` 会在每个受支持的矩阵环境中
+强制执行 100% 行覆盖率和分支覆盖率门禁。
 
 ## 兼容性矩阵
 
@@ -45,5 +45,9 @@ lint 工具版本。最旧插件声明的 `mypy-dev` 预发布版已无法获取
 为独立转换和边界条件保留小型单元测试，但平台服务、配置及选项流程、更新、加载
 失败、卸载和迁移应通过 HA 的公开管理器验证。设备标识和凭据必须使用虚构数据。
 
-Tests workflow 运行所有矩阵组合，并上传 XML、HTML 和 JUnit 报告。Lint 检查继续
-由独立的 Lint workflow 执行。
+Tests workflow 运行所有矩阵组合、发布 Markdown 覆盖率摘要，并上传 XML、HTML、
+Markdown 和 JUnit 报告。最低版本环境的报告还会上传到 Codecov，用于 PR 报告和
+README 徽章。`Coverage gate` 检查要求所有矩阵环境都达到 100%。对于非 fork PR
+和 push，标准报告还必须成功上传到 Codecov。由于上游 OIDC 凭据不会提供给 fork，
+来自 fork 的 PR 仅尽力上传 Codecov，上传失败不会导致该门禁失败；本地 100% 门禁
+仍然生效。Lint 检查继续由独立的 Lint workflow 执行。
