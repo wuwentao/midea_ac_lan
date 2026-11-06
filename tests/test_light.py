@@ -73,6 +73,7 @@ def test_supported_features_and_color_modes(
 
     values[X13Attributes.rgb_color] = (255, 0, 0)
     assert light.supported_color_modes == {ColorMode.COLOR_TEMP, ColorMode.HS}
+    assert light.color_mode is ColorMode.COLOR_TEMP
     with patch.object(
         MideaLight,
         "hs_color",
@@ -143,6 +144,14 @@ def test_light_commands(
     values[X13Attributes.power] = True
     light.turn_on()
     device.set_attribute.assert_not_called()
+    for key, attribute, value in (
+        (ATTR_BRIGHTNESS, X13Attributes.brightness, 200),
+        (ATTR_COLOR_TEMP_KELVIN, X13Attributes.color_temperature, 3500),
+        (ATTR_EFFECT, X13Attributes.effect, "pulse"),
+    ):
+        light.turn_on(**{key: value})
+        device.set_attribute.assert_called_once_with(attr=attribute, value=value)
+        device.set_attribute.reset_mock()
     light.turn_off(ignored=True)
     device.set_attribute.assert_called_once_with(attr=X13Attributes.power, value=False)
 
