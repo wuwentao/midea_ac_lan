@@ -60,6 +60,7 @@ from midealan.devices.fb import MideaFBDevice
 from .const import DEVICES, DOMAIN, FanSpeed, supports_device
 from .midea_devices import MIDEA_DEVICES
 from .midea_entity import MideaEntity
+from .native_temperature import NativeTemperatureCompat
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -122,7 +123,7 @@ type MideaSetTemperatureDevice = (
 type MideaClimateDevice = MideaSetTemperatureDevice | MideaC1Device
 
 
-class MideaClimate(MideaEntity, ClimateEntity):
+class MideaClimate(NativeTemperatureCompat, MideaEntity, ClimateEntity):
     """Midea Climate Entries Base Class."""
 
     # https://developers.home-assistant.io/blog/2024/01/24/climate-climateentityfeatures-expanded
@@ -134,9 +135,9 @@ class MideaClimate(MideaEntity, ClimateEntity):
 
     _attr_max_temp: float = TEMPERATURE_MAX
     _attr_min_temp: float = TEMPERATURE_MIN
-    _attr_target_temperature_high: float | None = TEMPERATURE_MAX
-    _attr_target_temperature_low: float | None = TEMPERATURE_MIN
-    _attr_temperature_unit: str = UnitOfTemperature.CELSIUS
+    _attr_native_target_temperature_high: float | None = TEMPERATURE_MAX
+    _attr_native_target_temperature_low: float | None = TEMPERATURE_MIN
+    _attr_native_temperature_unit: str = UnitOfTemperature.CELSIUS
 
     def __init__(self, device: MideaClimateDevice, entity_key: str) -> None:
         """Midea Climate entity init."""
@@ -167,12 +168,12 @@ class MideaClimate(MideaEntity, ClimateEntity):
         return HVACMode.OFF
 
     @property
-    def target_temperature(self) -> float:
+    def native_target_temperature(self) -> float:
         """Midea Climate target temperature."""
         return cast("float", self._device.get_attribute("target_temperature"))
 
     @property
-    def current_temperature(self) -> float | None:
+    def native_current_temperature(self) -> float | None:
         """Midea Climate current temperature."""
         return cast("float | None", self._device.get_attribute("indoor_temperature"))
 
@@ -273,7 +274,7 @@ class MideaClimate(MideaEntity, ClimateEntity):
         self.schedule_update_if_running()
 
 
-class MideaEDTeaBarClimate(MideaEntity, ClimateEntity):
+class MideaEDTeaBarClimate(NativeTemperatureCompat, MideaEntity, ClimateEntity):
     """On/off heater and temperature control for the subtype-395 tea bar."""
 
     _enable_turn_on_off_backwards_compatibility = False
@@ -282,7 +283,9 @@ class MideaEDTeaBarClimate(MideaEntity, ClimateEntity):
     _attr_max_temp = 100
     _attr_min_temp = 40
     _attr_target_temperature_step = PRECISION_WHOLE
-    _attr_temperature_unit = UnitOfTemperature.CELSIUS
+    _attr_native_temperature_unit = UnitOfTemperature.CELSIUS
+    _attr_native_target_temperature_high: float | None = None
+    _attr_native_target_temperature_low: float | None = None
 
     @property
     def supported_features(self) -> ClimateEntityFeature:
@@ -311,7 +314,7 @@ class MideaEDTeaBarClimate(MideaEntity, ClimateEntity):
         return HVACAction.HEATING if active else HVACAction.OFF
 
     @property
-    def current_temperature(self) -> float | None:
+    def native_current_temperature(self) -> float | None:
         """Current kettle temperature."""
         return cast(
             "float | None",
@@ -319,7 +322,7 @@ class MideaEDTeaBarClimate(MideaEntity, ClimateEntity):
         )
 
     @property
-    def target_temperature(self) -> float | None:
+    def native_target_temperature(self) -> float | None:
         """Selected boil target temperature."""
         return cast(
             "float | None",
@@ -856,17 +859,17 @@ class MideaCFClimate(MideaClimate):
         return cast("float", self._device.get_attribute(CFAttributes.max_temperature))
 
     @property
-    def target_temperature_low(self) -> float:
+    def native_target_temperature_low(self) -> float:
         """Midea CF Climate target temperature."""
         return cast("float", self._device.get_attribute(CFAttributes.min_temperature))
 
     @property
-    def target_temperature_high(self) -> float:
+    def native_target_temperature_high(self) -> float:
         """Midea CF Climate target temperature high."""
         return cast("float", self._device.get_attribute(CFAttributes.max_temperature))
 
     @property
-    def current_temperature(self) -> float:
+    def native_current_temperature(self) -> float:
         """Midea CF Climate current temperature."""
         return cast(
             "float",
@@ -947,7 +950,7 @@ class MideaC3Climate(MideaClimate):
         )
 
     @property
-    def target_temperature_low(self) -> float:
+    def native_target_temperature_low(self) -> float:
         """Midea C3 Climate target temperature low."""
         return cast(
             "float",
@@ -955,7 +958,7 @@ class MideaC3Climate(MideaClimate):
         )
 
     @property
-    def target_temperature_high(self) -> float:
+    def native_target_temperature_high(self) -> float:
         """Midea C3 Climate target temperature high."""
         return cast(
             "float",
@@ -983,7 +986,7 @@ class MideaC3Climate(MideaClimate):
         return HVACMode.OFF
 
     @property
-    def target_temperature(self) -> float:
+    def native_target_temperature(self) -> float:
         """Midea C3 Climate target temperature."""
         target_temperature = cast(
             "list[str]",
@@ -995,7 +998,7 @@ class MideaC3Climate(MideaClimate):
         )
 
     @property
-    def current_temperature(self) -> float | None:
+    def native_current_temperature(self) -> float | None:
         """Midea C3 Climate current temperature."""
         return None
 
@@ -1033,8 +1036,8 @@ class MideaC1Climate(MideaClimate):
 
     _attr_max_temp: float = 60
     _attr_min_temp: float = 30
-    _attr_target_temperature_high: float | None = 60
-    _attr_target_temperature_low: float | None = 30
+    _attr_native_target_temperature_high: float | None = 60
+    _attr_native_target_temperature_low: float | None = 30
     _attr_target_temperature_step: float | None = PRECISION_WHOLE
 
     def __init__(self, device: MideaC1Device, entity_key: str) -> None:
@@ -1071,7 +1074,7 @@ class MideaC1Climate(MideaClimate):
         return mode
 
     @property
-    def current_temperature(self) -> float | None:
+    def native_current_temperature(self) -> float | None:
         """Midea C1 climate current temperature."""
         raw = self._device.get_attribute(C1Attributes.current_temperature)
         if isinstance(raw, int | float):
@@ -1079,7 +1082,7 @@ class MideaC1Climate(MideaClimate):
         return None
 
     @property
-    def target_temperature(self) -> float:
+    def native_target_temperature(self) -> float:
         """Midea C1 climate heating target setpoint."""
         raw = self._device.get_attribute(C1Attributes.heating_target_temperature)
         if isinstance(raw, int | float):
@@ -1151,8 +1154,8 @@ class MideaFBClimate(MideaClimate):
 
     _attr_max_temp: float = 35
     _attr_min_temp: float = 5
-    _attr_target_temperature_high: float | None = 35
-    _attr_target_temperature_low: float | None = 5
+    _attr_native_target_temperature_high: float | None = 35
+    _attr_native_target_temperature_low: float | None = 5
     _attr_target_temperature_step: float | None = PRECISION_WHOLE
 
     def __init__(self, device: MideaFBDevice, entity_key: str) -> None:
@@ -1186,7 +1189,7 @@ class MideaFBClimate(MideaClimate):
         )
 
     @property
-    def current_temperature(self) -> float:
+    def native_current_temperature(self) -> float:
         """Midea FB Climate current temperature."""
         return cast(
             "float",
