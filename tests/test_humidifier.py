@@ -117,6 +117,7 @@ def test_humidifier_properties_and_commands(
 def test_update_state_attached_and_detached(
     device_factory: DeviceFactory,
     install_config: InstallConfig,
+    caplog: pytest.LogCaptureFixture,
 ) -> None:
     """Refresh attached entities and safely ignore pre-HA reports."""
     install_config({"main": {"type": Platform.HUMIDIFIER}}, DeviceType.A1)
@@ -125,6 +126,8 @@ def test_update_state_attached_and_detached(
     detached.schedule_update_if_running = Mock()
     detached.update_state({})
     detached.schedule_update_if_running.assert_not_called()
+    assert "Humidifier update_state skipped for None" in caplog.text
+    assert "MideaA1Humidifier" in caplog.text
 
     attached = MideaA1Humidifier(device, "main")
     attached.hass = Mock()
