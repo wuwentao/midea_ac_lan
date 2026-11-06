@@ -11,6 +11,7 @@ from homeassistant.const import (
     CONF_DEVICE_ID,
     CONF_IP_ADDRESS,
     CONF_NAME,
+    CONF_PASSWORD,
     CONF_PORT,
     CONF_PROTOCOL,
     CONF_TOKEN,
@@ -30,9 +31,11 @@ from custom_components.midea_ac_lan.const import (
     CONF_MANUFACTURER_CODE,
     CONF_MODEL,
     CONF_REFRESH_INTERVAL,
+    CONF_SERVER,
     CONF_SN,
     CONF_SN8,
     CONF_SUBTYPE,
+    CONF_TLS,
     DEVICES,
     DOMAIN,
 )
@@ -532,3 +535,137 @@ async def test_migrate_device_identifiers_skips_empty_entry() -> None:
         device_id="found",
         new_identifiers={(DOMAIN, "456")},
     )
+
+
+def tls_account(**overrides: object) -> dict[str, object]:
+    """Build a stored account.json mapping carrying the TLS cloud credentials."""
+    account: dict[str, object] = {
+        CONF_ACCOUNT: "user@example.com",
+        CONF_PASSWORD: "secret",
+        CONF_SERVER: "SmartHome",
+    }
+    account.update(overrides)
+    return account
+
+
+def hass_with_account(account: dict[str, object]) -> Mock:
+    """Build a hass mock whose executor returns the stored TLS account."""
+    hass = Mock()
+    hass.async_add_executor_job = AsyncMock(return_value=account)
+    return hass
+
+
+def test_load_tls_account_missing_file() -> None:
+    """Return an empty mapping when account.json does not exist."""
+    hass = Mock()
+    hass.config.path.return_value = "/does/not/exist/account.json"
+    with patch.object(midea_ac_lan.Path, "exists", return_value=False):
+        assert midea_ac_lan._load_tls_account(hass) == {}
+
+
+def test_load_tls_account_reads_json() -> None:
+    """Return the stored account mapping when account.json exists."""
+    hass = Mock()
+    hass.config.path.return_value = "/config/.storage/midea_ac_lan/account.json"
+    account = tls_account()
+    with (
+        patch.object(midea_ac_lan.Path, "exists", return_value=True),
+        patch.object(midea_ac_lan, "load_json", return_value=account) as load,
+    ):
+        assert midea_ac_lan._load_tls_account(hass) == account
+    load.assert_called_once()
+
+
+@pytest.mark.parametrize(
+    "account",
+    [
+        {CONF_ACCOUNT: "", CONF_PASSWORD: "secret", CONF_SERVER: "SmartHome"},
+        {CONF_ACCOUNT: "user@example.com", CONF_PASSWORD: "", CONF_SERVER: "SmartHome"},
+        {},
+    ],
+)
+async def test_provision_tls_cert_missing_credentials(
+    account: dict[str, object],
+) -> None:
+    """Return None when account.json has no stored Midea account."""
+    hass = hass_with_account(account)
+    entry = config_entry(data=entry_data(**{CONF_TLS: True}))
+    assert await midea_ac_lan._provision_tls_cert(hass, entry) is None
+
+
+async def test_provision_tls_cert_login_failure() -> None:
+    """Return None when the cloud login fails."""
+    hass = hass_with_account(tls_account())
+    entry = config_entry(data=entry_data(**{CONF_TLS: True}))
+    cloud = Mock()
+    cloud.login = AsyncMock(return_value=False)
+    cloud.apply_cert = AsyncMock()
+    with (
+        patch.object(midea_ac_lan, "get_midea_cloud", return_value=cloud),
+        patch.object(midea_ac_lan, "async_get_clientsession"),
+    ):
+        assert await midea_ac_lan._provision_tls_cert(hass, entry) is None
+    cloud.apply_cert.assert_not_awaited()
+
+
+async def test_provision_tls_cert_success_defaults_server() -> None:
+    """Log in and return the bundle, defaulting the server when unset."""
+    hass = hass_with_account(tls_account(**{CONF_SERVER: ""}))
+    entry = config_entry(data=entry_data(**{CONF_TLS: True}))
+    bundle = Mock()
+    cloud = Mock()
+    cloud.login = AsyncMock(return_value=True)
+    cloud.apply_cert = AsyncMock(return_value=bundle)
+    with (
+        patch.object(
+            midea_ac_lan,
+            "get_midea_cloud",
+            return_value=cloud,
+        ) as get_cloud,
+        patch.object(midea_ac_lan, "async_get_clientsession"),
+    ):
+        assert await midea_ac_lan._provision_tls_cert(hass, entry) is bundle
+    assert get_cloud.call_args.args[0] == midea_ac_lan.DEFAULT_CLOUD
+
+
+async def test_async_setup_entry_tls_provision_failure() -> None:
+    """Reject a TLS entry when certificate provisioning fails."""
+    hass, _, _ = setup_hass(None)
+    entry = config_entry(
+        data=entry_data(**{CONF_TLS: True, CONF_PROTOCOL: ProtocolVersion.V3}),
+    )
+    with patch.object(
+        midea_ac_lan,
+        "_provision_tls_cert",
+        new_callable=AsyncMock,
+        return_value=None,
+    ):
+        assert not await midea_ac_lan.async_setup_entry(hass, entry)
+    hass.async_add_import_executor_job.assert_not_awaited()
+
+
+async def test_async_setup_entry_tls_success_threads_cert_bundle() -> None:
+    """Provision a certificate and pass the bundle to device_selector."""
+    device = Mock()
+    device.device_type = 1
+    device.device_id = 42
+    device.model = "MODEL"
+    device.subtype = 1
+    hass, _, _ = setup_hass(device)
+    bundle = Mock()
+    entry = config_entry(
+        data=entry_data(**{CONF_TLS: True, CONF_PROTOCOL: ProtocolVersion.V3}),
+    )
+    with (
+        patch.object(
+            midea_ac_lan,
+            "_provision_tls_cert",
+            new_callable=AsyncMock,
+            return_value=bundle,
+        ),
+        patch.object(midea_ac_lan, "MIDEA_DEVICES", {1: {"entities": {}}}),
+        patch.object(midea_ac_lan, "_remove_unsupported_entities"),
+    ):
+        assert await midea_ac_lan.async_setup_entry(hass, entry)
+    # The certificate bundle is the final positional argument to device_selector.
+    assert hass.async_add_import_executor_job.await_args.args[-1] is bundle

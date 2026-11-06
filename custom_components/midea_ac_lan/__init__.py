@@ -11,7 +11,8 @@ integration load process:
 
 import asyncio
 import logging
-from typing import Any, cast
+from pathlib import Path
+from typing import TYPE_CHECKING, Any, cast
 
 import homeassistant.helpers.config_validation as cv
 import homeassistant.helpers.device_registry as dr
@@ -23,6 +24,7 @@ from homeassistant.const import (
     CONF_DEVICE_ID,
     CONF_IP_ADDRESS,
     CONF_NAME,
+    CONF_PASSWORD,
     CONF_PORT,
     CONF_PROTOCOL,
     CONF_TOKEN,
@@ -30,7 +32,10 @@ from homeassistant.const import (
     EVENT_HOMEASSISTANT_STOP,
 )
 from homeassistant.core import Event, HomeAssistant
+from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.typing import ConfigType
+from homeassistant.util.json import load_json
+from midealan.cloud import get_midea_cloud
 from midealan.device import DeviceType, MideaDevice, ProtocolVersion
 from midealan.devices import device_selector
 from midealan.discover import discover
@@ -44,15 +49,23 @@ from .const import (
     CONF_MANUFACTURER_CODE,
     CONF_MODEL,
     CONF_REFRESH_INTERVAL,
+    CONF_SERVER,
     CONF_SN,
     CONF_SN8,
     CONF_SUBTYPE,
+    CONF_TLS,
+    DEFAULT_CLOUD,
     DEVICES,
     DOMAIN,
     EXTRA_SWITCH,
+    STORAGE_PATH,
+    TLS_ACCOUNT_FILE,
     supports_device,
 )
 from .midea_devices import MIDEA_DEVICES
+
+if TYPE_CHECKING:
+    from midealan.tls import CertBundle
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -227,6 +240,66 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:  # ruff:
     return True
 
 
+def _load_tls_account(hass: HomeAssistant) -> dict[str, Any]:
+    """Load the shared Midea cloud account used to provision TLS certs.
+
+    Reads the account.json saved by the config flow under STORAGE_PATH. Returns
+    an empty dict when the file is missing.
+
+    Returns
+    -------
+    The stored account mapping, or an empty dict.
+
+    """
+    record_file = Path(hass.config.path(STORAGE_PATH, TLS_ACCOUNT_FILE))
+    if record_file.exists():
+        return cast("dict[str, Any]", load_json(str(record_file), default={}))
+    return {}
+
+
+async def _provision_tls_cert(
+    hass: HomeAssistant,
+    config_entry: ConfigEntry,
+) -> "CertBundle | None":
+    """Re-provision the LAN control certificate for a TLS device.
+
+    Logs in to the Midea cloud with the account credentials saved in the shared
+    account.json and requests a fresh app certificate. Returns None when
+    credentials are missing, the login fails, or the cloud does not provision
+    certs.
+
+    Returns
+    -------
+    The freshly provisioned certificate bundle, or None on failure.
+
+    """
+    account_data = await hass.async_add_executor_job(_load_tls_account, hass)
+    account = account_data.get(CONF_ACCOUNT)
+    password = account_data.get(CONF_PASSWORD)
+    server = account_data.get(CONF_SERVER) or DEFAULT_CLOUD
+    if not account or not password:
+        _LOGGER.error(
+            "TLS device %s has no Midea account configured; re-add a TLS device "
+            "while logged in to the Midea cloud to save the shared account.json",
+            config_entry.data.get(CONF_DEVICE_ID),
+        )
+        return None
+    cloud = get_midea_cloud(
+        server,
+        async_get_clientsession(hass),
+        str(account),
+        str(password),
+    )
+    if not await cloud.login():
+        _LOGGER.error(
+            "Can't log in to %s cloud with account %s to provision the TLS certificate",
+            server,
+            account,
+        )
+        return None
+    return await cloud.apply_cert()
+
+
 async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> bool:  # ruff: ignore[too-many-locals]
     """Set up platform for current integration.
 
@@ -265,7 +338,21 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
     # Cloud-derived identity fields (sn8/manufacturer_code/cloud_name) are read
     # inline at the device_selector call below to keep the local-variable count
     # within the lint limit.
-    if protocol == ProtocolVersion.V3 and (key == "" or token == ""):
+    # TLS (udp_version >= 4) devices use an app certificate instead of a
+    # token/key. The certificate carries a live private key that cannot be
+    # persisted, so it is re-provisioned from the Midea cloud on every startup
+    # using the shared account credentials saved in account.json.
+    cert_bundle: CertBundle | None = None
+    if config_entry.data.get(CONF_TLS):
+        cert_bundle = await _provision_tls_cert(hass, config_entry)
+        if cert_bundle is None:
+            _LOGGER.error(
+                "Can't provision a TLS certificate for device %s; check the "
+                "Midea account saved in account.json",
+                device_id,
+            )
+            return False
+    elif protocol == ProtocolVersion.V3 and (key == "" or token == ""):
         _LOGGER.error("For V3 devices, the key and the token is required")
         return False
     # device_selector in `midealan/devices/__init__.py`
@@ -287,6 +374,7 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
         config_entry.data.get(CONF_SN8),
         config_entry.data.get(CONF_MANUFACTURER_CODE),
         config_entry.data.get(CONF_CLOUD_NAME),
+        cert_bundle,
     )
     if device:
         if refresh_interval is not None:

@@ -21,6 +21,20 @@ CONF_MANUFACTURER_CODE = "manufacturer_code"
 CONF_CLOUD_NAME = "cloud_name"
 CONF_REFRESH_INTERVAL = "refresh_interval"
 CONF_MAC = "mac"
+# Marks an entry for a udp_version >= 4 ("TLS") device. These devices do not use
+# a persistable token/key; instead an app certificate must be re-provisioned
+# from the Midea cloud at every startup, so the entry only carries this flag.
+# The cloud credentials needed to re-provision are kept out of the entry, in a
+# shared account.json file under STORAGE_PATH (see TLS_ACCOUNT_FILE).
+CONF_TLS = "tls"
+
+# Local storage for device/account json configs, e.g. `.storage/midea_ac_lan/`.
+STORAGE_PATH = f".storage/{DOMAIN}"
+# Shared Midea cloud account used to re-provision TLS device certificates at
+# startup. Persisted here instead of in the config entry so the credentials stay
+# out of entry data/options (and HA diagnostics). One account serves every TLS
+# device, mirroring how a single cloud login provisions them during setup.
+TLS_ACCOUNT_FILE = "account.json"
 
 # Select DEFAULT_CLOUD from the list of supported cloud. Index 1 (SmartHome)
 # exposes the E3 dayReportV2 usage report through its per-cloud proxy alias, so
