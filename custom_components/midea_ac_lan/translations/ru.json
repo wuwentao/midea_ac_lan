@@ -1033,14 +1033,26 @@
       }
     },
     "select": {
-      "wash_mode_76000228": {
-        "name": "Режим мойки"
-      },
-      "program_76000228": {
-        "name": "Программа"
-      },
       "program": {
-        "name": "Программа"
+        "name": "Программа",
+        "state": {
+          "neutral_gear": "Нет",
+          "auto_wash": "Авто",
+          "strong_wash": "Интенсивная",
+          "standard_wash": "Стандартная",
+          "universal_wash": "Универсальная",
+          "eco_wash": "ЭКО",
+          "glass_wash": "Стекло",
+          "hour_wash": "1 час",
+          "fast_wash": "Быстрая",
+          "soak_wash": "Замачивание",
+          "90min": "90 мин",
+          "self_clean": "Самоочистка",
+          "germ": "Обеззараживание",
+          "whisper_wash": "Ночная",
+          "kill_germ": "Гигиена",
+          "anion1": "Ion Dishfresh"
+        }
       },
       "load": {
         "name": "Загрузка",
@@ -1154,7 +1166,25 @@
         "name": "Угол поворота"
       },
       "wash_mode": {
-        "name": "Режим мойки"
+        "name": "Режим мойки",
+        "state": {
+          "neutral_gear": "Нет",
+          "auto_wash": "Авто",
+          "strong_wash": "Интенсивная",
+          "standard_wash": "Стандартная",
+          "universal_wash": "Универсальная",
+          "eco_wash": "ЭКО",
+          "glass_wash": "Стекло",
+          "hour_wash": "1 час",
+          "fast_wash": "Быстрая",
+          "soak_wash": "Замачивание",
+          "90min": "90 мин",
+          "self_clean": "Самоочистка",
+          "germ": "Обеззараживание",
+          "whisper_wash": "Ночная",
+          "kill_germ": "Гигиена",
+          "anion1": "Ion Dishfresh"
+        }
       },
       "water_level_set": {
         "name": "Water Level Setting"
@@ -1489,10 +1519,25 @@
         "name": "Энергопотребление сушки"
       },
       "dishwasher_mode": {
-        "name": "Режим"
-      },
-      "dishwasher_mode_76000228": {
-        "name": "Режим"
+        "name": "Режим",
+        "state": {
+          "neutral_gear": "Нет",
+          "auto_wash": "Авто",
+          "strong_wash": "Интенсивная",
+          "standard_wash": "Стандартная",
+          "universal_wash": "Универсальная",
+          "eco_wash": "ЭКО",
+          "glass_wash": "Стекло",
+          "hour_wash": "1 час",
+          "fast_wash": "Быстрая",
+          "soak_wash": "Замачивание",
+          "90min": "90 мин",
+          "self_clean": "Самоочистка",
+          "germ": "Обеззараживание",
+          "whisper_wash": "Ночная",
+          "kill_germ": "Гигиена",
+          "anion1": "Ion Dishfresh"
+        }
       },
       "dishwasher_status": {
         "name": "Статус"

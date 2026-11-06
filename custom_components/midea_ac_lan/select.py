@@ -1,6 +1,6 @@
 """Select for Midea Lan."""
 
-from typing import TYPE_CHECKING, Any, cast
+from typing import Any, cast
 
 from homeassistant.components.select import SelectEntity
 from homeassistant.config_entries import ConfigEntry
@@ -12,9 +12,6 @@ from midealan.device import MideaDevice
 from .const import DEVICES, DOMAIN, supports_device
 from .midea_devices import MIDEA_DEVICES
 from .midea_entity import MideaEntity
-
-if TYPE_CHECKING:
-    from midealan.devices.e1 import MideaE1Device
 
 
 async def async_setup_entry(
@@ -44,6 +41,8 @@ async def async_setup_entry(
         ):
             continue
         dev = MideaSelect(device, entity_key)
+        if config.get("omit_when_no_options") and not dev.options:
+            continue
         selects.append(dev)
     async_add_entities(selects)
 
@@ -62,23 +61,15 @@ class MideaSelect(MideaEntity, SelectEntity):
     def options(self) -> list[str]:
         """Available options for the entity."""
         if self._options_method:
-            return cast(
-                "list[str]",
-                getattr(self._device, self._options_method)(self._attribute_key),
-            )
+            return [
+                str(option)
+                for option in getattr(self._device, self._options_method)(
+                    self._attribute_key,
+                )
+            ]
         if self._options_dict_name:
             options = self._get_options_dict()
-            codes_by_model = self._config.get("options_codes_by_model", {})
-            codes = codes_by_model.get(str(self._device.model)) or self._config.get(
-                "options_codes",
-            )
             exclude = self._config.get("options_exclude_codes", [])
-            if codes:
-                return [
-                    options[code]
-                    for code in codes
-                    if code in options and code not in exclude
-                ]
             return [name for code, name in options.items() if code not in exclude]
         if isinstance(self._options_name, dict):
             return list(self._options_name.values())
@@ -92,6 +83,9 @@ class MideaSelect(MideaEntity, SelectEntity):
         value = self._device.get_attribute(self._state_attribute_key)
         if value is None:
             return None
+        if self._options_method:
+            option = str(value)
+            return option if option in self.options else None
         state_map = self._config.get("state_map")
         if state_map is not None:
             value = state_map.get(value)
@@ -119,9 +113,6 @@ class MideaSelect(MideaEntity, SelectEntity):
             If a mapped option is not supported.
 
         """
-        if self._config.get("set_message") == "e1_work_mode":
-            self._select_e1_work_mode(option)
-            return
         value: Any = option
         if isinstance(self._options_name, dict):
             value = self._get_dict_key_by_value(self._options_name, option)
@@ -140,20 +131,6 @@ class MideaSelect(MideaEntity, SelectEntity):
 
         """
         return cast("dict[int, str]", getattr(self._device, self._options_dict_name))
-
-    def _select_e1_work_mode(self, option: str) -> None:
-        """Set dishwasher work mode via midea-lan's public E1 API.
-
-        Raises
-        ------
-        ValueError
-            If the requested option is not a supported work mode.
-
-        """
-        mode = self._get_dict_key_by_value(self._get_options_dict(), option)
-        if mode is None:
-            raise ValueError(f"Unsupported dishwasher mode: {option}")
-        cast("MideaE1Device", self._device).set_work_mode(mode)
 
     @callback
     def update_state(self, status: Any) -> None:  # ruff:ignore[any-type]
