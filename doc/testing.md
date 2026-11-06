@@ -57,8 +57,9 @@ through HA's public managers. Use fictional device identifiers and credentials.
 The Tests workflow runs every matrix entry, publishes a Markdown coverage
 summary, and uploads XML, HTML, Markdown, and JUnit reports. The minimum-version
 report is also uploaded to Codecov for the pull-request report and README badge.
-The `Coverage gate` check succeeds only after every matrix entry reaches 100%
-and the canonical report is uploaded. Codecov uploads are best-effort for pull
-requests from forks because upstream OIDC credentials are unavailable there;
-the local 100% gate still applies. Linting remains in the separate Lint
-workflow.
+The `Coverage gate` check requires every matrix entry to reach 100%. For
+non-fork pull requests and pushes, the canonical report upload to Codecov must
+also succeed. For pull requests from forks, the upload is best-effort because
+upstream OIDC credentials are unavailable, so an upload failure does not fail
+the gate; the local 100% gate still applies. Linting remains in the separate
+Lint workflow.

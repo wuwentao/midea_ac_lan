@@ -47,7 +47,7 @@ lint 工具版本。最旧插件声明的 `mypy-dev` 预发布版已无法获取
 
 Tests workflow 运行所有矩阵组合、发布 Markdown 覆盖率摘要，并上传 XML、HTML、
 Markdown 和 JUnit 报告。最低版本环境的报告还会上传到 Codecov，用于 PR 报告和
-README 徽章。只有所有矩阵环境都达到 100% 且标准报告上传完成后，`Coverage gate`
-检查才会成功。由于上游 OIDC 凭据不会提供给 fork，来自 fork 的 PR 会以尽力而为
-方式上传 Codecov；本地 100% 门禁仍然生效。Lint 检查继续由独立的 Lint workflow
-执行。
+README 徽章。`Coverage gate` 检查要求所有矩阵环境都达到 100%。对于非 fork PR
+和 push，标准报告还必须成功上传到 Codecov。由于上游 OIDC 凭据不会提供给 fork，
+来自 fork 的 PR 仅尽力上传 Codecov，上传失败不会导致该门禁失败；本地 100% 门禁
+仍然生效。Lint 检查继续由独立的 Lint workflow 执行。
