@@ -1,6 +1,5 @@
 """Native HA metadata, registration guards and bounded C3 control state."""
 
-import asyncio
 import json
 from typing import Any, cast
 from unittest.mock import Mock
@@ -74,7 +73,7 @@ def test_native_sensor_metadata_and_value(key: str) -> None:
         assert sensor.native_unit_of_measurement is None
 
 
-def test_optional_entities_require_matching_library_attributes() -> None:
+async def test_optional_entities_require_matching_library_attributes() -> None:
     """The unchanged dependency pin remains importable before library release."""
     assert len(ENERGY_CONFIGS) == ENERGY_SENSOR_COUNT
     device = controller({})
@@ -86,10 +85,10 @@ def test_optional_entities_require_matching_library_attributes() -> None:
         CONF_SENSORS: ["heating_power_consumption", "dhw_power_consumption"],
     }
     add = Mock()
-    asyncio.run(async_setup_entry(hass, entry, add))
+    await async_setup_entry(hass, entry, add)
     add.assert_called_once_with([])
     device.attributes.update(heating_power_consumption=1.5, dhw_power_consumption=0.0)
-    asyncio.run(async_setup_entry(hass, entry, add))
+    await async_setup_entry(hass, entry, add)
     entities = add.call_args.args[0]
     assert len(entities) == len(entry.options[CONF_SENSORS])
     assert [entity.native_value for entity in entities] == [1.5, 0.0]
