@@ -128,5 +128,3 @@ When implementing a fix or feature, match the approach already in the codebase; 
 - **Prefer the registry-driven path.** Adding an attribute/entity is usually a row in `MIDEA_DEVICES` (`midea_devices.py`) plus translations — you normally do not touch platform files. Follow the identical `async_setup_entry` pattern the platform files already share, and the walkthrough in `doc/adding-a-new-device.md`.
 - **Avoid adding new files or new naming conventions** unless necessary. If a new file, platform, or pattern is genuinely required, say so in the PR and explain the reason and the benefit, so reviewers can weigh it against consistency.
 - **Comment the key and divergent parts.** Where logic is non-obvious, differs from sibling device entries, or encodes a protocol detail, add a short English comment and cite the referenced Lua field name / attribute. This is what later edits rely on to avoid regressions or mis-edits. Keep English and Simplified Chinese docs/translations aligned.
-
-Reviewed and updated by OpenAI Codex (GPT-5).
