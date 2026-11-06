@@ -106,4 +106,26 @@ The pinned Node version under `default_language_version` in `.pre-commit-config.
 - Never commit or publish account credentials, passwords, Tokens, Keys, full device IDs, MAC addresses, private keys, or unredacted logs. Examples must use clearly fictional or masked values.
 - Treat `.storage` device JSON as sensitive because it may contain identifiers and authentication material. Documentation may explain backup/restore paths, but repository fixtures and PR attachments must be sanitized.
 
+## Submitting issues and pull requests (AI agents)
+
+Most issues and PRs here are now drafted with an AI agent. The agent MUST drive the submission through the repository templates — not around them. Free-form, AI-generated issue/PR text that skips the template is the single most common reason reports are incomplete and get closed or stalled. Follow these rules:
+
+- **Use the repository template as the outline, verbatim.** For issues, open one of the forms in `.github/ISSUE_TEMPLATE/` (bug or enhancement, in the submitter's language) and fill every required field. For PRs, start from `.github/pull_request_template.md` and keep every heading and checklist item. Do not delete, rename, reorder, or replace sections with your own structure. Extra detail is welcome _after_ the template fields, not instead of them.
+- **Fill every field; gather what is missing before asking.** For each field, first obtain the value yourself where possible — Home Assistant and integration versions, `midea_devices.py`, translations, `doc/`, the debug log the submitter attached. Only when a value genuinely cannot be obtained by the agent — device SN, a redacted debug log, an official-app screenshot — explicitly ask the submitter for it. Never silently drop a field or invent a value.
+- **`N/A` must carry a reason.** Use `N/A` only when a section truly does not apply, and add a short phrase explaining why (e.g. "N/A — HA-only entity rename, no protocol change"). An unexplained `N/A` or a blank field is treated as incomplete.
+- **Lua protocol source (checklist).** When the change relies on a device protocol:
+  1. Check [`wuwentao/midea-lua`](https://github.com/wuwentao/midea-lua) for the exact protocol file. If it already exists, link that file directly.
+  2. If it is missing, guide the submitter to download it as documented in the `midea-lua` README, format it with StyLua (or the formatter that repo's README specifies), and open a `midea-lua` PR _first_. Link that PR rather than pasting raw Lua here.
+  3. If no Lua protocol applies, use `N/A` with a one-line reason.
+- **Route the change to the right layer and cross-link.** Protocol and device-behavior fixes usually belong in [`midea-lan`](https://github.com/wuwentao/midea-lan), not here (see "Project family and change routing" above). Link the related `midea-lan` issue/PR, the `midea-lua` source, and the matching `midea_ac_lan` issue/PR so the three-repo change set stays traceable. Do not bump the `midea-lan` pin in `manifest.json` in a feature PR.
+- **Redact secrets.** Never paste account credentials, tokens, keys, full device IDs, MAC addresses, or unredacted logs / `.storage` JSON. Mask them.
+
+### Keep code consistent with what exists
+
+When implementing a fix or feature, match the approach already in the codebase; do not invent parallel styles:
+
+- **Prefer the registry-driven path.** Adding an attribute/entity is usually a row in `MIDEA_DEVICES` (`midea_devices.py`) plus translations — you normally do not touch platform files. Follow the identical `async_setup_entry` pattern the platform files already share, and the walkthrough in `doc/adding-a-new-device.md`.
+- **Avoid adding new files or new naming conventions** unless necessary. If a new file, platform, or pattern is genuinely required, say so in the PR and explain the reason and the benefit, so reviewers can weigh it against consistency.
+- **Comment the key and divergent parts.** Where logic is non-obvious, differs from sibling device entries, or encodes a protocol detail, add a short English comment and cite the referenced Lua field name / attribute. This is what later edits rely on to avoid regressions or mis-edits. Keep English and Simplified Chinese docs/translations aligned.
+
 Reviewed and updated by OpenAI Codex (GPT-5).
