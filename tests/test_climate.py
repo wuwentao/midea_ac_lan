@@ -156,6 +156,8 @@ async def test_async_setup_entry_device_classes(
     entities = add_entities.call_args.args[0]
     assert [type(item) for item in entities] == [expected_class, expected_class]
     assert [item._entity_key for item in entities] == ["main", "selected"]
+    if device_type == DeviceType.C3:
+        assert [item._zone for item in entities] == [0, 1]
 
 
 async def test_async_setup_entry_unknown_device(
@@ -178,6 +180,10 @@ async def test_async_setup_entry_unknown_device(
         ({"boost_mode": True}, PRESET_BOOST),
         ({"sleep_mode": True}, PRESET_SLEEP),
         ({"frost_protect": True}, PRESET_AWAY),
+        ({"comfort_mode": True, "eco_mode": True}, PRESET_COMFORT),
+        ({"eco_mode": True, "boost_mode": True}, PRESET_ECO),
+        ({"boost_mode": True, "sleep_mode": True}, PRESET_BOOST),
+        ({"sleep_mode": True, "frost_protect": True}, PRESET_SLEEP),
         ({}, PRESET_NONE),
     ],
 )
