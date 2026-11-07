@@ -145,6 +145,8 @@
 | ---------------------------------------------- | ------------- | -------------------------------- | ----------------- |
 | sensor.{DEVICEID}\_full_dust                   | binary_sensor | Full of Dust                     | 尘满              |
 | sensor.{DEVICEID}\_indoor_humidity             | sensor        | Indoor humidity                  | 湿度              |
+| binary_sensor.{DEVICEID}\_humidify             | binary_sensor | Humidify                         | 加湿              |
+| sensor.{DEVICEID}\_target_humidity             | sensor        | Target Humidity                  | 目标湿度          |
 | sensor.{DEVICEID}\_indoor_temperature          | sensor        | Indoor Temperature               | 室内温度          |
 | sensor.{DEVICEID}\_outdoor_temperature         | sensor        | Outdoor Temperature              | 室外机温度        |
 | sensor.{DEVICEID}\_total_energy_consumption    | sensor        | Total Energy Consumption         | 总能耗            |
