@@ -154,6 +154,22 @@ X9B_DOOR_OPTIONS = ["open", "close"]
 # C3 outdoor-unit telemetry attributes. Referenced by string so the entity
 # table still imports on a midea-lan release that predates the parser support;
 # the matching sensors carry a required_attribute guard and are skipped there.
+# DB v41 read-only status fields (T_0000_DB_41.lua). Referenced by string so the
+# entity table still imports on a midea-lan release that predates the parser;
+# every entity carries a required_attribute guard and is skipped there.
+DB_DRYER = "dryer"
+DB_SOAK_COUNT = "soak_count"
+DB_SPEEDY = "speedy"
+DB_LOCK = "lock"
+DB_APPOINTMENT_TIME = "appointment_time"
+DB_ERROR_CODE = "error_code"
+DB_BEFOREHAND_WASH = "beforehand_wash"
+DB_STEAM_WASH = "steam_wash"
+DB_ADD_RINSE = "add_rinse"
+DB_WIND_DISPEL = "wind_dispel"
+DB_REMOTE_CONTROL_FLAG = "remote_control_flag"
+DB_WATER_CONSUMPTION = "water_consumption"
+DB_POWER_CONSUMPTION = "power_consumption"
 C3_COMP_RUN_FREQ = "comp_run_freq"
 C3_FAN_SPEED = "fan_speed"
 C3_UNIT_MODE_RUN = "unit_mode_run"
@@ -7407,6 +7423,99 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "dirty_degree",
                 "name": "Dirty_degree",
                 "icon": "mdi:water-outline",
+            },
+            DB_DRYER: {
+                "type": Platform.SENSOR,
+                "required_attribute": DB_DRYER,
+                "translation_key": "washer_dryer",
+                "name": "Drying level",
+                "icon": "mdi:tumble-dryer",
+            },
+            DB_SOAK_COUNT: {
+                "type": Platform.SENSOR,
+                "required_attribute": DB_SOAK_COUNT,
+                "translation_key": "washer_soak_count",
+                "name": "Soak count",
+                "icon": "mdi:water-sync",
+            },
+            DB_APPOINTMENT_TIME: {
+                "type": Platform.SENSOR,
+                "required_attribute": DB_APPOINTMENT_TIME,
+                "translation_key": "washer_appointment_time",
+                "name": "Delay start time",
+                "icon": "mdi:calendar-clock",
+                "device_class": SensorDeviceClass.DURATION,
+                "unit": UnitOfTime.MINUTES,
+            },
+            DB_ERROR_CODE: {
+                "type": Platform.SENSOR,
+                "required_attribute": DB_ERROR_CODE,
+                "translation_key": "washer_error_code",
+                "name": "Error code",
+                "icon": "mdi:alert-circle-outline",
+            },
+            DB_WATER_CONSUMPTION: {
+                "type": Platform.SENSOR,
+                "required_attribute": DB_WATER_CONSUMPTION,
+                "translation_key": "washer_water_consumption",
+                "name": "Last cycle water consumption",
+                "icon": "mdi:water-pump",
+            },
+            DB_POWER_CONSUMPTION: {
+                "type": Platform.SENSOR,
+                "required_attribute": DB_POWER_CONSUMPTION,
+                "translation_key": "washer_power_consumption",
+                "name": "Last cycle power consumption",
+                "icon": "mdi:lightning-bolt",
+            },
+            DB_SPEEDY: {
+                "type": Platform.BINARY_SENSOR,
+                "required_attribute": DB_SPEEDY,
+                "translation_key": "washer_speedy",
+                "name": "Speedy",
+                "icon": "mdi:flash",
+            },
+            DB_LOCK: {
+                "type": Platform.BINARY_SENSOR,
+                "required_attribute": DB_LOCK,
+                "translation_key": "washer_child_lock",
+                "name": "Child lock",
+                "icon": "mdi:lock",
+            },
+            DB_BEFOREHAND_WASH: {
+                "type": Platform.BINARY_SENSOR,
+                "required_attribute": DB_BEFOREHAND_WASH,
+                "translation_key": "washer_prewash",
+                "name": "Pre-wash",
+                "icon": "mdi:water-plus",
+            },
+            DB_STEAM_WASH: {
+                "type": Platform.BINARY_SENSOR,
+                "required_attribute": DB_STEAM_WASH,
+                "translation_key": "washer_steam_wash",
+                "name": "Steam wash",
+                "icon": "mdi:weather-fog",
+            },
+            DB_ADD_RINSE: {
+                "type": Platform.BINARY_SENSOR,
+                "required_attribute": DB_ADD_RINSE,
+                "translation_key": "washer_add_rinse",
+                "name": "Extra rinse",
+                "icon": "mdi:waves",
+            },
+            DB_WIND_DISPEL: {
+                "type": Platform.BINARY_SENSOR,
+                "required_attribute": DB_WIND_DISPEL,
+                "translation_key": "washer_fresh_air",
+                "name": "Fresh air",
+                "icon": "mdi:fan",
+            },
+            DB_REMOTE_CONTROL_FLAG: {
+                "type": Platform.BINARY_SENSOR,
+                "required_attribute": DB_REMOTE_CONTROL_FLAG,
+                "translation_key": "washer_remote_control",
+                "name": "Remote control",
+                "icon": "mdi:remote",
             },
         },
     },
