@@ -7454,16 +7454,20 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Error code",
                 "icon": "mdi:alert-circle-outline",
             },
+            # The 0405 counters only arrive at cycle end, while the options flow
+            # lists an entity once its required_attribute holds a value. Guard
+            # them with a field of every v41 status frame so they can be enabled
+            # before the first report; they stay unknown until it arrives.
             DB_WATER_CONSUMPTION: {
                 "type": Platform.SENSOR,
-                "required_attribute": DB_WATER_CONSUMPTION,
+                "required_attribute": DB_DRYER,
                 "translation_key": "washer_water_consumption",
                 "name": "Last cycle water consumption",
                 "icon": "mdi:water-pump",
             },
             DB_POWER_CONSUMPTION: {
                 "type": Platform.SENSOR,
-                "required_attribute": DB_POWER_CONSUMPTION,
+                "required_attribute": DB_DRYER,
                 "translation_key": "washer_power_consumption",
                 "name": "Last cycle power consumption",
                 "icon": "mdi:lightning-bolt",
