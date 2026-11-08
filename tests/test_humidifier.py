@@ -134,3 +134,36 @@ def test_update_state_attached_and_detached(
     attached.schedule_update_if_running = Mock()
     attached.update_state({})
     attached.schedule_update_if_running.assert_called_once_with()
+
+
+@pytest.mark.parametrize(
+    ("entity_class", "device_type"),
+    [
+        (MideaA1Humidifier, DeviceType.A1),
+        (MideaFDHumidifier, DeviceType.FD),
+    ],
+)
+@pytest.mark.parametrize(
+    ("tank", "expected_full"),
+    [
+        (100, True),
+        (99, False),
+        (None, False),
+    ],
+)
+def test_extra_state_attributes_tank_full(
+    entity_class: type[MideaHumidifier],
+    device_type: int,
+    tank: int | None,
+    expected_full: bool,
+    device_factory: DeviceFactory,
+    install_config: InstallConfig,
+) -> None:
+    """Expose the tank level and report full only at 100 percent."""
+    install_config({"main": {"type": Platform.HUMIDIFIER}}, device_type)
+    device, _ = device_factory(device_type=device_type, attributes={"tank": tank})
+    entity = entity_class(device, "main")
+
+    attrs = entity.extra_state_attributes
+    assert attrs["tank"] == tank
+    assert attrs["tank_full"] is expected_full
