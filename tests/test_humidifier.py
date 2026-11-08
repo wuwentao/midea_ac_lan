@@ -149,6 +149,7 @@ def test_update_state_attached_and_detached(
         (101, True),
         (100.5, True),
         (100, True),
+        (99.5, False),
         (99, False),
         (None, False),
     ],
