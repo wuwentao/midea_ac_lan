@@ -170,6 +170,7 @@ DB_WIND_DISPEL = "wind_dispel"
 DB_REMOTE_CONTROL_FLAG = "remote_control_flag"
 DB_WATER_CONSUMPTION = "water_consumption"
 DB_POWER_CONSUMPTION = "power_consumption"
+DB_WASH_COUNT = "wash_count"
 C3_COMP_RUN_FREQ = "comp_run_freq"
 C3_FAN_SPEED = "fan_speed"
 C3_UNIT_MODE_RUN = "unit_mode_run"
@@ -7471,6 +7472,14 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "washer_power_consumption",
                 "name": "Last cycle power consumption",
                 "icon": "mdi:lightning-bolt",
+            },
+            DB_WASH_COUNT: {
+                "type": Platform.SENSOR,
+                "required_attribute": DB_DRYER,
+                "translation_key": "washer_wash_count",
+                "name": "Wash count",
+                "icon": "mdi:counter",
+                "state_class": SensorStateClass.TOTAL_INCREASING,
             },
             DB_SPEEDY: {
                 "type": Platform.BINARY_SENSOR,

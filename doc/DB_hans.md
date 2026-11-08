@@ -46,6 +46,7 @@
 | sensor.{DEVICEID}\_error_code                 | sensor        | 故障代码（v41）            |
 | sensor.{DEVICEID}\_water_consumption          | sensor        | 上次用水量（v41，原始值）  |
 | sensor.{DEVICEID}\_power_consumption          | sensor        | 上次耗电量（v41，原始值）  |
+| sensor.{DEVICEID}\_wash_count                 | sensor        | 洗涤次数（v41）            |
 | binary_sensor.{DEVICEID}\_speedy              | binary_sensor | 快洗（v41）                |
 | binary_sensor.{DEVICEID}\_lock                | binary_sensor | 童锁（v41）                |
 | binary_sensor.{DEVICEID}\_beforehand_wash     | binary_sensor | 预洗（v41）                |
@@ -126,4 +127,4 @@ data:
 
 型号 `38123703 / subtype 16695`（MF200D80WB/T-A1 洗烘一体机）使用同一个 v41 只读配置。
 
-两个 v41 型号还提供 `T_0000_DB_41.lua` 中的只读状态字段（上表标注“v41”）：烘干等级、浸泡次数、预约分钟数、故障代码，以及快洗、童锁、预洗、蒸汽洗、加漂洗、风除味（`wind_dispel`）和远程控制标志。洗涤结束报告另外提供上次洗涤的用水量和耗电量原始计数，Lua 文件未定义其单位。请在集成“配置”中启用这些实体；旧版本协议库会安全跳过它们。
+两个 v41 型号还提供 `T_0000_DB_41.lua` 中的只读状态字段（上表标注“v41”）：烘干等级、浸泡次数、预约分钟数、故障代码，以及快洗、童锁、预洗、蒸汽洗、加漂洗、风除味（`wind_dispel`）和远程控制标志。洗涤结束报告另外提供上次洗涤的用水量和耗电量原始计数，Lua 文件未定义其单位；报告中还有洗涤次数（由官方 App 插件解析，Lua 文件未解析）。请在集成“配置”中启用这些实体；旧版本协议库会安全跳过它们。

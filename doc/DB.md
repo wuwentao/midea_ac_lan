@@ -46,6 +46,7 @@ No default entity
 | sensor.{DEVICEID}\_error_code                 | sensor        | Error code (v41)               |
 | sensor.{DEVICEID}\_water_consumption          | sensor        | Last cycle water (v41, raw)    |
 | sensor.{DEVICEID}\_power_consumption          | sensor        | Last cycle power (v41, raw)    |
+| sensor.{DEVICEID}\_wash_count                 | sensor        | Wash count (v41)               |
 | binary_sensor.{DEVICEID}\_speedy              | binary_sensor | Speedy (v41)                   |
 | binary_sensor.{DEVICEID}\_lock                | binary_sensor | Child lock (v41)               |
 | binary_sensor.{DEVICEID}\_beforehand_wash     | binary_sensor | Pre-wash (v41)                 |
@@ -159,5 +160,7 @@ Both v41 models also expose the read-only status fields of
 count, delay start minutes, error code, and the speedy, child lock, pre-wash,
 steam wash, extra rinse, fresh air (`wind_dispel`) and remote control flags.
 The end-of-cycle report adds the water and power consumption of the last
-cycle as raw counters; the Lua file defines no unit for them. Enable these
+cycle as raw counters; the Lua file defines no unit for them. It also carries
+the appliance wash count (read by the official app plugin, not the Lua file).
+Enable these
 entities in **CONFIGURE**; older protocol-library versions skip them.
