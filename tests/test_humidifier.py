@@ -147,6 +147,7 @@ def test_update_state_attached_and_detached(
     ("tank", "expected_full"),
     [
         (101, True),
+        (100.5, True),
         (100, True),
         (99, False),
         (None, False),
@@ -155,7 +156,7 @@ def test_update_state_attached_and_detached(
 def test_extra_state_attributes_tank_full(
     entity_class: type[MideaHumidifier],
     device_type: int,
-    tank: int | None,
+    tank: float | None,
     expected_full: bool,
     device_factory: DeviceFactory,
     install_config: InstallConfig,
@@ -183,7 +184,7 @@ def test_extra_state_attributes_tank_update(
     device_factory: DeviceFactory,
     install_config: InstallConfig,
 ) -> None:
-    """Follow later device reports so tank_full turns on at 100 percent."""
+    """Follow later device reports so tank_full turns on and off at 100 percent."""
     install_config({"main": {"type": Platform.HUMIDIFIER}}, device_type)
     device, values = device_factory(device_type=device_type, attributes={"tank": 99})
     entity = entity_class(device, "main")
@@ -193,3 +194,7 @@ def test_extra_state_attributes_tank_update(
     attrs = entity.extra_state_attributes
     assert attrs["tank"] == 100
     assert attrs["tank_full"] is True
+    values["tank"] = 99
+    attrs = entity.extra_state_attributes
+    assert attrs["tank"] == 99
+    assert attrs["tank_full"] is False
