@@ -41,9 +41,9 @@ dev = [
 
 # These extracted harness releases pin the same HA versions as the dev baseline.
 test = [
-  "pytest-homeassistant-custom-component==0.13.112 ; python_version == '3.12'",
-  "pytest-homeassistant-custom-component==0.13.191 ; python_version == '3.13'",
-  "pytest-homeassistant-custom-component==0.13.317 ; python_full_version >= '3.14.2'",
+  "pytest-homeassistant-custom-component==0.13.205 ; python_version == '3.12'",
+  "pytest-homeassistant-custom-component==0.13.205 ; python_version == '3.13'",
+  "pytest-homeassistant-custom-component==0.13.205 ; python_full_version >= '3.14.2'",
   "josepy==1.15.0 ; python_version == '3.12'",
 ]
 
