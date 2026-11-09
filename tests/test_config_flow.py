@@ -337,6 +337,7 @@ async def test_list_devices() -> None:
             CONF_IP_ADDRESS: "192.0.2.2",
             CONF_SN: "",
             "sn_encrypted": True,
+            "support_reason": "type 0xffff uses the udp_version>=4 TLS transport",
         },
         3: {
             CONF_TYPE: 0xFFFF,
@@ -350,6 +351,10 @@ async def test_list_devices() -> None:
     assert "encrypted (from cloud)" in table
     assert "YES" in table
     assert "NO" in table
+    # An unsupported device surfaces midea-lan's reason verbatim when present.
+    assert "udp_version>=4 TLS transport" in table
+    # An unsupported device with no reason field (older midea-lan) falls back.
+    assert "not yet supported" in table
     assert result["errors"] == {"base": "warning"}
     flow.hass.async_add_executor_job.return_value = {}
     result = await flow.async_step_list()
