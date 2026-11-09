@@ -86,6 +86,7 @@ from midealan.devices.x9c import DeviceAttributes as _X9CAttributes
 from midealan.devices.x26 import DeviceAttributes as X26Attributes
 from midealan.devices.x34 import DeviceAttributes as X34Attributes
 from midealan.devices.x40 import DeviceAttributes as X40Attributes
+from midealan.devices.x70 import DeviceAttributes as X70Attributes
 
 # The protocol library exposes this capability only for verified model/subtype
 # pairs. String keys keep imports compatible with the currently released SDK.
@@ -393,6 +394,142 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Direction",
                 "options": "directions",
                 "icon": "mdi:arrow-split-vertical",
+            },
+        },
+    },
+    0x70: {
+        "name": "Seasoning Dispenser",
+        "entities": {
+            # Read-only box records: the only controls are the structured
+            # dispense() / set_box_types() library commands, so all exposed
+            # entities are sensors (set_attribute is a no-op on this device).
+            X70Attributes.box1_type: {
+                "type": Platform.SENSOR,
+                "translation_key": "seasoning_box_type",
+                "name": "Box 1 Type",
+                "icon": "mdi:bottle-tonic",
+                "entity_category": EntityCategory.DIAGNOSTIC,
+            },
+            X70Attributes.box1_status: {
+                "type": Platform.SENSOR,
+                "translation_key": "seasoning_box_status",
+                "name": "Box 1 Status",
+                "icon": "mdi:silverware-variant",
+                "device_class": SensorDeviceClass.ENUM,
+                "options": {"no": "no", "missing": "missing"},
+                "entity_category": EntityCategory.DIAGNOSTIC,
+            },
+            X70Attributes.box2_type: {
+                "type": Platform.SENSOR,
+                "translation_key": "seasoning_box_type",
+                "name": "Box 2 Type",
+                "icon": "mdi:bottle-tonic",
+                "entity_category": EntityCategory.DIAGNOSTIC,
+            },
+            X70Attributes.box2_status: {
+                "type": Platform.SENSOR,
+                "translation_key": "seasoning_box_status",
+                "name": "Box 2 Status",
+                "icon": "mdi:silverware-variant",
+                "device_class": SensorDeviceClass.ENUM,
+                "options": {"no": "no", "missing": "missing"},
+                "entity_category": EntityCategory.DIAGNOSTIC,
+            },
+            X70Attributes.box3_type: {
+                "type": Platform.SENSOR,
+                "translation_key": "seasoning_box_type",
+                "name": "Box 3 Type",
+                "icon": "mdi:bottle-tonic",
+                "entity_category": EntityCategory.DIAGNOSTIC,
+            },
+            X70Attributes.box3_status: {
+                "type": Platform.SENSOR,
+                "translation_key": "seasoning_box_status",
+                "name": "Box 3 Status",
+                "icon": "mdi:silverware-variant",
+                "device_class": SensorDeviceClass.ENUM,
+                "options": {"no": "no", "missing": "missing"},
+                "entity_category": EntityCategory.DIAGNOSTIC,
+            },
+            X70Attributes.box4_type: {
+                "type": Platform.SENSOR,
+                "translation_key": "seasoning_box_type",
+                "name": "Box 4 Type",
+                "icon": "mdi:bottle-tonic",
+                "entity_category": EntityCategory.DIAGNOSTIC,
+            },
+            X70Attributes.box4_status: {
+                "type": Platform.SENSOR,
+                "translation_key": "seasoning_box_status",
+                "name": "Box 4 Status",
+                "icon": "mdi:silverware-variant",
+                "device_class": SensorDeviceClass.ENUM,
+                "options": {"no": "no", "missing": "missing"},
+                "entity_category": EntityCategory.DIAGNOSTIC,
+            },
+            X70Attributes.box5_type: {
+                "type": Platform.SENSOR,
+                "translation_key": "seasoning_box_type",
+                "name": "Box 5 Type",
+                "icon": "mdi:bottle-tonic",
+                "entity_category": EntityCategory.DIAGNOSTIC,
+            },
+            X70Attributes.box5_status: {
+                "type": Platform.SENSOR,
+                "translation_key": "seasoning_box_status",
+                "name": "Box 5 Status",
+                "icon": "mdi:silverware-variant",
+                "device_class": SensorDeviceClass.ENUM,
+                "options": {"no": "no", "missing": "missing"},
+                "entity_category": EntityCategory.DIAGNOSTIC,
+            },
+            X70Attributes.box6_type: {
+                "type": Platform.SENSOR,
+                "translation_key": "seasoning_box_type",
+                "name": "Box 6 Type",
+                "icon": "mdi:bottle-tonic",
+                "entity_category": EntityCategory.DIAGNOSTIC,
+            },
+            X70Attributes.box6_status: {
+                "type": Platform.SENSOR,
+                "translation_key": "seasoning_box_status",
+                "name": "Box 6 Status",
+                "icon": "mdi:silverware-variant",
+                "device_class": SensorDeviceClass.ENUM,
+                "options": {"no": "no", "missing": "missing"},
+                "entity_category": EntityCategory.DIAGNOSTIC,
+            },
+            X70Attributes.box7_type: {
+                "type": Platform.SENSOR,
+                "translation_key": "seasoning_box_type",
+                "name": "Box 7 Type",
+                "icon": "mdi:bottle-tonic",
+                "entity_category": EntityCategory.DIAGNOSTIC,
+            },
+            X70Attributes.box7_status: {
+                "type": Platform.SENSOR,
+                "translation_key": "seasoning_box_status",
+                "name": "Box 7 Status",
+                "icon": "mdi:silverware-variant",
+                "device_class": SensorDeviceClass.ENUM,
+                "options": {"no": "no", "missing": "missing"},
+                "entity_category": EntityCategory.DIAGNOSTIC,
+            },
+            X70Attributes.box8_type: {
+                "type": Platform.SENSOR,
+                "translation_key": "seasoning_box_type",
+                "name": "Box 8 Type",
+                "icon": "mdi:bottle-tonic",
+                "entity_category": EntityCategory.DIAGNOSTIC,
+            },
+            X70Attributes.box8_status: {
+                "type": Platform.SENSOR,
+                "translation_key": "seasoning_box_status",
+                "name": "Box 8 Status",
+                "icon": "mdi:silverware-variant",
+                "device_class": SensorDeviceClass.ENUM,
+                "options": {"no": "no", "missing": "missing"},
+                "entity_category": EntityCategory.DIAGNOSTIC,
             },
         },
     },
