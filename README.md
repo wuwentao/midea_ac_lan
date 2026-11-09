@@ -74,6 +74,7 @@ Please check the document links below for the supported features and usage of ea
 | AD   | Air Box                         | [AD.md](doc/AD.md) |
 | B0   | Microwave Oven                  | [B0.md](doc/B0.md) |
 | B1   | Electric Oven                   | [B1.md](doc/B1.md) |
+| B2   | Steam Box                       | [B2.md](doc/B2.md) |
 | B3   | Dish Sterilizer                 | [B3.md](doc/B3.md) |
 | B4   | Toaster                         | [B4.md](doc/B4.md) |
 | B6   | Range Hood                      | [B6.md](doc/B6.md) |

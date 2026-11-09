@@ -73,6 +73,7 @@ Midea AC LAN 由三个职责不同的仓库共同组成：
 | AD   | 空气盒子                    | [AD_hans.md](doc/AD_hans.md) |
 | B0   | 微波炉                      | [B0_hans.md](doc/B0_hans.md) |
 | B1   | 电烤箱                      | [B1_hans.md](doc/B1_hans.md) |
+| B2   | 蒸箱                        | [B2_hans.md](doc/B2_hans.md) |
 | B3   | 消毒碗柜                    | [B3_hans.md](doc/B3_hans.md) |
 | B4   | 小烤箱                      | [B4_hans.md](doc/B4_hans.md) |
 | B6   | 油烟机                      | [B6_hans.md](doc/B6_hans.md) |
