@@ -1,0 +1,4402 @@
+{
+  "config": {
+    "error": {
+      "preset_account": "Přihlášení pomocí přednastaveného účtu selhalo, nahlaste prosím tento problém",
+      "login_failed": "Přihlášení selhalo, nesprávný účet nebo heslo",
+      "no_devices": "V síti nebyly nalezeny žádné nové dostupné spotřebiče",
+      "device_exist": "Spotřebič je již nakonfigurován",
+      "config_incorrect": "Konfigurace je nesprávná",
+      "connect_error": "Nelze se připojit ke spotřebiči",
+      "invalid_token": "Token nebo Key má nesprávný formát"
+    },
+    "step": {
+      "user": {
+        "data": {
+          "way": "Přidávání spotřebičů"
+        },
+        "description": "Vyberte způsob přidání spotřebiče",
+        "title": "Přidat nový spotřebič"
+      },
+      "login": {
+        "data": {
+          "account": "Účet",
+          "password": "Heslo"
+        },
+        "description": "Přihlaste se a získejte Token spotřebiče.\n\n\nMomentálně mohou Token spotřebiče získat pouze osobní účty SmartHome a Meiju. Podrobnosti najdete v dokumentaci README.",
+        "title": "Přihlásit se"
+      },
+      "discovery": {
+        "description": "IP adresa zařízení, zadejte \"auto\" pro automatické vyhledání\nMůžete také použít IP adresu pro vyhledávání v zadané síti, například \"192.168.1.255\"",
+        "title": "Hledat",
+        "data": {
+          "ip_address": "IP adresa"
+        }
+      },
+      "list": {
+        "description": "{table}",
+        "title": "Spotřebiče"
+      },
+      "auto": {
+        "data": {
+          "device": "Spotřebiče"
+        },
+        "description": "Vyberte spotřebič k přidání",
+        "title": "Nalezen nový spotřebič"
+      },
+      "manually": {
+        "data": {
+          "name": "Název (např. klimatizace v obývacím pokoji)",
+          "device_id": "Kód spotřebiče",
+          "type": "Typ",
+          "ip_address": "IP adresa",
+          "port": "Port",
+          "model": "Model",
+          "subtype": "Podtyp",
+          "protocol": "Protokol",
+          "token": "Token",
+          "key": "Key"
+        },
+        "description": "Konfigurace spotřebiče",
+        "title": "Nový spotřebič"
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "door_auto_open": {
+        "name": "Automatické otevření dvířek posledního programu"
+      },
+      "uv": {
+        "name": "UV"
+      },
+      "dry": {
+        "name": "Suché"
+      },
+      "dry_status": {
+        "name": "Sušení"
+      },
+      "storage_status": {
+        "name": "Skladování běží"
+      },
+      "waterswitch": {
+        "name": "Přepínač vody"
+      },
+      "water_lack": {
+        "name": "Nedostatek vody"
+      },
+      "wifi_unabled": {
+        "name": "Wi-Fi zakázáno"
+      },
+      "auto_throw": {
+        "name": "Automatické dávkování"
+      },
+      "lock_power": {
+        "name": "Zámek napájení"
+      },
+      "beep_control": {
+        "name": "Pípnutí"
+      },
+      "light_btn_on": {
+        "name": "Podsvícení tlačítek"
+      },
+      "light_strip_on": {
+        "name": "Světelný pásek"
+      },
+      "warm_power": {
+        "name": "Teplý výkon"
+      },
+      "cold_power": {
+        "name": "Studený výkon"
+      },
+      "sleep_power": {
+        "name": "Výkon ve spánku"
+      },
+      "pump_on": {
+        "name": "Čerpadlo zapnuto"
+      },
+      "bar_door": {
+        "name": "Dvířka baru"
+      },
+      "bar_door_overtime": {
+        "name": "Překročení času dvířek baru"
+      },
+      "bathing_working": {
+        "name": "Pracovní stav koupání"
+      },
+      "bottom_compartment_cooling": {
+        "name": "Chlazení spodní přihrádky"
+      },
+      "bottom_compartment_door": {
+        "name": "Dvířka spodní přihrádky"
+      },
+      "bottom_compartment_preheating": {
+        "name": "Předehřev spodní přihrádky"
+      },
+      "burning_state": {
+        "name": "Stav hoření"
+      },
+      "clean_scale": {
+        "name": "Odvápnění"
+      },
+      "clean_sink_ponding": {
+        "name": "Stojící voda ve dřezu"
+      },
+      "cleaning_reminder": {
+        "name": "Připomenutí čištění"
+      },
+      "compressor_status": {
+        "name": "Stav kompresoru"
+      },
+      "cooking": {
+        "name": "Vaření"
+      },
+      "dissipate_heat": {
+        "name": "Odvod tepla"
+      },
+      "door": {
+        "name": "Dvířka"
+      },
+      "error_code": {
+        "name": "Chybový kód"
+      },
+      "filter_change_reminder": {
+        "name": "Připomenutí výměny filtru"
+      },
+      "filter_cleaning_reminder": {
+        "name": "Připomenutí čištění filtru"
+      },
+      "finished": {
+        "name": "Dokončeno"
+      },
+      "flex_zone_door": {
+        "name": "Flexibilní dvířka"
+      },
+      "flex_zone_door_overtime": {
+        "name": "Dvířka flexibilní zóny"
+      },
+      "flip_side": {
+        "name": "Otočení strany"
+      },
+      "freezer_door": {
+        "name": "Dvířka mrazničky"
+      },
+      "freezer_door_overtime": {
+        "name": "Překročení času dvířek mrazničky"
+      },
+      "full_dust": {
+        "name": "Plný prachu"
+      },
+      "heating": {
+        "name": "Topení"
+      },
+      "dispensing": {
+        "name": "Dávkování vody"
+      },
+      "lack_water": {
+        "name": "Nedostatek vody"
+      },
+      "standby": {
+        "name": "Pohotovostní režim"
+      },
+      "hot_water_dispensing": {
+        "name": "Dávkování horké vody"
+      },
+      "fault": {
+        "name": "Porucha"
+      },
+      "heating_working": {
+        "name": "Pracovní stav topení"
+      },
+      "high_temperature": {
+        "name": "Vysoká teplota"
+      },
+      "high_temperature_lock": {
+        "name": "Zámek vysoké teploty"
+      },
+      "high_temperature_work": {
+        "name": "Provoz při vysoké teplotě"
+      },
+      "keep_warm": {
+        "name": "Udržování teploty"
+      },
+      "leak_water": {
+        "name": "Únik vody"
+      },
+      "lid_status": {
+        "name": "Stav víka"
+      },
+      "middle_compartment_cooling": {
+        "name": "Chlazení prostřední přihrádky"
+      },
+      "middle_compartment_door": {
+        "name": "Dvířka prostřední přihrádky"
+      },
+      "middle_compartment_preheating": {
+        "name": "Předehřev prostřední přihrádky"
+      },
+      "pre_heat": {
+        "name": "Předehřev"
+      },
+      "probe": {
+        "name": "Sonda"
+      },
+      "probe_mode": {
+        "name": "Režim sondy"
+      },
+      "reaction": {
+        "name": "Reakce"
+      },
+      "top_elec_heat": {
+        "name": "Horní elektrické topení"
+      },
+      "bottom_elec_heat": {
+        "name": "Spodní elektrické topení"
+      },
+      "mute_effect": {
+        "name": "Efekt ztlumení"
+      },
+      "mute_status": {
+        "name": "Stav ztlumení"
+      },
+      "multi_terminal": {
+        "name": "Více terminálů"
+      },
+      "oilcup_full": {
+        "name": "Plná nádobka na olej"
+      },
+      "protection": {
+        "name": "Ochrana"
+      },
+      "refrigerator_door": {
+        "name": "Dvířka chladničky"
+      },
+      "refrigerator_door_overtime": {
+        "name": "Překročení času dvířek chladničky"
+      },
+      "rinse_aid": {
+        "name": "Nedostatek leštidla"
+      },
+      "rsj_stand_by": {
+        "name": "Pohotovostní režim"
+      },
+      "salt": {
+        "name": "Nedostatek soli"
+      },
+      "seat_status": {
+        "name": "Stav sedátka"
+      },
+      "smart_grid": {
+        "name": "Chytrá síť"
+      },
+      "eco": {
+        "name": "ECO"
+      },
+      "maintenance_reminder": {
+        "name": "Připomenutí údržby"
+      },
+      "dr_enable": {
+        "name": "Reakce na poptávku"
+      },
+      "electric_rod_exception": {
+        "name": "Porucha elektrického ohřívače"
+      },
+      "ac_heater_priority": {
+        "name": "Priorita tepelného čerpadla"
+      },
+      "high_temp_reminder": {
+        "name": "Připomenutí vysoké teploty"
+      },
+      "new_version_water_heater": {
+        "name": "Rozšířený protokol ohřívače vody"
+      },
+      "heat_recovery_status": {
+        "name": "Rekuperace tepla"
+      },
+      "holiday_mode": {
+        "name": "Prázdninový režim"
+      },
+      "hybrid_motion_mode": {
+        "name": "Hybridní režim pohybu"
+      },
+      "support_boost_mode": {
+        "name": "Podpora režimu Boost"
+      },
+      "support_silent_mode": {
+        "name": "Podpora tichého režimu"
+      },
+      "support_remaining_hot_water": {
+        "name": "Podpora zbývající horké vody"
+      },
+      "support_electric_mode": {
+        "name": "Podpora elektrického režimu"
+      },
+      "support_auto_disinfect": {
+        "name": "Podpora automatické dezinfekce"
+      },
+      "support_force_e_heating": {
+        "name": "Podpora vynuceného elektrického ohřevu"
+      },
+      "support_tou": {
+        "name": "Podpora časového tarifu"
+      },
+      "support_ac_heater_priority": {
+        "name": "Podpora priority tepelného čerpadla"
+      },
+      "support_heat_recovery": {
+        "name": "Podpora rekuperace tepla"
+      },
+      "support_heat_pump_mode": {
+        "name": "Podpora režimu tepelného čerpadla"
+      },
+      "support_smart_mode": {
+        "name": "Podpora chytrého režimu"
+      },
+      "support_negative_temperature": {
+        "name": "Podpora záporné teploty"
+      },
+      "maintain_warn": {
+        "name": "Varování údržby"
+      },
+      "order1_effect": {
+        "name": "Plán 1 aktivní"
+      },
+      "order2_effect": {
+        "name": "Plán 2 aktivní"
+      },
+      "status_dhw": {
+        "name": "Stav TUV"
+      },
+      "status_heating": {
+        "name": "Stav topení"
+      },
+      "status_ibh": {
+        "name": "Stav IBH"
+      },
+      "status_tbh": {
+        "name": "Stav TBH"
+      },
+      "tank_ejected": {
+        "name": "Nádrž vysunuta"
+      },
+      "tank_full": {
+        "name": "Stav nádrže"
+      },
+      "top_compartment_cooling": {
+        "name": "Chlazení horní přihrádky"
+      },
+      "top_compartment_door": {
+        "name": "Dvířka horní přihrádky"
+      },
+      "top_compartment_preheating": {
+        "name": "Předehřev horní přihrádky"
+      },
+      "water_change_reminder": {
+        "name": "Připomenutí výměny vody"
+      },
+      "water_shortage": {
+        "name": "Nedostatek vody"
+      },
+      "with_pressure": {
+        "name": "S tlakem"
+      },
+      "zone1_room_temp_mode": {
+        "name": "Zóna 1 režim pokojové teploty"
+      },
+      "zone1_water_temp_mode": {
+        "name": "Zóna 1 režim teploty vody"
+      },
+      "zone2_room_temp_mode": {
+        "name": "Zóna 2 režim pokojové teploty"
+      },
+      "zone2_water_temp_mode": {
+        "name": "Zóna 2 režim teploty vody"
+      },
+      "microcrystal_fresh": {
+        "name": "Mikrokrystalická svěžest"
+      },
+      "electronic_smell": {
+        "name": "Dezodorizace a sterilizace"
+      },
+      "water_pump_running": {
+        "name": "Vodní čerpadlo běží"
+      },
+      "filter_status": {
+        "name": "Alarm filtru"
+      },
+      "standby_status": {
+        "name": "Stav pohotovostního režimu"
+      },
+      "out_water": {
+        "name": "Výstup vody"
+      },
+      "out_hot_water": {
+        "name": "Výstup horké vody"
+      },
+      "backflow": {
+        "name": "Zpětný tok"
+      },
+      "sleep_status": {
+        "name": "Stav spánku"
+      },
+      "status_cool": {
+        "name": "Stav – chlazení"
+      },
+      "eco_function_state": {
+        "name": "Režim – funkce ECO"
+      },
+      "eco_timer_state": {
+        "name": "Režim – časovač ECO"
+      },
+      "double_zone": {
+        "name": "Schopnost – dvojitá zóna"
+      },
+      "room_thermal_support": {
+        "name": "Schopnost – pokojový termostat"
+      },
+      "room_thermal_state": {
+        "name": "Stav – pokojový termostat"
+      },
+      "time_set": {
+        "name": "Schopnost – nastavení času"
+      },
+      "disinfect_run": {
+        "name": "TUV – dezinfekce běží"
+      },
+      "remote_onoff": {
+        "name": "Schopnost – dálkové zapnutí/vypnutí"
+      },
+      "tbh_control": {
+        "name": "Schopnost – ovládání TBH"
+      },
+      "heat_capability": {
+        "name": "Schopnost – topení"
+      },
+      "cool_capability": {
+        "name": "Schopnost – chlazení"
+      },
+      "dhw_capability": {
+        "name": "Schopnost – TUV"
+      },
+      "sys_energy_ana_en": {
+        "name": "Schopnost – analýza energie (systém)"
+      },
+      "hmi_energy_ana_set_en": {
+        "name": "Schopnost – analýza energie (HMI)"
+      },
+      "pump_i_running": {
+        "name": "Pump_I – vnitřní"
+      },
+      "pump_o_running": {
+        "name": "Pump_O – vnější"
+      },
+      "pump_d_running": {
+        "name": "Pump_D – TUV"
+      },
+      "pump_c_running": {
+        "name": "Pump_C – okruh smíšené vody zóna 2"
+      },
+      "pump_s_running": {
+        "name": "Pump_S – solární"
+      },
+      "sv1_open": {
+        "name": "SV1 – ventil (TUV)"
+      },
+      "sv2_open": {
+        "name": "SV2 – ventil (topení)"
+      },
+      "load_output_tbh": {
+        "name": "Ohřívač – záložní pro nádrž (TBH)"
+      },
+      "compressor_on": {
+        "name": "Kompresor – běží"
+      },
+      "ibh1_on": {
+        "name": "Ohřívač – IBH1"
+      },
+      "ibh2_on": {
+        "name": "Ohřívač – IBH2"
+      },
+      "sv3_open": {
+        "name": "SV3 – ventil"
+      },
+      "crankcase_heater_on": {
+        "name": "Ohřívač – kliková skříň"
+      },
+      "alarm_on": {
+        "name": "Chyba – alarm"
+      },
+      "aux_heat_on": {
+        "name": "Ohřívač – pomocný zdroj"
+      },
+      "ac_air_direction": {
+        "name": "Směr vzduchu klimatizace"
+      },
+      "ac_cooling_fan": {
+        "name": "Chladicí ventilátor klimatizace"
+      },
+      "ac_draining_pump": {
+        "name": "Vypouštěcí čerpadlo klimatizace"
+      },
+      "ac_low_temperature": {
+        "name": "Nízká teplota klimatizace"
+      },
+      "ac_over_temperature": {
+        "name": "Překročení teploty klimatizace"
+      },
+      "ac_swing": {
+        "name": "Výkyv klimatizace"
+      },
+      "ac_water_full": {
+        "name": "Plná voda klimatizace"
+      },
+      "b2_downstair_clean_tips": {
+        "name": "Tipy k čištění spodní parní trouby"
+      },
+      "b2_downstair_door": {
+        "name": "Dvířka spodní parní trouby"
+      },
+      "b2_downstair_fresh_water": {
+        "name": "Čerstvá voda spodní parní trouby"
+      },
+      "b2_downstair_light": {
+        "name": "Osvětlení spodní parní trouby"
+      },
+      "b2_downstair_lock": {
+        "name": "Zámek spodní parní trouby"
+      },
+      "b2_downstair_must_clean_tips": {
+        "name": "Nutné tipy k čištění spodní parní trouby"
+      },
+      "b2_downstair_water_shortage": {
+        "name": "Nedostatek vody spodní parní trouby"
+      },
+      "b2_upstair_clean_tips": {
+        "name": "Tipy k čištění horní parní trouby"
+      },
+      "b2_upstair_door": {
+        "name": "Dvířka horní parní trouby"
+      },
+      "b2_upstair_fresh_water": {
+        "name": "Čerstvá voda horní parní trouby"
+      },
+      "b2_upstair_light": {
+        "name": "Osvětlení horní parní trouby"
+      },
+      "b2_upstair_lock": {
+        "name": "Zámek horní parní trouby"
+      },
+      "b2_upstair_must_clean_tips": {
+        "name": "Nutné tipy k čištění horní parní trouby"
+      },
+      "b2_upstair_water_shortage": {
+        "name": "Nedostatek vody horní parní trouby"
+      },
+      "b3_downstair_door": {
+        "name": "Dvířka spodní parní skříně"
+      },
+      "b3_downstair_door_lock": {
+        "name": "Zámek dvířek spodní parní skříně"
+      },
+      "b3_downstair_infrared": {
+        "name": "Infračervené spodní parní skříně"
+      },
+      "b3_downstair_ultraviolet": {
+        "name": "Ultrafialové spodní parní skříně"
+      },
+      "b3_upstair_door": {
+        "name": "Dvířka horní parní skříně"
+      },
+      "b3_upstair_door_lock": {
+        "name": "Zámek dvířek horní parní skříně"
+      },
+      "b3_upstair_infrared": {
+        "name": "Infračervené horní parní skříně"
+      },
+      "b3_upstair_ultraviolet": {
+        "name": "Ultrafialové horní parní skříně"
+      },
+      "b6_tvoc_status": {
+        "name": "Stav TVOC odsavače par"
+      },
+      "b6_delay_gear_linkage": {
+        "name": "Propojení odloženého stupně odsavače par"
+      },
+      "b6_delay_time": {
+        "name": "Doba odkladu odsavače par"
+      },
+      "b6_gesture_status": {
+        "name": "Stav gest odsavače par"
+      },
+      "b6_infrared_status": {
+        "name": "Infračervený stav odsavače par"
+      },
+      "b6_lock": {
+        "name": "Zámek odsavače par"
+      },
+      "b6_power_on_light": {
+        "name": "Osvětlení při zapnutí odsavače par"
+      },
+      "b6_smoke_detector": {
+        "name": "Detektor kouře odsavače par"
+      },
+      "b6_smoke_stove_linkage": {
+        "name": "Propojení kouře a sporáku odsavače par"
+      },
+      "b7_left_dry_burning": {
+        "name": "Levý hořák plynové varné desky – vaření nasucho"
+      },
+      "b7_left_dry_burning_invalid": {
+        "name": "Levý hořák plynové varné desky – neplatné vaření nasucho"
+      },
+      "b7_left_gas_leakage": {
+        "name": "Levý hořák plynové varné desky – únik plynu"
+      },
+      "b7_left_has_fire": {
+        "name": "Levý hořák plynové varné desky – má plamen"
+      },
+      "b7_left_has_pot": {
+        "name": "Levý hořák plynové varné desky – má nádobu"
+      },
+      "b7_right_dry_burning": {
+        "name": "Pravý hořák plynové varné desky – vaření nasucho"
+      },
+      "b7_right_dry_burning_invalid": {
+        "name": "Pravý hořák plynové varné desky – neplatné vaření nasucho"
+      },
+      "b7_right_gas_leakage": {
+        "name": "Pravý hořák plynové varné desky – únik plynu"
+      },
+      "b7_right_has_fire": {
+        "name": "Pravý hořák plynové varné desky – má plamen"
+      },
+      "b7_right_has_pot": {
+        "name": "Pravý hořák plynové varné desky – má nádobu"
+      },
+      "bf_door": {
+        "name": "Dvířka trouby"
+      },
+      "bf_error": {
+        "name": "Chyba trouby"
+      },
+      "bf_flip": {
+        "name": "Překlopení trouby"
+      },
+      "bf_hightemp_error": {
+        "name": "Chyba vysoké teploty trouby"
+      },
+      "bf_hightemp_lock": {
+        "name": "Zámek vysoké teploty trouby"
+      },
+      "bf_hightemp_over": {
+        "name": "Překročení vysoké teploty trouby"
+      },
+      "bf_hotwind": {
+        "name": "Horký vzduch trouby"
+      },
+      "bf_hotwind_set": {
+        "name": "Nastavení horkého vzduchu trouby"
+      },
+      "bf_hydrops_full": {
+        "name": "Plná kondenzovaná voda trouby"
+      },
+      "bf_light": {
+        "name": "Osvětlení trouby"
+      },
+      "bf_lock": {
+        "name": "Zámek trouby"
+      },
+      "bf_off_fromapp": {
+        "name": "Vypnutí trouby z aplikace"
+      },
+      "bf_on_smart": {
+        "name": "Chytré zapnutí trouby"
+      },
+      "bf_order": {
+        "name": "Objednávka trouby"
+      },
+      "bf_order_time_isabsolute": {
+        "name": "Čas objednávky trouby je absolutní"
+      },
+      "bf_overheat": {
+        "name": "Přehřátí trouby"
+      },
+      "bf_preheat": {
+        "name": "Předehřev trouby"
+      },
+      "bf_preheat_done": {
+        "name": "Předehřev trouby dokončen"
+      },
+      "bf_preheat_set": {
+        "name": "Nastavení předehřevu trouby"
+      },
+      "bf_probe": {
+        "name": "Sonda trouby"
+      },
+      "bf_probe_meat": {
+        "name": "Masová sonda trouby"
+      },
+      "bf_radiating": {
+        "name": "Vyzařování trouby"
+      },
+      "bf_repair_cook": {
+        "name": "Opravné vaření trouby"
+      },
+      "bf_sabbath": {
+        "name": "Sabat trouby"
+      },
+      "bf_scalehandling_remind": {
+        "name": "Připomenutí odstranění vodního kamene trouby"
+      },
+      "bf_sensor": {
+        "name": "Senzor trouby"
+      },
+      "bf_stove_1": {
+        "name": "Sporák trouby 1"
+      },
+      "bf_stove_2": {
+        "name": "Sporák trouby 2"
+      },
+      "bf_stove_3": {
+        "name": "Sporák trouby 3"
+      },
+      "bf_stove_4": {
+        "name": "Sporák trouby 4"
+      },
+      "bf_stove_5": {
+        "name": "Sporák trouby 5"
+      },
+      "bf_temp_fahrenheit": {
+        "name": "Teplota trouby ve Fahrenheitech"
+      },
+      "bf_time_synchronization": {
+        "name": "Synchronizace času trouby"
+      },
+      "bf_turntable": {
+        "name": "Otočný talíř trouby"
+      },
+      "bf_turntable_reset": {
+        "name": "Reset otočného talíře trouby"
+      },
+      "bf_upload_interval": {
+        "name": "Interval nahrávání trouby"
+      },
+      "bf_voice_identify": {
+        "name": "Hlasová identifikace trouby"
+      },
+      "bf_voice_module": {
+        "name": "Hlasový modul trouby"
+      },
+      "bf_water_box": {
+        "name": "Nádržka na vodu trouby"
+      },
+      "bf_water_change": {
+        "name": "Výměna vody trouby"
+      },
+      "bf_water_shortage": {
+        "name": "Nedostatek vody trouby"
+      },
+      "bf_wintersummertime": {
+        "name": "Zimní/letní čas trouby"
+      },
+      "e7_left_bottom_has_pot": {
+        "name": "Indukce levá spodní – má nádobu"
+      },
+      "e7_left_has_pot": {
+        "name": "Indukce levá – má nádobu"
+      },
+      "e7_left_top_has_pot": {
+        "name": "Indukce levá horní – má nádobu"
+      },
+      "e7_right_bottom_has_pot": {
+        "name": "Indukce pravá spodní – má nádobu"
+      },
+      "e7_right_has_pot": {
+        "name": "Indukce pravá – má nádobu"
+      },
+      "e7_right_top_has_pot": {
+        "name": "Indukce pravá horní – má nádobu"
+      },
+      "sp_fandrying_door": {
+        "name": "Dvířka talíře sušení ventilátorem"
+      },
+      "sp_fandrying_setting_automode": {
+        "name": "Nastavení automatického režimu talíře sušení ventilátorem"
+      },
+      "sp_fandrying_setting_linkage": {
+        "name": "Nastavení propojení talíře sušení ventilátorem"
+      },
+      "sp_fandrying_setting_linkcooker": {
+        "name": "Nastavení propojení se sporákem talíře sušení ventilátorem"
+      },
+      "sp_fandrying_setting_sync": {
+        "name": "Nastavení synchronizace talíře sušení ventilátorem"
+      },
+      "sp_heatingdisk_door": {
+        "name": "Dvířka ohřevné desky talíře"
+      },
+      "sp_heatingdisk_setting_automode": {
+        "name": "Nastavení automatického režimu ohřevné desky talíře"
+      },
+      "sp_heatingdisk_setting_linkage": {
+        "name": "Nastavení propojení ohřevné desky talíře"
+      },
+      "sp_heatingdisk_setting_linkcooker": {
+        "name": "Nastavení propojení se sporákem ohřevné desky talíře"
+      },
+      "sp_heatingdisk_setting_sync": {
+        "name": "Nastavení synchronizace ohřevné desky talíře"
+      },
+      "sp_uvc_door": {
+        "name": "Dvířka UVC talíře"
+      },
+      "sp_uvc_setting_automode": {
+        "name": "Nastavení automatického režimu UVC talíře"
+      },
+      "sp_uvc_setting_linkage": {
+        "name": "Nastavení propojení UVC talíře"
+      },
+      "sp_uvc_setting_linkcooker": {
+        "name": "Nastavení propojení se sporákem UVC talíře"
+      },
+      "sp_uvc_setting_sync": {
+        "name": "Nastavení synchronizace UVC talíře"
+      },
+      "total_water_shortage": {
+        "name": "Nedostatek vody"
+      },
+      "door_open": {
+        "name": "Dvířka otevřena"
+      },
+      "turntable": {
+        "name": "Otočný talíř"
+      },
+      "lack_box": {
+        "name": "Chybí nádobka"
+      },
+      "change_water": {
+        "name": "Připomenutí výměny vody"
+      },
+      "ramadan": {
+        "name": "Ramadán"
+      },
+      "ota": {
+        "name": "OTA"
+      },
+      "laundry_appointment": {
+        "name": "Rezervace"
+      }
+    },
+    "button": {
+      "start_delayed": {
+        "name": "Zpožděný start"
+      },
+      "pause": {
+        "name": "Pozastavit"
+      },
+      "resume": {
+        "name": "Pokračovat"
+      },
+      "cancel": {
+        "name": "Zrušit"
+      },
+      "start": {
+        "name": "Spustit"
+      },
+      "laundry_cancel_appointment": {
+        "name": "Zrušit rezervaci"
+      }
+    },
+    "climate": {
+      "climate_zone1": {
+        "name": "Termostat zóny 1"
+      },
+      "climate_zone2": {
+        "name": "Termostat zóny 2"
+      },
+      "climate_key": {
+        "state_attributes": {
+          "fan_mode": {
+            "state": {
+              "silent": "Tichý",
+              "full": "Plný"
+            }
+          }
+        }
+      }
+    },
+    "fan": {
+      "bgf10000": {
+        "state_attributes": {
+          "preset_mode": {
+            "state": {
+              "normal": "Normální",
+              "forest": "Les",
+              "beach": "Pláž",
+              "countryside": "Venkov",
+              "baby": "Vánek pro dítě",
+              "sleep_1": "Spánek 1",
+              "sleep_2": "Spánek 2",
+              "strong": "Silný"
+            }
+          }
+        }
+      },
+      "fresh_air": {
+        "name": "Čerstvý vzduch"
+      },
+      "fresh_air_exhaust": {
+        "name": "Odvod čerstvého vzduchu"
+      }
+    },
+    "lock": {
+      "child_lock": {
+        "name": "Dětský zámek"
+      }
+    },
+    "number": {
+      "delay_minutes": {
+        "name": "Zpoždění"
+      },
+      "wash_region": {
+        "name": "Oblast mytí"
+      },
+      "water_level": {
+        "name": "Hladina vody"
+      },
+      "water_strong_level": {
+        "name": "Úroveň tlaku vody"
+      },
+      "heating_target_temperature": {
+        "name": "Cílová teplota topení"
+      },
+      "dry_level": {
+        "name": "Úroveň sušení"
+      },
+      "heating_level": {
+        "name": "Úroveň topení"
+      },
+      "seat_temp_level": {
+        "name": "Úroveň teploty sedátka"
+      },
+      "water_temp_level": {
+        "name": "Úroveň teploty vody"
+      },
+      "fan_speed_percent": {
+        "name": "Procento rychlosti ventilátoru"
+      },
+      "vacation_days": {
+        "name": "Dny dovolené"
+      },
+      "max_temperature": {
+        "name": "Maximální cílová teplota"
+      },
+      "disinfection_temperature": {
+        "name": "Teplota dezinfekce"
+      },
+      "schedule_mode": {
+        "name": "Režim plánu"
+      },
+      "leak_water_protection_value": {
+        "name": "Hodnota ochrany proti úniku vody"
+      },
+      "flushing_days": {
+        "name": "Dny regenerace"
+      },
+      "water_hardness": {
+        "name": "Tvrdost vody"
+      },
+      "boil_temperature": {
+        "name": "Cílová teplota varu"
+      },
+      "keep_warm_time": {
+        "name": "Doba udržování teploty"
+      },
+      "ai_voice_volume": {
+        "name": "Hlasitost AI hlasu"
+      },
+      "screen_luminance": {
+        "name": "Jas obrazovky"
+      },
+      "volume": {
+        "name": "Hlasitost"
+      },
+      "temperature_number": {
+        "name": "Cílová teplota"
+      },
+      "temperature_above_number": {
+        "name": "Cílová teplota nahoře"
+      },
+      "temperature_underside_number": {
+        "name": "Cílová teplota dole"
+      },
+      "probe_temperature_number": {
+        "name": "Cílová teplota sondy"
+      },
+      "steam_quantity_number": {
+        "name": "Množství páry"
+      },
+      "hour_set": {
+        "name": "Nastavení hodin"
+      },
+      "minute_set": {
+        "name": "Nastavení minut"
+      },
+      "second_set": {
+        "name": "Nastavení sekund"
+      },
+      "dryer_timed_extra": {
+        "name": "Prodloužení časovaného sušení"
+      }
+    },
+    "select": {
+      "cur_quantify": {
+        "name": "Aktuální přednastavené množství",
+        "state": {
+          "none": "Žádné",
+          "preset_1": "Předvolba 1",
+          "preset_2": "Předvolba 2",
+          "preset_3": "Předvolba 3",
+          "preset_4": "Předvolba 4",
+          "preset_5": "Předvolba 5"
+        }
+      },
+      "wash_mode_76000228": {
+        "name": "Režim mytí",
+        "state": {
+          "neutral_gear": "Žádné",
+          "auto_wash": "Automaticky",
+          "strong_wash": "Intenzivní",
+          "standard_wash": "Univerzální",
+          "eco_wash": "ECO",
+          "glass_wash": "Sklo",
+          "hour_wash": "90 min",
+          "fast_wash": "Rychlý",
+          "soak_wash": "Namáčení",
+          "90min": "90 min",
+          "self_clean": "Samočištění",
+          "fruit_wash": "Ovoce",
+          "self_define": "Vlastní",
+          "germ": "Šepot",
+          "bowl_wash": "Miska",
+          "kill_germ": "Hygiena",
+          "sea_food_wash": "Samočištění",
+          "hot_pot_wash": "Hotpot",
+          "quiet_night_wash": "Tichá noc",
+          "less_wash": "Lehký",
+          "max_rapid_wash": "Maximální rychlost",
+          "oil_net_wash": "Olejový filtr",
+          "cloud_wash": "Cloudový program",
+          "single_dry": "Pouze sušení",
+          "single_disinfect": "Pouze dezinfekce",
+          "high_temp_wash": "Vysoká teplota",
+          "wash_dry": "Mytí a sušení"
+        }
+      },
+      "program_76000228": {
+        "name": "Program",
+        "state": {
+          "auto_wash": "Automaticky",
+          "strong_wash": "Intenzivní",
+          "standard_wash": "Univerzální",
+          "eco_wash": "ECO",
+          "glass_wash": "Sklo",
+          "hour_wash": "90 min",
+          "fast_wash": "Rychlý",
+          "soak_wash": "Namáčení",
+          "90min": "90 min",
+          "self_clean": "Samočištění",
+          "fruit_wash": "Ovoce",
+          "self_define": "Vlastní",
+          "germ": "Šepot",
+          "bowl_wash": "Miska",
+          "kill_germ": "Hygiena",
+          "sea_food_wash": "Samočištění",
+          "hot_pot_wash": "Hotpot",
+          "quiet_night_wash": "Tichá noc",
+          "less_wash": "Lehký",
+          "max_rapid_wash": "Maximální rychlost",
+          "oil_net_wash": "Olejový filtr",
+          "cloud_wash": "Cloudový program",
+          "single_dry": "Pouze sušení",
+          "single_disinfect": "Pouze dezinfekce",
+          "high_temp_wash": "Vysoká teplota",
+          "wash_dry": "Mytí a sušení"
+        }
+      },
+      "program": {
+        "name": "Program",
+        "state": {
+          "auto_wash": "Automaticky",
+          "strong_wash": "Intenzivní",
+          "standard_wash": "Standardní",
+          "eco_wash": "ECO",
+          "glass_wash": "Sklo",
+          "hour_wash": "1 hodina",
+          "fast_wash": "Rychlý",
+          "soak_wash": "Namáčení",
+          "90min": "90 min",
+          "self_clean": "Samočištění",
+          "fruit_wash": "Ovoce",
+          "self_define": "Vlastní",
+          "germ": "Choroboplodné zárodky",
+          "bowl_wash": "Miska",
+          "kill_germ": "Hygiena",
+          "sea_food_wash": "Mořské plody",
+          "hot_pot_wash": "Hotpot",
+          "quiet_night_wash": "Tichá noc",
+          "less_wash": "Lehký",
+          "max_rapid_wash": "Maximální rychlost",
+          "oil_net_wash": "Olejový filtr",
+          "cloud_wash": "Cloudový program",
+          "single_dry": "Pouze sušení",
+          "single_disinfect": "Pouze dezinfekce",
+          "high_temp_wash": "Vysoká teplota",
+          "wash_dry": "Mytí a sušení"
+        }
+      },
+      "load": {
+        "name": "Náplň",
+        "state": {
+          "0": "Plný",
+          "2": "Poloviční"
+        }
+      },
+      "heating_mode": {
+        "name": "Režim topení",
+        "state": {
+          "user": "Uživatel",
+          "activity": "Aktivita",
+          "sleep": "Spánek",
+          "unknown": "Neznámé"
+        }
+      },
+      "detect_mode": {
+        "name": "Režim detekce",
+        "state": {
+          "off": "Vypnuto",
+          "pm_2_5": "PM 2,5",
+          "methanal": "Formaldehyd"
+        }
+      },
+      "direction": {
+        "name": "Směr",
+        "state": {
+          "oscillate": "Oscilace"
+        }
+      },
+      "fan_speed": {
+        "name": "Rychlost ventilátoru",
+        "state": {
+          "auto": "Automaticky",
+          "standby": "Pohotovostní režim",
+          "low": "Nízká",
+          "medium": "Střední",
+          "high": "Vysoká"
+        }
+      },
+      "fresh_air_exhaust_mode": {
+        "name": "Rychlost odvodu čerstvého vzduchu",
+        "state": {
+          "off": "Vypnuto",
+          "silent": "Nízká",
+          "high": "Vysoká",
+          "full": "Plný"
+        }
+      },
+      "fresh_air_mode": {
+        "name": "Rychlost čerstvého vzduchu",
+        "state": {
+          "off": "Vypnuto",
+          "low": "Nízká",
+          "medium": "Střední",
+          "high": "Vysoká",
+          "full": "Plný"
+        }
+      },
+      "mode": {
+        "name": "Režim",
+        "state": {
+          "standby": "Pohotovostní režim",
+          "auto": "Automaticky",
+          "manual": "Ruční",
+          "sleep": "Spánek",
+          "fast": "Rychlý",
+          "smoke": "Kouř",
+          "off": "Vypnuto",
+          "heat_high": "Topení (vysoké)",
+          "heat_low": "Topení (nízké)",
+          "bath": "Koupel",
+          "blow": "Foukání",
+          "ventilation": "Ventilace",
+          "dry": "Suché"
+        }
+      },
+      "oscillation_angle": {
+        "name": "Úhel oscilace"
+      },
+      "oscillation_mode": {
+        "name": "Režim oscilace"
+      },
+      "rate_select": {
+        "name": "Limit příkonu"
+      },
+      "screen_display": {
+        "name": "Displej",
+        "state": {
+          "bright": "Jasné",
+          "dim": "Ztlumené",
+          "off": "Vypnuto"
+        }
+      },
+      "silent_level": {
+        "name": "Úroveň ztišení"
+      },
+      "tilting_angle": {
+        "name": "Úhel náklonu"
+      },
+      "wash_mode": {
+        "name": "Režim mytí",
+        "state": {
+          "neutral_gear": "Žádné",
+          "auto_wash": "Automaticky",
+          "strong_wash": "Intenzivní",
+          "standard_wash": "Standardní",
+          "eco_wash": "ECO",
+          "glass_wash": "Sklo",
+          "hour_wash": "1 hodina",
+          "fast_wash": "Rychlý",
+          "soak_wash": "Namáčení",
+          "90min": "90 min",
+          "self_clean": "Samočištění",
+          "fruit_wash": "Ovoce",
+          "self_define": "Vlastní",
+          "germ": "Choroboplodné zárodky",
+          "bowl_wash": "Miska",
+          "kill_germ": "Hygiena",
+          "sea_food_wash": "Mořské plody",
+          "hot_pot_wash": "Hotpot",
+          "quiet_night_wash": "Tichá noc",
+          "less_wash": "Lehký",
+          "max_rapid_wash": "Maximální rychlost",
+          "oil_net_wash": "Olejový filtr",
+          "cloud_wash": "Cloudový program",
+          "single_dry": "Pouze sušení",
+          "single_disinfect": "Pouze dezinfekce",
+          "high_temp_wash": "Vysoká teplota",
+          "wash_dry": "Mytí a sušení"
+        }
+      },
+      "water_level_set": {
+        "name": "Nastavení hladiny vody"
+      },
+      "wind_lr_angle": {
+        "name": "Vodorovné proudění vzduchu",
+        "state": {
+          "off": "Vypnuto",
+          "left": "Vlevo",
+          "left_mid": "Vlevo-střed",
+          "middle": "Střed",
+          "right_mid": "Vpravo-střed",
+          "right": "Vpravo"
+        }
+      },
+      "wind_ud_angle": {
+        "name": "Svislé proudění vzduchu",
+        "state": {
+          "off": "Vypnuto",
+          "up": "Nahoru",
+          "up_mid": "Nahoru-střed",
+          "middle": "Střed",
+          "down_mid": "Dolů-střed",
+          "down": "Dolů"
+        }
+      },
+      "work_status_select": {
+        "name": "Pracovní stav",
+        "state": {
+          "save_power": "Úspora energie",
+          "standby": "Pohotovostní režim",
+          "work": "Pracuje",
+          "pause": "Pozastaveno",
+          "work_finish": "Dokončeno",
+          "order": "Zpoždění",
+          "pause_c": "Pozastaveno C",
+          "three": "Tři",
+          "self_inspection": "Vlastní kontrola",
+          "query_version": "Dotaz na verzi",
+          "demo": "Demo",
+          "ramadan": "Ramadán",
+          "after_checking": "Po kontrole",
+          "wait_to_start": "Čekání na start",
+          "ff": "Neznámé"
+        }
+      },
+      "x9b_fire_power_select": {
+        "name": "Výkon plamene",
+        "state": {
+          "high_power": "Vysoká",
+          "medium_high_power": "Středně vysoký",
+          "medium_power": "Střední",
+          "medium_low_power": "Středně nízký",
+          "low_power": "Nízká",
+          "ff": "Neznámé"
+        }
+      },
+      "door": {
+        "name": "Dvířka",
+        "state": {
+          "open": "Otevřít",
+          "close": "Zavřít"
+        }
+      },
+      "dryer_program_control": {
+        "name": "Program sušičky",
+        "state": {
+          "mixed_wash": "Smíšené",
+          "wool": "Vlna",
+          "night_dry": "Noční sušení",
+          "big_dry": "Objemné kusy",
+          "small_piece_dry": "Malé kusy",
+          "baby_clothes": "Dětské oblečení",
+          "down_jacket": "Péřové bundy",
+          "quick_dry": "Rychlé sušení",
+          "cotton": "Bavlna a len",
+          "shirt": "Košile",
+          "jean": "Džínovina",
+          "underwear": "Spodní prádlo",
+          "school_uniform": "Školní uniformy",
+          "silk": "Hedvábí",
+          "towel": "Osušky",
+          "chiffon": "Šifon",
+          "polar_fleece": "Polární fleece",
+          "hanfu": "Hanfu",
+          "hanfu_tang": "Hanfu™ styl Tang",
+          "hanfu_song": "Hanfu™ styl Song",
+          "hanfu_ming": "Hanfu™ styl Ming",
+          "hanfu_modern": "Hanfu™ moderní styl",
+          "sun_quilt": "Provětrání peřin",
+          "bucket_self_clean": "Čištění bubnu",
+          "steam_care": "Parní péče",
+          "fixed_time_dry": "Časované sušení",
+          "warm_clothes": "Nahřátí oblečení",
+          "cold_air_fresh_air": "Osvěžení studeným vzduchem",
+          "sterilize_mite": "Sterilizace a odstranění roztočů",
+          "bracket_dry": "Sušení na roštu",
+          "pet_sterilize": "Sterilizace pro domácí mazlíčky",
+          "sport_clothes": "Sportovní oblečení",
+          "outdoor": "Venkovní oblečení",
+          "quick_drying_clothes": "Rychleschnoucí oblečení",
+          "yoga": "Oblečení na jógu",
+          "air_wash": "Vzduchové mytí",
+          "fiber": "Syntetika",
+          "bedsheet": "Prostěradla",
+          "plush": "Plyš",
+          "dehumidify": "Odvlhčování",
+          "hot_air_dry": "Sušení horkým vzduchem",
+          "standard": "Standardní",
+          "fresh_air": "Čerstvý vzduch",
+          "low_temp_dry": "Nízkoteplotní sušení",
+          "eco_dry": "Úsporné sušení",
+          "quick_dry_30": "Rychlé sušení 30 min",
+          "intelligent_dry": "Inteligentní sušení",
+          "big": "Objemné kusy",
+          "western_trouser": "Společenské kalhoty",
+          "dehumidification": "Odvlhčení",
+          "smart_dry": "Chytré sušení",
+          "four_piece_suit": "Sada ložního prádla",
+          "quick_dry_20": "Rychlé sušení 20 min",
+          "steam_sterilize": "Parní sterilizace",
+          "enzyme": "Enzym",
+          "big_60": "Objemné kusy 60",
+          "steam_no_iron": "Parní péče bez žehlení",
+          "bed_clothes": "Ložní prádlo",
+          "little_fast_dry": "Rychlé sušení malá náplň",
+          "wool_nurse": "Péče o vlnu",
+          "fresh_remove_smell": "Dezodorační osvěžení",
+          "sterilize": "Sterilizace"
+        }
+      },
+      "dryer_dryness_control": {
+        "name": "Suchost",
+        "state": {
+          "ready_to_wear": "Připraveno k nošení",
+          "storage": "Skladování"
+        }
+      },
+      "dryer_temperature_control": {
+        "name": "Teplota sušení",
+        "state": {
+          "standard": "Standardní",
+          "low": "Nízká"
+        }
+      },
+      "washer_program_control": {
+        "name": "Program pračky",
+        "state": {
+          "water_mixed_wash": "Smíšené praní",
+          "fast_wash": "Rychlé praní 15 min",
+          "single_dehytration": "Pouze odstřeďování",
+          "rinsing_dehydration": "Máchání a odstřeďování",
+          "fast_wash_30": "Rychlé praní 30 min",
+          "big": "Objemné kusy",
+          "tub_clean": "Čištění bubnu",
+          "deep_tub_clean": "Hloubkové čištění bubnu",
+          "down_jacket": "Péřové bundy",
+          "new_water_cotton": "Bavlna a len",
+          "baby_clothes": "Dětské oblečení",
+          "shirt": "Košile",
+          "wool": "Vlna",
+          "water_underwear": "Spodní prádlo",
+          "silk": "Hedvábí",
+          "jacket": "Venkovní bundy",
+          "new_clothes_wash": "Nové oblečení",
+          "jean": "Džínovina",
+          "water_fiber": "Syntetika",
+          "water_eco": "Úspora energie",
+          "water_intelligent": "Chytré praní",
+          "water_steep": "Praní s namáčením",
+          "water_cold_wash": "Praní ve studené vodě",
+          "sterilization_wash": "Sterilizační praní",
+          "water_remove_mite_wash": "Odstranění roztočů",
+          "disinfection_wash": "Dezinfekční praní",
+          "stain_wash": "Praní skvrn",
+          "sport_clothes": "Sportovní oblečení",
+          "yoga": "Oblečení na jógu",
+          "quick_drying_clothes": "Rychleschnoucí oblečení"
+        }
+      },
+      "washer_temperature_control": {
+        "name": "Teplota vody",
+        "state": {
+          "cold": "Studená",
+          "20": "20 °C",
+          "30": "30 °C",
+          "40": "40 °C",
+          "60": "60 °C",
+          "95": "95 °C"
+        }
+      },
+      "washer_spin_speed_control": {
+        "name": "Rychlost odstřeďování",
+        "state": {
+          "0": "Bez odstřeďování",
+          "400": "400 ot/min",
+          "600": "600 ot/min",
+          "800": "800 ot/min",
+          "1000": "1000 ot/min",
+          "1200": "1200 ot/min",
+          "1400": "1400 ot/min"
+        }
+      },
+      "washer_rinse_count": {
+        "name": "Počet máchání",
+        "state": {
+          "1": "1",
+          "2": "2",
+          "3": "3",
+          "4": "4"
+        }
+      },
+      "washer_water_level_control": {
+        "name": "Hladina vody",
+        "state": {
+          "auto": "Automaticky",
+          "l1": "L1",
+          "l2": "L2",
+          "l3": "L3",
+          "l4": "L4"
+        }
+      },
+      "washer_detergent_control": {
+        "name": "Dávkování pracího prostředku",
+        "state": {
+          "smart": "Chytré",
+          "off": "Vypnuto",
+          "l1": "L1",
+          "l2": "L2",
+          "l3": "L3",
+          "l4": "L4"
+        }
+      },
+      "washer_wash_time_control": {
+        "name": "Doba praní (min)"
+      },
+      "washer_spin_time_control": {
+        "name": "Doba odstřeďování (min)"
+      }
+    },
+    "time": {
+      "timing_regeneration": {
+        "name": "Časovaná regenerace"
+      },
+      "laundry_appointment_finish": {
+        "name": "Čas dokončení (nastaví rezervaci)"
+      }
+    },
+    "sensor": {
+      "db_running_status": {
+        "name": "Stav pračky"
+      },
+      "db_progress": {
+        "name": "Průběh pračky"
+      },
+      "db_program": {
+        "name": "Program pračky"
+      },
+      "db_remain_time": {
+        "name": "Zbývající čas pračky"
+      },
+      "db_wash_time": {
+        "name": "Doba praní pračky"
+      },
+      "db_dehydration_time": {
+        "name": "Doba odstřeďování pračky"
+      },
+      "db_dehydration_speed": {
+        "name": "Rychlost odstřeďování pračky"
+      },
+      "db_water_level": {
+        "name": "Hladina vody pračky"
+      },
+      "db_temperature": {
+        "name": "Teplota pračky"
+      },
+      "db_rinse_count": {
+        "name": "Počet máchání pračky"
+      },
+      "db_detergent": {
+        "name": "Prací prostředek pračky"
+      },
+      "db_softener": {
+        "name": "Aviváž pračky"
+      },
+      "db_appointment_time": {
+        "name": "Čas rezervace pračky"
+      },
+      "db_appointment_end_time": {
+        "name": "Čas ukončení rezervace pračky"
+      },
+      "db_error_code": {
+        "name": "Chybový kód pračky"
+      },
+      "db_water_consumption": {
+        "name": "Spotřeba vody pračky"
+      },
+      "db_power_consumption": {
+        "name": "Spotřeba energie pračky"
+      },
+      "dc_running_status": {
+        "name": "Stav sušičky"
+      },
+      "dc_dry_status": {
+        "name": "Stav sušení sušičky"
+      },
+      "dc_program": {
+        "name": "Program sušičky"
+      },
+      "dc_remain_time": {
+        "name": "Zbývající čas sušičky"
+      },
+      "dc_dry_time": {
+        "name": "Doba sušení sušičky"
+      },
+      "dc_intensity": {
+        "name": "Intenzita sušičky"
+      },
+      "dc_appointment_time": {
+        "name": "Čas rezervace sušičky"
+      },
+      "dc_appointment_end_time": {
+        "name": "Čas ukončení rezervace sušičky"
+      },
+      "dc_error_code": {
+        "name": "Chybový kód sušičky"
+      },
+      "dc_water_consumption": {
+        "name": "Spotřeba vody sušičky"
+      },
+      "dc_power_consumption": {
+        "name": "Spotřeba energie sušičky"
+      },
+      "dishwasher_mode": {
+        "name": "Režim",
+        "state": {
+          "neutral_gear": "Žádné",
+          "auto_wash": "Automaticky",
+          "strong_wash": "Intenzivní",
+          "standard_wash": "Standardní",
+          "eco_wash": "ECO",
+          "glass_wash": "Sklo",
+          "hour_wash": "1 hodina",
+          "fast_wash": "Rychlý",
+          "soak_wash": "Namáčení",
+          "90min": "90 min",
+          "self_clean": "Samočištění",
+          "fruit_wash": "Ovoce",
+          "self_define": "Vlastní",
+          "germ": "Choroboplodné zárodky",
+          "bowl_wash": "Miska",
+          "kill_germ": "Hygiena",
+          "sea_food_wash": "Mořské plody",
+          "hot_pot_wash": "Hotpot",
+          "quiet_night_wash": "Tichá noc",
+          "less_wash": "Lehký",
+          "max_rapid_wash": "Maximální rychlost",
+          "oil_net_wash": "Olejový filtr",
+          "cloud_wash": "Cloudový program",
+          "single_dry": "Pouze sušení",
+          "single_disinfect": "Pouze dezinfekce",
+          "high_temp_wash": "Vysoká teplota",
+          "wash_dry": "Mytí a sušení"
+        }
+      },
+      "dishwasher_mode_76000228": {
+        "name": "Režim",
+        "state": {
+          "neutral_gear": "Žádné",
+          "auto_wash": "Automaticky",
+          "strong_wash": "Intenzivní",
+          "standard_wash": "Univerzální",
+          "eco_wash": "ECO",
+          "glass_wash": "Sklo",
+          "hour_wash": "90 min",
+          "fast_wash": "Rychlý",
+          "soak_wash": "Namáčení",
+          "90min": "90 min",
+          "self_clean": "Samočištění",
+          "fruit_wash": "Ovoce",
+          "self_define": "Vlastní",
+          "germ": "Šepot",
+          "bowl_wash": "Miska",
+          "kill_germ": "Hygiena",
+          "sea_food_wash": "Samočištění",
+          "hot_pot_wash": "Hotpot",
+          "quiet_night_wash": "Tichá noc",
+          "less_wash": "Lehký",
+          "max_rapid_wash": "Maximální rychlost",
+          "oil_net_wash": "Olejový filtr",
+          "cloud_wash": "Cloudový program",
+          "single_dry": "Pouze sušení",
+          "single_disinfect": "Pouze dezinfekce",
+          "high_temp_wash": "Vysoká teplota",
+          "wash_dry": "Mytí a sušení"
+        }
+      },
+      "dishwasher_status": {
+        "name": "Stav",
+        "state": {
+          "power_off": "Vypnuto",
+          "cancel": "Nečinný",
+          "delay": "Zpožděný start",
+          "running": "Běží",
+          "error": "Chyba"
+        }
+      },
+      "dishwasher_progress": {
+        "name": "Průběh",
+        "state": {
+          "idle": "Nečinný",
+          "pre_wash": "Předpírka",
+          "wash": "Praní",
+          "rinse": "Máchání",
+          "dry": "Suché",
+          "complete": "Dokončeno"
+        }
+      },
+      "operator": {
+        "name": "Stav provozu",
+        "state": {
+          "start": "Běží",
+          "pause": "Pozastaveno"
+        }
+      },
+      "wrong_operation": {
+        "name": "Chybná operace"
+      },
+      "dry_set_min": {
+        "name": "Nastavená doba sušení"
+      },
+      "clean_left_hour": {
+        "name": "Zbývá do čištění"
+      },
+      "kitchenware_left_hour": {
+        "name": "Zbývá nádobí"
+      },
+      "device_version": {
+        "name": "Verze zařízení"
+      },
+      "throw_percent": {
+        "name": "Úroveň dávkování"
+      },
+      "delay_remaining": {
+        "name": "Zbývá do zpožděného startu"
+      },
+      "gas_usage_daily": {
+        "name": "Denní spotřeba plynu"
+      },
+      "gas_usage_last_month": {
+        "name": "Spotřeba plynu minulý měsíc"
+      },
+      "gas_usage_monthly": {
+        "name": "Měsíční spotřeba plynu"
+      },
+      "water_usage_daily": {
+        "name": "Denní spotřeba vody"
+      },
+      "water_usage_last_month": {
+        "name": "Spotřeba vody minulý měsíc"
+      },
+      "water_usage_monthly": {
+        "name": "Měsíční spotřeba vody"
+      },
+      "three_way_mode": {
+        "name": "Třícestný režim"
+      },
+      "heating_unit_type": {
+        "name": "Typ topné jednotky"
+      },
+      "return_temperature": {
+        "name": "Teplota zpátečky"
+      },
+      "heating_temperature": {
+        "name": "Teplota topení"
+      },
+      "heating_gap_temperature": {
+        "name": "Teplotní rozdíl topení"
+      },
+      "user_mode_target_temperature": {
+        "name": "Cílová teplota uživatelského režimu"
+      },
+      "activity_mode_target_temperature": {
+        "name": "Cílová teplota režimu aktivity"
+      },
+      "sleep_mode_target_temperature": {
+        "name": "Cílová teplota režimu spánku"
+      },
+      "last_time": {
+        "name": "Poslední čas"
+      },
+      "flow_volume": {
+        "name": "Průtok"
+      },
+      "bathing_leaving_temperature": {
+        "name": "Teplota odcházející vody při koupání"
+      },
+      "bf_status": {
+        "name": "Stav",
+        "state": {
+          "save_power": "Úspora energie",
+          "standby": "Pohotovostní režim",
+          "work": "Pracuje",
+          "work_finish": "Dokončeno",
+          "order": "Zpoždění",
+          "pause": "Pozastaveno",
+          "pause_c": "Pozastaveno C",
+          "three": "Tři",
+          "wait_to_start": "Čekání na start",
+          "self_inspection": "Vlastní kontrola",
+          "query_version": "Dotaz na verzi",
+          "demo": "Demo",
+          "after_checking": "Po kontrole",
+          "unknown": "Neznámé"
+        }
+      },
+      "bottom_compartment_remaining": {
+        "name": "Zbývá spodní přihrádka"
+      },
+      "bottom_compartment_status": {
+        "name": "Stav spodní přihrádky"
+      },
+      "bottom_compartment_temperature": {
+        "name": "Teplota spodní přihrádky"
+      },
+      "bottom_temperature": {
+        "name": "Spodní teplota"
+      },
+      "bright": {
+        "name": "Úroveň jasu"
+      },
+      "cloudmenuid": {
+        "name": "ID cloudového menu"
+      },
+      "compressor_temperature": {
+        "name": "Teplota kompresoru"
+      },
+      "condenser_temperature": {
+        "name": "Teplota kondenzátoru"
+      },
+      "cur_probe_temperature": {
+        "name": "Aktuální teplota sondy"
+      },
+      "cur_temperature_above": {
+        "name": "Aktuální teplota nahoře"
+      },
+      "cur_temperature_underside": {
+        "name": "Aktuální teplota dole"
+      },
+      "current_energy_consumption": {
+        "name": "Aktuální spotřeba energie"
+      },
+      "current_temperature": {
+        "name": "Aktuální teplota"
+      },
+      "dehydration_speed": {
+        "name": "Rychlost odstřeďování"
+      },
+      "dehydration_time": {
+        "name": "Doba odstřeďování"
+      },
+      "dehydration_time_value": {
+        "name": "Hodnota doby odstřeďování"
+      },
+      "execute_status": {
+        "name": "Stav provedení",
+        "state": {
+          "ok": "OK",
+          "status_nonsupport": "Stav není podporován",
+          "function_nonsupport": "Funkce není podporována",
+          "param_range_error": "Chyba rozsahu parametru"
+        }
+      },
+      "fire_power": {
+        "name": "Výkon plamene",
+        "state": {
+          "fire_power_0": "Úroveň 0",
+          "fire_power_1": "Úroveň 1",
+          "fire_power_2": "Úroveň 2",
+          "fire_power_3": "Úroveň 3",
+          "fire_power_4": "Úroveň 4",
+          "fire_power_5": "Úroveň 5",
+          "fire_power_6": "Úroveň 6",
+          "fire_power_7": "Úroveň 7",
+          "fire_power_8": "Úroveň 8",
+          "fire_power_9": "Úroveň 9",
+          "fire_power_10": "Úroveň 10",
+          "unknown": "Neznámé"
+        }
+      },
+      "minute_set": {
+        "name": "Nastavení minut"
+      },
+      "people_number": {
+        "name": "Počet osob"
+      },
+      "probe_temperature": {
+        "name": "Teplota sondy"
+      },
+      "second_set": {
+        "name": "Nastavení sekund"
+      },
+      "steam_quantity": {
+        "name": "Množství páry"
+      },
+      "stepnum": {
+        "name": "Aktuální krok"
+      },
+      "temperature": {
+        "name": "Teplota"
+      },
+      "temperature_above": {
+        "name": "Teplota nahoře"
+      },
+      "temperature_underside": {
+        "name": "Teplota dole"
+      },
+      "totalstep": {
+        "name": "Celkem kroků"
+      },
+      "wash_time_value": {
+        "name": "Hodnota doby praní"
+      },
+      "stains": {
+        "name": "Skvrny"
+      },
+      "dirty_degree": {
+        "name": "Stupeň znečištění"
+      },
+      "detergent": {
+        "name": "Prací prostředek"
+      },
+      "intensity": {
+        "name": "Intenzita"
+      },
+      "dryness_level": {
+        "name": "Úroveň suchosti"
+      },
+      "dry_temperature": {
+        "name": "Teplota sušení"
+      },
+      "door_warn": {
+        "name": "Varování dvířek"
+      },
+      "ai_switch": {
+        "name": "Přepínač AI"
+      },
+      "material": {
+        "name": "Materiál"
+      },
+      "water_box": {
+        "name": "Nádržka na vodu"
+      },
+      "energy_consumption": {
+        "name": "Spotřeba energie"
+      },
+      "error": {
+        "name": "Chyba",
+        "state": {
+          "no_error": "Žádná chyba",
+          "e1_position_not_found": "E1 Pozice nenalezena",
+          "e2_photo_sensor_no_signal": "E2 Fotosenzor bez signálu",
+          "e3_motor_not_running": "E3 Motor neběží",
+          "e4_wrong_position": "E4 Nesprávná pozice",
+          "e1_motor_fault": "E1 Porucha motoru",
+          "e5_communication_fault": "E5 Porucha komunikace",
+          "e6_salt_sensor_fault": "E6 Porucha senzoru soli",
+          "e7_chlorine_sterilization_fault": "E7 Porucha chlorové sterilizace"
+        }
+      },
+      "error_code": {
+        "name": "Chybový kód"
+      },
+      "humidify_feedback": {
+        "name": "Zpětná vazba vlhkosti"
+      },
+      "temperature_feedback": {
+        "name": "Zpětná vazba teploty"
+      },
+      "humidify_mode": {
+        "name": "Režim zvlhčování"
+      },
+      "estimated_energy_consumption": {
+        "name": "Odhadovaná spotřeba energie"
+      },
+      "estimated_water_consumption": {
+        "name": "Odhadovaná spotřeba vody"
+      },
+      "fan_level": {
+        "name": "Úroveň ventilátoru"
+      },
+      "filter_life": {
+        "name": "Životnost filtru"
+      },
+      "filter1_days": {
+        "name": "Filtr 1 – dostupné dny"
+      },
+      "filter1_life": {
+        "name": "Filtr 1 – úroveň životnosti"
+      },
+      "filter2_days": {
+        "name": "Filtr 2 – dostupné dny"
+      },
+      "filter2_life": {
+        "name": "Filtr 2 – úroveň životnosti"
+      },
+      "filter3_days": {
+        "name": "Filtr 3 – dostupné dny"
+      },
+      "filter3_life": {
+        "name": "Filtr 3 – úroveň životnosti"
+      },
+      "flex_zone_actual_temp": {
+        "name": "Skutečná teplota flexibilní zóny"
+      },
+      "flex_zone_setting_temp": {
+        "name": "Nastavená teplota flexibilní zóny"
+      },
+      "freezer_actual_temp": {
+        "name": "Skutečná teplota mrazničky"
+      },
+      "freezer_setting_temp": {
+        "name": "Nastavená teplota mrazničky"
+      },
+      "hcho": {
+        "name": "Formaldehyd"
+      },
+      "heating_leaving_temperature": {
+        "name": "Teplota odcházející vody topení"
+      },
+      "heating_power": {
+        "name": "Výkon topení"
+      },
+      "heating_time_remaining": {
+        "name": "Zbývající čas topení"
+      },
+      "in_tds": {
+        "name": "TDS na vstupu"
+      },
+      "indoor_humidity": {
+        "name": "Vnitřní vlhkost"
+      },
+      "indoor_temperature": {
+        "name": "Vnitřní teplota"
+      },
+      "keep_warm_remaining": {
+        "name": "Zbývá do udržování teploty"
+      },
+      "fault_code": {
+        "name": "Kód poruchy"
+      },
+      "keep_warm_time": {
+        "name": "Doba udržování teploty"
+      },
+      "left_salt": {
+        "name": "Zbývající sůl"
+      },
+      "middle_compartment_remaining": {
+        "name": "Zbývá prostřední přihrádka"
+      },
+      "middle_compartment_status": {
+        "name": "Stav prostřední přihrádky"
+      },
+      "middle_compartment_temperature": {
+        "name": "Teplota prostřední přihrádky"
+      },
+      "mode": {
+        "name": "Režim"
+      },
+      "out_tds": {
+        "name": "TDS na výstupu"
+      },
+      "outdoor_temperature": {
+        "name": "Venkovní teplota"
+      },
+      "comp_run_freq": {
+        "name": "Frekvence kompresoru"
+      },
+      "outdoor_fan_speed": {
+        "name": "Rychlost venkovního ventilátoru"
+      },
+      "unit_mode_run": {
+        "name": "Provozní režim jednotky",
+        "state": {
+          "off": "Vypnuto",
+          "auto": "Automaticky",
+          "cool": "Chlazení",
+          "heat": "Topení",
+          "dhw": "TUV"
+        }
+      },
+      "odu_target_fre": {
+        "name": "Cílová frekvence kompresoru"
+      },
+      "odu_voltage": {
+        "name": "Napětí venkovní jednotky"
+      },
+      "odu_comp_current": {
+        "name": "Proud kompresoru"
+      },
+      "exv_current": {
+        "name": "Otevření elektronického expanzního ventilu"
+      },
+      "fg_capacity_need": {
+        "name": "Požadavek na výkon"
+      },
+      "pressure_high": {
+        "name": "Tlak chladiva (vysoká strana)"
+      },
+      "pressure_low": {
+        "name": "Tlak chladiva (nízká strana)"
+      },
+      "temp_t1": {
+        "name": "Teplotní senzor T1"
+      },
+      "temp_t2": {
+        "name": "Teplota deskového výměníku tepla (T2)"
+      },
+      "temp_t2b": {
+        "name": "Výstupní teplota deskového výměníku tepla (T2B)"
+      },
+      "temp_t3": {
+        "name": "Teplota venkovní cívky (T3)"
+      },
+      "temp_tp": {
+        "name": "Teplota výtlačného potrubí (TP)"
+      },
+      "temp_th": {
+        "name": "Teplota sání (TH)"
+      },
+      "temp_tf": {
+        "name": "Teplota výkonového modulu (TF)"
+      },
+      "program": {
+        "name": "Program"
+      },
+      "progress": {
+        "name": "Průběh"
+      },
+      "realtime_power": {
+        "name": "Okamžitý výkon"
+      },
+      "pmv": {
+        "name": "PMV"
+      },
+      "refrigerator_actual_temp": {
+        "name": "Skutečná teplota chladničky"
+      },
+      "refrigerator_setting_temp": {
+        "name": "Nastavená teplota chladničky"
+      },
+      "regeneration_left_seconds": {
+        "name": "Zbývající sekundy regenerace"
+      },
+      "remaining_days": {
+        "name": "Zbývající dny"
+      },
+      "right_flex_zone_actual_temp": {
+        "name": "Skutečná teplota pravé flexibilní zóny"
+      },
+      "right_flex_zone_setting_temp": {
+        "name": "Nastavená teplota pravé flexibilní zóny"
+      },
+      "rinse_count": {
+        "name": "Počet máchání"
+      },
+      "rinse_level": {
+        "name": "Úroveň máchání"
+      },
+      "salt_setting": {
+        "name": "Nastavení soli"
+      },
+      "seat_temperature": {
+        "name": "Teplota sedátka"
+      },
+      "soak_time": {
+        "name": "Doba namáčení"
+      },
+      "soft_available": {
+        "name": "Dostupná měkká voda"
+      },
+      "softener": {
+        "name": "Aviváž"
+      },
+      "softwater": {
+        "name": "Úroveň změkčení vody"
+      },
+      "status": {
+        "name": "Stav"
+      },
+      "storage_remaining": {
+        "name": "Zbývá do skladování"
+      },
+      "tank": {
+        "name": "Nádrž"
+      },
+      "tank_actual_temperature": {
+        "name": "Skutečná teplota nádrže"
+      },
+      "target_temperature": {
+        "name": "Cílová teplota"
+      },
+      "time_remaining": {
+        "name": "Zbývající čas"
+      },
+      "top_compartment_remaining": {
+        "name": "Zbývá horní přihrádka"
+      },
+      "top_compartment_status": {
+        "name": "Stav horní přihrádky"
+      },
+      "top_compartment_temperature": {
+        "name": "Teplota horní přihrádky"
+      },
+      "top_temperature": {
+        "name": "Horní teplota"
+      },
+      "total_energy_consumption": {
+        "name": "Celková spotřeba energie"
+      },
+      "total_produced_energy": {
+        "name": "Celková vyrobená energie"
+      },
+      "tvoc": {
+        "name": "TVOC"
+      },
+      "wash_level": {
+        "name": "Úroveň mytí"
+      },
+      "wash_strength": {
+        "name": "Intenzita mytí"
+      },
+      "wash_time": {
+        "name": "Doba mytí"
+      },
+      "water_consumption": {
+        "name": "Spotřeba vody"
+      },
+      "water_consumption_average": {
+        "name": "Průměrná spotřeba vody"
+      },
+      "water_consumption_big": {
+        "name": "Spotřeba vody"
+      },
+      "water_temperature": {
+        "name": "Teplota vody"
+      },
+      "water_level": {
+        "name": "Hladina vody"
+      },
+      "weight": {
+        "name": "Hmotnost"
+      },
+      "wind": {
+        "name": "Vítr"
+      },
+      "typeinfo": {
+        "name": "Informace o typu"
+      },
+      "use_days": {
+        "name": "Dny používání"
+      },
+      "elec_heat": {
+        "name": "Elektrické topení"
+      },
+      "water_pump": {
+        "name": "Vodní čerpadlo"
+      },
+      "four_way": {
+        "name": "Čtyřcestný ventil"
+      },
+      "back_water": {
+        "name": "Zpětná voda"
+      },
+      "sterilize": {
+        "name": "Sterilizovat"
+      },
+      "disinfection_temperature": {
+        "name": "Teplota dezinfekce"
+      },
+      "max_temperature": {
+        "name": "Maximální cílová teplota"
+      },
+      "max_temperature_upper_limit": {
+        "name": "Horní mez maximální teploty"
+      },
+      "max_temperature_lower_limit": {
+        "name": "Dolní mez maximální teploty"
+      },
+      "disinfection_temperature_upper_limit": {
+        "name": "Horní mez teploty dezinfekce"
+      },
+      "disinfection_temperature_lower_limit": {
+        "name": "Dolní mez teploty dezinfekce"
+      },
+      "dr_option": {
+        "name": "Možnost reakce na poptávku"
+      },
+      "remaining_hot_water_max": {
+        "name": "Maximální zbývající horká voda"
+      },
+      "force_e_heating_status": {
+        "name": "Stav vynuceného elektrického ohřevu"
+      },
+      "holiday_max": {
+        "name": "Maximální délka dovolené"
+      },
+      "holiday_min": {
+        "name": "Minimální délka dovolené"
+      },
+      "timer_step_gap": {
+        "name": "Krok časovače"
+      },
+      "vacation_start_year": {
+        "name": "Rok začátku dovolené"
+      },
+      "vacation_start_month": {
+        "name": "Měsíc začátku dovolené"
+      },
+      "vacation_start_day": {
+        "name": "Den začátku dovolené"
+      },
+      "auto_sterilize_week": {
+        "name": "Týden automatické sterilizace"
+      },
+      "auto_sterilize_hour": {
+        "name": "Hodina automatické sterilizace"
+      },
+      "auto_sterilize_minute": {
+        "name": "Minuta automatické sterilizace"
+      },
+      "work_mode": {
+        "name": "Pracovní režim",
+        "state": {
+          "microwave": "Mikrovlnné",
+          "microwave_1": "Mikrovlnné 1",
+          "microwave_2": "Mikrovlnné 2",
+          "microwave_3": "Mikrovlnné 3",
+          "microwave_4": "Mikrovlnné 4",
+          "microwave_5": "Mikrovlnné 5",
+          "microwave_steam_above_tube": "Mikrovlnné s párou – horní trubice",
+          "microwave_double_tube": "Mikrovlnné – dvojitá trubice",
+          "microwave_hot_wind_tube_fan": "Mikrovlnné – ventilátor horkovzdušné trubice",
+          "microwave_underside_tube_hot_wind_tube_fan": "Mikrovlnné – horkovzdušný ventilátor spodní trubice",
+          "microwave_double_tube_hot_wind_tube_fan": "Mikrovlnné – horkovzdušný ventilátor dvojité trubice",
+          "microwave_steam": "Mikrovlnné s párou",
+          "microwave_steam_1": "Mikrovlnné s párou 1",
+          "unfreeze": "Rozmrazování",
+          "unfreeze_1": "Rozmrazování 1",
+          "unfreeze_2": "Rozmrazování 2",
+          "unfreeze_3": "Rozmrazování 3",
+          "unfreeze_t": "Rozmrazování T",
+          "microwave_above_tube": "Mikrovlnné – horní trubice",
+          "microwave_above_tube_1": "Mikrovlnné – horní trubice 1",
+          "microwave_above_tube_2": "Mikrovlnné – horní trubice 2",
+          "microwave_above_tube_fan": "Mikrovlnné – ventilátor horní trubice",
+          "fast_unfreeze": "Rychlé rozmrazování",
+          "fresh_unfreeze": "Čerstvé rozmrazování",
+          "microwave_zymosis": "Mikrovlnné kvašení",
+          "pure_steam": "Čistá pára",
+          "pure_steam_1": "Čistá pára 1",
+          "pure_steam_2": "Čistá pára 2",
+          "pure_steam_3": "Čistá pára 3",
+          "pure_steam_4": "Čistá pára 4",
+          "pure_steam_5": "Čistá pára 5",
+          "pure_steam_6": "Čistá pára 6",
+          "pure_steam_7": "Čistá pára 7",
+          "pure_steam_8": "Čistá pára 8",
+          "pure_steam_9": "Čistá pára 9",
+          "steam_above_tube": "Pára – horní trubice",
+          "steam_underside_tube": "Pára – spodní trubice",
+          "steam_double_tube": "Pára – dvojitá trubice",
+          "steam_hot_wind_tube_fan": "Pára – ventilátor horkovzdušné trubice",
+          "steam_hot_wind_tube_fan_1": "Pára – ventilátor horkovzdušné trubice 1",
+          "steam_hot_wind_tube_fan_2": "Pára – ventilátor horkovzdušné trubice 2",
+          "steam_hot_wind_tube": "Pára – horkovzdušná trubice",
+          "steam_double_tube_fan": "Pára – ventilátor dvojité trubice",
+          "steam_above_inside_outside_tube_fan": "Pára – ventilátor horní vnitřní a vnější trubice",
+          "steam_above_inside_tube_fan": "Pára – ventilátor horní vnitřní trubice",
+          "above_tube": "Horní trubice",
+          "underside_tube": "Spodní trubice",
+          "double_tube": "Dvojitá trubice",
+          "hot_wind_tube_fan": "Ventilátor horkovzdušné trubice",
+          "pure_preheat": "Čistý předehřev",
+          "pure_preheat_2": "Čistý předehřev 2",
+          "above_tube_hot_wind_tube_fan": "Horkovzdušný ventilátor horní trubice",
+          "underside_tube_hot_wind_tube_fan": "Horkovzdušný ventilátor spodní trubice",
+          "zymosis": "Kvašení",
+          "double_tube_hot_wind_tube_fan": "Horkovzdušný ventilátor dvojité trubice",
+          "above_tube_revolve": "Rotace horní trubice",
+          "underside_tube_revolve": "Rotace spodní trubice",
+          "double_tube_revolve": "Rotace dvojité trubice",
+          "hot_wind_tube_fan_revolve": "Rotace ventilátoru horkovzdušné trubice",
+          "warm": "Udržování teploty",
+          "double_tube_fan": "Ventilátor dvojité trubice",
+          "double_tube_fan_1": "Ventilátor dvojité trubice 1",
+          "double_tube_fan_2": "Ventilátor dvojité trubice 2",
+          "double_tube_fan_3": "Ventilátor dvojité trubice 3",
+          "above_inside_tube_revolve": "Rotace horní vnitřní trubice",
+          "above_inside_tube_fan": "Ventilátor horní vnitřní trubice",
+          "above_inside_outside_tube_revolve": "Rotace horní vnitřní a vnější trubice",
+          "above_inside_outside_tube_fan": "Ventilátor horní vnitřní a vnější trubice",
+          "above_inside_underside_tube": "Horní vnitřní a spodní trubice",
+          "above_inside_underside_tube_1": "Horní vnitřní a spodní trubice 1",
+          "above_inside_underside_tube_fan": "Ventilátor horní vnitřní a spodní trubice",
+          "above_inside_underside_tube_fan_1": "Ventilátor horní vnitřní a spodní trubice 1",
+          "above_inside_tube": "Horní vnitřní trubice",
+          "above_inside_outside_tube": "Horní vnitřní a vnější trubice",
+          "underside_tube_fan": "Ventilátor spodní trubice",
+          "above_tube_fan": "Ventilátor horní trubice",
+          "above_tube_fan_1": "Ventilátor horní trubice 1",
+          "above_tube_fan_2": "Ventilátor horní trubice 2",
+          "scale_clean": "Odvápnění",
+          "clean": "Čištění",
+          "remove_odor": "Odstranění zápachu",
+          "remove_odor_2": "Odstranění zápachu 2",
+          "high_temperature_clean": "Vysokoteplotní čištění",
+          "dining_utensils_clean": "Čištění nádobí",
+          "auto_menu": "Automatické menu",
+          "eco": "Eco",
+          "above_tube_1": "Horní trubice 1",
+          "above_tube_2": "Horní trubice 2",
+          "above_tube_3": "Horní trubice 3",
+          "underside_tube_1": "Spodní trubice 1",
+          "underside_tube_2": "Spodní trubice 2",
+          "double_tube_1": "Dvojitá trubice 1",
+          "double_tube_2": "Dvojitá trubice 2",
+          "double_tube_3": "Dvojitá trubice 3",
+          "double_tube_4": "Dvojitá trubice 4",
+          "double_tube_5": "Dvojitá trubice 5",
+          "double_tube_6": "Dvojitá trubice 6",
+          "hot_wind_tube_fan_1": "Ventilátor horkovzdušné trubice 1",
+          "hot_wind_tube_fan_2": "Ventilátor horkovzdušné trubice 2",
+          "hot_wind_tube_fan_3": "Ventilátor horkovzdušné trubice 3",
+          "hot_wind_tube_fan_4": "Ventilátor horkovzdušné trubice 4",
+          "hot_wind_tube_fan_5": "Ventilátor horkovzdušné trubice 5",
+          "double_tube_hot_wind_tube_fan_1": "Horkovzdušný ventilátor dvojité trubice 1",
+          "double_tube_hot_wind_tube_fan_2": "Horkovzdušný ventilátor dvojité trubice 2",
+          "double_tube_hot_wind_tube_fan_3": "Horkovzdušný ventilátor dvojité trubice 3",
+          "double_tube_hot_wind_tube_fan_4": "Horkovzdušný ventilátor dvojité trubice 4",
+          "double_tube_hot_wind_tube_fan_5": "Horkovzdušný ventilátor dvojité trubice 5",
+          "unknown": "Neznámé"
+        }
+      },
+      "working_time": {
+        "name": "Doba provozu"
+      },
+      "humidity": {
+        "name": "Vlhkost"
+      },
+      "variable_mode": {
+        "name": "Proměnný režim",
+        "state": {
+          "none": "Žádné",
+          "soft_freezing": "Jemné zamrazení",
+          "zero_fresh": "Zero Fresh",
+          "cold_drink": "Studené nápoje",
+          "fresh_product": "Čerstvé potraviny",
+          "partial_freezing": "Částečné zamrazení",
+          "dry_zone": "Suchá zóna",
+          "freeze_warm": "Zmrazení / ohřev",
+          "baby": "Matka a dítě",
+          "treasure": "Treasure",
+          "zero": "Nulový stupeň"
+        }
+      },
+      "compressor_frequency": {
+        "name": "Frekvence kompresoru"
+      },
+      "target_compressor_frequency": {
+        "name": "Cílová frekvence kompresoru"
+      },
+      "compressor_current": {
+        "name": "Proud kompresoru"
+      },
+      "compressor_voltage": {
+        "name": "Napětí kompresoru"
+      },
+      "compressor_power": {
+        "name": "Příkon kompresoru"
+      },
+      "indoor_ambient_temperature": {
+        "name": "Vnitřní teplota okolí (T1)"
+      },
+      "indoor_coil_temperature": {
+        "name": "Teplota vnitřní cívky (T2)"
+      },
+      "outdoor_coil_temperature": {
+        "name": "Teplota venkovní cívky (T3)"
+      },
+      "outdoor_ambient_temperature": {
+        "name": "Venkovní teplota okolí (T4)"
+      },
+      "discharge_pipe_temperature": {
+        "name": "Teplota výtlačného potrubí (TP)"
+      },
+      "indoor_fan_speed": {
+        "name": "Rychlost vnitřního ventilátoru"
+      },
+      "target_indoor_fan_speed": {
+        "name": "Cílová rychlost vnitřního ventilátoru"
+      },
+      "velocity": {
+        "name": "Rychlost"
+      },
+      "filter4_life": {
+        "name": "Filtr 4 – úroveň životnosti"
+      },
+      "filter5_life": {
+        "name": "Filtr 5 – úroveň životnosti"
+      },
+      "filter1_maxlife": {
+        "name": "Limit životnosti filtru 1"
+      },
+      "filter2_maxlife": {
+        "name": "Limit životnosti filtru 2"
+      },
+      "filter3_maxlife": {
+        "name": "Limit životnosti filtru 3"
+      },
+      "filter4_maxlife": {
+        "name": "Limit životnosti filtru 4"
+      },
+      "filter5_maxlife": {
+        "name": "Limit životnosti filtru 5"
+      },
+      "hot_pot_temperature": {
+        "name": "Teplota hotpotu"
+      },
+      "ice_gall_status": {
+        "name": "Stav ledové nádobky"
+      },
+      "water_kind": {
+        "name": "Druh vody",
+        "state": {
+          "idle": "Nečinný",
+          "warm": "Teplé",
+          "cold": "Studená"
+        }
+      },
+      "heat_start": {
+        "name": "Start topení",
+        "state": {
+          "heating": "Topení",
+          "keep_warm": "Udržování teploty"
+        }
+      },
+      "no_obsolete_water_mode": {
+        "name": "Režim bez stojící vody",
+        "state": {
+          "water_quality_priority": "Priorita kvality vody",
+          "water_saving_priority": "Priorita úspory vody",
+          "custom": "Vlastní"
+        }
+      },
+      "input_temperature_sensing": {
+        "name": "Vstupní teplota"
+      },
+      "temp_ta": {
+        "name": "Teplota Ta – okolí místnosti"
+      },
+      "water_flow": {
+        "name": "Voda – průtok"
+      },
+      "water_pressure": {
+        "name": "Voda – tlak"
+      },
+      "temp_t4": {
+        "name": "Teplota T4 – venkovní okolí"
+      },
+      "temp_t5": {
+        "name": "Teplota T5 – nádrž na vodu"
+      },
+      "temp_tb_t1": {
+        "name": "Teplota TB-T1 – vrch akumulační nádrže"
+      },
+      "temp_tb_t2": {
+        "name": "Teplota TB-T2 – dno akumulační nádrže"
+      },
+      "temp_tsolar": {
+        "name": "Teplota Tsolar – solární panel"
+      },
+      "temp_tw2": {
+        "name": "Teplota Tw2 – voda zóny 2"
+      },
+      "dc_current": {
+        "name": "ODU – proud stejnosměrné sběrnice"
+      },
+      "dc_bus_voltage": {
+        "name": "ODU – napětí stejnosměrné sběrnice"
+      },
+      "current_unit_capacity": {
+        "name": "Aktuální výkon jednotky (nezpracovaný)"
+      },
+      "instant_power0": {
+        "name": "Výkon – spotřeba topení"
+      },
+      "instant_renew_power0": {
+        "name": "Výkon – obnovitelný topný výkon"
+      },
+      "room_rel_hum": {
+        "name": "Relativní vlhkost místnosti"
+      },
+      "hydbox_subtype": {
+        "name": "Informace – podtyp hydraulického boxu"
+      },
+      "machine_type": {
+        "name": "Informace – typ stroje"
+      },
+      "odu_model": {
+        "name": "Informace – kód modelu ODU"
+      },
+      "hydrobox_capacity": {
+        "name": "Informace – výkon hydraulického boxu"
+      },
+      "idu_t1s1": {
+        "name": "Teplota – zóna 1 vypočtená (T1s)"
+      },
+      "idu_t1s2": {
+        "name": "Teplota – zóna 2 vypočtená (T1s)"
+      },
+      "t5s": {
+        "name": "Teplota T5s – žádaná hodnota TUV"
+      },
+      "tas": {
+        "name": "Teplota Tas – žádaná hodnota vzduchu"
+      },
+      "zone1_temp_set": {
+        "name": "Teplota – žádaná hodnota zóny 1"
+      },
+      "zone2_temp_set": {
+        "name": "Teplota – žádaná hodnota zóny 2"
+      },
+      "disinfect_set_weekday": {
+        "name": "TUV – den v týdnu dezinfekce"
+      },
+      "disinfect_start_hour": {
+        "name": "TUV – hodina začátku dezinfekce"
+      },
+      "disinfect_start_minutes": {
+        "name": "TUV – minuta začátku dezinfekce"
+      },
+      "error_code_description": {
+        "name": "Chyba – popis"
+      },
+      "hmi_sn_code": {
+        "name": "Sériové číslo HMI"
+      },
+      "temp_tw_in": {
+        "name": "Teplota Tw_in – vstup vody"
+      },
+      "temp_tw_out": {
+        "name": "Teplota Tw_out – výstup vody"
+      },
+      "comp_total_run_time": {
+        "name": "Energie – doba běhu kompresoru"
+      },
+      "idu_software_version_str": {
+        "name": "Informace – verze softwaru IDU"
+      },
+      "odu_software_version_str": {
+        "name": "Informace – verze softwaru ODU"
+      },
+      "ac_air_direction_gear": {
+        "name": "Stupeň směru vzduchu klimatizace"
+      },
+      "ac_air_direction_max_angle": {
+        "name": "Maximální úhel směru vzduchu klimatizace"
+      },
+      "ac_air_direction_min_angle": {
+        "name": "Minimální úhel směru vzduchu klimatizace"
+      },
+      "ac_ambient_temperature": {
+        "name": "Teplota okolí klimatizace"
+      },
+      "ac_current_temp": {
+        "name": "Aktuální teplota klimatizace"
+      },
+      "ac_destination_temp": {
+        "name": "Cílová teplota klimatizace"
+      },
+      "ac_destination_time": {
+        "name": "Cílový čas klimatizace"
+      },
+      "ac_gear": {
+        "name": "Stupeň klimatizace"
+      },
+      "ac_mode": {
+        "name": "Režim klimatizace",
+        "state": {
+          "air_supply": "Přívod vzduchu",
+          "dehumidification": "Odvlhčení",
+          "net_flavour": "Čistá vůně",
+          "none": "Žádné",
+          "refrigeration": "Chlazení"
+        }
+      },
+      "ac_order_destination_time": {
+        "name": "Cílový čas objednávky klimatizace"
+      },
+      "ac_order_remaining_time": {
+        "name": "Zbývající čas objednávky klimatizace"
+      },
+      "ac_remaining_time": {
+        "name": "Zbývající čas klimatizace"
+      },
+      "ac_swing_gear": {
+        "name": "Stupeň výkyvu klimatizace"
+      },
+      "ac_swing_max_angle": {
+        "name": "Maximální úhel výkyvu klimatizace"
+      },
+      "ac_swing_min_angle": {
+        "name": "Minimální úhel výkyvu klimatizace"
+      },
+      "ac_work_status": {
+        "name": "Pracovní stav klimatizace",
+        "state": {
+          "order": "Objednávka",
+          "power_off": "Vypnuto",
+          "reservation": "Rezervace",
+          "reservation_and_order_ordering": "Rezervace a objednávka – objednávání",
+          "reservation_and_order_reserving": "Rezervace a objednávka – rezervování",
+          "working": "Pracuje"
+        }
+      },
+      "ai_voice_microphone_status": {
+        "name": "Stav mikrofonu AI hlasu",
+        "state": {
+          "failure": "Selhání",
+          "success": "Úspěch"
+        }
+      },
+      "ai_voice_status": {
+        "name": "Stav AI hlasu",
+        "state": {
+          "connecting": "Připojování",
+          "off": "Vypnuto",
+          "on": "Zapnuto"
+        }
+      },
+      "ai_voice_volume_status": {
+        "name": "Stav hlasitosti AI hlasu",
+        "state": {
+          "failure": "Selhání",
+          "success": "Úspěch"
+        }
+      },
+      "b2_downstair_current_temp": {
+        "name": "Aktuální teplota spodní parní trouby"
+      },
+      "b2_downstair_destination_temp": {
+        "name": "Cílová teplota spodní parní trouby"
+      },
+      "b2_downstair_light_off_type": {
+        "name": "Typ vypnutí osvětlení spodní parní trouby",
+        "state": {
+          "app": "Aplikace",
+          "local": "Místní"
+        }
+      },
+      "b2_downstair_light_on_type": {
+        "name": "Typ zapnutí osvětlení spodní parní trouby",
+        "state": {
+          "app": "Aplikace",
+          "local": "Místní"
+        }
+      },
+      "b2_downstair_order_destination_time": {
+        "name": "Cílový čas objednávky spodní parní trouby"
+      },
+      "b2_downstair_order_remaining_time": {
+        "name": "Zbývající čas objednávky spodní parní trouby"
+      },
+      "b2_downstair_power_off_type": {
+        "name": "Typ vypnutí spodní parní trouby",
+        "state": {
+          "app": "Aplikace",
+          "auto": "Automaticky",
+          "error": "Chyba",
+          "local": "Místní",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b2_downstair_power_on_type": {
+        "name": "Typ zapnutí spodní parní trouby",
+        "state": {
+          "app": "Aplikace",
+          "local": "Místní",
+          "order": "Objednávka"
+        }
+      },
+      "b2_downstair_preheating": {
+        "name": "Předehřev spodní parní trouby",
+        "state": {
+          "finish": "Dokončit",
+          "none": "Žádné",
+          "preheating": "Předehřev"
+        }
+      },
+      "b2_downstair_recipe_after": {
+        "name": "Po receptu spodní parní trouby"
+      },
+      "b2_downstair_recipe_code": {
+        "name": "Kód receptu spodní parní trouby"
+      },
+      "b2_downstair_recipe_current_mode": {
+        "name": "Aktuální režim receptu spodní parní trouby"
+      },
+      "b2_downstair_recipe_current_step": {
+        "name": "Aktuální krok receptu spodní parní trouby"
+      },
+      "b2_downstair_recipe_off_type": {
+        "name": "Typ vypnutí receptu spodní parní trouby",
+        "state": {
+          "app": "Aplikace",
+          "auto": "Automaticky",
+          "error": "Chyba",
+          "local": "Místní",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b2_downstair_recipe_on_type": {
+        "name": "Typ zapnutí receptu spodní parní trouby",
+        "state": {
+          "app": "Aplikace",
+          "local": "Místní",
+          "order": "Objednávka"
+        }
+      },
+      "b2_downstair_recipe_total_steps": {
+        "name": "Celkem kroků receptu spodní parní trouby"
+      },
+      "b2_downstair_work_destination_time": {
+        "name": "Cílový čas práce spodní parní trouby"
+      },
+      "b2_downstair_work_func": {
+        "name": "Funkce práce spodní parní trouby"
+      },
+      "b2_downstair_work_menu": {
+        "name": "Menu práce spodní parní trouby"
+      },
+      "b2_downstair_work_remaining_time": {
+        "name": "Zbývající čas práce spodní parní trouby"
+      },
+      "b2_downstair_work_status": {
+        "name": "Pracovní stav spodní parní trouby",
+        "state": {
+          "auto": "Automaticky",
+          "drying": "Sušení",
+          "finish": "Dokončit",
+          "order": "Objednávka",
+          "pause": "Pozastavit",
+          "power_off": "Vypnuto",
+          "standby": "Pohotovostní režim",
+          "working": "Pracuje"
+        }
+      },
+      "b2_upstair_current_temp": {
+        "name": "Aktuální teplota horní parní trouby"
+      },
+      "b2_upstair_destination_temp": {
+        "name": "Cílová teplota horní parní trouby"
+      },
+      "b2_upstair_light_off_type": {
+        "name": "Typ vypnutí osvětlení horní parní trouby",
+        "state": {
+          "app": "Aplikace",
+          "local": "Místní"
+        }
+      },
+      "b2_upstair_light_on_type": {
+        "name": "Typ zapnutí osvětlení horní parní trouby",
+        "state": {
+          "app": "Aplikace",
+          "local": "Místní"
+        }
+      },
+      "b2_upstair_order_destination_time": {
+        "name": "Cílový čas objednávky horní parní trouby"
+      },
+      "b2_upstair_order_remaining_time": {
+        "name": "Zbývající čas objednávky horní parní trouby"
+      },
+      "b2_upstair_power_off_type": {
+        "name": "Typ vypnutí horní parní trouby",
+        "state": {
+          "app": "Aplikace",
+          "auto": "Automaticky",
+          "error": "Chyba",
+          "local": "Místní",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b2_upstair_power_on_type": {
+        "name": "Typ zapnutí horní parní trouby",
+        "state": {
+          "app": "Aplikace",
+          "local": "Místní",
+          "order": "Objednávka"
+        }
+      },
+      "b2_upstair_preheating": {
+        "name": "Předehřev horní parní trouby",
+        "state": {
+          "finish": "Dokončit",
+          "none": "Žádné",
+          "preheating": "Předehřev"
+        }
+      },
+      "b2_upstair_recipe_after": {
+        "name": "Po receptu horní parní trouby"
+      },
+      "b2_upstair_recipe_code": {
+        "name": "Kód receptu horní parní trouby"
+      },
+      "b2_upstair_recipe_current_mode": {
+        "name": "Aktuální režim receptu horní parní trouby"
+      },
+      "b2_upstair_recipe_current_step": {
+        "name": "Aktuální krok receptu horní parní trouby"
+      },
+      "b2_upstair_recipe_off_type": {
+        "name": "Typ vypnutí receptu horní parní trouby",
+        "state": {
+          "app": "Aplikace",
+          "auto": "Automaticky",
+          "error": "Chyba",
+          "local": "Místní",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b2_upstair_recipe_on_type": {
+        "name": "Typ zapnutí receptu horní parní trouby",
+        "state": {
+          "app": "Aplikace",
+          "local": "Místní",
+          "order": "Objednávka"
+        }
+      },
+      "b2_upstair_recipe_total_steps": {
+        "name": "Celkem kroků receptu horní parní trouby"
+      },
+      "b2_upstair_work_destination_time": {
+        "name": "Cílový čas práce horní parní trouby"
+      },
+      "b2_upstair_work_func": {
+        "name": "Funkce práce horní parní trouby"
+      },
+      "b2_upstair_work_menu": {
+        "name": "Menu práce horní parní trouby"
+      },
+      "b2_upstair_work_remaining_time": {
+        "name": "Zbývající čas práce horní parní trouby"
+      },
+      "b2_upstair_work_status": {
+        "name": "Pracovní stav horní parní trouby",
+        "state": {
+          "auto": "Automaticky",
+          "drying": "Sušení",
+          "finish": "Dokončit",
+          "order": "Objednávka",
+          "pause": "Pozastavit",
+          "power_off": "Vypnuto",
+          "standby": "Pohotovostní režim",
+          "working": "Pracuje"
+        }
+      },
+      "b3_disinfect_off_type": {
+        "name": "Typ vypnutí dezinfekce parní skříně",
+        "state": {
+          "app": "Aplikace",
+          "local": "Místní"
+        }
+      },
+      "b3_disinfect_on_type": {
+        "name": "Typ zapnutí dezinfekce parní skříně",
+        "state": {
+          "app": "Aplikace",
+          "local": "Místní"
+        }
+      },
+      "b3_downstair_current_temp": {
+        "name": "Aktuální teplota spodní parní skříně"
+      },
+      "b3_downstair_destination_temp": {
+        "name": "Cílová teplota spodní parní skříně"
+      },
+      "b3_downstair_destination_time": {
+        "name": "Cílový čas spodní parní skříně"
+      },
+      "b3_downstair_remaining_time": {
+        "name": "Zbývající čas spodní parní skříně"
+      },
+      "b3_downstair_sensor": {
+        "name": "Senzor spodní parní skříně"
+      },
+      "b3_downstair_status": {
+        "name": "Stav spodní parní skříně",
+        "state": {
+          "drying": "Sušení",
+          "drying_pause": "Pozastavení sušení",
+          "ion_drying": "Iontové sušení",
+          "ion_drying_pause": "Pozastavení iontového sušení",
+          "power_off": "Vypnuto",
+          "uperization": "Sterilizace párou",
+          "uperization_pause": "Pozastavení sterilizace párou",
+          "warm_drink": "Teplý nápoj",
+          "warm_drink_pause": "Pozastavení teplého nápoje"
+        }
+      },
+      "b3_thermotank_off_type": {
+        "name": "Typ vypnutí termonádrže parní skříně",
+        "state": {
+          "app": "Aplikace",
+          "local": "Místní"
+        }
+      },
+      "b3_thermotank_on_type": {
+        "name": "Typ zapnutí termonádrže parní skříně",
+        "state": {
+          "app": "Aplikace",
+          "local": "Místní"
+        }
+      },
+      "b3_upstair_current_temp": {
+        "name": "Aktuální teplota horní parní skříně"
+      },
+      "b3_upstair_destination_temp": {
+        "name": "Cílová teplota horní parní skříně"
+      },
+      "b3_upstair_destination_time": {
+        "name": "Cílový čas horní parní skříně"
+      },
+      "b3_upstair_remaining_time": {
+        "name": "Zbývající čas horní parní skříně"
+      },
+      "b3_upstair_sensor": {
+        "name": "Senzor horní parní skříně"
+      },
+      "b3_upstair_status": {
+        "name": "Stav horní parní skříně",
+        "state": {
+          "drying": "Sušení",
+          "drying_pause": "Pozastavení sušení",
+          "ion_drying": "Iontové sušení",
+          "ion_drying_pause": "Pozastavení iontového sušení",
+          "power_off": "Vypnuto",
+          "uperization": "Sterilizace párou",
+          "uperization_pause": "Pozastavení sterilizace párou",
+          "warm_drink": "Teplý nápoj",
+          "warm_drink_pause": "Pozastavení teplého nápoje"
+        }
+      },
+      "b6_tvoc_value": {
+        "name": "Hodnota TVOC odsavače par",
+        "state": {
+          "excellent": "Výborné",
+          "good": "Dobré",
+          "medium": "Střední"
+        }
+      },
+      "b6_air_duct_detection_score": {
+        "name": "Skóre detekce vzduchovodu odsavače par"
+      },
+      "b6_air_duct_detection_state": {
+        "name": "Stav detekce vzduchovodu odsavače par"
+      },
+      "b6_air_duct_detection_time": {
+        "name": "Čas detekce vzduchovodu odsavače par"
+      },
+      "b6_air_duct_detection_windage": {
+        "name": "Odpor vzduchu detekce vzduchovodu odsavače par"
+      },
+      "b6_air_volume": {
+        "name": "Objem vzduchu odsavače par"
+      },
+      "b6_delay_gear_linkage_gear": {
+        "name": "Stupeň propojení odloženého stupně odsavače par"
+      },
+      "b6_delay_time_value": {
+        "name": "Hodnota doby odkladu odsavače par"
+      },
+      "b6_destination_time": {
+        "name": "Cílový čas odsavače par"
+      },
+      "b6_gear": {
+        "name": "Stupeň odsavače par"
+      },
+      "b6_gear_control_type": {
+        "name": "Typ ovládání stupně odsavače par",
+        "state": {
+          "app": "Aplikace",
+          "gesture": "Gesto",
+          "linkage": "Propojení",
+          "local": "Místní",
+          "smoke_detector": "Detektor kouře"
+        }
+      },
+      "b6_gesture_sensitivity": {
+        "name": "Citlivost gest odsavače par",
+        "state": {
+          "1": "1",
+          "2": "2",
+          "3": "3"
+        }
+      },
+      "b6_gesture_value": {
+        "name": "Hodnota gest odsavače par",
+        "state": {
+          "light": "Lehký",
+          "power": "Napájení",
+          "wind": "Vítr"
+        }
+      },
+      "b6_hotclean_tips": {
+        "name": "Tipy k horkému čištění odsavače par"
+      },
+      "b6_infrared_value": {
+        "name": "Infračervená hodnota odsavače par",
+        "state": {
+          "power": "Napájení",
+          "wind": "Vítr"
+        }
+      },
+      "b6_inverter_ac_frequency": {
+        "name": "Frekvence měniče klimatizace odsavače par"
+      },
+      "b6_inverter_back_electromotive_force": {
+        "name": "Zpětná elektromotorická síla měniče odsavače par"
+      },
+      "b6_inverter_capacity": {
+        "name": "Výkon měniče odsavače par"
+      },
+      "b6_inverter_efficiency": {
+        "name": "Účinnost měniče odsavače par"
+      },
+      "b6_inverter_motor_compensation_angle": {
+        "name": "Kompenzační úhel motoru měniče odsavače par"
+      },
+      "b6_inverter_motor_speed": {
+        "name": "Rychlost motoru měniče odsavače par"
+      },
+      "b6_inverter_q_axis_current": {
+        "name": "Proud v ose Q měniče odsavače par"
+      },
+      "b6_inverter_start_time": {
+        "name": "Čas startu měniče odsavače par"
+      },
+      "b6_inverter_temperature": {
+        "name": "Teplota měniče odsavače par"
+      },
+      "b6_inverter_temperature_limit_sign": {
+        "name": "Příznak limitu teploty měniče odsavače par"
+      },
+      "b6_inverter_voltage": {
+        "name": "Napětí měniče odsavače par"
+      },
+      "b6_inverter_wind_flow": {
+        "name": "Průtok vzduchu měniče odsavače par"
+      },
+      "b6_inverter_wind_presssure": {
+        "name": "Tlak vzduchu měniče odsavače par"
+      },
+      "b6_inverter_windage": {
+        "name": "Odpor vzduchu měniče odsavače par"
+      },
+      "b6_inverter_work_gear": {
+        "name": "Pracovní stupeň měniče odsavače par"
+      },
+      "b6_last_hotclean_hour": {
+        "name": "Poslední hodina horkého čištění odsavače par"
+      },
+      "b6_light": {
+        "name": "Osvětlení odsavače par"
+      },
+      "b6_light_off_type": {
+        "name": "Typ vypnutí osvětlení odsavače par",
+        "state": {
+          "app": "Aplikace",
+          "error": "Chyba",
+          "gesture": "Gesto",
+          "local": "Místní"
+        }
+      },
+      "b6_light_on_type": {
+        "name": "Typ zapnutí osvětlení odsavače par",
+        "state": {
+          "app": "Aplikace",
+          "gesture": "Gesto",
+          "local": "Místní"
+        }
+      },
+      "b6_lightness": {
+        "name": "Jas osvětlení odsavače par"
+      },
+      "b6_lock_off_type": {
+        "name": "Typ vypnutí zámku odsavače par",
+        "state": {
+          "local": "Místní"
+        }
+      },
+      "b6_lock_on_type": {
+        "name": "Typ zapnutí zámku odsavače par",
+        "state": {
+          "app": "Aplikace",
+          "local": "Místní"
+        }
+      },
+      "b6_power": {
+        "name": "Napájení odsavače par",
+        "state": {
+          "delay_off": "Zpožděné vypnutí",
+          "off": "Vypnuto",
+          "on": "Zapnuto"
+        }
+      },
+      "b6_power_off_type": {
+        "name": "Typ vypnutí odsavače par",
+        "state": {
+          "app": "Aplikace",
+          "delay": "Zpoždění",
+          "gesture": "Gesto",
+          "linkage": "Propojení",
+          "local": "Místní"
+        }
+      },
+      "b6_power_on_type": {
+        "name": "Typ zapnutí odsavače par",
+        "state": {
+          "app": "Aplikace",
+          "gesture": "Gesto",
+          "linkage": "Propojení",
+          "local": "Místní"
+        }
+      },
+      "b6_remaining_time": {
+        "name": "Zbývající čas odsavače par"
+      },
+      "b6_smoke_detector_value": {
+        "name": "Hodnota detektoru kouře odsavače par"
+      },
+      "b6_smoke_potency": {
+        "name": "Intenzita kouře odsavače par"
+      },
+      "b6_smoke_stove_linkage_flowin": {
+        "name": "Přítok propojení kouře a sporáku odsavače par",
+        "state": {
+          "no": "Ne",
+          "yes": "Ano"
+        }
+      },
+      "b6_smoke_stove_linkage_gear": {
+        "name": "Stupeň propojení kouře a sporáku odsavače par"
+      },
+      "b6_smoke_stove_linkage_gear_fix": {
+        "name": "Korekce stupně propojení kouře a sporáku odsavače par",
+        "state": {
+          "negative": "Záporná",
+          "positive": "Kladná"
+        }
+      },
+      "b6_steaming": {
+        "name": "Napařování odsavače par",
+        "state": {
+          "off": "Vypnuto",
+          "on": "Zapnuto"
+        }
+      },
+      "b6_steaming_stage": {
+        "name": "Fáze napařování odsavače par"
+      },
+      "b6_wind_pressure": {
+        "name": "Tlak vzduchu odsavače par"
+      },
+      "b6_work_status": {
+        "name": "Pracovní stav odsavače par",
+        "state": {
+          "ai_dry_clean": "AI suché čištění",
+          "air_duct_detection": "Detekce vzduchovodu",
+          "check": "Kontrola",
+          "clean": "Čištění",
+          "clean_finish": "Čištění dokončeno",
+          "error": "Chyba",
+          "hotclean": "Horké čištění",
+          "initial": "Výchozí",
+          "mute_gear": "Tichý stupeň",
+          "power_off": "Vypnuto",
+          "power_off_delay": "Zpoždění vypnutí",
+          "standby": "Pohotovostní režim",
+          "vvvf_gear": "Stupeň VVVF",
+          "working": "Pracuje"
+        }
+      },
+      "b7_left_current_temp": {
+        "name": "Aktuální teplota levého plynového hořáku"
+      },
+      "b7_left_destination_temp": {
+        "name": "Cílová teplota levého plynového hořáku"
+      },
+      "b7_left_destination_time": {
+        "name": "Cílový čas levého plynového hořáku"
+      },
+      "b7_left_gear": {
+        "name": "Stupeň levého plynového hořáku"
+      },
+      "b7_left_power_off_type": {
+        "name": "Typ vypnutí levého plynového hořáku",
+        "state": {
+          "app": "Aplikace",
+          "auto": "Automaticky",
+          "error": "Chyba",
+          "local": "Místní",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b7_left_remaining_time": {
+        "name": "Zbývající čas levého plynového hořáku"
+      },
+      "b7_left_status": {
+        "name": "Stav levého plynového hořáku",
+        "state": {
+          "drying": "Sušení",
+          "drying_pause": "Pozastavení sušení",
+          "ion_drying": "Iontové sušení",
+          "ion_drying_pause": "Pozastavení iontového sušení",
+          "power_off": "Vypnuto",
+          "uperization": "Sterilizace párou",
+          "uperization_pause": "Pozastavení sterilizace párou",
+          "warm_drink": "Teplý nápoj",
+          "warm_drink_pause": "Pozastavení teplého nápoje"
+        }
+      },
+      "b7_left_work_time": {
+        "name": "Doba práce levého plynového hořáku"
+      },
+      "b7_right_current_temp": {
+        "name": "Aktuální teplota pravého plynového hořáku"
+      },
+      "b7_right_destination_temp": {
+        "name": "Cílová teplota pravého plynového hořáku"
+      },
+      "b7_right_destination_time": {
+        "name": "Cílový čas pravého plynového hořáku"
+      },
+      "b7_right_gear": {
+        "name": "Stupeň pravého plynového hořáku"
+      },
+      "b7_right_power_off_type": {
+        "name": "Typ vypnutí pravého plynového hořáku",
+        "state": {
+          "app": "Aplikace",
+          "auto": "Automaticky",
+          "error": "Chyba",
+          "local": "Místní",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b7_right_remaining_time": {
+        "name": "Zbývající čas pravého plynového hořáku"
+      },
+      "b7_right_status": {
+        "name": "Stav pravého plynového hořáku",
+        "state": {
+          "drying": "Sušení",
+          "drying_pause": "Pozastavení sušení",
+          "ion_drying": "Iontové sušení",
+          "ion_drying_pause": "Pozastavení iontového sušení",
+          "power_off": "Vypnuto",
+          "uperization": "Sterilizace párou",
+          "uperization_pause": "Pozastavení sterilizace párou",
+          "warm_drink": "Teplý nápoj",
+          "warm_drink_pause": "Pozastavení teplého nápoje"
+        }
+      },
+      "b7_right_work_time": {
+        "name": "Doba práce pravého plynového hořáku"
+      },
+      "bf_cavity": {
+        "name": "Dutina trouby",
+        "state": {
+          "down": "Dolů",
+          "up": "Nahoru"
+        }
+      },
+      "bf_control_back": {
+        "name": "Zpětné ovládání trouby",
+        "state": {
+          "func_notsupport": "Funkce nepodporována",
+          "status_notsupport": "Stav nepodporován",
+          "success": "Úspěch",
+          "value_notsupport": "Hodnota nepodporována"
+        }
+      },
+      "bf_end_next": {
+        "name": "Trouba – další po konci"
+      },
+      "bf_fire": {
+        "name": "Plamen trouby"
+      },
+      "bf_mode": {
+        "name": "Režim trouby"
+      },
+      "bf_quick_btn_bake_id": {
+        "name": "ID rychlého tlačítka pečení trouby"
+      },
+      "bf_quick_btn_bake_set": {
+        "name": "Nastavení rychlého tlačítka pečení trouby"
+      },
+      "bf_quick_btn_bake_time": {
+        "name": "Čas rychlého tlačítka pečení trouby"
+      },
+      "bf_quick_btn_microwave_id": {
+        "name": "ID rychlého tlačítka mikrovlnky trouby"
+      },
+      "bf_quick_btn_microwave_set": {
+        "name": "Nastavení rychlého tlačítka mikrovlnky trouby"
+      },
+      "bf_quick_btn_microwave_time": {
+        "name": "Čas rychlého tlačítka mikrovlnky trouby"
+      },
+      "bf_quick_btn_steam_id": {
+        "name": "ID rychlého tlačítka páry trouby"
+      },
+      "bf_quick_btn_steam_set": {
+        "name": "Nastavení rychlého tlačítka páry trouby"
+      },
+      "bf_quick_btn_steam_time": {
+        "name": "Čas rychlého tlačítka páry trouby"
+      },
+      "bf_recipe_code": {
+        "name": "Kód receptu trouby"
+      },
+      "bf_remaining_time": {
+        "name": "Zbývající čas trouby"
+      },
+      "bf_steam": {
+        "name": "Pára trouby"
+      },
+      "bf_step_current": {
+        "name": "Aktuální krok trouby"
+      },
+      "bf_step_total": {
+        "name": "Celkem kroků trouby"
+      },
+      "bf_temp_down": {
+        "name": "Dolní teplota trouby"
+      },
+      "bf_temp_down_set": {
+        "name": "Nastavení dolní teploty trouby"
+      },
+      "bf_temp_probe": {
+        "name": "Teplotní sonda trouby"
+      },
+      "bf_temp_probe_set": {
+        "name": "Nastavení teplotní sondy trouby"
+      },
+      "bf_temp_up": {
+        "name": "Horní teplota trouby"
+      },
+      "bf_temp_up_set": {
+        "name": "Nastavení horní teploty trouby"
+      },
+      "bf_tips_mark": {
+        "name": "Značka tipů trouby",
+        "state": {
+          "apply": "Použít",
+          "change_attachments": "Vyměnit příslušenství",
+          "door_open": "Dvířka otevřena",
+          "feed": "Přidat",
+          "recipe_tips": "Tipy k receptu",
+          "stir": "Zamíchat"
+        }
+      },
+      "bf_weight_mount": {
+        "name": "Upevnění váhy trouby"
+      },
+      "bf_weight_multiple": {
+        "name": "Násobek váhy trouby",
+        "state": {
+          "g": "g",
+          "kg": "kg",
+          "ounce": "unce",
+          "pound": "libra"
+        }
+      },
+      "bf_weight_unit": {
+        "name": "Jednotka váhy trouby",
+        "state": {
+          "g": "g",
+          "kg": "kg",
+          "other": "Jiné",
+          "ounce": "unce",
+          "pound": "libra"
+        }
+      },
+      "bf_work_status": {
+        "name": "Pracovní stav trouby",
+        "state": {
+          "after_sale": "Po prodeji",
+          "check_version": "Zkontrolovat verzi",
+          "cloudmenu_setting": "Nastavení cloudového menu",
+          "demo": "Demo",
+          "done": "Hotovo",
+          "keep": "Udržet",
+          "love_three_seconds": "Láska tři sekundy",
+          "open": "Otevřít",
+          "order": "Objednávka",
+          "pause": "Pozastavit",
+          "pause_temporarily": "Dočasně pozastavit",
+          "power_off": "Vypnuto",
+          "self_check": "Vlastní kontrola",
+          "working": "Pracuje"
+        }
+      },
+      "bf_working_time": {
+        "name": "Doba práce trouby"
+      },
+      "e7_left_bottom_bridge_link": {
+        "name": "Můstkové propojení levé spodní indukce",
+        "state": {
+          "off": "Vypnuto",
+          "on": "Zapnuto"
+        }
+      },
+      "e7_left_bottom_destination_time": {
+        "name": "Cílový čas levé spodní indukce"
+      },
+      "e7_left_bottom_efficiency": {
+        "name": "Účinnost levé spodní indukce"
+      },
+      "e7_left_bottom_gear": {
+        "name": "Stupeň levé spodní indukce"
+      },
+      "e7_left_bottom_mode": {
+        "name": "Režim levé spodní indukce",
+        "state": {
+          "boiling": "Vaření",
+          "heat_preservation": "Udržování teploty",
+          "none": "Žádné",
+          "stew_soup": "Dušení polévky",
+          "stir_frying": "Smažení"
+        }
+      },
+      "e7_left_bottom_remaining_time": {
+        "name": "Zbývající čas levé spodní indukce"
+      },
+      "e7_left_bottom_work_status": {
+        "name": "Pracovní stav levé spodní indukce",
+        "state": {
+          "auto": "Automaticky",
+          "drying": "Sušení",
+          "finish": "Dokončit",
+          "order": "Objednávka",
+          "pause": "Pozastavit",
+          "power_off": "Vypnuto",
+          "standby": "Pohotovostní režim",
+          "working": "Pracuje"
+        }
+      },
+      "e7_left_bottom_work_time": {
+        "name": "Doba práce levé spodní indukce"
+      },
+      "e7_left_bridge_link": {
+        "name": "Můstkové propojení levé indukce",
+        "state": {
+          "off": "Vypnuto",
+          "on": "Zapnuto"
+        }
+      },
+      "e7_left_destination_time": {
+        "name": "Cílový čas levé indukce"
+      },
+      "e7_left_efficiency": {
+        "name": "Účinnost levé indukce"
+      },
+      "e7_left_gear": {
+        "name": "Stupeň levé indukce"
+      },
+      "e7_left_mode": {
+        "name": "Režim levé indukce",
+        "state": {
+          "boiling": "Vaření",
+          "heat_preservation": "Udržování teploty",
+          "none": "Žádné",
+          "stew_soup": "Dušení polévky",
+          "stir_frying": "Smažení"
+        }
+      },
+      "e7_left_remaining_time": {
+        "name": "Zbývající čas levé indukce"
+      },
+      "e7_left_top_bridge_link": {
+        "name": "Můstkové propojení levé horní indukce",
+        "state": {
+          "off": "Vypnuto",
+          "on": "Zapnuto"
+        }
+      },
+      "e7_left_top_destination_time": {
+        "name": "Cílový čas levé horní indukce"
+      },
+      "e7_left_top_efficiency": {
+        "name": "Účinnost levé horní indukce"
+      },
+      "e7_left_top_gear": {
+        "name": "Stupeň levé horní indukce"
+      },
+      "e7_left_top_mode": {
+        "name": "Režim levé horní indukce",
+        "state": {
+          "boiling": "Vaření",
+          "heat_preservation": "Udržování teploty",
+          "none": "Žádné",
+          "stew_soup": "Dušení polévky",
+          "stir_frying": "Smažení"
+        }
+      },
+      "e7_left_top_remaining_time": {
+        "name": "Zbývající čas levé horní indukce"
+      },
+      "e7_left_top_work_status": {
+        "name": "Pracovní stav levé horní indukce",
+        "state": {
+          "auto": "Automaticky",
+          "drying": "Sušení",
+          "finish": "Dokončit",
+          "order": "Objednávka",
+          "pause": "Pozastavit",
+          "power_off": "Vypnuto",
+          "standby": "Pohotovostní režim",
+          "working": "Pracuje"
+        }
+      },
+      "e7_left_top_work_time": {
+        "name": "Doba práce levé horní indukce"
+      },
+      "e7_left_work_status": {
+        "name": "Pracovní stav levé indukce",
+        "state": {
+          "auto": "Automaticky",
+          "drying": "Sušení",
+          "finish": "Dokončit",
+          "order": "Objednávka",
+          "pause": "Pozastavit",
+          "power_off": "Vypnuto",
+          "standby": "Pohotovostní režim",
+          "working": "Pracuje"
+        }
+      },
+      "e7_left_work_time": {
+        "name": "Doba práce levé indukce"
+      },
+      "e7_right_bottom_bridge_link": {
+        "name": "Můstkové propojení pravé spodní indukce",
+        "state": {
+          "off": "Vypnuto",
+          "on": "Zapnuto"
+        }
+      },
+      "e7_right_bottom_destination_time": {
+        "name": "Cílový čas pravé spodní indukce"
+      },
+      "e7_right_bottom_efficiency": {
+        "name": "Účinnost pravé spodní indukce"
+      },
+      "e7_right_bottom_gear": {
+        "name": "Stupeň pravé spodní indukce"
+      },
+      "e7_right_bottom_mode": {
+        "name": "Režim pravé spodní indukce",
+        "state": {
+          "boiling": "Vaření",
+          "heat_preservation": "Udržování teploty",
+          "none": "Žádné",
+          "stew_soup": "Dušení polévky",
+          "stir_frying": "Smažení"
+        }
+      },
+      "e7_right_bottom_remaining_time": {
+        "name": "Zbývající čas pravé spodní indukce"
+      },
+      "e7_right_bottom_work_status": {
+        "name": "Pracovní stav pravé spodní indukce",
+        "state": {
+          "auto": "Automaticky",
+          "drying": "Sušení",
+          "finish": "Dokončit",
+          "order": "Objednávka",
+          "pause": "Pozastavit",
+          "power_off": "Vypnuto",
+          "standby": "Pohotovostní režim",
+          "working": "Pracuje"
+        }
+      },
+      "e7_right_bottom_work_time": {
+        "name": "Doba práce pravé spodní indukce"
+      },
+      "e7_right_bridge_link": {
+        "name": "Můstkové propojení pravé indukce",
+        "state": {
+          "off": "Vypnuto",
+          "on": "Zapnuto"
+        }
+      },
+      "e7_right_destination_time": {
+        "name": "Cílový čas pravé indukce"
+      },
+      "e7_right_efficiency": {
+        "name": "Účinnost pravé indukce"
+      },
+      "e7_right_gear": {
+        "name": "Stupeň pravé indukce"
+      },
+      "e7_right_mode": {
+        "name": "Režim pravé indukce",
+        "state": {
+          "boiling": "Vaření",
+          "heat_preservation": "Udržování teploty",
+          "none": "Žádné",
+          "stew_soup": "Dušení polévky",
+          "stir_frying": "Smažení"
+        }
+      },
+      "e7_right_remaining_time": {
+        "name": "Zbývající čas pravé indukce"
+      },
+      "e7_right_top_bridge_link": {
+        "name": "Můstkové propojení pravé horní indukce",
+        "state": {
+          "off": "Vypnuto",
+          "on": "Zapnuto"
+        }
+      },
+      "e7_right_top_destination_time": {
+        "name": "Cílový čas pravé horní indukce"
+      },
+      "e7_right_top_efficiency": {
+        "name": "Účinnost pravé horní indukce"
+      },
+      "e7_right_top_gear": {
+        "name": "Stupeň pravé horní indukce"
+      },
+      "e7_right_top_mode": {
+        "name": "Režim pravé horní indukce",
+        "state": {
+          "boiling": "Vaření",
+          "heat_preservation": "Udržování teploty",
+          "none": "Žádné",
+          "stew_soup": "Dušení polévky",
+          "stir_frying": "Smažení"
+        }
+      },
+      "e7_right_top_remaining_time": {
+        "name": "Zbývající čas pravé horní indukce"
+      },
+      "e7_right_top_work_status": {
+        "name": "Pracovní stav pravé horní indukce",
+        "state": {
+          "auto": "Automaticky",
+          "drying": "Sušení",
+          "finish": "Dokončit",
+          "order": "Objednávka",
+          "pause": "Pozastavit",
+          "power_off": "Vypnuto",
+          "standby": "Pohotovostní režim",
+          "working": "Pracuje"
+        }
+      },
+      "e7_right_top_work_time": {
+        "name": "Doba práce pravé horní indukce"
+      },
+      "e7_right_work_status": {
+        "name": "Pracovní stav pravé indukce",
+        "state": {
+          "auto": "Automaticky",
+          "drying": "Sušení",
+          "finish": "Dokončit",
+          "order": "Objednávka",
+          "pause": "Pozastavit",
+          "power_off": "Vypnuto",
+          "standby": "Pohotovostní režim",
+          "working": "Pracuje"
+        }
+      },
+      "e7_right_work_time": {
+        "name": "Doba práce pravé indukce"
+      },
+      "electronic_version": {
+        "name": "Elektronická verze"
+      },
+      "error_list": {
+        "name": "Seznam chyb"
+      },
+      "sp_fandrying_destination_time": {
+        "name": "Cílový čas sušení talíře ventilátorem"
+      },
+      "sp_fandrying_order_destination_time": {
+        "name": "Cílový čas objednávky sušení talíře ventilátorem"
+      },
+      "sp_fandrying_order_remaining_time": {
+        "name": "Zbývající čas objednávky sušení talíře ventilátorem"
+      },
+      "sp_fandrying_remaining_time": {
+        "name": "Zbývající čas sušení talíře ventilátorem"
+      },
+      "sp_fandrying_setting_automode_day": {
+        "name": "Den automatického režimu sušení talíře ventilátorem"
+      },
+      "sp_fandrying_setting_automode_starthour": {
+        "name": "Hodina startu automatického režimu sušení talíře ventilátorem"
+      },
+      "sp_fandrying_setting_automode_startminute": {
+        "name": "Minuta startu automatického režimu sušení talíře ventilátorem"
+      },
+      "sp_fandrying_status": {
+        "name": "Stav sušení talíře ventilátorem",
+        "state": {
+          "drying": "Sušení",
+          "drying_pause": "Pozastavení sušení",
+          "ion_drying": "Iontové sušení",
+          "ion_drying_pause": "Pozastavení iontového sušení",
+          "power_off": "Vypnuto",
+          "uperization": "Sterilizace párou",
+          "uperization_pause": "Pozastavení sterilizace párou",
+          "warm_drink": "Teplý nápoj",
+          "warm_drink_pause": "Pozastavení teplého nápoje"
+        }
+      },
+      "sp_fandrying_temperature": {
+        "name": "Teplota sušení talíře ventilátorem"
+      },
+      "sp_heatingdisk_destination_time": {
+        "name": "Cílový čas ohřevné desky talíře"
+      },
+      "sp_heatingdisk_order_destination_time": {
+        "name": "Cílový čas objednávky ohřevné desky talíře"
+      },
+      "sp_heatingdisk_order_remaining_time": {
+        "name": "Zbývající čas objednávky ohřevné desky talíře"
+      },
+      "sp_heatingdisk_remaining_time": {
+        "name": "Zbývající čas ohřevné desky talíře"
+      },
+      "sp_heatingdisk_setting_automode_day": {
+        "name": "Den automatického režimu ohřevné desky talíře"
+      },
+      "sp_heatingdisk_setting_automode_starthour": {
+        "name": "Hodina startu automatického režimu ohřevné desky talíře"
+      },
+      "sp_heatingdisk_setting_automode_startminute": {
+        "name": "Minuta startu automatického režimu ohřevné desky talíře"
+      },
+      "sp_heatingdisk_status": {
+        "name": "Stav ohřevné desky talíře",
+        "state": {
+          "drying": "Sušení",
+          "drying_pause": "Pozastavení sušení",
+          "ion_drying": "Iontové sušení",
+          "ion_drying_pause": "Pozastavení iontového sušení",
+          "power_off": "Vypnuto",
+          "uperization": "Sterilizace párou",
+          "uperization_pause": "Pozastavení sterilizace párou",
+          "warm_drink": "Teplý nápoj",
+          "warm_drink_pause": "Pozastavení teplého nápoje"
+        }
+      },
+      "sp_heatingdisk_temperature": {
+        "name": "Teplota ohřevné desky talíře"
+      },
+      "sp_uvc_destination_time": {
+        "name": "Cílový čas UVC talíře"
+      },
+      "sp_uvc_order_destination_time": {
+        "name": "Cílový čas objednávky UVC talíře"
+      },
+      "sp_uvc_order_remaining_time": {
+        "name": "Zbývající čas objednávky UVC talíře"
+      },
+      "sp_uvc_remaining_time": {
+        "name": "Zbývající čas UVC talíře"
+      },
+      "sp_uvc_setting_automode_day": {
+        "name": "Den automatického režimu UVC talíře"
+      },
+      "sp_uvc_setting_automode_starthour": {
+        "name": "Hodina startu automatického režimu UVC talíře"
+      },
+      "sp_uvc_setting_automode_startminute": {
+        "name": "Minuta startu automatického režimu UVC talíře"
+      },
+      "sp_uvc_status": {
+        "name": "Stav UVC talíře",
+        "state": {
+          "drying": "Sušení",
+          "drying_pause": "Pozastavení sušení",
+          "ion_drying": "Iontové sušení",
+          "ion_drying_pause": "Pozastavení iontového sušení",
+          "power_off": "Vypnuto",
+          "uperization": "Sterilizace párou",
+          "uperization_pause": "Pozastavení sterilizace párou",
+          "warm_drink": "Teplý nápoj",
+          "warm_drink_pause": "Pozastavení teplého nápoje"
+        }
+      },
+      "sp_uvc_temperature": {
+        "name": "Teplota UVC talíře"
+      },
+      "total_error_code": {
+        "name": "Chybový kód"
+      },
+      "total_error_type": {
+        "name": "Typ chyby"
+      },
+      "total_firewall_temp": {
+        "name": "Teplota protipožární stěny"
+      },
+      "total_gesture": {
+        "name": "Gesto",
+        "state": {
+          "off": "Vypnuto",
+          "on": "Zapnuto"
+        }
+      },
+      "total_ir": {
+        "name": "IR",
+        "state": {
+          "off": "Vypnuto",
+          "on": "Zapnuto"
+        }
+      },
+      "total_lock_off_type": {
+        "name": "Typ vypnutí zámku",
+        "state": {
+          "local": "Místní"
+        }
+      },
+      "total_lock_on_type": {
+        "name": "Typ zapnutí zámku",
+        "state": {
+          "app": "Aplikace",
+          "local": "Místní"
+        }
+      },
+      "total_shelving_unit_temp": {
+        "name": "Teplota police"
+      },
+      "total_speak": {
+        "name": "Mluvit",
+        "state": {
+          "off": "Vypnuto",
+          "on": "Zapnuto"
+        }
+      },
+      "total_tips_code": {
+        "name": "Kód tipů"
+      },
+      "total_tips_type": {
+        "name": "Typ tipů"
+      },
+      "work_status": {
+        "name": "Pracovní stav",
+        "state": {
+          "save_power": "Úspora energie",
+          "standby": "Pohotovostní režim",
+          "work": "Pracuje",
+          "pause": "Pozastaveno",
+          "work_finish": "Dokončeno",
+          "order": "Zpoždění",
+          "pause_c": "Pozastaveno C",
+          "three": "Tři",
+          "self_inspection": "Vlastní kontrola",
+          "query_version": "Dotaz na verzi",
+          "demo": "Demo",
+          "ramadan": "Ramadán",
+          "after_checking": "Po kontrole",
+          "wait_to_start": "Čekání na start",
+          "ff": "Neznámé"
+        }
+      },
+      "x9b_fire_power": {
+        "name": "Výkon plamene",
+        "state": {
+          "high_power": "Vysoká",
+          "medium_high_power": "Středně vysoký",
+          "medium_power": "Střední",
+          "medium_low_power": "Středně nízký",
+          "low_power": "Nízká",
+          "ff": "Neznámé"
+        }
+      },
+      "pre_heat": {
+        "name": "Předehřev",
+        "state": {
+          "off": "Vypnuto",
+          "work": "Předehřev",
+          "end": "Předehřev dokončen"
+        }
+      },
+      "water_status": {
+        "name": "Stav vody",
+        "state": {
+          "normal": "Normální",
+          "lack_box": "Chybí nádobka",
+          "lack_water": "Nedostatek vody",
+          "change_water": "Vyměnit vodu"
+        }
+      },
+      "dissipate_heat": {
+        "name": "Odvod tepla",
+        "state": {
+          "off": "Vypnuto",
+          "work": "Odvádění tepla"
+        }
+      },
+      "execute": {
+        "name": "Stav provedení",
+        "state": {
+          "ok": "OK",
+          "status_nonsupport": "Stav není podporován",
+          "function_nonsupport": "Funkce není podporována",
+          "param_range_error": "Chyba rozsahu parametru"
+        }
+      },
+      "sys_time_src": {
+        "name": "Zdroj systémového času",
+        "state": {
+          "module": "Modul",
+          "app": "Aplikace",
+          "user_defined": "Uživatelsky definováno"
+        }
+      },
+      "cur_temperature": {
+        "name": "Aktuální teplota"
+      },
+      "work_hour": {
+        "name": "Pracovní hodina"
+      },
+      "work_minute": {
+        "name": "Pracovní minuta"
+      },
+      "work_second": {
+        "name": "Pracovní sekunda"
+      },
+      "cbs_version": {
+        "name": "Verze CBS"
+      }
+    },
+    "switch": {
+      "db_power": {
+        "name": "Příkon pračky"
+      },
+      "dc_power": {
+        "name": "Příkon sušičky"
+      },
+      "door_auto_open_setting": {
+        "name": "Automatické otevření dvířek"
+      },
+      "anion": {
+        "name": "Anion"
+      },
+      "humidify": {
+        "name": "Zvlhčování"
+      },
+      "waterions": {
+        "name": "Vodní ionty"
+      },
+      "anophelifuge": {
+        "name": "Proti komárům"
+      },
+      "display_on_off": {
+        "name": "Displej"
+      },
+      "auto_power_off": {
+        "name": "Automatické vypnutí"
+      },
+      "body_feeling_scan": {
+        "name": "Snímání pocitu těla"
+      },
+      "aux_heating": {
+        "name": "Pomocné topení"
+      },
+      "boost_mode": {
+        "name": "Režim Boost"
+      },
+      "breezeless": {
+        "name": "Bez průvanu"
+      },
+      "child_lock": {
+        "name": "Dětský zámek"
+      },
+      "cl_sterilization": {
+        "name": "CL sterilizace"
+      },
+      "comfort_mode": {
+        "name": "Komfortní režim"
+      },
+      "degerming": {
+        "name": "Odstranění zárodků"
+      },
+      "dhw_power": {
+        "name": "Napájení TUV"
+      },
+      "disinfect": {
+        "name": "Dezinfekce"
+      },
+      "furnace_light": {
+        "name": "Osvětlení trouby"
+      },
+      "hot_wind": {
+        "name": "Horký vzduch"
+      },
+      "ramadan": {
+        "name": "Ramadán"
+      },
+      "turntable": {
+        "name": "Otočný talíř"
+      },
+      "maintenance_reminder": {
+        "name": "Připomenutí údržby"
+      },
+      "vacation_mode": {
+        "name": "Prázdninový režim"
+      },
+      "dry": {
+        "name": "Suché"
+      },
+      "cold_water_single": {
+        "name": "Studená voda – jednou"
+      },
+      "cold_water_dot": {
+        "name": "Studená voda – bod"
+      },
+      "eco_mode": {
+        "name": "Režim ECO"
+      },
+      "memory": {
+        "name": "Poznámka U"
+      },
+      "fast_dhw": {
+        "name": "Rychlá TUV"
+      },
+      "foam_shield": {
+        "name": "Ochrana proti pěně"
+      },
+      "frost_protect": {
+        "name": "Ochrana proti mrazu"
+      },
+      "heating_power": {
+        "name": "Výkon topení"
+      },
+      "indirect_wind": {
+        "name": "Nepřímý vítr"
+      },
+      "leak_water_protection": {
+        "name": "Ochrana proti úniku vody"
+      },
+      "light": {
+        "name": "Lehký"
+      },
+      "link_to_ac": {
+        "name": "Propojit s klimatizací"
+      },
+      "main_light": {
+        "name": "Hlavní osvětlení"
+      },
+      "main_power": {
+        "name": "Hlavní napájení"
+      },
+      "natural_wind": {
+        "name": "Přirozený vítr"
+      },
+      "night_light": {
+        "name": "Noční osvětlení"
+      },
+      "oscillate": {
+        "name": "Oscilace"
+      },
+      "power": {
+        "name": "Napájení"
+      },
+      "powerful_purify": {
+        "name": "Výkonné čištění"
+      },
+      "prompt_tone": {
+        "name": "Zvuk upozornění"
+      },
+      "regeneration": {
+        "name": "Regenerace"
+      },
+      "water_pump": {
+        "name": "Vodní čerpadlo"
+      },
+      "water_way": {
+        "name": "Cesta vody"
+      },
+      "screen_display": {
+        "name": "Displej"
+      },
+      "screen_display_alternate": {
+        "name": "Střídavé zobrazení na displeji"
+      },
+      "sensor_light": {
+        "name": "Osvětlení se senzorem"
+      },
+      "silent_mode": {
+        "name": "Tichý režim"
+      },
+      "sleep_mode": {
+        "name": "Režim spánku"
+      },
+      "out_silent": {
+        "name": "Venkovní tichý režim"
+      },
+      "smart_eye": {
+        "name": "Chytré oko"
+      },
+      "smart_volume": {
+        "name": "Chytrá hlasitost"
+      },
+      "smelly_sensor": {
+        "name": "Senzor zápachu"
+      },
+      "soften": {
+        "name": "Změkčování"
+      },
+      "standby": {
+        "name": "Pohotovostní režim"
+      },
+      "start": {
+        "name": "Spustit"
+      },
+      "sterilization": {
+        "name": "Sterilizace"
+      },
+      "storage": {
+        "name": "Skladování"
+      },
+      "swing": {
+        "name": "Výkyv"
+      },
+      "swing_horizontal": {
+        "name": "Vodorovný výkyv"
+      },
+      "swing_vertical": {
+        "name": "Svislý výkyv"
+      },
+      "self_clean": {
+        "name": "Samočištění"
+      },
+      "ieco": {
+        "name": "iECO"
+      },
+      "sound": {
+        "name": "Zvuk"
+      },
+      "tbh": {
+        "name": "TBH"
+      },
+      "variable_heating": {
+        "name": "Proměnné topení"
+      },
+      "ventilation": {
+        "name": "Ventilace"
+      },
+      "whole_tank_heating": {
+        "name": "Ohřev celé nádrže"
+      },
+      "zero_cold_pulse": {
+        "name": "Nulová studená voda (pulz)"
+      },
+      "zero_cold_water": {
+        "name": "Nulová studená voda"
+      },
+      "zone1_curve": {
+        "name": "Křivka zóny 1"
+      },
+      "zone1_power": {
+        "name": "Napájení zóny 1"
+      },
+      "zone2_curve": {
+        "name": "Křivka zóny 2"
+      },
+      "zone2_power": {
+        "name": "Napájení zóny 2"
+      },
+      "boiling": {
+        "name": "Vařit vodu"
+      },
+      "tea_bar_boil": {
+        "name": "Přepínač vaření vody"
+      },
+      "tea_bar_child_lock": {
+        "name": "Dětský zámek"
+      },
+      "keep_warm": {
+        "name": "Udržování teploty"
+      },
+      "tea_bar_cooling": {
+        "name": "Chlazení čajového baru"
+      },
+      "screen_off": {
+        "name": "Obrazovka vypnuta"
+      },
+      "wash": {
+        "name": "Mytí filtru"
+      },
+      "antifreeze": {
+        "name": "Proti zamrznutí"
+      },
+      "heat": {
+        "name": "Topení"
+      },
+      "holiday_on": {
+        "name": "Režim – dovolená"
+      },
+      "dhw_disinfect": {
+        "name": "TUV – dezinfekce"
+      },
+      "ai_voice_microphone": {
+        "name": "Mikrofon AI hlasu"
+      },
+      "total_lock": {
+        "name": "Dětský zámek"
+      },
+      "total_power": {
+        "name": "Napájení"
+      },
+      "lock": {
+        "name": "Dětský zámek"
+      },
+      "camera": {
+        "name": "Kamera"
+      },
+      "dryer_sterilize": {
+        "name": "Vícerozměrná sterilizace"
+      },
+      "dryer_anti_wrinkle": {
+        "name": "Chytré proti pomačkání"
+      },
+      "washer_forget_free": {
+        "name": "Bezstarostná péče"
+      }
+    },
+    "water_heater": {
+      "domestic_hot_water": {
+        "name": "Teplá užitková voda"
+      },
+      "bathing": {
+        "name": "Koupání"
+      },
+      "heating": {
+        "name": "Topení"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "ip_address": "IP adresa",
+          "refresh_interval": "Interval obnovení (0 znamená bez aktivního obnovování)",
+          "sensors": "Další senzory",
+          "switches": "Další ovládací prvky",
+          "customize": "Přizpůsobit",
+          "account": "Cloudový účet Midea (pro senzory statistik využití)",
+          "password": "Heslo cloudového účtu Midea (pro senzory statistik využití)",
+          "server": "Cloudový server Midea pro účet (pro senzory statistik využití)"
+        },
+        "title": "Konfigurovat"
+      }
+    },
+    "abort": {
+      "account_option": "Účet tuto operaci nepodporuje.\nKliknutím na \"PŘIDAT ZAŘÍZENÍ\" přidáte nové zařízení."
+    }
+  },
+  "services": {
+    "set_attribute": {
+      "name": "Nastavit atribut",
+      "description": "Nastavit hodnotu atributu zařízení",
+      "fields": {
+        "device_id": {
+          "name": "Kód spotřebiče",
+          "description": "Kód spotřebiče (ID zařízení) spotřebiče"
+        },
+        "attribute": {
+          "name": "Atribut",
+          "description": "Název atributu, který chcete nastavit"
+        },
+        "value": {
+          "name": "Hodnota",
+          "description": "Hodnota atributu, kterou chcete nastavit"
+        }
+      }
+    },
+    "send_command": {
+      "name": "Vlastní příkaz",
+      "description": "Odeslat vlastní příkaz do zařízení",
+      "fields": {
+        "device_id": {
+          "name": "Kód spotřebiče",
+          "description": "Kód spotřebiče (ID zařízení) spotřebiče"
+        },
+        "cmd_type": {
+          "name": "Typ příkazu",
+          "description": "Typ příkazu, měl by být 3 (dotaz) nebo 2 (nastavení)"
+        },
+        "cmd_body": {
+          "name": "Tělo příkazu",
+          "description": "Tělo příkazu (bez hlavičky protokolu MSmart a kontrolního součtu na konci)"
+        }
+      }
+    }
+  }
+}
