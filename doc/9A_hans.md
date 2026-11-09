@@ -7,7 +7,7 @@
 - 支持开关
 - 支持童锁
 - 支持炉灯
-- 支持工作状态 (取消 / 工作 / 暂停 / 结束 / 预约)
+- 支持工作状态: 可写选择 (取消 / 工作 / 暂停) 以及上报所有状态的只读传感器 (取消 / 工作 / 暂停 / 结束 / 预约)
 - 支持模式 (保温、烘烤、解冻、对流、发酵、披萨、微波等)
 - 支持温度设置
 - 支持烹饪定时 (小时 / 分钟 / 秒)
@@ -28,22 +28,23 @@
 | ------------------------ | ------ | -------- |
 | switch.{DEVICEID}\_power | switch | 开关实体 |
 
-### 扩展传感器
+### 扩展实体
 
-| 实体ID                                 | 类型   | 描述          |
-| -------------------------------------- | ------ | ------------- |
-| switch.{DEVICEID}\_lock                | switch | 童锁          |
-| switch.{DEVICEID}\_oven_light          | switch | 炉灯          |
-| select.{DEVICEID}\_oven_work_status    | select | 工作状态      |
-| select.{DEVICEID}\_oven_mode           | select | 烹饪模式      |
-| number.{DEVICEID}\_oven_temperature    | number | 目标温度 (°C) |
-| number.{DEVICEID}\_oven_hour           | number | 烹饪小时      |
-| number.{DEVICEID}\_oven_minute         | number | 烹饪分钟      |
-| number.{DEVICEID}\_oven_second         | number | 烹饪秒        |
-| number.{DEVICEID}\_oven_watt           | number | 微波功率      |
-| number.{DEVICEID}\_oven_weight         | number | 食物重量 (g)  |
-| sensor.{DEVICEID}\_current_temperature | sensor | 当前温度      |
-| sensor.{DEVICEID}\_error_code          | sensor | 错误代码      |
+| 实体ID                                 | 类型   | 描述                                              |
+| -------------------------------------- | ------ | ------------------------------------------------- |
+| switch.{DEVICEID}\_lock                | switch | 童锁                                              |
+| switch.{DEVICEID}\_oven_light          | switch | 炉灯                                              |
+| select.{DEVICEID}\_work_status_select  | select | 工作状态 (可写: 取消 / 工作 / 暂停)               |
+| sensor.{DEVICEID}\_oven_work_status    | sensor | 工作状态 (上报: 取消 / 工作 / 暂停 / 结束 / 预约) |
+| select.{DEVICEID}\_oven_mode           | select | 烹饪模式                                          |
+| number.{DEVICEID}\_oven_temperature    | number | 目标温度 (°C)                                     |
+| number.{DEVICEID}\_oven_hour           | number | 烹饪小时                                          |
+| number.{DEVICEID}\_oven_minute         | number | 烹饪分钟                                          |
+| number.{DEVICEID}\_oven_second         | number | 烹饪秒                                            |
+| number.{DEVICEID}\_oven_watt           | number | 微波功率                                          |
+| number.{DEVICEID}\_oven_weight         | number | 食物重量 (g)                                      |
+| sensor.{DEVICEID}\_current_temperature | sensor | 当前温度                                          |
+| sensor.{DEVICEID}\_error_code          | sensor | 错误代码                                          |
 
 ## 服务
 

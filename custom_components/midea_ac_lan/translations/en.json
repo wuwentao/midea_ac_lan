@@ -1067,14 +1067,12 @@
       }
     },
     "select": {
-      "oven_work_status": {
+      "oven_work_status_select": {
         "name": "Work Status",
         "state": {
           "cancel": "Cancel",
           "work": "Work",
-          "pause": "Pause",
-          "end": "End",
-          "appointment": "Appointment"
+          "pause": "Pause"
         }
       },
       "oven_mode": {
@@ -1582,6 +1580,16 @@
       }
     },
     "sensor": {
+      "oven_work_status": {
+        "name": "Work Status",
+        "state": {
+          "cancel": "Cancel",
+          "work": "Work",
+          "pause": "Pause",
+          "end": "End",
+          "appointment": "Appointment"
+        }
+      },
       "db_running_status": {
         "name": "Washer status"
       },

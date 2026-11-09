@@ -419,12 +419,24 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Oven Light",
                 "icon": "mdi:lightbulb",
             },
+            # Reported work status: full superset (cancel/work/pause/end/
+            # appointment). end/appointment are read-only report-only states.
             X9AAttributes.work_status: {
-                "type": Platform.SELECT,
+                "type": Platform.SENSOR,
                 "translation_key": "oven_work_status",
                 "name": "Work Status",
                 "icon": "mdi:play-pause",
-                "options": ["cancel", "work", "pause", "end", "appointment"],
+            },
+            # Writable work status: only cancel/work/pause are settable per
+            # midealan x9a WORK_STATUS_CODES; a synthetic select keeps writable
+            # commands separate from the reported-status sensor above.
+            "work_status_select": {
+                "type": Platform.SELECT,
+                "attribute": X9AAttributes.work_status,
+                "translation_key": "oven_work_status_select",
+                "name": "Work Status",
+                "icon": "mdi:play-pause",
+                "options": ["cancel", "work", "pause"],
             },
             X9AAttributes.mode: {
                 "type": Platform.SELECT,

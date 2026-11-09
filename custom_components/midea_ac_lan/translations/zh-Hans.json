@@ -1067,14 +1067,12 @@
       }
     },
     "select": {
-      "oven_work_status": {
+      "oven_work_status_select": {
         "name": "工作状态",
         "state": {
           "cancel": "取消",
           "work": "工作",
-          "pause": "暂停",
-          "end": "结束",
-          "appointment": "预约"
+          "pause": "暂停"
         }
       },
       "oven_mode": {
@@ -1468,6 +1466,16 @@
       }
     },
     "sensor": {
+      "oven_work_status": {
+        "name": "工作状态",
+        "state": {
+          "cancel": "取消",
+          "work": "工作",
+          "pause": "暂停",
+          "end": "结束",
+          "appointment": "预约"
+        }
+      },
       "db_running_status": {
         "name": "洗衣机状态"
       },
