@@ -83,6 +83,7 @@ from midealan.devices.x9b import FIRE_POWER_MAP as X9B_FIRE_POWER_MAP
 from midealan.devices.x9b import WORK_STATUS_WRITE as X9B_WORK_STATUS_WRITE
 from midealan.devices.x9b import DeviceAttributes as _X9BAttributes
 from midealan.devices.x9c import DeviceAttributes as _X9CAttributes
+from midealan.devices.x14 import DeviceAttributes as X14Attributes
 from midealan.devices.x26 import DeviceAttributes as X26Attributes
 from midealan.devices.x34 import DeviceAttributes as X34Attributes
 from midealan.devices.x40 import DeviceAttributes as X40Attributes
@@ -193,6 +194,49 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "type": Platform.LIGHT,
                 "icon": "mdi:lightbulb",
                 "default": True,
+            },
+        },
+    },
+    0x14: {
+        "name": "Electric Curtain",
+        "entities": {
+            X14Attributes.curtain_status: {
+                "type": Platform.SELECT,
+                "translation_key": "curtain_status",
+                "name": "Curtain",
+                "options": ["open", "close", "stop"],
+                "icon": "mdi:curtains",
+            },
+            X14Attributes.curtain_position: {
+                "type": Platform.NUMBER,
+                "translation_key": "curtain_position",
+                "name": "Position",
+                "icon": "mdi:percent",
+                "min": 0,
+                "max": 100,
+                "step": 1,
+                "unit": PERCENTAGE,
+            },
+            X14Attributes.curtain_direction: {
+                "type": Platform.SELECT,
+                "translation_key": "curtain_direction",
+                "name": "Direction",
+                "options": ["positive", "reverse"],
+                "icon": "mdi:swap-horizontal",
+            },
+            X14Attributes.software_version: {
+                "type": Platform.SENSOR,
+                "translation_key": "software_version",
+                "name": "Software Version",
+                "icon": "mdi:information",
+                "entity_category": EntityCategory.DIAGNOSTIC,
+            },
+            X14Attributes.error_code: {
+                "type": Platform.SENSOR,
+                "translation_key": "error_code",
+                "name": "Error Code",
+                "icon": "mdi:alert-circle",
+                "entity_category": EntityCategory.DIAGNOSTIC,
             },
         },
     },

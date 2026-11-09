@@ -954,6 +954,9 @@
       }
     },
     "number": {
+      "curtain_position": {
+        "name": "位置"
+      },
       "delay_minutes": {
         "name": "预约时间"
       },
@@ -1049,6 +1052,21 @@
       }
     },
     "select": {
+      "curtain_status": {
+        "name": "窗帘",
+        "state": {
+          "open": "打开",
+          "close": "关闭",
+          "stop": "停止"
+        }
+      },
+      "curtain_direction": {
+        "name": "方向",
+        "state": {
+          "positive": "正向",
+          "reverse": "反向"
+        }
+      },
       "cur_quantify": {
         "name": "当前定量预设",
         "state": {
@@ -1420,6 +1438,9 @@
       }
     },
     "sensor": {
+      "software_version": {
+        "name": "软件版本"
+      },
       "db_running_status": {
         "name": "洗衣机状态"
       },
