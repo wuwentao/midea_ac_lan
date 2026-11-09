@@ -71,6 +71,7 @@ from midealan.devices.e1 import DeviceAttributes as E1Attributes
 from midealan.devices.e2 import DeviceAttributes as E2Attributes
 from midealan.devices.e3 import DeviceAttributes as E3Attributes
 from midealan.devices.e6 import DeviceAttributes as E6Attributes
+from midealan.devices.e7 import DeviceAttributes as E7Attributes
 from midealan.devices.e8 import DeviceAttributes as E8Attributes
 from midealan.devices.ea import DeviceAttributes as EAAttributes
 from midealan.devices.ec import DeviceAttributes as ECAttributes
@@ -8317,6 +8318,115 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "options": "heating_modes",
                 "name": "Heating Modes",
                 "icon": "mdi:auto-mode",
+            },
+        },
+    },
+    0xE7: {
+        "name": "Steam Cooking Appliance",
+        "entities": {
+            E7Attributes.work_status: {
+                "type": Platform.NUMBER,
+                "translation_key": "e7_work_status",
+                "name": "Work Status",
+                "icon": "mdi:play",
+                "min": 0,
+                "max": 5,
+                "step": 1,
+            },
+            E7Attributes.function_no: {
+                "type": Platform.NUMBER,
+                "translation_key": "e7_function_no",
+                "name": "Function No",
+                "icon": "mdi:numeric",
+                "min": 0,
+                "max": 65535,
+                "step": 1,
+            },
+            E7Attributes.fire_level: {
+                "type": Platform.NUMBER,
+                "translation_key": "e7_fire_level",
+                "name": "Fire Level",
+                "icon": "mdi:fire",
+                "min": 0,
+                "max": 21,
+                "step": 1,
+            },
+            E7Attributes.time_reserve_hr: {
+                "type": Platform.NUMBER,
+                "translation_key": "e7_time_reserve_hr",
+                "name": "Reserve Hours",
+                "icon": "mdi:timer",
+                "min": 0,
+                "max": 23,
+                "step": 1,
+            },
+            E7Attributes.time_reserve_min: {
+                "type": Platform.NUMBER,
+                "translation_key": "e7_time_reserve_min",
+                "name": "Reserve Minutes",
+                "icon": "mdi:timer",
+                "min": 0,
+                "max": 59,
+                "step": 1,
+            },
+            E7Attributes.definite_time_hr: {
+                "type": Platform.NUMBER,
+                "translation_key": "e7_definite_time_hr",
+                "name": "Timer Hours",
+                "icon": "mdi:timer",
+                "min": 0,
+                "max": 23,
+                "step": 1,
+            },
+            E7Attributes.definite_time_min: {
+                "type": Platform.NUMBER,
+                "translation_key": "e7_definite_time_min",
+                "name": "Timer Minutes",
+                "icon": "mdi:timer",
+                "min": 0,
+                "max": 59,
+                "step": 1,
+            },
+            E7Attributes.time_running_hr: {
+                "type": Platform.SENSOR,
+                "translation_key": "e7_time_running_hr",
+                "name": "Running Hours",
+                "icon": "mdi:timer",
+                "unit": UnitOfTime.HOURS,
+            },
+            E7Attributes.time_running_min: {
+                "type": Platform.SENSOR,
+                "translation_key": "e7_time_running_min",
+                "name": "Running Minutes",
+                "icon": "mdi:timer",
+                "unit": UnitOfTime.MINUTES,
+            },
+            E7Attributes.time_surplus_hr: {
+                "type": Platform.SENSOR,
+                "translation_key": "e7_time_surplus_hr",
+                "name": "Remaining Hours",
+                "icon": "mdi:timer",
+                "unit": UnitOfTime.HOURS,
+            },
+            E7Attributes.time_surplus_min: {
+                "type": Platform.SENSOR,
+                "translation_key": "e7_time_surplus_min",
+                "name": "Remaining Minutes",
+                "icon": "mdi:timer",
+                "unit": UnitOfTime.MINUTES,
+            },
+            E7Attributes.work_stage: {
+                "type": Platform.SENSOR,
+                "translation_key": "e7_work_stage",
+                "name": "Work Stage",
+                "icon": "mdi:format-list-numbered",
+            },
+            E7Attributes.error_code: {
+                "type": Platform.SENSOR,
+                "translation_key": "error_code",
+                "name": "Error Code",
+                "icon": "mdi:alert-circle",
+                "entity_category": EntityCategory.DIAGNOSTIC,
             },
         },
     },
