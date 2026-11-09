@@ -21,7 +21,9 @@ No customize
 
 No default entity
 
-### Extra entity
+### Extra entities
+
+The table below lists both number controls (writable) and sensors (read-only).
 
 | EntityID                                | Class  | Description       |
 | --------------------------------------- | ------ | ----------------- |
