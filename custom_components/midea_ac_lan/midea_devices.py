@@ -8393,6 +8393,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Running Hours",
                 "icon": "mdi:timer",
                 "unit": UnitOfTime.HOURS,
+                "state_class": SensorStateClass.MEASUREMENT,
             },
             E7Attributes.time_running_min: {
                 "type": Platform.SENSOR,
@@ -8400,6 +8401,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Running Minutes",
                 "icon": "mdi:timer",
                 "unit": UnitOfTime.MINUTES,
+                "state_class": SensorStateClass.MEASUREMENT,
             },
             E7Attributes.time_surplus_hr: {
                 "type": Platform.SENSOR,
@@ -8407,6 +8409,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Remaining Hours",
                 "icon": "mdi:timer",
                 "unit": UnitOfTime.HOURS,
+                "state_class": SensorStateClass.MEASUREMENT,
             },
             E7Attributes.time_surplus_min: {
                 "type": Platform.SENSOR,
@@ -8414,6 +8417,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Remaining Minutes",
                 "icon": "mdi:timer",
                 "unit": UnitOfTime.MINUTES,
+                "state_class": SensorStateClass.MEASUREMENT,
             },
             E7Attributes.work_stage: {
                 "type": Platform.SENSOR,

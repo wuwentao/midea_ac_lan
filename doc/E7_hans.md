@@ -20,21 +20,24 @@
 
 ### 扩展传感器
 
-| 实体ID                                  | 类型   | 描述     |
-| --------------------------------------- | ------ | -------- |
-| number.{DEVICEID}\_e7_work_status       | number | 工作状态 |
-| number.{DEVICEID}\_e7_function_no       | number | 功能编号 |
-| number.{DEVICEID}\_e7_fire_level        | number | 火力档位 |
-| number.{DEVICEID}\_e7_time_reserve_hr   | number | 预约小时 |
-| number.{DEVICEID}\_e7_time_reserve_min  | number | 预约分钟 |
-| number.{DEVICEID}\_e7_definite_time_hr  | number | 定时小时 |
-| number.{DEVICEID}\_e7_definite_time_min | number | 定时分钟 |
-| sensor.{DEVICEID}\_e7_time_running_hr   | sensor | 运行小时 |
-| sensor.{DEVICEID}\_e7_time_running_min  | sensor | 运行分钟 |
-| sensor.{DEVICEID}\_e7_time_surplus_hr   | sensor | 剩余小时 |
-| sensor.{DEVICEID}\_e7_time_surplus_min  | sensor | 剩余分钟 |
-| sensor.{DEVICEID}\_e7_work_stage        | sensor | 工作阶段 |
-| sensor.{DEVICEID}\_error_code           | sensor | 错误代码 |
+| 实体ID                               | 类型   | 描述     |
+| ------------------------------------ | ------ | -------- |
+| number.{DEVICEID}\_work_status       | number | 工作状态 |
+| number.{DEVICEID}\_function_no       | number | 功能编号 |
+| number.{DEVICEID}\_fire_level        | number | 火力档位 |
+| number.{DEVICEID}\_time_reserve_hr   | number | 预约小时 |
+| number.{DEVICEID}\_time_reserve_min  | number | 预约分钟 |
+| number.{DEVICEID}\_definite_time_hr  | number | 定时小时 |
+| number.{DEVICEID}\_definite_time_min | number | 定时分钟 |
+| sensor.{DEVICEID}\_time_running_hr   | sensor | 运行小时 |
+| sensor.{DEVICEID}\_time_running_min  | sensor | 运行分钟 |
+| sensor.{DEVICEID}\_time_surplus_hr   | sensor | 剩余小时 |
+| sensor.{DEVICEID}\_time_surplus_min  | sensor | 剩余分钟 |
+| sensor.{DEVICEID}\_work_stage        | sensor | 工作阶段 |
+| sensor.{DEVICEID}\_error_code        | sensor | 错误代码 |
+
+`work_status` 取值为 0–5 的原始设备状态码。协议仅命名了 `5`（`5` = 关机 /
+`BYTE_STATUS_POWER_OFF`）；`0`–`4` 为协议未逐一命名的原始运行阶段码。
 
 ## 服务
 
