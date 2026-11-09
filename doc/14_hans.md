@@ -18,7 +18,9 @@
 
 无默认实体
 
-### 扩展传感器
+### 扩展实体
+
+前三行为控制实体 (select / number)，后两行为只读传感器。
 
 | 实体ID                               | 类型   | 描述               |
 | ------------------------------------ | ------ | ------------------ |
@@ -27,6 +29,8 @@
 | select.{DEVICEID}\_curtain_direction | select | 电机方向           |
 | sensor.{DEVICEID}\_software_version  | sensor | 设备软件版本       |
 | sensor.{DEVICEID}\_error_code        | sensor | 错误代码           |
+
+> 注意: 如果 entity_id 与已有实体冲突，Home Assistant 可能会追加数字后缀，因此在自动化中使用前请先在实体注册表中确认实际的 id。
 
 ## 服务
 
