@@ -954,6 +954,27 @@
       }
     },
     "number": {
+      "ef_temperature_setting": {
+        "name": "设置温度"
+      },
+      "ef_time_reserve_hr": {
+        "name": "预约小时"
+      },
+      "ef_time_reserve_min": {
+        "name": "预约分钟"
+      },
+      "ef_time_warm_hr": {
+        "name": "保温小时"
+      },
+      "ef_time_warm_min": {
+        "name": "保温分钟"
+      },
+      "ef_cmd_code": {
+        "name": "命令码"
+      },
+      "ef_cmd_id": {
+        "name": "命令 ID"
+      },
       "delay_minutes": {
         "name": "预约时间"
       },
@@ -1049,6 +1070,13 @@
       }
     },
     "select": {
+      "ef_drink_style": {
+        "name": "饮品类型",
+        "state": {
+          "hot_drink": "热饮",
+          "warm_drink": "温饮"
+        }
+      },
       "cur_quantify": {
         "name": "当前定量预设",
         "state": {
@@ -1420,6 +1448,34 @@
       }
     },
     "sensor": {
+      "ef_response_type": {
+        "name": "响应",
+        "state": {
+          "response_normal": "正常",
+          "response_error": "错误"
+        }
+      },
+      "ef_work_status": {
+        "name": "工作状态"
+      },
+      "ef_work_step": {
+        "name": "工作步骤"
+      },
+      "ef_process_status": {
+        "name": "进程状态"
+      },
+      "ef_time_work_hr": {
+        "name": "工作小时"
+      },
+      "ef_time_work_min": {
+        "name": "工作分钟"
+      },
+      "ef_time_max": {
+        "name": "最大时间"
+      },
+      "ef_temperature_current": {
+        "name": "当前温度"
+      },
       "db_running_status": {
         "name": "洗衣机状态"
       },
@@ -3843,6 +3899,12 @@
       }
     },
     "switch": {
+      "ef_reserve": {
+        "name": "预约"
+      },
+      "ef_warm": {
+        "name": "保温"
+      },
       "db_power": {
         "name": "洗衣机电源"
       },
