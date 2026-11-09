@@ -434,7 +434,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "type": Platform.SELECT,
                 "attribute": X9AAttributes.work_status,
                 "translation_key": "oven_work_status_select",
-                "name": "Work Status",
+                "name": "Set Work Status",
                 "icon": "mdi:play-pause",
                 "options": ["cancel", "work", "pause"],
             },
