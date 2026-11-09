@@ -25,25 +25,25 @@
 
 ### 扩展传感器
 
-| 实体ID                                   | 类型   | 描述     |
-| ---------------------------------------- | ------ | -------- |
-| number.{DEVICEID}\_f1_speed              | number | 速度     |
-| number.{DEVICEID}\_f1_set_work_temp      | number | 工作温度 |
-| number.{DEVICEID}\_f1_set_keep_warm_temp | number | 保温温度 |
-| number.{DEVICEID}\_f1_set_work_time      | number | 工作时间 |
-| number.{DEVICEID}\_f1_set_keep_warm_time | number | 保温时间 |
-| number.{DEVICEID}\_f1_appoint_time       | number | 预约时间 |
-| number.{DEVICEID}\_f1_code_id            | number | 配方编号 |
-| number.{DEVICEID}\_f1_work_mode          | number | 工作模式 |
-| sensor.{DEVICEID}\_f1_response_type      | sensor | 响应     |
-| sensor.{DEVICEID}\_f1_work_status        | sensor | 工作状态 |
-| sensor.{DEVICEID}\_f1_step_status        | sensor | 步骤状态 |
-| sensor.{DEVICEID}\_f1_work_stage         | sensor | 工作阶段 |
-| sensor.{DEVICEID}\_f1_lid_status         | sensor | 杯盖状态 |
-| sensor.{DEVICEID}\_f1_cup_status         | sensor | 杯子状态 |
-| sensor.{DEVICEID}\_f1_current_time       | sensor | 当前时间 |
-| sensor.{DEVICEID}\_f1_current_temp       | sensor | 当前温度 |
-| sensor.{DEVICEID}\_error_code            | sensor | 错误代码 |
+| 实体ID                                | 类型   | 描述     |
+| ------------------------------------- | ------ | -------- |
+| number.{DEVICEID}\_speed              | number | 速度     |
+| number.{DEVICEID}\_set_work_temp      | number | 工作温度 |
+| number.{DEVICEID}\_set_keep_warm_temp | number | 保温温度 |
+| number.{DEVICEID}\_set_work_time      | number | 工作时间 |
+| number.{DEVICEID}\_set_keep_warm_time | number | 保温时间 |
+| number.{DEVICEID}\_appoint_time       | number | 预约时间 |
+| number.{DEVICEID}\_code_id            | number | 配方编号 |
+| number.{DEVICEID}\_work_mode          | number | 工作模式 |
+| sensor.{DEVICEID}\_response_type      | sensor | 响应     |
+| sensor.{DEVICEID}\_work_status        | sensor | 工作状态 |
+| sensor.{DEVICEID}\_step_status        | sensor | 步骤状态 |
+| sensor.{DEVICEID}\_work_stage         | sensor | 工作阶段 |
+| sensor.{DEVICEID}\_lid_status         | sensor | 杯盖状态 |
+| sensor.{DEVICEID}\_cup_status         | sensor | 杯子状态 |
+| sensor.{DEVICEID}\_current_time       | sensor | 当前时间 |
+| sensor.{DEVICEID}\_current_temp       | sensor | 当前温度 |
+| sensor.{DEVICEID}\_error_code         | sensor | 错误代码 |
 
 ## 服务
 
