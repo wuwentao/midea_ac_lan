@@ -1046,6 +1046,36 @@
       },
       "dryer_timed_extra": {
         "name": "定时加时"
+      },
+      "e9_work_status": {
+        "name": "工作状态"
+      },
+      "e9_volume": {
+        "name": "面包重量"
+      },
+      "e9_color": {
+        "name": "烤色"
+      },
+      "e9_dosing": {
+        "name": "投料"
+      },
+      "e9_bake_temperature": {
+        "name": "烘烤温度"
+      },
+      "e9_time_cuisine_hr": {
+        "name": "烹饪小时"
+      },
+      "e9_time_cuisine_min": {
+        "name": "烹饪分钟"
+      },
+      "e9_time_reserve_hr": {
+        "name": "预约小时"
+      },
+      "e9_time_reserve_min": {
+        "name": "预约分钟"
+      },
+      "e9_control_cmd_code": {
+        "name": "命令码"
       }
     },
     "select": {
@@ -1420,6 +1450,31 @@
       }
     },
     "sensor": {
+      "e9_response_type": {
+        "name": "响应",
+        "state": {
+          "response_normal": "正常",
+          "response_error_e2": "错误 E2"
+        }
+      },
+      "e9_work_stage": {
+        "name": "工作阶段"
+      },
+      "e9_time_work_hr": {
+        "name": "工作小时"
+      },
+      "e9_time_work_min": {
+        "name": "工作分钟"
+      },
+      "e9_time_warm_hr": {
+        "name": "保温小时"
+      },
+      "e9_time_warm_min": {
+        "name": "保温分钟"
+      },
+      "e9_product_volume": {
+        "name": "成品重量"
+      },
       "db_running_status": {
         "name": "洗衣机状态"
       },

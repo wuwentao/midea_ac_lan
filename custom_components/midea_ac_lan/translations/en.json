@@ -1046,6 +1046,36 @@
       },
       "dryer_timed_extra": {
         "name": "Timed drying extension"
+      },
+      "e9_work_status": {
+        "name": "Work Status"
+      },
+      "e9_volume": {
+        "name": "Loaf Size"
+      },
+      "e9_color": {
+        "name": "Crust Color"
+      },
+      "e9_dosing": {
+        "name": "Dosing"
+      },
+      "e9_bake_temperature": {
+        "name": "Bake Temperature"
+      },
+      "e9_time_cuisine_hr": {
+        "name": "Cuisine Hours"
+      },
+      "e9_time_cuisine_min": {
+        "name": "Cuisine Minutes"
+      },
+      "e9_time_reserve_hr": {
+        "name": "Reserve Hours"
+      },
+      "e9_time_reserve_min": {
+        "name": "Reserve Minutes"
+      },
+      "e9_control_cmd_code": {
+        "name": "Command Code"
       }
     },
     "select": {
@@ -1534,6 +1564,31 @@
       }
     },
     "sensor": {
+      "e9_response_type": {
+        "name": "Response",
+        "state": {
+          "response_normal": "Normal",
+          "response_error_e2": "Error E2"
+        }
+      },
+      "e9_work_stage": {
+        "name": "Work Stage"
+      },
+      "e9_time_work_hr": {
+        "name": "Work Hours"
+      },
+      "e9_time_work_min": {
+        "name": "Work Minutes"
+      },
+      "e9_time_warm_hr": {
+        "name": "Keep Warm Hours"
+      },
+      "e9_time_warm_min": {
+        "name": "Keep Warm Minutes"
+      },
+      "e9_product_volume": {
+        "name": "Product Volume"
+      },
       "db_running_status": {
         "name": "Washer status"
       },
