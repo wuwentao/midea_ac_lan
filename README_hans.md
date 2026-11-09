@@ -96,6 +96,7 @@ Midea AC LAN 由三个职责不同的仓库共同组成：
 | E6   | 壁挂炉                      | [E6_hans.md](doc/E6_hans.md) |
 | E8   | 慢炖锅                      | [E8_hans.md](doc/E8_hans.md) |
 | EA   | 电饭煲                      | [EA_hans.md](doc/EA_hans.md) |
+| EB   | 保温烹饪器具                | [EB_hans.md](doc/EB_hans.md) |
 | EC   | 电压力锅                    | [EC_hans.md](doc/EC_hans.md) |
 | ED   | 饮用水设备                  | [ED_hans.md](doc/ED_hans.md) |
 | FA   | 电风扇                      | [FA_hans.md](doc/FA_hans.md) |
