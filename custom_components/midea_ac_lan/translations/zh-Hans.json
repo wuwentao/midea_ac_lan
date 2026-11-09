@@ -954,6 +954,24 @@
       }
     },
     "number": {
+      "oven_temperature": {
+        "name": "温度"
+      },
+      "oven_hour": {
+        "name": "小时"
+      },
+      "oven_minute": {
+        "name": "分钟"
+      },
+      "oven_second": {
+        "name": "秒"
+      },
+      "oven_watt": {
+        "name": "微波功率"
+      },
+      "oven_weight": {
+        "name": "食物重量"
+      },
       "delay_minutes": {
         "name": "预约时间"
       },
@@ -1049,6 +1067,36 @@
       }
     },
     "select": {
+      "oven_work_status": {
+        "name": "工作状态",
+        "state": {
+          "cancel": "取消",
+          "work": "工作",
+          "pause": "暂停",
+          "end": "结束",
+          "appointment": "预约"
+        }
+      },
+      "oven_mode": {
+        "name": "模式",
+        "state": {
+          "keep_warm": "保温",
+          "stero_baking": "立体烘烤",
+          "whole_baking": "全烤",
+          "up_down_baking": "上下烘烤",
+          "unfreeze": "解冻",
+          "hot_air_convection": "热风对流",
+          "power_saving": "节能",
+          "center_baking": "中心烘烤",
+          "rotary_baking": "旋转烘烤",
+          "fermentation": "发酵",
+          "stoving": "烘干",
+          "down_baking": "下烘烤",
+          "pizza": "披萨",
+          "up_infrared_fan": "上红外风扇",
+          "microwave": "微波"
+        }
+      },
       "cur_quantify": {
         "name": "当前定量预设",
         "state": {
@@ -3843,6 +3891,9 @@
       }
     },
     "switch": {
+      "oven_light": {
+        "name": "炉灯"
+      },
       "db_power": {
         "name": "洗衣机电源"
       },

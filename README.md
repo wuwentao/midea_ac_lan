@@ -67,6 +67,7 @@ Please check the document links below for the supported features and usage of ea
 | 26   | Bathroom Master                 | [26.md](doc/26.md) |
 | 34   | Sink Dishwasher                 | [34.md](doc/34.md) |
 | 40   | Integrated Ceiling Fan          | [40.md](doc/40.md) |
+| 9A   | Microwave Steam-Bake Oven       | [9A.md](doc/9A.md) |
 | 9B   | Microwave Steam Convection Oven | [9B.md](doc/9B.md) |
 | 9C   | Integrated Kitchen Appliance    | [9C.md](doc/9C.md) |
 | A1   | Dehumidifier                    | [A1.md](doc/A1.md) |
