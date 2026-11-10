@@ -77,6 +77,7 @@ Please check the document links below for the supported features and usage of ea
 | B3   | Dish Sterilizer                 | [B3.md](doc/B3.md) |
 | B4   | Toaster                         | [B4.md](doc/B4.md) |
 | B6   | Range Hood                      | [B6.md](doc/B6.md) |
+| B7   | Smart Gas Stove                 | [B7.md](doc/B7.md) |
 | B8   | Robot Vacuum                    | [B8.md](doc/B8.md) |
 | BF   | Microwave Steam Oven            | [BF.md](doc/BF.md) |
 | C1   | Electric Wall-hung Boiler       | [C1.md](doc/C1.md) |

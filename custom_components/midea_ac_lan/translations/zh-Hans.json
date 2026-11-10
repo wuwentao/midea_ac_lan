@@ -931,6 +931,18 @@
       "fresh_air_exhaust": {
         "name": "排风"
       },
+      "b7_gas_warn": {
+        "name": "燃气报警"
+      },
+      "b7_left_smart_bl": {
+        "name": "左侧智能防干烧"
+      },
+      "b7_right_smart_bl": {
+        "name": "右侧智能防干烧"
+      },
+      "b7_menu_mark": {
+        "name": "菜谱标记"
+      },
       "bgf10000": {
         "state_attributes": {
           "preset_mode": {
@@ -1409,6 +1421,18 @@
       },
       "washer_spin_time_control": {
         "name": "脱水时间（分钟）"
+      },
+      "b7_left_gear_set": {
+        "name": "左侧炉头档位"
+      },
+      "b7_right_gear_set": {
+        "name": "右侧炉头档位"
+      },
+      "b7_left_temp_set": {
+        "name": "左侧炉头温度设定"
+      },
+      "b7_right_temp_set": {
+        "name": "右侧炉头温度设定"
       }
     },
     "time": {
@@ -3840,6 +3864,66 @@
       },
       "cbs_version": {
         "name": "CBS版本"
+      },
+      "b7_left_status": {
+        "name": "左侧炉头状态"
+      },
+      "b7_right_status": {
+        "name": "右侧炉头状态"
+      },
+      "b7_left_gear": {
+        "name": "左侧炉头档位"
+      },
+      "b7_right_gear": {
+        "name": "右侧炉头档位"
+      },
+      "b7_left_work_mode": {
+        "name": "左侧炉头工作模式"
+      },
+      "b7_right_work_mode": {
+        "name": "右侧炉头工作模式"
+      },
+      "b7_left_temp": {
+        "name": "左侧炉头温度"
+      },
+      "b7_right_temp": {
+        "name": "右侧炉头温度"
+      },
+      "b7_left_surplus_hours": {
+        "name": "左侧剩余时间（小时）"
+      },
+      "b7_left_surplus_minutes": {
+        "name": "左侧剩余时间（分钟）"
+      },
+      "b7_right_surplus_hours": {
+        "name": "右侧剩余时间（小时）"
+      },
+      "b7_right_surplus_minutes": {
+        "name": "右侧剩余时间（分钟）"
+      },
+      "b7_left_work_hours": {
+        "name": "左侧工作时间（小时）"
+      },
+      "b7_left_work_minutes": {
+        "name": "左侧工作时间（分钟）"
+      },
+      "b7_left_work_seconds": {
+        "name": "左侧工作时间（秒）"
+      },
+      "b7_right_work_hours": {
+        "name": "右侧工作时间（小时）"
+      },
+      "b7_right_work_minutes": {
+        "name": "右侧工作时间（分钟）"
+      },
+      "b7_right_work_seconds": {
+        "name": "右侧工作时间（秒）"
+      },
+      "b7_error_code": {
+        "name": "错误代码"
+      },
+      "b7_tips_code": {
+        "name": "提示代码"
       }
     },
     "switch": {
@@ -3848,6 +3932,12 @@
       },
       "dc_power": {
         "name": "烘干机电源"
+      },
+      "b7_left_power": {
+        "name": "左侧炉头电源"
+      },
+      "b7_right_power": {
+        "name": "右侧炉头电源"
       },
       "door_auto_open_setting": {
         "name": "自动开门"
