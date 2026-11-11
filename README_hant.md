@@ -94,7 +94,7 @@ Midea AC LAN 分成三個儲存庫，各自負責不同的工作：
 | E1 | 洗碗機 | [E1.md](doc/E1.md) |
 | E2 | 電熱水器 | [E2.md](doc/E2.md) |
 | E3 | 瓦斯熱水器 | [E3.md](doc/E3.md) |
-| E6 | 瓦斯爐 | [E6.md](doc/E6.md) |
+| E6 | 燃氣壁掛爐 | [E6.md](doc/E6.md) |
 | E8 | 電燉鍋 | [E8.md](doc/E8.md) |
 | EA | 電子鍋 | [EA.md](doc/EA.md) |
 | EC | 電壓力鍋 | [EC.md](doc/EC.md) |
@@ -113,7 +113,7 @@ Midea AC LAN 分成三個儲存庫，各自負責不同的工作：
 
 [![Open your Home Assistant instance and open "midea_ac_lan" inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=wuwentao&repository=midea_ac_lan)
 
-**重新啟動 Home Assistant**。
+點選上方按鈕在 HACS 開啟本整合後，按「下載」完成安裝，再**重新啟動 Home Assistant**。
 
 ### 方式二：使用腳本安裝
 
