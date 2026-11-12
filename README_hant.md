@@ -34,11 +34,11 @@
 
 Midea AC LAN 分成三個儲存庫，各自負責不同的工作：
 
-| 專案 | 職責 | 安裝方式 |
-| ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------- |
-| [`midea_ac_lan`](https://github.com/wuwentao/midea_ac_lan) | 本 Home Assistant 整合：設定流程、實體、服務與使用者介面。 | 透過 HACS 或手動安裝本整合。 |
-| [`midea-lan`](https://github.com/wuwentao/midea-lan) | 整合所使用的 Python 函式庫，負責裝置探索、驗證、加密、雲端 Token／Key 取得與家電協定。 | 依 [`manifest.json`](custom_components/midea_ac_lan/manifest.json) 鎖定的版本自動安裝。 |
-| [`midea-lua`](https://github.com/wuwentao/midea-lua) | 家電 Lua 協定檔案的存檔，在研究或新增裝置支援時作為參考。 | 不是執行時期相依套件；使用者不需要安裝。 |
+| 專案                                                       | 職責                                                                                   | 安裝方式                                                                                |
+| ---------------------------------------------------------- | -------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| [`midea_ac_lan`](https://github.com/wuwentao/midea_ac_lan) | 本 Home Assistant 整合：設定流程、實體、服務與使用者介面。                             | 透過 HACS 或手動安裝本整合。                                                            |
+| [`midea-lan`](https://github.com/wuwentao/midea-lan)       | 整合所使用的 Python 函式庫，負責裝置探索、驗證、加密、雲端 Token／Key 取得與家電協定。 | 依 [`manifest.json`](custom_components/midea_ac_lan/manifest.json) 鎖定的版本自動安裝。 |
+| [`midea-lua`](https://github.com/wuwentao/midea-lua)       | 家電 Lua 協定檔案的存檔，在研究或新增裝置支援時作為參考。                              | 不是執行時期相依套件；使用者不需要安裝。                                                |
 
 一般使用 Home Assistant 時，只需要安裝 `midea_ac_lan`。它會透過 `midea-lan` 與家電通訊；`midea-lua` 是提供貢獻者使用的協定研究資料。
 
@@ -61,48 +61,48 @@ Midea AC LAN 分成三個儲存庫，各自負責不同的工作：
 
 請參閱下方的文件連結，了解各類型家電支援的功能與使用方式。
 
-| 類型 | 名稱 | 文件 |
-| ---- | ---- | ---- |
-| 13 | 燈具 | [13.md](doc/13.md) |
-| 26 | 浴室暖風機 | [26.md](doc/26.md) |
-| 34 | 水槽洗碗機 | [34.md](doc/34.md) |
-| 40 | 吊扇燈 | [40.md](doc/40.md) |
-| 9B | 微波蒸氣烘烤爐 | [9B.md](doc/9B.md) |
-| 9C | 廚房整合家電 | [9C.md](doc/9C.md) |
-| A1 | 除濕機 | [A1.md](doc/A1.md) |
-| AC | 冷氣機 | [AC.md](doc/AC.md) |
-| AD | 空氣盒子 | [AD.md](doc/AD.md) |
-| B0 | 微波爐 | [B0.md](doc/B0.md) |
-| B1 | 電烤箱 | [B1.md](doc/B1.md) |
-| B3 | 餐具消毒櫃 | [B3.md](doc/B3.md) |
-| B4 | 烤麵包機 | [B4.md](doc/B4.md) |
-| B6 | 排油煙機 | [B6.md](doc/B6.md) |
-| B8 | 掃地機器人 | [B8.md](doc/B8.md) |
-| BF | 微波蒸氣爐 | [BF.md](doc/BF.md) |
-| C1 | 電熱壁掛爐 | [C1.md](doc/C1.md) |
-| C2 | 馬桶 | [C2.md](doc/C2.md) |
-| C3 | 熱泵 Wi-Fi 控制器 | [C3.md](doc/C3.md) |
-| CA | 冰箱 | [CA.md](doc/CA.md) |
-| CC | MDV Wi-Fi 控制器 | [CC.md](doc/CC.md) |
-| CD | 熱泵熱水器 | [CD.md](doc/CD.md) |
-| CE | 新風機 | [CE.md](doc/CE.md) |
-| CF | 熱泵 | [CF.md](doc/CF.md) |
-| D9 | 洗烘一體機 | [D9.md](doc/D9.md) |
-| DA | 直立式洗衣機 | [DA.md](doc/DA.md) |
-| DB | 滾筒洗衣機 | [DB.md](doc/DB.md) |
-| DC | 乾衣機 | [DC.md](doc/DC.md) |
-| E1 | 洗碗機 | [E1.md](doc/E1.md) |
-| E2 | 電熱水器 | [E2.md](doc/E2.md) |
-| E3 | 瓦斯熱水器 | [E3.md](doc/E3.md) |
-| E6 | 燃氣壁掛爐 | [E6.md](doc/E6.md) |
-| E8 | 電燉鍋 | [E8.md](doc/E8.md) |
-| EA | 電子鍋 | [EA.md](doc/EA.md) |
-| EC | 電壓力鍋 | [EC.md](doc/EC.md) |
-| ED | 飲水機 | [ED.md](doc/ED.md) |
-| FA | 電風扇 | [FA.md](doc/FA.md) |
-| FB | 電暖器 | [FB.md](doc/FB.md) |
-| FC | 空氣清淨機 | [FC.md](doc/FC.md) |
-| FD | 加濕器 | [FD.md](doc/FD.md) |
+| 類型 | 名稱              | 文件               |
+| ---- | ----------------- | ------------------ |
+| 13   | 燈具              | [13.md](doc/13.md) |
+| 26   | 浴室暖風機        | [26.md](doc/26.md) |
+| 34   | 水槽洗碗機        | [34.md](doc/34.md) |
+| 40   | 吊扇燈            | [40.md](doc/40.md) |
+| 9B   | 微波蒸氣烘烤爐    | [9B.md](doc/9B.md) |
+| 9C   | 廚房整合家電      | [9C.md](doc/9C.md) |
+| A1   | 除濕機            | [A1.md](doc/A1.md) |
+| AC   | 冷氣機            | [AC.md](doc/AC.md) |
+| AD   | 空氣盒子          | [AD.md](doc/AD.md) |
+| B0   | 微波爐            | [B0.md](doc/B0.md) |
+| B1   | 電烤箱            | [B1.md](doc/B1.md) |
+| B3   | 餐具消毒櫃        | [B3.md](doc/B3.md) |
+| B4   | 烤麵包機          | [B4.md](doc/B4.md) |
+| B6   | 排油煙機          | [B6.md](doc/B6.md) |
+| B8   | 掃地機器人        | [B8.md](doc/B8.md) |
+| BF   | 微波蒸氣爐        | [BF.md](doc/BF.md) |
+| C1   | 電熱壁掛爐        | [C1.md](doc/C1.md) |
+| C2   | 馬桶              | [C2.md](doc/C2.md) |
+| C3   | 熱泵 Wi-Fi 控制器 | [C3.md](doc/C3.md) |
+| CA   | 冰箱              | [CA.md](doc/CA.md) |
+| CC   | MDV Wi-Fi 控制器  | [CC.md](doc/CC.md) |
+| CD   | 熱泵熱水器        | [CD.md](doc/CD.md) |
+| CE   | 新風機            | [CE.md](doc/CE.md) |
+| CF   | 熱泵              | [CF.md](doc/CF.md) |
+| D9   | 洗烘一體機        | [D9.md](doc/D9.md) |
+| DA   | 直立式洗衣機      | [DA.md](doc/DA.md) |
+| DB   | 滾筒洗衣機        | [DB.md](doc/DB.md) |
+| DC   | 乾衣機            | [DC.md](doc/DC.md) |
+| E1   | 洗碗機            | [E1.md](doc/E1.md) |
+| E2   | 電熱水器          | [E2.md](doc/E2.md) |
+| E3   | 瓦斯熱水器        | [E3.md](doc/E3.md) |
+| E6   | 燃氣壁掛爐        | [E6.md](doc/E6.md) |
+| E8   | 電燉鍋            | [E8.md](doc/E8.md) |
+| EA   | 電子鍋            | [EA.md](doc/EA.md) |
+| EC   | 電壓力鍋          | [EC.md](doc/EC.md) |
+| ED   | 飲水機            | [ED.md](doc/ED.md) |
+| FA   | 電風扇            | [FA.md](doc/FA.md) |
+| FB   | 電暖器            | [FB.md](doc/FB.md) |
+| FC   | 空氣清淨機        | [FC.md](doc/FC.md) |
+| FD   | 加濕器            | [FD.md](doc/FD.md) |
 
 ## 5. 安裝 midea_ac_lan
 
@@ -150,15 +150,15 @@ wget -O - https://github.com/wuwentao/midea_ac_lan/raw/main/scripts/install.sh |
 
 設定清單來自 `midea-lan` 中的 [`SUPPORTED_CLOUDS`](https://github.com/wuwentao/midea-lan/blob/main/midealan/cloud.py)：
 
-| 設定時顯示的選項 | 雲端實作 | 備註 |
-| --------------------- | -------------------- | ------------------------------------------------------------------------------------------------------------- |
-| 美的美居 | `MeijuCloud` | 請使用已綁定該家電的個人帳號。 |
-| SmartHome | `SmartHomeCloud` | 請使用新註冊的個人帳號；從其他 App 遷移過來的帳號無法取得家電 Token。 |
-| Midea Air | `MideaAirCloud` | 使用舊版 Midea Air 雲端後端。 |
-| NetHome Plus | `MideaAirCloud` | 使用舊版後端。目前無法取得 Token，但仍保留此選項。 |
-| Ariston Clima | `MideaAirCloud` | 使用舊版後端。 |
-| TSmartLife | `TSmartLifeCloud` | 東芝的海外（日本以外）App；使用與 Toshiba Iolife 分開的雲端部署。 |
-| Toshiba Iolife | `ToshibaIOLife` | Toshiba Iolife App 與雲端，與 TSmartLife 分開。 |
+| 設定時顯示的選項 | 雲端實作          | 備註                                                                  |
+| ---------------- | ----------------- | --------------------------------------------------------------------- |
+| 美的美居         | `MeijuCloud`      | 請使用已綁定該家電的個人帳號。                                        |
+| SmartHome        | `SmartHomeCloud`  | 請使用新註冊的個人帳號；從其他 App 遷移過來的帳號無法取得家電 Token。 |
+| Midea Air        | `MideaAirCloud`   | 使用舊版 Midea Air 雲端後端。                                         |
+| NetHome Plus     | `MideaAirCloud`   | 使用舊版後端。目前無法取得 Token，但仍保留此選項。                    |
+| Ariston Clima    | `MideaAirCloud`   | 使用舊版後端。                                                        |
+| TSmartLife       | `TSmartLifeCloud` | 東芝的海外（日本以外）App；使用與 Toshiba Iolife 分開的雲端部署。     |
+| Toshiba Iolife   | `ToshibaIOLife`   | Toshiba Iolife App 與雲端，與 TSmartLife 分開。                       |
 
 請選擇家電註冊所在 App 對應的選項。某個 App 的帳號通常無法存取註冊在其他雲端的家電。清單中列出某個後端，代表本整合已實作其登入流程；能否成功取得 Token／Key，仍取決於雲端服務、帳號所屬地區與家電。
 
