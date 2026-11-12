@@ -1,0 +1,4402 @@
+{
+  "config": {
+    "error": {
+      "preset_account": "Inloggen met vooraf ingesteld account is mislukt, meld dit probleem",
+      "login_failed": "Inloggen mislukt, account of wachtwoord was onjuist",
+      "no_devices": "Geen nieuwe beschikbare apparaten op het netwerk gevonden",
+      "device_exist": "Apparaat is al geconfigureerd",
+      "config_incorrect": "De configuratie is onjuist",
+      "connect_error": "Kan geen verbinding maken met het apparaat",
+      "invalid_token": "Token of Key heeft een onjuist formaat"
+    },
+    "step": {
+      "user": {
+        "data": {
+          "way": "Apparaten toevoegen"
+        },
+        "description": "Kies de manier om een apparaat toe te voegen",
+        "title": "Nieuw apparaat toevoegen"
+      },
+      "login": {
+        "data": {
+          "account": "Account",
+          "password": "Wachtwoord"
+        },
+        "description": "Log in en haal de Token van het apparaat op.\n\n\nMomenteel kunnen alleen persoonlijke SmartHome- en Meiju-accounts apparaat-Tokens ophalen. Zie het README-document voor details.",
+        "title": "Inloggen"
+      },
+      "discovery": {
+        "description": "IP-adres van het apparaat, voer \"auto\" in om automatisch te zoeken\nJe kunt ook een IP-adres gebruiken om binnen een bepaald netwerk te zoeken, zoals \"192.168.1.255\"",
+        "title": "Zoeken",
+        "data": {
+          "ip_address": "IP-adres"
+        }
+      },
+      "list": {
+        "description": "{table}",
+        "title": "Apparaten"
+      },
+      "auto": {
+        "data": {
+          "device": "Apparaten"
+        },
+        "description": "Kies een apparaat om toe te voegen",
+        "title": "Nieuw apparaat gevonden"
+      },
+      "manually": {
+        "data": {
+          "name": "Naam (bijv. Airco woonkamer)",
+          "device_id": "Apparaatcode",
+          "type": "Type",
+          "ip_address": "IP-adres",
+          "port": "Poort",
+          "model": "Model",
+          "subtype": "Subtype",
+          "protocol": "Protocol",
+          "token": "Token",
+          "key": "Key"
+        },
+        "description": "Configuratie van apparaat",
+        "title": "Nieuw apparaat"
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "door_auto_open": {
+        "name": "Deur laatst programma automatisch openen"
+      },
+      "uv": {
+        "name": "UV"
+      },
+      "dry": {
+        "name": "Drogen"
+      },
+      "dry_status": {
+        "name": "Aan het drogen"
+      },
+      "storage_status": {
+        "name": "Opslag actief"
+      },
+      "waterswitch": {
+        "name": "Waterschakelaar"
+      },
+      "water_lack": {
+        "name": "Watertekort"
+      },
+      "wifi_unabled": {
+        "name": "Wi-Fi uitgeschakeld"
+      },
+      "auto_throw": {
+        "name": "Automatisch doseren"
+      },
+      "lock_power": {
+        "name": "Vergrendeling aan/uit"
+      },
+      "beep_control": {
+        "name": "Pieptoon"
+      },
+      "light_btn_on": {
+        "name": "Knopverlichting"
+      },
+      "light_strip_on": {
+        "name": "Lichtstrip"
+      },
+      "warm_power": {
+        "name": "Warm vermogen"
+      },
+      "cold_power": {
+        "name": "Koud vermogen"
+      },
+      "sleep_power": {
+        "name": "Slaapvermogen"
+      },
+      "pump_on": {
+        "name": "Pomp aan"
+      },
+      "bar_door": {
+        "name": "Bardeur"
+      },
+      "bar_door_overtime": {
+        "name": "Bardeur te lang open"
+      },
+      "bathing_working": {
+        "name": "Badstatus"
+      },
+      "bottom_compartment_cooling": {
+        "name": "Koeling onderste compartiment"
+      },
+      "bottom_compartment_door": {
+        "name": "Deur onderste compartiment"
+      },
+      "bottom_compartment_preheating": {
+        "name": "Voorverwarming onderste compartiment"
+      },
+      "burning_state": {
+        "name": "Brandstatus"
+      },
+      "clean_scale": {
+        "name": "Ontkalken"
+      },
+      "clean_sink_ponding": {
+        "name": "Wateropeenhoping in gootsteen"
+      },
+      "cleaning_reminder": {
+        "name": "Reinigingsherinnering"
+      },
+      "compressor_status": {
+        "name": "Compressorstatus"
+      },
+      "cooking": {
+        "name": "Koken"
+      },
+      "dissipate_heat": {
+        "name": "Warmteafvoer"
+      },
+      "door": {
+        "name": "Deur"
+      },
+      "error_code": {
+        "name": "Foutcode"
+      },
+      "filter_change_reminder": {
+        "name": "Herinnering filter vervangen"
+      },
+      "filter_cleaning_reminder": {
+        "name": "Herinnering filter reinigen"
+      },
+      "finished": {
+        "name": "Voltooid"
+      },
+      "flex_zone_door": {
+        "name": "Flex-deur"
+      },
+      "flex_zone_door_overtime": {
+        "name": "Deur flexzone"
+      },
+      "flip_side": {
+        "name": "Omdraaien"
+      },
+      "freezer_door": {
+        "name": "Vriezerdeur"
+      },
+      "freezer_door_overtime": {
+        "name": "Vriezerdeur te lang open"
+      },
+      "full_dust": {
+        "name": "Vol met stof"
+      },
+      "heating": {
+        "name": "Verwarmen"
+      },
+      "dispensing": {
+        "name": "Water afgeven"
+      },
+      "lack_water": {
+        "name": "Watertekort"
+      },
+      "standby": {
+        "name": "Stand-by"
+      },
+      "hot_water_dispensing": {
+        "name": "Heet water afgeven"
+      },
+      "fault": {
+        "name": "Storing"
+      },
+      "heating_working": {
+        "name": "Verwarmingsstatus"
+      },
+      "high_temperature": {
+        "name": "Hoge temperatuur"
+      },
+      "high_temperature_lock": {
+        "name": "Vergrendeling hoge temperatuur"
+      },
+      "high_temperature_work": {
+        "name": "Werking hoge temperatuur"
+      },
+      "keep_warm": {
+        "name": "Warm houden"
+      },
+      "leak_water": {
+        "name": "Waterlekkage"
+      },
+      "lid_status": {
+        "name": "Dekselstatus"
+      },
+      "middle_compartment_cooling": {
+        "name": "Koeling middelste compartiment"
+      },
+      "middle_compartment_door": {
+        "name": "Deur middelste compartiment"
+      },
+      "middle_compartment_preheating": {
+        "name": "Voorverwarming middelste compartiment"
+      },
+      "pre_heat": {
+        "name": "Voorverwarmen"
+      },
+      "probe": {
+        "name": "Sonde"
+      },
+      "probe_mode": {
+        "name": "Sondemodus"
+      },
+      "reaction": {
+        "name": "Reactie"
+      },
+      "top_elec_heat": {
+        "name": "Bovenste elektrische verwarming"
+      },
+      "bottom_elec_heat": {
+        "name": "Onderste elektrische verwarming"
+      },
+      "mute_effect": {
+        "name": "Effect geluiddemping"
+      },
+      "mute_status": {
+        "name": "Status geluiddemping"
+      },
+      "multi_terminal": {
+        "name": "Multiterminal"
+      },
+      "oilcup_full": {
+        "name": "Oliebakje vol"
+      },
+      "protection": {
+        "name": "Beveiliging"
+      },
+      "refrigerator_door": {
+        "name": "Koelkastdeur"
+      },
+      "refrigerator_door_overtime": {
+        "name": "Koelkastdeur te lang open"
+      },
+      "rinse_aid": {
+        "name": "Tekort glansspoelmiddel"
+      },
+      "rsj_stand_by": {
+        "name": "Stand-by"
+      },
+      "salt": {
+        "name": "Zouttekort"
+      },
+      "seat_status": {
+        "name": "Zittingstatus"
+      },
+      "smart_grid": {
+        "name": "Smart Grid"
+      },
+      "eco": {
+        "name": "ECO"
+      },
+      "maintenance_reminder": {
+        "name": "Onderhoudsherinnering"
+      },
+      "dr_enable": {
+        "name": "Vraagrespons"
+      },
+      "electric_rod_exception": {
+        "name": "Storing elektrische verwarming"
+      },
+      "ac_heater_priority": {
+        "name": "Voorrang warmtepomp"
+      },
+      "high_temp_reminder": {
+        "name": "Herinnering hoge temperatuur"
+      },
+      "new_version_water_heater": {
+        "name": "Uitgebreid boilerprotocol"
+      },
+      "heat_recovery_status": {
+        "name": "Warmteterugwinning"
+      },
+      "holiday_mode": {
+        "name": "Vakantiemodus"
+      },
+      "hybrid_motion_mode": {
+        "name": "Hybride bewegingsmodus"
+      },
+      "support_boost_mode": {
+        "name": "Boostmodus ondersteund"
+      },
+      "support_silent_mode": {
+        "name": "Stille modus ondersteund"
+      },
+      "support_remaining_hot_water": {
+        "name": "Resterend heet water ondersteund"
+      },
+      "support_electric_mode": {
+        "name": "Elektrische modus ondersteund"
+      },
+      "support_auto_disinfect": {
+        "name": "Automatische desinfectie ondersteund"
+      },
+      "support_force_e_heating": {
+        "name": "Geforceerde elektrische verwarming ondersteund"
+      },
+      "support_tou": {
+        "name": "Tijdgebonden tarief ondersteund"
+      },
+      "support_ac_heater_priority": {
+        "name": "Voorrang warmtepomp ondersteund"
+      },
+      "support_heat_recovery": {
+        "name": "Warmteterugwinning ondersteund"
+      },
+      "support_heat_pump_mode": {
+        "name": "Warmtepompmodus ondersteund"
+      },
+      "support_smart_mode": {
+        "name": "Slimme modus ondersteund"
+      },
+      "support_negative_temperature": {
+        "name": "Negatieve temperatuur ondersteund"
+      },
+      "maintain_warn": {
+        "name": "Onderhoudswaarschuwing"
+      },
+      "order1_effect": {
+        "name": "Schema 1 actief"
+      },
+      "order2_effect": {
+        "name": "Schema 2 actief"
+      },
+      "status_dhw": {
+        "name": "DHW-status"
+      },
+      "status_heating": {
+        "name": "Verwarmingsstatus"
+      },
+      "status_ibh": {
+        "name": "IBH-status"
+      },
+      "status_tbh": {
+        "name": "TBH-status"
+      },
+      "tank_ejected": {
+        "name": "Tank uitgeworpen"
+      },
+      "tank_full": {
+        "name": "Tankstatus"
+      },
+      "top_compartment_cooling": {
+        "name": "Koeling bovenste compartiment"
+      },
+      "top_compartment_door": {
+        "name": "Deur bovenste compartiment"
+      },
+      "top_compartment_preheating": {
+        "name": "Voorverwarming bovenste compartiment"
+      },
+      "water_change_reminder": {
+        "name": "Herinnering water verversen"
+      },
+      "water_shortage": {
+        "name": "Watertekort"
+      },
+      "with_pressure": {
+        "name": "Onder druk"
+      },
+      "zone1_room_temp_mode": {
+        "name": "Zone1 kamertemperatuurmodus"
+      },
+      "zone1_water_temp_mode": {
+        "name": "Zone1 watertemperatuurmodus"
+      },
+      "zone2_room_temp_mode": {
+        "name": "Zone2 kamertemperatuurmodus"
+      },
+      "zone2_water_temp_mode": {
+        "name": "Zone2 watertemperatuurmodus"
+      },
+      "microcrystal_fresh": {
+        "name": "Microkristal vers"
+      },
+      "electronic_smell": {
+        "name": "Geur verwijderen en steriliseren"
+      },
+      "water_pump_running": {
+        "name": "Waterpomp actief"
+      },
+      "filter_status": {
+        "name": "Filteralarm"
+      },
+      "standby_status": {
+        "name": "Stand-bystatus"
+      },
+      "out_water": {
+        "name": "Wateruitlaat"
+      },
+      "out_hot_water": {
+        "name": "Heetwateruitlaat"
+      },
+      "backflow": {
+        "name": "Terugstroom"
+      },
+      "sleep_status": {
+        "name": "Slaapstatus"
+      },
+      "status_cool": {
+        "name": "Status - Koeling"
+      },
+      "eco_function_state": {
+        "name": "Modus - ECO-functie"
+      },
+      "eco_timer_state": {
+        "name": "Modus - ECO-timer"
+      },
+      "double_zone": {
+        "name": "Mogelijkheid - Dubbele zone"
+      },
+      "room_thermal_support": {
+        "name": "Mogelijkheid - Kamerthermostaat"
+      },
+      "room_thermal_state": {
+        "name": "Status - Kamerthermostaat"
+      },
+      "time_set": {
+        "name": "Mogelijkheid - Tijd instellen"
+      },
+      "disinfect_run": {
+        "name": "DHW - Desinfectie actief"
+      },
+      "remote_onoff": {
+        "name": "Mogelijkheid - Op afstand aan/uit"
+      },
+      "tbh_control": {
+        "name": "Mogelijkheid - TBH-bediening"
+      },
+      "heat_capability": {
+        "name": "Mogelijkheid - Verwarming"
+      },
+      "cool_capability": {
+        "name": "Mogelijkheid - Koeling"
+      },
+      "dhw_capability": {
+        "name": "Mogelijkheid - DHW"
+      },
+      "sys_energy_ana_en": {
+        "name": "Mogelijkheid - Energieanalyse (systeem)"
+      },
+      "hmi_energy_ana_set_en": {
+        "name": "Mogelijkheid - Energieanalyse (HMI)"
+      },
+      "pump_i_running": {
+        "name": "Pump_I - Intern"
+      },
+      "pump_o_running": {
+        "name": "Pump_O - Extern"
+      },
+      "pump_d_running": {
+        "name": "Pump_D - DHW"
+      },
+      "pump_c_running": {
+        "name": "Pump_C - Gemengd watercircuit zone 2"
+      },
+      "pump_s_running": {
+        "name": "Pump_S - Zonne-energie"
+      },
+      "sv1_open": {
+        "name": "SV1 - Klep (DHW)"
+      },
+      "sv2_open": {
+        "name": "SV2 - Klep (Verwarming)"
+      },
+      "load_output_tbh": {
+        "name": "Heater - Reserveverwarming tank (TBH)"
+      },
+      "compressor_on": {
+        "name": "Compressor - Actief"
+      },
+      "ibh1_on": {
+        "name": "Heater - IBH1"
+      },
+      "ibh2_on": {
+        "name": "Heater - IBH2"
+      },
+      "sv3_open": {
+        "name": "SV3 - Klep"
+      },
+      "crankcase_heater_on": {
+        "name": "Heater - Carter"
+      },
+      "alarm_on": {
+        "name": "Error - Alarm"
+      },
+      "aux_heat_on": {
+        "name": "Heater - Hulpbron"
+      },
+      "ac_air_direction": {
+        "name": "Airco luchtrichting"
+      },
+      "ac_cooling_fan": {
+        "name": "Airco koelventilator"
+      },
+      "ac_draining_pump": {
+        "name": "Airco afvoerpomp"
+      },
+      "ac_low_temperature": {
+        "name": "Airco lage temperatuur"
+      },
+      "ac_over_temperature": {
+        "name": "Airco te hoge temperatuur"
+      },
+      "ac_swing": {
+        "name": "Airco zwenken"
+      },
+      "ac_water_full": {
+        "name": "Airco water vol"
+      },
+      "b2_downstair_clean_tips": {
+        "name": "Stoomoven onder reinigingstips"
+      },
+      "b2_downstair_door": {
+        "name": "Stoomoven onder deur"
+      },
+      "b2_downstair_fresh_water": {
+        "name": "Stoomoven onder vers water"
+      },
+      "b2_downstair_light": {
+        "name": "Stoomoven onder verlichting"
+      },
+      "b2_downstair_lock": {
+        "name": "Stoomoven onder slot"
+      },
+      "b2_downstair_must_clean_tips": {
+        "name": "Stoomoven onder moet-reinigen-tips"
+      },
+      "b2_downstair_water_shortage": {
+        "name": "Stoomoven onder watertekort"
+      },
+      "b2_upstair_clean_tips": {
+        "name": "Stoomoven boven reinigingstips"
+      },
+      "b2_upstair_door": {
+        "name": "Stoomoven boven deur"
+      },
+      "b2_upstair_fresh_water": {
+        "name": "Stoomoven boven vers water"
+      },
+      "b2_upstair_light": {
+        "name": "Stoomoven boven verlichting"
+      },
+      "b2_upstair_lock": {
+        "name": "Stoomoven boven slot"
+      },
+      "b2_upstair_must_clean_tips": {
+        "name": "Stoomoven boven moet-reinigen-tips"
+      },
+      "b2_upstair_water_shortage": {
+        "name": "Stoomoven boven watertekort"
+      },
+      "b3_downstair_door": {
+        "name": "Stoomkast onder deur"
+      },
+      "b3_downstair_door_lock": {
+        "name": "Stoomkast onder deurslot"
+      },
+      "b3_downstair_infrared": {
+        "name": "Stoomkast onder infrarood"
+      },
+      "b3_downstair_ultraviolet": {
+        "name": "Stoomkast onder ultraviolet"
+      },
+      "b3_upstair_door": {
+        "name": "Stoomkast boven deur"
+      },
+      "b3_upstair_door_lock": {
+        "name": "Stoomkast boven deurslot"
+      },
+      "b3_upstair_infrared": {
+        "name": "Stoomkast boven infrarood"
+      },
+      "b3_upstair_ultraviolet": {
+        "name": "Stoomkast boven ultraviolet"
+      },
+      "b6_tvoc_status": {
+        "name": "Afzuigkap TVOC-status"
+      },
+      "b6_delay_gear_linkage": {
+        "name": "Afzuigkap koppeling vertragingsstand"
+      },
+      "b6_delay_time": {
+        "name": "Afzuigkap vertragingstijd"
+      },
+      "b6_gesture_status": {
+        "name": "Afzuigkap gebaarstatus"
+      },
+      "b6_infrared_status": {
+        "name": "Afzuigkap infraroodstatus"
+      },
+      "b6_lock": {
+        "name": "Afzuigkap slot"
+      },
+      "b6_power_on_light": {
+        "name": "Afzuigkap verlichting bij inschakelen"
+      },
+      "b6_smoke_detector": {
+        "name": "Afzuigkap rookmelder"
+      },
+      "b6_smoke_stove_linkage": {
+        "name": "Afzuigkap koppeling rook en fornuis"
+      },
+      "b7_left_dry_burning": {
+        "name": "Gaskookplaat links droogkoken"
+      },
+      "b7_left_dry_burning_invalid": {
+        "name": "Gaskookplaat links droogkoken ongeldig"
+      },
+      "b7_left_gas_leakage": {
+        "name": "Gaskookplaat links gaslek"
+      },
+      "b7_left_has_fire": {
+        "name": "Gaskookplaat links vlam aanwezig"
+      },
+      "b7_left_has_pot": {
+        "name": "Gaskookplaat links pan aanwezig"
+      },
+      "b7_right_dry_burning": {
+        "name": "Gaskookplaat rechts droogkoken"
+      },
+      "b7_right_dry_burning_invalid": {
+        "name": "Gaskookplaat rechts droogkoken ongeldig"
+      },
+      "b7_right_gas_leakage": {
+        "name": "Gaskookplaat rechts gaslek"
+      },
+      "b7_right_has_fire": {
+        "name": "Gaskookplaat rechts vlam aanwezig"
+      },
+      "b7_right_has_pot": {
+        "name": "Gaskookplaat rechts pan aanwezig"
+      },
+      "bf_door": {
+        "name": "Ovendeur"
+      },
+      "bf_error": {
+        "name": "Ovenfout"
+      },
+      "bf_flip": {
+        "name": "Oven omdraaien"
+      },
+      "bf_hightemp_error": {
+        "name": "Oven fout hoge temperatuur"
+      },
+      "bf_hightemp_lock": {
+        "name": "Oven vergrendeling hoge temperatuur"
+      },
+      "bf_hightemp_over": {
+        "name": "Oven overschrijding hoge temperatuur"
+      },
+      "bf_hotwind": {
+        "name": "Oven hetelucht"
+      },
+      "bf_hotwind_set": {
+        "name": "Oven hetelucht instellen"
+      },
+      "bf_hydrops_full": {
+        "name": "Oven condensbak vol"
+      },
+      "bf_light": {
+        "name": "Ovenverlichting"
+      },
+      "bf_lock": {
+        "name": "Ovenslot"
+      },
+      "bf_off_fromapp": {
+        "name": "Oven uitgeschakeld via app"
+      },
+      "bf_on_smart": {
+        "name": "Oven slim ingeschakeld"
+      },
+      "bf_order": {
+        "name": "Ovenprogrammering"
+      },
+      "bf_order_time_isabsolute": {
+        "name": "Oven programmeertijd is absoluut"
+      },
+      "bf_overheat": {
+        "name": "Oven oververhitting"
+      },
+      "bf_preheat": {
+        "name": "Oven voorverwarmen"
+      },
+      "bf_preheat_done": {
+        "name": "Oven voorverwarmen voltooid"
+      },
+      "bf_preheat_set": {
+        "name": "Oven voorverwarmen instellen"
+      },
+      "bf_probe": {
+        "name": "Ovensonde"
+      },
+      "bf_probe_meat": {
+        "name": "Ovensonde vlees"
+      },
+      "bf_radiating": {
+        "name": "Oven straling"
+      },
+      "bf_repair_cook": {
+        "name": "Oven reparatiekoken"
+      },
+      "bf_sabbath": {
+        "name": "Oven sabbat"
+      },
+      "bf_scalehandling_remind": {
+        "name": "Oven herinnering ontkalken"
+      },
+      "bf_sensor": {
+        "name": "Ovensensor"
+      },
+      "bf_stove_1": {
+        "name": "Ovenbrander 1"
+      },
+      "bf_stove_2": {
+        "name": "Ovenbrander 2"
+      },
+      "bf_stove_3": {
+        "name": "Ovenbrander 3"
+      },
+      "bf_stove_4": {
+        "name": "Ovenbrander 4"
+      },
+      "bf_stove_5": {
+        "name": "Ovenbrander 5"
+      },
+      "bf_temp_fahrenheit": {
+        "name": "Oven temperatuur Fahrenheit"
+      },
+      "bf_time_synchronization": {
+        "name": "Oven tijdsynchronisatie"
+      },
+      "bf_turntable": {
+        "name": "Oven draaiplateau"
+      },
+      "bf_turntable_reset": {
+        "name": "Oven draaiplateau resetten"
+      },
+      "bf_upload_interval": {
+        "name": "Oven uploadinterval"
+      },
+      "bf_voice_identify": {
+        "name": "Oven spraakherkenning"
+      },
+      "bf_voice_module": {
+        "name": "Oven spraakmodule"
+      },
+      "bf_water_box": {
+        "name": "Oven waterbak"
+      },
+      "bf_water_change": {
+        "name": "Oven water verversen"
+      },
+      "bf_water_shortage": {
+        "name": "Oven watertekort"
+      },
+      "bf_wintersummertime": {
+        "name": "Oven winter-/zomertijd"
+      },
+      "e7_left_bottom_has_pot": {
+        "name": "Inductie linksonder pan aanwezig"
+      },
+      "e7_left_has_pot": {
+        "name": "Inductie links pan aanwezig"
+      },
+      "e7_left_top_has_pot": {
+        "name": "Inductie linksboven pan aanwezig"
+      },
+      "e7_right_bottom_has_pot": {
+        "name": "Inductie rechtsonder pan aanwezig"
+      },
+      "e7_right_has_pot": {
+        "name": "Inductie rechts pan aanwezig"
+      },
+      "e7_right_top_has_pot": {
+        "name": "Inductie rechtsboven pan aanwezig"
+      },
+      "sp_fandrying_door": {
+        "name": "Bordenwarmer ventilatordrogen deur"
+      },
+      "sp_fandrying_setting_automode": {
+        "name": "Bordenwarmer ventilatordrogen automodus instellen"
+      },
+      "sp_fandrying_setting_linkage": {
+        "name": "Bordenwarmer ventilatordrogen koppeling instellen"
+      },
+      "sp_fandrying_setting_linkcooker": {
+        "name": "Bordenwarmer ventilatordrogen koppeling met kookplaat instellen"
+      },
+      "sp_fandrying_setting_sync": {
+        "name": "Bordenwarmer ventilatordrogen synchroniseren instellen"
+      },
+      "sp_heatingdisk_door": {
+        "name": "Bordenwarmer verwarmingsplaat deur"
+      },
+      "sp_heatingdisk_setting_automode": {
+        "name": "Bordenwarmer verwarmingsplaat automodus instellen"
+      },
+      "sp_heatingdisk_setting_linkage": {
+        "name": "Bordenwarmer verwarmingsplaat koppeling instellen"
+      },
+      "sp_heatingdisk_setting_linkcooker": {
+        "name": "Bordenwarmer verwarmingsplaat koppeling met kookplaat instellen"
+      },
+      "sp_heatingdisk_setting_sync": {
+        "name": "Bordenwarmer verwarmingsplaat synchroniseren instellen"
+      },
+      "sp_uvc_door": {
+        "name": "Bordenwarmer UVC deur"
+      },
+      "sp_uvc_setting_automode": {
+        "name": "Bordenwarmer UVC automodus instellen"
+      },
+      "sp_uvc_setting_linkage": {
+        "name": "Bordenwarmer UVC koppeling instellen"
+      },
+      "sp_uvc_setting_linkcooker": {
+        "name": "Bordenwarmer UVC koppeling met kookplaat instellen"
+      },
+      "sp_uvc_setting_sync": {
+        "name": "Bordenwarmer UVC synchroniseren instellen"
+      },
+      "total_water_shortage": {
+        "name": "Watertekort"
+      },
+      "door_open": {
+        "name": "Deur open"
+      },
+      "turntable": {
+        "name": "Draaiplateau"
+      },
+      "lack_box": {
+        "name": "Bakje ontbreekt"
+      },
+      "change_water": {
+        "name": "Herinnering water verversen"
+      },
+      "ramadan": {
+        "name": "Ramadan"
+      },
+      "ota": {
+        "name": "OTA"
+      },
+      "laundry_appointment": {
+        "name": "Reservering"
+      }
+    },
+    "button": {
+      "start_delayed": {
+        "name": "Uitgesteld starten"
+      },
+      "pause": {
+        "name": "Pauzeren"
+      },
+      "resume": {
+        "name": "Hervatten"
+      },
+      "cancel": {
+        "name": "Annuleren"
+      },
+      "start": {
+        "name": "Starten"
+      },
+      "laundry_cancel_appointment": {
+        "name": "Reservering annuleren"
+      }
+    },
+    "climate": {
+      "climate_zone1": {
+        "name": "Zone1-thermostaat"
+      },
+      "climate_zone2": {
+        "name": "Zone2-thermostaat"
+      },
+      "climate_key": {
+        "state_attributes": {
+          "fan_mode": {
+            "state": {
+              "silent": "Stil",
+              "full": "Vol"
+            }
+          }
+        }
+      }
+    },
+    "fan": {
+      "bgf10000": {
+        "state_attributes": {
+          "preset_mode": {
+            "state": {
+              "normal": "Normaal",
+              "forest": "Bos",
+              "beach": "Strand",
+              "countryside": "Platteland",
+              "baby": "Babywind",
+              "sleep_1": "Slaap 1",
+              "sleep_2": "Slaap 2",
+              "strong": "Sterk"
+            }
+          }
+        }
+      },
+      "fresh_air": {
+        "name": "Verse lucht"
+      },
+      "fresh_air_exhaust": {
+        "name": "Verse lucht afvoer"
+      }
+    },
+    "lock": {
+      "child_lock": {
+        "name": "Kinderslot"
+      }
+    },
+    "number": {
+      "delay_minutes": {
+        "name": "Vertraging"
+      },
+      "wash_region": {
+        "name": "Waszone"
+      },
+      "water_level": {
+        "name": "Waterniveau"
+      },
+      "water_strong_level": {
+        "name": "Waterdrukniveau"
+      },
+      "heating_target_temperature": {
+        "name": "Doeltemperatuur verwarming"
+      },
+      "dry_level": {
+        "name": "Droogniveau"
+      },
+      "heating_level": {
+        "name": "Verwarmingsniveau"
+      },
+      "seat_temp_level": {
+        "name": "Temperatuurniveau zitting"
+      },
+      "water_temp_level": {
+        "name": "Watertemperatuurniveau"
+      },
+      "fan_speed_percent": {
+        "name": "Ventilatorsnelheid percentage"
+      },
+      "vacation_days": {
+        "name": "Vakantiedagen"
+      },
+      "max_temperature": {
+        "name": "Maximale doeltemperatuur"
+      },
+      "disinfection_temperature": {
+        "name": "Desinfectietemperatuur"
+      },
+      "schedule_mode": {
+        "name": "Schemamodus"
+      },
+      "leak_water_protection_value": {
+        "name": "Beschermingswaarde waterlekkage"
+      },
+      "flushing_days": {
+        "name": "Regeneratiedagen"
+      },
+      "water_hardness": {
+        "name": "Waterhardheid"
+      },
+      "boil_temperature": {
+        "name": "Doeltemperatuur koken"
+      },
+      "keep_warm_time": {
+        "name": "Tijd warm houden"
+      },
+      "ai_voice_volume": {
+        "name": "Volume AI-stem"
+      },
+      "screen_luminance": {
+        "name": "Schermhelderheid"
+      },
+      "volume": {
+        "name": "Volume"
+      },
+      "temperature_number": {
+        "name": "Doeltemperatuur"
+      },
+      "temperature_above_number": {
+        "name": "Doeltemperatuur boven"
+      },
+      "temperature_underside_number": {
+        "name": "Doeltemperatuur onder"
+      },
+      "probe_temperature_number": {
+        "name": "Doeltemperatuur sonde"
+      },
+      "steam_quantity_number": {
+        "name": "Stoomhoeveelheid"
+      },
+      "hour_set": {
+        "name": "Uur instellen"
+      },
+      "minute_set": {
+        "name": "Minuut instellen"
+      },
+      "second_set": {
+        "name": "Seconde instellen"
+      },
+      "dryer_timed_extra": {
+        "name": "Verlenging getimed drogen"
+      }
+    },
+    "select": {
+      "cur_quantify": {
+        "name": "Huidige hoeveelheid voorinstelling",
+        "state": {
+          "none": "Geen",
+          "preset_1": "Voorinstelling 1",
+          "preset_2": "Voorinstelling 2",
+          "preset_3": "Voorinstelling 3",
+          "preset_4": "Voorinstelling 4",
+          "preset_5": "Voorinstelling 5"
+        }
+      },
+      "wash_mode_76000228": {
+        "name": "Wasmodus",
+        "state": {
+          "neutral_gear": "Geen",
+          "auto_wash": "Automatisch",
+          "strong_wash": "Intensief",
+          "standard_wash": "Universeel",
+          "eco_wash": "ECO",
+          "glass_wash": "Glas",
+          "hour_wash": "90 min",
+          "fast_wash": "Snel",
+          "soak_wash": "Weken",
+          "90min": "90 min",
+          "self_clean": "Zelfreiniging",
+          "fruit_wash": "Fruit",
+          "self_define": "Aangepast",
+          "germ": "Fluisterstil",
+          "bowl_wash": "Kommen",
+          "kill_germ": "Hygiëne",
+          "sea_food_wash": "Zelfreiniging",
+          "hot_pot_wash": "Hotpot",
+          "quiet_night_wash": "Stille nacht",
+          "less_wash": "Licht",
+          "max_rapid_wash": "Max snel",
+          "oil_net_wash": "Oliefilter",
+          "cloud_wash": "Cloudprogramma",
+          "single_dry": "Alleen drogen",
+          "single_disinfect": "Alleen desinfecteren",
+          "high_temp_wash": "Hoge temperatuur",
+          "wash_dry": "Wassen en drogen"
+        }
+      },
+      "program_76000228": {
+        "name": "Programma",
+        "state": {
+          "auto_wash": "Automatisch",
+          "strong_wash": "Intensief",
+          "standard_wash": "Universeel",
+          "eco_wash": "ECO",
+          "glass_wash": "Glas",
+          "hour_wash": "90 min",
+          "fast_wash": "Snel",
+          "soak_wash": "Weken",
+          "90min": "90 min",
+          "self_clean": "Zelfreiniging",
+          "fruit_wash": "Fruit",
+          "self_define": "Aangepast",
+          "germ": "Fluisterstil",
+          "bowl_wash": "Kommen",
+          "kill_germ": "Hygiëne",
+          "sea_food_wash": "Zelfreiniging",
+          "hot_pot_wash": "Hotpot",
+          "quiet_night_wash": "Stille nacht",
+          "less_wash": "Licht",
+          "max_rapid_wash": "Max snel",
+          "oil_net_wash": "Oliefilter",
+          "cloud_wash": "Cloudprogramma",
+          "single_dry": "Alleen drogen",
+          "single_disinfect": "Alleen desinfecteren",
+          "high_temp_wash": "Hoge temperatuur",
+          "wash_dry": "Wassen en drogen"
+        }
+      },
+      "program": {
+        "name": "Programma",
+        "state": {
+          "auto_wash": "Automatisch",
+          "strong_wash": "Intensief",
+          "standard_wash": "Standaard",
+          "eco_wash": "ECO",
+          "glass_wash": "Glas",
+          "hour_wash": "1 uur",
+          "fast_wash": "Snel",
+          "soak_wash": "Weken",
+          "90min": "90 min",
+          "self_clean": "Zelfreiniging",
+          "fruit_wash": "Fruit",
+          "self_define": "Aangepast",
+          "germ": "Kiem",
+          "bowl_wash": "Kommen",
+          "kill_germ": "Hygiëne",
+          "sea_food_wash": "Zeevruchten",
+          "hot_pot_wash": "Hotpot",
+          "quiet_night_wash": "Stille nacht",
+          "less_wash": "Licht",
+          "max_rapid_wash": "Max snel",
+          "oil_net_wash": "Oliefilter",
+          "cloud_wash": "Cloudprogramma",
+          "single_dry": "Alleen drogen",
+          "single_disinfect": "Alleen desinfecteren",
+          "high_temp_wash": "Hoge temperatuur",
+          "wash_dry": "Wassen en drogen"
+        }
+      },
+      "load": {
+        "name": "Belading",
+        "state": {
+          "0": "Vol",
+          "2": "Half"
+        }
+      },
+      "heating_mode": {
+        "name": "Verwarmingsmodus",
+        "state": {
+          "user": "Gebruiker",
+          "activity": "Activiteit",
+          "sleep": "Slaap",
+          "unknown": "Onbekend"
+        }
+      },
+      "detect_mode": {
+        "name": "Detectiemodus",
+        "state": {
+          "off": "Uit",
+          "pm_2_5": "PM 2.5",
+          "methanal": "Formaldehyde"
+        }
+      },
+      "direction": {
+        "name": "Richting",
+        "state": {
+          "oscillate": "Oscilleren"
+        }
+      },
+      "fan_speed": {
+        "name": "Ventilatorsnelheid",
+        "state": {
+          "auto": "Automatisch",
+          "standby": "Stand-by",
+          "low": "Laag",
+          "medium": "Gemiddeld",
+          "high": "Hoog"
+        }
+      },
+      "fresh_air_exhaust_mode": {
+        "name": "Afvoersnelheid verse lucht",
+        "state": {
+          "off": "Uit",
+          "silent": "Laag",
+          "high": "Hoog",
+          "full": "Vol"
+        }
+      },
+      "fresh_air_mode": {
+        "name": "Snelheid verse lucht",
+        "state": {
+          "off": "Uit",
+          "low": "Laag",
+          "medium": "Gemiddeld",
+          "high": "Hoog",
+          "full": "Vol"
+        }
+      },
+      "mode": {
+        "name": "Modus",
+        "state": {
+          "standby": "Stand-by",
+          "auto": "Automatisch",
+          "manual": "Handmatig",
+          "sleep": "Slaap",
+          "fast": "Snel",
+          "smoke": "Rook",
+          "off": "Uit",
+          "heat_high": "Verwarmen (hoog)",
+          "heat_low": "Verwarmen (laag)",
+          "bath": "Bad",
+          "blow": "Blazen",
+          "ventilation": "Ventilatie",
+          "dry": "Drogen"
+        }
+      },
+      "oscillation_angle": {
+        "name": "Oscillatiehoek"
+      },
+      "oscillation_mode": {
+        "name": "Oscillatiemodus"
+      },
+      "rate_select": {
+        "name": "Vermogenslimiet"
+      },
+      "screen_display": {
+        "name": "Schermweergave",
+        "state": {
+          "bright": "Helder",
+          "dim": "Gedimd",
+          "off": "Uit"
+        }
+      },
+      "silent_level": {
+        "name": "Stilniveau"
+      },
+      "tilting_angle": {
+        "name": "Kantelhoek"
+      },
+      "wash_mode": {
+        "name": "Wasmodus",
+        "state": {
+          "neutral_gear": "Geen",
+          "auto_wash": "Automatisch",
+          "strong_wash": "Intensief",
+          "standard_wash": "Standaard",
+          "eco_wash": "ECO",
+          "glass_wash": "Glas",
+          "hour_wash": "1 uur",
+          "fast_wash": "Snel",
+          "soak_wash": "Weken",
+          "90min": "90 min",
+          "self_clean": "Zelfreiniging",
+          "fruit_wash": "Fruit",
+          "self_define": "Aangepast",
+          "germ": "Kiem",
+          "bowl_wash": "Kommen",
+          "kill_germ": "Hygiëne",
+          "sea_food_wash": "Zeevruchten",
+          "hot_pot_wash": "Hotpot",
+          "quiet_night_wash": "Stille nacht",
+          "less_wash": "Licht",
+          "max_rapid_wash": "Max snel",
+          "oil_net_wash": "Oliefilter",
+          "cloud_wash": "Cloudprogramma",
+          "single_dry": "Alleen drogen",
+          "single_disinfect": "Alleen desinfecteren",
+          "high_temp_wash": "Hoge temperatuur",
+          "wash_dry": "Wassen en drogen"
+        }
+      },
+      "water_level_set": {
+        "name": "Instelling waterniveau"
+      },
+      "wind_lr_angle": {
+        "name": "Luchtstroom horizontaal",
+        "state": {
+          "off": "Uit",
+          "left": "Links",
+          "left_mid": "Links-midden",
+          "middle": "Midden",
+          "right_mid": "Rechts-midden",
+          "right": "Rechts"
+        }
+      },
+      "wind_ud_angle": {
+        "name": "Luchtstroom verticaal",
+        "state": {
+          "off": "Uit",
+          "up": "Omhoog",
+          "up_mid": "Omhoog-midden",
+          "middle": "Midden",
+          "down_mid": "Omlaag-midden",
+          "down": "Omlaag"
+        }
+      },
+      "work_status_select": {
+        "name": "Werkstatus",
+        "state": {
+          "save_power": "Energie besparen",
+          "standby": "Stand-by",
+          "work": "Actief",
+          "pause": "Gepauzeerd",
+          "work_finish": "Voltooid",
+          "order": "Vertraging",
+          "pause_c": "Gepauzeerd C",
+          "three": "Drie",
+          "self_inspection": "Zelfinspectie",
+          "query_version": "Versie opvragen",
+          "demo": "Demo",
+          "ramadan": "Ramadan",
+          "after_checking": "Na controle",
+          "wait_to_start": "Wachten op start",
+          "ff": "Onbekend"
+        }
+      },
+      "x9b_fire_power_select": {
+        "name": "Vuurkracht",
+        "state": {
+          "high_power": "Hoog",
+          "medium_high_power": "Gemiddeld-hoog",
+          "medium_power": "Gemiddeld",
+          "medium_low_power": "Gemiddeld-laag",
+          "low_power": "Laag",
+          "ff": "Onbekend"
+        }
+      },
+      "door": {
+        "name": "Deur",
+        "state": {
+          "open": "Open",
+          "close": "Dicht"
+        }
+      },
+      "dryer_program_control": {
+        "name": "Drogerprogramma",
+        "state": {
+          "mixed_wash": "Gemengd",
+          "wool": "Wol",
+          "night_dry": "Nachtdrogen",
+          "big_dry": "Grote stukken",
+          "small_piece_dry": "Kleine stukken",
+          "baby_clothes": "Babykleding",
+          "down_jacket": "Donsjassen",
+          "quick_dry": "Snel drogen",
+          "cotton": "Katoen en linnen",
+          "shirt": "Overhemden",
+          "jean": "Spijkerstof",
+          "underwear": "Ondergoed",
+          "school_uniform": "Schooluniformen",
+          "silk": "Zijde",
+          "towel": "Badhanddoeken",
+          "chiffon": "Chiffon",
+          "polar_fleece": "Polar fleece",
+          "hanfu": "Hanfu",
+          "hanfu_tang": "Hanfu™ Tang-stijl",
+          "hanfu_song": "Hanfu™ Song-stijl",
+          "hanfu_ming": "Hanfu™ Ming-stijl",
+          "hanfu_modern": "Hanfu™ moderne stijl",
+          "sun_quilt": "Dekbed luchten",
+          "bucket_self_clean": "Trommel reinigen",
+          "steam_care": "Stoomverzorging",
+          "fixed_time_dry": "Getimed drogen",
+          "warm_clothes": "Warme kleding",
+          "cold_air_fresh_air": "Opfrissen met koele lucht",
+          "sterilize_mite": "Sterilisatie en mijtverwijdering",
+          "bracket_dry": "Drogen op rek",
+          "pet_sterilize": "Huisdiersterilisatie",
+          "sport_clothes": "Sportkleding",
+          "outdoor": "Outdoorkleding",
+          "quick_drying_clothes": "Sneldrogende kleding",
+          "yoga": "Yogakleding",
+          "air_wash": "Luchtwassen",
+          "fiber": "Synthetische stoffen",
+          "bedsheet": "Lakens",
+          "plush": "Pluche",
+          "dehumidify": "Ontvochtigen",
+          "hot_air_dry": "Heteluchtdrogen",
+          "standard": "Standaard",
+          "fresh_air": "Verse lucht",
+          "low_temp_dry": "Drogen op lage temperatuur",
+          "eco_dry": "Energiebesparend drogen",
+          "quick_dry_30": "Snel drogen 30 min",
+          "intelligent_dry": "Intelligent drogen",
+          "big": "Grote stukken",
+          "western_trouser": "Nette broeken",
+          "dehumidification": "Ontvochtiging",
+          "smart_dry": "Slim drogen",
+          "four_piece_suit": "Beddengoedset",
+          "quick_dry_20": "Snel drogen 20 min",
+          "steam_sterilize": "Stoomsterilisatie",
+          "enzyme": "Enzym",
+          "big_60": "Grote stukken 60",
+          "steam_no_iron": "Stoom kreukvrij verzorgen",
+          "bed_clothes": "Beddengoed",
+          "little_fast_dry": "Snel drogen kleine belading",
+          "wool_nurse": "Wolverzorging",
+          "fresh_remove_smell": "Opfrissen en geur verwijderen",
+          "sterilize": "Sterilisatie"
+        }
+      },
+      "dryer_dryness_control": {
+        "name": "Droogheid",
+        "state": {
+          "ready_to_wear": "Direct draagbaar",
+          "storage": "Opslag"
+        }
+      },
+      "dryer_temperature_control": {
+        "name": "Droogtemperatuur",
+        "state": {
+          "standard": "Standaard",
+          "low": "Laag"
+        }
+      },
+      "washer_program_control": {
+        "name": "Wasmachineprogramma",
+        "state": {
+          "water_mixed_wash": "Gemengd wassen",
+          "fast_wash": "Snelwas 15 min",
+          "single_dehytration": "Alleen centrifugeren",
+          "rinsing_dehydration": "Spoelen en centrifugeren",
+          "fast_wash_30": "Snelwas 30 min",
+          "big": "Grote stukken",
+          "tub_clean": "Trommel reinigen",
+          "deep_tub_clean": "Trommel grondig reinigen",
+          "down_jacket": "Donsjassen",
+          "new_water_cotton": "Katoen en linnen",
+          "baby_clothes": "Babykleding",
+          "shirt": "Overhemden",
+          "wool": "Wol",
+          "water_underwear": "Ondergoed",
+          "silk": "Zijde",
+          "jacket": "Outdoorjassen",
+          "new_clothes_wash": "Nieuwe kleding",
+          "jean": "Spijkerstof",
+          "water_fiber": "Synthetische stoffen",
+          "water_eco": "Energiebesparing",
+          "water_intelligent": "Slim wassen",
+          "water_steep": "Wekend wassen",
+          "water_cold_wash": "Koud wassen",
+          "sterilization_wash": "Steriliserend wassen",
+          "water_remove_mite_wash": "Mijtverwijdering",
+          "disinfection_wash": "Desinfecterend wassen",
+          "stain_wash": "Vlekken wassen",
+          "sport_clothes": "Sportkleding",
+          "yoga": "Yogakleding",
+          "quick_drying_clothes": "Sneldrogende kleding"
+        }
+      },
+      "washer_temperature_control": {
+        "name": "Watertemperatuur",
+        "state": {
+          "cold": "Koud",
+          "20": "20 °C",
+          "30": "30 °C",
+          "40": "40 °C",
+          "60": "60 °C",
+          "95": "95 °C"
+        }
+      },
+      "washer_spin_speed_control": {
+        "name": "Centrifugesnelheid",
+        "state": {
+          "0": "Niet centrifugeren",
+          "400": "400 rpm",
+          "600": "600 rpm",
+          "800": "800 rpm",
+          "1000": "1000 rpm",
+          "1200": "1200 rpm",
+          "1400": "1400 rpm"
+        }
+      },
+      "washer_rinse_count": {
+        "name": "Aantal spoelingen",
+        "state": {
+          "1": "1",
+          "2": "2",
+          "3": "3",
+          "4": "4"
+        }
+      },
+      "washer_water_level_control": {
+        "name": "Waterniveau",
+        "state": {
+          "auto": "Automatisch",
+          "l1": "L1",
+          "l2": "L2",
+          "l3": "L3",
+          "l4": "L4"
+        }
+      },
+      "washer_detergent_control": {
+        "name": "Wasmiddeldosering",
+        "state": {
+          "smart": "Slim",
+          "off": "Uit",
+          "l1": "L1",
+          "l2": "L2",
+          "l3": "L3",
+          "l4": "L4"
+        }
+      },
+      "washer_wash_time_control": {
+        "name": "Wastijd (min)"
+      },
+      "washer_spin_time_control": {
+        "name": "Centrifugetijd (min)"
+      }
+    },
+    "time": {
+      "timing_regeneration": {
+        "name": "Getimede regeneratie"
+      },
+      "laundry_appointment_finish": {
+        "name": "Eindtijd (stelt reservering in)"
+      }
+    },
+    "sensor": {
+      "db_running_status": {
+        "name": "Wasmachinestatus"
+      },
+      "db_progress": {
+        "name": "Wasmachinevoortgang"
+      },
+      "db_program": {
+        "name": "Wasmachineprogramma"
+      },
+      "db_remain_time": {
+        "name": "Wasmachine resterende tijd"
+      },
+      "db_wash_time": {
+        "name": "Wasmachine wastijd"
+      },
+      "db_dehydration_time": {
+        "name": "Wasmachine centrifugetijd"
+      },
+      "db_dehydration_speed": {
+        "name": "Wasmachine centrifugesnelheid"
+      },
+      "db_water_level": {
+        "name": "Wasmachine waterniveau"
+      },
+      "db_temperature": {
+        "name": "Wasmachine temperatuur"
+      },
+      "db_rinse_count": {
+        "name": "Wasmachine aantal spoelingen"
+      },
+      "db_detergent": {
+        "name": "Wasmachine wasmiddel"
+      },
+      "db_softener": {
+        "name": "Wasmachine wasverzachter"
+      },
+      "db_appointment_time": {
+        "name": "Wasmachine reserveringstijd"
+      },
+      "db_appointment_end_time": {
+        "name": "Wasmachine reservering eindtijd"
+      },
+      "db_error_code": {
+        "name": "Wasmachine foutcode"
+      },
+      "db_water_consumption": {
+        "name": "Wasmachine waterverbruik"
+      },
+      "db_power_consumption": {
+        "name": "Wasmachine stroomverbruik"
+      },
+      "dc_running_status": {
+        "name": "Drogerstatus"
+      },
+      "dc_dry_status": {
+        "name": "Droger droogstatus"
+      },
+      "dc_program": {
+        "name": "Drogerprogramma"
+      },
+      "dc_remain_time": {
+        "name": "Droger resterende tijd"
+      },
+      "dc_dry_time": {
+        "name": "Droger droogtijd"
+      },
+      "dc_intensity": {
+        "name": "Droger intensiteit"
+      },
+      "dc_appointment_time": {
+        "name": "Droger reserveringstijd"
+      },
+      "dc_appointment_end_time": {
+        "name": "Droger reservering eindtijd"
+      },
+      "dc_error_code": {
+        "name": "Droger foutcode"
+      },
+      "dc_water_consumption": {
+        "name": "Droger waterverbruik"
+      },
+      "dc_power_consumption": {
+        "name": "Droger stroomverbruik"
+      },
+      "dishwasher_mode": {
+        "name": "Modus",
+        "state": {
+          "neutral_gear": "Geen",
+          "auto_wash": "Automatisch",
+          "strong_wash": "Intensief",
+          "standard_wash": "Standaard",
+          "eco_wash": "ECO",
+          "glass_wash": "Glas",
+          "hour_wash": "1 uur",
+          "fast_wash": "Snel",
+          "soak_wash": "Weken",
+          "90min": "90 min",
+          "self_clean": "Zelfreiniging",
+          "fruit_wash": "Fruit",
+          "self_define": "Aangepast",
+          "germ": "Kiem",
+          "bowl_wash": "Kommen",
+          "kill_germ": "Hygiëne",
+          "sea_food_wash": "Zeevruchten",
+          "hot_pot_wash": "Hotpot",
+          "quiet_night_wash": "Stille nacht",
+          "less_wash": "Licht",
+          "max_rapid_wash": "Max snel",
+          "oil_net_wash": "Oliefilter",
+          "cloud_wash": "Cloudprogramma",
+          "single_dry": "Alleen drogen",
+          "single_disinfect": "Alleen desinfecteren",
+          "high_temp_wash": "Hoge temperatuur",
+          "wash_dry": "Wassen en drogen"
+        }
+      },
+      "dishwasher_mode_76000228": {
+        "name": "Modus",
+        "state": {
+          "neutral_gear": "Geen",
+          "auto_wash": "Automatisch",
+          "strong_wash": "Intensief",
+          "standard_wash": "Universeel",
+          "eco_wash": "ECO",
+          "glass_wash": "Glas",
+          "hour_wash": "90 min",
+          "fast_wash": "Snel",
+          "soak_wash": "Weken",
+          "90min": "90 min",
+          "self_clean": "Zelfreiniging",
+          "fruit_wash": "Fruit",
+          "self_define": "Aangepast",
+          "germ": "Fluisterstil",
+          "bowl_wash": "Kommen",
+          "kill_germ": "Hygiëne",
+          "sea_food_wash": "Zelfreiniging",
+          "hot_pot_wash": "Hotpot",
+          "quiet_night_wash": "Stille nacht",
+          "less_wash": "Licht",
+          "max_rapid_wash": "Max snel",
+          "oil_net_wash": "Oliefilter",
+          "cloud_wash": "Cloudprogramma",
+          "single_dry": "Alleen drogen",
+          "single_disinfect": "Alleen desinfecteren",
+          "high_temp_wash": "Hoge temperatuur",
+          "wash_dry": "Wassen en drogen"
+        }
+      },
+      "dishwasher_status": {
+        "name": "Status",
+        "state": {
+          "power_off": "Uit",
+          "cancel": "Inactief",
+          "delay": "Uitgesteld starten",
+          "running": "Actief",
+          "error": "Fout"
+        }
+      },
+      "dishwasher_progress": {
+        "name": "Voortgang",
+        "state": {
+          "idle": "Inactief",
+          "pre_wash": "Voorwas",
+          "wash": "Wassen",
+          "rinse": "Spoelen",
+          "dry": "Drogen",
+          "complete": "Voltooid"
+        }
+      },
+      "operator": {
+        "name": "Werkstatus",
+        "state": {
+          "start": "Actief",
+          "pause": "Gepauzeerd"
+        }
+      },
+      "wrong_operation": {
+        "name": "Verkeerde bediening"
+      },
+      "dry_set_min": {
+        "name": "Ingestelde droogtijd"
+      },
+      "clean_left_hour": {
+        "name": "Reiniging resterend"
+      },
+      "kitchenware_left_hour": {
+        "name": "Keukengerei resterend"
+      },
+      "device_version": {
+        "name": "Apparaatversie"
+      },
+      "throw_percent": {
+        "name": "Doseerniveau"
+      },
+      "delay_remaining": {
+        "name": "Uitgesteld starten resterend"
+      },
+      "gas_usage_daily": {
+        "name": "Dagelijks gasverbruik"
+      },
+      "gas_usage_last_month": {
+        "name": "Gasverbruik vorige maand"
+      },
+      "gas_usage_monthly": {
+        "name": "Maandelijks gasverbruik"
+      },
+      "water_usage_daily": {
+        "name": "Dagelijks waterverbruik"
+      },
+      "water_usage_last_month": {
+        "name": "Waterverbruik vorige maand"
+      },
+      "water_usage_monthly": {
+        "name": "Maandelijks waterverbruik"
+      },
+      "three_way_mode": {
+        "name": "Driewegmodus"
+      },
+      "heating_unit_type": {
+        "name": "Type verwarmingseenheid"
+      },
+      "return_temperature": {
+        "name": "Retourtemperatuur"
+      },
+      "heating_temperature": {
+        "name": "Verwarmingstemperatuur"
+      },
+      "heating_gap_temperature": {
+        "name": "Temperatuurverschil verwarming"
+      },
+      "user_mode_target_temperature": {
+        "name": "Doeltemperatuur gebruikersmodus"
+      },
+      "activity_mode_target_temperature": {
+        "name": "Doeltemperatuur activiteitsmodus"
+      },
+      "sleep_mode_target_temperature": {
+        "name": "Doeltemperatuur slaapmodus"
+      },
+      "last_time": {
+        "name": "Laatste keer"
+      },
+      "flow_volume": {
+        "name": "Debiet"
+      },
+      "bathing_leaving_temperature": {
+        "name": "Uitgaande watertemperatuur bad"
+      },
+      "bf_status": {
+        "name": "Status",
+        "state": {
+          "save_power": "Energie besparen",
+          "standby": "Stand-by",
+          "work": "Actief",
+          "work_finish": "Voltooid",
+          "order": "Vertraging",
+          "pause": "Gepauzeerd",
+          "pause_c": "Gepauzeerd C",
+          "three": "Drie",
+          "wait_to_start": "Wachten op start",
+          "self_inspection": "Zelfinspectie",
+          "query_version": "Versie opvragen",
+          "demo": "Demo",
+          "after_checking": "Na controle",
+          "unknown": "Onbekend"
+        }
+      },
+      "bottom_compartment_remaining": {
+        "name": "Onderste compartiment resterend"
+      },
+      "bottom_compartment_status": {
+        "name": "Status onderste compartiment"
+      },
+      "bottom_compartment_temperature": {
+        "name": "Temperatuur onderste compartiment"
+      },
+      "bottom_temperature": {
+        "name": "Onderste temperatuur"
+      },
+      "bright": {
+        "name": "Helderheidsniveau"
+      },
+      "cloudmenuid": {
+        "name": "Cloudmenu-ID"
+      },
+      "compressor_temperature": {
+        "name": "Compressortemperatuur"
+      },
+      "condenser_temperature": {
+        "name": "Condensortemperatuur"
+      },
+      "cur_probe_temperature": {
+        "name": "Huidige sondetemperatuur"
+      },
+      "cur_temperature_above": {
+        "name": "Huidige temperatuur boven"
+      },
+      "cur_temperature_underside": {
+        "name": "Huidige temperatuur onder"
+      },
+      "current_energy_consumption": {
+        "name": "Huidig energieverbruik"
+      },
+      "current_temperature": {
+        "name": "Huidige temperatuur"
+      },
+      "dehydration_speed": {
+        "name": "Centrifugesnelheid"
+      },
+      "dehydration_time": {
+        "name": "Centrifugetijd"
+      },
+      "dehydration_time_value": {
+        "name": "Centrifugetijdwaarde"
+      },
+      "execute_status": {
+        "name": "Uitvoeringsstatus",
+        "state": {
+          "ok": "OK",
+          "status_nonsupport": "Status niet ondersteund",
+          "function_nonsupport": "Functie niet ondersteund",
+          "param_range_error": "Parameterbereikfout"
+        }
+      },
+      "fire_power": {
+        "name": "Vuurkracht",
+        "state": {
+          "fire_power_0": "Niveau 0",
+          "fire_power_1": "Niveau 1",
+          "fire_power_2": "Niveau 2",
+          "fire_power_3": "Niveau 3",
+          "fire_power_4": "Niveau 4",
+          "fire_power_5": "Niveau 5",
+          "fire_power_6": "Niveau 6",
+          "fire_power_7": "Niveau 7",
+          "fire_power_8": "Niveau 8",
+          "fire_power_9": "Niveau 9",
+          "fire_power_10": "Niveau 10",
+          "unknown": "Onbekend"
+        }
+      },
+      "minute_set": {
+        "name": "Minuut instellen"
+      },
+      "people_number": {
+        "name": "Aantal personen"
+      },
+      "probe_temperature": {
+        "name": "Sondetemperatuur"
+      },
+      "second_set": {
+        "name": "Seconde instellen"
+      },
+      "steam_quantity": {
+        "name": "Stoomhoeveelheid"
+      },
+      "stepnum": {
+        "name": "Huidige stap"
+      },
+      "temperature": {
+        "name": "Temperatuur"
+      },
+      "temperature_above": {
+        "name": "Temperatuur boven"
+      },
+      "temperature_underside": {
+        "name": "Temperatuur onder"
+      },
+      "totalstep": {
+        "name": "Totaal aantal stappen"
+      },
+      "wash_time_value": {
+        "name": "Wastijdwaarde"
+      },
+      "stains": {
+        "name": "Vlekken"
+      },
+      "dirty_degree": {
+        "name": "Mate van vervuiling"
+      },
+      "detergent": {
+        "name": "Wasmiddel"
+      },
+      "intensity": {
+        "name": "Intensiteit"
+      },
+      "dryness_level": {
+        "name": "Droogniveau"
+      },
+      "dry_temperature": {
+        "name": "Droogtemperatuur"
+      },
+      "door_warn": {
+        "name": "Deurwaarschuwing"
+      },
+      "ai_switch": {
+        "name": "AI-schakelaar"
+      },
+      "material": {
+        "name": "Materiaal"
+      },
+      "water_box": {
+        "name": "Waterbak"
+      },
+      "energy_consumption": {
+        "name": "Energieverbruik"
+      },
+      "error": {
+        "name": "Fout",
+        "state": {
+          "no_error": "Geen fout",
+          "e1_position_not_found": "E1 Positie niet gevonden",
+          "e2_photo_sensor_no_signal": "E2 Fotosensor geen signaal",
+          "e3_motor_not_running": "E3 Motor draait niet",
+          "e4_wrong_position": "E4 Verkeerde positie",
+          "e1_motor_fault": "E1 Motorstoring",
+          "e5_communication_fault": "E5 Communicatiestoring",
+          "e6_salt_sensor_fault": "E6 Zoutsensorstoring",
+          "e7_chlorine_sterilization_fault": "E7 Storing chloordesinfectie"
+        }
+      },
+      "error_code": {
+        "name": "Foutcode"
+      },
+      "humidify_feedback": {
+        "name": "Vochtigheidsterugkoppeling"
+      },
+      "temperature_feedback": {
+        "name": "Temperatuurterugkoppeling"
+      },
+      "humidify_mode": {
+        "name": "Bevochtigingsmodus"
+      },
+      "estimated_energy_consumption": {
+        "name": "Geschat energieverbruik"
+      },
+      "estimated_water_consumption": {
+        "name": "Geschat waterverbruik"
+      },
+      "fan_level": {
+        "name": "Ventilatorniveau"
+      },
+      "filter_life": {
+        "name": "Filterlevensduur"
+      },
+      "filter1_days": {
+        "name": "Filter1 beschikbare dagen"
+      },
+      "filter1_life": {
+        "name": "Filter1 levensduurniveau"
+      },
+      "filter2_days": {
+        "name": "Filter2 beschikbare dagen"
+      },
+      "filter2_life": {
+        "name": "Filter2 levensduurniveau"
+      },
+      "filter3_days": {
+        "name": "Filter3 beschikbare dagen"
+      },
+      "filter3_life": {
+        "name": "Filter3 levensduurniveau"
+      },
+      "flex_zone_actual_temp": {
+        "name": "Werkelijke temperatuur flexzone"
+      },
+      "flex_zone_setting_temp": {
+        "name": "Ingestelde temperatuur flexzone"
+      },
+      "freezer_actual_temp": {
+        "name": "Werkelijke temperatuur vriezer"
+      },
+      "freezer_setting_temp": {
+        "name": "Ingestelde temperatuur vriezer"
+      },
+      "hcho": {
+        "name": "Formaldehyde"
+      },
+      "heating_leaving_temperature": {
+        "name": "Uitgaande watertemperatuur verwarming"
+      },
+      "heating_power": {
+        "name": "Verwarmingsvermogen"
+      },
+      "heating_time_remaining": {
+        "name": "Resterende verwarmingstijd"
+      },
+      "in_tds": {
+        "name": "Ingaande TDS"
+      },
+      "indoor_humidity": {
+        "name": "Luchtvochtigheid binnen"
+      },
+      "indoor_temperature": {
+        "name": "Binnentemperatuur"
+      },
+      "keep_warm_remaining": {
+        "name": "Warm houden resterend"
+      },
+      "fault_code": {
+        "name": "Foutcode"
+      },
+      "keep_warm_time": {
+        "name": "Tijd warm houden"
+      },
+      "left_salt": {
+        "name": "Resterend zout"
+      },
+      "middle_compartment_remaining": {
+        "name": "Middelste compartiment resterend"
+      },
+      "middle_compartment_status": {
+        "name": "Status middelste compartiment"
+      },
+      "middle_compartment_temperature": {
+        "name": "Temperatuur middelste compartiment"
+      },
+      "mode": {
+        "name": "Modus"
+      },
+      "out_tds": {
+        "name": "Uitgaande TDS"
+      },
+      "outdoor_temperature": {
+        "name": "Buitentemperatuur"
+      },
+      "comp_run_freq": {
+        "name": "Compressorfrequentie"
+      },
+      "outdoor_fan_speed": {
+        "name": "Snelheid buitenventilator"
+      },
+      "unit_mode_run": {
+        "name": "Bedrijfsmodus unit",
+        "state": {
+          "off": "Uit",
+          "auto": "Automatisch",
+          "cool": "Koelen",
+          "heat": "Verwarmen",
+          "dhw": "DHW"
+        }
+      },
+      "odu_target_fre": {
+        "name": "Doelfrequentie compressor"
+      },
+      "odu_voltage": {
+        "name": "Spanning buitenunit"
+      },
+      "odu_comp_current": {
+        "name": "Compressorstroom"
+      },
+      "exv_current": {
+        "name": "Opening elektronisch expansieventiel"
+      },
+      "fg_capacity_need": {
+        "name": "Capaciteitsvraag"
+      },
+      "pressure_high": {
+        "name": "Koelmiddeldruk (hogedrukzijde)"
+      },
+      "pressure_low": {
+        "name": "Koelmiddeldruk (lagedrukzijde)"
+      },
+      "temp_t1": {
+        "name": "Temperatuursensor T1"
+      },
+      "temp_t2": {
+        "name": "Temperatuur platenwarmtewisselaar (T2)"
+      },
+      "temp_t2b": {
+        "name": "Uitlaattemperatuur platenwarmtewisselaar (T2B)"
+      },
+      "temp_t3": {
+        "name": "Temperatuur buitenspiraal (T3)"
+      },
+      "temp_tp": {
+        "name": "Temperatuur persleiding (TP)"
+      },
+      "temp_th": {
+        "name": "Zuigtemperatuur (TH)"
+      },
+      "temp_tf": {
+        "name": "Temperatuur vermogensmodule (TF)"
+      },
+      "program": {
+        "name": "Programma"
+      },
+      "progress": {
+        "name": "Voortgang"
+      },
+      "realtime_power": {
+        "name": "Realtime vermogen"
+      },
+      "pmv": {
+        "name": "PMV"
+      },
+      "refrigerator_actual_temp": {
+        "name": "Werkelijke temperatuur koelkast"
+      },
+      "refrigerator_setting_temp": {
+        "name": "Ingestelde temperatuur koelkast"
+      },
+      "regeneration_left_seconds": {
+        "name": "Resterende seconden regeneratie"
+      },
+      "remaining_days": {
+        "name": "Resterende dagen"
+      },
+      "right_flex_zone_actual_temp": {
+        "name": "Werkelijke temperatuur rechter flexzone"
+      },
+      "right_flex_zone_setting_temp": {
+        "name": "Ingestelde temperatuur rechter flexzone"
+      },
+      "rinse_count": {
+        "name": "Aantal spoelingen"
+      },
+      "rinse_level": {
+        "name": "Spoelniveau"
+      },
+      "salt_setting": {
+        "name": "Zoutinstelling"
+      },
+      "seat_temperature": {
+        "name": "Zittingtemperatuur"
+      },
+      "soak_time": {
+        "name": "Weektijd"
+      },
+      "soft_available": {
+        "name": "Zacht water beschikbaar"
+      },
+      "softener": {
+        "name": "Wasverzachter"
+      },
+      "softwater": {
+        "name": "Zachtwaterniveau"
+      },
+      "status": {
+        "name": "Status"
+      },
+      "storage_remaining": {
+        "name": "Opslag resterend"
+      },
+      "tank": {
+        "name": "Tank"
+      },
+      "tank_actual_temperature": {
+        "name": "Werkelijke tanktemperatuur"
+      },
+      "target_temperature": {
+        "name": "Doeltemperatuur"
+      },
+      "time_remaining": {
+        "name": "Resterende tijd"
+      },
+      "top_compartment_remaining": {
+        "name": "Bovenste compartiment resterend"
+      },
+      "top_compartment_status": {
+        "name": "Status bovenste compartiment"
+      },
+      "top_compartment_temperature": {
+        "name": "Temperatuur bovenste compartiment"
+      },
+      "top_temperature": {
+        "name": "Bovenste temperatuur"
+      },
+      "total_energy_consumption": {
+        "name": "Totaal energieverbruik"
+      },
+      "total_produced_energy": {
+        "name": "Totaal geproduceerde energie"
+      },
+      "tvoc": {
+        "name": "TVOC"
+      },
+      "wash_level": {
+        "name": "Wasniveau"
+      },
+      "wash_strength": {
+        "name": "Wassterkte"
+      },
+      "wash_time": {
+        "name": "Wastijd"
+      },
+      "water_consumption": {
+        "name": "Waterverbruik"
+      },
+      "water_consumption_average": {
+        "name": "Gemiddeld waterverbruik"
+      },
+      "water_consumption_big": {
+        "name": "Waterverbruik"
+      },
+      "water_temperature": {
+        "name": "Watertemperatuur"
+      },
+      "water_level": {
+        "name": "Waterniveau"
+      },
+      "weight": {
+        "name": "Gewicht"
+      },
+      "wind": {
+        "name": "Wind"
+      },
+      "typeinfo": {
+        "name": "Type-informatie"
+      },
+      "use_days": {
+        "name": "Gebruiksdagen"
+      },
+      "elec_heat": {
+        "name": "Elektrische verwarming"
+      },
+      "water_pump": {
+        "name": "Waterpomp"
+      },
+      "four_way": {
+        "name": "Vierwegklep"
+      },
+      "back_water": {
+        "name": "Terugstromend water"
+      },
+      "sterilize": {
+        "name": "Steriliseren"
+      },
+      "disinfection_temperature": {
+        "name": "Desinfectietemperatuur"
+      },
+      "max_temperature": {
+        "name": "Maximale doeltemperatuur"
+      },
+      "max_temperature_upper_limit": {
+        "name": "Bovengrens maximale temperatuur"
+      },
+      "max_temperature_lower_limit": {
+        "name": "Ondergrens maximale temperatuur"
+      },
+      "disinfection_temperature_upper_limit": {
+        "name": "Bovengrens desinfectietemperatuur"
+      },
+      "disinfection_temperature_lower_limit": {
+        "name": "Ondergrens desinfectietemperatuur"
+      },
+      "dr_option": {
+        "name": "Optie vraagrespons"
+      },
+      "remaining_hot_water_max": {
+        "name": "Maximaal resterend heet water"
+      },
+      "force_e_heating_status": {
+        "name": "Status geforceerde elektrische verwarming"
+      },
+      "holiday_max": {
+        "name": "Maximale vakantieduur"
+      },
+      "holiday_min": {
+        "name": "Minimale vakantieduur"
+      },
+      "timer_step_gap": {
+        "name": "Timerstap"
+      },
+      "vacation_start_year": {
+        "name": "Startjaar vakantie"
+      },
+      "vacation_start_month": {
+        "name": "Startmaand vakantie"
+      },
+      "vacation_start_day": {
+        "name": "Startdag vakantie"
+      },
+      "auto_sterilize_week": {
+        "name": "Week automatisch steriliseren"
+      },
+      "auto_sterilize_hour": {
+        "name": "Uur automatisch steriliseren"
+      },
+      "auto_sterilize_minute": {
+        "name": "Minuut automatisch steriliseren"
+      },
+      "work_mode": {
+        "name": "Werkmodus",
+        "state": {
+          "microwave": "Magnetron",
+          "microwave_1": "Magnetron 1",
+          "microwave_2": "Magnetron 2",
+          "microwave_3": "Magnetron 3",
+          "microwave_4": "Magnetron 4",
+          "microwave_5": "Magnetron 5",
+          "microwave_steam_above_tube": "Magnetron stoom bovenbuis",
+          "microwave_double_tube": "Magnetron dubbele buis",
+          "microwave_hot_wind_tube_fan": "Magnetron heteluchtbuisventilator",
+          "microwave_underside_tube_hot_wind_tube_fan": "Magnetron onderbuis heteluchtventilator",
+          "microwave_double_tube_hot_wind_tube_fan": "Magnetron dubbele buis heteluchtventilator",
+          "microwave_steam": "Magnetron stoom",
+          "microwave_steam_1": "Magnetron stoom 1",
+          "unfreeze": "Ontdooien",
+          "unfreeze_1": "Ontdooien 1",
+          "unfreeze_2": "Ontdooien 2",
+          "unfreeze_3": "Ontdooien 3",
+          "unfreeze_t": "Ontdooien T",
+          "microwave_above_tube": "Magnetron bovenbuis",
+          "microwave_above_tube_1": "Magnetron bovenbuis 1",
+          "microwave_above_tube_2": "Magnetron bovenbuis 2",
+          "microwave_above_tube_fan": "Magnetron bovenbuisventilator",
+          "fast_unfreeze": "Snel ontdooien",
+          "fresh_unfreeze": "Vers ontdooien",
+          "microwave_zymosis": "Magnetron fermentatie",
+          "pure_steam": "Pure stoom",
+          "pure_steam_1": "Pure stoom 1",
+          "pure_steam_2": "Pure stoom 2",
+          "pure_steam_3": "Pure stoom 3",
+          "pure_steam_4": "Pure stoom 4",
+          "pure_steam_5": "Pure stoom 5",
+          "pure_steam_6": "Pure stoom 6",
+          "pure_steam_7": "Pure stoom 7",
+          "pure_steam_8": "Pure stoom 8",
+          "pure_steam_9": "Pure stoom 9",
+          "steam_above_tube": "Stoom bovenbuis",
+          "steam_underside_tube": "Stoom onderbuis",
+          "steam_double_tube": "Stoom dubbele buis",
+          "steam_hot_wind_tube_fan": "Stoom heteluchtbuisventilator",
+          "steam_hot_wind_tube_fan_1": "Stoom heteluchtbuisventilator 1",
+          "steam_hot_wind_tube_fan_2": "Stoom heteluchtbuisventilator 2",
+          "steam_hot_wind_tube": "Stoom heteluchtbuis",
+          "steam_double_tube_fan": "Stoom dubbele buis ventilator",
+          "steam_above_inside_outside_tube_fan": "Stoom bovenbuis binnen-buiten ventilator",
+          "steam_above_inside_tube_fan": "Stoom bovenbuis binnen ventilator",
+          "above_tube": "Bovenbuis",
+          "underside_tube": "Onderbuis",
+          "double_tube": "Dubbele buis",
+          "hot_wind_tube_fan": "Heteluchtbuisventilator",
+          "pure_preheat": "Puur voorverwarmen",
+          "pure_preheat_2": "Puur voorverwarmen 2",
+          "above_tube_hot_wind_tube_fan": "Bovenbuis heteluchtventilator",
+          "underside_tube_hot_wind_tube_fan": "Onderbuis heteluchtventilator",
+          "zymosis": "Fermentatie",
+          "double_tube_hot_wind_tube_fan": "Dubbele buis heteluchtventilator",
+          "above_tube_revolve": "Bovenbuis roteren",
+          "underside_tube_revolve": "Onderbuis roteren",
+          "double_tube_revolve": "Dubbele buis roteren",
+          "hot_wind_tube_fan_revolve": "Heteluchtbuisventilator roteren",
+          "warm": "Warm houden",
+          "double_tube_fan": "Dubbele buis ventilator",
+          "double_tube_fan_1": "Dubbele buis ventilator 1",
+          "double_tube_fan_2": "Dubbele buis ventilator 2",
+          "double_tube_fan_3": "Dubbele buis ventilator 3",
+          "above_inside_tube_revolve": "Bovenbuis binnen roteren",
+          "above_inside_tube_fan": "Bovenbuis binnen ventilator",
+          "above_inside_outside_tube_revolve": "Bovenbuis binnen-buiten roteren",
+          "above_inside_outside_tube_fan": "Bovenbuis binnen-buiten ventilator",
+          "above_inside_underside_tube": "Bovenbuis binnen onderbuis",
+          "above_inside_underside_tube_1": "Bovenbuis binnen onderbuis 1",
+          "above_inside_underside_tube_fan": "Bovenbuis binnen onderbuis ventilator",
+          "above_inside_underside_tube_fan_1": "Bovenbuis binnen onderbuis ventilator 1",
+          "above_inside_tube": "Bovenbuis binnen",
+          "above_inside_outside_tube": "Bovenbuis binnen-buiten",
+          "underside_tube_fan": "Onderbuisventilator",
+          "above_tube_fan": "Bovenbuisventilator",
+          "above_tube_fan_1": "Bovenbuisventilator 1",
+          "above_tube_fan_2": "Bovenbuisventilator 2",
+          "scale_clean": "Ontkalken",
+          "clean": "Reinigen",
+          "remove_odor": "Geur verwijderen",
+          "remove_odor_2": "Geur verwijderen 2",
+          "high_temperature_clean": "Reinigen op hoge temperatuur",
+          "dining_utensils_clean": "Eetgerei reinigen",
+          "auto_menu": "Automenu",
+          "eco": "Eco",
+          "above_tube_1": "Bovenbuis 1",
+          "above_tube_2": "Bovenbuis 2",
+          "above_tube_3": "Bovenbuis 3",
+          "underside_tube_1": "Onderbuis 1",
+          "underside_tube_2": "Onderbuis 2",
+          "double_tube_1": "Dubbele buis 1",
+          "double_tube_2": "Dubbele buis 2",
+          "double_tube_3": "Dubbele buis 3",
+          "double_tube_4": "Dubbele buis 4",
+          "double_tube_5": "Dubbele buis 5",
+          "double_tube_6": "Dubbele buis 6",
+          "hot_wind_tube_fan_1": "Heteluchtbuisventilator 1",
+          "hot_wind_tube_fan_2": "Heteluchtbuisventilator 2",
+          "hot_wind_tube_fan_3": "Heteluchtbuisventilator 3",
+          "hot_wind_tube_fan_4": "Heteluchtbuisventilator 4",
+          "hot_wind_tube_fan_5": "Heteluchtbuisventilator 5",
+          "double_tube_hot_wind_tube_fan_1": "Dubbele buis heteluchtventilator 1",
+          "double_tube_hot_wind_tube_fan_2": "Dubbele buis heteluchtventilator 2",
+          "double_tube_hot_wind_tube_fan_3": "Dubbele buis heteluchtventilator 3",
+          "double_tube_hot_wind_tube_fan_4": "Dubbele buis heteluchtventilator 4",
+          "double_tube_hot_wind_tube_fan_5": "Dubbele buis heteluchtventilator 5",
+          "unknown": "Onbekend"
+        }
+      },
+      "working_time": {
+        "name": "Werktijd"
+      },
+      "humidity": {
+        "name": "Luchtvochtigheid"
+      },
+      "variable_mode": {
+        "name": "Variabele modus",
+        "state": {
+          "none": "Geen",
+          "soft_freezing": "Zacht invriezen",
+          "zero_fresh": "Zero Fresh",
+          "cold_drink": "Koude drank",
+          "fresh_product": "Verse producten",
+          "partial_freezing": "Gedeeltelijk invriezen",
+          "dry_zone": "Droge zone",
+          "freeze_warm": "Invriezen / warm",
+          "baby": "Moeder en kind",
+          "treasure": "Treasure",
+          "zero": "Nulgraden"
+        }
+      },
+      "compressor_frequency": {
+        "name": "Compressorfrequentie"
+      },
+      "target_compressor_frequency": {
+        "name": "Doelfrequentie compressor"
+      },
+      "compressor_current": {
+        "name": "Compressorstroom"
+      },
+      "compressor_voltage": {
+        "name": "Compressorspanning"
+      },
+      "compressor_power": {
+        "name": "Compressorvermogen"
+      },
+      "indoor_ambient_temperature": {
+        "name": "Omgevingstemperatuur binnen (T1)"
+      },
+      "indoor_coil_temperature": {
+        "name": "Spiraaltemperatuur binnen (T2)"
+      },
+      "outdoor_coil_temperature": {
+        "name": "Spiraaltemperatuur buiten (T3)"
+      },
+      "outdoor_ambient_temperature": {
+        "name": "Omgevingstemperatuur buiten (T4)"
+      },
+      "discharge_pipe_temperature": {
+        "name": "Temperatuur persleiding (TP)"
+      },
+      "indoor_fan_speed": {
+        "name": "Snelheid binnenventilator"
+      },
+      "target_indoor_fan_speed": {
+        "name": "Doelsnelheid binnenventilator"
+      },
+      "velocity": {
+        "name": "Snelheid"
+      },
+      "filter4_life": {
+        "name": "Filter4 levensduurniveau"
+      },
+      "filter5_life": {
+        "name": "Filter5 levensduurniveau"
+      },
+      "filter1_maxlife": {
+        "name": "Filter1 levensduurlimiet"
+      },
+      "filter2_maxlife": {
+        "name": "Filter2 levensduurlimiet"
+      },
+      "filter3_maxlife": {
+        "name": "Filter3 levensduurlimiet"
+      },
+      "filter4_maxlife": {
+        "name": "Filter4 levensduurlimiet"
+      },
+      "filter5_maxlife": {
+        "name": "Filter5 levensduurlimiet"
+      },
+      "hot_pot_temperature": {
+        "name": "Hotpottemperatuur"
+      },
+      "ice_gall_status": {
+        "name": "Status ijsblaas"
+      },
+      "water_kind": {
+        "name": "Soort water",
+        "state": {
+          "idle": "Inactief",
+          "warm": "Warm",
+          "cold": "Koud"
+        }
+      },
+      "heat_start": {
+        "name": "Verwarming starten",
+        "state": {
+          "heating": "Verwarmen",
+          "keep_warm": "Warm houden"
+        }
+      },
+      "no_obsolete_water_mode": {
+        "name": "Modus geen oud water",
+        "state": {
+          "water_quality_priority": "Voorrang waterkwaliteit",
+          "water_saving_priority": "Voorrang waterbesparing",
+          "custom": "Aangepast"
+        }
+      },
+      "input_temperature_sensing": {
+        "name": "Ingangstemperatuur"
+      },
+      "temp_ta": {
+        "name": "Temperatuur Ta - Omgeving ruimte"
+      },
+      "water_flow": {
+        "name": "Water - Debiet"
+      },
+      "water_pressure": {
+        "name": "Water - Druk"
+      },
+      "temp_t4": {
+        "name": "Temperatuur T4 - Omgeving buiten"
+      },
+      "temp_t5": {
+        "name": "Temperatuur T5 - Watertank"
+      },
+      "temp_tb_t1": {
+        "name": "Temperatuur TB-T1 - Buffertank boven"
+      },
+      "temp_tb_t2": {
+        "name": "Temperatuur TB-T2 - Buffertank onder"
+      },
+      "temp_tsolar": {
+        "name": "Temperatuur Tsolar - Zonnepaneel"
+      },
+      "temp_tw2": {
+        "name": "Temperatuur Tw2 - Water zone 2"
+      },
+      "dc_current": {
+        "name": "ODU - DC-busstroom"
+      },
+      "dc_bus_voltage": {
+        "name": "ODU - DC-busspanning"
+      },
+      "current_unit_capacity": {
+        "name": "Huidige unitcapaciteit (ruw)"
+      },
+      "instant_power0": {
+        "name": "Vermogen - Verwarmingsverbruik"
+      },
+      "instant_renew_power0": {
+        "name": "Vermogen - Hernieuwbare verwarmingscapaciteit"
+      },
+      "room_rel_hum": {
+        "name": "Relatieve luchtvochtigheid ruimte"
+      },
+      "hydbox_subtype": {
+        "name": "Info - Subtype hydraulische box"
+      },
+      "machine_type": {
+        "name": "Info - Machinetype"
+      },
+      "odu_model": {
+        "name": "Info - ODU-modelcode"
+      },
+      "hydrobox_capacity": {
+        "name": "Info - Capaciteit hydraulische box"
+      },
+      "idu_t1s1": {
+        "name": "Temperatuur - Zone 1 berekend (T1s)"
+      },
+      "idu_t1s2": {
+        "name": "Temperatuur - Zone 2 berekend (T1s)"
+      },
+      "t5s": {
+        "name": "Temperatuur T5s - DHW-instelpunt"
+      },
+      "tas": {
+        "name": "Temperatuur Tas - Lucht-instelpunt"
+      },
+      "zone1_temp_set": {
+        "name": "Temperatuur - Instelpunt zone 1"
+      },
+      "zone2_temp_set": {
+        "name": "Temperatuur - Instelpunt zone 2"
+      },
+      "disinfect_set_weekday": {
+        "name": "DHW - Weekdag desinfectie"
+      },
+      "disinfect_start_hour": {
+        "name": "DHW - Startuur desinfectie"
+      },
+      "disinfect_start_minutes": {
+        "name": "DHW - Startminuut desinfectie"
+      },
+      "error_code_description": {
+        "name": "Error - Beschrijving"
+      },
+      "hmi_sn_code": {
+        "name": "HMI-serienummer"
+      },
+      "temp_tw_in": {
+        "name": "Temperatuur Tw_in - Waterinlaat"
+      },
+      "temp_tw_out": {
+        "name": "Temperatuur Tw_out - Wateruitlaat"
+      },
+      "comp_total_run_time": {
+        "name": "Energie - Looptijd compressor"
+      },
+      "idu_software_version_str": {
+        "name": "Info - IDU-softwareversie"
+      },
+      "odu_software_version_str": {
+        "name": "Info - ODU-softwareversie"
+      },
+      "ac_air_direction_gear": {
+        "name": "Airco luchtrichting stand"
+      },
+      "ac_air_direction_max_angle": {
+        "name": "Airco luchtrichting max. hoek"
+      },
+      "ac_air_direction_min_angle": {
+        "name": "Airco luchtrichting min. hoek"
+      },
+      "ac_ambient_temperature": {
+        "name": "Airco omgevingstemperatuur"
+      },
+      "ac_current_temp": {
+        "name": "Airco huidige temperatuur"
+      },
+      "ac_destination_temp": {
+        "name": "Airco doeltemperatuur"
+      },
+      "ac_destination_time": {
+        "name": "Airco doeltijd"
+      },
+      "ac_gear": {
+        "name": "Airco stand"
+      },
+      "ac_mode": {
+        "name": "Airco modus",
+        "state": {
+          "air_supply": "Luchttoevoer",
+          "dehumidification": "Ontvochtiging",
+          "net_flavour": "Net Flavour",
+          "none": "Geen",
+          "refrigeration": "Koeling"
+        }
+      },
+      "ac_order_destination_time": {
+        "name": "Airco programmering doeltijd"
+      },
+      "ac_order_remaining_time": {
+        "name": "Airco programmering resterende tijd"
+      },
+      "ac_remaining_time": {
+        "name": "Airco resterende tijd"
+      },
+      "ac_swing_gear": {
+        "name": "Airco zwenkstand"
+      },
+      "ac_swing_max_angle": {
+        "name": "Airco zwenken max. hoek"
+      },
+      "ac_swing_min_angle": {
+        "name": "Airco zwenken min. hoek"
+      },
+      "ac_work_status": {
+        "name": "Airco werkstatus",
+        "state": {
+          "order": "Programmering",
+          "power_off": "Uitgeschakeld",
+          "reservation": "Reservering",
+          "reservation_and_order_ordering": "Reservering en programmering aan het programmeren",
+          "reservation_and_order_reserving": "Reservering en programmering aan het reserveren",
+          "working": "Actief"
+        }
+      },
+      "ai_voice_microphone_status": {
+        "name": "Status microfoon AI-stem",
+        "state": {
+          "failure": "Mislukt",
+          "success": "Geslaagd"
+        }
+      },
+      "ai_voice_status": {
+        "name": "Status AI-stem",
+        "state": {
+          "connecting": "Verbinden",
+          "off": "Uit",
+          "on": "Aan"
+        }
+      },
+      "ai_voice_volume_status": {
+        "name": "Status volume AI-stem",
+        "state": {
+          "failure": "Mislukt",
+          "success": "Geslaagd"
+        }
+      },
+      "b2_downstair_current_temp": {
+        "name": "Stoomoven onder huidige temperatuur"
+      },
+      "b2_downstair_destination_temp": {
+        "name": "Stoomoven onder doeltemperatuur"
+      },
+      "b2_downstair_light_off_type": {
+        "name": "Stoomoven onder type verlichting uit",
+        "state": {
+          "app": "App",
+          "local": "Lokaal"
+        }
+      },
+      "b2_downstair_light_on_type": {
+        "name": "Stoomoven onder type verlichting aan",
+        "state": {
+          "app": "App",
+          "local": "Lokaal"
+        }
+      },
+      "b2_downstair_order_destination_time": {
+        "name": "Stoomoven onder programmering doeltijd"
+      },
+      "b2_downstair_order_remaining_time": {
+        "name": "Stoomoven onder programmering resterende tijd"
+      },
+      "b2_downstair_power_off_type": {
+        "name": "Stoomoven onder type uitschakelen",
+        "state": {
+          "app": "App",
+          "auto": "Automatisch",
+          "error": "Fout",
+          "local": "Lokaal",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b2_downstair_power_on_type": {
+        "name": "Stoomoven onder type inschakelen",
+        "state": {
+          "app": "App",
+          "local": "Lokaal",
+          "order": "Programmering"
+        }
+      },
+      "b2_downstair_preheating": {
+        "name": "Stoomoven onder voorverwarmen",
+        "state": {
+          "finish": "Voltooid",
+          "none": "Geen",
+          "preheating": "Voorverwarmen"
+        }
+      },
+      "b2_downstair_recipe_after": {
+        "name": "Stoomoven onder recept na"
+      },
+      "b2_downstair_recipe_code": {
+        "name": "Stoomoven onder receptcode"
+      },
+      "b2_downstair_recipe_current_mode": {
+        "name": "Stoomoven onder recept huidige modus"
+      },
+      "b2_downstair_recipe_current_step": {
+        "name": "Stoomoven onder recept huidige stap"
+      },
+      "b2_downstair_recipe_off_type": {
+        "name": "Stoomoven onder recept type uit",
+        "state": {
+          "app": "App",
+          "auto": "Automatisch",
+          "error": "Fout",
+          "local": "Lokaal",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b2_downstair_recipe_on_type": {
+        "name": "Stoomoven onder recept type aan",
+        "state": {
+          "app": "App",
+          "local": "Lokaal",
+          "order": "Programmering"
+        }
+      },
+      "b2_downstair_recipe_total_steps": {
+        "name": "Stoomoven onder recept totaal aantal stappen"
+      },
+      "b2_downstair_work_destination_time": {
+        "name": "Stoomoven onder werk doeltijd"
+      },
+      "b2_downstair_work_func": {
+        "name": "Stoomoven onder werkfunctie"
+      },
+      "b2_downstair_work_menu": {
+        "name": "Stoomoven onder werkmenu"
+      },
+      "b2_downstair_work_remaining_time": {
+        "name": "Stoomoven onder werk resterende tijd"
+      },
+      "b2_downstair_work_status": {
+        "name": "Stoomoven onder werkstatus",
+        "state": {
+          "auto": "Automatisch",
+          "drying": "Aan het drogen",
+          "finish": "Voltooid",
+          "order": "Programmering",
+          "pause": "Pauzeren",
+          "power_off": "Uitgeschakeld",
+          "standby": "Stand-by",
+          "working": "Actief"
+        }
+      },
+      "b2_upstair_current_temp": {
+        "name": "Stoomoven boven huidige temperatuur"
+      },
+      "b2_upstair_destination_temp": {
+        "name": "Stoomoven boven doeltemperatuur"
+      },
+      "b2_upstair_light_off_type": {
+        "name": "Stoomoven boven type verlichting uit",
+        "state": {
+          "app": "App",
+          "local": "Lokaal"
+        }
+      },
+      "b2_upstair_light_on_type": {
+        "name": "Stoomoven boven type verlichting aan",
+        "state": {
+          "app": "App",
+          "local": "Lokaal"
+        }
+      },
+      "b2_upstair_order_destination_time": {
+        "name": "Stoomoven boven programmering doeltijd"
+      },
+      "b2_upstair_order_remaining_time": {
+        "name": "Stoomoven boven programmering resterende tijd"
+      },
+      "b2_upstair_power_off_type": {
+        "name": "Stoomoven boven type uitschakelen",
+        "state": {
+          "app": "App",
+          "auto": "Automatisch",
+          "error": "Fout",
+          "local": "Lokaal",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b2_upstair_power_on_type": {
+        "name": "Stoomoven boven type inschakelen",
+        "state": {
+          "app": "App",
+          "local": "Lokaal",
+          "order": "Programmering"
+        }
+      },
+      "b2_upstair_preheating": {
+        "name": "Stoomoven boven voorverwarmen",
+        "state": {
+          "finish": "Voltooid",
+          "none": "Geen",
+          "preheating": "Voorverwarmen"
+        }
+      },
+      "b2_upstair_recipe_after": {
+        "name": "Stoomoven boven recept na"
+      },
+      "b2_upstair_recipe_code": {
+        "name": "Stoomoven boven receptcode"
+      },
+      "b2_upstair_recipe_current_mode": {
+        "name": "Stoomoven boven recept huidige modus"
+      },
+      "b2_upstair_recipe_current_step": {
+        "name": "Stoomoven boven recept huidige stap"
+      },
+      "b2_upstair_recipe_off_type": {
+        "name": "Stoomoven boven recept type uit",
+        "state": {
+          "app": "App",
+          "auto": "Automatisch",
+          "error": "Fout",
+          "local": "Lokaal",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b2_upstair_recipe_on_type": {
+        "name": "Stoomoven boven recept type aan",
+        "state": {
+          "app": "App",
+          "local": "Lokaal",
+          "order": "Programmering"
+        }
+      },
+      "b2_upstair_recipe_total_steps": {
+        "name": "Stoomoven boven recept totaal aantal stappen"
+      },
+      "b2_upstair_work_destination_time": {
+        "name": "Stoomoven boven werk doeltijd"
+      },
+      "b2_upstair_work_func": {
+        "name": "Stoomoven boven werkfunctie"
+      },
+      "b2_upstair_work_menu": {
+        "name": "Stoomoven boven werkmenu"
+      },
+      "b2_upstair_work_remaining_time": {
+        "name": "Stoomoven boven werk resterende tijd"
+      },
+      "b2_upstair_work_status": {
+        "name": "Stoomoven boven werkstatus",
+        "state": {
+          "auto": "Automatisch",
+          "drying": "Aan het drogen",
+          "finish": "Voltooid",
+          "order": "Programmering",
+          "pause": "Pauzeren",
+          "power_off": "Uitgeschakeld",
+          "standby": "Stand-by",
+          "working": "Actief"
+        }
+      },
+      "b3_disinfect_off_type": {
+        "name": "Stoomkast desinfectie type uit",
+        "state": {
+          "app": "App",
+          "local": "Lokaal"
+        }
+      },
+      "b3_disinfect_on_type": {
+        "name": "Stoomkast desinfectie type aan",
+        "state": {
+          "app": "App",
+          "local": "Lokaal"
+        }
+      },
+      "b3_downstair_current_temp": {
+        "name": "Stoomkast onder huidige temperatuur"
+      },
+      "b3_downstair_destination_temp": {
+        "name": "Stoomkast onder doeltemperatuur"
+      },
+      "b3_downstair_destination_time": {
+        "name": "Stoomkast onder doeltijd"
+      },
+      "b3_downstair_remaining_time": {
+        "name": "Stoomkast onder resterende tijd"
+      },
+      "b3_downstair_sensor": {
+        "name": "Stoomkast onder sensor"
+      },
+      "b3_downstair_status": {
+        "name": "Stoomkast onder status",
+        "state": {
+          "drying": "Aan het drogen",
+          "drying_pause": "Drogen gepauzeerd",
+          "ion_drying": "Ionendrogen",
+          "ion_drying_pause": "Ionendrogen gepauzeerd",
+          "power_off": "Uitgeschakeld",
+          "uperization": "Uperisatie",
+          "uperization_pause": "Uperisatie gepauzeerd",
+          "warm_drink": "Warme drank",
+          "warm_drink_pause": "Warme drank gepauzeerd"
+        }
+      },
+      "b3_thermotank_off_type": {
+        "name": "Stoomkast thermotank type uit",
+        "state": {
+          "app": "App",
+          "local": "Lokaal"
+        }
+      },
+      "b3_thermotank_on_type": {
+        "name": "Stoomkast thermotank type aan",
+        "state": {
+          "app": "App",
+          "local": "Lokaal"
+        }
+      },
+      "b3_upstair_current_temp": {
+        "name": "Stoomkast boven huidige temperatuur"
+      },
+      "b3_upstair_destination_temp": {
+        "name": "Stoomkast boven doeltemperatuur"
+      },
+      "b3_upstair_destination_time": {
+        "name": "Stoomkast boven doeltijd"
+      },
+      "b3_upstair_remaining_time": {
+        "name": "Stoomkast boven resterende tijd"
+      },
+      "b3_upstair_sensor": {
+        "name": "Stoomkast boven sensor"
+      },
+      "b3_upstair_status": {
+        "name": "Stoomkast boven status",
+        "state": {
+          "drying": "Aan het drogen",
+          "drying_pause": "Drogen gepauzeerd",
+          "ion_drying": "Ionendrogen",
+          "ion_drying_pause": "Ionendrogen gepauzeerd",
+          "power_off": "Uitgeschakeld",
+          "uperization": "Uperisatie",
+          "uperization_pause": "Uperisatie gepauzeerd",
+          "warm_drink": "Warme drank",
+          "warm_drink_pause": "Warme drank gepauzeerd"
+        }
+      },
+      "b6_tvoc_value": {
+        "name": "Afzuigkap TVOC-waarde",
+        "state": {
+          "excellent": "Uitstekend",
+          "good": "Goed",
+          "medium": "Gemiddeld"
+        }
+      },
+      "b6_air_duct_detection_score": {
+        "name": "Afzuigkap score luchtkanaaldetectie"
+      },
+      "b6_air_duct_detection_state": {
+        "name": "Afzuigkap status luchtkanaaldetectie"
+      },
+      "b6_air_duct_detection_time": {
+        "name": "Afzuigkap tijd luchtkanaaldetectie"
+      },
+      "b6_air_duct_detection_windage": {
+        "name": "Afzuigkap weerstand luchtkanaaldetectie"
+      },
+      "b6_air_volume": {
+        "name": "Afzuigkap luchtvolume"
+      },
+      "b6_delay_gear_linkage_gear": {
+        "name": "Afzuigkap stand koppeling vertragingsstand"
+      },
+      "b6_delay_time_value": {
+        "name": "Afzuigkap waarde vertragingstijd"
+      },
+      "b6_destination_time": {
+        "name": "Afzuigkap doeltijd"
+      },
+      "b6_gear": {
+        "name": "Afzuigkap stand"
+      },
+      "b6_gear_control_type": {
+        "name": "Afzuigkap type standregeling",
+        "state": {
+          "app": "App",
+          "gesture": "Gebaar",
+          "linkage": "Koppeling",
+          "local": "Lokaal",
+          "smoke_detector": "Rookmelder"
+        }
+      },
+      "b6_gesture_sensitivity": {
+        "name": "Afzuigkap gebaargevoeligheid",
+        "state": {
+          "1": "1",
+          "2": "2",
+          "3": "3"
+        }
+      },
+      "b6_gesture_value": {
+        "name": "Afzuigkap gebaarwaarde",
+        "state": {
+          "light": "Licht",
+          "power": "Vermogen",
+          "wind": "Wind"
+        }
+      },
+      "b6_hotclean_tips": {
+        "name": "Afzuigkap tips voor reinigen op hoge temperatuur"
+      },
+      "b6_infrared_value": {
+        "name": "Afzuigkap infraroodwaarde",
+        "state": {
+          "power": "Vermogen",
+          "wind": "Wind"
+        }
+      },
+      "b6_inverter_ac_frequency": {
+        "name": "Afzuigkap frequentie omvormer-airco"
+      },
+      "b6_inverter_back_electromotive_force": {
+        "name": "Afzuigkap tegen-emk omvormer"
+      },
+      "b6_inverter_capacity": {
+        "name": "Afzuigkap capaciteit omvormer"
+      },
+      "b6_inverter_efficiency": {
+        "name": "Afzuigkap efficiëntie omvormer"
+      },
+      "b6_inverter_motor_compensation_angle": {
+        "name": "Afzuigkap compensatiehoek omvormermotor"
+      },
+      "b6_inverter_motor_speed": {
+        "name": "Afzuigkap snelheid omvormermotor"
+      },
+      "b6_inverter_q_axis_current": {
+        "name": "Afzuigkap Q-as-stroom omvormer"
+      },
+      "b6_inverter_start_time": {
+        "name": "Afzuigkap starttijd omvormer"
+      },
+      "b6_inverter_temperature": {
+        "name": "Afzuigkap temperatuur omvormer"
+      },
+      "b6_inverter_temperature_limit_sign": {
+        "name": "Afzuigkap temperatuurlimietmarkering omvormer"
+      },
+      "b6_inverter_voltage": {
+        "name": "Afzuigkap spanning omvormer"
+      },
+      "b6_inverter_wind_flow": {
+        "name": "Afzuigkap luchtstroom omvormer"
+      },
+      "b6_inverter_wind_presssure": {
+        "name": "Afzuigkap luchtdruk omvormer"
+      },
+      "b6_inverter_windage": {
+        "name": "Afzuigkap weerstand omvormer"
+      },
+      "b6_inverter_work_gear": {
+        "name": "Afzuigkap werkstand omvormer"
+      },
+      "b6_last_hotclean_hour": {
+        "name": "Afzuigkap laatste reinigingsuur hoge temperatuur"
+      },
+      "b6_light": {
+        "name": "Afzuigkap verlichting"
+      },
+      "b6_light_off_type": {
+        "name": "Afzuigkap type verlichting uit",
+        "state": {
+          "app": "App",
+          "error": "Fout",
+          "gesture": "Gebaar",
+          "local": "Lokaal"
+        }
+      },
+      "b6_light_on_type": {
+        "name": "Afzuigkap type verlichting aan",
+        "state": {
+          "app": "App",
+          "gesture": "Gebaar",
+          "local": "Lokaal"
+        }
+      },
+      "b6_lightness": {
+        "name": "Afzuigkap helderheid"
+      },
+      "b6_lock_off_type": {
+        "name": "Afzuigkap type slot uit",
+        "state": {
+          "local": "Lokaal"
+        }
+      },
+      "b6_lock_on_type": {
+        "name": "Afzuigkap type slot aan",
+        "state": {
+          "app": "App",
+          "local": "Lokaal"
+        }
+      },
+      "b6_power": {
+        "name": "Afzuigkap vermogen",
+        "state": {
+          "delay_off": "Vertraagd uitschakelen",
+          "off": "Uit",
+          "on": "Aan"
+        }
+      },
+      "b6_power_off_type": {
+        "name": "Afzuigkap type uitschakelen",
+        "state": {
+          "app": "App",
+          "delay": "Vertraging",
+          "gesture": "Gebaar",
+          "linkage": "Koppeling",
+          "local": "Lokaal"
+        }
+      },
+      "b6_power_on_type": {
+        "name": "Afzuigkap type inschakelen",
+        "state": {
+          "app": "App",
+          "gesture": "Gebaar",
+          "linkage": "Koppeling",
+          "local": "Lokaal"
+        }
+      },
+      "b6_remaining_time": {
+        "name": "Afzuigkap resterende tijd"
+      },
+      "b6_smoke_detector_value": {
+        "name": "Afzuigkap waarde rookmelder"
+      },
+      "b6_smoke_potency": {
+        "name": "Afzuigkap rookintensiteit"
+      },
+      "b6_smoke_stove_linkage_flowin": {
+        "name": "Afzuigkap koppeling rook en fornuis luchtinstroom",
+        "state": {
+          "no": "Nee",
+          "yes": "Ja"
+        }
+      },
+      "b6_smoke_stove_linkage_gear": {
+        "name": "Afzuigkap stand koppeling rook en fornuis"
+      },
+      "b6_smoke_stove_linkage_gear_fix": {
+        "name": "Afzuigkap standcorrectie koppeling rook en fornuis",
+        "state": {
+          "negative": "Negatief",
+          "positive": "Positief"
+        }
+      },
+      "b6_steaming": {
+        "name": "Afzuigkap stomen",
+        "state": {
+          "off": "Uit",
+          "on": "Aan"
+        }
+      },
+      "b6_steaming_stage": {
+        "name": "Afzuigkap stoomfase"
+      },
+      "b6_wind_pressure": {
+        "name": "Afzuigkap luchtdruk"
+      },
+      "b6_work_status": {
+        "name": "Afzuigkap werkstatus",
+        "state": {
+          "ai_dry_clean": "AI droog reinigen",
+          "air_duct_detection": "Luchtkanaaldetectie",
+          "check": "Controleren",
+          "clean": "Reinigen",
+          "clean_finish": "Reinigen voltooid",
+          "error": "Fout",
+          "hotclean": "Reinigen op hoge temperatuur",
+          "initial": "Initieel",
+          "mute_gear": "Geluiddempingsstand",
+          "power_off": "Uitgeschakeld",
+          "power_off_delay": "Vertraagd uitschakelen",
+          "standby": "Stand-by",
+          "vvvf_gear": "VVVF-stand",
+          "working": "Actief"
+        }
+      },
+      "b7_left_current_temp": {
+        "name": "Gaskookplaat links huidige temperatuur"
+      },
+      "b7_left_destination_temp": {
+        "name": "Gaskookplaat links doeltemperatuur"
+      },
+      "b7_left_destination_time": {
+        "name": "Gaskookplaat links doeltijd"
+      },
+      "b7_left_gear": {
+        "name": "Gaskookplaat links stand"
+      },
+      "b7_left_power_off_type": {
+        "name": "Gaskookplaat links type uitschakelen",
+        "state": {
+          "app": "App",
+          "auto": "Automatisch",
+          "error": "Fout",
+          "local": "Lokaal",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b7_left_remaining_time": {
+        "name": "Gaskookplaat links resterende tijd"
+      },
+      "b7_left_status": {
+        "name": "Gaskookplaat links status",
+        "state": {
+          "drying": "Aan het drogen",
+          "drying_pause": "Drogen gepauzeerd",
+          "ion_drying": "Ionendrogen",
+          "ion_drying_pause": "Ionendrogen gepauzeerd",
+          "power_off": "Uitgeschakeld",
+          "uperization": "Uperisatie",
+          "uperization_pause": "Uperisatie gepauzeerd",
+          "warm_drink": "Warme drank",
+          "warm_drink_pause": "Warme drank gepauzeerd"
+        }
+      },
+      "b7_left_work_time": {
+        "name": "Gaskookplaat links werktijd"
+      },
+      "b7_right_current_temp": {
+        "name": "Gaskookplaat rechts huidige temperatuur"
+      },
+      "b7_right_destination_temp": {
+        "name": "Gaskookplaat rechts doeltemperatuur"
+      },
+      "b7_right_destination_time": {
+        "name": "Gaskookplaat rechts doeltijd"
+      },
+      "b7_right_gear": {
+        "name": "Gaskookplaat rechts stand"
+      },
+      "b7_right_power_off_type": {
+        "name": "Gaskookplaat rechts type uitschakelen",
+        "state": {
+          "app": "App",
+          "auto": "Automatisch",
+          "error": "Fout",
+          "local": "Lokaal",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b7_right_remaining_time": {
+        "name": "Gaskookplaat rechts resterende tijd"
+      },
+      "b7_right_status": {
+        "name": "Gaskookplaat rechts status",
+        "state": {
+          "drying": "Aan het drogen",
+          "drying_pause": "Drogen gepauzeerd",
+          "ion_drying": "Ionendrogen",
+          "ion_drying_pause": "Ionendrogen gepauzeerd",
+          "power_off": "Uitgeschakeld",
+          "uperization": "Uperisatie",
+          "uperization_pause": "Uperisatie gepauzeerd",
+          "warm_drink": "Warme drank",
+          "warm_drink_pause": "Warme drank gepauzeerd"
+        }
+      },
+      "b7_right_work_time": {
+        "name": "Gaskookplaat rechts werktijd"
+      },
+      "bf_cavity": {
+        "name": "Ovenruimte",
+        "state": {
+          "down": "Omlaag",
+          "up": "Omhoog"
+        }
+      },
+      "bf_control_back": {
+        "name": "Oven bediening terug",
+        "state": {
+          "func_notsupport": "Functie niet ondersteund",
+          "status_notsupport": "Status niet ondersteund",
+          "success": "Geslaagd",
+          "value_notsupport": "Waarde niet ondersteund"
+        }
+      },
+      "bf_end_next": {
+        "name": "Oven einde volgende"
+      },
+      "bf_fire": {
+        "name": "Ovenvuur"
+      },
+      "bf_mode": {
+        "name": "Ovenmodus"
+      },
+      "bf_quick_btn_bake_id": {
+        "name": "Oven snelknop bakken-ID"
+      },
+      "bf_quick_btn_bake_set": {
+        "name": "Oven snelknop bakken instellen"
+      },
+      "bf_quick_btn_bake_time": {
+        "name": "Oven snelknop bakken tijd"
+      },
+      "bf_quick_btn_microwave_id": {
+        "name": "Oven snelknop magnetron-ID"
+      },
+      "bf_quick_btn_microwave_set": {
+        "name": "Oven snelknop magnetron instellen"
+      },
+      "bf_quick_btn_microwave_time": {
+        "name": "Oven snelknop magnetron tijd"
+      },
+      "bf_quick_btn_steam_id": {
+        "name": "Oven snelknop stoom-ID"
+      },
+      "bf_quick_btn_steam_set": {
+        "name": "Oven snelknop stoom instellen"
+      },
+      "bf_quick_btn_steam_time": {
+        "name": "Oven snelknop stoom tijd"
+      },
+      "bf_recipe_code": {
+        "name": "Oven receptcode"
+      },
+      "bf_remaining_time": {
+        "name": "Oven resterende tijd"
+      },
+      "bf_steam": {
+        "name": "Ovenstoom"
+      },
+      "bf_step_current": {
+        "name": "Oven huidige stap"
+      },
+      "bf_step_total": {
+        "name": "Oven totaal aantal stappen"
+      },
+      "bf_temp_down": {
+        "name": "Oven temperatuur onder"
+      },
+      "bf_temp_down_set": {
+        "name": "Oven temperatuur onder instellen"
+      },
+      "bf_temp_probe": {
+        "name": "Oven temperatuur sonde"
+      },
+      "bf_temp_probe_set": {
+        "name": "Oven temperatuur sonde instellen"
+      },
+      "bf_temp_up": {
+        "name": "Oven temperatuur boven"
+      },
+      "bf_temp_up_set": {
+        "name": "Oven temperatuur boven instellen"
+      },
+      "bf_tips_mark": {
+        "name": "Oven tipsmarkering",
+        "state": {
+          "apply": "Toepassen",
+          "change_attachments": "Accessoires wisselen",
+          "door_open": "Deur open",
+          "feed": "Toevoegen",
+          "recipe_tips": "Recepttips",
+          "stir": "Roeren"
+        }
+      },
+      "bf_weight_mount": {
+        "name": "Oven gewichtsmontage"
+      },
+      "bf_weight_multiple": {
+        "name": "Oven gewichtsfactor",
+        "state": {
+          "g": "g",
+          "kg": "kg",
+          "ounce": "Ounce",
+          "pound": "Pound"
+        }
+      },
+      "bf_weight_unit": {
+        "name": "Oven gewichtseenheid",
+        "state": {
+          "g": "g",
+          "kg": "kg",
+          "other": "Overig",
+          "ounce": "Ounce",
+          "pound": "Pound"
+        }
+      },
+      "bf_work_status": {
+        "name": "Oven werkstatus",
+        "state": {
+          "after_sale": "Na verkoop",
+          "check_version": "Versie controleren",
+          "cloudmenu_setting": "Cloudmenu-instelling",
+          "demo": "Demo",
+          "done": "Gereed",
+          "keep": "Behouden",
+          "love_three_seconds": "Love Three Seconds",
+          "open": "Open",
+          "order": "Programmering",
+          "pause": "Pauzeren",
+          "pause_temporarily": "Tijdelijk pauzeren",
+          "power_off": "Uitgeschakeld",
+          "self_check": "Zelfcontrole",
+          "working": "Actief"
+        }
+      },
+      "bf_working_time": {
+        "name": "Oven werktijd"
+      },
+      "e7_left_bottom_bridge_link": {
+        "name": "Inductie linksonder brugkoppeling",
+        "state": {
+          "off": "Uit",
+          "on": "Aan"
+        }
+      },
+      "e7_left_bottom_destination_time": {
+        "name": "Inductie linksonder doeltijd"
+      },
+      "e7_left_bottom_efficiency": {
+        "name": "Inductie linksonder efficiëntie"
+      },
+      "e7_left_bottom_gear": {
+        "name": "Inductie linksonder stand"
+      },
+      "e7_left_bottom_mode": {
+        "name": "Inductie linksonder modus",
+        "state": {
+          "boiling": "Koken",
+          "heat_preservation": "Warm houden",
+          "none": "Geen",
+          "stew_soup": "Soep sudderen",
+          "stir_frying": "Roerbakken"
+        }
+      },
+      "e7_left_bottom_remaining_time": {
+        "name": "Inductie linksonder resterende tijd"
+      },
+      "e7_left_bottom_work_status": {
+        "name": "Inductie linksonder werkstatus",
+        "state": {
+          "auto": "Automatisch",
+          "drying": "Aan het drogen",
+          "finish": "Voltooid",
+          "order": "Programmering",
+          "pause": "Pauzeren",
+          "power_off": "Uitgeschakeld",
+          "standby": "Stand-by",
+          "working": "Actief"
+        }
+      },
+      "e7_left_bottom_work_time": {
+        "name": "Inductie linksonder werktijd"
+      },
+      "e7_left_bridge_link": {
+        "name": "Inductie links brugkoppeling",
+        "state": {
+          "off": "Uit",
+          "on": "Aan"
+        }
+      },
+      "e7_left_destination_time": {
+        "name": "Inductie links doeltijd"
+      },
+      "e7_left_efficiency": {
+        "name": "Inductie links efficiëntie"
+      },
+      "e7_left_gear": {
+        "name": "Inductie links stand"
+      },
+      "e7_left_mode": {
+        "name": "Inductie links modus",
+        "state": {
+          "boiling": "Koken",
+          "heat_preservation": "Warm houden",
+          "none": "Geen",
+          "stew_soup": "Soep sudderen",
+          "stir_frying": "Roerbakken"
+        }
+      },
+      "e7_left_remaining_time": {
+        "name": "Inductie links resterende tijd"
+      },
+      "e7_left_top_bridge_link": {
+        "name": "Inductie linksboven brugkoppeling",
+        "state": {
+          "off": "Uit",
+          "on": "Aan"
+        }
+      },
+      "e7_left_top_destination_time": {
+        "name": "Inductie linksboven doeltijd"
+      },
+      "e7_left_top_efficiency": {
+        "name": "Inductie linksboven efficiëntie"
+      },
+      "e7_left_top_gear": {
+        "name": "Inductie linksboven stand"
+      },
+      "e7_left_top_mode": {
+        "name": "Inductie linksboven modus",
+        "state": {
+          "boiling": "Koken",
+          "heat_preservation": "Warm houden",
+          "none": "Geen",
+          "stew_soup": "Soep sudderen",
+          "stir_frying": "Roerbakken"
+        }
+      },
+      "e7_left_top_remaining_time": {
+        "name": "Inductie linksboven resterende tijd"
+      },
+      "e7_left_top_work_status": {
+        "name": "Inductie linksboven werkstatus",
+        "state": {
+          "auto": "Automatisch",
+          "drying": "Aan het drogen",
+          "finish": "Voltooid",
+          "order": "Programmering",
+          "pause": "Pauzeren",
+          "power_off": "Uitgeschakeld",
+          "standby": "Stand-by",
+          "working": "Actief"
+        }
+      },
+      "e7_left_top_work_time": {
+        "name": "Inductie linksboven werktijd"
+      },
+      "e7_left_work_status": {
+        "name": "Inductie links werkstatus",
+        "state": {
+          "auto": "Automatisch",
+          "drying": "Aan het drogen",
+          "finish": "Voltooid",
+          "order": "Programmering",
+          "pause": "Pauzeren",
+          "power_off": "Uitgeschakeld",
+          "standby": "Stand-by",
+          "working": "Actief"
+        }
+      },
+      "e7_left_work_time": {
+        "name": "Inductie links werktijd"
+      },
+      "e7_right_bottom_bridge_link": {
+        "name": "Inductie rechtsonder brugkoppeling",
+        "state": {
+          "off": "Uit",
+          "on": "Aan"
+        }
+      },
+      "e7_right_bottom_destination_time": {
+        "name": "Inductie rechtsonder doeltijd"
+      },
+      "e7_right_bottom_efficiency": {
+        "name": "Inductie rechtsonder efficiëntie"
+      },
+      "e7_right_bottom_gear": {
+        "name": "Inductie rechtsonder stand"
+      },
+      "e7_right_bottom_mode": {
+        "name": "Inductie rechtsonder modus",
+        "state": {
+          "boiling": "Koken",
+          "heat_preservation": "Warm houden",
+          "none": "Geen",
+          "stew_soup": "Soep sudderen",
+          "stir_frying": "Roerbakken"
+        }
+      },
+      "e7_right_bottom_remaining_time": {
+        "name": "Inductie rechtsonder resterende tijd"
+      },
+      "e7_right_bottom_work_status": {
+        "name": "Inductie rechtsonder werkstatus",
+        "state": {
+          "auto": "Automatisch",
+          "drying": "Aan het drogen",
+          "finish": "Voltooid",
+          "order": "Programmering",
+          "pause": "Pauzeren",
+          "power_off": "Uitgeschakeld",
+          "standby": "Stand-by",
+          "working": "Actief"
+        }
+      },
+      "e7_right_bottom_work_time": {
+        "name": "Inductie rechtsonder werktijd"
+      },
+      "e7_right_bridge_link": {
+        "name": "Inductie rechts brugkoppeling",
+        "state": {
+          "off": "Uit",
+          "on": "Aan"
+        }
+      },
+      "e7_right_destination_time": {
+        "name": "Inductie rechts doeltijd"
+      },
+      "e7_right_efficiency": {
+        "name": "Inductie rechts efficiëntie"
+      },
+      "e7_right_gear": {
+        "name": "Inductie rechts stand"
+      },
+      "e7_right_mode": {
+        "name": "Inductie rechts modus",
+        "state": {
+          "boiling": "Koken",
+          "heat_preservation": "Warm houden",
+          "none": "Geen",
+          "stew_soup": "Soep sudderen",
+          "stir_frying": "Roerbakken"
+        }
+      },
+      "e7_right_remaining_time": {
+        "name": "Inductie rechts resterende tijd"
+      },
+      "e7_right_top_bridge_link": {
+        "name": "Inductie rechtsboven brugkoppeling",
+        "state": {
+          "off": "Uit",
+          "on": "Aan"
+        }
+      },
+      "e7_right_top_destination_time": {
+        "name": "Inductie rechtsboven doeltijd"
+      },
+      "e7_right_top_efficiency": {
+        "name": "Inductie rechtsboven efficiëntie"
+      },
+      "e7_right_top_gear": {
+        "name": "Inductie rechtsboven stand"
+      },
+      "e7_right_top_mode": {
+        "name": "Inductie rechtsboven modus",
+        "state": {
+          "boiling": "Koken",
+          "heat_preservation": "Warm houden",
+          "none": "Geen",
+          "stew_soup": "Soep sudderen",
+          "stir_frying": "Roerbakken"
+        }
+      },
+      "e7_right_top_remaining_time": {
+        "name": "Inductie rechtsboven resterende tijd"
+      },
+      "e7_right_top_work_status": {
+        "name": "Inductie rechtsboven werkstatus",
+        "state": {
+          "auto": "Automatisch",
+          "drying": "Aan het drogen",
+          "finish": "Voltooid",
+          "order": "Programmering",
+          "pause": "Pauzeren",
+          "power_off": "Uitgeschakeld",
+          "standby": "Stand-by",
+          "working": "Actief"
+        }
+      },
+      "e7_right_top_work_time": {
+        "name": "Inductie rechtsboven werktijd"
+      },
+      "e7_right_work_status": {
+        "name": "Inductie rechts werkstatus",
+        "state": {
+          "auto": "Automatisch",
+          "drying": "Aan het drogen",
+          "finish": "Voltooid",
+          "order": "Programmering",
+          "pause": "Pauzeren",
+          "power_off": "Uitgeschakeld",
+          "standby": "Stand-by",
+          "working": "Actief"
+        }
+      },
+      "e7_right_work_time": {
+        "name": "Inductie rechts werktijd"
+      },
+      "electronic_version": {
+        "name": "Elektronische versie"
+      },
+      "error_list": {
+        "name": "Foutenlijst"
+      },
+      "sp_fandrying_destination_time": {
+        "name": "Bordenwarmer ventilatordrogen doeltijd"
+      },
+      "sp_fandrying_order_destination_time": {
+        "name": "Bordenwarmer ventilatordrogen programmering doeltijd"
+      },
+      "sp_fandrying_order_remaining_time": {
+        "name": "Bordenwarmer ventilatordrogen programmering resterende tijd"
+      },
+      "sp_fandrying_remaining_time": {
+        "name": "Bordenwarmer ventilatordrogen resterende tijd"
+      },
+      "sp_fandrying_setting_automode_day": {
+        "name": "Bordenwarmer ventilatordrogen automodus dag instellen"
+      },
+      "sp_fandrying_setting_automode_starthour": {
+        "name": "Bordenwarmer ventilatordrogen automodus startuur instellen"
+      },
+      "sp_fandrying_setting_automode_startminute": {
+        "name": "Bordenwarmer ventilatordrogen automodus startminuut instellen"
+      },
+      "sp_fandrying_status": {
+        "name": "Bordenwarmer ventilatordrogen status",
+        "state": {
+          "drying": "Aan het drogen",
+          "drying_pause": "Drogen gepauzeerd",
+          "ion_drying": "Ionendrogen",
+          "ion_drying_pause": "Ionendrogen gepauzeerd",
+          "power_off": "Uitgeschakeld",
+          "uperization": "Uperisatie",
+          "uperization_pause": "Uperisatie gepauzeerd",
+          "warm_drink": "Warme drank",
+          "warm_drink_pause": "Warme drank gepauzeerd"
+        }
+      },
+      "sp_fandrying_temperature": {
+        "name": "Bordenwarmer ventilatordrogen temperatuur"
+      },
+      "sp_heatingdisk_destination_time": {
+        "name": "Bordenwarmer verwarmingsplaat doeltijd"
+      },
+      "sp_heatingdisk_order_destination_time": {
+        "name": "Bordenwarmer verwarmingsplaat programmering doeltijd"
+      },
+      "sp_heatingdisk_order_remaining_time": {
+        "name": "Bordenwarmer verwarmingsplaat programmering resterende tijd"
+      },
+      "sp_heatingdisk_remaining_time": {
+        "name": "Bordenwarmer verwarmingsplaat resterende tijd"
+      },
+      "sp_heatingdisk_setting_automode_day": {
+        "name": "Bordenwarmer verwarmingsplaat automodus dag instellen"
+      },
+      "sp_heatingdisk_setting_automode_starthour": {
+        "name": "Bordenwarmer verwarmingsplaat automodus startuur instellen"
+      },
+      "sp_heatingdisk_setting_automode_startminute": {
+        "name": "Bordenwarmer verwarmingsplaat automodus startminuut instellen"
+      },
+      "sp_heatingdisk_status": {
+        "name": "Bordenwarmer verwarmingsplaat status",
+        "state": {
+          "drying": "Aan het drogen",
+          "drying_pause": "Drogen gepauzeerd",
+          "ion_drying": "Ionendrogen",
+          "ion_drying_pause": "Ionendrogen gepauzeerd",
+          "power_off": "Uitgeschakeld",
+          "uperization": "Uperisatie",
+          "uperization_pause": "Uperisatie gepauzeerd",
+          "warm_drink": "Warme drank",
+          "warm_drink_pause": "Warme drank gepauzeerd"
+        }
+      },
+      "sp_heatingdisk_temperature": {
+        "name": "Bordenwarmer verwarmingsplaat temperatuur"
+      },
+      "sp_uvc_destination_time": {
+        "name": "Bordenwarmer UVC doeltijd"
+      },
+      "sp_uvc_order_destination_time": {
+        "name": "Bordenwarmer UVC programmering doeltijd"
+      },
+      "sp_uvc_order_remaining_time": {
+        "name": "Bordenwarmer UVC programmering resterende tijd"
+      },
+      "sp_uvc_remaining_time": {
+        "name": "Bordenwarmer UVC resterende tijd"
+      },
+      "sp_uvc_setting_automode_day": {
+        "name": "Bordenwarmer UVC automodus dag instellen"
+      },
+      "sp_uvc_setting_automode_starthour": {
+        "name": "Bordenwarmer UVC automodus startuur instellen"
+      },
+      "sp_uvc_setting_automode_startminute": {
+        "name": "Bordenwarmer UVC automodus startminuut instellen"
+      },
+      "sp_uvc_status": {
+        "name": "Bordenwarmer UVC status",
+        "state": {
+          "drying": "Aan het drogen",
+          "drying_pause": "Drogen gepauzeerd",
+          "ion_drying": "Ionendrogen",
+          "ion_drying_pause": "Ionendrogen gepauzeerd",
+          "power_off": "Uitgeschakeld",
+          "uperization": "Uperisatie",
+          "uperization_pause": "Uperisatie gepauzeerd",
+          "warm_drink": "Warme drank",
+          "warm_drink_pause": "Warme drank gepauzeerd"
+        }
+      },
+      "sp_uvc_temperature": {
+        "name": "Bordenwarmer UVC temperatuur"
+      },
+      "total_error_code": {
+        "name": "Foutcode"
+      },
+      "total_error_type": {
+        "name": "Fouttype"
+      },
+      "total_firewall_temp": {
+        "name": "Temperatuur brandwand"
+      },
+      "total_gesture": {
+        "name": "Gebaar",
+        "state": {
+          "off": "Uit",
+          "on": "Aan"
+        }
+      },
+      "total_ir": {
+        "name": "IR",
+        "state": {
+          "off": "Uit",
+          "on": "Aan"
+        }
+      },
+      "total_lock_off_type": {
+        "name": "Type slot uit",
+        "state": {
+          "local": "Lokaal"
+        }
+      },
+      "total_lock_on_type": {
+        "name": "Type slot aan",
+        "state": {
+          "app": "App",
+          "local": "Lokaal"
+        }
+      },
+      "total_shelving_unit_temp": {
+        "name": "Temperatuur legbord"
+      },
+      "total_speak": {
+        "name": "Spreken",
+        "state": {
+          "off": "Uit",
+          "on": "Aan"
+        }
+      },
+      "total_tips_code": {
+        "name": "Tipscode"
+      },
+      "total_tips_type": {
+        "name": "Tipstype"
+      },
+      "work_status": {
+        "name": "Werkstatus",
+        "state": {
+          "save_power": "Energie besparen",
+          "standby": "Stand-by",
+          "work": "Actief",
+          "pause": "Gepauzeerd",
+          "work_finish": "Voltooid",
+          "order": "Vertraging",
+          "pause_c": "Gepauzeerd C",
+          "three": "Drie",
+          "self_inspection": "Zelfinspectie",
+          "query_version": "Versie opvragen",
+          "demo": "Demo",
+          "ramadan": "Ramadan",
+          "after_checking": "Na controle",
+          "wait_to_start": "Wachten op start",
+          "ff": "Onbekend"
+        }
+      },
+      "x9b_fire_power": {
+        "name": "Vuurkracht",
+        "state": {
+          "high_power": "Hoog",
+          "medium_high_power": "Gemiddeld-hoog",
+          "medium_power": "Gemiddeld",
+          "medium_low_power": "Gemiddeld-laag",
+          "low_power": "Laag",
+          "ff": "Onbekend"
+        }
+      },
+      "pre_heat": {
+        "name": "Voorverwarmen",
+        "state": {
+          "off": "Uit",
+          "work": "Voorverwarmen",
+          "end": "Voorverwarmen voltooid"
+        }
+      },
+      "water_status": {
+        "name": "Waterstatus",
+        "state": {
+          "normal": "Normaal",
+          "lack_box": "Bak ontbreekt",
+          "lack_water": "Watertekort",
+          "change_water": "Water verversen"
+        }
+      },
+      "dissipate_heat": {
+        "name": "Warmte afvoeren",
+        "state": {
+          "off": "Uit",
+          "work": "Warmte aan het afvoeren"
+        }
+      },
+      "execute": {
+        "name": "Uitvoeringsstatus",
+        "state": {
+          "ok": "OK",
+          "status_nonsupport": "Status niet ondersteund",
+          "function_nonsupport": "Functie niet ondersteund",
+          "param_range_error": "Parameterbereikfout"
+        }
+      },
+      "sys_time_src": {
+        "name": "Bron systeemtijd",
+        "state": {
+          "module": "Module",
+          "app": "App",
+          "user_defined": "Door gebruiker ingesteld"
+        }
+      },
+      "cur_temperature": {
+        "name": "Huidige temperatuur"
+      },
+      "work_hour": {
+        "name": "Werkuur"
+      },
+      "work_minute": {
+        "name": "Werkminuut"
+      },
+      "work_second": {
+        "name": "Werkseconde"
+      },
+      "cbs_version": {
+        "name": "CBS-versie"
+      }
+    },
+    "switch": {
+      "db_power": {
+        "name": "Wasmachinevermogen"
+      },
+      "dc_power": {
+        "name": "Drogervermogen"
+      },
+      "door_auto_open_setting": {
+        "name": "Deur automatisch openen"
+      },
+      "anion": {
+        "name": "Anionen"
+      },
+      "humidify": {
+        "name": "Bevochtigen"
+      },
+      "waterions": {
+        "name": "Waterionen"
+      },
+      "anophelifuge": {
+        "name": "Muggenwering"
+      },
+      "display_on_off": {
+        "name": "Weergave"
+      },
+      "auto_power_off": {
+        "name": "Automatisch uitschakelen"
+      },
+      "body_feeling_scan": {
+        "name": "Lichaamsdetectiescan"
+      },
+      "aux_heating": {
+        "name": "Hulpverwarming"
+      },
+      "boost_mode": {
+        "name": "Boostmodus"
+      },
+      "breezeless": {
+        "name": "Tochtvrij"
+      },
+      "child_lock": {
+        "name": "Kinderslot"
+      },
+      "cl_sterilization": {
+        "name": "CL-sterilisatie"
+      },
+      "comfort_mode": {
+        "name": "Comfortmodus"
+      },
+      "degerming": {
+        "name": "Ontkiemen"
+      },
+      "dhw_power": {
+        "name": "DHW-vermogen"
+      },
+      "disinfect": {
+        "name": "Desinfecteren"
+      },
+      "furnace_light": {
+        "name": "Ovenverlichting"
+      },
+      "hot_wind": {
+        "name": "Hetelucht"
+      },
+      "ramadan": {
+        "name": "Ramadan"
+      },
+      "turntable": {
+        "name": "Draaiplateau"
+      },
+      "maintenance_reminder": {
+        "name": "Onderhoudsherinnering"
+      },
+      "vacation_mode": {
+        "name": "Vakantiemodus"
+      },
+      "dry": {
+        "name": "Drogen"
+      },
+      "cold_water_single": {
+        "name": "Koud water doorlopend"
+      },
+      "cold_water_dot": {
+        "name": "Koud water puntsgewijs"
+      },
+      "eco_mode": {
+        "name": "ECO-modus"
+      },
+      "memory": {
+        "name": "Memo U"
+      },
+      "fast_dhw": {
+        "name": "Snel DHW"
+      },
+      "foam_shield": {
+        "name": "Schuimbescherming"
+      },
+      "frost_protect": {
+        "name": "Vorstbescherming"
+      },
+      "heating_power": {
+        "name": "Verwarmingsvermogen"
+      },
+      "indirect_wind": {
+        "name": "Indirecte wind"
+      },
+      "leak_water_protection": {
+        "name": "Bescherming tegen waterlekkage"
+      },
+      "light": {
+        "name": "Licht"
+      },
+      "link_to_ac": {
+        "name": "Koppelen met airco"
+      },
+      "main_light": {
+        "name": "Hoofdverlichting"
+      },
+      "main_power": {
+        "name": "Hoofdvoeding"
+      },
+      "natural_wind": {
+        "name": "Natuurlijke wind"
+      },
+      "night_light": {
+        "name": "Nachtlampje"
+      },
+      "oscillate": {
+        "name": "Oscilleren"
+      },
+      "power": {
+        "name": "Vermogen"
+      },
+      "powerful_purify": {
+        "name": "Krachtige luchtzuivering"
+      },
+      "prompt_tone": {
+        "name": "Bevestigingstoon"
+      },
+      "regeneration": {
+        "name": "Regeneratie"
+      },
+      "water_pump": {
+        "name": "Waterpomp"
+      },
+      "water_way": {
+        "name": "Waterweg"
+      },
+      "screen_display": {
+        "name": "Schermweergave"
+      },
+      "screen_display_alternate": {
+        "name": "Schermweergave afwisselend"
+      },
+      "sensor_light": {
+        "name": "Sensorverlichting"
+      },
+      "silent_mode": {
+        "name": "Stille modus"
+      },
+      "sleep_mode": {
+        "name": "Slaapmodus"
+      },
+      "out_silent": {
+        "name": "Stille buitenmodus"
+      },
+      "smart_eye": {
+        "name": "Smart Eye"
+      },
+      "smart_volume": {
+        "name": "Slim volume"
+      },
+      "smelly_sensor": {
+        "name": "Geursensor"
+      },
+      "soften": {
+        "name": "Ontharden"
+      },
+      "standby": {
+        "name": "Stand-by"
+      },
+      "start": {
+        "name": "Starten"
+      },
+      "sterilization": {
+        "name": "Sterilisatie"
+      },
+      "storage": {
+        "name": "Opslag"
+      },
+      "swing": {
+        "name": "Zwenken"
+      },
+      "swing_horizontal": {
+        "name": "Horizontaal zwenken"
+      },
+      "swing_vertical": {
+        "name": "Verticaal zwenken"
+      },
+      "self_clean": {
+        "name": "Zelfreiniging"
+      },
+      "ieco": {
+        "name": "iECO"
+      },
+      "sound": {
+        "name": "Geluid"
+      },
+      "tbh": {
+        "name": "TBH"
+      },
+      "variable_heating": {
+        "name": "Variabele verwarming"
+      },
+      "ventilation": {
+        "name": "Ventilatie"
+      },
+      "whole_tank_heating": {
+        "name": "Volledige tank verwarmen"
+      },
+      "zero_cold_pulse": {
+        "name": "Direct heet water (puls)"
+      },
+      "zero_cold_water": {
+        "name": "Direct heet water"
+      },
+      "zone1_curve": {
+        "name": "Zone1-curve"
+      },
+      "zone1_power": {
+        "name": "Zone1-vermogen"
+      },
+      "zone2_curve": {
+        "name": "Zone2-curve"
+      },
+      "zone2_power": {
+        "name": "Zone2-vermogen"
+      },
+      "boiling": {
+        "name": "Water koken"
+      },
+      "tea_bar_boil": {
+        "name": "Schakelaar water koken"
+      },
+      "tea_bar_child_lock": {
+        "name": "Kinderslot"
+      },
+      "keep_warm": {
+        "name": "Warm houden"
+      },
+      "tea_bar_cooling": {
+        "name": "Koeling theebar"
+      },
+      "screen_off": {
+        "name": "Scherm uit"
+      },
+      "wash": {
+        "name": "Filter wassen"
+      },
+      "antifreeze": {
+        "name": "Antivries"
+      },
+      "heat": {
+        "name": "Verwarmen"
+      },
+      "holiday_on": {
+        "name": "Modus - Vakantie"
+      },
+      "dhw_disinfect": {
+        "name": "DHW - Desinfectie"
+      },
+      "ai_voice_microphone": {
+        "name": "Microfoon AI-stem"
+      },
+      "total_lock": {
+        "name": "Kinderslot"
+      },
+      "total_power": {
+        "name": "Vermogen"
+      },
+      "lock": {
+        "name": "Kinderslot"
+      },
+      "camera": {
+        "name": "Camera"
+      },
+      "dryer_sterilize": {
+        "name": "Multidimensionale sterilisatie"
+      },
+      "dryer_anti_wrinkle": {
+        "name": "Slim antikreuk"
+      },
+      "washer_forget_free": {
+        "name": "Zorgeloze verzorging"
+      }
+    },
+    "water_heater": {
+      "domestic_hot_water": {
+        "name": "Warm tapwater"
+      },
+      "bathing": {
+        "name": "Baden"
+      },
+      "heating": {
+        "name": "Verwarmen"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "ip_address": "IP-adres",
+          "refresh_interval": "Verversingsinterval (0 betekent niet actief verversen)",
+          "sensors": "Extra sensoren",
+          "switches": "Extra bedieningselementen",
+          "customize": "Aanpassen",
+          "account": "Midea cloud-account (voor de verbruiksstatistieksensoren)",
+          "password": "Wachtwoord Midea cloud-account (voor de verbruiksstatistieksensoren)",
+          "server": "Midea cloud-server van het account (voor de verbruiksstatistieksensoren)"
+        },
+        "title": "Configureren"
+      }
+    },
+    "abort": {
+      "account_option": "Het account ondersteunt deze bewerking niet.\nKlik op \"APPARAAT TOEVOEGEN\" om een nieuw apparaat toe te voegen."
+    }
+  },
+  "services": {
+    "set_attribute": {
+      "name": "Attribuut instellen",
+      "description": "Stel de attribuutwaarde van het apparaat in",
+      "fields": {
+        "device_id": {
+          "name": "Apparaatcode",
+          "description": "De apparaatcode (apparaat-ID) van het apparaat"
+        },
+        "attribute": {
+          "name": "Attribuut",
+          "description": "De naam van het attribuut dat je wilt instellen"
+        },
+        "value": {
+          "name": "Waarde",
+          "description": "De attribuutwaarde die je wilt instellen"
+        }
+      }
+    },
+    "send_command": {
+      "name": "Aangepaste opdracht",
+      "description": "Stuur een aangepaste opdracht naar het apparaat",
+      "fields": {
+        "device_id": {
+          "name": "Apparaatcode",
+          "description": "De apparaatcode (apparaat-ID) van het apparaat"
+        },
+        "cmd_type": {
+          "name": "Opdrachttype",
+          "description": "Het type opdracht, moet 3 (opvragen) of 2 (instellen) zijn"
+        },
+        "cmd_body": {
+          "name": "Opdrachtinhoud",
+          "description": "De inhoud van de opdracht (zonder MSmart-protocolheader en checksum aan het einde)"
+        }
+      }
+    }
+  }
+}

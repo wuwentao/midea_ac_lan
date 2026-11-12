@@ -1,0 +1,4402 @@
+{
+  "config": {
+    "error": {
+      "preset_account": "Prijava s prednastavljenim računom ni uspela, prosimo, prijavite to težavo",
+      "login_failed": "Prijava ni uspela, račun ali geslo je bilo napačno",
+      "no_devices": "V omrežju ni bilo najdenih novih razpoložljivih naprav",
+      "device_exist": "Naprava je že konfigurirana",
+      "config_incorrect": "Konfiguracija je napačna",
+      "connect_error": "Povezava z napravo ni mogoča",
+      "invalid_token": "Token ali Key je v napačni obliki"
+    },
+    "step": {
+      "user": {
+        "data": {
+          "way": "Dodajanje naprav"
+        },
+        "description": "Izberite način za dodajanje naprave",
+        "title": "Dodaj novo napravo"
+      },
+      "login": {
+        "data": {
+          "account": "Račun",
+          "password": "Geslo"
+        },
+        "description": "Prijavite se in pridobite Token naprave.\n\n\nTrenutno lahko Token naprave pridobijo samo osebni računi SmartHome in Meiju. Za podrobnosti glejte dokument README.",
+        "title": "Prijava"
+      },
+      "discovery": {
+        "description": "IP naslov naprave, vnesite \"auto\" za samodejno odkrivanje\nLahko uporabite tudi IP naslov za iskanje znotraj določenega omrežja, kot je \"192.168.1.255\"",
+        "title": "Iskanje",
+        "data": {
+          "ip_address": "IP naslov"
+        }
+      },
+      "list": {
+        "description": "{table}",
+        "title": "Naprave"
+      },
+      "auto": {
+        "data": {
+          "device": "Naprave"
+        },
+        "description": "Izberite napravo za dodajanje",
+        "title": "Najdena nova naprava"
+      },
+      "manually": {
+        "data": {
+          "name": "Ime (npr. Klima v dnevni sobi)",
+          "device_id": "Koda naprave",
+          "type": "Tip",
+          "ip_address": "IP naslov",
+          "port": "Vrata",
+          "model": "Model",
+          "subtype": "Podtip",
+          "protocol": "Protokol",
+          "token": "Token",
+          "key": "Key"
+        },
+        "description": "Konfiguracija naprave",
+        "title": "Nova naprava"
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "door_auto_open": {
+        "name": "Samodejno odpiranje vrat ob koncu programa"
+      },
+      "uv": {
+        "name": "UV"
+      },
+      "dry": {
+        "name": "Sušenje"
+      },
+      "dry_status": {
+        "name": "Sušenje poteka"
+      },
+      "storage_status": {
+        "name": "Shranjevanje poteka"
+      },
+      "waterswitch": {
+        "name": "Stikalo za vodo"
+      },
+      "water_lack": {
+        "name": "Pomanjkanje vode"
+      },
+      "wifi_unabled": {
+        "name": "Wi-Fi onemogočen"
+      },
+      "auto_throw": {
+        "name": "Samodejno doziranje"
+      },
+      "lock_power": {
+        "name": "Zaklep napajanja"
+      },
+      "beep_control": {
+        "name": "Pisk"
+      },
+      "light_btn_on": {
+        "name": "Lučka gumba"
+      },
+      "light_strip_on": {
+        "name": "Svetlobni trak"
+      },
+      "warm_power": {
+        "name": "Topla moč"
+      },
+      "cold_power": {
+        "name": "Hladna moč"
+      },
+      "sleep_power": {
+        "name": "Moč v spanju"
+      },
+      "pump_on": {
+        "name": "Črpalka vklopljena"
+      },
+      "bar_door": {
+        "name": "Vrata točilnega pulta"
+      },
+      "bar_door_overtime": {
+        "name": "Vrata točilnega pulta predolgo odprta"
+      },
+      "bathing_working": {
+        "name": "Stanje kopanja"
+      },
+      "bottom_compartment_cooling": {
+        "name": "Hlajenje spodnjega predala"
+      },
+      "bottom_compartment_door": {
+        "name": "Vrata spodnjega predala"
+      },
+      "bottom_compartment_preheating": {
+        "name": "Predgrevanje spodnjega predala"
+      },
+      "burning_state": {
+        "name": "Stanje gorenja"
+      },
+      "clean_scale": {
+        "name": "Odstranjevanje vodnega kamna"
+      },
+      "clean_sink_ponding": {
+        "name": "Zastajanje vode v pomivalnem koritu"
+      },
+      "cleaning_reminder": {
+        "name": "Opomnik za čiščenje"
+      },
+      "compressor_status": {
+        "name": "Stanje kompresorja"
+      },
+      "cooking": {
+        "name": "Kuhanje"
+      },
+      "dissipate_heat": {
+        "name": "Odvajanje toplote"
+      },
+      "door": {
+        "name": "Vrata"
+      },
+      "error_code": {
+        "name": "Koda napake"
+      },
+      "filter_change_reminder": {
+        "name": "Opomnik za menjavo filtra"
+      },
+      "filter_cleaning_reminder": {
+        "name": "Opomnik za čiščenje filtra"
+      },
+      "finished": {
+        "name": "Končano"
+      },
+      "flex_zone_door": {
+        "name": "Prilagodljiva vrata"
+      },
+      "flex_zone_door_overtime": {
+        "name": "Vrata prilagodljive cone"
+      },
+      "flip_side": {
+        "name": "Obrni stran"
+      },
+      "freezer_door": {
+        "name": "Vrata zamrzovalnika"
+      },
+      "freezer_door_overtime": {
+        "name": "Vrata zamrzovalnika predolgo odprta"
+      },
+      "full_dust": {
+        "name": "Polno prahu"
+      },
+      "heating": {
+        "name": "Ogrevanje"
+      },
+      "dispensing": {
+        "name": "Točenje vode"
+      },
+      "lack_water": {
+        "name": "Pomanjkanje vode"
+      },
+      "standby": {
+        "name": "Pripravljenost"
+      },
+      "hot_water_dispensing": {
+        "name": "Točenje tople vode"
+      },
+      "fault": {
+        "name": "Napaka"
+      },
+      "heating_working": {
+        "name": "Stanje ogrevanja"
+      },
+      "high_temperature": {
+        "name": "Visoka temperatura"
+      },
+      "high_temperature_lock": {
+        "name": "Zaklep pri visoki temperaturi"
+      },
+      "high_temperature_work": {
+        "name": "Delovanje pri visoki temperaturi"
+      },
+      "keep_warm": {
+        "name": "Ohranjanje toplote"
+      },
+      "leak_water": {
+        "name": "Puščanje vode"
+      },
+      "lid_status": {
+        "name": "Stanje pokrova"
+      },
+      "middle_compartment_cooling": {
+        "name": "Hlajenje srednjega predala"
+      },
+      "middle_compartment_door": {
+        "name": "Vrata srednjega predala"
+      },
+      "middle_compartment_preheating": {
+        "name": "Predgrevanje srednjega predala"
+      },
+      "pre_heat": {
+        "name": "Predgrevanje"
+      },
+      "probe": {
+        "name": "Sonda"
+      },
+      "probe_mode": {
+        "name": "Način s sondo"
+      },
+      "reaction": {
+        "name": "Reakcija"
+      },
+      "top_elec_heat": {
+        "name": "Zgornje električno gretje"
+      },
+      "bottom_elec_heat": {
+        "name": "Spodnje električno gretje"
+      },
+      "mute_effect": {
+        "name": "Učinek tišine"
+      },
+      "mute_status": {
+        "name": "Stanje tišine"
+      },
+      "multi_terminal": {
+        "name": "Več terminalov"
+      },
+      "oilcup_full": {
+        "name": "Posoda za olje polna"
+      },
+      "protection": {
+        "name": "Zaščita"
+      },
+      "refrigerator_door": {
+        "name": "Vrata hladilnika"
+      },
+      "refrigerator_door_overtime": {
+        "name": "Vrata hladilnika predolgo odprta"
+      },
+      "rinse_aid": {
+        "name": "Pomanjkanje sredstva za lesk"
+      },
+      "rsj_stand_by": {
+        "name": "Pripravljenost"
+      },
+      "salt": {
+        "name": "Pomanjkanje soli"
+      },
+      "seat_status": {
+        "name": "Stanje sedeža"
+      },
+      "smart_grid": {
+        "name": "Pametno omrežje"
+      },
+      "eco": {
+        "name": "ECO"
+      },
+      "maintenance_reminder": {
+        "name": "Opomnik za vzdrževanje"
+      },
+      "dr_enable": {
+        "name": "Odziv na povpraševanje"
+      },
+      "electric_rod_exception": {
+        "name": "Napaka električnega grelnika"
+      },
+      "ac_heater_priority": {
+        "name": "Prednost toplotne črpalke"
+      },
+      "high_temp_reminder": {
+        "name": "Opomnik za visoko temperaturo"
+      },
+      "new_version_water_heater": {
+        "name": "Razširjen protokol grelnika vode"
+      },
+      "heat_recovery_status": {
+        "name": "Rekuperacija toplote"
+      },
+      "holiday_mode": {
+        "name": "Počitniški način"
+      },
+      "hybrid_motion_mode": {
+        "name": "Hibridni način gibanja"
+      },
+      "support_boost_mode": {
+        "name": "Podpora za način ojačanja"
+      },
+      "support_silent_mode": {
+        "name": "Podpora za tihi način"
+      },
+      "support_remaining_hot_water": {
+        "name": "Podpora za prikaz preostale tople vode"
+      },
+      "support_electric_mode": {
+        "name": "Podpora za električni način"
+      },
+      "support_auto_disinfect": {
+        "name": "Podpora za samodejno razkuževanje"
+      },
+      "support_force_e_heating": {
+        "name": "Podpora za prisilno električno gretje"
+      },
+      "support_tou": {
+        "name": "Podpora za časovno tarifo"
+      },
+      "support_ac_heater_priority": {
+        "name": "Podpora za prednost toplotne črpalke"
+      },
+      "support_heat_recovery": {
+        "name": "Podpora za rekuperacijo toplote"
+      },
+      "support_heat_pump_mode": {
+        "name": "Podpora za način toplotne črpalke"
+      },
+      "support_smart_mode": {
+        "name": "Podpora za pametni način"
+      },
+      "support_negative_temperature": {
+        "name": "Podpora za negativno temperaturo"
+      },
+      "maintain_warn": {
+        "name": "Opozorilo za vzdrževanje"
+      },
+      "order1_effect": {
+        "name": "Urnik 1 aktiven"
+      },
+      "order2_effect": {
+        "name": "Urnik 2 aktiven"
+      },
+      "status_dhw": {
+        "name": "Stanje DHW"
+      },
+      "status_heating": {
+        "name": "Stanje ogrevanja"
+      },
+      "status_ibh": {
+        "name": "Stanje IBH"
+      },
+      "status_tbh": {
+        "name": "Stanje TBH"
+      },
+      "tank_ejected": {
+        "name": "Rezervoar izvržen"
+      },
+      "tank_full": {
+        "name": "Stanje rezervoarja"
+      },
+      "top_compartment_cooling": {
+        "name": "Hlajenje zgornjega predala"
+      },
+      "top_compartment_door": {
+        "name": "Vrata zgornjega predala"
+      },
+      "top_compartment_preheating": {
+        "name": "Predgrevanje zgornjega predala"
+      },
+      "water_change_reminder": {
+        "name": "Opomnik za menjavo vode"
+      },
+      "water_shortage": {
+        "name": "Pomanjkanje vode"
+      },
+      "with_pressure": {
+        "name": "S tlakom"
+      },
+      "zone1_room_temp_mode": {
+        "name": "Cona 1 način sobne temperature"
+      },
+      "zone1_water_temp_mode": {
+        "name": "Cona 1 način temperature vode"
+      },
+      "zone2_room_temp_mode": {
+        "name": "Cona 2 način sobne temperature"
+      },
+      "zone2_water_temp_mode": {
+        "name": "Cona 2 način temperature vode"
+      },
+      "microcrystal_fresh": {
+        "name": "Mikrokristalna svežina"
+      },
+      "electronic_smell": {
+        "name": "Odstranjevanje vonjav in sterilizacija"
+      },
+      "water_pump_running": {
+        "name": "Vodna črpalka deluje"
+      },
+      "filter_status": {
+        "name": "Alarm filtra"
+      },
+      "standby_status": {
+        "name": "Stanje pripravljenosti"
+      },
+      "out_water": {
+        "name": "Iztok vode"
+      },
+      "out_hot_water": {
+        "name": "Iztok tople vode"
+      },
+      "backflow": {
+        "name": "Povratni tok"
+      },
+      "sleep_status": {
+        "name": "Stanje spanja"
+      },
+      "status_cool": {
+        "name": "Stanje - Hlajenje"
+      },
+      "eco_function_state": {
+        "name": "Način - Funkcija ECO"
+      },
+      "eco_timer_state": {
+        "name": "Način - Časovnik ECO"
+      },
+      "double_zone": {
+        "name": "Zmožnost - Dvojna cona"
+      },
+      "room_thermal_support": {
+        "name": "Zmožnost - Sobni termostat"
+      },
+      "room_thermal_state": {
+        "name": "Stanje - Sobni termostat"
+      },
+      "time_set": {
+        "name": "Zmožnost - Nastavitev časa"
+      },
+      "disinfect_run": {
+        "name": "DHW - Razkuževanje poteka"
+      },
+      "remote_onoff": {
+        "name": "Zmožnost - Daljinski vklop/izklop"
+      },
+      "tbh_control": {
+        "name": "Zmožnost - Nadzor TBH"
+      },
+      "heat_capability": {
+        "name": "Zmožnost - Ogrevanje"
+      },
+      "cool_capability": {
+        "name": "Zmožnost - Hlajenje"
+      },
+      "dhw_capability": {
+        "name": "Zmožnost - DHW"
+      },
+      "sys_energy_ana_en": {
+        "name": "Zmožnost - Analiza energije (sistem)"
+      },
+      "hmi_energy_ana_set_en": {
+        "name": "Zmožnost - Analiza energije (HMI)"
+      },
+      "pump_i_running": {
+        "name": "Pump_I - Notranja"
+      },
+      "pump_o_running": {
+        "name": "Pump_O - Zunanja"
+      },
+      "pump_d_running": {
+        "name": "Pump_D - DHW"
+      },
+      "pump_c_running": {
+        "name": "Pump_C - Zanka mešane vode cona 2"
+      },
+      "pump_s_running": {
+        "name": "Pump_S - Sončna"
+      },
+      "sv1_open": {
+        "name": "SV1 - Ventil (DHW)"
+      },
+      "sv2_open": {
+        "name": "SV2 - Ventil (ogrevanje)"
+      },
+      "load_output_tbh": {
+        "name": "Grelnik - Rezervni za rezervoar (TBH)"
+      },
+      "compressor_on": {
+        "name": "Kompresor - Deluje"
+      },
+      "ibh1_on": {
+        "name": "Grelnik - IBH1"
+      },
+      "ibh2_on": {
+        "name": "Grelnik - IBH2"
+      },
+      "sv3_open": {
+        "name": "SV3 - Ventil"
+      },
+      "crankcase_heater_on": {
+        "name": "Grelnik - Ohišje ročične gredi"
+      },
+      "alarm_on": {
+        "name": "Napaka - Alarm"
+      },
+      "aux_heat_on": {
+        "name": "Grelnik - Pomožni vir"
+      },
+      "ac_air_direction": {
+        "name": "Smer zraka klime"
+      },
+      "ac_cooling_fan": {
+        "name": "Ventilator hlajenja klime"
+      },
+      "ac_draining_pump": {
+        "name": "Odtočna črpalka klime"
+      },
+      "ac_low_temperature": {
+        "name": "Nizka temperatura klime"
+      },
+      "ac_over_temperature": {
+        "name": "Previsoka temperatura klime"
+      },
+      "ac_swing": {
+        "name": "Nihanje klime"
+      },
+      "ac_water_full": {
+        "name": "Posoda za vodo klime polna"
+      },
+      "b2_downstair_clean_tips": {
+        "name": "Namigi za čiščenje spodnje parne pečice"
+      },
+      "b2_downstair_door": {
+        "name": "Vrata spodnje parne pečice"
+      },
+      "b2_downstair_fresh_water": {
+        "name": "Sveža voda spodnje parne pečice"
+      },
+      "b2_downstair_light": {
+        "name": "Lučka spodnje parne pečice"
+      },
+      "b2_downstair_lock": {
+        "name": "Zaklep spodnje parne pečice"
+      },
+      "b2_downstair_must_clean_tips": {
+        "name": "Namigi za obvezno čiščenje spodnje parne pečice"
+      },
+      "b2_downstair_water_shortage": {
+        "name": "Pomanjkanje vode spodnje parne pečice"
+      },
+      "b2_upstair_clean_tips": {
+        "name": "Namigi za čiščenje zgornje parne pečice"
+      },
+      "b2_upstair_door": {
+        "name": "Vrata zgornje parne pečice"
+      },
+      "b2_upstair_fresh_water": {
+        "name": "Sveža voda zgornje parne pečice"
+      },
+      "b2_upstair_light": {
+        "name": "Lučka zgornje parne pečice"
+      },
+      "b2_upstair_lock": {
+        "name": "Zaklep zgornje parne pečice"
+      },
+      "b2_upstair_must_clean_tips": {
+        "name": "Namigi za obvezno čiščenje zgornje parne pečice"
+      },
+      "b2_upstair_water_shortage": {
+        "name": "Pomanjkanje vode zgornje parne pečice"
+      },
+      "b3_downstair_door": {
+        "name": "Vrata spodnje parne omare"
+      },
+      "b3_downstair_door_lock": {
+        "name": "Zaklep vrat spodnje parne omare"
+      },
+      "b3_downstair_infrared": {
+        "name": "Infrardeče spodnje parne omare"
+      },
+      "b3_downstair_ultraviolet": {
+        "name": "Ultravijolično spodnje parne omare"
+      },
+      "b3_upstair_door": {
+        "name": "Vrata zgornje parne omare"
+      },
+      "b3_upstair_door_lock": {
+        "name": "Zaklep vrat zgornje parne omare"
+      },
+      "b3_upstair_infrared": {
+        "name": "Infrardeče zgornje parne omare"
+      },
+      "b3_upstair_ultraviolet": {
+        "name": "Ultravijolično zgornje parne omare"
+      },
+      "b6_tvoc_status": {
+        "name": "Stanje TVOC kuhinjske nape"
+      },
+      "b6_delay_gear_linkage": {
+        "name": "Povezava zakasnjene stopnje kuhinjske nape"
+      },
+      "b6_delay_time": {
+        "name": "Čas zakasnitve kuhinjske nape"
+      },
+      "b6_gesture_status": {
+        "name": "Stanje gest kuhinjske nape"
+      },
+      "b6_infrared_status": {
+        "name": "Infrardeče stanje kuhinjske nape"
+      },
+      "b6_lock": {
+        "name": "Zaklep kuhinjske nape"
+      },
+      "b6_power_on_light": {
+        "name": "Lučka ob vklopu kuhinjske nape"
+      },
+      "b6_smoke_detector": {
+        "name": "Detektor dima kuhinjske nape"
+      },
+      "b6_smoke_stove_linkage": {
+        "name": "Povezava dim-štedilnik kuhinjske nape"
+      },
+      "b7_left_dry_burning": {
+        "name": "Suho gorenje levega plinskega gorilnika"
+      },
+      "b7_left_dry_burning_invalid": {
+        "name": "Suho gorenje levega plinskega gorilnika neveljavno"
+      },
+      "b7_left_gas_leakage": {
+        "name": "Puščanje plina levega plinskega gorilnika"
+      },
+      "b7_left_has_fire": {
+        "name": "Levi plinski gorilnik ima plamen"
+      },
+      "b7_left_has_pot": {
+        "name": "Levi plinski gorilnik ima posodo"
+      },
+      "b7_right_dry_burning": {
+        "name": "Suho gorenje desnega plinskega gorilnika"
+      },
+      "b7_right_dry_burning_invalid": {
+        "name": "Suho gorenje desnega plinskega gorilnika neveljavno"
+      },
+      "b7_right_gas_leakage": {
+        "name": "Puščanje plina desnega plinskega gorilnika"
+      },
+      "b7_right_has_fire": {
+        "name": "Desni plinski gorilnik ima plamen"
+      },
+      "b7_right_has_pot": {
+        "name": "Desni plinski gorilnik ima posodo"
+      },
+      "bf_door": {
+        "name": "Vrata pečice"
+      },
+      "bf_error": {
+        "name": "Napaka pečice"
+      },
+      "bf_flip": {
+        "name": "Obračanje pečice"
+      },
+      "bf_hightemp_error": {
+        "name": "Napaka visoke temperature pečice"
+      },
+      "bf_hightemp_lock": {
+        "name": "Zaklep pri visoki temperaturi pečice"
+      },
+      "bf_hightemp_over": {
+        "name": "Prekoračitev visoke temperature pečice"
+      },
+      "bf_hotwind": {
+        "name": "Vroč zrak pečice"
+      },
+      "bf_hotwind_set": {
+        "name": "Nastavitev vročega zraka pečice"
+      },
+      "bf_hydrops_full": {
+        "name": "Posoda za vodo pečice polna"
+      },
+      "bf_light": {
+        "name": "Lučka pečice"
+      },
+      "bf_lock": {
+        "name": "Zaklep pečice"
+      },
+      "bf_off_fromapp": {
+        "name": "Pečica izklopljena iz aplikacije"
+      },
+      "bf_on_smart": {
+        "name": "Pametni vklop pečice"
+      },
+      "bf_order": {
+        "name": "Naročilo pečice"
+      },
+      "bf_order_time_isabsolute": {
+        "name": "Čas naročila pečice je absoluten"
+      },
+      "bf_overheat": {
+        "name": "Pregrevanje pečice"
+      },
+      "bf_preheat": {
+        "name": "Predgrevanje pečice"
+      },
+      "bf_preheat_done": {
+        "name": "Predgrevanje pečice končano"
+      },
+      "bf_preheat_set": {
+        "name": "Nastavitev predgrevanja pečice"
+      },
+      "bf_probe": {
+        "name": "Sonda pečice"
+      },
+      "bf_probe_meat": {
+        "name": "Sonda za meso pečice"
+      },
+      "bf_radiating": {
+        "name": "Sevanje pečice"
+      },
+      "bf_repair_cook": {
+        "name": "Popravilo kuhanja pečice"
+      },
+      "bf_sabbath": {
+        "name": "Šabat pečice"
+      },
+      "bf_scalehandling_remind": {
+        "name": "Opomnik za odstranjevanje vodnega kamna pečice"
+      },
+      "bf_sensor": {
+        "name": "Senzor pečice"
+      },
+      "bf_stove_1": {
+        "name": "Gorilnik pečice 1"
+      },
+      "bf_stove_2": {
+        "name": "Gorilnik pečice 2"
+      },
+      "bf_stove_3": {
+        "name": "Gorilnik pečice 3"
+      },
+      "bf_stove_4": {
+        "name": "Gorilnik pečice 4"
+      },
+      "bf_stove_5": {
+        "name": "Gorilnik pečice 5"
+      },
+      "bf_temp_fahrenheit": {
+        "name": "Temperatura pečice v Fahrenheitih"
+      },
+      "bf_time_synchronization": {
+        "name": "Sinhronizacija časa pečice"
+      },
+      "bf_turntable": {
+        "name": "Vrtljivi krožnik pečice"
+      },
+      "bf_turntable_reset": {
+        "name": "Ponastavitev vrtljivega krožnika pečice"
+      },
+      "bf_upload_interval": {
+        "name": "Interval nalaganja pečice"
+      },
+      "bf_voice_identify": {
+        "name": "Glasovna identifikacija pečice"
+      },
+      "bf_voice_module": {
+        "name": "Glasovni modul pečice"
+      },
+      "bf_water_box": {
+        "name": "Posoda za vodo pečice"
+      },
+      "bf_water_change": {
+        "name": "Menjava vode pečice"
+      },
+      "bf_water_shortage": {
+        "name": "Pomanjkanje vode pečice"
+      },
+      "bf_wintersummertime": {
+        "name": "Zimski/poletni čas pečice"
+      },
+      "e7_left_bottom_has_pot": {
+        "name": "Levo spodnje indukcijsko polje ima posodo"
+      },
+      "e7_left_has_pot": {
+        "name": "Levo indukcijsko polje ima posodo"
+      },
+      "e7_left_top_has_pot": {
+        "name": "Levo zgornje indukcijsko polje ima posodo"
+      },
+      "e7_right_bottom_has_pot": {
+        "name": "Desno spodnje indukcijsko polje ima posodo"
+      },
+      "e7_right_has_pot": {
+        "name": "Desno indukcijsko polje ima posodo"
+      },
+      "e7_right_top_has_pot": {
+        "name": "Desno zgornje indukcijsko polje ima posodo"
+      },
+      "sp_fandrying_door": {
+        "name": "Vrata sušenja s ploščo in ventilatorjem"
+      },
+      "sp_fandrying_setting_automode": {
+        "name": "Nastavitev samodejnega načina sušenja s ploščo in ventilatorjem"
+      },
+      "sp_fandrying_setting_linkage": {
+        "name": "Nastavitev povezave sušenja s ploščo in ventilatorjem"
+      },
+      "sp_fandrying_setting_linkcooker": {
+        "name": "Nastavitev povezave s kuhalnikom pri sušenju s ploščo in ventilatorjem"
+      },
+      "sp_fandrying_setting_sync": {
+        "name": "Nastavitev sinhronizacije sušenja s ploščo in ventilatorjem"
+      },
+      "sp_heatingdisk_door": {
+        "name": "Vrata grelne plošče"
+      },
+      "sp_heatingdisk_setting_automode": {
+        "name": "Nastavitev samodejnega načina grelne plošče"
+      },
+      "sp_heatingdisk_setting_linkage": {
+        "name": "Nastavitev povezave grelne plošče"
+      },
+      "sp_heatingdisk_setting_linkcooker": {
+        "name": "Nastavitev povezave s kuhalnikom grelne plošče"
+      },
+      "sp_heatingdisk_setting_sync": {
+        "name": "Nastavitev sinhronizacije grelne plošče"
+      },
+      "sp_uvc_door": {
+        "name": "Vrata plošče UVC"
+      },
+      "sp_uvc_setting_automode": {
+        "name": "Nastavitev samodejnega načina plošče UVC"
+      },
+      "sp_uvc_setting_linkage": {
+        "name": "Nastavitev povezave plošče UVC"
+      },
+      "sp_uvc_setting_linkcooker": {
+        "name": "Nastavitev povezave s kuhalnikom plošče UVC"
+      },
+      "sp_uvc_setting_sync": {
+        "name": "Nastavitev sinhronizacije plošče UVC"
+      },
+      "total_water_shortage": {
+        "name": "Pomanjkanje vode"
+      },
+      "door_open": {
+        "name": "Vrata odprta"
+      },
+      "turntable": {
+        "name": "Vrtljivi krožnik"
+      },
+      "lack_box": {
+        "name": "Manjka posoda"
+      },
+      "change_water": {
+        "name": "Opomnik za menjavo vode"
+      },
+      "ramadan": {
+        "name": "Ramadan"
+      },
+      "ota": {
+        "name": "OTA"
+      },
+      "laundry_appointment": {
+        "name": "Rezervacija"
+      }
+    },
+    "button": {
+      "start_delayed": {
+        "name": "Zakasnjen zagon"
+      },
+      "pause": {
+        "name": "Premor"
+      },
+      "resume": {
+        "name": "Nadaljuj"
+      },
+      "cancel": {
+        "name": "Prekliči"
+      },
+      "start": {
+        "name": "Zaženi"
+      },
+      "laundry_cancel_appointment": {
+        "name": "Prekliči rezervacijo"
+      }
+    },
+    "climate": {
+      "climate_zone1": {
+        "name": "Termostat cone 1"
+      },
+      "climate_zone2": {
+        "name": "Termostat cone 2"
+      },
+      "climate_key": {
+        "state_attributes": {
+          "fan_mode": {
+            "state": {
+              "silent": "Tiho",
+              "full": "Polno"
+            }
+          }
+        }
+      }
+    },
+    "fan": {
+      "bgf10000": {
+        "state_attributes": {
+          "preset_mode": {
+            "state": {
+              "normal": "Normalno",
+              "forest": "Gozd",
+              "beach": "Plaža",
+              "countryside": "Podeželje",
+              "baby": "Nežen vetrič",
+              "sleep_1": "Spanje 1",
+              "sleep_2": "Spanje 2",
+              "strong": "Močno"
+            }
+          }
+        }
+      },
+      "fresh_air": {
+        "name": "Svež zrak"
+      },
+      "fresh_air_exhaust": {
+        "name": "Odvod svežega zraka"
+      }
+    },
+    "lock": {
+      "child_lock": {
+        "name": "Otroška ključavnica"
+      }
+    },
+    "number": {
+      "delay_minutes": {
+        "name": "Zakasnitev"
+      },
+      "wash_region": {
+        "name": "Območje pranja"
+      },
+      "water_level": {
+        "name": "Nivo vode"
+      },
+      "water_strong_level": {
+        "name": "Nivo tlaka vode"
+      },
+      "heating_target_temperature": {
+        "name": "Ciljna temperatura ogrevanja"
+      },
+      "dry_level": {
+        "name": "Stopnja sušenja"
+      },
+      "heating_level": {
+        "name": "Stopnja ogrevanja"
+      },
+      "seat_temp_level": {
+        "name": "Stopnja temperature sedeža"
+      },
+      "water_temp_level": {
+        "name": "Stopnja temperature vode"
+      },
+      "fan_speed_percent": {
+        "name": "Odstotek hitrosti ventilatorja"
+      },
+      "vacation_days": {
+        "name": "Dnevi dopusta"
+      },
+      "max_temperature": {
+        "name": "Najvišja ciljna temperatura"
+      },
+      "disinfection_temperature": {
+        "name": "Temperatura razkuževanja"
+      },
+      "schedule_mode": {
+        "name": "Način urnika"
+      },
+      "leak_water_protection_value": {
+        "name": "Vrednost zaščite pred puščanjem vode"
+      },
+      "flushing_days": {
+        "name": "Dnevi regeneracije"
+      },
+      "water_hardness": {
+        "name": "Trdota vode"
+      },
+      "boil_temperature": {
+        "name": "Ciljna temperatura vretja"
+      },
+      "keep_warm_time": {
+        "name": "Čas ohranjanja toplote"
+      },
+      "ai_voice_volume": {
+        "name": "Glasnost glasovnega pomočnika"
+      },
+      "screen_luminance": {
+        "name": "Svetlost zaslona"
+      },
+      "volume": {
+        "name": "Glasnost"
+      },
+      "temperature_number": {
+        "name": "Ciljna temperatura"
+      },
+      "temperature_above_number": {
+        "name": "Ciljna temperatura zgoraj"
+      },
+      "temperature_underside_number": {
+        "name": "Ciljna temperatura spodaj"
+      },
+      "probe_temperature_number": {
+        "name": "Ciljna temperatura sonde"
+      },
+      "steam_quantity_number": {
+        "name": "Količina pare"
+      },
+      "hour_set": {
+        "name": "Nastavitev ure"
+      },
+      "minute_set": {
+        "name": "Nastavitev minut"
+      },
+      "second_set": {
+        "name": "Nastavitev sekund"
+      },
+      "dryer_timed_extra": {
+        "name": "Podaljšanje časovno nastavljenega sušenja"
+      }
+    },
+    "select": {
+      "cur_quantify": {
+        "name": "Trenutna prednastavljena količina",
+        "state": {
+          "none": "Brez",
+          "preset_1": "Prednastavitev 1",
+          "preset_2": "Prednastavitev 2",
+          "preset_3": "Prednastavitev 3",
+          "preset_4": "Prednastavitev 4",
+          "preset_5": "Prednastavitev 5"
+        }
+      },
+      "wash_mode_76000228": {
+        "name": "Način pranja",
+        "state": {
+          "neutral_gear": "Brez",
+          "auto_wash": "Samodejno",
+          "strong_wash": "Intenzivno",
+          "standard_wash": "Univerzalno",
+          "eco_wash": "ECO",
+          "glass_wash": "Steklo",
+          "hour_wash": "90 min",
+          "fast_wash": "Hitro",
+          "soak_wash": "Namakanje",
+          "90min": "90 min",
+          "self_clean": "Samodejno čiščenje",
+          "fruit_wash": "Sadje",
+          "self_define": "Po meri",
+          "germ": "Šepet",
+          "bowl_wash": "Skleda",
+          "kill_germ": "Higiena",
+          "sea_food_wash": "Samodejno čiščenje",
+          "hot_pot_wash": "Kuhanje v loncu",
+          "quiet_night_wash": "Tiha noč",
+          "less_wash": "Lahko",
+          "max_rapid_wash": "Najhitrejše",
+          "oil_net_wash": "Oljni filter",
+          "cloud_wash": "Program v oblaku",
+          "single_dry": "Samo sušenje",
+          "single_disinfect": "Samo razkuževanje",
+          "high_temp_wash": "Visoka temperatura",
+          "wash_dry": "Pranje in sušenje"
+        }
+      },
+      "program_76000228": {
+        "name": "Program",
+        "state": {
+          "auto_wash": "Samodejno",
+          "strong_wash": "Intenzivno",
+          "standard_wash": "Univerzalno",
+          "eco_wash": "ECO",
+          "glass_wash": "Steklo",
+          "hour_wash": "90 min",
+          "fast_wash": "Hitro",
+          "soak_wash": "Namakanje",
+          "90min": "90 min",
+          "self_clean": "Samodejno čiščenje",
+          "fruit_wash": "Sadje",
+          "self_define": "Po meri",
+          "germ": "Šepet",
+          "bowl_wash": "Skleda",
+          "kill_germ": "Higiena",
+          "sea_food_wash": "Samodejno čiščenje",
+          "hot_pot_wash": "Kuhanje v loncu",
+          "quiet_night_wash": "Tiha noč",
+          "less_wash": "Lahko",
+          "max_rapid_wash": "Najhitrejše",
+          "oil_net_wash": "Oljni filter",
+          "cloud_wash": "Program v oblaku",
+          "single_dry": "Samo sušenje",
+          "single_disinfect": "Samo razkuževanje",
+          "high_temp_wash": "Visoka temperatura",
+          "wash_dry": "Pranje in sušenje"
+        }
+      },
+      "program": {
+        "name": "Program",
+        "state": {
+          "auto_wash": "Samodejno",
+          "strong_wash": "Intenzivno",
+          "standard_wash": "Standardno",
+          "eco_wash": "ECO",
+          "glass_wash": "Steklo",
+          "hour_wash": "1 ura",
+          "fast_wash": "Hitro",
+          "soak_wash": "Namakanje",
+          "90min": "90 min",
+          "self_clean": "Samodejno čiščenje",
+          "fruit_wash": "Sadje",
+          "self_define": "Po meri",
+          "germ": "Klice",
+          "bowl_wash": "Skleda",
+          "kill_germ": "Higiena",
+          "sea_food_wash": "Morski sadeži",
+          "hot_pot_wash": "Kuhanje v loncu",
+          "quiet_night_wash": "Tiha noč",
+          "less_wash": "Lahko",
+          "max_rapid_wash": "Najhitrejše",
+          "oil_net_wash": "Oljni filter",
+          "cloud_wash": "Program v oblaku",
+          "single_dry": "Samo sušenje",
+          "single_disinfect": "Samo razkuževanje",
+          "high_temp_wash": "Visoka temperatura",
+          "wash_dry": "Pranje in sušenje"
+        }
+      },
+      "load": {
+        "name": "Obremenitev",
+        "state": {
+          "0": "Polno",
+          "2": "Polovica"
+        }
+      },
+      "heating_mode": {
+        "name": "Način ogrevanja",
+        "state": {
+          "user": "Uporabnik",
+          "activity": "Dejavnost",
+          "sleep": "Spanje",
+          "unknown": "Neznano"
+        }
+      },
+      "detect_mode": {
+        "name": "Način zaznavanja",
+        "state": {
+          "off": "Izklopljeno",
+          "pm_2_5": "PM 2.5",
+          "methanal": "Metanal"
+        }
+      },
+      "direction": {
+        "name": "Smer",
+        "state": {
+          "oscillate": "Nihanje"
+        }
+      },
+      "fan_speed": {
+        "name": "Hitrost ventilatorja",
+        "state": {
+          "auto": "Samodejno",
+          "standby": "Pripravljenost",
+          "low": "Nizka",
+          "medium": "Srednja",
+          "high": "Visoka"
+        }
+      },
+      "fresh_air_exhaust_mode": {
+        "name": "Hitrost odvoda svežega zraka",
+        "state": {
+          "off": "Izklopljeno",
+          "silent": "Nizka",
+          "high": "Visoka",
+          "full": "Polno"
+        }
+      },
+      "fresh_air_mode": {
+        "name": "Hitrost svežega zraka",
+        "state": {
+          "off": "Izklopljeno",
+          "low": "Nizka",
+          "medium": "Srednja",
+          "high": "Visoka",
+          "full": "Polno"
+        }
+      },
+      "mode": {
+        "name": "Način",
+        "state": {
+          "standby": "Pripravljenost",
+          "auto": "Samodejno",
+          "manual": "Ročno",
+          "sleep": "Spanje",
+          "fast": "Hitro",
+          "smoke": "Dim",
+          "off": "Izklopljeno",
+          "heat_high": "Gretje (visoko)",
+          "heat_low": "Gretje (nizko)",
+          "bath": "Kopel",
+          "blow": "Pihanje",
+          "ventilation": "Prezračevanje",
+          "dry": "Sušenje"
+        }
+      },
+      "oscillation_angle": {
+        "name": "Kot nihanja"
+      },
+      "oscillation_mode": {
+        "name": "Način nihanja"
+      },
+      "rate_select": {
+        "name": "Omejitev moči"
+      },
+      "screen_display": {
+        "name": "Prikaz na zaslonu",
+        "state": {
+          "bright": "Svetlo",
+          "dim": "Zatemnjeno",
+          "off": "Izklopljeno"
+        }
+      },
+      "silent_level": {
+        "name": "Stopnja tišine"
+      },
+      "tilting_angle": {
+        "name": "Kot naklona"
+      },
+      "wash_mode": {
+        "name": "Način pranja",
+        "state": {
+          "neutral_gear": "Brez",
+          "auto_wash": "Samodejno",
+          "strong_wash": "Intenzivno",
+          "standard_wash": "Standardno",
+          "eco_wash": "ECO",
+          "glass_wash": "Steklo",
+          "hour_wash": "1 ura",
+          "fast_wash": "Hitro",
+          "soak_wash": "Namakanje",
+          "90min": "90 min",
+          "self_clean": "Samodejno čiščenje",
+          "fruit_wash": "Sadje",
+          "self_define": "Po meri",
+          "germ": "Klice",
+          "bowl_wash": "Skleda",
+          "kill_germ": "Higiena",
+          "sea_food_wash": "Morski sadeži",
+          "hot_pot_wash": "Kuhanje v loncu",
+          "quiet_night_wash": "Tiha noč",
+          "less_wash": "Lahko",
+          "max_rapid_wash": "Najhitrejše",
+          "oil_net_wash": "Oljni filter",
+          "cloud_wash": "Program v oblaku",
+          "single_dry": "Samo sušenje",
+          "single_disinfect": "Samo razkuževanje",
+          "high_temp_wash": "Visoka temperatura",
+          "wash_dry": "Pranje in sušenje"
+        }
+      },
+      "water_level_set": {
+        "name": "Nastavitev nivoja vode"
+      },
+      "wind_lr_angle": {
+        "name": "Vodoravni pretok zraka",
+        "state": {
+          "off": "Izklopljeno",
+          "left": "Levo",
+          "left_mid": "Levo-sredina",
+          "middle": "Sredina",
+          "right_mid": "Desno-sredina",
+          "right": "Desno"
+        }
+      },
+      "wind_ud_angle": {
+        "name": "Navpični pretok zraka",
+        "state": {
+          "off": "Izklopljeno",
+          "up": "Gor",
+          "up_mid": "Gor-sredina",
+          "middle": "Sredina",
+          "down_mid": "Dol-sredina",
+          "down": "Dol"
+        }
+      },
+      "work_status_select": {
+        "name": "Stanje delovanja",
+        "state": {
+          "save_power": "Varčevanje z energijo",
+          "standby": "Pripravljenost",
+          "work": "Deluje",
+          "pause": "V premoru",
+          "work_finish": "Končano",
+          "order": "Zakasnitev",
+          "pause_c": "V premoru C",
+          "three": "Tri",
+          "self_inspection": "Samopregled",
+          "query_version": "Poizvedba različice",
+          "demo": "Predstavitev",
+          "ramadan": "Ramadan",
+          "after_checking": "Po preverjanju",
+          "wait_to_start": "Čakanje na zagon",
+          "ff": "Neznano"
+        }
+      },
+      "x9b_fire_power_select": {
+        "name": "Moč gorilnika",
+        "state": {
+          "high_power": "Visoka",
+          "medium_high_power": "Srednje-visoka",
+          "medium_power": "Srednja",
+          "medium_low_power": "Srednje-nizka",
+          "low_power": "Nizka",
+          "ff": "Neznano"
+        }
+      },
+      "door": {
+        "name": "Vrata",
+        "state": {
+          "open": "Odpri",
+          "close": "Zapri"
+        }
+      },
+      "dryer_program_control": {
+        "name": "Program sušilnika",
+        "state": {
+          "mixed_wash": "Mešano",
+          "wool": "Volna",
+          "night_dry": "Nočno sušenje",
+          "big_dry": "Kosovni predmeti",
+          "small_piece_dry": "Majhni predmeti",
+          "baby_clothes": "Otroška oblačila",
+          "down_jacket": "Puhovke",
+          "quick_dry": "Hitro sušenje",
+          "cotton": "Bombaž in lan",
+          "shirt": "Srajce",
+          "jean": "Denim",
+          "underwear": "Spodnje perilo",
+          "school_uniform": "Šolske uniforme",
+          "silk": "Svila",
+          "towel": "Kopalne brisače",
+          "chiffon": "Šifon",
+          "polar_fleece": "Polar flis",
+          "hanfu": "Hanfu",
+          "hanfu_tang": "Hanfu™ slog Tang",
+          "hanfu_song": "Hanfu™ slog Song",
+          "hanfu_ming": "Hanfu™ slog Ming",
+          "hanfu_modern": "Hanfu™ sodobni slog",
+          "sun_quilt": "Prezračevanje odeje",
+          "bucket_self_clean": "Čiščenje bobna",
+          "steam_care": "Parna nega",
+          "fixed_time_dry": "Časovno nastavljeno sušenje",
+          "warm_clothes": "Ogrevanje oblačil",
+          "cold_air_fresh_air": "Osvežitev s hladnim zrakom",
+          "sterilize_mite": "Sterilizacija in odstranjevanje pršic",
+          "bracket_dry": "Sušenje na stojalu",
+          "pet_sterilize": "Sterilizacija za hišne ljubljenčke",
+          "sport_clothes": "Športna oblačila",
+          "outdoor": "Oblačila za na prosto",
+          "quick_drying_clothes": "Hitro sušeča oblačila",
+          "yoga": "Oblačila za jogo",
+          "air_wash": "Zračno pranje",
+          "fiber": "Sintetika",
+          "bedsheet": "Posteljnina",
+          "plush": "Pliš",
+          "dehumidify": "Razvlaževanje",
+          "hot_air_dry": "Sušenje z vročim zrakom",
+          "standard": "Standardno",
+          "fresh_air": "Svež zrak",
+          "low_temp_dry": "Sušenje pri nizki temperaturi",
+          "eco_dry": "Energijsko varčno sušenje",
+          "quick_dry_30": "Hitro sušenje 30 min",
+          "intelligent_dry": "Inteligentno sušenje",
+          "big": "Kosovni predmeti",
+          "western_trouser": "Elegantne hlače",
+          "dehumidification": "Razvlaževanje",
+          "smart_dry": "Pametno sušenje",
+          "four_piece_suit": "Komplet posteljnine",
+          "quick_dry_20": "Hitro sušenje 20 min",
+          "steam_sterilize": "Parna sterilizacija",
+          "enzyme": "Encim",
+          "big_60": "Kosovni predmeti 60",
+          "steam_no_iron": "Parna nega brez likanja",
+          "bed_clothes": "Posteljnina",
+          "little_fast_dry": "Hitro sušenje majhne količine",
+          "wool_nurse": "Nega volne",
+          "fresh_remove_smell": "Osvežitev z odstranjevanjem vonjav",
+          "sterilize": "Sterilizacija"
+        }
+      },
+      "dryer_dryness_control": {
+        "name": "Suhost",
+        "state": {
+          "ready_to_wear": "Pripravljeno za nošenje",
+          "storage": "Shranjevanje"
+        }
+      },
+      "dryer_temperature_control": {
+        "name": "Temperatura sušenja",
+        "state": {
+          "standard": "Standardno",
+          "low": "Nizka"
+        }
+      },
+      "washer_program_control": {
+        "name": "Program pralnega stroja",
+        "state": {
+          "water_mixed_wash": "Mešano pranje",
+          "fast_wash": "Hitro pranje 15 min",
+          "single_dehytration": "Samo ožemanje",
+          "rinsing_dehydration": "Izpiranje in ožemanje",
+          "fast_wash_30": "Hitro pranje 30 min",
+          "big": "Kosovni predmeti",
+          "tub_clean": "Čiščenje bobna",
+          "deep_tub_clean": "Globinsko čiščenje bobna",
+          "down_jacket": "Puhovke",
+          "new_water_cotton": "Bombaž in lan",
+          "baby_clothes": "Otroška oblačila",
+          "shirt": "Srajce",
+          "wool": "Volna",
+          "water_underwear": "Spodnje perilo",
+          "silk": "Svila",
+          "jacket": "Jakne za na prosto",
+          "new_clothes_wash": "Nova oblačila",
+          "jean": "Denim",
+          "water_fiber": "Sintetika",
+          "water_eco": "Varčevanje z energijo",
+          "water_intelligent": "Pametno pranje",
+          "water_steep": "Pranje z namakanjem",
+          "water_cold_wash": "Hladno pranje",
+          "sterilization_wash": "Sterilizacijsko pranje",
+          "water_remove_mite_wash": "Odstranjevanje pršic",
+          "disinfection_wash": "Razkuževalno pranje",
+          "stain_wash": "Pranje madežev",
+          "sport_clothes": "Športna oblačila",
+          "yoga": "Oblačila za jogo",
+          "quick_drying_clothes": "Hitro sušeča oblačila"
+        }
+      },
+      "washer_temperature_control": {
+        "name": "Temperatura vode",
+        "state": {
+          "cold": "Hladno",
+          "20": "20 °C",
+          "30": "30 °C",
+          "40": "40 °C",
+          "60": "60 °C",
+          "95": "95 °C"
+        }
+      },
+      "washer_spin_speed_control": {
+        "name": "Hitrost ožemanja",
+        "state": {
+          "0": "Brez ožemanja",
+          "400": "400 rpm",
+          "600": "600 rpm",
+          "800": "800 rpm",
+          "1000": "1000 rpm",
+          "1200": "1200 rpm",
+          "1400": "1400 rpm"
+        }
+      },
+      "washer_rinse_count": {
+        "name": "Število izpiranj",
+        "state": {
+          "1": "1",
+          "2": "2",
+          "3": "3",
+          "4": "4"
+        }
+      },
+      "washer_water_level_control": {
+        "name": "Nivo vode",
+        "state": {
+          "auto": "Samodejno",
+          "l1": "L1",
+          "l2": "L2",
+          "l3": "L3",
+          "l4": "L4"
+        }
+      },
+      "washer_detergent_control": {
+        "name": "Doziranje detergenta",
+        "state": {
+          "smart": "Pametno",
+          "off": "Izklopljeno",
+          "l1": "L1",
+          "l2": "L2",
+          "l3": "L3",
+          "l4": "L4"
+        }
+      },
+      "washer_wash_time_control": {
+        "name": "Čas pranja (min)"
+      },
+      "washer_spin_time_control": {
+        "name": "Čas ožemanja (min)"
+      }
+    },
+    "time": {
+      "timing_regeneration": {
+        "name": "Časovna regeneracija"
+      },
+      "laundry_appointment_finish": {
+        "name": "Čas zaključka (nastavi rezervacijo)"
+      }
+    },
+    "sensor": {
+      "db_running_status": {
+        "name": "Stanje pralnega stroja"
+      },
+      "db_progress": {
+        "name": "Napredek pralnega stroja"
+      },
+      "db_program": {
+        "name": "Program pralnega stroja"
+      },
+      "db_remain_time": {
+        "name": "Preostali čas pralnega stroja"
+      },
+      "db_wash_time": {
+        "name": "Čas pranja pralnega stroja"
+      },
+      "db_dehydration_time": {
+        "name": "Čas ožemanja pralnega stroja"
+      },
+      "db_dehydration_speed": {
+        "name": "Hitrost ožemanja pralnega stroja"
+      },
+      "db_water_level": {
+        "name": "Nivo vode pralnega stroja"
+      },
+      "db_temperature": {
+        "name": "Temperatura pralnega stroja"
+      },
+      "db_rinse_count": {
+        "name": "Število izpiranj pralnega stroja"
+      },
+      "db_detergent": {
+        "name": "Detergent pralnega stroja"
+      },
+      "db_softener": {
+        "name": "Mehčalec pralnega stroja"
+      },
+      "db_appointment_time": {
+        "name": "Čas rezervacije pralnega stroja"
+      },
+      "db_appointment_end_time": {
+        "name": "Čas konca rezervacije pralnega stroja"
+      },
+      "db_error_code": {
+        "name": "Koda napake pralnega stroja"
+      },
+      "db_water_consumption": {
+        "name": "Poraba vode pralnega stroja"
+      },
+      "db_power_consumption": {
+        "name": "Poraba energije pralnega stroja"
+      },
+      "dc_running_status": {
+        "name": "Stanje sušilnika"
+      },
+      "dc_dry_status": {
+        "name": "Stanje sušenja sušilnika"
+      },
+      "dc_program": {
+        "name": "Program sušilnika"
+      },
+      "dc_remain_time": {
+        "name": "Preostali čas sušilnika"
+      },
+      "dc_dry_time": {
+        "name": "Čas sušenja sušilnika"
+      },
+      "dc_intensity": {
+        "name": "Intenzivnost sušilnika"
+      },
+      "dc_appointment_time": {
+        "name": "Čas rezervacije sušilnika"
+      },
+      "dc_appointment_end_time": {
+        "name": "Čas konca rezervacije sušilnika"
+      },
+      "dc_error_code": {
+        "name": "Koda napake sušilnika"
+      },
+      "dc_water_consumption": {
+        "name": "Poraba vode sušilnika"
+      },
+      "dc_power_consumption": {
+        "name": "Poraba energije sušilnika"
+      },
+      "dishwasher_mode": {
+        "name": "Način",
+        "state": {
+          "neutral_gear": "Brez",
+          "auto_wash": "Samodejno",
+          "strong_wash": "Intenzivno",
+          "standard_wash": "Standardno",
+          "eco_wash": "ECO",
+          "glass_wash": "Steklo",
+          "hour_wash": "1 ura",
+          "fast_wash": "Hitro",
+          "soak_wash": "Namakanje",
+          "90min": "90 min",
+          "self_clean": "Samodejno čiščenje",
+          "fruit_wash": "Sadje",
+          "self_define": "Po meri",
+          "germ": "Klice",
+          "bowl_wash": "Skleda",
+          "kill_germ": "Higiena",
+          "sea_food_wash": "Morski sadeži",
+          "hot_pot_wash": "Kuhanje v loncu",
+          "quiet_night_wash": "Tiha noč",
+          "less_wash": "Lahko",
+          "max_rapid_wash": "Najhitrejše",
+          "oil_net_wash": "Oljni filter",
+          "cloud_wash": "Program v oblaku",
+          "single_dry": "Samo sušenje",
+          "single_disinfect": "Samo razkuževanje",
+          "high_temp_wash": "Visoka temperatura",
+          "wash_dry": "Pranje in sušenje"
+        }
+      },
+      "dishwasher_mode_76000228": {
+        "name": "Način",
+        "state": {
+          "neutral_gear": "Brez",
+          "auto_wash": "Samodejno",
+          "strong_wash": "Intenzivno",
+          "standard_wash": "Univerzalno",
+          "eco_wash": "ECO",
+          "glass_wash": "Steklo",
+          "hour_wash": "90 min",
+          "fast_wash": "Hitro",
+          "soak_wash": "Namakanje",
+          "90min": "90 min",
+          "self_clean": "Samodejno čiščenje",
+          "fruit_wash": "Sadje",
+          "self_define": "Po meri",
+          "germ": "Šepet",
+          "bowl_wash": "Skleda",
+          "kill_germ": "Higiena",
+          "sea_food_wash": "Samodejno čiščenje",
+          "hot_pot_wash": "Kuhanje v loncu",
+          "quiet_night_wash": "Tiha noč",
+          "less_wash": "Lahko",
+          "max_rapid_wash": "Najhitrejše",
+          "oil_net_wash": "Oljni filter",
+          "cloud_wash": "Program v oblaku",
+          "single_dry": "Samo sušenje",
+          "single_disinfect": "Samo razkuževanje",
+          "high_temp_wash": "Visoka temperatura",
+          "wash_dry": "Pranje in sušenje"
+        }
+      },
+      "dishwasher_status": {
+        "name": "Stanje",
+        "state": {
+          "power_off": "Izklopljeno",
+          "cancel": "Nedejavno",
+          "delay": "Zakasnjen zagon",
+          "running": "Deluje",
+          "error": "Napaka"
+        }
+      },
+      "dishwasher_progress": {
+        "name": "Napredek",
+        "state": {
+          "idle": "Nedejavno",
+          "pre_wash": "Predpranje",
+          "wash": "Pranje",
+          "rinse": "Izpiranje",
+          "dry": "Sušenje",
+          "complete": "Dokončano"
+        }
+      },
+      "operator": {
+        "name": "Stanje delovanja",
+        "state": {
+          "start": "Deluje",
+          "pause": "V premoru"
+        }
+      },
+      "wrong_operation": {
+        "name": "Napačno delovanje"
+      },
+      "dry_set_min": {
+        "name": "Nastavljeni čas sušenja"
+      },
+      "clean_left_hour": {
+        "name": "Preostalo čiščenje"
+      },
+      "kitchenware_left_hour": {
+        "name": "Preostala kuhinjska posoda"
+      },
+      "device_version": {
+        "name": "Različica naprave"
+      },
+      "throw_percent": {
+        "name": "Stopnja doziranja"
+      },
+      "delay_remaining": {
+        "name": "Preostanek do zakasnjenega zagona"
+      },
+      "gas_usage_daily": {
+        "name": "Dnevna poraba plina"
+      },
+      "gas_usage_last_month": {
+        "name": "Poraba plina prejšnji mesec"
+      },
+      "gas_usage_monthly": {
+        "name": "Mesečna poraba plina"
+      },
+      "water_usage_daily": {
+        "name": "Dnevna poraba vode"
+      },
+      "water_usage_last_month": {
+        "name": "Poraba vode prejšnji mesec"
+      },
+      "water_usage_monthly": {
+        "name": "Mesečna poraba vode"
+      },
+      "three_way_mode": {
+        "name": "Trismerni način"
+      },
+      "heating_unit_type": {
+        "name": "Tip ogrevalne enote"
+      },
+      "return_temperature": {
+        "name": "Povratna temperatura"
+      },
+      "heating_temperature": {
+        "name": "Temperatura ogrevanja"
+      },
+      "heating_gap_temperature": {
+        "name": "Temperaturna razlika ogrevanja"
+      },
+      "user_mode_target_temperature": {
+        "name": "Ciljna temperatura uporabniškega načina"
+      },
+      "activity_mode_target_temperature": {
+        "name": "Ciljna temperatura načina dejavnosti"
+      },
+      "sleep_mode_target_temperature": {
+        "name": "Ciljna temperatura načina spanja"
+      },
+      "last_time": {
+        "name": "Zadnji čas"
+      },
+      "flow_volume": {
+        "name": "Pretok"
+      },
+      "bathing_leaving_temperature": {
+        "name": "Temperatura iztoka vode pri kopanju"
+      },
+      "bf_status": {
+        "name": "Stanje",
+        "state": {
+          "save_power": "Varčevanje z energijo",
+          "standby": "Pripravljenost",
+          "work": "Deluje",
+          "work_finish": "Končano",
+          "order": "Zakasnitev",
+          "pause": "V premoru",
+          "pause_c": "V premoru C",
+          "three": "Tri",
+          "wait_to_start": "Čakanje na zagon",
+          "self_inspection": "Samopregled",
+          "query_version": "Poizvedba različice",
+          "demo": "Predstavitev",
+          "after_checking": "Po preverjanju",
+          "unknown": "Neznano"
+        }
+      },
+      "bottom_compartment_remaining": {
+        "name": "Preostanek spodnjega predala"
+      },
+      "bottom_compartment_status": {
+        "name": "Stanje spodnjega predala"
+      },
+      "bottom_compartment_temperature": {
+        "name": "Temperatura spodnjega predala"
+      },
+      "bottom_temperature": {
+        "name": "Spodnja temperatura"
+      },
+      "bright": {
+        "name": "Stopnja svetlosti"
+      },
+      "cloudmenuid": {
+        "name": "ID menija v oblaku"
+      },
+      "compressor_temperature": {
+        "name": "Temperatura kompresorja"
+      },
+      "condenser_temperature": {
+        "name": "Temperatura kondenzatorja"
+      },
+      "cur_probe_temperature": {
+        "name": "Trenutna temperatura sonde"
+      },
+      "cur_temperature_above": {
+        "name": "Trenutna temperatura zgoraj"
+      },
+      "cur_temperature_underside": {
+        "name": "Trenutna temperatura spodaj"
+      },
+      "current_energy_consumption": {
+        "name": "Trenutna poraba energije"
+      },
+      "current_temperature": {
+        "name": "Trenutna temperatura"
+      },
+      "dehydration_speed": {
+        "name": "Hitrost ožemanja"
+      },
+      "dehydration_time": {
+        "name": "Čas ožemanja"
+      },
+      "dehydration_time_value": {
+        "name": "Vrednost časa ožemanja"
+      },
+      "execute_status": {
+        "name": "Stanje izvajanja",
+        "state": {
+          "ok": "V redu",
+          "status_nonsupport": "Stanje ni podprto",
+          "function_nonsupport": "Funkcija ni podprta",
+          "param_range_error": "Napaka območja parametra"
+        }
+      },
+      "fire_power": {
+        "name": "Moč gorilnika",
+        "state": {
+          "fire_power_0": "Stopnja 0",
+          "fire_power_1": "Stopnja 1",
+          "fire_power_2": "Stopnja 2",
+          "fire_power_3": "Stopnja 3",
+          "fire_power_4": "Stopnja 4",
+          "fire_power_5": "Stopnja 5",
+          "fire_power_6": "Stopnja 6",
+          "fire_power_7": "Stopnja 7",
+          "fire_power_8": "Stopnja 8",
+          "fire_power_9": "Stopnja 9",
+          "fire_power_10": "Stopnja 10",
+          "unknown": "Neznano"
+        }
+      },
+      "minute_set": {
+        "name": "Nastavitev minut"
+      },
+      "people_number": {
+        "name": "Število oseb"
+      },
+      "probe_temperature": {
+        "name": "Temperatura sonde"
+      },
+      "second_set": {
+        "name": "Nastavitev sekund"
+      },
+      "steam_quantity": {
+        "name": "Količina pare"
+      },
+      "stepnum": {
+        "name": "Trenutni korak"
+      },
+      "temperature": {
+        "name": "Temperatura"
+      },
+      "temperature_above": {
+        "name": "Temperatura zgoraj"
+      },
+      "temperature_underside": {
+        "name": "Temperatura spodaj"
+      },
+      "totalstep": {
+        "name": "Skupno število korakov"
+      },
+      "wash_time_value": {
+        "name": "Vrednost časa pranja"
+      },
+      "stains": {
+        "name": "Madeži"
+      },
+      "dirty_degree": {
+        "name": "Stopnja umazanije"
+      },
+      "detergent": {
+        "name": "Detergent"
+      },
+      "intensity": {
+        "name": "Intenzivnost"
+      },
+      "dryness_level": {
+        "name": "Stopnja suhosti"
+      },
+      "dry_temperature": {
+        "name": "Temperatura sušenja"
+      },
+      "door_warn": {
+        "name": "Opozorilo vrat"
+      },
+      "ai_switch": {
+        "name": "Stikalo glasovnega pomočnika"
+      },
+      "material": {
+        "name": "Material"
+      },
+      "water_box": {
+        "name": "Posoda za vodo"
+      },
+      "energy_consumption": {
+        "name": "Poraba energije"
+      },
+      "error": {
+        "name": "Napaka",
+        "state": {
+          "no_error": "Brez napake",
+          "e1_position_not_found": "E1 Položaj ni najden",
+          "e2_photo_sensor_no_signal": "E2 Foto senzor brez signala",
+          "e3_motor_not_running": "E3 Motor ne deluje",
+          "e4_wrong_position": "E4 Napačen položaj",
+          "e1_motor_fault": "E1 Napaka motorja",
+          "e5_communication_fault": "E5 Napaka komunikacije",
+          "e6_salt_sensor_fault": "E6 Napaka senzorja soli",
+          "e7_chlorine_sterilization_fault": "E7 Napaka sterilizacije s klorom"
+        }
+      },
+      "error_code": {
+        "name": "Koda napake"
+      },
+      "humidify_feedback": {
+        "name": "Povratna informacija o vlažnosti"
+      },
+      "temperature_feedback": {
+        "name": "Povratna informacija o temperaturi"
+      },
+      "humidify_mode": {
+        "name": "Način vlaženja"
+      },
+      "estimated_energy_consumption": {
+        "name": "Ocenjena poraba energije"
+      },
+      "estimated_water_consumption": {
+        "name": "Ocenjena poraba vode"
+      },
+      "fan_level": {
+        "name": "Stopnja ventilatorja"
+      },
+      "filter_life": {
+        "name": "Življenjska doba filtra"
+      },
+      "filter1_days": {
+        "name": "Razpoložljivi dnevi filtra 1"
+      },
+      "filter1_life": {
+        "name": "Stopnja življenjske dobe filtra 1"
+      },
+      "filter2_days": {
+        "name": "Razpoložljivi dnevi filtra 2"
+      },
+      "filter2_life": {
+        "name": "Stopnja življenjske dobe filtra 2"
+      },
+      "filter3_days": {
+        "name": "Razpoložljivi dnevi filtra 3"
+      },
+      "filter3_life": {
+        "name": "Stopnja življenjske dobe filtra 3"
+      },
+      "flex_zone_actual_temp": {
+        "name": "Dejanska temperatura prilagodljive cone"
+      },
+      "flex_zone_setting_temp": {
+        "name": "Nastavljena temperatura prilagodljive cone"
+      },
+      "freezer_actual_temp": {
+        "name": "Dejanska temperatura zamrzovalnika"
+      },
+      "freezer_setting_temp": {
+        "name": "Nastavljena temperatura zamrzovalnika"
+      },
+      "hcho": {
+        "name": "Metanal"
+      },
+      "heating_leaving_temperature": {
+        "name": "Temperatura iztoka vode pri ogrevanju"
+      },
+      "heating_power": {
+        "name": "Moč ogrevanja"
+      },
+      "heating_time_remaining": {
+        "name": "Preostali čas ogrevanja"
+      },
+      "in_tds": {
+        "name": "TDS na vhodu"
+      },
+      "indoor_humidity": {
+        "name": "Notranja vlažnost"
+      },
+      "indoor_temperature": {
+        "name": "Notranja temperatura"
+      },
+      "keep_warm_remaining": {
+        "name": "Preostanek ohranjanja toplote"
+      },
+      "fault_code": {
+        "name": "Koda napake"
+      },
+      "keep_warm_time": {
+        "name": "Čas ohranjanja toplote"
+      },
+      "left_salt": {
+        "name": "Preostala sol"
+      },
+      "middle_compartment_remaining": {
+        "name": "Preostanek srednjega predala"
+      },
+      "middle_compartment_status": {
+        "name": "Stanje srednjega predala"
+      },
+      "middle_compartment_temperature": {
+        "name": "Temperatura srednjega predala"
+      },
+      "mode": {
+        "name": "Način"
+      },
+      "out_tds": {
+        "name": "TDS na izhodu"
+      },
+      "outdoor_temperature": {
+        "name": "Zunanja temperatura"
+      },
+      "comp_run_freq": {
+        "name": "Frekvenca kompresorja"
+      },
+      "outdoor_fan_speed": {
+        "name": "Hitrost zunanjega ventilatorja"
+      },
+      "unit_mode_run": {
+        "name": "Način delovanja enote",
+        "state": {
+          "off": "Izklopljeno",
+          "auto": "Samodejno",
+          "cool": "Hlajenje",
+          "heat": "Gretje",
+          "dhw": "DHW"
+        }
+      },
+      "odu_target_fre": {
+        "name": "Ciljna frekvenca kompresorja"
+      },
+      "odu_voltage": {
+        "name": "Napetost zunanje enote"
+      },
+      "odu_comp_current": {
+        "name": "Tok kompresorja"
+      },
+      "exv_current": {
+        "name": "Odprtost elektronskega ekspanzijskega ventila"
+      },
+      "fg_capacity_need": {
+        "name": "Povpraševanje po zmogljivosti"
+      },
+      "pressure_high": {
+        "name": "Tlak hladiva (visokotlačna stran)"
+      },
+      "pressure_low": {
+        "name": "Tlak hladiva (nizkotlačna stran)"
+      },
+      "temp_t1": {
+        "name": "Temperaturni senzor T1"
+      },
+      "temp_t2": {
+        "name": "Temperatura ploščnega toplotnega izmenjevalnika (T2)"
+      },
+      "temp_t2b": {
+        "name": "Izhodna temperatura ploščnega toplotnega izmenjevalnika (T2B)"
+      },
+      "temp_t3": {
+        "name": "Temperatura zunanje tuljave (T3)"
+      },
+      "temp_tp": {
+        "name": "Temperatura izpušne cevi (TP)"
+      },
+      "temp_th": {
+        "name": "Sesalna temperatura (TH)"
+      },
+      "temp_tf": {
+        "name": "Temperatura napajalnega modula (TF)"
+      },
+      "program": {
+        "name": "Program"
+      },
+      "progress": {
+        "name": "Napredek"
+      },
+      "realtime_power": {
+        "name": "Trenutna moč"
+      },
+      "pmv": {
+        "name": "PMV"
+      },
+      "refrigerator_actual_temp": {
+        "name": "Dejanska temperatura hladilnika"
+      },
+      "refrigerator_setting_temp": {
+        "name": "Nastavljena temperatura hladilnika"
+      },
+      "regeneration_left_seconds": {
+        "name": "Preostale sekunde regeneracije"
+      },
+      "remaining_days": {
+        "name": "Preostali dnevi"
+      },
+      "right_flex_zone_actual_temp": {
+        "name": "Dejanska temperatura desne prilagodljive cone"
+      },
+      "right_flex_zone_setting_temp": {
+        "name": "Nastavljena temperatura desne prilagodljive cone"
+      },
+      "rinse_count": {
+        "name": "Število izpiranj"
+      },
+      "rinse_level": {
+        "name": "Stopnja izpiranja"
+      },
+      "salt_setting": {
+        "name": "Nastavitev soli"
+      },
+      "seat_temperature": {
+        "name": "Temperatura sedeža"
+      },
+      "soak_time": {
+        "name": "Čas namakanja"
+      },
+      "soft_available": {
+        "name": "Razpoložljiva mehka voda"
+      },
+      "softener": {
+        "name": "Mehčalec"
+      },
+      "softwater": {
+        "name": "Stopnja mehke vode"
+      },
+      "status": {
+        "name": "Stanje"
+      },
+      "storage_remaining": {
+        "name": "Preostalo shranjevanje"
+      },
+      "tank": {
+        "name": "Rezervoar"
+      },
+      "tank_actual_temperature": {
+        "name": "Dejanska temperatura rezervoarja"
+      },
+      "target_temperature": {
+        "name": "Ciljna temperatura"
+      },
+      "time_remaining": {
+        "name": "Preostali čas"
+      },
+      "top_compartment_remaining": {
+        "name": "Preostanek zgornjega predala"
+      },
+      "top_compartment_status": {
+        "name": "Stanje zgornjega predala"
+      },
+      "top_compartment_temperature": {
+        "name": "Temperatura zgornjega predala"
+      },
+      "top_temperature": {
+        "name": "Zgornja temperatura"
+      },
+      "total_energy_consumption": {
+        "name": "Skupna poraba energije"
+      },
+      "total_produced_energy": {
+        "name": "Skupna proizvedena energija"
+      },
+      "tvoc": {
+        "name": "TVOC"
+      },
+      "wash_level": {
+        "name": "Stopnja pranja"
+      },
+      "wash_strength": {
+        "name": "Moč pranja"
+      },
+      "wash_time": {
+        "name": "Čas pranja"
+      },
+      "water_consumption": {
+        "name": "Poraba vode"
+      },
+      "water_consumption_average": {
+        "name": "Povprečna poraba vode"
+      },
+      "water_consumption_big": {
+        "name": "Poraba vode"
+      },
+      "water_temperature": {
+        "name": "Temperatura vode"
+      },
+      "water_level": {
+        "name": "Nivo vode"
+      },
+      "weight": {
+        "name": "Teža"
+      },
+      "wind": {
+        "name": "Veter"
+      },
+      "typeinfo": {
+        "name": "Informacije o tipu"
+      },
+      "use_days": {
+        "name": "Dnevi uporabe"
+      },
+      "elec_heat": {
+        "name": "Električno gretje"
+      },
+      "water_pump": {
+        "name": "Vodna črpalka"
+      },
+      "four_way": {
+        "name": "Štiripotni ventil"
+      },
+      "back_water": {
+        "name": "Povratna voda"
+      },
+      "sterilize": {
+        "name": "Sterilizacija"
+      },
+      "disinfection_temperature": {
+        "name": "Temperatura razkuževanja"
+      },
+      "max_temperature": {
+        "name": "Najvišja ciljna temperatura"
+      },
+      "max_temperature_upper_limit": {
+        "name": "Zgornja meja najvišje temperature"
+      },
+      "max_temperature_lower_limit": {
+        "name": "Spodnja meja najvišje temperature"
+      },
+      "disinfection_temperature_upper_limit": {
+        "name": "Zgornja meja temperature razkuževanja"
+      },
+      "disinfection_temperature_lower_limit": {
+        "name": "Spodnja meja temperature razkuževanja"
+      },
+      "dr_option": {
+        "name": "Možnost odziva na povpraševanje"
+      },
+      "remaining_hot_water_max": {
+        "name": "Največja preostala topla voda"
+      },
+      "force_e_heating_status": {
+        "name": "Stanje prisilnega električnega gretja"
+      },
+      "holiday_max": {
+        "name": "Najdaljše trajanje dopusta"
+      },
+      "holiday_min": {
+        "name": "Najkrajše trajanje dopusta"
+      },
+      "timer_step_gap": {
+        "name": "Korak časovnika"
+      },
+      "vacation_start_year": {
+        "name": "Leto začetka dopusta"
+      },
+      "vacation_start_month": {
+        "name": "Mesec začetka dopusta"
+      },
+      "vacation_start_day": {
+        "name": "Dan začetka dopusta"
+      },
+      "auto_sterilize_week": {
+        "name": "Teden samodejne sterilizacije"
+      },
+      "auto_sterilize_hour": {
+        "name": "Ura samodejne sterilizacije"
+      },
+      "auto_sterilize_minute": {
+        "name": "Minuta samodejne sterilizacije"
+      },
+      "work_mode": {
+        "name": "Način delovanja",
+        "state": {
+          "microwave": "Mikrovalovi",
+          "microwave_1": "Mikrovalovi 1",
+          "microwave_2": "Mikrovalovi 2",
+          "microwave_3": "Mikrovalovi 3",
+          "microwave_4": "Mikrovalovi 4",
+          "microwave_5": "Mikrovalovi 5",
+          "microwave_steam_above_tube": "Mikrovalovi s paro zgornja cev",
+          "microwave_double_tube": "Mikrovalovi dvojna cev",
+          "microwave_hot_wind_tube_fan": "Mikrovalovi ventilator cevi vročega zraka",
+          "microwave_underside_tube_hot_wind_tube_fan": "Mikrovalovi ventilator vročega zraka spodnje cevi",
+          "microwave_double_tube_hot_wind_tube_fan": "Mikrovalovi ventilator vročega zraka dvojne cevi",
+          "microwave_steam": "Mikrovalovi s paro",
+          "microwave_steam_1": "Mikrovalovi s paro 1",
+          "unfreeze": "Odmrzovanje",
+          "unfreeze_1": "Odmrzovanje 1",
+          "unfreeze_2": "Odmrzovanje 2",
+          "unfreeze_3": "Odmrzovanje 3",
+          "unfreeze_t": "Odmrzovanje T",
+          "microwave_above_tube": "Mikrovalovi zgornja cev",
+          "microwave_above_tube_1": "Mikrovalovi zgornja cev 1",
+          "microwave_above_tube_2": "Mikrovalovi zgornja cev 2",
+          "microwave_above_tube_fan": "Mikrovalovi ventilator zgornje cevi",
+          "fast_unfreeze": "Hitro odmrzovanje",
+          "fresh_unfreeze": "Sveže odmrzovanje",
+          "microwave_zymosis": "Mikrovalovi fermentacija",
+          "pure_steam": "Čista para",
+          "pure_steam_1": "Čista para 1",
+          "pure_steam_2": "Čista para 2",
+          "pure_steam_3": "Čista para 3",
+          "pure_steam_4": "Čista para 4",
+          "pure_steam_5": "Čista para 5",
+          "pure_steam_6": "Čista para 6",
+          "pure_steam_7": "Čista para 7",
+          "pure_steam_8": "Čista para 8",
+          "pure_steam_9": "Čista para 9",
+          "steam_above_tube": "Para zgornja cev",
+          "steam_underside_tube": "Para spodnja cev",
+          "steam_double_tube": "Para dvojna cev",
+          "steam_hot_wind_tube_fan": "Para ventilator cevi vročega zraka",
+          "steam_hot_wind_tube_fan_1": "Para ventilator cevi vročega zraka 1",
+          "steam_hot_wind_tube_fan_2": "Para ventilator cevi vročega zraka 2",
+          "steam_hot_wind_tube": "Para cev vročega zraka",
+          "steam_double_tube_fan": "Para ventilator dvojne cevi",
+          "steam_above_inside_outside_tube_fan": "Para ventilator zgornje notranje in zunanje cevi",
+          "steam_above_inside_tube_fan": "Para ventilator zgornje notranje cevi",
+          "above_tube": "Zgornja cev",
+          "underside_tube": "Spodnja cev",
+          "double_tube": "Dvojna cev",
+          "hot_wind_tube_fan": "Ventilator cevi vročega zraka",
+          "pure_preheat": "Čisto predgrevanje",
+          "pure_preheat_2": "Čisto predgrevanje 2",
+          "above_tube_hot_wind_tube_fan": "Ventilator vročega zraka zgornje cevi",
+          "underside_tube_hot_wind_tube_fan": "Ventilator vročega zraka spodnje cevi",
+          "zymosis": "Fermentacija",
+          "double_tube_hot_wind_tube_fan": "Ventilator vročega zraka dvojne cevi",
+          "above_tube_revolve": "Vrtenje zgornje cevi",
+          "underside_tube_revolve": "Vrtenje spodnje cevi",
+          "double_tube_revolve": "Vrtenje dvojne cevi",
+          "hot_wind_tube_fan_revolve": "Vrtenje ventilatorja cevi vročega zraka",
+          "warm": "Ohranjanje toplote",
+          "double_tube_fan": "Ventilator dvojne cevi",
+          "double_tube_fan_1": "Ventilator dvojne cevi 1",
+          "double_tube_fan_2": "Ventilator dvojne cevi 2",
+          "double_tube_fan_3": "Ventilator dvojne cevi 3",
+          "above_inside_tube_revolve": "Vrtenje zgornje notranje cevi",
+          "above_inside_tube_fan": "Ventilator zgornje notranje cevi",
+          "above_inside_outside_tube_revolve": "Vrtenje zgornje notranje in zunanje cevi",
+          "above_inside_outside_tube_fan": "Ventilator zgornje notranje in zunanje cevi",
+          "above_inside_underside_tube": "Zgornja notranja in spodnja cev",
+          "above_inside_underside_tube_1": "Zgornja notranja in spodnja cev 1",
+          "above_inside_underside_tube_fan": "Ventilator zgornje notranje in spodnje cevi",
+          "above_inside_underside_tube_fan_1": "Ventilator zgornje notranje in spodnje cevi 1",
+          "above_inside_tube": "Zgornja notranja cev",
+          "above_inside_outside_tube": "Zgornja notranja in zunanja cev",
+          "underside_tube_fan": "Ventilator spodnje cevi",
+          "above_tube_fan": "Ventilator zgornje cevi",
+          "above_tube_fan_1": "Ventilator zgornje cevi 1",
+          "above_tube_fan_2": "Ventilator zgornje cevi 2",
+          "scale_clean": "Odstranjevanje vodnega kamna",
+          "clean": "Čiščenje",
+          "remove_odor": "Odstranjevanje vonjav",
+          "remove_odor_2": "Odstranjevanje vonjav 2",
+          "high_temperature_clean": "Čiščenje pri visoki temperaturi",
+          "dining_utensils_clean": "Čiščenje jedilne posode",
+          "auto_menu": "Samodejni meni",
+          "eco": "Eco",
+          "above_tube_1": "Zgornja cev 1",
+          "above_tube_2": "Zgornja cev 2",
+          "above_tube_3": "Zgornja cev 3",
+          "underside_tube_1": "Spodnja cev 1",
+          "underside_tube_2": "Spodnja cev 2",
+          "double_tube_1": "Dvojna cev 1",
+          "double_tube_2": "Dvojna cev 2",
+          "double_tube_3": "Dvojna cev 3",
+          "double_tube_4": "Dvojna cev 4",
+          "double_tube_5": "Dvojna cev 5",
+          "double_tube_6": "Dvojna cev 6",
+          "hot_wind_tube_fan_1": "Ventilator cevi vročega zraka 1",
+          "hot_wind_tube_fan_2": "Ventilator cevi vročega zraka 2",
+          "hot_wind_tube_fan_3": "Ventilator cevi vročega zraka 3",
+          "hot_wind_tube_fan_4": "Ventilator cevi vročega zraka 4",
+          "hot_wind_tube_fan_5": "Ventilator cevi vročega zraka 5",
+          "double_tube_hot_wind_tube_fan_1": "Ventilator vročega zraka dvojne cevi 1",
+          "double_tube_hot_wind_tube_fan_2": "Ventilator vročega zraka dvojne cevi 2",
+          "double_tube_hot_wind_tube_fan_3": "Ventilator vročega zraka dvojne cevi 3",
+          "double_tube_hot_wind_tube_fan_4": "Ventilator vročega zraka dvojne cevi 4",
+          "double_tube_hot_wind_tube_fan_5": "Ventilator vročega zraka dvojne cevi 5",
+          "unknown": "Neznano"
+        }
+      },
+      "working_time": {
+        "name": "Čas delovanja"
+      },
+      "humidity": {
+        "name": "Vlažnost"
+      },
+      "variable_mode": {
+        "name": "Spremenljivi način",
+        "state": {
+          "none": "Brez",
+          "soft_freezing": "Mehko zamrzovanje",
+          "zero_fresh": "Ničelna svežina",
+          "cold_drink": "Hladna pijača",
+          "fresh_product": "Sveža živila",
+          "partial_freezing": "Delno zamrzovanje",
+          "dry_zone": "Suha cona",
+          "freeze_warm": "Zamrzovanje / ogrevanje",
+          "baby": "Mati in dojenček",
+          "treasure": "Dragocenosti",
+          "zero": "Nič stopinj"
+        }
+      },
+      "compressor_frequency": {
+        "name": "Frekvenca kompresorja"
+      },
+      "target_compressor_frequency": {
+        "name": "Ciljna frekvenca kompresorja"
+      },
+      "compressor_current": {
+        "name": "Tok kompresorja"
+      },
+      "compressor_voltage": {
+        "name": "Napetost kompresorja"
+      },
+      "compressor_power": {
+        "name": "Moč kompresorja"
+      },
+      "indoor_ambient_temperature": {
+        "name": "Notranja temperatura okolice (T1)"
+      },
+      "indoor_coil_temperature": {
+        "name": "Temperatura notranje tuljave (T2)"
+      },
+      "outdoor_coil_temperature": {
+        "name": "Temperatura zunanje tuljave (T3)"
+      },
+      "outdoor_ambient_temperature": {
+        "name": "Zunanja temperatura okolice (T4)"
+      },
+      "discharge_pipe_temperature": {
+        "name": "Temperatura izpušne cevi (TP)"
+      },
+      "indoor_fan_speed": {
+        "name": "Hitrost notranjega ventilatorja"
+      },
+      "target_indoor_fan_speed": {
+        "name": "Ciljna hitrost notranjega ventilatorja"
+      },
+      "velocity": {
+        "name": "Hitrost"
+      },
+      "filter4_life": {
+        "name": "Stopnja življenjske dobe filtra 4"
+      },
+      "filter5_life": {
+        "name": "Stopnja življenjske dobe filtra 5"
+      },
+      "filter1_maxlife": {
+        "name": "Mejna življenjska doba filtra 1"
+      },
+      "filter2_maxlife": {
+        "name": "Mejna življenjska doba filtra 2"
+      },
+      "filter3_maxlife": {
+        "name": "Mejna življenjska doba filtra 3"
+      },
+      "filter4_maxlife": {
+        "name": "Mejna življenjska doba filtra 4"
+      },
+      "filter5_maxlife": {
+        "name": "Mejna življenjska doba filtra 5"
+      },
+      "hot_pot_temperature": {
+        "name": "Temperatura za kuhanje v loncu"
+      },
+      "ice_gall_status": {
+        "name": "Stanje ledene kroglice"
+      },
+      "water_kind": {
+        "name": "Vrsta vode",
+        "state": {
+          "idle": "Nedejavno",
+          "warm": "Toplo",
+          "cold": "Hladno"
+        }
+      },
+      "heat_start": {
+        "name": "Začetek ogrevanja",
+        "state": {
+          "heating": "Ogrevanje",
+          "keep_warm": "Ohranjanje toplote"
+        }
+      },
+      "no_obsolete_water_mode": {
+        "name": "Način brez zastarane vode",
+        "state": {
+          "water_quality_priority": "Prednost kakovosti vode",
+          "water_saving_priority": "Prednost varčevanja z vodo",
+          "custom": "Po meri"
+        }
+      },
+      "input_temperature_sensing": {
+        "name": "Vhodna temperatura"
+      },
+      "temp_ta": {
+        "name": "Temperatura Ta - Sobna okolica"
+      },
+      "water_flow": {
+        "name": "Voda - Pretok"
+      },
+      "water_pressure": {
+        "name": "Voda - Tlak"
+      },
+      "temp_t4": {
+        "name": "Temperatura T4 - Zunanja okolica"
+      },
+      "temp_t5": {
+        "name": "Temperatura T5 - Rezervoar vode"
+      },
+      "temp_tb_t1": {
+        "name": "Temperatura TB-T1 - Vrh zalogovnika"
+      },
+      "temp_tb_t2": {
+        "name": "Temperatura TB-T2 - Dno zalogovnika"
+      },
+      "temp_tsolar": {
+        "name": "Temperatura Tsolar - Sončni panel"
+      },
+      "temp_tw2": {
+        "name": "Temperatura Tw2 - Voda cone 2"
+      },
+      "dc_current": {
+        "name": "ODU - Tok enosmernega vodila"
+      },
+      "dc_bus_voltage": {
+        "name": "ODU - Napetost enosmernega vodila"
+      },
+      "current_unit_capacity": {
+        "name": "Trenutna zmogljivost enote (surova)"
+      },
+      "instant_power0": {
+        "name": "Moč - Poraba ogrevanja"
+      },
+      "instant_renew_power0": {
+        "name": "Moč - Obnovljiva ogrevalna zmogljivost"
+      },
+      "room_rel_hum": {
+        "name": "Relativna vlažnost prostora"
+      },
+      "hydbox_subtype": {
+        "name": "Info - Podtip hidravličnega modula"
+      },
+      "machine_type": {
+        "name": "Info - Tip stroja"
+      },
+      "odu_model": {
+        "name": "Info - Koda modela ODU"
+      },
+      "hydrobox_capacity": {
+        "name": "Info - Zmogljivost hidravličnega modula"
+      },
+      "idu_t1s1": {
+        "name": "Temperatura - Izračunana cona 1 (T1s)"
+      },
+      "idu_t1s2": {
+        "name": "Temperatura - Izračunana cona 2 (T1s)"
+      },
+      "t5s": {
+        "name": "Temperatura T5s - Nastavljena vrednost DHW"
+      },
+      "tas": {
+        "name": "Temperatura Tas - Nastavljena vrednost zraka"
+      },
+      "zone1_temp_set": {
+        "name": "Temperatura - Nastavljena vrednost cone 1"
+      },
+      "zone2_temp_set": {
+        "name": "Temperatura - Nastavljena vrednost cone 2"
+      },
+      "disinfect_set_weekday": {
+        "name": "DHW - Dan razkuževanja"
+      },
+      "disinfect_start_hour": {
+        "name": "DHW - Ura začetka razkuževanja"
+      },
+      "disinfect_start_minutes": {
+        "name": "DHW - Minuta začetka razkuževanja"
+      },
+      "error_code_description": {
+        "name": "Napaka - Opis"
+      },
+      "hmi_sn_code": {
+        "name": "Serijska številka HMI"
+      },
+      "temp_tw_in": {
+        "name": "Temperatura Tw_in - Dovod vode"
+      },
+      "temp_tw_out": {
+        "name": "Temperatura Tw_out - Odvod vode"
+      },
+      "comp_total_run_time": {
+        "name": "Energija - Čas delovanja kompresorja"
+      },
+      "idu_software_version_str": {
+        "name": "Info - Različica programske opreme IDU"
+      },
+      "odu_software_version_str": {
+        "name": "Info - Različica programske opreme ODU"
+      },
+      "ac_air_direction_gear": {
+        "name": "Stopnja smeri zraka klime"
+      },
+      "ac_air_direction_max_angle": {
+        "name": "Največji kot smeri zraka klime"
+      },
+      "ac_air_direction_min_angle": {
+        "name": "Najmanjši kot smeri zraka klime"
+      },
+      "ac_ambient_temperature": {
+        "name": "Temperatura okolice klime"
+      },
+      "ac_current_temp": {
+        "name": "Trenutna temperatura klime"
+      },
+      "ac_destination_temp": {
+        "name": "Ciljna temperatura klime"
+      },
+      "ac_destination_time": {
+        "name": "Ciljni čas klime"
+      },
+      "ac_gear": {
+        "name": "Stopnja klime"
+      },
+      "ac_mode": {
+        "name": "Način klime",
+        "state": {
+          "air_supply": "Dovod zraka",
+          "dehumidification": "Razvlaževanje",
+          "net_flavour": "Svežina zraka",
+          "none": "Brez",
+          "refrigeration": "Hlajenje"
+        }
+      },
+      "ac_order_destination_time": {
+        "name": "Ciljni čas naročila klime"
+      },
+      "ac_order_remaining_time": {
+        "name": "Preostali čas naročila klime"
+      },
+      "ac_remaining_time": {
+        "name": "Preostali čas klime"
+      },
+      "ac_swing_gear": {
+        "name": "Stopnja nihanja klime"
+      },
+      "ac_swing_max_angle": {
+        "name": "Največji kot nihanja klime"
+      },
+      "ac_swing_min_angle": {
+        "name": "Najmanjši kot nihanja klime"
+      },
+      "ac_work_status": {
+        "name": "Stanje delovanja klime",
+        "state": {
+          "order": "Naročilo",
+          "power_off": "Izklopljeno",
+          "reservation": "Rezervacija",
+          "reservation_and_order_ordering": "Rezervacija in naročilo - naročanje",
+          "reservation_and_order_reserving": "Rezervacija in naročilo - rezerviranje",
+          "working": "Deluje"
+        }
+      },
+      "ai_voice_microphone_status": {
+        "name": "Stanje mikrofona glasovnega pomočnika",
+        "state": {
+          "failure": "Neuspeh",
+          "success": "Uspeh"
+        }
+      },
+      "ai_voice_status": {
+        "name": "Stanje glasovnega pomočnika",
+        "state": {
+          "connecting": "Povezovanje",
+          "off": "Izklopljeno",
+          "on": "Vklopljeno"
+        }
+      },
+      "ai_voice_volume_status": {
+        "name": "Stanje glasnosti glasovnega pomočnika",
+        "state": {
+          "failure": "Neuspeh",
+          "success": "Uspeh"
+        }
+      },
+      "b2_downstair_current_temp": {
+        "name": "Trenutna temperatura spodnje parne pečice"
+      },
+      "b2_downstair_destination_temp": {
+        "name": "Ciljna temperatura spodnje parne pečice"
+      },
+      "b2_downstair_light_off_type": {
+        "name": "Tip izklopa lučke spodnje parne pečice",
+        "state": {
+          "app": "Aplikacija",
+          "local": "Lokalno"
+        }
+      },
+      "b2_downstair_light_on_type": {
+        "name": "Tip vklopa lučke spodnje parne pečice",
+        "state": {
+          "app": "Aplikacija",
+          "local": "Lokalno"
+        }
+      },
+      "b2_downstair_order_destination_time": {
+        "name": "Ciljni čas naročila spodnje parne pečice"
+      },
+      "b2_downstair_order_remaining_time": {
+        "name": "Preostali čas naročila spodnje parne pečice"
+      },
+      "b2_downstair_power_off_type": {
+        "name": "Tip izklopa spodnje parne pečice",
+        "state": {
+          "app": "Aplikacija",
+          "auto": "Samodejno",
+          "error": "Napaka",
+          "local": "Lokalno",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b2_downstair_power_on_type": {
+        "name": "Tip vklopa spodnje parne pečice",
+        "state": {
+          "app": "Aplikacija",
+          "local": "Lokalno",
+          "order": "Naročilo"
+        }
+      },
+      "b2_downstair_preheating": {
+        "name": "Predgrevanje spodnje parne pečice",
+        "state": {
+          "finish": "Konec",
+          "none": "Brez",
+          "preheating": "Predgrevanje poteka"
+        }
+      },
+      "b2_downstair_recipe_after": {
+        "name": "Po receptu spodnje parne pečice"
+      },
+      "b2_downstair_recipe_code": {
+        "name": "Koda recepta spodnje parne pečice"
+      },
+      "b2_downstair_recipe_current_mode": {
+        "name": "Trenutni način recepta spodnje parne pečice"
+      },
+      "b2_downstair_recipe_current_step": {
+        "name": "Trenutni korak recepta spodnje parne pečice"
+      },
+      "b2_downstair_recipe_off_type": {
+        "name": "Tip izklopa recepta spodnje parne pečice",
+        "state": {
+          "app": "Aplikacija",
+          "auto": "Samodejno",
+          "error": "Napaka",
+          "local": "Lokalno",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b2_downstair_recipe_on_type": {
+        "name": "Tip vklopa recepta spodnje parne pečice",
+        "state": {
+          "app": "Aplikacija",
+          "local": "Lokalno",
+          "order": "Naročilo"
+        }
+      },
+      "b2_downstair_recipe_total_steps": {
+        "name": "Skupno število korakov recepta spodnje parne pečice"
+      },
+      "b2_downstair_work_destination_time": {
+        "name": "Ciljni čas dela spodnje parne pečice"
+      },
+      "b2_downstair_work_func": {
+        "name": "Funkcija dela spodnje parne pečice"
+      },
+      "b2_downstair_work_menu": {
+        "name": "Meni dela spodnje parne pečice"
+      },
+      "b2_downstair_work_remaining_time": {
+        "name": "Preostali čas dela spodnje parne pečice"
+      },
+      "b2_downstair_work_status": {
+        "name": "Stanje dela spodnje parne pečice",
+        "state": {
+          "auto": "Samodejno",
+          "drying": "Sušenje poteka",
+          "finish": "Konec",
+          "order": "Naročilo",
+          "pause": "Premor",
+          "power_off": "Izklopljeno",
+          "standby": "Pripravljenost",
+          "working": "Deluje"
+        }
+      },
+      "b2_upstair_current_temp": {
+        "name": "Trenutna temperatura zgornje parne pečice"
+      },
+      "b2_upstair_destination_temp": {
+        "name": "Ciljna temperatura zgornje parne pečice"
+      },
+      "b2_upstair_light_off_type": {
+        "name": "Tip izklopa lučke zgornje parne pečice",
+        "state": {
+          "app": "Aplikacija",
+          "local": "Lokalno"
+        }
+      },
+      "b2_upstair_light_on_type": {
+        "name": "Tip vklopa lučke zgornje parne pečice",
+        "state": {
+          "app": "Aplikacija",
+          "local": "Lokalno"
+        }
+      },
+      "b2_upstair_order_destination_time": {
+        "name": "Ciljni čas naročila zgornje parne pečice"
+      },
+      "b2_upstair_order_remaining_time": {
+        "name": "Preostali čas naročila zgornje parne pečice"
+      },
+      "b2_upstair_power_off_type": {
+        "name": "Tip izklopa zgornje parne pečice",
+        "state": {
+          "app": "Aplikacija",
+          "auto": "Samodejno",
+          "error": "Napaka",
+          "local": "Lokalno",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b2_upstair_power_on_type": {
+        "name": "Tip vklopa zgornje parne pečice",
+        "state": {
+          "app": "Aplikacija",
+          "local": "Lokalno",
+          "order": "Naročilo"
+        }
+      },
+      "b2_upstair_preheating": {
+        "name": "Predgrevanje zgornje parne pečice",
+        "state": {
+          "finish": "Konec",
+          "none": "Brez",
+          "preheating": "Predgrevanje poteka"
+        }
+      },
+      "b2_upstair_recipe_after": {
+        "name": "Po receptu zgornje parne pečice"
+      },
+      "b2_upstair_recipe_code": {
+        "name": "Koda recepta zgornje parne pečice"
+      },
+      "b2_upstair_recipe_current_mode": {
+        "name": "Trenutni način recepta zgornje parne pečice"
+      },
+      "b2_upstair_recipe_current_step": {
+        "name": "Trenutni korak recepta zgornje parne pečice"
+      },
+      "b2_upstair_recipe_off_type": {
+        "name": "Tip izklopa recepta zgornje parne pečice",
+        "state": {
+          "app": "Aplikacija",
+          "auto": "Samodejno",
+          "error": "Napaka",
+          "local": "Lokalno",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b2_upstair_recipe_on_type": {
+        "name": "Tip vklopa recepta zgornje parne pečice",
+        "state": {
+          "app": "Aplikacija",
+          "local": "Lokalno",
+          "order": "Naročilo"
+        }
+      },
+      "b2_upstair_recipe_total_steps": {
+        "name": "Skupno število korakov recepta zgornje parne pečice"
+      },
+      "b2_upstair_work_destination_time": {
+        "name": "Ciljni čas dela zgornje parne pečice"
+      },
+      "b2_upstair_work_func": {
+        "name": "Funkcija dela zgornje parne pečice"
+      },
+      "b2_upstair_work_menu": {
+        "name": "Meni dela zgornje parne pečice"
+      },
+      "b2_upstair_work_remaining_time": {
+        "name": "Preostali čas dela zgornje parne pečice"
+      },
+      "b2_upstair_work_status": {
+        "name": "Stanje dela zgornje parne pečice",
+        "state": {
+          "auto": "Samodejno",
+          "drying": "Sušenje poteka",
+          "finish": "Konec",
+          "order": "Naročilo",
+          "pause": "Premor",
+          "power_off": "Izklopljeno",
+          "standby": "Pripravljenost",
+          "working": "Deluje"
+        }
+      },
+      "b3_disinfect_off_type": {
+        "name": "Tip izklopa razkuževanja parne omare",
+        "state": {
+          "app": "Aplikacija",
+          "local": "Lokalno"
+        }
+      },
+      "b3_disinfect_on_type": {
+        "name": "Tip vklopa razkuževanja parne omare",
+        "state": {
+          "app": "Aplikacija",
+          "local": "Lokalno"
+        }
+      },
+      "b3_downstair_current_temp": {
+        "name": "Trenutna temperatura spodnje parne omare"
+      },
+      "b3_downstair_destination_temp": {
+        "name": "Ciljna temperatura spodnje parne omare"
+      },
+      "b3_downstair_destination_time": {
+        "name": "Ciljni čas spodnje parne omare"
+      },
+      "b3_downstair_remaining_time": {
+        "name": "Preostali čas spodnje parne omare"
+      },
+      "b3_downstair_sensor": {
+        "name": "Senzor spodnje parne omare"
+      },
+      "b3_downstair_status": {
+        "name": "Stanje spodnje parne omare",
+        "state": {
+          "drying": "Sušenje poteka",
+          "drying_pause": "Premor sušenja",
+          "ion_drying": "Ionsko sušenje",
+          "ion_drying_pause": "Premor ionskega sušenja",
+          "power_off": "Izklopljeno",
+          "uperization": "Uperizacija",
+          "uperization_pause": "Premor uperizacije",
+          "warm_drink": "Topla pijača",
+          "warm_drink_pause": "Premor tople pijače"
+        }
+      },
+      "b3_thermotank_off_type": {
+        "name": "Tip izklopa termo rezervoarja parne omare",
+        "state": {
+          "app": "Aplikacija",
+          "local": "Lokalno"
+        }
+      },
+      "b3_thermotank_on_type": {
+        "name": "Tip vklopa termo rezervoarja parne omare",
+        "state": {
+          "app": "Aplikacija",
+          "local": "Lokalno"
+        }
+      },
+      "b3_upstair_current_temp": {
+        "name": "Trenutna temperatura zgornje parne omare"
+      },
+      "b3_upstair_destination_temp": {
+        "name": "Ciljna temperatura zgornje parne omare"
+      },
+      "b3_upstair_destination_time": {
+        "name": "Ciljni čas zgornje parne omare"
+      },
+      "b3_upstair_remaining_time": {
+        "name": "Preostali čas zgornje parne omare"
+      },
+      "b3_upstair_sensor": {
+        "name": "Senzor zgornje parne omare"
+      },
+      "b3_upstair_status": {
+        "name": "Stanje zgornje parne omare",
+        "state": {
+          "drying": "Sušenje poteka",
+          "drying_pause": "Premor sušenja",
+          "ion_drying": "Ionsko sušenje",
+          "ion_drying_pause": "Premor ionskega sušenja",
+          "power_off": "Izklopljeno",
+          "uperization": "Uperizacija",
+          "uperization_pause": "Premor uperizacije",
+          "warm_drink": "Topla pijača",
+          "warm_drink_pause": "Premor tople pijače"
+        }
+      },
+      "b6_tvoc_value": {
+        "name": "Vrednost TVOC kuhinjske nape",
+        "state": {
+          "excellent": "Odlično",
+          "good": "Dobro",
+          "medium": "Srednja"
+        }
+      },
+      "b6_air_duct_detection_score": {
+        "name": "Ocena zaznavanja zračnega kanala kuhinjske nape"
+      },
+      "b6_air_duct_detection_state": {
+        "name": "Stanje zaznavanja zračnega kanala kuhinjske nape"
+      },
+      "b6_air_duct_detection_time": {
+        "name": "Čas zaznavanja zračnega kanala kuhinjske nape"
+      },
+      "b6_air_duct_detection_windage": {
+        "name": "Upor zaznavanja zračnega kanala kuhinjske nape"
+      },
+      "b6_air_volume": {
+        "name": "Pretok zraka kuhinjske nape"
+      },
+      "b6_delay_gear_linkage_gear": {
+        "name": "Stopnja povezave zakasnjene stopnje kuhinjske nape"
+      },
+      "b6_delay_time_value": {
+        "name": "Vrednost časa zakasnitve kuhinjske nape"
+      },
+      "b6_destination_time": {
+        "name": "Ciljni čas kuhinjske nape"
+      },
+      "b6_gear": {
+        "name": "Stopnja kuhinjske nape"
+      },
+      "b6_gear_control_type": {
+        "name": "Tip nadzora stopnje kuhinjske nape",
+        "state": {
+          "app": "Aplikacija",
+          "gesture": "Gesta",
+          "linkage": "Povezava",
+          "local": "Lokalno",
+          "smoke_detector": "Detektor dima"
+        }
+      },
+      "b6_gesture_sensitivity": {
+        "name": "Občutljivost gest kuhinjske nape",
+        "state": {
+          "1": "1",
+          "2": "2",
+          "3": "3"
+        }
+      },
+      "b6_gesture_value": {
+        "name": "Vrednost gest kuhinjske nape",
+        "state": {
+          "light": "Lahko",
+          "power": "Moč",
+          "wind": "Veter"
+        }
+      },
+      "b6_hotclean_tips": {
+        "name": "Namigi za vroče čiščenje kuhinjske nape"
+      },
+      "b6_infrared_value": {
+        "name": "Infrardeča vrednost kuhinjske nape",
+        "state": {
+          "power": "Moč",
+          "wind": "Veter"
+        }
+      },
+      "b6_inverter_ac_frequency": {
+        "name": "Frekvenca inverterske klime kuhinjske nape"
+      },
+      "b6_inverter_back_electromotive_force": {
+        "name": "Protielektromotorna sila inverterja kuhinjske nape"
+      },
+      "b6_inverter_capacity": {
+        "name": "Zmogljivost inverterja kuhinjske nape"
+      },
+      "b6_inverter_efficiency": {
+        "name": "Učinkovitost inverterja kuhinjske nape"
+      },
+      "b6_inverter_motor_compensation_angle": {
+        "name": "Kompenzacijski kot motorja inverterja kuhinjske nape"
+      },
+      "b6_inverter_motor_speed": {
+        "name": "Hitrost motorja inverterja kuhinjske nape"
+      },
+      "b6_inverter_q_axis_current": {
+        "name": "Tok osi Q inverterja kuhinjske nape"
+      },
+      "b6_inverter_start_time": {
+        "name": "Čas zagona inverterja kuhinjske nape"
+      },
+      "b6_inverter_temperature": {
+        "name": "Temperatura inverterja kuhinjske nape"
+      },
+      "b6_inverter_temperature_limit_sign": {
+        "name": "Znak omejitve temperature inverterja kuhinjske nape"
+      },
+      "b6_inverter_voltage": {
+        "name": "Napetost inverterja kuhinjske nape"
+      },
+      "b6_inverter_wind_flow": {
+        "name": "Pretok zraka inverterja kuhinjske nape"
+      },
+      "b6_inverter_wind_presssure": {
+        "name": "Tlak zraka inverterja kuhinjske nape"
+      },
+      "b6_inverter_windage": {
+        "name": "Upor inverterja kuhinjske nape"
+      },
+      "b6_inverter_work_gear": {
+        "name": "Delovna stopnja inverterja kuhinjske nape"
+      },
+      "b6_last_hotclean_hour": {
+        "name": "Ura zadnjega vročega čiščenja kuhinjske nape"
+      },
+      "b6_light": {
+        "name": "Lučka kuhinjske nape"
+      },
+      "b6_light_off_type": {
+        "name": "Tip izklopa lučke kuhinjske nape",
+        "state": {
+          "app": "Aplikacija",
+          "error": "Napaka",
+          "gesture": "Gesta",
+          "local": "Lokalno"
+        }
+      },
+      "b6_light_on_type": {
+        "name": "Tip vklopa lučke kuhinjske nape",
+        "state": {
+          "app": "Aplikacija",
+          "gesture": "Gesta",
+          "local": "Lokalno"
+        }
+      },
+      "b6_lightness": {
+        "name": "Svetlost kuhinjske nape"
+      },
+      "b6_lock_off_type": {
+        "name": "Tip izklopa zaklepa kuhinjske nape",
+        "state": {
+          "local": "Lokalno"
+        }
+      },
+      "b6_lock_on_type": {
+        "name": "Tip vklopa zaklepa kuhinjske nape",
+        "state": {
+          "app": "Aplikacija",
+          "local": "Lokalno"
+        }
+      },
+      "b6_power": {
+        "name": "Moč kuhinjske nape",
+        "state": {
+          "delay_off": "Zakasnjen izklop",
+          "off": "Izklopljeno",
+          "on": "Vklopljeno"
+        }
+      },
+      "b6_power_off_type": {
+        "name": "Tip izklopa kuhinjske nape",
+        "state": {
+          "app": "Aplikacija",
+          "delay": "Zakasnitev",
+          "gesture": "Gesta",
+          "linkage": "Povezava",
+          "local": "Lokalno"
+        }
+      },
+      "b6_power_on_type": {
+        "name": "Tip vklopa kuhinjske nape",
+        "state": {
+          "app": "Aplikacija",
+          "gesture": "Gesta",
+          "linkage": "Povezava",
+          "local": "Lokalno"
+        }
+      },
+      "b6_remaining_time": {
+        "name": "Preostali čas kuhinjske nape"
+      },
+      "b6_smoke_detector_value": {
+        "name": "Vrednost detektorja dima kuhinjske nape"
+      },
+      "b6_smoke_potency": {
+        "name": "Jakost dima kuhinjske nape"
+      },
+      "b6_smoke_stove_linkage_flowin": {
+        "name": "Dovod pri povezavi dim-štedilnik kuhinjske nape",
+        "state": {
+          "no": "Ne",
+          "yes": "Da"
+        }
+      },
+      "b6_smoke_stove_linkage_gear": {
+        "name": "Stopnja povezave dim-štedilnik kuhinjske nape"
+      },
+      "b6_smoke_stove_linkage_gear_fix": {
+        "name": "Popravek stopnje povezave dim-štedilnik kuhinjske nape",
+        "state": {
+          "negative": "Negativno",
+          "positive": "Pozitivno"
+        }
+      },
+      "b6_steaming": {
+        "name": "Parjenje kuhinjske nape",
+        "state": {
+          "off": "Izklopljeno",
+          "on": "Vklopljeno"
+        }
+      },
+      "b6_steaming_stage": {
+        "name": "Faza parjenja kuhinjske nape"
+      },
+      "b6_wind_pressure": {
+        "name": "Tlak zraka kuhinjske nape"
+      },
+      "b6_work_status": {
+        "name": "Stanje delovanja kuhinjske nape",
+        "state": {
+          "ai_dry_clean": "Pametno suho čiščenje",
+          "air_duct_detection": "Zaznavanje zračnega kanala",
+          "check": "Preverjanje",
+          "clean": "Čiščenje",
+          "clean_finish": "Čiščenje končano",
+          "error": "Napaka",
+          "hotclean": "Vroče čiščenje",
+          "initial": "Začetno",
+          "mute_gear": "Tiha stopnja",
+          "power_off": "Izklopljeno",
+          "power_off_delay": "Zakasnitev izklopa",
+          "standby": "Pripravljenost",
+          "vvvf_gear": "Stopnja VVVF",
+          "working": "Deluje"
+        }
+      },
+      "b7_left_current_temp": {
+        "name": "Trenutna temperatura levega plinskega gorilnika"
+      },
+      "b7_left_destination_temp": {
+        "name": "Ciljna temperatura levega plinskega gorilnika"
+      },
+      "b7_left_destination_time": {
+        "name": "Ciljni čas levega plinskega gorilnika"
+      },
+      "b7_left_gear": {
+        "name": "Stopnja levega plinskega gorilnika"
+      },
+      "b7_left_power_off_type": {
+        "name": "Tip izklopa levega plinskega gorilnika",
+        "state": {
+          "app": "Aplikacija",
+          "auto": "Samodejno",
+          "error": "Napaka",
+          "local": "Lokalno",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b7_left_remaining_time": {
+        "name": "Preostali čas levega plinskega gorilnika"
+      },
+      "b7_left_status": {
+        "name": "Stanje levega plinskega gorilnika",
+        "state": {
+          "drying": "Sušenje poteka",
+          "drying_pause": "Premor sušenja",
+          "ion_drying": "Ionsko sušenje",
+          "ion_drying_pause": "Premor ionskega sušenja",
+          "power_off": "Izklopljeno",
+          "uperization": "Uperizacija",
+          "uperization_pause": "Premor uperizacije",
+          "warm_drink": "Topla pijača",
+          "warm_drink_pause": "Premor tople pijače"
+        }
+      },
+      "b7_left_work_time": {
+        "name": "Čas delovanja levega plinskega gorilnika"
+      },
+      "b7_right_current_temp": {
+        "name": "Trenutna temperatura desnega plinskega gorilnika"
+      },
+      "b7_right_destination_temp": {
+        "name": "Ciljna temperatura desnega plinskega gorilnika"
+      },
+      "b7_right_destination_time": {
+        "name": "Ciljni čas desnega plinskega gorilnika"
+      },
+      "b7_right_gear": {
+        "name": "Stopnja desnega plinskega gorilnika"
+      },
+      "b7_right_power_off_type": {
+        "name": "Tip izklopa desnega plinskega gorilnika",
+        "state": {
+          "app": "Aplikacija",
+          "auto": "Samodejno",
+          "error": "Napaka",
+          "local": "Lokalno",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b7_right_remaining_time": {
+        "name": "Preostali čas desnega plinskega gorilnika"
+      },
+      "b7_right_status": {
+        "name": "Stanje desnega plinskega gorilnika",
+        "state": {
+          "drying": "Sušenje poteka",
+          "drying_pause": "Premor sušenja",
+          "ion_drying": "Ionsko sušenje",
+          "ion_drying_pause": "Premor ionskega sušenja",
+          "power_off": "Izklopljeno",
+          "uperization": "Uperizacija",
+          "uperization_pause": "Premor uperizacije",
+          "warm_drink": "Topla pijača",
+          "warm_drink_pause": "Premor tople pijače"
+        }
+      },
+      "b7_right_work_time": {
+        "name": "Čas delovanja desnega plinskega gorilnika"
+      },
+      "bf_cavity": {
+        "name": "Komora pečice",
+        "state": {
+          "down": "Dol",
+          "up": "Gor"
+        }
+      },
+      "bf_control_back": {
+        "name": "Vrnitev nadzora pečice",
+        "state": {
+          "func_notsupport": "Funkcija ni podprta",
+          "status_notsupport": "Stanje ni podprto",
+          "success": "Uspeh",
+          "value_notsupport": "Vrednost ni podprta"
+        }
+      },
+      "bf_end_next": {
+        "name": "Pečica nadaljuj naslednje"
+      },
+      "bf_fire": {
+        "name": "Plamen pečice"
+      },
+      "bf_mode": {
+        "name": "Način pečice"
+      },
+      "bf_quick_btn_bake_id": {
+        "name": "ID hitrega gumba za peko pečice"
+      },
+      "bf_quick_btn_bake_set": {
+        "name": "Nastavitev hitrega gumba za peko pečice"
+      },
+      "bf_quick_btn_bake_time": {
+        "name": "Čas hitrega gumba za peko pečice"
+      },
+      "bf_quick_btn_microwave_id": {
+        "name": "ID hitrega gumba za mikrovalove pečice"
+      },
+      "bf_quick_btn_microwave_set": {
+        "name": "Nastavitev hitrega gumba za mikrovalove pečice"
+      },
+      "bf_quick_btn_microwave_time": {
+        "name": "Čas hitrega gumba za mikrovalove pečice"
+      },
+      "bf_quick_btn_steam_id": {
+        "name": "ID hitrega gumba za paro pečice"
+      },
+      "bf_quick_btn_steam_set": {
+        "name": "Nastavitev hitrega gumba za paro pečice"
+      },
+      "bf_quick_btn_steam_time": {
+        "name": "Čas hitrega gumba za paro pečice"
+      },
+      "bf_recipe_code": {
+        "name": "Koda recepta pečice"
+      },
+      "bf_remaining_time": {
+        "name": "Preostali čas pečice"
+      },
+      "bf_steam": {
+        "name": "Para pečice"
+      },
+      "bf_step_current": {
+        "name": "Trenutni korak pečice"
+      },
+      "bf_step_total": {
+        "name": "Skupno število korakov pečice"
+      },
+      "bf_temp_down": {
+        "name": "Spodnja temperatura pečice"
+      },
+      "bf_temp_down_set": {
+        "name": "Nastavitev spodnje temperature pečice"
+      },
+      "bf_temp_probe": {
+        "name": "Sonda pečice"
+      },
+      "bf_temp_probe_set": {
+        "name": "Nastavitev sonde pečice"
+      },
+      "bf_temp_up": {
+        "name": "Zgornja temperatura pečice"
+      },
+      "bf_temp_up_set": {
+        "name": "Nastavitev zgornje temperature pečice"
+      },
+      "bf_tips_mark": {
+        "name": "Oznaka namigov pečice",
+        "state": {
+          "apply": "Uporabi",
+          "change_attachments": "Zamenjaj pripomočke",
+          "door_open": "Vrata odprta",
+          "feed": "Dodaj",
+          "recipe_tips": "Namigi za recept",
+          "stir": "Premešaj"
+        }
+      },
+      "bf_weight_mount": {
+        "name": "Nosilec za tehtanje pečice"
+      },
+      "bf_weight_multiple": {
+        "name": "Množitelj teže pečice",
+        "state": {
+          "g": "G",
+          "kg": "Kg",
+          "ounce": "Unča",
+          "pound": "Funt"
+        }
+      },
+      "bf_weight_unit": {
+        "name": "Enota teže pečice",
+        "state": {
+          "g": "G",
+          "kg": "Kg",
+          "other": "Drugo",
+          "ounce": "Unča",
+          "pound": "Funt"
+        }
+      },
+      "bf_work_status": {
+        "name": "Stanje delovanja pečice",
+        "state": {
+          "after_sale": "Poprodajne storitve",
+          "check_version": "Preverjanje različice",
+          "cloudmenu_setting": "Nastavitev menija v oblaku",
+          "demo": "Predstavitev",
+          "done": "Opravljeno",
+          "keep": "Ohrani",
+          "love_three_seconds": "Pridržite tri sekunde",
+          "open": "Odpri",
+          "order": "Naročilo",
+          "pause": "Premor",
+          "pause_temporarily": "Začasno zaustavi",
+          "power_off": "Izklopljeno",
+          "self_check": "Samopregled",
+          "working": "Deluje"
+        }
+      },
+      "bf_working_time": {
+        "name": "Čas delovanja pečice"
+      },
+      "e7_left_bottom_bridge_link": {
+        "name": "Mostna povezava levega spodnjega indukcijskega polja",
+        "state": {
+          "off": "Izklopljeno",
+          "on": "Vklopljeno"
+        }
+      },
+      "e7_left_bottom_destination_time": {
+        "name": "Ciljni čas levega spodnjega indukcijskega polja"
+      },
+      "e7_left_bottom_efficiency": {
+        "name": "Učinkovitost levega spodnjega indukcijskega polja"
+      },
+      "e7_left_bottom_gear": {
+        "name": "Stopnja levega spodnjega indukcijskega polja"
+      },
+      "e7_left_bottom_mode": {
+        "name": "Način levega spodnjega indukcijskega polja",
+        "state": {
+          "boiling": "Vretje",
+          "heat_preservation": "Ohranjanje toplote",
+          "none": "Brez",
+          "stew_soup": "Dušenje juhe",
+          "stir_frying": "Praženje"
+        }
+      },
+      "e7_left_bottom_remaining_time": {
+        "name": "Preostali čas levega spodnjega indukcijskega polja"
+      },
+      "e7_left_bottom_work_status": {
+        "name": "Stanje delovanja levega spodnjega indukcijskega polja",
+        "state": {
+          "auto": "Samodejno",
+          "drying": "Sušenje poteka",
+          "finish": "Konec",
+          "order": "Naročilo",
+          "pause": "Premor",
+          "power_off": "Izklopljeno",
+          "standby": "Pripravljenost",
+          "working": "Deluje"
+        }
+      },
+      "e7_left_bottom_work_time": {
+        "name": "Čas delovanja levega spodnjega indukcijskega polja"
+      },
+      "e7_left_bridge_link": {
+        "name": "Mostna povezava levega indukcijskega polja",
+        "state": {
+          "off": "Izklopljeno",
+          "on": "Vklopljeno"
+        }
+      },
+      "e7_left_destination_time": {
+        "name": "Ciljni čas levega indukcijskega polja"
+      },
+      "e7_left_efficiency": {
+        "name": "Učinkovitost levega indukcijskega polja"
+      },
+      "e7_left_gear": {
+        "name": "Stopnja levega indukcijskega polja"
+      },
+      "e7_left_mode": {
+        "name": "Način levega indukcijskega polja",
+        "state": {
+          "boiling": "Vretje",
+          "heat_preservation": "Ohranjanje toplote",
+          "none": "Brez",
+          "stew_soup": "Dušenje juhe",
+          "stir_frying": "Praženje"
+        }
+      },
+      "e7_left_remaining_time": {
+        "name": "Preostali čas levega indukcijskega polja"
+      },
+      "e7_left_top_bridge_link": {
+        "name": "Mostna povezava levega zgornjega indukcijskega polja",
+        "state": {
+          "off": "Izklopljeno",
+          "on": "Vklopljeno"
+        }
+      },
+      "e7_left_top_destination_time": {
+        "name": "Ciljni čas levega zgornjega indukcijskega polja"
+      },
+      "e7_left_top_efficiency": {
+        "name": "Učinkovitost levega zgornjega indukcijskega polja"
+      },
+      "e7_left_top_gear": {
+        "name": "Stopnja levega zgornjega indukcijskega polja"
+      },
+      "e7_left_top_mode": {
+        "name": "Način levega zgornjega indukcijskega polja",
+        "state": {
+          "boiling": "Vretje",
+          "heat_preservation": "Ohranjanje toplote",
+          "none": "Brez",
+          "stew_soup": "Dušenje juhe",
+          "stir_frying": "Praženje"
+        }
+      },
+      "e7_left_top_remaining_time": {
+        "name": "Preostali čas levega zgornjega indukcijskega polja"
+      },
+      "e7_left_top_work_status": {
+        "name": "Stanje delovanja levega zgornjega indukcijskega polja",
+        "state": {
+          "auto": "Samodejno",
+          "drying": "Sušenje poteka",
+          "finish": "Konec",
+          "order": "Naročilo",
+          "pause": "Premor",
+          "power_off": "Izklopljeno",
+          "standby": "Pripravljenost",
+          "working": "Deluje"
+        }
+      },
+      "e7_left_top_work_time": {
+        "name": "Čas delovanja levega zgornjega indukcijskega polja"
+      },
+      "e7_left_work_status": {
+        "name": "Stanje delovanja levega indukcijskega polja",
+        "state": {
+          "auto": "Samodejno",
+          "drying": "Sušenje poteka",
+          "finish": "Konec",
+          "order": "Naročilo",
+          "pause": "Premor",
+          "power_off": "Izklopljeno",
+          "standby": "Pripravljenost",
+          "working": "Deluje"
+        }
+      },
+      "e7_left_work_time": {
+        "name": "Čas delovanja levega indukcijskega polja"
+      },
+      "e7_right_bottom_bridge_link": {
+        "name": "Mostna povezava desnega spodnjega indukcijskega polja",
+        "state": {
+          "off": "Izklopljeno",
+          "on": "Vklopljeno"
+        }
+      },
+      "e7_right_bottom_destination_time": {
+        "name": "Ciljni čas desnega spodnjega indukcijskega polja"
+      },
+      "e7_right_bottom_efficiency": {
+        "name": "Učinkovitost desnega spodnjega indukcijskega polja"
+      },
+      "e7_right_bottom_gear": {
+        "name": "Stopnja desnega spodnjega indukcijskega polja"
+      },
+      "e7_right_bottom_mode": {
+        "name": "Način desnega spodnjega indukcijskega polja",
+        "state": {
+          "boiling": "Vretje",
+          "heat_preservation": "Ohranjanje toplote",
+          "none": "Brez",
+          "stew_soup": "Dušenje juhe",
+          "stir_frying": "Praženje"
+        }
+      },
+      "e7_right_bottom_remaining_time": {
+        "name": "Preostali čas desnega spodnjega indukcijskega polja"
+      },
+      "e7_right_bottom_work_status": {
+        "name": "Stanje delovanja desnega spodnjega indukcijskega polja",
+        "state": {
+          "auto": "Samodejno",
+          "drying": "Sušenje poteka",
+          "finish": "Konec",
+          "order": "Naročilo",
+          "pause": "Premor",
+          "power_off": "Izklopljeno",
+          "standby": "Pripravljenost",
+          "working": "Deluje"
+        }
+      },
+      "e7_right_bottom_work_time": {
+        "name": "Čas delovanja desnega spodnjega indukcijskega polja"
+      },
+      "e7_right_bridge_link": {
+        "name": "Mostna povezava desnega indukcijskega polja",
+        "state": {
+          "off": "Izklopljeno",
+          "on": "Vklopljeno"
+        }
+      },
+      "e7_right_destination_time": {
+        "name": "Ciljni čas desnega indukcijskega polja"
+      },
+      "e7_right_efficiency": {
+        "name": "Učinkovitost desnega indukcijskega polja"
+      },
+      "e7_right_gear": {
+        "name": "Stopnja desnega indukcijskega polja"
+      },
+      "e7_right_mode": {
+        "name": "Način desnega indukcijskega polja",
+        "state": {
+          "boiling": "Vretje",
+          "heat_preservation": "Ohranjanje toplote",
+          "none": "Brez",
+          "stew_soup": "Dušenje juhe",
+          "stir_frying": "Praženje"
+        }
+      },
+      "e7_right_remaining_time": {
+        "name": "Preostali čas desnega indukcijskega polja"
+      },
+      "e7_right_top_bridge_link": {
+        "name": "Mostna povezava desnega zgornjega indukcijskega polja",
+        "state": {
+          "off": "Izklopljeno",
+          "on": "Vklopljeno"
+        }
+      },
+      "e7_right_top_destination_time": {
+        "name": "Ciljni čas desnega zgornjega indukcijskega polja"
+      },
+      "e7_right_top_efficiency": {
+        "name": "Učinkovitost desnega zgornjega indukcijskega polja"
+      },
+      "e7_right_top_gear": {
+        "name": "Stopnja desnega zgornjega indukcijskega polja"
+      },
+      "e7_right_top_mode": {
+        "name": "Način desnega zgornjega indukcijskega polja",
+        "state": {
+          "boiling": "Vretje",
+          "heat_preservation": "Ohranjanje toplote",
+          "none": "Brez",
+          "stew_soup": "Dušenje juhe",
+          "stir_frying": "Praženje"
+        }
+      },
+      "e7_right_top_remaining_time": {
+        "name": "Preostali čas desnega zgornjega indukcijskega polja"
+      },
+      "e7_right_top_work_status": {
+        "name": "Stanje delovanja desnega zgornjega indukcijskega polja",
+        "state": {
+          "auto": "Samodejno",
+          "drying": "Sušenje poteka",
+          "finish": "Konec",
+          "order": "Naročilo",
+          "pause": "Premor",
+          "power_off": "Izklopljeno",
+          "standby": "Pripravljenost",
+          "working": "Deluje"
+        }
+      },
+      "e7_right_top_work_time": {
+        "name": "Čas delovanja desnega zgornjega indukcijskega polja"
+      },
+      "e7_right_work_status": {
+        "name": "Stanje delovanja desnega indukcijskega polja",
+        "state": {
+          "auto": "Samodejno",
+          "drying": "Sušenje poteka",
+          "finish": "Konec",
+          "order": "Naročilo",
+          "pause": "Premor",
+          "power_off": "Izklopljeno",
+          "standby": "Pripravljenost",
+          "working": "Deluje"
+        }
+      },
+      "e7_right_work_time": {
+        "name": "Čas delovanja desnega indukcijskega polja"
+      },
+      "electronic_version": {
+        "name": "Elektronska različica"
+      },
+      "error_list": {
+        "name": "Seznam napak"
+      },
+      "sp_fandrying_destination_time": {
+        "name": "Ciljni čas sušenja s ploščo in ventilatorjem"
+      },
+      "sp_fandrying_order_destination_time": {
+        "name": "Ciljni čas naročila sušenja s ploščo in ventilatorjem"
+      },
+      "sp_fandrying_order_remaining_time": {
+        "name": "Preostali čas naročila sušenja s ploščo in ventilatorjem"
+      },
+      "sp_fandrying_remaining_time": {
+        "name": "Preostali čas sušenja s ploščo in ventilatorjem"
+      },
+      "sp_fandrying_setting_automode_day": {
+        "name": "Dan samodejnega načina sušenja s ploščo in ventilatorjem"
+      },
+      "sp_fandrying_setting_automode_starthour": {
+        "name": "Ura začetka samodejnega načina sušenja s ploščo in ventilatorjem"
+      },
+      "sp_fandrying_setting_automode_startminute": {
+        "name": "Minuta začetka samodejnega načina sušenja s ploščo in ventilatorjem"
+      },
+      "sp_fandrying_status": {
+        "name": "Stanje sušenja s ploščo in ventilatorjem",
+        "state": {
+          "drying": "Sušenje poteka",
+          "drying_pause": "Premor sušenja",
+          "ion_drying": "Ionsko sušenje",
+          "ion_drying_pause": "Premor ionskega sušenja",
+          "power_off": "Izklopljeno",
+          "uperization": "Uperizacija",
+          "uperization_pause": "Premor uperizacije",
+          "warm_drink": "Topla pijača",
+          "warm_drink_pause": "Premor tople pijače"
+        }
+      },
+      "sp_fandrying_temperature": {
+        "name": "Temperatura sušenja s ploščo in ventilatorjem"
+      },
+      "sp_heatingdisk_destination_time": {
+        "name": "Ciljni čas grelne plošče"
+      },
+      "sp_heatingdisk_order_destination_time": {
+        "name": "Ciljni čas naročila grelne plošče"
+      },
+      "sp_heatingdisk_order_remaining_time": {
+        "name": "Preostali čas naročila grelne plošče"
+      },
+      "sp_heatingdisk_remaining_time": {
+        "name": "Preostali čas grelne plošče"
+      },
+      "sp_heatingdisk_setting_automode_day": {
+        "name": "Dan samodejnega načina grelne plošče"
+      },
+      "sp_heatingdisk_setting_automode_starthour": {
+        "name": "Ura začetka samodejnega načina grelne plošče"
+      },
+      "sp_heatingdisk_setting_automode_startminute": {
+        "name": "Minuta začetka samodejnega načina grelne plošče"
+      },
+      "sp_heatingdisk_status": {
+        "name": "Stanje grelne plošče",
+        "state": {
+          "drying": "Sušenje poteka",
+          "drying_pause": "Premor sušenja",
+          "ion_drying": "Ionsko sušenje",
+          "ion_drying_pause": "Premor ionskega sušenja",
+          "power_off": "Izklopljeno",
+          "uperization": "Uperizacija",
+          "uperization_pause": "Premor uperizacije",
+          "warm_drink": "Topla pijača",
+          "warm_drink_pause": "Premor tople pijače"
+        }
+      },
+      "sp_heatingdisk_temperature": {
+        "name": "Temperatura grelne plošče"
+      },
+      "sp_uvc_destination_time": {
+        "name": "Ciljni čas plošče UVC"
+      },
+      "sp_uvc_order_destination_time": {
+        "name": "Ciljni čas naročila plošče UVC"
+      },
+      "sp_uvc_order_remaining_time": {
+        "name": "Preostali čas naročila plošče UVC"
+      },
+      "sp_uvc_remaining_time": {
+        "name": "Preostali čas plošče UVC"
+      },
+      "sp_uvc_setting_automode_day": {
+        "name": "Dan samodejnega načina plošče UVC"
+      },
+      "sp_uvc_setting_automode_starthour": {
+        "name": "Ura začetka samodejnega načina plošče UVC"
+      },
+      "sp_uvc_setting_automode_startminute": {
+        "name": "Minuta začetka samodejnega načina plošče UVC"
+      },
+      "sp_uvc_status": {
+        "name": "Stanje plošče UVC",
+        "state": {
+          "drying": "Sušenje poteka",
+          "drying_pause": "Premor sušenja",
+          "ion_drying": "Ionsko sušenje",
+          "ion_drying_pause": "Premor ionskega sušenja",
+          "power_off": "Izklopljeno",
+          "uperization": "Uperizacija",
+          "uperization_pause": "Premor uperizacije",
+          "warm_drink": "Topla pijača",
+          "warm_drink_pause": "Premor tople pijače"
+        }
+      },
+      "sp_uvc_temperature": {
+        "name": "Temperatura plošče UVC"
+      },
+      "total_error_code": {
+        "name": "Koda napake"
+      },
+      "total_error_type": {
+        "name": "Tip napake"
+      },
+      "total_firewall_temp": {
+        "name": "Temperatura požarne pregrade"
+      },
+      "total_gesture": {
+        "name": "Gesta",
+        "state": {
+          "off": "Izklopljeno",
+          "on": "Vklopljeno"
+        }
+      },
+      "total_ir": {
+        "name": "IR",
+        "state": {
+          "off": "Izklopljeno",
+          "on": "Vklopljeno"
+        }
+      },
+      "total_lock_off_type": {
+        "name": "Tip izklopa zaklepa",
+        "state": {
+          "local": "Lokalno"
+        }
+      },
+      "total_lock_on_type": {
+        "name": "Tip vklopa zaklepa",
+        "state": {
+          "app": "Aplikacija",
+          "local": "Lokalno"
+        }
+      },
+      "total_shelving_unit_temp": {
+        "name": "Temperatura police"
+      },
+      "total_speak": {
+        "name": "Govor",
+        "state": {
+          "off": "Izklopljeno",
+          "on": "Vklopljeno"
+        }
+      },
+      "total_tips_code": {
+        "name": "Koda namigov"
+      },
+      "total_tips_type": {
+        "name": "Tip namigov"
+      },
+      "work_status": {
+        "name": "Stanje delovanja",
+        "state": {
+          "save_power": "Varčevanje z energijo",
+          "standby": "Pripravljenost",
+          "work": "Deluje",
+          "pause": "V premoru",
+          "work_finish": "Končano",
+          "order": "Zakasnitev",
+          "pause_c": "V premoru C",
+          "three": "Tri",
+          "self_inspection": "Samopregled",
+          "query_version": "Poizvedba različice",
+          "demo": "Predstavitev",
+          "ramadan": "Ramadan",
+          "after_checking": "Po preverjanju",
+          "wait_to_start": "Čakanje na zagon",
+          "ff": "Neznano"
+        }
+      },
+      "x9b_fire_power": {
+        "name": "Moč gorilnika",
+        "state": {
+          "high_power": "Visoka",
+          "medium_high_power": "Srednje-visoka",
+          "medium_power": "Srednja",
+          "medium_low_power": "Srednje-nizka",
+          "low_power": "Nizka",
+          "ff": "Neznano"
+        }
+      },
+      "pre_heat": {
+        "name": "Predgrevanje",
+        "state": {
+          "off": "Izklopljeno",
+          "work": "Predgrevanje poteka",
+          "end": "Predgrevanje končano"
+        }
+      },
+      "water_status": {
+        "name": "Stanje vode",
+        "state": {
+          "normal": "Normalno",
+          "lack_box": "Manjka posoda",
+          "lack_water": "Pomanjkanje vode",
+          "change_water": "Menjava vode"
+        }
+      },
+      "dissipate_heat": {
+        "name": "Odvajanje toplote",
+        "state": {
+          "off": "Izklopljeno",
+          "work": "Odvajanje poteka"
+        }
+      },
+      "execute": {
+        "name": "Stanje izvajanja",
+        "state": {
+          "ok": "V redu",
+          "status_nonsupport": "Stanje ni podprto",
+          "function_nonsupport": "Funkcija ni podprta",
+          "param_range_error": "Napaka območja parametra"
+        }
+      },
+      "sys_time_src": {
+        "name": "Vir sistemskega časa",
+        "state": {
+          "module": "Modul",
+          "app": "Aplikacija",
+          "user_defined": "Uporabniško določeno"
+        }
+      },
+      "cur_temperature": {
+        "name": "Trenutna temperatura"
+      },
+      "work_hour": {
+        "name": "Delovna ura"
+      },
+      "work_minute": {
+        "name": "Delovna minuta"
+      },
+      "work_second": {
+        "name": "Delovna sekunda"
+      },
+      "cbs_version": {
+        "name": "Različica CBS"
+      }
+    },
+    "switch": {
+      "db_power": {
+        "name": "Moč pralnega stroja"
+      },
+      "dc_power": {
+        "name": "Moč sušilnika"
+      },
+      "door_auto_open_setting": {
+        "name": "Samodejno odpiranje vrat"
+      },
+      "anion": {
+        "name": "Anion"
+      },
+      "humidify": {
+        "name": "Vlaženje"
+      },
+      "waterions": {
+        "name": "Vodni ioni"
+      },
+      "anophelifuge": {
+        "name": "Proti komarjem"
+      },
+      "display_on_off": {
+        "name": "Prikaz"
+      },
+      "auto_power_off": {
+        "name": "Samodejni izklop"
+      },
+      "body_feeling_scan": {
+        "name": "Zaznavanje telesa"
+      },
+      "aux_heating": {
+        "name": "Pomožno gretje"
+      },
+      "boost_mode": {
+        "name": "Način ojačanja"
+      },
+      "breezeless": {
+        "name": "Brez prepiha"
+      },
+      "child_lock": {
+        "name": "Otroška ključavnica"
+      },
+      "cl_sterilization": {
+        "name": "Sterilizacija CL"
+      },
+      "comfort_mode": {
+        "name": "Udobni način"
+      },
+      "degerming": {
+        "name": "Razkuževanje"
+      },
+      "dhw_power": {
+        "name": "Moč DHW"
+      },
+      "disinfect": {
+        "name": "Razkuževanje"
+      },
+      "furnace_light": {
+        "name": "Lučka pečice"
+      },
+      "hot_wind": {
+        "name": "Vroč zrak"
+      },
+      "ramadan": {
+        "name": "Ramadan"
+      },
+      "turntable": {
+        "name": "Vrtljivi krožnik"
+      },
+      "maintenance_reminder": {
+        "name": "Opomnik za vzdrževanje"
+      },
+      "vacation_mode": {
+        "name": "Počitniški način"
+      },
+      "dry": {
+        "name": "Sušenje"
+      },
+      "cold_water_single": {
+        "name": "Hladna voda enkratno"
+      },
+      "cold_water_dot": {
+        "name": "Hladna voda v kapljicah"
+      },
+      "eco_mode": {
+        "name": "Način ECO"
+      },
+      "memory": {
+        "name": "Memo U"
+      },
+      "fast_dhw": {
+        "name": "Hitra DHW"
+      },
+      "foam_shield": {
+        "name": "Zaščita pred peno"
+      },
+      "frost_protect": {
+        "name": "Zaščita pred zmrzaljo"
+      },
+      "heating_power": {
+        "name": "Moč ogrevanja"
+      },
+      "indirect_wind": {
+        "name": "Posredni veter"
+      },
+      "leak_water_protection": {
+        "name": "Zaščita pred puščanjem vode"
+      },
+      "light": {
+        "name": "Lahko"
+      },
+      "link_to_ac": {
+        "name": "Povezava s klimo"
+      },
+      "main_light": {
+        "name": "Glavna lučka"
+      },
+      "main_power": {
+        "name": "Glavno napajanje"
+      },
+      "natural_wind": {
+        "name": "Naravni veter"
+      },
+      "night_light": {
+        "name": "Nočna lučka"
+      },
+      "oscillate": {
+        "name": "Nihanje"
+      },
+      "power": {
+        "name": "Moč"
+      },
+      "powerful_purify": {
+        "name": "Zmogljivo čiščenje zraka"
+      },
+      "prompt_tone": {
+        "name": "Zvočni ton"
+      },
+      "regeneration": {
+        "name": "Regeneracija"
+      },
+      "water_pump": {
+        "name": "Vodna črpalka"
+      },
+      "water_way": {
+        "name": "Pot vode"
+      },
+      "screen_display": {
+        "name": "Prikaz na zaslonu"
+      },
+      "screen_display_alternate": {
+        "name": "Izmenični prikaz na zaslonu"
+      },
+      "sensor_light": {
+        "name": "Senzorska lučka"
+      },
+      "silent_mode": {
+        "name": "Tihi način"
+      },
+      "sleep_mode": {
+        "name": "Način spanja"
+      },
+      "out_silent": {
+        "name": "Zunanji tihi način"
+      },
+      "smart_eye": {
+        "name": "Pametno oko"
+      },
+      "smart_volume": {
+        "name": "Pametna glasnost"
+      },
+      "smelly_sensor": {
+        "name": "Senzor vonjav"
+      },
+      "soften": {
+        "name": "Mehčanje"
+      },
+      "standby": {
+        "name": "Pripravljenost"
+      },
+      "start": {
+        "name": "Zaženi"
+      },
+      "sterilization": {
+        "name": "Sterilizacija"
+      },
+      "storage": {
+        "name": "Shranjevanje"
+      },
+      "swing": {
+        "name": "Nihanje"
+      },
+      "swing_horizontal": {
+        "name": "Vodoravno nihanje"
+      },
+      "swing_vertical": {
+        "name": "Navpično nihanje"
+      },
+      "self_clean": {
+        "name": "Samodejno čiščenje"
+      },
+      "ieco": {
+        "name": "iECO"
+      },
+      "sound": {
+        "name": "Zvok"
+      },
+      "tbh": {
+        "name": "TBH"
+      },
+      "variable_heating": {
+        "name": "Spremenljivo gretje"
+      },
+      "ventilation": {
+        "name": "Prezračevanje"
+      },
+      "whole_tank_heating": {
+        "name": "Ogrevanje celotnega rezervoarja"
+      },
+      "zero_cold_pulse": {
+        "name": "Nič hladne vode (impulzno)"
+      },
+      "zero_cold_water": {
+        "name": "Nič hladne vode"
+      },
+      "zone1_curve": {
+        "name": "Krivulja cone 1"
+      },
+      "zone1_power": {
+        "name": "Napajanje cone 1"
+      },
+      "zone2_curve": {
+        "name": "Krivulja cone 2"
+      },
+      "zone2_power": {
+        "name": "Napajanje cone 2"
+      },
+      "boiling": {
+        "name": "Vretje vode"
+      },
+      "tea_bar_boil": {
+        "name": "Stikalo za vretje vode"
+      },
+      "tea_bar_child_lock": {
+        "name": "Otroška ključavnica"
+      },
+      "keep_warm": {
+        "name": "Ohranjanje toplote"
+      },
+      "tea_bar_cooling": {
+        "name": "Hlajenje točilnega pulta"
+      },
+      "screen_off": {
+        "name": "Izklop zaslona"
+      },
+      "wash": {
+        "name": "Čiščenje filtra"
+      },
+      "antifreeze": {
+        "name": "Zaščita pred zmrzaljo"
+      },
+      "heat": {
+        "name": "Gretje"
+      },
+      "holiday_on": {
+        "name": "Način - Počitnice"
+      },
+      "dhw_disinfect": {
+        "name": "DHW - Razkuževanje"
+      },
+      "ai_voice_microphone": {
+        "name": "Mikrofon glasovnega pomočnika"
+      },
+      "total_lock": {
+        "name": "Otroška ključavnica"
+      },
+      "total_power": {
+        "name": "Moč"
+      },
+      "lock": {
+        "name": "Otroška ključavnica"
+      },
+      "camera": {
+        "name": "Kamera"
+      },
+      "dryer_sterilize": {
+        "name": "Večdimenzionalna sterilizacija"
+      },
+      "dryer_anti_wrinkle": {
+        "name": "Pametno preprečevanje gub"
+      },
+      "washer_forget_free": {
+        "name": "Nega brez skrbi"
+      }
+    },
+    "water_heater": {
+      "domestic_hot_water": {
+        "name": "Sanitarna topla voda"
+      },
+      "bathing": {
+        "name": "Kopanje"
+      },
+      "heating": {
+        "name": "Ogrevanje"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "ip_address": "IP naslov",
+          "refresh_interval": "Interval osveževanja (0 pomeni brez aktivnega osveževanja)",
+          "sensors": "Dodatni senzorji",
+          "switches": "Dodatni krmilniki",
+          "customize": "Prilagodi",
+          "account": "Oblačni račun Midea (za senzorje statistike porabe)",
+          "password": "Geslo oblačnega računa Midea (za senzorje statistike porabe)",
+          "server": "Oblačni strežnik računa Midea (za senzorje statistike porabe)"
+        },
+        "title": "Konfiguriraj"
+      }
+    },
+    "abort": {
+      "account_option": "Ta račun ne podpira te operacije.\nKliknite \"DODAJ NAPRAVO\" za  dodajanje nove naprave."
+    }
+  },
+  "services": {
+    "set_attribute": {
+      "name": "Nastavi atribut",
+      "description": "Nastavi vrednost atributa naprave",
+      "fields": {
+        "device_id": {
+          "name": "Koda naprave",
+          "description": "Koda naprave (ID naprave) naprave"
+        },
+        "attribute": {
+          "name": "Atribut",
+          "description": "Ime atributa, ki ga želite nastaviti"
+        },
+        "value": {
+          "name": "Vrednost",
+          "description": "Vrednost atributa, ki jo želite nastaviti"
+        }
+      }
+    },
+    "send_command": {
+      "name": "Ukaz po meri",
+      "description": "Pošlji napravi ukaz po meri",
+      "fields": {
+        "device_id": {
+          "name": "Koda naprave",
+          "description": "Koda naprave (ID naprave) naprave"
+        },
+        "cmd_type": {
+          "name": "Tip ukaza",
+          "description": "Tip ukaza, mora biti 3（poizvedba) ali 2（nastavitev)"
+        },
+        "cmd_body": {
+          "name": "Telo ukaza",
+          "description": "Telo ukaza (brez glave protokola MSmart in kontrolne vsote na koncu)"
+        }
+      }
+    }
+  }
+}
