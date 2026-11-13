@@ -369,7 +369,8 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
         # available devices exist
         if len(all_devices) > 0:
             table = (
-                "Appliance code|Type|IP address|SN|Supported\n:--:|:--:|:--:|:--:|:--:"
+                "Appliance code|Type|IP address|SN|Supported|Reason\n"
+                ":--:|:--:|:--:|:--:|:--:|:--:"
             )
             green = "<font color=gree>YES</font>"
             red = "<font color=red>NO</font>"
@@ -382,11 +383,24 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                 sn = device.get("sn") or (
                     "encrypted (from cloud)" if device.get("sn_encrypted") else ""
                 )
+                # For an unsupported device, explain why so the user can file an
+                # actionable report instead of a blank "device not found". Prefer
+                # the reason midea-lan's discover() attaches (it describes the
+                # protocol-level cause, e.g. no device package, or a TLS
+                # transport still being verified); fall back to a generic note
+                # when running against an older midea-lan that has no such field.
+                # Guarded with .get() so the absent field degrades gracefully.
+                reason = (
+                    ""
+                    if supported
+                    else device.get("support_reason") or "not yet supported"
+                )
                 table += (
                     f"\n{device_id}|{f'{device.get(CONF_TYPE):02X}'}|"
                     f"{device.get(CONF_IP_ADDRESS)}|"
                     f"{sn}|"
-                    f"{green if supported else red}"
+                    f"{green if supported else red}|"
+                    f"{reason}"
                 )
         # no available device
         else:
