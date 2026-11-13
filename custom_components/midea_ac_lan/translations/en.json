@@ -1046,6 +1046,30 @@
       },
       "dryer_timed_extra": {
         "name": "Timed drying extension"
+      },
+      "f1_speed": {
+        "name": "Speed"
+      },
+      "f1_set_work_temp": {
+        "name": "Work Temperature"
+      },
+      "f1_set_keep_warm_temp": {
+        "name": "Keep Warm Temperature"
+      },
+      "f1_set_work_time": {
+        "name": "Work Time"
+      },
+      "f1_set_keep_warm_time": {
+        "name": "Keep Warm Time"
+      },
+      "f1_appoint_time": {
+        "name": "Appointment Time"
+      },
+      "f1_code_id": {
+        "name": "Recipe Code"
+      },
+      "f1_work_mode": {
+        "name": "Work Mode"
       }
     },
     "select": {
@@ -4031,6 +4055,43 @@
       },
       "cbs_version": {
         "name": "CBS Version"
+      },
+      "f1_response_type": {
+        "name": "Response",
+        "state": {
+          "success": "Success",
+          "fail": "Fail"
+        }
+      },
+      "f1_work_status": {
+        "name": "Work Status"
+      },
+      "f1_step_status": {
+        "name": "Step Status"
+      },
+      "f1_work_stage": {
+        "name": "Work Stage"
+      },
+      "f1_lid_status": {
+        "name": "Lid Status",
+        "state": {
+          "have_cup": "Cup present",
+          "no_cup": "No cup"
+        }
+      },
+      "f1_cup_status": {
+        "name": "Cup Status",
+        "state": {
+          "default": "Default",
+          "hot_cup": "Hot cup",
+          "cold_cup": "Cold cup"
+        }
+      },
+      "f1_current_time": {
+        "name": "Current Time"
+      },
+      "f1_current_temp": {
+        "name": "Current Temperature"
       }
     },
     "switch": {

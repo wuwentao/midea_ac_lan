@@ -1046,6 +1046,30 @@
       },
       "dryer_timed_extra": {
         "name": "定时加时"
+      },
+      "f1_speed": {
+        "name": "速度"
+      },
+      "f1_set_work_temp": {
+        "name": "工作温度"
+      },
+      "f1_set_keep_warm_temp": {
+        "name": "保温温度"
+      },
+      "f1_set_work_time": {
+        "name": "工作时间"
+      },
+      "f1_set_keep_warm_time": {
+        "name": "保温时间"
+      },
+      "f1_appoint_time": {
+        "name": "预约时间"
+      },
+      "f1_code_id": {
+        "name": "配方编号"
+      },
+      "f1_work_mode": {
+        "name": "工作模式"
       }
     },
     "select": {
@@ -3840,6 +3864,43 @@
       },
       "cbs_version": {
         "name": "CBS版本"
+      },
+      "f1_response_type": {
+        "name": "响应",
+        "state": {
+          "success": "成功",
+          "fail": "失败"
+        }
+      },
+      "f1_work_status": {
+        "name": "工作状态"
+      },
+      "f1_step_status": {
+        "name": "步骤状态"
+      },
+      "f1_work_stage": {
+        "name": "工作阶段"
+      },
+      "f1_lid_status": {
+        "name": "杯盖状态",
+        "state": {
+          "have_cup": "有杯",
+          "no_cup": "无杯"
+        }
+      },
+      "f1_cup_status": {
+        "name": "杯子状态",
+        "state": {
+          "default": "默认",
+          "hot_cup": "热杯",
+          "cold_cup": "冷杯"
+        }
+      },
+      "f1_current_time": {
+        "name": "当前时间"
+      },
+      "f1_current_temp": {
+        "name": "当前温度"
       }
     },
     "switch": {

@@ -99,6 +99,7 @@ Please check the document links below for the supported features and usage of ea
 | EA   | Electric Rice Cooker            | [EA.md](doc/EA.md) |
 | EC   | Electric Pressure Cooker        | [EC.md](doc/EC.md) |
 | ED   | Water Drinking Appliance        | [ED.md](doc/ED.md) |
+| F1   | Tea Brewer                      | [F1.md](doc/F1.md) |
 | FA   | Fan                             | [FA.md](doc/FA.md) |
 | FB   | Electric Heater                 | [FB.md](doc/FB.md) |
 | FC   | Air Purifier                    | [FC.md](doc/FC.md) |
