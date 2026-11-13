@@ -83,6 +83,7 @@ from midealan.devices.x9b import FIRE_POWER_MAP as X9B_FIRE_POWER_MAP
 from midealan.devices.x9b import WORK_STATUS_WRITE as X9B_WORK_STATUS_WRITE
 from midealan.devices.x9b import DeviceAttributes as _X9BAttributes
 from midealan.devices.x9c import DeviceAttributes as _X9CAttributes
+from midealan.devices.x10 import DeviceAttributes as X10Attributes
 from midealan.devices.x26 import DeviceAttributes as X26Attributes
 from midealan.devices.x34 import DeviceAttributes as X34Attributes
 from midealan.devices.x40 import DeviceAttributes as X40Attributes
@@ -186,6 +187,18 @@ Entity Naming Rule:
 """
 
 MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
+    0x10: {
+        "name": "Power Appliance",
+        "entities": {
+            X10Attributes.power: {
+                "type": Platform.SWITCH,
+                "translation_key": "power",
+                "name": "Power",
+                "icon": "mdi:power",
+                "default": True,
+            },
+        },
+    },
     0x13: {
         "name": "Light",
         "entities": {
