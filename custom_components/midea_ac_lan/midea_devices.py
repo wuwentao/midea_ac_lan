@@ -83,6 +83,7 @@ from midealan.devices.x9b import FIRE_POWER_MAP as X9B_FIRE_POWER_MAP
 from midealan.devices.x9b import WORK_STATUS_WRITE as X9B_WORK_STATUS_WRITE
 from midealan.devices.x9b import DeviceAttributes as _X9BAttributes
 from midealan.devices.x9c import DeviceAttributes as _X9CAttributes
+from midealan.devices.x17 import DeviceAttributes as X17Attributes
 from midealan.devices.x26 import DeviceAttributes as X26Attributes
 from midealan.devices.x34 import DeviceAttributes as X34Attributes
 from midealan.devices.x40 import DeviceAttributes as X40Attributes
@@ -193,6 +194,62 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "type": Platform.LIGHT,
                 "icon": "mdi:lightbulb",
                 "default": True,
+            },
+        },
+    },
+    0x17: {
+        "name": "Clothes Drying Rack",
+        "entities": {
+            X17Attributes.power: {
+                "type": Platform.SWITCH,
+                "translation_key": "power",
+                "name": "Power",
+                "icon": "mdi:power",
+                "default": True,
+            },
+            X17Attributes.updown: {
+                "type": Platform.SELECT,
+                "translation_key": "updown",
+                "name": "Raise/Lower",
+                "options": ["pause", "up", "down"],
+                "icon": "mdi:arrow-up-down",
+            },
+            X17Attributes.light: {
+                "type": Platform.SWITCH,
+                "translation_key": "light",
+                "name": "Light",
+                "icon": "mdi:lightbulb",
+            },
+            X17Attributes.sterilize: {
+                "type": Platform.SWITCH,
+                "translation_key": "sterilize",
+                "name": "Sterilize",
+                "icon": "mdi:bacteria",
+            },
+            X17Attributes.dry: {
+                "type": Platform.SWITCH,
+                "translation_key": "dry",
+                "name": "Dry",
+                "icon": "mdi:hair-dryer",
+            },
+            X17Attributes.baking: {
+                "type": Platform.SWITCH,
+                "translation_key": "baking",
+                "name": "Baking",
+                "icon": "mdi:radiator",
+            },
+            X17Attributes.anion: {
+                "type": Platform.SWITCH,
+                "translation_key": "anion",
+                "name": "Anion",
+                "icon": "mdi:air-purifier",
+            },
+            X17Attributes.error_code: {
+                "type": Platform.SENSOR,
+                "translation_key": "error_code",
+                "name": "Error Code",
+                "icon": "mdi:alert-circle",
+                "entity_category": EntityCategory.DIAGNOSTIC,
             },
         },
     },
