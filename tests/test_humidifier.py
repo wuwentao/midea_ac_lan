@@ -164,12 +164,12 @@ def test_extra_state_attributes_tank_full(
 ) -> None:
     """Expose the tank level and report full at 100 percent or more."""
     install_config({"main": {"type": Platform.HUMIDIFIER}}, device_type)
-    
+
     attributes = {"tank": tank}
     if device_type == DeviceType.A1:
-        # Per i dispositivi A1, la libreria fornisce tank_full. Lo aggiungiamo ai mock.
+        # A1 devices receive tank_full directly from the library.
         attributes["tank_full"] = expected_full
-        
+
     device, _ = device_factory(device_type=device_type, attributes=attributes)
     entity = entity_class(device, "main")
 
@@ -193,7 +193,7 @@ def test_extra_state_attributes_tank_update(
 ) -> None:
     """Follow later device reports so tank_full turns on and off at 100 percent."""
     install_config({"main": {"type": Platform.HUMIDIFIER}}, device_type)
-    
+
     attributes = {"tank": 99}
     if device_type == DeviceType.A1:
         attributes["tank_full"] = False
@@ -202,19 +202,19 @@ def test_extra_state_attributes_tank_update(
     entity = entity_class(device, "main")
 
     assert entity.extra_state_attributes["tank_full"] is False
-    
+
     values["tank"] = 100
     if device_type == DeviceType.A1:
         values["tank_full"] = True
-        
+
     attrs = entity.extra_state_attributes
     assert attrs["tank"] == 100
     assert attrs["tank_full"] is True
-    
+
     values["tank"] = 99
     if device_type == DeviceType.A1:
         values["tank_full"] = False
-        
+
     attrs = entity.extra_state_attributes
     assert attrs["tank"] == 99
     assert attrs["tank_full"] is False
@@ -224,16 +224,14 @@ def test_extra_state_attributes_a1_delegation(
     device_factory: DeviceFactory,
     install_config: InstallConfig,
 ) -> None:
-    """Verify A1 devices use the library-provided tank_full, not the >= 100 threshold."""
+    """Use the library-provided tank_full value for A1 devices."""
     install_config({"main": {"type": Platform.HUMIDIFIER}}, DeviceType.A1)
-    # Il serbatoio è a 50 (sotto 100), ma la libreria dice che è pieno (es. per impostazione water_level_set)
     device, _ = device_factory(
-        device_type=DeviceType.A1, 
-        attributes={"tank": 50, "tank_full": True}
+        device_type=DeviceType.A1,
+        attributes={"tank": 50, "tank_full": True},
     )
     entity = MideaA1Humidifier(device, "main")
 
     attrs = entity.extra_state_attributes
     assert attrs["tank"] == 50
-    # Questo deve essere True perché delega alla libreria, ignorando la soglia del 100
     assert attrs["tank_full"] is True

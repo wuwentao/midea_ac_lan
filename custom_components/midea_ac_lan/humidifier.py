@@ -22,6 +22,8 @@ from .midea_entity import MideaEntity
 
 _LOGGER = logging.getLogger(__name__)
 
+TANK_FULL_LEVEL = 100
+
 
 async def async_setup_entry(
     hass: HomeAssistant,
@@ -83,18 +85,20 @@ class MideaHumidifier(MideaEntity, HumidifierEntity):
     def extra_state_attributes(self) -> dict[str, Any]:
         """Midea Humidifier extra state attributes."""
         attrs: dict[str, Any] = dict(super().extra_state_attributes or {})
-        
+
         # Water tank status reported by the device as attribute "tank".
         tank = self._device.get_attribute("tank")
         attrs["tank"] = tank
-        
+
         # For A1 devices, use the library's pre-calculated tank_full attribute.
         # For other devices (like FD), assume 100 or more means the tank is full.
         if self._device.device_type == DeviceType.A1:
             attrs["tank_full"] = self._device.get_attribute("tank_full")
         else:
-            attrs["tank_full"] = isinstance(tank, (int, float)) and tank >= 100
-            
+            attrs["tank_full"] = (
+                isinstance(tank, (int, float)) and tank >= TANK_FULL_LEVEL
+            )
+
         return attrs
 
     def set_humidity(self, humidity: int) -> None:
