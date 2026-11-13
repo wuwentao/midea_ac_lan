@@ -95,6 +95,7 @@ Please check the document links below for the supported features and usage of ea
 | E2   | Electric Water Heater           | [E2.md](doc/E2.md) |
 | E3   | Gas Water Heater                | [E3.md](doc/E3.md) |
 | E6   | Gas Stove                       | [E6.md](doc/E6.md) |
+| E7   | Steam Cooking Appliance         | [E7.md](doc/E7.md) |
 | E8   | Electric Slow Cooker            | [E8.md](doc/E8.md) |
 | EA   | Electric Rice Cooker            | [EA.md](doc/EA.md) |
 | EC   | Electric Pressure Cooker        | [EC.md](doc/EC.md) |
