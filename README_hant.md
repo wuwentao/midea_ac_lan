@@ -6,6 +6,19 @@
 
 [English](README.md) | [简体中文](README_hans.md) | 繁體中文 | [Discord 交流群](https://discord.com/invite/ZWdd2fXndn) | [QQ 群](https://qm.qq.com/q/l53SGEwlZ6)
 
+## 導覽
+
+- [重要通知](#important-notice)
+- [專案架構](#2-專案架構)
+- [支援的品牌](#3-支援的品牌)
+- [支援的家電](#4-支援的家電)
+- [安裝](#5-安裝-midea_ac_lan)
+- [新增裝置](#6-新增裝置)
+- [設定](#7-設定)
+- [偵錯與測試](#8-偵錯與測試)
+- [貢獻指南](#9-貢獻指南)
+- [贊助本專案](#10-贊助本專案)
+
 透過區域網路控制你的美的 M-Smart 家電。
 
 - 在 Home Assistant 介面中探索並設定家電。
@@ -17,6 +30,8 @@
 ⭐如果這個元件對你有幫助，請幫忙按個星星，這對我是很大的鼓勵。
 
 **_❗注意：本整合需要 Home Assistant 2024.4.1 或更新版本_**
+
+<a id="important-notice"></a>
 
 ## 1. ❗❗❗❗❗❗重要通知❗❗❗❗❗❗
 
@@ -264,3 +279,9 @@ cd midea_ac_lan
 函式庫端的配套指南位於 `midea-lan` 儲存庫：[Adding a New Device Type](https://github.com/wuwentao/midea-lan/blob/main/docs/adding-a-new-device.md)。
 
 裝置的 Lua 協定檔案收錄在 [`midea-lua`](https://github.com/wuwentao/midea-lua)。如果找不到你家電的協定，請使用 [`midea-lua` README](https://github.com/wuwentao/midea-lua#download-files) 中說明的 `midea-lan` 下載指令，將檔案貢獻到該處，並在你的 `midea-lan` Pull Request 中附上連結。
+
+## 10. 贊助本專案
+
+如果這個專案對你有幫助，歡迎透過 Buy Me a Coffee 贊助本專案。你的支持將協助我們持續投入專案開發、日常維護與社群支援。
+
+[![Buy Me A Coffee](https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png)](https://buymeacoffee.com/wuwentao)

@@ -6,6 +6,19 @@
 
 [English](README.md) | 简体中文 | [繁體中文](README_hant.md) | [Discord交流群](https://discord.com/invite/ZWdd2fXndn) | [QQ交流群](https://qm.qq.com/q/l53SGEwlZ6)
 
+## 导航
+
+- [重要提醒](#important-notice)
+- [项目架构](#2-项目架构)
+- [已支持的品牌](#3-已支持的品牌)
+- [已支持的设备](#4-已支持的设备)
+- [安装](#5-安装midea_ac_lan)
+- [添加设备](#6-添加设备)
+- [配置](#7-配置)
+- [调试和测试](#8-debug调试和测试)
+- [贡献指南](#9-contributing-guide)
+- [赞助本项目](#10-赞助本项目)
+
 通过本地局域网控制你的美的M-Smart设备
 
 - 通过Home Assistant UI完成设备的自动搜索和配置.
@@ -17,6 +30,8 @@
 ⭐如果本集成对你有所帮助, 请不吝为它点个星, 这将是对我的极大激励。
 
 **_❗注意: 本集成需要 Home Assistant 2024.4.1 或更高版本_**
+
+<a id="important-notice"></a>
 
 ## 1. ❗❗❗❗❗❗重要提醒❗❗❗❗❗❗
 
@@ -258,3 +273,9 @@ cd midea_ac_lan
 协议库侧的配套指南位于 `midea-lan` 仓库：[新增设备类型支持指南](https://github.com/wuwentao/midea-lan/blob/main/docs/adding-a-new-device.zh-Hans.md)。
 
 设备 Lua 协议文件统一收集在 [`midea-lua`](https://github.com/wuwentao/midea-lua)。如果缺少你的设备协议，请按照 [`midea-lua` README](https://github.com/wuwentao/midea-lua#download-files) 中的说明，使用 `midea-lan` 的下载命令获取并贡献协议文件，然后在 `midea-lan` PR 中链接该文件。
+
+## 10. 赞助本项目
+
+如果这个项目对你有帮助，欢迎通过 Buy Me a Coffee 赞助本项目。你的支持将帮助我们持续投入项目开发、日常维护和社区支持。
+
+[![Buy Me A Coffee](https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png)](https://buymeacoffee.com/wuwentao)

@@ -6,6 +6,19 @@
 
 English | [简体中文](README_hans.md) | [繁體中文](README_hant.md) | [Discord Chat](https://discord.com/invite/ZWdd2fXndn) | [QQ Group](https://qm.qq.com/q/l53SGEwlZ6)
 
+## Menu
+
+- [Important notice](#important-notice)
+- [Project architecture](#2-project-architecture)
+- [Supported brands](#3-supported-brands)
+- [Supported appliances](#4-supported-appliances)
+- [Installation](#5-install-midea_ac_lan)
+- [Add a device](#6-add-device)
+- [Configure](#7-configure)
+- [Debug and test](#8-debug-and-test)
+- [Contributing](#9-contributing-guide)
+- [Sponsor this project](#10-sponsor-this-project)
+
 Control your Midea M-Smart appliances over the local network.
 
 - Discover and configure appliances from the Home Assistant UI.
@@ -17,6 +30,8 @@ Control your Midea M-Smart appliances over the local network.
 ⭐If this component is helpful for you, please star it, it encourages me a lot.
 
 **_❗Note: This integration requires Home Assistant 2024.4.1 or higher_**
+
+<a id="important-notice"></a>
 
 ## 1. ❗❗❗❗❗❗Important Notice❗❗❗❗❗❗
 
@@ -264,3 +279,9 @@ Want to expose a new Midea appliance type in this integration? The end-to-end re
 The companion guide for the protocol library side lives in the `midea-lan` repo: [Adding a New Device Type](https://github.com/wuwentao/midea-lan/blob/main/docs/adding-a-new-device.md).
 
 Device Lua protocol files are collected in [`midea-lua`](https://github.com/wuwentao/midea-lua). If the protocol for your appliance is missing, use the `midea-lan` download command described in the [`midea-lua` README](https://github.com/wuwentao/midea-lua#download-files), contribute the file there, and link it from your `midea-lan` pull request.
+
+## 10. Sponsor this project
+
+If this project helps you, consider supporting it through Buy Me a Coffee. Your support helps sustain ongoing development, maintenance, and community support.
+
+[![Buy Me A Coffee](https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png)](https://buymeacoffee.com/wuwentao)
