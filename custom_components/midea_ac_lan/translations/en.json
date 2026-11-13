@@ -954,6 +954,27 @@
       }
     },
     "number": {
+      "ef_temperature_setting": {
+        "name": "Set Temperature"
+      },
+      "ef_time_reserve_hr": {
+        "name": "Reserve Hours"
+      },
+      "ef_time_reserve_min": {
+        "name": "Reserve Minutes"
+      },
+      "ef_time_warm_hr": {
+        "name": "Keep Warm Hours"
+      },
+      "ef_time_warm_min": {
+        "name": "Keep Warm Minutes"
+      },
+      "ef_cmd_code": {
+        "name": "Command Code"
+      },
+      "ef_cmd_id": {
+        "name": "Command ID"
+      },
       "delay_minutes": {
         "name": "Delay"
       },
@@ -1049,6 +1070,13 @@
       }
     },
     "select": {
+      "ef_drink_style": {
+        "name": "Drink Style",
+        "state": {
+          "hot_drink": "Hot Drink",
+          "warm_drink": "Warm Drink"
+        }
+      },
       "cur_quantify": {
         "name": "Current Quantity Preset",
         "state": {
@@ -1534,6 +1562,34 @@
       }
     },
     "sensor": {
+      "ef_response_type": {
+        "name": "Response",
+        "state": {
+          "response_normal": "Normal",
+          "response_error": "Error"
+        }
+      },
+      "ef_work_status": {
+        "name": "Work Status"
+      },
+      "ef_work_step": {
+        "name": "Work Step"
+      },
+      "ef_process_status": {
+        "name": "Process Status"
+      },
+      "ef_time_work_hr": {
+        "name": "Work Hours"
+      },
+      "ef_time_work_min": {
+        "name": "Work Minutes"
+      },
+      "ef_time_max": {
+        "name": "Max Time"
+      },
+      "ef_temperature_current": {
+        "name": "Current Temperature"
+      },
       "db_running_status": {
         "name": "Washer status"
       },
@@ -4034,6 +4090,12 @@
       }
     },
     "switch": {
+      "ef_reserve": {
+        "name": "Reservation"
+      },
+      "ef_warm": {
+        "name": "Keep Warm"
+      },
       "db_power": {
         "name": "Washer power"
       },
