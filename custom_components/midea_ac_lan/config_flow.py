@@ -76,11 +76,14 @@ from .const import (
     CONF_SN,
     CONF_SN8,
     CONF_SUBTYPE,
+    CONF_TLS,
     DEFAULT_CLOUD,
     DEVICES,
     DOMAIN,
     EXTRA_CONTROL,
     EXTRA_SENSOR,
+    STORAGE_PATH,
+    TLS_ACCOUNT_FILE,
     supports_device,
 )
 from .midea_devices import MIDEA_DEVICES
@@ -94,8 +97,6 @@ ADD_WAY = {
     "cache": "Remove login cache",
 }
 
-
-STORAGE_PATH = f".storage/{DOMAIN}"
 
 SKIP_LOGIN = "Skip Login (input any user/password)"
 
@@ -156,6 +157,18 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
         storage_path.mkdir(parents=True, exist_ok=True)
         record_file = storage_path.joinpath(f"{data[CONF_DEVICE_ID]!s}.json")
         save_json(str(record_file), data)
+
+    def _save_tls_account(self, account: dict[str, Any]) -> None:
+        """Save the shared Midea cloud account used to provision TLS certs.
+
+        TLS (udp_version >= 4) devices re-provision their certificate from the
+        cloud at every startup, so the credentials live in a shared
+        account.json under STORAGE_PATH instead of the config entry.
+        """
+        storage_path = Path(self.hass.config.path(STORAGE_PATH))
+        storage_path.mkdir(parents=True, exist_ok=True)
+        record_file = storage_path.joinpath(TLS_ACCOUNT_FILE)
+        save_json(str(record_file), account)
 
     def _load_device_config(self, device_id: int | str) -> Any:  # ruff:ignore[any-type]
         """Load device config from json file with device id.
@@ -569,6 +582,92 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
         finally:
             dm.close_socket()
 
+    async def _async_add_tls_device(
+        self,
+        device_id: int,
+        device: dict,
+    ) -> ConfigFlowResult:
+        """Provision a certificate, test the connection, and add a TLS device.
+
+        TLS (udp_version >= 4) devices are authenticated with an app
+        certificate re-provisioned from the cloud at every startup, so the
+        login account is saved to a shared account.json under STORAGE_PATH
+        instead of a token/key in the entry.
+
+        Returns
+        -------
+        Config flow result: the created entry on success, otherwise the auto
+        step with an error.
+
+        """
+        if self.cloud is None:
+            return await self.async_step_auto(error="Cloud login is required")
+        cert_bundle = await self.cloud.apply_cert()
+        if cert_bundle is None:
+            return await self.async_step_auto(
+                error=(
+                    "Can't provision a certificate from the Midea cloud; a "
+                    "personal Midea account is required for TLS devices"
+                ),
+            )
+        dm = MideaDevice(
+            name="",
+            device_id=device_id,
+            device_type=device.get(CONF_TYPE),
+            ip_address=device.get(CONF_IP_ADDRESS),
+            port=device.get(CONF_PORT),
+            token="",
+            key="",
+            device_protocol=ProtocolVersion.V3,
+            model=device.get(CONF_MODEL),
+            subtype=0,
+            attributes={},
+            cert_bundle=cert_bundle,
+        )
+        if not await self.hass.async_add_executor_job(self._try_connect_device, dm):
+            return await self.async_step_auto(
+                error=f"Can't connect to TLS device {device_id}",
+            )
+        login_data = self.hass.data[DOMAIN]["login_data"]
+        name = self.found_device.get(CONF_NAME) or self.supports.get(
+            device.get(CONF_TYPE),
+        )
+        data = {
+            CONF_NAME: name,
+            CONF_DEVICE_ID: device_id,
+            CONF_TYPE: device.get(CONF_TYPE),
+            CONF_PROTOCOL: ProtocolVersion.V3,
+            CONF_IP_ADDRESS: device.get(CONF_IP_ADDRESS),
+            CONF_PORT: device.get(CONF_PORT),
+            CONF_MODEL: device.get(CONF_MODEL),
+            CONF_SUBTYPE: self.found_device.get(CONF_SUBTYPE) or 0,
+            CONF_TOKEN: "",
+            CONF_KEY: "",
+            CONF_MAC: device.get(CONF_MAC),
+            CONF_SN: device.get(CONF_SN),
+            CONF_SN8: self.found_device.get(CONF_SN8),
+            CONF_MANUFACTURER_CODE: self.found_device.get(CONF_MANUFACTURER_CODE),
+            CONF_CLOUD_NAME: login_data[CONF_SERVER],
+            # Flag the entry so startup re-provisions the certificate instead of
+            # expecting a token/key.
+            CONF_TLS: True,
+        }
+        await self.hass.async_add_executor_job(self._save_device_config, data)
+        # The certificate can't be persisted (it carries a live private key), so
+        # save the cloud account used to re-provision it at every startup. It
+        # goes in a shared account.json (like the per-device token/key json)
+        # rather than the config entry, keeping the credentials out of entry
+        # data/options and HA diagnostics.
+        await self.hass.async_add_executor_job(
+            self._save_tls_account,
+            {
+                CONF_ACCOUNT: login_data[CONF_ACCOUNT],
+                CONF_PASSWORD: login_data[CONF_PASSWORD],
+                CONF_SERVER: login_data[CONF_SERVER],
+            },
+        )
+        return self.async_create_entry(title=f"{name}", data=data)
+
     async def async_step_auto(
         self,
         user_input: dict[str, Any] | None = None,
@@ -662,6 +761,13 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                 self.found_device[CONF_MANUFACTURER_CODE] = device_info.get(
                     "manufacturer_code",
                 )
+
+            # TLS (udp_version >= 4) devices use an app certificate instead of
+            # a token/key. The certificate is provisioned from the cloud here
+            # for the connection test and re-provisioned at every startup, so
+            # these devices skip the V3 token/key path entirely.
+            if device.get("sn_encrypted"):
+                return await self._async_add_tls_device(device_id, device)
 
             # MUST get a auth passed token/key for v3 device, disable add before pass
             if device.get(CONF_PROTOCOL) == ProtocolVersion.V3:
