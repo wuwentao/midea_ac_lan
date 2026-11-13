@@ -1046,6 +1046,15 @@
       },
       "dryer_timed_extra": {
         "name": "Timed drying extension"
+      },
+      "steambox_hour": {
+        "name": "Hours"
+      },
+      "steambox_minute": {
+        "name": "Minutes"
+      },
+      "steambox_temperature": {
+        "name": "Temperature"
       }
     },
     "select": {
@@ -1531,6 +1540,39 @@
       },
       "laundry_appointment_finish": {
         "name": "Finish time (sets reservation)"
+      },
+      "steambox_work_status": {
+        "name": "Work Status",
+        "state": {
+          "standby": "Standby",
+          "work": "Working",
+          "pause": "Paused",
+          "work_finish": "Finished",
+          "reservation": "Reservation",
+          "save_power": "Power Saving",
+          "none": "None"
+        }
+      },
+      "steambox_mode": {
+        "name": "Mode",
+        "state": {
+          "unfreeze": "Defrost",
+          "keep_warm": "Keep Warm",
+          "fish": "Fish",
+          "meat": "Meat",
+          "egg": "Egg",
+          "seafood": "Seafood",
+          "steam_clean": "Steam Clean",
+          "common": "General",
+          "grain": "Grain",
+          "rice": "Rice",
+          "zymosis": "Fermentation",
+          "heat": "Reheat",
+          "furring_clean": "Descale",
+          "disinfect": "Disinfect",
+          "vegetable": "Vegetable",
+          "chop": "Chopped Food"
+        }
       }
     },
     "sensor": {
@@ -4031,6 +4073,27 @@
       },
       "cbs_version": {
         "name": "CBS Version"
+      },
+      "steambox_door": {
+        "name": "Door",
+        "state": {
+          "close": "Closed",
+          "open": "Open"
+        }
+      },
+      "steambox_water": {
+        "name": "Water Tank",
+        "state": {
+          "full": "Full",
+          "empty": "Empty"
+        }
+      },
+      "steambox_box": {
+        "name": "Steam Box",
+        "state": {
+          "in": "Inserted",
+          "out": "Removed"
+        }
       }
     },
     "switch": {
