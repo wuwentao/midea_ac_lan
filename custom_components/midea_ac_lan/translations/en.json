@@ -954,6 +954,24 @@
       }
     },
     "number": {
+      "oven_temperature": {
+        "name": "Temperature"
+      },
+      "oven_hour": {
+        "name": "Hours"
+      },
+      "oven_minute": {
+        "name": "Minutes"
+      },
+      "oven_second": {
+        "name": "Seconds"
+      },
+      "oven_watt": {
+        "name": "Microwave Power"
+      },
+      "oven_weight": {
+        "name": "Food Weight"
+      },
       "delay_minutes": {
         "name": "Delay"
       },
@@ -1049,6 +1067,34 @@
       }
     },
     "select": {
+      "oven_work_status_select": {
+        "name": "Set Work Status",
+        "state": {
+          "cancel": "Cancel",
+          "work": "Work",
+          "pause": "Pause"
+        }
+      },
+      "oven_mode": {
+        "name": "Mode",
+        "state": {
+          "keep_warm": "Keep Warm",
+          "stero_baking": "Stereo Baking",
+          "whole_baking": "Whole Baking",
+          "up_down_baking": "Up/Down Baking",
+          "unfreeze": "Defrost",
+          "hot_air_convection": "Hot Air Convection",
+          "power_saving": "Power Saving",
+          "center_baking": "Center Baking",
+          "rotary_baking": "Rotary Baking",
+          "fermentation": "Fermentation",
+          "stoving": "Stoving",
+          "down_baking": "Down Baking",
+          "pizza": "Pizza",
+          "up_infrared_fan": "Up Infrared Fan",
+          "microwave": "Microwave"
+        }
+      },
       "cur_quantify": {
         "name": "Current Quantity Preset",
         "state": {
@@ -1534,6 +1580,16 @@
       }
     },
     "sensor": {
+      "oven_work_status": {
+        "name": "Work Status",
+        "state": {
+          "cancel": "Cancel",
+          "work": "Work",
+          "pause": "Pause",
+          "end": "End",
+          "appointment": "Appointment"
+        }
+      },
       "db_running_status": {
         "name": "Washer status"
       },
@@ -4034,6 +4090,9 @@
       }
     },
     "switch": {
+      "oven_light": {
+        "name": "Oven Light"
+      },
       "db_power": {
         "name": "Washer power"
       },

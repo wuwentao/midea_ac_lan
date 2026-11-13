@@ -79,6 +79,7 @@ from midealan.devices.fa import DeviceAttributes as FAAttributes
 from midealan.devices.fb import DeviceAttributes as FBAttributes
 from midealan.devices.fc import DeviceAttributes as FCAttributes
 from midealan.devices.fd import DeviceAttributes as FDAttributes
+from midealan.devices.x9a import DeviceAttributes as X9AAttributes
 from midealan.devices.x9b import FIRE_POWER_MAP as X9B_FIRE_POWER_MAP
 from midealan.devices.x9b import WORK_STATUS_WRITE as X9B_WORK_STATUS_WRITE
 from midealan.devices.x9b import DeviceAttributes as _X9BAttributes
@@ -393,6 +394,144 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Direction",
                 "options": "directions",
                 "icon": "mdi:arrow-split-vertical",
+            },
+        },
+    },
+    0x9A: {
+        "name": "Microwave Steam-Bake Oven",
+        "entities": {
+            X9AAttributes.power: {
+                "type": Platform.SWITCH,
+                "translation_key": "power",
+                "name": "Power",
+                "icon": "mdi:power",
+                "default": True,
+            },
+            X9AAttributes.lock: {
+                "type": Platform.SWITCH,
+                "translation_key": "lock",
+                "name": "Lock",
+                "icon": "mdi:lock",
+            },
+            X9AAttributes.furnace_light: {
+                "type": Platform.SWITCH,
+                "translation_key": "oven_light",
+                "name": "Oven Light",
+                "icon": "mdi:lightbulb",
+            },
+            # Reported work status: full superset (cancel/work/pause/end/
+            # appointment). end/appointment are read-only report-only states.
+            X9AAttributes.work_status: {
+                "type": Platform.SENSOR,
+                "translation_key": "oven_work_status",
+                "name": "Work Status",
+                "icon": "mdi:play-pause",
+            },
+            # Writable work status: only cancel/work/pause are settable per
+            # midealan x9a WORK_STATUS_CODES; a synthetic select keeps writable
+            # commands separate from the reported-status sensor above.
+            "work_status_select": {
+                "type": Platform.SELECT,
+                "attribute": X9AAttributes.work_status,
+                "translation_key": "oven_work_status_select",
+                "name": "Set Work Status",
+                "icon": "mdi:play-pause",
+                "options": ["cancel", "work", "pause"],
+            },
+            X9AAttributes.mode: {
+                "type": Platform.SELECT,
+                "translation_key": "oven_mode",
+                "name": "Mode",
+                "icon": "mdi:toaster-oven",
+                "options": [
+                    "keep_warm",
+                    "stero_baking",
+                    "whole_baking",
+                    "up_down_baking",
+                    "unfreeze",
+                    "hot_air_convection",
+                    "power_saving",
+                    "center_baking",
+                    "rotary_baking",
+                    "fermentation",
+                    "stoving",
+                    "down_baking",
+                    "pizza",
+                    "up_infrared_fan",
+                    "microwave",
+                ],
+            },
+            X9AAttributes.temperature: {
+                "type": Platform.NUMBER,
+                "translation_key": "oven_temperature",
+                "name": "Temperature",
+                "device_class": NumberDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "icon": "mdi:thermometer",
+                "min": 0,
+                "max": 300,
+                "step": 1,
+            },
+            X9AAttributes.hour: {
+                "type": Platform.NUMBER,
+                "translation_key": "oven_hour",
+                "name": "Hours",
+                "icon": "mdi:timer",
+                "min": 0,
+                "max": 23,
+                "step": 1,
+            },
+            X9AAttributes.minutes: {
+                "type": Platform.NUMBER,
+                "translation_key": "oven_minute",
+                "name": "Minutes",
+                "icon": "mdi:timer",
+                "min": 0,
+                "max": 59,
+                "step": 1,
+            },
+            X9AAttributes.second: {
+                "type": Platform.NUMBER,
+                "translation_key": "oven_second",
+                "name": "Seconds",
+                "icon": "mdi:timer",
+                "min": 0,
+                "max": 59,
+                "step": 1,
+            },
+            X9AAttributes.watt: {
+                "type": Platform.NUMBER,
+                "translation_key": "oven_watt",
+                "name": "Microwave Power",
+                "icon": "mdi:flash",
+                "min": 0,
+                "max": 255,
+                "step": 1,
+            },
+            X9AAttributes.weight: {
+                "type": Platform.NUMBER,
+                "translation_key": "oven_weight",
+                "name": "Food Weight",
+                "unit": "g",
+                "icon": "mdi:weight-gram",
+                "min": 0,
+                "max": 2550,
+                "step": 10,
+            },
+            X9AAttributes.current_temperature: {
+                "type": Platform.SENSOR,
+                "translation_key": "current_temperature",
+                "name": "Current Temperature",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            X9AAttributes.error_code: {
+                "type": Platform.SENSOR,
+                "translation_key": "error_code",
+                "name": "Error Code",
+                "icon": "mdi:alert-circle",
+                "entity_category": EntityCategory.DIAGNOSTIC,
             },
         },
     },
