@@ -14,10 +14,9 @@
 - [4. 支援的家電與文件索引](#4-支援的家電與文件索引)
 - [5. 支援的 App 與雲端](#5-支援的-app-與雲端)
 - [6. 安裝 midea_ac_lan](#6-安裝-midea_ac_lan)
-  - [6.1 在 Home Assistant 2026.10 或更早版本中使用 HACS](#61-在-home-assistant-202610-或更早版本中使用-hacs)
-  - [6.2 使用 Home Assistant 2026.11 或更新版本](#62-使用-home-assistant-202611-或更新版本)
-  - [6.3 使用腳本安裝](#63-使用腳本安裝)
-  - [6.4 手動安裝](#64-手動安裝)
+  - [6.1 透過 HACS 安裝](#61-透過-hacs-安裝)
+  - [6.2 使用腳本安裝](#62-使用腳本安裝)
+  - [6.3 手動安裝](#63-手動安裝)
 - [7. 新增裝置](#7-新增裝置)
   - [7.1 自動探索](#71-自動探索)
   - [7.2 手動設定](#72-手動設定)
@@ -150,20 +149,18 @@ Midea AC LAN 分成三個儲存庫，各自負責不同的工作：
 
 ## 6. 安裝 midea_ac_lan
 
-### 6.1 在 Home Assistant 2026.10 或更早版本中使用 HACS
+### 6.1 透過 HACS 安裝
 
 > [!IMPORTANT]
-> 請先依照 [HACS 安裝指南](https://hacs.xyz/docs/use/download/download/)，確認 Home Assistant 已安裝 HACS
+>
+> 1. Home Assistant <= 2026.10：請先按照 [HACS 安裝指南](https://hacs.xyz/docs/use/download/download/)在 Home Assistant 中安裝 `HACS`。
+> 2. Home Assistant >= 2026.11：`HACS` 會以 `Marketplace` 整合的形式內建於 Home Assistant。請前往[`設定 > 裝置與服務 > Marketplace`](https://my.home-assistant.io/redirect/integration?domain=marketplace)。
 
 [![Open your Home Assistant instance and open "midea_ac_lan" inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=wuwentao&repository=midea_ac_lan)
 
 點選上方按鈕在 HACS 開啟本整合後，按「下載」完成安裝，再**重新啟動 Home Assistant**。
 
-### 6.2 使用 Home Assistant 2026.11 或更新版本
-
-從 Home Assistant 2026.11 開始，HACS 會以 Marketplace 整合的形式內建於 Home Assistant。開啟 `設定 > Marketplace`，搜尋 `midea_ac_lan`，找到後點擊**安裝**，最後**重新啟動 Home Assistant**。
-
-### 6.3 使用腳本安裝
+### 6.2 使用腳本安裝
 
 > 請在 HA 終端機或 SSH 附加元件中執行此腳本
 
@@ -171,7 +168,7 @@ Midea AC LAN 分成三個儲存庫，各自負責不同的工作：
 wget -O - https://github.com/wuwentao/midea_ac_lan/raw/main/scripts/install.sh | ARCHIVE_TAG=latest bash -
 ```
 
-### 6.4 手動安裝
+### 6.3 手動安裝
 
 1. 從[最新版本](https://github.com/wuwentao/midea_ac_lan/releases/latest)下載 `midea_ac_lan.zip`
 2. 解壓縮 `midea_ac_lan.zip`。

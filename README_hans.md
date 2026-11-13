@@ -14,10 +14,9 @@
 - [4. 已支持的设备和文档索引](#4-已支持的设备和文档索引)
 - [5. 支持的 App 与云端](#5-支持的-app-与云端)
 - [6. 安装 midea_ac_lan](#6-安装-midea_ac_lan)
-  - [6.1 在 Home Assistant 2026.10 或更早版本中使用 HACS](#61-在-home-assistant-202610-或更早版本中使用-hacs)
-  - [6.2 使用 Home Assistant 2026.11 或更新版本](#62-使用-home-assistant-202611-或更新版本)
-  - [6.3 使用脚本安装](#63-使用脚本安装)
-  - [6.4 手工安装](#64-手工安装)
+  - [6.1 通过 HACS 安装](#61-通过-hacs-安装)
+  - [6.2 使用脚本安装](#62-使用脚本安装)
+  - [6.3 手工安装](#63-手工安装)
 - [7. 添加设备](#7-添加设备)
   - [7.1 自动搜索](#71-discover-automatically--自动搜索)
   - [7.2 手动配置](#72-configure-manually--手动配置)
@@ -151,17 +150,18 @@ Midea AC LAN 由三个职责不同的仓库共同组成：
 
 请使用以下方式安装:
 
-### 6.1 在 Home Assistant 2026.10 或更早版本中使用 HACS
+### 6.1 通过 HACS 安装
 
-> 1. 确保`Home Assistant`中已安装HACS [HACS install docs](https://hacs.xyz/docs/setup/download)
-> 2. 打开`HACS`, 点击`[Custom repositories]`, `Repository` 输入: `https://github.com/wuwentao/midea_ac_lan`, `Category` 选择 `[Integration]`
-> 3. **重启Home Assistant**.
+> [!IMPORTANT]
+>
+> 1. Home Assistant <= 2026.10：请先按照 [HACS 安装指南](https://hacs.xyz/docs/use/download/download/)在 Home Assistant 中安装 `HACS`。
+> 2. Home Assistant >= 2026.11：`HACS` 以 `Marketplace` 集成的形式内置于 Home Assistant。请前往[`设置 > 设备与服务 > Marketplace`](https://my.home-assistant.io/redirect/integration?domain=marketplace)。
 
-### 6.2 使用 Home Assistant 2026.11 或更新版本
+[![Open your Home Assistant instance and open "midea_ac_lan" inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=wuwentao&repository=midea_ac_lan)
 
-从 Home Assistant 2026.11 开始，HACS 以 Marketplace 集成的形式内置于 Home Assistant。打开 `设置 > Marketplace`，搜索 `midea_ac_lan`，找到后点击**安装**，最后**重启 Home Assistant**。
+**重启 Home Assistant**。
 
-### 6.3 使用脚本安装
+### 6.2 使用脚本安装
 
 > 在HomeAssistant的Terminal add-on或者SSH中执行以下脚本
 
@@ -169,7 +169,7 @@ Midea AC LAN 由三个职责不同的仓库共同组成：
 wget -O - https://github.com/wuwentao/midea_ac_lan/raw/main/scripts/install.sh | ARCHIVE_TAG=latest bash -
 ```
 
-### 6.4 手工安装
+### 6.3 手工安装
 
 > 1. 从[Latest Release](https://github.com/wuwentao/midea_ac_lan/releases/latest) 下载 `midea_ac_lan.zip`
 > 2. 解压 `midea_ac_lan.zip`.

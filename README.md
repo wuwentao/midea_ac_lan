@@ -14,10 +14,9 @@ English | [简体中文](README_hans.md) | [繁體中文](README_hant.md) | [Dis
 - [4. Supported appliances and docs index](#4-supported-appliances-and-docs-index)
 - [5. Supported apps and clouds](#5-supported-apps-and-clouds)
 - [6. Install midea_ac_lan](#6-install-midea_ac_lan)
-  - [6.1 Use HACS on Home Assistant 2026.10 or older](#61-use-hacs-on-home-assistant-202610-or-older)
-  - [6.2 Use Home Assistant 2026.11 or newer](#62-use-home-assistant-202611-or-newer)
-  - [6.3 Install with Script](#63-install-with-script)
-  - [6.4 Manual Install](#64-manual-install)
+  - [6.1 Install via HACS](#61-install-via-hacs)
+  - [6.2 Install with Script](#62-install-with-script)
+  - [6.3 Manual Install](#63-manual-install)
 - [7. Add device](#7-add-device)
   - [7.1 Discover automatically](#71-discover-automatically)
   - [7.2 Configure manually](#72-configure-manually)
@@ -150,20 +149,18 @@ Choose the option for the app where the appliance is registered. An account from
 
 ## 6. Install midea_ac_lan
 
-### 6.1 Use HACS on Home Assistant 2026.10 or older
+### 6.1 Install via HACS
 
 > [!IMPORTANT]
-> Make sure you have installed HACS in Home Assistant using the [HACS install guide](https://hacs.xyz/docs/use/download/download/)
+>
+> 1. Home Assistant <= 2026.10: Make sure you have installed `HACS` in Home Assistant using the [HACS install guide](https://hacs.xyz/docs/use/download/download/).
+> 2. Home Assistant >= 2026.11: `HACS` ships with Home Assistant as the `Marketplace` integration. Go to [`Settings > Devices & services > Marketplace`](https://my.home-assistant.io/redirect/integration?domain=marketplace).
 
 [![Open your Home Assistant instance and open "midea_ac_lan" inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=wuwentao&repository=midea_ac_lan)
 
 **Restart Home Assistant**.
 
-### 6.2 Use Home Assistant 2026.11 or newer
-
-Starting with Home Assistant 2026.11, HACS ships with Home Assistant itself as the Marketplace integration. Open `Settings > Marketplace`, search for `midea_ac_lan`, select it, and click **Install**. When the installation finishes, **restart Home Assistant**.
-
-### 6.3 Install with Script
+### 6.2 Install with Script
 
 > run this script in HA Terminal or SSH add-on
 
@@ -171,7 +168,7 @@ Starting with Home Assistant 2026.11, HACS ships with Home Assistant itself as t
 wget -O - https://github.com/wuwentao/midea_ac_lan/raw/main/scripts/install.sh | ARCHIVE_TAG=latest bash -
 ```
 
-### 6.4 Manual Install
+### 6.3 Manual Install
 
 1. Download `midea_ac_lan.zip` from [Latest Release](https://github.com/wuwentao/midea_ac_lan/releases/latest)
 2. Extract `midea_ac_lan.zip`.
