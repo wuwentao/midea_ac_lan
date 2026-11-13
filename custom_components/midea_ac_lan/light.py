@@ -171,6 +171,11 @@ class MideaLight(MideaEntity, LightEntity):
         """Midea Light turn on."""
         if not self.is_on:
             self._device.set_attribute(attr=X13Attributes.power, value=True)
+            if not kwargs.get(ATTR_BRIGHTNESS) and not self.brightness:
+                # A plain on/off tap on a light whose brightness is latched at
+                # 0 would switch it "on" but leave the room dark; fall back to
+                # a visible brightness (50%) instead.
+                self._device.set_attribute(attr=X13Attributes.brightness, value=128)
         for key, value in kwargs.items():
             if key == ATTR_BRIGHTNESS:
                 self._device.set_attribute(attr=X13Attributes.brightness, value=value)
