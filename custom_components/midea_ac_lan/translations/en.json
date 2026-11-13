@@ -954,6 +954,9 @@
       }
     },
     "number": {
+      "curtain_position": {
+        "name": "Position"
+      },
       "delay_minutes": {
         "name": "Delay"
       },
@@ -1049,6 +1052,21 @@
       }
     },
     "select": {
+      "curtain_status": {
+        "name": "Curtain",
+        "state": {
+          "open": "Open",
+          "close": "Close",
+          "stop": "Stop"
+        }
+      },
+      "curtain_direction": {
+        "name": "Direction",
+        "state": {
+          "positive": "Positive",
+          "reverse": "Reverse"
+        }
+      },
       "cur_quantify": {
         "name": "Current Quantity Preset",
         "state": {
@@ -1534,6 +1552,9 @@
       }
     },
     "sensor": {
+      "software_version": {
+        "name": "Software Version"
+      },
       "db_running_status": {
         "name": "Washer status"
       },

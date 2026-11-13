@@ -64,6 +64,7 @@ Please check the document links below for the supported features and usage of ea
 | Type | Name                            | Documents          |
 | ---- | ------------------------------- | ------------------ |
 | 13   | Light                           | [13.md](doc/13.md) |
+| 14   | Electric Curtain                | [14.md](doc/14.md) |
 | 26   | Bathroom Master                 | [26.md](doc/26.md) |
 | 34   | Sink Dishwasher                 | [34.md](doc/34.md) |
 | 40   | Integrated Ceiling Fan          | [40.md](doc/40.md) |
