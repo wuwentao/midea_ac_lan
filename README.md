@@ -2,6 +2,7 @@
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg)](https://github.com/hacs/integration)
 [![Stable](https://img.shields.io/github/v/release/wuwentao/midea_ac_lan)](https://github.com/wuwentao/midea_ac_lan/releases/latest)
+[![codecov](https://codecov.io/gh/wuwentao/midea_ac_lan/branch/main/graph/badge.svg)](https://app.codecov.io/gh/wuwentao/midea_ac_lan/tree/main)
 
 English | [简体中文](README_hans.md) | [Discord Chat](https://discord.com/invite/ZWdd2fXndn) | [QQ Group](https://qm.qq.com/q/l53SGEwlZ6)
 
@@ -252,7 +253,7 @@ cd midea_ac_lan
 ./scripts/setup.sh
 ```
 
-See [CONTRIBUTING](.github/CONTRIBUTING.md) for full setup, running Home Assistant locally, and the code style / commit rules.
+See [CONTRIBUTING](.github/CONTRIBUTING.md) for full setup, running Home Assistant locally, and the code style / commit rules. The [testing guide](doc/testing.md) describes the Home Assistant pytest harness, coverage reports, and supported-version matrix.
 
 ### Adding a new device
 

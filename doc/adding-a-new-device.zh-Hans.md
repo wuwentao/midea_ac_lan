@@ -105,8 +105,13 @@ sensor/switch **无需**改任何 platform 文件。复杂 platform（`climate.p
 把 `b59cfbc` 替换为你想测试的提交哈希、分支名或 tag。这样 Home Assistant 就会安装
 你尚未发布的库代码，便于你端到端地开发与验证集成。
 
-**不要把这处 manifest 修改提交到你的 PR 里。** 保持 manifest 编辑纯本地。设备 PR
-只应包含功能支持本身（注册条目、翻译、文档），并基于最新的库改动构建。
+**不要把这处 manifest 修改提交到可供评审的 PR 里。** 保持 manifest 编辑纯本地。设备
+PR 只应包含功能支持本身（注册条目、翻译、文档），并基于最新的库改动构建。
+
+如果你确实希望把 manifest 的 Git ref 放进 PR，以便 CI 和评审者针对你尚未发布的库
+分支/提交进行测试，请在 PR 携带该修改期间将其标记为**草稿（draft）**，然后在将 PR
+标记为 ready for review 之前移除该修改并还原为已发布的版本锁定。维护者会在库发布后
+同步真正的版本锁定。
 
 由于已发布的 `midea-lan` 尚不包含你的设备，PR 的 CI / GitHub Actions 预计会因
 “库不支持 / 导入错误”而失败，还可能有发布版本不匹配的告警 —— **暂时忽略这些。**
@@ -390,8 +395,8 @@ JSON，就像 `doc/E2.md` 对 `old_protocol` / `precision_halves` / `temperature
 
 ## 8. 步骤 7 —— Lint 与校验
 
-本仓库没有单元测试套件；CI 强制执行 lint 与 HACS/hassfest 校验器。开发环境由
-[uv](https://docs.astral.sh/uv/) 管理：
+CI 会运行基于 Home Assistant 的 pytest 测试套件、lint 与 HACS/hassfest 校验器。
+开发环境由 [uv](https://docs.astral.sh/uv/) 管理：
 
 ```bash
 scripts/setup.sh                      # uv sync + 安装 git 钩子
@@ -404,14 +409,16 @@ scripts/mypy.sh                       # mypy（不要直接 `mypy .`）
 uv run pylint custom_components
 ```
 
+集成行为必须增加测试，并按照[测试指南](testing.zh-Hans.md)运行受支持版本矩阵。
+
 你也可以带上你的设备在本地运行 Home Assistant 来冒烟测试实体：
 
 ```bash
 scripts/run.sh                        # 用 ./config 启动 HA，集成在 PYTHONPATH 上
 ```
 
-提交前修复 `pre-commit` 报告的所有问题。CI（`linter.yml` + `validate.yml`）会跑
-相同的检查。注意：`validate.yml`（HACS/hassfest）可能因已发布的 `midea-lan` 尚不
+提交前修复 `pre-commit` 报告的所有问题。CI（`tests.yml` + `linter.yml` +
+`validate.yml`）会跑相同的检查。注意：`validate.yml`（HACS/hassfest）可能因已发布的 `midea-lan` 尚不
 包含你的设备而失败 —— 这个“库不支持”的失败是预期的，且不在设备 PR 的处理范围内
 （见[步骤 1](#2-步骤-1--把-midea-lan-依赖指向你的库改动仅本地)）。你要做的是让
 lint/format/类型检查通过；依赖库的检查会在维护者发布库并同步固定版本后自动变绿。

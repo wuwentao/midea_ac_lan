@@ -29,15 +29,28 @@ dev = [
   # pydantic is required by dev/CI: mypy loads it as a plugin (mypy.ini ->
   # `plugins = pydantic.mypy`), so it must stay installed for `scripts/mypy.sh`.
   "pydantic==2.14.2",
-  # pytest runs the offline regression tests under tests/ (see
-  # [tool.pytest.ini_options]). The suite only uses unittest.mock, so no Home
-  # Assistant test harness package is required.
+  # Integration tests use isolated test groups because the HA test harness pins
+  # its own pytest, pydantic and other development tools.
   "pytest==9.2.0",
   # On Python 3.12 the minimum-supported HA 2024.4.1 bundles acme 2.9.0, whose
   # crypto_util module still imports jose.ComparableX509 (removed in josepy 2.0).
   # Importing custom_components.midea_ac_lan pulls in homeassistant.helpers.network
   # -> hass_nabucasa -> acme, so pin josepy<2 there to keep test collection working.
   "josepy==1.15.0 ; python_version == '3.12'",
+]
+
+# These extracted harness releases pin the same HA versions as the dev baseline.
+test = [
+  "pytest-homeassistant-custom-component==0.13.205 ; python_version == '3.12'",
+  "pytest-homeassistant-custom-component==0.13.205 ; python_version == '3.13'",
+  "pytest-homeassistant-custom-component==0.13.317 ; python_full_version >= '3.14.2'",
+  "josepy==1.15.0 ; python_version == '3.12'",
+]
+
+# The centrally maintained harness currently starts with HA 2026.11 prereleases.
+test-current = [
+  "pytest-homeassistant==2026.11.0b4",
+  "pytest-cov==7.1.0",
 ]
 
 # Optional runtime extras for the local `uv run hass` dev/debug environment
@@ -56,16 +69,30 @@ run = [
 # This is a Home Assistant custom component, not a buildable/publishable package.
 # uv only manages the virtualenv and dependencies; it does not build this project.
 package = false
+# The 2024.4 extracted harness lists an unavailable prerelease of mypy-dev.
+# Type checking uses the pinned mypy in dev, never the test environment.
+exclude-dependencies = ["mypy-dev"]
+conflicts = [
+  [{ group = "dev" }, { group = "test" }],
+  [{ group = "dev" }, { group = "test-current" }],
+  [{ group = "test" }, { group = "test-current" }],
+  [{ group = "run" }, { group = "test" }],
+  [{ group = "run" }, { group = "test-current" }],
+]
+
+[tool.uv.dependency-groups]
+test = { requires-python = ">=3.12,!=3.14.0,!=3.14.1,<3.15" }
+test-current = { requires-python = ">=3.14.2" }
 
 # ----------------------------------------------------------------------------
-# pytest configuration. The tests under tests/ are offline regression checks for
-# the integration's own logic (completion-time math, entity dispatch and
-# availability); they mock the device and never open an appliance connection.
-# Run them with `uv run pytest`. `pythonpath` puts the integration package on
-# sys.path so `from midea_ac_lan...` imports resolve without PYTHONPATH tweaks.
+# Run `uv run --no-default-groups --group test pytest` for HA-backed tests.
+# Import the same custom_components package as the HA integration loader.
 # ----------------------------------------------------------------------------
 [tool.pytest.ini_options]
-pythonpath = ["custom_components"]
+asyncio_mode = "auto"
+# An override avoids unknown-ini warnings with the oldest pytest-asyncio pin.
+addopts = "-p no:respx -o asyncio_default_fixture_loop_scope=function --strict-markers --disable-socket --allow-unix-socket"
+pythonpath = ["."]
 testpaths = ["tests"]
 
 # ----------------------------------------------------------------------------
@@ -111,6 +138,9 @@ ignore = [
   "assert", # Use of `assert` detected
   "private-member-access", # tests set up entities via their private _config/_device
   "docstring-missing-returns", # test helpers/fixtures use one-line docstrings
+  "magic-value-comparison", # tests use explicit expected states and values
+  "too-many-arguments", # parametrized tests combine fixtures and case values
+  "too-many-positional-arguments", # parametrized tests combine fixtures and case values
 ]
 
 [tool.ruff.lint.mccabe]

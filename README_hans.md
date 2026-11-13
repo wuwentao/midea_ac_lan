@@ -2,6 +2,7 @@
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg)](https://github.com/hacs/integration)
 [![Stable](https://img.shields.io/github/v/release/wuwentao/midea_ac_lan)](https://github.com/wuwentao/midea_ac_lan/releases/latest)
+[![codecov](https://codecov.io/gh/wuwentao/midea_ac_lan/branch/main/graph/badge.svg)](https://app.codecov.io/gh/wuwentao/midea_ac_lan/tree/main)
 
 [English](README.md) | 简体中文 | [Discord交流群](https://discord.com/invite/ZWdd2fXndn) | [QQ交流群](https://qm.qq.com/q/l53SGEwlZ6)
 
@@ -246,7 +247,7 @@ cd midea_ac_lan
 ./scripts/setup.sh
 ```
 
-完整的环境搭建、本地运行 Home Assistant、代码风格与提交规范，请参考 [中文版CONTRIBUTING](.github/CONTRIBUTING.zh.md)。
+完整的环境搭建、本地运行 Home Assistant、代码风格与提交规范，请参考 [中文版CONTRIBUTING](.github/CONTRIBUTING.zh.md)。Home Assistant pytest 测试框架、覆盖率报告和版本兼容矩阵请参考[测试指南](doc/testing.zh-Hans.md)。
 
 ### 新增设备支持
 

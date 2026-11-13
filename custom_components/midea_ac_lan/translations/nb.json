@@ -1,0 +1,4402 @@
+{
+  "config": {
+    "error": {
+      "preset_account": "Kunne ikke logge inn med forhåndsinnstilt konto, vennligst rapporter dette problemet",
+      "login_failed": "Kunne ikke logge inn, konto eller passord var feil",
+      "no_devices": "Ingen nye tilgjengelige apparater funnet på nettverket",
+      "device_exist": "Apparatet er allerede konfigurert",
+      "config_incorrect": "Konfigurasjonen er feil",
+      "connect_error": "Kan ikke koble til apparatet",
+      "invalid_token": "Token eller Key har feil format"
+    },
+    "step": {
+      "user": {
+        "data": {
+          "way": "Legger til apparater"
+        },
+        "description": "Velg måten å legge til et apparat på",
+        "title": "Legg til nytt apparat"
+      },
+      "login": {
+        "data": {
+          "account": "Konto",
+          "password": "Passord"
+        },
+        "description": "Logg inn og hent apparatets token.\n\n\nFor øyeblikket kan bare personlige SmartHome- og Meiju-kontoer hente apparatets Token. Se README-dokumentet for detaljer.",
+        "title": "Logg inn"
+      },
+      "discovery": {
+        "description": "IP-adresse for enheten, skriv \"auto\" for å oppdage automatisk\nDu kan også bruke en IP-adresse for å søke innenfor et bestemt nettverk, for eksempel \"192.168.1.255\"",
+        "title": "Søk",
+        "data": {
+          "ip_address": "IP-adresse"
+        }
+      },
+      "list": {
+        "description": "{table}",
+        "title": "Apparater"
+      },
+      "auto": {
+        "data": {
+          "device": "Apparater"
+        },
+        "description": "Velg et apparat å legge til",
+        "title": "Nytt apparat funnet"
+      },
+      "manually": {
+        "data": {
+          "name": "Navn (f.eks. Stue-AC)",
+          "device_id": "Apparatkode",
+          "type": "Type",
+          "ip_address": "IP-adresse",
+          "port": "Port",
+          "model": "Modell",
+          "subtype": "Undertype",
+          "protocol": "Protokoll",
+          "token": "Token",
+          "key": "Key"
+        },
+        "description": "Konfigurasjon av apparat",
+        "title": "Nytt apparat"
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "door_auto_open": {
+        "name": "Automatisk døråpning for siste program"
+      },
+      "uv": {
+        "name": "UV"
+      },
+      "dry": {
+        "name": "Tørr"
+      },
+      "dry_status": {
+        "name": "Tørking"
+      },
+      "storage_status": {
+        "name": "Lagring aktiv"
+      },
+      "waterswitch": {
+        "name": "Vannbryter"
+      },
+      "water_lack": {
+        "name": "Vannmangel"
+      },
+      "wifi_unabled": {
+        "name": "Wi-Fi deaktivert"
+      },
+      "auto_throw": {
+        "name": "Automatisk dosering"
+      },
+      "lock_power": {
+        "name": "Strømlås"
+      },
+      "beep_control": {
+        "name": "Pip"
+      },
+      "light_btn_on": {
+        "name": "Knappelys"
+      },
+      "light_strip_on": {
+        "name": "Lysstripe"
+      },
+      "warm_power": {
+        "name": "Varm effekt"
+      },
+      "cold_power": {
+        "name": "Kald effekt"
+      },
+      "sleep_power": {
+        "name": "Hvileeffekt"
+      },
+      "pump_on": {
+        "name": "Pumpe på"
+      },
+      "bar_door": {
+        "name": "Bardør"
+      },
+      "bar_door_overtime": {
+        "name": "Bardør åpen for lenge"
+      },
+      "bathing_working": {
+        "name": "Badedriftsstatus"
+      },
+      "bottom_compartment_cooling": {
+        "name": "Kjøling av nedre rom"
+      },
+      "bottom_compartment_door": {
+        "name": "Dør til nedre rom"
+      },
+      "bottom_compartment_preheating": {
+        "name": "Forvarming av nedre rom"
+      },
+      "burning_state": {
+        "name": "Brennstatus"
+      },
+      "clean_scale": {
+        "name": "Avkalking"
+      },
+      "clean_sink_ponding": {
+        "name": "Vann i vasken"
+      },
+      "cleaning_reminder": {
+        "name": "Rengjøringspåminnelse"
+      },
+      "compressor_status": {
+        "name": "Kompressorstatus"
+      },
+      "cooking": {
+        "name": "Matlaging"
+      },
+      "dissipate_heat": {
+        "name": "Varmeavledning"
+      },
+      "door": {
+        "name": "Dør"
+      },
+      "error_code": {
+        "name": "Feilkode"
+      },
+      "filter_change_reminder": {
+        "name": "Påminnelse om filterbytte"
+      },
+      "filter_cleaning_reminder": {
+        "name": "Påminnelse om filterrengjøring"
+      },
+      "finished": {
+        "name": "Fullført"
+      },
+      "flex_zone_door": {
+        "name": "Flex-dør"
+      },
+      "flex_zone_door_overtime": {
+        "name": "Dør til flex-sone"
+      },
+      "flip_side": {
+        "name": "Vend side"
+      },
+      "freezer_door": {
+        "name": "Fryserdør"
+      },
+      "freezer_door_overtime": {
+        "name": "Fryserdør åpen for lenge"
+      },
+      "full_dust": {
+        "name": "Full av støv"
+      },
+      "heating": {
+        "name": "Oppvarming"
+      },
+      "dispensing": {
+        "name": "Tapper vann"
+      },
+      "lack_water": {
+        "name": "Vannmangel"
+      },
+      "standby": {
+        "name": "Hvilemodus"
+      },
+      "hot_water_dispensing": {
+        "name": "Tapper varmtvann"
+      },
+      "fault": {
+        "name": "Feil"
+      },
+      "heating_working": {
+        "name": "Oppvarmingsdriftsstatus"
+      },
+      "high_temperature": {
+        "name": "Høy temperatur"
+      },
+      "high_temperature_lock": {
+        "name": "Høytemperaturlås"
+      },
+      "high_temperature_work": {
+        "name": "Høytemperaturdrift"
+      },
+      "keep_warm": {
+        "name": "Hold varm"
+      },
+      "leak_water": {
+        "name": "Vannlekkasje"
+      },
+      "lid_status": {
+        "name": "Lokkstatus"
+      },
+      "middle_compartment_cooling": {
+        "name": "Kjøling av midtre rom"
+      },
+      "middle_compartment_door": {
+        "name": "Dør til midtre rom"
+      },
+      "middle_compartment_preheating": {
+        "name": "Forvarming av midtre rom"
+      },
+      "pre_heat": {
+        "name": "Forvarm"
+      },
+      "probe": {
+        "name": "Sonde"
+      },
+      "probe_mode": {
+        "name": "Sondemodus"
+      },
+      "reaction": {
+        "name": "Reaksjon"
+      },
+      "top_elec_heat": {
+        "name": "Øvre elektrisk varme"
+      },
+      "bottom_elec_heat": {
+        "name": "Nedre elektrisk varme"
+      },
+      "mute_effect": {
+        "name": "Dempeeffekt"
+      },
+      "mute_status": {
+        "name": "Dempestatus"
+      },
+      "multi_terminal": {
+        "name": "Multiterminal"
+      },
+      "oilcup_full": {
+        "name": "Oljekopp full"
+      },
+      "protection": {
+        "name": "Beskyttelse"
+      },
+      "refrigerator_door": {
+        "name": "Kjøleskapsdør"
+      },
+      "refrigerator_door_overtime": {
+        "name": "Kjøleskapsdør åpen for lenge"
+      },
+      "rinse_aid": {
+        "name": "Mangel på glansmiddel"
+      },
+      "rsj_stand_by": {
+        "name": "Standby"
+      },
+      "salt": {
+        "name": "Saltmangel"
+      },
+      "seat_status": {
+        "name": "Setestatus"
+      },
+      "smart_grid": {
+        "name": "Smart Grid"
+      },
+      "eco": {
+        "name": "ECO"
+      },
+      "maintenance_reminder": {
+        "name": "Vedlikeholdspåminnelse"
+      },
+      "dr_enable": {
+        "name": "Behovsrespons"
+      },
+      "electric_rod_exception": {
+        "name": "Feil på elektrisk varmeelement"
+      },
+      "ac_heater_priority": {
+        "name": "Prioritet for varmepumpe"
+      },
+      "high_temp_reminder": {
+        "name": "Høytemperaturpåminnelse"
+      },
+      "new_version_water_heater": {
+        "name": "Utvidet varmtvannsberederprotokoll"
+      },
+      "heat_recovery_status": {
+        "name": "Varmegjenvinning"
+      },
+      "holiday_mode": {
+        "name": "Feriemodus"
+      },
+      "hybrid_motion_mode": {
+        "name": "Hybrid bevegelsesmodus"
+      },
+      "support_boost_mode": {
+        "name": "Støtte for boost-modus"
+      },
+      "support_silent_mode": {
+        "name": "Støtte for stillemodus"
+      },
+      "support_remaining_hot_water": {
+        "name": "Støtte for gjenværende varmtvann"
+      },
+      "support_electric_mode": {
+        "name": "Støtte for elektrisk modus"
+      },
+      "support_auto_disinfect": {
+        "name": "Støtte for automatisk desinfisering"
+      },
+      "support_force_e_heating": {
+        "name": "Støtte for tvungen elektrisk oppvarming"
+      },
+      "support_tou": {
+        "name": "Støtte for tidsavhengig tariff"
+      },
+      "support_ac_heater_priority": {
+        "name": "Støtte for varmepumpeprioritet"
+      },
+      "support_heat_recovery": {
+        "name": "Støtte for varmegjenvinning"
+      },
+      "support_heat_pump_mode": {
+        "name": "Støtte for varmepumpemodus"
+      },
+      "support_smart_mode": {
+        "name": "Støtte for smartmodus"
+      },
+      "support_negative_temperature": {
+        "name": "Støtte for negativ temperatur"
+      },
+      "maintain_warn": {
+        "name": "Vedlikeholdsvarsel"
+      },
+      "order1_effect": {
+        "name": "Tidsplan 1 aktiv"
+      },
+      "order2_effect": {
+        "name": "Tidsplan 2 aktiv"
+      },
+      "status_dhw": {
+        "name": "DHW-status"
+      },
+      "status_heating": {
+        "name": "Oppvarmingsstatus"
+      },
+      "status_ibh": {
+        "name": "IBH-status"
+      },
+      "status_tbh": {
+        "name": "TBH-status"
+      },
+      "tank_ejected": {
+        "name": "Tank utløst"
+      },
+      "tank_full": {
+        "name": "Tankstatus"
+      },
+      "top_compartment_cooling": {
+        "name": "Kjøling av øvre rom"
+      },
+      "top_compartment_door": {
+        "name": "Dør til øvre rom"
+      },
+      "top_compartment_preheating": {
+        "name": "Forvarming av øvre rom"
+      },
+      "water_change_reminder": {
+        "name": "Påminnelse om vannbytte"
+      },
+      "water_shortage": {
+        "name": "Vannmangel"
+      },
+      "with_pressure": {
+        "name": "Med trykk"
+      },
+      "zone1_room_temp_mode": {
+        "name": "Sone1 romtemperaturmodus"
+      },
+      "zone1_water_temp_mode": {
+        "name": "Sone1 vanntemperaturmodus"
+      },
+      "zone2_room_temp_mode": {
+        "name": "Sone2 romtemperaturmodus"
+      },
+      "zone2_water_temp_mode": {
+        "name": "Sone2 vanntemperaturmodus"
+      },
+      "microcrystal_fresh": {
+        "name": "Mikrokrystall-fersk"
+      },
+      "electronic_smell": {
+        "name": "Lukt- og bakteriefjerning"
+      },
+      "water_pump_running": {
+        "name": "Vannpumpe aktiv"
+      },
+      "filter_status": {
+        "name": "Filteralarm"
+      },
+      "standby_status": {
+        "name": "Standby-status"
+      },
+      "out_water": {
+        "name": "Vann ut"
+      },
+      "out_hot_water": {
+        "name": "Varmtvann ut"
+      },
+      "backflow": {
+        "name": "Tilbakestrømning"
+      },
+      "sleep_status": {
+        "name": "Hvilestatus"
+      },
+      "status_cool": {
+        "name": "Status - kjøling"
+      },
+      "eco_function_state": {
+        "name": "Modus - ECO-funksjon"
+      },
+      "eco_timer_state": {
+        "name": "Modus - ECO-tidsur"
+      },
+      "double_zone": {
+        "name": "Kapasitet - dobbel sone"
+      },
+      "room_thermal_support": {
+        "name": "Kapasitet - romtermostat"
+      },
+      "room_thermal_state": {
+        "name": "Status - romtermostat"
+      },
+      "time_set": {
+        "name": "Kapasitet - tidsinnstilling"
+      },
+      "disinfect_run": {
+        "name": "DHW - desinfisering aktiv"
+      },
+      "remote_onoff": {
+        "name": "Kapasitet - fjern av/på"
+      },
+      "tbh_control": {
+        "name": "Kapasitet - TBH-styring"
+      },
+      "heat_capability": {
+        "name": "Kapasitet - oppvarming"
+      },
+      "cool_capability": {
+        "name": "Kapasitet - kjøling"
+      },
+      "dhw_capability": {
+        "name": "Kapasitet - DHW"
+      },
+      "sys_energy_ana_en": {
+        "name": "Kapasitet - energianalyse (system)"
+      },
+      "hmi_energy_ana_set_en": {
+        "name": "Kapasitet - energianalyse (HMI)"
+      },
+      "pump_i_running": {
+        "name": "Pump_I - intern"
+      },
+      "pump_o_running": {
+        "name": "Pump_O - ekstern"
+      },
+      "pump_d_running": {
+        "name": "Pump_D - DHW"
+      },
+      "pump_c_running": {
+        "name": "Pump_C - blandevannssløyfe sone 2"
+      },
+      "pump_s_running": {
+        "name": "Pump_S - sol"
+      },
+      "sv1_open": {
+        "name": "SV1 - ventil (DHW)"
+      },
+      "sv2_open": {
+        "name": "SV2 - ventil (oppvarming)"
+      },
+      "load_output_tbh": {
+        "name": "Varmeelement - tankreserve (TBH)"
+      },
+      "compressor_on": {
+        "name": "Kompressor - aktiv"
+      },
+      "ibh1_on": {
+        "name": "Varmeelement - IBH1"
+      },
+      "ibh2_on": {
+        "name": "Varmeelement - IBH2"
+      },
+      "sv3_open": {
+        "name": "SV3 - ventil"
+      },
+      "crankcase_heater_on": {
+        "name": "Varmeelement - veivhus"
+      },
+      "alarm_on": {
+        "name": "Feil - alarm"
+      },
+      "aux_heat_on": {
+        "name": "Varmeelement - hjelpekilde"
+      },
+      "ac_air_direction": {
+        "name": "AC luftretning"
+      },
+      "ac_cooling_fan": {
+        "name": "AC kjølevifte"
+      },
+      "ac_draining_pump": {
+        "name": "AC dreneringspumpe"
+      },
+      "ac_low_temperature": {
+        "name": "AC lav temperatur"
+      },
+      "ac_over_temperature": {
+        "name": "AC overtemperatur"
+      },
+      "ac_swing": {
+        "name": "AC sving"
+      },
+      "ac_water_full": {
+        "name": "AC vann fullt"
+      },
+      "b2_downstair_clean_tips": {
+        "name": "Damovn nedre rengjøringstips"
+      },
+      "b2_downstair_door": {
+        "name": "Damovn nedre dør"
+      },
+      "b2_downstair_fresh_water": {
+        "name": "Damovn nedre friskvann"
+      },
+      "b2_downstair_light": {
+        "name": "Damovn nedre lys"
+      },
+      "b2_downstair_lock": {
+        "name": "Damovn nedre lås"
+      },
+      "b2_downstair_must_clean_tips": {
+        "name": "Damovn nedre må-rengjøres-tips"
+      },
+      "b2_downstair_water_shortage": {
+        "name": "Damovn nedre vannmangel"
+      },
+      "b2_upstair_clean_tips": {
+        "name": "Damovn øvre rengjøringstips"
+      },
+      "b2_upstair_door": {
+        "name": "Damovn øvre dør"
+      },
+      "b2_upstair_fresh_water": {
+        "name": "Damovn øvre friskvann"
+      },
+      "b2_upstair_light": {
+        "name": "Damovn øvre lys"
+      },
+      "b2_upstair_lock": {
+        "name": "Damovn øvre lås"
+      },
+      "b2_upstair_must_clean_tips": {
+        "name": "Damovn øvre må-rengjøres-tips"
+      },
+      "b2_upstair_water_shortage": {
+        "name": "Damovn øvre vannmangel"
+      },
+      "b3_downstair_door": {
+        "name": "Dampskap nedre dør"
+      },
+      "b3_downstair_door_lock": {
+        "name": "Dampskap nedre dørlås"
+      },
+      "b3_downstair_infrared": {
+        "name": "Dampskap nedre infrarød"
+      },
+      "b3_downstair_ultraviolet": {
+        "name": "Dampskap nedre ultrafiolett"
+      },
+      "b3_upstair_door": {
+        "name": "Dampskap øvre dør"
+      },
+      "b3_upstair_door_lock": {
+        "name": "Dampskap øvre dørlås"
+      },
+      "b3_upstair_infrared": {
+        "name": "Dampskap øvre infrarød"
+      },
+      "b3_upstair_ultraviolet": {
+        "name": "Dampskap øvre ultrafiolett"
+      },
+      "b6_tvoc_status": {
+        "name": "Kjøkkenvifte TVOC-status"
+      },
+      "b6_delay_gear_linkage": {
+        "name": "Kjøkkenvifte forsinket girkobling"
+      },
+      "b6_delay_time": {
+        "name": "Kjøkkenvifte forsinkelsestid"
+      },
+      "b6_gesture_status": {
+        "name": "Kjøkkenvifte bevegelsesstatus"
+      },
+      "b6_infrared_status": {
+        "name": "Kjøkkenvifte infrarødstatus"
+      },
+      "b6_lock": {
+        "name": "Kjøkkenviftelås"
+      },
+      "b6_power_on_light": {
+        "name": "Kjøkkenvifte lys ved påslåing"
+      },
+      "b6_smoke_detector": {
+        "name": "Kjøkkenvifte røykdetektor"
+      },
+      "b6_smoke_stove_linkage": {
+        "name": "Kjøkkenvifte røyk-komfyr-kobling"
+      },
+      "b7_left_dry_burning": {
+        "name": "Gasskokeplate venstre tørrkoking"
+      },
+      "b7_left_dry_burning_invalid": {
+        "name": "Gasskokeplate venstre tørrkoking ugyldig"
+      },
+      "b7_left_gas_leakage": {
+        "name": "Gasskokeplate venstre gasslekkasje"
+      },
+      "b7_left_has_fire": {
+        "name": "Gasskokeplate venstre har flamme"
+      },
+      "b7_left_has_pot": {
+        "name": "Gasskokeplate venstre har gryte"
+      },
+      "b7_right_dry_burning": {
+        "name": "Gasskokeplate høyre tørrkoking"
+      },
+      "b7_right_dry_burning_invalid": {
+        "name": "Gasskokeplate høyre tørrkoking ugyldig"
+      },
+      "b7_right_gas_leakage": {
+        "name": "Gasskokeplate høyre gasslekkasje"
+      },
+      "b7_right_has_fire": {
+        "name": "Gasskokeplate høyre har flamme"
+      },
+      "b7_right_has_pot": {
+        "name": "Gasskokeplate høyre har gryte"
+      },
+      "bf_door": {
+        "name": "Ovnsdør"
+      },
+      "bf_error": {
+        "name": "Ovnsfeil"
+      },
+      "bf_flip": {
+        "name": "Ovn vend"
+      },
+      "bf_hightemp_error": {
+        "name": "Ovn høytemperaturfeil"
+      },
+      "bf_hightemp_lock": {
+        "name": "Ovn høytemperaturlås"
+      },
+      "bf_hightemp_over": {
+        "name": "Ovn høytemperatur overskredet"
+      },
+      "bf_hotwind": {
+        "name": "Ovn varmluft"
+      },
+      "bf_hotwind_set": {
+        "name": "Ovn varmluft innstilt"
+      },
+      "bf_hydrops_full": {
+        "name": "Ovn kondensvann fullt"
+      },
+      "bf_light": {
+        "name": "Ovnslys"
+      },
+      "bf_lock": {
+        "name": "Ovnslås"
+      },
+      "bf_off_fromapp": {
+        "name": "Ovn av fra app"
+      },
+      "bf_on_smart": {
+        "name": "Ovn på smart"
+      },
+      "bf_order": {
+        "name": "Ovn tidsinnstilling"
+      },
+      "bf_order_time_isabsolute": {
+        "name": "Ovn tidsinnstilling er absolutt"
+      },
+      "bf_overheat": {
+        "name": "Ovn overoppheting"
+      },
+      "bf_preheat": {
+        "name": "Ovn forvarm"
+      },
+      "bf_preheat_done": {
+        "name": "Ovn forvarming ferdig"
+      },
+      "bf_preheat_set": {
+        "name": "Ovn forvarming innstilt"
+      },
+      "bf_probe": {
+        "name": "Ovnssonde"
+      },
+      "bf_probe_meat": {
+        "name": "Ovnssonde kjøtt"
+      },
+      "bf_radiating": {
+        "name": "Ovn stråler"
+      },
+      "bf_repair_cook": {
+        "name": "Ovn reparasjonssteking"
+      },
+      "bf_sabbath": {
+        "name": "Ovn sabbat"
+      },
+      "bf_scalehandling_remind": {
+        "name": "Ovn avkalkingspåminnelse"
+      },
+      "bf_sensor": {
+        "name": "Ovnssensor"
+      },
+      "bf_stove_1": {
+        "name": "Ovn kokeplate 1"
+      },
+      "bf_stove_2": {
+        "name": "Ovn kokeplate 2"
+      },
+      "bf_stove_3": {
+        "name": "Ovn kokeplate 3"
+      },
+      "bf_stove_4": {
+        "name": "Ovn kokeplate 4"
+      },
+      "bf_stove_5": {
+        "name": "Ovn kokeplate 5"
+      },
+      "bf_temp_fahrenheit": {
+        "name": "Ovn temperatur Fahrenheit"
+      },
+      "bf_time_synchronization": {
+        "name": "Ovn tidssynkronisering"
+      },
+      "bf_turntable": {
+        "name": "Ovn dreieskive"
+      },
+      "bf_turntable_reset": {
+        "name": "Ovn dreieskive tilbakestilling"
+      },
+      "bf_upload_interval": {
+        "name": "Ovn opplastingsintervall"
+      },
+      "bf_voice_identify": {
+        "name": "Ovn stemmegjenkjenning"
+      },
+      "bf_voice_module": {
+        "name": "Ovn stemmemodul"
+      },
+      "bf_water_box": {
+        "name": "Ovn vannboks"
+      },
+      "bf_water_change": {
+        "name": "Ovn vannbytte"
+      },
+      "bf_water_shortage": {
+        "name": "Ovn vannmangel"
+      },
+      "bf_wintersummertime": {
+        "name": "Ovn vinter-/sommertid"
+      },
+      "e7_left_bottom_has_pot": {
+        "name": "Induksjon venstre nedre har gryte"
+      },
+      "e7_left_has_pot": {
+        "name": "Induksjon venstre har gryte"
+      },
+      "e7_left_top_has_pot": {
+        "name": "Induksjon venstre øvre har gryte"
+      },
+      "e7_right_bottom_has_pot": {
+        "name": "Induksjon høyre nedre har gryte"
+      },
+      "e7_right_has_pot": {
+        "name": "Induksjon høyre har gryte"
+      },
+      "e7_right_top_has_pot": {
+        "name": "Induksjon høyre øvre har gryte"
+      },
+      "sp_fandrying_door": {
+        "name": "Platevifte tørking dør"
+      },
+      "sp_fandrying_setting_automode": {
+        "name": "Platevifte tørking innstilling automodus"
+      },
+      "sp_fandrying_setting_linkage": {
+        "name": "Platevifte tørking innstilling kobling"
+      },
+      "sp_fandrying_setting_linkcooker": {
+        "name": "Platevifte tørking innstilling koblingskoker"
+      },
+      "sp_fandrying_setting_sync": {
+        "name": "Platevifte tørking innstilling synk"
+      },
+      "sp_heatingdisk_door": {
+        "name": "Varmeplate dør"
+      },
+      "sp_heatingdisk_setting_automode": {
+        "name": "Varmeplate innstilling automodus"
+      },
+      "sp_heatingdisk_setting_linkage": {
+        "name": "Varmeplate innstilling kobling"
+      },
+      "sp_heatingdisk_setting_linkcooker": {
+        "name": "Varmeplate innstilling koblingskoker"
+      },
+      "sp_heatingdisk_setting_sync": {
+        "name": "Varmeplate innstilling synk"
+      },
+      "sp_uvc_door": {
+        "name": "Plate UVC dør"
+      },
+      "sp_uvc_setting_automode": {
+        "name": "Plate UVC innstilling automodus"
+      },
+      "sp_uvc_setting_linkage": {
+        "name": "Plate UVC innstilling kobling"
+      },
+      "sp_uvc_setting_linkcooker": {
+        "name": "Plate UVC innstilling koblingskoker"
+      },
+      "sp_uvc_setting_sync": {
+        "name": "Plate UVC innstilling synk"
+      },
+      "total_water_shortage": {
+        "name": "Vannmangel"
+      },
+      "door_open": {
+        "name": "Dør åpen"
+      },
+      "turntable": {
+        "name": "Dreieskive"
+      },
+      "lack_box": {
+        "name": "Mangler boks"
+      },
+      "change_water": {
+        "name": "Påminnelse om vannbytte"
+      },
+      "ramadan": {
+        "name": "Ramadan"
+      },
+      "ota": {
+        "name": "OTA"
+      },
+      "laundry_appointment": {
+        "name": "Reservasjon"
+      }
+    },
+    "button": {
+      "start_delayed": {
+        "name": "Forsinket start"
+      },
+      "pause": {
+        "name": "Pause"
+      },
+      "resume": {
+        "name": "Fortsett"
+      },
+      "cancel": {
+        "name": "Avbryt"
+      },
+      "start": {
+        "name": "Start"
+      },
+      "laundry_cancel_appointment": {
+        "name": "Avbryt reservasjon"
+      }
+    },
+    "climate": {
+      "climate_zone1": {
+        "name": "Sone1 termostat"
+      },
+      "climate_zone2": {
+        "name": "Sone2 termostat"
+      },
+      "climate_key": {
+        "state_attributes": {
+          "fan_mode": {
+            "state": {
+              "silent": "Stille",
+              "full": "Full"
+            }
+          }
+        }
+      }
+    },
+    "fan": {
+      "bgf10000": {
+        "state_attributes": {
+          "preset_mode": {
+            "state": {
+              "normal": "Normal",
+              "forest": "Skog",
+              "beach": "Strand",
+              "countryside": "Landlig",
+              "baby": "Babyvind",
+              "sleep_1": "Hvile 1",
+              "sleep_2": "Hvile 2",
+              "strong": "Sterk"
+            }
+          }
+        }
+      },
+      "fresh_air": {
+        "name": "Friskluft"
+      },
+      "fresh_air_exhaust": {
+        "name": "Friskluftavtrekk"
+      }
+    },
+    "lock": {
+      "child_lock": {
+        "name": "Barnelås"
+      }
+    },
+    "number": {
+      "delay_minutes": {
+        "name": "Forsinkelse"
+      },
+      "wash_region": {
+        "name": "Vaskeområde"
+      },
+      "water_level": {
+        "name": "Vannnivå"
+      },
+      "water_strong_level": {
+        "name": "Vanntrykknivå"
+      },
+      "heating_target_temperature": {
+        "name": "Måltemperatur for oppvarming"
+      },
+      "dry_level": {
+        "name": "Tørkenivå"
+      },
+      "heating_level": {
+        "name": "Oppvarmingsnivå"
+      },
+      "seat_temp_level": {
+        "name": "Setetemperaturnivå"
+      },
+      "water_temp_level": {
+        "name": "Vanntemperaturnivå"
+      },
+      "fan_speed_percent": {
+        "name": "Viftehastighet i prosent"
+      },
+      "vacation_days": {
+        "name": "Feriedager"
+      },
+      "max_temperature": {
+        "name": "Maksimal måltemperatur"
+      },
+      "disinfection_temperature": {
+        "name": "Desinfiseringstemperatur"
+      },
+      "schedule_mode": {
+        "name": "Tidsplanmodus"
+      },
+      "leak_water_protection_value": {
+        "name": "Verdi for vannlekkasjebeskyttelse"
+      },
+      "flushing_days": {
+        "name": "Regenereringsdager"
+      },
+      "water_hardness": {
+        "name": "Vannhardhet"
+      },
+      "boil_temperature": {
+        "name": "Måltemperatur for koking"
+      },
+      "keep_warm_time": {
+        "name": "Tid for å holde varm"
+      },
+      "ai_voice_volume": {
+        "name": "AI-stemmevolum"
+      },
+      "screen_luminance": {
+        "name": "Skjermlysstyrke"
+      },
+      "volume": {
+        "name": "Volum"
+      },
+      "temperature_number": {
+        "name": "Måltemperatur"
+      },
+      "temperature_above_number": {
+        "name": "Måltemperatur over"
+      },
+      "temperature_underside_number": {
+        "name": "Måltemperatur under"
+      },
+      "probe_temperature_number": {
+        "name": "Mål-sondetemperatur"
+      },
+      "steam_quantity_number": {
+        "name": "Dampmengde"
+      },
+      "hour_set": {
+        "name": "Timeinnstilling"
+      },
+      "minute_set": {
+        "name": "Minuttinnstilling"
+      },
+      "second_set": {
+        "name": "Sekundinnstilling"
+      },
+      "dryer_timed_extra": {
+        "name": "Forlengelse av tidsinnstilt tørking"
+      }
+    },
+    "select": {
+      "cur_quantify": {
+        "name": "Nåværende forhåndsinnstilt mengde",
+        "state": {
+          "none": "Ingen",
+          "preset_1": "Forhåndsinnstilling 1",
+          "preset_2": "Forhåndsinnstilling 2",
+          "preset_3": "Forhåndsinnstilling 3",
+          "preset_4": "Forhåndsinnstilling 4",
+          "preset_5": "Forhåndsinnstilling 5"
+        }
+      },
+      "wash_mode_76000228": {
+        "name": "Vaskemodus",
+        "state": {
+          "neutral_gear": "Ingen",
+          "auto_wash": "Auto",
+          "strong_wash": "Intensiv",
+          "standard_wash": "Universal",
+          "eco_wash": "ECO",
+          "glass_wash": "Glass",
+          "hour_wash": "90 min",
+          "fast_wash": "Rask",
+          "soak_wash": "Bløtlegging",
+          "90min": "90 min",
+          "self_clean": "Selvrens",
+          "fruit_wash": "Frukt",
+          "self_define": "Tilpasset",
+          "germ": "Hvisking",
+          "bowl_wash": "Bolle",
+          "kill_germ": "Hygiene",
+          "sea_food_wash": "Selvrens",
+          "hot_pot_wash": "Gryterett",
+          "quiet_night_wash": "Stille natt",
+          "less_wash": "Lett",
+          "max_rapid_wash": "Maks rask",
+          "oil_net_wash": "Oljefilter",
+          "cloud_wash": "Skyprogram",
+          "single_dry": "Kun tørking",
+          "single_disinfect": "Kun desinfisering",
+          "high_temp_wash": "Høy temperatur",
+          "wash_dry": "Vask og tørk"
+        }
+      },
+      "program_76000228": {
+        "name": "Program",
+        "state": {
+          "auto_wash": "Auto",
+          "strong_wash": "Intensiv",
+          "standard_wash": "Universal",
+          "eco_wash": "ECO",
+          "glass_wash": "Glass",
+          "hour_wash": "90 min",
+          "fast_wash": "Rask",
+          "soak_wash": "Bløtlegging",
+          "90min": "90 min",
+          "self_clean": "Selvrens",
+          "fruit_wash": "Frukt",
+          "self_define": "Tilpasset",
+          "germ": "Hvisking",
+          "bowl_wash": "Bolle",
+          "kill_germ": "Hygiene",
+          "sea_food_wash": "Selvrens",
+          "hot_pot_wash": "Gryterett",
+          "quiet_night_wash": "Stille natt",
+          "less_wash": "Lett",
+          "max_rapid_wash": "Maks rask",
+          "oil_net_wash": "Oljefilter",
+          "cloud_wash": "Skyprogram",
+          "single_dry": "Kun tørking",
+          "single_disinfect": "Kun desinfisering",
+          "high_temp_wash": "Høy temperatur",
+          "wash_dry": "Vask og tørk"
+        }
+      },
+      "program": {
+        "name": "Program",
+        "state": {
+          "auto_wash": "Auto",
+          "strong_wash": "Intensiv",
+          "standard_wash": "Standard",
+          "eco_wash": "ECO",
+          "glass_wash": "Glass",
+          "hour_wash": "1 time",
+          "fast_wash": "Rask",
+          "soak_wash": "Bløtlegging",
+          "90min": "90 min",
+          "self_clean": "Selvrens",
+          "fruit_wash": "Frukt",
+          "self_define": "Tilpasset",
+          "germ": "Bakterie",
+          "bowl_wash": "Bolle",
+          "kill_germ": "Hygiene",
+          "sea_food_wash": "Sjømat",
+          "hot_pot_wash": "Gryterett",
+          "quiet_night_wash": "Stille natt",
+          "less_wash": "Lett",
+          "max_rapid_wash": "Maks rask",
+          "oil_net_wash": "Oljefilter",
+          "cloud_wash": "Skyprogram",
+          "single_dry": "Kun tørking",
+          "single_disinfect": "Kun desinfisering",
+          "high_temp_wash": "Høy temperatur",
+          "wash_dry": "Vask og tørk"
+        }
+      },
+      "load": {
+        "name": "Last",
+        "state": {
+          "0": "Full",
+          "2": "Halv"
+        }
+      },
+      "heating_mode": {
+        "name": "Oppvarmingsmodus",
+        "state": {
+          "user": "Bruker",
+          "activity": "Aktivitet",
+          "sleep": "Hvile",
+          "unknown": "Ukjent"
+        }
+      },
+      "detect_mode": {
+        "name": "Registreringsmodus",
+        "state": {
+          "off": "Av",
+          "pm_2_5": "PM 2.5",
+          "methanal": "Metanal"
+        }
+      },
+      "direction": {
+        "name": "Retning",
+        "state": {
+          "oscillate": "Oscillering"
+        }
+      },
+      "fan_speed": {
+        "name": "Viftehastighet",
+        "state": {
+          "auto": "Auto",
+          "standby": "Hvilemodus",
+          "low": "Lav",
+          "medium": "Middels",
+          "high": "Høy"
+        }
+      },
+      "fresh_air_exhaust_mode": {
+        "name": "Hastighet for friskluftavtrekk",
+        "state": {
+          "off": "Av",
+          "silent": "Lav",
+          "high": "Høy",
+          "full": "Full"
+        }
+      },
+      "fresh_air_mode": {
+        "name": "Frisklufthastighet",
+        "state": {
+          "off": "Av",
+          "low": "Lav",
+          "medium": "Middels",
+          "high": "Høy",
+          "full": "Full"
+        }
+      },
+      "mode": {
+        "name": "Modus",
+        "state": {
+          "standby": "Hvilemodus",
+          "auto": "Auto",
+          "manual": "Manuell",
+          "sleep": "Hvile",
+          "fast": "Rask",
+          "smoke": "Røyk",
+          "off": "Av",
+          "heat_high": "Varme (høy)",
+          "heat_low": "Varme (lav)",
+          "bath": "Bad",
+          "blow": "Blås",
+          "ventilation": "Ventilasjon",
+          "dry": "Tørr"
+        }
+      },
+      "oscillation_angle": {
+        "name": "Oscilleringsvinkel"
+      },
+      "oscillation_mode": {
+        "name": "Oscilleringsmodus"
+      },
+      "rate_select": {
+        "name": "Effektgrense"
+      },
+      "screen_display": {
+        "name": "Skjermvisning",
+        "state": {
+          "bright": "Lys",
+          "dim": "Dempet",
+          "off": "Av"
+        }
+      },
+      "silent_level": {
+        "name": "Stillenivå"
+      },
+      "tilting_angle": {
+        "name": "Vippevinkel"
+      },
+      "wash_mode": {
+        "name": "Vaskemodus",
+        "state": {
+          "neutral_gear": "Ingen",
+          "auto_wash": "Auto",
+          "strong_wash": "Intensiv",
+          "standard_wash": "Standard",
+          "eco_wash": "ECO",
+          "glass_wash": "Glass",
+          "hour_wash": "1 time",
+          "fast_wash": "Rask",
+          "soak_wash": "Bløtlegging",
+          "90min": "90 min",
+          "self_clean": "Selvrens",
+          "fruit_wash": "Frukt",
+          "self_define": "Tilpasset",
+          "germ": "Bakterie",
+          "bowl_wash": "Bolle",
+          "kill_germ": "Hygiene",
+          "sea_food_wash": "Sjømat",
+          "hot_pot_wash": "Gryterett",
+          "quiet_night_wash": "Stille natt",
+          "less_wash": "Lett",
+          "max_rapid_wash": "Maks rask",
+          "oil_net_wash": "Oljefilter",
+          "cloud_wash": "Skyprogram",
+          "single_dry": "Kun tørking",
+          "single_disinfect": "Kun desinfisering",
+          "high_temp_wash": "Høy temperatur",
+          "wash_dry": "Vask og tørk"
+        }
+      },
+      "water_level_set": {
+        "name": "Innstilling av vannnivå"
+      },
+      "wind_lr_angle": {
+        "name": "Horisontal luftstrøm",
+        "state": {
+          "off": "Av",
+          "left": "Venstre",
+          "left_mid": "Venstre-midt",
+          "middle": "Midt",
+          "right_mid": "Høyre-midt",
+          "right": "Høyre"
+        }
+      },
+      "wind_ud_angle": {
+        "name": "Vertikal luftstrøm",
+        "state": {
+          "off": "Av",
+          "up": "Opp",
+          "up_mid": "Opp-midt",
+          "middle": "Midt",
+          "down_mid": "Ned-midt",
+          "down": "Ned"
+        }
+      },
+      "work_status_select": {
+        "name": "Arbeidsstatus",
+        "state": {
+          "save_power": "Spar strøm",
+          "standby": "Hvilemodus",
+          "work": "Arbeider",
+          "pause": "Satt på pause",
+          "work_finish": "Fullført",
+          "order": "Forsinkelse",
+          "pause_c": "Satt på pause C",
+          "three": "Tre",
+          "self_inspection": "Selvkontroll",
+          "query_version": "Spør etter versjon",
+          "demo": "Demo",
+          "ramadan": "Ramadan",
+          "after_checking": "Etter kontroll",
+          "wait_to_start": "Venter på å starte",
+          "ff": "Ukjent"
+        }
+      },
+      "x9b_fire_power_select": {
+        "name": "Brennereffekt",
+        "state": {
+          "high_power": "Høy",
+          "medium_high_power": "Middels-høy",
+          "medium_power": "Middels",
+          "medium_low_power": "Middels-lav",
+          "low_power": "Lav",
+          "ff": "Ukjent"
+        }
+      },
+      "door": {
+        "name": "Dør",
+        "state": {
+          "open": "Åpne",
+          "close": "Lukk"
+        }
+      },
+      "dryer_program_control": {
+        "name": "Tørkeprogram",
+        "state": {
+          "mixed_wash": "Blandet",
+          "wool": "Ull",
+          "night_dry": "Nattørking",
+          "big_dry": "Store plagg",
+          "small_piece_dry": "Små plagg",
+          "baby_clothes": "Babyklær",
+          "down_jacket": "Dunjakker",
+          "quick_dry": "Hurtigtørk",
+          "cotton": "Bomull og lin",
+          "shirt": "Skjorter",
+          "jean": "Denim",
+          "underwear": "Undertøy",
+          "school_uniform": "Skoleuniformer",
+          "silk": "Silke",
+          "towel": "Badehåndklær",
+          "chiffon": "Chiffon",
+          "polar_fleece": "Polarfleece",
+          "hanfu": "Hanfu",
+          "hanfu_tang": "Hanfu™ Tang-stil",
+          "hanfu_song": "Hanfu™ Song-stil",
+          "hanfu_ming": "Hanfu™ Ming-stil",
+          "hanfu_modern": "Hanfu™ moderne stil",
+          "sun_quilt": "Lufting av dyne",
+          "bucket_self_clean": "Trommelrengjøring",
+          "steam_care": "Dampbehandling",
+          "fixed_time_dry": "Tidsinnstilt tørking",
+          "warm_clothes": "Varme klær",
+          "cold_air_fresh_air": "Oppfriskning med kjølig luft",
+          "sterilize_mite": "Sterilisering og middfjerning",
+          "bracket_dry": "Hylletørking",
+          "pet_sterilize": "Kjæledyrsterilisering",
+          "sport_clothes": "Sportsklær",
+          "outdoor": "Utendørsklær",
+          "quick_drying_clothes": "Hurtigtørkende klær",
+          "yoga": "Yogaklær",
+          "air_wash": "Luftvask",
+          "fiber": "Syntetiske stoffer",
+          "bedsheet": "Laken",
+          "plush": "Plysj",
+          "dehumidify": "Avfukting",
+          "hot_air_dry": "Varmlufttørking",
+          "standard": "Standard",
+          "fresh_air": "Friskluft",
+          "low_temp_dry": "Lavtemperaturtørking",
+          "eco_dry": "Energisparende tørking",
+          "quick_dry_30": "Hurtigtørk 30 min",
+          "intelligent_dry": "Intelligent tørking",
+          "big": "Store plagg",
+          "western_trouser": "Dressbukser",
+          "dehumidification": "Avfukting",
+          "smart_dry": "Smart tørking",
+          "four_piece_suit": "Sengetøysett",
+          "quick_dry_20": "Hurtigtørk 20 min",
+          "steam_sterilize": "Dampsterilisering",
+          "enzyme": "Enzym",
+          "big_60": "Store plagg 60",
+          "steam_no_iron": "Dampbehandling uten stryking",
+          "bed_clothes": "Sengetøy",
+          "little_fast_dry": "Hurtigtørk liten last",
+          "wool_nurse": "Ullpleie",
+          "fresh_remove_smell": "Luktfjernende oppfriskning",
+          "sterilize": "Sterilisering"
+        }
+      },
+      "dryer_dryness_control": {
+        "name": "Tørrhet",
+        "state": {
+          "ready_to_wear": "Klar til bruk",
+          "storage": "Lagring"
+        }
+      },
+      "dryer_temperature_control": {
+        "name": "Tørketemperatur",
+        "state": {
+          "standard": "Standard",
+          "low": "Lav"
+        }
+      },
+      "washer_program_control": {
+        "name": "Vaskeprogram",
+        "state": {
+          "water_mixed_wash": "Blandet vask",
+          "fast_wash": "Hurtigvask 15 min",
+          "single_dehytration": "Kun sentrifugering",
+          "rinsing_dehydration": "Skylling og sentrifugering",
+          "fast_wash_30": "Hurtigvask 30 min",
+          "big": "Store plagg",
+          "tub_clean": "Trommelrengjøring",
+          "deep_tub_clean": "Grundig trommelrengjøring",
+          "down_jacket": "Dunjakker",
+          "new_water_cotton": "Bomull og lin",
+          "baby_clothes": "Babyklær",
+          "shirt": "Skjorter",
+          "wool": "Ull",
+          "water_underwear": "Undertøy",
+          "silk": "Silke",
+          "jacket": "Utendørsjakker",
+          "new_clothes_wash": "Nye klær",
+          "jean": "Denim",
+          "water_fiber": "Syntetiske stoffer",
+          "water_eco": "Energisparing",
+          "water_intelligent": "Smart vask",
+          "water_steep": "Bløtleggingsvask",
+          "water_cold_wash": "Kaldvask",
+          "sterilization_wash": "Steriliserende vask",
+          "water_remove_mite_wash": "Middfjerning",
+          "disinfection_wash": "Desinfiserende vask",
+          "stain_wash": "Flekkvask",
+          "sport_clothes": "Sportsklær",
+          "yoga": "Yogaklær",
+          "quick_drying_clothes": "Hurtigtørkende klær"
+        }
+      },
+      "washer_temperature_control": {
+        "name": "Vanntemperatur",
+        "state": {
+          "cold": "Kald",
+          "20": "20 °C",
+          "30": "30 °C",
+          "40": "40 °C",
+          "60": "60 °C",
+          "95": "95 °C"
+        }
+      },
+      "washer_spin_speed_control": {
+        "name": "Sentrifugeringshastighet",
+        "state": {
+          "0": "Ingen sentrifugering",
+          "400": "400 rpm",
+          "600": "600 rpm",
+          "800": "800 rpm",
+          "1000": "1000 rpm",
+          "1200": "1200 rpm",
+          "1400": "1400 rpm"
+        }
+      },
+      "washer_rinse_count": {
+        "name": "Antall skyllinger",
+        "state": {
+          "1": "1",
+          "2": "2",
+          "3": "3",
+          "4": "4"
+        }
+      },
+      "washer_water_level_control": {
+        "name": "Vannnivå",
+        "state": {
+          "auto": "Auto",
+          "l1": "L1",
+          "l2": "L2",
+          "l3": "L3",
+          "l4": "L4"
+        }
+      },
+      "washer_detergent_control": {
+        "name": "Dosering av vaskemiddel",
+        "state": {
+          "smart": "Smart",
+          "off": "Av",
+          "l1": "L1",
+          "l2": "L2",
+          "l3": "L3",
+          "l4": "L4"
+        }
+      },
+      "washer_wash_time_control": {
+        "name": "Vasketid (min)"
+      },
+      "washer_spin_time_control": {
+        "name": "Sentrifugeringstid (min)"
+      }
+    },
+    "time": {
+      "timing_regeneration": {
+        "name": "Tidsinnstilt regenerering"
+      },
+      "laundry_appointment_finish": {
+        "name": "Sluttidspunkt (setter reservasjon)"
+      }
+    },
+    "sensor": {
+      "db_running_status": {
+        "name": "Vaskemaskinstatus"
+      },
+      "db_progress": {
+        "name": "Vaskemaskin fremdrift"
+      },
+      "db_program": {
+        "name": "Vaskeprogram"
+      },
+      "db_remain_time": {
+        "name": "Vaskemaskin gjenværende tid"
+      },
+      "db_wash_time": {
+        "name": "Vaskemaskin vasketid"
+      },
+      "db_dehydration_time": {
+        "name": "Vaskemaskin sentrifugeringstid"
+      },
+      "db_dehydration_speed": {
+        "name": "Vaskemaskin sentrifugeringshastighet"
+      },
+      "db_water_level": {
+        "name": "Vaskemaskin vannnivå"
+      },
+      "db_temperature": {
+        "name": "Vaskemaskin temperatur"
+      },
+      "db_rinse_count": {
+        "name": "Vaskemaskin antall skyllinger"
+      },
+      "db_detergent": {
+        "name": "Vaskemaskin vaskemiddel"
+      },
+      "db_softener": {
+        "name": "Vaskemaskin tøymykner"
+      },
+      "db_appointment_time": {
+        "name": "Vaskemaskin reservasjonstid"
+      },
+      "db_appointment_end_time": {
+        "name": "Vaskemaskin reservasjonssluttid"
+      },
+      "db_error_code": {
+        "name": "Vaskemaskin feilkode"
+      },
+      "db_water_consumption": {
+        "name": "Vaskemaskin vannforbruk"
+      },
+      "db_power_consumption": {
+        "name": "Vaskemaskin strømforbruk"
+      },
+      "dc_running_status": {
+        "name": "Tørketrommel status"
+      },
+      "dc_dry_status": {
+        "name": "Tørketrommel tørkestatus"
+      },
+      "dc_program": {
+        "name": "Tørkeprogram"
+      },
+      "dc_remain_time": {
+        "name": "Tørketrommel gjenværende tid"
+      },
+      "dc_dry_time": {
+        "name": "Tørketrommel tørketid"
+      },
+      "dc_intensity": {
+        "name": "Tørketrommel intensitet"
+      },
+      "dc_appointment_time": {
+        "name": "Tørketrommel reservasjonstid"
+      },
+      "dc_appointment_end_time": {
+        "name": "Tørketrommel reservasjonssluttid"
+      },
+      "dc_error_code": {
+        "name": "Tørketrommel feilkode"
+      },
+      "dc_water_consumption": {
+        "name": "Tørketrommel vannforbruk"
+      },
+      "dc_power_consumption": {
+        "name": "Tørketrommel strømforbruk"
+      },
+      "dishwasher_mode": {
+        "name": "Modus",
+        "state": {
+          "neutral_gear": "Ingen",
+          "auto_wash": "Auto",
+          "strong_wash": "Intensiv",
+          "standard_wash": "Standard",
+          "eco_wash": "ECO",
+          "glass_wash": "Glass",
+          "hour_wash": "1 time",
+          "fast_wash": "Rask",
+          "soak_wash": "Bløtlegging",
+          "90min": "90 min",
+          "self_clean": "Selvrens",
+          "fruit_wash": "Frukt",
+          "self_define": "Tilpasset",
+          "germ": "Bakterie",
+          "bowl_wash": "Bolle",
+          "kill_germ": "Hygiene",
+          "sea_food_wash": "Sjømat",
+          "hot_pot_wash": "Gryterett",
+          "quiet_night_wash": "Stille natt",
+          "less_wash": "Lett",
+          "max_rapid_wash": "Maks rask",
+          "oil_net_wash": "Oljefilter",
+          "cloud_wash": "Skyprogram",
+          "single_dry": "Kun tørking",
+          "single_disinfect": "Kun desinfisering",
+          "high_temp_wash": "Høy temperatur",
+          "wash_dry": "Vask og tørk"
+        }
+      },
+      "dishwasher_mode_76000228": {
+        "name": "Modus",
+        "state": {
+          "neutral_gear": "Ingen",
+          "auto_wash": "Auto",
+          "strong_wash": "Intensiv",
+          "standard_wash": "Universal",
+          "eco_wash": "ECO",
+          "glass_wash": "Glass",
+          "hour_wash": "90 min",
+          "fast_wash": "Rask",
+          "soak_wash": "Bløtlegging",
+          "90min": "90 min",
+          "self_clean": "Selvrens",
+          "fruit_wash": "Frukt",
+          "self_define": "Tilpasset",
+          "germ": "Hvisking",
+          "bowl_wash": "Bolle",
+          "kill_germ": "Hygiene",
+          "sea_food_wash": "Selvrens",
+          "hot_pot_wash": "Gryterett",
+          "quiet_night_wash": "Stille natt",
+          "less_wash": "Lett",
+          "max_rapid_wash": "Maks rask",
+          "oil_net_wash": "Oljefilter",
+          "cloud_wash": "Skyprogram",
+          "single_dry": "Kun tørking",
+          "single_disinfect": "Kun desinfisering",
+          "high_temp_wash": "Høy temperatur",
+          "wash_dry": "Vask og tørk"
+        }
+      },
+      "dishwasher_status": {
+        "name": "Status",
+        "state": {
+          "power_off": "Av",
+          "cancel": "Inaktiv",
+          "delay": "Forsinket start",
+          "running": "Kjører",
+          "error": "Feil"
+        }
+      },
+      "dishwasher_progress": {
+        "name": "Fremdrift",
+        "state": {
+          "idle": "Inaktiv",
+          "pre_wash": "Forvask",
+          "wash": "Vask",
+          "rinse": "Skylling",
+          "dry": "Tørr",
+          "complete": "Fullført"
+        }
+      },
+      "operator": {
+        "name": "Driftstilstand",
+        "state": {
+          "start": "Kjører",
+          "pause": "Satt på pause"
+        }
+      },
+      "wrong_operation": {
+        "name": "Feil operasjon"
+      },
+      "dry_set_min": {
+        "name": "Tørking innstilt tid"
+      },
+      "clean_left_hour": {
+        "name": "Rengjøring gjenstår"
+      },
+      "kitchenware_left_hour": {
+        "name": "Kjøkkenutstyr gjenstår"
+      },
+      "device_version": {
+        "name": "Enhetsversjon"
+      },
+      "throw_percent": {
+        "name": "Doseringsnivå"
+      },
+      "delay_remaining": {
+        "name": "Forsinket start gjenstår"
+      },
+      "gas_usage_daily": {
+        "name": "Daglig gassforbruk"
+      },
+      "gas_usage_last_month": {
+        "name": "Gassforbruk forrige måned"
+      },
+      "gas_usage_monthly": {
+        "name": "Månedlig gassforbruk"
+      },
+      "water_usage_daily": {
+        "name": "Daglig vannforbruk"
+      },
+      "water_usage_last_month": {
+        "name": "Vannforbruk forrige måned"
+      },
+      "water_usage_monthly": {
+        "name": "Månedlig vannforbruk"
+      },
+      "three_way_mode": {
+        "name": "Treveismodus"
+      },
+      "heating_unit_type": {
+        "name": "Type varmeenhet"
+      },
+      "return_temperature": {
+        "name": "Returtemperatur"
+      },
+      "heating_temperature": {
+        "name": "Oppvarmingstemperatur"
+      },
+      "heating_gap_temperature": {
+        "name": "Oppvarming temperaturdifferanse"
+      },
+      "user_mode_target_temperature": {
+        "name": "Måltemperatur for brukermodus"
+      },
+      "activity_mode_target_temperature": {
+        "name": "Måltemperatur for aktivitetsmodus"
+      },
+      "sleep_mode_target_temperature": {
+        "name": "Måltemperatur for hvilemodus"
+      },
+      "last_time": {
+        "name": "Forrige gang"
+      },
+      "flow_volume": {
+        "name": "Strømningshastighet"
+      },
+      "bathing_leaving_temperature": {
+        "name": "Utgående vanntemperatur ved bading"
+      },
+      "bf_status": {
+        "name": "Status",
+        "state": {
+          "save_power": "Spar strøm",
+          "standby": "Hvilemodus",
+          "work": "Arbeider",
+          "work_finish": "Fullført",
+          "order": "Forsinkelse",
+          "pause": "Satt på pause",
+          "pause_c": "Satt på pause C",
+          "three": "Tre",
+          "wait_to_start": "Venter på å starte",
+          "self_inspection": "Selvkontroll",
+          "query_version": "Spør etter versjon",
+          "demo": "Demo",
+          "after_checking": "Etter kontroll",
+          "unknown": "Ukjent"
+        }
+      },
+      "bottom_compartment_remaining": {
+        "name": "Nedre rom gjenstår"
+      },
+      "bottom_compartment_status": {
+        "name": "Nedre rom status"
+      },
+      "bottom_compartment_temperature": {
+        "name": "Nedre rom temperatur"
+      },
+      "bottom_temperature": {
+        "name": "Nedre temperatur"
+      },
+      "bright": {
+        "name": "Lysstyrkenivå"
+      },
+      "cloudmenuid": {
+        "name": "Sky-meny-ID"
+      },
+      "compressor_temperature": {
+        "name": "Kompressortemperatur"
+      },
+      "condenser_temperature": {
+        "name": "Kondensatortemperatur"
+      },
+      "cur_probe_temperature": {
+        "name": "Nåværende sondetemperatur"
+      },
+      "cur_temperature_above": {
+        "name": "Nåværende temperatur over"
+      },
+      "cur_temperature_underside": {
+        "name": "Nåværende temperatur under"
+      },
+      "current_energy_consumption": {
+        "name": "Nåværende energiforbruk"
+      },
+      "current_temperature": {
+        "name": "Nåværende temperatur"
+      },
+      "dehydration_speed": {
+        "name": "Sentrifugeringshastighet"
+      },
+      "dehydration_time": {
+        "name": "Sentrifugeringstid"
+      },
+      "dehydration_time_value": {
+        "name": "Sentrifugeringstidverdi"
+      },
+      "execute_status": {
+        "name": "Utføringsstatus",
+        "state": {
+          "ok": "OK",
+          "status_nonsupport": "Status ikke støttet",
+          "function_nonsupport": "Funksjon ikke støttet",
+          "param_range_error": "Parameterområdefeil"
+        }
+      },
+      "fire_power": {
+        "name": "Brennereffekt",
+        "state": {
+          "fire_power_0": "Nivå 0",
+          "fire_power_1": "Nivå 1",
+          "fire_power_2": "Nivå 2",
+          "fire_power_3": "Nivå 3",
+          "fire_power_4": "Nivå 4",
+          "fire_power_5": "Nivå 5",
+          "fire_power_6": "Nivå 6",
+          "fire_power_7": "Nivå 7",
+          "fire_power_8": "Nivå 8",
+          "fire_power_9": "Nivå 9",
+          "fire_power_10": "Nivå 10",
+          "unknown": "Ukjent"
+        }
+      },
+      "minute_set": {
+        "name": "Minuttinnstilling"
+      },
+      "people_number": {
+        "name": "Antall personer"
+      },
+      "probe_temperature": {
+        "name": "Sondetemperatur"
+      },
+      "second_set": {
+        "name": "Sekundinnstilling"
+      },
+      "steam_quantity": {
+        "name": "Dampmengde"
+      },
+      "stepnum": {
+        "name": "Nåværende trinn"
+      },
+      "temperature": {
+        "name": "Temperatur"
+      },
+      "temperature_above": {
+        "name": "Temperatur over"
+      },
+      "temperature_underside": {
+        "name": "Temperatur under"
+      },
+      "totalstep": {
+        "name": "Totalt antall trinn"
+      },
+      "wash_time_value": {
+        "name": "Vasketidverdi"
+      },
+      "stains": {
+        "name": "Flekker"
+      },
+      "dirty_degree": {
+        "name": "Smussgrad"
+      },
+      "detergent": {
+        "name": "Vaskemiddel"
+      },
+      "intensity": {
+        "name": "Intensitet"
+      },
+      "dryness_level": {
+        "name": "Tørrhetsnivå"
+      },
+      "dry_temperature": {
+        "name": "Tørketemperatur"
+      },
+      "door_warn": {
+        "name": "Døradvarsel"
+      },
+      "ai_switch": {
+        "name": "AI-bryter"
+      },
+      "material": {
+        "name": "Materiale"
+      },
+      "water_box": {
+        "name": "Vannboks"
+      },
+      "energy_consumption": {
+        "name": "Energiforbruk"
+      },
+      "error": {
+        "name": "Feil",
+        "state": {
+          "no_error": "Ingen feil",
+          "e1_position_not_found": "E1 Posisjon ikke funnet",
+          "e2_photo_sensor_no_signal": "E2 Fotosensor uten signal",
+          "e3_motor_not_running": "E3 Motor kjører ikke",
+          "e4_wrong_position": "E4 Feil posisjon",
+          "e1_motor_fault": "E1 Motorfeil",
+          "e5_communication_fault": "E5 Kommunikasjonsfeil",
+          "e6_salt_sensor_fault": "E6 Saltsensorfeil",
+          "e7_chlorine_sterilization_fault": "E7 Klorsteriliseringsfeil"
+        }
+      },
+      "error_code": {
+        "name": "Feilkode"
+      },
+      "humidify_feedback": {
+        "name": "Fuktighetstilbakemelding"
+      },
+      "temperature_feedback": {
+        "name": "Temperaturtilbakemelding"
+      },
+      "humidify_mode": {
+        "name": "Fuktingsmodus"
+      },
+      "estimated_energy_consumption": {
+        "name": "Beregnet energiforbruk"
+      },
+      "estimated_water_consumption": {
+        "name": "Beregnet vannforbruk"
+      },
+      "fan_level": {
+        "name": "Viftenivå"
+      },
+      "filter_life": {
+        "name": "Filterlevetid"
+      },
+      "filter1_days": {
+        "name": "Filter1 tilgjengelige dager"
+      },
+      "filter1_life": {
+        "name": "Filter1 levetidsnivå"
+      },
+      "filter2_days": {
+        "name": "Filter2 tilgjengelige dager"
+      },
+      "filter2_life": {
+        "name": "Filter2 levetidsnivå"
+      },
+      "filter3_days": {
+        "name": "Filter3 tilgjengelige dager"
+      },
+      "filter3_life": {
+        "name": "Filter3 levetidsnivå"
+      },
+      "flex_zone_actual_temp": {
+        "name": "Flex-sone faktisk temperatur"
+      },
+      "flex_zone_setting_temp": {
+        "name": "Flex-sone innstilt temperatur"
+      },
+      "freezer_actual_temp": {
+        "name": "Fryser faktisk temperatur"
+      },
+      "freezer_setting_temp": {
+        "name": "Fryser innstilt temperatur"
+      },
+      "hcho": {
+        "name": "Metanal"
+      },
+      "heating_leaving_temperature": {
+        "name": "Utgående vanntemperatur ved oppvarming"
+      },
+      "heating_power": {
+        "name": "Oppvarmingseffekt"
+      },
+      "heating_time_remaining": {
+        "name": "Gjenværende oppvarmingstid"
+      },
+      "in_tds": {
+        "name": "Inn-TDS"
+      },
+      "indoor_humidity": {
+        "name": "Innendørs luftfuktighet"
+      },
+      "indoor_temperature": {
+        "name": "Innendørs temperatur"
+      },
+      "keep_warm_remaining": {
+        "name": "Hold varm gjenstår"
+      },
+      "fault_code": {
+        "name": "Feilkode"
+      },
+      "keep_warm_time": {
+        "name": "Tid for å holde varm"
+      },
+      "left_salt": {
+        "name": "Gjenværende salt"
+      },
+      "middle_compartment_remaining": {
+        "name": "Midtre rom gjenstår"
+      },
+      "middle_compartment_status": {
+        "name": "Midtre rom status"
+      },
+      "middle_compartment_temperature": {
+        "name": "Midtre rom temperatur"
+      },
+      "mode": {
+        "name": "Modus"
+      },
+      "out_tds": {
+        "name": "Ut-TDS"
+      },
+      "outdoor_temperature": {
+        "name": "Utendørs temperatur"
+      },
+      "comp_run_freq": {
+        "name": "Kompressorfrekvens"
+      },
+      "outdoor_fan_speed": {
+        "name": "Utendørs viftehastighet"
+      },
+      "unit_mode_run": {
+        "name": "Driftsmodus for enhet",
+        "state": {
+          "off": "Av",
+          "auto": "Auto",
+          "cool": "Kjøl",
+          "heat": "Varme",
+          "dhw": "DHW"
+        }
+      },
+      "odu_target_fre": {
+        "name": "Mål-kompressorfrekvens"
+      },
+      "odu_voltage": {
+        "name": "Spenning utedel"
+      },
+      "odu_comp_current": {
+        "name": "Kompressorstrøm"
+      },
+      "exv_current": {
+        "name": "Åpning av elektronisk ekspansjonsventil"
+      },
+      "fg_capacity_need": {
+        "name": "Kapasitetsbehov"
+      },
+      "pressure_high": {
+        "name": "Kjølemiddeltrykk (høytrykksside)"
+      },
+      "pressure_low": {
+        "name": "Kjølemiddeltrykk (lavtrykksside)"
+      },
+      "temp_t1": {
+        "name": "Temperatursensor T1"
+      },
+      "temp_t2": {
+        "name": "Platevarmevekslertemperatur (T2)"
+      },
+      "temp_t2b": {
+        "name": "Platevarmeveksler utløpstemperatur (T2B)"
+      },
+      "temp_t3": {
+        "name": "Utendørs batteritemperatur (T3)"
+      },
+      "temp_tp": {
+        "name": "Trykkrørstemperatur (TP)"
+      },
+      "temp_th": {
+        "name": "Sugetemperatur (TH)"
+      },
+      "temp_tf": {
+        "name": "Effektmodultemperatur (TF)"
+      },
+      "program": {
+        "name": "Program"
+      },
+      "progress": {
+        "name": "Fremdrift"
+      },
+      "realtime_power": {
+        "name": "Sanntidseffekt"
+      },
+      "pmv": {
+        "name": "PMV"
+      },
+      "refrigerator_actual_temp": {
+        "name": "Kjøleskap faktisk temperatur"
+      },
+      "refrigerator_setting_temp": {
+        "name": "Kjøleskap innstilt temperatur"
+      },
+      "regeneration_left_seconds": {
+        "name": "Gjenværende sekunder for regenerering"
+      },
+      "remaining_days": {
+        "name": "Gjenværende dager"
+      },
+      "right_flex_zone_actual_temp": {
+        "name": "Høyre flex-sone faktisk temperatur"
+      },
+      "right_flex_zone_setting_temp": {
+        "name": "Høyre flex-sone innstilt temperatur"
+      },
+      "rinse_count": {
+        "name": "Antall skyllinger"
+      },
+      "rinse_level": {
+        "name": "Skyllenivå"
+      },
+      "salt_setting": {
+        "name": "Saltinnstilling"
+      },
+      "seat_temperature": {
+        "name": "Setetemperatur"
+      },
+      "soak_time": {
+        "name": "Bløtleggingstid"
+      },
+      "soft_available": {
+        "name": "Bløtvann tilgjengelig"
+      },
+      "softener": {
+        "name": "Tøymykner"
+      },
+      "softwater": {
+        "name": "Bløtvannsnivå"
+      },
+      "status": {
+        "name": "Status"
+      },
+      "storage_remaining": {
+        "name": "Lagring gjenstår"
+      },
+      "tank": {
+        "name": "Tank"
+      },
+      "tank_actual_temperature": {
+        "name": "Tank faktisk temperatur"
+      },
+      "target_temperature": {
+        "name": "Måltemperatur"
+      },
+      "time_remaining": {
+        "name": "Gjenværende tid"
+      },
+      "top_compartment_remaining": {
+        "name": "Øvre rom gjenstår"
+      },
+      "top_compartment_status": {
+        "name": "Øvre rom status"
+      },
+      "top_compartment_temperature": {
+        "name": "Øvre rom temperatur"
+      },
+      "top_temperature": {
+        "name": "Øvre temperatur"
+      },
+      "total_energy_consumption": {
+        "name": "Totalt energiforbruk"
+      },
+      "total_produced_energy": {
+        "name": "Totalt produsert energi"
+      },
+      "tvoc": {
+        "name": "TVOC"
+      },
+      "wash_level": {
+        "name": "Vaskenivå"
+      },
+      "wash_strength": {
+        "name": "Vaskestyrke"
+      },
+      "wash_time": {
+        "name": "Vasketid"
+      },
+      "water_consumption": {
+        "name": "Vannforbruk"
+      },
+      "water_consumption_average": {
+        "name": "Gjennomsnittlig vannforbruk"
+      },
+      "water_consumption_big": {
+        "name": "Vannforbruk"
+      },
+      "water_temperature": {
+        "name": "Vanntemperatur"
+      },
+      "water_level": {
+        "name": "Vannnivå"
+      },
+      "weight": {
+        "name": "Vekt"
+      },
+      "wind": {
+        "name": "Vind"
+      },
+      "typeinfo": {
+        "name": "Typeinfo"
+      },
+      "use_days": {
+        "name": "Antall dager i bruk"
+      },
+      "elec_heat": {
+        "name": "Elektrisk varme"
+      },
+      "water_pump": {
+        "name": "Vannpumpe"
+      },
+      "four_way": {
+        "name": "Fireveisventil"
+      },
+      "back_water": {
+        "name": "Returvann"
+      },
+      "sterilize": {
+        "name": "Steriliser"
+      },
+      "disinfection_temperature": {
+        "name": "Desinfiseringstemperatur"
+      },
+      "max_temperature": {
+        "name": "Maksimal måltemperatur"
+      },
+      "max_temperature_upper_limit": {
+        "name": "Maksimal temperatur øvre grense"
+      },
+      "max_temperature_lower_limit": {
+        "name": "Maksimal temperatur nedre grense"
+      },
+      "disinfection_temperature_upper_limit": {
+        "name": "Desinfiseringstemperatur øvre grense"
+      },
+      "disinfection_temperature_lower_limit": {
+        "name": "Desinfiseringstemperatur nedre grense"
+      },
+      "dr_option": {
+        "name": "Alternativ for behovsrespons"
+      },
+      "remaining_hot_water_max": {
+        "name": "Maksimalt gjenværende varmtvann"
+      },
+      "force_e_heating_status": {
+        "name": "Status for tvungen elektrisk oppvarming"
+      },
+      "holiday_max": {
+        "name": "Maksimal ferievarighet"
+      },
+      "holiday_min": {
+        "name": "Minimum ferievarighet"
+      },
+      "timer_step_gap": {
+        "name": "Tidssteg for tidsur"
+      },
+      "vacation_start_year": {
+        "name": "Ferie startår"
+      },
+      "vacation_start_month": {
+        "name": "Ferie startmåned"
+      },
+      "vacation_start_day": {
+        "name": "Ferie startdag"
+      },
+      "auto_sterilize_week": {
+        "name": "Automatisk sterilisering uke"
+      },
+      "auto_sterilize_hour": {
+        "name": "Automatisk sterilisering time"
+      },
+      "auto_sterilize_minute": {
+        "name": "Automatisk sterilisering minutt"
+      },
+      "work_mode": {
+        "name": "Arbeidsmodus",
+        "state": {
+          "microwave": "Mikrobølge",
+          "microwave_1": "Mikrobølge 1",
+          "microwave_2": "Mikrobølge 2",
+          "microwave_3": "Mikrobølge 3",
+          "microwave_4": "Mikrobølge 4",
+          "microwave_5": "Mikrobølge 5",
+          "microwave_steam_above_tube": "Mikrobølge damp øvre element",
+          "microwave_double_tube": "Mikrobølge dobbelt element",
+          "microwave_hot_wind_tube_fan": "Mikrobølge varmluftelementvifte",
+          "microwave_underside_tube_hot_wind_tube_fan": "Mikrobølge nedre element varmluftvifte",
+          "microwave_double_tube_hot_wind_tube_fan": "Mikrobølge dobbeltelement varmluftvifte",
+          "microwave_steam": "Mikrobølge damp",
+          "microwave_steam_1": "Mikrobølge damp 1",
+          "unfreeze": "Tin",
+          "unfreeze_1": "Tin 1",
+          "unfreeze_2": "Tin 2",
+          "unfreeze_3": "Tin 3",
+          "unfreeze_t": "Tin T",
+          "microwave_above_tube": "Mikrobølge øvre element",
+          "microwave_above_tube_1": "Mikrobølge øvre element 1",
+          "microwave_above_tube_2": "Mikrobølge øvre element 2",
+          "microwave_above_tube_fan": "Mikrobølge øvre elementvifte",
+          "fast_unfreeze": "Rask tining",
+          "fresh_unfreeze": "Fersk tining",
+          "microwave_zymosis": "Mikrobølge heving",
+          "pure_steam": "Ren damp",
+          "pure_steam_1": "Ren damp 1",
+          "pure_steam_2": "Ren damp 2",
+          "pure_steam_3": "Ren damp 3",
+          "pure_steam_4": "Ren damp 4",
+          "pure_steam_5": "Ren damp 5",
+          "pure_steam_6": "Ren damp 6",
+          "pure_steam_7": "Ren damp 7",
+          "pure_steam_8": "Ren damp 8",
+          "pure_steam_9": "Ren damp 9",
+          "steam_above_tube": "Damp øvre element",
+          "steam_underside_tube": "Damp nedre element",
+          "steam_double_tube": "Damp dobbelt element",
+          "steam_hot_wind_tube_fan": "Damp varmluftelementvifte",
+          "steam_hot_wind_tube_fan_1": "Damp varmluftelementvifte 1",
+          "steam_hot_wind_tube_fan_2": "Damp varmluftelementvifte 2",
+          "steam_hot_wind_tube": "Damp varmluftelement",
+          "steam_double_tube_fan": "Damp dobbeltelementvifte",
+          "steam_above_inside_outside_tube_fan": "Damp øvre indre og ytre elementvifte",
+          "steam_above_inside_tube_fan": "Damp øvre indre elementvifte",
+          "above_tube": "Øvre element",
+          "underside_tube": "Nedre element",
+          "double_tube": "Dobbelt element",
+          "hot_wind_tube_fan": "Varmluftelementvifte",
+          "pure_preheat": "Ren forvarming",
+          "pure_preheat_2": "Ren forvarming 2",
+          "above_tube_hot_wind_tube_fan": "Øvre element varmluftvifte",
+          "underside_tube_hot_wind_tube_fan": "Nedre element varmluftvifte",
+          "zymosis": "Heving",
+          "double_tube_hot_wind_tube_fan": "Dobbeltelement varmluftvifte",
+          "above_tube_revolve": "Øvre element roterende",
+          "underside_tube_revolve": "Nedre element roterende",
+          "double_tube_revolve": "Dobbeltelement roterende",
+          "hot_wind_tube_fan_revolve": "Varmluftelementvifte roterende",
+          "warm": "Hold varm",
+          "double_tube_fan": "Dobbeltelementvifte",
+          "double_tube_fan_1": "Dobbeltelementvifte 1",
+          "double_tube_fan_2": "Dobbeltelementvifte 2",
+          "double_tube_fan_3": "Dobbeltelementvifte 3",
+          "above_inside_tube_revolve": "Øvre indre element roterende",
+          "above_inside_tube_fan": "Øvre indre elementvifte",
+          "above_inside_outside_tube_revolve": "Øvre indre og ytre element roterende",
+          "above_inside_outside_tube_fan": "Øvre indre og ytre elementvifte",
+          "above_inside_underside_tube": "Øvre indre og nedre element",
+          "above_inside_underside_tube_1": "Øvre indre og nedre element 1",
+          "above_inside_underside_tube_fan": "Øvre indre og nedre elementvifte",
+          "above_inside_underside_tube_fan_1": "Øvre indre og nedre elementvifte 1",
+          "above_inside_tube": "Øvre indre element",
+          "above_inside_outside_tube": "Øvre indre og ytre element",
+          "underside_tube_fan": "Nedre elementvifte",
+          "above_tube_fan": "Øvre elementvifte",
+          "above_tube_fan_1": "Øvre elementvifte 1",
+          "above_tube_fan_2": "Øvre elementvifte 2",
+          "scale_clean": "Avkalking",
+          "clean": "Rengjør",
+          "remove_odor": "Fjern lukt",
+          "remove_odor_2": "Fjern lukt 2",
+          "high_temperature_clean": "Høytemperaturrengjøring",
+          "dining_utensils_clean": "Rengjøring av spisebestikk",
+          "auto_menu": "Automeny",
+          "eco": "Eco",
+          "above_tube_1": "Øvre element 1",
+          "above_tube_2": "Øvre element 2",
+          "above_tube_3": "Øvre element 3",
+          "underside_tube_1": "Nedre element 1",
+          "underside_tube_2": "Nedre element 2",
+          "double_tube_1": "Dobbelt element 1",
+          "double_tube_2": "Dobbelt element 2",
+          "double_tube_3": "Dobbelt element 3",
+          "double_tube_4": "Dobbelt element 4",
+          "double_tube_5": "Dobbelt element 5",
+          "double_tube_6": "Dobbelt element 6",
+          "hot_wind_tube_fan_1": "Varmluftelementvifte 1",
+          "hot_wind_tube_fan_2": "Varmluftelementvifte 2",
+          "hot_wind_tube_fan_3": "Varmluftelementvifte 3",
+          "hot_wind_tube_fan_4": "Varmluftelementvifte 4",
+          "hot_wind_tube_fan_5": "Varmluftelementvifte 5",
+          "double_tube_hot_wind_tube_fan_1": "Dobbeltelement varmluftvifte 1",
+          "double_tube_hot_wind_tube_fan_2": "Dobbeltelement varmluftvifte 2",
+          "double_tube_hot_wind_tube_fan_3": "Dobbeltelement varmluftvifte 3",
+          "double_tube_hot_wind_tube_fan_4": "Dobbeltelement varmluftvifte 4",
+          "double_tube_hot_wind_tube_fan_5": "Dobbeltelement varmluftvifte 5",
+          "unknown": "Ukjent"
+        }
+      },
+      "working_time": {
+        "name": "Arbeidstid"
+      },
+      "humidity": {
+        "name": "Luftfuktighet"
+      },
+      "variable_mode": {
+        "name": "Variabel modus",
+        "state": {
+          "none": "Ingen",
+          "soft_freezing": "Myk frysing",
+          "zero_fresh": "Null-fersk",
+          "cold_drink": "Kald drikke",
+          "fresh_product": "Ferske råvarer",
+          "partial_freezing": "Delvis frysing",
+          "dry_zone": "Tørr sone",
+          "freeze_warm": "Frys / varm",
+          "baby": "Mor og barn",
+          "treasure": "Skatt",
+          "zero": "Null grader"
+        }
+      },
+      "compressor_frequency": {
+        "name": "Kompressorfrekvens"
+      },
+      "target_compressor_frequency": {
+        "name": "Mål-kompressorfrekvens"
+      },
+      "compressor_current": {
+        "name": "Kompressorstrøm"
+      },
+      "compressor_voltage": {
+        "name": "Kompressorspenning"
+      },
+      "compressor_power": {
+        "name": "Kompressoreffekt"
+      },
+      "indoor_ambient_temperature": {
+        "name": "Innendørs omgivelsestemperatur(T1)"
+      },
+      "indoor_coil_temperature": {
+        "name": "Innendørs batteritemperatur(T2)"
+      },
+      "outdoor_coil_temperature": {
+        "name": "Utendørs batteritemperatur(T3)"
+      },
+      "outdoor_ambient_temperature": {
+        "name": "Utendørs omgivelsestemperatur(T4)"
+      },
+      "discharge_pipe_temperature": {
+        "name": "Trykkrørstemperatur(TP)"
+      },
+      "indoor_fan_speed": {
+        "name": "Innendørs viftehastighet"
+      },
+      "target_indoor_fan_speed": {
+        "name": "Mål innendørs viftehastighet"
+      },
+      "velocity": {
+        "name": "Hastighet"
+      },
+      "filter4_life": {
+        "name": "Filter4 levetidsnivå"
+      },
+      "filter5_life": {
+        "name": "Filter5 levetidsnivå"
+      },
+      "filter1_maxlife": {
+        "name": "Filter1 levetidsgrense"
+      },
+      "filter2_maxlife": {
+        "name": "Filter2 levetidsgrense"
+      },
+      "filter3_maxlife": {
+        "name": "Filter3 levetidsgrense"
+      },
+      "filter4_maxlife": {
+        "name": "Filter4 levetidsgrense"
+      },
+      "filter5_maxlife": {
+        "name": "Filter5 levetidsgrense"
+      },
+      "hot_pot_temperature": {
+        "name": "Gryterett-temperatur"
+      },
+      "ice_gall_status": {
+        "name": "Isgallestatus"
+      },
+      "water_kind": {
+        "name": "Vanntype",
+        "state": {
+          "idle": "Inaktiv",
+          "warm": "Varm",
+          "cold": "Kald"
+        }
+      },
+      "heat_start": {
+        "name": "Varmestart",
+        "state": {
+          "heating": "Oppvarming",
+          "keep_warm": "Holder varm"
+        }
+      },
+      "no_obsolete_water_mode": {
+        "name": "Modus uten gammelt vann",
+        "state": {
+          "water_quality_priority": "Prioritering av vannkvalitet",
+          "water_saving_priority": "Prioritering av vannsparing",
+          "custom": "Tilpasset"
+        }
+      },
+      "input_temperature_sensing": {
+        "name": "Inngangstemperatur"
+      },
+      "temp_ta": {
+        "name": "Temperatur Ta - romomgivelse"
+      },
+      "water_flow": {
+        "name": "Vann - strømningshastighet"
+      },
+      "water_pressure": {
+        "name": "Vann - trykk"
+      },
+      "temp_t4": {
+        "name": "Temperatur T4 - utendørs omgivelse"
+      },
+      "temp_t5": {
+        "name": "Temperatur T5 - vanntank"
+      },
+      "temp_tb_t1": {
+        "name": "Temperatur TB-T1 - buffertank øvre"
+      },
+      "temp_tb_t2": {
+        "name": "Temperatur TB-T2 - buffertank nedre"
+      },
+      "temp_tsolar": {
+        "name": "Temperatur Tsolar - solpanel"
+      },
+      "temp_tw2": {
+        "name": "Temperatur Tw2 - sone 2 vann"
+      },
+      "dc_current": {
+        "name": "ODU - likestrøm busstrøm"
+      },
+      "dc_bus_voltage": {
+        "name": "ODU - likestrøm bussspenning"
+      },
+      "current_unit_capacity": {
+        "name": "Nåværende enhetskapasitet (rå)"
+      },
+      "instant_power0": {
+        "name": "Effekt - oppvarmingsforbruk"
+      },
+      "instant_renew_power0": {
+        "name": "Effekt - fornybar oppvarmingskapasitet"
+      },
+      "room_rel_hum": {
+        "name": "Relativ luftfuktighet i rommet"
+      },
+      "hydbox_subtype": {
+        "name": "Info - undertype for hydraulisk boks"
+      },
+      "machine_type": {
+        "name": "Info - maskintype"
+      },
+      "odu_model": {
+        "name": "Info - ODU-modellkode"
+      },
+      "hydrobox_capacity": {
+        "name": "Info - kapasitet for hydraulisk boks"
+      },
+      "idu_t1s1": {
+        "name": "Temperatur - sone 1 beregnet (T1s)"
+      },
+      "idu_t1s2": {
+        "name": "Temperatur - sone 2 beregnet (T1s)"
+      },
+      "t5s": {
+        "name": "Temperatur T5s - DHW-settpunkt"
+      },
+      "tas": {
+        "name": "Temperatur Tas - luft-settpunkt"
+      },
+      "zone1_temp_set": {
+        "name": "Temperatur - sone 1 settpunkt"
+      },
+      "zone2_temp_set": {
+        "name": "Temperatur - sone 2 settpunkt"
+      },
+      "disinfect_set_weekday": {
+        "name": "DHW - desinfisering ukedag"
+      },
+      "disinfect_start_hour": {
+        "name": "DHW - desinfisering starttime"
+      },
+      "disinfect_start_minutes": {
+        "name": "DHW - desinfisering startminutt"
+      },
+      "error_code_description": {
+        "name": "Feil - beskrivelse"
+      },
+      "hmi_sn_code": {
+        "name": "HMI-serienummer"
+      },
+      "temp_tw_in": {
+        "name": "Temperatur Tw_in - vanninnløp"
+      },
+      "temp_tw_out": {
+        "name": "Temperatur Tw_out - vannutløp"
+      },
+      "comp_total_run_time": {
+        "name": "Energi - kompressorens kjøretid"
+      },
+      "idu_software_version_str": {
+        "name": "Info - IDU-programvareversjon"
+      },
+      "odu_software_version_str": {
+        "name": "Info - ODU-programvareversjon"
+      },
+      "ac_air_direction_gear": {
+        "name": "AC luftretning gir"
+      },
+      "ac_air_direction_max_angle": {
+        "name": "AC luftretning maks vinkel"
+      },
+      "ac_air_direction_min_angle": {
+        "name": "AC luftretning min vinkel"
+      },
+      "ac_ambient_temperature": {
+        "name": "AC omgivelsestemperatur"
+      },
+      "ac_current_temp": {
+        "name": "AC nåværende temperatur"
+      },
+      "ac_destination_temp": {
+        "name": "AC måltemperatur"
+      },
+      "ac_destination_time": {
+        "name": "AC måltid"
+      },
+      "ac_gear": {
+        "name": "AC gir"
+      },
+      "ac_mode": {
+        "name": "AC modus",
+        "state": {
+          "air_supply": "Lufttilførsel",
+          "dehumidification": "Avfukting",
+          "net_flavour": "Ren smak",
+          "none": "Ingen",
+          "refrigeration": "Kjøling"
+        }
+      },
+      "ac_order_destination_time": {
+        "name": "AC bestilling måltid"
+      },
+      "ac_order_remaining_time": {
+        "name": "AC bestilling gjenværende tid"
+      },
+      "ac_remaining_time": {
+        "name": "AC gjenværende tid"
+      },
+      "ac_swing_gear": {
+        "name": "AC svinggir"
+      },
+      "ac_swing_max_angle": {
+        "name": "AC sving maks vinkel"
+      },
+      "ac_swing_min_angle": {
+        "name": "AC sving min vinkel"
+      },
+      "ac_work_status": {
+        "name": "AC arbeidsstatus",
+        "state": {
+          "order": "Bestilling",
+          "power_off": "Slå av",
+          "reservation": "Reservasjon",
+          "reservation_and_order_ordering": "Reservasjon og bestilling bestiller",
+          "reservation_and_order_reserving": "Reservasjon og bestilling reserverer",
+          "working": "Arbeider"
+        }
+      },
+      "ai_voice_microphone_status": {
+        "name": "AI-stemme mikrofonstatus",
+        "state": {
+          "failure": "Mislyktes",
+          "success": "Vellykket"
+        }
+      },
+      "ai_voice_status": {
+        "name": "AI-stemmestatus",
+        "state": {
+          "connecting": "Kobler til",
+          "off": "Av",
+          "on": "På"
+        }
+      },
+      "ai_voice_volume_status": {
+        "name": "AI-stemmevolumstatus",
+        "state": {
+          "failure": "Mislyktes",
+          "success": "Vellykket"
+        }
+      },
+      "b2_downstair_current_temp": {
+        "name": "Damovn nedre nåværende temperatur"
+      },
+      "b2_downstair_destination_temp": {
+        "name": "Damovn nedre måltemperatur"
+      },
+      "b2_downstair_light_off_type": {
+        "name": "Damovn nedre lys av-type",
+        "state": {
+          "app": "App",
+          "local": "Lokal"
+        }
+      },
+      "b2_downstair_light_on_type": {
+        "name": "Damovn nedre lys på-type",
+        "state": {
+          "app": "App",
+          "local": "Lokal"
+        }
+      },
+      "b2_downstair_order_destination_time": {
+        "name": "Damovn nedre bestilling måltid"
+      },
+      "b2_downstair_order_remaining_time": {
+        "name": "Damovn nedre bestilling gjenværende tid"
+      },
+      "b2_downstair_power_off_type": {
+        "name": "Damovn nedre av-type",
+        "state": {
+          "app": "App",
+          "auto": "Auto",
+          "error": "Feil",
+          "local": "Lokal",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b2_downstair_power_on_type": {
+        "name": "Damovn nedre på-type",
+        "state": {
+          "app": "App",
+          "local": "Lokal",
+          "order": "Bestilling"
+        }
+      },
+      "b2_downstair_preheating": {
+        "name": "Damovn nedre forvarming",
+        "state": {
+          "finish": "Fullfør",
+          "none": "Ingen",
+          "preheating": "Forvarming"
+        }
+      },
+      "b2_downstair_recipe_after": {
+        "name": "Damovn nedre oppskrift etter"
+      },
+      "b2_downstair_recipe_code": {
+        "name": "Damovn nedre oppskriftskode"
+      },
+      "b2_downstair_recipe_current_mode": {
+        "name": "Damovn nedre oppskrift nåværende modus"
+      },
+      "b2_downstair_recipe_current_step": {
+        "name": "Damovn nedre oppskrift nåværende trinn"
+      },
+      "b2_downstair_recipe_off_type": {
+        "name": "Damovn nedre oppskrift av-type",
+        "state": {
+          "app": "App",
+          "auto": "Auto",
+          "error": "Feil",
+          "local": "Lokal",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b2_downstair_recipe_on_type": {
+        "name": "Damovn nedre oppskrift på-type",
+        "state": {
+          "app": "App",
+          "local": "Lokal",
+          "order": "Bestilling"
+        }
+      },
+      "b2_downstair_recipe_total_steps": {
+        "name": "Damovn nedre oppskrift totalt antall trinn"
+      },
+      "b2_downstair_work_destination_time": {
+        "name": "Damovn nedre arbeid måltid"
+      },
+      "b2_downstair_work_func": {
+        "name": "Damovn nedre arbeidsfunksjon"
+      },
+      "b2_downstair_work_menu": {
+        "name": "Damovn nedre arbeidsmeny"
+      },
+      "b2_downstair_work_remaining_time": {
+        "name": "Damovn nedre arbeid gjenværende tid"
+      },
+      "b2_downstair_work_status": {
+        "name": "Damovn nedre arbeidsstatus",
+        "state": {
+          "auto": "Auto",
+          "drying": "Tørking",
+          "finish": "Fullfør",
+          "order": "Bestilling",
+          "pause": "Pause",
+          "power_off": "Slå av",
+          "standby": "Hvilemodus",
+          "working": "Arbeider"
+        }
+      },
+      "b2_upstair_current_temp": {
+        "name": "Damovn øvre nåværende temperatur"
+      },
+      "b2_upstair_destination_temp": {
+        "name": "Damovn øvre måltemperatur"
+      },
+      "b2_upstair_light_off_type": {
+        "name": "Damovn øvre lys av-type",
+        "state": {
+          "app": "App",
+          "local": "Lokal"
+        }
+      },
+      "b2_upstair_light_on_type": {
+        "name": "Damovn øvre lys på-type",
+        "state": {
+          "app": "App",
+          "local": "Lokal"
+        }
+      },
+      "b2_upstair_order_destination_time": {
+        "name": "Damovn øvre bestilling måltid"
+      },
+      "b2_upstair_order_remaining_time": {
+        "name": "Damovn øvre bestilling gjenværende tid"
+      },
+      "b2_upstair_power_off_type": {
+        "name": "Damovn øvre av-type",
+        "state": {
+          "app": "App",
+          "auto": "Auto",
+          "error": "Feil",
+          "local": "Lokal",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b2_upstair_power_on_type": {
+        "name": "Damovn øvre på-type",
+        "state": {
+          "app": "App",
+          "local": "Lokal",
+          "order": "Bestilling"
+        }
+      },
+      "b2_upstair_preheating": {
+        "name": "Damovn øvre forvarming",
+        "state": {
+          "finish": "Fullfør",
+          "none": "Ingen",
+          "preheating": "Forvarming"
+        }
+      },
+      "b2_upstair_recipe_after": {
+        "name": "Damovn øvre oppskrift etter"
+      },
+      "b2_upstair_recipe_code": {
+        "name": "Damovn øvre oppskriftskode"
+      },
+      "b2_upstair_recipe_current_mode": {
+        "name": "Damovn øvre oppskrift nåværende modus"
+      },
+      "b2_upstair_recipe_current_step": {
+        "name": "Damovn øvre oppskrift nåværende trinn"
+      },
+      "b2_upstair_recipe_off_type": {
+        "name": "Damovn øvre oppskrift av-type",
+        "state": {
+          "app": "App",
+          "auto": "Auto",
+          "error": "Feil",
+          "local": "Lokal",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b2_upstair_recipe_on_type": {
+        "name": "Damovn øvre oppskrift på-type",
+        "state": {
+          "app": "App",
+          "local": "Lokal",
+          "order": "Bestilling"
+        }
+      },
+      "b2_upstair_recipe_total_steps": {
+        "name": "Damovn øvre oppskrift totalt antall trinn"
+      },
+      "b2_upstair_work_destination_time": {
+        "name": "Damovn øvre arbeid måltid"
+      },
+      "b2_upstair_work_func": {
+        "name": "Damovn øvre arbeidsfunksjon"
+      },
+      "b2_upstair_work_menu": {
+        "name": "Damovn øvre arbeidsmeny"
+      },
+      "b2_upstair_work_remaining_time": {
+        "name": "Damovn øvre arbeid gjenværende tid"
+      },
+      "b2_upstair_work_status": {
+        "name": "Damovn øvre arbeidsstatus",
+        "state": {
+          "auto": "Auto",
+          "drying": "Tørking",
+          "finish": "Fullfør",
+          "order": "Bestilling",
+          "pause": "Pause",
+          "power_off": "Slå av",
+          "standby": "Hvilemodus",
+          "working": "Arbeider"
+        }
+      },
+      "b3_disinfect_off_type": {
+        "name": "Dampskap desinfisering av-type",
+        "state": {
+          "app": "App",
+          "local": "Lokal"
+        }
+      },
+      "b3_disinfect_on_type": {
+        "name": "Dampskap desinfisering på-type",
+        "state": {
+          "app": "App",
+          "local": "Lokal"
+        }
+      },
+      "b3_downstair_current_temp": {
+        "name": "Dampskap nedre nåværende temperatur"
+      },
+      "b3_downstair_destination_temp": {
+        "name": "Dampskap nedre måltemperatur"
+      },
+      "b3_downstair_destination_time": {
+        "name": "Dampskap nedre måltid"
+      },
+      "b3_downstair_remaining_time": {
+        "name": "Dampskap nedre gjenværende tid"
+      },
+      "b3_downstair_sensor": {
+        "name": "Dampskap nedre sensor"
+      },
+      "b3_downstair_status": {
+        "name": "Dampskap nedre status",
+        "state": {
+          "drying": "Tørking",
+          "drying_pause": "Tørking pause",
+          "ion_drying": "Iontørking",
+          "ion_drying_pause": "Iontørking pause",
+          "power_off": "Slå av",
+          "uperization": "Uperisering",
+          "uperization_pause": "Uperisering pause",
+          "warm_drink": "Varm drikke",
+          "warm_drink_pause": "Varm drikke pause"
+        }
+      },
+      "b3_thermotank_off_type": {
+        "name": "Dampskap varmtvannstank av-type",
+        "state": {
+          "app": "App",
+          "local": "Lokal"
+        }
+      },
+      "b3_thermotank_on_type": {
+        "name": "Dampskap varmtvannstank på-type",
+        "state": {
+          "app": "App",
+          "local": "Lokal"
+        }
+      },
+      "b3_upstair_current_temp": {
+        "name": "Dampskap øvre nåværende temperatur"
+      },
+      "b3_upstair_destination_temp": {
+        "name": "Dampskap øvre måltemperatur"
+      },
+      "b3_upstair_destination_time": {
+        "name": "Dampskap øvre måltid"
+      },
+      "b3_upstair_remaining_time": {
+        "name": "Dampskap øvre gjenværende tid"
+      },
+      "b3_upstair_sensor": {
+        "name": "Dampskap øvre sensor"
+      },
+      "b3_upstair_status": {
+        "name": "Dampskap øvre status",
+        "state": {
+          "drying": "Tørking",
+          "drying_pause": "Tørking pause",
+          "ion_drying": "Iontørking",
+          "ion_drying_pause": "Iontørking pause",
+          "power_off": "Slå av",
+          "uperization": "Uperisering",
+          "uperization_pause": "Uperisering pause",
+          "warm_drink": "Varm drikke",
+          "warm_drink_pause": "Varm drikke pause"
+        }
+      },
+      "b6_tvoc_value": {
+        "name": "Kjøkkenvifte TVOC-verdi",
+        "state": {
+          "excellent": "Utmerket",
+          "good": "God",
+          "medium": "Middels"
+        }
+      },
+      "b6_air_duct_detection_score": {
+        "name": "Kjøkkenvifte luftkanaldeteksjon poengsum"
+      },
+      "b6_air_duct_detection_state": {
+        "name": "Kjøkkenvifte luftkanaldeteksjon tilstand"
+      },
+      "b6_air_duct_detection_time": {
+        "name": "Kjøkkenvifte luftkanaldeteksjon tid"
+      },
+      "b6_air_duct_detection_windage": {
+        "name": "Kjøkkenvifte luftkanaldeteksjon vindmotstand"
+      },
+      "b6_air_volume": {
+        "name": "Kjøkkenvifte luftmengde"
+      },
+      "b6_delay_gear_linkage_gear": {
+        "name": "Kjøkkenvifte forsinket girkobling gir"
+      },
+      "b6_delay_time_value": {
+        "name": "Kjøkkenvifte forsinkelsestidverdi"
+      },
+      "b6_destination_time": {
+        "name": "Kjøkkenvifte måltid"
+      },
+      "b6_gear": {
+        "name": "Kjøkkenvifte gir"
+      },
+      "b6_gear_control_type": {
+        "name": "Kjøkkenvifte girstyringstype",
+        "state": {
+          "app": "App",
+          "gesture": "Bevegelse",
+          "linkage": "Kobling",
+          "local": "Lokal",
+          "smoke_detector": "Røykdetektor"
+        }
+      },
+      "b6_gesture_sensitivity": {
+        "name": "Kjøkkenvifte bevegelsessensitivitet",
+        "state": {
+          "1": "1",
+          "2": "2",
+          "3": "3"
+        }
+      },
+      "b6_gesture_value": {
+        "name": "Kjøkkenvifte bevegelsesverdi",
+        "state": {
+          "light": "Lett",
+          "power": "Effekt",
+          "wind": "Vind"
+        }
+      },
+      "b6_hotclean_tips": {
+        "name": "Kjøkkenvifte varmrengjøringstips"
+      },
+      "b6_infrared_value": {
+        "name": "Kjøkkenvifte infrarødverdi",
+        "state": {
+          "power": "Effekt",
+          "wind": "Vind"
+        }
+      },
+      "b6_inverter_ac_frequency": {
+        "name": "Kjøkkenvifte inverter AC-frekvens"
+      },
+      "b6_inverter_back_electromotive_force": {
+        "name": "Kjøkkenvifte inverter motelektromotorisk kraft"
+      },
+      "b6_inverter_capacity": {
+        "name": "Kjøkkenvifte inverter kapasitet"
+      },
+      "b6_inverter_efficiency": {
+        "name": "Kjøkkenvifte inverter effektivitet"
+      },
+      "b6_inverter_motor_compensation_angle": {
+        "name": "Kjøkkenvifte inverter motorkompensasjonsvinkel"
+      },
+      "b6_inverter_motor_speed": {
+        "name": "Kjøkkenvifte inverter motorhastighet"
+      },
+      "b6_inverter_q_axis_current": {
+        "name": "Kjøkkenvifte inverter Q-akse strøm"
+      },
+      "b6_inverter_start_time": {
+        "name": "Kjøkkenvifte inverter starttid"
+      },
+      "b6_inverter_temperature": {
+        "name": "Kjøkkenvifte inverter temperatur"
+      },
+      "b6_inverter_temperature_limit_sign": {
+        "name": "Kjøkkenvifte inverter temperaturgrensetegn"
+      },
+      "b6_inverter_voltage": {
+        "name": "Kjøkkenvifte inverter spenning"
+      },
+      "b6_inverter_wind_flow": {
+        "name": "Kjøkkenvifte inverter luftstrøm"
+      },
+      "b6_inverter_wind_presssure": {
+        "name": "Kjøkkenvifte inverter vindtrykk"
+      },
+      "b6_inverter_windage": {
+        "name": "Kjøkkenvifte inverter vindmotstand"
+      },
+      "b6_inverter_work_gear": {
+        "name": "Kjøkkenvifte inverter arbeidsgir"
+      },
+      "b6_last_hotclean_hour": {
+        "name": "Kjøkkenvifte siste varmrengjøringstime"
+      },
+      "b6_light": {
+        "name": "Kjøkkenviftelys"
+      },
+      "b6_light_off_type": {
+        "name": "Kjøkkenvifte lys av-type",
+        "state": {
+          "app": "App",
+          "error": "Feil",
+          "gesture": "Bevegelse",
+          "local": "Lokal"
+        }
+      },
+      "b6_light_on_type": {
+        "name": "Kjøkkenvifte lys på-type",
+        "state": {
+          "app": "App",
+          "gesture": "Bevegelse",
+          "local": "Lokal"
+        }
+      },
+      "b6_lightness": {
+        "name": "Kjøkkenvifte lysstyrke"
+      },
+      "b6_lock_off_type": {
+        "name": "Kjøkkenvifte lås av-type",
+        "state": {
+          "local": "Lokal"
+        }
+      },
+      "b6_lock_on_type": {
+        "name": "Kjøkkenvifte lås på-type",
+        "state": {
+          "app": "App",
+          "local": "Lokal"
+        }
+      },
+      "b6_power": {
+        "name": "Kjøkkenvifte effekt",
+        "state": {
+          "delay_off": "Forsinket av",
+          "off": "Av",
+          "on": "På"
+        }
+      },
+      "b6_power_off_type": {
+        "name": "Kjøkkenvifte av-type",
+        "state": {
+          "app": "App",
+          "delay": "Forsinkelse",
+          "gesture": "Bevegelse",
+          "linkage": "Kobling",
+          "local": "Lokal"
+        }
+      },
+      "b6_power_on_type": {
+        "name": "Kjøkkenvifte på-type",
+        "state": {
+          "app": "App",
+          "gesture": "Bevegelse",
+          "linkage": "Kobling",
+          "local": "Lokal"
+        }
+      },
+      "b6_remaining_time": {
+        "name": "Kjøkkenvifte gjenværende tid"
+      },
+      "b6_smoke_detector_value": {
+        "name": "Kjøkkenvifte røykdetektorverdi"
+      },
+      "b6_smoke_potency": {
+        "name": "Kjøkkenvifte røykstyrke"
+      },
+      "b6_smoke_stove_linkage_flowin": {
+        "name": "Kjøkkenvifte røyk-komfyr-kobling innstrømning",
+        "state": {
+          "no": "Nei",
+          "yes": "Ja"
+        }
+      },
+      "b6_smoke_stove_linkage_gear": {
+        "name": "Kjøkkenvifte røyk-komfyr-kobling gir"
+      },
+      "b6_smoke_stove_linkage_gear_fix": {
+        "name": "Kjøkkenvifte røyk-komfyr-kobling gir fast",
+        "state": {
+          "negative": "Negativ",
+          "positive": "Positiv"
+        }
+      },
+      "b6_steaming": {
+        "name": "Kjøkkenvifte damping",
+        "state": {
+          "off": "Av",
+          "on": "På"
+        }
+      },
+      "b6_steaming_stage": {
+        "name": "Kjøkkenvifte dampetrinn"
+      },
+      "b6_wind_pressure": {
+        "name": "Kjøkkenvifte vindtrykk"
+      },
+      "b6_work_status": {
+        "name": "Kjøkkenvifte arbeidsstatus",
+        "state": {
+          "ai_dry_clean": "AI tørrensing",
+          "air_duct_detection": "Luftkanaldeteksjon",
+          "check": "Kontroll",
+          "clean": "Rengjør",
+          "clean_finish": "Rengjøring ferdig",
+          "error": "Feil",
+          "hotclean": "Varmrengjøring",
+          "initial": "Innledende",
+          "mute_gear": "Dempet gir",
+          "power_off": "Slå av",
+          "power_off_delay": "Forsinket avslåing",
+          "standby": "Hvilemodus",
+          "vvvf_gear": "Vvvf-gir",
+          "working": "Arbeider"
+        }
+      },
+      "b7_left_current_temp": {
+        "name": "Gasskokeplate venstre nåværende temperatur"
+      },
+      "b7_left_destination_temp": {
+        "name": "Gasskokeplate venstre måltemperatur"
+      },
+      "b7_left_destination_time": {
+        "name": "Gasskokeplate venstre måltid"
+      },
+      "b7_left_gear": {
+        "name": "Gasskokeplate venstre gir"
+      },
+      "b7_left_power_off_type": {
+        "name": "Gasskokeplate venstre av-type",
+        "state": {
+          "app": "App",
+          "auto": "Auto",
+          "error": "Feil",
+          "local": "Lokal",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b7_left_remaining_time": {
+        "name": "Gasskokeplate venstre gjenværende tid"
+      },
+      "b7_left_status": {
+        "name": "Gasskokeplate venstre status",
+        "state": {
+          "drying": "Tørking",
+          "drying_pause": "Tørking pause",
+          "ion_drying": "Iontørking",
+          "ion_drying_pause": "Iontørking pause",
+          "power_off": "Slå av",
+          "uperization": "Uperisering",
+          "uperization_pause": "Uperisering pause",
+          "warm_drink": "Varm drikke",
+          "warm_drink_pause": "Varm drikke pause"
+        }
+      },
+      "b7_left_work_time": {
+        "name": "Gasskokeplate venstre arbeidstid"
+      },
+      "b7_right_current_temp": {
+        "name": "Gasskokeplate høyre nåværende temperatur"
+      },
+      "b7_right_destination_temp": {
+        "name": "Gasskokeplate høyre måltemperatur"
+      },
+      "b7_right_destination_time": {
+        "name": "Gasskokeplate høyre måltid"
+      },
+      "b7_right_gear": {
+        "name": "Gasskokeplate høyre gir"
+      },
+      "b7_right_power_off_type": {
+        "name": "Gasskokeplate høyre av-type",
+        "state": {
+          "app": "App",
+          "auto": "Auto",
+          "error": "Feil",
+          "local": "Lokal",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b7_right_remaining_time": {
+        "name": "Gasskokeplate høyre gjenværende tid"
+      },
+      "b7_right_status": {
+        "name": "Gasskokeplate høyre status",
+        "state": {
+          "drying": "Tørking",
+          "drying_pause": "Tørking pause",
+          "ion_drying": "Iontørking",
+          "ion_drying_pause": "Iontørking pause",
+          "power_off": "Slå av",
+          "uperization": "Uperisering",
+          "uperization_pause": "Uperisering pause",
+          "warm_drink": "Varm drikke",
+          "warm_drink_pause": "Varm drikke pause"
+        }
+      },
+      "b7_right_work_time": {
+        "name": "Gasskokeplate høyre arbeidstid"
+      },
+      "bf_cavity": {
+        "name": "Ovnskammer",
+        "state": {
+          "down": "Ned",
+          "up": "Opp"
+        }
+      },
+      "bf_control_back": {
+        "name": "Ovn styring tilbake",
+        "state": {
+          "func_notsupport": "Funksjon ikke støttet",
+          "status_notsupport": "Status ikke støttet",
+          "success": "Vellykket",
+          "value_notsupport": "Verdi ikke støttet"
+        }
+      },
+      "bf_end_next": {
+        "name": "Ovn avslutt neste"
+      },
+      "bf_fire": {
+        "name": "Ovn flamme"
+      },
+      "bf_mode": {
+        "name": "Ovnsmodus"
+      },
+      "bf_quick_btn_bake_id": {
+        "name": "Ovn hurtigknapp steking ID"
+      },
+      "bf_quick_btn_bake_set": {
+        "name": "Ovn hurtigknapp steking innstilling"
+      },
+      "bf_quick_btn_bake_time": {
+        "name": "Ovn hurtigknapp steking tid"
+      },
+      "bf_quick_btn_microwave_id": {
+        "name": "Ovn hurtigknapp mikrobølge ID"
+      },
+      "bf_quick_btn_microwave_set": {
+        "name": "Ovn hurtigknapp mikrobølge innstilling"
+      },
+      "bf_quick_btn_microwave_time": {
+        "name": "Ovn hurtigknapp mikrobølge tid"
+      },
+      "bf_quick_btn_steam_id": {
+        "name": "Ovn hurtigknapp damp ID"
+      },
+      "bf_quick_btn_steam_set": {
+        "name": "Ovn hurtigknapp damp innstilling"
+      },
+      "bf_quick_btn_steam_time": {
+        "name": "Ovn hurtigknapp damp tid"
+      },
+      "bf_recipe_code": {
+        "name": "Ovn oppskriftskode"
+      },
+      "bf_remaining_time": {
+        "name": "Ovn gjenværende tid"
+      },
+      "bf_steam": {
+        "name": "Ovn damp"
+      },
+      "bf_step_current": {
+        "name": "Ovn trinn nåværende"
+      },
+      "bf_step_total": {
+        "name": "Ovn trinn totalt"
+      },
+      "bf_temp_down": {
+        "name": "Ovn temperatur ned"
+      },
+      "bf_temp_down_set": {
+        "name": "Ovn temperatur ned innstilling"
+      },
+      "bf_temp_probe": {
+        "name": "Ovn temperatursonde"
+      },
+      "bf_temp_probe_set": {
+        "name": "Ovn temperatursonde innstilling"
+      },
+      "bf_temp_up": {
+        "name": "Ovn temperatur opp"
+      },
+      "bf_temp_up_set": {
+        "name": "Ovn temperatur opp innstilling"
+      },
+      "bf_tips_mark": {
+        "name": "Ovn tipsmerke",
+        "state": {
+          "apply": "Bruk",
+          "change_attachments": "Bytt tilbehør",
+          "door_open": "Dør åpen",
+          "feed": "Mat inn",
+          "recipe_tips": "Oppskriftstips",
+          "stir": "Rør"
+        }
+      },
+      "bf_weight_mount": {
+        "name": "Ovn vektmontering"
+      },
+      "bf_weight_multiple": {
+        "name": "Ovn vektmultiplikator",
+        "state": {
+          "g": "g",
+          "kg": "kg",
+          "ounce": "Unse",
+          "pound": "Pund"
+        }
+      },
+      "bf_weight_unit": {
+        "name": "Ovn vektenhet",
+        "state": {
+          "g": "g",
+          "kg": "kg",
+          "other": "Annet",
+          "ounce": "Unse",
+          "pound": "Pund"
+        }
+      },
+      "bf_work_status": {
+        "name": "Ovn arbeidsstatus",
+        "state": {
+          "after_sale": "Ettersalg",
+          "check_version": "Kontroller versjon",
+          "cloudmenu_setting": "Skymeny-innstilling",
+          "demo": "Demo",
+          "done": "Ferdig",
+          "keep": "Behold",
+          "love_three_seconds": "Elsk tre sekunder",
+          "open": "Åpne",
+          "order": "Bestilling",
+          "pause": "Pause",
+          "pause_temporarily": "Midlertidig pause",
+          "power_off": "Slå av",
+          "self_check": "Selvkontroll",
+          "working": "Arbeider"
+        }
+      },
+      "bf_working_time": {
+        "name": "Ovn arbeidstid"
+      },
+      "e7_left_bottom_bridge_link": {
+        "name": "Induksjon venstre nedre brokobling",
+        "state": {
+          "off": "Av",
+          "on": "På"
+        }
+      },
+      "e7_left_bottom_destination_time": {
+        "name": "Induksjon venstre nedre måltid"
+      },
+      "e7_left_bottom_efficiency": {
+        "name": "Induksjon venstre nedre effektivitet"
+      },
+      "e7_left_bottom_gear": {
+        "name": "Induksjon venstre nedre gir"
+      },
+      "e7_left_bottom_mode": {
+        "name": "Induksjon venstre nedre modus",
+        "state": {
+          "boiling": "Koking",
+          "heat_preservation": "Varmebevaring",
+          "none": "Ingen",
+          "stew_soup": "Suppekoking",
+          "stir_frying": "Steking"
+        }
+      },
+      "e7_left_bottom_remaining_time": {
+        "name": "Induksjon venstre nedre gjenværende tid"
+      },
+      "e7_left_bottom_work_status": {
+        "name": "Induksjon venstre nedre arbeidsstatus",
+        "state": {
+          "auto": "Auto",
+          "drying": "Tørking",
+          "finish": "Fullfør",
+          "order": "Bestilling",
+          "pause": "Pause",
+          "power_off": "Slå av",
+          "standby": "Hvilemodus",
+          "working": "Arbeider"
+        }
+      },
+      "e7_left_bottom_work_time": {
+        "name": "Induksjon venstre nedre arbeidstid"
+      },
+      "e7_left_bridge_link": {
+        "name": "Induksjon venstre brokobling",
+        "state": {
+          "off": "Av",
+          "on": "På"
+        }
+      },
+      "e7_left_destination_time": {
+        "name": "Induksjon venstre måltid"
+      },
+      "e7_left_efficiency": {
+        "name": "Induksjon venstre effektivitet"
+      },
+      "e7_left_gear": {
+        "name": "Induksjon venstre gir"
+      },
+      "e7_left_mode": {
+        "name": "Induksjon venstre modus",
+        "state": {
+          "boiling": "Koking",
+          "heat_preservation": "Varmebevaring",
+          "none": "Ingen",
+          "stew_soup": "Suppekoking",
+          "stir_frying": "Steking"
+        }
+      },
+      "e7_left_remaining_time": {
+        "name": "Induksjon venstre gjenværende tid"
+      },
+      "e7_left_top_bridge_link": {
+        "name": "Induksjon venstre øvre brokobling",
+        "state": {
+          "off": "Av",
+          "on": "På"
+        }
+      },
+      "e7_left_top_destination_time": {
+        "name": "Induksjon venstre øvre måltid"
+      },
+      "e7_left_top_efficiency": {
+        "name": "Induksjon venstre øvre effektivitet"
+      },
+      "e7_left_top_gear": {
+        "name": "Induksjon venstre øvre gir"
+      },
+      "e7_left_top_mode": {
+        "name": "Induksjon venstre øvre modus",
+        "state": {
+          "boiling": "Koking",
+          "heat_preservation": "Varmebevaring",
+          "none": "Ingen",
+          "stew_soup": "Suppekoking",
+          "stir_frying": "Steking"
+        }
+      },
+      "e7_left_top_remaining_time": {
+        "name": "Induksjon venstre øvre gjenværende tid"
+      },
+      "e7_left_top_work_status": {
+        "name": "Induksjon venstre øvre arbeidsstatus",
+        "state": {
+          "auto": "Auto",
+          "drying": "Tørking",
+          "finish": "Fullfør",
+          "order": "Bestilling",
+          "pause": "Pause",
+          "power_off": "Slå av",
+          "standby": "Hvilemodus",
+          "working": "Arbeider"
+        }
+      },
+      "e7_left_top_work_time": {
+        "name": "Induksjon venstre øvre arbeidstid"
+      },
+      "e7_left_work_status": {
+        "name": "Induksjon venstre arbeidsstatus",
+        "state": {
+          "auto": "Auto",
+          "drying": "Tørking",
+          "finish": "Fullfør",
+          "order": "Bestilling",
+          "pause": "Pause",
+          "power_off": "Slå av",
+          "standby": "Hvilemodus",
+          "working": "Arbeider"
+        }
+      },
+      "e7_left_work_time": {
+        "name": "Induksjon venstre arbeidstid"
+      },
+      "e7_right_bottom_bridge_link": {
+        "name": "Induksjon høyre nedre brokobling",
+        "state": {
+          "off": "Av",
+          "on": "På"
+        }
+      },
+      "e7_right_bottom_destination_time": {
+        "name": "Induksjon høyre nedre måltid"
+      },
+      "e7_right_bottom_efficiency": {
+        "name": "Induksjon høyre nedre effektivitet"
+      },
+      "e7_right_bottom_gear": {
+        "name": "Induksjon høyre nedre gir"
+      },
+      "e7_right_bottom_mode": {
+        "name": "Induksjon høyre nedre modus",
+        "state": {
+          "boiling": "Koking",
+          "heat_preservation": "Varmebevaring",
+          "none": "Ingen",
+          "stew_soup": "Suppekoking",
+          "stir_frying": "Steking"
+        }
+      },
+      "e7_right_bottom_remaining_time": {
+        "name": "Induksjon høyre nedre gjenværende tid"
+      },
+      "e7_right_bottom_work_status": {
+        "name": "Induksjon høyre nedre arbeidsstatus",
+        "state": {
+          "auto": "Auto",
+          "drying": "Tørking",
+          "finish": "Fullfør",
+          "order": "Bestilling",
+          "pause": "Pause",
+          "power_off": "Slå av",
+          "standby": "Hvilemodus",
+          "working": "Arbeider"
+        }
+      },
+      "e7_right_bottom_work_time": {
+        "name": "Induksjon høyre nedre arbeidstid"
+      },
+      "e7_right_bridge_link": {
+        "name": "Induksjon høyre brokobling",
+        "state": {
+          "off": "Av",
+          "on": "På"
+        }
+      },
+      "e7_right_destination_time": {
+        "name": "Induksjon høyre måltid"
+      },
+      "e7_right_efficiency": {
+        "name": "Induksjon høyre effektivitet"
+      },
+      "e7_right_gear": {
+        "name": "Induksjon høyre gir"
+      },
+      "e7_right_mode": {
+        "name": "Induksjon høyre modus",
+        "state": {
+          "boiling": "Koking",
+          "heat_preservation": "Varmebevaring",
+          "none": "Ingen",
+          "stew_soup": "Suppekoking",
+          "stir_frying": "Steking"
+        }
+      },
+      "e7_right_remaining_time": {
+        "name": "Induksjon høyre gjenværende tid"
+      },
+      "e7_right_top_bridge_link": {
+        "name": "Induksjon høyre øvre brokobling",
+        "state": {
+          "off": "Av",
+          "on": "På"
+        }
+      },
+      "e7_right_top_destination_time": {
+        "name": "Induksjon høyre øvre måltid"
+      },
+      "e7_right_top_efficiency": {
+        "name": "Induksjon høyre øvre effektivitet"
+      },
+      "e7_right_top_gear": {
+        "name": "Induksjon høyre øvre gir"
+      },
+      "e7_right_top_mode": {
+        "name": "Induksjon høyre øvre modus",
+        "state": {
+          "boiling": "Koking",
+          "heat_preservation": "Varmebevaring",
+          "none": "Ingen",
+          "stew_soup": "Suppekoking",
+          "stir_frying": "Steking"
+        }
+      },
+      "e7_right_top_remaining_time": {
+        "name": "Induksjon høyre øvre gjenværende tid"
+      },
+      "e7_right_top_work_status": {
+        "name": "Induksjon høyre øvre arbeidsstatus",
+        "state": {
+          "auto": "Auto",
+          "drying": "Tørking",
+          "finish": "Fullfør",
+          "order": "Bestilling",
+          "pause": "Pause",
+          "power_off": "Slå av",
+          "standby": "Hvilemodus",
+          "working": "Arbeider"
+        }
+      },
+      "e7_right_top_work_time": {
+        "name": "Induksjon høyre øvre arbeidstid"
+      },
+      "e7_right_work_status": {
+        "name": "Induksjon høyre arbeidsstatus",
+        "state": {
+          "auto": "Auto",
+          "drying": "Tørking",
+          "finish": "Fullfør",
+          "order": "Bestilling",
+          "pause": "Pause",
+          "power_off": "Slå av",
+          "standby": "Hvilemodus",
+          "working": "Arbeider"
+        }
+      },
+      "e7_right_work_time": {
+        "name": "Induksjon høyre arbeidstid"
+      },
+      "electronic_version": {
+        "name": "Elektronisk versjon"
+      },
+      "error_list": {
+        "name": "Feilliste"
+      },
+      "sp_fandrying_destination_time": {
+        "name": "Platevifte tørking måltid"
+      },
+      "sp_fandrying_order_destination_time": {
+        "name": "Platevifte tørking bestilling måltid"
+      },
+      "sp_fandrying_order_remaining_time": {
+        "name": "Platevifte tørking bestilling gjenværende tid"
+      },
+      "sp_fandrying_remaining_time": {
+        "name": "Platevifte tørking gjenværende tid"
+      },
+      "sp_fandrying_setting_automode_day": {
+        "name": "Platevifte tørking innstilling automodus dag"
+      },
+      "sp_fandrying_setting_automode_starthour": {
+        "name": "Platevifte tørking innstilling automodus starttime"
+      },
+      "sp_fandrying_setting_automode_startminute": {
+        "name": "Platevifte tørking innstilling automodus startminutt"
+      },
+      "sp_fandrying_status": {
+        "name": "Platevifte tørking status",
+        "state": {
+          "drying": "Tørking",
+          "drying_pause": "Tørking pause",
+          "ion_drying": "Iontørking",
+          "ion_drying_pause": "Iontørking pause",
+          "power_off": "Slå av",
+          "uperization": "Uperisering",
+          "uperization_pause": "Uperisering pause",
+          "warm_drink": "Varm drikke",
+          "warm_drink_pause": "Varm drikke pause"
+        }
+      },
+      "sp_fandrying_temperature": {
+        "name": "Platevifte tørking temperatur"
+      },
+      "sp_heatingdisk_destination_time": {
+        "name": "Varmeplate måltid"
+      },
+      "sp_heatingdisk_order_destination_time": {
+        "name": "Varmeplate bestilling måltid"
+      },
+      "sp_heatingdisk_order_remaining_time": {
+        "name": "Varmeplate bestilling gjenværende tid"
+      },
+      "sp_heatingdisk_remaining_time": {
+        "name": "Varmeplate gjenværende tid"
+      },
+      "sp_heatingdisk_setting_automode_day": {
+        "name": "Varmeplate innstilling automodus dag"
+      },
+      "sp_heatingdisk_setting_automode_starthour": {
+        "name": "Varmeplate innstilling automodus starttime"
+      },
+      "sp_heatingdisk_setting_automode_startminute": {
+        "name": "Varmeplate innstilling automodus startminutt"
+      },
+      "sp_heatingdisk_status": {
+        "name": "Varmeplate status",
+        "state": {
+          "drying": "Tørking",
+          "drying_pause": "Tørking pause",
+          "ion_drying": "Iontørking",
+          "ion_drying_pause": "Iontørking pause",
+          "power_off": "Slå av",
+          "uperization": "Uperisering",
+          "uperization_pause": "Uperisering pause",
+          "warm_drink": "Varm drikke",
+          "warm_drink_pause": "Varm drikke pause"
+        }
+      },
+      "sp_heatingdisk_temperature": {
+        "name": "Varmeplate temperatur"
+      },
+      "sp_uvc_destination_time": {
+        "name": "Plate UVC måltid"
+      },
+      "sp_uvc_order_destination_time": {
+        "name": "Plate UVC bestilling måltid"
+      },
+      "sp_uvc_order_remaining_time": {
+        "name": "Plate UVC bestilling gjenværende tid"
+      },
+      "sp_uvc_remaining_time": {
+        "name": "Plate UVC gjenværende tid"
+      },
+      "sp_uvc_setting_automode_day": {
+        "name": "Plate UVC innstilling automodus dag"
+      },
+      "sp_uvc_setting_automode_starthour": {
+        "name": "Plate UVC innstilling automodus starttime"
+      },
+      "sp_uvc_setting_automode_startminute": {
+        "name": "Plate UVC innstilling automodus startminutt"
+      },
+      "sp_uvc_status": {
+        "name": "Plate UVC status",
+        "state": {
+          "drying": "Tørking",
+          "drying_pause": "Tørking pause",
+          "ion_drying": "Iontørking",
+          "ion_drying_pause": "Iontørking pause",
+          "power_off": "Slå av",
+          "uperization": "Uperisering",
+          "uperization_pause": "Uperisering pause",
+          "warm_drink": "Varm drikke",
+          "warm_drink_pause": "Varm drikke pause"
+        }
+      },
+      "sp_uvc_temperature": {
+        "name": "Plate UVC temperatur"
+      },
+      "total_error_code": {
+        "name": "Feilkode"
+      },
+      "total_error_type": {
+        "name": "Feiltype"
+      },
+      "total_firewall_temp": {
+        "name": "Brannmurtemperatur"
+      },
+      "total_gesture": {
+        "name": "Bevegelse",
+        "state": {
+          "off": "Av",
+          "on": "På"
+        }
+      },
+      "total_ir": {
+        "name": "IR",
+        "state": {
+          "off": "Av",
+          "on": "På"
+        }
+      },
+      "total_lock_off_type": {
+        "name": "Lås av-type",
+        "state": {
+          "local": "Lokal"
+        }
+      },
+      "total_lock_on_type": {
+        "name": "Lås på-type",
+        "state": {
+          "app": "App",
+          "local": "Lokal"
+        }
+      },
+      "total_shelving_unit_temp": {
+        "name": "Hylletemperatur"
+      },
+      "total_speak": {
+        "name": "Tal",
+        "state": {
+          "off": "Av",
+          "on": "På"
+        }
+      },
+      "total_tips_code": {
+        "name": "Tipskode"
+      },
+      "total_tips_type": {
+        "name": "Tipstype"
+      },
+      "work_status": {
+        "name": "Arbeidsstatus",
+        "state": {
+          "save_power": "Spar strøm",
+          "standby": "Hvilemodus",
+          "work": "Arbeider",
+          "pause": "Satt på pause",
+          "work_finish": "Fullført",
+          "order": "Forsinkelse",
+          "pause_c": "Satt på pause C",
+          "three": "Tre",
+          "self_inspection": "Selvkontroll",
+          "query_version": "Spør etter versjon",
+          "demo": "Demo",
+          "ramadan": "Ramadan",
+          "after_checking": "Etter kontroll",
+          "wait_to_start": "Venter på å starte",
+          "ff": "Ukjent"
+        }
+      },
+      "x9b_fire_power": {
+        "name": "Brennereffekt",
+        "state": {
+          "high_power": "Høy",
+          "medium_high_power": "Middels-høy",
+          "medium_power": "Middels",
+          "medium_low_power": "Middels-lav",
+          "low_power": "Lav",
+          "ff": "Ukjent"
+        }
+      },
+      "pre_heat": {
+        "name": "Forvarm",
+        "state": {
+          "off": "Av",
+          "work": "Forvarming",
+          "end": "Forvarming ferdig"
+        }
+      },
+      "water_status": {
+        "name": "Vannstatus",
+        "state": {
+          "normal": "Normal",
+          "lack_box": "Boks mangler",
+          "lack_water": "Vannmangel",
+          "change_water": "Bytt vann"
+        }
+      },
+      "dissipate_heat": {
+        "name": "Avled varme",
+        "state": {
+          "off": "Av",
+          "work": "Avleder"
+        }
+      },
+      "execute": {
+        "name": "Utføringsstatus",
+        "state": {
+          "ok": "OK",
+          "status_nonsupport": "Status ikke støttet",
+          "function_nonsupport": "Funksjon ikke støttet",
+          "param_range_error": "Parameterområdefeil"
+        }
+      },
+      "sys_time_src": {
+        "name": "Kilde for systemtid",
+        "state": {
+          "module": "Modul",
+          "app": "App",
+          "user_defined": "Brukerdefinert"
+        }
+      },
+      "cur_temperature": {
+        "name": "Nåværende temperatur"
+      },
+      "work_hour": {
+        "name": "Arbeidstime"
+      },
+      "work_minute": {
+        "name": "Arbeidsminutt"
+      },
+      "work_second": {
+        "name": "Arbeidssekund"
+      },
+      "cbs_version": {
+        "name": "CBS-versjon"
+      }
+    },
+    "switch": {
+      "db_power": {
+        "name": "Vaskemaskin effekt"
+      },
+      "dc_power": {
+        "name": "Tørketrommel effekt"
+      },
+      "door_auto_open_setting": {
+        "name": "Automatisk døråpning"
+      },
+      "anion": {
+        "name": "Anion"
+      },
+      "humidify": {
+        "name": "Fukting"
+      },
+      "waterions": {
+        "name": "Vannioner"
+      },
+      "anophelifuge": {
+        "name": "Anti-mygg"
+      },
+      "display_on_off": {
+        "name": "Skjerm"
+      },
+      "auto_power_off": {
+        "name": "Automatisk avslåing"
+      },
+      "body_feeling_scan": {
+        "name": "Kroppsføleskanning"
+      },
+      "aux_heating": {
+        "name": "Tilleggsvarme"
+      },
+      "boost_mode": {
+        "name": "Boost-modus"
+      },
+      "breezeless": {
+        "name": "Trekkfritt"
+      },
+      "child_lock": {
+        "name": "Barnelås"
+      },
+      "cl_sterilization": {
+        "name": "CL-sterilisering"
+      },
+      "comfort_mode": {
+        "name": "Komfortmodus"
+      },
+      "degerming": {
+        "name": "Bakteriefjerning"
+      },
+      "dhw_power": {
+        "name": "DHW-effekt"
+      },
+      "disinfect": {
+        "name": "Desinfiser"
+      },
+      "furnace_light": {
+        "name": "Ovnslys"
+      },
+      "hot_wind": {
+        "name": "Varmluft"
+      },
+      "ramadan": {
+        "name": "Ramadan"
+      },
+      "turntable": {
+        "name": "Dreieskive"
+      },
+      "maintenance_reminder": {
+        "name": "Vedlikeholdspåminnelse"
+      },
+      "vacation_mode": {
+        "name": "Feriemodus"
+      },
+      "dry": {
+        "name": "Tørr"
+      },
+      "cold_water_single": {
+        "name": "Kaldtvann enkel"
+      },
+      "cold_water_dot": {
+        "name": "Kaldtvann punkt"
+      },
+      "eco_mode": {
+        "name": "ECO-modus"
+      },
+      "memory": {
+        "name": "Memo U"
+      },
+      "fast_dhw": {
+        "name": "Rask DHW"
+      },
+      "foam_shield": {
+        "name": "Skumskjold"
+      },
+      "frost_protect": {
+        "name": "Frostbeskyttelse"
+      },
+      "heating_power": {
+        "name": "Oppvarmingseffekt"
+      },
+      "indirect_wind": {
+        "name": "Indirekte vind"
+      },
+      "leak_water_protection": {
+        "name": "Vannlekkasjebeskyttelse"
+      },
+      "light": {
+        "name": "Lett"
+      },
+      "link_to_ac": {
+        "name": "Koble til AC"
+      },
+      "main_light": {
+        "name": "Hovedlys"
+      },
+      "main_power": {
+        "name": "Hovedstrøm"
+      },
+      "natural_wind": {
+        "name": "Naturlig vind"
+      },
+      "night_light": {
+        "name": "Nattlys"
+      },
+      "oscillate": {
+        "name": "Oscillering"
+      },
+      "power": {
+        "name": "Effekt"
+      },
+      "powerful_purify": {
+        "name": "Kraftig rensing"
+      },
+      "prompt_tone": {
+        "name": "Varseltone"
+      },
+      "regeneration": {
+        "name": "Regenerering"
+      },
+      "water_pump": {
+        "name": "Vannpumpe"
+      },
+      "water_way": {
+        "name": "Vannvei"
+      },
+      "screen_display": {
+        "name": "Skjermvisning"
+      },
+      "screen_display_alternate": {
+        "name": "Alternerende skjermvisning"
+      },
+      "sensor_light": {
+        "name": "Sensorlys"
+      },
+      "silent_mode": {
+        "name": "Stillemodus"
+      },
+      "sleep_mode": {
+        "name": "Hvilemodus"
+      },
+      "out_silent": {
+        "name": "Utendørs stillemodus"
+      },
+      "smart_eye": {
+        "name": "Smart øye"
+      },
+      "smart_volume": {
+        "name": "Smart volum"
+      },
+      "smelly_sensor": {
+        "name": "Luktsensor"
+      },
+      "soften": {
+        "name": "Mykning"
+      },
+      "standby": {
+        "name": "Hvilemodus"
+      },
+      "start": {
+        "name": "Start"
+      },
+      "sterilization": {
+        "name": "Sterilisering"
+      },
+      "storage": {
+        "name": "Lagring"
+      },
+      "swing": {
+        "name": "Sving"
+      },
+      "swing_horizontal": {
+        "name": "Horisontal sving"
+      },
+      "swing_vertical": {
+        "name": "Vertikal sving"
+      },
+      "self_clean": {
+        "name": "Selvrens"
+      },
+      "ieco": {
+        "name": "iECO"
+      },
+      "sound": {
+        "name": "Lyd"
+      },
+      "tbh": {
+        "name": "TBH"
+      },
+      "variable_heating": {
+        "name": "Variabel oppvarming"
+      },
+      "ventilation": {
+        "name": "Ventilasjon"
+      },
+      "whole_tank_heating": {
+        "name": "Oppvarming av hele tanken"
+      },
+      "zero_cold_pulse": {
+        "name": "Null kaldtvann (puls)"
+      },
+      "zero_cold_water": {
+        "name": "Null kaldtvann"
+      },
+      "zone1_curve": {
+        "name": "Sone1 kurve"
+      },
+      "zone1_power": {
+        "name": "Sone1 strøm"
+      },
+      "zone2_curve": {
+        "name": "Sone2 kurve"
+      },
+      "zone2_power": {
+        "name": "Sone2 strøm"
+      },
+      "boiling": {
+        "name": "Kok vann"
+      },
+      "tea_bar_boil": {
+        "name": "Bryter for vannkoking"
+      },
+      "tea_bar_child_lock": {
+        "name": "Barnelås"
+      },
+      "keep_warm": {
+        "name": "Hold varm"
+      },
+      "tea_bar_cooling": {
+        "name": "Tebar-kjøling"
+      },
+      "screen_off": {
+        "name": "Skjerm av"
+      },
+      "wash": {
+        "name": "Filtervask"
+      },
+      "antifreeze": {
+        "name": "Frostvæske"
+      },
+      "heat": {
+        "name": "Varme"
+      },
+      "holiday_on": {
+        "name": "Modus - ferie"
+      },
+      "dhw_disinfect": {
+        "name": "DHW - desinfisering"
+      },
+      "ai_voice_microphone": {
+        "name": "AI-stemme mikrofon"
+      },
+      "total_lock": {
+        "name": "Barnelås"
+      },
+      "total_power": {
+        "name": "Effekt"
+      },
+      "lock": {
+        "name": "Barnelås"
+      },
+      "camera": {
+        "name": "Kamera"
+      },
+      "dryer_sterilize": {
+        "name": "Flerdimensjonal sterilisering"
+      },
+      "dryer_anti_wrinkle": {
+        "name": "Smart antirynke"
+      },
+      "washer_forget_free": {
+        "name": "Glem-fri pleie"
+      }
+    },
+    "water_heater": {
+      "domestic_hot_water": {
+        "name": "Varmt tappevann"
+      },
+      "bathing": {
+        "name": "Bading"
+      },
+      "heating": {
+        "name": "Oppvarming"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "ip_address": "IP-adresse",
+          "refresh_interval": "Oppdateringsintervall (0 betyr ingen aktiv oppdatering)",
+          "sensors": "Ekstra sensorer",
+          "switches": "Ekstra kontroller",
+          "customize": "Tilpass",
+          "account": "Midea-skykonto (for sensorene for bruksstatistikk)",
+          "password": "Passord for Midea-skykonto (for sensorene for bruksstatistikk)",
+          "server": "Midea-skyserver for kontoen (for sensorene for bruksstatistikk)"
+        },
+        "title": "Konfigurer"
+      }
+    },
+    "abort": {
+      "account_option": "Kontoen støtter ikke denne operasjonen.\nKlikk \"LEGG TIL ENHET\" for å  legge til en ny enhet."
+    }
+  },
+  "services": {
+    "set_attribute": {
+      "name": "Angi attributt",
+      "description": "Angi attributtverdien for enheten",
+      "fields": {
+        "device_id": {
+          "name": "Apparatkode",
+          "description": "Apparatkoden (enhets-ID) for apparatet"
+        },
+        "attribute": {
+          "name": "Attributt",
+          "description": "Attributtnavnet som skal angis"
+        },
+        "value": {
+          "name": "Verdi",
+          "description": "Attributtverdien som skal angis"
+        }
+      }
+    },
+    "send_command": {
+      "name": "Tilpasset kommando",
+      "description": "Send en tilpasset kommando til enheten",
+      "fields": {
+        "device_id": {
+          "name": "Apparatkode",
+          "description": "Apparatkoden (enhets-ID) for apparatet"
+        },
+        "cmd_type": {
+          "name": "Kommandotype",
+          "description": "Typen kommando，skal være 3（spørring) eller 2（angi)"
+        },
+        "cmd_body": {
+          "name": "Kommandokropp",
+          "description": "Kroppen til kommandoen, (inkluderer ikke MSmart-protokollhode og sjekksum på slutten)"
+        }
+      }
+    }
+  }
+}

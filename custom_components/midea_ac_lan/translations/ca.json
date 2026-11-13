@@ -1,0 +1,4402 @@
+{
+  "config": {
+    "error": {
+      "preset_account": "No s'ha pogut iniciar la sessió amb el compte predefinit; informeu d'aquest problema",
+      "login_failed": "No s'ha pogut iniciar la sessió; el compte o la contrasenya són incorrectes",
+      "no_devices": "No s'ha trobat cap electrodomèstic nou disponible a la xarxa",
+      "device_exist": "L'electrodomèstic ja està configurat",
+      "config_incorrect": "La configuració és incorrecta",
+      "connect_error": "No es pot connectar a l'electrodomèstic",
+      "invalid_token": "El Token o la Key tenen un format incorrecte"
+    },
+    "step": {
+      "user": {
+        "data": {
+          "way": "S'estan afegint electrodomèstics"
+        },
+        "description": "Trieu la manera d'afegir un electrodomèstic",
+        "title": "Afegeix un electrodomèstic nou"
+      },
+      "login": {
+        "data": {
+          "account": "Compte",
+          "password": "Contrasenya"
+        },
+        "description": "Inicieu la sessió i obteniu el token de l'electrodomèstic.\n\n\nActualment, només els comptes personals de SmartHome i Meiju poden recuperar els Token dels electrodomèstics. Consulteu el document README per a més detalls.",
+        "title": "Inicia la sessió"
+      },
+      "discovery": {
+        "description": "Adreça IP del dispositiu; introduïu \"auto\" per descobrir-lo automàticament\nTambé podeu utilitzar una adreça IP per cercar dins d'una xarxa concreta, com ara \"192.168.1.255\"",
+        "title": "Cerca",
+        "data": {
+          "ip_address": "Adreça IP"
+        }
+      },
+      "list": {
+        "description": "{table}",
+        "title": "Electrodomèstics"
+      },
+      "auto": {
+        "data": {
+          "device": "Electrodomèstics"
+        },
+        "description": "Trieu un electrodomèstic per afegir",
+        "title": "S'ha trobat un electrodomèstic nou"
+      },
+      "manually": {
+        "data": {
+          "name": "Nom (p. ex. Aire condicionat del saló)",
+          "device_id": "Codi de l'electrodomèstic",
+          "type": "Tipus",
+          "ip_address": "Adreça IP",
+          "port": "Port",
+          "model": "Model",
+          "subtype": "Subtipus",
+          "protocol": "Protocol",
+          "token": "Token",
+          "key": "Key"
+        },
+        "description": "Configuració de l'electrodomèstic",
+        "title": "Electrodomèstic nou"
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "door_auto_open": {
+        "name": "Obertura automàtica de la porta de l'últim programa"
+      },
+      "uv": {
+        "name": "UV"
+      },
+      "dry": {
+        "name": "Assecat"
+      },
+      "dry_status": {
+        "name": "S'està assecant"
+      },
+      "storage_status": {
+        "name": "Emmagatzematge en funcionament"
+      },
+      "waterswitch": {
+        "name": "Interruptor d'aigua"
+      },
+      "water_lack": {
+        "name": "Manca d'aigua"
+      },
+      "wifi_unabled": {
+        "name": "Wi-Fi desactivat"
+      },
+      "auto_throw": {
+        "name": "Dosificació automàtica"
+      },
+      "lock_power": {
+        "name": "Bloqueig d'engegada"
+      },
+      "beep_control": {
+        "name": "So d'avís"
+      },
+      "light_btn_on": {
+        "name": "Llum dels botons"
+      },
+      "light_strip_on": {
+        "name": "Tira de llum"
+      },
+      "warm_power": {
+        "name": "Potència de calor"
+      },
+      "cold_power": {
+        "name": "Potència de fred"
+      },
+      "sleep_power": {
+        "name": "Potència de repòs"
+      },
+      "pump_on": {
+        "name": "Bomba activada"
+      },
+      "bar_door": {
+        "name": "Porta de la barra"
+      },
+      "bar_door_overtime": {
+        "name": "Temps excedit de la porta de la barra"
+      },
+      "bathing_working": {
+        "name": "Estat de funcionament del bany"
+      },
+      "bottom_compartment_cooling": {
+        "name": "Refredament del compartiment inferior"
+      },
+      "bottom_compartment_door": {
+        "name": "Porta del compartiment inferior"
+      },
+      "bottom_compartment_preheating": {
+        "name": "Preescalfament del compartiment inferior"
+      },
+      "burning_state": {
+        "name": "Estat de combustió"
+      },
+      "clean_scale": {
+        "name": "Descalcificació"
+      },
+      "clean_sink_ponding": {
+        "name": "Aigua estancada a la pica"
+      },
+      "cleaning_reminder": {
+        "name": "Recordatori de neteja"
+      },
+      "compressor_status": {
+        "name": "Estat del compressor"
+      },
+      "cooking": {
+        "name": "Cocció"
+      },
+      "dissipate_heat": {
+        "name": "Dissipació de calor"
+      },
+      "door": {
+        "name": "Porta"
+      },
+      "error_code": {
+        "name": "Codi d'error"
+      },
+      "filter_change_reminder": {
+        "name": "Recordatori de canvi de filtre"
+      },
+      "filter_cleaning_reminder": {
+        "name": "Recordatori de neteja del filtre"
+      },
+      "finished": {
+        "name": "Finalitzat"
+      },
+      "flex_zone_door": {
+        "name": "Porta flexible"
+      },
+      "flex_zone_door_overtime": {
+        "name": "Porta de la zona flexible"
+      },
+      "flip_side": {
+        "name": "Gira el costat"
+      },
+      "freezer_door": {
+        "name": "Porta del congelador"
+      },
+      "freezer_door_overtime": {
+        "name": "Temps excedit de la porta del congelador"
+      },
+      "full_dust": {
+        "name": "Ple de pols"
+      },
+      "heating": {
+        "name": "Escalfament"
+      },
+      "dispensing": {
+        "name": "Dispensant aigua"
+      },
+      "lack_water": {
+        "name": "Manca d'aigua"
+      },
+      "standby": {
+        "name": "En espera"
+      },
+      "hot_water_dispensing": {
+        "name": "Dispensant aigua calenta"
+      },
+      "fault": {
+        "name": "Avaria"
+      },
+      "heating_working": {
+        "name": "Estat de funcionament de l'escalfament"
+      },
+      "high_temperature": {
+        "name": "Temperatura alta"
+      },
+      "high_temperature_lock": {
+        "name": "Bloqueig per temperatura alta"
+      },
+      "high_temperature_work": {
+        "name": "Funcionament a temperatura alta"
+      },
+      "keep_warm": {
+        "name": "Manteniment de la calor"
+      },
+      "leak_water": {
+        "name": "Fuita d'aigua"
+      },
+      "lid_status": {
+        "name": "Estat de la tapa"
+      },
+      "middle_compartment_cooling": {
+        "name": "Refredament del compartiment central"
+      },
+      "middle_compartment_door": {
+        "name": "Porta del compartiment central"
+      },
+      "middle_compartment_preheating": {
+        "name": "Preescalfament del compartiment central"
+      },
+      "pre_heat": {
+        "name": "Preescalfament"
+      },
+      "probe": {
+        "name": "Sonda"
+      },
+      "probe_mode": {
+        "name": "Mode de sonda"
+      },
+      "reaction": {
+        "name": "Reacció"
+      },
+      "top_elec_heat": {
+        "name": "Resistència elèctrica superior"
+      },
+      "bottom_elec_heat": {
+        "name": "Resistència elèctrica inferior"
+      },
+      "mute_effect": {
+        "name": "Efecte silenciós"
+      },
+      "mute_status": {
+        "name": "Estat silenciós"
+      },
+      "multi_terminal": {
+        "name": "Terminal múltiple"
+      },
+      "oilcup_full": {
+        "name": "Dipòsit d'oli ple"
+      },
+      "protection": {
+        "name": "Protecció"
+      },
+      "refrigerator_door": {
+        "name": "Porta del frigorífic"
+      },
+      "refrigerator_door_overtime": {
+        "name": "Temps excedit de la porta del frigorífic"
+      },
+      "rinse_aid": {
+        "name": "Manca d'abrillantador"
+      },
+      "rsj_stand_by": {
+        "name": "En espera"
+      },
+      "salt": {
+        "name": "Manca de sal"
+      },
+      "seat_status": {
+        "name": "Estat del seient"
+      },
+      "smart_grid": {
+        "name": "Xarxa intel·ligent"
+      },
+      "eco": {
+        "name": "ECO"
+      },
+      "maintenance_reminder": {
+        "name": "Recordatori de manteniment"
+      },
+      "dr_enable": {
+        "name": "Resposta a la demanda"
+      },
+      "electric_rod_exception": {
+        "name": "Avaria de la resistència elèctrica"
+      },
+      "ac_heater_priority": {
+        "name": "Prioritat de la bomba de calor"
+      },
+      "high_temp_reminder": {
+        "name": "Recordatori de temperatura alta"
+      },
+      "new_version_water_heater": {
+        "name": "Protocol ampliat de l'escalfador d'aigua"
+      },
+      "heat_recovery_status": {
+        "name": "Recuperació de calor"
+      },
+      "holiday_mode": {
+        "name": "Mode de vacances"
+      },
+      "hybrid_motion_mode": {
+        "name": "Mode de moviment híbrid"
+      },
+      "support_boost_mode": {
+        "name": "Suport del mode Boost"
+      },
+      "support_silent_mode": {
+        "name": "Suport del mode silenciós"
+      },
+      "support_remaining_hot_water": {
+        "name": "Suport d'aigua calenta restant"
+      },
+      "support_electric_mode": {
+        "name": "Suport del mode elèctric"
+      },
+      "support_auto_disinfect": {
+        "name": "Suport de desinfecció automàtica"
+      },
+      "support_force_e_heating": {
+        "name": "Suport d'escalfament elèctric forçat"
+      },
+      "support_tou": {
+        "name": "Suport de tarifa horària"
+      },
+      "support_ac_heater_priority": {
+        "name": "Suport de prioritat de la bomba de calor"
+      },
+      "support_heat_recovery": {
+        "name": "Suport de recuperació de calor"
+      },
+      "support_heat_pump_mode": {
+        "name": "Suport del mode bomba de calor"
+      },
+      "support_smart_mode": {
+        "name": "Suport del mode intel·ligent"
+      },
+      "support_negative_temperature": {
+        "name": "Suport de temperatura negativa"
+      },
+      "maintain_warn": {
+        "name": "Avís de manteniment"
+      },
+      "order1_effect": {
+        "name": "Programació 1 activa"
+      },
+      "order2_effect": {
+        "name": "Programació 2 activa"
+      },
+      "status_dhw": {
+        "name": "Estat de l'ACS"
+      },
+      "status_heating": {
+        "name": "Estat de l'escalfament"
+      },
+      "status_ibh": {
+        "name": "Estat de l'IBH"
+      },
+      "status_tbh": {
+        "name": "Estat del TBH"
+      },
+      "tank_ejected": {
+        "name": "Dipòsit expulsat"
+      },
+      "tank_full": {
+        "name": "Estat del dipòsit"
+      },
+      "top_compartment_cooling": {
+        "name": "Refredament del compartiment superior"
+      },
+      "top_compartment_door": {
+        "name": "Porta del compartiment superior"
+      },
+      "top_compartment_preheating": {
+        "name": "Preescalfament del compartiment superior"
+      },
+      "water_change_reminder": {
+        "name": "Recordatori de canvi d'aigua"
+      },
+      "water_shortage": {
+        "name": "Manca d'aigua"
+      },
+      "with_pressure": {
+        "name": "Amb pressió"
+      },
+      "zone1_room_temp_mode": {
+        "name": "Mode temperatura ambient de la zona 1"
+      },
+      "zone1_water_temp_mode": {
+        "name": "Mode temperatura de l'aigua de la zona 1"
+      },
+      "zone2_room_temp_mode": {
+        "name": "Mode temperatura ambient de la zona 2"
+      },
+      "zone2_water_temp_mode": {
+        "name": "Mode temperatura de l'aigua de la zona 2"
+      },
+      "microcrystal_fresh": {
+        "name": "Microcristall fresc"
+      },
+      "electronic_smell": {
+        "name": "Desodorització i esterilització"
+      },
+      "water_pump_running": {
+        "name": "Bomba d'aigua en funcionament"
+      },
+      "filter_status": {
+        "name": "Alarma del filtre"
+      },
+      "standby_status": {
+        "name": "Estat d'espera"
+      },
+      "out_water": {
+        "name": "Sortida d'aigua"
+      },
+      "out_hot_water": {
+        "name": "Sortida d'aigua calenta"
+      },
+      "backflow": {
+        "name": "Reflux"
+      },
+      "sleep_status": {
+        "name": "Estat de repòs"
+      },
+      "status_cool": {
+        "name": "Estat - Refredament"
+      },
+      "eco_function_state": {
+        "name": "Mode - Funció ECO"
+      },
+      "eco_timer_state": {
+        "name": "Mode - Temporitzador ECO"
+      },
+      "double_zone": {
+        "name": "Capacitat - Doble zona"
+      },
+      "room_thermal_support": {
+        "name": "Capacitat - Termòstat d'ambient"
+      },
+      "room_thermal_state": {
+        "name": "Estat - Termòstat d'ambient"
+      },
+      "time_set": {
+        "name": "Capacitat - Ajust d'hora"
+      },
+      "disinfect_run": {
+        "name": "ACS - Desinfecció en funcionament"
+      },
+      "remote_onoff": {
+        "name": "Capacitat - Encesa/apagada remota"
+      },
+      "tbh_control": {
+        "name": "Capacitat - Control del TBH"
+      },
+      "heat_capability": {
+        "name": "Capacitat - Escalfament"
+      },
+      "cool_capability": {
+        "name": "Capacitat - Refredament"
+      },
+      "dhw_capability": {
+        "name": "Capacitat - ACS"
+      },
+      "sys_energy_ana_en": {
+        "name": "Capacitat - Anàlisi d'energia (sistema)"
+      },
+      "hmi_energy_ana_set_en": {
+        "name": "Capacitat - Anàlisi d'energia (HMI)"
+      },
+      "pump_i_running": {
+        "name": "Pump_I - Interna"
+      },
+      "pump_o_running": {
+        "name": "Pump_O - Externa"
+      },
+      "pump_d_running": {
+        "name": "Pump_D - ACS"
+      },
+      "pump_c_running": {
+        "name": "Pump_C - Circuit d'aigua mixt zona 2"
+      },
+      "pump_s_running": {
+        "name": "Pump_S - Solar"
+      },
+      "sv1_open": {
+        "name": "SV1 - Vàlvula (ACS)"
+      },
+      "sv2_open": {
+        "name": "SV2 - Vàlvula (escalfament)"
+      },
+      "load_output_tbh": {
+        "name": "Resistència - Suport del dipòsit (TBH)"
+      },
+      "compressor_on": {
+        "name": "Compressor - En funcionament"
+      },
+      "ibh1_on": {
+        "name": "Resistència - IBH1"
+      },
+      "ibh2_on": {
+        "name": "Resistència - IBH2"
+      },
+      "sv3_open": {
+        "name": "SV3 - Vàlvula"
+      },
+      "crankcase_heater_on": {
+        "name": "Resistència - Càrter"
+      },
+      "alarm_on": {
+        "name": "Error - Alarma"
+      },
+      "aux_heat_on": {
+        "name": "Resistència - Font auxiliar"
+      },
+      "ac_air_direction": {
+        "name": "Direcció de l'aire de l'AC"
+      },
+      "ac_cooling_fan": {
+        "name": "Ventilador de refredament de l'AC"
+      },
+      "ac_draining_pump": {
+        "name": "Bomba de desguàs de l'AC"
+      },
+      "ac_low_temperature": {
+        "name": "Temperatura baixa de l'AC"
+      },
+      "ac_over_temperature": {
+        "name": "Temperatura excessiva de l'AC"
+      },
+      "ac_swing": {
+        "name": "Oscil·lació de l'AC"
+      },
+      "ac_water_full": {
+        "name": "Dipòsit d'aigua ple de l'AC"
+      },
+      "b2_downstair_clean_tips": {
+        "name": "Avisos de neteja inferior del forn de vapor"
+      },
+      "b2_downstair_door": {
+        "name": "Porta inferior del forn de vapor"
+      },
+      "b2_downstair_fresh_water": {
+        "name": "Aigua neta inferior del forn de vapor"
+      },
+      "b2_downstair_light": {
+        "name": "Llum inferior del forn de vapor"
+      },
+      "b2_downstair_lock": {
+        "name": "Bloqueig inferior del forn de vapor"
+      },
+      "b2_downstair_must_clean_tips": {
+        "name": "Avisos de neteja obligatòria inferior del forn de vapor"
+      },
+      "b2_downstair_water_shortage": {
+        "name": "Manca d'aigua inferior del forn de vapor"
+      },
+      "b2_upstair_clean_tips": {
+        "name": "Avisos de neteja superior del forn de vapor"
+      },
+      "b2_upstair_door": {
+        "name": "Porta superior del forn de vapor"
+      },
+      "b2_upstair_fresh_water": {
+        "name": "Aigua neta superior del forn de vapor"
+      },
+      "b2_upstair_light": {
+        "name": "Llum superior del forn de vapor"
+      },
+      "b2_upstair_lock": {
+        "name": "Bloqueig superior del forn de vapor"
+      },
+      "b2_upstair_must_clean_tips": {
+        "name": "Avisos de neteja obligatòria superior del forn de vapor"
+      },
+      "b2_upstair_water_shortage": {
+        "name": "Manca d'aigua superior del forn de vapor"
+      },
+      "b3_downstair_door": {
+        "name": "Porta inferior del vaporitzador"
+      },
+      "b3_downstair_door_lock": {
+        "name": "Bloqueig de la porta inferior del vaporitzador"
+      },
+      "b3_downstair_infrared": {
+        "name": "Infraroig inferior del vaporitzador"
+      },
+      "b3_downstair_ultraviolet": {
+        "name": "Ultraviolat inferior del vaporitzador"
+      },
+      "b3_upstair_door": {
+        "name": "Porta superior del vaporitzador"
+      },
+      "b3_upstair_door_lock": {
+        "name": "Bloqueig de la porta superior del vaporitzador"
+      },
+      "b3_upstair_infrared": {
+        "name": "Infraroig superior del vaporitzador"
+      },
+      "b3_upstair_ultraviolet": {
+        "name": "Ultraviolat superior del vaporitzador"
+      },
+      "b6_tvoc_status": {
+        "name": "Estat de TVOC de la campana extractora"
+      },
+      "b6_delay_gear_linkage": {
+        "name": "Sincronització de velocitat amb retard de la campana extractora"
+      },
+      "b6_delay_time": {
+        "name": "Temps de retard de la campana extractora"
+      },
+      "b6_gesture_status": {
+        "name": "Estat de gestos de la campana extractora"
+      },
+      "b6_infrared_status": {
+        "name": "Estat d'infraroig de la campana extractora"
+      },
+      "b6_lock": {
+        "name": "Bloqueig de la campana extractora"
+      },
+      "b6_power_on_light": {
+        "name": "Llum d'encesa de la campana extractora"
+      },
+      "b6_smoke_detector": {
+        "name": "Detector de fum de la campana extractora"
+      },
+      "b6_smoke_stove_linkage": {
+        "name": "Sincronització fum-fogó de la campana extractora"
+      },
+      "b7_left_dry_burning": {
+        "name": "Combustió en sec del fogó de gas esquerre"
+      },
+      "b7_left_dry_burning_invalid": {
+        "name": "Combustió en sec no vàlida del fogó de gas esquerre"
+      },
+      "b7_left_gas_leakage": {
+        "name": "Fuita de gas del fogó de gas esquerre"
+      },
+      "b7_left_has_fire": {
+        "name": "Foc al fogó de gas esquerre"
+      },
+      "b7_left_has_pot": {
+        "name": "Olla al fogó de gas esquerre"
+      },
+      "b7_right_dry_burning": {
+        "name": "Combustió en sec del fogó de gas dret"
+      },
+      "b7_right_dry_burning_invalid": {
+        "name": "Combustió en sec no vàlida del fogó de gas dret"
+      },
+      "b7_right_gas_leakage": {
+        "name": "Fuita de gas del fogó de gas dret"
+      },
+      "b7_right_has_fire": {
+        "name": "Foc al fogó de gas dret"
+      },
+      "b7_right_has_pot": {
+        "name": "Olla al fogó de gas dret"
+      },
+      "bf_door": {
+        "name": "Porta del forn"
+      },
+      "bf_error": {
+        "name": "Error del forn"
+      },
+      "bf_flip": {
+        "name": "Gir del forn"
+      },
+      "bf_hightemp_error": {
+        "name": "Error de temperatura alta del forn"
+      },
+      "bf_hightemp_lock": {
+        "name": "Bloqueig per temperatura alta del forn"
+      },
+      "bf_hightemp_over": {
+        "name": "Temperatura alta excedida del forn"
+      },
+      "bf_hotwind": {
+        "name": "Aire calent del forn"
+      },
+      "bf_hotwind_set": {
+        "name": "Ajust de l'aire calent del forn"
+      },
+      "bf_hydrops_full": {
+        "name": "Dipòsit de condensats ple del forn"
+      },
+      "bf_light": {
+        "name": "Llum del forn"
+      },
+      "bf_lock": {
+        "name": "Bloqueig del forn"
+      },
+      "bf_off_fromapp": {
+        "name": "Forn apagat des de l'aplicació"
+      },
+      "bf_on_smart": {
+        "name": "Forn encès intel·ligent"
+      },
+      "bf_order": {
+        "name": "Programació del forn"
+      },
+      "bf_order_time_isabsolute": {
+        "name": "Hora de programació del forn absoluta"
+      },
+      "bf_overheat": {
+        "name": "Sobreescalfament del forn"
+      },
+      "bf_preheat": {
+        "name": "Preescalfament del forn"
+      },
+      "bf_preheat_done": {
+        "name": "Preescalfament del forn finalitzat"
+      },
+      "bf_preheat_set": {
+        "name": "Ajust de preescalfament del forn"
+      },
+      "bf_probe": {
+        "name": "Sonda del forn"
+      },
+      "bf_probe_meat": {
+        "name": "Sonda de carn del forn"
+      },
+      "bf_radiating": {
+        "name": "Radiació del forn"
+      },
+      "bf_repair_cook": {
+        "name": "Cocció de reparació del forn"
+      },
+      "bf_sabbath": {
+        "name": "Mode Sàbat del forn"
+      },
+      "bf_scalehandling_remind": {
+        "name": "Recordatori de descalcificació del forn"
+      },
+      "bf_sensor": {
+        "name": "Sensor del forn"
+      },
+      "bf_stove_1": {
+        "name": "Fogó 1 del forn"
+      },
+      "bf_stove_2": {
+        "name": "Fogó 2 del forn"
+      },
+      "bf_stove_3": {
+        "name": "Fogó 3 del forn"
+      },
+      "bf_stove_4": {
+        "name": "Fogó 4 del forn"
+      },
+      "bf_stove_5": {
+        "name": "Fogó 5 del forn"
+      },
+      "bf_temp_fahrenheit": {
+        "name": "Forn en graus Fahrenheit"
+      },
+      "bf_time_synchronization": {
+        "name": "Sincronització horària del forn"
+      },
+      "bf_turntable": {
+        "name": "Plat giratori del forn"
+      },
+      "bf_turntable_reset": {
+        "name": "Reinici del plat giratori del forn"
+      },
+      "bf_upload_interval": {
+        "name": "Interval de càrrega del forn"
+      },
+      "bf_voice_identify": {
+        "name": "Identificació per veu del forn"
+      },
+      "bf_voice_module": {
+        "name": "Mòdul de veu del forn"
+      },
+      "bf_water_box": {
+        "name": "Dipòsit d'aigua del forn"
+      },
+      "bf_water_change": {
+        "name": "Canvi d'aigua del forn"
+      },
+      "bf_water_shortage": {
+        "name": "Manca d'aigua del forn"
+      },
+      "bf_wintersummertime": {
+        "name": "Horari d'hivern/estiu del forn"
+      },
+      "e7_left_bottom_has_pot": {
+        "name": "Olla al cremador inferior esquerre d'inducció"
+      },
+      "e7_left_has_pot": {
+        "name": "Olla al cremador esquerre d'inducció"
+      },
+      "e7_left_top_has_pot": {
+        "name": "Olla al cremador superior esquerre d'inducció"
+      },
+      "e7_right_bottom_has_pot": {
+        "name": "Olla al cremador inferior dret d'inducció"
+      },
+      "e7_right_has_pot": {
+        "name": "Olla al cremador dret d'inducció"
+      },
+      "e7_right_top_has_pot": {
+        "name": "Olla al cremador superior dret d'inducció"
+      },
+      "sp_fandrying_door": {
+        "name": "Porta de l'assecador amb ventilador de plats"
+      },
+      "sp_fandrying_setting_automode": {
+        "name": "Mode automàtic de l'assecador amb ventilador de plats"
+      },
+      "sp_fandrying_setting_linkage": {
+        "name": "Sincronització de l'assecador amb ventilador de plats"
+      },
+      "sp_fandrying_setting_linkcooker": {
+        "name": "Vincle amb el cuinador de l'assecador amb ventilador de plats"
+      },
+      "sp_fandrying_setting_sync": {
+        "name": "Sincronia de l'assecador amb ventilador de plats"
+      },
+      "sp_heatingdisk_door": {
+        "name": "Porta del plat escalfador"
+      },
+      "sp_heatingdisk_setting_automode": {
+        "name": "Mode automàtic del plat escalfador"
+      },
+      "sp_heatingdisk_setting_linkage": {
+        "name": "Sincronització del plat escalfador"
+      },
+      "sp_heatingdisk_setting_linkcooker": {
+        "name": "Vincle amb el cuinador del plat escalfador"
+      },
+      "sp_heatingdisk_setting_sync": {
+        "name": "Sincronia del plat escalfador"
+      },
+      "sp_uvc_door": {
+        "name": "Porta del plat UVC"
+      },
+      "sp_uvc_setting_automode": {
+        "name": "Mode automàtic del plat UVC"
+      },
+      "sp_uvc_setting_linkage": {
+        "name": "Sincronització del plat UVC"
+      },
+      "sp_uvc_setting_linkcooker": {
+        "name": "Vincle amb el cuinador del plat UVC"
+      },
+      "sp_uvc_setting_sync": {
+        "name": "Sincronia del plat UVC"
+      },
+      "total_water_shortage": {
+        "name": "Manca d'aigua"
+      },
+      "door_open": {
+        "name": "Porta oberta"
+      },
+      "turntable": {
+        "name": "Plat giratori"
+      },
+      "lack_box": {
+        "name": "Manca de dipòsit"
+      },
+      "change_water": {
+        "name": "Recordatori de canvi d'aigua"
+      },
+      "ramadan": {
+        "name": "Ramadà"
+      },
+      "ota": {
+        "name": "OTA"
+      },
+      "laundry_appointment": {
+        "name": "Reserva"
+      }
+    },
+    "button": {
+      "start_delayed": {
+        "name": "Inici endarrerit"
+      },
+      "pause": {
+        "name": "Pausa"
+      },
+      "resume": {
+        "name": "Reprèn"
+      },
+      "cancel": {
+        "name": "Cancel·la"
+      },
+      "start": {
+        "name": "Inicia"
+      },
+      "laundry_cancel_appointment": {
+        "name": "Cancel·la la reserva"
+      }
+    },
+    "climate": {
+      "climate_zone1": {
+        "name": "Termòstat de la zona 1"
+      },
+      "climate_zone2": {
+        "name": "Termòstat de la zona 2"
+      },
+      "climate_key": {
+        "state_attributes": {
+          "fan_mode": {
+            "state": {
+              "silent": "Silenciós",
+              "full": "Màxim"
+            }
+          }
+        }
+      }
+    },
+    "fan": {
+      "bgf10000": {
+        "state_attributes": {
+          "preset_mode": {
+            "state": {
+              "normal": "Normal",
+              "forest": "Bosc",
+              "beach": "Platja",
+              "countryside": "Camp",
+              "baby": "Vent de nadó",
+              "sleep_1": "Repòs 1",
+              "sleep_2": "Repòs 2",
+              "strong": "Fort"
+            }
+          }
+        }
+      },
+      "fresh_air": {
+        "name": "Aire fresc"
+      },
+      "fresh_air_exhaust": {
+        "name": "Extracció d'aire fresc"
+      }
+    },
+    "lock": {
+      "child_lock": {
+        "name": "Bloqueig per a nens"
+      }
+    },
+    "number": {
+      "delay_minutes": {
+        "name": "Retard"
+      },
+      "wash_region": {
+        "name": "Zona de rentat"
+      },
+      "water_level": {
+        "name": "Nivell d'aigua"
+      },
+      "water_strong_level": {
+        "name": "Nivell de pressió de l'aigua"
+      },
+      "heating_target_temperature": {
+        "name": "Temperatura objectiu d'escalfament"
+      },
+      "dry_level": {
+        "name": "Nivell d'assecat"
+      },
+      "heating_level": {
+        "name": "Nivell d'escalfament"
+      },
+      "seat_temp_level": {
+        "name": "Nivell de temperatura del seient"
+      },
+      "water_temp_level": {
+        "name": "Nivell de temperatura de l'aigua"
+      },
+      "fan_speed_percent": {
+        "name": "Percentatge de velocitat del ventilador"
+      },
+      "vacation_days": {
+        "name": "Dies de vacances"
+      },
+      "max_temperature": {
+        "name": "Temperatura objectiu màxima"
+      },
+      "disinfection_temperature": {
+        "name": "Temperatura de desinfecció"
+      },
+      "schedule_mode": {
+        "name": "Mode de programació"
+      },
+      "leak_water_protection_value": {
+        "name": "Valor de protecció contra fuites d'aigua"
+      },
+      "flushing_days": {
+        "name": "Dies de regeneració"
+      },
+      "water_hardness": {
+        "name": "Duresa de l'aigua"
+      },
+      "boil_temperature": {
+        "name": "Temperatura objectiu d'ebullició"
+      },
+      "keep_warm_time": {
+        "name": "Temps de manteniment de la calor"
+      },
+      "ai_voice_volume": {
+        "name": "Volum de la veu de l'IA"
+      },
+      "screen_luminance": {
+        "name": "Lluminositat de la pantalla"
+      },
+      "volume": {
+        "name": "Volum"
+      },
+      "temperature_number": {
+        "name": "Temperatura objectiu"
+      },
+      "temperature_above_number": {
+        "name": "Temperatura objectiu superior"
+      },
+      "temperature_underside_number": {
+        "name": "Temperatura objectiu inferior"
+      },
+      "probe_temperature_number": {
+        "name": "Temperatura objectiu de la sonda"
+      },
+      "steam_quantity_number": {
+        "name": "Quantitat de vapor"
+      },
+      "hour_set": {
+        "name": "Ajust de l'hora"
+      },
+      "minute_set": {
+        "name": "Ajust dels minuts"
+      },
+      "second_set": {
+        "name": "Ajust dels segons"
+      },
+      "dryer_timed_extra": {
+        "name": "Ampliació de l'assecat temporitzat"
+      }
+    },
+    "select": {
+      "cur_quantify": {
+        "name": "Quantitat actual predefinida",
+        "state": {
+          "none": "Cap",
+          "preset_1": "Predefinit 1",
+          "preset_2": "Predefinit 2",
+          "preset_3": "Predefinit 3",
+          "preset_4": "Predefinit 4",
+          "preset_5": "Predefinit 5"
+        }
+      },
+      "wash_mode_76000228": {
+        "name": "Mode de rentat",
+        "state": {
+          "neutral_gear": "Cap",
+          "auto_wash": "Automàtic",
+          "strong_wash": "Intensiu",
+          "standard_wash": "Universal",
+          "eco_wash": "ECO",
+          "glass_wash": "Vidre",
+          "hour_wash": "90 min",
+          "fast_wash": "Ràpid",
+          "soak_wash": "Remull",
+          "90min": "90 min",
+          "self_clean": "Autoneteja",
+          "fruit_wash": "Fruita",
+          "self_define": "Personalitzat",
+          "germ": "Xiuxiueig",
+          "bowl_wash": "Bols",
+          "kill_germ": "Higiene",
+          "sea_food_wash": "Autoneteja",
+          "hot_pot_wash": "Olla calenta",
+          "quiet_night_wash": "Nit tranquil·la",
+          "less_wash": "Lleuger",
+          "max_rapid_wash": "Ràpid màxim",
+          "oil_net_wash": "Filtre d'oli",
+          "cloud_wash": "Programa al núvol",
+          "single_dry": "Només assecat",
+          "single_disinfect": "Només desinfecció",
+          "high_temp_wash": "Temperatura alta",
+          "wash_dry": "Rentat i assecat"
+        }
+      },
+      "program_76000228": {
+        "name": "Programa",
+        "state": {
+          "auto_wash": "Automàtic",
+          "strong_wash": "Intensiu",
+          "standard_wash": "Universal",
+          "eco_wash": "ECO",
+          "glass_wash": "Vidre",
+          "hour_wash": "90 min",
+          "fast_wash": "Ràpid",
+          "soak_wash": "Remull",
+          "90min": "90 min",
+          "self_clean": "Autoneteja",
+          "fruit_wash": "Fruita",
+          "self_define": "Personalitzat",
+          "germ": "Xiuxiueig",
+          "bowl_wash": "Bols",
+          "kill_germ": "Higiene",
+          "sea_food_wash": "Autoneteja",
+          "hot_pot_wash": "Olla calenta",
+          "quiet_night_wash": "Nit tranquil·la",
+          "less_wash": "Lleuger",
+          "max_rapid_wash": "Ràpid màxim",
+          "oil_net_wash": "Filtre d'oli",
+          "cloud_wash": "Programa al núvol",
+          "single_dry": "Només assecat",
+          "single_disinfect": "Només desinfecció",
+          "high_temp_wash": "Temperatura alta",
+          "wash_dry": "Rentat i assecat"
+        }
+      },
+      "program": {
+        "name": "Programa",
+        "state": {
+          "auto_wash": "Automàtic",
+          "strong_wash": "Intensiu",
+          "standard_wash": "Estàndard",
+          "eco_wash": "ECO",
+          "glass_wash": "Vidre",
+          "hour_wash": "1 hora",
+          "fast_wash": "Ràpid",
+          "soak_wash": "Remull",
+          "90min": "90 min",
+          "self_clean": "Autoneteja",
+          "fruit_wash": "Fruita",
+          "self_define": "Personalitzat",
+          "germ": "Gèrmens",
+          "bowl_wash": "Bols",
+          "kill_germ": "Higiene",
+          "sea_food_wash": "Marisc",
+          "hot_pot_wash": "Olla calenta",
+          "quiet_night_wash": "Nit tranquil·la",
+          "less_wash": "Lleuger",
+          "max_rapid_wash": "Ràpid màxim",
+          "oil_net_wash": "Filtre d'oli",
+          "cloud_wash": "Programa al núvol",
+          "single_dry": "Només assecat",
+          "single_disinfect": "Només desinfecció",
+          "high_temp_wash": "Temperatura alta",
+          "wash_dry": "Rentat i assecat"
+        }
+      },
+      "load": {
+        "name": "Càrrega",
+        "state": {
+          "0": "Màxim",
+          "2": "Mitja"
+        }
+      },
+      "heating_mode": {
+        "name": "Mode d'escalfament",
+        "state": {
+          "user": "Usuari",
+          "activity": "Activitat",
+          "sleep": "Repòs",
+          "unknown": "Desconegut"
+        }
+      },
+      "detect_mode": {
+        "name": "Mode de detecció",
+        "state": {
+          "off": "Apagat",
+          "pm_2_5": "PM 2.5",
+          "methanal": "Metanal"
+        }
+      },
+      "direction": {
+        "name": "Direcció",
+        "state": {
+          "oscillate": "Oscil·lació"
+        }
+      },
+      "fan_speed": {
+        "name": "Velocitat del ventilador",
+        "state": {
+          "auto": "Automàtic",
+          "standby": "En espera",
+          "low": "Baixa",
+          "medium": "Mitjana",
+          "high": "Alta"
+        }
+      },
+      "fresh_air_exhaust_mode": {
+        "name": "Velocitat d'extracció d'aire fresc",
+        "state": {
+          "off": "Apagat",
+          "silent": "Baixa",
+          "high": "Alta",
+          "full": "Màxim"
+        }
+      },
+      "fresh_air_mode": {
+        "name": "Velocitat de l'aire fresc",
+        "state": {
+          "off": "Apagat",
+          "low": "Baixa",
+          "medium": "Mitjana",
+          "high": "Alta",
+          "full": "Màxim"
+        }
+      },
+      "mode": {
+        "name": "Mode",
+        "state": {
+          "standby": "En espera",
+          "auto": "Automàtic",
+          "manual": "Manual",
+          "sleep": "Repòs",
+          "fast": "Ràpid",
+          "smoke": "Fum",
+          "off": "Apagat",
+          "heat_high": "Calor (alta)",
+          "heat_low": "Calor (baixa)",
+          "bath": "Bany",
+          "blow": "Bufa",
+          "ventilation": "Ventilació",
+          "dry": "Assecat"
+        }
+      },
+      "oscillation_angle": {
+        "name": "Angle d'oscil·lació"
+      },
+      "oscillation_mode": {
+        "name": "Mode d'oscil·lació"
+      },
+      "rate_select": {
+        "name": "Límit de potència"
+      },
+      "screen_display": {
+        "name": "Visualització de la pantalla",
+        "state": {
+          "bright": "Brillant",
+          "dim": "Tènue",
+          "off": "Apagat"
+        }
+      },
+      "silent_level": {
+        "name": "Nivell de silenci"
+      },
+      "tilting_angle": {
+        "name": "Angle d'inclinació"
+      },
+      "wash_mode": {
+        "name": "Mode de rentat",
+        "state": {
+          "neutral_gear": "Cap",
+          "auto_wash": "Automàtic",
+          "strong_wash": "Intensiu",
+          "standard_wash": "Estàndard",
+          "eco_wash": "ECO",
+          "glass_wash": "Vidre",
+          "hour_wash": "1 hora",
+          "fast_wash": "Ràpid",
+          "soak_wash": "Remull",
+          "90min": "90 min",
+          "self_clean": "Autoneteja",
+          "fruit_wash": "Fruita",
+          "self_define": "Personalitzat",
+          "germ": "Gèrmens",
+          "bowl_wash": "Bols",
+          "kill_germ": "Higiene",
+          "sea_food_wash": "Marisc",
+          "hot_pot_wash": "Olla calenta",
+          "quiet_night_wash": "Nit tranquil·la",
+          "less_wash": "Lleuger",
+          "max_rapid_wash": "Ràpid màxim",
+          "oil_net_wash": "Filtre d'oli",
+          "cloud_wash": "Programa al núvol",
+          "single_dry": "Només assecat",
+          "single_disinfect": "Només desinfecció",
+          "high_temp_wash": "Temperatura alta",
+          "wash_dry": "Rentat i assecat"
+        }
+      },
+      "water_level_set": {
+        "name": "Ajust del nivell d'aigua"
+      },
+      "wind_lr_angle": {
+        "name": "Flux d'aire horitzontal",
+        "state": {
+          "off": "Apagat",
+          "left": "Esquerra",
+          "left_mid": "Esquerra-centre",
+          "middle": "Centre",
+          "right_mid": "Dreta-centre",
+          "right": "Dreta"
+        }
+      },
+      "wind_ud_angle": {
+        "name": "Flux d'aire vertical",
+        "state": {
+          "off": "Apagat",
+          "up": "Amunt",
+          "up_mid": "Amunt-centre",
+          "middle": "Centre",
+          "down_mid": "Avall-centre",
+          "down": "Avall"
+        }
+      },
+      "work_status_select": {
+        "name": "Estat de funcionament",
+        "state": {
+          "save_power": "Estalvi d'energia",
+          "standby": "En espera",
+          "work": "En funcionament",
+          "pause": "En pausa",
+          "work_finish": "Finalitzat",
+          "order": "Retard",
+          "pause_c": "En pausa C",
+          "three": "Tres",
+          "self_inspection": "Autoinspecció",
+          "query_version": "Consulta de versió",
+          "demo": "Demostració",
+          "ramadan": "Ramadà",
+          "after_checking": "Després de comprovar",
+          "wait_to_start": "A l'espera d'iniciar",
+          "ff": "Desconegut"
+        }
+      },
+      "x9b_fire_power_select": {
+        "name": "Potència del foc",
+        "state": {
+          "high_power": "Alta",
+          "medium_high_power": "Mitjana-alta",
+          "medium_power": "Mitjana",
+          "medium_low_power": "Mitjana-baixa",
+          "low_power": "Baixa",
+          "ff": "Desconegut"
+        }
+      },
+      "door": {
+        "name": "Porta",
+        "state": {
+          "open": "Obre",
+          "close": "Tanca"
+        }
+      },
+      "dryer_program_control": {
+        "name": "Programa d'assecat",
+        "state": {
+          "mixed_wash": "Mixt",
+          "wool": "Llana",
+          "night_dry": "Assecat nocturn",
+          "big_dry": "Peces voluminoses",
+          "small_piece_dry": "Peces petites",
+          "baby_clothes": "Roba de nadó",
+          "down_jacket": "Plomalls",
+          "quick_dry": "Assecat ràpid",
+          "cotton": "Cotó i lli",
+          "shirt": "Camises",
+          "jean": "Texà",
+          "underwear": "Roba interior",
+          "school_uniform": "Uniformes escolars",
+          "silk": "Seda",
+          "towel": "Tovalloles de bany",
+          "chiffon": "Gasa",
+          "polar_fleece": "Pelfa polar",
+          "hanfu": "Hanfu",
+          "hanfu_tang": "Hanfu™ estil Tang",
+          "hanfu_song": "Hanfu™ estil Song",
+          "hanfu_ming": "Hanfu™ estil Ming",
+          "hanfu_modern": "Hanfu™ estil modern",
+          "sun_quilt": "Airejat d'edredons",
+          "bucket_self_clean": "Neteja del tambor",
+          "steam_care": "Cura amb vapor",
+          "fixed_time_dry": "Assecat temporitzat",
+          "warm_clothes": "Escalfament de roba",
+          "cold_air_fresh_air": "Refrescament amb aire fred",
+          "sterilize_mite": "Esterilització i eliminació d'àcars",
+          "bracket_dry": "Assecat a l'estenedor",
+          "pet_sterilize": "Esterilització de mascotes",
+          "sport_clothes": "Roba esportiva",
+          "outdoor": "Roba d'exterior",
+          "quick_drying_clothes": "Roba d'assecat ràpid",
+          "yoga": "Roba de ioga",
+          "air_wash": "Rentat a l'aire",
+          "fiber": "Sintètics",
+          "bedsheet": "Llençols",
+          "plush": "Peluix",
+          "dehumidify": "Deshumidificació",
+          "hot_air_dry": "Assecat amb aire calent",
+          "standard": "Estàndard",
+          "fresh_air": "Aire fresc",
+          "low_temp_dry": "Assecat a baixa temperatura",
+          "eco_dry": "Assecat amb estalvi d'energia",
+          "quick_dry_30": "Assecat ràpid 30 min",
+          "intelligent_dry": "Assecat intel·ligent",
+          "big": "Peces voluminoses",
+          "western_trouser": "Pantalons de vestir",
+          "dehumidification": "Deshumidificació",
+          "smart_dry": "Assecat intel·ligent",
+          "four_piece_suit": "Joc de llençols",
+          "quick_dry_20": "Assecat ràpid 20 min",
+          "steam_sterilize": "Esterilització amb vapor",
+          "enzyme": "Enzim",
+          "big_60": "Peces voluminoses 60",
+          "steam_no_iron": "Cura sense planxa amb vapor",
+          "bed_clothes": "Roba de llit",
+          "little_fast_dry": "Assecat ràpid de càrrega petita",
+          "wool_nurse": "Cura de la llana",
+          "fresh_remove_smell": "Refrescament desodoritzant",
+          "sterilize": "Esterilització"
+        }
+      },
+      "dryer_dryness_control": {
+        "name": "Sequedat",
+        "state": {
+          "ready_to_wear": "Llesta per posar",
+          "storage": "Emmagatzematge"
+        }
+      },
+      "dryer_temperature_control": {
+        "name": "Temperatura d'assecat",
+        "state": {
+          "standard": "Estàndard",
+          "low": "Baixa"
+        }
+      },
+      "washer_program_control": {
+        "name": "Programa de rentat",
+        "state": {
+          "water_mixed_wash": "Rentat mixt",
+          "fast_wash": "Rentat ràpid 15 min",
+          "single_dehytration": "Només centrifugat",
+          "rinsing_dehydration": "Esbandida i centrifugat",
+          "fast_wash_30": "Rentat ràpid 30 min",
+          "big": "Peces voluminoses",
+          "tub_clean": "Neteja del tambor",
+          "deep_tub_clean": "Neteja profunda del tambor",
+          "down_jacket": "Plomalls",
+          "new_water_cotton": "Cotó i lli",
+          "baby_clothes": "Roba de nadó",
+          "shirt": "Camises",
+          "wool": "Llana",
+          "water_underwear": "Roba interior",
+          "silk": "Seda",
+          "jacket": "Jaquetes d'exterior",
+          "new_clothes_wash": "Roba nova",
+          "jean": "Texà",
+          "water_fiber": "Sintètics",
+          "water_eco": "Estalvi d'energia",
+          "water_intelligent": "Rentat intel·ligent",
+          "water_steep": "Rentat amb remull",
+          "water_cold_wash": "Rentat en fred",
+          "sterilization_wash": "Rentat esterilitzant",
+          "water_remove_mite_wash": "Eliminació d'àcars",
+          "disinfection_wash": "Rentat desinfectant",
+          "stain_wash": "Rentat de taques",
+          "sport_clothes": "Roba esportiva",
+          "yoga": "Roba de ioga",
+          "quick_drying_clothes": "Roba d'assecat ràpid"
+        }
+      },
+      "washer_temperature_control": {
+        "name": "Temperatura de l'aigua",
+        "state": {
+          "cold": "Freda",
+          "20": "20 °C",
+          "30": "30 °C",
+          "40": "40 °C",
+          "60": "60 °C",
+          "95": "95 °C"
+        }
+      },
+      "washer_spin_speed_control": {
+        "name": "Velocitat de centrifugat",
+        "state": {
+          "0": "Sense centrifugat",
+          "400": "400 rpm",
+          "600": "600 rpm",
+          "800": "800 rpm",
+          "1000": "1000 rpm",
+          "1200": "1200 rpm",
+          "1400": "1400 rpm"
+        }
+      },
+      "washer_rinse_count": {
+        "name": "Nombre d'esbandides",
+        "state": {
+          "1": "1",
+          "2": "2",
+          "3": "3",
+          "4": "4"
+        }
+      },
+      "washer_water_level_control": {
+        "name": "Nivell d'aigua",
+        "state": {
+          "auto": "Automàtic",
+          "l1": "L1",
+          "l2": "L2",
+          "l3": "L3",
+          "l4": "L4"
+        }
+      },
+      "washer_detergent_control": {
+        "name": "Dosificació de detergent",
+        "state": {
+          "smart": "Intel·ligent",
+          "off": "Apagat",
+          "l1": "L1",
+          "l2": "L2",
+          "l3": "L3",
+          "l4": "L4"
+        }
+      },
+      "washer_wash_time_control": {
+        "name": "Temps de rentat (min)"
+      },
+      "washer_spin_time_control": {
+        "name": "Temps de centrifugat (min)"
+      }
+    },
+    "time": {
+      "timing_regeneration": {
+        "name": "Regeneració temporitzada"
+      },
+      "laundry_appointment_finish": {
+        "name": "Hora de finalització (defineix la reserva)"
+      }
+    },
+    "sensor": {
+      "db_running_status": {
+        "name": "Estat de la rentadora"
+      },
+      "db_progress": {
+        "name": "Progrés de la rentadora"
+      },
+      "db_program": {
+        "name": "Programa de rentat"
+      },
+      "db_remain_time": {
+        "name": "Temps restant de la rentadora"
+      },
+      "db_wash_time": {
+        "name": "Temps de rentat de la rentadora"
+      },
+      "db_dehydration_time": {
+        "name": "Temps de centrifugat de la rentadora"
+      },
+      "db_dehydration_speed": {
+        "name": "Velocitat de centrifugat de la rentadora"
+      },
+      "db_water_level": {
+        "name": "Nivell d'aigua de la rentadora"
+      },
+      "db_temperature": {
+        "name": "Temperatura de la rentadora"
+      },
+      "db_rinse_count": {
+        "name": "Nombre d'esbandides de la rentadora"
+      },
+      "db_detergent": {
+        "name": "Detergent de la rentadora"
+      },
+      "db_softener": {
+        "name": "Suavitzant de la rentadora"
+      },
+      "db_appointment_time": {
+        "name": "Hora de la reserva de la rentadora"
+      },
+      "db_appointment_end_time": {
+        "name": "Hora de finalització de la reserva de la rentadora"
+      },
+      "db_error_code": {
+        "name": "Codi d'error de la rentadora"
+      },
+      "db_water_consumption": {
+        "name": "Consum d'aigua de la rentadora"
+      },
+      "db_power_consumption": {
+        "name": "Consum d'energia de la rentadora"
+      },
+      "dc_running_status": {
+        "name": "Estat de l'assecadora"
+      },
+      "dc_dry_status": {
+        "name": "Estat d'assecat de l'assecadora"
+      },
+      "dc_program": {
+        "name": "Programa d'assecat"
+      },
+      "dc_remain_time": {
+        "name": "Temps restant de l'assecadora"
+      },
+      "dc_dry_time": {
+        "name": "Temps d'assecat de l'assecadora"
+      },
+      "dc_intensity": {
+        "name": "Intensitat de l'assecadora"
+      },
+      "dc_appointment_time": {
+        "name": "Hora de la reserva de l'assecadora"
+      },
+      "dc_appointment_end_time": {
+        "name": "Hora de finalització de la reserva de l'assecadora"
+      },
+      "dc_error_code": {
+        "name": "Codi d'error de l'assecadora"
+      },
+      "dc_water_consumption": {
+        "name": "Consum d'aigua de l'assecadora"
+      },
+      "dc_power_consumption": {
+        "name": "Consum d'energia de l'assecadora"
+      },
+      "dishwasher_mode": {
+        "name": "Mode",
+        "state": {
+          "neutral_gear": "Cap",
+          "auto_wash": "Automàtic",
+          "strong_wash": "Intensiu",
+          "standard_wash": "Estàndard",
+          "eco_wash": "ECO",
+          "glass_wash": "Vidre",
+          "hour_wash": "1 hora",
+          "fast_wash": "Ràpid",
+          "soak_wash": "Remull",
+          "90min": "90 min",
+          "self_clean": "Autoneteja",
+          "fruit_wash": "Fruita",
+          "self_define": "Personalitzat",
+          "germ": "Gèrmens",
+          "bowl_wash": "Bols",
+          "kill_germ": "Higiene",
+          "sea_food_wash": "Marisc",
+          "hot_pot_wash": "Olla calenta",
+          "quiet_night_wash": "Nit tranquil·la",
+          "less_wash": "Lleuger",
+          "max_rapid_wash": "Ràpid màxim",
+          "oil_net_wash": "Filtre d'oli",
+          "cloud_wash": "Programa al núvol",
+          "single_dry": "Només assecat",
+          "single_disinfect": "Només desinfecció",
+          "high_temp_wash": "Temperatura alta",
+          "wash_dry": "Rentat i assecat"
+        }
+      },
+      "dishwasher_mode_76000228": {
+        "name": "Mode",
+        "state": {
+          "neutral_gear": "Cap",
+          "auto_wash": "Automàtic",
+          "strong_wash": "Intensiu",
+          "standard_wash": "Universal",
+          "eco_wash": "ECO",
+          "glass_wash": "Vidre",
+          "hour_wash": "90 min",
+          "fast_wash": "Ràpid",
+          "soak_wash": "Remull",
+          "90min": "90 min",
+          "self_clean": "Autoneteja",
+          "fruit_wash": "Fruita",
+          "self_define": "Personalitzat",
+          "germ": "Xiuxiueig",
+          "bowl_wash": "Bols",
+          "kill_germ": "Higiene",
+          "sea_food_wash": "Autoneteja",
+          "hot_pot_wash": "Olla calenta",
+          "quiet_night_wash": "Nit tranquil·la",
+          "less_wash": "Lleuger",
+          "max_rapid_wash": "Ràpid màxim",
+          "oil_net_wash": "Filtre d'oli",
+          "cloud_wash": "Programa al núvol",
+          "single_dry": "Només assecat",
+          "single_disinfect": "Només desinfecció",
+          "high_temp_wash": "Temperatura alta",
+          "wash_dry": "Rentat i assecat"
+        }
+      },
+      "dishwasher_status": {
+        "name": "Estat",
+        "state": {
+          "power_off": "Apagat",
+          "cancel": "Inactiu",
+          "delay": "Inici endarrerit",
+          "running": "En funcionament",
+          "error": "Error"
+        }
+      },
+      "dishwasher_progress": {
+        "name": "Progrés",
+        "state": {
+          "idle": "Inactiu",
+          "pre_wash": "Prerentat",
+          "wash": "Rentat",
+          "rinse": "Esbandida",
+          "dry": "Assecat",
+          "complete": "Complet"
+        }
+      },
+      "operator": {
+        "name": "Estat de funcionament",
+        "state": {
+          "start": "En funcionament",
+          "pause": "En pausa"
+        }
+      },
+      "wrong_operation": {
+        "name": "Operació incorrecta"
+      },
+      "dry_set_min": {
+        "name": "Temps d'assecat definit"
+      },
+      "clean_left_hour": {
+        "name": "Neteja restant"
+      },
+      "kitchenware_left_hour": {
+        "name": "Estris de cuina restants"
+      },
+      "device_version": {
+        "name": "Versió del dispositiu"
+      },
+      "throw_percent": {
+        "name": "Nivell de dosificació"
+      },
+      "delay_remaining": {
+        "name": "Temps restant d'inici endarrerit"
+      },
+      "gas_usage_daily": {
+        "name": "Consum diari de gas"
+      },
+      "gas_usage_last_month": {
+        "name": "Consum de gas del mes passat"
+      },
+      "gas_usage_monthly": {
+        "name": "Consum mensual de gas"
+      },
+      "water_usage_daily": {
+        "name": "Consum diari d'aigua"
+      },
+      "water_usage_last_month": {
+        "name": "Consum d'aigua del mes passat"
+      },
+      "water_usage_monthly": {
+        "name": "Consum mensual d'aigua"
+      },
+      "three_way_mode": {
+        "name": "Mode de tres vies"
+      },
+      "heating_unit_type": {
+        "name": "Tipus d'unitat d'escalfament"
+      },
+      "return_temperature": {
+        "name": "Temperatura de retorn"
+      },
+      "heating_temperature": {
+        "name": "Temperatura d'escalfament"
+      },
+      "heating_gap_temperature": {
+        "name": "Temperatura de marge d'escalfament"
+      },
+      "user_mode_target_temperature": {
+        "name": "Temperatura objectiu del mode usuari"
+      },
+      "activity_mode_target_temperature": {
+        "name": "Temperatura objectiu del mode activitat"
+      },
+      "sleep_mode_target_temperature": {
+        "name": "Temperatura objectiu del mode repòs"
+      },
+      "last_time": {
+        "name": "Última vegada"
+      },
+      "flow_volume": {
+        "name": "Cabal"
+      },
+      "bathing_leaving_temperature": {
+        "name": "Temperatura de sortida de l'aigua del bany"
+      },
+      "bf_status": {
+        "name": "Estat",
+        "state": {
+          "save_power": "Estalvi d'energia",
+          "standby": "En espera",
+          "work": "En funcionament",
+          "work_finish": "Finalitzat",
+          "order": "Retard",
+          "pause": "En pausa",
+          "pause_c": "En pausa C",
+          "three": "Tres",
+          "wait_to_start": "A l'espera d'iniciar",
+          "self_inspection": "Autoinspecció",
+          "query_version": "Consulta de versió",
+          "demo": "Demostració",
+          "after_checking": "Després de comprovar",
+          "unknown": "Desconegut"
+        }
+      },
+      "bottom_compartment_remaining": {
+        "name": "Restant del compartiment inferior"
+      },
+      "bottom_compartment_status": {
+        "name": "Estat del compartiment inferior"
+      },
+      "bottom_compartment_temperature": {
+        "name": "Temperatura del compartiment inferior"
+      },
+      "bottom_temperature": {
+        "name": "Temperatura inferior"
+      },
+      "bright": {
+        "name": "Nivell de brillantor"
+      },
+      "cloudmenuid": {
+        "name": "ID del menú al núvol"
+      },
+      "compressor_temperature": {
+        "name": "Temperatura del compressor"
+      },
+      "condenser_temperature": {
+        "name": "Temperatura del condensador"
+      },
+      "cur_probe_temperature": {
+        "name": "Temperatura actual de la sonda"
+      },
+      "cur_temperature_above": {
+        "name": "Temperatura actual superior"
+      },
+      "cur_temperature_underside": {
+        "name": "Temperatura actual inferior"
+      },
+      "current_energy_consumption": {
+        "name": "Consum d'energia actual"
+      },
+      "current_temperature": {
+        "name": "Temperatura actual"
+      },
+      "dehydration_speed": {
+        "name": "Velocitat de centrifugat"
+      },
+      "dehydration_time": {
+        "name": "Temps de centrifugat"
+      },
+      "dehydration_time_value": {
+        "name": "Valor del temps de centrifugat"
+      },
+      "execute_status": {
+        "name": "Estat d'execució",
+        "state": {
+          "ok": "D'acord",
+          "status_nonsupport": "Estat no admès",
+          "function_nonsupport": "Funció no admesa",
+          "param_range_error": "Error de rang de paràmetre"
+        }
+      },
+      "fire_power": {
+        "name": "Potència del foc",
+        "state": {
+          "fire_power_0": "Nivell 0",
+          "fire_power_1": "Nivell 1",
+          "fire_power_2": "Nivell 2",
+          "fire_power_3": "Nivell 3",
+          "fire_power_4": "Nivell 4",
+          "fire_power_5": "Nivell 5",
+          "fire_power_6": "Nivell 6",
+          "fire_power_7": "Nivell 7",
+          "fire_power_8": "Nivell 8",
+          "fire_power_9": "Nivell 9",
+          "fire_power_10": "Nivell 10",
+          "unknown": "Desconegut"
+        }
+      },
+      "minute_set": {
+        "name": "Ajust dels minuts"
+      },
+      "people_number": {
+        "name": "Nombre de persones"
+      },
+      "probe_temperature": {
+        "name": "Temperatura de la sonda"
+      },
+      "second_set": {
+        "name": "Ajust dels segons"
+      },
+      "steam_quantity": {
+        "name": "Quantitat de vapor"
+      },
+      "stepnum": {
+        "name": "Pas actual"
+      },
+      "temperature": {
+        "name": "Temperatura"
+      },
+      "temperature_above": {
+        "name": "Temperatura superior"
+      },
+      "temperature_underside": {
+        "name": "Temperatura inferior"
+      },
+      "totalstep": {
+        "name": "Passos totals"
+      },
+      "wash_time_value": {
+        "name": "Valor del temps de rentat"
+      },
+      "stains": {
+        "name": "Taques"
+      },
+      "dirty_degree": {
+        "name": "Grau de brutícia"
+      },
+      "detergent": {
+        "name": "Detergent"
+      },
+      "intensity": {
+        "name": "Intensitat"
+      },
+      "dryness_level": {
+        "name": "Nivell de sequedat"
+      },
+      "dry_temperature": {
+        "name": "Temperatura d'assecat"
+      },
+      "door_warn": {
+        "name": "Avís de porta"
+      },
+      "ai_switch": {
+        "name": "Interruptor d'IA"
+      },
+      "material": {
+        "name": "Material"
+      },
+      "water_box": {
+        "name": "Dipòsit d'aigua"
+      },
+      "energy_consumption": {
+        "name": "Consum d'energia"
+      },
+      "error": {
+        "name": "Error",
+        "state": {
+          "no_error": "Sense error",
+          "e1_position_not_found": "E1 Posició no trobada",
+          "e2_photo_sensor_no_signal": "E2 Sensor fotoelèctric sense senyal",
+          "e3_motor_not_running": "E3 El motor no funciona",
+          "e4_wrong_position": "E4 Posició incorrecta",
+          "e1_motor_fault": "E1 Avaria del motor",
+          "e5_communication_fault": "E5 Avaria de comunicació",
+          "e6_salt_sensor_fault": "E6 Avaria del sensor de sal",
+          "e7_chlorine_sterilization_fault": "E7 Avaria d'esterilització per clor"
+        }
+      },
+      "error_code": {
+        "name": "Codi d'error"
+      },
+      "humidify_feedback": {
+        "name": "Retroalimentació d'humitat"
+      },
+      "temperature_feedback": {
+        "name": "Retroalimentació de temperatura"
+      },
+      "humidify_mode": {
+        "name": "Mode d'humidificació"
+      },
+      "estimated_energy_consumption": {
+        "name": "Consum d'energia estimat"
+      },
+      "estimated_water_consumption": {
+        "name": "Consum d'aigua estimat"
+      },
+      "fan_level": {
+        "name": "Nivell del ventilador"
+      },
+      "filter_life": {
+        "name": "Vida útil del filtre"
+      },
+      "filter1_days": {
+        "name": "Dies disponibles del filtre 1"
+      },
+      "filter1_life": {
+        "name": "Nivell de vida útil del filtre 1"
+      },
+      "filter2_days": {
+        "name": "Dies disponibles del filtre 2"
+      },
+      "filter2_life": {
+        "name": "Nivell de vida útil del filtre 2"
+      },
+      "filter3_days": {
+        "name": "Dies disponibles del filtre 3"
+      },
+      "filter3_life": {
+        "name": "Nivell de vida útil del filtre 3"
+      },
+      "flex_zone_actual_temp": {
+        "name": "Temperatura real de la zona flexible"
+      },
+      "flex_zone_setting_temp": {
+        "name": "Temperatura d'ajust de la zona flexible"
+      },
+      "freezer_actual_temp": {
+        "name": "Temperatura real del congelador"
+      },
+      "freezer_setting_temp": {
+        "name": "Temperatura d'ajust del congelador"
+      },
+      "hcho": {
+        "name": "Metanal"
+      },
+      "heating_leaving_temperature": {
+        "name": "Temperatura de sortida de l'aigua d'escalfament"
+      },
+      "heating_power": {
+        "name": "Potència d'escalfament"
+      },
+      "heating_time_remaining": {
+        "name": "Temps restant d'escalfament"
+      },
+      "in_tds": {
+        "name": "TDS d'entrada"
+      },
+      "indoor_humidity": {
+        "name": "Humitat interior"
+      },
+      "indoor_temperature": {
+        "name": "Temperatura interior"
+      },
+      "keep_warm_remaining": {
+        "name": "Restant del manteniment de la calor"
+      },
+      "fault_code": {
+        "name": "Codi d'avaria"
+      },
+      "keep_warm_time": {
+        "name": "Temps de manteniment de la calor"
+      },
+      "left_salt": {
+        "name": "Sal restant"
+      },
+      "middle_compartment_remaining": {
+        "name": "Restant del compartiment central"
+      },
+      "middle_compartment_status": {
+        "name": "Estat del compartiment central"
+      },
+      "middle_compartment_temperature": {
+        "name": "Temperatura del compartiment central"
+      },
+      "mode": {
+        "name": "Mode"
+      },
+      "out_tds": {
+        "name": "TDS de sortida"
+      },
+      "outdoor_temperature": {
+        "name": "Temperatura exterior"
+      },
+      "comp_run_freq": {
+        "name": "Freqüència del compressor"
+      },
+      "outdoor_fan_speed": {
+        "name": "Velocitat del ventilador exterior"
+      },
+      "unit_mode_run": {
+        "name": "Mode de funcionament de la unitat",
+        "state": {
+          "off": "Apagat",
+          "auto": "Automàtic",
+          "cool": "Fred",
+          "heat": "Calor",
+          "dhw": "ACS"
+        }
+      },
+      "odu_target_fre": {
+        "name": "Freqüència objectiu del compressor"
+      },
+      "odu_voltage": {
+        "name": "Tensió de la unitat exterior"
+      },
+      "odu_comp_current": {
+        "name": "Intensitat del compressor"
+      },
+      "exv_current": {
+        "name": "Obertura de la vàlvula d'expansió electrònica"
+      },
+      "fg_capacity_need": {
+        "name": "Demanda de capacitat"
+      },
+      "pressure_high": {
+        "name": "Pressió del refrigerant (costat alt)"
+      },
+      "pressure_low": {
+        "name": "Pressió del refrigerant (costat baix)"
+      },
+      "temp_t1": {
+        "name": "Sensor de temperatura T1"
+      },
+      "temp_t2": {
+        "name": "Temperatura de l'intercanviador de calor de plaques (T2)"
+      },
+      "temp_t2b": {
+        "name": "Temperatura de sortida de l'intercanviador de calor de plaques (T2B)"
+      },
+      "temp_t3": {
+        "name": "Temperatura de la bateria exterior (T3)"
+      },
+      "temp_tp": {
+        "name": "Temperatura del tub de descàrrega (TP)"
+      },
+      "temp_th": {
+        "name": "Temperatura d'aspiració (TH)"
+      },
+      "temp_tf": {
+        "name": "Temperatura del mòdul de potència (TF)"
+      },
+      "program": {
+        "name": "Programa"
+      },
+      "progress": {
+        "name": "Progrés"
+      },
+      "realtime_power": {
+        "name": "Potència en temps real"
+      },
+      "pmv": {
+        "name": "PMV"
+      },
+      "refrigerator_actual_temp": {
+        "name": "Temperatura real del frigorífic"
+      },
+      "refrigerator_setting_temp": {
+        "name": "Temperatura d'ajust del frigorífic"
+      },
+      "regeneration_left_seconds": {
+        "name": "Segons restants de regeneració"
+      },
+      "remaining_days": {
+        "name": "Dies restants"
+      },
+      "right_flex_zone_actual_temp": {
+        "name": "Temperatura real de la zona flexible dreta"
+      },
+      "right_flex_zone_setting_temp": {
+        "name": "Temperatura d'ajust de la zona flexible dreta"
+      },
+      "rinse_count": {
+        "name": "Nombre d'esbandides"
+      },
+      "rinse_level": {
+        "name": "Nivell d'esbandida"
+      },
+      "salt_setting": {
+        "name": "Ajust de sal"
+      },
+      "seat_temperature": {
+        "name": "Temperatura del seient"
+      },
+      "soak_time": {
+        "name": "Temps de remull"
+      },
+      "soft_available": {
+        "name": "Aigua tova disponible"
+      },
+      "softener": {
+        "name": "Suavitzant"
+      },
+      "softwater": {
+        "name": "Nivell d'aigua tova"
+      },
+      "status": {
+        "name": "Estat"
+      },
+      "storage_remaining": {
+        "name": "Restant d'emmagatzematge"
+      },
+      "tank": {
+        "name": "Dipòsit"
+      },
+      "tank_actual_temperature": {
+        "name": "Temperatura real del dipòsit"
+      },
+      "target_temperature": {
+        "name": "Temperatura objectiu"
+      },
+      "time_remaining": {
+        "name": "Temps restant"
+      },
+      "top_compartment_remaining": {
+        "name": "Restant del compartiment superior"
+      },
+      "top_compartment_status": {
+        "name": "Estat del compartiment superior"
+      },
+      "top_compartment_temperature": {
+        "name": "Temperatura del compartiment superior"
+      },
+      "top_temperature": {
+        "name": "Temperatura superior"
+      },
+      "total_energy_consumption": {
+        "name": "Consum total d'energia"
+      },
+      "total_produced_energy": {
+        "name": "Energia total produïda"
+      },
+      "tvoc": {
+        "name": "TVOC"
+      },
+      "wash_level": {
+        "name": "Nivell de rentat"
+      },
+      "wash_strength": {
+        "name": "Intensitat de rentat"
+      },
+      "wash_time": {
+        "name": "Temps de rentat"
+      },
+      "water_consumption": {
+        "name": "Consum d'aigua"
+      },
+      "water_consumption_average": {
+        "name": "Consum d'aigua mitjà"
+      },
+      "water_consumption_big": {
+        "name": "Consum d'aigua"
+      },
+      "water_temperature": {
+        "name": "Temperatura de l'aigua"
+      },
+      "water_level": {
+        "name": "Nivell d'aigua"
+      },
+      "weight": {
+        "name": "Pes"
+      },
+      "wind": {
+        "name": "Vent"
+      },
+      "typeinfo": {
+        "name": "Informació de tipus"
+      },
+      "use_days": {
+        "name": "Dies d'ús"
+      },
+      "elec_heat": {
+        "name": "Resistència elèctrica"
+      },
+      "water_pump": {
+        "name": "Bomba d'aigua"
+      },
+      "four_way": {
+        "name": "Vàlvula de quatre vies"
+      },
+      "back_water": {
+        "name": "Aigua de retorn"
+      },
+      "sterilize": {
+        "name": "Esterilitza"
+      },
+      "disinfection_temperature": {
+        "name": "Temperatura de desinfecció"
+      },
+      "max_temperature": {
+        "name": "Temperatura objectiu màxima"
+      },
+      "max_temperature_upper_limit": {
+        "name": "Límit superior de la temperatura màxima"
+      },
+      "max_temperature_lower_limit": {
+        "name": "Límit inferior de la temperatura màxima"
+      },
+      "disinfection_temperature_upper_limit": {
+        "name": "Límit superior de la temperatura de desinfecció"
+      },
+      "disinfection_temperature_lower_limit": {
+        "name": "Límit inferior de la temperatura de desinfecció"
+      },
+      "dr_option": {
+        "name": "Opció de resposta a la demanda"
+      },
+      "remaining_hot_water_max": {
+        "name": "Aigua calenta restant màxima"
+      },
+      "force_e_heating_status": {
+        "name": "Estat de l'escalfament elèctric forçat"
+      },
+      "holiday_max": {
+        "name": "Durada màxima de vacances"
+      },
+      "holiday_min": {
+        "name": "Durada mínima de vacances"
+      },
+      "timer_step_gap": {
+        "name": "Pas del temporitzador"
+      },
+      "vacation_start_year": {
+        "name": "Any d'inici de les vacances"
+      },
+      "vacation_start_month": {
+        "name": "Mes d'inici de les vacances"
+      },
+      "vacation_start_day": {
+        "name": "Dia d'inici de les vacances"
+      },
+      "auto_sterilize_week": {
+        "name": "Setmana d'esterilització automàtica"
+      },
+      "auto_sterilize_hour": {
+        "name": "Hora d'esterilització automàtica"
+      },
+      "auto_sterilize_minute": {
+        "name": "Minut d'esterilització automàtica"
+      },
+      "work_mode": {
+        "name": "Mode de treball",
+        "state": {
+          "microwave": "Microones",
+          "microwave_1": "Microones 1",
+          "microwave_2": "Microones 2",
+          "microwave_3": "Microones 3",
+          "microwave_4": "Microones 4",
+          "microwave_5": "Microones 5",
+          "microwave_steam_above_tube": "Microones amb vapor i tub superior",
+          "microwave_double_tube": "Microones amb tub doble",
+          "microwave_hot_wind_tube_fan": "Microones amb ventilador de tub d'aire calent",
+          "microwave_underside_tube_hot_wind_tube_fan": "Microones amb ventilador d'aire calent de tub inferior",
+          "microwave_double_tube_hot_wind_tube_fan": "Microones amb ventilador d'aire calent de tub doble",
+          "microwave_steam": "Microones amb vapor",
+          "microwave_steam_1": "Microones amb vapor 1",
+          "unfreeze": "Descongelació",
+          "unfreeze_1": "Descongelació 1",
+          "unfreeze_2": "Descongelació 2",
+          "unfreeze_3": "Descongelació 3",
+          "unfreeze_t": "Descongelació T",
+          "microwave_above_tube": "Microones amb tub superior",
+          "microwave_above_tube_1": "Microones amb tub superior 1",
+          "microwave_above_tube_2": "Microones amb tub superior 2",
+          "microwave_above_tube_fan": "Microones amb ventilador de tub superior",
+          "fast_unfreeze": "Descongelació ràpida",
+          "fresh_unfreeze": "Descongelació fresca",
+          "microwave_zymosis": "Fermentació amb microones",
+          "pure_steam": "Vapor pur",
+          "pure_steam_1": "Vapor pur 1",
+          "pure_steam_2": "Vapor pur 2",
+          "pure_steam_3": "Vapor pur 3",
+          "pure_steam_4": "Vapor pur 4",
+          "pure_steam_5": "Vapor pur 5",
+          "pure_steam_6": "Vapor pur 6",
+          "pure_steam_7": "Vapor pur 7",
+          "pure_steam_8": "Vapor pur 8",
+          "pure_steam_9": "Vapor pur 9",
+          "steam_above_tube": "Vapor amb tub superior",
+          "steam_underside_tube": "Vapor amb tub inferior",
+          "steam_double_tube": "Vapor amb tub doble",
+          "steam_hot_wind_tube_fan": "Vapor amb ventilador de tub d'aire calent",
+          "steam_hot_wind_tube_fan_1": "Vapor amb ventilador de tub d'aire calent 1",
+          "steam_hot_wind_tube_fan_2": "Vapor amb ventilador de tub d'aire calent 2",
+          "steam_hot_wind_tube": "Vapor amb tub d'aire calent",
+          "steam_double_tube_fan": "Vapor amb ventilador de tub doble",
+          "steam_above_inside_outside_tube_fan": "Vapor amb ventilador de tub superior intern i extern",
+          "steam_above_inside_tube_fan": "Vapor amb ventilador de tub superior intern",
+          "above_tube": "Tub superior",
+          "underside_tube": "Tub inferior",
+          "double_tube": "Tub doble",
+          "hot_wind_tube_fan": "Ventilador de tub d'aire calent",
+          "pure_preheat": "Preescalfament pur",
+          "pure_preheat_2": "Preescalfament pur 2",
+          "above_tube_hot_wind_tube_fan": "Ventilador d'aire calent de tub superior",
+          "underside_tube_hot_wind_tube_fan": "Ventilador d'aire calent de tub inferior",
+          "zymosis": "Fermentació",
+          "double_tube_hot_wind_tube_fan": "Ventilador d'aire calent de tub doble",
+          "above_tube_revolve": "Rotació de tub superior",
+          "underside_tube_revolve": "Rotació de tub inferior",
+          "double_tube_revolve": "Rotació de tub doble",
+          "hot_wind_tube_fan_revolve": "Rotació de ventilador de tub d'aire calent",
+          "warm": "Manteniment de la calor",
+          "double_tube_fan": "Ventilador de tub doble",
+          "double_tube_fan_1": "Ventilador de tub doble 1",
+          "double_tube_fan_2": "Ventilador de tub doble 2",
+          "double_tube_fan_3": "Ventilador de tub doble 3",
+          "above_inside_tube_revolve": "Rotació de tub intern superior",
+          "above_inside_tube_fan": "Ventilador de tub intern superior",
+          "above_inside_outside_tube_revolve": "Rotació de tub intern i extern superior",
+          "above_inside_outside_tube_fan": "Ventilador de tub intern i extern superior",
+          "above_inside_underside_tube": "Tub intern superior i inferior",
+          "above_inside_underside_tube_1": "Tub intern superior i inferior 1",
+          "above_inside_underside_tube_fan": "Ventilador de tub intern superior i inferior",
+          "above_inside_underside_tube_fan_1": "Ventilador de tub intern superior i inferior 1",
+          "above_inside_tube": "Tub intern superior",
+          "above_inside_outside_tube": "Tub intern i extern superior",
+          "underside_tube_fan": "Ventilador de tub inferior",
+          "above_tube_fan": "Ventilador de tub superior",
+          "above_tube_fan_1": "Ventilador de tub superior 1",
+          "above_tube_fan_2": "Ventilador de tub superior 2",
+          "scale_clean": "Descalcificació",
+          "clean": "Neteja",
+          "remove_odor": "Elimina olors",
+          "remove_odor_2": "Elimina olors 2",
+          "high_temperature_clean": "Neteja a temperatura alta",
+          "dining_utensils_clean": "Neteja d'estris de taula",
+          "auto_menu": "Menú automàtic",
+          "eco": "Eco",
+          "above_tube_1": "Tub superior 1",
+          "above_tube_2": "Tub superior 2",
+          "above_tube_3": "Tub superior 3",
+          "underside_tube_1": "Tub inferior 1",
+          "underside_tube_2": "Tub inferior 2",
+          "double_tube_1": "Tub doble 1",
+          "double_tube_2": "Tub doble 2",
+          "double_tube_3": "Tub doble 3",
+          "double_tube_4": "Tub doble 4",
+          "double_tube_5": "Tub doble 5",
+          "double_tube_6": "Tub doble 6",
+          "hot_wind_tube_fan_1": "Ventilador de tub d'aire calent 1",
+          "hot_wind_tube_fan_2": "Ventilador de tub d'aire calent 2",
+          "hot_wind_tube_fan_3": "Ventilador de tub d'aire calent 3",
+          "hot_wind_tube_fan_4": "Ventilador de tub d'aire calent 4",
+          "hot_wind_tube_fan_5": "Ventilador de tub d'aire calent 5",
+          "double_tube_hot_wind_tube_fan_1": "Ventilador d'aire calent de tub doble 1",
+          "double_tube_hot_wind_tube_fan_2": "Ventilador d'aire calent de tub doble 2",
+          "double_tube_hot_wind_tube_fan_3": "Ventilador d'aire calent de tub doble 3",
+          "double_tube_hot_wind_tube_fan_4": "Ventilador d'aire calent de tub doble 4",
+          "double_tube_hot_wind_tube_fan_5": "Ventilador d'aire calent de tub doble 5",
+          "unknown": "Desconegut"
+        }
+      },
+      "working_time": {
+        "name": "Temps de funcionament"
+      },
+      "humidity": {
+        "name": "Humitat"
+      },
+      "variable_mode": {
+        "name": "Mode variable",
+        "state": {
+          "none": "Cap",
+          "soft_freezing": "Congelació suau",
+          "zero_fresh": "Frescor zero",
+          "cold_drink": "Beguda freda",
+          "fresh_product": "Productes frescos",
+          "partial_freezing": "Congelació parcial",
+          "dry_zone": "Zona seca",
+          "freeze_warm": "Congelar / escalfar",
+          "baby": "Mare i nadó",
+          "treasure": "Tresor",
+          "zero": "Grau zero"
+        }
+      },
+      "compressor_frequency": {
+        "name": "Freqüència del compressor"
+      },
+      "target_compressor_frequency": {
+        "name": "Freqüència objectiu del compressor"
+      },
+      "compressor_current": {
+        "name": "Intensitat del compressor"
+      },
+      "compressor_voltage": {
+        "name": "Tensió del compressor"
+      },
+      "compressor_power": {
+        "name": "Potència del compressor"
+      },
+      "indoor_ambient_temperature": {
+        "name": "Temperatura ambient interior (T1)"
+      },
+      "indoor_coil_temperature": {
+        "name": "Temperatura de la bateria interior (T2)"
+      },
+      "outdoor_coil_temperature": {
+        "name": "Temperatura de la bateria exterior (T3)"
+      },
+      "outdoor_ambient_temperature": {
+        "name": "Temperatura ambient exterior (T4)"
+      },
+      "discharge_pipe_temperature": {
+        "name": "Temperatura del tub de descàrrega (TP)"
+      },
+      "indoor_fan_speed": {
+        "name": "Velocitat del ventilador interior"
+      },
+      "target_indoor_fan_speed": {
+        "name": "Velocitat objectiu del ventilador interior"
+      },
+      "velocity": {
+        "name": "Velocitat"
+      },
+      "filter4_life": {
+        "name": "Nivell de vida útil del filtre 4"
+      },
+      "filter5_life": {
+        "name": "Nivell de vida útil del filtre 5"
+      },
+      "filter1_maxlife": {
+        "name": "Límit de vida útil del filtre 1"
+      },
+      "filter2_maxlife": {
+        "name": "Límit de vida útil del filtre 2"
+      },
+      "filter3_maxlife": {
+        "name": "Límit de vida útil del filtre 3"
+      },
+      "filter4_maxlife": {
+        "name": "Límit de vida útil del filtre 4"
+      },
+      "filter5_maxlife": {
+        "name": "Límit de vida útil del filtre 5"
+      },
+      "hot_pot_temperature": {
+        "name": "Temperatura de l'olla calenta"
+      },
+      "ice_gall_status": {
+        "name": "Estat del bloc de gel"
+      },
+      "water_kind": {
+        "name": "Tipus d'aigua",
+        "state": {
+          "idle": "Inactiu",
+          "warm": "Calent",
+          "cold": "Freda"
+        }
+      },
+      "heat_start": {
+        "name": "Inici de l'escalfament",
+        "state": {
+          "heating": "Escalfament",
+          "keep_warm": "Mantenint la calor"
+        }
+      },
+      "no_obsolete_water_mode": {
+        "name": "Mode sense aigua obsoleta",
+        "state": {
+          "water_quality_priority": "Prioritat de qualitat de l'aigua",
+          "water_saving_priority": "Prioritat d'estalvi d'aigua",
+          "custom": "Personalitzat"
+        }
+      },
+      "input_temperature_sensing": {
+        "name": "Temperatura d'entrada"
+      },
+      "temp_ta": {
+        "name": "Temperatura Ta - Ambient de l'habitació"
+      },
+      "water_flow": {
+        "name": "Aigua - Cabal"
+      },
+      "water_pressure": {
+        "name": "Aigua - Pressió"
+      },
+      "temp_t4": {
+        "name": "Temperatura T4 - Ambient exterior"
+      },
+      "temp_t5": {
+        "name": "Temperatura T5 - Dipòsit d'aigua"
+      },
+      "temp_tb_t1": {
+        "name": "Temperatura TB-T1 - Part superior del dipòsit d'esmorteïment"
+      },
+      "temp_tb_t2": {
+        "name": "Temperatura TB-T2 - Part inferior del dipòsit d'esmorteïment"
+      },
+      "temp_tsolar": {
+        "name": "Temperatura Tsolar - Panell solar"
+      },
+      "temp_tw2": {
+        "name": "Temperatura Tw2 - Aigua de la zona 2"
+      },
+      "dc_current": {
+        "name": "ODU - Corrent del bus de CC"
+      },
+      "dc_bus_voltage": {
+        "name": "ODU - Tensió del bus de CC"
+      },
+      "current_unit_capacity": {
+        "name": "Capacitat actual de la unitat (sense processar)"
+      },
+      "instant_power0": {
+        "name": "Potència - Consum d'escalfament"
+      },
+      "instant_renew_power0": {
+        "name": "Potència - Capacitat d'escalfament renovable"
+      },
+      "room_rel_hum": {
+        "name": "Humitat relativa de l'habitació"
+      },
+      "hydbox_subtype": {
+        "name": "Informació - Subtipus de la caixa hidràulica"
+      },
+      "machine_type": {
+        "name": "Informació - Tipus de màquina"
+      },
+      "odu_model": {
+        "name": "Informació - Codi de model de l'ODU"
+      },
+      "hydrobox_capacity": {
+        "name": "Informació - Capacitat de la caixa hidràulica"
+      },
+      "idu_t1s1": {
+        "name": "Temperatura - Zona 1 calculada (T1s)"
+      },
+      "idu_t1s2": {
+        "name": "Temperatura - Zona 2 calculada (T1s)"
+      },
+      "t5s": {
+        "name": "Temperatura T5s - Consigna de l'ACS"
+      },
+      "tas": {
+        "name": "Temperatura Tas - Consigna d'aire"
+      },
+      "zone1_temp_set": {
+        "name": "Temperatura - Consigna de la zona 1"
+      },
+      "zone2_temp_set": {
+        "name": "Temperatura - Consigna de la zona 2"
+      },
+      "disinfect_set_weekday": {
+        "name": "ACS - Dia de la setmana de desinfecció"
+      },
+      "disinfect_start_hour": {
+        "name": "ACS - Hora d'inici de la desinfecció"
+      },
+      "disinfect_start_minutes": {
+        "name": "ACS - Minut d'inici de la desinfecció"
+      },
+      "error_code_description": {
+        "name": "Error - Descripció"
+      },
+      "hmi_sn_code": {
+        "name": "Número de sèrie de l'HMI"
+      },
+      "temp_tw_in": {
+        "name": "Temperatura Tw_in - Entrada d'aigua"
+      },
+      "temp_tw_out": {
+        "name": "Temperatura Tw_out - Sortida d'aigua"
+      },
+      "comp_total_run_time": {
+        "name": "Energia - Temps de funcionament del compressor"
+      },
+      "idu_software_version_str": {
+        "name": "Informació - Versió de programari de l'IDU"
+      },
+      "odu_software_version_str": {
+        "name": "Informació - Versió de programari de l'ODU"
+      },
+      "ac_air_direction_gear": {
+        "name": "Nivell de direcció de l'aire de l'AC"
+      },
+      "ac_air_direction_max_angle": {
+        "name": "Angle màxim de direcció de l'aire de l'AC"
+      },
+      "ac_air_direction_min_angle": {
+        "name": "Angle mínim de direcció de l'aire de l'AC"
+      },
+      "ac_ambient_temperature": {
+        "name": "Temperatura ambient de l'AC"
+      },
+      "ac_current_temp": {
+        "name": "Temperatura actual de l'AC"
+      },
+      "ac_destination_temp": {
+        "name": "Temperatura objectiu de l'AC"
+      },
+      "ac_destination_time": {
+        "name": "Hora objectiu de l'AC"
+      },
+      "ac_gear": {
+        "name": "Nivell de l'AC"
+      },
+      "ac_mode": {
+        "name": "Mode de l'AC",
+        "state": {
+          "air_supply": "Subministrament d'aire",
+          "dehumidification": "Deshumidificació",
+          "net_flavour": "Aroma net",
+          "none": "Cap",
+          "refrigeration": "Refrigeració"
+        }
+      },
+      "ac_order_destination_time": {
+        "name": "Hora objectiu de la programació de l'AC"
+      },
+      "ac_order_remaining_time": {
+        "name": "Temps restant de la programació de l'AC"
+      },
+      "ac_remaining_time": {
+        "name": "Temps restant de l'AC"
+      },
+      "ac_swing_gear": {
+        "name": "Nivell d'oscil·lació de l'AC"
+      },
+      "ac_swing_max_angle": {
+        "name": "Angle màxim d'oscil·lació de l'AC"
+      },
+      "ac_swing_min_angle": {
+        "name": "Angle mínim d'oscil·lació de l'AC"
+      },
+      "ac_work_status": {
+        "name": "Estat de funcionament de l'AC",
+        "state": {
+          "order": "Programació",
+          "power_off": "Apaga",
+          "reservation": "Reserva",
+          "reservation_and_order_ordering": "Reserva i programació - Programant",
+          "reservation_and_order_reserving": "Reserva i programació - Reservant",
+          "working": "En funcionament"
+        }
+      },
+      "ai_voice_microphone_status": {
+        "name": "Estat del micròfon de la veu de l'IA",
+        "state": {
+          "failure": "Error",
+          "success": "Correcte"
+        }
+      },
+      "ai_voice_status": {
+        "name": "Estat de la veu de l'IA",
+        "state": {
+          "connecting": "Connectant",
+          "off": "Apagat",
+          "on": "Encès"
+        }
+      },
+      "ai_voice_volume_status": {
+        "name": "Estat del volum de la veu de l'IA",
+        "state": {
+          "failure": "Error",
+          "success": "Correcte"
+        }
+      },
+      "b2_downstair_current_temp": {
+        "name": "Temperatura actual inferior del forn de vapor"
+      },
+      "b2_downstair_destination_temp": {
+        "name": "Temperatura objectiu inferior del forn de vapor"
+      },
+      "b2_downstair_light_off_type": {
+        "name": "Tipus d'apagada de la llum inferior del forn de vapor",
+        "state": {
+          "app": "Aplicació",
+          "local": "Local"
+        }
+      },
+      "b2_downstair_light_on_type": {
+        "name": "Tipus d'encesa de la llum inferior del forn de vapor",
+        "state": {
+          "app": "Aplicació",
+          "local": "Local"
+        }
+      },
+      "b2_downstair_order_destination_time": {
+        "name": "Hora objectiu de la programació inferior del forn de vapor"
+      },
+      "b2_downstair_order_remaining_time": {
+        "name": "Temps restant de la programació inferior del forn de vapor"
+      },
+      "b2_downstair_power_off_type": {
+        "name": "Tipus d'apagada inferior del forn de vapor",
+        "state": {
+          "app": "Aplicació",
+          "auto": "Automàtic",
+          "error": "Error",
+          "local": "Local",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b2_downstair_power_on_type": {
+        "name": "Tipus d'encesa inferior del forn de vapor",
+        "state": {
+          "app": "Aplicació",
+          "local": "Local",
+          "order": "Programació"
+        }
+      },
+      "b2_downstair_preheating": {
+        "name": "Preescalfament inferior del forn de vapor",
+        "state": {
+          "finish": "Finalitza",
+          "none": "Cap",
+          "preheating": "Preescalfant"
+        }
+      },
+      "b2_downstair_recipe_after": {
+        "name": "Després de la recepta inferior del forn de vapor"
+      },
+      "b2_downstair_recipe_code": {
+        "name": "Codi de recepta inferior del forn de vapor"
+      },
+      "b2_downstair_recipe_current_mode": {
+        "name": "Mode actual de recepta inferior del forn de vapor"
+      },
+      "b2_downstair_recipe_current_step": {
+        "name": "Pas actual de recepta inferior del forn de vapor"
+      },
+      "b2_downstair_recipe_off_type": {
+        "name": "Tipus d'apagada de recepta inferior del forn de vapor",
+        "state": {
+          "app": "Aplicació",
+          "auto": "Automàtic",
+          "error": "Error",
+          "local": "Local",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b2_downstair_recipe_on_type": {
+        "name": "Tipus d'encesa de recepta inferior del forn de vapor",
+        "state": {
+          "app": "Aplicació",
+          "local": "Local",
+          "order": "Programació"
+        }
+      },
+      "b2_downstair_recipe_total_steps": {
+        "name": "Passos totals de recepta inferior del forn de vapor"
+      },
+      "b2_downstair_work_destination_time": {
+        "name": "Hora objectiu de funcionament inferior del forn de vapor"
+      },
+      "b2_downstair_work_func": {
+        "name": "Funció de funcionament inferior del forn de vapor"
+      },
+      "b2_downstair_work_menu": {
+        "name": "Menú de funcionament inferior del forn de vapor"
+      },
+      "b2_downstair_work_remaining_time": {
+        "name": "Temps restant de funcionament inferior del forn de vapor"
+      },
+      "b2_downstair_work_status": {
+        "name": "Estat de funcionament inferior del forn de vapor",
+        "state": {
+          "auto": "Automàtic",
+          "drying": "S'està assecant",
+          "finish": "Finalitza",
+          "order": "Programació",
+          "pause": "Pausa",
+          "power_off": "Apaga",
+          "standby": "En espera",
+          "working": "En funcionament"
+        }
+      },
+      "b2_upstair_current_temp": {
+        "name": "Temperatura actual superior del forn de vapor"
+      },
+      "b2_upstair_destination_temp": {
+        "name": "Temperatura objectiu superior del forn de vapor"
+      },
+      "b2_upstair_light_off_type": {
+        "name": "Tipus d'apagada de la llum superior del forn de vapor",
+        "state": {
+          "app": "Aplicació",
+          "local": "Local"
+        }
+      },
+      "b2_upstair_light_on_type": {
+        "name": "Tipus d'encesa de la llum superior del forn de vapor",
+        "state": {
+          "app": "Aplicació",
+          "local": "Local"
+        }
+      },
+      "b2_upstair_order_destination_time": {
+        "name": "Hora objectiu de la programació superior del forn de vapor"
+      },
+      "b2_upstair_order_remaining_time": {
+        "name": "Temps restant de la programació superior del forn de vapor"
+      },
+      "b2_upstair_power_off_type": {
+        "name": "Tipus d'apagada superior del forn de vapor",
+        "state": {
+          "app": "Aplicació",
+          "auto": "Automàtic",
+          "error": "Error",
+          "local": "Local",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b2_upstair_power_on_type": {
+        "name": "Tipus d'encesa superior del forn de vapor",
+        "state": {
+          "app": "Aplicació",
+          "local": "Local",
+          "order": "Programació"
+        }
+      },
+      "b2_upstair_preheating": {
+        "name": "Preescalfament superior del forn de vapor",
+        "state": {
+          "finish": "Finalitza",
+          "none": "Cap",
+          "preheating": "Preescalfant"
+        }
+      },
+      "b2_upstair_recipe_after": {
+        "name": "Després de la recepta superior del forn de vapor"
+      },
+      "b2_upstair_recipe_code": {
+        "name": "Codi de recepta superior del forn de vapor"
+      },
+      "b2_upstair_recipe_current_mode": {
+        "name": "Mode actual de recepta superior del forn de vapor"
+      },
+      "b2_upstair_recipe_current_step": {
+        "name": "Pas actual de recepta superior del forn de vapor"
+      },
+      "b2_upstair_recipe_off_type": {
+        "name": "Tipus d'apagada de recepta superior del forn de vapor",
+        "state": {
+          "app": "Aplicació",
+          "auto": "Automàtic",
+          "error": "Error",
+          "local": "Local",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b2_upstair_recipe_on_type": {
+        "name": "Tipus d'encesa de recepta superior del forn de vapor",
+        "state": {
+          "app": "Aplicació",
+          "local": "Local",
+          "order": "Programació"
+        }
+      },
+      "b2_upstair_recipe_total_steps": {
+        "name": "Passos totals de recepta superior del forn de vapor"
+      },
+      "b2_upstair_work_destination_time": {
+        "name": "Hora objectiu de funcionament superior del forn de vapor"
+      },
+      "b2_upstair_work_func": {
+        "name": "Funció de funcionament superior del forn de vapor"
+      },
+      "b2_upstair_work_menu": {
+        "name": "Menú de funcionament superior del forn de vapor"
+      },
+      "b2_upstair_work_remaining_time": {
+        "name": "Temps restant de funcionament superior del forn de vapor"
+      },
+      "b2_upstair_work_status": {
+        "name": "Estat de funcionament superior del forn de vapor",
+        "state": {
+          "auto": "Automàtic",
+          "drying": "S'està assecant",
+          "finish": "Finalitza",
+          "order": "Programació",
+          "pause": "Pausa",
+          "power_off": "Apaga",
+          "standby": "En espera",
+          "working": "En funcionament"
+        }
+      },
+      "b3_disinfect_off_type": {
+        "name": "Tipus d'apagada de desinfecció del vaporitzador",
+        "state": {
+          "app": "Aplicació",
+          "local": "Local"
+        }
+      },
+      "b3_disinfect_on_type": {
+        "name": "Tipus d'encesa de desinfecció del vaporitzador",
+        "state": {
+          "app": "Aplicació",
+          "local": "Local"
+        }
+      },
+      "b3_downstair_current_temp": {
+        "name": "Temperatura actual inferior del vaporitzador"
+      },
+      "b3_downstair_destination_temp": {
+        "name": "Temperatura objectiu inferior del vaporitzador"
+      },
+      "b3_downstair_destination_time": {
+        "name": "Hora objectiu inferior del vaporitzador"
+      },
+      "b3_downstair_remaining_time": {
+        "name": "Temps restant inferior del vaporitzador"
+      },
+      "b3_downstair_sensor": {
+        "name": "Sensor inferior del vaporitzador"
+      },
+      "b3_downstair_status": {
+        "name": "Estat inferior del vaporitzador",
+        "state": {
+          "drying": "S'està assecant",
+          "drying_pause": "Pausa d'assecat",
+          "ion_drying": "Assecat per ionització",
+          "ion_drying_pause": "Pausa d'assecat per ionització",
+          "power_off": "Apaga",
+          "uperization": "Uperització",
+          "uperization_pause": "Pausa d'uperització",
+          "warm_drink": "Beguda calenta",
+          "warm_drink_pause": "Pausa de beguda calenta"
+        }
+      },
+      "b3_thermotank_off_type": {
+        "name": "Tipus d'apagada del dipòsit tèrmic del vaporitzador",
+        "state": {
+          "app": "Aplicació",
+          "local": "Local"
+        }
+      },
+      "b3_thermotank_on_type": {
+        "name": "Tipus d'encesa del dipòsit tèrmic del vaporitzador",
+        "state": {
+          "app": "Aplicació",
+          "local": "Local"
+        }
+      },
+      "b3_upstair_current_temp": {
+        "name": "Temperatura actual superior del vaporitzador"
+      },
+      "b3_upstair_destination_temp": {
+        "name": "Temperatura objectiu superior del vaporitzador"
+      },
+      "b3_upstair_destination_time": {
+        "name": "Hora objectiu superior del vaporitzador"
+      },
+      "b3_upstair_remaining_time": {
+        "name": "Temps restant superior del vaporitzador"
+      },
+      "b3_upstair_sensor": {
+        "name": "Sensor superior del vaporitzador"
+      },
+      "b3_upstair_status": {
+        "name": "Estat superior del vaporitzador",
+        "state": {
+          "drying": "S'està assecant",
+          "drying_pause": "Pausa d'assecat",
+          "ion_drying": "Assecat per ionització",
+          "ion_drying_pause": "Pausa d'assecat per ionització",
+          "power_off": "Apaga",
+          "uperization": "Uperització",
+          "uperization_pause": "Pausa d'uperització",
+          "warm_drink": "Beguda calenta",
+          "warm_drink_pause": "Pausa de beguda calenta"
+        }
+      },
+      "b6_tvoc_value": {
+        "name": "Valor de TVOC de la campana extractora",
+        "state": {
+          "excellent": "Excel·lent",
+          "good": "Bo",
+          "medium": "Mitjana"
+        }
+      },
+      "b6_air_duct_detection_score": {
+        "name": "Puntuació de detecció del conducte d'aire de la campana extractora"
+      },
+      "b6_air_duct_detection_state": {
+        "name": "Estat de detecció del conducte d'aire de la campana extractora"
+      },
+      "b6_air_duct_detection_time": {
+        "name": "Temps de detecció del conducte d'aire de la campana extractora"
+      },
+      "b6_air_duct_detection_windage": {
+        "name": "Resistència de l'aire de detecció del conducte de la campana extractora"
+      },
+      "b6_air_volume": {
+        "name": "Volum d'aire de la campana extractora"
+      },
+      "b6_delay_gear_linkage_gear": {
+        "name": "Velocitat de sincronització amb retard de la campana extractora"
+      },
+      "b6_delay_time_value": {
+        "name": "Valor del temps de retard de la campana extractora"
+      },
+      "b6_destination_time": {
+        "name": "Hora objectiu de la campana extractora"
+      },
+      "b6_gear": {
+        "name": "Velocitat de la campana extractora"
+      },
+      "b6_gear_control_type": {
+        "name": "Tipus de control de velocitat de la campana extractora",
+        "state": {
+          "app": "Aplicació",
+          "gesture": "Gest",
+          "linkage": "Sincronització",
+          "local": "Local",
+          "smoke_detector": "Detector de fum"
+        }
+      },
+      "b6_gesture_sensitivity": {
+        "name": "Sensibilitat de gestos de la campana extractora",
+        "state": {
+          "1": "1",
+          "2": "2",
+          "3": "3"
+        }
+      },
+      "b6_gesture_value": {
+        "name": "Valor de gestos de la campana extractora",
+        "state": {
+          "light": "Lleuger",
+          "power": "Potència",
+          "wind": "Vent"
+        }
+      },
+      "b6_hotclean_tips": {
+        "name": "Avisos de neteja en calent de la campana extractora"
+      },
+      "b6_infrared_value": {
+        "name": "Valor d'infraroig de la campana extractora",
+        "state": {
+          "power": "Potència",
+          "wind": "Vent"
+        }
+      },
+      "b6_inverter_ac_frequency": {
+        "name": "Freqüència de l'inversor de la campana extractora"
+      },
+      "b6_inverter_back_electromotive_force": {
+        "name": "Força contraelectromotriu de l'inversor de la campana extractora"
+      },
+      "b6_inverter_capacity": {
+        "name": "Capacitat de l'inversor de la campana extractora"
+      },
+      "b6_inverter_efficiency": {
+        "name": "Eficiència de l'inversor de la campana extractora"
+      },
+      "b6_inverter_motor_compensation_angle": {
+        "name": "Angle de compensació del motor de l'inversor de la campana extractora"
+      },
+      "b6_inverter_motor_speed": {
+        "name": "Velocitat del motor de l'inversor de la campana extractora"
+      },
+      "b6_inverter_q_axis_current": {
+        "name": "Corrent de l'eix Q de l'inversor de la campana extractora"
+      },
+      "b6_inverter_start_time": {
+        "name": "Temps d'inici de l'inversor de la campana extractora"
+      },
+      "b6_inverter_temperature": {
+        "name": "Temperatura de l'inversor de la campana extractora"
+      },
+      "b6_inverter_temperature_limit_sign": {
+        "name": "Indicador de límit de temperatura de l'inversor de la campana extractora"
+      },
+      "b6_inverter_voltage": {
+        "name": "Tensió de l'inversor de la campana extractora"
+      },
+      "b6_inverter_wind_flow": {
+        "name": "Flux d'aire de l'inversor de la campana extractora"
+      },
+      "b6_inverter_wind_presssure": {
+        "name": "Pressió de l'aire de l'inversor de la campana extractora"
+      },
+      "b6_inverter_windage": {
+        "name": "Resistència de l'aire de l'inversor de la campana extractora"
+      },
+      "b6_inverter_work_gear": {
+        "name": "Velocitat de funcionament de l'inversor de la campana extractora"
+      },
+      "b6_last_hotclean_hour": {
+        "name": "Última hora de neteja en calent de la campana extractora"
+      },
+      "b6_light": {
+        "name": "Llum de la campana extractora"
+      },
+      "b6_light_off_type": {
+        "name": "Tipus d'apagada de la llum de la campana extractora",
+        "state": {
+          "app": "Aplicació",
+          "error": "Error",
+          "gesture": "Gest",
+          "local": "Local"
+        }
+      },
+      "b6_light_on_type": {
+        "name": "Tipus d'encesa de la llum de la campana extractora",
+        "state": {
+          "app": "Aplicació",
+          "gesture": "Gest",
+          "local": "Local"
+        }
+      },
+      "b6_lightness": {
+        "name": "Lluminositat de la campana extractora"
+      },
+      "b6_lock_off_type": {
+        "name": "Tipus de desbloqueig de la campana extractora",
+        "state": {
+          "local": "Local"
+        }
+      },
+      "b6_lock_on_type": {
+        "name": "Tipus de bloqueig de la campana extractora",
+        "state": {
+          "app": "Aplicació",
+          "local": "Local"
+        }
+      },
+      "b6_power": {
+        "name": "Potència de la campana extractora",
+        "state": {
+          "delay_off": "Apagada amb retard",
+          "off": "Apagat",
+          "on": "Encès"
+        }
+      },
+      "b6_power_off_type": {
+        "name": "Tipus d'apagada de la campana extractora",
+        "state": {
+          "app": "Aplicació",
+          "delay": "Retard",
+          "gesture": "Gest",
+          "linkage": "Sincronització",
+          "local": "Local"
+        }
+      },
+      "b6_power_on_type": {
+        "name": "Tipus d'encesa de la campana extractora",
+        "state": {
+          "app": "Aplicació",
+          "gesture": "Gest",
+          "linkage": "Sincronització",
+          "local": "Local"
+        }
+      },
+      "b6_remaining_time": {
+        "name": "Temps restant de la campana extractora"
+      },
+      "b6_smoke_detector_value": {
+        "name": "Valor del detector de fum de la campana extractora"
+      },
+      "b6_smoke_potency": {
+        "name": "Intensitat del fum de la campana extractora"
+      },
+      "b6_smoke_stove_linkage_flowin": {
+        "name": "Entrada de flux de la sincronització fum-fogó de la campana extractora",
+        "state": {
+          "no": "No",
+          "yes": "Sí"
+        }
+      },
+      "b6_smoke_stove_linkage_gear": {
+        "name": "Velocitat de la sincronització fum-fogó de la campana extractora"
+      },
+      "b6_smoke_stove_linkage_gear_fix": {
+        "name": "Ajust de velocitat de la sincronització fum-fogó de la campana extractora",
+        "state": {
+          "negative": "Negatiu",
+          "positive": "Positiu"
+        }
+      },
+      "b6_steaming": {
+        "name": "Vaporització de la campana extractora",
+        "state": {
+          "off": "Apagat",
+          "on": "Encès"
+        }
+      },
+      "b6_steaming_stage": {
+        "name": "Fase de vaporització de la campana extractora"
+      },
+      "b6_wind_pressure": {
+        "name": "Pressió de l'aire de la campana extractora"
+      },
+      "b6_work_status": {
+        "name": "Estat de funcionament de la campana extractora",
+        "state": {
+          "ai_dry_clean": "Neteja en sec amb IA",
+          "air_duct_detection": "Detecció del conducte d'aire",
+          "check": "Comprova",
+          "clean": "Neteja",
+          "clean_finish": "Neteja finalitzada",
+          "error": "Error",
+          "hotclean": "Neteja en calent",
+          "initial": "Inicial",
+          "mute_gear": "Velocitat silenciosa",
+          "power_off": "Apaga",
+          "power_off_delay": "Retard d'apagada",
+          "standby": "En espera",
+          "vvvf_gear": "Velocitat VVVF",
+          "working": "En funcionament"
+        }
+      },
+      "b7_left_current_temp": {
+        "name": "Temperatura actual del fogó de gas esquerre"
+      },
+      "b7_left_destination_temp": {
+        "name": "Temperatura objectiu del fogó de gas esquerre"
+      },
+      "b7_left_destination_time": {
+        "name": "Hora objectiu del fogó de gas esquerre"
+      },
+      "b7_left_gear": {
+        "name": "Nivell del fogó de gas esquerre"
+      },
+      "b7_left_power_off_type": {
+        "name": "Tipus d'apagada del fogó de gas esquerre",
+        "state": {
+          "app": "Aplicació",
+          "auto": "Automàtic",
+          "error": "Error",
+          "local": "Local",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b7_left_remaining_time": {
+        "name": "Temps restant del fogó de gas esquerre"
+      },
+      "b7_left_status": {
+        "name": "Estat del fogó de gas esquerre",
+        "state": {
+          "drying": "S'està assecant",
+          "drying_pause": "Pausa d'assecat",
+          "ion_drying": "Assecat per ionització",
+          "ion_drying_pause": "Pausa d'assecat per ionització",
+          "power_off": "Apaga",
+          "uperization": "Uperització",
+          "uperization_pause": "Pausa d'uperització",
+          "warm_drink": "Beguda calenta",
+          "warm_drink_pause": "Pausa de beguda calenta"
+        }
+      },
+      "b7_left_work_time": {
+        "name": "Temps de funcionament del fogó de gas esquerre"
+      },
+      "b7_right_current_temp": {
+        "name": "Temperatura actual del fogó de gas dret"
+      },
+      "b7_right_destination_temp": {
+        "name": "Temperatura objectiu del fogó de gas dret"
+      },
+      "b7_right_destination_time": {
+        "name": "Hora objectiu del fogó de gas dret"
+      },
+      "b7_right_gear": {
+        "name": "Nivell del fogó de gas dret"
+      },
+      "b7_right_power_off_type": {
+        "name": "Tipus d'apagada del fogó de gas dret",
+        "state": {
+          "app": "Aplicació",
+          "auto": "Automàtic",
+          "error": "Error",
+          "local": "Local",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b7_right_remaining_time": {
+        "name": "Temps restant del fogó de gas dret"
+      },
+      "b7_right_status": {
+        "name": "Estat del fogó de gas dret",
+        "state": {
+          "drying": "S'està assecant",
+          "drying_pause": "Pausa d'assecat",
+          "ion_drying": "Assecat per ionització",
+          "ion_drying_pause": "Pausa d'assecat per ionització",
+          "power_off": "Apaga",
+          "uperization": "Uperització",
+          "uperization_pause": "Pausa d'uperització",
+          "warm_drink": "Beguda calenta",
+          "warm_drink_pause": "Pausa de beguda calenta"
+        }
+      },
+      "b7_right_work_time": {
+        "name": "Temps de funcionament del fogó de gas dret"
+      },
+      "bf_cavity": {
+        "name": "Cavitat del forn",
+        "state": {
+          "down": "Avall",
+          "up": "Amunt"
+        }
+      },
+      "bf_control_back": {
+        "name": "Retorn del control del forn",
+        "state": {
+          "func_notsupport": "Funció no admesa",
+          "status_notsupport": "Estat no admès",
+          "success": "Correcte",
+          "value_notsupport": "Valor no admès"
+        }
+      },
+      "bf_end_next": {
+        "name": "Següent final del forn"
+      },
+      "bf_fire": {
+        "name": "Foc del forn"
+      },
+      "bf_mode": {
+        "name": "Mode del forn"
+      },
+      "bf_quick_btn_bake_id": {
+        "name": "ID del botó ràpid de cocció del forn"
+      },
+      "bf_quick_btn_bake_set": {
+        "name": "Ajust del botó ràpid de cocció del forn"
+      },
+      "bf_quick_btn_bake_time": {
+        "name": "Temps del botó ràpid de cocció del forn"
+      },
+      "bf_quick_btn_microwave_id": {
+        "name": "ID del botó ràpid de microones del forn"
+      },
+      "bf_quick_btn_microwave_set": {
+        "name": "Ajust del botó ràpid de microones del forn"
+      },
+      "bf_quick_btn_microwave_time": {
+        "name": "Temps del botó ràpid de microones del forn"
+      },
+      "bf_quick_btn_steam_id": {
+        "name": "ID del botó ràpid de vapor del forn"
+      },
+      "bf_quick_btn_steam_set": {
+        "name": "Ajust del botó ràpid de vapor del forn"
+      },
+      "bf_quick_btn_steam_time": {
+        "name": "Temps del botó ràpid de vapor del forn"
+      },
+      "bf_recipe_code": {
+        "name": "Codi de recepta del forn"
+      },
+      "bf_remaining_time": {
+        "name": "Temps restant del forn"
+      },
+      "bf_steam": {
+        "name": "Vapor del forn"
+      },
+      "bf_step_current": {
+        "name": "Pas actual del forn"
+      },
+      "bf_step_total": {
+        "name": "Passos totals del forn"
+      },
+      "bf_temp_down": {
+        "name": "Temperatura inferior del forn"
+      },
+      "bf_temp_down_set": {
+        "name": "Ajust de la temperatura inferior del forn"
+      },
+      "bf_temp_probe": {
+        "name": "Temperatura de la sonda del forn"
+      },
+      "bf_temp_probe_set": {
+        "name": "Ajust de la temperatura de la sonda del forn"
+      },
+      "bf_temp_up": {
+        "name": "Temperatura superior del forn"
+      },
+      "bf_temp_up_set": {
+        "name": "Ajust de la temperatura superior del forn"
+      },
+      "bf_tips_mark": {
+        "name": "Marca d'avisos del forn",
+        "state": {
+          "apply": "Aplica",
+          "change_attachments": "Canvia els accessoris",
+          "door_open": "Porta oberta",
+          "feed": "Afegeix",
+          "recipe_tips": "Avisos de recepta",
+          "stir": "Remena"
+        }
+      },
+      "bf_weight_mount": {
+        "name": "Suport de pes del forn"
+      },
+      "bf_weight_multiple": {
+        "name": "Múltiple de pes del forn",
+        "state": {
+          "g": "g",
+          "kg": "kg",
+          "ounce": "Unça",
+          "pound": "Lliura"
+        }
+      },
+      "bf_weight_unit": {
+        "name": "Unitat de pes del forn",
+        "state": {
+          "g": "g",
+          "kg": "kg",
+          "other": "Altres",
+          "ounce": "Unça",
+          "pound": "Lliura"
+        }
+      },
+      "bf_work_status": {
+        "name": "Estat de funcionament del forn",
+        "state": {
+          "after_sale": "Postvenda",
+          "check_version": "Comprova la versió",
+          "cloudmenu_setting": "Configuració del menú al núvol",
+          "demo": "Demostració",
+          "done": "Fet",
+          "keep": "Mantén",
+          "love_three_seconds": "Prem tres segons",
+          "open": "Obre",
+          "order": "Programació",
+          "pause": "Pausa",
+          "pause_temporarily": "Pausa temporalment",
+          "power_off": "Apaga",
+          "self_check": "Autocomprovació",
+          "working": "En funcionament"
+        }
+      },
+      "bf_working_time": {
+        "name": "Temps de funcionament del forn"
+      },
+      "e7_left_bottom_bridge_link": {
+        "name": "Enllaç pont del cremador inferior esquerre d'inducció",
+        "state": {
+          "off": "Apagat",
+          "on": "Encès"
+        }
+      },
+      "e7_left_bottom_destination_time": {
+        "name": "Hora objectiu del cremador inferior esquerre d'inducció"
+      },
+      "e7_left_bottom_efficiency": {
+        "name": "Eficiència del cremador inferior esquerre d'inducció"
+      },
+      "e7_left_bottom_gear": {
+        "name": "Nivell del cremador inferior esquerre d'inducció"
+      },
+      "e7_left_bottom_mode": {
+        "name": "Mode del cremador inferior esquerre d'inducció",
+        "state": {
+          "boiling": "Bullida",
+          "heat_preservation": "Manteniment de la calor",
+          "none": "Cap",
+          "stew_soup": "Guisat de sopa",
+          "stir_frying": "Saltat"
+        }
+      },
+      "e7_left_bottom_remaining_time": {
+        "name": "Temps restant del cremador inferior esquerre d'inducció"
+      },
+      "e7_left_bottom_work_status": {
+        "name": "Estat de funcionament del cremador inferior esquerre d'inducció",
+        "state": {
+          "auto": "Automàtic",
+          "drying": "S'està assecant",
+          "finish": "Finalitza",
+          "order": "Programació",
+          "pause": "Pausa",
+          "power_off": "Apaga",
+          "standby": "En espera",
+          "working": "En funcionament"
+        }
+      },
+      "e7_left_bottom_work_time": {
+        "name": "Temps de funcionament del cremador inferior esquerre d'inducció"
+      },
+      "e7_left_bridge_link": {
+        "name": "Enllaç pont del cremador esquerre d'inducció",
+        "state": {
+          "off": "Apagat",
+          "on": "Encès"
+        }
+      },
+      "e7_left_destination_time": {
+        "name": "Hora objectiu del cremador esquerre d'inducció"
+      },
+      "e7_left_efficiency": {
+        "name": "Eficiència del cremador esquerre d'inducció"
+      },
+      "e7_left_gear": {
+        "name": "Nivell del cremador esquerre d'inducció"
+      },
+      "e7_left_mode": {
+        "name": "Mode del cremador esquerre d'inducció",
+        "state": {
+          "boiling": "Bullida",
+          "heat_preservation": "Manteniment de la calor",
+          "none": "Cap",
+          "stew_soup": "Guisat de sopa",
+          "stir_frying": "Saltat"
+        }
+      },
+      "e7_left_remaining_time": {
+        "name": "Temps restant del cremador esquerre d'inducció"
+      },
+      "e7_left_top_bridge_link": {
+        "name": "Enllaç pont del cremador superior esquerre d'inducció",
+        "state": {
+          "off": "Apagat",
+          "on": "Encès"
+        }
+      },
+      "e7_left_top_destination_time": {
+        "name": "Hora objectiu del cremador superior esquerre d'inducció"
+      },
+      "e7_left_top_efficiency": {
+        "name": "Eficiència del cremador superior esquerre d'inducció"
+      },
+      "e7_left_top_gear": {
+        "name": "Nivell del cremador superior esquerre d'inducció"
+      },
+      "e7_left_top_mode": {
+        "name": "Mode del cremador superior esquerre d'inducció",
+        "state": {
+          "boiling": "Bullida",
+          "heat_preservation": "Manteniment de la calor",
+          "none": "Cap",
+          "stew_soup": "Guisat de sopa",
+          "stir_frying": "Saltat"
+        }
+      },
+      "e7_left_top_remaining_time": {
+        "name": "Temps restant del cremador superior esquerre d'inducció"
+      },
+      "e7_left_top_work_status": {
+        "name": "Estat de funcionament del cremador superior esquerre d'inducció",
+        "state": {
+          "auto": "Automàtic",
+          "drying": "S'està assecant",
+          "finish": "Finalitza",
+          "order": "Programació",
+          "pause": "Pausa",
+          "power_off": "Apaga",
+          "standby": "En espera",
+          "working": "En funcionament"
+        }
+      },
+      "e7_left_top_work_time": {
+        "name": "Temps de funcionament del cremador superior esquerre d'inducció"
+      },
+      "e7_left_work_status": {
+        "name": "Estat de funcionament del cremador esquerre d'inducció",
+        "state": {
+          "auto": "Automàtic",
+          "drying": "S'està assecant",
+          "finish": "Finalitza",
+          "order": "Programació",
+          "pause": "Pausa",
+          "power_off": "Apaga",
+          "standby": "En espera",
+          "working": "En funcionament"
+        }
+      },
+      "e7_left_work_time": {
+        "name": "Temps de funcionament del cremador esquerre d'inducció"
+      },
+      "e7_right_bottom_bridge_link": {
+        "name": "Enllaç pont del cremador inferior dret d'inducció",
+        "state": {
+          "off": "Apagat",
+          "on": "Encès"
+        }
+      },
+      "e7_right_bottom_destination_time": {
+        "name": "Hora objectiu del cremador inferior dret d'inducció"
+      },
+      "e7_right_bottom_efficiency": {
+        "name": "Eficiència del cremador inferior dret d'inducció"
+      },
+      "e7_right_bottom_gear": {
+        "name": "Nivell del cremador inferior dret d'inducció"
+      },
+      "e7_right_bottom_mode": {
+        "name": "Mode del cremador inferior dret d'inducció",
+        "state": {
+          "boiling": "Bullida",
+          "heat_preservation": "Manteniment de la calor",
+          "none": "Cap",
+          "stew_soup": "Guisat de sopa",
+          "stir_frying": "Saltat"
+        }
+      },
+      "e7_right_bottom_remaining_time": {
+        "name": "Temps restant del cremador inferior dret d'inducció"
+      },
+      "e7_right_bottom_work_status": {
+        "name": "Estat de funcionament del cremador inferior dret d'inducció",
+        "state": {
+          "auto": "Automàtic",
+          "drying": "S'està assecant",
+          "finish": "Finalitza",
+          "order": "Programació",
+          "pause": "Pausa",
+          "power_off": "Apaga",
+          "standby": "En espera",
+          "working": "En funcionament"
+        }
+      },
+      "e7_right_bottom_work_time": {
+        "name": "Temps de funcionament del cremador inferior dret d'inducció"
+      },
+      "e7_right_bridge_link": {
+        "name": "Enllaç pont del cremador dret d'inducció",
+        "state": {
+          "off": "Apagat",
+          "on": "Encès"
+        }
+      },
+      "e7_right_destination_time": {
+        "name": "Hora objectiu del cremador dret d'inducció"
+      },
+      "e7_right_efficiency": {
+        "name": "Eficiència del cremador dret d'inducció"
+      },
+      "e7_right_gear": {
+        "name": "Nivell del cremador dret d'inducció"
+      },
+      "e7_right_mode": {
+        "name": "Mode del cremador dret d'inducció",
+        "state": {
+          "boiling": "Bullida",
+          "heat_preservation": "Manteniment de la calor",
+          "none": "Cap",
+          "stew_soup": "Guisat de sopa",
+          "stir_frying": "Saltat"
+        }
+      },
+      "e7_right_remaining_time": {
+        "name": "Temps restant del cremador dret d'inducció"
+      },
+      "e7_right_top_bridge_link": {
+        "name": "Enllaç pont del cremador superior dret d'inducció",
+        "state": {
+          "off": "Apagat",
+          "on": "Encès"
+        }
+      },
+      "e7_right_top_destination_time": {
+        "name": "Hora objectiu del cremador superior dret d'inducció"
+      },
+      "e7_right_top_efficiency": {
+        "name": "Eficiència del cremador superior dret d'inducció"
+      },
+      "e7_right_top_gear": {
+        "name": "Nivell del cremador superior dret d'inducció"
+      },
+      "e7_right_top_mode": {
+        "name": "Mode del cremador superior dret d'inducció",
+        "state": {
+          "boiling": "Bullida",
+          "heat_preservation": "Manteniment de la calor",
+          "none": "Cap",
+          "stew_soup": "Guisat de sopa",
+          "stir_frying": "Saltat"
+        }
+      },
+      "e7_right_top_remaining_time": {
+        "name": "Temps restant del cremador superior dret d'inducció"
+      },
+      "e7_right_top_work_status": {
+        "name": "Estat de funcionament del cremador superior dret d'inducció",
+        "state": {
+          "auto": "Automàtic",
+          "drying": "S'està assecant",
+          "finish": "Finalitza",
+          "order": "Programació",
+          "pause": "Pausa",
+          "power_off": "Apaga",
+          "standby": "En espera",
+          "working": "En funcionament"
+        }
+      },
+      "e7_right_top_work_time": {
+        "name": "Temps de funcionament del cremador superior dret d'inducció"
+      },
+      "e7_right_work_status": {
+        "name": "Estat de funcionament del cremador dret d'inducció",
+        "state": {
+          "auto": "Automàtic",
+          "drying": "S'està assecant",
+          "finish": "Finalitza",
+          "order": "Programació",
+          "pause": "Pausa",
+          "power_off": "Apaga",
+          "standby": "En espera",
+          "working": "En funcionament"
+        }
+      },
+      "e7_right_work_time": {
+        "name": "Temps de funcionament del cremador dret d'inducció"
+      },
+      "electronic_version": {
+        "name": "Versió electrònica"
+      },
+      "error_list": {
+        "name": "Llista d'errors"
+      },
+      "sp_fandrying_destination_time": {
+        "name": "Hora objectiu de l'assecador amb ventilador de plats"
+      },
+      "sp_fandrying_order_destination_time": {
+        "name": "Hora objectiu de la programació de l'assecador amb ventilador de plats"
+      },
+      "sp_fandrying_order_remaining_time": {
+        "name": "Temps restant de la programació de l'assecador amb ventilador de plats"
+      },
+      "sp_fandrying_remaining_time": {
+        "name": "Temps restant de l'assecador amb ventilador de plats"
+      },
+      "sp_fandrying_setting_automode_day": {
+        "name": "Dia del mode automàtic de l'assecador amb ventilador de plats"
+      },
+      "sp_fandrying_setting_automode_starthour": {
+        "name": "Hora d'inici del mode automàtic de l'assecador amb ventilador de plats"
+      },
+      "sp_fandrying_setting_automode_startminute": {
+        "name": "Minut d'inici del mode automàtic de l'assecador amb ventilador de plats"
+      },
+      "sp_fandrying_status": {
+        "name": "Estat de l'assecador amb ventilador de plats",
+        "state": {
+          "drying": "S'està assecant",
+          "drying_pause": "Pausa d'assecat",
+          "ion_drying": "Assecat per ionització",
+          "ion_drying_pause": "Pausa d'assecat per ionització",
+          "power_off": "Apaga",
+          "uperization": "Uperització",
+          "uperization_pause": "Pausa d'uperització",
+          "warm_drink": "Beguda calenta",
+          "warm_drink_pause": "Pausa de beguda calenta"
+        }
+      },
+      "sp_fandrying_temperature": {
+        "name": "Temperatura de l'assecador amb ventilador de plats"
+      },
+      "sp_heatingdisk_destination_time": {
+        "name": "Hora objectiu del plat escalfador"
+      },
+      "sp_heatingdisk_order_destination_time": {
+        "name": "Hora objectiu de la programació del plat escalfador"
+      },
+      "sp_heatingdisk_order_remaining_time": {
+        "name": "Temps restant de la programació del plat escalfador"
+      },
+      "sp_heatingdisk_remaining_time": {
+        "name": "Temps restant del plat escalfador"
+      },
+      "sp_heatingdisk_setting_automode_day": {
+        "name": "Dia del mode automàtic del plat escalfador"
+      },
+      "sp_heatingdisk_setting_automode_starthour": {
+        "name": "Hora d'inici del mode automàtic del plat escalfador"
+      },
+      "sp_heatingdisk_setting_automode_startminute": {
+        "name": "Minut d'inici del mode automàtic del plat escalfador"
+      },
+      "sp_heatingdisk_status": {
+        "name": "Estat del plat escalfador",
+        "state": {
+          "drying": "S'està assecant",
+          "drying_pause": "Pausa d'assecat",
+          "ion_drying": "Assecat per ionització",
+          "ion_drying_pause": "Pausa d'assecat per ionització",
+          "power_off": "Apaga",
+          "uperization": "Uperització",
+          "uperization_pause": "Pausa d'uperització",
+          "warm_drink": "Beguda calenta",
+          "warm_drink_pause": "Pausa de beguda calenta"
+        }
+      },
+      "sp_heatingdisk_temperature": {
+        "name": "Temperatura del plat escalfador"
+      },
+      "sp_uvc_destination_time": {
+        "name": "Hora objectiu del plat UVC"
+      },
+      "sp_uvc_order_destination_time": {
+        "name": "Hora objectiu de la programació del plat UVC"
+      },
+      "sp_uvc_order_remaining_time": {
+        "name": "Temps restant de la programació del plat UVC"
+      },
+      "sp_uvc_remaining_time": {
+        "name": "Temps restant del plat UVC"
+      },
+      "sp_uvc_setting_automode_day": {
+        "name": "Dia del mode automàtic del plat UVC"
+      },
+      "sp_uvc_setting_automode_starthour": {
+        "name": "Hora d'inici del mode automàtic del plat UVC"
+      },
+      "sp_uvc_setting_automode_startminute": {
+        "name": "Minut d'inici del mode automàtic del plat UVC"
+      },
+      "sp_uvc_status": {
+        "name": "Estat del plat UVC",
+        "state": {
+          "drying": "S'està assecant",
+          "drying_pause": "Pausa d'assecat",
+          "ion_drying": "Assecat per ionització",
+          "ion_drying_pause": "Pausa d'assecat per ionització",
+          "power_off": "Apaga",
+          "uperization": "Uperització",
+          "uperization_pause": "Pausa d'uperització",
+          "warm_drink": "Beguda calenta",
+          "warm_drink_pause": "Pausa de beguda calenta"
+        }
+      },
+      "sp_uvc_temperature": {
+        "name": "Temperatura del plat UVC"
+      },
+      "total_error_code": {
+        "name": "Codi d'error"
+      },
+      "total_error_type": {
+        "name": "Tipus d'error"
+      },
+      "total_firewall_temp": {
+        "name": "Temperatura del tallafoc"
+      },
+      "total_gesture": {
+        "name": "Gest",
+        "state": {
+          "off": "Apagat",
+          "on": "Encès"
+        }
+      },
+      "total_ir": {
+        "name": "IR",
+        "state": {
+          "off": "Apagat",
+          "on": "Encès"
+        }
+      },
+      "total_lock_off_type": {
+        "name": "Tipus de desbloqueig",
+        "state": {
+          "local": "Local"
+        }
+      },
+      "total_lock_on_type": {
+        "name": "Tipus de bloqueig",
+        "state": {
+          "app": "Aplicació",
+          "local": "Local"
+        }
+      },
+      "total_shelving_unit_temp": {
+        "name": "Temperatura de la prestatgeria"
+      },
+      "total_speak": {
+        "name": "Parla",
+        "state": {
+          "off": "Apagat",
+          "on": "Encès"
+        }
+      },
+      "total_tips_code": {
+        "name": "Codi d'avisos"
+      },
+      "total_tips_type": {
+        "name": "Tipus d'avisos"
+      },
+      "work_status": {
+        "name": "Estat de funcionament",
+        "state": {
+          "save_power": "Estalvi d'energia",
+          "standby": "En espera",
+          "work": "En funcionament",
+          "pause": "En pausa",
+          "work_finish": "Finalitzat",
+          "order": "Retard",
+          "pause_c": "En pausa C",
+          "three": "Tres",
+          "self_inspection": "Autoinspecció",
+          "query_version": "Consulta de versió",
+          "demo": "Demostració",
+          "ramadan": "Ramadà",
+          "after_checking": "Després de comprovar",
+          "wait_to_start": "A l'espera d'iniciar",
+          "ff": "Desconegut"
+        }
+      },
+      "x9b_fire_power": {
+        "name": "Potència del foc",
+        "state": {
+          "high_power": "Alta",
+          "medium_high_power": "Mitjana-alta",
+          "medium_power": "Mitjana",
+          "medium_low_power": "Mitjana-baixa",
+          "low_power": "Baixa",
+          "ff": "Desconegut"
+        }
+      },
+      "pre_heat": {
+        "name": "Preescalfament",
+        "state": {
+          "off": "Apagat",
+          "work": "Preescalfant",
+          "end": "Preescalfament finalitzat"
+        }
+      },
+      "water_status": {
+        "name": "Estat de l'aigua",
+        "state": {
+          "normal": "Normal",
+          "lack_box": "Manca el dipòsit",
+          "lack_water": "Manca d'aigua",
+          "change_water": "Canvia l'aigua"
+        }
+      },
+      "dissipate_heat": {
+        "name": "Dissipa la calor",
+        "state": {
+          "off": "Apagat",
+          "work": "Dissipant"
+        }
+      },
+      "execute": {
+        "name": "Estat d'execució",
+        "state": {
+          "ok": "D'acord",
+          "status_nonsupport": "Estat no admès",
+          "function_nonsupport": "Funció no admesa",
+          "param_range_error": "Error de rang de paràmetre"
+        }
+      },
+      "sys_time_src": {
+        "name": "Font de l'hora del sistema",
+        "state": {
+          "module": "Mòdul",
+          "app": "Aplicació",
+          "user_defined": "Definit per l'usuari"
+        }
+      },
+      "cur_temperature": {
+        "name": "Temperatura actual"
+      },
+      "work_hour": {
+        "name": "Hora de funcionament"
+      },
+      "work_minute": {
+        "name": "Minut de funcionament"
+      },
+      "work_second": {
+        "name": "Segon de funcionament"
+      },
+      "cbs_version": {
+        "name": "Versió del CBS"
+      }
+    },
+    "switch": {
+      "db_power": {
+        "name": "Potència de la rentadora"
+      },
+      "dc_power": {
+        "name": "Potència de l'assecadora"
+      },
+      "door_auto_open_setting": {
+        "name": "Obertura automàtica de la porta"
+      },
+      "anion": {
+        "name": "Anió"
+      },
+      "humidify": {
+        "name": "Humidificació"
+      },
+      "waterions": {
+        "name": "Ions d'aigua"
+      },
+      "anophelifuge": {
+        "name": "Antimosquits"
+      },
+      "display_on_off": {
+        "name": "Pantalla"
+      },
+      "auto_power_off": {
+        "name": "Apagada automàtica"
+      },
+      "body_feeling_scan": {
+        "name": "Escaneig de sensació corporal"
+      },
+      "aux_heating": {
+        "name": "Escalfament auxiliar"
+      },
+      "boost_mode": {
+        "name": "Mode Boost"
+      },
+      "breezeless": {
+        "name": "Sense corrents d'aire"
+      },
+      "child_lock": {
+        "name": "Bloqueig per a nens"
+      },
+      "cl_sterilization": {
+        "name": "Esterilització per CL"
+      },
+      "comfort_mode": {
+        "name": "Mode confort"
+      },
+      "degerming": {
+        "name": "Desinfecció"
+      },
+      "dhw_power": {
+        "name": "Potència de l'ACS"
+      },
+      "disinfect": {
+        "name": "Desinfecta"
+      },
+      "furnace_light": {
+        "name": "Llum del forn"
+      },
+      "hot_wind": {
+        "name": "Aire calent"
+      },
+      "ramadan": {
+        "name": "Ramadà"
+      },
+      "turntable": {
+        "name": "Plat giratori"
+      },
+      "maintenance_reminder": {
+        "name": "Recordatori de manteniment"
+      },
+      "vacation_mode": {
+        "name": "Mode de vacances"
+      },
+      "dry": {
+        "name": "Assecat"
+      },
+      "cold_water_single": {
+        "name": "Aigua freda contínua"
+      },
+      "cold_water_dot": {
+        "name": "Aigua freda puntual"
+      },
+      "eco_mode": {
+        "name": "Mode ECO"
+      },
+      "memory": {
+        "name": "Memo U"
+      },
+      "fast_dhw": {
+        "name": "ACS ràpida"
+      },
+      "foam_shield": {
+        "name": "Protecció d'escuma"
+      },
+      "frost_protect": {
+        "name": "Protecció contra gelades"
+      },
+      "heating_power": {
+        "name": "Potència d'escalfament"
+      },
+      "indirect_wind": {
+        "name": "Vent indirecte"
+      },
+      "leak_water_protection": {
+        "name": "Protecció contra fuites d'aigua"
+      },
+      "light": {
+        "name": "Lleuger"
+      },
+      "link_to_ac": {
+        "name": "Vincle amb l'AC"
+      },
+      "main_light": {
+        "name": "Llum principal"
+      },
+      "main_power": {
+        "name": "Alimentació principal"
+      },
+      "natural_wind": {
+        "name": "Vent natural"
+      },
+      "night_light": {
+        "name": "Llum de nit"
+      },
+      "oscillate": {
+        "name": "Oscil·lació"
+      },
+      "power": {
+        "name": "Potència"
+      },
+      "powerful_purify": {
+        "name": "Purificació potent"
+      },
+      "prompt_tone": {
+        "name": "To d'avís"
+      },
+      "regeneration": {
+        "name": "Regeneració"
+      },
+      "water_pump": {
+        "name": "Bomba d'aigua"
+      },
+      "water_way": {
+        "name": "Via de l'aigua"
+      },
+      "screen_display": {
+        "name": "Visualització de la pantalla"
+      },
+      "screen_display_alternate": {
+        "name": "Visualització alterna de la pantalla"
+      },
+      "sensor_light": {
+        "name": "Llum amb sensor"
+      },
+      "silent_mode": {
+        "name": "Mode silenciós"
+      },
+      "sleep_mode": {
+        "name": "Mode repòs"
+      },
+      "out_silent": {
+        "name": "Mode silenciós exterior"
+      },
+      "smart_eye": {
+        "name": "Ull intel·ligent"
+      },
+      "smart_volume": {
+        "name": "Volum intel·ligent"
+      },
+      "smelly_sensor": {
+        "name": "Sensor d'olors"
+      },
+      "soften": {
+        "name": "Estovament"
+      },
+      "standby": {
+        "name": "En espera"
+      },
+      "start": {
+        "name": "Inicia"
+      },
+      "sterilization": {
+        "name": "Esterilització"
+      },
+      "storage": {
+        "name": "Emmagatzematge"
+      },
+      "swing": {
+        "name": "Oscil·lació"
+      },
+      "swing_horizontal": {
+        "name": "Oscil·lació horitzontal"
+      },
+      "swing_vertical": {
+        "name": "Oscil·lació vertical"
+      },
+      "self_clean": {
+        "name": "Autoneteja"
+      },
+      "ieco": {
+        "name": "iECO"
+      },
+      "sound": {
+        "name": "So"
+      },
+      "tbh": {
+        "name": "TBH"
+      },
+      "variable_heating": {
+        "name": "Escalfament variable"
+      },
+      "ventilation": {
+        "name": "Ventilació"
+      },
+      "whole_tank_heating": {
+        "name": "Escalfament de tot el dipòsit"
+      },
+      "zero_cold_pulse": {
+        "name": "Aigua sense espera freda (per polsos)"
+      },
+      "zero_cold_water": {
+        "name": "Aigua sense espera freda"
+      },
+      "zone1_curve": {
+        "name": "Corba de la zona 1"
+      },
+      "zone1_power": {
+        "name": "Alimentació de la zona 1"
+      },
+      "zone2_curve": {
+        "name": "Corba de la zona 2"
+      },
+      "zone2_power": {
+        "name": "Alimentació de la zona 2"
+      },
+      "boiling": {
+        "name": "Bull aigua"
+      },
+      "tea_bar_boil": {
+        "name": "Interruptor de bullir aigua"
+      },
+      "tea_bar_child_lock": {
+        "name": "Bloqueig per a nens"
+      },
+      "keep_warm": {
+        "name": "Manteniment de la calor"
+      },
+      "tea_bar_cooling": {
+        "name": "Refredament de la barra de te"
+      },
+      "screen_off": {
+        "name": "Pantalla apagada"
+      },
+      "wash": {
+        "name": "Rentat del filtre"
+      },
+      "antifreeze": {
+        "name": "Anticongelant"
+      },
+      "heat": {
+        "name": "Calor"
+      },
+      "holiday_on": {
+        "name": "Mode - Vacances"
+      },
+      "dhw_disinfect": {
+        "name": "ACS - Desinfecció"
+      },
+      "ai_voice_microphone": {
+        "name": "Micròfon de la veu de l'IA"
+      },
+      "total_lock": {
+        "name": "Bloqueig per a nens"
+      },
+      "total_power": {
+        "name": "Potència"
+      },
+      "lock": {
+        "name": "Bloqueig per a nens"
+      },
+      "camera": {
+        "name": "Càmera"
+      },
+      "dryer_sterilize": {
+        "name": "Esterilització multidimensional"
+      },
+      "dryer_anti_wrinkle": {
+        "name": "Antiarrugues intel·ligent"
+      },
+      "washer_forget_free": {
+        "name": "Cura sense oblits"
+      }
+    },
+    "water_heater": {
+      "domestic_hot_water": {
+        "name": "Aigua calenta sanitària"
+      },
+      "bathing": {
+        "name": "Bany"
+      },
+      "heating": {
+        "name": "Escalfament"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "ip_address": "Adreça IP",
+          "refresh_interval": "Interval d'actualització (0 vol dir que no s'actualitza activament)",
+          "sensors": "Sensors addicionals",
+          "switches": "Controls addicionals",
+          "customize": "Personalitza",
+          "account": "Compte del núvol de Midea (per als sensors d'estadístiques d'ús)",
+          "password": "Contrasenya del compte del núvol de Midea (per als sensors d'estadístiques d'ús)",
+          "server": "Servidor del núvol de Midea del compte (per als sensors d'estadístiques d'ús)"
+        },
+        "title": "Configura"
+      }
+    },
+    "abort": {
+      "account_option": "El compte no admet aquesta operació.\nFeu clic a \"AFEGEIX UN DISPOSITIU\" per afegir un dispositiu nou."
+    }
+  },
+  "services": {
+    "set_attribute": {
+      "name": "Defineix l'atribut",
+      "description": "Defineix el valor de l'atribut del dispositiu",
+      "fields": {
+        "device_id": {
+          "name": "Codi de l'electrodomèstic",
+          "description": "El codi de l'electrodomèstic (ID del dispositiu) de l'electrodomèstic"
+        },
+        "attribute": {
+          "name": "Atribut",
+          "description": "El nom de l'atribut que es vol definir"
+        },
+        "value": {
+          "name": "Valor",
+          "description": "El valor de l'atribut que es vol definir"
+        }
+      }
+    },
+    "send_command": {
+      "name": "Ordre personalitzada",
+      "description": "Envia una ordre personalitzada al dispositiu",
+      "fields": {
+        "device_id": {
+          "name": "Codi de l'electrodomèstic",
+          "description": "El codi de l'electrodomèstic (ID del dispositiu) de l'electrodomèstic"
+        },
+        "cmd_type": {
+          "name": "Tipus d'ordre",
+          "description": "El tipus d'ordre, hauria de ser 3 (consulta) o 2 (definició)"
+        },
+        "cmd_body": {
+          "name": "Cos de l'ordre",
+          "description": "El cos de l'ordre (sense incloure la capçalera del protocol MSmart ni la suma de verificació al final)"
+        }
+      }
+    }
+  }
+}

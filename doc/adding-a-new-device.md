@@ -117,9 +117,15 @@ Replace `b59cfbc` with the commit hash, branch name, or tag you want to test
 against. This lets Home Assistant install your unreleased library code so you can
 develop and verify the integration end to end.
 
-**Do not commit this manifest change to your PR.** Keep the manifest edit purely
-local. The device PR should contain only the feature support itself (registry
-entry, translations, docs) built against the latest library changes.
+**Do not commit this manifest change to a review-ready PR.** Keep the manifest
+edit purely local. The device PR should contain only the feature support itself
+(registry entry, translations, docs) built against the latest library changes.
+
+If you do want the manifest Git-ref in the PR so CI and reviewers can test
+against your unreleased library branch/commit, mark the PR as a **draft** while
+it carries that edit, then remove it and restore the released pin before marking
+the PR ready for review. The maintainer syncs the real pin after the library
+release.
 
 Because the released `midea-lan` does not yet contain your device, expect the PR's
 CI / GitHub Actions to fail with library-not-supported / import errors, and any
@@ -423,7 +429,7 @@ and `README_hans.md`, kept in the table's hex order:
 
 ## 8. Step 7 — Lint and validate
 
-There is no unit-test suite in this repo; CI enforces linting and the HACS/hassfest
+CI runs the Home Assistant-backed pytest suite, linting, and the HACS/hassfest
 validators. The dev environment is managed by [uv](https://docs.astral.sh/uv/):
 
 ```bash
@@ -437,6 +443,9 @@ scripts/mypy.sh                       # mypy (NOT `mypy .` directly)
 uv run pylint custom_components
 ```
 
+Add tests for integration behavior and run the supported-version matrix described
+in the [testing guide](testing.md).
+
 You can also run Home Assistant locally with your device to smoke-test the
 entities:
 
@@ -444,8 +453,9 @@ entities:
 scripts/run.sh                        # starts HA with ./config, integration on PYTHONPATH
 ```
 
-Fix everything `pre-commit` reports before committing. CI (`linter.yml` +
-`validate.yml`) runs the same checks. Note: `validate.yml` (HACS/hassfest) may
+Fix everything `pre-commit` reports before committing. CI (`tests.yml` +
+`linter.yml` + `validate.yml`) runs the same checks. Note: `validate.yml`
+(HACS/hassfest) may
 fail because the released `midea-lan` does not yet contain your device — that
 library-not-supported failure is expected and out of scope for the device PR (see
 [Step 1](#2-step-1--point-the-midea-lan-dependency-at-your-library-work-local-only)).

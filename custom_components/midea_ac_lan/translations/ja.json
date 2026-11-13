@@ -1,0 +1,4402 @@
+{
+  "config": {
+    "error": {
+      "preset_account": "プリセットアカウントでのログインに失敗しました。この問題を報告してください",
+      "login_failed": "ログインに失敗しました。アカウントまたはパスワードが正しくありません",
+      "no_devices": "ネットワーク上に追加可能な新しい機器が見つかりませんでした",
+      "device_exist": "この機器はすでに設定されています",
+      "config_incorrect": "設定が正しくありません",
+      "connect_error": "機器に接続できません",
+      "invalid_token": "Token または Key の形式が正しくありません"
+    },
+    "step": {
+      "user": {
+        "data": {
+          "way": "機器を追加"
+        },
+        "description": "機器の追加方法を選択してください",
+        "title": "新しい機器を追加"
+      },
+      "login": {
+        "data": {
+          "account": "アカウント",
+          "password": "パスワード"
+        },
+        "description": "ログインして機器の Token を取得します。\n\n\n現在、Token を取得できるのは個人の SmartHome アカウントと Meiju アカウントのみです。詳しくは README を参照してください。",
+        "title": "ログイン"
+      },
+      "discovery": {
+        "description": "機器の IP アドレス。自動検出するには \"auto\" と入力してください\n\"192.168.1.255\" のように IP アドレスを指定して、特定のネットワーク内を検索することもできます",
+        "title": "検索",
+        "data": {
+          "ip_address": "IP アドレス"
+        }
+      },
+      "list": {
+        "description": "{table}",
+        "title": "機器"
+      },
+      "auto": {
+        "data": {
+          "device": "機器"
+        },
+        "description": "追加する機器を選択してください",
+        "title": "新しい機器が見つかりました"
+      },
+      "manually": {
+        "data": {
+          "name": "名前（例: リビングのエアコン）",
+          "device_id": "機器コード",
+          "type": "タイプ",
+          "ip_address": "IP アドレス",
+          "port": "ポート",
+          "model": "モデル",
+          "subtype": "サブタイプ",
+          "protocol": "プロトコル",
+          "token": "Token",
+          "key": "Key"
+        },
+        "description": "機器の設定",
+        "title": "新しい機器"
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "door_auto_open": {
+        "name": "前回のプログラムでドア自動オープン"
+      },
+      "uv": {
+        "name": "UV"
+      },
+      "dry": {
+        "name": "乾燥"
+      },
+      "dry_status": {
+        "name": "乾燥中"
+      },
+      "storage_status": {
+        "name": "保管運転中"
+      },
+      "waterswitch": {
+        "name": "給水スイッチ"
+      },
+      "water_lack": {
+        "name": "水不足"
+      },
+      "wifi_unabled": {
+        "name": "WiFi 無効"
+      },
+      "auto_throw": {
+        "name": "自動投入"
+      },
+      "lock_power": {
+        "name": "電源ロック"
+      },
+      "beep_control": {
+        "name": "操作音"
+      },
+      "light_btn_on": {
+        "name": "ボタンライト"
+      },
+      "light_strip_on": {
+        "name": "ライトストリップ"
+      },
+      "warm_power": {
+        "name": "保温電力"
+      },
+      "cold_power": {
+        "name": "冷却電力"
+      },
+      "sleep_power": {
+        "name": "スリープ電力"
+      },
+      "pump_on": {
+        "name": "ポンプ作動"
+      },
+      "bar_door": {
+        "name": "バードア"
+      },
+      "bar_door_overtime": {
+        "name": "バードア開放超過"
+      },
+      "bathing_working": {
+        "name": "入浴運転状態"
+      },
+      "bottom_compartment_cooling": {
+        "name": "下段庫内冷却"
+      },
+      "bottom_compartment_door": {
+        "name": "下段庫内ドア"
+      },
+      "bottom_compartment_preheating": {
+        "name": "下段庫内予熱"
+      },
+      "burning_state": {
+        "name": "燃焼状態"
+      },
+      "clean_scale": {
+        "name": "スケール除去"
+      },
+      "clean_sink_ponding": {
+        "name": "シンク水たまり"
+      },
+      "cleaning_reminder": {
+        "name": "清掃リマインダー"
+      },
+      "compressor_status": {
+        "name": "コンプレッサー状態"
+      },
+      "cooking": {
+        "name": "調理中"
+      },
+      "dissipate_heat": {
+        "name": "放熱"
+      },
+      "door": {
+        "name": "ドア"
+      },
+      "error_code": {
+        "name": "エラーコード"
+      },
+      "filter_change_reminder": {
+        "name": "フィルター交換リマインダー"
+      },
+      "filter_cleaning_reminder": {
+        "name": "フィルター清掃リマインダー"
+      },
+      "finished": {
+        "name": "完了"
+      },
+      "flex_zone_door": {
+        "name": "フレックスドア"
+      },
+      "flex_zone_door_overtime": {
+        "name": "フレックスゾーンドア"
+      },
+      "flip_side": {
+        "name": "反転"
+      },
+      "freezer_door": {
+        "name": "冷凍室ドア"
+      },
+      "freezer_door_overtime": {
+        "name": "冷凍室ドア開放超過"
+      },
+      "full_dust": {
+        "name": "ダスト満杯"
+      },
+      "heating": {
+        "name": "加熱中"
+      },
+      "dispensing": {
+        "name": "給水中"
+      },
+      "lack_water": {
+        "name": "水不足"
+      },
+      "standby": {
+        "name": "待機中"
+      },
+      "hot_water_dispensing": {
+        "name": "お湯給水中"
+      },
+      "fault": {
+        "name": "故障"
+      },
+      "heating_working": {
+        "name": "加熱運転状態"
+      },
+      "high_temperature": {
+        "name": "高温"
+      },
+      "high_temperature_lock": {
+        "name": "高温ロック"
+      },
+      "high_temperature_work": {
+        "name": "高温運転"
+      },
+      "keep_warm": {
+        "name": "保温"
+      },
+      "leak_water": {
+        "name": "水漏れ"
+      },
+      "lid_status": {
+        "name": "ふた状態"
+      },
+      "middle_compartment_cooling": {
+        "name": "中段庫内冷却"
+      },
+      "middle_compartment_door": {
+        "name": "中段庫内ドア"
+      },
+      "middle_compartment_preheating": {
+        "name": "中段庫内予熱"
+      },
+      "pre_heat": {
+        "name": "予熱"
+      },
+      "probe": {
+        "name": "プローブ"
+      },
+      "probe_mode": {
+        "name": "プローブモード"
+      },
+      "reaction": {
+        "name": "反応"
+      },
+      "top_elec_heat": {
+        "name": "上ヒーター"
+      },
+      "bottom_elec_heat": {
+        "name": "下ヒーター"
+      },
+      "mute_effect": {
+        "name": "消音効果"
+      },
+      "mute_status": {
+        "name": "消音状態"
+      },
+      "multi_terminal": {
+        "name": "マルチ端末"
+      },
+      "oilcup_full": {
+        "name": "オイルカップ満杯"
+      },
+      "protection": {
+        "name": "保護"
+      },
+      "refrigerator_door": {
+        "name": "冷蔵室ドア"
+      },
+      "refrigerator_door_overtime": {
+        "name": "冷蔵室ドア開放超過"
+      },
+      "rinse_aid": {
+        "name": "リンス剤不足"
+      },
+      "rsj_stand_by": {
+        "name": "待機"
+      },
+      "salt": {
+        "name": "塩不足"
+      },
+      "seat_status": {
+        "name": "便座状態"
+      },
+      "smart_grid": {
+        "name": "スマートグリッド"
+      },
+      "eco": {
+        "name": "ECO"
+      },
+      "maintenance_reminder": {
+        "name": "メンテナンスリマインダー"
+      },
+      "dr_enable": {
+        "name": "デマンドレスポンス"
+      },
+      "electric_rod_exception": {
+        "name": "電気ヒーター故障"
+      },
+      "ac_heater_priority": {
+        "name": "ヒートポンプ優先"
+      },
+      "high_temp_reminder": {
+        "name": "高温リマインダー"
+      },
+      "new_version_water_heater": {
+        "name": "拡張給湯プロトコル"
+      },
+      "heat_recovery_status": {
+        "name": "熱回収"
+      },
+      "holiday_mode": {
+        "name": "休暇モード"
+      },
+      "hybrid_motion_mode": {
+        "name": "ハイブリッド動作モード"
+      },
+      "support_boost_mode": {
+        "name": "ブーストモード対応"
+      },
+      "support_silent_mode": {
+        "name": "サイレントモード対応"
+      },
+      "support_remaining_hot_water": {
+        "name": "残り湯量表示対応"
+      },
+      "support_electric_mode": {
+        "name": "電気モード対応"
+      },
+      "support_auto_disinfect": {
+        "name": "自動除菌対応"
+      },
+      "support_force_e_heating": {
+        "name": "強制電気加熱対応"
+      },
+      "support_tou": {
+        "name": "時間帯別料金対応"
+      },
+      "support_ac_heater_priority": {
+        "name": "ヒートポンプ優先対応"
+      },
+      "support_heat_recovery": {
+        "name": "熱回収対応"
+      },
+      "support_heat_pump_mode": {
+        "name": "ヒートポンプモード対応"
+      },
+      "support_smart_mode": {
+        "name": "スマートモード対応"
+      },
+      "support_negative_temperature": {
+        "name": "低温対応"
+      },
+      "maintain_warn": {
+        "name": "メンテナンス警告"
+      },
+      "order1_effect": {
+        "name": "スケジュール 1 有効"
+      },
+      "order2_effect": {
+        "name": "スケジュール 2 有効"
+      },
+      "status_dhw": {
+        "name": "給湯状態"
+      },
+      "status_heating": {
+        "name": "暖房状態"
+      },
+      "status_ibh": {
+        "name": "IBH 状態"
+      },
+      "status_tbh": {
+        "name": "TBH 状態"
+      },
+      "tank_ejected": {
+        "name": "タンク取り外し"
+      },
+      "tank_full": {
+        "name": "タンク状態"
+      },
+      "top_compartment_cooling": {
+        "name": "上段庫内冷却"
+      },
+      "top_compartment_door": {
+        "name": "上段庫内ドア"
+      },
+      "top_compartment_preheating": {
+        "name": "上段庫内予熱"
+      },
+      "water_change_reminder": {
+        "name": "水交換リマインダー"
+      },
+      "water_shortage": {
+        "name": "水不足"
+      },
+      "with_pressure": {
+        "name": "加圧あり"
+      },
+      "zone1_room_temp_mode": {
+        "name": "ゾーン1 室温モード"
+      },
+      "zone1_water_temp_mode": {
+        "name": "ゾーン1 水温モード"
+      },
+      "zone2_room_temp_mode": {
+        "name": "ゾーン2 室温モード"
+      },
+      "zone2_water_temp_mode": {
+        "name": "ゾーン2 水温モード"
+      },
+      "microcrystal_fresh": {
+        "name": "マイクロクリスタル鮮度保持"
+      },
+      "electronic_smell": {
+        "name": "脱臭・除菌"
+      },
+      "water_pump_running": {
+        "name": "ウォーターポンプ運転中"
+      },
+      "filter_status": {
+        "name": "フィルターアラーム"
+      },
+      "standby_status": {
+        "name": "待機状態"
+      },
+      "out_water": {
+        "name": "排水"
+      },
+      "out_hot_water": {
+        "name": "お湯排出"
+      },
+      "backflow": {
+        "name": "逆流"
+      },
+      "sleep_status": {
+        "name": "スリープ状態"
+      },
+      "status_cool": {
+        "name": "状態 - 冷房"
+      },
+      "eco_function_state": {
+        "name": "モード - ECO 機能"
+      },
+      "eco_timer_state": {
+        "name": "モード - ECO タイマー"
+      },
+      "double_zone": {
+        "name": "機能 - ダブルゾーン"
+      },
+      "room_thermal_support": {
+        "name": "機能 - 室内サーモスタット"
+      },
+      "room_thermal_state": {
+        "name": "状態 - 室内サーモスタット"
+      },
+      "time_set": {
+        "name": "機能 - 時刻設定"
+      },
+      "disinfect_run": {
+        "name": "給湯 - 除菌運転中"
+      },
+      "remote_onoff": {
+        "name": "機能 - リモート オン/オフ"
+      },
+      "tbh_control": {
+        "name": "機能 - TBH 制御"
+      },
+      "heat_capability": {
+        "name": "機能 - 暖房"
+      },
+      "cool_capability": {
+        "name": "機能 - 冷房"
+      },
+      "dhw_capability": {
+        "name": "機能 - 給湯"
+      },
+      "sys_energy_ana_en": {
+        "name": "機能 - エネルギー分析（システム）"
+      },
+      "hmi_energy_ana_set_en": {
+        "name": "機能 - エネルギー分析（HMI）"
+      },
+      "pump_i_running": {
+        "name": "Pump_I - 内部"
+      },
+      "pump_o_running": {
+        "name": "Pump_O - 外部"
+      },
+      "pump_d_running": {
+        "name": "Pump_D - 給湯"
+      },
+      "pump_c_running": {
+        "name": "Pump_C - 混合水ループ ゾーン2"
+      },
+      "pump_s_running": {
+        "name": "Pump_S - ソーラー"
+      },
+      "sv1_open": {
+        "name": "SV1 - バルブ（給湯）"
+      },
+      "sv2_open": {
+        "name": "SV2 - バルブ（暖房）"
+      },
+      "load_output_tbh": {
+        "name": "ヒーター - タンク補助（TBH）"
+      },
+      "compressor_on": {
+        "name": "コンプレッサー - 運転中"
+      },
+      "ibh1_on": {
+        "name": "ヒーター - IBH1"
+      },
+      "ibh2_on": {
+        "name": "ヒーター - IBH2"
+      },
+      "sv3_open": {
+        "name": "SV3 - バルブ"
+      },
+      "crankcase_heater_on": {
+        "name": "ヒーター - クランクケース"
+      },
+      "alarm_on": {
+        "name": "エラー - アラーム"
+      },
+      "aux_heat_on": {
+        "name": "ヒーター - 補助熱源"
+      },
+      "ac_air_direction": {
+        "name": "エアコン 風向"
+      },
+      "ac_cooling_fan": {
+        "name": "エアコン 冷却ファン"
+      },
+      "ac_draining_pump": {
+        "name": "エアコン 排水ポンプ"
+      },
+      "ac_low_temperature": {
+        "name": "エアコン 低温"
+      },
+      "ac_over_temperature": {
+        "name": "エアコン 過熱"
+      },
+      "ac_swing": {
+        "name": "エアコン スイング"
+      },
+      "ac_water_full": {
+        "name": "エアコン 水満杯"
+      },
+      "b2_downstair_clean_tips": {
+        "name": "スチームオーブン 下段 清掃案内"
+      },
+      "b2_downstair_door": {
+        "name": "スチームオーブン 下段 ドア"
+      },
+      "b2_downstair_fresh_water": {
+        "name": "スチームオーブン 下段 給水"
+      },
+      "b2_downstair_light": {
+        "name": "スチームオーブン 下段 ライト"
+      },
+      "b2_downstair_lock": {
+        "name": "スチームオーブン 下段 ロック"
+      },
+      "b2_downstair_must_clean_tips": {
+        "name": "スチームオーブン 下段 要清掃案内"
+      },
+      "b2_downstair_water_shortage": {
+        "name": "スチームオーブン 下段 水不足"
+      },
+      "b2_upstair_clean_tips": {
+        "name": "スチームオーブン 上段 清掃案内"
+      },
+      "b2_upstair_door": {
+        "name": "スチームオーブン 上段 ドア"
+      },
+      "b2_upstair_fresh_water": {
+        "name": "スチームオーブン 上段 給水"
+      },
+      "b2_upstair_light": {
+        "name": "スチームオーブン 上段 ライト"
+      },
+      "b2_upstair_lock": {
+        "name": "スチームオーブン 上段 ロック"
+      },
+      "b2_upstair_must_clean_tips": {
+        "name": "スチームオーブン 上段 要清掃案内"
+      },
+      "b2_upstair_water_shortage": {
+        "name": "スチームオーブン 上段 水不足"
+      },
+      "b3_downstair_door": {
+        "name": "スチームキャビネット 下段 ドア"
+      },
+      "b3_downstair_door_lock": {
+        "name": "スチームキャビネット 下段 ドアロック"
+      },
+      "b3_downstair_infrared": {
+        "name": "スチームキャビネット 下段 赤外線"
+      },
+      "b3_downstair_ultraviolet": {
+        "name": "スチームキャビネット 下段 紫外線"
+      },
+      "b3_upstair_door": {
+        "name": "スチームキャビネット 上段 ドア"
+      },
+      "b3_upstair_door_lock": {
+        "name": "スチームキャビネット 上段 ドアロック"
+      },
+      "b3_upstair_infrared": {
+        "name": "スチームキャビネット 上段 赤外線"
+      },
+      "b3_upstair_ultraviolet": {
+        "name": "スチームキャビネット 上段 紫外線"
+      },
+      "b6_tvoc_status": {
+        "name": "レンジフード TVOC 状態"
+      },
+      "b6_delay_gear_linkage": {
+        "name": "レンジフード 遅延風量連動"
+      },
+      "b6_delay_time": {
+        "name": "レンジフード 遅延時間"
+      },
+      "b6_gesture_status": {
+        "name": "レンジフード ジェスチャー状態"
+      },
+      "b6_infrared_status": {
+        "name": "レンジフード 赤外線状態"
+      },
+      "b6_lock": {
+        "name": "レンジフード ロック"
+      },
+      "b6_power_on_light": {
+        "name": "レンジフード 電源オン時ライト"
+      },
+      "b6_smoke_detector": {
+        "name": "レンジフード 煙感知器"
+      },
+      "b6_smoke_stove_linkage": {
+        "name": "レンジフード 煙・コンロ連動"
+      },
+      "b7_left_dry_burning": {
+        "name": "ガスコンロ 左 空焚き"
+      },
+      "b7_left_dry_burning_invalid": {
+        "name": "ガスコンロ 左 空焚き無効"
+      },
+      "b7_left_gas_leakage": {
+        "name": "ガスコンロ 左 ガス漏れ"
+      },
+      "b7_left_has_fire": {
+        "name": "ガスコンロ 左 着火あり"
+      },
+      "b7_left_has_pot": {
+        "name": "ガスコンロ 左 鍋あり"
+      },
+      "b7_right_dry_burning": {
+        "name": "ガスコンロ 右 空焚き"
+      },
+      "b7_right_dry_burning_invalid": {
+        "name": "ガスコンロ 右 空焚き無効"
+      },
+      "b7_right_gas_leakage": {
+        "name": "ガスコンロ 右 ガス漏れ"
+      },
+      "b7_right_has_fire": {
+        "name": "ガスコンロ 右 着火あり"
+      },
+      "b7_right_has_pot": {
+        "name": "ガスコンロ 右 鍋あり"
+      },
+      "bf_door": {
+        "name": "オーブン ドア"
+      },
+      "bf_error": {
+        "name": "オーブン エラー"
+      },
+      "bf_flip": {
+        "name": "オーブン 反転"
+      },
+      "bf_hightemp_error": {
+        "name": "オーブン 高温エラー"
+      },
+      "bf_hightemp_lock": {
+        "name": "オーブン 高温ロック"
+      },
+      "bf_hightemp_over": {
+        "name": "オーブン 高温超過"
+      },
+      "bf_hotwind": {
+        "name": "オーブン 熱風"
+      },
+      "bf_hotwind_set": {
+        "name": "オーブン 熱風設定"
+      },
+      "bf_hydrops_full": {
+        "name": "オーブン 排水満杯"
+      },
+      "bf_light": {
+        "name": "オーブン ライト"
+      },
+      "bf_lock": {
+        "name": "オーブン ロック"
+      },
+      "bf_off_fromapp": {
+        "name": "オーブン アプリからオフ"
+      },
+      "bf_on_smart": {
+        "name": "オーブン スマートオン"
+      },
+      "bf_order": {
+        "name": "オーブン 予約"
+      },
+      "bf_order_time_isabsolute": {
+        "name": "オーブン 予約時刻は絶対指定"
+      },
+      "bf_overheat": {
+        "name": "オーブン 過熱"
+      },
+      "bf_preheat": {
+        "name": "オーブン 予熱"
+      },
+      "bf_preheat_done": {
+        "name": "オーブン 予熱完了"
+      },
+      "bf_preheat_set": {
+        "name": "オーブン 予熱設定"
+      },
+      "bf_probe": {
+        "name": "オーブン プローブ"
+      },
+      "bf_probe_meat": {
+        "name": "オーブン 肉用プローブ"
+      },
+      "bf_radiating": {
+        "name": "オーブン 放射"
+      },
+      "bf_repair_cook": {
+        "name": "オーブン 修理調理"
+      },
+      "bf_sabbath": {
+        "name": "オーブン 安息日モード"
+      },
+      "bf_scalehandling_remind": {
+        "name": "オーブン スケール処理リマインダー"
+      },
+      "bf_sensor": {
+        "name": "オーブン センサー"
+      },
+      "bf_stove_1": {
+        "name": "オーブン バーナー 1"
+      },
+      "bf_stove_2": {
+        "name": "オーブン バーナー 2"
+      },
+      "bf_stove_3": {
+        "name": "オーブン バーナー 3"
+      },
+      "bf_stove_4": {
+        "name": "オーブン バーナー 4"
+      },
+      "bf_stove_5": {
+        "name": "オーブン バーナー 5"
+      },
+      "bf_temp_fahrenheit": {
+        "name": "オーブン 温度華氏表示"
+      },
+      "bf_time_synchronization": {
+        "name": "オーブン 時刻同期"
+      },
+      "bf_turntable": {
+        "name": "オーブン ターンテーブル"
+      },
+      "bf_turntable_reset": {
+        "name": "オーブン ターンテーブルリセット"
+      },
+      "bf_upload_interval": {
+        "name": "オーブン アップロード間隔"
+      },
+      "bf_voice_identify": {
+        "name": "オーブン 音声認識"
+      },
+      "bf_voice_module": {
+        "name": "オーブン 音声モジュール"
+      },
+      "bf_water_box": {
+        "name": "オーブン 水タンク"
+      },
+      "bf_water_change": {
+        "name": "オーブン 水交換"
+      },
+      "bf_water_shortage": {
+        "name": "オーブン 水不足"
+      },
+      "bf_wintersummertime": {
+        "name": "オーブン 冬夏時間"
+      },
+      "e7_left_bottom_has_pot": {
+        "name": "IH 左下 鍋あり"
+      },
+      "e7_left_has_pot": {
+        "name": "IH 左 鍋あり"
+      },
+      "e7_left_top_has_pot": {
+        "name": "IH 左上 鍋あり"
+      },
+      "e7_right_bottom_has_pot": {
+        "name": "IH 右下 鍋あり"
+      },
+      "e7_right_has_pot": {
+        "name": "IH 右 鍋あり"
+      },
+      "e7_right_top_has_pot": {
+        "name": "IH 右上 鍋あり"
+      },
+      "sp_fandrying_door": {
+        "name": "プレート送風乾燥 ドア"
+      },
+      "sp_fandrying_setting_automode": {
+        "name": "プレート送風乾燥 自動モード設定"
+      },
+      "sp_fandrying_setting_linkage": {
+        "name": "プレート送風乾燥 連動設定"
+      },
+      "sp_fandrying_setting_linkcooker": {
+        "name": "プレート送風乾燥 調理器連動設定"
+      },
+      "sp_fandrying_setting_sync": {
+        "name": "プレート送風乾燥 同期設定"
+      },
+      "sp_heatingdisk_door": {
+        "name": "プレート加熱皿 ドア"
+      },
+      "sp_heatingdisk_setting_automode": {
+        "name": "プレート加熱皿 自動モード設定"
+      },
+      "sp_heatingdisk_setting_linkage": {
+        "name": "プレート加熱皿 連動設定"
+      },
+      "sp_heatingdisk_setting_linkcooker": {
+        "name": "プレート加熱皿 調理器連動設定"
+      },
+      "sp_heatingdisk_setting_sync": {
+        "name": "プレート加熱皿 同期設定"
+      },
+      "sp_uvc_door": {
+        "name": "プレート UVC ドア"
+      },
+      "sp_uvc_setting_automode": {
+        "name": "プレート UVC 自動モード設定"
+      },
+      "sp_uvc_setting_linkage": {
+        "name": "プレート UVC 連動設定"
+      },
+      "sp_uvc_setting_linkcooker": {
+        "name": "プレート UVC 調理器連動設定"
+      },
+      "sp_uvc_setting_sync": {
+        "name": "プレート UVC 同期設定"
+      },
+      "total_water_shortage": {
+        "name": "水不足"
+      },
+      "door_open": {
+        "name": "ドア開放"
+      },
+      "turntable": {
+        "name": "ターンテーブル"
+      },
+      "lack_box": {
+        "name": "ボックスなし"
+      },
+      "change_water": {
+        "name": "水交換リマインダー"
+      },
+      "ramadan": {
+        "name": "ラマダン"
+      },
+      "ota": {
+        "name": "OTA"
+      },
+      "laundry_appointment": {
+        "name": "予約"
+      }
+    },
+    "button": {
+      "start_delayed": {
+        "name": "予約開始"
+      },
+      "pause": {
+        "name": "一時停止"
+      },
+      "resume": {
+        "name": "再開"
+      },
+      "cancel": {
+        "name": "キャンセル"
+      },
+      "start": {
+        "name": "開始"
+      },
+      "laundry_cancel_appointment": {
+        "name": "予約をキャンセル"
+      }
+    },
+    "climate": {
+      "climate_zone1": {
+        "name": "ゾーン1 サーモスタット"
+      },
+      "climate_zone2": {
+        "name": "ゾーン2 サーモスタット"
+      },
+      "climate_key": {
+        "state_attributes": {
+          "fan_mode": {
+            "state": {
+              "silent": "静音",
+              "full": "満タン"
+            }
+          }
+        }
+      }
+    },
+    "fan": {
+      "bgf10000": {
+        "state_attributes": {
+          "preset_mode": {
+            "state": {
+              "normal": "標準",
+              "forest": "森林",
+              "beach": "ビーチ",
+              "countryside": "田園",
+              "baby": "ベビー風",
+              "sleep_1": "スリープ 1",
+              "sleep_2": "スリープ 2",
+              "strong": "強"
+            }
+          }
+        }
+      },
+      "fresh_air": {
+        "name": "換気"
+      },
+      "fresh_air_exhaust": {
+        "name": "換気排気"
+      }
+    },
+    "lock": {
+      "child_lock": {
+        "name": "チャイルドロック"
+      }
+    },
+    "number": {
+      "delay_minutes": {
+        "name": "遅延"
+      },
+      "wash_region": {
+        "name": "洗浄エリア"
+      },
+      "water_level": {
+        "name": "水位"
+      },
+      "water_strong_level": {
+        "name": "水圧レベル"
+      },
+      "heating_target_temperature": {
+        "name": "加熱目標温度"
+      },
+      "dry_level": {
+        "name": "乾燥レベル"
+      },
+      "heating_level": {
+        "name": "加熱レベル"
+      },
+      "seat_temp_level": {
+        "name": "便座温度レベル"
+      },
+      "water_temp_level": {
+        "name": "水温レベル"
+      },
+      "fan_speed_percent": {
+        "name": "風量（％）"
+      },
+      "vacation_days": {
+        "name": "休暇日数"
+      },
+      "max_temperature": {
+        "name": "最高目標温度"
+      },
+      "disinfection_temperature": {
+        "name": "除菌温度"
+      },
+      "schedule_mode": {
+        "name": "スケジュールモード"
+      },
+      "leak_water_protection_value": {
+        "name": "水漏れ保護値"
+      },
+      "flushing_days": {
+        "name": "再生日数"
+      },
+      "water_hardness": {
+        "name": "水硬度"
+      },
+      "boil_temperature": {
+        "name": "沸騰目標温度"
+      },
+      "keep_warm_time": {
+        "name": "保温時間"
+      },
+      "ai_voice_volume": {
+        "name": "AI 音声音量"
+      },
+      "screen_luminance": {
+        "name": "画面の明るさ"
+      },
+      "volume": {
+        "name": "音量"
+      },
+      "temperature_number": {
+        "name": "目標温度"
+      },
+      "temperature_above_number": {
+        "name": "目標温度（上段）"
+      },
+      "temperature_underside_number": {
+        "name": "目標温度（下段）"
+      },
+      "probe_temperature_number": {
+        "name": "目標プローブ温度"
+      },
+      "steam_quantity_number": {
+        "name": "スチーム量"
+      },
+      "hour_set": {
+        "name": "時刻設定"
+      },
+      "minute_set": {
+        "name": "分設定"
+      },
+      "second_set": {
+        "name": "秒設定"
+      },
+      "dryer_timed_extra": {
+        "name": "乾燥時間延長"
+      }
+    },
+    "select": {
+      "cur_quantify": {
+        "name": "現在の量プリセット",
+        "state": {
+          "none": "なし",
+          "preset_1": "プリセット 1",
+          "preset_2": "プリセット 2",
+          "preset_3": "プリセット 3",
+          "preset_4": "プリセット 4",
+          "preset_5": "プリセット 5"
+        }
+      },
+      "wash_mode_76000228": {
+        "name": "洗浄モード",
+        "state": {
+          "neutral_gear": "なし",
+          "auto_wash": "自動",
+          "strong_wash": "強力",
+          "standard_wash": "標準",
+          "eco_wash": "ECO",
+          "glass_wash": "ガラス",
+          "hour_wash": "90 分",
+          "fast_wash": "高速",
+          "soak_wash": "つけおき",
+          "90min": "90 分",
+          "self_clean": "セルフクリーニング",
+          "fruit_wash": "フルーツ",
+          "self_define": "カスタム",
+          "germ": "ささやき",
+          "bowl_wash": "お椀",
+          "kill_germ": "衛生",
+          "sea_food_wash": "セルフクリーニング",
+          "hot_pot_wash": "鍋",
+          "quiet_night_wash": "おやすみ",
+          "less_wash": "ライト",
+          "max_rapid_wash": "最速",
+          "oil_net_wash": "オイルフィルター",
+          "cloud_wash": "クラウドプログラム",
+          "single_dry": "乾燥のみ",
+          "single_disinfect": "除菌のみ",
+          "high_temp_wash": "高温",
+          "wash_dry": "洗浄・乾燥"
+        }
+      },
+      "program_76000228": {
+        "name": "プログラム",
+        "state": {
+          "auto_wash": "自動",
+          "strong_wash": "強力",
+          "standard_wash": "標準",
+          "eco_wash": "ECO",
+          "glass_wash": "ガラス",
+          "hour_wash": "90 分",
+          "fast_wash": "高速",
+          "soak_wash": "つけおき",
+          "90min": "90 分",
+          "self_clean": "セルフクリーニング",
+          "fruit_wash": "フルーツ",
+          "self_define": "カスタム",
+          "germ": "ささやき",
+          "bowl_wash": "お椀",
+          "kill_germ": "衛生",
+          "sea_food_wash": "セルフクリーニング",
+          "hot_pot_wash": "鍋",
+          "quiet_night_wash": "おやすみ",
+          "less_wash": "ライト",
+          "max_rapid_wash": "最速",
+          "oil_net_wash": "オイルフィルター",
+          "cloud_wash": "クラウドプログラム",
+          "single_dry": "乾燥のみ",
+          "single_disinfect": "除菌のみ",
+          "high_temp_wash": "高温",
+          "wash_dry": "洗浄・乾燥"
+        }
+      },
+      "program": {
+        "name": "プログラム",
+        "state": {
+          "auto_wash": "自動",
+          "strong_wash": "強力",
+          "standard_wash": "標準",
+          "eco_wash": "ECO",
+          "glass_wash": "ガラス",
+          "hour_wash": "1 時間",
+          "fast_wash": "高速",
+          "soak_wash": "つけおき",
+          "90min": "90 分",
+          "self_clean": "セルフクリーニング",
+          "fruit_wash": "フルーツ",
+          "self_define": "カスタム",
+          "germ": "除菌",
+          "bowl_wash": "お椀",
+          "kill_germ": "衛生",
+          "sea_food_wash": "シーフード",
+          "hot_pot_wash": "鍋",
+          "quiet_night_wash": "おやすみ",
+          "less_wash": "ライト",
+          "max_rapid_wash": "最速",
+          "oil_net_wash": "オイルフィルター",
+          "cloud_wash": "クラウドプログラム",
+          "single_dry": "乾燥のみ",
+          "single_disinfect": "除菌のみ",
+          "high_temp_wash": "高温",
+          "wash_dry": "洗浄・乾燥"
+        }
+      },
+      "load": {
+        "name": "積載",
+        "state": {
+          "0": "満タン",
+          "2": "ハーフ"
+        }
+      },
+      "heating_mode": {
+        "name": "加熱モード",
+        "state": {
+          "user": "ユーザー",
+          "activity": "活動",
+          "sleep": "スリープ",
+          "unknown": "不明"
+        }
+      },
+      "detect_mode": {
+        "name": "検知モード",
+        "state": {
+          "off": "オフ",
+          "pm_2_5": "PM 2.5",
+          "methanal": "ホルムアルデヒド"
+        }
+      },
+      "direction": {
+        "name": "風向",
+        "state": {
+          "oscillate": "スイング"
+        }
+      },
+      "fan_speed": {
+        "name": "風量",
+        "state": {
+          "auto": "自動",
+          "standby": "待機中",
+          "low": "弱",
+          "medium": "中",
+          "high": "強"
+        }
+      },
+      "fresh_air_exhaust_mode": {
+        "name": "換気排気風量",
+        "state": {
+          "off": "オフ",
+          "silent": "弱",
+          "high": "強",
+          "full": "満タン"
+        }
+      },
+      "fresh_air_mode": {
+        "name": "換気風量",
+        "state": {
+          "off": "オフ",
+          "low": "弱",
+          "medium": "中",
+          "high": "強",
+          "full": "満タン"
+        }
+      },
+      "mode": {
+        "name": "モード",
+        "state": {
+          "standby": "待機中",
+          "auto": "自動",
+          "manual": "手動",
+          "sleep": "スリープ",
+          "fast": "急速",
+          "smoke": "煙",
+          "off": "オフ",
+          "heat_high": "加熱（強）",
+          "heat_low": "加熱（弱）",
+          "bath": "バス",
+          "blow": "送風",
+          "ventilation": "換気",
+          "dry": "乾燥"
+        }
+      },
+      "oscillation_angle": {
+        "name": "スイング角度"
+      },
+      "oscillation_mode": {
+        "name": "スイングモード"
+      },
+      "rate_select": {
+        "name": "電力制限"
+      },
+      "screen_display": {
+        "name": "画面表示",
+        "state": {
+          "bright": "明るい",
+          "dim": "暗い",
+          "off": "オフ"
+        }
+      },
+      "silent_level": {
+        "name": "静音レベル"
+      },
+      "tilting_angle": {
+        "name": "傾き角度"
+      },
+      "wash_mode": {
+        "name": "洗浄モード",
+        "state": {
+          "neutral_gear": "なし",
+          "auto_wash": "自動",
+          "strong_wash": "強力",
+          "standard_wash": "標準",
+          "eco_wash": "ECO",
+          "glass_wash": "ガラス",
+          "hour_wash": "1 時間",
+          "fast_wash": "高速",
+          "soak_wash": "つけおき",
+          "90min": "90 分",
+          "self_clean": "セルフクリーニング",
+          "fruit_wash": "フルーツ",
+          "self_define": "カスタム",
+          "germ": "除菌",
+          "bowl_wash": "お椀",
+          "kill_germ": "衛生",
+          "sea_food_wash": "シーフード",
+          "hot_pot_wash": "鍋",
+          "quiet_night_wash": "おやすみ",
+          "less_wash": "ライト",
+          "max_rapid_wash": "最速",
+          "oil_net_wash": "オイルフィルター",
+          "cloud_wash": "クラウドプログラム",
+          "single_dry": "乾燥のみ",
+          "single_disinfect": "除菌のみ",
+          "high_temp_wash": "高温",
+          "wash_dry": "洗浄・乾燥"
+        }
+      },
+      "water_level_set": {
+        "name": "水位設定"
+      },
+      "wind_lr_angle": {
+        "name": "左右風向",
+        "state": {
+          "off": "オフ",
+          "left": "左",
+          "left_mid": "左中",
+          "middle": "中央",
+          "right_mid": "右中",
+          "right": "右"
+        }
+      },
+      "wind_ud_angle": {
+        "name": "上下風向",
+        "state": {
+          "off": "オフ",
+          "up": "上",
+          "up_mid": "上中",
+          "middle": "中央",
+          "down_mid": "下中",
+          "down": "下"
+        }
+      },
+      "work_status_select": {
+        "name": "運転状態",
+        "state": {
+          "save_power": "節電",
+          "standby": "待機中",
+          "work": "運転中",
+          "pause": "一時停止中",
+          "work_finish": "完了",
+          "order": "遅延",
+          "pause_c": "一時停止中 C",
+          "three": "3",
+          "self_inspection": "自己点検",
+          "query_version": "バージョン照会",
+          "demo": "デモ",
+          "ramadan": "ラマダン",
+          "after_checking": "確認後",
+          "wait_to_start": "開始待ち",
+          "ff": "不明"
+        }
+      },
+      "x9b_fire_power_select": {
+        "name": "火力",
+        "state": {
+          "high_power": "強",
+          "medium_high_power": "中強",
+          "medium_power": "中",
+          "medium_low_power": "中弱",
+          "low_power": "弱",
+          "ff": "不明"
+        }
+      },
+      "door": {
+        "name": "ドア",
+        "state": {
+          "open": "開",
+          "close": "閉"
+        }
+      },
+      "dryer_program_control": {
+        "name": "乾燥プログラム",
+        "state": {
+          "mixed_wash": "混合",
+          "wool": "ウール",
+          "night_dry": "夜間乾燥",
+          "big_dry": "大物",
+          "small_piece_dry": "小物",
+          "baby_clothes": "ベビー服",
+          "down_jacket": "ダウンジャケット",
+          "quick_dry": "スピード乾燥",
+          "cotton": "綿・麻",
+          "shirt": "シャツ",
+          "jean": "デニム",
+          "underwear": "下着",
+          "school_uniform": "制服",
+          "silk": "シルク",
+          "towel": "バスタオル",
+          "chiffon": "シフォン",
+          "polar_fleece": "フリース",
+          "hanfu": "漢服",
+          "hanfu_tang": "漢服™ 唐スタイル",
+          "hanfu_song": "漢服™ 宋スタイル",
+          "hanfu_ming": "漢服™ 明スタイル",
+          "hanfu_modern": "漢服™ モダンスタイル",
+          "sun_quilt": "布団干し",
+          "bucket_self_clean": "ドラム洗浄",
+          "steam_care": "スチームケア",
+          "fixed_time_dry": "時間指定乾燥",
+          "warm_clothes": "衣類保温",
+          "cold_air_fresh_air": "冷風リフレッシュ",
+          "sterilize_mite": "除菌・ダニ除去",
+          "bracket_dry": "ラック乾燥",
+          "pet_sterilize": "ペット除菌",
+          "sport_clothes": "スポーツウェア",
+          "outdoor": "アウトドア服",
+          "quick_drying_clothes": "速乾衣類",
+          "yoga": "ヨガウェア",
+          "air_wash": "エアウォッシュ",
+          "fiber": "合成繊維",
+          "bedsheet": "シーツ",
+          "plush": "ぬいぐるみ",
+          "dehumidify": "除湿",
+          "hot_air_dry": "熱風乾燥",
+          "standard": "標準",
+          "fresh_air": "換気",
+          "low_temp_dry": "低温乾燥",
+          "eco_dry": "省エネ乾燥",
+          "quick_dry_30": "スピード乾燥 30 分",
+          "intelligent_dry": "インテリジェント乾燥",
+          "big": "大物",
+          "western_trouser": "スラックス",
+          "dehumidification": "除湿",
+          "smart_dry": "スマート乾燥",
+          "four_piece_suit": "寝具セット",
+          "quick_dry_20": "スピード乾燥 20 分",
+          "steam_sterilize": "スチーム除菌",
+          "enzyme": "酵素",
+          "big_60": "大物 60",
+          "steam_no_iron": "スチームノーアイロンケア",
+          "bed_clothes": "寝具",
+          "little_fast_dry": "少量スピード乾燥",
+          "wool_nurse": "ウールケア",
+          "fresh_remove_smell": "脱臭リフレッシュ",
+          "sterilize": "除菌"
+        }
+      },
+      "dryer_dryness_control": {
+        "name": "乾燥度",
+        "state": {
+          "ready_to_wear": "そのまま着用可",
+          "storage": "保管"
+        }
+      },
+      "dryer_temperature_control": {
+        "name": "乾燥温度",
+        "state": {
+          "standard": "標準",
+          "low": "弱"
+        }
+      },
+      "washer_program_control": {
+        "name": "洗濯プログラム",
+        "state": {
+          "water_mixed_wash": "混合洗い",
+          "fast_wash": "スピード洗い 15 分",
+          "single_dehytration": "脱水のみ",
+          "rinsing_dehydration": "すすぎ・脱水",
+          "fast_wash_30": "スピード洗い 30 分",
+          "big": "大物",
+          "tub_clean": "槽洗浄",
+          "deep_tub_clean": "槽深洗浄",
+          "down_jacket": "ダウンジャケット",
+          "new_water_cotton": "綿・麻",
+          "baby_clothes": "ベビー服",
+          "shirt": "シャツ",
+          "wool": "ウール",
+          "water_underwear": "下着",
+          "silk": "シルク",
+          "jacket": "アウタージャケット",
+          "new_clothes_wash": "新しい衣類",
+          "jean": "デニム",
+          "water_fiber": "合成繊維",
+          "water_eco": "省エネ",
+          "water_intelligent": "スマート洗い",
+          "water_steep": "つけおき洗い",
+          "water_cold_wash": "冷水洗い",
+          "sterilization_wash": "除菌洗い",
+          "water_remove_mite_wash": "ダニ除去",
+          "disinfection_wash": "消毒洗い",
+          "stain_wash": "シミ洗い",
+          "sport_clothes": "スポーツウェア",
+          "yoga": "ヨガウェア",
+          "quick_drying_clothes": "速乾衣類"
+        }
+      },
+      "washer_temperature_control": {
+        "name": "水温",
+        "state": {
+          "cold": "冷水",
+          "20": "20 °C",
+          "30": "30 °C",
+          "40": "40 °C",
+          "60": "60 °C",
+          "95": "95 °C"
+        }
+      },
+      "washer_spin_speed_control": {
+        "name": "脱水回転数",
+        "state": {
+          "0": "脱水なし",
+          "400": "400 rpm",
+          "600": "600 rpm",
+          "800": "800 rpm",
+          "1000": "1000 rpm",
+          "1200": "1200 rpm",
+          "1400": "1400 rpm"
+        }
+      },
+      "washer_rinse_count": {
+        "name": "すすぎ回数",
+        "state": {
+          "1": "1",
+          "2": "2",
+          "3": "3",
+          "4": "4"
+        }
+      },
+      "washer_water_level_control": {
+        "name": "水位",
+        "state": {
+          "auto": "自動",
+          "l1": "L1",
+          "l2": "L2",
+          "l3": "L3",
+          "l4": "L4"
+        }
+      },
+      "washer_detergent_control": {
+        "name": "洗剤投入量",
+        "state": {
+          "smart": "スマート",
+          "off": "オフ",
+          "l1": "L1",
+          "l2": "L2",
+          "l3": "L3",
+          "l4": "L4"
+        }
+      },
+      "washer_wash_time_control": {
+        "name": "洗い時間（分）"
+      },
+      "washer_spin_time_control": {
+        "name": "脱水時間（分）"
+      }
+    },
+    "time": {
+      "timing_regeneration": {
+        "name": "再生タイミング"
+      },
+      "laundry_appointment_finish": {
+        "name": "終了時刻（予約設定）"
+      }
+    },
+    "sensor": {
+      "db_running_status": {
+        "name": "洗濯機の状態"
+      },
+      "db_progress": {
+        "name": "洗濯機の進行状況"
+      },
+      "db_program": {
+        "name": "洗濯プログラム"
+      },
+      "db_remain_time": {
+        "name": "洗濯機の残り時間"
+      },
+      "db_wash_time": {
+        "name": "洗濯機の洗い時間"
+      },
+      "db_dehydration_time": {
+        "name": "洗濯機の脱水時間"
+      },
+      "db_dehydration_speed": {
+        "name": "洗濯機の脱水回転数"
+      },
+      "db_water_level": {
+        "name": "洗濯機の水位"
+      },
+      "db_temperature": {
+        "name": "洗濯機の温度"
+      },
+      "db_rinse_count": {
+        "name": "洗濯機のすすぎ回数"
+      },
+      "db_detergent": {
+        "name": "洗濯機の洗剤"
+      },
+      "db_softener": {
+        "name": "洗濯機の柔軟剤"
+      },
+      "db_appointment_time": {
+        "name": "洗濯機の予約時刻"
+      },
+      "db_appointment_end_time": {
+        "name": "洗濯機の予約終了時刻"
+      },
+      "db_error_code": {
+        "name": "洗濯機のエラーコード"
+      },
+      "db_water_consumption": {
+        "name": "洗濯機の水使用量"
+      },
+      "db_power_consumption": {
+        "name": "洗濯機の消費電力量"
+      },
+      "dc_running_status": {
+        "name": "乾燥機の状態"
+      },
+      "dc_dry_status": {
+        "name": "乾燥機の乾燥状態"
+      },
+      "dc_program": {
+        "name": "乾燥プログラム"
+      },
+      "dc_remain_time": {
+        "name": "乾燥機の残り時間"
+      },
+      "dc_dry_time": {
+        "name": "乾燥機の乾燥時間"
+      },
+      "dc_intensity": {
+        "name": "乾燥機の強度"
+      },
+      "dc_appointment_time": {
+        "name": "乾燥機の予約時刻"
+      },
+      "dc_appointment_end_time": {
+        "name": "乾燥機の予約終了時刻"
+      },
+      "dc_error_code": {
+        "name": "乾燥機のエラーコード"
+      },
+      "dc_water_consumption": {
+        "name": "乾燥機の水使用量"
+      },
+      "dc_power_consumption": {
+        "name": "乾燥機の消費電力量"
+      },
+      "dishwasher_mode": {
+        "name": "モード",
+        "state": {
+          "neutral_gear": "なし",
+          "auto_wash": "自動",
+          "strong_wash": "強力",
+          "standard_wash": "標準",
+          "eco_wash": "ECO",
+          "glass_wash": "ガラス",
+          "hour_wash": "1 時間",
+          "fast_wash": "高速",
+          "soak_wash": "つけおき",
+          "90min": "90 分",
+          "self_clean": "セルフクリーニング",
+          "fruit_wash": "フルーツ",
+          "self_define": "カスタム",
+          "germ": "除菌",
+          "bowl_wash": "お椀",
+          "kill_germ": "衛生",
+          "sea_food_wash": "シーフード",
+          "hot_pot_wash": "鍋",
+          "quiet_night_wash": "おやすみ",
+          "less_wash": "ライト",
+          "max_rapid_wash": "最速",
+          "oil_net_wash": "オイルフィルター",
+          "cloud_wash": "クラウドプログラム",
+          "single_dry": "乾燥のみ",
+          "single_disinfect": "除菌のみ",
+          "high_temp_wash": "高温",
+          "wash_dry": "洗浄・乾燥"
+        }
+      },
+      "dishwasher_mode_76000228": {
+        "name": "モード",
+        "state": {
+          "neutral_gear": "なし",
+          "auto_wash": "自動",
+          "strong_wash": "強力",
+          "standard_wash": "標準",
+          "eco_wash": "ECO",
+          "glass_wash": "ガラス",
+          "hour_wash": "90 分",
+          "fast_wash": "高速",
+          "soak_wash": "つけおき",
+          "90min": "90 分",
+          "self_clean": "セルフクリーニング",
+          "fruit_wash": "フルーツ",
+          "self_define": "カスタム",
+          "germ": "ささやき",
+          "bowl_wash": "お椀",
+          "kill_germ": "衛生",
+          "sea_food_wash": "セルフクリーニング",
+          "hot_pot_wash": "鍋",
+          "quiet_night_wash": "おやすみ",
+          "less_wash": "ライト",
+          "max_rapid_wash": "最速",
+          "oil_net_wash": "オイルフィルター",
+          "cloud_wash": "クラウドプログラム",
+          "single_dry": "乾燥のみ",
+          "single_disinfect": "除菌のみ",
+          "high_temp_wash": "高温",
+          "wash_dry": "洗浄・乾燥"
+        }
+      },
+      "dishwasher_status": {
+        "name": "状態",
+        "state": {
+          "power_off": "オフ",
+          "cancel": "待機",
+          "delay": "予約開始",
+          "running": "運転中",
+          "error": "エラー"
+        }
+      },
+      "dishwasher_progress": {
+        "name": "進行状況",
+        "state": {
+          "idle": "待機",
+          "pre_wash": "予洗い",
+          "wash": "洗い",
+          "rinse": "すすぎ",
+          "dry": "乾燥",
+          "complete": "完了"
+        }
+      },
+      "operator": {
+        "name": "運転状態",
+        "state": {
+          "start": "運転中",
+          "pause": "一時停止中"
+        }
+      },
+      "wrong_operation": {
+        "name": "誤操作"
+      },
+      "dry_set_min": {
+        "name": "乾燥設定時間"
+      },
+      "clean_left_hour": {
+        "name": "残り清掃回数"
+      },
+      "kitchenware_left_hour": {
+        "name": "残り食器数"
+      },
+      "device_version": {
+        "name": "機器バージョン"
+      },
+      "throw_percent": {
+        "name": "投入レベル"
+      },
+      "delay_remaining": {
+        "name": "予約開始残り時間"
+      },
+      "gas_usage_daily": {
+        "name": "本日のガス使用量"
+      },
+      "gas_usage_last_month": {
+        "name": "先月のガス使用量"
+      },
+      "gas_usage_monthly": {
+        "name": "今月のガス使用量"
+      },
+      "water_usage_daily": {
+        "name": "本日の水使用量"
+      },
+      "water_usage_last_month": {
+        "name": "先月の水使用量"
+      },
+      "water_usage_monthly": {
+        "name": "今月の水使用量"
+      },
+      "three_way_mode": {
+        "name": "三方モード"
+      },
+      "heating_unit_type": {
+        "name": "加熱ユニットタイプ"
+      },
+      "return_temperature": {
+        "name": "戻り温度"
+      },
+      "heating_temperature": {
+        "name": "加熱温度"
+      },
+      "heating_gap_temperature": {
+        "name": "加熱温度差"
+      },
+      "user_mode_target_temperature": {
+        "name": "ユーザーモード目標温度"
+      },
+      "activity_mode_target_temperature": {
+        "name": "活動モード目標温度"
+      },
+      "sleep_mode_target_temperature": {
+        "name": "スリープモード目標温度"
+      },
+      "last_time": {
+        "name": "前回時刻"
+      },
+      "flow_volume": {
+        "name": "流量"
+      },
+      "bathing_leaving_temperature": {
+        "name": "入浴出湯温度"
+      },
+      "bf_status": {
+        "name": "状態",
+        "state": {
+          "save_power": "節電",
+          "standby": "待機中",
+          "work": "運転中",
+          "work_finish": "完了",
+          "order": "遅延",
+          "pause": "一時停止中",
+          "pause_c": "一時停止中 C",
+          "three": "3",
+          "wait_to_start": "開始待ち",
+          "self_inspection": "自己点検",
+          "query_version": "バージョン照会",
+          "demo": "デモ",
+          "after_checking": "確認後",
+          "unknown": "不明"
+        }
+      },
+      "bottom_compartment_remaining": {
+        "name": "下段庫内残り時間"
+      },
+      "bottom_compartment_status": {
+        "name": "下段庫内状態"
+      },
+      "bottom_compartment_temperature": {
+        "name": "下段庫内温度"
+      },
+      "bottom_temperature": {
+        "name": "下段温度"
+      },
+      "bright": {
+        "name": "明るさレベル"
+      },
+      "cloudmenuid": {
+        "name": "クラウドメニュー ID"
+      },
+      "compressor_temperature": {
+        "name": "コンプレッサー温度"
+      },
+      "condenser_temperature": {
+        "name": "凝縮器温度"
+      },
+      "cur_probe_temperature": {
+        "name": "現在のプローブ温度"
+      },
+      "cur_temperature_above": {
+        "name": "現在の温度（上段）"
+      },
+      "cur_temperature_underside": {
+        "name": "現在の温度（下段）"
+      },
+      "current_energy_consumption": {
+        "name": "現在のエネルギー消費量"
+      },
+      "current_temperature": {
+        "name": "現在の温度"
+      },
+      "dehydration_speed": {
+        "name": "脱水回転数"
+      },
+      "dehydration_time": {
+        "name": "脱水時間"
+      },
+      "dehydration_time_value": {
+        "name": "脱水時間値"
+      },
+      "execute_status": {
+        "name": "実行状態",
+        "state": {
+          "ok": "OK",
+          "status_nonsupport": "状態は未対応",
+          "function_nonsupport": "機能は未対応",
+          "param_range_error": "パラメーター範囲エラー"
+        }
+      },
+      "fire_power": {
+        "name": "火力",
+        "state": {
+          "fire_power_0": "レベル 0",
+          "fire_power_1": "レベル 1",
+          "fire_power_2": "レベル 2",
+          "fire_power_3": "レベル 3",
+          "fire_power_4": "レベル 4",
+          "fire_power_5": "レベル 5",
+          "fire_power_6": "レベル 6",
+          "fire_power_7": "レベル 7",
+          "fire_power_8": "レベル 8",
+          "fire_power_9": "レベル 9",
+          "fire_power_10": "レベル 10",
+          "unknown": "不明"
+        }
+      },
+      "minute_set": {
+        "name": "分設定"
+      },
+      "people_number": {
+        "name": "人数"
+      },
+      "probe_temperature": {
+        "name": "プローブ温度"
+      },
+      "second_set": {
+        "name": "秒設定"
+      },
+      "steam_quantity": {
+        "name": "スチーム量"
+      },
+      "stepnum": {
+        "name": "現在のステップ"
+      },
+      "temperature": {
+        "name": "温度"
+      },
+      "temperature_above": {
+        "name": "温度（上段）"
+      },
+      "temperature_underside": {
+        "name": "温度（下段）"
+      },
+      "totalstep": {
+        "name": "総ステップ数"
+      },
+      "wash_time_value": {
+        "name": "洗い時間値"
+      },
+      "stains": {
+        "name": "シミ"
+      },
+      "dirty_degree": {
+        "name": "汚れ度"
+      },
+      "detergent": {
+        "name": "洗剤"
+      },
+      "intensity": {
+        "name": "強度"
+      },
+      "dryness_level": {
+        "name": "乾燥レベル"
+      },
+      "dry_temperature": {
+        "name": "乾燥温度"
+      },
+      "door_warn": {
+        "name": "ドア警告"
+      },
+      "ai_switch": {
+        "name": "AI スイッチ"
+      },
+      "material": {
+        "name": "素材"
+      },
+      "water_box": {
+        "name": "水タンク"
+      },
+      "energy_consumption": {
+        "name": "エネルギー消費量"
+      },
+      "error": {
+        "name": "エラー",
+        "state": {
+          "no_error": "エラーなし",
+          "e1_position_not_found": "E1 位置が見つかりません",
+          "e2_photo_sensor_no_signal": "E2 フォトセンサー信号なし",
+          "e3_motor_not_running": "E3 モーター停止",
+          "e4_wrong_position": "E4 位置エラー",
+          "e1_motor_fault": "E1 モーター故障",
+          "e5_communication_fault": "E5 通信故障",
+          "e6_salt_sensor_fault": "E6 塩センサー故障",
+          "e7_chlorine_sterilization_fault": "E7 塩素除菌故障"
+        }
+      },
+      "error_code": {
+        "name": "エラーコード"
+      },
+      "humidify_feedback": {
+        "name": "湿度フィードバック"
+      },
+      "temperature_feedback": {
+        "name": "温度フィードバック"
+      },
+      "humidify_mode": {
+        "name": "加湿モード"
+      },
+      "estimated_energy_consumption": {
+        "name": "推定エネルギー消費量"
+      },
+      "estimated_water_consumption": {
+        "name": "推定水消費量"
+      },
+      "fan_level": {
+        "name": "ファンレベル"
+      },
+      "filter_life": {
+        "name": "フィルター寿命"
+      },
+      "filter1_days": {
+        "name": "フィルター1 残り使用可能日数"
+      },
+      "filter1_life": {
+        "name": "フィルター1 寿命レベル"
+      },
+      "filter2_days": {
+        "name": "フィルター2 残り使用可能日数"
+      },
+      "filter2_life": {
+        "name": "フィルター2 寿命レベル"
+      },
+      "filter3_days": {
+        "name": "フィルター3 残り使用可能日数"
+      },
+      "filter3_life": {
+        "name": "フィルター3 寿命レベル"
+      },
+      "flex_zone_actual_temp": {
+        "name": "フレックスゾーン実温度"
+      },
+      "flex_zone_setting_temp": {
+        "name": "フレックスゾーン設定温度"
+      },
+      "freezer_actual_temp": {
+        "name": "冷凍室実温度"
+      },
+      "freezer_setting_temp": {
+        "name": "冷凍室設定温度"
+      },
+      "hcho": {
+        "name": "ホルムアルデヒド"
+      },
+      "heating_leaving_temperature": {
+        "name": "暖房出湯温度"
+      },
+      "heating_power": {
+        "name": "暖房出力"
+      },
+      "heating_time_remaining": {
+        "name": "暖房残り時間"
+      },
+      "in_tds": {
+        "name": "入口 TDS"
+      },
+      "indoor_humidity": {
+        "name": "室内湿度"
+      },
+      "indoor_temperature": {
+        "name": "室内温度"
+      },
+      "keep_warm_remaining": {
+        "name": "保温残り時間"
+      },
+      "fault_code": {
+        "name": "故障コード"
+      },
+      "keep_warm_time": {
+        "name": "保温時間"
+      },
+      "left_salt": {
+        "name": "残り塩量"
+      },
+      "middle_compartment_remaining": {
+        "name": "中段庫内残り時間"
+      },
+      "middle_compartment_status": {
+        "name": "中段庫内状態"
+      },
+      "middle_compartment_temperature": {
+        "name": "中段庫内温度"
+      },
+      "mode": {
+        "name": "モード"
+      },
+      "out_tds": {
+        "name": "出口 TDS"
+      },
+      "outdoor_temperature": {
+        "name": "屋外温度"
+      },
+      "comp_run_freq": {
+        "name": "コンプレッサー周波数"
+      },
+      "outdoor_fan_speed": {
+        "name": "室外機ファン回転数"
+      },
+      "unit_mode_run": {
+        "name": "ユニット運転モード",
+        "state": {
+          "off": "オフ",
+          "auto": "自動",
+          "cool": "冷房",
+          "heat": "暖房",
+          "dhw": "給湯"
+        }
+      },
+      "odu_target_fre": {
+        "name": "目標コンプレッサー周波数"
+      },
+      "odu_voltage": {
+        "name": "室外機電圧"
+      },
+      "odu_comp_current": {
+        "name": "コンプレッサー電流"
+      },
+      "exv_current": {
+        "name": "電子膨張弁開度"
+      },
+      "fg_capacity_need": {
+        "name": "能力要求"
+      },
+      "pressure_high": {
+        "name": "冷媒圧力（高圧側）"
+      },
+      "pressure_low": {
+        "name": "冷媒圧力（低圧側）"
+      },
+      "temp_t1": {
+        "name": "温度センサー T1"
+      },
+      "temp_t2": {
+        "name": "プレート熱交換器温度（T2）"
+      },
+      "temp_t2b": {
+        "name": "プレート熱交換器出口温度（T2B）"
+      },
+      "temp_t3": {
+        "name": "室外コイル温度（T3）"
+      },
+      "temp_tp": {
+        "name": "吐出管温度（TP）"
+      },
+      "temp_th": {
+        "name": "吸入温度（TH）"
+      },
+      "temp_tf": {
+        "name": "パワーモジュール温度（TF）"
+      },
+      "program": {
+        "name": "プログラム"
+      },
+      "progress": {
+        "name": "進行状況"
+      },
+      "realtime_power": {
+        "name": "リアルタイム電力"
+      },
+      "pmv": {
+        "name": "PMV"
+      },
+      "refrigerator_actual_temp": {
+        "name": "冷蔵室実温度"
+      },
+      "refrigerator_setting_temp": {
+        "name": "冷蔵室設定温度"
+      },
+      "regeneration_left_seconds": {
+        "name": "再生までの残り秒数"
+      },
+      "remaining_days": {
+        "name": "残り日数"
+      },
+      "right_flex_zone_actual_temp": {
+        "name": "右フレックスゾーン実温度"
+      },
+      "right_flex_zone_setting_temp": {
+        "name": "右フレックスゾーン設定温度"
+      },
+      "rinse_count": {
+        "name": "すすぎ回数"
+      },
+      "rinse_level": {
+        "name": "すすぎレベル"
+      },
+      "salt_setting": {
+        "name": "塩設定"
+      },
+      "seat_temperature": {
+        "name": "便座温度"
+      },
+      "soak_time": {
+        "name": "つけおき時間"
+      },
+      "soft_available": {
+        "name": "軟水残量"
+      },
+      "softener": {
+        "name": "柔軟剤"
+      },
+      "softwater": {
+        "name": "軟水レベル"
+      },
+      "status": {
+        "name": "状態"
+      },
+      "storage_remaining": {
+        "name": "保管残り時間"
+      },
+      "tank": {
+        "name": "タンク"
+      },
+      "tank_actual_temperature": {
+        "name": "タンク実温度"
+      },
+      "target_temperature": {
+        "name": "目標温度"
+      },
+      "time_remaining": {
+        "name": "残り時間"
+      },
+      "top_compartment_remaining": {
+        "name": "上段庫内残り時間"
+      },
+      "top_compartment_status": {
+        "name": "上段庫内状態"
+      },
+      "top_compartment_temperature": {
+        "name": "上段庫内温度"
+      },
+      "top_temperature": {
+        "name": "上段温度"
+      },
+      "total_energy_consumption": {
+        "name": "総エネルギー消費量"
+      },
+      "total_produced_energy": {
+        "name": "総発生エネルギー量"
+      },
+      "tvoc": {
+        "name": "TVOC"
+      },
+      "wash_level": {
+        "name": "洗浄レベル"
+      },
+      "wash_strength": {
+        "name": "洗浄強度"
+      },
+      "wash_time": {
+        "name": "洗い時間"
+      },
+      "water_consumption": {
+        "name": "水消費量"
+      },
+      "water_consumption_average": {
+        "name": "水消費量平均"
+      },
+      "water_consumption_big": {
+        "name": "水消費量"
+      },
+      "water_temperature": {
+        "name": "水温"
+      },
+      "water_level": {
+        "name": "水位"
+      },
+      "weight": {
+        "name": "重量"
+      },
+      "wind": {
+        "name": "風"
+      },
+      "typeinfo": {
+        "name": "タイプ情報"
+      },
+      "use_days": {
+        "name": "使用日数"
+      },
+      "elec_heat": {
+        "name": "電気ヒーター"
+      },
+      "water_pump": {
+        "name": "ウォーターポンプ"
+      },
+      "four_way": {
+        "name": "四方弁"
+      },
+      "back_water": {
+        "name": "戻り湯"
+      },
+      "sterilize": {
+        "name": "除菌"
+      },
+      "disinfection_temperature": {
+        "name": "除菌温度"
+      },
+      "max_temperature": {
+        "name": "最高目標温度"
+      },
+      "max_temperature_upper_limit": {
+        "name": "最高温度上限"
+      },
+      "max_temperature_lower_limit": {
+        "name": "最高温度下限"
+      },
+      "disinfection_temperature_upper_limit": {
+        "name": "除菌温度上限"
+      },
+      "disinfection_temperature_lower_limit": {
+        "name": "除菌温度下限"
+      },
+      "dr_option": {
+        "name": "デマンドレスポンスオプション"
+      },
+      "remaining_hot_water_max": {
+        "name": "残り湯量の最大値"
+      },
+      "force_e_heating_status": {
+        "name": "強制電気加熱状態"
+      },
+      "holiday_max": {
+        "name": "休暇期間の最大値"
+      },
+      "holiday_min": {
+        "name": "休暇期間の最小値"
+      },
+      "timer_step_gap": {
+        "name": "タイマーステップ"
+      },
+      "vacation_start_year": {
+        "name": "休暇開始年"
+      },
+      "vacation_start_month": {
+        "name": "休暇開始月"
+      },
+      "vacation_start_day": {
+        "name": "休暇開始日"
+      },
+      "auto_sterilize_week": {
+        "name": "自動除菌 曜日"
+      },
+      "auto_sterilize_hour": {
+        "name": "自動除菌 時"
+      },
+      "auto_sterilize_minute": {
+        "name": "自動除菌 分"
+      },
+      "work_mode": {
+        "name": "運転モード",
+        "state": {
+          "microwave": "電子レンジ",
+          "microwave_1": "電子レンジ 1",
+          "microwave_2": "電子レンジ 2",
+          "microwave_3": "電子レンジ 3",
+          "microwave_4": "電子レンジ 4",
+          "microwave_5": "電子レンジ 5",
+          "microwave_steam_above_tube": "電子レンジ スチーム上ヒーター",
+          "microwave_double_tube": "電子レンジ ダブルヒーター",
+          "microwave_hot_wind_tube_fan": "電子レンジ 熱風ヒーターファン",
+          "microwave_underside_tube_hot_wind_tube_fan": "電子レンジ 下ヒーター熱風ファン",
+          "microwave_double_tube_hot_wind_tube_fan": "電子レンジ ダブルヒーター熱風ファン",
+          "microwave_steam": "電子レンジ スチーム",
+          "microwave_steam_1": "電子レンジ スチーム 1",
+          "unfreeze": "解凍",
+          "unfreeze_1": "解凍 1",
+          "unfreeze_2": "解凍 2",
+          "unfreeze_3": "解凍 3",
+          "unfreeze_t": "解凍 T",
+          "microwave_above_tube": "電子レンジ 上ヒーター",
+          "microwave_above_tube_1": "電子レンジ 上ヒーター 1",
+          "microwave_above_tube_2": "電子レンジ 上ヒーター 2",
+          "microwave_above_tube_fan": "電子レンジ 上ヒーターファン",
+          "fast_unfreeze": "高速解凍",
+          "fresh_unfreeze": "フレッシュ解凍",
+          "microwave_zymosis": "電子レンジ 発酵",
+          "pure_steam": "ピュアスチーム",
+          "pure_steam_1": "ピュアスチーム 1",
+          "pure_steam_2": "ピュアスチーム 2",
+          "pure_steam_3": "ピュアスチーム 3",
+          "pure_steam_4": "ピュアスチーム 4",
+          "pure_steam_5": "ピュアスチーム 5",
+          "pure_steam_6": "ピュアスチーム 6",
+          "pure_steam_7": "ピュアスチーム 7",
+          "pure_steam_8": "ピュアスチーム 8",
+          "pure_steam_9": "ピュアスチーム 9",
+          "steam_above_tube": "スチーム上ヒーター",
+          "steam_underside_tube": "スチーム下ヒーター",
+          "steam_double_tube": "スチームダブルヒーター",
+          "steam_hot_wind_tube_fan": "スチーム熱風ヒーターファン",
+          "steam_hot_wind_tube_fan_1": "スチーム熱風ヒーターファン 1",
+          "steam_hot_wind_tube_fan_2": "スチーム熱風ヒーターファン 2",
+          "steam_hot_wind_tube": "スチーム熱風ヒーター",
+          "steam_double_tube_fan": "スチームダブルヒーターファン",
+          "steam_above_inside_outside_tube_fan": "スチーム上内外ヒーターファン",
+          "steam_above_inside_tube_fan": "スチーム上内ヒーターファン",
+          "above_tube": "上ヒーター",
+          "underside_tube": "下ヒーター",
+          "double_tube": "ダブルヒーター",
+          "hot_wind_tube_fan": "熱風ヒーターファン",
+          "pure_preheat": "ピュア予熱",
+          "pure_preheat_2": "ピュア予熱 2",
+          "above_tube_hot_wind_tube_fan": "上ヒーター熱風ファン",
+          "underside_tube_hot_wind_tube_fan": "下ヒーター熱風ファン",
+          "zymosis": "発酵",
+          "double_tube_hot_wind_tube_fan": "ダブルヒーター熱風ファン",
+          "above_tube_revolve": "上ヒーター回転",
+          "underside_tube_revolve": "下ヒーター回転",
+          "double_tube_revolve": "ダブルヒーター回転",
+          "hot_wind_tube_fan_revolve": "熱風ヒーターファン回転",
+          "warm": "保温",
+          "double_tube_fan": "ダブルヒーターファン",
+          "double_tube_fan_1": "ダブルヒーターファン 1",
+          "double_tube_fan_2": "ダブルヒーターファン 2",
+          "double_tube_fan_3": "ダブルヒーターファン 3",
+          "above_inside_tube_revolve": "上内ヒーター回転",
+          "above_inside_tube_fan": "上内ヒーターファン",
+          "above_inside_outside_tube_revolve": "上内外ヒーター回転",
+          "above_inside_outside_tube_fan": "上内外ヒーターファン",
+          "above_inside_underside_tube": "上内下ヒーター",
+          "above_inside_underside_tube_1": "上内下ヒーター 1",
+          "above_inside_underside_tube_fan": "上内下ヒーターファン",
+          "above_inside_underside_tube_fan_1": "上内下ヒーターファン 1",
+          "above_inside_tube": "上内ヒーター",
+          "above_inside_outside_tube": "上内外ヒーター",
+          "underside_tube_fan": "下ヒーターファン",
+          "above_tube_fan": "上ヒーターファン",
+          "above_tube_fan_1": "上ヒーターファン 1",
+          "above_tube_fan_2": "上ヒーターファン 2",
+          "scale_clean": "スケール除去",
+          "clean": "クリーニング",
+          "remove_odor": "脱臭",
+          "remove_odor_2": "脱臭 2",
+          "high_temperature_clean": "高温クリーニング",
+          "dining_utensils_clean": "食器クリーニング",
+          "auto_menu": "自動メニュー",
+          "eco": "エコ",
+          "above_tube_1": "上ヒーター 1",
+          "above_tube_2": "上ヒーター 2",
+          "above_tube_3": "上ヒーター 3",
+          "underside_tube_1": "下ヒーター 1",
+          "underside_tube_2": "下ヒーター 2",
+          "double_tube_1": "ダブルヒーター 1",
+          "double_tube_2": "ダブルヒーター 2",
+          "double_tube_3": "ダブルヒーター 3",
+          "double_tube_4": "ダブルヒーター 4",
+          "double_tube_5": "ダブルヒーター 5",
+          "double_tube_6": "ダブルヒーター 6",
+          "hot_wind_tube_fan_1": "熱風ヒーターファン 1",
+          "hot_wind_tube_fan_2": "熱風ヒーターファン 2",
+          "hot_wind_tube_fan_3": "熱風ヒーターファン 3",
+          "hot_wind_tube_fan_4": "熱風ヒーターファン 4",
+          "hot_wind_tube_fan_5": "熱風ヒーターファン 5",
+          "double_tube_hot_wind_tube_fan_1": "ダブルヒーター熱風ファン 1",
+          "double_tube_hot_wind_tube_fan_2": "ダブルヒーター熱風ファン 2",
+          "double_tube_hot_wind_tube_fan_3": "ダブルヒーター熱風ファン 3",
+          "double_tube_hot_wind_tube_fan_4": "ダブルヒーター熱風ファン 4",
+          "double_tube_hot_wind_tube_fan_5": "ダブルヒーター熱風ファン 5",
+          "unknown": "不明"
+        }
+      },
+      "working_time": {
+        "name": "運転時間"
+      },
+      "humidity": {
+        "name": "湿度"
+      },
+      "variable_mode": {
+        "name": "可変モード",
+        "state": {
+          "none": "なし",
+          "soft_freezing": "ソフト冷凍",
+          "zero_fresh": "ゼロ鮮度保持",
+          "cold_drink": "冷たい飲み物",
+          "fresh_product": "生鮮食品",
+          "partial_freezing": "微凍結",
+          "dry_zone": "ドライゾーン",
+          "freeze_warm": "冷凍 / 保温",
+          "baby": "母子",
+          "treasure": "トレジャー",
+          "zero": "ゼロ度"
+        }
+      },
+      "compressor_frequency": {
+        "name": "コンプレッサー周波数"
+      },
+      "target_compressor_frequency": {
+        "name": "目標コンプレッサー周波数"
+      },
+      "compressor_current": {
+        "name": "コンプレッサー電流"
+      },
+      "compressor_voltage": {
+        "name": "コンプレッサー電圧"
+      },
+      "compressor_power": {
+        "name": "コンプレッサー出力"
+      },
+      "indoor_ambient_temperature": {
+        "name": "室内周囲温度（T1）"
+      },
+      "indoor_coil_temperature": {
+        "name": "室内コイル温度（T2）"
+      },
+      "outdoor_coil_temperature": {
+        "name": "室外コイル温度（T3）"
+      },
+      "outdoor_ambient_temperature": {
+        "name": "室外周囲温度（T4）"
+      },
+      "discharge_pipe_temperature": {
+        "name": "吐出管温度（TP）"
+      },
+      "indoor_fan_speed": {
+        "name": "室内ファン回転数"
+      },
+      "target_indoor_fan_speed": {
+        "name": "目標室内ファン回転数"
+      },
+      "velocity": {
+        "name": "速度"
+      },
+      "filter4_life": {
+        "name": "フィルター4 寿命レベル"
+      },
+      "filter5_life": {
+        "name": "フィルター5 寿命レベル"
+      },
+      "filter1_maxlife": {
+        "name": "フィルター1 寿命上限"
+      },
+      "filter2_maxlife": {
+        "name": "フィルター2 寿命上限"
+      },
+      "filter3_maxlife": {
+        "name": "フィルター3 寿命上限"
+      },
+      "filter4_maxlife": {
+        "name": "フィルター4 寿命上限"
+      },
+      "filter5_maxlife": {
+        "name": "フィルター5 寿命上限"
+      },
+      "hot_pot_temperature": {
+        "name": "鍋温度"
+      },
+      "ice_gall_status": {
+        "name": "氷胆状態"
+      },
+      "water_kind": {
+        "name": "水の種類",
+        "state": {
+          "idle": "待機",
+          "warm": "保温",
+          "cold": "冷水"
+        }
+      },
+      "heat_start": {
+        "name": "加熱開始",
+        "state": {
+          "heating": "加熱中",
+          "keep_warm": "保温中"
+        }
+      },
+      "no_obsolete_water_mode": {
+        "name": "古水排出なしモード",
+        "state": {
+          "water_quality_priority": "水質優先",
+          "water_saving_priority": "節水優先",
+          "custom": "カスタム"
+        }
+      },
+      "input_temperature_sensing": {
+        "name": "入力温度"
+      },
+      "temp_ta": {
+        "name": "温度 Ta - 室内周囲"
+      },
+      "water_flow": {
+        "name": "水 - 流量"
+      },
+      "water_pressure": {
+        "name": "水 - 圧力"
+      },
+      "temp_t4": {
+        "name": "温度 T4 - 室外周囲"
+      },
+      "temp_t5": {
+        "name": "温度 T5 - 貯湯タンク"
+      },
+      "temp_tb_t1": {
+        "name": "温度 TB-T1 - バッファタンク上部"
+      },
+      "temp_tb_t2": {
+        "name": "温度 TB-T2 - バッファタンク下部"
+      },
+      "temp_tsolar": {
+        "name": "温度 Tsolar - ソーラーパネル"
+      },
+      "temp_tw2": {
+        "name": "温度 Tw2 - ゾーン2 水"
+      },
+      "dc_current": {
+        "name": "室外機 - DC バス電流"
+      },
+      "dc_bus_voltage": {
+        "name": "室外機 - DC バス電圧"
+      },
+      "current_unit_capacity": {
+        "name": "現在のユニット能力（生値）"
+      },
+      "instant_power0": {
+        "name": "電力 - 暖房消費量"
+      },
+      "instant_renew_power0": {
+        "name": "電力 - 再生可能暖房能力"
+      },
+      "room_rel_hum": {
+        "name": "室内相対湿度"
+      },
+      "hydbox_subtype": {
+        "name": "情報 - 水力ボックスサブタイプ"
+      },
+      "machine_type": {
+        "name": "情報 - 機種タイプ"
+      },
+      "odu_model": {
+        "name": "情報 - 室外機モデルコード"
+      },
+      "hydrobox_capacity": {
+        "name": "情報 - 水力ボックス能力"
+      },
+      "idu_t1s1": {
+        "name": "温度 - ゾーン1 計算値（T1s）"
+      },
+      "idu_t1s2": {
+        "name": "温度 - ゾーン2 計算値（T1s）"
+      },
+      "t5s": {
+        "name": "温度 T5s - 給湯設定値"
+      },
+      "tas": {
+        "name": "温度 Tas - 空気設定値"
+      },
+      "zone1_temp_set": {
+        "name": "温度 - ゾーン1 設定値"
+      },
+      "zone2_temp_set": {
+        "name": "温度 - ゾーン2 設定値"
+      },
+      "disinfect_set_weekday": {
+        "name": "給湯 - 除菌 曜日"
+      },
+      "disinfect_start_hour": {
+        "name": "給湯 - 除菌開始 時"
+      },
+      "disinfect_start_minutes": {
+        "name": "給湯 - 除菌開始 分"
+      },
+      "error_code_description": {
+        "name": "エラー - 説明"
+      },
+      "hmi_sn_code": {
+        "name": "HMI シリアル"
+      },
+      "temp_tw_in": {
+        "name": "温度 Tw_in - 水入口"
+      },
+      "temp_tw_out": {
+        "name": "温度 Tw_out - 水出口"
+      },
+      "comp_total_run_time": {
+        "name": "エネルギー - コンプレッサー運転時間"
+      },
+      "idu_software_version_str": {
+        "name": "情報 - 室内機ソフトウェアバージョン"
+      },
+      "odu_software_version_str": {
+        "name": "情報 - 室外機ソフトウェアバージョン"
+      },
+      "ac_air_direction_gear": {
+        "name": "エアコン 風向段"
+      },
+      "ac_air_direction_max_angle": {
+        "name": "エアコン 風向最大角度"
+      },
+      "ac_air_direction_min_angle": {
+        "name": "エアコン 風向最小角度"
+      },
+      "ac_ambient_temperature": {
+        "name": "エアコン 周囲温度"
+      },
+      "ac_current_temp": {
+        "name": "エアコン 現在温度"
+      },
+      "ac_destination_temp": {
+        "name": "エアコン 目標温度"
+      },
+      "ac_destination_time": {
+        "name": "エアコン 目標時刻"
+      },
+      "ac_gear": {
+        "name": "エアコン 段"
+      },
+      "ac_mode": {
+        "name": "エアコン モード",
+        "state": {
+          "air_supply": "給気",
+          "dehumidification": "除湿",
+          "net_flavour": "空気清浄",
+          "none": "なし",
+          "refrigeration": "冷却"
+        }
+      },
+      "ac_order_destination_time": {
+        "name": "エアコン 予約目標時刻"
+      },
+      "ac_order_remaining_time": {
+        "name": "エアコン 予約残り時間"
+      },
+      "ac_remaining_time": {
+        "name": "エアコン 残り時間"
+      },
+      "ac_swing_gear": {
+        "name": "エアコン スイング段"
+      },
+      "ac_swing_max_angle": {
+        "name": "エアコン スイング最大角度"
+      },
+      "ac_swing_min_angle": {
+        "name": "エアコン スイング最小角度"
+      },
+      "ac_work_status": {
+        "name": "エアコン 運転状態",
+        "state": {
+          "order": "予約",
+          "power_off": "電源オフ",
+          "reservation": "予約",
+          "reservation_and_order_ordering": "予約・順序 順序設定中",
+          "reservation_and_order_reserving": "予約・順序 予約中",
+          "working": "運転中"
+        }
+      },
+      "ai_voice_microphone_status": {
+        "name": "AI 音声マイク状態",
+        "state": {
+          "failure": "失敗",
+          "success": "成功"
+        }
+      },
+      "ai_voice_status": {
+        "name": "AI 音声状態",
+        "state": {
+          "connecting": "接続中",
+          "off": "オフ",
+          "on": "オン"
+        }
+      },
+      "ai_voice_volume_status": {
+        "name": "AI 音声音量状態",
+        "state": {
+          "failure": "失敗",
+          "success": "成功"
+        }
+      },
+      "b2_downstair_current_temp": {
+        "name": "スチームオーブン 下段 現在温度"
+      },
+      "b2_downstair_destination_temp": {
+        "name": "スチームオーブン 下段 目標温度"
+      },
+      "b2_downstair_light_off_type": {
+        "name": "スチームオーブン 下段 ライトオフ種別",
+        "state": {
+          "app": "アプリ",
+          "local": "ローカル"
+        }
+      },
+      "b2_downstair_light_on_type": {
+        "name": "スチームオーブン 下段 ライトオン種別",
+        "state": {
+          "app": "アプリ",
+          "local": "ローカル"
+        }
+      },
+      "b2_downstair_order_destination_time": {
+        "name": "スチームオーブン 下段 予約目標時刻"
+      },
+      "b2_downstair_order_remaining_time": {
+        "name": "スチームオーブン 下段 予約残り時間"
+      },
+      "b2_downstair_power_off_type": {
+        "name": "スチームオーブン 下段 電源オフ種別",
+        "state": {
+          "app": "アプリ",
+          "auto": "自動",
+          "error": "エラー",
+          "local": "ローカル",
+          "wifi": "Wifi"
+        }
+      },
+      "b2_downstair_power_on_type": {
+        "name": "スチームオーブン 下段 電源オン種別",
+        "state": {
+          "app": "アプリ",
+          "local": "ローカル",
+          "order": "予約"
+        }
+      },
+      "b2_downstair_preheating": {
+        "name": "スチームオーブン 下段 予熱中",
+        "state": {
+          "finish": "完了",
+          "none": "なし",
+          "preheating": "予熱中"
+        }
+      },
+      "b2_downstair_recipe_after": {
+        "name": "スチームオーブン 下段 レシピ終了後"
+      },
+      "b2_downstair_recipe_code": {
+        "name": "スチームオーブン 下段 レシピコード"
+      },
+      "b2_downstair_recipe_current_mode": {
+        "name": "スチームオーブン 下段 レシピ現在モード"
+      },
+      "b2_downstair_recipe_current_step": {
+        "name": "スチームオーブン 下段 レシピ現在ステップ"
+      },
+      "b2_downstair_recipe_off_type": {
+        "name": "スチームオーブン 下段 レシピオフ種別",
+        "state": {
+          "app": "アプリ",
+          "auto": "自動",
+          "error": "エラー",
+          "local": "ローカル",
+          "wifi": "Wifi"
+        }
+      },
+      "b2_downstair_recipe_on_type": {
+        "name": "スチームオーブン 下段 レシピオン種別",
+        "state": {
+          "app": "アプリ",
+          "local": "ローカル",
+          "order": "予約"
+        }
+      },
+      "b2_downstair_recipe_total_steps": {
+        "name": "スチームオーブン 下段 レシピ総ステップ数"
+      },
+      "b2_downstair_work_destination_time": {
+        "name": "スチームオーブン 下段 運転目標時刻"
+      },
+      "b2_downstair_work_func": {
+        "name": "スチームオーブン 下段 運転機能"
+      },
+      "b2_downstair_work_menu": {
+        "name": "スチームオーブン 下段 運転メニュー"
+      },
+      "b2_downstair_work_remaining_time": {
+        "name": "スチームオーブン 下段 運転残り時間"
+      },
+      "b2_downstair_work_status": {
+        "name": "スチームオーブン 下段 運転状態",
+        "state": {
+          "auto": "自動",
+          "drying": "乾燥中",
+          "finish": "完了",
+          "order": "予約",
+          "pause": "一時停止",
+          "power_off": "電源オフ",
+          "standby": "待機中",
+          "working": "運転中"
+        }
+      },
+      "b2_upstair_current_temp": {
+        "name": "スチームオーブン 上段 現在温度"
+      },
+      "b2_upstair_destination_temp": {
+        "name": "スチームオーブン 上段 目標温度"
+      },
+      "b2_upstair_light_off_type": {
+        "name": "スチームオーブン 上段 ライトオフ種別",
+        "state": {
+          "app": "アプリ",
+          "local": "ローカル"
+        }
+      },
+      "b2_upstair_light_on_type": {
+        "name": "スチームオーブン 上段 ライトオン種別",
+        "state": {
+          "app": "アプリ",
+          "local": "ローカル"
+        }
+      },
+      "b2_upstair_order_destination_time": {
+        "name": "スチームオーブン 上段 予約目標時刻"
+      },
+      "b2_upstair_order_remaining_time": {
+        "name": "スチームオーブン 上段 予約残り時間"
+      },
+      "b2_upstair_power_off_type": {
+        "name": "スチームオーブン 上段 電源オフ種別",
+        "state": {
+          "app": "アプリ",
+          "auto": "自動",
+          "error": "エラー",
+          "local": "ローカル",
+          "wifi": "Wifi"
+        }
+      },
+      "b2_upstair_power_on_type": {
+        "name": "スチームオーブン 上段 電源オン種別",
+        "state": {
+          "app": "アプリ",
+          "local": "ローカル",
+          "order": "予約"
+        }
+      },
+      "b2_upstair_preheating": {
+        "name": "スチームオーブン 上段 予熱中",
+        "state": {
+          "finish": "完了",
+          "none": "なし",
+          "preheating": "予熱中"
+        }
+      },
+      "b2_upstair_recipe_after": {
+        "name": "スチームオーブン 上段 レシピ終了後"
+      },
+      "b2_upstair_recipe_code": {
+        "name": "スチームオーブン 上段 レシピコード"
+      },
+      "b2_upstair_recipe_current_mode": {
+        "name": "スチームオーブン 上段 レシピ現在モード"
+      },
+      "b2_upstair_recipe_current_step": {
+        "name": "スチームオーブン 上段 レシピ現在ステップ"
+      },
+      "b2_upstair_recipe_off_type": {
+        "name": "スチームオーブン 上段 レシピオフ種別",
+        "state": {
+          "app": "アプリ",
+          "auto": "自動",
+          "error": "エラー",
+          "local": "ローカル",
+          "wifi": "Wifi"
+        }
+      },
+      "b2_upstair_recipe_on_type": {
+        "name": "スチームオーブン 上段 レシピオン種別",
+        "state": {
+          "app": "アプリ",
+          "local": "ローカル",
+          "order": "予約"
+        }
+      },
+      "b2_upstair_recipe_total_steps": {
+        "name": "スチームオーブン 上段 レシピ総ステップ数"
+      },
+      "b2_upstair_work_destination_time": {
+        "name": "スチームオーブン 上段 運転目標時刻"
+      },
+      "b2_upstair_work_func": {
+        "name": "スチームオーブン 上段 運転機能"
+      },
+      "b2_upstair_work_menu": {
+        "name": "スチームオーブン 上段 運転メニュー"
+      },
+      "b2_upstair_work_remaining_time": {
+        "name": "スチームオーブン 上段 運転残り時間"
+      },
+      "b2_upstair_work_status": {
+        "name": "スチームオーブン 上段 運転状態",
+        "state": {
+          "auto": "自動",
+          "drying": "乾燥中",
+          "finish": "完了",
+          "order": "予約",
+          "pause": "一時停止",
+          "power_off": "電源オフ",
+          "standby": "待機中",
+          "working": "運転中"
+        }
+      },
+      "b3_disinfect_off_type": {
+        "name": "スチームキャビネット 除菌オフ種別",
+        "state": {
+          "app": "アプリ",
+          "local": "ローカル"
+        }
+      },
+      "b3_disinfect_on_type": {
+        "name": "スチームキャビネット 除菌オン種別",
+        "state": {
+          "app": "アプリ",
+          "local": "ローカル"
+        }
+      },
+      "b3_downstair_current_temp": {
+        "name": "スチームキャビネット 下段 現在温度"
+      },
+      "b3_downstair_destination_temp": {
+        "name": "スチームキャビネット 下段 目標温度"
+      },
+      "b3_downstair_destination_time": {
+        "name": "スチームキャビネット 下段 目標時刻"
+      },
+      "b3_downstair_remaining_time": {
+        "name": "スチームキャビネット 下段 残り時間"
+      },
+      "b3_downstair_sensor": {
+        "name": "スチームキャビネット 下段 センサー"
+      },
+      "b3_downstair_status": {
+        "name": "スチームキャビネット 下段 状態",
+        "state": {
+          "drying": "乾燥中",
+          "drying_pause": "乾燥 一時停止",
+          "ion_drying": "イオン乾燥",
+          "ion_drying_pause": "イオン乾燥 一時停止",
+          "power_off": "電源オフ",
+          "uperization": "超高温殺菌",
+          "uperization_pause": "超高温殺菌 一時停止",
+          "warm_drink": "温かい飲み物",
+          "warm_drink_pause": "温かい飲み物 一時停止"
+        }
+      },
+      "b3_thermotank_off_type": {
+        "name": "スチームキャビネット 保温タンクオフ種別",
+        "state": {
+          "app": "アプリ",
+          "local": "ローカル"
+        }
+      },
+      "b3_thermotank_on_type": {
+        "name": "スチームキャビネット 保温タンクオン種別",
+        "state": {
+          "app": "アプリ",
+          "local": "ローカル"
+        }
+      },
+      "b3_upstair_current_temp": {
+        "name": "スチームキャビネット 上段 現在温度"
+      },
+      "b3_upstair_destination_temp": {
+        "name": "スチームキャビネット 上段 目標温度"
+      },
+      "b3_upstair_destination_time": {
+        "name": "スチームキャビネット 上段 目標時刻"
+      },
+      "b3_upstair_remaining_time": {
+        "name": "スチームキャビネット 上段 残り時間"
+      },
+      "b3_upstair_sensor": {
+        "name": "スチームキャビネット 上段 センサー"
+      },
+      "b3_upstair_status": {
+        "name": "スチームキャビネット 上段 状態",
+        "state": {
+          "drying": "乾燥中",
+          "drying_pause": "乾燥 一時停止",
+          "ion_drying": "イオン乾燥",
+          "ion_drying_pause": "イオン乾燥 一時停止",
+          "power_off": "電源オフ",
+          "uperization": "超高温殺菌",
+          "uperization_pause": "超高温殺菌 一時停止",
+          "warm_drink": "温かい飲み物",
+          "warm_drink_pause": "温かい飲み物 一時停止"
+        }
+      },
+      "b6_tvoc_value": {
+        "name": "レンジフード TVOC 値",
+        "state": {
+          "excellent": "優",
+          "good": "良",
+          "medium": "中"
+        }
+      },
+      "b6_air_duct_detection_score": {
+        "name": "レンジフード 風路検知スコア"
+      },
+      "b6_air_duct_detection_state": {
+        "name": "レンジフード 風路検知状態"
+      },
+      "b6_air_duct_detection_time": {
+        "name": "レンジフード 風路検知時間"
+      },
+      "b6_air_duct_detection_windage": {
+        "name": "レンジフード 風路検知風量"
+      },
+      "b6_air_volume": {
+        "name": "レンジフード 風量"
+      },
+      "b6_delay_gear_linkage_gear": {
+        "name": "レンジフード 遅延風量連動段"
+      },
+      "b6_delay_time_value": {
+        "name": "レンジフード 遅延時間値"
+      },
+      "b6_destination_time": {
+        "name": "レンジフード 目標時刻"
+      },
+      "b6_gear": {
+        "name": "レンジフード 風量段"
+      },
+      "b6_gear_control_type": {
+        "name": "レンジフード 風量段制御種別",
+        "state": {
+          "app": "アプリ",
+          "gesture": "ジェスチャー",
+          "linkage": "連動",
+          "local": "ローカル",
+          "smoke_detector": "煙感知器"
+        }
+      },
+      "b6_gesture_sensitivity": {
+        "name": "レンジフード ジェスチャー感度",
+        "state": {
+          "1": "1",
+          "2": "2",
+          "3": "3"
+        }
+      },
+      "b6_gesture_value": {
+        "name": "レンジフード ジェスチャー値",
+        "state": {
+          "light": "ライト",
+          "power": "電源",
+          "wind": "風"
+        }
+      },
+      "b6_hotclean_tips": {
+        "name": "レンジフード 高温清掃案内"
+      },
+      "b6_infrared_value": {
+        "name": "レンジフード 赤外線値",
+        "state": {
+          "power": "電源",
+          "wind": "風"
+        }
+      },
+      "b6_inverter_ac_frequency": {
+        "name": "レンジフード インバーター AC 周波数"
+      },
+      "b6_inverter_back_electromotive_force": {
+        "name": "レンジフード インバーター逆起電力"
+      },
+      "b6_inverter_capacity": {
+        "name": "レンジフード インバーター能力"
+      },
+      "b6_inverter_efficiency": {
+        "name": "レンジフード インバーター効率"
+      },
+      "b6_inverter_motor_compensation_angle": {
+        "name": "レンジフード インバーターモーター補償角度"
+      },
+      "b6_inverter_motor_speed": {
+        "name": "レンジフード インバーターモーター回転数"
+      },
+      "b6_inverter_q_axis_current": {
+        "name": "レンジフード インバーター Q 軸電流"
+      },
+      "b6_inverter_start_time": {
+        "name": "レンジフード インバーター起動時間"
+      },
+      "b6_inverter_temperature": {
+        "name": "レンジフード インバーター温度"
+      },
+      "b6_inverter_temperature_limit_sign": {
+        "name": "レンジフード インバーター温度制限フラグ"
+      },
+      "b6_inverter_voltage": {
+        "name": "レンジフード インバーター電圧"
+      },
+      "b6_inverter_wind_flow": {
+        "name": "レンジフード インバーター風量"
+      },
+      "b6_inverter_wind_presssure": {
+        "name": "レンジフード インバーター風圧"
+      },
+      "b6_inverter_windage": {
+        "name": "レンジフード インバーター風量"
+      },
+      "b6_inverter_work_gear": {
+        "name": "レンジフード インバーター運転段"
+      },
+      "b6_last_hotclean_hour": {
+        "name": "レンジフード 前回高温清掃 時"
+      },
+      "b6_light": {
+        "name": "レンジフード ライト"
+      },
+      "b6_light_off_type": {
+        "name": "レンジフード ライトオフ種別",
+        "state": {
+          "app": "アプリ",
+          "error": "エラー",
+          "gesture": "ジェスチャー",
+          "local": "ローカル"
+        }
+      },
+      "b6_light_on_type": {
+        "name": "レンジフード ライトオン種別",
+        "state": {
+          "app": "アプリ",
+          "gesture": "ジェスチャー",
+          "local": "ローカル"
+        }
+      },
+      "b6_lightness": {
+        "name": "レンジフード 明るさ"
+      },
+      "b6_lock_off_type": {
+        "name": "レンジフード ロックオフ種別",
+        "state": {
+          "local": "ローカル"
+        }
+      },
+      "b6_lock_on_type": {
+        "name": "レンジフード ロックオン種別",
+        "state": {
+          "app": "アプリ",
+          "local": "ローカル"
+        }
+      },
+      "b6_power": {
+        "name": "レンジフード 電源",
+        "state": {
+          "delay_off": "遅延オフ",
+          "off": "オフ",
+          "on": "オン"
+        }
+      },
+      "b6_power_off_type": {
+        "name": "レンジフード 電源オフ種別",
+        "state": {
+          "app": "アプリ",
+          "delay": "遅延",
+          "gesture": "ジェスチャー",
+          "linkage": "連動",
+          "local": "ローカル"
+        }
+      },
+      "b6_power_on_type": {
+        "name": "レンジフード 電源オン種別",
+        "state": {
+          "app": "アプリ",
+          "gesture": "ジェスチャー",
+          "linkage": "連動",
+          "local": "ローカル"
+        }
+      },
+      "b6_remaining_time": {
+        "name": "レンジフード 残り時間"
+      },
+      "b6_smoke_detector_value": {
+        "name": "レンジフード 煙感知器値"
+      },
+      "b6_smoke_potency": {
+        "name": "レンジフード 煙濃度"
+      },
+      "b6_smoke_stove_linkage_flowin": {
+        "name": "レンジフード 煙・コンロ連動 流入",
+        "state": {
+          "no": "いいえ",
+          "yes": "はい"
+        }
+      },
+      "b6_smoke_stove_linkage_gear": {
+        "name": "レンジフード 煙・コンロ連動段"
+      },
+      "b6_smoke_stove_linkage_gear_fix": {
+        "name": "レンジフード 煙・コンロ連動段 固定",
+        "state": {
+          "negative": "ネガティブ",
+          "positive": "ポジティブ"
+        }
+      },
+      "b6_steaming": {
+        "name": "レンジフード スチーム中",
+        "state": {
+          "off": "オフ",
+          "on": "オン"
+        }
+      },
+      "b6_steaming_stage": {
+        "name": "レンジフード スチーム段階"
+      },
+      "b6_wind_pressure": {
+        "name": "レンジフード 風圧"
+      },
+      "b6_work_status": {
+        "name": "レンジフード 運転状態",
+        "state": {
+          "ai_dry_clean": "AI ドライクリーニング",
+          "air_duct_detection": "風路検知",
+          "check": "点検",
+          "clean": "クリーニング",
+          "clean_finish": "清掃完了",
+          "error": "エラー",
+          "hotclean": "高温清掃",
+          "initial": "初期",
+          "mute_gear": "静音段",
+          "power_off": "電源オフ",
+          "power_off_delay": "電源オフ遅延",
+          "standby": "待機中",
+          "vvvf_gear": "VVVF 段",
+          "working": "運転中"
+        }
+      },
+      "b7_left_current_temp": {
+        "name": "ガスコンロ 左 現在温度"
+      },
+      "b7_left_destination_temp": {
+        "name": "ガスコンロ 左 目標温度"
+      },
+      "b7_left_destination_time": {
+        "name": "ガスコンロ 左 目標時刻"
+      },
+      "b7_left_gear": {
+        "name": "ガスコンロ 左 段"
+      },
+      "b7_left_power_off_type": {
+        "name": "ガスコンロ 左 電源オフ種別",
+        "state": {
+          "app": "アプリ",
+          "auto": "自動",
+          "error": "エラー",
+          "local": "ローカル",
+          "wifi": "Wifi"
+        }
+      },
+      "b7_left_remaining_time": {
+        "name": "ガスコンロ 左 残り時間"
+      },
+      "b7_left_status": {
+        "name": "ガスコンロ 左 状態",
+        "state": {
+          "drying": "乾燥中",
+          "drying_pause": "乾燥 一時停止",
+          "ion_drying": "イオン乾燥",
+          "ion_drying_pause": "イオン乾燥 一時停止",
+          "power_off": "電源オフ",
+          "uperization": "超高温殺菌",
+          "uperization_pause": "超高温殺菌 一時停止",
+          "warm_drink": "温かい飲み物",
+          "warm_drink_pause": "温かい飲み物 一時停止"
+        }
+      },
+      "b7_left_work_time": {
+        "name": "ガスコンロ 左 運転時間"
+      },
+      "b7_right_current_temp": {
+        "name": "ガスコンロ 右 現在温度"
+      },
+      "b7_right_destination_temp": {
+        "name": "ガスコンロ 右 目標温度"
+      },
+      "b7_right_destination_time": {
+        "name": "ガスコンロ 右 目標時刻"
+      },
+      "b7_right_gear": {
+        "name": "ガスコンロ 右 段"
+      },
+      "b7_right_power_off_type": {
+        "name": "ガスコンロ 右 電源オフ種別",
+        "state": {
+          "app": "アプリ",
+          "auto": "自動",
+          "error": "エラー",
+          "local": "ローカル",
+          "wifi": "Wifi"
+        }
+      },
+      "b7_right_remaining_time": {
+        "name": "ガスコンロ 右 残り時間"
+      },
+      "b7_right_status": {
+        "name": "ガスコンロ 右 状態",
+        "state": {
+          "drying": "乾燥中",
+          "drying_pause": "乾燥 一時停止",
+          "ion_drying": "イオン乾燥",
+          "ion_drying_pause": "イオン乾燥 一時停止",
+          "power_off": "電源オフ",
+          "uperization": "超高温殺菌",
+          "uperization_pause": "超高温殺菌 一時停止",
+          "warm_drink": "温かい飲み物",
+          "warm_drink_pause": "温かい飲み物 一時停止"
+        }
+      },
+      "b7_right_work_time": {
+        "name": "ガスコンロ 右 運転時間"
+      },
+      "bf_cavity": {
+        "name": "オーブン 庫内",
+        "state": {
+          "down": "下",
+          "up": "上"
+        }
+      },
+      "bf_control_back": {
+        "name": "オーブン 制御戻り",
+        "state": {
+          "func_notsupport": "機能未対応",
+          "status_notsupport": "状態未対応",
+          "success": "成功",
+          "value_notsupport": "値未対応"
+        }
+      },
+      "bf_end_next": {
+        "name": "オーブン 終了後 次"
+      },
+      "bf_fire": {
+        "name": "オーブン 火力"
+      },
+      "bf_mode": {
+        "name": "オーブン モード"
+      },
+      "bf_quick_btn_bake_id": {
+        "name": "オーブン クイックボタン ベイク ID"
+      },
+      "bf_quick_btn_bake_set": {
+        "name": "オーブン クイックボタン ベイク設定"
+      },
+      "bf_quick_btn_bake_time": {
+        "name": "オーブン クイックボタン ベイク時間"
+      },
+      "bf_quick_btn_microwave_id": {
+        "name": "オーブン クイックボタン 電子レンジ ID"
+      },
+      "bf_quick_btn_microwave_set": {
+        "name": "オーブン クイックボタン 電子レンジ設定"
+      },
+      "bf_quick_btn_microwave_time": {
+        "name": "オーブン クイックボタン 電子レンジ時間"
+      },
+      "bf_quick_btn_steam_id": {
+        "name": "オーブン クイックボタン スチーム ID"
+      },
+      "bf_quick_btn_steam_set": {
+        "name": "オーブン クイックボタン スチーム設定"
+      },
+      "bf_quick_btn_steam_time": {
+        "name": "オーブン クイックボタン スチーム時間"
+      },
+      "bf_recipe_code": {
+        "name": "オーブン レシピコード"
+      },
+      "bf_remaining_time": {
+        "name": "オーブン 残り時間"
+      },
+      "bf_steam": {
+        "name": "オーブン スチーム"
+      },
+      "bf_step_current": {
+        "name": "オーブン ステップ 現在"
+      },
+      "bf_step_total": {
+        "name": "オーブン ステップ 合計"
+      },
+      "bf_temp_down": {
+        "name": "オーブン 下火温度"
+      },
+      "bf_temp_down_set": {
+        "name": "オーブン 下火温度設定"
+      },
+      "bf_temp_probe": {
+        "name": "オーブン プローブ温度"
+      },
+      "bf_temp_probe_set": {
+        "name": "オーブン プローブ温度設定"
+      },
+      "bf_temp_up": {
+        "name": "オーブン 上火温度"
+      },
+      "bf_temp_up_set": {
+        "name": "オーブン 上火温度設定"
+      },
+      "bf_tips_mark": {
+        "name": "オーブン ヒントマーク",
+        "state": {
+          "apply": "適用",
+          "change_attachments": "付属品の交換",
+          "door_open": "ドア開放",
+          "feed": "投入",
+          "recipe_tips": "レシピのヒント",
+          "stir": "かき混ぜ"
+        }
+      },
+      "bf_weight_mount": {
+        "name": "オーブン 重量台"
+      },
+      "bf_weight_multiple": {
+        "name": "オーブン 重量倍率",
+        "state": {
+          "g": "g",
+          "kg": "kg",
+          "ounce": "オンス",
+          "pound": "ポンド"
+        }
+      },
+      "bf_weight_unit": {
+        "name": "オーブン 重量単位",
+        "state": {
+          "g": "g",
+          "kg": "kg",
+          "other": "その他",
+          "ounce": "オンス",
+          "pound": "ポンド"
+        }
+      },
+      "bf_work_status": {
+        "name": "オーブン 運転状態",
+        "state": {
+          "after_sale": "アフターサービス",
+          "check_version": "バージョン確認",
+          "cloudmenu_setting": "クラウドメニュー設定",
+          "demo": "デモ",
+          "done": "完了",
+          "keep": "キープ",
+          "love_three_seconds": "3 秒長押し",
+          "open": "開",
+          "order": "予約",
+          "pause": "一時停止",
+          "pause_temporarily": "一時停止",
+          "power_off": "電源オフ",
+          "self_check": "セルフチェック",
+          "working": "運転中"
+        }
+      },
+      "bf_working_time": {
+        "name": "オーブン 運転時間"
+      },
+      "e7_left_bottom_bridge_link": {
+        "name": "IH 左下 ブリッジ連結",
+        "state": {
+          "off": "オフ",
+          "on": "オン"
+        }
+      },
+      "e7_left_bottom_destination_time": {
+        "name": "IH 左下 目標時刻"
+      },
+      "e7_left_bottom_efficiency": {
+        "name": "IH 左下 効率"
+      },
+      "e7_left_bottom_gear": {
+        "name": "IH 左下 段"
+      },
+      "e7_left_bottom_mode": {
+        "name": "IH 左下 モード",
+        "state": {
+          "boiling": "沸騰",
+          "heat_preservation": "保温",
+          "none": "なし",
+          "stew_soup": "スープ煮込み",
+          "stir_frying": "炒め物"
+        }
+      },
+      "e7_left_bottom_remaining_time": {
+        "name": "IH 左下 残り時間"
+      },
+      "e7_left_bottom_work_status": {
+        "name": "IH 左下 運転状態",
+        "state": {
+          "auto": "自動",
+          "drying": "乾燥中",
+          "finish": "完了",
+          "order": "予約",
+          "pause": "一時停止",
+          "power_off": "電源オフ",
+          "standby": "待機中",
+          "working": "運転中"
+        }
+      },
+      "e7_left_bottom_work_time": {
+        "name": "IH 左下 運転時間"
+      },
+      "e7_left_bridge_link": {
+        "name": "IH 左 ブリッジ連結",
+        "state": {
+          "off": "オフ",
+          "on": "オン"
+        }
+      },
+      "e7_left_destination_time": {
+        "name": "IH 左 目標時刻"
+      },
+      "e7_left_efficiency": {
+        "name": "IH 左 効率"
+      },
+      "e7_left_gear": {
+        "name": "IH 左 段"
+      },
+      "e7_left_mode": {
+        "name": "IH 左 モード",
+        "state": {
+          "boiling": "沸騰",
+          "heat_preservation": "保温",
+          "none": "なし",
+          "stew_soup": "スープ煮込み",
+          "stir_frying": "炒め物"
+        }
+      },
+      "e7_left_remaining_time": {
+        "name": "IH 左 残り時間"
+      },
+      "e7_left_top_bridge_link": {
+        "name": "IH 左上 ブリッジ連結",
+        "state": {
+          "off": "オフ",
+          "on": "オン"
+        }
+      },
+      "e7_left_top_destination_time": {
+        "name": "IH 左上 目標時刻"
+      },
+      "e7_left_top_efficiency": {
+        "name": "IH 左上 効率"
+      },
+      "e7_left_top_gear": {
+        "name": "IH 左上 段"
+      },
+      "e7_left_top_mode": {
+        "name": "IH 左上 モード",
+        "state": {
+          "boiling": "沸騰",
+          "heat_preservation": "保温",
+          "none": "なし",
+          "stew_soup": "スープ煮込み",
+          "stir_frying": "炒め物"
+        }
+      },
+      "e7_left_top_remaining_time": {
+        "name": "IH 左上 残り時間"
+      },
+      "e7_left_top_work_status": {
+        "name": "IH 左上 運転状態",
+        "state": {
+          "auto": "自動",
+          "drying": "乾燥中",
+          "finish": "完了",
+          "order": "予約",
+          "pause": "一時停止",
+          "power_off": "電源オフ",
+          "standby": "待機中",
+          "working": "運転中"
+        }
+      },
+      "e7_left_top_work_time": {
+        "name": "IH 左上 運転時間"
+      },
+      "e7_left_work_status": {
+        "name": "IH 左 運転状態",
+        "state": {
+          "auto": "自動",
+          "drying": "乾燥中",
+          "finish": "完了",
+          "order": "予約",
+          "pause": "一時停止",
+          "power_off": "電源オフ",
+          "standby": "待機中",
+          "working": "運転中"
+        }
+      },
+      "e7_left_work_time": {
+        "name": "IH 左 運転時間"
+      },
+      "e7_right_bottom_bridge_link": {
+        "name": "IH 右下 ブリッジ連結",
+        "state": {
+          "off": "オフ",
+          "on": "オン"
+        }
+      },
+      "e7_right_bottom_destination_time": {
+        "name": "IH 右下 目標時刻"
+      },
+      "e7_right_bottom_efficiency": {
+        "name": "IH 右下 効率"
+      },
+      "e7_right_bottom_gear": {
+        "name": "IH 右下 段"
+      },
+      "e7_right_bottom_mode": {
+        "name": "IH 右下 モード",
+        "state": {
+          "boiling": "沸騰",
+          "heat_preservation": "保温",
+          "none": "なし",
+          "stew_soup": "スープ煮込み",
+          "stir_frying": "炒め物"
+        }
+      },
+      "e7_right_bottom_remaining_time": {
+        "name": "IH 右下 残り時間"
+      },
+      "e7_right_bottom_work_status": {
+        "name": "IH 右下 運転状態",
+        "state": {
+          "auto": "自動",
+          "drying": "乾燥中",
+          "finish": "完了",
+          "order": "予約",
+          "pause": "一時停止",
+          "power_off": "電源オフ",
+          "standby": "待機中",
+          "working": "運転中"
+        }
+      },
+      "e7_right_bottom_work_time": {
+        "name": "IH 右下 運転時間"
+      },
+      "e7_right_bridge_link": {
+        "name": "IH 右 ブリッジ連結",
+        "state": {
+          "off": "オフ",
+          "on": "オン"
+        }
+      },
+      "e7_right_destination_time": {
+        "name": "IH 右 目標時刻"
+      },
+      "e7_right_efficiency": {
+        "name": "IH 右 効率"
+      },
+      "e7_right_gear": {
+        "name": "IH 右 段"
+      },
+      "e7_right_mode": {
+        "name": "IH 右 モード",
+        "state": {
+          "boiling": "沸騰",
+          "heat_preservation": "保温",
+          "none": "なし",
+          "stew_soup": "スープ煮込み",
+          "stir_frying": "炒め物"
+        }
+      },
+      "e7_right_remaining_time": {
+        "name": "IH 右 残り時間"
+      },
+      "e7_right_top_bridge_link": {
+        "name": "IH 右上 ブリッジ連結",
+        "state": {
+          "off": "オフ",
+          "on": "オン"
+        }
+      },
+      "e7_right_top_destination_time": {
+        "name": "IH 右上 目標時刻"
+      },
+      "e7_right_top_efficiency": {
+        "name": "IH 右上 効率"
+      },
+      "e7_right_top_gear": {
+        "name": "IH 右上 段"
+      },
+      "e7_right_top_mode": {
+        "name": "IH 右上 モード",
+        "state": {
+          "boiling": "沸騰",
+          "heat_preservation": "保温",
+          "none": "なし",
+          "stew_soup": "スープ煮込み",
+          "stir_frying": "炒め物"
+        }
+      },
+      "e7_right_top_remaining_time": {
+        "name": "IH 右上 残り時間"
+      },
+      "e7_right_top_work_status": {
+        "name": "IH 右上 運転状態",
+        "state": {
+          "auto": "自動",
+          "drying": "乾燥中",
+          "finish": "完了",
+          "order": "予約",
+          "pause": "一時停止",
+          "power_off": "電源オフ",
+          "standby": "待機中",
+          "working": "運転中"
+        }
+      },
+      "e7_right_top_work_time": {
+        "name": "IH 右上 運転時間"
+      },
+      "e7_right_work_status": {
+        "name": "IH 右 運転状態",
+        "state": {
+          "auto": "自動",
+          "drying": "乾燥中",
+          "finish": "完了",
+          "order": "予約",
+          "pause": "一時停止",
+          "power_off": "電源オフ",
+          "standby": "待機中",
+          "working": "運転中"
+        }
+      },
+      "e7_right_work_time": {
+        "name": "IH 右 運転時間"
+      },
+      "electronic_version": {
+        "name": "電子バージョン"
+      },
+      "error_list": {
+        "name": "エラー一覧"
+      },
+      "sp_fandrying_destination_time": {
+        "name": "プレート送風乾燥 目標時刻"
+      },
+      "sp_fandrying_order_destination_time": {
+        "name": "プレート送風乾燥 予約目標時刻"
+      },
+      "sp_fandrying_order_remaining_time": {
+        "name": "プレート送風乾燥 予約残り時間"
+      },
+      "sp_fandrying_remaining_time": {
+        "name": "プレート送風乾燥 残り時間"
+      },
+      "sp_fandrying_setting_automode_day": {
+        "name": "プレート送風乾燥 自動モード設定 日"
+      },
+      "sp_fandrying_setting_automode_starthour": {
+        "name": "プレート送風乾燥 自動モード設定 開始時"
+      },
+      "sp_fandrying_setting_automode_startminute": {
+        "name": "プレート送風乾燥 自動モード設定 開始分"
+      },
+      "sp_fandrying_status": {
+        "name": "プレート送風乾燥 状態",
+        "state": {
+          "drying": "乾燥中",
+          "drying_pause": "乾燥 一時停止",
+          "ion_drying": "イオン乾燥",
+          "ion_drying_pause": "イオン乾燥 一時停止",
+          "power_off": "電源オフ",
+          "uperization": "超高温殺菌",
+          "uperization_pause": "超高温殺菌 一時停止",
+          "warm_drink": "温かい飲み物",
+          "warm_drink_pause": "温かい飲み物 一時停止"
+        }
+      },
+      "sp_fandrying_temperature": {
+        "name": "プレート送風乾燥 温度"
+      },
+      "sp_heatingdisk_destination_time": {
+        "name": "プレート加熱皿 目標時刻"
+      },
+      "sp_heatingdisk_order_destination_time": {
+        "name": "プレート加熱皿 予約目標時刻"
+      },
+      "sp_heatingdisk_order_remaining_time": {
+        "name": "プレート加熱皿 予約残り時間"
+      },
+      "sp_heatingdisk_remaining_time": {
+        "name": "プレート加熱皿 残り時間"
+      },
+      "sp_heatingdisk_setting_automode_day": {
+        "name": "プレート加熱皿 自動モード設定 日"
+      },
+      "sp_heatingdisk_setting_automode_starthour": {
+        "name": "プレート加熱皿 自動モード設定 開始時"
+      },
+      "sp_heatingdisk_setting_automode_startminute": {
+        "name": "プレート加熱皿 自動モード設定 開始分"
+      },
+      "sp_heatingdisk_status": {
+        "name": "プレート加熱皿 状態",
+        "state": {
+          "drying": "乾燥中",
+          "drying_pause": "乾燥 一時停止",
+          "ion_drying": "イオン乾燥",
+          "ion_drying_pause": "イオン乾燥 一時停止",
+          "power_off": "電源オフ",
+          "uperization": "超高温殺菌",
+          "uperization_pause": "超高温殺菌 一時停止",
+          "warm_drink": "温かい飲み物",
+          "warm_drink_pause": "温かい飲み物 一時停止"
+        }
+      },
+      "sp_heatingdisk_temperature": {
+        "name": "プレート加熱皿 温度"
+      },
+      "sp_uvc_destination_time": {
+        "name": "プレート UVC 目標時刻"
+      },
+      "sp_uvc_order_destination_time": {
+        "name": "プレート UVC 予約目標時刻"
+      },
+      "sp_uvc_order_remaining_time": {
+        "name": "プレート UVC 予約残り時間"
+      },
+      "sp_uvc_remaining_time": {
+        "name": "プレート UVC 残り時間"
+      },
+      "sp_uvc_setting_automode_day": {
+        "name": "プレート UVC 自動モード設定 日"
+      },
+      "sp_uvc_setting_automode_starthour": {
+        "name": "プレート UVC 自動モード設定 開始時"
+      },
+      "sp_uvc_setting_automode_startminute": {
+        "name": "プレート UVC 自動モード設定 開始分"
+      },
+      "sp_uvc_status": {
+        "name": "プレート UVC 状態",
+        "state": {
+          "drying": "乾燥中",
+          "drying_pause": "乾燥 一時停止",
+          "ion_drying": "イオン乾燥",
+          "ion_drying_pause": "イオン乾燥 一時停止",
+          "power_off": "電源オフ",
+          "uperization": "超高温殺菌",
+          "uperization_pause": "超高温殺菌 一時停止",
+          "warm_drink": "温かい飲み物",
+          "warm_drink_pause": "温かい飲み物 一時停止"
+        }
+      },
+      "sp_uvc_temperature": {
+        "name": "プレート UVC 温度"
+      },
+      "total_error_code": {
+        "name": "エラーコード"
+      },
+      "total_error_type": {
+        "name": "エラータイプ"
+      },
+      "total_firewall_temp": {
+        "name": "防火壁温度"
+      },
+      "total_gesture": {
+        "name": "ジェスチャー",
+        "state": {
+          "off": "オフ",
+          "on": "オン"
+        }
+      },
+      "total_ir": {
+        "name": "赤外線",
+        "state": {
+          "off": "オフ",
+          "on": "オン"
+        }
+      },
+      "total_lock_off_type": {
+        "name": "ロックオフ種別",
+        "state": {
+          "local": "ローカル"
+        }
+      },
+      "total_lock_on_type": {
+        "name": "ロックオン種別",
+        "state": {
+          "app": "アプリ",
+          "local": "ローカル"
+        }
+      },
+      "total_shelving_unit_temp": {
+        "name": "棚ユニット温度"
+      },
+      "total_speak": {
+        "name": "発話",
+        "state": {
+          "off": "オフ",
+          "on": "オン"
+        }
+      },
+      "total_tips_code": {
+        "name": "ヒントコード"
+      },
+      "total_tips_type": {
+        "name": "ヒントタイプ"
+      },
+      "work_status": {
+        "name": "運転状態",
+        "state": {
+          "save_power": "節電",
+          "standby": "待機中",
+          "work": "運転中",
+          "pause": "一時停止中",
+          "work_finish": "完了",
+          "order": "遅延",
+          "pause_c": "一時停止中 C",
+          "three": "3",
+          "self_inspection": "自己点検",
+          "query_version": "バージョン照会",
+          "demo": "デモ",
+          "ramadan": "ラマダン",
+          "after_checking": "確認後",
+          "wait_to_start": "開始待ち",
+          "ff": "不明"
+        }
+      },
+      "x9b_fire_power": {
+        "name": "火力",
+        "state": {
+          "high_power": "強",
+          "medium_high_power": "中強",
+          "medium_power": "中",
+          "medium_low_power": "中弱",
+          "low_power": "弱",
+          "ff": "不明"
+        }
+      },
+      "pre_heat": {
+        "name": "予熱",
+        "state": {
+          "off": "オフ",
+          "work": "予熱中",
+          "end": "予熱完了"
+        }
+      },
+      "water_status": {
+        "name": "給水状態",
+        "state": {
+          "normal": "標準",
+          "lack_box": "ボックスなし",
+          "lack_water": "水不足",
+          "change_water": "水交換"
+        }
+      },
+      "dissipate_heat": {
+        "name": "放熱",
+        "state": {
+          "off": "オフ",
+          "work": "放熱中"
+        }
+      },
+      "execute": {
+        "name": "実行状態",
+        "state": {
+          "ok": "OK",
+          "status_nonsupport": "状態は未対応",
+          "function_nonsupport": "機能は未対応",
+          "param_range_error": "パラメーター範囲エラー"
+        }
+      },
+      "sys_time_src": {
+        "name": "システム時刻ソース",
+        "state": {
+          "module": "モジュール",
+          "app": "アプリ",
+          "user_defined": "ユーザー定義"
+        }
+      },
+      "cur_temperature": {
+        "name": "現在の温度"
+      },
+      "work_hour": {
+        "name": "運転 時"
+      },
+      "work_minute": {
+        "name": "運転 分"
+      },
+      "work_second": {
+        "name": "運転 秒"
+      },
+      "cbs_version": {
+        "name": "CBS バージョン"
+      }
+    },
+    "switch": {
+      "db_power": {
+        "name": "洗濯機の消費電力"
+      },
+      "dc_power": {
+        "name": "乾燥機の消費電力"
+      },
+      "door_auto_open_setting": {
+        "name": "ドア自動オープン"
+      },
+      "anion": {
+        "name": "アニオン"
+      },
+      "humidify": {
+        "name": "加湿"
+      },
+      "waterions": {
+        "name": "水イオン"
+      },
+      "anophelifuge": {
+        "name": "蚊よけ"
+      },
+      "display_on_off": {
+        "name": "ディスプレイ"
+      },
+      "auto_power_off": {
+        "name": "自動電源オフ"
+      },
+      "body_feeling_scan": {
+        "name": "人感スキャン"
+      },
+      "aux_heating": {
+        "name": "補助暖房"
+      },
+      "boost_mode": {
+        "name": "ブーストモード"
+      },
+      "breezeless": {
+        "name": "無風感"
+      },
+      "child_lock": {
+        "name": "チャイルドロック"
+      },
+      "cl_sterilization": {
+        "name": "CL 除菌"
+      },
+      "comfort_mode": {
+        "name": "快適モード"
+      },
+      "degerming": {
+        "name": "除菌"
+      },
+      "dhw_power": {
+        "name": "給湯電源"
+      },
+      "disinfect": {
+        "name": "除菌"
+      },
+      "furnace_light": {
+        "name": "庫内灯"
+      },
+      "hot_wind": {
+        "name": "熱風"
+      },
+      "ramadan": {
+        "name": "ラマダン"
+      },
+      "turntable": {
+        "name": "ターンテーブル"
+      },
+      "maintenance_reminder": {
+        "name": "メンテナンスリマインダー"
+      },
+      "vacation_mode": {
+        "name": "休暇モード"
+      },
+      "dry": {
+        "name": "乾燥"
+      },
+      "cold_water_single": {
+        "name": "冷水 シングル"
+      },
+      "cold_water_dot": {
+        "name": "冷水 ドット"
+      },
+      "eco_mode": {
+        "name": "ECO モード"
+      },
+      "memory": {
+        "name": "メモ U"
+      },
+      "fast_dhw": {
+        "name": "高速給湯"
+      },
+      "foam_shield": {
+        "name": "泡ブロック"
+      },
+      "frost_protect": {
+        "name": "凍結防止"
+      },
+      "heating_power": {
+        "name": "暖房出力"
+      },
+      "indirect_wind": {
+        "name": "間接風"
+      },
+      "leak_water_protection": {
+        "name": "水漏れ保護"
+      },
+      "light": {
+        "name": "ライト"
+      },
+      "link_to_ac": {
+        "name": "エアコン連動"
+      },
+      "main_light": {
+        "name": "メインライト"
+      },
+      "main_power": {
+        "name": "主電源"
+      },
+      "natural_wind": {
+        "name": "自然風"
+      },
+      "night_light": {
+        "name": "ナイトライト"
+      },
+      "oscillate": {
+        "name": "スイング"
+      },
+      "power": {
+        "name": "電源"
+      },
+      "powerful_purify": {
+        "name": "強力空気清浄"
+      },
+      "prompt_tone": {
+        "name": "操作音"
+      },
+      "regeneration": {
+        "name": "再生"
+      },
+      "water_pump": {
+        "name": "ウォーターポンプ"
+      },
+      "water_way": {
+        "name": "給水経路"
+      },
+      "screen_display": {
+        "name": "画面表示"
+      },
+      "screen_display_alternate": {
+        "name": "画面表示切替"
+      },
+      "sensor_light": {
+        "name": "センサーライト"
+      },
+      "silent_mode": {
+        "name": "静音モード"
+      },
+      "sleep_mode": {
+        "name": "スリープモード"
+      },
+      "out_silent": {
+        "name": "室外機静音モード"
+      },
+      "smart_eye": {
+        "name": "スマートアイ"
+      },
+      "smart_volume": {
+        "name": "スマート音量"
+      },
+      "smelly_sensor": {
+        "name": "ニオイセンサー"
+      },
+      "soften": {
+        "name": "軟水化"
+      },
+      "standby": {
+        "name": "待機中"
+      },
+      "start": {
+        "name": "開始"
+      },
+      "sterilization": {
+        "name": "除菌"
+      },
+      "storage": {
+        "name": "保管"
+      },
+      "swing": {
+        "name": "スイング"
+      },
+      "swing_horizontal": {
+        "name": "左右スイング"
+      },
+      "swing_vertical": {
+        "name": "上下スイング"
+      },
+      "self_clean": {
+        "name": "セルフクリーニング"
+      },
+      "ieco": {
+        "name": "iECO"
+      },
+      "sound": {
+        "name": "サウンド"
+      },
+      "tbh": {
+        "name": "TBH"
+      },
+      "variable_heating": {
+        "name": "可変加熱"
+      },
+      "ventilation": {
+        "name": "換気"
+      },
+      "whole_tank_heating": {
+        "name": "タンク全体加熱"
+      },
+      "zero_cold_pulse": {
+        "name": "ゼロ冷水（パルス）"
+      },
+      "zero_cold_water": {
+        "name": "ゼロ冷水"
+      },
+      "zone1_curve": {
+        "name": "ゾーン1 カーブ"
+      },
+      "zone1_power": {
+        "name": "ゾーン1 電源"
+      },
+      "zone2_curve": {
+        "name": "ゾーン2 カーブ"
+      },
+      "zone2_power": {
+        "name": "ゾーン2 電源"
+      },
+      "boiling": {
+        "name": "沸騰"
+      },
+      "tea_bar_boil": {
+        "name": "沸騰スイッチ"
+      },
+      "tea_bar_child_lock": {
+        "name": "チャイルドロック"
+      },
+      "keep_warm": {
+        "name": "保温"
+      },
+      "tea_bar_cooling": {
+        "name": "ティーバー冷却"
+      },
+      "screen_off": {
+        "name": "画面オフ"
+      },
+      "wash": {
+        "name": "フィルター洗浄"
+      },
+      "antifreeze": {
+        "name": "凍結防止"
+      },
+      "heat": {
+        "name": "暖房"
+      },
+      "holiday_on": {
+        "name": "モード - 休暇"
+      },
+      "dhw_disinfect": {
+        "name": "給湯 - 除菌"
+      },
+      "ai_voice_microphone": {
+        "name": "AI 音声マイク"
+      },
+      "total_lock": {
+        "name": "チャイルドロック"
+      },
+      "total_power": {
+        "name": "電源"
+      },
+      "lock": {
+        "name": "チャイルドロック"
+      },
+      "camera": {
+        "name": "カメラ"
+      },
+      "dryer_sterilize": {
+        "name": "多次元除菌"
+      },
+      "dryer_anti_wrinkle": {
+        "name": "スマートしわ防止"
+      },
+      "washer_forget_free": {
+        "name": "忘れずケア"
+      }
+    },
+    "water_heater": {
+      "domestic_hot_water": {
+        "name": "家庭用給湯"
+      },
+      "bathing": {
+        "name": "入浴"
+      },
+      "heating": {
+        "name": "加熱中"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "ip_address": "IP アドレス",
+          "refresh_interval": "更新間隔（0 は自動更新しない）",
+          "sensors": "追加のセンサー",
+          "switches": "追加のコントロール",
+          "customize": "カスタマイズ",
+          "account": "Midea クラウドアカウント（使用量統計センサー用）",
+          "password": "Midea クラウドアカウントのパスワード（使用量統計センサー用）",
+          "server": "アカウントの Midea クラウドサーバー（使用量統計センサー用）"
+        },
+        "title": "設定"
+      }
+    },
+    "abort": {
+      "account_option": "このアカウントではこの操作に対応していません。\n「機器を追加」をクリックして新しい機器を追加してください。"
+    }
+  },
+  "services": {
+    "set_attribute": {
+      "name": "属性を設定",
+      "description": "機器の属性値を設定します",
+      "fields": {
+        "device_id": {
+          "name": "機器コード",
+          "description": "機器の機器コード（デバイス ID）"
+        },
+        "attribute": {
+          "name": "属性",
+          "description": "設定したい属性名"
+        },
+        "value": {
+          "name": "値",
+          "description": "設定したい属性値"
+        }
+      }
+    },
+    "send_command": {
+      "name": "カスタムコマンド",
+      "description": "機器にカスタムコマンドを送信します",
+      "fields": {
+        "device_id": {
+          "name": "機器コード",
+          "description": "機器の機器コード（デバイス ID）"
+        },
+        "cmd_type": {
+          "name": "コマンドタイプ",
+          "description": "コマンドのタイプ。3（照会）または 2（設定）を指定してください"
+        },
+        "cmd_body": {
+          "name": "コマンド本体",
+          "description": "コマンドの本体（先頭の MSmart プロトコルヘッダーと末尾のチェックサムは含めない）"
+        }
+      }
+    }
+  }
+}
