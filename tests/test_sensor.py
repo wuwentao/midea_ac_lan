@@ -2,6 +2,7 @@
 
 from datetime import date
 from types import SimpleNamespace
+from typing import Any, cast
 from unittest.mock import AsyncMock, Mock, patch
 
 import pytest
@@ -9,6 +10,8 @@ from homeassistant.components.sensor import SensorDeviceClass, SensorStateClass
 from homeassistant.const import Platform
 from midealan.devices.e1 import MideaE1Device
 
+from custom_components.midea_ac_lan.const import supports_device
+from custom_components.midea_ac_lan.midea_devices import MIDEA_DEVICES
 from custom_components.midea_ac_lan.sensor import (
     MideaCloudUsageSensor,
     MideaEstimatedUsageSensor,
@@ -568,3 +571,44 @@ def test_estimated_usage_detached_update(
     sensor.schedule_update_if_running = Mock()
     sensor.update_state({"progress": "complete"})
     sensor.schedule_update_if_running.assert_not_called()
+
+
+AC_ENTITIES = cast("dict[str, Any]", MIDEA_DEVICES[0xAC]["entities"])
+TARGET_HUMIDITY_CONFIG = AC_ENTITIES["target_humidity"]
+
+
+@pytest.mark.parametrize(
+    ("model", "subtype", "expected"),
+    [
+        ("22396933", 1, True),
+        ("22396945", 1, True),
+        ("22396937", 0, True),
+        ("22396933", 2, False),
+        ("OTHER", 1, False),
+    ],
+)
+def test_target_humidity_registry_gate(
+    model: str,
+    subtype: int,
+    expected: bool,
+) -> None:
+    """Gate the target humidity sensor to the verified AC models and subtypes."""
+    assert supports_device(model, subtype, TARGET_HUMIDITY_CONFIG) is expected
+
+
+def test_target_humidity_native_value(
+    device_factory: DeviceFactory,
+    install_config: InstallConfig,
+) -> None:
+    """Pass the parsed percentage through and map zero to unknown."""
+    install_config({"target_humidity": TARGET_HUMIDITY_CONFIG})
+    device, values = device_factory(attributes={"target_humidity": 50})
+    entity = MideaSensor(device, "target_humidity")
+
+    assert entity.native_value == 50
+    values["target_humidity"] = 60
+    assert entity.native_value == 60
+    values["target_humidity"] = 0
+    assert entity.native_value is None
+    values["target_humidity"] = None
+    assert entity.native_value is None
