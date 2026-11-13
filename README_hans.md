@@ -4,7 +4,7 @@
 [![Stable](https://img.shields.io/github/v/release/wuwentao/midea_ac_lan)](https://github.com/wuwentao/midea_ac_lan/releases/latest)
 [![codecov](https://codecov.io/gh/wuwentao/midea_ac_lan/branch/main/graph/badge.svg)](https://app.codecov.io/gh/wuwentao/midea_ac_lan/tree/main)
 
-[English](README.md) | 简体中文 | [Discord交流群](https://discord.com/invite/ZWdd2fXndn) | [QQ交流群](https://qm.qq.com/q/l53SGEwlZ6)
+[English](README.md) | 简体中文 | [繁體中文](README_hant.md) | [Discord交流群](https://discord.com/invite/ZWdd2fXndn) | [QQ交流群](https://qm.qq.com/q/l53SGEwlZ6)
 
 通过本地局域网控制你的美的M-Smart设备
 
