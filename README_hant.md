@@ -8,16 +8,29 @@
 
 ## 導覽
 
-- [重要通知](#important-notice)
-- [專案架構](#2-專案架構)
-- [支援的品牌](#3-支援的品牌)
-- [支援的家電](#4-支援的家電)
-- [安裝](#5-安裝-midea_ac_lan)
-- [新增裝置](#6-新增裝置)
-- [設定](#7-設定)
-- [偵錯與測試](#8-偵錯與測試)
-- [貢獻指南](#9-貢獻指南)
-- [贊助本專案](#10-贊助本專案)
+- [1. 重要通知](#important-notice)
+- [2. 專案架構](#2-專案架構)
+- [3. 支援的品牌](#3-支援的品牌)
+- [4. 支援的家電與文件索引](#4-支援的家電與文件索引)
+- [5. 支援的 App 與雲端](#5-支援的-app-與雲端)
+- [6. 安裝 midea_ac_lan](#6-安裝-midea_ac_lan)
+  - [6.1 在 Home Assistant 2026.10 或更早版本中使用 HACS](#61-在-home-assistant-202610-或更早版本中使用-hacs)
+  - [6.2 使用 Home Assistant 2026.11 或更新版本](#62-使用-home-assistant-202611-或更新版本)
+  - [6.3 使用腳本安裝](#63-使用腳本安裝)
+  - [6.4 手動安裝](#64-手動安裝)
+- [7. 新增裝置](#7-新增裝置)
+  - [7.1 自動探索](#71-自動探索)
+  - [7.2 手動設定](#72-手動設定)
+  - [7.3 僅列出所有家電](#73-僅列出所有家電)
+- [8. 設定](#8-設定)
+  - [8.1 IP 位址](#81-ip-位址)
+  - [8.2 更新間隔](#82-更新間隔)
+  - [8.3 額外的感測器與開關實體](#83-額外的感測器與開關實體)
+  - [8.4 自訂](#84-自訂)
+- [9. 偵錯與測試](#9-偵錯與測試)
+- [10. 貢獻指南](#10-貢獻指南)
+  - [10.1 新增裝置](#101-新增裝置)
+- [11. 贊助本專案](#11-贊助本專案)
 
 透過區域網路控制你的美的 M-Smart 家電。
 
@@ -35,7 +48,7 @@
 
 ## 1. ❗❗❗❗❗❗重要通知❗❗❗❗❗❗
 
-> 注意：雲端登入用於取得家電的 Token 與 Key。請選擇擁有該家電的同一個 [App／雲端](#61-支援的-app-與雲端)。可用性會依帳號、地區與裝置而異；NetHome Plus 目前無法取得 Token，但仍保留此選項。
+> 注意：雲端登入用於取得家電的 Token 與 Key。請選擇擁有該家電的同一個 [App／雲端](#5-支援的-app-與雲端)。可用性會依帳號、地區與裝置而異；NetHome Plus 目前無法取得 Token，但仍保留此選項。
 > ❗ SmartHome：請勿從其他 App 遷移帳號。你必須註冊新帳號並重新加入家電；遷移過來的帳號無法取得家電 Token。
 
 1. 目前的 美的美居 與 SmartHome Token API 服務，需要以個人 App 帳號登入，且家電必須已綁定在該帳號下，才能取得 Token。美的日後可能會逐步關閉這些 Token API 服務，屆時可能無法再加入新家電。
@@ -70,7 +83,7 @@ Midea AC LAN 分成三個儲存庫，各自負責不同的工作：
 
 以及更多。
 
-## 4. 支援的家電
+## 4. 支援的家電與文件索引
 
 > **_❗注意：每一種家電類型，請依照下列文件設定支援的功能與參數。請先在美的 App 中確認家電支援該功能，再啟用它。_**
 
@@ -119,49 +132,7 @@ Midea AC LAN 分成三個儲存庫，各自負責不同的工作：
 | FC   | 空氣清淨機        | [FC.md](doc/FC.md) |
 | FD   | 加濕器            | [FD.md](doc/FD.md) |
 
-## 5. 安裝 midea_ac_lan
-
-### 方式一：透過 HACS 安裝
-
-> [!IMPORTANT]
-> 請先依照 [HACS 安裝指南](https://hacs.xyz/docs/use/download/download/)，確認 Home Assistant 已安裝 HACS
-
-[![Open your Home Assistant instance and open "midea_ac_lan" inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=wuwentao&repository=midea_ac_lan)
-
-點選上方按鈕在 HACS 開啟本整合後，按「下載」完成安裝，再**重新啟動 Home Assistant**。
-
-### 方式二：使用腳本安裝
-
-> 請在 HA 終端機或 SSH 附加元件中執行此腳本
-
-```shell
-wget -O - https://github.com/wuwentao/midea_ac_lan/raw/main/scripts/install.sh | ARCHIVE_TAG=latest bash -
-```
-
-### 方式三：手動安裝
-
-1. 從[最新版本](https://github.com/wuwentao/midea_ac_lan/releases/latest)下載 `midea_ac_lan.zip`
-2. 解壓縮 `midea_ac_lan.zip`。
-3. 將解壓縮後的檔案複製到 Home Assistant 的 `/config/custom_components/midea_ac_lan`，使 `manifest.json` 直接位於 `/config/custom_components/midea_ac_lan/` 之下。
-4. **重新啟動 Home Assistant**。
-
-重新啟動後，依序開啟 `[設定]`、`[裝置與服務]`、`[整合]`、`[Midea AC Lan]`，完成初始設定並加入你的家電。
-
-## 6. 新增裝置
-
-**_❗注意：請先在路由器中為家電設定固定 IP 位址，以免設定完成後家電的 IP 位址改變。_**
-
-安裝完成後，請在 Home Assistant 的整合頁面搜尋並加入 `Midea AC LAN` 整合。若要加入多台家電，請重複加入此整合，並每次都執行自動設定。
-
-或點擊 [![Configuration](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start?domain=midea_ac_lan)
-
-**_❗注意：設定過程中，你可能需要登入[支援的 App／雲端](#61-支援的-app-與雲端)，因為家電的 Token 與 Key 必須從其雲端服務取得。所有家電設定完成後，請備份每一台 v3 協定家電的 `.json` 設定檔以備日後使用。請參閱[取得裝置 JSON 設定](doc/debug.md#4-obtain-device-json-configuration)。_**
-
-> 要還原備份時，請在加入家電之前，把 `<device_id>.json` 複製到 `/config/.storage/midea_ac_lan/`。選擇該家電時，整合會自動載入，不需要手動輸入 Token／Key。
-
-完成美的帳號登入後，點擊「新增裝置」即可加入家電。你可以重複這個流程來加入多台家電。
-
-### 6.1 支援的 App 與雲端
+## 5. 支援的 App 與雲端
 
 設定清單來自 `midea-lan` 中的 [`SUPPORTED_CLOUDS`](https://github.com/wuwentao/midea-lan/blob/main/midealan/cloud.py)：
 
@@ -177,7 +148,53 @@ wget -O - https://github.com/wuwentao/midea_ac_lan/raw/main/scripts/install.sh |
 
 請選擇家電註冊所在 App 對應的選項。某個 App 的帳號通常無法存取註冊在其他雲端的家電。清單中列出某個後端，代表本整合已實作其登入流程；能否成功取得 Token／Key，仍取決於雲端服務、帳號所屬地區與家電。
 
-### 6.2 自動探索
+## 6. 安裝 midea_ac_lan
+
+### 6.1 在 Home Assistant 2026.10 或更早版本中使用 HACS
+
+> [!IMPORTANT]
+> 請先依照 [HACS 安裝指南](https://hacs.xyz/docs/use/download/download/)，確認 Home Assistant 已安裝 HACS
+
+[![Open your Home Assistant instance and open "midea_ac_lan" inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=wuwentao&repository=midea_ac_lan)
+
+點選上方按鈕在 HACS 開啟本整合後，按「下載」完成安裝，再**重新啟動 Home Assistant**。
+
+### 6.2 使用 Home Assistant 2026.11 或更新版本
+
+從 Home Assistant 2026.11 開始，HACS 會以 Marketplace 整合的形式內建於 Home Assistant。開啟 `設定 > Marketplace`，搜尋 `midea_ac_lan`，找到後點擊**安裝**，最後**重新啟動 Home Assistant**。
+
+### 6.3 使用腳本安裝
+
+> 請在 HA 終端機或 SSH 附加元件中執行此腳本
+
+```shell
+wget -O - https://github.com/wuwentao/midea_ac_lan/raw/main/scripts/install.sh | ARCHIVE_TAG=latest bash -
+```
+
+### 6.4 手動安裝
+
+1. 從[最新版本](https://github.com/wuwentao/midea_ac_lan/releases/latest)下載 `midea_ac_lan.zip`
+2. 解壓縮 `midea_ac_lan.zip`。
+3. 將解壓縮後的檔案複製到 Home Assistant 的 `/config/custom_components/midea_ac_lan`，使 `manifest.json` 直接位於 `/config/custom_components/midea_ac_lan/` 之下。
+4. **重新啟動 Home Assistant**。
+
+重新啟動後，依序開啟 `[設定]`、`[裝置與服務]`、`[整合]`、`[Midea AC Lan]`，完成初始設定並加入你的家電。
+
+## 7. 新增裝置
+
+**_❗注意：請先在路由器中為家電設定固定 IP 位址，以免設定完成後家電的 IP 位址改變。_**
+
+安裝完成後，請在 Home Assistant 的整合頁面搜尋並加入 `Midea AC LAN` 整合。若要加入多台家電，請重複加入此整合，並每次都執行自動設定。
+
+或點擊 [![Configuration](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start?domain=midea_ac_lan)
+
+**_❗注意：設定過程中，你可能需要登入[支援的 App／雲端](#5-支援的-app-與雲端)，因為家電的 Token 與 Key 必須從其雲端服務取得。所有家電設定完成後，請備份每一台 v3 協定家電的 `.json` 設定檔以備日後使用。請參閱[取得裝置 JSON 設定](doc/debug.md#4-obtain-device-json-configuration)。_**
+
+> 要還原備份時，請在加入家電之前，把 `<device_id>.json` 複製到 `/config/.storage/midea_ac_lan/`。選擇該家電時，整合會自動載入，不需要手動輸入 Token／Key。
+
+完成美的帳號登入後，點擊「新增裝置」即可加入家電。你可以重複這個流程來加入多台家電。
+
+### 7.1 自動探索
 
 使用此選項時，整合可以探索並列出網路上或指定 IP 位址的美的 M-Smart 家電。從清單中選擇一台即可加入。
 
@@ -185,12 +202,12 @@ wget -O - https://github.com/wuwentao/midea_ac_lan/raw/main/scripts/install.sh |
 
 **_❗注意：自動探索需要你的家電與 Home Assistant 位於同一個子網路，否則無法探索到家電。你也可以直接輸入 IP 位址。_**
 
-### 6.3 手動設定
+### 7.2 手動設定
 
 如果你先前已透過其他整合手動設定過家電，或已有 Token／Key 備份，可以手動加入家電。
 
 - 家電代碼
-- 家電類型（[支援的家電](#4-支援的家電)其中之一）
+- 家電類型（[支援的家電與文件索引](#4-支援的家電與文件索引)其中之一）
 - IP 位址
 - 連接埠（預設 6444）
 - 協定版本
@@ -199,13 +216,13 @@ wget -O - https://github.com/wuwentao/midea_ac_lan/raw/main/scripts/install.sh |
 
 > 除非你清楚自己在修改什麼，否則請勿更動家電設定。加入錯誤的家電設定，可能導致家電狀態異常或無法控制。
 
-### 6.4 僅列出所有家電
+### 7.3 僅列出所有家電
 
 使用此選項時，你可以列出網路上所有可探索到的美的 M-Smart 裝置，以及它們的 ID、類型、SN 等資訊。
 
 **_❗注意：並非所有支援的裝置都會列在這裡。如果某個裝置無法被掃描到，可能是目前尚未支援。_**
 
-## 7. 設定
+## 8. 設定
 
 設定位於 `設定 -> 裝置與服務 -> Midea AC LAN -> 裝置 -> 設定`。
 當家電的 IP 位址改變時，你可以重新設定 IP 位址。
@@ -215,11 +232,11 @@ wget -O - https://github.com/wuwentao/midea_ac_lan/raw/main/scripts/install.sh |
 
 ![Configure](doc/imgs/configure.png)
 
-### 7.1 IP 位址
+### 8.1 IP 位址
 
 設定家電的 IP 位址。當家電的 IP 位址改變時，可以在此重新設定。
 
-### 7.2 更新間隔
+### 8.2 更新間隔
 
 設定主動更新單一家電狀態的間隔，單位為秒。預設為 30，設為 0 則停用主動更新。
 大多數美的家電會主動通知狀態變化， \
@@ -230,12 +247,12 @@ wget -O - https://github.com/wuwentao/midea_ac_lan/raw/main/scripts/install.sh |
 
 **_❗注意：更新間隔越短，可能代表耗用的資源越多_**
 
-### 7.3 額外的感測器與開關實體
+### 8.3 額外的感測器與開關實體
 
 設定完成後，預設可能只會產生一個或少數幾個主要實體（例如 `climate` 溫控實體）。如果你想把其他屬性提供為額外的感測器或開關實體，請在 Midea AC LAN 整合卡片上點擊「設定」，並選擇要產生的感測器與開關。你的家電「必須」支援所選的功能。
 啟用之前，請參閱各家電類型的文件。
 
-### 7.4 自訂
+### 8.4 自訂
 
 部分家電類型有各自的自訂項目，可用來自訂家電功能。如果你的家電無法正常運作，或顯示的數值異常，可能需要透過自訂來修正。具體的設定資訊請參閱家電文件。
 
@@ -253,11 +270,11 @@ wget -O - https://github.com/wuwentao/midea_ac_lan/raw/main/scripts/install.sh |
 
 ![Customize](doc/imgs/customize.png)
 
-## 8. 偵錯與測試
+## 9. 偵錯與測試
 
 如需取得偵錯記錄或修改原始碼，請參閱[偵錯與測試](doc/debug.md)。
 
-## 9. 貢獻指南
+## 10. 貢獻指南
 
 開發使用 [uv](https://docs.astral.sh/uv/)（不需要 Docker）。安裝 uv 之後：
 
@@ -269,7 +286,7 @@ cd midea_ac_lan
 
 完整的環境設定、在本機執行 Home Assistant，以及程式碼風格與提交規範，請參閱 [CONTRIBUTING](.github/CONTRIBUTING.md)。[測試指南](doc/testing.md)說明 Home Assistant 的 pytest 測試框架、涵蓋率報告與支援的版本矩陣。
 
-### 新增裝置
+### 10.1 新增裝置
 
 想在本整合中支援一種新的美的家電類型嗎？完整流程的文件，以 `0xD9` 洗烘一體機（[PR #1086](https://github.com/wuwentao/midea_ac_lan/pull/1086)）為主要範例，並以 `0x9B` 烤箱（[PR #1096](https://github.com/wuwentao/midea_ac_lan/pull/1096)）作為第二個、規模更大的範例，涵蓋：將 `midea-lan` 相依套件指向你的函式庫作業以便本機測試、在 `midea_devices.py` 註冊裝置、選擇每個屬性的平台／`device_class`／`unit`／`translation_key`、新增翻譯檔、撰寫裝置文件，以及開啟 PR：
 
@@ -280,8 +297,11 @@ cd midea_ac_lan
 
 裝置的 Lua 協定檔案收錄在 [`midea-lua`](https://github.com/wuwentao/midea-lua)。如果找不到你家電的協定，請使用 [`midea-lua` README](https://github.com/wuwentao/midea-lua#download-files) 中說明的 `midea-lan` 下載指令，將檔案貢獻到該處，並在你的 `midea-lan` Pull Request 中附上連結。
 
-## 10. 贊助本專案
+## 11. 贊助本專案
 
-如果這個專案對你有幫助，歡迎透過 Buy Me a Coffee 贊助本專案。你的支持將協助我們持續投入專案開發、日常維護與社群支援。
+如果這個專案對你有幫助，歡迎贊助專案的持續開發、日常維護與社群支援。
 
-[![Buy Me A Coffee](https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png)](https://buymeacoffee.com/wuwentao)
+<p>
+  <a href="https://buymeacoffee.com/wuwentao"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" height="40"></a>
+  <a href="https://www.paypal.me/wuwentao2000"><img src="https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-200px.png" alt="PayPal" height="40"></a>
+</p>

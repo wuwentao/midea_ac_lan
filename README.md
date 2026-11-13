@@ -8,16 +8,29 @@ English | [简体中文](README_hans.md) | [繁體中文](README_hant.md) | [Dis
 
 ## Menu
 
-- [Important notice](#important-notice)
-- [Project architecture](#2-project-architecture)
-- [Supported brands](#3-supported-brands)
-- [Supported appliances](#4-supported-appliances)
-- [Installation](#5-install-midea_ac_lan)
-- [Add a device](#6-add-device)
-- [Configure](#7-configure)
-- [Debug and test](#8-debug-and-test)
-- [Contributing](#9-contributing-guide)
-- [Sponsor this project](#10-sponsor-this-project)
+- [1. Important notice](#important-notice)
+- [2. Project architecture](#2-project-architecture)
+- [3. Supported brands](#3-supported-brands)
+- [4. Supported appliances and docs index](#4-supported-appliances-and-docs-index)
+- [5. Supported apps and clouds](#5-supported-apps-and-clouds)
+- [6. Install midea_ac_lan](#6-install-midea_ac_lan)
+  - [6.1 Use HACS on Home Assistant 2026.10 or older](#61-use-hacs-on-home-assistant-202610-or-older)
+  - [6.2 Use Home Assistant 2026.11 or newer](#62-use-home-assistant-202611-or-newer)
+  - [6.3 Install with Script](#63-install-with-script)
+  - [6.4 Manual Install](#64-manual-install)
+- [7. Add device](#7-add-device)
+  - [7.1 Discover automatically](#71-discover-automatically)
+  - [7.2 Configure manually](#72-configure-manually)
+  - [7.3 List all appliances only](#73-list-all-appliances-only)
+- [8. Configure](#8-configure)
+  - [8.1 IP address](#81-ip-address)
+  - [8.2 Refresh interval](#82-refresh-interval)
+  - [8.3 Extra sensor and switch entities](#83-extra-sensor-and-switch-entities)
+  - [8.4 Customize](#84-customize)
+- [9. Debug and Test](#9-debug-and-test)
+- [10. Contributing Guide](#10-contributing-guide)
+  - [10.1 Adding a new device](#101-adding-a-new-device)
+- [11. Sponsor this project](#11-sponsor-this-project)
 
 Control your Midea M-Smart appliances over the local network.
 
@@ -35,7 +48,7 @@ Control your Midea M-Smart appliances over the local network.
 
 ## 1. ❗❗❗❗❗❗Important Notice❗❗❗❗❗❗
 
-> Note: Cloud login is used to retrieve the appliance Token and Key. Select the same [app/cloud](#61-supported-apps-and-clouds) that owns the appliance. Availability varies by account, region, and device; NetHome Plus cannot retrieve Tokens for now, but the option is retained.
+> Note: Cloud login is used to retrieve the appliance Token and Key. Select the same [app/cloud](#5-supported-apps-and-clouds) that owns the appliance. Availability varies by account, region, and device; NetHome Plus cannot retrieve Tokens for now, but the option is retained.
 > ❗ SmartHome: Do not migrate your account from another app. You must register a new account and add your appliances; migrated accounts cannot retrieve appliance Tokens.
 
 1. The current 美的美居 and SmartHome Token API services require login with a personal app account, and the appliance must be bound to that account before the Token can be retrieved. Midea may gradually close these Token API services in the future, which may prevent new appliances from being added.
@@ -70,7 +83,7 @@ When adding or fixing device support, first find or contribute the relevant Lua 
 
 And more.
 
-## 4. Supported appliances
+## 4. Supported appliances and docs index
 
 > **_❗Note: For each appliance type, configure supported features and parameters according to the documents below. Only enable a feature after confirming that the appliance supports it in the Midea app._**
 
@@ -119,49 +132,7 @@ Please check the document links below for the supported features and usage of ea
 | FC   | Air Purifier                    | [FC.md](doc/FC.md) |
 | FD   | Humidifier                      | [FD.md](doc/FD.md) |
 
-## 5. Install midea_ac_lan
-
-### Option 1: Install via HACS
-
-> [!IMPORTANT]
-> Make sure you have installed HACS in Home Assistant using the [HACS install guide](https://hacs.xyz/docs/use/download/download/)
-
-[![Open your Home Assistant instance and open "midea_ac_lan" inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=wuwentao&repository=midea_ac_lan)
-
-**Restart Home Assistant**.
-
-### Option 2: Install with Script
-
-> run this script in HA Terminal or SSH add-on
-
-```shell
-wget -O - https://github.com/wuwentao/midea_ac_lan/raw/main/scripts/install.sh | ARCHIVE_TAG=latest bash -
-```
-
-### Option 3: Manual Install
-
-1. Download `midea_ac_lan.zip` from [Latest Release](https://github.com/wuwentao/midea_ac_lan/releases/latest)
-2. Extract `midea_ac_lan.zip`.
-3. Copy the extracted files into `/config/custom_components/midea_ac_lan` in Home Assistant, so `manifest.json` is directly under `/config/custom_components/midea_ac_lan/`.
-4. **Restart Home Assistant**.
-
-After restarting, open `[Settings]`, `[Device & services]`, `[Integrations]`, `[Midea AC Lan]` to finish the initial setup and add your appliances.
-
-## 6. Add device
-
-**_❗Note: First, set a static IP address for your appliance in the router, in case the IP address of the appliance changes after set-up._**
-
-After installation, search for and add the `Midea AC LAN` integration from the Home Assistant integrations page. To add multiple appliances, add this integration multiple times and run automatic configuration each time.
-
-Or click [![Configuration](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start?domain=midea_ac_lan)
-
-**_❗Note: During configuration, you may be asked to sign in to a [supported app/cloud](#61-supported-apps-and-clouds) because the appliance Token and Key must be retrieved from its cloud service. After all appliances are configured, back up each v3 appliance `.json` configuration file for future use. See [Obtain Device JSON Configuration](doc/debug.md#4-obtain-device-json-configuration)._**
-
-> To restore a backup, copy `<device_id>.json` to `/config/.storage/midea_ac_lan/` before adding the appliance. The integration loads it automatically when the appliance is selected; manual Token/Key entry is not required.
-
-After the Midea account login is complete, click 'ADD DEVICE' to add an appliance. You can repeat this process to add multiple appliances.
-
-### 6.1 Supported apps and clouds
+## 5. Supported apps and clouds
 
 The setup list comes from [`SUPPORTED_CLOUDS`](https://github.com/wuwentao/midea-lan/blob/main/midealan/cloud.py) in `midea-lan`:
 
@@ -177,7 +148,53 @@ The setup list comes from [`SUPPORTED_CLOUDS`](https://github.com/wuwentao/midea
 
 Choose the option for the app where the appliance is registered. An account from one app normally cannot access appliances registered in another cloud. A listed backend means the integration implements its login flow; successful Token/Key retrieval still depends on the cloud service, account region, and appliance.
 
-### 6.2 Discover automatically
+## 6. Install midea_ac_lan
+
+### 6.1 Use HACS on Home Assistant 2026.10 or older
+
+> [!IMPORTANT]
+> Make sure you have installed HACS in Home Assistant using the [HACS install guide](https://hacs.xyz/docs/use/download/download/)
+
+[![Open your Home Assistant instance and open "midea_ac_lan" inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=wuwentao&repository=midea_ac_lan)
+
+**Restart Home Assistant**.
+
+### 6.2 Use Home Assistant 2026.11 or newer
+
+Starting with Home Assistant 2026.11, HACS ships with Home Assistant itself as the Marketplace integration. Open `Settings > Marketplace`, search for `midea_ac_lan`, select it, and click **Install**. When the installation finishes, **restart Home Assistant**.
+
+### 6.3 Install with Script
+
+> run this script in HA Terminal or SSH add-on
+
+```shell
+wget -O - https://github.com/wuwentao/midea_ac_lan/raw/main/scripts/install.sh | ARCHIVE_TAG=latest bash -
+```
+
+### 6.4 Manual Install
+
+1. Download `midea_ac_lan.zip` from [Latest Release](https://github.com/wuwentao/midea_ac_lan/releases/latest)
+2. Extract `midea_ac_lan.zip`.
+3. Copy the extracted files into `/config/custom_components/midea_ac_lan` in Home Assistant, so `manifest.json` is directly under `/config/custom_components/midea_ac_lan/`.
+4. **Restart Home Assistant**.
+
+After restarting, open `[Settings]`, `[Device & services]`, `[Integrations]`, `[Midea AC Lan]` to finish the initial setup and add your appliances.
+
+## 7. Add device
+
+**_❗Note: First, set a static IP address for your appliance in the router, in case the IP address of the appliance changes after set-up._**
+
+After installation, search for and add the `Midea AC LAN` integration from the Home Assistant integrations page. To add multiple appliances, add this integration multiple times and run automatic configuration each time.
+
+Or click [![Configuration](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start?domain=midea_ac_lan)
+
+**_❗Note: During configuration, you may be asked to sign in to a [supported app/cloud](#5-supported-apps-and-clouds) because the appliance Token and Key must be retrieved from its cloud service. After all appliances are configured, back up each v3 appliance `.json` configuration file for future use. See [Obtain Device JSON Configuration](doc/debug.md#4-obtain-device-json-configuration)._**
+
+> To restore a backup, copy `<device_id>.json` to `/config/.storage/midea_ac_lan/` before adding the appliance. The integration loads it automatically when the appliance is selected; manual Token/Key entry is not required.
+
+After the Midea account login is complete, click 'ADD DEVICE' to add an appliance. You can repeat this process to add multiple appliances.
+
+### 7.1 Discover automatically
 
 Using this option, the integration can discover and list Midea M-Smart appliances on the network or at a specified IP address. Select one from the list to add it.
 
@@ -185,12 +202,12 @@ You can also use an IP address to search within a specified network, such as `19
 
 **_❗Note: Automatic discovery requires your appliances and Home Assistant to be in the same subnet. Otherwise, appliances cannot be discovered. You can enter an IP address directly instead._**
 
-### 6.3 Configure manually
+### 7.2 Configure manually
 
 If you have manually configured the appliance through another integration before, or already have a Token/Key backup, you can add the appliance manually.
 
 - Appliance code
-- Appliance type (one of [Supported appliances](README.md#supported-appliances))
+- Appliance type (one of [Supported appliances and docs index](#4-supported-appliances-and-docs-index))
 - IP address
 - Port (default 6444)
 - Protocol version
@@ -199,13 +216,13 @@ If you have manually configured the appliance through another integration before
 
 > Do not modify appliance configurations unless you know what you are changing. Adding an incorrect appliance configuration may cause abnormal appliance status or make control unavailable.
 
-### 6.4 List all appliances only
+### 7.3 List all appliances only
 
 Using this option, you can list all discoverable Midea M-Smart devices on the network, along with their IDs, types, SNs, and other information.
 
 **_❗Note: Not all supported devices may be listed here. If a device cannot be scanned, it may not be supported at the moment._**
 
-## 7. Configure
+## 8. Configure
 
 Configuration can be found in `Settings -> Devices & Services -> Midea AC LAN -> Devices -> CONFIGURE`.
 You can reset the IP address when the appliance IP changes.
@@ -215,11 +232,11 @@ You can also add extra sensor and switch entities, or customize your appliance.
 
 ![Configure](doc/imgs/configure.png)
 
-### 7.1 IP address
+### 8.1 IP address
 
 Set the IP address of the appliance. You can reset this when the appliance IP changes.
 
-### 7.2 Refresh interval
+### 8.2 Refresh interval
 
 Set the interval for actively refreshing the status of a single appliance, in seconds. The default is 30, and 0 disables active refresh.
 Most Midea appliances actively notify status changes, \
@@ -230,12 +247,12 @@ If you are very concerned about the synchronization speed of the status, you can
 
 **_❗Note: a shorter refresh interval may mean more resource consumption_**
 
-### 7.3 Extra sensor and switch entities
+### 8.3 Extra sensor and switch entities
 
 After configuration, one or a few main entities (such as a climate entity) may be generated by default. If you want to expose other attributes as extra sensor or switch entities, click CONFIGURE in the Midea AC LAN integration card and select the sensors and switches to generate. Your appliance MUST support the selected features.
 Refer to the documents for each appliance type before enabling them.
 
-### 7.4 Customize
+### 8.4 Customize
 
 Some appliance types have their own customization items. You can use them to customize appliance features. If your appliance does not work properly, or if displayed values are abnormal, you may need customization to fix it. Refer to the appliance documentation for specific configuration information.
 
@@ -253,11 +270,11 @@ Example
 
 ![Customize](doc/imgs/customize.png)
 
-## 8. Debug and Test
+## 9. Debug and Test
 
 For getting debug logs or modifying source code, please refer to [Debug and Test](doc/debug.md).
 
-## 9. Contributing Guide
+## 10. Contributing Guide
 
 Development uses [uv](https://docs.astral.sh/uv/) (no Docker required). Install uv, then:
 
@@ -269,7 +286,7 @@ cd midea_ac_lan
 
 See [CONTRIBUTING](.github/CONTRIBUTING.md) for full setup, running Home Assistant locally, and the code style / commit rules. The [testing guide](doc/testing.md) describes the Home Assistant pytest harness, coverage reports, and supported-version matrix.
 
-### Adding a new device
+### 10.1 Adding a new device
 
 Want to expose a new Midea appliance type in this integration? The end-to-end recipe — pointing the `midea-lan` dependency at your library work for local testing, registering the device in `midea_devices.py`, choosing each attribute's platform / `device_class` / `unit` / `translation_key`, adding the translation files, writing the device docs, and opening a PR — is documented, using the `0xD9` washer/dryer combo ([PR #1086](https://github.com/wuwentao/midea_ac_lan/pull/1086)) as the running example and the `0x9B` oven ([PR #1096](https://github.com/wuwentao/midea_ac_lan/pull/1096)) as a second, larger example:
 
@@ -280,8 +297,11 @@ The companion guide for the protocol library side lives in the `midea-lan` repo:
 
 Device Lua protocol files are collected in [`midea-lua`](https://github.com/wuwentao/midea-lua). If the protocol for your appliance is missing, use the `midea-lan` download command described in the [`midea-lua` README](https://github.com/wuwentao/midea-lua#download-files), contribute the file there, and link it from your `midea-lan` pull request.
 
-## 10. Sponsor this project
+## 11. Sponsor this project
 
-If this project helps you, consider supporting it through Buy Me a Coffee. Your support helps sustain ongoing development, maintenance, and community support.
+If this project helps you, consider sponsoring its ongoing development, maintenance, and community support.
 
-[![Buy Me A Coffee](https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png)](https://buymeacoffee.com/wuwentao)
+<p>
+  <a href="https://buymeacoffee.com/wuwentao"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" height="40"></a>
+  <a href="https://www.paypal.me/wuwentao2000"><img src="https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-200px.png" alt="PayPal" height="40"></a>
+</p>
