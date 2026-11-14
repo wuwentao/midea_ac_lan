@@ -8,38 +8,52 @@ No default entity
 
 ### Extra entities
 
-| EntityID                                  | Class         | Description                    |
-| ----------------------------------------- | ------------- | ------------------------------ |
-| sensor.{DEVICEID}\_status                 | sensor        | Status                         |
-| sensor.{DEVICEID}\_mode                   | sensor        | Mode                           |
-| sensor.{DEVICEID}\_progress               | sensor        | Progress                       |
-| sensor.{DEVICEID}\_program                | sensor        | Program                        |
-| sensor.{DEVICEID}\_water_level            | sensor        | Water Level                    |
-| sensor.{DEVICEID}\_temperature            | sensor        | Temperature                    |
-| sensor.{DEVICEID}\_dehydration_speed      | sensor        | Dehydration Speed              |
-| sensor.{DEVICEID}\_dehydration_time       | sensor        | dehydration Time Level         |
-| sensor.{DEVICEID}\_dehydration_time_value | sensor        | Dehydration Time Value         |
-| sensor.{DEVICEID}\_wash_time              | sensor        | Wash Time Level                |
-| sensor.{DEVICEID}\_wash_time_value        | sensor        | Wash Time Value                |
-| sensor.{DEVICEID}\_time_remaining         | sensor        | Time Remaining                 |
-| sensor.{DEVICEID}\_detergent              | sensor        | Detergent                      |
-| sensor.{DEVICEID}\_softener               | sensor        | Softener                       |
-| sensor.{DEVICEID}\_stains                 | sensor        | Stains                         |
-| sensor.{DEVICEID}\_dirty_degree           | sensor        | Dirty Degree                   |
-| switch.{DEVICEID}\_power                  | switch        | Power                          |
-| switch.{DEVICEID}\_start                  | switch        | Start                          |
-| select.{DEVICEID}\_program_control        | select        | Washer program                 |
-| select.{DEVICEID}\_temperature_control    | select        | Water temperature              |
-| select.{DEVICEID}\_spin_speed_control     | select        | Spin speed                     |
-| select.{DEVICEID}\_rinse_count            | select        | Rinse count                    |
-| select.{DEVICEID}\_water_level_control    | select        | Water level                    |
-| select.{DEVICEID}\_detergent_control      | select        | Detergent dosing               |
-| select.{DEVICEID}\_wash_time_control      | select        | Wash time (min)                |
-| select.{DEVICEID}\_spin_time_control      | select        | Spin time (min)                |
-| switch.{DEVICEID}\_forget_free            | switch        | Forget-free care               |
-| time.{DEVICEID}\_appointment_finish       | time          | Finish time (sets reservation) |
-| button.{DEVICEID}\_cancel_appointment     | button        | Cancel reservation             |
-| binary_sensor.{DEVICEID}\_appointment     | binary_sensor | Reservation                    |
+| EntityID                                      | Class         | Description                    |
+| --------------------------------------------- | ------------- | ------------------------------ |
+| sensor.{DEVICEID}\_status                     | sensor        | Status                         |
+| sensor.{DEVICEID}\_mode                       | sensor        | Mode                           |
+| sensor.{DEVICEID}\_progress                   | sensor        | Progress                       |
+| sensor.{DEVICEID}\_program                    | sensor        | Program                        |
+| sensor.{DEVICEID}\_water_level                | sensor        | Water Level                    |
+| sensor.{DEVICEID}\_temperature                | sensor        | Temperature                    |
+| sensor.{DEVICEID}\_dehydration_speed          | sensor        | Dehydration Speed              |
+| sensor.{DEVICEID}\_dehydration_time           | sensor        | dehydration Time Level         |
+| sensor.{DEVICEID}\_dehydration_time_value     | sensor        | Dehydration Time Value         |
+| sensor.{DEVICEID}\_wash_time                  | sensor        | Wash Time Level                |
+| sensor.{DEVICEID}\_wash_time_value            | sensor        | Wash Time Value                |
+| sensor.{DEVICEID}\_time_remaining             | sensor        | Time Remaining                 |
+| sensor.{DEVICEID}\_detergent                  | sensor        | Detergent                      |
+| sensor.{DEVICEID}\_softener                   | sensor        | Softener                       |
+| sensor.{DEVICEID}\_stains                     | sensor        | Stains                         |
+| sensor.{DEVICEID}\_dirty_degree               | sensor        | Dirty Degree                   |
+| switch.{DEVICEID}\_power                      | switch        | Power                          |
+| switch.{DEVICEID}\_start                      | switch        | Start                          |
+| select.{DEVICEID}\_program_control            | select        | Washer program                 |
+| select.{DEVICEID}\_temperature_control        | select        | Water temperature              |
+| select.{DEVICEID}\_spin_speed_control         | select        | Spin speed                     |
+| select.{DEVICEID}\_rinse_count                | select        | Rinse count                    |
+| select.{DEVICEID}\_water_level_control        | select        | Water level                    |
+| select.{DEVICEID}\_detergent_control          | select        | Detergent dosing               |
+| select.{DEVICEID}\_wash_time_control          | select        | Wash time (min)                |
+| select.{DEVICEID}\_spin_time_control          | select        | Spin time (min)                |
+| switch.{DEVICEID}\_forget_free                | switch        | Forget-free care               |
+| time.{DEVICEID}\_appointment_finish           | time          | Finish time (sets reservation) |
+| button.{DEVICEID}\_cancel_appointment         | button        | Cancel reservation             |
+| binary_sensor.{DEVICEID}\_appointment         | binary_sensor | Reservation                    |
+| sensor.{DEVICEID}\_dryer                      | sensor        | Drying level (v41)             |
+| sensor.{DEVICEID}\_soak_count                 | sensor        | Soak count (v41)               |
+| sensor.{DEVICEID}\_appointment_time           | sensor        | Delay start time (v41)         |
+| sensor.{DEVICEID}\_error_code                 | sensor        | Error code (v41)               |
+| sensor.{DEVICEID}\_water_consumption          | sensor        | Last cycle water (v41, raw)    |
+| sensor.{DEVICEID}\_power_consumption          | sensor        | Last cycle power (v41, raw)    |
+| sensor.{DEVICEID}\_wash_count                 | sensor        | Wash count (v41)               |
+| binary_sensor.{DEVICEID}\_speedy              | binary_sensor | Speedy (v41)                   |
+| binary_sensor.{DEVICEID}\_lock                | binary_sensor | Child lock (v41)               |
+| binary_sensor.{DEVICEID}\_beforehand_wash     | binary_sensor | Pre-wash (v41)                 |
+| binary_sensor.{DEVICEID}\_steam_wash          | binary_sensor | Steam wash (v41)               |
+| binary_sensor.{DEVICEID}\_add_rinse           | binary_sensor | Extra rinse (v41)              |
+| binary_sensor.{DEVICEID}\_wind_dispel         | binary_sensor | Fresh air (v41)                |
+| binary_sensor.{DEVICEID}\_remote_control_flag | binary_sensor | Remote control (v41)           |
 
 Parameter entities require the verified model/subtype and a supporting SDK.
 Availability also depends on the current program and appliance state; see the
@@ -137,3 +151,16 @@ selectors, forget-free switch and reservation entities are skipped. Power and
 start writes are also rejected for it, so the existing power/start switches
 cannot control it. Keep the real model/subtype; impersonating the verified model
 can send incorrect commands.
+
+Model `38123703 / subtype 16695` (MF200D80WB/T-A1 washer-dryer) uses the same
+read-only v41 profile.
+
+Both v41 models also expose the read-only status fields of
+`T_0000_DB_41.lua`, marked "(v41)" in the table above: drying level, soak
+count, delay start minutes, error code, and the speedy, child lock, pre-wash,
+steam wash, extra rinse, fresh air (`wind_dispel`) and remote control flags.
+The end-of-cycle report adds the water and power consumption of the last
+cycle as raw counters; the Lua file defines no unit for them. It also carries
+the appliance wash count (read by the official app plugin, not the Lua file).
+Enable these
+entities in **CONFIGURE**; older protocol-library versions skip them.
