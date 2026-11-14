@@ -1060,14 +1060,26 @@
           "preset_5": "定量预设5"
         }
       },
-      "wash_mode_76000228": {
-        "name": "洗涤模式"
-      },
-      "program_76000228": {
-        "name": "程序"
-      },
       "program": {
-        "name": "程序"
+        "name": "程序",
+        "state": {
+          "neutral_gear": "无",
+          "auto_wash": "自动洗",
+          "strong_wash": "强力洗",
+          "standard_wash": "标准洗",
+          "universal_wash": "通用洗",
+          "eco_wash": "节能洗",
+          "glass_wash": "玻璃洗",
+          "hour_wash": "1 小时",
+          "fast_wash": "快速洗",
+          "soak_wash": "浸泡洗",
+          "90min": "90 分钟",
+          "self_clean": "自清洁",
+          "germ": "除菌",
+          "whisper_wash": "静音洗",
+          "kill_germ": "高温除菌",
+          "anion1": "离子除味"
+        }
       },
       "load": {
         "name": "负载",
@@ -1170,7 +1182,25 @@
         "name": "垂直摆头角度"
       },
       "wash_mode": {
-        "name": "洗涤模式"
+        "name": "洗涤模式",
+        "state": {
+          "neutral_gear": "无",
+          "auto_wash": "自动洗",
+          "strong_wash": "强力洗",
+          "standard_wash": "标准洗",
+          "universal_wash": "通用洗",
+          "eco_wash": "节能洗",
+          "glass_wash": "玻璃洗",
+          "hour_wash": "1 小时",
+          "fast_wash": "快速洗",
+          "soak_wash": "浸泡洗",
+          "90min": "90 分钟",
+          "self_clean": "自清洁",
+          "germ": "除菌",
+          "whisper_wash": "静音洗",
+          "kill_germ": "高温除菌",
+          "anion1": "离子除味"
+        }
       },
       "water_level_set": {
         "name": "水位设定"
@@ -1505,10 +1535,25 @@
         "name": "烘干机耗电量"
       },
       "dishwasher_mode": {
-        "name": "模式"
-      },
-      "dishwasher_mode_76000228": {
-        "name": "模式"
+        "name": "模式",
+        "state": {
+          "neutral_gear": "无",
+          "auto_wash": "自动洗",
+          "strong_wash": "强力洗",
+          "standard_wash": "标准洗",
+          "universal_wash": "通用洗",
+          "eco_wash": "节能洗",
+          "glass_wash": "玻璃洗",
+          "hour_wash": "1 小时",
+          "fast_wash": "快速洗",
+          "soak_wash": "浸泡洗",
+          "90min": "90 分钟",
+          "self_clean": "自清洁",
+          "germ": "除菌",
+          "whisper_wash": "静音洗",
+          "kill_germ": "高温除菌",
+          "anion1": "离子除味"
+        }
       },
       "dishwasher_status": {
         "name": "状态"
