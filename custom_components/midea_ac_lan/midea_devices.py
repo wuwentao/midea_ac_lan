@@ -141,6 +141,11 @@ FRESH_AIR_EXHAUST = "fresh_air_exhaust"
 FRESH_AIR_EXHAUST_MODE = "fresh_air_exhaust_mode"
 FRESH_AIR_EXHAUST_POWER = "fresh_air_exhaust_power"
 FRESH_AIR_EXHAUST_SPEED = "fresh_air_exhaust_speed"
+# A1 group-one telemetry attributes. Referenced by string so this integration
+# remains importable with the released midea-lan version; required_attribute
+# hides both entities until the feature library exposes the matching keys.
+A1_COMPRESSOR = "compressor"
+A1_EVAPORATOR_TEMPERATURE = "evaporator_temperature"
 ED_TEA_BAR_SUBTYPES = [395]
 ED_TEA_BAR_MODELS = ["63000622"]
 ED_TEA_BAR_DEVICES = [(ED_TEA_BAR_MODELS[0], ED_TEA_BAR_SUBTYPES[0])]
@@ -3442,6 +3447,15 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "unit": UnitOfTemperature.CELSIUS,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
+            A1_EVAPORATOR_TEMPERATURE: {
+                "type": Platform.SENSOR,
+                "required_attribute": A1_EVAPORATOR_TEMPERATURE,
+                "translation_key": "evaporator_temperature",
+                "name": "Evaporator Temperature",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
             A1Attributes.tank: {
                 "type": Platform.SENSOR,
                 "translation_key": "tank",
@@ -3463,6 +3477,13 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Filter Cleaning Reminder",
                 "icon": "mdi:alert-circle",
                 "device_class": BinarySensorDeviceClass.PROBLEM,
+            },
+            A1_COMPRESSOR: {
+                "type": Platform.BINARY_SENSOR,
+                "required_attribute": A1_COMPRESSOR,
+                "translation_key": "compressor_on",
+                "name": "Compressor Running",
+                "device_class": BinarySensorDeviceClass.RUNNING,
             },
         },
     },
