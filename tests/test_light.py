@@ -156,6 +156,33 @@ def test_light_commands(
     device.set_attribute.assert_called_once_with(attr=X13Attributes.power, value=False)
 
 
+def test_plain_turn_on_restores_visible_brightness(
+    device_factory: DeviceFactory,
+    install_config: InstallConfig,
+) -> None:
+    """Restore visible brightness only when a plain turn-on starts at zero."""
+    light, device, _ = make_light(
+        device_factory,
+        install_config,
+        {
+            X13Attributes.power: False,
+            X13Attributes.brightness: 0,
+        },
+    )
+    light.turn_on()
+    assert device.set_attribute.call_args_list == [
+        call(attr=X13Attributes.power, value=True),
+        call(attr=X13Attributes.brightness, value=128),
+    ]
+
+    device.set_attribute.reset_mock()
+    light.turn_on(**{ATTR_BRIGHTNESS: 0})
+    assert device.set_attribute.call_args_list == [
+        call(attr=X13Attributes.power, value=True),
+        call(attr=X13Attributes.brightness, value=0),
+    ]
+
+
 def test_update_state_attached_and_detached(
     device_factory: DeviceFactory,
     install_config: InstallConfig,

@@ -24,7 +24,7 @@ from midealan.devices.x13 import Midea13Device
 from midealan.devices.x40 import DeviceAttributes as X40Attributes
 from midealan.devices.x40 import MideaX40Device
 
-from .const import DEVICES, DOMAIN
+from .const import DEVICES, DOMAIN, supports_device
 from .midea_devices import (
     FRESH_AIR_EXHAUST,
     FRESH_AIR_EXHAUST_MODE,
@@ -68,8 +68,10 @@ async def async_setup_entry(
             and required_attribute not in device.attributes
         ):
             continue
-        if config["type"] == Platform.FAN and (
-            config.get("default") or entity_key in extra_switches
+        if (
+            config["type"] == Platform.FAN
+            and supports_device(device.model, device.subtype, config)
+            and (config.get("default") or entity_key in extra_switches)
         ):
             if device.device_type == DeviceType.FA:
                 devs.append(MideaFAFan(device, entity_key))
@@ -446,7 +448,7 @@ class MideaX13Fan(MideaFan):
     ) -> None:
         """Midea X13 Fan turn on.
 
-        Writing a speed also powers the fan on, so a plain turn-on re-uses
+        Writing a speed also powers the fan on, so a plain turn-on reuses
         the speed last reported by the appliance.
         """
         if percentage is not None:

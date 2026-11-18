@@ -8,6 +8,7 @@ from homeassistant.const import Platform
 from midealan.device import DeviceType
 from midealan.devices.ac import DeviceAttributes as ACAttributes
 from midealan.devices.ce import DeviceAttributes as CEAttributes
+from midealan.devices.x13 import DeviceAttributes as X13Attributes
 from midealan.devices.x40 import DeviceAttributes as X40Attributes
 
 from custom_components.midea_ac_lan.fan import (
@@ -17,6 +18,7 @@ from custom_components.midea_ac_lan.fan import (
     MideaCEFan,
     MideaFAFan,
     MideaFan,
+    MideaX13Fan,
     MideaX40Fan,
     async_setup_entry,
 )
@@ -38,6 +40,7 @@ from .helpers import DeviceFactory, InstallConfig, setup_context
         (DeviceType.AC, MideaACFreshAirFan),
         (DeviceType.CE, MideaCEFan),
         (DeviceType.X40, MideaX40Fan),
+        (DeviceType.X13, MideaX13Fan),
     ],
 )
 async def test_async_setup_entry_device_classes(
@@ -58,6 +61,16 @@ async def test_async_setup_entry_device_classes(
                 "required_attribute": "capability",
             },
             "wrong": {"type": Platform.SENSOR, "default": True},
+            "wrong_model": {
+                "type": Platform.FAN,
+                "default": True,
+                "models": ["OTHER"],
+            },
+            "wrong_subtype": {
+                "type": Platform.FAN,
+                "default": True,
+                "subtypes": [99],
+            },
         },
         device_type,
     )
@@ -85,6 +98,39 @@ async def test_async_setup_entry_unknown_device(
     hass, entry, add_entities = setup_context(device)
     await async_setup_entry(hass, entry, add_entities)
     add_entities.assert_called_once_with([])
+
+
+@pytest.mark.parametrize(
+    ("model", "subtype", "expected_count"),
+    [("M0200008", 0, 1), ("M0200008", 1, 0), ("OTHER", 0, 0)],
+)
+async def test_x13_fan_model_and_subtype_gate(
+    model: str,
+    subtype: int,
+    expected_count: int,
+    device_factory: DeviceFactory,
+    install_config: InstallConfig,
+) -> None:
+    """Expose the fan only for the library-supported X13 layout."""
+    install_config(
+        {
+            "fan": {
+                "type": Platform.FAN,
+                "default": True,
+                "models": ["M0200008"],
+                "subtypes": [0],
+            },
+        },
+        DeviceType.X13,
+    )
+    device, _ = device_factory(
+        device_type=DeviceType.X13,
+        model=model,
+        subtype=subtype,
+    )
+    hass, entry, add_entities = setup_context(device)
+    await async_setup_entry(hass, entry, add_entities)
+    assert len(add_entities.call_args.args[0]) == expected_count
 
 
 def test_base_fan_properties_and_commands(
@@ -279,3 +325,42 @@ def test_x40_fan(
         call(attr=X40Attributes.fan_speed, value=1),
         call(attr=X40Attributes.fan_speed, value=0),
     ]
+
+
+def test_x13_fan(
+    device_factory: DeviceFactory,
+    install_config: InstallConfig,
+) -> None:
+    """Map X13 fan-light state and commands to the supported hardware gears."""
+    install_config({"main": {"type": Platform.FAN}}, DeviceType.X13)
+    device, values = device_factory(
+        device_type=DeviceType.X13,
+        attributes={
+            X13Attributes.fan_power: True,
+            X13Attributes.fan_speed: 21,
+        },
+    )
+    fan = MideaX13Fan(device, "main")
+    assert fan.is_on
+    assert fan.percentage == 21
+    assert fan._attr_speed_count == 100
+
+    fan.turn_on(percentage=17)
+    fan.turn_on(percentage=0)
+    fan.turn_on()
+    fan.turn_off()
+    assert device.set_attribute.call_args_list == [
+        call(attr=X13Attributes.fan_speed, value=21),
+        call(attr=X13Attributes.fan_power, value=False),
+        call(attr=X13Attributes.fan_speed, value=21),
+        call(attr=X13Attributes.fan_power, value=False),
+    ]
+
+    device.set_attribute.reset_mock()
+    values[X13Attributes.fan_speed] = 0
+    assert fan.percentage is None
+    fan.turn_on()
+    device.set_attribute.assert_called_once_with(
+        attr=X13Attributes.fan_speed,
+        value=41,
+    )
