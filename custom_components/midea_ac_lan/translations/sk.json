@@ -884,6 +884,9 @@
       },
       "laundry_appointment": {
         "name": "Rezervácia"
+      },
+      "has_token": {
+        "name": "Token je k dispozícii"
       }
     },
     "button": {
@@ -925,11 +928,19 @@
       }
     },
     "fan": {
+      "fan": {
+        "name": "Ventilátor"
+      },
       "fresh_air": {
         "name": "Fresh Air"
       },
       "fresh_air_exhaust": {
         "name": "Odvod čerstvého vzduchu"
+      }
+    },
+    "light": {
+      "light": {
+        "name": "Osvetlenie"
       }
     },
     "lock": {
@@ -1030,6 +1041,42 @@
       },
       "dryer_timed_extra": {
         "name": "Predĺženie časovaného sušenia"
+      },
+      "auto_off_screen_type": {
+        "name": "Typ automatického vypnutia obrazovky"
+      },
+      "theme": {
+        "name": "Motív"
+      },
+      "night_volume": {
+        "name": "Nočná hlasitosť"
+      },
+      "voice_volume": {
+        "name": "Hlasitosť hlasu"
+      },
+      "sleep_start_hour": {
+        "name": "Hodina začiatku spánku"
+      },
+      "sleep_start_minute": {
+        "name": "Minúta začiatku spánku"
+      },
+      "sleep_duration_hour": {
+        "name": "Trvanie spánku (hodiny)"
+      },
+      "sleep_duration_minute": {
+        "name": "Trvanie spánku (minúty)"
+      },
+      "brightness": {
+        "name": "Jas"
+      },
+      "left_button_work_mode": {
+        "name": "Prevádzkový režim ľavého tlačidla"
+      },
+      "middle_button_work_mode": {
+        "name": "Prevádzkový režim stredného tlačidla"
+      },
+      "right_button_work_mode": {
+        "name": "Prevádzkový režim pravého tlačidla"
       }
     },
     "select": {
@@ -1681,7 +1728,7 @@
         }
       },
       "error_code": {
-        "name": "Error Code"
+        "name": "Kód chyby"
       },
       "humidify_feedback": {
         "name": "Spätná väzba vlhkosti"
@@ -3807,6 +3854,9 @@
       "work_second": {
         "name": "Pracovná sekunda"
       },
+      "panel_status": {
+        "name": "Stav panela"
+      },
       "heating_power_consumption": {
         "name": "Heating electrical power"
       },
@@ -3974,9 +4024,6 @@
       },
       "total_cop_eer": {
         "name": "Total COP/EER"
-      },
-      "panel_status": {
-        "name": "Stav panela"
       }
     },
     "switch": {
@@ -4140,7 +4187,7 @@
         "name": "Silent Mode"
       },
       "sleep_mode": {
-        "name": "Sleep Mode"
+        "name": "Režim spánku"
       },
       "out_silent": {
         "name": "Vonkajší tichý režim"
@@ -4273,6 +4320,42 @@
       },
       "washer_forget_free": {
         "name": "Bezstarostná starostlivosť"
+      },
+      "left_button": {
+        "name": "Ľavé tlačidlo"
+      },
+      "middle_button": {
+        "name": "Stredné tlačidlo"
+      },
+      "right_button": {
+        "name": "Pravé tlačidlo"
+      },
+      "show_button_name": {
+        "name": "Zobraziť názov tlačidla"
+      },
+      "close_screen_bright": {
+        "name": "Stlmiť obrazovku pri zatvorení"
+      },
+      "sleep_mode_switch": {
+        "name": "Prepínač režimu spánku"
+      },
+      "sleep_mode_mute": {
+        "name": "Stlmenie v režime spánku"
+      },
+      "left_button_keep": {
+        "name": "Zachovať ľavé tlačidlo"
+      },
+      "middle_button_keep": {
+        "name": "Zachovať stredné tlačidlo"
+      },
+      "right_button_keep": {
+        "name": "Zachovať pravé tlačidlo"
+      },
+      "voice_control": {
+        "name": "Hlasové ovládanie"
+      },
+      "screen_state": {
+        "name": "Obrazovka"
       }
     },
     "water_heater": {

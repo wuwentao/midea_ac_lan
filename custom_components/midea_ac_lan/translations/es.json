@@ -884,6 +884,9 @@
       },
       "laundry_appointment": {
         "name": "Reserva"
+      },
+      "has_token": {
+        "name": "Tiene token"
       }
     },
     "button": {
@@ -925,11 +928,19 @@
       }
     },
     "fan": {
+      "fan": {
+        "name": "Ventilador"
+      },
       "fresh_air": {
         "name": "Aire fresco"
       },
       "fresh_air_exhaust": {
         "name": "Extracción de aire fresco"
+      }
+    },
+    "light": {
+      "light": {
+        "name": "Iluminación"
       }
     },
     "lock": {
@@ -1030,6 +1041,42 @@
       },
       "dryer_timed_extra": {
         "name": "Extensión del secado temporizado"
+      },
+      "auto_off_screen_type": {
+        "name": "Tipo de apagado automático de pantalla"
+      },
+      "theme": {
+        "name": "Tema"
+      },
+      "night_volume": {
+        "name": "Volumen nocturno"
+      },
+      "voice_volume": {
+        "name": "Volumen de voz"
+      },
+      "sleep_start_hour": {
+        "name": "Hora de inicio del modo de reposo"
+      },
+      "sleep_start_minute": {
+        "name": "Minuto de inicio del modo de reposo"
+      },
+      "sleep_duration_hour": {
+        "name": "Duración del modo de reposo (horas)"
+      },
+      "sleep_duration_minute": {
+        "name": "Duración del modo de reposo (minutos)"
+      },
+      "brightness": {
+        "name": "Brillo"
+      },
+      "left_button_work_mode": {
+        "name": "Modo de funcionamiento del botón izquierdo"
+      },
+      "middle_button_work_mode": {
+        "name": "Modo de funcionamiento del botón central"
+      },
+      "right_button_work_mode": {
+        "name": "Modo de funcionamiento del botón derecho"
       }
     },
     "select": {
@@ -3995,6 +4042,9 @@
       "work_second": {
         "name": "Segundo de Trabajo"
       },
+      "panel_status": {
+        "name": "Estado del panel"
+      },
       "heating_power_consumption": {
         "name": "Heating electrical power"
       },
@@ -4162,9 +4212,6 @@
       },
       "total_cop_eer": {
         "name": "Total COP/EER"
-      },
-      "panel_status": {
-        "name": "Estado del panel"
       }
     },
     "switch": {
@@ -4328,7 +4375,7 @@
         "name": "Modo silencioso"
       },
       "sleep_mode": {
-        "name": "Modo sueño"
+        "name": "Modo de reposo"
       },
       "out_silent": {
         "name": "Modo silencioso exterior"
@@ -4461,6 +4508,42 @@
       },
       "washer_forget_free": {
         "name": "Cuidado sin preocupaciones"
+      },
+      "left_button": {
+        "name": "Botón izquierdo"
+      },
+      "middle_button": {
+        "name": "Botón central"
+      },
+      "right_button": {
+        "name": "Botón derecho"
+      },
+      "show_button_name": {
+        "name": "Mostrar nombre del botón"
+      },
+      "close_screen_bright": {
+        "name": "Atenuar la pantalla al cerrar"
+      },
+      "sleep_mode_switch": {
+        "name": "Interruptor del modo de reposo"
+      },
+      "sleep_mode_mute": {
+        "name": "Silencio en modo de reposo"
+      },
+      "left_button_keep": {
+        "name": "Mantener botón izquierdo"
+      },
+      "middle_button_keep": {
+        "name": "Mantener botón central"
+      },
+      "right_button_keep": {
+        "name": "Mantener botón derecho"
+      },
+      "voice_control": {
+        "name": "Control por voz"
+      },
+      "screen_state": {
+        "name": "Pantalla"
       }
     },
     "water_heater": {

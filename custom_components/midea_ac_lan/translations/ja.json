@@ -884,6 +884,9 @@
       },
       "laundry_appointment": {
         "name": "予約"
+      },
+      "has_token": {
+        "name": "トークンあり"
       }
     },
     "button": {
@@ -925,6 +928,9 @@
       }
     },
     "fan": {
+      "fan": {
+        "name": "ファン"
+      },
       "bgf10000": {
         "state_attributes": {
           "preset_mode": {
@@ -946,6 +952,11 @@
       },
       "fresh_air_exhaust": {
         "name": "換気排気"
+      }
+    },
+    "light": {
+      "light": {
+        "name": "照明"
       }
     },
     "lock": {
@@ -1046,6 +1057,42 @@
       },
       "dryer_timed_extra": {
         "name": "乾燥時間延長"
+      },
+      "auto_off_screen_type": {
+        "name": "自動画面オフの種類"
+      },
+      "theme": {
+        "name": "テーマ"
+      },
+      "night_volume": {
+        "name": "夜間音量"
+      },
+      "voice_volume": {
+        "name": "音声音量"
+      },
+      "sleep_start_hour": {
+        "name": "スリープ開始時"
+      },
+      "sleep_start_minute": {
+        "name": "スリープ開始分"
+      },
+      "sleep_duration_hour": {
+        "name": "スリープ継続時間（時）"
+      },
+      "sleep_duration_minute": {
+        "name": "スリープ継続時間（分）"
+      },
+      "brightness": {
+        "name": "明るさ"
+      },
+      "left_button_work_mode": {
+        "name": "左ボタン動作モード"
+      },
+      "middle_button_work_mode": {
+        "name": "中央ボタン動作モード"
+      },
+      "right_button_work_mode": {
+        "name": "右ボタン動作モード"
       }
     },
     "select": {
@@ -4032,6 +4079,9 @@
       "cbs_version": {
         "name": "CBS バージョン"
       },
+      "panel_status": {
+        "name": "パネル状態"
+      },
       "heating_power_consumption": {
         "name": "Heating electrical power"
       },
@@ -4199,9 +4249,6 @@
       },
       "total_cop_eer": {
         "name": "Total COP/EER"
-      },
-      "panel_status": {
-        "name": "パネル状態"
       }
     },
     "switch": {
@@ -4498,6 +4545,42 @@
       },
       "washer_forget_free": {
         "name": "忘れずケア"
+      },
+      "left_button": {
+        "name": "左ボタン"
+      },
+      "middle_button": {
+        "name": "中央ボタン"
+      },
+      "right_button": {
+        "name": "右ボタン"
+      },
+      "show_button_name": {
+        "name": "ボタン名を表示"
+      },
+      "close_screen_bright": {
+        "name": "閉じたときに画面を暗くする"
+      },
+      "sleep_mode_switch": {
+        "name": "スリープモードスイッチ"
+      },
+      "sleep_mode_mute": {
+        "name": "スリープモード消音"
+      },
+      "left_button_keep": {
+        "name": "左ボタンを保持"
+      },
+      "middle_button_keep": {
+        "name": "中央ボタンを保持"
+      },
+      "right_button_keep": {
+        "name": "右ボタンを保持"
+      },
+      "voice_control": {
+        "name": "音声操作"
+      },
+      "screen_state": {
+        "name": "画面"
       }
     },
     "water_heater": {

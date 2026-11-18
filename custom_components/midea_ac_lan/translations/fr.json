@@ -884,6 +884,9 @@
       },
       "laundry_appointment": {
         "name": "Réservation"
+      },
+      "has_token": {
+        "name": "Jeton disponible"
       }
     },
     "button": {
@@ -925,11 +928,19 @@
       }
     },
     "fan": {
+      "fan": {
+        "name": "Ventilateur"
+      },
       "fresh_air": {
         "name": "Fresh Air"
       },
       "fresh_air_exhaust": {
         "name": "Extraction d'air frais"
+      }
+    },
+    "light": {
+      "light": {
+        "name": "Éclairage"
       }
     },
     "lock": {
@@ -1030,6 +1041,42 @@
       },
       "dryer_timed_extra": {
         "name": "Prolongation du séchage minuté"
+      },
+      "auto_off_screen_type": {
+        "name": "Type d'extinction automatique de l'écran"
+      },
+      "theme": {
+        "name": "Thème"
+      },
+      "night_volume": {
+        "name": "Volume nocturne"
+      },
+      "voice_volume": {
+        "name": "Volume de la voix"
+      },
+      "sleep_start_hour": {
+        "name": "Heure de début du mode veille"
+      },
+      "sleep_start_minute": {
+        "name": "Minute de début du mode veille"
+      },
+      "sleep_duration_hour": {
+        "name": "Durée du mode veille (heures)"
+      },
+      "sleep_duration_minute": {
+        "name": "Durée du mode veille (minutes)"
+      },
+      "brightness": {
+        "name": "Luminosité"
+      },
+      "left_button_work_mode": {
+        "name": "Mode de fonctionnement du bouton gauche"
+      },
+      "middle_button_work_mode": {
+        "name": "Mode de fonctionnement du bouton central"
+      },
+      "right_button_work_mode": {
+        "name": "Mode de fonctionnement du bouton droit"
       }
     },
     "select": {
@@ -1681,7 +1728,7 @@
         }
       },
       "error_code": {
-        "name": "Error Code"
+        "name": "Code d'erreur"
       },
       "humidify_feedback": {
         "name": "Retour d'humidité"
@@ -3807,6 +3854,9 @@
       "work_second": {
         "name": "Seconde de Travail"
       },
+      "panel_status": {
+        "name": "État du panneau"
+      },
       "heating_power_consumption": {
         "name": "Heating electrical power"
       },
@@ -3974,9 +4024,6 @@
       },
       "total_cop_eer": {
         "name": "Total COP/EER"
-      },
-      "panel_status": {
-        "name": "État du panneau"
       }
     },
     "switch": {
@@ -4137,7 +4184,7 @@
         "name": "Silent Mode"
       },
       "sleep_mode": {
-        "name": "Sleep Mode"
+        "name": "Mode veille"
       },
       "out_silent": {
         "name": "Mode silencieux extérieur"
@@ -4270,6 +4317,42 @@
       },
       "washer_forget_free": {
         "name": "Entretien sans souci"
+      },
+      "left_button": {
+        "name": "Bouton gauche"
+      },
+      "middle_button": {
+        "name": "Bouton central"
+      },
+      "right_button": {
+        "name": "Bouton droit"
+      },
+      "show_button_name": {
+        "name": "Afficher le nom du bouton"
+      },
+      "close_screen_bright": {
+        "name": "Assombrir l'écran à la fermeture"
+      },
+      "sleep_mode_switch": {
+        "name": "Interrupteur du mode veille"
+      },
+      "sleep_mode_mute": {
+        "name": "Mode veille silencieux"
+      },
+      "left_button_keep": {
+        "name": "Maintenir le bouton gauche"
+      },
+      "middle_button_keep": {
+        "name": "Maintenir le bouton central"
+      },
+      "right_button_keep": {
+        "name": "Maintenir le bouton droit"
+      },
+      "voice_control": {
+        "name": "Commande vocale"
+      },
+      "screen_state": {
+        "name": "Écran"
       }
     },
     "water_heater": {

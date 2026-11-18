@@ -884,6 +884,9 @@
       },
       "laundry_appointment": {
         "name": "예약"
+      },
+      "has_token": {
+        "name": "토큰 있음"
       }
     },
     "button": {
@@ -925,6 +928,9 @@
       }
     },
     "fan": {
+      "fan": {
+        "name": "팬"
+      },
       "bgf10000": {
         "state_attributes": {
           "preset_mode": {
@@ -946,6 +952,11 @@
       },
       "fresh_air_exhaust": {
         "name": "신선 공기 배출"
+      }
+    },
+    "light": {
+      "light": {
+        "name": "조명"
       }
     },
     "lock": {
@@ -1046,6 +1057,42 @@
       },
       "dryer_timed_extra": {
         "name": "타이머 건조 연장"
+      },
+      "auto_off_screen_type": {
+        "name": "자동 화면 꺼짐 유형"
+      },
+      "theme": {
+        "name": "테마"
+      },
+      "night_volume": {
+        "name": "야간 음량"
+      },
+      "voice_volume": {
+        "name": "음성 음량"
+      },
+      "sleep_start_hour": {
+        "name": "수면 시작 시"
+      },
+      "sleep_start_minute": {
+        "name": "수면 시작 분"
+      },
+      "sleep_duration_hour": {
+        "name": "수면 지속 시간(시간)"
+      },
+      "sleep_duration_minute": {
+        "name": "수면 지속 시간(분)"
+      },
+      "brightness": {
+        "name": "밝기"
+      },
+      "left_button_work_mode": {
+        "name": "왼쪽 버튼 작동 모드"
+      },
+      "middle_button_work_mode": {
+        "name": "가운데 버튼 작동 모드"
+      },
+      "right_button_work_mode": {
+        "name": "오른쪽 버튼 작동 모드"
       }
     },
     "select": {
@@ -4032,6 +4079,9 @@
       "cbs_version": {
         "name": "CBS 버전"
       },
+      "panel_status": {
+        "name": "패널 상태"
+      },
       "heating_power_consumption": {
         "name": "Heating electrical power"
       },
@@ -4199,9 +4249,6 @@
       },
       "total_cop_eer": {
         "name": "Total COP/EER"
-      },
-      "panel_status": {
-        "name": "패널 상태"
       }
     },
     "switch": {
@@ -4498,6 +4545,42 @@
       },
       "washer_forget_free": {
         "name": "잊음 방지 케어"
+      },
+      "left_button": {
+        "name": "왼쪽 버튼"
+      },
+      "middle_button": {
+        "name": "가운데 버튼"
+      },
+      "right_button": {
+        "name": "오른쪽 버튼"
+      },
+      "show_button_name": {
+        "name": "버튼 이름 표시"
+      },
+      "close_screen_bright": {
+        "name": "닫을 때 화면 어둡게"
+      },
+      "sleep_mode_switch": {
+        "name": "수면 모드 스위치"
+      },
+      "sleep_mode_mute": {
+        "name": "수면 모드 음소거"
+      },
+      "left_button_keep": {
+        "name": "왼쪽 버튼 유지"
+      },
+      "middle_button_keep": {
+        "name": "가운데 버튼 유지"
+      },
+      "right_button_keep": {
+        "name": "오른쪽 버튼 유지"
+      },
+      "voice_control": {
+        "name": "음성 제어"
+      },
+      "screen_state": {
+        "name": "화면"
       }
     },
     "water_heater": {

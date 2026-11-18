@@ -884,6 +884,9 @@
       },
       "laundry_appointment": {
         "name": "Rezervacija"
+      },
+      "has_token": {
+        "name": "Ima token"
       }
     },
     "button": {
@@ -925,6 +928,9 @@
       }
     },
     "fan": {
+      "fan": {
+        "name": "Ventilator"
+      },
       "bgf10000": {
         "state_attributes": {
           "preset_mode": {
@@ -946,6 +952,11 @@
       },
       "fresh_air_exhaust": {
         "name": "Ispuh svježeg zraka"
+      }
+    },
+    "light": {
+      "light": {
+        "name": "Rasvjeta"
       }
     },
     "lock": {
@@ -1046,6 +1057,42 @@
       },
       "dryer_timed_extra": {
         "name": "Produljenje vremenski određenog sušenja"
+      },
+      "auto_off_screen_type": {
+        "name": "Vrsta automatskog isključivanja zaslona"
+      },
+      "theme": {
+        "name": "Tema"
+      },
+      "night_volume": {
+        "name": "Noćna glasnoća"
+      },
+      "voice_volume": {
+        "name": "Glasnoća glasa"
+      },
+      "sleep_start_hour": {
+        "name": "Sat početka spavanja"
+      },
+      "sleep_start_minute": {
+        "name": "Minuta početka spavanja"
+      },
+      "sleep_duration_hour": {
+        "name": "Trajanje spavanja (sati)"
+      },
+      "sleep_duration_minute": {
+        "name": "Trajanje spavanja (minute)"
+      },
+      "brightness": {
+        "name": "Svjetlina"
+      },
+      "left_button_work_mode": {
+        "name": "Način rada lijeve tipke"
+      },
+      "middle_button_work_mode": {
+        "name": "Način rada srednje tipke"
+      },
+      "right_button_work_mode": {
+        "name": "Način rada desne tipke"
       }
     },
     "select": {
@@ -4032,6 +4079,9 @@
       "cbs_version": {
         "name": "CBS verzija"
       },
+      "panel_status": {
+        "name": "Stanje ploče"
+      },
       "heating_power_consumption": {
         "name": "Heating electrical power"
       },
@@ -4199,9 +4249,6 @@
       },
       "total_cop_eer": {
         "name": "Total COP/EER"
-      },
-      "panel_status": {
-        "name": "Stanje ploče"
       }
     },
     "switch": {
@@ -4498,6 +4545,42 @@
       },
       "washer_forget_free": {
         "name": "Njega bez zaboravljanja"
+      },
+      "left_button": {
+        "name": "Lijeva tipka"
+      },
+      "middle_button": {
+        "name": "Srednja tipka"
+      },
+      "right_button": {
+        "name": "Desna tipka"
+      },
+      "show_button_name": {
+        "name": "Prikaži naziv tipke"
+      },
+      "close_screen_bright": {
+        "name": "Zatamni zaslon pri zatvaranju"
+      },
+      "sleep_mode_switch": {
+        "name": "Prekidač načina spavanja"
+      },
+      "sleep_mode_mute": {
+        "name": "Isključivanje zvuka u načinu spavanja"
+      },
+      "left_button_keep": {
+        "name": "Zadrži lijevu tipku"
+      },
+      "middle_button_keep": {
+        "name": "Zadrži srednju tipku"
+      },
+      "right_button_keep": {
+        "name": "Zadrži desnu tipku"
+      },
+      "voice_control": {
+        "name": "Glasovno upravljanje"
+      },
+      "screen_state": {
+        "name": "Zaslon"
       }
     },
     "water_heater": {

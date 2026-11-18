@@ -884,6 +884,9 @@
       },
       "laundry_appointment": {
         "name": "Reservasjon"
+      },
+      "has_token": {
+        "name": "Har token"
       }
     },
     "button": {
@@ -925,6 +928,9 @@
       }
     },
     "fan": {
+      "fan": {
+        "name": "Vifte"
+      },
       "bgf10000": {
         "state_attributes": {
           "preset_mode": {
@@ -946,6 +952,11 @@
       },
       "fresh_air_exhaust": {
         "name": "Friskluftavtrekk"
+      }
+    },
+    "light": {
+      "light": {
+        "name": "Belysning"
       }
     },
     "lock": {
@@ -1046,6 +1057,42 @@
       },
       "dryer_timed_extra": {
         "name": "Forlengelse av tidsinnstilt tørking"
+      },
+      "auto_off_screen_type": {
+        "name": "Type automatisk skjermavslåing"
+      },
+      "theme": {
+        "name": "Tema"
+      },
+      "night_volume": {
+        "name": "Nattvolum"
+      },
+      "voice_volume": {
+        "name": "Stemmevolum"
+      },
+      "sleep_start_hour": {
+        "name": "Starttime for hvilemodus"
+      },
+      "sleep_start_minute": {
+        "name": "Startminutt for hvilemodus"
+      },
+      "sleep_duration_hour": {
+        "name": "Varighet av hvilemodus (timer)"
+      },
+      "sleep_duration_minute": {
+        "name": "Varighet av hvilemodus (minutter)"
+      },
+      "brightness": {
+        "name": "Lysstyrke"
+      },
+      "left_button_work_mode": {
+        "name": "Driftsmodus for venstre knapp"
+      },
+      "middle_button_work_mode": {
+        "name": "Driftsmodus for midtre knapp"
+      },
+      "right_button_work_mode": {
+        "name": "Driftsmodus for høyre knapp"
       }
     },
     "select": {
@@ -4032,6 +4079,9 @@
       "cbs_version": {
         "name": "CBS-versjon"
       },
+      "panel_status": {
+        "name": "Panelstatus"
+      },
       "heating_power_consumption": {
         "name": "Heating electrical power"
       },
@@ -4199,9 +4249,6 @@
       },
       "total_cop_eer": {
         "name": "Total COP/EER"
-      },
-      "panel_status": {
-        "name": "Panelstatus"
       }
     },
     "switch": {
@@ -4498,6 +4545,42 @@
       },
       "washer_forget_free": {
         "name": "Glem-fri pleie"
+      },
+      "left_button": {
+        "name": "Venstre knapp"
+      },
+      "middle_button": {
+        "name": "Midtre knapp"
+      },
+      "right_button": {
+        "name": "Høyre knapp"
+      },
+      "show_button_name": {
+        "name": "Vis knappenavn"
+      },
+      "close_screen_bright": {
+        "name": "Demp skjermen når den lukkes"
+      },
+      "sleep_mode_switch": {
+        "name": "Bryter for hvilemodus"
+      },
+      "sleep_mode_mute": {
+        "name": "Demping i hvilemodus"
+      },
+      "left_button_keep": {
+        "name": "Behold venstre knapp"
+      },
+      "middle_button_keep": {
+        "name": "Behold midtre knapp"
+      },
+      "right_button_keep": {
+        "name": "Behold høyre knapp"
+      },
+      "voice_control": {
+        "name": "Talestyring"
+      },
+      "screen_state": {
+        "name": "Skjerm"
       }
     },
     "water_heater": {

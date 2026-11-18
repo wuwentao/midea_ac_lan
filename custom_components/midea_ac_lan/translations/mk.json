@@ -884,6 +884,9 @@
       },
       "laundry_appointment": {
         "name": "Резервација"
+      },
+      "has_token": {
+        "name": "Има токен"
       }
     },
     "button": {
@@ -925,6 +928,9 @@
       }
     },
     "fan": {
+      "fan": {
+        "name": "Вентилатор"
+      },
       "bgf10000": {
         "state_attributes": {
           "preset_mode": {
@@ -946,6 +952,11 @@
       },
       "fresh_air_exhaust": {
         "name": "Издувување свеж воздух"
+      }
+    },
+    "light": {
+      "light": {
+        "name": "Осветлување"
       }
     },
     "lock": {
@@ -1046,6 +1057,42 @@
       },
       "dryer_timed_extra": {
         "name": "Продолжување на тајмирано сушење"
+      },
+      "auto_off_screen_type": {
+        "name": "Тип на автоматско исклучување на екранот"
+      },
+      "theme": {
+        "name": "Тема"
+      },
+      "night_volume": {
+        "name": "Ноќна јачина на звук"
+      },
+      "voice_volume": {
+        "name": "Јачина на глас"
+      },
+      "sleep_start_hour": {
+        "name": "Час на почеток на спиење"
+      },
+      "sleep_start_minute": {
+        "name": "Минута на почеток на спиење"
+      },
+      "sleep_duration_hour": {
+        "name": "Траење на спиењето (часови)"
+      },
+      "sleep_duration_minute": {
+        "name": "Траење на спиењето (минути)"
+      },
+      "brightness": {
+        "name": "Осветленост"
+      },
+      "left_button_work_mode": {
+        "name": "Режим на работа на левото копче"
+      },
+      "middle_button_work_mode": {
+        "name": "Режим на работа на средното копче"
+      },
+      "right_button_work_mode": {
+        "name": "Режим на работа на десното копче"
       }
     },
     "select": {
@@ -4032,6 +4079,9 @@
       "cbs_version": {
         "name": "CBS верзија"
       },
+      "panel_status": {
+        "name": "Состојба на панелот"
+      },
       "heating_power_consumption": {
         "name": "Heating electrical power"
       },
@@ -4199,9 +4249,6 @@
       },
       "total_cop_eer": {
         "name": "Total COP/EER"
-      },
-      "panel_status": {
-        "name": "Состојба на панелот"
       }
     },
     "switch": {
@@ -4498,6 +4545,42 @@
       },
       "washer_forget_free": {
         "name": "Нега без грижи"
+      },
+      "left_button": {
+        "name": "Лево копче"
+      },
+      "middle_button": {
+        "name": "Средно копче"
+      },
+      "right_button": {
+        "name": "Десно копче"
+      },
+      "show_button_name": {
+        "name": "Прикажи го името на копчето"
+      },
+      "close_screen_bright": {
+        "name": "Затемни го екранот при затворање"
+      },
+      "sleep_mode_switch": {
+        "name": "Прекинувач за режим на спиење"
+      },
+      "sleep_mode_mute": {
+        "name": "Исклучување звук во режим на спиење"
+      },
+      "left_button_keep": {
+        "name": "Задржи го левото копче"
+      },
+      "middle_button_keep": {
+        "name": "Задржи го средното копче"
+      },
+      "right_button_keep": {
+        "name": "Задржи го десното копче"
+      },
+      "voice_control": {
+        "name": "Гласовна контрола"
+      },
+      "screen_state": {
+        "name": "Екран"
       }
     },
     "water_heater": {
