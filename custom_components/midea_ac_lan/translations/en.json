@@ -1110,75 +1110,13 @@
           "preset_5": "Preset 5"
         }
       },
-      "wash_mode_76000228": {
-        "name": "Wash Mode",
-        "state": {
-          "neutral_gear": "None",
-          "auto_wash": "Auto",
-          "strong_wash": "Intensive",
-          "standard_wash": "Universal",
-          "eco_wash": "ECO",
-          "glass_wash": "Glass",
-          "hour_wash": "90 min",
-          "fast_wash": "Rapid",
-          "soak_wash": "Soak",
-          "90min": "90 min",
-          "self_clean": "Self clean",
-          "fruit_wash": "Fruit",
-          "self_define": "Custom",
-          "germ": "Whisper",
-          "bowl_wash": "Bowl",
-          "kill_germ": "Hygiene",
-          "sea_food_wash": "Self clean",
-          "hot_pot_wash": "Hot pot",
-          "quiet_night_wash": "Quiet night",
-          "less_wash": "Light",
-          "max_rapid_wash": "Max rapid",
-          "oil_net_wash": "Oil filter",
-          "cloud_wash": "Cloud program",
-          "single_dry": "Dry only",
-          "single_disinfect": "Disinfect only",
-          "high_temp_wash": "High temperature",
-          "wash_dry": "Wash and dry"
-        }
-      },
-      "program_76000228": {
-        "name": "Program",
-        "state": {
-          "auto_wash": "Auto",
-          "strong_wash": "Intensive",
-          "standard_wash": "Universal",
-          "eco_wash": "ECO",
-          "glass_wash": "Glass",
-          "hour_wash": "90 min",
-          "fast_wash": "Rapid",
-          "soak_wash": "Soak",
-          "90min": "90 min",
-          "self_clean": "Self clean",
-          "fruit_wash": "Fruit",
-          "self_define": "Custom",
-          "germ": "Whisper",
-          "bowl_wash": "Bowl",
-          "kill_germ": "Hygiene",
-          "sea_food_wash": "Self clean",
-          "hot_pot_wash": "Hot pot",
-          "quiet_night_wash": "Quiet night",
-          "less_wash": "Light",
-          "max_rapid_wash": "Max rapid",
-          "oil_net_wash": "Oil filter",
-          "cloud_wash": "Cloud program",
-          "single_dry": "Dry only",
-          "single_disinfect": "Disinfect only",
-          "high_temp_wash": "High temperature",
-          "wash_dry": "Wash and dry"
-        }
-      },
       "program": {
         "name": "Program",
         "state": {
           "auto_wash": "Auto",
           "strong_wash": "Intensive",
           "standard_wash": "Standard",
+          "universal_wash": "Universal",
           "eco_wash": "ECO",
           "glass_wash": "Glass",
           "hour_wash": "1 hour",
@@ -1189,6 +1127,7 @@
           "fruit_wash": "Fruit",
           "self_define": "Custom",
           "germ": "Germ",
+          "whisper_wash": "Whisper",
           "bowl_wash": "Bowl",
           "kill_germ": "Hygiene",
           "sea_food_wash": "Seafood",
@@ -1201,7 +1140,8 @@
           "single_dry": "Dry only",
           "single_disinfect": "Disinfect only",
           "high_temp_wash": "High temperature",
-          "wash_dry": "Wash and dry"
+          "wash_dry": "Wash and dry",
+          "anion1": "Ion Dishfresh"
         }
       },
       "load": {
@@ -1311,6 +1251,7 @@
           "auto_wash": "Auto",
           "strong_wash": "Intensive",
           "standard_wash": "Standard",
+          "universal_wash": "Universal",
           "eco_wash": "ECO",
           "glass_wash": "Glass",
           "hour_wash": "1 hour",
@@ -1321,6 +1262,7 @@
           "fruit_wash": "Fruit",
           "self_define": "Custom",
           "germ": "Germ",
+          "whisper_wash": "Whisper",
           "bowl_wash": "Bowl",
           "kill_germ": "Hygiene",
           "sea_food_wash": "Seafood",
@@ -1333,7 +1275,8 @@
           "single_dry": "Dry only",
           "single_disinfect": "Disinfect only",
           "high_temp_wash": "High temperature",
-          "wash_dry": "Wash and dry"
+          "wash_dry": "Wash and dry",
+          "anion1": "Ion Dishfresh"
         }
       },
       "water_level_set": {
@@ -1675,6 +1618,7 @@
           "auto_wash": "Auto",
           "strong_wash": "Intensive",
           "standard_wash": "Standard",
+          "universal_wash": "Universal",
           "eco_wash": "ECO",
           "glass_wash": "Glass",
           "hour_wash": "1 hour",
@@ -1685,6 +1629,7 @@
           "fruit_wash": "Fruit",
           "self_define": "Custom",
           "germ": "Germ",
+          "whisper_wash": "Whisper",
           "bowl_wash": "Bowl",
           "kill_germ": "Hygiene",
           "sea_food_wash": "Seafood",
@@ -1697,39 +1642,8 @@
           "single_dry": "Dry only",
           "single_disinfect": "Disinfect only",
           "high_temp_wash": "High temperature",
-          "wash_dry": "Wash and dry"
-        }
-      },
-      "dishwasher_mode_76000228": {
-        "name": "Mode",
-        "state": {
-          "neutral_gear": "None",
-          "auto_wash": "Auto",
-          "strong_wash": "Intensive",
-          "standard_wash": "Universal",
-          "eco_wash": "ECO",
-          "glass_wash": "Glass",
-          "hour_wash": "90 min",
-          "fast_wash": "Rapid",
-          "soak_wash": "Soak",
-          "90min": "90 min",
-          "self_clean": "Self clean",
-          "fruit_wash": "Fruit",
-          "self_define": "Custom",
-          "germ": "Whisper",
-          "bowl_wash": "Bowl",
-          "kill_germ": "Hygiene",
-          "sea_food_wash": "Self clean",
-          "hot_pot_wash": "Hot pot",
-          "quiet_night_wash": "Quiet night",
-          "less_wash": "Light",
-          "max_rapid_wash": "Max rapid",
-          "oil_net_wash": "Oil filter",
-          "cloud_wash": "Cloud program",
-          "single_dry": "Dry only",
-          "single_disinfect": "Disinfect only",
-          "high_temp_wash": "High temperature",
-          "wash_dry": "Wash and dry"
+          "wash_dry": "Wash and dry",
+          "anion1": "Ion Dishfresh"
         }
       },
       "dishwasher_status": {

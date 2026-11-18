@@ -1110,75 +1110,13 @@
           "preset_5": "Presetarea 5"
         }
       },
-      "wash_mode_76000228": {
-        "name": "Mod spălare",
-        "state": {
-          "neutral_gear": "Niciunul",
-          "auto_wash": "Automat",
-          "strong_wash": "Intensiv",
-          "standard_wash": "Universal",
-          "eco_wash": "ECO",
-          "glass_wash": "Sticlă",
-          "hour_wash": "90 min",
-          "fast_wash": "Rapid",
-          "soak_wash": "Înmuiere",
-          "90min": "90 min",
-          "self_clean": "Autocurățare",
-          "fruit_wash": "Fructe",
-          "self_define": "Personalizat",
-          "germ": "Șoaptă",
-          "bowl_wash": "Boluri",
-          "kill_germ": "Igienă",
-          "sea_food_wash": "Autocurățare",
-          "hot_pot_wash": "Fondue",
-          "quiet_night_wash": "Noapte liniștită",
-          "less_wash": "Ușor",
-          "max_rapid_wash": "Rapid maxim",
-          "oil_net_wash": "Filtru de ulei",
-          "cloud_wash": "Program din cloud",
-          "single_dry": "Doar uscare",
-          "single_disinfect": "Doar dezinfectare",
-          "high_temp_wash": "Temperatură ridicată",
-          "wash_dry": "Spălare și uscare"
-        }
-      },
-      "program_76000228": {
-        "name": "Program",
-        "state": {
-          "auto_wash": "Automat",
-          "strong_wash": "Intensiv",
-          "standard_wash": "Universal",
-          "eco_wash": "ECO",
-          "glass_wash": "Sticlă",
-          "hour_wash": "90 min",
-          "fast_wash": "Rapid",
-          "soak_wash": "Înmuiere",
-          "90min": "90 min",
-          "self_clean": "Autocurățare",
-          "fruit_wash": "Fructe",
-          "self_define": "Personalizat",
-          "germ": "Șoaptă",
-          "bowl_wash": "Boluri",
-          "kill_germ": "Igienă",
-          "sea_food_wash": "Autocurățare",
-          "hot_pot_wash": "Fondue",
-          "quiet_night_wash": "Noapte liniștită",
-          "less_wash": "Ușor",
-          "max_rapid_wash": "Rapid maxim",
-          "oil_net_wash": "Filtru de ulei",
-          "cloud_wash": "Program din cloud",
-          "single_dry": "Doar uscare",
-          "single_disinfect": "Doar dezinfectare",
-          "high_temp_wash": "Temperatură ridicată",
-          "wash_dry": "Spălare și uscare"
-        }
-      },
       "program": {
         "name": "Program",
         "state": {
           "auto_wash": "Automat",
           "strong_wash": "Intensiv",
           "standard_wash": "Standard",
+          "universal_wash": "Universal",
           "eco_wash": "ECO",
           "glass_wash": "Sticlă",
           "hour_wash": "1 oră",
@@ -1189,6 +1127,7 @@
           "fruit_wash": "Fructe",
           "self_define": "Personalizat",
           "germ": "Germeni",
+          "whisper_wash": "Silențios",
           "bowl_wash": "Boluri",
           "kill_germ": "Igienă",
           "sea_food_wash": "Fructe de mare",
@@ -1201,7 +1140,8 @@
           "single_dry": "Doar uscare",
           "single_disinfect": "Doar dezinfectare",
           "high_temp_wash": "Temperatură ridicată",
-          "wash_dry": "Spălare și uscare"
+          "wash_dry": "Spălare și uscare",
+          "anion1": "Prospețime ionică"
         }
       },
       "load": {
@@ -1311,6 +1251,7 @@
           "auto_wash": "Automat",
           "strong_wash": "Intensiv",
           "standard_wash": "Standard",
+          "universal_wash": "Universal",
           "eco_wash": "ECO",
           "glass_wash": "Sticlă",
           "hour_wash": "1 oră",
@@ -1321,6 +1262,7 @@
           "fruit_wash": "Fructe",
           "self_define": "Personalizat",
           "germ": "Germeni",
+          "whisper_wash": "Silențios",
           "bowl_wash": "Boluri",
           "kill_germ": "Igienă",
           "sea_food_wash": "Fructe de mare",
@@ -1333,7 +1275,8 @@
           "single_dry": "Doar uscare",
           "single_disinfect": "Doar dezinfectare",
           "high_temp_wash": "Temperatură ridicată",
-          "wash_dry": "Spălare și uscare"
+          "wash_dry": "Spălare și uscare",
+          "anion1": "Prospețime ionică"
         }
       },
       "water_level_set": {
@@ -1675,6 +1618,7 @@
           "auto_wash": "Automat",
           "strong_wash": "Intensiv",
           "standard_wash": "Standard",
+          "universal_wash": "Universal",
           "eco_wash": "ECO",
           "glass_wash": "Sticlă",
           "hour_wash": "1 oră",
@@ -1685,6 +1629,7 @@
           "fruit_wash": "Fructe",
           "self_define": "Personalizat",
           "germ": "Germeni",
+          "whisper_wash": "Silențios",
           "bowl_wash": "Boluri",
           "kill_germ": "Igienă",
           "sea_food_wash": "Fructe de mare",
@@ -1697,39 +1642,8 @@
           "single_dry": "Doar uscare",
           "single_disinfect": "Doar dezinfectare",
           "high_temp_wash": "Temperatură ridicată",
-          "wash_dry": "Spălare și uscare"
-        }
-      },
-      "dishwasher_mode_76000228": {
-        "name": "Mod",
-        "state": {
-          "neutral_gear": "Niciunul",
-          "auto_wash": "Automat",
-          "strong_wash": "Intensiv",
-          "standard_wash": "Universal",
-          "eco_wash": "ECO",
-          "glass_wash": "Sticlă",
-          "hour_wash": "90 min",
-          "fast_wash": "Rapid",
-          "soak_wash": "Înmuiere",
-          "90min": "90 min",
-          "self_clean": "Autocurățare",
-          "fruit_wash": "Fructe",
-          "self_define": "Personalizat",
-          "germ": "Șoaptă",
-          "bowl_wash": "Boluri",
-          "kill_germ": "Igienă",
-          "sea_food_wash": "Autocurățare",
-          "hot_pot_wash": "Fondue",
-          "quiet_night_wash": "Noapte liniștită",
-          "less_wash": "Ușor",
-          "max_rapid_wash": "Rapid maxim",
-          "oil_net_wash": "Filtru de ulei",
-          "cloud_wash": "Program din cloud",
-          "single_dry": "Doar uscare",
-          "single_disinfect": "Doar dezinfectare",
-          "high_temp_wash": "Temperatură ridicată",
-          "wash_dry": "Spălare și uscare"
+          "wash_dry": "Spălare și uscare",
+          "anion1": "Prospețime ionică"
         }
       },
       "dishwasher_status": {

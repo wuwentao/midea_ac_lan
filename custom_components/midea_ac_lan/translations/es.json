@@ -1083,75 +1083,13 @@
       }
     },
     "select": {
-      "wash_mode_76000228": {
-        "name": "Modo de lavado",
-        "state": {
-          "neutral_gear": "Ninguno",
-          "auto_wash": "Automático",
-          "strong_wash": "Intensivo",
-          "standard_wash": "Universal",
-          "eco_wash": "ECO",
-          "glass_wash": "Vidrio",
-          "hour_wash": "90 min",
-          "fast_wash": "Rápido",
-          "soak_wash": "Remojado",
-          "90min": "90 min",
-          "self_clean": "Limpieza automática",
-          "fruit_wash": "Fruta",
-          "self_define": "Personalizado",
-          "bowl_wash": "Cuencos",
-          "kill_germ": "Higiene",
-          "sea_food_wash": "Limpieza automática",
-          "hot_pot_wash": "Olla",
-          "quiet_night_wash": "Noche silenciosa",
-          "less_wash": "Ligero",
-          "max_rapid_wash": "Rápido máximo",
-          "oil_net_wash": "Filtro de grasa",
-          "cloud_wash": "Programa de la nube",
-          "single_dry": "Solo secado",
-          "single_disinfect": "Solo desinfección",
-          "high_temp_wash": "Alta temperatura",
-          "wash_dry": "Lavado y secado",
-          "germ": "Susurro"
-        }
-      },
-      "program_76000228": {
-        "name": "Programa",
-        "state": {
-          "auto_wash": "Automático",
-          "strong_wash": "Intensivo",
-          "standard_wash": "Universal",
-          "eco_wash": "ECO",
-          "glass_wash": "Vidrio",
-          "hour_wash": "90 min",
-          "fast_wash": "Rápido",
-          "soak_wash": "Remojado",
-          "90min": "90 min",
-          "self_clean": "Limpieza automática",
-          "fruit_wash": "Fruta",
-          "self_define": "Personalizado",
-          "bowl_wash": "Cuencos",
-          "kill_germ": "Higiene",
-          "sea_food_wash": "Limpieza automática",
-          "hot_pot_wash": "Olla",
-          "quiet_night_wash": "Noche silenciosa",
-          "less_wash": "Ligero",
-          "max_rapid_wash": "Rápido máximo",
-          "oil_net_wash": "Filtro de grasa",
-          "cloud_wash": "Programa de la nube",
-          "single_dry": "Solo secado",
-          "single_disinfect": "Solo desinfección",
-          "high_temp_wash": "Alta temperatura",
-          "wash_dry": "Lavado y secado",
-          "germ": "Susurro"
-        }
-      },
       "program": {
         "name": "Programa",
         "state": {
           "auto_wash": "Automático",
           "strong_wash": "Intensivo",
           "standard_wash": "Estándar",
+          "universal_wash": "Universal",
           "eco_wash": "ECO",
           "glass_wash": "Vidrio",
           "hour_wash": "1 hora",
@@ -1161,6 +1099,7 @@
           "self_clean": "Limpieza automática",
           "fruit_wash": "Fruta",
           "self_define": "Personalizado",
+          "whisper_wash": "Susurro",
           "bowl_wash": "Cuencos",
           "kill_germ": "Higiene",
           "sea_food_wash": "Marisco",
@@ -1173,7 +1112,8 @@
           "single_dry": "Solo secado",
           "single_disinfect": "Solo desinfección",
           "high_temp_wash": "Alta temperatura",
-          "wash_dry": "Lavado y secado"
+          "wash_dry": "Lavado y secado",
+          "anion1": "Ion Dishfresh"
         }
       },
       "load": {
@@ -1294,6 +1234,7 @@
           "auto_wash": "Automático",
           "strong_wash": "Intensivo",
           "standard_wash": "Estándar",
+          "universal_wash": "Universal",
           "eco_wash": "ECO",
           "glass_wash": "Vidrio",
           "hour_wash": "1 hora",
@@ -1303,6 +1244,7 @@
           "self_clean": "Limpieza automática",
           "fruit_wash": "Fruta",
           "self_define": "Personalizado",
+          "whisper_wash": "Susurro",
           "bowl_wash": "Cuencos",
           "kill_germ": "Higiene",
           "sea_food_wash": "Marisco",
@@ -1315,7 +1257,8 @@
           "single_dry": "Solo secado",
           "single_disinfect": "Solo desinfección",
           "high_temp_wash": "Alta temperatura",
-          "wash_dry": "Lavado y secado"
+          "wash_dry": "Lavado y secado",
+          "anion1": "Ion Dishfresh"
         }
       },
       "water_level_set": {
@@ -1657,6 +1600,7 @@
           "auto_wash": "Automático",
           "strong_wash": "Intensivo",
           "standard_wash": "Estándar",
+          "universal_wash": "Universal",
           "eco_wash": "ECO",
           "glass_wash": "Vidrio",
           "hour_wash": "1 hora",
@@ -1666,6 +1610,7 @@
           "self_clean": "Limpieza automática",
           "fruit_wash": "Fruta",
           "self_define": "Personalizado",
+          "whisper_wash": "Susurro",
           "bowl_wash": "Cuencos",
           "kill_germ": "Higiene",
           "sea_food_wash": "Marisco",
@@ -1678,39 +1623,8 @@
           "single_dry": "Solo secado",
           "single_disinfect": "Solo desinfección",
           "high_temp_wash": "Alta temperatura",
-          "wash_dry": "Lavado y secado"
-        }
-      },
-      "dishwasher_mode_76000228": {
-        "name": "Modo",
-        "state": {
-          "neutral_gear": "Ninguno",
-          "auto_wash": "Automático",
-          "strong_wash": "Intensivo",
-          "standard_wash": "Universal",
-          "eco_wash": "ECO",
-          "glass_wash": "Vidrio",
-          "hour_wash": "90 min",
-          "fast_wash": "Rápido",
-          "soak_wash": "Remojado",
-          "90min": "90 min",
-          "self_clean": "Limpieza automática",
-          "fruit_wash": "Fruta",
-          "self_define": "Personalizado",
-          "bowl_wash": "Cuencos",
-          "kill_germ": "Higiene",
-          "sea_food_wash": "Limpieza automática",
-          "hot_pot_wash": "Olla",
-          "quiet_night_wash": "Noche silenciosa",
-          "less_wash": "Ligero",
-          "max_rapid_wash": "Rápido máximo",
-          "oil_net_wash": "Filtro de grasa",
-          "cloud_wash": "Programa de la nube",
-          "single_dry": "Solo secado",
-          "single_disinfect": "Solo desinfección",
-          "high_temp_wash": "Alta temperatura",
           "wash_dry": "Lavado y secado",
-          "germ": "Susurro"
+          "anion1": "Ion Dishfresh"
         }
       },
       "dishwasher_status": {

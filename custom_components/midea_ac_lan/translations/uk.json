@@ -1110,75 +1110,13 @@
           "preset_5": "Пресет 5"
         }
       },
-      "wash_mode_76000228": {
-        "name": "Режим миття",
-        "state": {
-          "neutral_gear": "Немає",
-          "auto_wash": "Авто",
-          "strong_wash": "Інтенсивний",
-          "standard_wash": "Універсальний",
-          "eco_wash": "ECO",
-          "glass_wash": "Скло",
-          "hour_wash": "90 хв",
-          "fast_wash": "Швидкий",
-          "soak_wash": "Замочування",
-          "90min": "90 хв",
-          "self_clean": "Самоочищення",
-          "fruit_wash": "Фрукти",
-          "self_define": "Користувацький",
-          "germ": "Шепіт",
-          "bowl_wash": "Посуд",
-          "kill_germ": "Гігієна",
-          "sea_food_wash": "Самоочищення",
-          "hot_pot_wash": "Гаряча каструля",
-          "quiet_night_wash": "Тиха ніч",
-          "less_wash": "Легкий",
-          "max_rapid_wash": "Макс. швидкий",
-          "oil_net_wash": "Масляний фільтр",
-          "cloud_wash": "Хмарна програма",
-          "single_dry": "Лише сушіння",
-          "single_disinfect": "Лише дезінфекція",
-          "high_temp_wash": "Висока температура",
-          "wash_dry": "Миття та сушіння"
-        }
-      },
-      "program_76000228": {
-        "name": "Програма",
-        "state": {
-          "auto_wash": "Авто",
-          "strong_wash": "Інтенсивний",
-          "standard_wash": "Універсальний",
-          "eco_wash": "ECO",
-          "glass_wash": "Скло",
-          "hour_wash": "90 хв",
-          "fast_wash": "Швидкий",
-          "soak_wash": "Замочування",
-          "90min": "90 хв",
-          "self_clean": "Самоочищення",
-          "fruit_wash": "Фрукти",
-          "self_define": "Користувацький",
-          "germ": "Шепіт",
-          "bowl_wash": "Посуд",
-          "kill_germ": "Гігієна",
-          "sea_food_wash": "Самоочищення",
-          "hot_pot_wash": "Гаряча каструля",
-          "quiet_night_wash": "Тиха ніч",
-          "less_wash": "Легкий",
-          "max_rapid_wash": "Макс. швидкий",
-          "oil_net_wash": "Масляний фільтр",
-          "cloud_wash": "Хмарна програма",
-          "single_dry": "Лише сушіння",
-          "single_disinfect": "Лише дезінфекція",
-          "high_temp_wash": "Висока температура",
-          "wash_dry": "Миття та сушіння"
-        }
-      },
       "program": {
         "name": "Програма",
         "state": {
           "auto_wash": "Авто",
           "strong_wash": "Інтенсивний",
           "standard_wash": "Стандартний",
+          "universal_wash": "Універсальний",
           "eco_wash": "ECO",
           "glass_wash": "Скло",
           "hour_wash": "1 година",
@@ -1189,6 +1127,7 @@
           "fruit_wash": "Фрукти",
           "self_define": "Користувацький",
           "germ": "Знищення мікробів",
+          "whisper_wash": "Тихий",
           "bowl_wash": "Посуд",
           "kill_germ": "Гігієна",
           "sea_food_wash": "Морепродукти",
@@ -1201,7 +1140,8 @@
           "single_dry": "Лише сушіння",
           "single_disinfect": "Лише дезінфекція",
           "high_temp_wash": "Висока температура",
-          "wash_dry": "Миття та сушіння"
+          "wash_dry": "Миття та сушіння",
+          "anion1": "Іонне освіження"
         }
       },
       "load": {
@@ -1311,6 +1251,7 @@
           "auto_wash": "Авто",
           "strong_wash": "Інтенсивний",
           "standard_wash": "Стандартний",
+          "universal_wash": "Універсальний",
           "eco_wash": "ECO",
           "glass_wash": "Скло",
           "hour_wash": "1 година",
@@ -1321,6 +1262,7 @@
           "fruit_wash": "Фрукти",
           "self_define": "Користувацький",
           "germ": "Знищення мікробів",
+          "whisper_wash": "Тихий",
           "bowl_wash": "Посуд",
           "kill_germ": "Гігієна",
           "sea_food_wash": "Морепродукти",
@@ -1333,7 +1275,8 @@
           "single_dry": "Лише сушіння",
           "single_disinfect": "Лише дезінфекція",
           "high_temp_wash": "Висока температура",
-          "wash_dry": "Миття та сушіння"
+          "wash_dry": "Миття та сушіння",
+          "anion1": "Іонне освіження"
         }
       },
       "water_level_set": {
@@ -1675,6 +1618,7 @@
           "auto_wash": "Авто",
           "strong_wash": "Інтенсивний",
           "standard_wash": "Стандартний",
+          "universal_wash": "Універсальний",
           "eco_wash": "ECO",
           "glass_wash": "Скло",
           "hour_wash": "1 година",
@@ -1685,6 +1629,7 @@
           "fruit_wash": "Фрукти",
           "self_define": "Користувацький",
           "germ": "Знищення мікробів",
+          "whisper_wash": "Тихий",
           "bowl_wash": "Посуд",
           "kill_germ": "Гігієна",
           "sea_food_wash": "Морепродукти",
@@ -1697,39 +1642,8 @@
           "single_dry": "Лише сушіння",
           "single_disinfect": "Лише дезінфекція",
           "high_temp_wash": "Висока температура",
-          "wash_dry": "Миття та сушіння"
-        }
-      },
-      "dishwasher_mode_76000228": {
-        "name": "Режим",
-        "state": {
-          "neutral_gear": "Немає",
-          "auto_wash": "Авто",
-          "strong_wash": "Інтенсивний",
-          "standard_wash": "Універсальний",
-          "eco_wash": "ECO",
-          "glass_wash": "Скло",
-          "hour_wash": "90 хв",
-          "fast_wash": "Швидкий",
-          "soak_wash": "Замочування",
-          "90min": "90 хв",
-          "self_clean": "Самоочищення",
-          "fruit_wash": "Фрукти",
-          "self_define": "Користувацький",
-          "germ": "Шепіт",
-          "bowl_wash": "Посуд",
-          "kill_germ": "Гігієна",
-          "sea_food_wash": "Самоочищення",
-          "hot_pot_wash": "Гаряча каструля",
-          "quiet_night_wash": "Тиха ніч",
-          "less_wash": "Легкий",
-          "max_rapid_wash": "Макс. швидкий",
-          "oil_net_wash": "Масляний фільтр",
-          "cloud_wash": "Хмарна програма",
-          "single_dry": "Лише сушіння",
-          "single_disinfect": "Лише дезінфекція",
-          "high_temp_wash": "Висока температура",
-          "wash_dry": "Миття та сушіння"
+          "wash_dry": "Миття та сушіння",
+          "anion1": "Іонне освіження"
         }
       },
       "dishwasher_status": {

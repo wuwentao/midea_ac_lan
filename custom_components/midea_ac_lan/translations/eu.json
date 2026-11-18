@@ -1110,75 +1110,13 @@
           "preset_5": "5. aurrezarpena"
         }
       },
-      "wash_mode_76000228": {
-        "name": "Garbiketa-modua",
-        "state": {
-          "neutral_gear": "Bat ere ez",
-          "auto_wash": "Automatikoa",
-          "strong_wash": "Bizia",
-          "standard_wash": "Unibertsala",
-          "eco_wash": "ECO",
-          "glass_wash": "Beira",
-          "hour_wash": "90 min",
-          "fast_wash": "Azkarra",
-          "soak_wash": "Beratzea",
-          "90min": "90 min",
-          "self_clean": "Garbiketa automatikoa",
-          "fruit_wash": "Fruta",
-          "self_define": "Pertsonalizatua",
-          "germ": "Xuxurla",
-          "bowl_wash": "Ontzia",
-          "kill_germ": "Higienea",
-          "sea_food_wash": "Garbiketa automatikoa",
-          "hot_pot_wash": "Lapiko beroa",
-          "quiet_night_wash": "Gau isila",
-          "less_wash": "Arina",
-          "max_rapid_wash": "Gehienezko azkarra",
-          "oil_net_wash": "Olio-iragazkia",
-          "cloud_wash": "Hodeiko programa",
-          "single_dry": "Lehortu soilik",
-          "single_disinfect": "Desinfektatu soilik",
-          "high_temp_wash": "Tenperatura altua",
-          "wash_dry": "Garbitu eta lehortu"
-        }
-      },
-      "program_76000228": {
-        "name": "Programa",
-        "state": {
-          "auto_wash": "Automatikoa",
-          "strong_wash": "Bizia",
-          "standard_wash": "Unibertsala",
-          "eco_wash": "ECO",
-          "glass_wash": "Beira",
-          "hour_wash": "90 min",
-          "fast_wash": "Azkarra",
-          "soak_wash": "Beratzea",
-          "90min": "90 min",
-          "self_clean": "Garbiketa automatikoa",
-          "fruit_wash": "Fruta",
-          "self_define": "Pertsonalizatua",
-          "germ": "Xuxurla",
-          "bowl_wash": "Ontzia",
-          "kill_germ": "Higienea",
-          "sea_food_wash": "Garbiketa automatikoa",
-          "hot_pot_wash": "Lapiko beroa",
-          "quiet_night_wash": "Gau isila",
-          "less_wash": "Arina",
-          "max_rapid_wash": "Gehienezko azkarra",
-          "oil_net_wash": "Olio-iragazkia",
-          "cloud_wash": "Hodeiko programa",
-          "single_dry": "Lehortu soilik",
-          "single_disinfect": "Desinfektatu soilik",
-          "high_temp_wash": "Tenperatura altua",
-          "wash_dry": "Garbitu eta lehortu"
-        }
-      },
       "program": {
         "name": "Programa",
         "state": {
           "auto_wash": "Automatikoa",
           "strong_wash": "Bizia",
           "standard_wash": "Estandarra",
+          "universal_wash": "Unibertsala",
           "eco_wash": "ECO",
           "glass_wash": "Beira",
           "hour_wash": "Ordu 1",
@@ -1189,6 +1127,7 @@
           "fruit_wash": "Fruta",
           "self_define": "Pertsonalizatua",
           "germ": "Germena",
+          "whisper_wash": "Isila",
           "bowl_wash": "Ontzia",
           "kill_germ": "Higienea",
           "sea_food_wash": "Itsaskiak",
@@ -1201,7 +1140,8 @@
           "single_dry": "Lehortu soilik",
           "single_disinfect": "Desinfektatu soilik",
           "high_temp_wash": "Tenperatura altua",
-          "wash_dry": "Garbitu eta lehortu"
+          "wash_dry": "Garbitu eta lehortu",
+          "anion1": "Ioi-freskotasuna"
         }
       },
       "load": {
@@ -1311,6 +1251,7 @@
           "auto_wash": "Automatikoa",
           "strong_wash": "Bizia",
           "standard_wash": "Estandarra",
+          "universal_wash": "Unibertsala",
           "eco_wash": "ECO",
           "glass_wash": "Beira",
           "hour_wash": "Ordu 1",
@@ -1321,6 +1262,7 @@
           "fruit_wash": "Fruta",
           "self_define": "Pertsonalizatua",
           "germ": "Germena",
+          "whisper_wash": "Isila",
           "bowl_wash": "Ontzia",
           "kill_germ": "Higienea",
           "sea_food_wash": "Itsaskiak",
@@ -1333,7 +1275,8 @@
           "single_dry": "Lehortu soilik",
           "single_disinfect": "Desinfektatu soilik",
           "high_temp_wash": "Tenperatura altua",
-          "wash_dry": "Garbitu eta lehortu"
+          "wash_dry": "Garbitu eta lehortu",
+          "anion1": "Ioi-freskotasuna"
         }
       },
       "water_level_set": {
@@ -1675,6 +1618,7 @@
           "auto_wash": "Automatikoa",
           "strong_wash": "Bizia",
           "standard_wash": "Estandarra",
+          "universal_wash": "Unibertsala",
           "eco_wash": "ECO",
           "glass_wash": "Beira",
           "hour_wash": "Ordu 1",
@@ -1685,6 +1629,7 @@
           "fruit_wash": "Fruta",
           "self_define": "Pertsonalizatua",
           "germ": "Germena",
+          "whisper_wash": "Isila",
           "bowl_wash": "Ontzia",
           "kill_germ": "Higienea",
           "sea_food_wash": "Itsaskiak",
@@ -1697,39 +1642,8 @@
           "single_dry": "Lehortu soilik",
           "single_disinfect": "Desinfektatu soilik",
           "high_temp_wash": "Tenperatura altua",
-          "wash_dry": "Garbitu eta lehortu"
-        }
-      },
-      "dishwasher_mode_76000228": {
-        "name": "Modua",
-        "state": {
-          "neutral_gear": "Bat ere ez",
-          "auto_wash": "Automatikoa",
-          "strong_wash": "Bizia",
-          "standard_wash": "Unibertsala",
-          "eco_wash": "ECO",
-          "glass_wash": "Beira",
-          "hour_wash": "90 min",
-          "fast_wash": "Azkarra",
-          "soak_wash": "Beratzea",
-          "90min": "90 min",
-          "self_clean": "Garbiketa automatikoa",
-          "fruit_wash": "Fruta",
-          "self_define": "Pertsonalizatua",
-          "germ": "Xuxurla",
-          "bowl_wash": "Ontzia",
-          "kill_germ": "Higienea",
-          "sea_food_wash": "Garbiketa automatikoa",
-          "hot_pot_wash": "Lapiko beroa",
-          "quiet_night_wash": "Gau isila",
-          "less_wash": "Arina",
-          "max_rapid_wash": "Gehienezko azkarra",
-          "oil_net_wash": "Olio-iragazkia",
-          "cloud_wash": "Hodeiko programa",
-          "single_dry": "Lehortu soilik",
-          "single_disinfect": "Desinfektatu soilik",
-          "high_temp_wash": "Tenperatura altua",
-          "wash_dry": "Garbitu eta lehortu"
+          "wash_dry": "Garbitu eta lehortu",
+          "anion1": "Ioi-freskotasuna"
         }
       },
       "dishwasher_status": {

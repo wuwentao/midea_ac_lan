@@ -1110,75 +1110,13 @@
           "preset_5": "Voorinstelling 5"
         }
       },
-      "wash_mode_76000228": {
-        "name": "Wasmodus",
-        "state": {
-          "neutral_gear": "Geen",
-          "auto_wash": "Automatisch",
-          "strong_wash": "Intensief",
-          "standard_wash": "Universeel",
-          "eco_wash": "ECO",
-          "glass_wash": "Glas",
-          "hour_wash": "90 min",
-          "fast_wash": "Snel",
-          "soak_wash": "Weken",
-          "90min": "90 min",
-          "self_clean": "Zelfreiniging",
-          "fruit_wash": "Fruit",
-          "self_define": "Aangepast",
-          "germ": "Fluisterstil",
-          "bowl_wash": "Kommen",
-          "kill_germ": "Hygiëne",
-          "sea_food_wash": "Zelfreiniging",
-          "hot_pot_wash": "Hotpot",
-          "quiet_night_wash": "Stille nacht",
-          "less_wash": "Licht",
-          "max_rapid_wash": "Max snel",
-          "oil_net_wash": "Oliefilter",
-          "cloud_wash": "Cloudprogramma",
-          "single_dry": "Alleen drogen",
-          "single_disinfect": "Alleen desinfecteren",
-          "high_temp_wash": "Hoge temperatuur",
-          "wash_dry": "Wassen en drogen"
-        }
-      },
-      "program_76000228": {
-        "name": "Programma",
-        "state": {
-          "auto_wash": "Automatisch",
-          "strong_wash": "Intensief",
-          "standard_wash": "Universeel",
-          "eco_wash": "ECO",
-          "glass_wash": "Glas",
-          "hour_wash": "90 min",
-          "fast_wash": "Snel",
-          "soak_wash": "Weken",
-          "90min": "90 min",
-          "self_clean": "Zelfreiniging",
-          "fruit_wash": "Fruit",
-          "self_define": "Aangepast",
-          "germ": "Fluisterstil",
-          "bowl_wash": "Kommen",
-          "kill_germ": "Hygiëne",
-          "sea_food_wash": "Zelfreiniging",
-          "hot_pot_wash": "Hotpot",
-          "quiet_night_wash": "Stille nacht",
-          "less_wash": "Licht",
-          "max_rapid_wash": "Max snel",
-          "oil_net_wash": "Oliefilter",
-          "cloud_wash": "Cloudprogramma",
-          "single_dry": "Alleen drogen",
-          "single_disinfect": "Alleen desinfecteren",
-          "high_temp_wash": "Hoge temperatuur",
-          "wash_dry": "Wassen en drogen"
-        }
-      },
       "program": {
         "name": "Programma",
         "state": {
           "auto_wash": "Automatisch",
           "strong_wash": "Intensief",
           "standard_wash": "Standaard",
+          "universal_wash": "Universeel",
           "eco_wash": "ECO",
           "glass_wash": "Glas",
           "hour_wash": "1 uur",
@@ -1189,6 +1127,7 @@
           "fruit_wash": "Fruit",
           "self_define": "Aangepast",
           "germ": "Kiem",
+          "whisper_wash": "Stil",
           "bowl_wash": "Kommen",
           "kill_germ": "Hygiëne",
           "sea_food_wash": "Zeevruchten",
@@ -1201,7 +1140,8 @@
           "single_dry": "Alleen drogen",
           "single_disinfect": "Alleen desinfecteren",
           "high_temp_wash": "Hoge temperatuur",
-          "wash_dry": "Wassen en drogen"
+          "wash_dry": "Wassen en drogen",
+          "anion1": "Ionenfrisheid"
         }
       },
       "load": {
@@ -1311,6 +1251,7 @@
           "auto_wash": "Automatisch",
           "strong_wash": "Intensief",
           "standard_wash": "Standaard",
+          "universal_wash": "Universeel",
           "eco_wash": "ECO",
           "glass_wash": "Glas",
           "hour_wash": "1 uur",
@@ -1321,6 +1262,7 @@
           "fruit_wash": "Fruit",
           "self_define": "Aangepast",
           "germ": "Kiem",
+          "whisper_wash": "Stil",
           "bowl_wash": "Kommen",
           "kill_germ": "Hygiëne",
           "sea_food_wash": "Zeevruchten",
@@ -1333,7 +1275,8 @@
           "single_dry": "Alleen drogen",
           "single_disinfect": "Alleen desinfecteren",
           "high_temp_wash": "Hoge temperatuur",
-          "wash_dry": "Wassen en drogen"
+          "wash_dry": "Wassen en drogen",
+          "anion1": "Ionenfrisheid"
         }
       },
       "water_level_set": {
@@ -1675,6 +1618,7 @@
           "auto_wash": "Automatisch",
           "strong_wash": "Intensief",
           "standard_wash": "Standaard",
+          "universal_wash": "Universeel",
           "eco_wash": "ECO",
           "glass_wash": "Glas",
           "hour_wash": "1 uur",
@@ -1685,6 +1629,7 @@
           "fruit_wash": "Fruit",
           "self_define": "Aangepast",
           "germ": "Kiem",
+          "whisper_wash": "Stil",
           "bowl_wash": "Kommen",
           "kill_germ": "Hygiëne",
           "sea_food_wash": "Zeevruchten",
@@ -1697,39 +1642,8 @@
           "single_dry": "Alleen drogen",
           "single_disinfect": "Alleen desinfecteren",
           "high_temp_wash": "Hoge temperatuur",
-          "wash_dry": "Wassen en drogen"
-        }
-      },
-      "dishwasher_mode_76000228": {
-        "name": "Modus",
-        "state": {
-          "neutral_gear": "Geen",
-          "auto_wash": "Automatisch",
-          "strong_wash": "Intensief",
-          "standard_wash": "Universeel",
-          "eco_wash": "ECO",
-          "glass_wash": "Glas",
-          "hour_wash": "90 min",
-          "fast_wash": "Snel",
-          "soak_wash": "Weken",
-          "90min": "90 min",
-          "self_clean": "Zelfreiniging",
-          "fruit_wash": "Fruit",
-          "self_define": "Aangepast",
-          "germ": "Fluisterstil",
-          "bowl_wash": "Kommen",
-          "kill_germ": "Hygiëne",
-          "sea_food_wash": "Zelfreiniging",
-          "hot_pot_wash": "Hotpot",
-          "quiet_night_wash": "Stille nacht",
-          "less_wash": "Licht",
-          "max_rapid_wash": "Max snel",
-          "oil_net_wash": "Oliefilter",
-          "cloud_wash": "Cloudprogramma",
-          "single_dry": "Alleen drogen",
-          "single_disinfect": "Alleen desinfecteren",
-          "high_temp_wash": "Hoge temperatuur",
-          "wash_dry": "Wassen en drogen"
+          "wash_dry": "Wassen en drogen",
+          "anion1": "Ionenfrisheid"
         }
       },
       "dishwasher_status": {

@@ -1110,75 +1110,13 @@
           "preset_5": "Претходно поставено 5"
         }
       },
-      "wash_mode_76000228": {
-        "name": "Режим на миење",
-        "state": {
-          "neutral_gear": "Ниедно",
-          "auto_wash": "Автоматски",
-          "strong_wash": "Интензивно",
-          "standard_wash": "Универзално",
-          "eco_wash": "ECO",
-          "glass_wash": "Стакло",
-          "hour_wash": "90 мин",
-          "fast_wash": "Брзо",
-          "soak_wash": "Натопување",
-          "90min": "90 мин",
-          "self_clean": "Самочистење",
-          "fruit_wash": "Овошје",
-          "self_define": "Прилагодено",
-          "germ": "Шепот",
-          "bowl_wash": "Сад",
-          "kill_germ": "Хигиена",
-          "sea_food_wash": "Самочистење",
-          "hot_pot_wash": "Жешко тенџере",
-          "quiet_night_wash": "Тивка ноќ",
-          "less_wash": "Лесно",
-          "max_rapid_wash": "Макс. брзо",
-          "oil_net_wash": "Филтер за масло",
-          "cloud_wash": "Облачна програма",
-          "single_dry": "Само сушење",
-          "single_disinfect": "Само дезинфекција",
-          "high_temp_wash": "Висока температура",
-          "wash_dry": "Миење и сушење"
-        }
-      },
-      "program_76000228": {
-        "name": "Програма",
-        "state": {
-          "auto_wash": "Автоматски",
-          "strong_wash": "Интензивно",
-          "standard_wash": "Универзално",
-          "eco_wash": "ECO",
-          "glass_wash": "Стакло",
-          "hour_wash": "90 мин",
-          "fast_wash": "Брзо",
-          "soak_wash": "Натопување",
-          "90min": "90 мин",
-          "self_clean": "Самочистење",
-          "fruit_wash": "Овошје",
-          "self_define": "Прилагодено",
-          "germ": "Шепот",
-          "bowl_wash": "Сад",
-          "kill_germ": "Хигиена",
-          "sea_food_wash": "Самочистење",
-          "hot_pot_wash": "Жешко тенџере",
-          "quiet_night_wash": "Тивка ноќ",
-          "less_wash": "Лесно",
-          "max_rapid_wash": "Макс. брзо",
-          "oil_net_wash": "Филтер за масло",
-          "cloud_wash": "Облачна програма",
-          "single_dry": "Само сушење",
-          "single_disinfect": "Само дезинфекција",
-          "high_temp_wash": "Висока температура",
-          "wash_dry": "Миење и сушење"
-        }
-      },
       "program": {
         "name": "Програма",
         "state": {
           "auto_wash": "Автоматски",
           "strong_wash": "Интензивно",
           "standard_wash": "Стандардно",
+          "universal_wash": "Универзално",
           "eco_wash": "ECO",
           "glass_wash": "Стакло",
           "hour_wash": "1 час",
@@ -1189,6 +1127,7 @@
           "fruit_wash": "Овошје",
           "self_define": "Прилагодено",
           "germ": "Микроби",
+          "whisper_wash": "Тивко",
           "bowl_wash": "Сад",
           "kill_germ": "Хигиена",
           "sea_food_wash": "Морска храна",
@@ -1201,7 +1140,8 @@
           "single_dry": "Само сушење",
           "single_disinfect": "Само дезинфекција",
           "high_temp_wash": "Висока температура",
-          "wash_dry": "Миење и сушење"
+          "wash_dry": "Миење и сушење",
+          "anion1": "Јонско освежување"
         }
       },
       "load": {
@@ -1311,6 +1251,7 @@
           "auto_wash": "Автоматски",
           "strong_wash": "Интензивно",
           "standard_wash": "Стандардно",
+          "universal_wash": "Универзално",
           "eco_wash": "ECO",
           "glass_wash": "Стакло",
           "hour_wash": "1 час",
@@ -1321,6 +1262,7 @@
           "fruit_wash": "Овошје",
           "self_define": "Прилагодено",
           "germ": "Микроби",
+          "whisper_wash": "Тивко",
           "bowl_wash": "Сад",
           "kill_germ": "Хигиена",
           "sea_food_wash": "Морска храна",
@@ -1333,7 +1275,8 @@
           "single_dry": "Само сушење",
           "single_disinfect": "Само дезинфекција",
           "high_temp_wash": "Висока температура",
-          "wash_dry": "Миење и сушење"
+          "wash_dry": "Миење и сушење",
+          "anion1": "Јонско освежување"
         }
       },
       "water_level_set": {
@@ -1675,6 +1618,7 @@
           "auto_wash": "Автоматски",
           "strong_wash": "Интензивно",
           "standard_wash": "Стандардно",
+          "universal_wash": "Универзално",
           "eco_wash": "ECO",
           "glass_wash": "Стакло",
           "hour_wash": "1 час",
@@ -1685,6 +1629,7 @@
           "fruit_wash": "Овошје",
           "self_define": "Прилагодено",
           "germ": "Микроби",
+          "whisper_wash": "Тивко",
           "bowl_wash": "Сад",
           "kill_germ": "Хигиена",
           "sea_food_wash": "Морска храна",
@@ -1697,39 +1642,8 @@
           "single_dry": "Само сушење",
           "single_disinfect": "Само дезинфекција",
           "high_temp_wash": "Висока температура",
-          "wash_dry": "Миење и сушење"
-        }
-      },
-      "dishwasher_mode_76000228": {
-        "name": "Режим",
-        "state": {
-          "neutral_gear": "Ниедно",
-          "auto_wash": "Автоматски",
-          "strong_wash": "Интензивно",
-          "standard_wash": "Универзално",
-          "eco_wash": "ECO",
-          "glass_wash": "Стакло",
-          "hour_wash": "90 мин",
-          "fast_wash": "Брзо",
-          "soak_wash": "Натопување",
-          "90min": "90 мин",
-          "self_clean": "Самочистење",
-          "fruit_wash": "Овошје",
-          "self_define": "Прилагодено",
-          "germ": "Шепот",
-          "bowl_wash": "Сад",
-          "kill_germ": "Хигиена",
-          "sea_food_wash": "Самочистење",
-          "hot_pot_wash": "Жешко тенџере",
-          "quiet_night_wash": "Тивка ноќ",
-          "less_wash": "Лесно",
-          "max_rapid_wash": "Макс. брзо",
-          "oil_net_wash": "Филтер за масло",
-          "cloud_wash": "Облачна програма",
-          "single_dry": "Само сушење",
-          "single_disinfect": "Само дезинфекција",
-          "high_temp_wash": "Висока температура",
-          "wash_dry": "Миење и сушење"
+          "wash_dry": "Миење и сушење",
+          "anion1": "Јонско освежување"
         }
       },
       "dishwasher_status": {
