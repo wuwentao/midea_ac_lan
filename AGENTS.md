@@ -84,7 +84,7 @@ uv run ruff check .                 # lint (config: ruff.toml, lint.select = ALL
 uv run ruff format .                # format
 scripts/mypy.sh                     # mypy (config: mypy.ini) — note: NOT `mypy .` directly
 uv run pylint custom_components     # pylint (config: pylintrc)
-uv run pytest --cov=custom_components.midea_ac_lan --cov-report=term-missing  # tests with the 100% coverage gate
+uv run --no-default-groups --group test pytest --cov=custom_components.midea_ac_lan --cov-report=term-missing  # tests with the 100% coverage gate
 ```
 
 Dependencies (including the per-Python `homeassistant==` pins) live in `pyproject.toml` and are resolved by environment markers; `uv sync` installs the right set for your Python. There are no `requirements-dev-3.1x.txt` files anymore.
