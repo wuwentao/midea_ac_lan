@@ -1,5 +1,7 @@
 """Tests for version-dependent device registry constants."""
 
+import json
+from pathlib import Path
 from types import SimpleNamespace
 from typing import cast
 
@@ -86,6 +88,34 @@ def test_x44_registry_matches_library_attributes() -> None:
             entities[attribute]["max"],
             entities[attribute]["step"],
         ) == (0, maximum, 1)
+
+
+def test_x44_translations_cover_every_locale() -> None:
+    """Require every locale to name every registered x44 entity."""
+    entities = cast(
+        "dict[X44Attributes, dict[str, object]]",
+        MIDEA_DEVICES[DeviceType.X44]["entities"],
+    )
+    translations_dir = (
+        Path(__file__).parents[1]
+        / "custom_components"
+        / "midea_ac_lan"
+        / "translations"
+    )
+
+    for translation_file in translations_dir.glob("*.json"):
+        translation_data = cast(
+            "dict[str, object]",
+            json.loads(translation_file.read_text(encoding="utf-8")),
+        )
+        translated_entities = cast(
+            "dict[str, dict[str, dict[str, str]]]",
+            translation_data["entity"],
+        )
+        for config in entities.values():
+            platform = cast("Platform", config["type"]).value
+            translation_key = cast("str", config["translation_key"])
+            assert translated_entities[platform][translation_key]["name"]
 
 
 def test_opposite_version_concentration_units(
