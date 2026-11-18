@@ -76,7 +76,7 @@ scripts/setup.sh        # uv sync + install pre-commit/commit-msg hooks
 scripts/run.sh          # run Home Assistant locally with ./config, integration on PYTHONPATH (creates ./config on first run)
 ```
 
-Linting / checks (all enforced in CI via pre-commit — there is no separate test suite in this repo):
+Linting and checks:
 
 ```bash
 uv run pre-commit run --all-files   # run everything: ruff, ruff-format, mypy, pylint, codespell, commitlint, prettier
@@ -84,6 +84,7 @@ uv run ruff check .                 # lint (config: ruff.toml, lint.select = ALL
 uv run ruff format .                # format
 scripts/mypy.sh                     # mypy (config: mypy.ini) — note: NOT `mypy .` directly
 uv run pylint custom_components     # pylint (config: pylintrc)
+uv run pytest --cov=custom_components.midea_ac_lan --cov-report=term-missing  # tests with the 100% coverage gate
 ```
 
 Dependencies (including the per-Python `homeassistant==` pins) live in `pyproject.toml` and are resolved by environment markers; `uv sync` installs the right set for your Python. There are no `requirements-dev-3.1x.txt` files anymore.
@@ -96,17 +97,19 @@ The pinned Node version under `default_language_version` in `.pre-commit-config.
 - **Do not commit directly to `main`** — blocked by a pre-commit hook; branch and open a PR.
 - **Releasing** bumps `version` in `manifest.json`, which must be valid semver **without a `v` prefix** (HACS 2.0+ rejects `v`-prefixed); enforced by `.github/workflows/release.yml`.
 - **Adding a new device type**: add a `0xXX` entry to `MIDEA_DEVICES` in `midea_devices.py`, add a `doc/<TYPE>.md` (+ `_hans` Chinese variant) and a row in `README.md`'s supported-appliances table. Add UI strings keyed by `translation_key` to every locale in `custom_components/midea_ac_lan/translations/`. Do **not** bump the `midea-lan` pin in `manifest.json` in the feature PR — the maintainer sets that in a follow-up PR after cutting the library release. The full step-by-step walkthrough is in [`doc/adding-a-new-device.md`](doc/adding-a-new-device.md) (and its `.zh-Hans.md` translation), which uses `0xD9` ([PR #1086](https://github.com/wuwentao/midea_ac_lan/pull/1086)) as its running example and `0x9B` ([PR #1096](https://github.com/wuwentao/midea_ac_lan/pull/1096)) as a second, larger example (61 entities) covering the duplicate-translation-key hazard (`check-json` fails on a duplicate key within a platform section — reuse a shared key or namespace yours, e.g. `x9b_fire_power`), distinct `translation_key`s for a coexisting read sensor + write control, and the bool-not-string requirement for switch/binary_sensor/lock states.
+- **Device attribute naming**: device attribute enum member names and their string values must be identical lowercase `snake_case` identifiers containing only ASCII letters, digits, and underscores (for example, `remain_time = "remain_time"`). Keep names stable and descriptive of the state rather than the raw protocol field; do not use spaces, camelCase, hyphens, uppercase letters, or opaque protocol names such as `t3`. Because these attributes originate in `midea-lan` and are consumed downstream, implement and test attribute changes there first, then update this integration's mappings, translations, documentation, and tests.
 - **Attribute documentation impact**: whenever an appliance attribute is added, edited, renamed, or removed, check whether its device documentation needs an update. Update both the English `doc/<TYPE>.md` and its Simplified Chinese `doc/<TYPE>_hans.md` counterpart when applicable, keeping their behavior and attribute descriptions aligned; explicitly note in the PR when no device-doc change is needed.
 - CI validation: `.github/workflows/linter.yml` (pre-commit) and `validate.yml` (HACS + hassfest).
 
 ## Testing and coverage
 
 - Automated tests must maintain 100% code coverage. Add or update tests for every new or changed code path, including error handling and edge cases; do not lower coverage or exclude code solely to satisfy the target.
+- Put tests that apply only to one device type in `tests/<device-package>/test_*.py`; keep shared and cross-device tests at the top level of `tests/`. The test directory must follow the same package rule as [`midea-lan`'s `device_selector()`](https://github.com/wuwentao/midea-lan/blob/main/docs/adding-a-new-device.md#naming-rule-for-the-package-folder): types below `0xA0` use `x` followed by two lowercase hex digits (for example, `tests/x13/test_*.py`, `tests/x40/test_*.py`, or `tests/x9c/test_*.py`), while types `0xA0` and above use the bare lowercase hex code (for example, `tests/ac/test_*.py`, `tests/a1/test_*.py`, or `tests/d9/test_*.py`).
 
 ## Documentation, templates, and security
 
 - Keep English and Simplified Chinese documents aligned when both variants exist. Preserve commands, paths, App / Cloud names, warnings, and behavior across document translations. When documentation is added, edited, renamed, or removed, check for and update its paired English and Simplified Chinese version when one exists; explain in the PR when a paired-doc change does not apply.
-- Every addition, edit, rename, or removal of a translation key or translated value must be applied to every supported locale file in `custom_components/midea_ac_lan/translations/` in the same change. English and Simplified Chinese alone are not sufficient; all locale files must remain structurally complete and provide the corresponding localized value.
+- Every addition, rename, or removal of a translation key, and every change to a key's shared meaning, must update the corresponding entry in every supported locale file in `custom_components/midea_ac_lan/translations/` in the same change; updating only English and Simplified Chinese is insufficient when other locale files are present. Locale-specific wording, grammar, or typo corrections that do not change the shared meaning may update only the affected locale. Every shared key introduced or changed by the current change must have a localized value in every supported locale.
 - Issue forms must collect Home Assistant and integration versions, appliance type/model and redacted SN, exact App / Cloud, reproduction details, expected behavior, and complete redacted debug logs or feature evidence. Keep paired English/Chinese forms structurally equivalent.
 - The pull request template must retain cross-repository protocol-source links, testing/hardware evidence, documentation impact, and the security checklist. Use a UTF-8/LF Markdown body file with the applicable `gh` command's `--body-file` option for multiline GitHub text.
 - Never commit or publish account credentials, passwords, Tokens, Keys, full device IDs, MAC addresses, private keys, or unredacted logs. Examples must use clearly fictional or masked values.
