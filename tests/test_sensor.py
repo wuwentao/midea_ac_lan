@@ -178,19 +178,19 @@ def make_sensor(
 
 
 @pytest.mark.parametrize(
-    ("restored", "expected"),
+    ("restored_data", "expected"),
     [
         (None, None),
-        ("unknown", None),
-        ("unavailable", None),
-        ("bad", None),
-        (SimpleNamespace(state=None), None),
-        ("0", 0),
-        ("324", 324),
+        (SimpleNamespace(native_value="unknown"), None),
+        (SimpleNamespace(native_value="unavailable"), None),
+        (SimpleNamespace(native_value="bad"), None),
+        (SimpleNamespace(native_value=None), None),
+        (SimpleNamespace(native_value="0"), 0),
+        (SimpleNamespace(native_value="324"), 324),
     ],
 )
 async def test_last_value_sensor_restore(
-    restored: str | SimpleNamespace | None,
+    restored_data: SimpleNamespace | None,
     expected: int | None,
     device_factory: DeviceFactory,
     install_config: InstallConfig,
@@ -206,12 +206,7 @@ async def test_last_value_sensor_restore(
     )
     device, _ = device_factory(attributes={"value": None})
     sensor = MideaLastValueSensor(device, "value")
-    state = (
-        restored
-        if isinstance(restored, SimpleNamespace) or restored is None
-        else SimpleNamespace(state=restored)
-    )
-    sensor.async_get_last_state = AsyncMock(return_value=state)
+    sensor.async_get_last_sensor_data = AsyncMock(return_value=restored_data)
 
     await sensor.async_added_to_hass()
 
@@ -233,16 +228,47 @@ async def test_last_value_sensor_prefers_live_value(
     )
     device, values = device_factory(attributes={"value": 17})
     sensor = MideaLastValueSensor(device, "value")
-    sensor.async_get_last_state = AsyncMock(
-        return_value=SimpleNamespace(state="324"),
+    sensor.async_get_last_sensor_data = AsyncMock(
+        return_value=SimpleNamespace(native_value="324"),
     )
 
     await sensor.async_added_to_hass()
 
     assert sensor.native_value == 17
-    sensor.async_get_last_state.assert_not_awaited()
+    sensor.async_get_last_sensor_data.assert_not_awaited()
     values["value"] = 0
     assert sensor.native_value == 0
+
+
+async def test_last_value_sensor_restores_native_value_saved_while_offline(
+    device_factory: DeviceFactory,
+    install_config: InstallConfig,
+) -> None:
+    """Keep native cycle data when HA publishes the entity as unavailable."""
+    install_config(
+        {
+            "value": {
+                "type": Platform.SENSOR,
+                "restore_last_value": True,
+            },
+        },
+    )
+    old_device, _ = device_factory(
+        attributes={"value": 324},
+        available=False,
+    )
+    old_sensor = MideaLastValueSensor(old_device, "value")
+    assert old_sensor.available is False
+    stored_data = old_sensor.extra_restore_state_data
+    assert stored_data.native_value == 324
+
+    new_device, _ = device_factory(attributes={"value": None})
+    new_sensor = MideaLastValueSensor(new_device, "value")
+    new_sensor.async_get_last_sensor_data = AsyncMock(return_value=stored_data)
+    await new_sensor.async_added_to_hass()
+
+    assert new_sensor.available is True
+    assert new_sensor.native_value == 324
 
 
 def test_sensor_native_values_and_metadata(

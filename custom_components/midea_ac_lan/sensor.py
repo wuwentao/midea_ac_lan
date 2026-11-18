@@ -7,6 +7,7 @@ from datetime import timedelta
 from typing import Any, cast
 
 from homeassistant.components.sensor import (
+    RestoreSensor,
     SensorDeviceClass,
     SensorEntity,
     SensorStateClass,
@@ -364,7 +365,7 @@ class MideaFlagStateSensor(MideaSensor):
         return cast("dict[str, str]", self._config["state_from_flags"])
 
 
-class MideaLastValueSensor(MideaSensor, RestoreEntity):
+class MideaLastValueSensor(MideaSensor, RestoreSensor):
     """Retain a sporadically reported value across entity reloads."""
 
     def __init__(self, device: MideaDevice, entity_key: str) -> None:
@@ -383,9 +384,9 @@ class MideaLastValueSensor(MideaSensor, RestoreEntity):
         await super().async_added_to_hass()
         if super().native_value is not None:
             return
-        if last_state := await self.async_get_last_state():
+        if last_sensor_data := await self.async_get_last_sensor_data():
             try:
-                self._restored_value = int(last_state.state)
+                self._restored_value = int(last_sensor_data.native_value)
             except (TypeError, ValueError):
                 self._restored_value = None
 
