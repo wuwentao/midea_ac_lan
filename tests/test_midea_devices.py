@@ -1,7 +1,7 @@
 """Tests for version-dependent device registry constants."""
 
 from types import SimpleNamespace
-from typing import Any, cast
+from typing import cast
 
 import homeassistant.const as ha_const
 import pytest
@@ -17,7 +17,7 @@ from .helpers import load_integration_module
 def test_x44_registry_matches_library_attributes() -> None:
     """Keep every library x44 attribute exposed on the matching HA platform."""
     entities = cast(
-        "dict[str, dict[str, Any]]",
+        "dict[X44Attributes, dict[str, object]]",
         MIDEA_DEVICES[DeviceType.X44]["entities"],
     )
 
