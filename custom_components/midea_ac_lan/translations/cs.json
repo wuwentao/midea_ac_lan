@@ -1110,75 +1110,13 @@
           "preset_5": "Předvolba 5"
         }
       },
-      "wash_mode_76000228": {
-        "name": "Režim mytí",
-        "state": {
-          "neutral_gear": "Žádné",
-          "auto_wash": "Automaticky",
-          "strong_wash": "Intenzivní",
-          "standard_wash": "Univerzální",
-          "eco_wash": "ECO",
-          "glass_wash": "Sklo",
-          "hour_wash": "90 min",
-          "fast_wash": "Rychlý",
-          "soak_wash": "Namáčení",
-          "90min": "90 min",
-          "self_clean": "Samočištění",
-          "fruit_wash": "Ovoce",
-          "self_define": "Vlastní",
-          "germ": "Šepot",
-          "bowl_wash": "Miska",
-          "kill_germ": "Hygiena",
-          "sea_food_wash": "Samočištění",
-          "hot_pot_wash": "Hotpot",
-          "quiet_night_wash": "Tichá noc",
-          "less_wash": "Lehký",
-          "max_rapid_wash": "Maximální rychlost",
-          "oil_net_wash": "Olejový filtr",
-          "cloud_wash": "Cloudový program",
-          "single_dry": "Pouze sušení",
-          "single_disinfect": "Pouze dezinfekce",
-          "high_temp_wash": "Vysoká teplota",
-          "wash_dry": "Mytí a sušení"
-        }
-      },
-      "program_76000228": {
-        "name": "Program",
-        "state": {
-          "auto_wash": "Automaticky",
-          "strong_wash": "Intenzivní",
-          "standard_wash": "Univerzální",
-          "eco_wash": "ECO",
-          "glass_wash": "Sklo",
-          "hour_wash": "90 min",
-          "fast_wash": "Rychlý",
-          "soak_wash": "Namáčení",
-          "90min": "90 min",
-          "self_clean": "Samočištění",
-          "fruit_wash": "Ovoce",
-          "self_define": "Vlastní",
-          "germ": "Šepot",
-          "bowl_wash": "Miska",
-          "kill_germ": "Hygiena",
-          "sea_food_wash": "Samočištění",
-          "hot_pot_wash": "Hotpot",
-          "quiet_night_wash": "Tichá noc",
-          "less_wash": "Lehký",
-          "max_rapid_wash": "Maximální rychlost",
-          "oil_net_wash": "Olejový filtr",
-          "cloud_wash": "Cloudový program",
-          "single_dry": "Pouze sušení",
-          "single_disinfect": "Pouze dezinfekce",
-          "high_temp_wash": "Vysoká teplota",
-          "wash_dry": "Mytí a sušení"
-        }
-      },
       "program": {
         "name": "Program",
         "state": {
           "auto_wash": "Automaticky",
           "strong_wash": "Intenzivní",
           "standard_wash": "Standardní",
+          "universal_wash": "Univerzální",
           "eco_wash": "ECO",
           "glass_wash": "Sklo",
           "hour_wash": "1 hodina",
@@ -1189,6 +1127,7 @@
           "fruit_wash": "Ovoce",
           "self_define": "Vlastní",
           "germ": "Choroboplodné zárodky",
+          "whisper_wash": "Tichý",
           "bowl_wash": "Miska",
           "kill_germ": "Hygiena",
           "sea_food_wash": "Mořské plody",
@@ -1201,7 +1140,8 @@
           "single_dry": "Pouze sušení",
           "single_disinfect": "Pouze dezinfekce",
           "high_temp_wash": "Vysoká teplota",
-          "wash_dry": "Mytí a sušení"
+          "wash_dry": "Mytí a sušení",
+          "anion1": "Iontové osvěžení"
         }
       },
       "load": {
@@ -1311,6 +1251,7 @@
           "auto_wash": "Automaticky",
           "strong_wash": "Intenzivní",
           "standard_wash": "Standardní",
+          "universal_wash": "Univerzální",
           "eco_wash": "ECO",
           "glass_wash": "Sklo",
           "hour_wash": "1 hodina",
@@ -1321,6 +1262,7 @@
           "fruit_wash": "Ovoce",
           "self_define": "Vlastní",
           "germ": "Choroboplodné zárodky",
+          "whisper_wash": "Tichý",
           "bowl_wash": "Miska",
           "kill_germ": "Hygiena",
           "sea_food_wash": "Mořské plody",
@@ -1333,7 +1275,8 @@
           "single_dry": "Pouze sušení",
           "single_disinfect": "Pouze dezinfekce",
           "high_temp_wash": "Vysoká teplota",
-          "wash_dry": "Mytí a sušení"
+          "wash_dry": "Mytí a sušení",
+          "anion1": "Iontové osvěžení"
         }
       },
       "water_level_set": {
@@ -1675,6 +1618,7 @@
           "auto_wash": "Automaticky",
           "strong_wash": "Intenzivní",
           "standard_wash": "Standardní",
+          "universal_wash": "Univerzální",
           "eco_wash": "ECO",
           "glass_wash": "Sklo",
           "hour_wash": "1 hodina",
@@ -1685,6 +1629,7 @@
           "fruit_wash": "Ovoce",
           "self_define": "Vlastní",
           "germ": "Choroboplodné zárodky",
+          "whisper_wash": "Tichý",
           "bowl_wash": "Miska",
           "kill_germ": "Hygiena",
           "sea_food_wash": "Mořské plody",
@@ -1697,39 +1642,8 @@
           "single_dry": "Pouze sušení",
           "single_disinfect": "Pouze dezinfekce",
           "high_temp_wash": "Vysoká teplota",
-          "wash_dry": "Mytí a sušení"
-        }
-      },
-      "dishwasher_mode_76000228": {
-        "name": "Režim",
-        "state": {
-          "neutral_gear": "Žádné",
-          "auto_wash": "Automaticky",
-          "strong_wash": "Intenzivní",
-          "standard_wash": "Univerzální",
-          "eco_wash": "ECO",
-          "glass_wash": "Sklo",
-          "hour_wash": "90 min",
-          "fast_wash": "Rychlý",
-          "soak_wash": "Namáčení",
-          "90min": "90 min",
-          "self_clean": "Samočištění",
-          "fruit_wash": "Ovoce",
-          "self_define": "Vlastní",
-          "germ": "Šepot",
-          "bowl_wash": "Miska",
-          "kill_germ": "Hygiena",
-          "sea_food_wash": "Samočištění",
-          "hot_pot_wash": "Hotpot",
-          "quiet_night_wash": "Tichá noc",
-          "less_wash": "Lehký",
-          "max_rapid_wash": "Maximální rychlost",
-          "oil_net_wash": "Olejový filtr",
-          "cloud_wash": "Cloudový program",
-          "single_dry": "Pouze sušení",
-          "single_disinfect": "Pouze dezinfekce",
-          "high_temp_wash": "Vysoká teplota",
-          "wash_dry": "Mytí a sušení"
+          "wash_dry": "Mytí a sušení",
+          "anion1": "Iontové osvěžení"
         }
       },
       "dishwasher_status": {

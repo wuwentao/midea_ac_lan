@@ -1110,75 +1110,13 @@
           "preset_5": "預設組合 5"
         }
       },
-      "wash_mode_76000228": {
-        "name": "清洗模式",
-        "state": {
-          "neutral_gear": "無",
-          "auto_wash": "自動",
-          "strong_wash": "強力",
-          "standard_wash": "通用",
-          "eco_wash": "ECO",
-          "glass_wash": "玻璃",
-          "hour_wash": "90 分鐘",
-          "fast_wash": "快速",
-          "soak_wash": "浸泡",
-          "90min": "90 分鐘",
-          "self_clean": "自清潔",
-          "fruit_wash": "水果",
-          "self_define": "自訂",
-          "germ": "輕聲",
-          "bowl_wash": "碗盤",
-          "kill_germ": "衛生",
-          "sea_food_wash": "自清潔",
-          "hot_pot_wash": "火鍋",
-          "quiet_night_wash": "寧靜夜間",
-          "less_wash": "輕量",
-          "max_rapid_wash": "極速",
-          "oil_net_wash": "濾油",
-          "cloud_wash": "雲端程式",
-          "single_dry": "僅乾燥",
-          "single_disinfect": "僅消毒",
-          "high_temp_wash": "高溫",
-          "wash_dry": "洗烘一體"
-        }
-      },
-      "program_76000228": {
-        "name": "程式",
-        "state": {
-          "auto_wash": "自動",
-          "strong_wash": "強力",
-          "standard_wash": "通用",
-          "eco_wash": "ECO",
-          "glass_wash": "玻璃",
-          "hour_wash": "90 分鐘",
-          "fast_wash": "快速",
-          "soak_wash": "浸泡",
-          "90min": "90 分鐘",
-          "self_clean": "自清潔",
-          "fruit_wash": "水果",
-          "self_define": "自訂",
-          "germ": "輕聲",
-          "bowl_wash": "碗盤",
-          "kill_germ": "衛生",
-          "sea_food_wash": "自清潔",
-          "hot_pot_wash": "火鍋",
-          "quiet_night_wash": "寧靜夜間",
-          "less_wash": "輕量",
-          "max_rapid_wash": "極速",
-          "oil_net_wash": "濾油",
-          "cloud_wash": "雲端程式",
-          "single_dry": "僅乾燥",
-          "single_disinfect": "僅消毒",
-          "high_temp_wash": "高溫",
-          "wash_dry": "洗烘一體"
-        }
-      },
       "program": {
         "name": "程式",
         "state": {
           "auto_wash": "自動",
           "strong_wash": "強力",
           "standard_wash": "標準",
+          "universal_wash": "通用",
           "eco_wash": "ECO",
           "glass_wash": "玻璃",
           "hour_wash": "1 小時",
@@ -1189,6 +1127,7 @@
           "fruit_wash": "水果",
           "self_define": "自訂",
           "germ": "除菌",
+          "whisper_wash": "靜音",
           "bowl_wash": "碗盤",
           "kill_germ": "衛生",
           "sea_food_wash": "海鮮",
@@ -1201,7 +1140,8 @@
           "single_dry": "僅乾燥",
           "single_disinfect": "僅消毒",
           "high_temp_wash": "高溫",
-          "wash_dry": "洗烘一體"
+          "wash_dry": "洗烘一體",
+          "anion1": "離子除味"
         }
       },
       "load": {
@@ -1311,6 +1251,7 @@
           "auto_wash": "自動",
           "strong_wash": "強力",
           "standard_wash": "標準",
+          "universal_wash": "通用",
           "eco_wash": "ECO",
           "glass_wash": "玻璃",
           "hour_wash": "1 小時",
@@ -1321,6 +1262,7 @@
           "fruit_wash": "水果",
           "self_define": "自訂",
           "germ": "除菌",
+          "whisper_wash": "靜音",
           "bowl_wash": "碗盤",
           "kill_germ": "衛生",
           "sea_food_wash": "海鮮",
@@ -1333,7 +1275,8 @@
           "single_dry": "僅乾燥",
           "single_disinfect": "僅消毒",
           "high_temp_wash": "高溫",
-          "wash_dry": "洗烘一體"
+          "wash_dry": "洗烘一體",
+          "anion1": "離子除味"
         }
       },
       "water_level_set": {
@@ -1675,6 +1618,7 @@
           "auto_wash": "自動",
           "strong_wash": "強力",
           "standard_wash": "標準",
+          "universal_wash": "通用",
           "eco_wash": "ECO",
           "glass_wash": "玻璃",
           "hour_wash": "1 小時",
@@ -1685,6 +1629,7 @@
           "fruit_wash": "水果",
           "self_define": "自訂",
           "germ": "除菌",
+          "whisper_wash": "靜音",
           "bowl_wash": "碗盤",
           "kill_germ": "衛生",
           "sea_food_wash": "海鮮",
@@ -1697,39 +1642,8 @@
           "single_dry": "僅乾燥",
           "single_disinfect": "僅消毒",
           "high_temp_wash": "高溫",
-          "wash_dry": "洗烘一體"
-        }
-      },
-      "dishwasher_mode_76000228": {
-        "name": "模式",
-        "state": {
-          "neutral_gear": "無",
-          "auto_wash": "自動",
-          "strong_wash": "強力",
-          "standard_wash": "通用",
-          "eco_wash": "ECO",
-          "glass_wash": "玻璃",
-          "hour_wash": "90 分鐘",
-          "fast_wash": "快速",
-          "soak_wash": "浸泡",
-          "90min": "90 分鐘",
-          "self_clean": "自清潔",
-          "fruit_wash": "水果",
-          "self_define": "自訂",
-          "germ": "輕聲",
-          "bowl_wash": "碗盤",
-          "kill_germ": "衛生",
-          "sea_food_wash": "自清潔",
-          "hot_pot_wash": "火鍋",
-          "quiet_night_wash": "寧靜夜間",
-          "less_wash": "輕量",
-          "max_rapid_wash": "極速",
-          "oil_net_wash": "濾油",
-          "cloud_wash": "雲端程式",
-          "single_dry": "僅乾燥",
-          "single_disinfect": "僅消毒",
-          "high_temp_wash": "高溫",
-          "wash_dry": "洗烘一體"
+          "wash_dry": "洗烘一體",
+          "anion1": "離子除味"
         }
       },
       "dishwasher_status": {

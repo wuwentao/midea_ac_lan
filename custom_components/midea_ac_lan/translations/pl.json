@@ -1110,75 +1110,13 @@
           "preset_5": "Ustawienie 5"
         }
       },
-      "wash_mode_76000228": {
-        "name": "Tryb mycia",
-        "state": {
-          "neutral_gear": "Brak",
-          "auto_wash": "Auto",
-          "strong_wash": "Intensywny",
-          "standard_wash": "Uniwersalny",
-          "eco_wash": "ECO",
-          "glass_wash": "Szkło",
-          "hour_wash": "90 min",
-          "fast_wash": "Szybki",
-          "soak_wash": "Namaczanie",
-          "90min": "90 min",
-          "self_clean": "Samoczyszczenie",
-          "fruit_wash": "Owoce",
-          "self_define": "Własny",
-          "germ": "Cichy",
-          "bowl_wash": "Miska",
-          "kill_germ": "Higiena",
-          "sea_food_wash": "Samoczyszczenie",
-          "hot_pot_wash": "Gorący kociołek",
-          "quiet_night_wash": "Cicha noc",
-          "less_wash": "Lekki",
-          "max_rapid_wash": "Maks. szybki",
-          "oil_net_wash": "Filtr oleju",
-          "cloud_wash": "Program w chmurze",
-          "single_dry": "Tylko suszenie",
-          "single_disinfect": "Tylko dezynfekcja",
-          "high_temp_wash": "Wysoka temperatura",
-          "wash_dry": "Pranie i suszenie"
-        }
-      },
-      "program_76000228": {
-        "name": "Program",
-        "state": {
-          "auto_wash": "Auto",
-          "strong_wash": "Intensywny",
-          "standard_wash": "Uniwersalny",
-          "eco_wash": "ECO",
-          "glass_wash": "Szkło",
-          "hour_wash": "90 min",
-          "fast_wash": "Szybki",
-          "soak_wash": "Namaczanie",
-          "90min": "90 min",
-          "self_clean": "Samoczyszczenie",
-          "fruit_wash": "Owoce",
-          "self_define": "Własny",
-          "germ": "Cichy",
-          "bowl_wash": "Miska",
-          "kill_germ": "Higiena",
-          "sea_food_wash": "Samoczyszczenie",
-          "hot_pot_wash": "Gorący kociołek",
-          "quiet_night_wash": "Cicha noc",
-          "less_wash": "Lekki",
-          "max_rapid_wash": "Maks. szybki",
-          "oil_net_wash": "Filtr oleju",
-          "cloud_wash": "Program w chmurze",
-          "single_dry": "Tylko suszenie",
-          "single_disinfect": "Tylko dezynfekcja",
-          "high_temp_wash": "Wysoka temperatura",
-          "wash_dry": "Pranie i suszenie"
-        }
-      },
       "program": {
         "name": "Program",
         "state": {
           "auto_wash": "Auto",
           "strong_wash": "Intensywny",
           "standard_wash": "Standardowy",
+          "universal_wash": "Uniwersalny",
           "eco_wash": "ECO",
           "glass_wash": "Szkło",
           "hour_wash": "1 godzina",
@@ -1189,6 +1127,7 @@
           "fruit_wash": "Owoce",
           "self_define": "Własny",
           "germ": "Zarazki",
+          "whisper_wash": "Cichy",
           "bowl_wash": "Miska",
           "kill_germ": "Higiena",
           "sea_food_wash": "Owoce morza",
@@ -1201,7 +1140,8 @@
           "single_dry": "Tylko suszenie",
           "single_disinfect": "Tylko dezynfekcja",
           "high_temp_wash": "Wysoka temperatura",
-          "wash_dry": "Pranie i suszenie"
+          "wash_dry": "Pranie i suszenie",
+          "anion1": "Odświeżanie jonowe"
         }
       },
       "load": {
@@ -1311,6 +1251,7 @@
           "auto_wash": "Auto",
           "strong_wash": "Intensywny",
           "standard_wash": "Standardowy",
+          "universal_wash": "Uniwersalny",
           "eco_wash": "ECO",
           "glass_wash": "Szkło",
           "hour_wash": "1 godzina",
@@ -1321,6 +1262,7 @@
           "fruit_wash": "Owoce",
           "self_define": "Własny",
           "germ": "Zarazki",
+          "whisper_wash": "Cichy",
           "bowl_wash": "Miska",
           "kill_germ": "Higiena",
           "sea_food_wash": "Owoce morza",
@@ -1333,7 +1275,8 @@
           "single_dry": "Tylko suszenie",
           "single_disinfect": "Tylko dezynfekcja",
           "high_temp_wash": "Wysoka temperatura",
-          "wash_dry": "Pranie i suszenie"
+          "wash_dry": "Pranie i suszenie",
+          "anion1": "Odświeżanie jonowe"
         }
       },
       "water_level_set": {
@@ -1675,6 +1618,7 @@
           "auto_wash": "Auto",
           "strong_wash": "Intensywny",
           "standard_wash": "Standardowy",
+          "universal_wash": "Uniwersalny",
           "eco_wash": "ECO",
           "glass_wash": "Szkło",
           "hour_wash": "1 godzina",
@@ -1685,6 +1629,7 @@
           "fruit_wash": "Owoce",
           "self_define": "Własny",
           "germ": "Zarazki",
+          "whisper_wash": "Cichy",
           "bowl_wash": "Miska",
           "kill_germ": "Higiena",
           "sea_food_wash": "Owoce morza",
@@ -1697,39 +1642,8 @@
           "single_dry": "Tylko suszenie",
           "single_disinfect": "Tylko dezynfekcja",
           "high_temp_wash": "Wysoka temperatura",
-          "wash_dry": "Pranie i suszenie"
-        }
-      },
-      "dishwasher_mode_76000228": {
-        "name": "Tryb",
-        "state": {
-          "neutral_gear": "Brak",
-          "auto_wash": "Auto",
-          "strong_wash": "Intensywny",
-          "standard_wash": "Uniwersalny",
-          "eco_wash": "ECO",
-          "glass_wash": "Szkło",
-          "hour_wash": "90 min",
-          "fast_wash": "Szybki",
-          "soak_wash": "Namaczanie",
-          "90min": "90 min",
-          "self_clean": "Samoczyszczenie",
-          "fruit_wash": "Owoce",
-          "self_define": "Własny",
-          "germ": "Cichy",
-          "bowl_wash": "Miska",
-          "kill_germ": "Higiena",
-          "sea_food_wash": "Samoczyszczenie",
-          "hot_pot_wash": "Gorący kociołek",
-          "quiet_night_wash": "Cicha noc",
-          "less_wash": "Lekki",
-          "max_rapid_wash": "Maks. szybki",
-          "oil_net_wash": "Filtr oleju",
-          "cloud_wash": "Program w chmurze",
-          "single_dry": "Tylko suszenie",
-          "single_disinfect": "Tylko dezynfekcja",
-          "high_temp_wash": "Wysoka temperatura",
-          "wash_dry": "Pranie i suszenie"
+          "wash_dry": "Pranie i suszenie",
+          "anion1": "Odświeżanie jonowe"
         }
       },
       "dishwasher_status": {

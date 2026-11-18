@@ -1110,75 +1110,13 @@
           "preset_5": "Prednastavitev 5"
         }
       },
-      "wash_mode_76000228": {
-        "name": "Način pranja",
-        "state": {
-          "neutral_gear": "Brez",
-          "auto_wash": "Samodejno",
-          "strong_wash": "Intenzivno",
-          "standard_wash": "Univerzalno",
-          "eco_wash": "ECO",
-          "glass_wash": "Steklo",
-          "hour_wash": "90 min",
-          "fast_wash": "Hitro",
-          "soak_wash": "Namakanje",
-          "90min": "90 min",
-          "self_clean": "Samodejno čiščenje",
-          "fruit_wash": "Sadje",
-          "self_define": "Po meri",
-          "germ": "Šepet",
-          "bowl_wash": "Skleda",
-          "kill_germ": "Higiena",
-          "sea_food_wash": "Samodejno čiščenje",
-          "hot_pot_wash": "Kuhanje v loncu",
-          "quiet_night_wash": "Tiha noč",
-          "less_wash": "Lahko",
-          "max_rapid_wash": "Najhitrejše",
-          "oil_net_wash": "Oljni filter",
-          "cloud_wash": "Program v oblaku",
-          "single_dry": "Samo sušenje",
-          "single_disinfect": "Samo razkuževanje",
-          "high_temp_wash": "Visoka temperatura",
-          "wash_dry": "Pranje in sušenje"
-        }
-      },
-      "program_76000228": {
-        "name": "Program",
-        "state": {
-          "auto_wash": "Samodejno",
-          "strong_wash": "Intenzivno",
-          "standard_wash": "Univerzalno",
-          "eco_wash": "ECO",
-          "glass_wash": "Steklo",
-          "hour_wash": "90 min",
-          "fast_wash": "Hitro",
-          "soak_wash": "Namakanje",
-          "90min": "90 min",
-          "self_clean": "Samodejno čiščenje",
-          "fruit_wash": "Sadje",
-          "self_define": "Po meri",
-          "germ": "Šepet",
-          "bowl_wash": "Skleda",
-          "kill_germ": "Higiena",
-          "sea_food_wash": "Samodejno čiščenje",
-          "hot_pot_wash": "Kuhanje v loncu",
-          "quiet_night_wash": "Tiha noč",
-          "less_wash": "Lahko",
-          "max_rapid_wash": "Najhitrejše",
-          "oil_net_wash": "Oljni filter",
-          "cloud_wash": "Program v oblaku",
-          "single_dry": "Samo sušenje",
-          "single_disinfect": "Samo razkuževanje",
-          "high_temp_wash": "Visoka temperatura",
-          "wash_dry": "Pranje in sušenje"
-        }
-      },
       "program": {
         "name": "Program",
         "state": {
           "auto_wash": "Samodejno",
           "strong_wash": "Intenzivno",
           "standard_wash": "Standardno",
+          "universal_wash": "Univerzalno",
           "eco_wash": "ECO",
           "glass_wash": "Steklo",
           "hour_wash": "1 ura",
@@ -1189,6 +1127,7 @@
           "fruit_wash": "Sadje",
           "self_define": "Po meri",
           "germ": "Klice",
+          "whisper_wash": "Tiho",
           "bowl_wash": "Skleda",
           "kill_germ": "Higiena",
           "sea_food_wash": "Morski sadeži",
@@ -1201,7 +1140,8 @@
           "single_dry": "Samo sušenje",
           "single_disinfect": "Samo razkuževanje",
           "high_temp_wash": "Visoka temperatura",
-          "wash_dry": "Pranje in sušenje"
+          "wash_dry": "Pranje in sušenje",
+          "anion1": "Ionsko osveževanje"
         }
       },
       "load": {
@@ -1311,6 +1251,7 @@
           "auto_wash": "Samodejno",
           "strong_wash": "Intenzivno",
           "standard_wash": "Standardno",
+          "universal_wash": "Univerzalno",
           "eco_wash": "ECO",
           "glass_wash": "Steklo",
           "hour_wash": "1 ura",
@@ -1321,6 +1262,7 @@
           "fruit_wash": "Sadje",
           "self_define": "Po meri",
           "germ": "Klice",
+          "whisper_wash": "Tiho",
           "bowl_wash": "Skleda",
           "kill_germ": "Higiena",
           "sea_food_wash": "Morski sadeži",
@@ -1333,7 +1275,8 @@
           "single_dry": "Samo sušenje",
           "single_disinfect": "Samo razkuževanje",
           "high_temp_wash": "Visoka temperatura",
-          "wash_dry": "Pranje in sušenje"
+          "wash_dry": "Pranje in sušenje",
+          "anion1": "Ionsko osveževanje"
         }
       },
       "water_level_set": {
@@ -1675,6 +1618,7 @@
           "auto_wash": "Samodejno",
           "strong_wash": "Intenzivno",
           "standard_wash": "Standardno",
+          "universal_wash": "Univerzalno",
           "eco_wash": "ECO",
           "glass_wash": "Steklo",
           "hour_wash": "1 ura",
@@ -1685,6 +1629,7 @@
           "fruit_wash": "Sadje",
           "self_define": "Po meri",
           "germ": "Klice",
+          "whisper_wash": "Tiho",
           "bowl_wash": "Skleda",
           "kill_germ": "Higiena",
           "sea_food_wash": "Morski sadeži",
@@ -1697,39 +1642,8 @@
           "single_dry": "Samo sušenje",
           "single_disinfect": "Samo razkuževanje",
           "high_temp_wash": "Visoka temperatura",
-          "wash_dry": "Pranje in sušenje"
-        }
-      },
-      "dishwasher_mode_76000228": {
-        "name": "Način",
-        "state": {
-          "neutral_gear": "Brez",
-          "auto_wash": "Samodejno",
-          "strong_wash": "Intenzivno",
-          "standard_wash": "Univerzalno",
-          "eco_wash": "ECO",
-          "glass_wash": "Steklo",
-          "hour_wash": "90 min",
-          "fast_wash": "Hitro",
-          "soak_wash": "Namakanje",
-          "90min": "90 min",
-          "self_clean": "Samodejno čiščenje",
-          "fruit_wash": "Sadje",
-          "self_define": "Po meri",
-          "germ": "Šepet",
-          "bowl_wash": "Skleda",
-          "kill_germ": "Higiena",
-          "sea_food_wash": "Samodejno čiščenje",
-          "hot_pot_wash": "Kuhanje v loncu",
-          "quiet_night_wash": "Tiha noč",
-          "less_wash": "Lahko",
-          "max_rapid_wash": "Najhitrejše",
-          "oil_net_wash": "Oljni filter",
-          "cloud_wash": "Program v oblaku",
-          "single_dry": "Samo sušenje",
-          "single_disinfect": "Samo razkuževanje",
-          "high_temp_wash": "Visoka temperatura",
-          "wash_dry": "Pranje in sušenje"
+          "wash_dry": "Pranje in sušenje",
+          "anion1": "Ionsko osveževanje"
         }
       },
       "dishwasher_status": {

@@ -1110,75 +1110,13 @@
           "preset_5": "プリセット 5"
         }
       },
-      "wash_mode_76000228": {
-        "name": "洗浄モード",
-        "state": {
-          "neutral_gear": "なし",
-          "auto_wash": "自動",
-          "strong_wash": "強力",
-          "standard_wash": "標準",
-          "eco_wash": "ECO",
-          "glass_wash": "ガラス",
-          "hour_wash": "90 分",
-          "fast_wash": "高速",
-          "soak_wash": "つけおき",
-          "90min": "90 分",
-          "self_clean": "セルフクリーニング",
-          "fruit_wash": "フルーツ",
-          "self_define": "カスタム",
-          "germ": "ささやき",
-          "bowl_wash": "お椀",
-          "kill_germ": "衛生",
-          "sea_food_wash": "セルフクリーニング",
-          "hot_pot_wash": "鍋",
-          "quiet_night_wash": "おやすみ",
-          "less_wash": "ライト",
-          "max_rapid_wash": "最速",
-          "oil_net_wash": "オイルフィルター",
-          "cloud_wash": "クラウドプログラム",
-          "single_dry": "乾燥のみ",
-          "single_disinfect": "除菌のみ",
-          "high_temp_wash": "高温",
-          "wash_dry": "洗浄・乾燥"
-        }
-      },
-      "program_76000228": {
-        "name": "プログラム",
-        "state": {
-          "auto_wash": "自動",
-          "strong_wash": "強力",
-          "standard_wash": "標準",
-          "eco_wash": "ECO",
-          "glass_wash": "ガラス",
-          "hour_wash": "90 分",
-          "fast_wash": "高速",
-          "soak_wash": "つけおき",
-          "90min": "90 分",
-          "self_clean": "セルフクリーニング",
-          "fruit_wash": "フルーツ",
-          "self_define": "カスタム",
-          "germ": "ささやき",
-          "bowl_wash": "お椀",
-          "kill_germ": "衛生",
-          "sea_food_wash": "セルフクリーニング",
-          "hot_pot_wash": "鍋",
-          "quiet_night_wash": "おやすみ",
-          "less_wash": "ライト",
-          "max_rapid_wash": "最速",
-          "oil_net_wash": "オイルフィルター",
-          "cloud_wash": "クラウドプログラム",
-          "single_dry": "乾燥のみ",
-          "single_disinfect": "除菌のみ",
-          "high_temp_wash": "高温",
-          "wash_dry": "洗浄・乾燥"
-        }
-      },
       "program": {
         "name": "プログラム",
         "state": {
           "auto_wash": "自動",
           "strong_wash": "強力",
           "standard_wash": "標準",
+          "universal_wash": "万能",
           "eco_wash": "ECO",
           "glass_wash": "ガラス",
           "hour_wash": "1 時間",
@@ -1189,6 +1127,7 @@
           "fruit_wash": "フルーツ",
           "self_define": "カスタム",
           "germ": "除菌",
+          "whisper_wash": "静音",
           "bowl_wash": "お椀",
           "kill_germ": "衛生",
           "sea_food_wash": "シーフード",
@@ -1201,7 +1140,8 @@
           "single_dry": "乾燥のみ",
           "single_disinfect": "除菌のみ",
           "high_temp_wash": "高温",
-          "wash_dry": "洗浄・乾燥"
+          "wash_dry": "洗浄・乾燥",
+          "anion1": "イオン消臭"
         }
       },
       "load": {
@@ -1311,6 +1251,7 @@
           "auto_wash": "自動",
           "strong_wash": "強力",
           "standard_wash": "標準",
+          "universal_wash": "万能",
           "eco_wash": "ECO",
           "glass_wash": "ガラス",
           "hour_wash": "1 時間",
@@ -1321,6 +1262,7 @@
           "fruit_wash": "フルーツ",
           "self_define": "カスタム",
           "germ": "除菌",
+          "whisper_wash": "静音",
           "bowl_wash": "お椀",
           "kill_germ": "衛生",
           "sea_food_wash": "シーフード",
@@ -1333,7 +1275,8 @@
           "single_dry": "乾燥のみ",
           "single_disinfect": "除菌のみ",
           "high_temp_wash": "高温",
-          "wash_dry": "洗浄・乾燥"
+          "wash_dry": "洗浄・乾燥",
+          "anion1": "イオン消臭"
         }
       },
       "water_level_set": {
@@ -1675,6 +1618,7 @@
           "auto_wash": "自動",
           "strong_wash": "強力",
           "standard_wash": "標準",
+          "universal_wash": "万能",
           "eco_wash": "ECO",
           "glass_wash": "ガラス",
           "hour_wash": "1 時間",
@@ -1685,6 +1629,7 @@
           "fruit_wash": "フルーツ",
           "self_define": "カスタム",
           "germ": "除菌",
+          "whisper_wash": "静音",
           "bowl_wash": "お椀",
           "kill_germ": "衛生",
           "sea_food_wash": "シーフード",
@@ -1697,39 +1642,8 @@
           "single_dry": "乾燥のみ",
           "single_disinfect": "除菌のみ",
           "high_temp_wash": "高温",
-          "wash_dry": "洗浄・乾燥"
-        }
-      },
-      "dishwasher_mode_76000228": {
-        "name": "モード",
-        "state": {
-          "neutral_gear": "なし",
-          "auto_wash": "自動",
-          "strong_wash": "強力",
-          "standard_wash": "標準",
-          "eco_wash": "ECO",
-          "glass_wash": "ガラス",
-          "hour_wash": "90 分",
-          "fast_wash": "高速",
-          "soak_wash": "つけおき",
-          "90min": "90 分",
-          "self_clean": "セルフクリーニング",
-          "fruit_wash": "フルーツ",
-          "self_define": "カスタム",
-          "germ": "ささやき",
-          "bowl_wash": "お椀",
-          "kill_germ": "衛生",
-          "sea_food_wash": "セルフクリーニング",
-          "hot_pot_wash": "鍋",
-          "quiet_night_wash": "おやすみ",
-          "less_wash": "ライト",
-          "max_rapid_wash": "最速",
-          "oil_net_wash": "オイルフィルター",
-          "cloud_wash": "クラウドプログラム",
-          "single_dry": "乾燥のみ",
-          "single_disinfect": "除菌のみ",
-          "high_temp_wash": "高温",
-          "wash_dry": "洗浄・乾燥"
+          "wash_dry": "洗浄・乾燥",
+          "anion1": "イオン消臭"
         }
       },
       "dishwasher_status": {

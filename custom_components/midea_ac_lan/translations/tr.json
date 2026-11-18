@@ -1110,75 +1110,13 @@
           "preset_5": "Ön Ayar 5"
         }
       },
-      "wash_mode_76000228": {
-        "name": "Yıkama Modu",
-        "state": {
-          "neutral_gear": "Yok",
-          "auto_wash": "Otomatik",
-          "strong_wash": "Yoğun",
-          "standard_wash": "Üniversal",
-          "eco_wash": "ECO",
-          "glass_wash": "Cam",
-          "hour_wash": "90 dk",
-          "fast_wash": "Hızlı",
-          "soak_wash": "Islatma",
-          "90min": "90 dk",
-          "self_clean": "Kendi kendine temizleme",
-          "fruit_wash": "Meyve",
-          "self_define": "Özel",
-          "germ": "Fısıltı",
-          "bowl_wash": "Kase",
-          "kill_germ": "Hijyen",
-          "sea_food_wash": "Kendi kendine temizleme",
-          "hot_pot_wash": "Güveç",
-          "quiet_night_wash": "Sessiz gece",
-          "less_wash": "Hafif",
-          "max_rapid_wash": "En hızlı",
-          "oil_net_wash": "Yağ filtresi",
-          "cloud_wash": "Bulut programı",
-          "single_dry": "Yalnızca kurutma",
-          "single_disinfect": "Yalnızca dezenfeksiyon",
-          "high_temp_wash": "Yüksek sıcaklık",
-          "wash_dry": "Yıka ve kurut"
-        }
-      },
-      "program_76000228": {
-        "name": "Program",
-        "state": {
-          "auto_wash": "Otomatik",
-          "strong_wash": "Yoğun",
-          "standard_wash": "Üniversal",
-          "eco_wash": "ECO",
-          "glass_wash": "Cam",
-          "hour_wash": "90 dk",
-          "fast_wash": "Hızlı",
-          "soak_wash": "Islatma",
-          "90min": "90 dk",
-          "self_clean": "Kendi kendine temizleme",
-          "fruit_wash": "Meyve",
-          "self_define": "Özel",
-          "germ": "Fısıltı",
-          "bowl_wash": "Kase",
-          "kill_germ": "Hijyen",
-          "sea_food_wash": "Kendi kendine temizleme",
-          "hot_pot_wash": "Güveç",
-          "quiet_night_wash": "Sessiz gece",
-          "less_wash": "Hafif",
-          "max_rapid_wash": "En hızlı",
-          "oil_net_wash": "Yağ filtresi",
-          "cloud_wash": "Bulut programı",
-          "single_dry": "Yalnızca kurutma",
-          "single_disinfect": "Yalnızca dezenfeksiyon",
-          "high_temp_wash": "Yüksek sıcaklık",
-          "wash_dry": "Yıka ve kurut"
-        }
-      },
       "program": {
         "name": "Program",
         "state": {
           "auto_wash": "Otomatik",
           "strong_wash": "Yoğun",
           "standard_wash": "Standart",
+          "universal_wash": "Genel",
           "eco_wash": "ECO",
           "glass_wash": "Cam",
           "hour_wash": "1 saat",
@@ -1189,6 +1127,7 @@
           "fruit_wash": "Meyve",
           "self_define": "Özel",
           "germ": "Mikrop",
+          "whisper_wash": "Sessiz",
           "bowl_wash": "Kase",
           "kill_germ": "Hijyen",
           "sea_food_wash": "Deniz ürünleri",
@@ -1201,7 +1140,8 @@
           "single_dry": "Yalnızca kurutma",
           "single_disinfect": "Yalnızca dezenfeksiyon",
           "high_temp_wash": "Yüksek sıcaklık",
-          "wash_dry": "Yıka ve kurut"
+          "wash_dry": "Yıka ve kurut",
+          "anion1": "İyonik tazelik"
         }
       },
       "load": {
@@ -1311,6 +1251,7 @@
           "auto_wash": "Otomatik",
           "strong_wash": "Yoğun",
           "standard_wash": "Standart",
+          "universal_wash": "Genel",
           "eco_wash": "ECO",
           "glass_wash": "Cam",
           "hour_wash": "1 saat",
@@ -1321,6 +1262,7 @@
           "fruit_wash": "Meyve",
           "self_define": "Özel",
           "germ": "Mikrop",
+          "whisper_wash": "Sessiz",
           "bowl_wash": "Kase",
           "kill_germ": "Hijyen",
           "sea_food_wash": "Deniz ürünleri",
@@ -1333,7 +1275,8 @@
           "single_dry": "Yalnızca kurutma",
           "single_disinfect": "Yalnızca dezenfeksiyon",
           "high_temp_wash": "Yüksek sıcaklık",
-          "wash_dry": "Yıka ve kurut"
+          "wash_dry": "Yıka ve kurut",
+          "anion1": "İyonik tazelik"
         }
       },
       "water_level_set": {
@@ -1675,6 +1618,7 @@
           "auto_wash": "Otomatik",
           "strong_wash": "Yoğun",
           "standard_wash": "Standart",
+          "universal_wash": "Genel",
           "eco_wash": "ECO",
           "glass_wash": "Cam",
           "hour_wash": "1 saat",
@@ -1685,6 +1629,7 @@
           "fruit_wash": "Meyve",
           "self_define": "Özel",
           "germ": "Mikrop",
+          "whisper_wash": "Sessiz",
           "bowl_wash": "Kase",
           "kill_germ": "Hijyen",
           "sea_food_wash": "Deniz ürünleri",
@@ -1697,39 +1642,8 @@
           "single_dry": "Yalnızca kurutma",
           "single_disinfect": "Yalnızca dezenfeksiyon",
           "high_temp_wash": "Yüksek sıcaklık",
-          "wash_dry": "Yıka ve kurut"
-        }
-      },
-      "dishwasher_mode_76000228": {
-        "name": "Mod",
-        "state": {
-          "neutral_gear": "Yok",
-          "auto_wash": "Otomatik",
-          "strong_wash": "Yoğun",
-          "standard_wash": "Üniversal",
-          "eco_wash": "ECO",
-          "glass_wash": "Cam",
-          "hour_wash": "90 dk",
-          "fast_wash": "Hızlı",
-          "soak_wash": "Islatma",
-          "90min": "90 dk",
-          "self_clean": "Kendi kendine temizleme",
-          "fruit_wash": "Meyve",
-          "self_define": "Özel",
-          "germ": "Fısıltı",
-          "bowl_wash": "Kase",
-          "kill_germ": "Hijyen",
-          "sea_food_wash": "Kendi kendine temizleme",
-          "hot_pot_wash": "Güveç",
-          "quiet_night_wash": "Sessiz gece",
-          "less_wash": "Hafif",
-          "max_rapid_wash": "En hızlı",
-          "oil_net_wash": "Yağ filtresi",
-          "cloud_wash": "Bulut programı",
-          "single_dry": "Yalnızca kurutma",
-          "single_disinfect": "Yalnızca dezenfeksiyon",
-          "high_temp_wash": "Yüksek sıcaklık",
-          "wash_dry": "Yıka ve kurut"
+          "wash_dry": "Yıka ve kurut",
+          "anion1": "İyonik tazelik"
         }
       },
       "dishwasher_status": {
