@@ -1,0 +1,4402 @@
+{
+  "config": {
+    "error": {
+      "preset_account": "Не вдалося увійти з попередньо заданим обліковим записом, повідомте про цю проблему",
+      "login_failed": "Не вдалося увійти, неправильний обліковий запис або пароль",
+      "no_devices": "У мережі не знайдено нових доступних приладів",
+      "device_exist": "Прилад уже налаштовано",
+      "config_incorrect": "Неправильна конфігурація",
+      "connect_error": "Не вдається підключитися до приладу",
+      "invalid_token": "Неправильний формат Token або Key"
+    },
+    "step": {
+      "user": {
+        "data": {
+          "way": "Додавання приладів"
+        },
+        "description": "Виберіть спосіб додавання приладу",
+        "title": "Додати новий прилад"
+      },
+      "login": {
+        "data": {
+          "account": "Обліковий запис",
+          "password": "Пароль"
+        },
+        "description": "Увійдіть і отримайте Token приладу.\n\n\nНаразі отримати Token приладу можуть лише особисті облікові записи SmartHome та Meiju. Докладніше див. у документі README.",
+        "title": "Увійти"
+      },
+      "discovery": {
+        "description": "IP-адреса пристрою, введіть \"auto\" для автоматичного виявлення\nМожна також вказати IP-адресу для пошуку в межах певної мережі, наприклад \"192.168.1.255\"",
+        "title": "Пошук",
+        "data": {
+          "ip_address": "IP-адреса"
+        }
+      },
+      "list": {
+        "description": "{table}",
+        "title": "Прилади"
+      },
+      "auto": {
+        "data": {
+          "device": "Прилади"
+        },
+        "description": "Виберіть прилад для додавання",
+        "title": "Знайдено новий прилад"
+      },
+      "manually": {
+        "data": {
+          "name": "Назва (напр. Кондиціонер у вітальні)",
+          "device_id": "Код приладу",
+          "type": "Тип",
+          "ip_address": "IP-адреса",
+          "port": "Порт",
+          "model": "Модель",
+          "subtype": "Підтип",
+          "protocol": "Протокол",
+          "token": "Token",
+          "key": "Key"
+        },
+        "description": "Конфігурація приладу",
+        "title": "Новий прилад"
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "door_auto_open": {
+        "name": "Автовідкривання дверцят останньої програми"
+      },
+      "uv": {
+        "name": "UV"
+      },
+      "dry": {
+        "name": "Сушіння"
+      },
+      "dry_status": {
+        "name": "Сушіння"
+      },
+      "storage_status": {
+        "name": "Зберігання активне"
+      },
+      "waterswitch": {
+        "name": "Перемикач води"
+      },
+      "water_lack": {
+        "name": "Нестача води"
+      },
+      "wifi_unabled": {
+        "name": "Wi-Fi вимкнено"
+      },
+      "auto_throw": {
+        "name": "Автоматичне дозування"
+      },
+      "lock_power": {
+        "name": "Блокування живлення"
+      },
+      "beep_control": {
+        "name": "Звуковий сигнал"
+      },
+      "light_btn_on": {
+        "name": "Підсвічування кнопок"
+      },
+      "light_strip_on": {
+        "name": "Світлова смуга"
+      },
+      "warm_power": {
+        "name": "Потужність нагрівання"
+      },
+      "cold_power": {
+        "name": "Потужність охолодження"
+      },
+      "sleep_power": {
+        "name": "Потужність у режимі сну"
+      },
+      "pump_on": {
+        "name": "Насос увімкнено"
+      },
+      "bar_door": {
+        "name": "Дверцята бару"
+      },
+      "bar_door_overtime": {
+        "name": "Перевищено час дверцят бару"
+      },
+      "bathing_working": {
+        "name": "Стан роботи купання"
+      },
+      "bottom_compartment_cooling": {
+        "name": "Охолодження нижнього відділення"
+      },
+      "bottom_compartment_door": {
+        "name": "Дверцята нижнього відділення"
+      },
+      "bottom_compartment_preheating": {
+        "name": "Попереднє нагрівання нижнього відділення"
+      },
+      "burning_state": {
+        "name": "Стан горіння"
+      },
+      "clean_scale": {
+        "name": "Видалення накипу"
+      },
+      "clean_sink_ponding": {
+        "name": "Застій води в мийці"
+      },
+      "cleaning_reminder": {
+        "name": "Нагадування про чищення"
+      },
+      "compressor_status": {
+        "name": "Стан компресора"
+      },
+      "cooking": {
+        "name": "Приготування"
+      },
+      "dissipate_heat": {
+        "name": "Розсіювання тепла"
+      },
+      "door": {
+        "name": "Дверцята"
+      },
+      "error_code": {
+        "name": "Код помилки"
+      },
+      "filter_change_reminder": {
+        "name": "Нагадування про заміну фільтра"
+      },
+      "filter_cleaning_reminder": {
+        "name": "Нагадування про чищення фільтра"
+      },
+      "finished": {
+        "name": "Завершено"
+      },
+      "flex_zone_door": {
+        "name": "Дверцята Flex"
+      },
+      "flex_zone_door_overtime": {
+        "name": "Дверцята зони Flex"
+      },
+      "flip_side": {
+        "name": "Перевертання"
+      },
+      "freezer_door": {
+        "name": "Дверцята морозильної камери"
+      },
+      "freezer_door_overtime": {
+        "name": "Перевищено час дверцят морозильної камери"
+      },
+      "full_dust": {
+        "name": "Повно пилу"
+      },
+      "heating": {
+        "name": "Нагрівання"
+      },
+      "dispensing": {
+        "name": "Подача води"
+      },
+      "lack_water": {
+        "name": "Брак води"
+      },
+      "standby": {
+        "name": "Очікування"
+      },
+      "hot_water_dispensing": {
+        "name": "Подача гарячої води"
+      },
+      "fault": {
+        "name": "Несправність"
+      },
+      "heating_working": {
+        "name": "Стан роботи нагрівання"
+      },
+      "high_temperature": {
+        "name": "Висока температура"
+      },
+      "high_temperature_lock": {
+        "name": "Блокування за високої температури"
+      },
+      "high_temperature_work": {
+        "name": "Робота за високої температури"
+      },
+      "keep_warm": {
+        "name": "Підтримання тепла"
+      },
+      "leak_water": {
+        "name": "Протікання води"
+      },
+      "lid_status": {
+        "name": "Стан кришки"
+      },
+      "middle_compartment_cooling": {
+        "name": "Охолодження середнього відділення"
+      },
+      "middle_compartment_door": {
+        "name": "Дверцята середнього відділення"
+      },
+      "middle_compartment_preheating": {
+        "name": "Попереднє нагрівання середнього відділення"
+      },
+      "pre_heat": {
+        "name": "Попереднє нагрівання"
+      },
+      "probe": {
+        "name": "Щуп"
+      },
+      "probe_mode": {
+        "name": "Режим щупа"
+      },
+      "reaction": {
+        "name": "Реакція"
+      },
+      "top_elec_heat": {
+        "name": "Верхній електронагрів"
+      },
+      "bottom_elec_heat": {
+        "name": "Нижній електронагрів"
+      },
+      "mute_effect": {
+        "name": "Ефект беззвучного режиму"
+      },
+      "mute_status": {
+        "name": "Стан беззвучного режиму"
+      },
+      "multi_terminal": {
+        "name": "Кілька терміналів"
+      },
+      "oilcup_full": {
+        "name": "Чаша для олії заповнена"
+      },
+      "protection": {
+        "name": "Захист"
+      },
+      "refrigerator_door": {
+        "name": "Дверцята холодильника"
+      },
+      "refrigerator_door_overtime": {
+        "name": "Перевищено час дверцят холодильника"
+      },
+      "rinse_aid": {
+        "name": "Нестача ополіскувача"
+      },
+      "rsj_stand_by": {
+        "name": "Очікування"
+      },
+      "salt": {
+        "name": "Нестача солі"
+      },
+      "seat_status": {
+        "name": "Стан сидіння"
+      },
+      "smart_grid": {
+        "name": "Розумна мережа"
+      },
+      "eco": {
+        "name": "ECO"
+      },
+      "maintenance_reminder": {
+        "name": "Нагадування про обслуговування"
+      },
+      "dr_enable": {
+        "name": "Реагування на попит"
+      },
+      "electric_rod_exception": {
+        "name": "Несправність електронагрівача"
+      },
+      "ac_heater_priority": {
+        "name": "Пріоритет теплового насоса"
+      },
+      "high_temp_reminder": {
+        "name": "Нагадування про високу температуру"
+      },
+      "new_version_water_heater": {
+        "name": "Розширений протокол водонагрівача"
+      },
+      "heat_recovery_status": {
+        "name": "Рекуперація тепла"
+      },
+      "holiday_mode": {
+        "name": "Режим відпустки"
+      },
+      "hybrid_motion_mode": {
+        "name": "Гібридний режим руху"
+      },
+      "support_boost_mode": {
+        "name": "Підтримка режиму Boost"
+      },
+      "support_silent_mode": {
+        "name": "Підтримка беззвучного режиму"
+      },
+      "support_remaining_hot_water": {
+        "name": "Підтримка залишку гарячої води"
+      },
+      "support_electric_mode": {
+        "name": "Підтримка електричного режиму"
+      },
+      "support_auto_disinfect": {
+        "name": "Підтримка автоматичної дезінфекції"
+      },
+      "support_force_e_heating": {
+        "name": "Підтримка примусового електронагрівання"
+      },
+      "support_tou": {
+        "name": "Підтримка тарифів за часом використання"
+      },
+      "support_ac_heater_priority": {
+        "name": "Підтримка пріоритету теплового насоса"
+      },
+      "support_heat_recovery": {
+        "name": "Підтримка рекуперації тепла"
+      },
+      "support_heat_pump_mode": {
+        "name": "Підтримка режиму теплового насоса"
+      },
+      "support_smart_mode": {
+        "name": "Підтримка розумного режиму"
+      },
+      "support_negative_temperature": {
+        "name": "Підтримка від'ємної температури"
+      },
+      "maintain_warn": {
+        "name": "Попередження про обслуговування"
+      },
+      "order1_effect": {
+        "name": "Розклад 1 активний"
+      },
+      "order2_effect": {
+        "name": "Розклад 2 активний"
+      },
+      "status_dhw": {
+        "name": "Стан DHW"
+      },
+      "status_heating": {
+        "name": "Стан нагрівання"
+      },
+      "status_ibh": {
+        "name": "Стан IBH"
+      },
+      "status_tbh": {
+        "name": "Стан TBH"
+      },
+      "tank_ejected": {
+        "name": "Бак витягнуто"
+      },
+      "tank_full": {
+        "name": "Стан бака"
+      },
+      "top_compartment_cooling": {
+        "name": "Охолодження верхнього відділення"
+      },
+      "top_compartment_door": {
+        "name": "Дверцята верхнього відділення"
+      },
+      "top_compartment_preheating": {
+        "name": "Попереднє нагрівання верхнього відділення"
+      },
+      "water_change_reminder": {
+        "name": "Нагадування про заміну води"
+      },
+      "water_shortage": {
+        "name": "Нестача води"
+      },
+      "with_pressure": {
+        "name": "Під тиском"
+      },
+      "zone1_room_temp_mode": {
+        "name": "Режим кімнатної температури Зони 1"
+      },
+      "zone1_water_temp_mode": {
+        "name": "Режим температури води Зони 1"
+      },
+      "zone2_room_temp_mode": {
+        "name": "Режим кімнатної температури Зони 2"
+      },
+      "zone2_water_temp_mode": {
+        "name": "Режим температури води Зони 2"
+      },
+      "microcrystal_fresh": {
+        "name": "Мікрокристалічна свіжість"
+      },
+      "electronic_smell": {
+        "name": "Дезодорація та стерилізація"
+      },
+      "water_pump_running": {
+        "name": "Робота водяного насоса"
+      },
+      "filter_status": {
+        "name": "Тривога фільтра"
+      },
+      "standby_status": {
+        "name": "Стан очікування"
+      },
+      "out_water": {
+        "name": "Вихід води"
+      },
+      "out_hot_water": {
+        "name": "Вихід гарячої води"
+      },
+      "backflow": {
+        "name": "Зворотний потік"
+      },
+      "sleep_status": {
+        "name": "Стан сну"
+      },
+      "status_cool": {
+        "name": "Стан — Охолодження"
+      },
+      "eco_function_state": {
+        "name": "Режим — Функція ECO"
+      },
+      "eco_timer_state": {
+        "name": "Режим — Таймер ECO"
+      },
+      "double_zone": {
+        "name": "Можливість — Дві зони"
+      },
+      "room_thermal_support": {
+        "name": "Можливість — Кімнатний термостат"
+      },
+      "room_thermal_state": {
+        "name": "Стан — Кімнатний термостат"
+      },
+      "time_set": {
+        "name": "Можливість — Встановлення часу"
+      },
+      "disinfect_run": {
+        "name": "DHW — Дезінфекція активна"
+      },
+      "remote_onoff": {
+        "name": "Можливість — Дистанційне ввімкнення/вимкнення"
+      },
+      "tbh_control": {
+        "name": "Можливість — Керування TBH"
+      },
+      "heat_capability": {
+        "name": "Можливість — Нагрівання"
+      },
+      "cool_capability": {
+        "name": "Можливість — Охолодження"
+      },
+      "dhw_capability": {
+        "name": "Можливість — DHW"
+      },
+      "sys_energy_ana_en": {
+        "name": "Можливість — Аналіз енергії (система)"
+      },
+      "hmi_energy_ana_set_en": {
+        "name": "Можливість — Аналіз енергії (HMI)"
+      },
+      "pump_i_running": {
+        "name": "Pump_I — Внутрішній"
+      },
+      "pump_o_running": {
+        "name": "Pump_O — Зовнішній"
+      },
+      "pump_d_running": {
+        "name": "Pump_D — DHW"
+      },
+      "pump_c_running": {
+        "name": "Pump_C — Контур змішаної води Зони 2"
+      },
+      "pump_s_running": {
+        "name": "Pump_S — Сонячний"
+      },
+      "sv1_open": {
+        "name": "SV1 — Клапан (DHW)"
+      },
+      "sv2_open": {
+        "name": "SV2 — Клапан (нагрівання)"
+      },
+      "load_output_tbh": {
+        "name": "Нагрівач — Резервний бака (TBH)"
+      },
+      "compressor_on": {
+        "name": "Компресор — Працює"
+      },
+      "ibh1_on": {
+        "name": "Нагрівач — IBH1"
+      },
+      "ibh2_on": {
+        "name": "Нагрівач — IBH2"
+      },
+      "sv3_open": {
+        "name": "SV3 — Клапан"
+      },
+      "crankcase_heater_on": {
+        "name": "Нагрівач — Картера"
+      },
+      "alarm_on": {
+        "name": "Помилка — Тривога"
+      },
+      "aux_heat_on": {
+        "name": "Нагрівач — Допоміжне джерело"
+      },
+      "ac_air_direction": {
+        "name": "Напрямок повітря кондиціонера"
+      },
+      "ac_cooling_fan": {
+        "name": "Вентилятор охолодження кондиціонера"
+      },
+      "ac_draining_pump": {
+        "name": "Дренажний насос кондиціонера"
+      },
+      "ac_low_temperature": {
+        "name": "Низька температура кондиціонера"
+      },
+      "ac_over_temperature": {
+        "name": "Перевищення температури кондиціонера"
+      },
+      "ac_swing": {
+        "name": "Хитання кондиціонера"
+      },
+      "ac_water_full": {
+        "name": "Кондиціонер — Повний бак води"
+      },
+      "b2_downstair_clean_tips": {
+        "name": "Поради щодо чищення нижньої парової печі"
+      },
+      "b2_downstair_door": {
+        "name": "Дверцята нижньої парової печі"
+      },
+      "b2_downstair_fresh_water": {
+        "name": "Свіжа вода нижньої парової печі"
+      },
+      "b2_downstair_light": {
+        "name": "Підсвічування нижньої парової печі"
+      },
+      "b2_downstair_lock": {
+        "name": "Блокування нижньої парової печі"
+      },
+      "b2_downstair_must_clean_tips": {
+        "name": "Обов'язкові поради щодо чищення нижньої парової печі"
+      },
+      "b2_downstair_water_shortage": {
+        "name": "Нестача води в нижній паровій печі"
+      },
+      "b2_upstair_clean_tips": {
+        "name": "Поради щодо чищення верхньої парової печі"
+      },
+      "b2_upstair_door": {
+        "name": "Дверцята верхньої парової печі"
+      },
+      "b2_upstair_fresh_water": {
+        "name": "Свіжа вода верхньої парової печі"
+      },
+      "b2_upstair_light": {
+        "name": "Підсвічування верхньої парової печі"
+      },
+      "b2_upstair_lock": {
+        "name": "Блокування верхньої парової печі"
+      },
+      "b2_upstair_must_clean_tips": {
+        "name": "Обов'язкові поради щодо чищення верхньої парової печі"
+      },
+      "b2_upstair_water_shortage": {
+        "name": "Нестача води у верхній паровій печі"
+      },
+      "b3_downstair_door": {
+        "name": "Дверцята нижньої парової шафи"
+      },
+      "b3_downstair_door_lock": {
+        "name": "Блокування дверцят нижньої парової шафи"
+      },
+      "b3_downstair_infrared": {
+        "name": "Інфрачервоне нижньої парової шафи"
+      },
+      "b3_downstair_ultraviolet": {
+        "name": "Ультрафіолет нижньої парової шафи"
+      },
+      "b3_upstair_door": {
+        "name": "Дверцята верхньої парової шафи"
+      },
+      "b3_upstair_door_lock": {
+        "name": "Блокування дверцят верхньої парової шафи"
+      },
+      "b3_upstair_infrared": {
+        "name": "Інфрачервоне верхньої парової шафи"
+      },
+      "b3_upstair_ultraviolet": {
+        "name": "Ультрафіолет верхньої парової шафи"
+      },
+      "b6_tvoc_status": {
+        "name": "Стан TVOC витяжки"
+      },
+      "b6_delay_gear_linkage": {
+        "name": "Зв'язок затримки передач витяжки"
+      },
+      "b6_delay_time": {
+        "name": "Час затримки витяжки"
+      },
+      "b6_gesture_status": {
+        "name": "Стан жестів витяжки"
+      },
+      "b6_infrared_status": {
+        "name": "Інфрачервоний стан витяжки"
+      },
+      "b6_lock": {
+        "name": "Блокування витяжки"
+      },
+      "b6_power_on_light": {
+        "name": "Підсвічування при ввімкненні витяжки"
+      },
+      "b6_smoke_detector": {
+        "name": "Детектор диму витяжки"
+      },
+      "b6_smoke_stove_linkage": {
+        "name": "Зв'язок витяжки з плитою за димом"
+      },
+      "b7_left_dry_burning": {
+        "name": "Суха робота лівого пальника газової плити"
+      },
+      "b7_left_dry_burning_invalid": {
+        "name": "Хибна суха робота лівого пальника газової плити"
+      },
+      "b7_left_gas_leakage": {
+        "name": "Витік газу лівого пальника газової плити"
+      },
+      "b7_left_has_fire": {
+        "name": "Наявність полум'я лівого пальника газової плити"
+      },
+      "b7_left_has_pot": {
+        "name": "Наявність посуду на лівому пальнику газової плити"
+      },
+      "b7_right_dry_burning": {
+        "name": "Суха робота правого пальника газової плити"
+      },
+      "b7_right_dry_burning_invalid": {
+        "name": "Хибна суха робота правого пальника газової плити"
+      },
+      "b7_right_gas_leakage": {
+        "name": "Витік газу правого пальника газової плити"
+      },
+      "b7_right_has_fire": {
+        "name": "Наявність полум'я правого пальника газової плити"
+      },
+      "b7_right_has_pot": {
+        "name": "Наявність посуду на правому пальнику газової плити"
+      },
+      "bf_door": {
+        "name": "Дверцята печі"
+      },
+      "bf_error": {
+        "name": "Помилка печі"
+      },
+      "bf_flip": {
+        "name": "Перевертання печі"
+      },
+      "bf_hightemp_error": {
+        "name": "Помилка високої температури печі"
+      },
+      "bf_hightemp_lock": {
+        "name": "Блокування за високої температури печі"
+      },
+      "bf_hightemp_over": {
+        "name": "Перевищення високої температури печі"
+      },
+      "bf_hotwind": {
+        "name": "Гаряче повітря печі"
+      },
+      "bf_hotwind_set": {
+        "name": "Налаштування гарячого повітря печі"
+      },
+      "bf_hydrops_full": {
+        "name": "Піддон печі заповнений"
+      },
+      "bf_light": {
+        "name": "Підсвічування печі"
+      },
+      "bf_lock": {
+        "name": "Блокування печі"
+      },
+      "bf_off_fromapp": {
+        "name": "Вимкнення печі з застосунку"
+      },
+      "bf_on_smart": {
+        "name": "Розумне ввімкнення печі"
+      },
+      "bf_order": {
+        "name": "Таймер печі"
+      },
+      "bf_order_time_isabsolute": {
+        "name": "Абсолютний час таймера печі"
+      },
+      "bf_overheat": {
+        "name": "Перегрівання печі"
+      },
+      "bf_preheat": {
+        "name": "Попереднє нагрівання печі"
+      },
+      "bf_preheat_done": {
+        "name": "Попереднє нагрівання печі завершено"
+      },
+      "bf_preheat_set": {
+        "name": "Налаштування попереднього нагрівання печі"
+      },
+      "bf_probe": {
+        "name": "Щуп печі"
+      },
+      "bf_probe_meat": {
+        "name": "Щуп для м'яса печі"
+      },
+      "bf_radiating": {
+        "name": "Випромінювання печі"
+      },
+      "bf_repair_cook": {
+        "name": "Ремонтне приготування печі"
+      },
+      "bf_sabbath": {
+        "name": "Режим шабат печі"
+      },
+      "bf_scalehandling_remind": {
+        "name": "Нагадування про видалення накипу печі"
+      },
+      "bf_sensor": {
+        "name": "Датчик печі"
+      },
+      "bf_stove_1": {
+        "name": "Конфорка печі 1"
+      },
+      "bf_stove_2": {
+        "name": "Конфорка печі 2"
+      },
+      "bf_stove_3": {
+        "name": "Конфорка печі 3"
+      },
+      "bf_stove_4": {
+        "name": "Конфорка печі 4"
+      },
+      "bf_stove_5": {
+        "name": "Конфорка печі 5"
+      },
+      "bf_temp_fahrenheit": {
+        "name": "Температура печі за Фаренгейтом"
+      },
+      "bf_time_synchronization": {
+        "name": "Синхронізація часу печі"
+      },
+      "bf_turntable": {
+        "name": "Поворотний стіл печі"
+      },
+      "bf_turntable_reset": {
+        "name": "Скидання поворотного стола печі"
+      },
+      "bf_upload_interval": {
+        "name": "Інтервал вивантаження печі"
+      },
+      "bf_voice_identify": {
+        "name": "Голосова ідентифікація печі"
+      },
+      "bf_voice_module": {
+        "name": "Голосовий модуль печі"
+      },
+      "bf_water_box": {
+        "name": "Резервуар для води печі"
+      },
+      "bf_water_change": {
+        "name": "Заміна води печі"
+      },
+      "bf_water_shortage": {
+        "name": "Нестача води печі"
+      },
+      "bf_wintersummertime": {
+        "name": "Зимовий/літній час печі"
+      },
+      "e7_left_bottom_has_pot": {
+        "name": "Наявність посуду на лівій нижній індукційній зоні"
+      },
+      "e7_left_has_pot": {
+        "name": "Наявність посуду на лівій індукційній зоні"
+      },
+      "e7_left_top_has_pot": {
+        "name": "Наявність посуду на лівій верхній індукційній зоні"
+      },
+      "e7_right_bottom_has_pot": {
+        "name": "Наявність посуду на правій нижній індукційній зоні"
+      },
+      "e7_right_has_pot": {
+        "name": "Наявність посуду на правій індукційній зоні"
+      },
+      "e7_right_top_has_pot": {
+        "name": "Наявність посуду на правій верхній індукційній зоні"
+      },
+      "sp_fandrying_door": {
+        "name": "Дверцята вентиляційного сушіння планшета"
+      },
+      "sp_fandrying_setting_automode": {
+        "name": "Автоматичний режим налаштування вентиляційного сушіння планшета"
+      },
+      "sp_fandrying_setting_linkage": {
+        "name": "Зв'язок налаштування вентиляційного сушіння планшета"
+      },
+      "sp_fandrying_setting_linkcooker": {
+        "name": "Зв'язок із плитою налаштування вентиляційного сушіння планшета"
+      },
+      "sp_fandrying_setting_sync": {
+        "name": "Синхронізація налаштування вентиляційного сушіння планшета"
+      },
+      "sp_heatingdisk_door": {
+        "name": "Дверцята нагрівального диска планшета"
+      },
+      "sp_heatingdisk_setting_automode": {
+        "name": "Автоматичний режим налаштування нагрівального диска планшета"
+      },
+      "sp_heatingdisk_setting_linkage": {
+        "name": "Зв'язок налаштування нагрівального диска планшета"
+      },
+      "sp_heatingdisk_setting_linkcooker": {
+        "name": "Зв'язок із плитою налаштування нагрівального диска планшета"
+      },
+      "sp_heatingdisk_setting_sync": {
+        "name": "Синхронізація налаштування нагрівального диска планшета"
+      },
+      "sp_uvc_door": {
+        "name": "Дверцята UVC планшета"
+      },
+      "sp_uvc_setting_automode": {
+        "name": "Автоматичний режим налаштування UVC планшета"
+      },
+      "sp_uvc_setting_linkage": {
+        "name": "Зв'язок налаштування UVC планшета"
+      },
+      "sp_uvc_setting_linkcooker": {
+        "name": "Зв'язок із плитою налаштування UVC планшета"
+      },
+      "sp_uvc_setting_sync": {
+        "name": "Синхронізація налаштування UVC планшета"
+      },
+      "total_water_shortage": {
+        "name": "Нестача води"
+      },
+      "door_open": {
+        "name": "Дверцята відкрито"
+      },
+      "turntable": {
+        "name": "Поворотний стіл"
+      },
+      "lack_box": {
+        "name": "Відсутній контейнер"
+      },
+      "change_water": {
+        "name": "Нагадування про заміну води"
+      },
+      "ramadan": {
+        "name": "Рамадан"
+      },
+      "ota": {
+        "name": "OTA"
+      },
+      "laundry_appointment": {
+        "name": "Резервування"
+      }
+    },
+    "button": {
+      "start_delayed": {
+        "name": "Відкладений старт"
+      },
+      "pause": {
+        "name": "Пауза"
+      },
+      "resume": {
+        "name": "Відновити"
+      },
+      "cancel": {
+        "name": "Скасувати"
+      },
+      "start": {
+        "name": "Старт"
+      },
+      "laundry_cancel_appointment": {
+        "name": "Скасувати резервування"
+      }
+    },
+    "climate": {
+      "climate_zone1": {
+        "name": "Термостат Зони 1"
+      },
+      "climate_zone2": {
+        "name": "Термостат Зони 2"
+      },
+      "climate_key": {
+        "state_attributes": {
+          "fan_mode": {
+            "state": {
+              "silent": "Тихий",
+              "full": "Повний"
+            }
+          }
+        }
+      }
+    },
+    "fan": {
+      "bgf10000": {
+        "state_attributes": {
+          "preset_mode": {
+            "state": {
+              "normal": "Звичайний",
+              "forest": "Ліс",
+              "beach": "Пляж",
+              "countryside": "Сільська місцевість",
+              "baby": "Дитячий вітерець",
+              "sleep_1": "Сон 1",
+              "sleep_2": "Сон 2",
+              "strong": "Потужний"
+            }
+          }
+        }
+      },
+      "fresh_air": {
+        "name": "Свіже повітря"
+      },
+      "fresh_air_exhaust": {
+        "name": "Витяжка свіжого повітря"
+      }
+    },
+    "lock": {
+      "child_lock": {
+        "name": "Захист від дітей"
+      }
+    },
+    "number": {
+      "delay_minutes": {
+        "name": "Затримка"
+      },
+      "wash_region": {
+        "name": "Зона миття"
+      },
+      "water_level": {
+        "name": "Рівень води"
+      },
+      "water_strong_level": {
+        "name": "Рівень тиску води"
+      },
+      "heating_target_temperature": {
+        "name": "Цільова температура нагрівання"
+      },
+      "dry_level": {
+        "name": "Рівень сушіння"
+      },
+      "heating_level": {
+        "name": "Рівень нагрівання"
+      },
+      "seat_temp_level": {
+        "name": "Рівень температури сидіння"
+      },
+      "water_temp_level": {
+        "name": "Рівень температури води"
+      },
+      "fan_speed_percent": {
+        "name": "Відсоток швидкості вентилятора"
+      },
+      "vacation_days": {
+        "name": "Дні відпустки"
+      },
+      "max_temperature": {
+        "name": "Максимальна цільова температура"
+      },
+      "disinfection_temperature": {
+        "name": "Температура дезінфекції"
+      },
+      "schedule_mode": {
+        "name": "Режим розкладу"
+      },
+      "leak_water_protection_value": {
+        "name": "Значення захисту від протікання води"
+      },
+      "flushing_days": {
+        "name": "Дні регенерації"
+      },
+      "water_hardness": {
+        "name": "Жорсткість води"
+      },
+      "boil_temperature": {
+        "name": "Цільова температура кип'ятіння"
+      },
+      "keep_warm_time": {
+        "name": "Час підтримання тепла"
+      },
+      "ai_voice_volume": {
+        "name": "Гучність голосу ШІ"
+      },
+      "screen_luminance": {
+        "name": "Яскравість екрана"
+      },
+      "volume": {
+        "name": "Гучність"
+      },
+      "temperature_number": {
+        "name": "Цільова температура"
+      },
+      "temperature_above_number": {
+        "name": "Цільова температура зверху"
+      },
+      "temperature_underside_number": {
+        "name": "Цільова температура знизу"
+      },
+      "probe_temperature_number": {
+        "name": "Цільова температура щупа"
+      },
+      "steam_quantity_number": {
+        "name": "Кількість пари"
+      },
+      "hour_set": {
+        "name": "Налаштування годин"
+      },
+      "minute_set": {
+        "name": "Налаштування хвилин"
+      },
+      "second_set": {
+        "name": "Налаштування секунд"
+      },
+      "dryer_timed_extra": {
+        "name": "Продовження таймерного сушіння"
+      }
+    },
+    "select": {
+      "cur_quantify": {
+        "name": "Поточна задана кількість",
+        "state": {
+          "none": "Немає",
+          "preset_1": "Пресет 1",
+          "preset_2": "Пресет 2",
+          "preset_3": "Пресет 3",
+          "preset_4": "Пресет 4",
+          "preset_5": "Пресет 5"
+        }
+      },
+      "wash_mode_76000228": {
+        "name": "Режим миття",
+        "state": {
+          "neutral_gear": "Немає",
+          "auto_wash": "Авто",
+          "strong_wash": "Інтенсивний",
+          "standard_wash": "Універсальний",
+          "eco_wash": "ECO",
+          "glass_wash": "Скло",
+          "hour_wash": "90 хв",
+          "fast_wash": "Швидкий",
+          "soak_wash": "Замочування",
+          "90min": "90 хв",
+          "self_clean": "Самоочищення",
+          "fruit_wash": "Фрукти",
+          "self_define": "Користувацький",
+          "germ": "Шепіт",
+          "bowl_wash": "Посуд",
+          "kill_germ": "Гігієна",
+          "sea_food_wash": "Самоочищення",
+          "hot_pot_wash": "Гаряча каструля",
+          "quiet_night_wash": "Тиха ніч",
+          "less_wash": "Легкий",
+          "max_rapid_wash": "Макс. швидкий",
+          "oil_net_wash": "Масляний фільтр",
+          "cloud_wash": "Хмарна програма",
+          "single_dry": "Лише сушіння",
+          "single_disinfect": "Лише дезінфекція",
+          "high_temp_wash": "Висока температура",
+          "wash_dry": "Миття та сушіння"
+        }
+      },
+      "program_76000228": {
+        "name": "Програма",
+        "state": {
+          "auto_wash": "Авто",
+          "strong_wash": "Інтенсивний",
+          "standard_wash": "Універсальний",
+          "eco_wash": "ECO",
+          "glass_wash": "Скло",
+          "hour_wash": "90 хв",
+          "fast_wash": "Швидкий",
+          "soak_wash": "Замочування",
+          "90min": "90 хв",
+          "self_clean": "Самоочищення",
+          "fruit_wash": "Фрукти",
+          "self_define": "Користувацький",
+          "germ": "Шепіт",
+          "bowl_wash": "Посуд",
+          "kill_germ": "Гігієна",
+          "sea_food_wash": "Самоочищення",
+          "hot_pot_wash": "Гаряча каструля",
+          "quiet_night_wash": "Тиха ніч",
+          "less_wash": "Легкий",
+          "max_rapid_wash": "Макс. швидкий",
+          "oil_net_wash": "Масляний фільтр",
+          "cloud_wash": "Хмарна програма",
+          "single_dry": "Лише сушіння",
+          "single_disinfect": "Лише дезінфекція",
+          "high_temp_wash": "Висока температура",
+          "wash_dry": "Миття та сушіння"
+        }
+      },
+      "program": {
+        "name": "Програма",
+        "state": {
+          "auto_wash": "Авто",
+          "strong_wash": "Інтенсивний",
+          "standard_wash": "Стандартний",
+          "eco_wash": "ECO",
+          "glass_wash": "Скло",
+          "hour_wash": "1 година",
+          "fast_wash": "Швидкий",
+          "soak_wash": "Замочування",
+          "90min": "90 хв",
+          "self_clean": "Самоочищення",
+          "fruit_wash": "Фрукти",
+          "self_define": "Користувацький",
+          "germ": "Знищення мікробів",
+          "bowl_wash": "Посуд",
+          "kill_germ": "Гігієна",
+          "sea_food_wash": "Морепродукти",
+          "hot_pot_wash": "Гаряча каструля",
+          "quiet_night_wash": "Тиха ніч",
+          "less_wash": "Легкий",
+          "max_rapid_wash": "Макс. швидкий",
+          "oil_net_wash": "Масляний фільтр",
+          "cloud_wash": "Хмарна програма",
+          "single_dry": "Лише сушіння",
+          "single_disinfect": "Лише дезінфекція",
+          "high_temp_wash": "Висока температура",
+          "wash_dry": "Миття та сушіння"
+        }
+      },
+      "load": {
+        "name": "Завантаження",
+        "state": {
+          "0": "Повний",
+          "2": "Половина"
+        }
+      },
+      "heating_mode": {
+        "name": "Режим нагрівання",
+        "state": {
+          "user": "Користувач",
+          "activity": "Активність",
+          "sleep": "Сон",
+          "unknown": "Невідомо"
+        }
+      },
+      "detect_mode": {
+        "name": "Режим виявлення",
+        "state": {
+          "off": "Вимкнено",
+          "pm_2_5": "PM 2.5",
+          "methanal": "Метаналь"
+        }
+      },
+      "direction": {
+        "name": "Напрямок",
+        "state": {
+          "oscillate": "Коливання"
+        }
+      },
+      "fan_speed": {
+        "name": "Швидкість вентилятора",
+        "state": {
+          "auto": "Авто",
+          "standby": "Очікування",
+          "low": "Низька",
+          "medium": "Середня",
+          "high": "Висока"
+        }
+      },
+      "fresh_air_exhaust_mode": {
+        "name": "Швидкість витяжки свіжого повітря",
+        "state": {
+          "off": "Вимкнено",
+          "silent": "Низька",
+          "high": "Висока",
+          "full": "Повний"
+        }
+      },
+      "fresh_air_mode": {
+        "name": "Швидкість свіжого повітря",
+        "state": {
+          "off": "Вимкнено",
+          "low": "Низька",
+          "medium": "Середня",
+          "high": "Висока",
+          "full": "Повний"
+        }
+      },
+      "mode": {
+        "name": "Режим",
+        "state": {
+          "standby": "Очікування",
+          "auto": "Авто",
+          "manual": "Ручний",
+          "sleep": "Сон",
+          "fast": "Швидкий",
+          "smoke": "Дим",
+          "off": "Вимкнено",
+          "heat_high": "Нагрівання (високе)",
+          "heat_low": "Нагрівання (низьке)",
+          "bath": "Ванна",
+          "blow": "Обдув",
+          "ventilation": "Вентиляція",
+          "dry": "Сушіння"
+        }
+      },
+      "oscillation_angle": {
+        "name": "Кут коливання"
+      },
+      "oscillation_mode": {
+        "name": "Режим коливання"
+      },
+      "rate_select": {
+        "name": "Обмеження потужності"
+      },
+      "screen_display": {
+        "name": "Відображення на екрані",
+        "state": {
+          "bright": "Яскраво",
+          "dim": "Тьмяно",
+          "off": "Вимкнено"
+        }
+      },
+      "silent_level": {
+        "name": "Рівень тиші"
+      },
+      "tilting_angle": {
+        "name": "Кут нахилу"
+      },
+      "wash_mode": {
+        "name": "Режим миття",
+        "state": {
+          "neutral_gear": "Немає",
+          "auto_wash": "Авто",
+          "strong_wash": "Інтенсивний",
+          "standard_wash": "Стандартний",
+          "eco_wash": "ECO",
+          "glass_wash": "Скло",
+          "hour_wash": "1 година",
+          "fast_wash": "Швидкий",
+          "soak_wash": "Замочування",
+          "90min": "90 хв",
+          "self_clean": "Самоочищення",
+          "fruit_wash": "Фрукти",
+          "self_define": "Користувацький",
+          "germ": "Знищення мікробів",
+          "bowl_wash": "Посуд",
+          "kill_germ": "Гігієна",
+          "sea_food_wash": "Морепродукти",
+          "hot_pot_wash": "Гаряча каструля",
+          "quiet_night_wash": "Тиха ніч",
+          "less_wash": "Легкий",
+          "max_rapid_wash": "Макс. швидкий",
+          "oil_net_wash": "Масляний фільтр",
+          "cloud_wash": "Хмарна програма",
+          "single_dry": "Лише сушіння",
+          "single_disinfect": "Лише дезінфекція",
+          "high_temp_wash": "Висока температура",
+          "wash_dry": "Миття та сушіння"
+        }
+      },
+      "water_level_set": {
+        "name": "Налаштування рівня води"
+      },
+      "wind_lr_angle": {
+        "name": "Горизонтальний повітряний потік",
+        "state": {
+          "off": "Вимкнено",
+          "left": "Ліворуч",
+          "left_mid": "Ліворуч-центр",
+          "middle": "Центр",
+          "right_mid": "Праворуч-центр",
+          "right": "Праворуч"
+        }
+      },
+      "wind_ud_angle": {
+        "name": "Вертикальний повітряний потік",
+        "state": {
+          "off": "Вимкнено",
+          "up": "Угору",
+          "up_mid": "Угору-центр",
+          "middle": "Центр",
+          "down_mid": "Униз-центр",
+          "down": "Униз"
+        }
+      },
+      "work_status_select": {
+        "name": "Стан роботи",
+        "state": {
+          "save_power": "Економія енергії",
+          "standby": "Очікування",
+          "work": "Працює",
+          "pause": "Призупинено",
+          "work_finish": "Завершено",
+          "order": "Затримка",
+          "pause_c": "Призупинено C",
+          "three": "Три",
+          "self_inspection": "Самоперевірка",
+          "query_version": "Запит версії",
+          "demo": "Демо",
+          "ramadan": "Рамадан",
+          "after_checking": "Після перевірки",
+          "wait_to_start": "Очікування старту",
+          "ff": "Невідомо"
+        }
+      },
+      "x9b_fire_power_select": {
+        "name": "Потужність полум'я",
+        "state": {
+          "high_power": "Висока",
+          "medium_high_power": "Середньо-висока",
+          "medium_power": "Середня",
+          "medium_low_power": "Середньо-низька",
+          "low_power": "Низька",
+          "ff": "Невідомо"
+        }
+      },
+      "door": {
+        "name": "Дверцята",
+        "state": {
+          "open": "Відкрити",
+          "close": "Закрити"
+        }
+      },
+      "dryer_program_control": {
+        "name": "Програма сушіння",
+        "state": {
+          "mixed_wash": "Змішане",
+          "wool": "Вовна",
+          "night_dry": "Нічне сушіння",
+          "big_dry": "Об'ємні речі",
+          "small_piece_dry": "Дрібні речі",
+          "baby_clothes": "Дитячий одяг",
+          "down_jacket": "Пуховики",
+          "quick_dry": "Швидке сушіння",
+          "cotton": "Бавовна та льон",
+          "shirt": "Сорочки",
+          "jean": "Джинс",
+          "underwear": "Білизна",
+          "school_uniform": "Шкільна форма",
+          "silk": "Шовк",
+          "towel": "Банні рушники",
+          "chiffon": "Шифон",
+          "polar_fleece": "Фліс",
+          "hanfu": "Hanfu",
+          "hanfu_tang": "Hanfu™ стиль Тан",
+          "hanfu_song": "Hanfu™ стиль Сун",
+          "hanfu_ming": "Hanfu™ стиль Мін",
+          "hanfu_modern": "Hanfu™ сучасний стиль",
+          "sun_quilt": "Провітрювання ковдри",
+          "bucket_self_clean": "Очищення барабана",
+          "steam_care": "Паровий догляд",
+          "fixed_time_dry": "Таймерне сушіння",
+          "warm_clothes": "Теплий одяг",
+          "cold_air_fresh_air": "Освіження прохолодним повітрям",
+          "sterilize_mite": "Стерилізація та видалення кліщів",
+          "bracket_dry": "Сушіння на полиці",
+          "pet_sterilize": "Стерилізація для домашніх тварин",
+          "sport_clothes": "Спортивний одяг",
+          "outdoor": "Одяг для вулиці",
+          "quick_drying_clothes": "Швидковисихаючий одяг",
+          "yoga": "Одяг для йоги",
+          "air_wash": "Повітряне прання",
+          "fiber": "Синтетика",
+          "bedsheet": "Простирадла",
+          "plush": "Плюш",
+          "dehumidify": "Осушення",
+          "hot_air_dry": "Сушіння гарячим повітрям",
+          "standard": "Стандартний",
+          "fresh_air": "Свіже повітря",
+          "low_temp_dry": "Низькотемпературне сушіння",
+          "eco_dry": "Енергоощадне сушіння",
+          "quick_dry_30": "Швидке сушіння 30 хв",
+          "intelligent_dry": "Інтелектуальне сушіння",
+          "big": "Об'ємні речі",
+          "western_trouser": "Класичні штани",
+          "dehumidification": "Осушення",
+          "smart_dry": "Розумне сушіння",
+          "four_piece_suit": "Комплект постільної білизни",
+          "quick_dry_20": "Швидке сушіння 20 хв",
+          "steam_sterilize": "Парова стерилізація",
+          "enzyme": "Ензим",
+          "big_60": "Об'ємні речі 60",
+          "steam_no_iron": "Паровий догляд без прасування",
+          "bed_clothes": "Постільна білизна",
+          "little_fast_dry": "Швидке сушіння невеликого завантаження",
+          "wool_nurse": "Догляд за вовною",
+          "fresh_remove_smell": "Дезодоруюче освіження",
+          "sterilize": "Стерилізація"
+        }
+      },
+      "dryer_dryness_control": {
+        "name": "Сухість",
+        "state": {
+          "ready_to_wear": "Готове до носіння",
+          "storage": "Зберігання"
+        }
+      },
+      "dryer_temperature_control": {
+        "name": "Температура сушіння",
+        "state": {
+          "standard": "Стандартний",
+          "low": "Низька"
+        }
+      },
+      "washer_program_control": {
+        "name": "Програма прання",
+        "state": {
+          "water_mixed_wash": "Змішане прання",
+          "fast_wash": "Швидке прання 15 хв",
+          "single_dehytration": "Лише віджимання",
+          "rinsing_dehydration": "Полоскання та віджимання",
+          "fast_wash_30": "Швидке прання 30 хв",
+          "big": "Об'ємні речі",
+          "tub_clean": "Очищення барабана",
+          "deep_tub_clean": "Глибоке очищення барабана",
+          "down_jacket": "Пуховики",
+          "new_water_cotton": "Бавовна та льон",
+          "baby_clothes": "Дитячий одяг",
+          "shirt": "Сорочки",
+          "wool": "Вовна",
+          "water_underwear": "Білизна",
+          "silk": "Шовк",
+          "jacket": "Куртки для вулиці",
+          "new_clothes_wash": "Новий одяг",
+          "jean": "Джинс",
+          "water_fiber": "Синтетика",
+          "water_eco": "Економія енергії",
+          "water_intelligent": "Розумне прання",
+          "water_steep": "Прання із замочуванням",
+          "water_cold_wash": "Прання в холодній воді",
+          "sterilization_wash": "Стерилізуюче прання",
+          "water_remove_mite_wash": "Видалення кліщів",
+          "disinfection_wash": "Дезінфікуюче прання",
+          "stain_wash": "Прання від плям",
+          "sport_clothes": "Спортивний одяг",
+          "yoga": "Одяг для йоги",
+          "quick_drying_clothes": "Швидковисихаючий одяг"
+        }
+      },
+      "washer_temperature_control": {
+        "name": "Температура води",
+        "state": {
+          "cold": "Холодна",
+          "20": "20 °C",
+          "30": "30 °C",
+          "40": "40 °C",
+          "60": "60 °C",
+          "95": "95 °C"
+        }
+      },
+      "washer_spin_speed_control": {
+        "name": "Швидкість віджимання",
+        "state": {
+          "0": "Без віджимання",
+          "400": "400 об/хв",
+          "600": "600 об/хв",
+          "800": "800 об/хв",
+          "1000": "1000 об/хв",
+          "1200": "1200 об/хв",
+          "1400": "1400 об/хв"
+        }
+      },
+      "washer_rinse_count": {
+        "name": "Кількість полоскань",
+        "state": {
+          "1": "1",
+          "2": "2",
+          "3": "3",
+          "4": "4"
+        }
+      },
+      "washer_water_level_control": {
+        "name": "Рівень води",
+        "state": {
+          "auto": "Авто",
+          "l1": "L1",
+          "l2": "L2",
+          "l3": "L3",
+          "l4": "L4"
+        }
+      },
+      "washer_detergent_control": {
+        "name": "Дозування миючого засобу",
+        "state": {
+          "smart": "Розумне",
+          "off": "Вимкнено",
+          "l1": "L1",
+          "l2": "L2",
+          "l3": "L3",
+          "l4": "L4"
+        }
+      },
+      "washer_wash_time_control": {
+        "name": "Час прання (хв)"
+      },
+      "washer_spin_time_control": {
+        "name": "Час віджимання (хв)"
+      }
+    },
+    "time": {
+      "timing_regeneration": {
+        "name": "Таймерна регенерація"
+      },
+      "laundry_appointment_finish": {
+        "name": "Час завершення (встановлює резервування)"
+      }
+    },
+    "sensor": {
+      "db_running_status": {
+        "name": "Стан пральної машини"
+      },
+      "db_progress": {
+        "name": "Хід пральної машини"
+      },
+      "db_program": {
+        "name": "Програма прання"
+      },
+      "db_remain_time": {
+        "name": "Залишок часу пральної машини"
+      },
+      "db_wash_time": {
+        "name": "Час прання пральної машини"
+      },
+      "db_dehydration_time": {
+        "name": "Час зневоднення пральної машини"
+      },
+      "db_dehydration_speed": {
+        "name": "Швидкість зневоднення пральної машини"
+      },
+      "db_water_level": {
+        "name": "Рівень води пральної машини"
+      },
+      "db_temperature": {
+        "name": "Температура пральної машини"
+      },
+      "db_rinse_count": {
+        "name": "Кількість полоскань пральної машини"
+      },
+      "db_detergent": {
+        "name": "Миючий засіб пральної машини"
+      },
+      "db_softener": {
+        "name": "Пом'якшувач пральної машини"
+      },
+      "db_appointment_time": {
+        "name": "Час резервування пральної машини"
+      },
+      "db_appointment_end_time": {
+        "name": "Час завершення резервування пральної машини"
+      },
+      "db_error_code": {
+        "name": "Код помилки пральної машини"
+      },
+      "db_water_consumption": {
+        "name": "Споживання води пральною машиною"
+      },
+      "db_power_consumption": {
+        "name": "Споживання енергії пральною машиною"
+      },
+      "dc_running_status": {
+        "name": "Стан сушильної машини"
+      },
+      "dc_dry_status": {
+        "name": "Стан сушіння сушильної машини"
+      },
+      "dc_program": {
+        "name": "Програма сушіння"
+      },
+      "dc_remain_time": {
+        "name": "Залишок часу сушильної машини"
+      },
+      "dc_dry_time": {
+        "name": "Час сушіння сушильної машини"
+      },
+      "dc_intensity": {
+        "name": "Інтенсивність сушильної машини"
+      },
+      "dc_appointment_time": {
+        "name": "Час резервування сушильної машини"
+      },
+      "dc_appointment_end_time": {
+        "name": "Час завершення резервування сушильної машини"
+      },
+      "dc_error_code": {
+        "name": "Код помилки сушильної машини"
+      },
+      "dc_water_consumption": {
+        "name": "Споживання води сушильною машиною"
+      },
+      "dc_power_consumption": {
+        "name": "Споживання енергії сушильною машиною"
+      },
+      "dishwasher_mode": {
+        "name": "Режим",
+        "state": {
+          "neutral_gear": "Немає",
+          "auto_wash": "Авто",
+          "strong_wash": "Інтенсивний",
+          "standard_wash": "Стандартний",
+          "eco_wash": "ECO",
+          "glass_wash": "Скло",
+          "hour_wash": "1 година",
+          "fast_wash": "Швидкий",
+          "soak_wash": "Замочування",
+          "90min": "90 хв",
+          "self_clean": "Самоочищення",
+          "fruit_wash": "Фрукти",
+          "self_define": "Користувацький",
+          "germ": "Знищення мікробів",
+          "bowl_wash": "Посуд",
+          "kill_germ": "Гігієна",
+          "sea_food_wash": "Морепродукти",
+          "hot_pot_wash": "Гаряча каструля",
+          "quiet_night_wash": "Тиха ніч",
+          "less_wash": "Легкий",
+          "max_rapid_wash": "Макс. швидкий",
+          "oil_net_wash": "Масляний фільтр",
+          "cloud_wash": "Хмарна програма",
+          "single_dry": "Лише сушіння",
+          "single_disinfect": "Лише дезінфекція",
+          "high_temp_wash": "Висока температура",
+          "wash_dry": "Миття та сушіння"
+        }
+      },
+      "dishwasher_mode_76000228": {
+        "name": "Режим",
+        "state": {
+          "neutral_gear": "Немає",
+          "auto_wash": "Авто",
+          "strong_wash": "Інтенсивний",
+          "standard_wash": "Універсальний",
+          "eco_wash": "ECO",
+          "glass_wash": "Скло",
+          "hour_wash": "90 хв",
+          "fast_wash": "Швидкий",
+          "soak_wash": "Замочування",
+          "90min": "90 хв",
+          "self_clean": "Самоочищення",
+          "fruit_wash": "Фрукти",
+          "self_define": "Користувацький",
+          "germ": "Шепіт",
+          "bowl_wash": "Посуд",
+          "kill_germ": "Гігієна",
+          "sea_food_wash": "Самоочищення",
+          "hot_pot_wash": "Гаряча каструля",
+          "quiet_night_wash": "Тиха ніч",
+          "less_wash": "Легкий",
+          "max_rapid_wash": "Макс. швидкий",
+          "oil_net_wash": "Масляний фільтр",
+          "cloud_wash": "Хмарна програма",
+          "single_dry": "Лише сушіння",
+          "single_disinfect": "Лише дезінфекція",
+          "high_temp_wash": "Висока температура",
+          "wash_dry": "Миття та сушіння"
+        }
+      },
+      "dishwasher_status": {
+        "name": "Стан",
+        "state": {
+          "power_off": "Вимкнено",
+          "cancel": "Бездіяльність",
+          "delay": "Відкладений старт",
+          "running": "Працює",
+          "error": "Помилка"
+        }
+      },
+      "dishwasher_progress": {
+        "name": "Хід",
+        "state": {
+          "idle": "Бездіяльність",
+          "pre_wash": "Попереднє прання",
+          "wash": "Прання",
+          "rinse": "Полоскання",
+          "dry": "Сушіння",
+          "complete": "Завершено"
+        }
+      },
+      "operator": {
+        "name": "Стан роботи",
+        "state": {
+          "start": "Працює",
+          "pause": "Призупинено"
+        }
+      },
+      "wrong_operation": {
+        "name": "Неправильна операція"
+      },
+      "dry_set_min": {
+        "name": "Час сушіння заданий"
+      },
+      "clean_left_hour": {
+        "name": "Залишок до чищення"
+      },
+      "kitchenware_left_hour": {
+        "name": "Залишок посуду"
+      },
+      "device_version": {
+        "name": "Версія пристрою"
+      },
+      "throw_percent": {
+        "name": "Рівень дозування"
+      },
+      "delay_remaining": {
+        "name": "Залишок до відкладеного старту"
+      },
+      "gas_usage_daily": {
+        "name": "Добове споживання газу"
+      },
+      "gas_usage_last_month": {
+        "name": "Споживання газу минулого місяця"
+      },
+      "gas_usage_monthly": {
+        "name": "Місячне споживання газу"
+      },
+      "water_usage_daily": {
+        "name": "Добове споживання води"
+      },
+      "water_usage_last_month": {
+        "name": "Споживання води минулого місяця"
+      },
+      "water_usage_monthly": {
+        "name": "Місячне споживання води"
+      },
+      "three_way_mode": {
+        "name": "Триходовий режим"
+      },
+      "heating_unit_type": {
+        "name": "Тип нагрівального блока"
+      },
+      "return_temperature": {
+        "name": "Температура зворотної води"
+      },
+      "heating_temperature": {
+        "name": "Температура нагрівання"
+      },
+      "heating_gap_temperature": {
+        "name": "Температурний перепад нагрівання"
+      },
+      "user_mode_target_temperature": {
+        "name": "Цільова температура режиму користувача"
+      },
+      "activity_mode_target_temperature": {
+        "name": "Цільова температура режиму активності"
+      },
+      "sleep_mode_target_temperature": {
+        "name": "Цільова температура режиму сну"
+      },
+      "last_time": {
+        "name": "Останній раз"
+      },
+      "flow_volume": {
+        "name": "Швидкість потоку"
+      },
+      "bathing_leaving_temperature": {
+        "name": "Температура відхідної води купання"
+      },
+      "bf_status": {
+        "name": "Стан",
+        "state": {
+          "save_power": "Економія енергії",
+          "standby": "Очікування",
+          "work": "Працює",
+          "work_finish": "Завершено",
+          "order": "Затримка",
+          "pause": "Призупинено",
+          "pause_c": "Призупинено C",
+          "three": "Три",
+          "wait_to_start": "Очікування старту",
+          "self_inspection": "Самоперевірка",
+          "query_version": "Запит версії",
+          "demo": "Демо",
+          "after_checking": "Після перевірки",
+          "unknown": "Невідомо"
+        }
+      },
+      "bottom_compartment_remaining": {
+        "name": "Залишок нижнього відділення"
+      },
+      "bottom_compartment_status": {
+        "name": "Стан нижнього відділення"
+      },
+      "bottom_compartment_temperature": {
+        "name": "Температура нижнього відділення"
+      },
+      "bottom_temperature": {
+        "name": "Температура знизу"
+      },
+      "bright": {
+        "name": "Рівень яскравості"
+      },
+      "cloudmenuid": {
+        "name": "Ідентифікатор хмарного меню"
+      },
+      "compressor_temperature": {
+        "name": "Температура компресора"
+      },
+      "condenser_temperature": {
+        "name": "Температура конденсатора"
+      },
+      "cur_probe_temperature": {
+        "name": "Поточна температура щупа"
+      },
+      "cur_temperature_above": {
+        "name": "Поточна температура зверху"
+      },
+      "cur_temperature_underside": {
+        "name": "Поточна температура знизу"
+      },
+      "current_energy_consumption": {
+        "name": "Поточне споживання енергії"
+      },
+      "current_temperature": {
+        "name": "Поточна температура"
+      },
+      "dehydration_speed": {
+        "name": "Швидкість зневоднення"
+      },
+      "dehydration_time": {
+        "name": "Час зневоднення"
+      },
+      "dehydration_time_value": {
+        "name": "Значення часу зневоднення"
+      },
+      "execute_status": {
+        "name": "Стан виконання",
+        "state": {
+          "ok": "OK",
+          "status_nonsupport": "Стан не підтримується",
+          "function_nonsupport": "Функція не підтримується",
+          "param_range_error": "Помилка діапазону параметра"
+        }
+      },
+      "fire_power": {
+        "name": "Потужність полум'я",
+        "state": {
+          "fire_power_0": "Рівень 0",
+          "fire_power_1": "Рівень 1",
+          "fire_power_2": "Рівень 2",
+          "fire_power_3": "Рівень 3",
+          "fire_power_4": "Рівень 4",
+          "fire_power_5": "Рівень 5",
+          "fire_power_6": "Рівень 6",
+          "fire_power_7": "Рівень 7",
+          "fire_power_8": "Рівень 8",
+          "fire_power_9": "Рівень 9",
+          "fire_power_10": "Рівень 10",
+          "unknown": "Невідомо"
+        }
+      },
+      "minute_set": {
+        "name": "Налаштування хвилин"
+      },
+      "people_number": {
+        "name": "Кількість людей"
+      },
+      "probe_temperature": {
+        "name": "Температура щупа"
+      },
+      "second_set": {
+        "name": "Налаштування секунд"
+      },
+      "steam_quantity": {
+        "name": "Кількість пари"
+      },
+      "stepnum": {
+        "name": "Поточний крок"
+      },
+      "temperature": {
+        "name": "Температура"
+      },
+      "temperature_above": {
+        "name": "Температура зверху"
+      },
+      "temperature_underside": {
+        "name": "Температура знизу"
+      },
+      "totalstep": {
+        "name": "Усього кроків"
+      },
+      "wash_time_value": {
+        "name": "Значення часу прання"
+      },
+      "stains": {
+        "name": "Плями"
+      },
+      "dirty_degree": {
+        "name": "Ступінь забруднення"
+      },
+      "detergent": {
+        "name": "Миючий засіб"
+      },
+      "intensity": {
+        "name": "Інтенсивність"
+      },
+      "dryness_level": {
+        "name": "Рівень сухості"
+      },
+      "dry_temperature": {
+        "name": "Температура сушіння"
+      },
+      "door_warn": {
+        "name": "Попередження про дверцята"
+      },
+      "ai_switch": {
+        "name": "Перемикач ШІ"
+      },
+      "material": {
+        "name": "Матеріал"
+      },
+      "water_box": {
+        "name": "Резервуар для води"
+      },
+      "energy_consumption": {
+        "name": "Споживання енергії"
+      },
+      "error": {
+        "name": "Помилка",
+        "state": {
+          "no_error": "Без помилок",
+          "e1_position_not_found": "E1 Позицію не знайдено",
+          "e2_photo_sensor_no_signal": "E2 Немає сигналу фотодатчика",
+          "e3_motor_not_running": "E3 Двигун не працює",
+          "e4_wrong_position": "E4 Неправильна позиція",
+          "e1_motor_fault": "E1 Несправність двигуна",
+          "e5_communication_fault": "E5 Помилка зв'язку",
+          "e6_salt_sensor_fault": "E6 Несправність датчика солі",
+          "e7_chlorine_sterilization_fault": "E7 Несправність хлорної стерилізації"
+        }
+      },
+      "error_code": {
+        "name": "Код помилки"
+      },
+      "humidify_feedback": {
+        "name": "Зворотний зв'язок вологості"
+      },
+      "temperature_feedback": {
+        "name": "Зворотний зв'язок температури"
+      },
+      "humidify_mode": {
+        "name": "Режим зволоження"
+      },
+      "estimated_energy_consumption": {
+        "name": "Орієнтовне споживання енергії"
+      },
+      "estimated_water_consumption": {
+        "name": "Орієнтовне споживання води"
+      },
+      "fan_level": {
+        "name": "Рівень вентилятора"
+      },
+      "filter_life": {
+        "name": "Ресурс фільтра"
+      },
+      "filter1_days": {
+        "name": "Доступні дні фільтра 1"
+      },
+      "filter1_life": {
+        "name": "Рівень ресурсу фільтра 1"
+      },
+      "filter2_days": {
+        "name": "Доступні дні фільтра 2"
+      },
+      "filter2_life": {
+        "name": "Рівень ресурсу фільтра 2"
+      },
+      "filter3_days": {
+        "name": "Доступні дні фільтра 3"
+      },
+      "filter3_life": {
+        "name": "Рівень ресурсу фільтра 3"
+      },
+      "flex_zone_actual_temp": {
+        "name": "Фактична температура зони Flex"
+      },
+      "flex_zone_setting_temp": {
+        "name": "Задана температура зони Flex"
+      },
+      "freezer_actual_temp": {
+        "name": "Фактична температура морозильної камери"
+      },
+      "freezer_setting_temp": {
+        "name": "Задана температура морозильної камери"
+      },
+      "hcho": {
+        "name": "Метаналь"
+      },
+      "heating_leaving_temperature": {
+        "name": "Температура відхідної води нагрівання"
+      },
+      "heating_power": {
+        "name": "Потужність нагрівання"
+      },
+      "heating_time_remaining": {
+        "name": "Залишок часу нагрівання"
+      },
+      "in_tds": {
+        "name": "Вхідний TDS"
+      },
+      "indoor_humidity": {
+        "name": "Вологість у приміщенні"
+      },
+      "indoor_temperature": {
+        "name": "Температура в приміщенні"
+      },
+      "keep_warm_remaining": {
+        "name": "Залишок підтримання тепла"
+      },
+      "fault_code": {
+        "name": "Код несправності"
+      },
+      "keep_warm_time": {
+        "name": "Час підтримання тепла"
+      },
+      "left_salt": {
+        "name": "Залишок солі"
+      },
+      "middle_compartment_remaining": {
+        "name": "Залишок середнього відділення"
+      },
+      "middle_compartment_status": {
+        "name": "Стан середнього відділення"
+      },
+      "middle_compartment_temperature": {
+        "name": "Температура середнього відділення"
+      },
+      "mode": {
+        "name": "Режим"
+      },
+      "out_tds": {
+        "name": "Вихідний TDS"
+      },
+      "outdoor_temperature": {
+        "name": "Температура надворі"
+      },
+      "comp_run_freq": {
+        "name": "Частота компресора"
+      },
+      "outdoor_fan_speed": {
+        "name": "Швидкість зовнішнього вентилятора"
+      },
+      "unit_mode_run": {
+        "name": "Режим роботи блока",
+        "state": {
+          "off": "Вимкнено",
+          "auto": "Авто",
+          "cool": "Охолодження",
+          "heat": "Нагрівання",
+          "dhw": "DHW"
+        }
+      },
+      "odu_target_fre": {
+        "name": "Цільова частота компресора"
+      },
+      "odu_voltage": {
+        "name": "Напруга зовнішнього блока"
+      },
+      "odu_comp_current": {
+        "name": "Струм компресора"
+      },
+      "exv_current": {
+        "name": "Відкриття електронного розширювального клапана"
+      },
+      "fg_capacity_need": {
+        "name": "Потреба в потужності"
+      },
+      "pressure_high": {
+        "name": "Тиск холодоагенту (висока сторона)"
+      },
+      "pressure_low": {
+        "name": "Тиск холодоагенту (низька сторона)"
+      },
+      "temp_t1": {
+        "name": "Датчик температури T1"
+      },
+      "temp_t2": {
+        "name": "Температура пластинчастого теплообмінника (T2)"
+      },
+      "temp_t2b": {
+        "name": "Температура на виході пластинчастого теплообмінника (T2B)"
+      },
+      "temp_t3": {
+        "name": "Температура зовнішнього змійовика (T3)"
+      },
+      "temp_tp": {
+        "name": "Температура нагнітального трубопроводу (TP)"
+      },
+      "temp_th": {
+        "name": "Температура всмоктування (TH)"
+      },
+      "temp_tf": {
+        "name": "Температура силового модуля (TF)"
+      },
+      "program": {
+        "name": "Програма"
+      },
+      "progress": {
+        "name": "Хід"
+      },
+      "realtime_power": {
+        "name": "Потужність у реальному часі"
+      },
+      "pmv": {
+        "name": "PMV"
+      },
+      "refrigerator_actual_temp": {
+        "name": "Фактична температура холодильника"
+      },
+      "refrigerator_setting_temp": {
+        "name": "Задана температура холодильника"
+      },
+      "regeneration_left_seconds": {
+        "name": "Залишок секунд до регенерації"
+      },
+      "remaining_days": {
+        "name": "Залишок днів"
+      },
+      "right_flex_zone_actual_temp": {
+        "name": "Фактична температура правої зони Flex"
+      },
+      "right_flex_zone_setting_temp": {
+        "name": "Задана температура правої зони Flex"
+      },
+      "rinse_count": {
+        "name": "Кількість полоскань"
+      },
+      "rinse_level": {
+        "name": "Рівень полоскання"
+      },
+      "salt_setting": {
+        "name": "Налаштування солі"
+      },
+      "seat_temperature": {
+        "name": "Температура сидіння"
+      },
+      "soak_time": {
+        "name": "Час замочування"
+      },
+      "soft_available": {
+        "name": "Доступна м'яка вода"
+      },
+      "softener": {
+        "name": "Пом'якшувач"
+      },
+      "softwater": {
+        "name": "Рівень м'якої води"
+      },
+      "status": {
+        "name": "Стан"
+      },
+      "storage_remaining": {
+        "name": "Залишок зберігання"
+      },
+      "tank": {
+        "name": "Бак"
+      },
+      "tank_actual_temperature": {
+        "name": "Фактична температура бака"
+      },
+      "target_temperature": {
+        "name": "Цільова температура"
+      },
+      "time_remaining": {
+        "name": "Залишок часу"
+      },
+      "top_compartment_remaining": {
+        "name": "Залишок верхнього відділення"
+      },
+      "top_compartment_status": {
+        "name": "Стан верхнього відділення"
+      },
+      "top_compartment_temperature": {
+        "name": "Температура верхнього відділення"
+      },
+      "top_temperature": {
+        "name": "Температура зверху"
+      },
+      "total_energy_consumption": {
+        "name": "Загальне споживання енергії"
+      },
+      "total_produced_energy": {
+        "name": "Усього виробленої енергії"
+      },
+      "tvoc": {
+        "name": "TVOC"
+      },
+      "wash_level": {
+        "name": "Рівень миття"
+      },
+      "wash_strength": {
+        "name": "Інтенсивність миття"
+      },
+      "wash_time": {
+        "name": "Час миття"
+      },
+      "water_consumption": {
+        "name": "Споживання води"
+      },
+      "water_consumption_average": {
+        "name": "Середнє споживання води"
+      },
+      "water_consumption_big": {
+        "name": "Споживання води"
+      },
+      "water_temperature": {
+        "name": "Температура води"
+      },
+      "water_level": {
+        "name": "Рівень води"
+      },
+      "weight": {
+        "name": "Вага"
+      },
+      "wind": {
+        "name": "Вітер"
+      },
+      "typeinfo": {
+        "name": "Інформація про тип"
+      },
+      "use_days": {
+        "name": "Днів використання"
+      },
+      "elec_heat": {
+        "name": "Електронагрів"
+      },
+      "water_pump": {
+        "name": "Водяний насос"
+      },
+      "four_way": {
+        "name": "Чотириходовий клапан"
+      },
+      "back_water": {
+        "name": "Зворотна вода"
+      },
+      "sterilize": {
+        "name": "Стерилізація"
+      },
+      "disinfection_temperature": {
+        "name": "Температура дезінфекції"
+      },
+      "max_temperature": {
+        "name": "Максимальна цільова температура"
+      },
+      "max_temperature_upper_limit": {
+        "name": "Верхня межа максимальної температури"
+      },
+      "max_temperature_lower_limit": {
+        "name": "Нижня межа максимальної температури"
+      },
+      "disinfection_temperature_upper_limit": {
+        "name": "Верхня межа температури дезінфекції"
+      },
+      "disinfection_temperature_lower_limit": {
+        "name": "Нижня межа температури дезінфекції"
+      },
+      "dr_option": {
+        "name": "Параметр реагування на попит"
+      },
+      "remaining_hot_water_max": {
+        "name": "Максимальний залишок гарячої води"
+      },
+      "force_e_heating_status": {
+        "name": "Стан примусового електронагрівання"
+      },
+      "holiday_max": {
+        "name": "Максимальна тривалість відпустки"
+      },
+      "holiday_min": {
+        "name": "Мінімальна тривалість відпустки"
+      },
+      "timer_step_gap": {
+        "name": "Крок таймера"
+      },
+      "vacation_start_year": {
+        "name": "Рік початку відпустки"
+      },
+      "vacation_start_month": {
+        "name": "Місяць початку відпустки"
+      },
+      "vacation_start_day": {
+        "name": "День початку відпустки"
+      },
+      "auto_sterilize_week": {
+        "name": "Тиждень автоматичної стерилізації"
+      },
+      "auto_sterilize_hour": {
+        "name": "Година автоматичної стерилізації"
+      },
+      "auto_sterilize_minute": {
+        "name": "Хвилина автоматичної стерилізації"
+      },
+      "work_mode": {
+        "name": "Режим роботи",
+        "state": {
+          "microwave": "Мікрохвилі",
+          "microwave_1": "Мікрохвилі 1",
+          "microwave_2": "Мікрохвилі 2",
+          "microwave_3": "Мікрохвилі 3",
+          "microwave_4": "Мікрохвилі 4",
+          "microwave_5": "Мікрохвилі 5",
+          "microwave_steam_above_tube": "Мікрохвилі з верхнім паровим ТЕНом",
+          "microwave_double_tube": "Мікрохвилі з подвійним ТЕНом",
+          "microwave_hot_wind_tube_fan": "Мікрохвилі з вентилятором ТЕНа гарячого повітря",
+          "microwave_underside_tube_hot_wind_tube_fan": "Мікрохвилі з вентилятором гарячого повітря нижнього ТЕНа",
+          "microwave_double_tube_hot_wind_tube_fan": "Мікрохвилі з вентилятором гарячого повітря подвійного ТЕНа",
+          "microwave_steam": "Мікрохвильова пара",
+          "microwave_steam_1": "Мікрохвильова пара 1",
+          "unfreeze": "Розморожування",
+          "unfreeze_1": "Розморожування 1",
+          "unfreeze_2": "Розморожування 2",
+          "unfreeze_3": "Розморожування 3",
+          "unfreeze_t": "Розморожування T",
+          "microwave_above_tube": "Мікрохвилі з верхнім ТЕНом",
+          "microwave_above_tube_1": "Мікрохвилі з верхнім ТЕНом 1",
+          "microwave_above_tube_2": "Мікрохвилі з верхнім ТЕНом 2",
+          "microwave_above_tube_fan": "Мікрохвилі з вентилятором верхнього ТЕНа",
+          "fast_unfreeze": "Швидке розморожування",
+          "fresh_unfreeze": "Свіже розморожування",
+          "microwave_zymosis": "Мікрохвильова ферментація",
+          "pure_steam": "Чиста пара",
+          "pure_steam_1": "Чиста пара 1",
+          "pure_steam_2": "Чиста пара 2",
+          "pure_steam_3": "Чиста пара 3",
+          "pure_steam_4": "Чиста пара 4",
+          "pure_steam_5": "Чиста пара 5",
+          "pure_steam_6": "Чиста пара 6",
+          "pure_steam_7": "Чиста пара 7",
+          "pure_steam_8": "Чиста пара 8",
+          "pure_steam_9": "Чиста пара 9",
+          "steam_above_tube": "Пара з верхнім ТЕНом",
+          "steam_underside_tube": "Пара з нижнім ТЕНом",
+          "steam_double_tube": "Пара з подвійним ТЕНом",
+          "steam_hot_wind_tube_fan": "Вентилятор ТЕНа гарячого повітря з парою",
+          "steam_hot_wind_tube_fan_1": "Вентилятор ТЕНа гарячого повітря з парою 1",
+          "steam_hot_wind_tube_fan_2": "Вентилятор ТЕНа гарячого повітря з парою 2",
+          "steam_hot_wind_tube": "ТЕН гарячого повітря з парою",
+          "steam_double_tube_fan": "Вентилятор подвійного ТЕНа з парою",
+          "steam_above_inside_outside_tube_fan": "Вентилятор верхнього внутрішнього та зовнішнього ТЕНа з парою",
+          "steam_above_inside_tube_fan": "Вентилятор верхнього внутрішнього ТЕНа з парою",
+          "above_tube": "Верхній ТЕН",
+          "underside_tube": "Нижній ТЕН",
+          "double_tube": "Подвійний ТЕН",
+          "hot_wind_tube_fan": "Вентилятор ТЕНа гарячого повітря",
+          "pure_preheat": "Чисте попереднє нагрівання",
+          "pure_preheat_2": "Чисте попереднє нагрівання 2",
+          "above_tube_hot_wind_tube_fan": "Верхній ТЕН з вентилятором гарячого повітря",
+          "underside_tube_hot_wind_tube_fan": "Нижній ТЕН з вентилятором гарячого повітря",
+          "zymosis": "Ферментація",
+          "double_tube_hot_wind_tube_fan": "Подвійний ТЕН з вентилятором гарячого повітря",
+          "above_tube_revolve": "Верхній ТЕН з обертанням",
+          "underside_tube_revolve": "Нижній ТЕН з обертанням",
+          "double_tube_revolve": "Подвійний ТЕН з обертанням",
+          "hot_wind_tube_fan_revolve": "Вентилятор ТЕНа гарячого повітря з обертанням",
+          "warm": "Підтримання тепла",
+          "double_tube_fan": "Вентилятор подвійного ТЕНа",
+          "double_tube_fan_1": "Вентилятор подвійного ТЕНа 1",
+          "double_tube_fan_2": "Вентилятор подвійного ТЕНа 2",
+          "double_tube_fan_3": "Вентилятор подвійного ТЕНа 3",
+          "above_inside_tube_revolve": "Верхній внутрішній ТЕН з обертанням",
+          "above_inside_tube_fan": "Вентилятор верхнього внутрішнього ТЕНа",
+          "above_inside_outside_tube_revolve": "Верхній внутрішній та зовнішній ТЕН з обертанням",
+          "above_inside_outside_tube_fan": "Вентилятор верхнього внутрішнього та зовнішнього ТЕНа",
+          "above_inside_underside_tube": "Верхній внутрішній та нижній ТЕН",
+          "above_inside_underside_tube_1": "Верхній внутрішній та нижній ТЕН 1",
+          "above_inside_underside_tube_fan": "Вентилятор верхнього внутрішнього та нижнього ТЕНа",
+          "above_inside_underside_tube_fan_1": "Вентилятор верхнього внутрішнього та нижнього ТЕНа 1",
+          "above_inside_tube": "Верхній внутрішній ТЕН",
+          "above_inside_outside_tube": "Верхній внутрішній та зовнішній ТЕН",
+          "underside_tube_fan": "Вентилятор нижнього ТЕНа",
+          "above_tube_fan": "Вентилятор верхнього ТЕНа",
+          "above_tube_fan_1": "Вентилятор верхнього ТЕНа 1",
+          "above_tube_fan_2": "Вентилятор верхнього ТЕНа 2",
+          "scale_clean": "Видалення накипу",
+          "clean": "Очищення",
+          "remove_odor": "Видалення запаху",
+          "remove_odor_2": "Видалення запаху 2",
+          "high_temperature_clean": "Високотемпературне очищення",
+          "dining_utensils_clean": "Очищення посуду для їжі",
+          "auto_menu": "Автоменю",
+          "eco": "Eco",
+          "above_tube_1": "Верхній ТЕН 1",
+          "above_tube_2": "Верхній ТЕН 2",
+          "above_tube_3": "Верхній ТЕН 3",
+          "underside_tube_1": "Нижній ТЕН 1",
+          "underside_tube_2": "Нижній ТЕН 2",
+          "double_tube_1": "Подвійний ТЕН 1",
+          "double_tube_2": "Подвійний ТЕН 2",
+          "double_tube_3": "Подвійний ТЕН 3",
+          "double_tube_4": "Подвійний ТЕН 4",
+          "double_tube_5": "Подвійний ТЕН 5",
+          "double_tube_6": "Подвійний ТЕН 6",
+          "hot_wind_tube_fan_1": "Вентилятор ТЕНа гарячого повітря 1",
+          "hot_wind_tube_fan_2": "Вентилятор ТЕНа гарячого повітря 2",
+          "hot_wind_tube_fan_3": "Вентилятор ТЕНа гарячого повітря 3",
+          "hot_wind_tube_fan_4": "Вентилятор ТЕНа гарячого повітря 4",
+          "hot_wind_tube_fan_5": "Вентилятор ТЕНа гарячого повітря 5",
+          "double_tube_hot_wind_tube_fan_1": "Вентилятор подвійного ТЕНа гарячого повітря 1",
+          "double_tube_hot_wind_tube_fan_2": "Вентилятор подвійного ТЕНа гарячого повітря 2",
+          "double_tube_hot_wind_tube_fan_3": "Вентилятор подвійного ТЕНа гарячого повітря 3",
+          "double_tube_hot_wind_tube_fan_4": "Вентилятор подвійного ТЕНа гарячого повітря 4",
+          "double_tube_hot_wind_tube_fan_5": "Вентилятор подвійного ТЕНа гарячого повітря 5",
+          "unknown": "Невідомо"
+        }
+      },
+      "working_time": {
+        "name": "Час роботи"
+      },
+      "humidity": {
+        "name": "Вологість"
+      },
+      "variable_mode": {
+        "name": "Змінний режим",
+        "state": {
+          "none": "Немає",
+          "soft_freezing": "М'яке заморожування",
+          "zero_fresh": "Нульова свіжість",
+          "cold_drink": "Холодний напій",
+          "fresh_product": "Свіжі продукти",
+          "partial_freezing": "Часткове заморожування",
+          "dry_zone": "Суха зона",
+          "freeze_warm": "Заморожування / Підігрів",
+          "baby": "Мати й дитина",
+          "treasure": "Коштовності",
+          "zero": "Нуль градусів"
+        }
+      },
+      "compressor_frequency": {
+        "name": "Частота компресора"
+      },
+      "target_compressor_frequency": {
+        "name": "Цільова частота компресора"
+      },
+      "compressor_current": {
+        "name": "Струм компресора"
+      },
+      "compressor_voltage": {
+        "name": "Напруга компресора"
+      },
+      "compressor_power": {
+        "name": "Потужність компресора"
+      },
+      "indoor_ambient_temperature": {
+        "name": "Температура навколишнього середовища в приміщенні (T1)"
+      },
+      "indoor_coil_temperature": {
+        "name": "Температура внутрішнього змійовика (T2)"
+      },
+      "outdoor_coil_temperature": {
+        "name": "Температура зовнішнього змійовика (T3)"
+      },
+      "outdoor_ambient_temperature": {
+        "name": "Температура зовнішнього навколишнього середовища (T4)"
+      },
+      "discharge_pipe_temperature": {
+        "name": "Температура нагнітального трубопроводу (TP)"
+      },
+      "indoor_fan_speed": {
+        "name": "Швидкість внутрішнього вентилятора"
+      },
+      "target_indoor_fan_speed": {
+        "name": "Цільова швидкість внутрішнього вентилятора"
+      },
+      "velocity": {
+        "name": "Швидкість"
+      },
+      "filter4_life": {
+        "name": "Рівень ресурсу фільтра 4"
+      },
+      "filter5_life": {
+        "name": "Рівень ресурсу фільтра 5"
+      },
+      "filter1_maxlife": {
+        "name": "Граничний ресурс фільтра 1"
+      },
+      "filter2_maxlife": {
+        "name": "Граничний ресурс фільтра 2"
+      },
+      "filter3_maxlife": {
+        "name": "Граничний ресурс фільтра 3"
+      },
+      "filter4_maxlife": {
+        "name": "Граничний ресурс фільтра 4"
+      },
+      "filter5_maxlife": {
+        "name": "Граничний ресурс фільтра 5"
+      },
+      "hot_pot_temperature": {
+        "name": "Температура гарячої каструлі"
+      },
+      "ice_gall_status": {
+        "name": "Стан генератора льоду"
+      },
+      "water_kind": {
+        "name": "Вид води",
+        "state": {
+          "idle": "Бездіяльність",
+          "warm": "Теплий",
+          "cold": "Холодна"
+        }
+      },
+      "heat_start": {
+        "name": "Початок нагрівання",
+        "state": {
+          "heating": "Нагрівання",
+          "keep_warm": "Підтримання тепла"
+        }
+      },
+      "no_obsolete_water_mode": {
+        "name": "Режим без застояної води",
+        "state": {
+          "water_quality_priority": "Пріоритет якості води",
+          "water_saving_priority": "Пріоритет економії води",
+          "custom": "Користувацький"
+        }
+      },
+      "input_temperature_sensing": {
+        "name": "Вхідна температура"
+      },
+      "temp_ta": {
+        "name": "Температура Ta — Навколишнє середовище приміщення"
+      },
+      "water_flow": {
+        "name": "Вода — Швидкість потоку"
+      },
+      "water_pressure": {
+        "name": "Вода — Тиск"
+      },
+      "temp_t4": {
+        "name": "Температура T4 — Зовнішнє навколишнє середовище"
+      },
+      "temp_t5": {
+        "name": "Температура T5 — Бак для води"
+      },
+      "temp_tb_t1": {
+        "name": "Температура TB-T1 — Верх буферного бака"
+      },
+      "temp_tb_t2": {
+        "name": "Температура TB-T2 — Низ буферного бака"
+      },
+      "temp_tsolar": {
+        "name": "Температура Tsolar — Сонячна панель"
+      },
+      "temp_tw2": {
+        "name": "Температура Tw2 — Вода Зони 2"
+      },
+      "dc_current": {
+        "name": "ODU — Струм шини постійного струму"
+      },
+      "dc_bus_voltage": {
+        "name": "ODU — Напруга шини постійного струму"
+      },
+      "current_unit_capacity": {
+        "name": "Поточна потужність блока (сирі дані)"
+      },
+      "instant_power0": {
+        "name": "Потужність — Споживання на нагрівання"
+      },
+      "instant_renew_power0": {
+        "name": "Потужність — Відновлювана теплова потужність"
+      },
+      "room_rel_hum": {
+        "name": "Відносна вологість у приміщенні"
+      },
+      "hydbox_subtype": {
+        "name": "Інформація — Підтип гідравлічного блока"
+      },
+      "machine_type": {
+        "name": "Інформація — Тип машини"
+      },
+      "odu_model": {
+        "name": "Інформація — Код моделі ODU"
+      },
+      "hydrobox_capacity": {
+        "name": "Інформація — Потужність гідравлічного блока"
+      },
+      "idu_t1s1": {
+        "name": "Температура — Розрахункова Зони 1 (T1s)"
+      },
+      "idu_t1s2": {
+        "name": "Температура — Розрахункова Зони 2 (T1s)"
+      },
+      "t5s": {
+        "name": "Температура T5s — Задане значення DHW"
+      },
+      "tas": {
+        "name": "Температура Tas — Задане значення повітря"
+      },
+      "zone1_temp_set": {
+        "name": "Температура — Задане значення Зони 1"
+      },
+      "zone2_temp_set": {
+        "name": "Температура — Задане значення Зони 2"
+      },
+      "disinfect_set_weekday": {
+        "name": "DHW — День тижня дезінфекції"
+      },
+      "disinfect_start_hour": {
+        "name": "DHW — Година початку дезінфекції"
+      },
+      "disinfect_start_minutes": {
+        "name": "DHW — Хвилина початку дезінфекції"
+      },
+      "error_code_description": {
+        "name": "Помилка — Опис"
+      },
+      "hmi_sn_code": {
+        "name": "Серійний номер HMI"
+      },
+      "temp_tw_in": {
+        "name": "Температура Tw_in — Вхід води"
+      },
+      "temp_tw_out": {
+        "name": "Температура Tw_out — Вихід води"
+      },
+      "comp_total_run_time": {
+        "name": "Енергія — Час роботи компресора"
+      },
+      "idu_software_version_str": {
+        "name": "Інформація — Версія ПЗ IDU"
+      },
+      "odu_software_version_str": {
+        "name": "Інформація — Версія ПЗ ODU"
+      },
+      "ac_air_direction_gear": {
+        "name": "Передача напрямку повітря кондиціонера"
+      },
+      "ac_air_direction_max_angle": {
+        "name": "Максимальний кут напрямку повітря кондиціонера"
+      },
+      "ac_air_direction_min_angle": {
+        "name": "Мінімальний кут напрямку повітря кондиціонера"
+      },
+      "ac_ambient_temperature": {
+        "name": "Температура навколишнього середовища кондиціонера"
+      },
+      "ac_current_temp": {
+        "name": "Поточна температура кондиціонера"
+      },
+      "ac_destination_temp": {
+        "name": "Цільова температура кондиціонера"
+      },
+      "ac_destination_time": {
+        "name": "Цільовий час кондиціонера"
+      },
+      "ac_gear": {
+        "name": "Передача кондиціонера"
+      },
+      "ac_mode": {
+        "name": "Режим кондиціонера",
+        "state": {
+          "air_supply": "Подача повітря",
+          "dehumidification": "Осушення",
+          "net_flavour": "Свіжість повітря",
+          "none": "Немає",
+          "refrigeration": "Охолодження"
+        }
+      },
+      "ac_order_destination_time": {
+        "name": "Цільовий час таймера кондиціонера"
+      },
+      "ac_order_remaining_time": {
+        "name": "Залишок часу таймера кондиціонера"
+      },
+      "ac_remaining_time": {
+        "name": "Залишок часу кондиціонера"
+      },
+      "ac_swing_gear": {
+        "name": "Передача хитання кондиціонера"
+      },
+      "ac_swing_max_angle": {
+        "name": "Максимальний кут хитання кондиціонера"
+      },
+      "ac_swing_min_angle": {
+        "name": "Мінімальний кут хитання кондиціонера"
+      },
+      "ac_work_status": {
+        "name": "Стан роботи кондиціонера",
+        "state": {
+          "order": "Таймер",
+          "power_off": "Вимкнення живлення",
+          "reservation": "Резервування",
+          "reservation_and_order_ordering": "Резервування та таймер — Виконання таймера",
+          "reservation_and_order_reserving": "Резервування та таймер — Резервування",
+          "working": "Працює"
+        }
+      },
+      "ai_voice_microphone_status": {
+        "name": "Стан мікрофона голосу ШІ",
+        "state": {
+          "failure": "Збій",
+          "success": "Успіх"
+        }
+      },
+      "ai_voice_status": {
+        "name": "Стан голосу ШІ",
+        "state": {
+          "connecting": "Підключення",
+          "off": "Вимкнено",
+          "on": "Увімкнено"
+        }
+      },
+      "ai_voice_volume_status": {
+        "name": "Стан гучності голосу ШІ",
+        "state": {
+          "failure": "Збій",
+          "success": "Успіх"
+        }
+      },
+      "b2_downstair_current_temp": {
+        "name": "Поточна температура нижньої парової печі"
+      },
+      "b2_downstair_destination_temp": {
+        "name": "Цільова температура нижньої парової печі"
+      },
+      "b2_downstair_light_off_type": {
+        "name": "Тип вимкнення підсвічування нижньої парової печі",
+        "state": {
+          "app": "Застосунок",
+          "local": "Локально"
+        }
+      },
+      "b2_downstair_light_on_type": {
+        "name": "Тип увімкнення підсвічування нижньої парової печі",
+        "state": {
+          "app": "Застосунок",
+          "local": "Локально"
+        }
+      },
+      "b2_downstair_order_destination_time": {
+        "name": "Цільовий час таймера нижньої парової печі"
+      },
+      "b2_downstair_order_remaining_time": {
+        "name": "Залишок часу таймера нижньої парової печі"
+      },
+      "b2_downstair_power_off_type": {
+        "name": "Тип вимкнення живлення нижньої парової печі",
+        "state": {
+          "app": "Застосунок",
+          "auto": "Авто",
+          "error": "Помилка",
+          "local": "Локально",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b2_downstair_power_on_type": {
+        "name": "Тип увімкнення живлення нижньої парової печі",
+        "state": {
+          "app": "Застосунок",
+          "local": "Локально",
+          "order": "Таймер"
+        }
+      },
+      "b2_downstair_preheating": {
+        "name": "Попереднє нагрівання нижньої парової печі",
+        "state": {
+          "finish": "Завершити",
+          "none": "Немає",
+          "preheating": "Попереднє нагрівання"
+        }
+      },
+      "b2_downstair_recipe_after": {
+        "name": "Після рецепту нижньої парової печі"
+      },
+      "b2_downstair_recipe_code": {
+        "name": "Код рецепту нижньої парової печі"
+      },
+      "b2_downstair_recipe_current_mode": {
+        "name": "Поточний режим рецепту нижньої парової печі"
+      },
+      "b2_downstair_recipe_current_step": {
+        "name": "Поточний крок рецепту нижньої парової печі"
+      },
+      "b2_downstair_recipe_off_type": {
+        "name": "Тип вимкнення рецепту нижньої парової печі",
+        "state": {
+          "app": "Застосунок",
+          "auto": "Авто",
+          "error": "Помилка",
+          "local": "Локально",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b2_downstair_recipe_on_type": {
+        "name": "Тип увімкнення рецепту нижньої парової печі",
+        "state": {
+          "app": "Застосунок",
+          "local": "Локально",
+          "order": "Таймер"
+        }
+      },
+      "b2_downstair_recipe_total_steps": {
+        "name": "Усього кроків рецепту нижньої парової печі"
+      },
+      "b2_downstair_work_destination_time": {
+        "name": "Цільовий час роботи нижньої парової печі"
+      },
+      "b2_downstair_work_func": {
+        "name": "Функція роботи нижньої парової печі"
+      },
+      "b2_downstair_work_menu": {
+        "name": "Меню роботи нижньої парової печі"
+      },
+      "b2_downstair_work_remaining_time": {
+        "name": "Залишок часу роботи нижньої парової печі"
+      },
+      "b2_downstair_work_status": {
+        "name": "Стан роботи нижньої парової печі",
+        "state": {
+          "auto": "Авто",
+          "drying": "Сушіння",
+          "finish": "Завершити",
+          "order": "Таймер",
+          "pause": "Пауза",
+          "power_off": "Вимкнення живлення",
+          "standby": "Очікування",
+          "working": "Працює"
+        }
+      },
+      "b2_upstair_current_temp": {
+        "name": "Поточна температура верхньої парової печі"
+      },
+      "b2_upstair_destination_temp": {
+        "name": "Цільова температура верхньої парової печі"
+      },
+      "b2_upstair_light_off_type": {
+        "name": "Тип вимкнення підсвічування верхньої парової печі",
+        "state": {
+          "app": "Застосунок",
+          "local": "Локально"
+        }
+      },
+      "b2_upstair_light_on_type": {
+        "name": "Тип увімкнення підсвічування верхньої парової печі",
+        "state": {
+          "app": "Застосунок",
+          "local": "Локально"
+        }
+      },
+      "b2_upstair_order_destination_time": {
+        "name": "Цільовий час таймера верхньої парової печі"
+      },
+      "b2_upstair_order_remaining_time": {
+        "name": "Залишок часу таймера верхньої парової печі"
+      },
+      "b2_upstair_power_off_type": {
+        "name": "Тип вимкнення живлення верхньої парової печі",
+        "state": {
+          "app": "Застосунок",
+          "auto": "Авто",
+          "error": "Помилка",
+          "local": "Локально",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b2_upstair_power_on_type": {
+        "name": "Тип увімкнення живлення верхньої парової печі",
+        "state": {
+          "app": "Застосунок",
+          "local": "Локально",
+          "order": "Таймер"
+        }
+      },
+      "b2_upstair_preheating": {
+        "name": "Попереднє нагрівання верхньої парової печі",
+        "state": {
+          "finish": "Завершити",
+          "none": "Немає",
+          "preheating": "Попереднє нагрівання"
+        }
+      },
+      "b2_upstair_recipe_after": {
+        "name": "Після рецепту верхньої парової печі"
+      },
+      "b2_upstair_recipe_code": {
+        "name": "Код рецепту верхньої парової печі"
+      },
+      "b2_upstair_recipe_current_mode": {
+        "name": "Поточний режим рецепту верхньої парової печі"
+      },
+      "b2_upstair_recipe_current_step": {
+        "name": "Поточний крок рецепту верхньої парової печі"
+      },
+      "b2_upstair_recipe_off_type": {
+        "name": "Тип вимкнення рецепту верхньої парової печі",
+        "state": {
+          "app": "Застосунок",
+          "auto": "Авто",
+          "error": "Помилка",
+          "local": "Локально",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b2_upstair_recipe_on_type": {
+        "name": "Тип увімкнення рецепту верхньої парової печі",
+        "state": {
+          "app": "Застосунок",
+          "local": "Локально",
+          "order": "Таймер"
+        }
+      },
+      "b2_upstair_recipe_total_steps": {
+        "name": "Усього кроків рецепту верхньої парової печі"
+      },
+      "b2_upstair_work_destination_time": {
+        "name": "Цільовий час роботи верхньої парової печі"
+      },
+      "b2_upstair_work_func": {
+        "name": "Функція роботи верхньої парової печі"
+      },
+      "b2_upstair_work_menu": {
+        "name": "Меню роботи верхньої парової печі"
+      },
+      "b2_upstair_work_remaining_time": {
+        "name": "Залишок часу роботи верхньої парової печі"
+      },
+      "b2_upstair_work_status": {
+        "name": "Стан роботи верхньої парової печі",
+        "state": {
+          "auto": "Авто",
+          "drying": "Сушіння",
+          "finish": "Завершити",
+          "order": "Таймер",
+          "pause": "Пауза",
+          "power_off": "Вимкнення живлення",
+          "standby": "Очікування",
+          "working": "Працює"
+        }
+      },
+      "b3_disinfect_off_type": {
+        "name": "Тип вимкнення дезінфекції парової шафи",
+        "state": {
+          "app": "Застосунок",
+          "local": "Локально"
+        }
+      },
+      "b3_disinfect_on_type": {
+        "name": "Тип увімкнення дезінфекції парової шафи",
+        "state": {
+          "app": "Застосунок",
+          "local": "Локально"
+        }
+      },
+      "b3_downstair_current_temp": {
+        "name": "Поточна температура нижньої парової шафи"
+      },
+      "b3_downstair_destination_temp": {
+        "name": "Цільова температура нижньої парової шафи"
+      },
+      "b3_downstair_destination_time": {
+        "name": "Цільовий час нижньої парової шафи"
+      },
+      "b3_downstair_remaining_time": {
+        "name": "Залишок часу нижньої парової шафи"
+      },
+      "b3_downstair_sensor": {
+        "name": "Датчик нижньої парової шафи"
+      },
+      "b3_downstair_status": {
+        "name": "Стан нижньої парової шафи",
+        "state": {
+          "drying": "Сушіння",
+          "drying_pause": "Пауза сушіння",
+          "ion_drying": "Іонне сушіння",
+          "ion_drying_pause": "Пауза іонного сушіння",
+          "power_off": "Вимкнення живлення",
+          "uperization": "Уперизація",
+          "uperization_pause": "Пауза уперизації",
+          "warm_drink": "Теплий напій",
+          "warm_drink_pause": "Пауза теплого напою"
+        }
+      },
+      "b3_thermotank_off_type": {
+        "name": "Тип вимкнення термобака парової шафи",
+        "state": {
+          "app": "Застосунок",
+          "local": "Локально"
+        }
+      },
+      "b3_thermotank_on_type": {
+        "name": "Тип увімкнення термобака парової шафи",
+        "state": {
+          "app": "Застосунок",
+          "local": "Локально"
+        }
+      },
+      "b3_upstair_current_temp": {
+        "name": "Поточна температура верхньої парової шафи"
+      },
+      "b3_upstair_destination_temp": {
+        "name": "Цільова температура верхньої парової шафи"
+      },
+      "b3_upstair_destination_time": {
+        "name": "Цільовий час верхньої парової шафи"
+      },
+      "b3_upstair_remaining_time": {
+        "name": "Залишок часу верхньої парової шафи"
+      },
+      "b3_upstair_sensor": {
+        "name": "Датчик верхньої парової шафи"
+      },
+      "b3_upstair_status": {
+        "name": "Стан верхньої парової шафи",
+        "state": {
+          "drying": "Сушіння",
+          "drying_pause": "Пауза сушіння",
+          "ion_drying": "Іонне сушіння",
+          "ion_drying_pause": "Пауза іонного сушіння",
+          "power_off": "Вимкнення живлення",
+          "uperization": "Уперизація",
+          "uperization_pause": "Пауза уперизації",
+          "warm_drink": "Теплий напій",
+          "warm_drink_pause": "Пауза теплого напою"
+        }
+      },
+      "b6_tvoc_value": {
+        "name": "Значення TVOC витяжки",
+        "state": {
+          "excellent": "Відмінно",
+          "good": "Добре",
+          "medium": "Середня"
+        }
+      },
+      "b6_air_duct_detection_score": {
+        "name": "Оцінка виявлення повітропроводу витяжки"
+      },
+      "b6_air_duct_detection_state": {
+        "name": "Стан виявлення повітропроводу витяжки"
+      },
+      "b6_air_duct_detection_time": {
+        "name": "Час виявлення повітропроводу витяжки"
+      },
+      "b6_air_duct_detection_windage": {
+        "name": "Опір повітропроводу при виявленні витяжки"
+      },
+      "b6_air_volume": {
+        "name": "Об'єм повітря витяжки"
+      },
+      "b6_delay_gear_linkage_gear": {
+        "name": "Передача зв'язку затримки витяжки"
+      },
+      "b6_delay_time_value": {
+        "name": "Значення часу затримки витяжки"
+      },
+      "b6_destination_time": {
+        "name": "Цільовий час витяжки"
+      },
+      "b6_gear": {
+        "name": "Передача витяжки"
+      },
+      "b6_gear_control_type": {
+        "name": "Тип керування передачами витяжки",
+        "state": {
+          "app": "Застосунок",
+          "gesture": "Жест",
+          "linkage": "Зв'язок",
+          "local": "Локально",
+          "smoke_detector": "Детектор диму"
+        }
+      },
+      "b6_gesture_sensitivity": {
+        "name": "Чутливість жестів витяжки",
+        "state": {
+          "1": "1",
+          "2": "2",
+          "3": "3"
+        }
+      },
+      "b6_gesture_value": {
+        "name": "Значення жестів витяжки",
+        "state": {
+          "light": "Легкий",
+          "power": "Потужність",
+          "wind": "Вітер"
+        }
+      },
+      "b6_hotclean_tips": {
+        "name": "Поради щодо гарячого очищення витяжки"
+      },
+      "b6_infrared_value": {
+        "name": "Значення інфрачервоного витяжки",
+        "state": {
+          "power": "Потужність",
+          "wind": "Вітер"
+        }
+      },
+      "b6_inverter_ac_frequency": {
+        "name": "Частота інвертора кондиціонера витяжки"
+      },
+      "b6_inverter_back_electromotive_force": {
+        "name": "Протиелектрорушійна сила інвертора витяжки"
+      },
+      "b6_inverter_capacity": {
+        "name": "Потужність інвертора витяжки"
+      },
+      "b6_inverter_efficiency": {
+        "name": "Ефективність інвертора витяжки"
+      },
+      "b6_inverter_motor_compensation_angle": {
+        "name": "Кут компенсації двигуна інвертора витяжки"
+      },
+      "b6_inverter_motor_speed": {
+        "name": "Швидкість двигуна інвертора витяжки"
+      },
+      "b6_inverter_q_axis_current": {
+        "name": "Струм осі Q інвертора витяжки"
+      },
+      "b6_inverter_start_time": {
+        "name": "Час запуску інвертора витяжки"
+      },
+      "b6_inverter_temperature": {
+        "name": "Температура інвертора витяжки"
+      },
+      "b6_inverter_temperature_limit_sign": {
+        "name": "Ознака обмеження температури інвертора витяжки"
+      },
+      "b6_inverter_voltage": {
+        "name": "Напруга інвертора витяжки"
+      },
+      "b6_inverter_wind_flow": {
+        "name": "Потік повітря інвертора витяжки"
+      },
+      "b6_inverter_wind_presssure": {
+        "name": "Тиск повітря інвертора витяжки"
+      },
+      "b6_inverter_windage": {
+        "name": "Опір повітря інвертора витяжки"
+      },
+      "b6_inverter_work_gear": {
+        "name": "Робоча передача інвертора витяжки"
+      },
+      "b6_last_hotclean_hour": {
+        "name": "Остання година гарячого очищення витяжки"
+      },
+      "b6_light": {
+        "name": "Підсвічування витяжки"
+      },
+      "b6_light_off_type": {
+        "name": "Тип вимкнення підсвічування витяжки",
+        "state": {
+          "app": "Застосунок",
+          "error": "Помилка",
+          "gesture": "Жест",
+          "local": "Локально"
+        }
+      },
+      "b6_light_on_type": {
+        "name": "Тип увімкнення підсвічування витяжки",
+        "state": {
+          "app": "Застосунок",
+          "gesture": "Жест",
+          "local": "Локально"
+        }
+      },
+      "b6_lightness": {
+        "name": "Яскравість витяжки"
+      },
+      "b6_lock_off_type": {
+        "name": "Тип вимкнення блокування витяжки",
+        "state": {
+          "local": "Локально"
+        }
+      },
+      "b6_lock_on_type": {
+        "name": "Тип увімкнення блокування витяжки",
+        "state": {
+          "app": "Застосунок",
+          "local": "Локально"
+        }
+      },
+      "b6_power": {
+        "name": "Живлення витяжки",
+        "state": {
+          "delay_off": "Відкладене вимкнення",
+          "off": "Вимкнено",
+          "on": "Увімкнено"
+        }
+      },
+      "b6_power_off_type": {
+        "name": "Тип вимкнення живлення витяжки",
+        "state": {
+          "app": "Застосунок",
+          "delay": "Затримка",
+          "gesture": "Жест",
+          "linkage": "Зв'язок",
+          "local": "Локально"
+        }
+      },
+      "b6_power_on_type": {
+        "name": "Тип увімкнення живлення витяжки",
+        "state": {
+          "app": "Застосунок",
+          "gesture": "Жест",
+          "linkage": "Зв'язок",
+          "local": "Локально"
+        }
+      },
+      "b6_remaining_time": {
+        "name": "Залишок часу витяжки"
+      },
+      "b6_smoke_detector_value": {
+        "name": "Значення детектора диму витяжки"
+      },
+      "b6_smoke_potency": {
+        "name": "Інтенсивність диму витяжки"
+      },
+      "b6_smoke_stove_linkage_flowin": {
+        "name": "Приплив зв'язку витяжки з плитою за димом",
+        "state": {
+          "no": "Ні",
+          "yes": "Так"
+        }
+      },
+      "b6_smoke_stove_linkage_gear": {
+        "name": "Передача зв'язку витяжки з плитою за димом"
+      },
+      "b6_smoke_stove_linkage_gear_fix": {
+        "name": "Фіксація передачі зв'язку витяжки з плитою за димом",
+        "state": {
+          "negative": "Від'ємний",
+          "positive": "Додатний"
+        }
+      },
+      "b6_steaming": {
+        "name": "Обробка парою витяжки",
+        "state": {
+          "off": "Вимкнено",
+          "on": "Увімкнено"
+        }
+      },
+      "b6_steaming_stage": {
+        "name": "Етап обробки парою витяжки"
+      },
+      "b6_wind_pressure": {
+        "name": "Тиск повітря витяжки"
+      },
+      "b6_work_status": {
+        "name": "Стан роботи витяжки",
+        "state": {
+          "ai_dry_clean": "Сухе очищення ШІ",
+          "air_duct_detection": "Виявлення повітропроводу",
+          "check": "Перевірка",
+          "clean": "Очищення",
+          "clean_finish": "Очищення завершено",
+          "error": "Помилка",
+          "hotclean": "Гаряче очищення",
+          "initial": "Початковий",
+          "mute_gear": "Беззвучна передача",
+          "power_off": "Вимкнення живлення",
+          "power_off_delay": "Затримка вимкнення живлення",
+          "standby": "Очікування",
+          "vvvf_gear": "Передача VVVF",
+          "working": "Працює"
+        }
+      },
+      "b7_left_current_temp": {
+        "name": "Поточна температура лівого пальника газової плити"
+      },
+      "b7_left_destination_temp": {
+        "name": "Цільова температура лівого пальника газової плити"
+      },
+      "b7_left_destination_time": {
+        "name": "Цільовий час лівого пальника газової плити"
+      },
+      "b7_left_gear": {
+        "name": "Передача лівого пальника газової плити"
+      },
+      "b7_left_power_off_type": {
+        "name": "Тип вимкнення живлення лівого пальника газової плити",
+        "state": {
+          "app": "Застосунок",
+          "auto": "Авто",
+          "error": "Помилка",
+          "local": "Локально",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b7_left_remaining_time": {
+        "name": "Залишок часу лівого пальника газової плити"
+      },
+      "b7_left_status": {
+        "name": "Стан лівого пальника газової плити",
+        "state": {
+          "drying": "Сушіння",
+          "drying_pause": "Пауза сушіння",
+          "ion_drying": "Іонне сушіння",
+          "ion_drying_pause": "Пауза іонного сушіння",
+          "power_off": "Вимкнення живлення",
+          "uperization": "Уперизація",
+          "uperization_pause": "Пауза уперизації",
+          "warm_drink": "Теплий напій",
+          "warm_drink_pause": "Пауза теплого напою"
+        }
+      },
+      "b7_left_work_time": {
+        "name": "Час роботи лівого пальника газової плити"
+      },
+      "b7_right_current_temp": {
+        "name": "Поточна температура правого пальника газової плити"
+      },
+      "b7_right_destination_temp": {
+        "name": "Цільова температура правого пальника газової плити"
+      },
+      "b7_right_destination_time": {
+        "name": "Цільовий час правого пальника газової плити"
+      },
+      "b7_right_gear": {
+        "name": "Передача правого пальника газової плити"
+      },
+      "b7_right_power_off_type": {
+        "name": "Тип вимкнення живлення правого пальника газової плити",
+        "state": {
+          "app": "Застосунок",
+          "auto": "Авто",
+          "error": "Помилка",
+          "local": "Локально",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b7_right_remaining_time": {
+        "name": "Залишок часу правого пальника газової плити"
+      },
+      "b7_right_status": {
+        "name": "Стан правого пальника газової плити",
+        "state": {
+          "drying": "Сушіння",
+          "drying_pause": "Пауза сушіння",
+          "ion_drying": "Іонне сушіння",
+          "ion_drying_pause": "Пауза іонного сушіння",
+          "power_off": "Вимкнення живлення",
+          "uperization": "Уперизація",
+          "uperization_pause": "Пауза уперизації",
+          "warm_drink": "Теплий напій",
+          "warm_drink_pause": "Пауза теплого напою"
+        }
+      },
+      "b7_right_work_time": {
+        "name": "Час роботи правого пальника газової плити"
+      },
+      "bf_cavity": {
+        "name": "Камера печі",
+        "state": {
+          "down": "Униз",
+          "up": "Угору"
+        }
+      },
+      "bf_control_back": {
+        "name": "Повернення керування печі",
+        "state": {
+          "func_notsupport": "Функція не підтримується",
+          "status_notsupport": "Стан не підтримується",
+          "success": "Успіх",
+          "value_notsupport": "Значення не підтримується"
+        }
+      },
+      "bf_end_next": {
+        "name": "Наступне завершення печі"
+      },
+      "bf_fire": {
+        "name": "Полум'я печі"
+      },
+      "bf_mode": {
+        "name": "Режим печі"
+      },
+      "bf_quick_btn_bake_id": {
+        "name": "Ідентифікатор швидкої кнопки випікання печі"
+      },
+      "bf_quick_btn_bake_set": {
+        "name": "Налаштування швидкої кнопки випікання печі"
+      },
+      "bf_quick_btn_bake_time": {
+        "name": "Час швидкої кнопки випікання печі"
+      },
+      "bf_quick_btn_microwave_id": {
+        "name": "Ідентифікатор швидкої кнопки мікрохвиль печі"
+      },
+      "bf_quick_btn_microwave_set": {
+        "name": "Налаштування швидкої кнопки мікрохвиль печі"
+      },
+      "bf_quick_btn_microwave_time": {
+        "name": "Час швидкої кнопки мікрохвиль печі"
+      },
+      "bf_quick_btn_steam_id": {
+        "name": "Ідентифікатор швидкої кнопки пари печі"
+      },
+      "bf_quick_btn_steam_set": {
+        "name": "Налаштування швидкої кнопки пари печі"
+      },
+      "bf_quick_btn_steam_time": {
+        "name": "Час швидкої кнопки пари печі"
+      },
+      "bf_recipe_code": {
+        "name": "Код рецепту печі"
+      },
+      "bf_remaining_time": {
+        "name": "Залишок часу печі"
+      },
+      "bf_steam": {
+        "name": "Пара печі"
+      },
+      "bf_step_current": {
+        "name": "Поточний крок печі"
+      },
+      "bf_step_total": {
+        "name": "Усього кроків печі"
+      },
+      "bf_temp_down": {
+        "name": "Нижня температура печі"
+      },
+      "bf_temp_down_set": {
+        "name": "Налаштування нижньої температури печі"
+      },
+      "bf_temp_probe": {
+        "name": "Температура щупа печі"
+      },
+      "bf_temp_probe_set": {
+        "name": "Налаштування температури щупа печі"
+      },
+      "bf_temp_up": {
+        "name": "Верхня температура печі"
+      },
+      "bf_temp_up_set": {
+        "name": "Налаштування верхньої температури печі"
+      },
+      "bf_tips_mark": {
+        "name": "Позначка підказок печі",
+        "state": {
+          "apply": "Застосувати",
+          "change_attachments": "Змінити приладдя",
+          "door_open": "Дверцята відкрито",
+          "feed": "Додати продукти",
+          "recipe_tips": "Поради щодо рецепту",
+          "stir": "Перемішати"
+        }
+      },
+      "bf_weight_mount": {
+        "name": "Підставка для ваги печі"
+      },
+      "bf_weight_multiple": {
+        "name": "Множник ваги печі",
+        "state": {
+          "g": "г",
+          "kg": "кг",
+          "ounce": "Унція",
+          "pound": "Фунт"
+        }
+      },
+      "bf_weight_unit": {
+        "name": "Одиниця ваги печі",
+        "state": {
+          "g": "г",
+          "kg": "кг",
+          "other": "Інше",
+          "ounce": "Унція",
+          "pound": "Фунт"
+        }
+      },
+      "bf_work_status": {
+        "name": "Стан роботи печі",
+        "state": {
+          "after_sale": "Післяпродажне обслуговування",
+          "check_version": "Перевірити версію",
+          "cloudmenu_setting": "Налаштування хмарного меню",
+          "demo": "Демо",
+          "done": "Готово",
+          "keep": "Зберегти",
+          "love_three_seconds": "Love Three Seconds",
+          "open": "Відкрити",
+          "order": "Таймер",
+          "pause": "Пауза",
+          "pause_temporarily": "Тимчасова пауза",
+          "power_off": "Вимкнення живлення",
+          "self_check": "Самоперевірка",
+          "working": "Працює"
+        }
+      },
+      "bf_working_time": {
+        "name": "Час роботи печі"
+      },
+      "e7_left_bottom_bridge_link": {
+        "name": "Зв'язок мосту лівої нижньої індукційної зони",
+        "state": {
+          "off": "Вимкнено",
+          "on": "Увімкнено"
+        }
+      },
+      "e7_left_bottom_destination_time": {
+        "name": "Цільовий час лівої нижньої індукційної зони"
+      },
+      "e7_left_bottom_efficiency": {
+        "name": "Ефективність лівої нижньої індукційної зони"
+      },
+      "e7_left_bottom_gear": {
+        "name": "Передача лівої нижньої індукційної зони"
+      },
+      "e7_left_bottom_mode": {
+        "name": "Режим лівої нижньої індукційної зони",
+        "state": {
+          "boiling": "Кип'ятіння",
+          "heat_preservation": "Підтримання тепла",
+          "none": "Немає",
+          "stew_soup": "Тушкування супу",
+          "stir_frying": "Смаження"
+        }
+      },
+      "e7_left_bottom_remaining_time": {
+        "name": "Залишок часу лівої нижньої індукційної зони"
+      },
+      "e7_left_bottom_work_status": {
+        "name": "Стан роботи лівої нижньої індукційної зони",
+        "state": {
+          "auto": "Авто",
+          "drying": "Сушіння",
+          "finish": "Завершити",
+          "order": "Таймер",
+          "pause": "Пауза",
+          "power_off": "Вимкнення живлення",
+          "standby": "Очікування",
+          "working": "Працює"
+        }
+      },
+      "e7_left_bottom_work_time": {
+        "name": "Час роботи лівої нижньої індукційної зони"
+      },
+      "e7_left_bridge_link": {
+        "name": "Зв'язок мосту лівої індукційної зони",
+        "state": {
+          "off": "Вимкнено",
+          "on": "Увімкнено"
+        }
+      },
+      "e7_left_destination_time": {
+        "name": "Цільовий час лівої індукційної зони"
+      },
+      "e7_left_efficiency": {
+        "name": "Ефективність лівої індукційної зони"
+      },
+      "e7_left_gear": {
+        "name": "Передача лівої індукційної зони"
+      },
+      "e7_left_mode": {
+        "name": "Режим лівої індукційної зони",
+        "state": {
+          "boiling": "Кип'ятіння",
+          "heat_preservation": "Підтримання тепла",
+          "none": "Немає",
+          "stew_soup": "Тушкування супу",
+          "stir_frying": "Смаження"
+        }
+      },
+      "e7_left_remaining_time": {
+        "name": "Залишок часу лівої індукційної зони"
+      },
+      "e7_left_top_bridge_link": {
+        "name": "Зв'язок мосту лівої верхньої індукційної зони",
+        "state": {
+          "off": "Вимкнено",
+          "on": "Увімкнено"
+        }
+      },
+      "e7_left_top_destination_time": {
+        "name": "Цільовий час лівої верхньої індукційної зони"
+      },
+      "e7_left_top_efficiency": {
+        "name": "Ефективність лівої верхньої індукційної зони"
+      },
+      "e7_left_top_gear": {
+        "name": "Передача лівої верхньої індукційної зони"
+      },
+      "e7_left_top_mode": {
+        "name": "Режим лівої верхньої індукційної зони",
+        "state": {
+          "boiling": "Кип'ятіння",
+          "heat_preservation": "Підтримання тепла",
+          "none": "Немає",
+          "stew_soup": "Тушкування супу",
+          "stir_frying": "Смаження"
+        }
+      },
+      "e7_left_top_remaining_time": {
+        "name": "Залишок часу лівої верхньої індукційної зони"
+      },
+      "e7_left_top_work_status": {
+        "name": "Стан роботи лівої верхньої індукційної зони",
+        "state": {
+          "auto": "Авто",
+          "drying": "Сушіння",
+          "finish": "Завершити",
+          "order": "Таймер",
+          "pause": "Пауза",
+          "power_off": "Вимкнення живлення",
+          "standby": "Очікування",
+          "working": "Працює"
+        }
+      },
+      "e7_left_top_work_time": {
+        "name": "Час роботи лівої верхньої індукційної зони"
+      },
+      "e7_left_work_status": {
+        "name": "Стан роботи лівої індукційної зони",
+        "state": {
+          "auto": "Авто",
+          "drying": "Сушіння",
+          "finish": "Завершити",
+          "order": "Таймер",
+          "pause": "Пауза",
+          "power_off": "Вимкнення живлення",
+          "standby": "Очікування",
+          "working": "Працює"
+        }
+      },
+      "e7_left_work_time": {
+        "name": "Час роботи лівої індукційної зони"
+      },
+      "e7_right_bottom_bridge_link": {
+        "name": "Зв'язок мосту правої нижньої індукційної зони",
+        "state": {
+          "off": "Вимкнено",
+          "on": "Увімкнено"
+        }
+      },
+      "e7_right_bottom_destination_time": {
+        "name": "Цільовий час правої нижньої індукційної зони"
+      },
+      "e7_right_bottom_efficiency": {
+        "name": "Ефективність правої нижньої індукційної зони"
+      },
+      "e7_right_bottom_gear": {
+        "name": "Передача правої нижньої індукційної зони"
+      },
+      "e7_right_bottom_mode": {
+        "name": "Режим правої нижньої індукційної зони",
+        "state": {
+          "boiling": "Кип'ятіння",
+          "heat_preservation": "Підтримання тепла",
+          "none": "Немає",
+          "stew_soup": "Тушкування супу",
+          "stir_frying": "Смаження"
+        }
+      },
+      "e7_right_bottom_remaining_time": {
+        "name": "Залишок часу правої нижньої індукційної зони"
+      },
+      "e7_right_bottom_work_status": {
+        "name": "Стан роботи правої нижньої індукційної зони",
+        "state": {
+          "auto": "Авто",
+          "drying": "Сушіння",
+          "finish": "Завершити",
+          "order": "Таймер",
+          "pause": "Пауза",
+          "power_off": "Вимкнення живлення",
+          "standby": "Очікування",
+          "working": "Працює"
+        }
+      },
+      "e7_right_bottom_work_time": {
+        "name": "Час роботи правої нижньої індукційної зони"
+      },
+      "e7_right_bridge_link": {
+        "name": "Зв'язок мосту правої індукційної зони",
+        "state": {
+          "off": "Вимкнено",
+          "on": "Увімкнено"
+        }
+      },
+      "e7_right_destination_time": {
+        "name": "Цільовий час правої індукційної зони"
+      },
+      "e7_right_efficiency": {
+        "name": "Ефективність правої індукційної зони"
+      },
+      "e7_right_gear": {
+        "name": "Передача правої індукційної зони"
+      },
+      "e7_right_mode": {
+        "name": "Режим правої індукційної зони",
+        "state": {
+          "boiling": "Кип'ятіння",
+          "heat_preservation": "Підтримання тепла",
+          "none": "Немає",
+          "stew_soup": "Тушкування супу",
+          "stir_frying": "Смаження"
+        }
+      },
+      "e7_right_remaining_time": {
+        "name": "Залишок часу правої індукційної зони"
+      },
+      "e7_right_top_bridge_link": {
+        "name": "Зв'язок мосту правої верхньої індукційної зони",
+        "state": {
+          "off": "Вимкнено",
+          "on": "Увімкнено"
+        }
+      },
+      "e7_right_top_destination_time": {
+        "name": "Цільовий час правої верхньої індукційної зони"
+      },
+      "e7_right_top_efficiency": {
+        "name": "Ефективність правої верхньої індукційної зони"
+      },
+      "e7_right_top_gear": {
+        "name": "Передача правої верхньої індукційної зони"
+      },
+      "e7_right_top_mode": {
+        "name": "Режим правої верхньої індукційної зони",
+        "state": {
+          "boiling": "Кип'ятіння",
+          "heat_preservation": "Підтримання тепла",
+          "none": "Немає",
+          "stew_soup": "Тушкування супу",
+          "stir_frying": "Смаження"
+        }
+      },
+      "e7_right_top_remaining_time": {
+        "name": "Залишок часу правої верхньої індукційної зони"
+      },
+      "e7_right_top_work_status": {
+        "name": "Стан роботи правої верхньої індукційної зони",
+        "state": {
+          "auto": "Авто",
+          "drying": "Сушіння",
+          "finish": "Завершити",
+          "order": "Таймер",
+          "pause": "Пауза",
+          "power_off": "Вимкнення живлення",
+          "standby": "Очікування",
+          "working": "Працює"
+        }
+      },
+      "e7_right_top_work_time": {
+        "name": "Час роботи правої верхньої індукційної зони"
+      },
+      "e7_right_work_status": {
+        "name": "Стан роботи правої індукційної зони",
+        "state": {
+          "auto": "Авто",
+          "drying": "Сушіння",
+          "finish": "Завершити",
+          "order": "Таймер",
+          "pause": "Пауза",
+          "power_off": "Вимкнення живлення",
+          "standby": "Очікування",
+          "working": "Працює"
+        }
+      },
+      "e7_right_work_time": {
+        "name": "Час роботи правої індукційної зони"
+      },
+      "electronic_version": {
+        "name": "Версія електроніки"
+      },
+      "error_list": {
+        "name": "Список помилок"
+      },
+      "sp_fandrying_destination_time": {
+        "name": "Цільовий час вентиляційного сушіння планшета"
+      },
+      "sp_fandrying_order_destination_time": {
+        "name": "Цільовий час таймера вентиляційного сушіння планшета"
+      },
+      "sp_fandrying_order_remaining_time": {
+        "name": "Залишок часу таймера вентиляційного сушіння планшета"
+      },
+      "sp_fandrying_remaining_time": {
+        "name": "Залишок часу вентиляційного сушіння планшета"
+      },
+      "sp_fandrying_setting_automode_day": {
+        "name": "День автоматичного режиму вентиляційного сушіння планшета"
+      },
+      "sp_fandrying_setting_automode_starthour": {
+        "name": "Година початку автоматичного режиму вентиляційного сушіння планшета"
+      },
+      "sp_fandrying_setting_automode_startminute": {
+        "name": "Хвилина початку автоматичного режиму вентиляційного сушіння планшета"
+      },
+      "sp_fandrying_status": {
+        "name": "Стан вентиляційного сушіння планшета",
+        "state": {
+          "drying": "Сушіння",
+          "drying_pause": "Пауза сушіння",
+          "ion_drying": "Іонне сушіння",
+          "ion_drying_pause": "Пауза іонного сушіння",
+          "power_off": "Вимкнення живлення",
+          "uperization": "Уперизація",
+          "uperization_pause": "Пауза уперизації",
+          "warm_drink": "Теплий напій",
+          "warm_drink_pause": "Пауза теплого напою"
+        }
+      },
+      "sp_fandrying_temperature": {
+        "name": "Температура вентиляційного сушіння планшета"
+      },
+      "sp_heatingdisk_destination_time": {
+        "name": "Цільовий час нагрівального диска планшета"
+      },
+      "sp_heatingdisk_order_destination_time": {
+        "name": "Цільовий час таймера нагрівального диска планшета"
+      },
+      "sp_heatingdisk_order_remaining_time": {
+        "name": "Залишок часу таймера нагрівального диска планшета"
+      },
+      "sp_heatingdisk_remaining_time": {
+        "name": "Залишок часу нагрівального диска планшета"
+      },
+      "sp_heatingdisk_setting_automode_day": {
+        "name": "День автоматичного режиму нагрівального диска планшета"
+      },
+      "sp_heatingdisk_setting_automode_starthour": {
+        "name": "Година початку автоматичного режиму нагрівального диска планшета"
+      },
+      "sp_heatingdisk_setting_automode_startminute": {
+        "name": "Хвилина початку автоматичного режиму нагрівального диска планшета"
+      },
+      "sp_heatingdisk_status": {
+        "name": "Стан нагрівального диска планшета",
+        "state": {
+          "drying": "Сушіння",
+          "drying_pause": "Пауза сушіння",
+          "ion_drying": "Іонне сушіння",
+          "ion_drying_pause": "Пауза іонного сушіння",
+          "power_off": "Вимкнення живлення",
+          "uperization": "Уперизація",
+          "uperization_pause": "Пауза уперизації",
+          "warm_drink": "Теплий напій",
+          "warm_drink_pause": "Пауза теплого напою"
+        }
+      },
+      "sp_heatingdisk_temperature": {
+        "name": "Температура нагрівального диска планшета"
+      },
+      "sp_uvc_destination_time": {
+        "name": "Цільовий час UVC планшета"
+      },
+      "sp_uvc_order_destination_time": {
+        "name": "Цільовий час таймера UVC планшета"
+      },
+      "sp_uvc_order_remaining_time": {
+        "name": "Залишок часу таймера UVC планшета"
+      },
+      "sp_uvc_remaining_time": {
+        "name": "Залишок часу UVC планшета"
+      },
+      "sp_uvc_setting_automode_day": {
+        "name": "День автоматичного режиму UVC планшета"
+      },
+      "sp_uvc_setting_automode_starthour": {
+        "name": "Година початку автоматичного режиму UVC планшета"
+      },
+      "sp_uvc_setting_automode_startminute": {
+        "name": "Хвилина початку автоматичного режиму UVC планшета"
+      },
+      "sp_uvc_status": {
+        "name": "Стан UVC планшета",
+        "state": {
+          "drying": "Сушіння",
+          "drying_pause": "Пауза сушіння",
+          "ion_drying": "Іонне сушіння",
+          "ion_drying_pause": "Пауза іонного сушіння",
+          "power_off": "Вимкнення живлення",
+          "uperization": "Уперизація",
+          "uperization_pause": "Пауза уперизації",
+          "warm_drink": "Теплий напій",
+          "warm_drink_pause": "Пауза теплого напою"
+        }
+      },
+      "sp_uvc_temperature": {
+        "name": "Температура UVC планшета"
+      },
+      "total_error_code": {
+        "name": "Код помилки"
+      },
+      "total_error_type": {
+        "name": "Тип помилки"
+      },
+      "total_firewall_temp": {
+        "name": "Температура протипожежної стінки"
+      },
+      "total_gesture": {
+        "name": "Жест",
+        "state": {
+          "off": "Вимкнено",
+          "on": "Увімкнено"
+        }
+      },
+      "total_ir": {
+        "name": "IR",
+        "state": {
+          "off": "Вимкнено",
+          "on": "Увімкнено"
+        }
+      },
+      "total_lock_off_type": {
+        "name": "Тип вимкнення блокування",
+        "state": {
+          "local": "Локально"
+        }
+      },
+      "total_lock_on_type": {
+        "name": "Тип увімкнення блокування",
+        "state": {
+          "app": "Застосунок",
+          "local": "Локально"
+        }
+      },
+      "total_shelving_unit_temp": {
+        "name": "Температура полиці"
+      },
+      "total_speak": {
+        "name": "Говорити",
+        "state": {
+          "off": "Вимкнено",
+          "on": "Увімкнено"
+        }
+      },
+      "total_tips_code": {
+        "name": "Код підказок"
+      },
+      "total_tips_type": {
+        "name": "Тип підказок"
+      },
+      "work_status": {
+        "name": "Стан роботи",
+        "state": {
+          "save_power": "Економія енергії",
+          "standby": "Очікування",
+          "work": "Працює",
+          "pause": "Призупинено",
+          "work_finish": "Завершено",
+          "order": "Затримка",
+          "pause_c": "Призупинено C",
+          "three": "Три",
+          "self_inspection": "Самоперевірка",
+          "query_version": "Запит версії",
+          "demo": "Демо",
+          "ramadan": "Рамадан",
+          "after_checking": "Після перевірки",
+          "wait_to_start": "Очікування старту",
+          "ff": "Невідомо"
+        }
+      },
+      "x9b_fire_power": {
+        "name": "Потужність полум'я",
+        "state": {
+          "high_power": "Висока",
+          "medium_high_power": "Середньо-висока",
+          "medium_power": "Середня",
+          "medium_low_power": "Середньо-низька",
+          "low_power": "Низька",
+          "ff": "Невідомо"
+        }
+      },
+      "pre_heat": {
+        "name": "Попереднє нагрівання",
+        "state": {
+          "off": "Вимкнено",
+          "work": "Попереднє нагрівання",
+          "end": "Попереднє нагрівання завершено"
+        }
+      },
+      "water_status": {
+        "name": "Стан води",
+        "state": {
+          "normal": "Звичайний",
+          "lack_box": "Відсутній контейнер",
+          "lack_water": "Нестача води",
+          "change_water": "Заміна води"
+        }
+      },
+      "dissipate_heat": {
+        "name": "Розсіювання тепла",
+        "state": {
+          "off": "Вимкнено",
+          "work": "Розсіювання"
+        }
+      },
+      "execute": {
+        "name": "Стан виконання",
+        "state": {
+          "ok": "OK",
+          "status_nonsupport": "Стан не підтримується",
+          "function_nonsupport": "Функція не підтримується",
+          "param_range_error": "Помилка діапазону параметра"
+        }
+      },
+      "sys_time_src": {
+        "name": "Джерело системного часу",
+        "state": {
+          "module": "Модуль",
+          "app": "Застосунок",
+          "user_defined": "Задано користувачем"
+        }
+      },
+      "cur_temperature": {
+        "name": "Поточна температура"
+      },
+      "work_hour": {
+        "name": "Година роботи"
+      },
+      "work_minute": {
+        "name": "Хвилина роботи"
+      },
+      "work_second": {
+        "name": "Секунда роботи"
+      },
+      "cbs_version": {
+        "name": "Версія CBS"
+      }
+    },
+    "switch": {
+      "db_power": {
+        "name": "Потужність пральної машини"
+      },
+      "dc_power": {
+        "name": "Потужність сушильної машини"
+      },
+      "door_auto_open_setting": {
+        "name": "Автовідкривання дверцят"
+      },
+      "anion": {
+        "name": "Аніони"
+      },
+      "humidify": {
+        "name": "Зволоження"
+      },
+      "waterions": {
+        "name": "Іони води"
+      },
+      "anophelifuge": {
+        "name": "Протимоскітний"
+      },
+      "display_on_off": {
+        "name": "Дисплей"
+      },
+      "auto_power_off": {
+        "name": "Автоматичне вимкнення живлення"
+      },
+      "body_feeling_scan": {
+        "name": "Сканування відчуття тіла"
+      },
+      "aux_heating": {
+        "name": "Додаткове нагрівання"
+      },
+      "boost_mode": {
+        "name": "Режим Boost"
+      },
+      "breezeless": {
+        "name": "Без протягів"
+      },
+      "child_lock": {
+        "name": "Захист від дітей"
+      },
+      "cl_sterilization": {
+        "name": "Стерилізація CL"
+      },
+      "comfort_mode": {
+        "name": "Комфортний режим"
+      },
+      "degerming": {
+        "name": "Знищення мікробів"
+      },
+      "dhw_power": {
+        "name": "Живлення DHW"
+      },
+      "disinfect": {
+        "name": "Дезінфекція"
+      },
+      "furnace_light": {
+        "name": "Підсвічування печі"
+      },
+      "hot_wind": {
+        "name": "Гаряче повітря"
+      },
+      "ramadan": {
+        "name": "Рамадан"
+      },
+      "turntable": {
+        "name": "Поворотний стіл"
+      },
+      "maintenance_reminder": {
+        "name": "Нагадування про обслуговування"
+      },
+      "vacation_mode": {
+        "name": "Режим відпустки"
+      },
+      "dry": {
+        "name": "Сушіння"
+      },
+      "cold_water_single": {
+        "name": "Одноразова холодна вода"
+      },
+      "cold_water_dot": {
+        "name": "Порційна холодна вода"
+      },
+      "eco_mode": {
+        "name": "Режим ECO"
+      },
+      "memory": {
+        "name": "Пам'ять U"
+      },
+      "fast_dhw": {
+        "name": "Швидке DHW"
+      },
+      "foam_shield": {
+        "name": "Захист від піни"
+      },
+      "frost_protect": {
+        "name": "Захист від замерзання"
+      },
+      "heating_power": {
+        "name": "Потужність нагрівання"
+      },
+      "indirect_wind": {
+        "name": "Непрямий потік повітря"
+      },
+      "leak_water_protection": {
+        "name": "Захист від протікання води"
+      },
+      "light": {
+        "name": "Легкий"
+      },
+      "link_to_ac": {
+        "name": "Зв'язок із кондиціонером"
+      },
+      "main_light": {
+        "name": "Основне освітлення"
+      },
+      "main_power": {
+        "name": "Основне живлення"
+      },
+      "natural_wind": {
+        "name": "Природний вітер"
+      },
+      "night_light": {
+        "name": "Нічник"
+      },
+      "oscillate": {
+        "name": "Коливання"
+      },
+      "power": {
+        "name": "Потужність"
+      },
+      "powerful_purify": {
+        "name": "Потужне очищення"
+      },
+      "prompt_tone": {
+        "name": "Сигнал підказки"
+      },
+      "regeneration": {
+        "name": "Регенерація"
+      },
+      "water_pump": {
+        "name": "Водяний насос"
+      },
+      "water_way": {
+        "name": "Шлях води"
+      },
+      "screen_display": {
+        "name": "Відображення на екрані"
+      },
+      "screen_display_alternate": {
+        "name": "Почергове відображення на екрані"
+      },
+      "sensor_light": {
+        "name": "Сенсорне освітлення"
+      },
+      "silent_mode": {
+        "name": "Беззвучний режим"
+      },
+      "sleep_mode": {
+        "name": "Режим сну"
+      },
+      "out_silent": {
+        "name": "Зовнішній беззвучний режим"
+      },
+      "smart_eye": {
+        "name": "Розумне око"
+      },
+      "smart_volume": {
+        "name": "Розумна гучність"
+      },
+      "smelly_sensor": {
+        "name": "Датчик запаху"
+      },
+      "soften": {
+        "name": "Пом'якшення"
+      },
+      "standby": {
+        "name": "Очікування"
+      },
+      "start": {
+        "name": "Старт"
+      },
+      "sterilization": {
+        "name": "Стерилізація"
+      },
+      "storage": {
+        "name": "Зберігання"
+      },
+      "swing": {
+        "name": "Хитання"
+      },
+      "swing_horizontal": {
+        "name": "Горизонтальне хитання"
+      },
+      "swing_vertical": {
+        "name": "Вертикальне хитання"
+      },
+      "self_clean": {
+        "name": "Самоочищення"
+      },
+      "ieco": {
+        "name": "iECO"
+      },
+      "sound": {
+        "name": "Звук"
+      },
+      "tbh": {
+        "name": "TBH"
+      },
+      "variable_heating": {
+        "name": "Змінне нагрівання"
+      },
+      "ventilation": {
+        "name": "Вентиляція"
+      },
+      "whole_tank_heating": {
+        "name": "Нагрівання всього бака"
+      },
+      "zero_cold_pulse": {
+        "name": "Нуль холодної води (імпульс)"
+      },
+      "zero_cold_water": {
+        "name": "Нуль холодної води"
+      },
+      "zone1_curve": {
+        "name": "Крива Зони 1"
+      },
+      "zone1_power": {
+        "name": "Живлення Зони 1"
+      },
+      "zone2_curve": {
+        "name": "Крива Зони 2"
+      },
+      "zone2_power": {
+        "name": "Живлення Зони 2"
+      },
+      "boiling": {
+        "name": "Кип'ятіння води"
+      },
+      "tea_bar_boil": {
+        "name": "Перемикач кип'ятіння води"
+      },
+      "tea_bar_child_lock": {
+        "name": "Захист від дітей"
+      },
+      "keep_warm": {
+        "name": "Підтримання тепла"
+      },
+      "tea_bar_cooling": {
+        "name": "Охолодження чайного бару"
+      },
+      "screen_off": {
+        "name": "Екран вимкнено"
+      },
+      "wash": {
+        "name": "Промивання фільтра"
+      },
+      "antifreeze": {
+        "name": "Захист від замерзання"
+      },
+      "heat": {
+        "name": "Нагрівання"
+      },
+      "holiday_on": {
+        "name": "Режим — Відпустка"
+      },
+      "dhw_disinfect": {
+        "name": "DHW — Дезінфекція"
+      },
+      "ai_voice_microphone": {
+        "name": "Мікрофон голосу ШІ"
+      },
+      "total_lock": {
+        "name": "Захист від дітей"
+      },
+      "total_power": {
+        "name": "Потужність"
+      },
+      "lock": {
+        "name": "Захист від дітей"
+      },
+      "camera": {
+        "name": "Камера"
+      },
+      "dryer_sterilize": {
+        "name": "Багатовимірна стерилізація"
+      },
+      "dryer_anti_wrinkle": {
+        "name": "Розумний захист від складок"
+      },
+      "washer_forget_free": {
+        "name": "Догляд без турбот"
+      }
+    },
+    "water_heater": {
+      "domestic_hot_water": {
+        "name": "Побутова гаряча вода"
+      },
+      "bathing": {
+        "name": "Купання"
+      },
+      "heating": {
+        "name": "Нагрівання"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "ip_address": "IP-адреса",
+          "refresh_interval": "Інтервал оновлення (0 означає відсутність активного оновлення)",
+          "sensors": "Додаткові датчики",
+          "switches": "Додаткові елементи керування",
+          "customize": "Налаштувати",
+          "account": "Обліковий запис хмари Midea (для датчиків статистики використання)",
+          "password": "Пароль облікового запису хмари Midea (для датчиків статистики використання)",
+          "server": "Сервер хмари Midea для облікового запису (для датчиків статистики використання)"
+        },
+        "title": "Налаштувати"
+      }
+    },
+    "abort": {
+      "account_option": "Обліковий запис не підтримує цю операцію.\nНатисніть \"ДОДАТИ ПРИСТРІЙ\", щоб  додати новий пристрій."
+    }
+  },
+  "services": {
+    "set_attribute": {
+      "name": "Установити атрибут",
+      "description": "Установити значення атрибута пристрою",
+      "fields": {
+        "device_id": {
+          "name": "Код приладу",
+          "description": "Код приладу (ID пристрою) приладу"
+        },
+        "attribute": {
+          "name": "Атрибут",
+          "description": "Назва атрибута, який потрібно встановити"
+        },
+        "value": {
+          "name": "Значення",
+          "description": "Значення атрибута, яке потрібно встановити"
+        }
+      }
+    },
+    "send_command": {
+      "name": "Користувацька команда",
+      "description": "Надіслати користувацьку команду на пристрій",
+      "fields": {
+        "device_id": {
+          "name": "Код приладу",
+          "description": "Код приладу (ID пристрою) приладу"
+        },
+        "cmd_type": {
+          "name": "Тип команди",
+          "description": "Тип команди，має бути 3（запит) або 2（встановлення)"
+        },
+        "cmd_body": {
+          "name": "Тіло команди",
+          "description": "Тіло команди (без заголовка протоколу MSmart та контрольної суми в кінці)"
+        }
+      }
+    }
+  }
+}

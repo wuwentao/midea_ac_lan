@@ -1,0 +1,4402 @@
+{
+  "config": {
+    "error": {
+      "preset_account": "Ezin izan da aurrez ezarritako kontuarekin saioa hasi, mesedez eman arazo honen berri",
+      "login_failed": "Ezin izan da saioa hasi, kontua edo pasahitza okerra zen",
+      "no_devices": "Ez da gailu erabilgarri berririk aurkitu sarean",
+      "device_exist": "Gailua jada konfiguratuta dago",
+      "config_incorrect": "Konfigurazioa okerra da",
+      "connect_error": "Ezin da gailura konektatu",
+      "invalid_token": "Token edo Key formatu okerrean"
+    },
+    "step": {
+      "user": {
+        "data": {
+          "way": "Gailuak gehitzen"
+        },
+        "description": "Aukeratu gailua gehitzeko modua",
+        "title": "Gehitu gailu berria"
+      },
+      "login": {
+        "data": {
+          "account": "Kontua",
+          "password": "Pasahitza"
+        },
+        "description": "Hasi saioa eta eskuratu gailuaren Tokena.\n\n\nGaur egun, SmartHome eta Meiju kontu pertsonalek bakarrik eskura ditzakete gailuen Tokenak. Xehetasunetarako, ikusi README dokumentua.",
+        "title": "Hasi saioa"
+      },
+      "discovery": {
+        "description": "Gailuaren IP helbidea, idatzi \"auto\" automatikoki aurkitzeko\nIP helbide bat ere erabil dezakezu sare jakin batean bilatzeko, adibidez \"192.168.1.255\"",
+        "title": "Bilatu",
+        "data": {
+          "ip_address": "IP helbidea"
+        }
+      },
+      "list": {
+        "description": "{table}",
+        "title": "Gailuak"
+      },
+      "auto": {
+        "data": {
+          "device": "Gailuak"
+        },
+        "description": "Aukeratu gehitu beharreko gailua",
+        "title": "Gailu berria aurkitu da"
+      },
+      "manually": {
+        "data": {
+          "name": "Izena (adib. Egongelako aire egokitzailea)",
+          "device_id": "Gailuaren kodea",
+          "type": "Mota",
+          "ip_address": "IP helbidea",
+          "port": "Ataka",
+          "model": "Modeloa",
+          "subtype": "Azpimota",
+          "protocol": "Protokoloa",
+          "token": "Token",
+          "key": "Key"
+        },
+        "description": "Gailuaren konfigurazioa",
+        "title": "Gailu berria"
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "door_auto_open": {
+        "name": "Azken programaren atea automatikoki irekitzea"
+      },
+      "uv": {
+        "name": "UV"
+      },
+      "dry": {
+        "name": "Lehorra"
+      },
+      "dry_status": {
+        "name": "Lehortzen"
+      },
+      "storage_status": {
+        "name": "Biltegiratzea martxan"
+      },
+      "waterswitch": {
+        "name": "Ur-etengailua"
+      },
+      "water_lack": {
+        "name": "Ur eskasia"
+      },
+      "wifi_unabled": {
+        "name": "Wi-Fi desgaituta"
+      },
+      "auto_throw": {
+        "name": "Banaketa automatikoa"
+      },
+      "lock_power": {
+        "name": "Potentzia-blokeoa"
+      },
+      "beep_control": {
+        "name": "Soinua"
+      },
+      "light_btn_on": {
+        "name": "Botoiaren argia"
+      },
+      "light_strip_on": {
+        "name": "Argi-banda"
+      },
+      "warm_power": {
+        "name": "Potentzia epela"
+      },
+      "cold_power": {
+        "name": "Potentzia hotza"
+      },
+      "sleep_power": {
+        "name": "Lo-potentzia"
+      },
+      "pump_on": {
+        "name": "Ponpa piztuta"
+      },
+      "bar_door": {
+        "name": "Barraren atea"
+      },
+      "bar_door_overtime": {
+        "name": "Barraren atea denboraz kanpo"
+      },
+      "bathing_working": {
+        "name": "Bainu-egoeraren funtzionamendua"
+      },
+      "bottom_compartment_cooling": {
+        "name": "Beheko konpartimentuaren hozketa"
+      },
+      "bottom_compartment_door": {
+        "name": "Beheko konpartimentuaren atea"
+      },
+      "bottom_compartment_preheating": {
+        "name": "Beheko konpartimentuaren aurreberoketa"
+      },
+      "burning_state": {
+        "name": "Erretze-egoera"
+      },
+      "clean_scale": {
+        "name": "Kareztatzea kentzen"
+      },
+      "clean_sink_ponding": {
+        "name": "Harraskaren ur-metaketa"
+      },
+      "cleaning_reminder": {
+        "name": "Garbiketa-oroigarria"
+      },
+      "compressor_status": {
+        "name": "Konpresorearen egoera"
+      },
+      "cooking": {
+        "name": "Sukaldaritza"
+      },
+      "dissipate_heat": {
+        "name": "Bero-sakabanaketa"
+      },
+      "door": {
+        "name": "Atea"
+      },
+      "error_code": {
+        "name": "Errore-kodea"
+      },
+      "filter_change_reminder": {
+        "name": "Iragazkia aldatzeko oroigarria"
+      },
+      "filter_cleaning_reminder": {
+        "name": "Iragazkia garbitzeko oroigarria"
+      },
+      "finished": {
+        "name": "Amaituta"
+      },
+      "flex_zone_door": {
+        "name": "Flex atea"
+      },
+      "flex_zone_door_overtime": {
+        "name": "Flex eremuaren atea"
+      },
+      "flip_side": {
+        "name": "Alde-iraultzea"
+      },
+      "freezer_door": {
+        "name": "Izozkailuaren atea"
+      },
+      "freezer_door_overtime": {
+        "name": "Izozkailuaren atea denboraz kanpo"
+      },
+      "full_dust": {
+        "name": "Hautsez betea"
+      },
+      "heating": {
+        "name": "Berotzen"
+      },
+      "dispensing": {
+        "name": "Ura banatzen"
+      },
+      "lack_water": {
+        "name": "Ur eza"
+      },
+      "standby": {
+        "name": "Zain"
+      },
+      "hot_water_dispensing": {
+        "name": "Ur beroa banatzen"
+      },
+      "fault": {
+        "name": "Akatsa"
+      },
+      "heating_working": {
+        "name": "Berotze-funtzionamenduaren egoera"
+      },
+      "high_temperature": {
+        "name": "Tenperatura altua"
+      },
+      "high_temperature_lock": {
+        "name": "Tenperatura altuaren blokeoa"
+      },
+      "high_temperature_work": {
+        "name": "Tenperatura altuko lana"
+      },
+      "keep_warm": {
+        "name": "Mantendu bero"
+      },
+      "leak_water": {
+        "name": "Ur-ihesa"
+      },
+      "lid_status": {
+        "name": "Tapakiaren egoera"
+      },
+      "middle_compartment_cooling": {
+        "name": "Erdiko konpartimentuaren hozketa"
+      },
+      "middle_compartment_door": {
+        "name": "Erdiko konpartimentuaren atea"
+      },
+      "middle_compartment_preheating": {
+        "name": "Erdiko konpartimentuaren aurreberoketa"
+      },
+      "pre_heat": {
+        "name": "Aurreberoketa"
+      },
+      "probe": {
+        "name": "Zunda"
+      },
+      "probe_mode": {
+        "name": "Zunda modua"
+      },
+      "reaction": {
+        "name": "Erreakzioa"
+      },
+      "top_elec_heat": {
+        "name": "Goiko beroketa elektrikoa"
+      },
+      "bottom_elec_heat": {
+        "name": "Beheko beroketa elektrikoa"
+      },
+      "mute_effect": {
+        "name": "Isiltasun-efektua"
+      },
+      "mute_status": {
+        "name": "Isiltasun-egoera"
+      },
+      "multi_terminal": {
+        "name": "Terminal anitz"
+      },
+      "oilcup_full": {
+        "name": "Olio-ontzia betea"
+      },
+      "protection": {
+        "name": "Babesa"
+      },
+      "refrigerator_door": {
+        "name": "Hozkailuaren atea"
+      },
+      "refrigerator_door_overtime": {
+        "name": "Hozkailuaren atea denboraz kanpo"
+      },
+      "rinse_aid": {
+        "name": "Argizkatzailearen eskasia"
+      },
+      "rsj_stand_by": {
+        "name": "Zain"
+      },
+      "salt": {
+        "name": "Gatz eskasia"
+      },
+      "seat_status": {
+        "name": "Eserlekuaren egoera"
+      },
+      "smart_grid": {
+        "name": "Sare adimenduna"
+      },
+      "eco": {
+        "name": "ECO"
+      },
+      "maintenance_reminder": {
+        "name": "Mantentze-oroigarria"
+      },
+      "dr_enable": {
+        "name": "Eskaera-erantzuna"
+      },
+      "electric_rod_exception": {
+        "name": "Berogailu elektrikoaren akatsa"
+      },
+      "ac_heater_priority": {
+        "name": "Bero-ponparen lehentasuna"
+      },
+      "high_temp_reminder": {
+        "name": "Tenperatura altuaren oroigarria"
+      },
+      "new_version_water_heater": {
+        "name": "Ur-berogailuaren protokolo hedatua"
+      },
+      "heat_recovery_status": {
+        "name": "Bero-berreskurapena"
+      },
+      "holiday_mode": {
+        "name": "Oporren modua"
+      },
+      "hybrid_motion_mode": {
+        "name": "Mugimendu hibridoaren modua"
+      },
+      "support_boost_mode": {
+        "name": "Boost moduaren euskarria"
+      },
+      "support_silent_mode": {
+        "name": "Isiltasun-moduaren euskarria"
+      },
+      "support_remaining_hot_water": {
+        "name": "Gainerako ur beroaren euskarria"
+      },
+      "support_electric_mode": {
+        "name": "Modu elektrikoaren euskarria"
+      },
+      "support_auto_disinfect": {
+        "name": "Desinfekzio automatikoaren euskarria"
+      },
+      "support_force_e_heating": {
+        "name": "Behartutako beroketa elektrikoaren euskarria"
+      },
+      "support_tou": {
+        "name": "Erabilera-orduaren euskarria"
+      },
+      "support_ac_heater_priority": {
+        "name": "Bero-ponparen lehentasunaren euskarria"
+      },
+      "support_heat_recovery": {
+        "name": "Bero-berreskurapenaren euskarria"
+      },
+      "support_heat_pump_mode": {
+        "name": "Bero-ponparen moduaren euskarria"
+      },
+      "support_smart_mode": {
+        "name": "Modu adimendunaren euskarria"
+      },
+      "support_negative_temperature": {
+        "name": "Tenperatura negatiboaren euskarria"
+      },
+      "maintain_warn": {
+        "name": "Mantentze-abisua"
+      },
+      "order1_effect": {
+        "name": "1. programazioa aktibo"
+      },
+      "order2_effect": {
+        "name": "2. programazioa aktibo"
+      },
+      "status_dhw": {
+        "name": "DHW egoera"
+      },
+      "status_heating": {
+        "name": "Berotze-egoera"
+      },
+      "status_ibh": {
+        "name": "IBH egoera"
+      },
+      "status_tbh": {
+        "name": "TBH egoera"
+      },
+      "tank_ejected": {
+        "name": "Depositua kanporatuta"
+      },
+      "tank_full": {
+        "name": "Deposituaren egoera"
+      },
+      "top_compartment_cooling": {
+        "name": "Goiko konpartimentuaren hozketa"
+      },
+      "top_compartment_door": {
+        "name": "Goiko konpartimentuaren atea"
+      },
+      "top_compartment_preheating": {
+        "name": "Goiko konpartimentuaren aurreberoketa"
+      },
+      "water_change_reminder": {
+        "name": "Ura aldatzeko oroigarria"
+      },
+      "water_shortage": {
+        "name": "Ur eskasia"
+      },
+      "with_pressure": {
+        "name": "Presioarekin"
+      },
+      "zone1_room_temp_mode": {
+        "name": "1. eremua gelako tenperatura modua"
+      },
+      "zone1_water_temp_mode": {
+        "name": "1. eremua uraren tenperatura modua"
+      },
+      "zone2_room_temp_mode": {
+        "name": "2. eremua gelako tenperatura modua"
+      },
+      "zone2_water_temp_mode": {
+        "name": "2. eremua uraren tenperatura modua"
+      },
+      "microcrystal_fresh": {
+        "name": "Mikrokristal freskoa"
+      },
+      "electronic_smell": {
+        "name": "Desusaintze-esterilizazioa"
+      },
+      "water_pump_running": {
+        "name": "Ur-ponpa martxan"
+      },
+      "filter_status": {
+        "name": "Iragazkiaren alarma"
+      },
+      "standby_status": {
+        "name": "Zain egoera"
+      },
+      "out_water": {
+        "name": "Ur-irteera"
+      },
+      "out_hot_water": {
+        "name": "Ur bero irteera"
+      },
+      "backflow": {
+        "name": "Atzerako fluxua"
+      },
+      "sleep_status": {
+        "name": "Lo-egoera"
+      },
+      "status_cool": {
+        "name": "Egoera - Hozketa"
+      },
+      "eco_function_state": {
+        "name": "Modua - ECO funtzioa"
+      },
+      "eco_timer_state": {
+        "name": "Modua - ECO tenporizadorea"
+      },
+      "double_zone": {
+        "name": "Gaitasuna - Eremu bikoitza"
+      },
+      "room_thermal_support": {
+        "name": "Gaitasuna - Gelako termostatoa"
+      },
+      "room_thermal_state": {
+        "name": "Egoera - Gelako termostatoa"
+      },
+      "time_set": {
+        "name": "Gaitasuna - Denbora-ezarpena"
+      },
+      "disinfect_run": {
+        "name": "DHW - Desinfekzioa martxan"
+      },
+      "remote_onoff": {
+        "name": "Gaitasuna - Urrutiko piztu/itzali"
+      },
+      "tbh_control": {
+        "name": "Gaitasuna - TBH kontrola"
+      },
+      "heat_capability": {
+        "name": "Gaitasuna - Berotzea"
+      },
+      "cool_capability": {
+        "name": "Gaitasuna - Hozketa"
+      },
+      "dhw_capability": {
+        "name": "Gaitasuna - DHW"
+      },
+      "sys_energy_ana_en": {
+        "name": "Gaitasuna - Energia-analisia (sistema)"
+      },
+      "hmi_energy_ana_set_en": {
+        "name": "Gaitasuna - Energia-analisia (HMI)"
+      },
+      "pump_i_running": {
+        "name": "Pump_I - Barnekoa"
+      },
+      "pump_o_running": {
+        "name": "Pump_O - Kanpokoa"
+      },
+      "pump_d_running": {
+        "name": "Pump_D - DHW"
+      },
+      "pump_c_running": {
+        "name": "Pump_C - Ur nahasiaren begizta 2. eremua"
+      },
+      "pump_s_running": {
+        "name": "Pump_S - Eguzki-energia"
+      },
+      "sv1_open": {
+        "name": "SV1 - Balbula (DHW)"
+      },
+      "sv2_open": {
+        "name": "SV2 - Balbula (berotzea)"
+      },
+      "load_output_tbh": {
+        "name": "Berogailua - Depositu-babeskopia (TBH)"
+      },
+      "compressor_on": {
+        "name": "Konpresorea - Martxan"
+      },
+      "ibh1_on": {
+        "name": "Berogailua - IBH1"
+      },
+      "ibh2_on": {
+        "name": "Berogailua - IBH2"
+      },
+      "sv3_open": {
+        "name": "SV3 - Balbula"
+      },
+      "crankcase_heater_on": {
+        "name": "Berogailua - Karterra"
+      },
+      "alarm_on": {
+        "name": "Errorea - Alarma"
+      },
+      "aux_heat_on": {
+        "name": "Berogailua - Iturri osagarria"
+      },
+      "ac_air_direction": {
+        "name": "AC aire-norabidea"
+      },
+      "ac_cooling_fan": {
+        "name": "AC hozketa-haizagailua"
+      },
+      "ac_draining_pump": {
+        "name": "AC hustuketa-ponpa"
+      },
+      "ac_low_temperature": {
+        "name": "AC tenperatura baxua"
+      },
+      "ac_over_temperature": {
+        "name": "AC gehiegizko tenperatura"
+      },
+      "ac_swing": {
+        "name": "AC kulunka"
+      },
+      "ac_water_full": {
+        "name": "AC ura betea"
+      },
+      "b2_downstair_clean_tips": {
+        "name": "Lurrun-labe beheko garbiketa-aholkuak"
+      },
+      "b2_downstair_door": {
+        "name": "Lurrun-labe beheko atea"
+      },
+      "b2_downstair_fresh_water": {
+        "name": "Lurrun-labe beheko ur freskoa"
+      },
+      "b2_downstair_light": {
+        "name": "Lurrun-labe beheko argia"
+      },
+      "b2_downstair_lock": {
+        "name": "Lurrun-labe beheko blokeoa"
+      },
+      "b2_downstair_must_clean_tips": {
+        "name": "Lurrun-labe beheko derrigorrezko garbiketa-aholkuak"
+      },
+      "b2_downstair_water_shortage": {
+        "name": "Lurrun-labe beheko ur eskasia"
+      },
+      "b2_upstair_clean_tips": {
+        "name": "Lurrun-labe goiko garbiketa-aholkuak"
+      },
+      "b2_upstair_door": {
+        "name": "Lurrun-labe goiko atea"
+      },
+      "b2_upstair_fresh_water": {
+        "name": "Lurrun-labe goiko ur freskoa"
+      },
+      "b2_upstair_light": {
+        "name": "Lurrun-labe goiko argia"
+      },
+      "b2_upstair_lock": {
+        "name": "Lurrun-labe goiko blokeoa"
+      },
+      "b2_upstair_must_clean_tips": {
+        "name": "Lurrun-labe goiko derrigorrezko garbiketa-aholkuak"
+      },
+      "b2_upstair_water_shortage": {
+        "name": "Lurrun-labe goiko ur eskasia"
+      },
+      "b3_downstair_door": {
+        "name": "Lurrun-armairu beheko atea"
+      },
+      "b3_downstair_door_lock": {
+        "name": "Lurrun-armairu beheko atearen blokeoa"
+      },
+      "b3_downstair_infrared": {
+        "name": "Lurrun-armairu beheko infragorria"
+      },
+      "b3_downstair_ultraviolet": {
+        "name": "Lurrun-armairu beheko ultramorea"
+      },
+      "b3_upstair_door": {
+        "name": "Lurrun-armairu goiko atea"
+      },
+      "b3_upstair_door_lock": {
+        "name": "Lurrun-armairu goiko atearen blokeoa"
+      },
+      "b3_upstair_infrared": {
+        "name": "Lurrun-armairu goiko infragorria"
+      },
+      "b3_upstair_ultraviolet": {
+        "name": "Lurrun-armairu goiko ultramorea"
+      },
+      "b6_tvoc_status": {
+        "name": "Ke-aterakinaren TVOC egoera"
+      },
+      "b6_delay_gear_linkage": {
+        "name": "Ke-aterakinaren atzerapen-marxaren lotura"
+      },
+      "b6_delay_time": {
+        "name": "Ke-aterakinaren atzerapen-denbora"
+      },
+      "b6_gesture_status": {
+        "name": "Ke-aterakinaren keinu-egoera"
+      },
+      "b6_infrared_status": {
+        "name": "Ke-aterakinaren infragorri-egoera"
+      },
+      "b6_lock": {
+        "name": "Ke-aterakinaren blokeoa"
+      },
+      "b6_power_on_light": {
+        "name": "Ke-aterakinaren pizketa-argia"
+      },
+      "b6_smoke_detector": {
+        "name": "Ke-aterakinaren ke-detektagailua"
+      },
+      "b6_smoke_stove_linkage": {
+        "name": "Ke-aterakinaren ke-sukalde lotura"
+      },
+      "b7_left_dry_burning": {
+        "name": "Gas-plaka ezkerreko erreketa lehorra"
+      },
+      "b7_left_dry_burning_invalid": {
+        "name": "Gas-plaka ezkerreko erreketa lehorra baliogabea"
+      },
+      "b7_left_gas_leakage": {
+        "name": "Gas-plaka ezkerreko gas-ihesa"
+      },
+      "b7_left_has_fire": {
+        "name": "Gas-plaka ezkerrean sua dago"
+      },
+      "b7_left_has_pot": {
+        "name": "Gas-plaka ezkerrean lapikoa dago"
+      },
+      "b7_right_dry_burning": {
+        "name": "Gas-plaka eskuineko erreketa lehorra"
+      },
+      "b7_right_dry_burning_invalid": {
+        "name": "Gas-plaka eskuineko erreketa lehorra baliogabea"
+      },
+      "b7_right_gas_leakage": {
+        "name": "Gas-plaka eskuineko gas-ihesa"
+      },
+      "b7_right_has_fire": {
+        "name": "Gas-plaka eskuinean sua dago"
+      },
+      "b7_right_has_pot": {
+        "name": "Gas-plaka eskuinean lapikoa dago"
+      },
+      "bf_door": {
+        "name": "Labearen atea"
+      },
+      "bf_error": {
+        "name": "Labearen errorea"
+      },
+      "bf_flip": {
+        "name": "Labearen iraultzea"
+      },
+      "bf_hightemp_error": {
+        "name": "Labearen tenperatura altuko errorea"
+      },
+      "bf_hightemp_lock": {
+        "name": "Labearen tenperatura altuko blokeoa"
+      },
+      "bf_hightemp_over": {
+        "name": "Labearen tenperatura altuko gaindikuntza"
+      },
+      "bf_hotwind": {
+        "name": "Labearen haize beroa"
+      },
+      "bf_hotwind_set": {
+        "name": "Labearen haize beroa ezarpena"
+      },
+      "bf_hydrops_full": {
+        "name": "Labearen ur-metaketa betea"
+      },
+      "bf_light": {
+        "name": "Labearen argia"
+      },
+      "bf_lock": {
+        "name": "Labearen blokeoa"
+      },
+      "bf_off_fromapp": {
+        "name": "Labea aplikaziotik itzalita"
+      },
+      "bf_on_smart": {
+        "name": "Labea adimendunki piztuta"
+      },
+      "bf_order": {
+        "name": "Labearen agindua"
+      },
+      "bf_order_time_isabsolute": {
+        "name": "Labearen agindu-ordua absolutua da"
+      },
+      "bf_overheat": {
+        "name": "Labearen gehiegizko beroketa"
+      },
+      "bf_preheat": {
+        "name": "Labearen aurreberoketa"
+      },
+      "bf_preheat_done": {
+        "name": "Labearen aurreberoketa amaituta"
+      },
+      "bf_preheat_set": {
+        "name": "Labearen aurreberoketa ezarpena"
+      },
+      "bf_probe": {
+        "name": "Labearen zunda"
+      },
+      "bf_probe_meat": {
+        "name": "Labearen haragi-zunda"
+      },
+      "bf_radiating": {
+        "name": "Labea erradiatzen"
+      },
+      "bf_repair_cook": {
+        "name": "Labearen konponketa-sukaldaritza"
+      },
+      "bf_sabbath": {
+        "name": "Labearen Sabbath"
+      },
+      "bf_scalehandling_remind": {
+        "name": "Labearen kareztatzea kentzeko oroigarria"
+      },
+      "bf_sensor": {
+        "name": "Labearen sentsorea"
+      },
+      "bf_stove_1": {
+        "name": "Labearen 1. sukaldea"
+      },
+      "bf_stove_2": {
+        "name": "Labearen 2. sukaldea"
+      },
+      "bf_stove_3": {
+        "name": "Labearen 3. sukaldea"
+      },
+      "bf_stove_4": {
+        "name": "Labearen 4. sukaldea"
+      },
+      "bf_stove_5": {
+        "name": "Labearen 5. sukaldea"
+      },
+      "bf_temp_fahrenheit": {
+        "name": "Labearen tenperatura Fahrenheit"
+      },
+      "bf_time_synchronization": {
+        "name": "Labearen denbora-sinkronizazioa"
+      },
+      "bf_turntable": {
+        "name": "Labearen plater birakaria"
+      },
+      "bf_turntable_reset": {
+        "name": "Labearen plater birakariaren berrezarpena"
+      },
+      "bf_upload_interval": {
+        "name": "Labearen kargatze-tartea"
+      },
+      "bf_voice_identify": {
+        "name": "Labearen ahots-identifikazioa"
+      },
+      "bf_voice_module": {
+        "name": "Labearen ahots-modulua"
+      },
+      "bf_water_box": {
+        "name": "Labearen ur-ontzia"
+      },
+      "bf_water_change": {
+        "name": "Labearen ur-aldaketa"
+      },
+      "bf_water_shortage": {
+        "name": "Labearen ur eskasia"
+      },
+      "bf_wintersummertime": {
+        "name": "Labearen negu/uda ordua"
+      },
+      "e7_left_bottom_has_pot": {
+        "name": "Indukzio ezker-beheak lapikoa dauka"
+      },
+      "e7_left_has_pot": {
+        "name": "Indukzio ezkerrak lapikoa dauka"
+      },
+      "e7_left_top_has_pot": {
+        "name": "Indukzio ezker-goiak lapikoa dauka"
+      },
+      "e7_right_bottom_has_pot": {
+        "name": "Indukzio eskuin-beheak lapikoa dauka"
+      },
+      "e7_right_has_pot": {
+        "name": "Indukzio eskuinak lapikoa dauka"
+      },
+      "e7_right_top_has_pot": {
+        "name": "Indukzio eskuin-goiak lapikoa dauka"
+      },
+      "sp_fandrying_door": {
+        "name": "Plater-haizagailu lehortzearen atea"
+      },
+      "sp_fandrying_setting_automode": {
+        "name": "Plater-haizagailu lehortzearen ezarpena modu automatikoa"
+      },
+      "sp_fandrying_setting_linkage": {
+        "name": "Plater-haizagailu lehortzearen ezarpena lotura"
+      },
+      "sp_fandrying_setting_linkcooker": {
+        "name": "Plater-haizagailu lehortzearen ezarpena sukaldea lotu"
+      },
+      "sp_fandrying_setting_sync": {
+        "name": "Plater-haizagailu lehortzearen ezarpena sinkronizazioa"
+      },
+      "sp_heatingdisk_door": {
+        "name": "Plater-beroketa diskoaren atea"
+      },
+      "sp_heatingdisk_setting_automode": {
+        "name": "Plater-beroketa diskoaren ezarpena modu automatikoa"
+      },
+      "sp_heatingdisk_setting_linkage": {
+        "name": "Plater-beroketa diskoaren ezarpena lotura"
+      },
+      "sp_heatingdisk_setting_linkcooker": {
+        "name": "Plater-beroketa diskoaren ezarpena sukaldea lotu"
+      },
+      "sp_heatingdisk_setting_sync": {
+        "name": "Plater-beroketa diskoaren ezarpena sinkronizazioa"
+      },
+      "sp_uvc_door": {
+        "name": "Plater UVC atea"
+      },
+      "sp_uvc_setting_automode": {
+        "name": "Plater UVC ezarpena modu automatikoa"
+      },
+      "sp_uvc_setting_linkage": {
+        "name": "Plater UVC ezarpena lotura"
+      },
+      "sp_uvc_setting_linkcooker": {
+        "name": "Plater UVC ezarpena sukaldea lotu"
+      },
+      "sp_uvc_setting_sync": {
+        "name": "Plater UVC ezarpena sinkronizazioa"
+      },
+      "total_water_shortage": {
+        "name": "Ur eskasia"
+      },
+      "door_open": {
+        "name": "Atea irekita"
+      },
+      "turntable": {
+        "name": "Plater birakaria"
+      },
+      "lack_box": {
+        "name": "Ontzi eza"
+      },
+      "change_water": {
+        "name": "Ura aldatzeko oroigarria"
+      },
+      "ramadan": {
+        "name": "Ramadan"
+      },
+      "ota": {
+        "name": "OTA"
+      },
+      "laundry_appointment": {
+        "name": "Erreserba"
+      }
+    },
+    "button": {
+      "start_delayed": {
+        "name": "Hasiera atzeratua"
+      },
+      "pause": {
+        "name": "Pausatu"
+      },
+      "resume": {
+        "name": "Jarraitu"
+      },
+      "cancel": {
+        "name": "Utzi"
+      },
+      "start": {
+        "name": "Hasi"
+      },
+      "laundry_cancel_appointment": {
+        "name": "Utzi erreserba"
+      }
+    },
+    "climate": {
+      "climate_zone1": {
+        "name": "1. eremua termostatoa"
+      },
+      "climate_zone2": {
+        "name": "2. eremua termostatoa"
+      },
+      "climate_key": {
+        "state_attributes": {
+          "fan_mode": {
+            "state": {
+              "silent": "Isila",
+              "full": "Osoa"
+            }
+          }
+        }
+      }
+    },
+    "fan": {
+      "bgf10000": {
+        "state_attributes": {
+          "preset_mode": {
+            "state": {
+              "normal": "Arrunta",
+              "forest": "Basoa",
+              "beach": "Hondartza",
+              "countryside": "Landa-giroa",
+              "baby": "Haur-haizea",
+              "sleep_1": "Loa 1",
+              "sleep_2": "Loa 2",
+              "strong": "Indartsua"
+            }
+          }
+        }
+      },
+      "fresh_air": {
+        "name": "Aire freskoa"
+      },
+      "fresh_air_exhaust": {
+        "name": "Aire fresko hustuketa"
+      }
+    },
+    "lock": {
+      "child_lock": {
+        "name": "Haur-blokeoa"
+      }
+    },
+    "number": {
+      "delay_minutes": {
+        "name": "Atzerapena"
+      },
+      "wash_region": {
+        "name": "Garbiketa-eremua"
+      },
+      "water_level": {
+        "name": "Ur-maila"
+      },
+      "water_strong_level": {
+        "name": "Ur-presio maila"
+      },
+      "heating_target_temperature": {
+        "name": "Berotze-xede tenperatura"
+      },
+      "dry_level": {
+        "name": "Lehortze-maila"
+      },
+      "heating_level": {
+        "name": "Berotze-maila"
+      },
+      "seat_temp_level": {
+        "name": "Eserleku-tenperatura maila"
+      },
+      "water_temp_level": {
+        "name": "Ur-tenperatura maila"
+      },
+      "fan_speed_percent": {
+        "name": "Haizagailuaren abiaduraren ehunekoa"
+      },
+      "vacation_days": {
+        "name": "Opor-egunak"
+      },
+      "max_temperature": {
+        "name": "Gehienezko xede-tenperatura"
+      },
+      "disinfection_temperature": {
+        "name": "Desinfekzio-tenperatura"
+      },
+      "schedule_mode": {
+        "name": "Programazio-modua"
+      },
+      "leak_water_protection_value": {
+        "name": "Ur-ihesaren babes-balioa"
+      },
+      "flushing_days": {
+        "name": "Birsorkuntza-egunak"
+      },
+      "water_hardness": {
+        "name": "Uraren gogortasuna"
+      },
+      "boil_temperature": {
+        "name": "Irakite-xede tenperatura"
+      },
+      "keep_warm_time": {
+        "name": "Bero mantentze-denbora"
+      },
+      "ai_voice_volume": {
+        "name": "AI ahots-bolumena"
+      },
+      "screen_luminance": {
+        "name": "Pantailaren distira"
+      },
+      "volume": {
+        "name": "Bolumena"
+      },
+      "temperature_number": {
+        "name": "Xede-tenperatura"
+      },
+      "temperature_above_number": {
+        "name": "Goiko xede-tenperatura"
+      },
+      "temperature_underside_number": {
+        "name": "Beheko xede-tenperatura"
+      },
+      "probe_temperature_number": {
+        "name": "Zundaren xede-tenperatura"
+      },
+      "steam_quantity_number": {
+        "name": "Lurrun-kopurua"
+      },
+      "hour_set": {
+        "name": "Orduaren ezarpena"
+      },
+      "minute_set": {
+        "name": "Minutuaren ezarpena"
+      },
+      "second_set": {
+        "name": "Segundoaren ezarpena"
+      },
+      "dryer_timed_extra": {
+        "name": "Lehortze tenporizatuaren luzapena"
+      }
+    },
+    "select": {
+      "cur_quantify": {
+        "name": "Uneko kopuruaren aurrezarpena",
+        "state": {
+          "none": "Bat ere ez",
+          "preset_1": "1. aurrezarpena",
+          "preset_2": "2. aurrezarpena",
+          "preset_3": "3. aurrezarpena",
+          "preset_4": "4. aurrezarpena",
+          "preset_5": "5. aurrezarpena"
+        }
+      },
+      "wash_mode_76000228": {
+        "name": "Garbiketa-modua",
+        "state": {
+          "neutral_gear": "Bat ere ez",
+          "auto_wash": "Automatikoa",
+          "strong_wash": "Bizia",
+          "standard_wash": "Unibertsala",
+          "eco_wash": "ECO",
+          "glass_wash": "Beira",
+          "hour_wash": "90 min",
+          "fast_wash": "Azkarra",
+          "soak_wash": "Beratzea",
+          "90min": "90 min",
+          "self_clean": "Garbiketa automatikoa",
+          "fruit_wash": "Fruta",
+          "self_define": "Pertsonalizatua",
+          "germ": "Xuxurla",
+          "bowl_wash": "Ontzia",
+          "kill_germ": "Higienea",
+          "sea_food_wash": "Garbiketa automatikoa",
+          "hot_pot_wash": "Lapiko beroa",
+          "quiet_night_wash": "Gau isila",
+          "less_wash": "Arina",
+          "max_rapid_wash": "Gehienezko azkarra",
+          "oil_net_wash": "Olio-iragazkia",
+          "cloud_wash": "Hodeiko programa",
+          "single_dry": "Lehortu soilik",
+          "single_disinfect": "Desinfektatu soilik",
+          "high_temp_wash": "Tenperatura altua",
+          "wash_dry": "Garbitu eta lehortu"
+        }
+      },
+      "program_76000228": {
+        "name": "Programa",
+        "state": {
+          "auto_wash": "Automatikoa",
+          "strong_wash": "Bizia",
+          "standard_wash": "Unibertsala",
+          "eco_wash": "ECO",
+          "glass_wash": "Beira",
+          "hour_wash": "90 min",
+          "fast_wash": "Azkarra",
+          "soak_wash": "Beratzea",
+          "90min": "90 min",
+          "self_clean": "Garbiketa automatikoa",
+          "fruit_wash": "Fruta",
+          "self_define": "Pertsonalizatua",
+          "germ": "Xuxurla",
+          "bowl_wash": "Ontzia",
+          "kill_germ": "Higienea",
+          "sea_food_wash": "Garbiketa automatikoa",
+          "hot_pot_wash": "Lapiko beroa",
+          "quiet_night_wash": "Gau isila",
+          "less_wash": "Arina",
+          "max_rapid_wash": "Gehienezko azkarra",
+          "oil_net_wash": "Olio-iragazkia",
+          "cloud_wash": "Hodeiko programa",
+          "single_dry": "Lehortu soilik",
+          "single_disinfect": "Desinfektatu soilik",
+          "high_temp_wash": "Tenperatura altua",
+          "wash_dry": "Garbitu eta lehortu"
+        }
+      },
+      "program": {
+        "name": "Programa",
+        "state": {
+          "auto_wash": "Automatikoa",
+          "strong_wash": "Bizia",
+          "standard_wash": "Estandarra",
+          "eco_wash": "ECO",
+          "glass_wash": "Beira",
+          "hour_wash": "Ordu 1",
+          "fast_wash": "Azkarra",
+          "soak_wash": "Beratzea",
+          "90min": "90 min",
+          "self_clean": "Garbiketa automatikoa",
+          "fruit_wash": "Fruta",
+          "self_define": "Pertsonalizatua",
+          "germ": "Germena",
+          "bowl_wash": "Ontzia",
+          "kill_germ": "Higienea",
+          "sea_food_wash": "Itsaskiak",
+          "hot_pot_wash": "Lapiko beroa",
+          "quiet_night_wash": "Gau isila",
+          "less_wash": "Arina",
+          "max_rapid_wash": "Gehienezko azkarra",
+          "oil_net_wash": "Olio-iragazkia",
+          "cloud_wash": "Hodeiko programa",
+          "single_dry": "Lehortu soilik",
+          "single_disinfect": "Desinfektatu soilik",
+          "high_temp_wash": "Tenperatura altua",
+          "wash_dry": "Garbitu eta lehortu"
+        }
+      },
+      "load": {
+        "name": "Karga",
+        "state": {
+          "0": "Osoa",
+          "2": "Erdia"
+        }
+      },
+      "heating_mode": {
+        "name": "Berotze-modua",
+        "state": {
+          "user": "Erabiltzailea",
+          "activity": "Jarduera",
+          "sleep": "Loa",
+          "unknown": "Ezezaguna"
+        }
+      },
+      "detect_mode": {
+        "name": "Detekzio-modua",
+        "state": {
+          "off": "Itzalita",
+          "pm_2_5": "PM 2.5",
+          "methanal": "Metanala"
+        }
+      },
+      "direction": {
+        "name": "Norabidea",
+        "state": {
+          "oscillate": "Oszilatu"
+        }
+      },
+      "fan_speed": {
+        "name": "Haizagailuaren abiadura",
+        "state": {
+          "auto": "Automatikoa",
+          "standby": "Zain",
+          "low": "Baxua",
+          "medium": "Ertaina",
+          "high": "Altua"
+        }
+      },
+      "fresh_air_exhaust_mode": {
+        "name": "Aire fresko hustuketaren abiadura",
+        "state": {
+          "off": "Itzalita",
+          "silent": "Baxua",
+          "high": "Altua",
+          "full": "Osoa"
+        }
+      },
+      "fresh_air_mode": {
+        "name": "Aire freskoaren abiadura",
+        "state": {
+          "off": "Itzalita",
+          "low": "Baxua",
+          "medium": "Ertaina",
+          "high": "Altua",
+          "full": "Osoa"
+        }
+      },
+      "mode": {
+        "name": "Modua",
+        "state": {
+          "standby": "Zain",
+          "auto": "Automatikoa",
+          "manual": "Eskuzkoa",
+          "sleep": "Loa",
+          "fast": "Bizkorra",
+          "smoke": "Kea",
+          "off": "Itzalita",
+          "heat_high": "Beroketa (altua)",
+          "heat_low": "Beroketa (baxua)",
+          "bath": "Bainua",
+          "blow": "Putza",
+          "ventilation": "Aireztapena",
+          "dry": "Lehorra"
+        }
+      },
+      "oscillation_angle": {
+        "name": "Oszilazio-angelua"
+      },
+      "oscillation_mode": {
+        "name": "Oszilazio-modua"
+      },
+      "rate_select": {
+        "name": "Potentzia-tasaren muga"
+      },
+      "screen_display": {
+        "name": "Pantailaren bistaratzea",
+        "state": {
+          "bright": "Distiratsua",
+          "dim": "Ilun",
+          "off": "Itzalita"
+        }
+      },
+      "silent_level": {
+        "name": "Isiltasun-maila"
+      },
+      "tilting_angle": {
+        "name": "Okertze-angelua"
+      },
+      "wash_mode": {
+        "name": "Garbiketa-modua",
+        "state": {
+          "neutral_gear": "Bat ere ez",
+          "auto_wash": "Automatikoa",
+          "strong_wash": "Bizia",
+          "standard_wash": "Estandarra",
+          "eco_wash": "ECO",
+          "glass_wash": "Beira",
+          "hour_wash": "Ordu 1",
+          "fast_wash": "Azkarra",
+          "soak_wash": "Beratzea",
+          "90min": "90 min",
+          "self_clean": "Garbiketa automatikoa",
+          "fruit_wash": "Fruta",
+          "self_define": "Pertsonalizatua",
+          "germ": "Germena",
+          "bowl_wash": "Ontzia",
+          "kill_germ": "Higienea",
+          "sea_food_wash": "Itsaskiak",
+          "hot_pot_wash": "Lapiko beroa",
+          "quiet_night_wash": "Gau isila",
+          "less_wash": "Arina",
+          "max_rapid_wash": "Gehienezko azkarra",
+          "oil_net_wash": "Olio-iragazkia",
+          "cloud_wash": "Hodeiko programa",
+          "single_dry": "Lehortu soilik",
+          "single_disinfect": "Desinfektatu soilik",
+          "high_temp_wash": "Tenperatura altua",
+          "wash_dry": "Garbitu eta lehortu"
+        }
+      },
+      "water_level_set": {
+        "name": "Ur-mailaren ezarpena"
+      },
+      "wind_lr_angle": {
+        "name": "Aire-fluxu horizontala",
+        "state": {
+          "off": "Itzalita",
+          "left": "Ezkerra",
+          "left_mid": "Ezker-erdia",
+          "middle": "Erdia",
+          "right_mid": "Eskuin-erdia",
+          "right": "Eskuina"
+        }
+      },
+      "wind_ud_angle": {
+        "name": "Aire-fluxu bertikala",
+        "state": {
+          "off": "Itzalita",
+          "up": "Gora",
+          "up_mid": "Gora-erdia",
+          "middle": "Erdia",
+          "down_mid": "Behera-erdia",
+          "down": "Behera"
+        }
+      },
+      "work_status_select": {
+        "name": "Lan-egoera",
+        "state": {
+          "save_power": "Aurreztu energia",
+          "standby": "Zain",
+          "work": "Lanean",
+          "pause": "Pausatuta",
+          "work_finish": "Amaituta",
+          "order": "Atzerapena",
+          "pause_c": "Pausatuta C",
+          "three": "Hiru",
+          "self_inspection": "Auto-ikuskapena",
+          "query_version": "Bertsio-kontsulta",
+          "demo": "Demo",
+          "ramadan": "Ramadan",
+          "after_checking": "Egiaztatu ondoren",
+          "wait_to_start": "Hasteko zain",
+          "ff": "Ezezaguna"
+        }
+      },
+      "x9b_fire_power_select": {
+        "name": "Su-potentzia",
+        "state": {
+          "high_power": "Altua",
+          "medium_high_power": "Ertain-altua",
+          "medium_power": "Ertaina",
+          "medium_low_power": "Ertain-baxua",
+          "low_power": "Baxua",
+          "ff": "Ezezaguna"
+        }
+      },
+      "door": {
+        "name": "Atea",
+        "state": {
+          "open": "Ireki",
+          "close": "Itxi"
+        }
+      },
+      "dryer_program_control": {
+        "name": "Lehorgailuaren programa",
+        "state": {
+          "mixed_wash": "Nahasia",
+          "wool": "Artilea",
+          "night_dry": "Gaueko lehortzea",
+          "big_dry": "Pieza handiak",
+          "small_piece_dry": "Pieza txikiak",
+          "baby_clothes": "Haur-arropa",
+          "down_jacket": "Lumazko berokiak",
+          "quick_dry": "Lehortze azkarra",
+          "cotton": "Kotoia eta lihoa",
+          "shirt": "Alkandorak",
+          "jean": "Bakeroa",
+          "underwear": "Barruko arropa",
+          "school_uniform": "Eskola-uniformeak",
+          "silk": "Zeta",
+          "towel": "Bainu-eskuoihalak",
+          "chiffon": "Chiffona",
+          "polar_fleece": "Polar iletsua",
+          "hanfu": "Hanfu",
+          "hanfu_tang": "Hanfu™ Tang estiloa",
+          "hanfu_song": "Hanfu™ Song estiloa",
+          "hanfu_ming": "Hanfu™ Ming estiloa",
+          "hanfu_modern": "Hanfu™ estilo modernoa",
+          "sun_quilt": "Edredoia airetzea",
+          "bucket_self_clean": "Danborra garbitzea",
+          "steam_care": "Lurrun-zainketa",
+          "fixed_time_dry": "Lehortze tenporizatua",
+          "warm_clothes": "Arropa epela",
+          "cold_air_fresh_air": "Aire hotzez freskatzea",
+          "sterilize_mite": "Esterilizazioa eta akarroak kentzea",
+          "bracket_dry": "Esekitoki-lehortzea",
+          "pet_sterilize": "Maskoten esterilizazioa",
+          "sport_clothes": "Kirol-arropa",
+          "outdoor": "Kanpoko arropa",
+          "quick_drying_clothes": "Berehala lehortzen den arropa",
+          "yoga": "Yoga-arropa",
+          "air_wash": "Aire-garbiketa",
+          "fiber": "Sintetikoak",
+          "bedsheet": "Maindireak",
+          "plush": "Peluxea",
+          "dehumidify": "Lehortu hezetasuna kenduz",
+          "hot_air_dry": "Aire beroz lehortzea",
+          "standard": "Estandarra",
+          "fresh_air": "Aire freskoa",
+          "low_temp_dry": "Tenperatura baxuko lehortzea",
+          "eco_dry": "Energia aurrezteko lehortzea",
+          "quick_dry_30": "Lehortze azkarra 30 min",
+          "intelligent_dry": "Lehortze adimenduna",
+          "big": "Pieza handiak",
+          "western_trouser": "Jantzi-galtzak",
+          "dehumidification": "Hezetasun-kentzea",
+          "smart_dry": "Lehortze adimenduna",
+          "four_piece_suit": "Oheko arropa-sorta",
+          "quick_dry_20": "Lehortze azkarra 20 min",
+          "steam_sterilize": "Lurrun-esterilizazioa",
+          "enzyme": "Entzima",
+          "big_60": "Pieza handiak 60",
+          "steam_no_iron": "Lurrunezko lisatze gabeko zainketa",
+          "bed_clothes": "Oheko arropa",
+          "little_fast_dry": "Lehortze azkarra karga txikia",
+          "wool_nurse": "Artile-zainketa",
+          "fresh_remove_smell": "Desusaintze-freskatzea",
+          "sterilize": "Esterilizazioa"
+        }
+      },
+      "dryer_dryness_control": {
+        "name": "Lehortasuna",
+        "state": {
+          "ready_to_wear": "Jantzteko prest",
+          "storage": "Biltegiratzea"
+        }
+      },
+      "dryer_temperature_control": {
+        "name": "Lehortze-tenperatura",
+        "state": {
+          "standard": "Estandarra",
+          "low": "Baxua"
+        }
+      },
+      "washer_program_control": {
+        "name": "Garbigailuaren programa",
+        "state": {
+          "water_mixed_wash": "Garbiketa nahasia",
+          "fast_wash": "Garbiketa azkarra 15 min",
+          "single_dehytration": "Zentrifugatu soilik",
+          "rinsing_dehydration": "Aklaratu eta zentrifugatu",
+          "fast_wash_30": "Garbiketa azkarra 30 min",
+          "big": "Pieza handiak",
+          "tub_clean": "Danborra garbitzea",
+          "deep_tub_clean": "Danborraren garbiketa sakona",
+          "down_jacket": "Lumazko berokiak",
+          "new_water_cotton": "Kotoia eta lihoa",
+          "baby_clothes": "Haur-arropa",
+          "shirt": "Alkandorak",
+          "wool": "Artilea",
+          "water_underwear": "Barruko arropa",
+          "silk": "Zeta",
+          "jacket": "Kanpoko berokiak",
+          "new_clothes_wash": "Arropa berria",
+          "jean": "Bakeroa",
+          "water_fiber": "Sintetikoak",
+          "water_eco": "Energia-aurrezpena",
+          "water_intelligent": "Garbiketa adimenduna",
+          "water_steep": "Beratze-garbiketa",
+          "water_cold_wash": "Garbiketa hotza",
+          "sterilization_wash": "Esterilizazio-garbiketa",
+          "water_remove_mite_wash": "Akarroak kentzea",
+          "disinfection_wash": "Desinfekzio-garbiketa",
+          "stain_wash": "Orban-garbiketa",
+          "sport_clothes": "Kirol-arropa",
+          "yoga": "Yoga-arropa",
+          "quick_drying_clothes": "Berehala lehortzen den arropa"
+        }
+      },
+      "washer_temperature_control": {
+        "name": "Uraren tenperatura",
+        "state": {
+          "cold": "Hotza",
+          "20": "20 °C",
+          "30": "30 °C",
+          "40": "40 °C",
+          "60": "60 °C",
+          "95": "95 °C"
+        }
+      },
+      "washer_spin_speed_control": {
+        "name": "Zentrifugatze-abiadura",
+        "state": {
+          "0": "Zentrifugatu gabe",
+          "400": "400 rpm",
+          "600": "600 rpm",
+          "800": "800 rpm",
+          "1000": "1000 rpm",
+          "1200": "1200 rpm",
+          "1400": "1400 rpm"
+        }
+      },
+      "washer_rinse_count": {
+        "name": "Aklaratze-kopurua",
+        "state": {
+          "1": "1",
+          "2": "2",
+          "3": "3",
+          "4": "4"
+        }
+      },
+      "washer_water_level_control": {
+        "name": "Ur-maila",
+        "state": {
+          "auto": "Automatikoa",
+          "l1": "L1",
+          "l2": "L2",
+          "l3": "L3",
+          "l4": "L4"
+        }
+      },
+      "washer_detergent_control": {
+        "name": "Garbigarri-dosifikazioa",
+        "state": {
+          "smart": "Adimenduna",
+          "off": "Itzalita",
+          "l1": "L1",
+          "l2": "L2",
+          "l3": "L3",
+          "l4": "L4"
+        }
+      },
+      "washer_wash_time_control": {
+        "name": "Garbiketa-denbora (min)"
+      },
+      "washer_spin_time_control": {
+        "name": "Zentrifugatze-denbora (min)"
+      }
+    },
+    "time": {
+      "timing_regeneration": {
+        "name": "Birsorkuntza tenporizatua"
+      },
+      "laundry_appointment_finish": {
+        "name": "Amaiera-ordua (erreserba ezartzen du)"
+      }
+    },
+    "sensor": {
+      "db_running_status": {
+        "name": "Garbigailuaren egoera"
+      },
+      "db_progress": {
+        "name": "Garbigailuaren aurrerapena"
+      },
+      "db_program": {
+        "name": "Garbigailuaren programa"
+      },
+      "db_remain_time": {
+        "name": "Garbigailuan gelditzen den denbora"
+      },
+      "db_wash_time": {
+        "name": "Garbigailuaren garbiketa-denbora"
+      },
+      "db_dehydration_time": {
+        "name": "Garbigailuaren deshidratatze-denbora"
+      },
+      "db_dehydration_speed": {
+        "name": "Garbigailuaren deshidratatze-abiadura"
+      },
+      "db_water_level": {
+        "name": "Garbigailuaren ur-maila"
+      },
+      "db_temperature": {
+        "name": "Garbigailuaren tenperatura"
+      },
+      "db_rinse_count": {
+        "name": "Garbigailuaren aklaratze-kopurua"
+      },
+      "db_detergent": {
+        "name": "Garbigailuaren garbigarria"
+      },
+      "db_softener": {
+        "name": "Garbigailuaren bigungarria"
+      },
+      "db_appointment_time": {
+        "name": "Garbigailuaren hitzordu-ordua"
+      },
+      "db_appointment_end_time": {
+        "name": "Garbigailuaren hitzordu-amaiera ordua"
+      },
+      "db_error_code": {
+        "name": "Garbigailuaren errore-kodea"
+      },
+      "db_water_consumption": {
+        "name": "Garbigailuaren ur-kontsumoa"
+      },
+      "db_power_consumption": {
+        "name": "Garbigailuaren energia-kontsumoa"
+      },
+      "dc_running_status": {
+        "name": "Lehorgailuaren egoera"
+      },
+      "dc_dry_status": {
+        "name": "Lehorgailuaren lehortze-egoera"
+      },
+      "dc_program": {
+        "name": "Lehorgailuaren programa"
+      },
+      "dc_remain_time": {
+        "name": "Lehorgailuan gelditzen den denbora"
+      },
+      "dc_dry_time": {
+        "name": "Lehorgailuaren lehortze-denbora"
+      },
+      "dc_intensity": {
+        "name": "Lehorgailuaren intentsitatea"
+      },
+      "dc_appointment_time": {
+        "name": "Lehorgailuaren hitzordu-ordua"
+      },
+      "dc_appointment_end_time": {
+        "name": "Lehorgailuaren hitzordu-amaiera ordua"
+      },
+      "dc_error_code": {
+        "name": "Lehorgailuaren errore-kodea"
+      },
+      "dc_water_consumption": {
+        "name": "Lehorgailuaren ur-kontsumoa"
+      },
+      "dc_power_consumption": {
+        "name": "Lehorgailuaren energia-kontsumoa"
+      },
+      "dishwasher_mode": {
+        "name": "Modua",
+        "state": {
+          "neutral_gear": "Bat ere ez",
+          "auto_wash": "Automatikoa",
+          "strong_wash": "Bizia",
+          "standard_wash": "Estandarra",
+          "eco_wash": "ECO",
+          "glass_wash": "Beira",
+          "hour_wash": "Ordu 1",
+          "fast_wash": "Azkarra",
+          "soak_wash": "Beratzea",
+          "90min": "90 min",
+          "self_clean": "Garbiketa automatikoa",
+          "fruit_wash": "Fruta",
+          "self_define": "Pertsonalizatua",
+          "germ": "Germena",
+          "bowl_wash": "Ontzia",
+          "kill_germ": "Higienea",
+          "sea_food_wash": "Itsaskiak",
+          "hot_pot_wash": "Lapiko beroa",
+          "quiet_night_wash": "Gau isila",
+          "less_wash": "Arina",
+          "max_rapid_wash": "Gehienezko azkarra",
+          "oil_net_wash": "Olio-iragazkia",
+          "cloud_wash": "Hodeiko programa",
+          "single_dry": "Lehortu soilik",
+          "single_disinfect": "Desinfektatu soilik",
+          "high_temp_wash": "Tenperatura altua",
+          "wash_dry": "Garbitu eta lehortu"
+        }
+      },
+      "dishwasher_mode_76000228": {
+        "name": "Modua",
+        "state": {
+          "neutral_gear": "Bat ere ez",
+          "auto_wash": "Automatikoa",
+          "strong_wash": "Bizia",
+          "standard_wash": "Unibertsala",
+          "eco_wash": "ECO",
+          "glass_wash": "Beira",
+          "hour_wash": "90 min",
+          "fast_wash": "Azkarra",
+          "soak_wash": "Beratzea",
+          "90min": "90 min",
+          "self_clean": "Garbiketa automatikoa",
+          "fruit_wash": "Fruta",
+          "self_define": "Pertsonalizatua",
+          "germ": "Xuxurla",
+          "bowl_wash": "Ontzia",
+          "kill_germ": "Higienea",
+          "sea_food_wash": "Garbiketa automatikoa",
+          "hot_pot_wash": "Lapiko beroa",
+          "quiet_night_wash": "Gau isila",
+          "less_wash": "Arina",
+          "max_rapid_wash": "Gehienezko azkarra",
+          "oil_net_wash": "Olio-iragazkia",
+          "cloud_wash": "Hodeiko programa",
+          "single_dry": "Lehortu soilik",
+          "single_disinfect": "Desinfektatu soilik",
+          "high_temp_wash": "Tenperatura altua",
+          "wash_dry": "Garbitu eta lehortu"
+        }
+      },
+      "dishwasher_status": {
+        "name": "Egoera",
+        "state": {
+          "power_off": "Itzalita",
+          "cancel": "Inaktibo",
+          "delay": "Hasiera atzeratua",
+          "running": "Martxan",
+          "error": "Errorea"
+        }
+      },
+      "dishwasher_progress": {
+        "name": "Aurrerapena",
+        "state": {
+          "idle": "Inaktibo",
+          "pre_wash": "Aurre-garbiketa",
+          "wash": "Garbiketa",
+          "rinse": "Aklaratzea",
+          "dry": "Lehorra",
+          "complete": "Osatuta"
+        }
+      },
+      "operator": {
+        "name": "Exekuzio-egoera",
+        "state": {
+          "start": "Martxan",
+          "pause": "Pausatuta"
+        }
+      },
+      "wrong_operation": {
+        "name": "Eragiketa okerra"
+      },
+      "dry_set_min": {
+        "name": "Lehortze-denbora ezarpena"
+      },
+      "clean_left_hour": {
+        "name": "Gelditzen den garbiketa"
+      },
+      "kitchenware_left_hour": {
+        "name": "Gelditzen diren sukaldeko tresnak"
+      },
+      "device_version": {
+        "name": "Gailuaren bertsioa"
+      },
+      "throw_percent": {
+        "name": "Banaketa-maila"
+      },
+      "delay_remaining": {
+        "name": "Atzerapenez hasteko gelditzen dena"
+      },
+      "gas_usage_daily": {
+        "name": "Eguneko gas-erabilera"
+      },
+      "gas_usage_last_month": {
+        "name": "Aurreko hileko gas-erabilera"
+      },
+      "gas_usage_monthly": {
+        "name": "Hileroko gas-erabilera"
+      },
+      "water_usage_daily": {
+        "name": "Eguneko ur-erabilera"
+      },
+      "water_usage_last_month": {
+        "name": "Aurreko hileko ur-erabilera"
+      },
+      "water_usage_monthly": {
+        "name": "Hileroko ur-erabilera"
+      },
+      "three_way_mode": {
+        "name": "Hiru bideko modua"
+      },
+      "heating_unit_type": {
+        "name": "Berotze-unitate mota"
+      },
+      "return_temperature": {
+        "name": "Itzulera-tenperatura"
+      },
+      "heating_temperature": {
+        "name": "Berotze-tenperatura"
+      },
+      "heating_gap_temperature": {
+        "name": "Berotze-tarte tenperatura"
+      },
+      "user_mode_target_temperature": {
+        "name": "Erabiltzaile-moduaren xede-tenperatura"
+      },
+      "activity_mode_target_temperature": {
+        "name": "Jarduera-moduaren xede-tenperatura"
+      },
+      "sleep_mode_target_temperature": {
+        "name": "Lo-moduaren xede-tenperatura"
+      },
+      "last_time": {
+        "name": "Azken aldia"
+      },
+      "flow_volume": {
+        "name": "Fluxu-tasa"
+      },
+      "bathing_leaving_temperature": {
+        "name": "Bainu-uraren irteera-tenperatura"
+      },
+      "bf_status": {
+        "name": "Egoera",
+        "state": {
+          "save_power": "Aurreztu energia",
+          "standby": "Zain",
+          "work": "Lanean",
+          "work_finish": "Amaituta",
+          "order": "Atzerapena",
+          "pause": "Pausatuta",
+          "pause_c": "Pausatuta C",
+          "three": "Hiru",
+          "wait_to_start": "Hasteko zain",
+          "self_inspection": "Auto-ikuskapena",
+          "query_version": "Bertsio-kontsulta",
+          "demo": "Demo",
+          "after_checking": "Egiaztatu ondoren",
+          "unknown": "Ezezaguna"
+        }
+      },
+      "bottom_compartment_remaining": {
+        "name": "Beheko konpartimentuan gelditzen dena"
+      },
+      "bottom_compartment_status": {
+        "name": "Beheko konpartimentuaren egoera"
+      },
+      "bottom_compartment_temperature": {
+        "name": "Beheko konpartimentuaren tenperatura"
+      },
+      "bottom_temperature": {
+        "name": "Beheko tenperatura"
+      },
+      "bright": {
+        "name": "Distira-maila"
+      },
+      "cloudmenuid": {
+        "name": "Hodeiko menuaren IDa"
+      },
+      "compressor_temperature": {
+        "name": "Konpresorearen tenperatura"
+      },
+      "condenser_temperature": {
+        "name": "Kondentsadorearen tenperatura"
+      },
+      "cur_probe_temperature": {
+        "name": "Zundaren uneko tenperatura"
+      },
+      "cur_temperature_above": {
+        "name": "Goiko uneko tenperatura"
+      },
+      "cur_temperature_underside": {
+        "name": "Beheko uneko tenperatura"
+      },
+      "current_energy_consumption": {
+        "name": "Uneko energia-kontsumoa"
+      },
+      "current_temperature": {
+        "name": "Uneko tenperatura"
+      },
+      "dehydration_speed": {
+        "name": "Deshidratatze-abiadura"
+      },
+      "dehydration_time": {
+        "name": "Deshidratatze-denbora"
+      },
+      "dehydration_time_value": {
+        "name": "Deshidratatze-denboraren balioa"
+      },
+      "execute_status": {
+        "name": "Exekuzio-egoera",
+        "state": {
+          "ok": "Ados",
+          "status_nonsupport": "Egoera ez da onartzen",
+          "function_nonsupport": "Funtzioa ez da onartzen",
+          "param_range_error": "Parametro-tartearen errorea"
+        }
+      },
+      "fire_power": {
+        "name": "Su-potentzia",
+        "state": {
+          "fire_power_0": "0. maila",
+          "fire_power_1": "1. maila",
+          "fire_power_2": "2. maila",
+          "fire_power_3": "3. maila",
+          "fire_power_4": "4. maila",
+          "fire_power_5": "5. maila",
+          "fire_power_6": "6. maila",
+          "fire_power_7": "7. maila",
+          "fire_power_8": "8. maila",
+          "fire_power_9": "9. maila",
+          "fire_power_10": "10. maila",
+          "unknown": "Ezezaguna"
+        }
+      },
+      "minute_set": {
+        "name": "Minutuaren ezarpena"
+      },
+      "people_number": {
+        "name": "Pertsona-kopurua"
+      },
+      "probe_temperature": {
+        "name": "Zundaren tenperatura"
+      },
+      "second_set": {
+        "name": "Segundoaren ezarpena"
+      },
+      "steam_quantity": {
+        "name": "Lurrun-kopurua"
+      },
+      "stepnum": {
+        "name": "Uneko urratsa"
+      },
+      "temperature": {
+        "name": "Tenperatura"
+      },
+      "temperature_above": {
+        "name": "Goiko tenperatura"
+      },
+      "temperature_underside": {
+        "name": "Beheko tenperatura"
+      },
+      "totalstep": {
+        "name": "Urrats guztiak"
+      },
+      "wash_time_value": {
+        "name": "Garbiketa-denboraren balioa"
+      },
+      "stains": {
+        "name": "Orbanak"
+      },
+      "dirty_degree": {
+        "name": "Zikintasun-maila"
+      },
+      "detergent": {
+        "name": "Garbigarria"
+      },
+      "intensity": {
+        "name": "Intentsitatea"
+      },
+      "dryness_level": {
+        "name": "Lehortasun-maila"
+      },
+      "dry_temperature": {
+        "name": "Lehortze-tenperatura"
+      },
+      "door_warn": {
+        "name": "Atearen abisua"
+      },
+      "ai_switch": {
+        "name": "AI etengailua"
+      },
+      "material": {
+        "name": "Materiala"
+      },
+      "water_box": {
+        "name": "Ur-ontzia"
+      },
+      "energy_consumption": {
+        "name": "Energia-kontsumoa"
+      },
+      "error": {
+        "name": "Errorea",
+        "state": {
+          "no_error": "Errorerik ez",
+          "e1_position_not_found": "E1 Posizioa ez da aurkitu",
+          "e2_photo_sensor_no_signal": "E2 Argazki-sentsoreak seinalerik ez",
+          "e3_motor_not_running": "E3 Motorra ez dabil",
+          "e4_wrong_position": "E4 Posizio okerra",
+          "e1_motor_fault": "E1 Motorraren akatsa",
+          "e5_communication_fault": "E5 Komunikazio-akatsa",
+          "e6_salt_sensor_fault": "E6 Gatz-sentsorearen akatsa",
+          "e7_chlorine_sterilization_fault": "E7 Kloro-esterilizazioaren akatsa"
+        }
+      },
+      "error_code": {
+        "name": "Errore-kodea"
+      },
+      "humidify_feedback": {
+        "name": "Hezetasun-feedbacka"
+      },
+      "temperature_feedback": {
+        "name": "Tenperatura-feedbacka"
+      },
+      "humidify_mode": {
+        "name": "Hezetze-modua"
+      },
+      "estimated_energy_consumption": {
+        "name": "Kalkulatutako energia-kontsumoa"
+      },
+      "estimated_water_consumption": {
+        "name": "Kalkulatutako ur-kontsumoa"
+      },
+      "fan_level": {
+        "name": "Haizagailu-maila"
+      },
+      "filter_life": {
+        "name": "Iragazkiaren bizitza"
+      },
+      "filter1_days": {
+        "name": "1. iragazkiaren egun erabilgarriak"
+      },
+      "filter1_life": {
+        "name": "1. iragazkiaren bizitza-maila"
+      },
+      "filter2_days": {
+        "name": "2. iragazkiaren egun erabilgarriak"
+      },
+      "filter2_life": {
+        "name": "2. iragazkiaren bizitza-maila"
+      },
+      "filter3_days": {
+        "name": "3. iragazkiaren egun erabilgarriak"
+      },
+      "filter3_life": {
+        "name": "3. iragazkiaren bizitza-maila"
+      },
+      "flex_zone_actual_temp": {
+        "name": "Flex eremuaren benetako tenperatura"
+      },
+      "flex_zone_setting_temp": {
+        "name": "Flex eremuaren ezarpen-tenperatura"
+      },
+      "freezer_actual_temp": {
+        "name": "Izozkailuaren benetako tenperatura"
+      },
+      "freezer_setting_temp": {
+        "name": "Izozkailuaren ezarpen-tenperatura"
+      },
+      "hcho": {
+        "name": "Metanala"
+      },
+      "heating_leaving_temperature": {
+        "name": "Berotze-uraren irteera-tenperatura"
+      },
+      "heating_power": {
+        "name": "Berotze-potentzia"
+      },
+      "heating_time_remaining": {
+        "name": "Berotzean gelditzen den denbora"
+      },
+      "in_tds": {
+        "name": "Sarrerako TDS"
+      },
+      "indoor_humidity": {
+        "name": "Barneko hezetasuna"
+      },
+      "indoor_temperature": {
+        "name": "Barneko tenperatura"
+      },
+      "keep_warm_remaining": {
+        "name": "Bero mantentzean gelditzen dena"
+      },
+      "fault_code": {
+        "name": "Akats-kodea"
+      },
+      "keep_warm_time": {
+        "name": "Bero mantentze-denbora"
+      },
+      "left_salt": {
+        "name": "Gelditzen den gatza"
+      },
+      "middle_compartment_remaining": {
+        "name": "Erdiko konpartimentuan gelditzen dena"
+      },
+      "middle_compartment_status": {
+        "name": "Erdiko konpartimentuaren egoera"
+      },
+      "middle_compartment_temperature": {
+        "name": "Erdiko konpartimentuaren tenperatura"
+      },
+      "mode": {
+        "name": "Modua"
+      },
+      "out_tds": {
+        "name": "Irteerako TDS"
+      },
+      "outdoor_temperature": {
+        "name": "Kanpoko tenperatura"
+      },
+      "comp_run_freq": {
+        "name": "Konpresorearen maiztasuna"
+      },
+      "outdoor_fan_speed": {
+        "name": "Kanpoko haizagailuaren abiadura"
+      },
+      "unit_mode_run": {
+        "name": "Unitatearen funtzionamendu-modua",
+        "state": {
+          "off": "Itzalita",
+          "auto": "Automatikoa",
+          "cool": "Hotza",
+          "heat": "Beroa",
+          "dhw": "DHW"
+        }
+      },
+      "odu_target_fre": {
+        "name": "Konpresorearen xede-maiztasuna"
+      },
+      "odu_voltage": {
+        "name": "Kanpoko unitatearen tentsioa"
+      },
+      "odu_comp_current": {
+        "name": "Konpresorearen korrontea"
+      },
+      "exv_current": {
+        "name": "Hedapen-balbula elektronikoaren irekiera"
+      },
+      "fg_capacity_need": {
+        "name": "Edukiera-eskaria"
+      },
+      "pressure_high": {
+        "name": "Hozkailuaren presioa (goiko aldea)"
+      },
+      "pressure_low": {
+        "name": "Hozkailuaren presioa (beheko aldea)"
+      },
+      "temp_t1": {
+        "name": "Tenperatura-sentsorea T1"
+      },
+      "temp_t2": {
+        "name": "Plaka bidezko bero-trukagailuaren tenperatura (T2)"
+      },
+      "temp_t2b": {
+        "name": "Plaka bidezko bero-trukagailuaren irteera-tenperatura (T2B)"
+      },
+      "temp_t3": {
+        "name": "Kanpoko serpentinaren tenperatura (T3)"
+      },
+      "temp_tp": {
+        "name": "Deskarga-hodiaren tenperatura (TP)"
+      },
+      "temp_th": {
+        "name": "Xurgatze-tenperatura (TH)"
+      },
+      "temp_tf": {
+        "name": "Potentzia-moduluaren tenperatura (TF)"
+      },
+      "program": {
+        "name": "Programa"
+      },
+      "progress": {
+        "name": "Aurrerapena"
+      },
+      "realtime_power": {
+        "name": "Denbora errealeko potentzia"
+      },
+      "pmv": {
+        "name": "PMV"
+      },
+      "refrigerator_actual_temp": {
+        "name": "Hozkailuaren benetako tenperatura"
+      },
+      "refrigerator_setting_temp": {
+        "name": "Hozkailuaren ezarpen-tenperatura"
+      },
+      "regeneration_left_seconds": {
+        "name": "Birsorkuntzan gelditzen diren segundoak"
+      },
+      "remaining_days": {
+        "name": "Gelditzen diren egunak"
+      },
+      "right_flex_zone_actual_temp": {
+        "name": "Eskuineko flex eremuaren benetako tenperatura"
+      },
+      "right_flex_zone_setting_temp": {
+        "name": "Eskuineko flex eremuaren ezarpen-tenperatura"
+      },
+      "rinse_count": {
+        "name": "Aklaratze-kopurua"
+      },
+      "rinse_level": {
+        "name": "Aklaratze-maila"
+      },
+      "salt_setting": {
+        "name": "Gatz-ezarpena"
+      },
+      "seat_temperature": {
+        "name": "Eserleku-tenperatura"
+      },
+      "soak_time": {
+        "name": "Beratze-denbora"
+      },
+      "soft_available": {
+        "name": "Ur gozo erabilgarria"
+      },
+      "softener": {
+        "name": "Bigungarria"
+      },
+      "softwater": {
+        "name": "Ur gozoaren maila"
+      },
+      "status": {
+        "name": "Egoera"
+      },
+      "storage_remaining": {
+        "name": "Biltegiratzean gelditzen dena"
+      },
+      "tank": {
+        "name": "Depositua"
+      },
+      "tank_actual_temperature": {
+        "name": "Deposituaren benetako tenperatura"
+      },
+      "target_temperature": {
+        "name": "Xede-tenperatura"
+      },
+      "time_remaining": {
+        "name": "Gelditzen den denbora"
+      },
+      "top_compartment_remaining": {
+        "name": "Goiko konpartimentuan gelditzen dena"
+      },
+      "top_compartment_status": {
+        "name": "Goiko konpartimentuaren egoera"
+      },
+      "top_compartment_temperature": {
+        "name": "Goiko konpartimentuaren tenperatura"
+      },
+      "top_temperature": {
+        "name": "Goiko tenperatura"
+      },
+      "total_energy_consumption": {
+        "name": "Energia-kontsumo osoa"
+      },
+      "total_produced_energy": {
+        "name": "Sortutako energia osoa"
+      },
+      "tvoc": {
+        "name": "TVOC"
+      },
+      "wash_level": {
+        "name": "Garbiketa-maila"
+      },
+      "wash_strength": {
+        "name": "Garbiketa-indarra"
+      },
+      "wash_time": {
+        "name": "Garbiketa-denbora"
+      },
+      "water_consumption": {
+        "name": "Ur-kontsumoa"
+      },
+      "water_consumption_average": {
+        "name": "Batez besteko ur-kontsumoa"
+      },
+      "water_consumption_big": {
+        "name": "Ur-kontsumoa"
+      },
+      "water_temperature": {
+        "name": "Uraren tenperatura"
+      },
+      "water_level": {
+        "name": "Ur-maila"
+      },
+      "weight": {
+        "name": "Pisua"
+      },
+      "wind": {
+        "name": "Haizea"
+      },
+      "typeinfo": {
+        "name": "Mota-informazioa"
+      },
+      "use_days": {
+        "name": "Erabilera-egunak"
+      },
+      "elec_heat": {
+        "name": "Beroketa elektrikoa"
+      },
+      "water_pump": {
+        "name": "Ur-ponpa"
+      },
+      "four_way": {
+        "name": "Lau bideko balbula"
+      },
+      "back_water": {
+        "name": "Itzulera-ura"
+      },
+      "sterilize": {
+        "name": "Esterilizatu"
+      },
+      "disinfection_temperature": {
+        "name": "Desinfekzio-tenperatura"
+      },
+      "max_temperature": {
+        "name": "Gehienezko xede-tenperatura"
+      },
+      "max_temperature_upper_limit": {
+        "name": "Gehienezko tenperaturaren goiko muga"
+      },
+      "max_temperature_lower_limit": {
+        "name": "Gehienezko tenperaturaren beheko muga"
+      },
+      "disinfection_temperature_upper_limit": {
+        "name": "Desinfekzio-tenperaturaren goiko muga"
+      },
+      "disinfection_temperature_lower_limit": {
+        "name": "Desinfekzio-tenperaturaren beheko muga"
+      },
+      "dr_option": {
+        "name": "Eskaera-erantzunaren aukera"
+      },
+      "remaining_hot_water_max": {
+        "name": "Gehienezko gainerako ur beroa"
+      },
+      "force_e_heating_status": {
+        "name": "Behartutako beroketa elektrikoaren egoera"
+      },
+      "holiday_max": {
+        "name": "Oporren gehienezko iraupena"
+      },
+      "holiday_min": {
+        "name": "Oporren gutxieneko iraupena"
+      },
+      "timer_step_gap": {
+        "name": "Tenporizadore-urratsa"
+      },
+      "vacation_start_year": {
+        "name": "Oporren hasiera-urtea"
+      },
+      "vacation_start_month": {
+        "name": "Oporren hasiera-hilabetea"
+      },
+      "vacation_start_day": {
+        "name": "Oporren hasiera-eguna"
+      },
+      "auto_sterilize_week": {
+        "name": "Esterilizazio automatikoaren asteguna"
+      },
+      "auto_sterilize_hour": {
+        "name": "Esterilizazio automatikoaren ordua"
+      },
+      "auto_sterilize_minute": {
+        "name": "Esterilizazio automatikoaren minutua"
+      },
+      "work_mode": {
+        "name": "Lan-modua",
+        "state": {
+          "microwave": "Mikrouhina",
+          "microwave_1": "Mikrouhina 1",
+          "microwave_2": "Mikrouhina 2",
+          "microwave_3": "Mikrouhina 3",
+          "microwave_4": "Mikrouhina 4",
+          "microwave_5": "Mikrouhina 5",
+          "microwave_steam_above_tube": "Mikrouhin lurruna goiko hodia",
+          "microwave_double_tube": "Mikrouhin hodi bikoitza",
+          "microwave_hot_wind_tube_fan": "Mikrouhin haize bero hodiaren haizagailua",
+          "microwave_underside_tube_hot_wind_tube_fan": "Mikrouhin beheko hodia haize bero haizagailua",
+          "microwave_double_tube_hot_wind_tube_fan": "Mikrouhin hodi bikoitza haize bero haizagailua",
+          "microwave_steam": "Mikrouhin lurruna",
+          "microwave_steam_1": "Mikrouhin lurruna 1",
+          "unfreeze": "Desizoztu",
+          "unfreeze_1": "Desizoztu 1",
+          "unfreeze_2": "Desizoztu 2",
+          "unfreeze_3": "Desizoztu 3",
+          "unfreeze_t": "Desizoztu T",
+          "microwave_above_tube": "Mikrouhin goiko hodia",
+          "microwave_above_tube_1": "Mikrouhin goiko hodia 1",
+          "microwave_above_tube_2": "Mikrouhin goiko hodia 2",
+          "microwave_above_tube_fan": "Mikrouhin goiko hodiaren haizagailua",
+          "fast_unfreeze": "Desizozte azkarra",
+          "fresh_unfreeze": "Desizozte freskoa",
+          "microwave_zymosis": "Mikrouhin hartzidura",
+          "pure_steam": "Lurrun hutsa",
+          "pure_steam_1": "Lurrun hutsa 1",
+          "pure_steam_2": "Lurrun hutsa 2",
+          "pure_steam_3": "Lurrun hutsa 3",
+          "pure_steam_4": "Lurrun hutsa 4",
+          "pure_steam_5": "Lurrun hutsa 5",
+          "pure_steam_6": "Lurrun hutsa 6",
+          "pure_steam_7": "Lurrun hutsa 7",
+          "pure_steam_8": "Lurrun hutsa 8",
+          "pure_steam_9": "Lurrun hutsa 9",
+          "steam_above_tube": "Lurrun goiko hodia",
+          "steam_underside_tube": "Lurrun beheko hodia",
+          "steam_double_tube": "Lurrun hodi bikoitza",
+          "steam_hot_wind_tube_fan": "Lurrun haize bero hodiaren haizagailua",
+          "steam_hot_wind_tube_fan_1": "Lurrun haize bero hodiaren haizagailua 1",
+          "steam_hot_wind_tube_fan_2": "Lurrun haize bero hodiaren haizagailua 2",
+          "steam_hot_wind_tube": "Lurrun haize bero hodia",
+          "steam_double_tube_fan": "Lurrun hodi bikoitzaren haizagailua",
+          "steam_above_inside_outside_tube_fan": "Lurrun goiko barruko kanpoko hodiaren haizagailua",
+          "steam_above_inside_tube_fan": "Lurrun goiko barruko hodiaren haizagailua",
+          "above_tube": "Goiko hodia",
+          "underside_tube": "Beheko hodia",
+          "double_tube": "Hodi bikoitza",
+          "hot_wind_tube_fan": "Haize bero hodiaren haizagailua",
+          "pure_preheat": "Aurreberoketa hutsa",
+          "pure_preheat_2": "Aurreberoketa hutsa 2",
+          "above_tube_hot_wind_tube_fan": "Goiko hodia haize bero haizagailua",
+          "underside_tube_hot_wind_tube_fan": "Beheko hodia haize bero haizagailua",
+          "zymosis": "Hartzidura",
+          "double_tube_hot_wind_tube_fan": "Hodi bikoitza haize bero haizagailua",
+          "above_tube_revolve": "Goiko hodia biraketa",
+          "underside_tube_revolve": "Beheko hodia biraketa",
+          "double_tube_revolve": "Hodi bikoitza biraketa",
+          "hot_wind_tube_fan_revolve": "Haize bero hodiaren haizagailua biraketa",
+          "warm": "Mantendu bero",
+          "double_tube_fan": "Hodi bikoitzaren haizagailua",
+          "double_tube_fan_1": "Hodi bikoitzaren haizagailua 1",
+          "double_tube_fan_2": "Hodi bikoitzaren haizagailua 2",
+          "double_tube_fan_3": "Hodi bikoitzaren haizagailua 3",
+          "above_inside_tube_revolve": "Goiko barruko hodia biraketa",
+          "above_inside_tube_fan": "Goiko barruko hodiaren haizagailua",
+          "above_inside_outside_tube_revolve": "Goiko barruko kanpoko hodia biraketa",
+          "above_inside_outside_tube_fan": "Goiko barruko kanpoko hodiaren haizagailua",
+          "above_inside_underside_tube": "Goiko barruko beheko hodia",
+          "above_inside_underside_tube_1": "Goiko barruko beheko hodia 1",
+          "above_inside_underside_tube_fan": "Goiko barruko beheko hodiaren haizagailua",
+          "above_inside_underside_tube_fan_1": "Goiko barruko beheko hodiaren haizagailua 1",
+          "above_inside_tube": "Goiko barruko hodia",
+          "above_inside_outside_tube": "Goiko barruko kanpoko hodia",
+          "underside_tube_fan": "Beheko hodiaren haizagailua",
+          "above_tube_fan": "Goiko hodiaren haizagailua",
+          "above_tube_fan_1": "Goiko hodiaren haizagailua 1",
+          "above_tube_fan_2": "Goiko hodiaren haizagailua 2",
+          "scale_clean": "Kareztatzea kentzen",
+          "clean": "Garbitu",
+          "remove_odor": "Kendu usaina",
+          "remove_odor_2": "Kendu usaina 2",
+          "high_temperature_clean": "Tenperatura altuko garbiketa",
+          "dining_utensils_clean": "Mahai-tresnen garbiketa",
+          "auto_menu": "Menu automatikoa",
+          "eco": "Eco",
+          "above_tube_1": "Goiko hodia 1",
+          "above_tube_2": "Goiko hodia 2",
+          "above_tube_3": "Goiko hodia 3",
+          "underside_tube_1": "Beheko hodia 1",
+          "underside_tube_2": "Beheko hodia 2",
+          "double_tube_1": "Hodi bikoitza 1",
+          "double_tube_2": "Hodi bikoitza 2",
+          "double_tube_3": "Hodi bikoitza 3",
+          "double_tube_4": "Hodi bikoitza 4",
+          "double_tube_5": "Hodi bikoitza 5",
+          "double_tube_6": "Hodi bikoitza 6",
+          "hot_wind_tube_fan_1": "Haize bero hodiaren haizagailua 1",
+          "hot_wind_tube_fan_2": "Haize bero hodiaren haizagailua 2",
+          "hot_wind_tube_fan_3": "Haize bero hodiaren haizagailua 3",
+          "hot_wind_tube_fan_4": "Haize bero hodiaren haizagailua 4",
+          "hot_wind_tube_fan_5": "Haize bero hodiaren haizagailua 5",
+          "double_tube_hot_wind_tube_fan_1": "Hodi bikoitza haize bero haizagailua 1",
+          "double_tube_hot_wind_tube_fan_2": "Hodi bikoitza haize bero haizagailua 2",
+          "double_tube_hot_wind_tube_fan_3": "Hodi bikoitza haize bero haizagailua 3",
+          "double_tube_hot_wind_tube_fan_4": "Hodi bikoitza haize bero haizagailua 4",
+          "double_tube_hot_wind_tube_fan_5": "Hodi bikoitza haize bero haizagailua 5",
+          "unknown": "Ezezaguna"
+        }
+      },
+      "working_time": {
+        "name": "Lan-denbora"
+      },
+      "humidity": {
+        "name": "Hezetasuna"
+      },
+      "variable_mode": {
+        "name": "Modu aldakorra",
+        "state": {
+          "none": "Bat ere ez",
+          "soft_freezing": "Izozte biguna",
+          "zero_fresh": "Freskotasun zeroa",
+          "cold_drink": "Edari hotza",
+          "fresh_product": "Produktu freskoak",
+          "partial_freezing": "Izozte partziala",
+          "dry_zone": "Eremu lehorra",
+          "freeze_warm": "Izoztu / epeldu",
+          "baby": "Ama eta haurra",
+          "treasure": "Altxorra",
+          "zero": "Zero gradu"
+        }
+      },
+      "compressor_frequency": {
+        "name": "Konpresorearen maiztasuna"
+      },
+      "target_compressor_frequency": {
+        "name": "Konpresorearen xede-maiztasuna"
+      },
+      "compressor_current": {
+        "name": "Konpresorearen korrontea"
+      },
+      "compressor_voltage": {
+        "name": "Konpresorearen tentsioa"
+      },
+      "compressor_power": {
+        "name": "Konpresorearen potentzia"
+      },
+      "indoor_ambient_temperature": {
+        "name": "Barneko giro-tenperatura (T1)"
+      },
+      "indoor_coil_temperature": {
+        "name": "Barneko serpentinaren tenperatura (T2)"
+      },
+      "outdoor_coil_temperature": {
+        "name": "Kanpoko serpentinaren tenperatura (T3)"
+      },
+      "outdoor_ambient_temperature": {
+        "name": "Kanpoko giro-tenperatura (T4)"
+      },
+      "discharge_pipe_temperature": {
+        "name": "Deskarga-hodiaren tenperatura (TP)"
+      },
+      "indoor_fan_speed": {
+        "name": "Barneko haizagailuaren abiadura"
+      },
+      "target_indoor_fan_speed": {
+        "name": "Barneko haizagailuaren xede-abiadura"
+      },
+      "velocity": {
+        "name": "Abiadura"
+      },
+      "filter4_life": {
+        "name": "4. iragazkiaren bizitza-maila"
+      },
+      "filter5_life": {
+        "name": "5. iragazkiaren bizitza-maila"
+      },
+      "filter1_maxlife": {
+        "name": "1. iragazkiaren bizitza-muga"
+      },
+      "filter2_maxlife": {
+        "name": "2. iragazkiaren bizitza-muga"
+      },
+      "filter3_maxlife": {
+        "name": "3. iragazkiaren bizitza-muga"
+      },
+      "filter4_maxlife": {
+        "name": "4. iragazkiaren bizitza-muga"
+      },
+      "filter5_maxlife": {
+        "name": "5. iragazkiaren bizitza-muga"
+      },
+      "hot_pot_temperature": {
+        "name": "Lapiko beroaren tenperatura"
+      },
+      "ice_gall_status": {
+        "name": "Izotz-behazunaren egoera"
+      },
+      "water_kind": {
+        "name": "Ur mota",
+        "state": {
+          "idle": "Inaktibo",
+          "warm": "Epela",
+          "cold": "Hotza"
+        }
+      },
+      "heat_start": {
+        "name": "Berotze-hasiera",
+        "state": {
+          "heating": "Berotzen",
+          "keep_warm": "Bero mantentzen"
+        }
+      },
+      "no_obsolete_water_mode": {
+        "name": "Ur zaharkiturik gabeko modua",
+        "state": {
+          "water_quality_priority": "Uraren kalitatearen lehentasuna",
+          "water_saving_priority": "Ur-aurrezpenaren lehentasuna",
+          "custom": "Pertsonalizatua"
+        }
+      },
+      "input_temperature_sensing": {
+        "name": "Sarrera-tenperatura"
+      },
+      "temp_ta": {
+        "name": "Tenperatura Ta - Gelako girokoa"
+      },
+      "water_flow": {
+        "name": "Ura - Fluxu-tasa"
+      },
+      "water_pressure": {
+        "name": "Ura - Presioa"
+      },
+      "temp_t4": {
+        "name": "Tenperatura T4 - Kanpoko girokoa"
+      },
+      "temp_t5": {
+        "name": "Tenperatura T5 - Ur-depositua"
+      },
+      "temp_tb_t1": {
+        "name": "Tenperatura TB-T1 - Buffer-deposituaren goia"
+      },
+      "temp_tb_t2": {
+        "name": "Tenperatura TB-T2 - Buffer-deposituaren behea"
+      },
+      "temp_tsolar": {
+        "name": "Tenperatura Tsolar - Eguzki-panela"
+      },
+      "temp_tw2": {
+        "name": "Tenperatura Tw2 - 2. eremuko ura"
+      },
+      "dc_current": {
+        "name": "ODU - DC bus korrontea"
+      },
+      "dc_bus_voltage": {
+        "name": "ODU - DC bus tentsioa"
+      },
+      "current_unit_capacity": {
+        "name": "Unitatearen uneko edukiera (gordina)"
+      },
+      "instant_power0": {
+        "name": "Potentzia - Berotze-kontsumoa"
+      },
+      "instant_renew_power0": {
+        "name": "Potentzia - Berotze berriztagarriaren edukiera"
+      },
+      "room_rel_hum": {
+        "name": "Gelako hezetasun erlatiboa"
+      },
+      "hydbox_subtype": {
+        "name": "Informazioa - Kutxa hidraulikoaren azpimota"
+      },
+      "machine_type": {
+        "name": "Informazioa - Makina mota"
+      },
+      "odu_model": {
+        "name": "Informazioa - ODU modelo-kodea"
+      },
+      "hydrobox_capacity": {
+        "name": "Informazioa - Kutxa hidraulikoaren edukiera"
+      },
+      "idu_t1s1": {
+        "name": "Tenperatura - 1. eremua kalkulatua (T1s)"
+      },
+      "idu_t1s2": {
+        "name": "Tenperatura - 2. eremua kalkulatua (T1s)"
+      },
+      "t5s": {
+        "name": "Tenperatura T5s - DHW ezarpen-puntua"
+      },
+      "tas": {
+        "name": "Tenperatura Tas - Aire ezarpen-puntua"
+      },
+      "zone1_temp_set": {
+        "name": "Tenperatura - 1. eremua ezarpen-puntua"
+      },
+      "zone2_temp_set": {
+        "name": "Tenperatura - 2. eremua ezarpen-puntua"
+      },
+      "disinfect_set_weekday": {
+        "name": "DHW - Desinfekzio-asteguna"
+      },
+      "disinfect_start_hour": {
+        "name": "DHW - Desinfekzio-hasiera ordua"
+      },
+      "disinfect_start_minutes": {
+        "name": "DHW - Desinfekzio-hasiera minutua"
+      },
+      "error_code_description": {
+        "name": "Errorea - Deskribapena"
+      },
+      "hmi_sn_code": {
+        "name": "HMI serie-zenbakia"
+      },
+      "temp_tw_in": {
+        "name": "Tenperatura Tw_in - Ur-sarrera"
+      },
+      "temp_tw_out": {
+        "name": "Tenperatura Tw_out - Ur-irteera"
+      },
+      "comp_total_run_time": {
+        "name": "Energia - Konpresorearen funtzionamendu-denbora"
+      },
+      "idu_software_version_str": {
+        "name": "Informazioa - IDU softwarearen bertsioa"
+      },
+      "odu_software_version_str": {
+        "name": "Informazioa - ODU softwarearen bertsioa"
+      },
+      "ac_air_direction_gear": {
+        "name": "AC aire-norabidearen marxa"
+      },
+      "ac_air_direction_max_angle": {
+        "name": "AC aire-norabidearen gehienezko angelua"
+      },
+      "ac_air_direction_min_angle": {
+        "name": "AC aire-norabidearen gutxieneko angelua"
+      },
+      "ac_ambient_temperature": {
+        "name": "AC giro-tenperatura"
+      },
+      "ac_current_temp": {
+        "name": "AC uneko tenperatura"
+      },
+      "ac_destination_temp": {
+        "name": "AC xede-tenperatura"
+      },
+      "ac_destination_time": {
+        "name": "AC xede-denbora"
+      },
+      "ac_gear": {
+        "name": "AC marxa"
+      },
+      "ac_mode": {
+        "name": "AC modua",
+        "state": {
+          "air_supply": "Aire-hornidura",
+          "dehumidification": "Hezetasun-kentzea",
+          "net_flavour": "Aire freskoa",
+          "none": "Bat ere ez",
+          "refrigeration": "Hozketa"
+        }
+      },
+      "ac_order_destination_time": {
+        "name": "AC agindu-xede denbora"
+      },
+      "ac_order_remaining_time": {
+        "name": "AC agindu-gelditzen den denbora"
+      },
+      "ac_remaining_time": {
+        "name": "AC gelditzen den denbora"
+      },
+      "ac_swing_gear": {
+        "name": "AC kulunka-marxa"
+      },
+      "ac_swing_max_angle": {
+        "name": "AC kulunkaren gehienezko angelua"
+      },
+      "ac_swing_min_angle": {
+        "name": "AC kulunkaren gutxieneko angelua"
+      },
+      "ac_work_status": {
+        "name": "AC lan-egoera",
+        "state": {
+          "order": "Agindua",
+          "power_off": "Itzalita",
+          "reservation": "Erreserba",
+          "reservation_and_order_ordering": "Erreserba eta agindua agintzen",
+          "reservation_and_order_reserving": "Erreserba eta agindua erreserbatzen",
+          "working": "Lanean"
+        }
+      },
+      "ai_voice_microphone_status": {
+        "name": "AI ahots-mikrofonoaren egoera",
+        "state": {
+          "failure": "Hutsegitea",
+          "success": "Arrakasta"
+        }
+      },
+      "ai_voice_status": {
+        "name": "AI ahots-egoera",
+        "state": {
+          "connecting": "Konektatzen",
+          "off": "Itzalita",
+          "on": "Piztuta"
+        }
+      },
+      "ai_voice_volume_status": {
+        "name": "AI ahots-bolumenaren egoera",
+        "state": {
+          "failure": "Hutsegitea",
+          "success": "Arrakasta"
+        }
+      },
+      "b2_downstair_current_temp": {
+        "name": "Lurrun-labe beheko uneko tenperatura"
+      },
+      "b2_downstair_destination_temp": {
+        "name": "Lurrun-labe beheko xede-tenperatura"
+      },
+      "b2_downstair_light_off_type": {
+        "name": "Lurrun-labe beheko argia itzaltzeko mota",
+        "state": {
+          "app": "Aplikazioa",
+          "local": "Lokala"
+        }
+      },
+      "b2_downstair_light_on_type": {
+        "name": "Lurrun-labe beheko argia pizteko mota",
+        "state": {
+          "app": "Aplikazioa",
+          "local": "Lokala"
+        }
+      },
+      "b2_downstair_order_destination_time": {
+        "name": "Lurrun-labe beheko agindu-xede denbora"
+      },
+      "b2_downstair_order_remaining_time": {
+        "name": "Lurrun-labe beheko agindu-gelditzen den denbora"
+      },
+      "b2_downstair_power_off_type": {
+        "name": "Lurrun-labe beheko itzaltze-mota",
+        "state": {
+          "app": "Aplikazioa",
+          "auto": "Automatikoa",
+          "error": "Errorea",
+          "local": "Lokala",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b2_downstair_power_on_type": {
+        "name": "Lurrun-labe beheko pizte-mota",
+        "state": {
+          "app": "Aplikazioa",
+          "local": "Lokala",
+          "order": "Agindua"
+        }
+      },
+      "b2_downstair_preheating": {
+        "name": "Lurrun-labe beheko aurreberoketa",
+        "state": {
+          "finish": "Amaitu",
+          "none": "Bat ere ez",
+          "preheating": "Aurreberotzen"
+        }
+      },
+      "b2_downstair_recipe_after": {
+        "name": "Lurrun-labe beheko errezeta-ondorena"
+      },
+      "b2_downstair_recipe_code": {
+        "name": "Lurrun-labe beheko errezeta-kodea"
+      },
+      "b2_downstair_recipe_current_mode": {
+        "name": "Lurrun-labe beheko errezetaren uneko modua"
+      },
+      "b2_downstair_recipe_current_step": {
+        "name": "Lurrun-labe beheko errezetaren uneko urratsa"
+      },
+      "b2_downstair_recipe_off_type": {
+        "name": "Lurrun-labe beheko errezeta itzaltzeko mota",
+        "state": {
+          "app": "Aplikazioa",
+          "auto": "Automatikoa",
+          "error": "Errorea",
+          "local": "Lokala",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b2_downstair_recipe_on_type": {
+        "name": "Lurrun-labe beheko errezeta pizteko mota",
+        "state": {
+          "app": "Aplikazioa",
+          "local": "Lokala",
+          "order": "Agindua"
+        }
+      },
+      "b2_downstair_recipe_total_steps": {
+        "name": "Lurrun-labe beheko errezetaren urrats guztiak"
+      },
+      "b2_downstair_work_destination_time": {
+        "name": "Lurrun-labe beheko lan-xede denbora"
+      },
+      "b2_downstair_work_func": {
+        "name": "Lurrun-labe beheko lan-funtzioa"
+      },
+      "b2_downstair_work_menu": {
+        "name": "Lurrun-labe beheko lan-menua"
+      },
+      "b2_downstair_work_remaining_time": {
+        "name": "Lurrun-labe beheko lan-gelditzen den denbora"
+      },
+      "b2_downstair_work_status": {
+        "name": "Lurrun-labe beheko lan-egoera",
+        "state": {
+          "auto": "Automatikoa",
+          "drying": "Lehortzen",
+          "finish": "Amaitu",
+          "order": "Agindua",
+          "pause": "Pausatu",
+          "power_off": "Itzalita",
+          "standby": "Zain",
+          "working": "Lanean"
+        }
+      },
+      "b2_upstair_current_temp": {
+        "name": "Lurrun-labe goiko uneko tenperatura"
+      },
+      "b2_upstair_destination_temp": {
+        "name": "Lurrun-labe goiko xede-tenperatura"
+      },
+      "b2_upstair_light_off_type": {
+        "name": "Lurrun-labe goiko argia itzaltzeko mota",
+        "state": {
+          "app": "Aplikazioa",
+          "local": "Lokala"
+        }
+      },
+      "b2_upstair_light_on_type": {
+        "name": "Lurrun-labe goiko argia pizteko mota",
+        "state": {
+          "app": "Aplikazioa",
+          "local": "Lokala"
+        }
+      },
+      "b2_upstair_order_destination_time": {
+        "name": "Lurrun-labe goiko agindu-xede denbora"
+      },
+      "b2_upstair_order_remaining_time": {
+        "name": "Lurrun-labe goiko agindu-gelditzen den denbora"
+      },
+      "b2_upstair_power_off_type": {
+        "name": "Lurrun-labe goiko itzaltze-mota",
+        "state": {
+          "app": "Aplikazioa",
+          "auto": "Automatikoa",
+          "error": "Errorea",
+          "local": "Lokala",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b2_upstair_power_on_type": {
+        "name": "Lurrun-labe goiko pizte-mota",
+        "state": {
+          "app": "Aplikazioa",
+          "local": "Lokala",
+          "order": "Agindua"
+        }
+      },
+      "b2_upstair_preheating": {
+        "name": "Lurrun-labe goiko aurreberoketa",
+        "state": {
+          "finish": "Amaitu",
+          "none": "Bat ere ez",
+          "preheating": "Aurreberotzen"
+        }
+      },
+      "b2_upstair_recipe_after": {
+        "name": "Lurrun-labe goiko errezeta-ondorena"
+      },
+      "b2_upstair_recipe_code": {
+        "name": "Lurrun-labe goiko errezeta-kodea"
+      },
+      "b2_upstair_recipe_current_mode": {
+        "name": "Lurrun-labe goiko errezetaren uneko modua"
+      },
+      "b2_upstair_recipe_current_step": {
+        "name": "Lurrun-labe goiko errezetaren uneko urratsa"
+      },
+      "b2_upstair_recipe_off_type": {
+        "name": "Lurrun-labe goiko errezeta itzaltzeko mota",
+        "state": {
+          "app": "Aplikazioa",
+          "auto": "Automatikoa",
+          "error": "Errorea",
+          "local": "Lokala",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b2_upstair_recipe_on_type": {
+        "name": "Lurrun-labe goiko errezeta pizteko mota",
+        "state": {
+          "app": "Aplikazioa",
+          "local": "Lokala",
+          "order": "Agindua"
+        }
+      },
+      "b2_upstair_recipe_total_steps": {
+        "name": "Lurrun-labe goiko errezetaren urrats guztiak"
+      },
+      "b2_upstair_work_destination_time": {
+        "name": "Lurrun-labe goiko lan-xede denbora"
+      },
+      "b2_upstair_work_func": {
+        "name": "Lurrun-labe goiko lan-funtzioa"
+      },
+      "b2_upstair_work_menu": {
+        "name": "Lurrun-labe goiko lan-menua"
+      },
+      "b2_upstair_work_remaining_time": {
+        "name": "Lurrun-labe goiko lan-gelditzen den denbora"
+      },
+      "b2_upstair_work_status": {
+        "name": "Lurrun-labe goiko lan-egoera",
+        "state": {
+          "auto": "Automatikoa",
+          "drying": "Lehortzen",
+          "finish": "Amaitu",
+          "order": "Agindua",
+          "pause": "Pausatu",
+          "power_off": "Itzalita",
+          "standby": "Zain",
+          "working": "Lanean"
+        }
+      },
+      "b3_disinfect_off_type": {
+        "name": "Lurrun-armairuaren desinfekzioa itzaltzeko mota",
+        "state": {
+          "app": "Aplikazioa",
+          "local": "Lokala"
+        }
+      },
+      "b3_disinfect_on_type": {
+        "name": "Lurrun-armairuaren desinfekzioa pizteko mota",
+        "state": {
+          "app": "Aplikazioa",
+          "local": "Lokala"
+        }
+      },
+      "b3_downstair_current_temp": {
+        "name": "Lurrun-armairu beheko uneko tenperatura"
+      },
+      "b3_downstair_destination_temp": {
+        "name": "Lurrun-armairu beheko xede-tenperatura"
+      },
+      "b3_downstair_destination_time": {
+        "name": "Lurrun-armairu beheko xede-denbora"
+      },
+      "b3_downstair_remaining_time": {
+        "name": "Lurrun-armairu beheko gelditzen den denbora"
+      },
+      "b3_downstair_sensor": {
+        "name": "Lurrun-armairu beheko sentsorea"
+      },
+      "b3_downstair_status": {
+        "name": "Lurrun-armairu beheko egoera",
+        "state": {
+          "drying": "Lehortzen",
+          "drying_pause": "Lehortze-pausa",
+          "ion_drying": "Ioi-lehortzea",
+          "ion_drying_pause": "Ioi-lehortze pausa",
+          "power_off": "Itzalita",
+          "uperization": "Uperizazioa",
+          "uperization_pause": "Uperizazio-pausa",
+          "warm_drink": "Edari epela",
+          "warm_drink_pause": "Edari epel pausa"
+        }
+      },
+      "b3_thermotank_off_type": {
+        "name": "Lurrun-armairuaren termo-depositua itzaltzeko mota",
+        "state": {
+          "app": "Aplikazioa",
+          "local": "Lokala"
+        }
+      },
+      "b3_thermotank_on_type": {
+        "name": "Lurrun-armairuaren termo-depositua pizteko mota",
+        "state": {
+          "app": "Aplikazioa",
+          "local": "Lokala"
+        }
+      },
+      "b3_upstair_current_temp": {
+        "name": "Lurrun-armairu goiko uneko tenperatura"
+      },
+      "b3_upstair_destination_temp": {
+        "name": "Lurrun-armairu goiko xede-tenperatura"
+      },
+      "b3_upstair_destination_time": {
+        "name": "Lurrun-armairu goiko xede-denbora"
+      },
+      "b3_upstair_remaining_time": {
+        "name": "Lurrun-armairu goiko gelditzen den denbora"
+      },
+      "b3_upstair_sensor": {
+        "name": "Lurrun-armairu goiko sentsorea"
+      },
+      "b3_upstair_status": {
+        "name": "Lurrun-armairu goiko egoera",
+        "state": {
+          "drying": "Lehortzen",
+          "drying_pause": "Lehortze-pausa",
+          "ion_drying": "Ioi-lehortzea",
+          "ion_drying_pause": "Ioi-lehortze pausa",
+          "power_off": "Itzalita",
+          "uperization": "Uperizazioa",
+          "uperization_pause": "Uperizazio-pausa",
+          "warm_drink": "Edari epela",
+          "warm_drink_pause": "Edari epel pausa"
+        }
+      },
+      "b6_tvoc_value": {
+        "name": "Ke-aterakinaren TVOC balioa",
+        "state": {
+          "excellent": "Bikaina",
+          "good": "Ona",
+          "medium": "Ertaina"
+        }
+      },
+      "b6_air_duct_detection_score": {
+        "name": "Ke-aterakinaren aire-hodi detekzioaren puntuazioa"
+      },
+      "b6_air_duct_detection_state": {
+        "name": "Ke-aterakinaren aire-hodi detekzioaren egoera"
+      },
+      "b6_air_duct_detection_time": {
+        "name": "Ke-aterakinaren aire-hodi detekzioaren denbora"
+      },
+      "b6_air_duct_detection_windage": {
+        "name": "Ke-aterakinaren aire-hodi detekzioaren haize-erresistentzia"
+      },
+      "b6_air_volume": {
+        "name": "Ke-aterakinaren aire-bolumena"
+      },
+      "b6_delay_gear_linkage_gear": {
+        "name": "Ke-aterakinaren atzerapen-marxa loturaren marxa"
+      },
+      "b6_delay_time_value": {
+        "name": "Ke-aterakinaren atzerapen-denboraren balioa"
+      },
+      "b6_destination_time": {
+        "name": "Ke-aterakinaren xede-denbora"
+      },
+      "b6_gear": {
+        "name": "Ke-aterakinaren marxa"
+      },
+      "b6_gear_control_type": {
+        "name": "Ke-aterakinaren marxa-kontrol mota",
+        "state": {
+          "app": "Aplikazioa",
+          "gesture": "Keinua",
+          "linkage": "Lotura",
+          "local": "Lokala",
+          "smoke_detector": "Ke-detektagailua"
+        }
+      },
+      "b6_gesture_sensitivity": {
+        "name": "Ke-aterakinaren keinu-sentsibilitatea",
+        "state": {
+          "1": "1",
+          "2": "2",
+          "3": "3"
+        }
+      },
+      "b6_gesture_value": {
+        "name": "Ke-aterakinaren keinu-balioa",
+        "state": {
+          "light": "Arina",
+          "power": "Potentzia",
+          "wind": "Haizea"
+        }
+      },
+      "b6_hotclean_tips": {
+        "name": "Ke-aterakinaren garbiketa bero-aholkuak"
+      },
+      "b6_infrared_value": {
+        "name": "Ke-aterakinaren infragorri-balioa",
+        "state": {
+          "power": "Potentzia",
+          "wind": "Haizea"
+        }
+      },
+      "b6_inverter_ac_frequency": {
+        "name": "Ke-aterakinaren inbertsore AC maiztasuna"
+      },
+      "b6_inverter_back_electromotive_force": {
+        "name": "Ke-aterakinaren inbertsorearen atzerako indar elektromotorea"
+      },
+      "b6_inverter_capacity": {
+        "name": "Ke-aterakinaren inbertsorearen edukiera"
+      },
+      "b6_inverter_efficiency": {
+        "name": "Ke-aterakinaren inbertsorearen efizientzia"
+      },
+      "b6_inverter_motor_compensation_angle": {
+        "name": "Ke-aterakinaren inbertsorearen motor-konpentsazio angelua"
+      },
+      "b6_inverter_motor_speed": {
+        "name": "Ke-aterakinaren inbertsorearen motor-abiadura"
+      },
+      "b6_inverter_q_axis_current": {
+        "name": "Ke-aterakinaren inbertsorearen Q ardatzaren korrontea"
+      },
+      "b6_inverter_start_time": {
+        "name": "Ke-aterakinaren inbertsorearen hasiera-denbora"
+      },
+      "b6_inverter_temperature": {
+        "name": "Ke-aterakinaren inbertsorearen tenperatura"
+      },
+      "b6_inverter_temperature_limit_sign": {
+        "name": "Ke-aterakinaren inbertsorearen tenperatura-mugaren seinalea"
+      },
+      "b6_inverter_voltage": {
+        "name": "Ke-aterakinaren inbertsorearen tentsioa"
+      },
+      "b6_inverter_wind_flow": {
+        "name": "Ke-aterakinaren inbertsorearen haize-fluxua"
+      },
+      "b6_inverter_wind_presssure": {
+        "name": "Ke-aterakinaren inbertsorearen haize-presioa"
+      },
+      "b6_inverter_windage": {
+        "name": "Ke-aterakinaren inbertsorearen haize-erresistentzia"
+      },
+      "b6_inverter_work_gear": {
+        "name": "Ke-aterakinaren inbertsorearen lan-marxa"
+      },
+      "b6_last_hotclean_hour": {
+        "name": "Ke-aterakinaren azken garbiketa beroaren ordua"
+      },
+      "b6_light": {
+        "name": "Ke-aterakinaren argia"
+      },
+      "b6_light_off_type": {
+        "name": "Ke-aterakinaren argia itzaltzeko mota",
+        "state": {
+          "app": "Aplikazioa",
+          "error": "Errorea",
+          "gesture": "Keinua",
+          "local": "Lokala"
+        }
+      },
+      "b6_light_on_type": {
+        "name": "Ke-aterakinaren argia pizteko mota",
+        "state": {
+          "app": "Aplikazioa",
+          "gesture": "Keinua",
+          "local": "Lokala"
+        }
+      },
+      "b6_lightness": {
+        "name": "Ke-aterakinaren argitasuna"
+      },
+      "b6_lock_off_type": {
+        "name": "Ke-aterakinaren blokeoa itzaltzeko mota",
+        "state": {
+          "local": "Lokala"
+        }
+      },
+      "b6_lock_on_type": {
+        "name": "Ke-aterakinaren blokeoa pizteko mota",
+        "state": {
+          "app": "Aplikazioa",
+          "local": "Lokala"
+        }
+      },
+      "b6_power": {
+        "name": "Ke-aterakinaren potentzia",
+        "state": {
+          "delay_off": "Itzalitze atzeratua",
+          "off": "Itzalita",
+          "on": "Piztuta"
+        }
+      },
+      "b6_power_off_type": {
+        "name": "Ke-aterakinaren itzaltze-mota",
+        "state": {
+          "app": "Aplikazioa",
+          "delay": "Atzerapena",
+          "gesture": "Keinua",
+          "linkage": "Lotura",
+          "local": "Lokala"
+        }
+      },
+      "b6_power_on_type": {
+        "name": "Ke-aterakinaren pizte-mota",
+        "state": {
+          "app": "Aplikazioa",
+          "gesture": "Keinua",
+          "linkage": "Lotura",
+          "local": "Lokala"
+        }
+      },
+      "b6_remaining_time": {
+        "name": "Ke-aterakinaren gelditzen den denbora"
+      },
+      "b6_smoke_detector_value": {
+        "name": "Ke-aterakinaren ke-detektagailuaren balioa"
+      },
+      "b6_smoke_potency": {
+        "name": "Ke-aterakinaren ke-indarra"
+      },
+      "b6_smoke_stove_linkage_flowin": {
+        "name": "Ke-aterakinaren ke-sukalde loturaren fluxu-sarrera",
+        "state": {
+          "no": "Ez",
+          "yes": "Bai"
+        }
+      },
+      "b6_smoke_stove_linkage_gear": {
+        "name": "Ke-aterakinaren ke-sukalde loturaren marxa"
+      },
+      "b6_smoke_stove_linkage_gear_fix": {
+        "name": "Ke-aterakinaren ke-sukalde loturaren marxa-doitzea",
+        "state": {
+          "negative": "Negatiboa",
+          "positive": "Positiboa"
+        }
+      },
+      "b6_steaming": {
+        "name": "Ke-aterakinaren lurruntzea",
+        "state": {
+          "off": "Itzalita",
+          "on": "Piztuta"
+        }
+      },
+      "b6_steaming_stage": {
+        "name": "Ke-aterakinaren lurruntze-etapa"
+      },
+      "b6_wind_pressure": {
+        "name": "Ke-aterakinaren haize-presioa"
+      },
+      "b6_work_status": {
+        "name": "Ke-aterakinaren lan-egoera",
+        "state": {
+          "ai_dry_clean": "AI lehorketa-garbiketa",
+          "air_duct_detection": "Aire-hodi detekzioa",
+          "check": "Egiaztatu",
+          "clean": "Garbitu",
+          "clean_finish": "Garbiketa amaituta",
+          "error": "Errorea",
+          "hotclean": "Garbiketa beroa",
+          "initial": "Hasierakoa",
+          "mute_gear": "Isiltasun-marxa",
+          "power_off": "Itzalita",
+          "power_off_delay": "Itzaltze atzeratua",
+          "standby": "Zain",
+          "vvvf_gear": "Vvvf marxa",
+          "working": "Lanean"
+        }
+      },
+      "b7_left_current_temp": {
+        "name": "Gas-plaka ezkerreko uneko tenperatura"
+      },
+      "b7_left_destination_temp": {
+        "name": "Gas-plaka ezkerreko xede-tenperatura"
+      },
+      "b7_left_destination_time": {
+        "name": "Gas-plaka ezkerreko xede-denbora"
+      },
+      "b7_left_gear": {
+        "name": "Gas-plaka ezkerreko marxa"
+      },
+      "b7_left_power_off_type": {
+        "name": "Gas-plaka ezkerreko itzaltze-mota",
+        "state": {
+          "app": "Aplikazioa",
+          "auto": "Automatikoa",
+          "error": "Errorea",
+          "local": "Lokala",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b7_left_remaining_time": {
+        "name": "Gas-plaka ezkerrean gelditzen den denbora"
+      },
+      "b7_left_status": {
+        "name": "Gas-plaka ezkerreko egoera",
+        "state": {
+          "drying": "Lehortzen",
+          "drying_pause": "Lehortze-pausa",
+          "ion_drying": "Ioi-lehortzea",
+          "ion_drying_pause": "Ioi-lehortze pausa",
+          "power_off": "Itzalita",
+          "uperization": "Uperizazioa",
+          "uperization_pause": "Uperizazio-pausa",
+          "warm_drink": "Edari epela",
+          "warm_drink_pause": "Edari epel pausa"
+        }
+      },
+      "b7_left_work_time": {
+        "name": "Gas-plaka ezkerreko lan-denbora"
+      },
+      "b7_right_current_temp": {
+        "name": "Gas-plaka eskuineko uneko tenperatura"
+      },
+      "b7_right_destination_temp": {
+        "name": "Gas-plaka eskuineko xede-tenperatura"
+      },
+      "b7_right_destination_time": {
+        "name": "Gas-plaka eskuineko xede-denbora"
+      },
+      "b7_right_gear": {
+        "name": "Gas-plaka eskuineko marxa"
+      },
+      "b7_right_power_off_type": {
+        "name": "Gas-plaka eskuineko itzaltze-mota",
+        "state": {
+          "app": "Aplikazioa",
+          "auto": "Automatikoa",
+          "error": "Errorea",
+          "local": "Lokala",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b7_right_remaining_time": {
+        "name": "Gas-plaka eskuinean gelditzen den denbora"
+      },
+      "b7_right_status": {
+        "name": "Gas-plaka eskuineko egoera",
+        "state": {
+          "drying": "Lehortzen",
+          "drying_pause": "Lehortze-pausa",
+          "ion_drying": "Ioi-lehortzea",
+          "ion_drying_pause": "Ioi-lehortze pausa",
+          "power_off": "Itzalita",
+          "uperization": "Uperizazioa",
+          "uperization_pause": "Uperizazio-pausa",
+          "warm_drink": "Edari epela",
+          "warm_drink_pause": "Edari epel pausa"
+        }
+      },
+      "b7_right_work_time": {
+        "name": "Gas-plaka eskuineko lan-denbora"
+      },
+      "bf_cavity": {
+        "name": "Labearen barrunbea",
+        "state": {
+          "down": "Behera",
+          "up": "Gora"
+        }
+      },
+      "bf_control_back": {
+        "name": "Labearen kontrola atzera",
+        "state": {
+          "func_notsupport": "Funtzioa ez da onartzen",
+          "status_notsupport": "Egoera ez da onartzen",
+          "success": "Arrakasta",
+          "value_notsupport": "Balioa ez da onartzen"
+        }
+      },
+      "bf_end_next": {
+        "name": "Labearen amaiera hurrengoa"
+      },
+      "bf_fire": {
+        "name": "Labearen sua"
+      },
+      "bf_mode": {
+        "name": "Labearen modua"
+      },
+      "bf_quick_btn_bake_id": {
+        "name": "Labearen botoi azkarraren erretze-IDa"
+      },
+      "bf_quick_btn_bake_set": {
+        "name": "Labearen botoi azkarraren erretze-ezarpena"
+      },
+      "bf_quick_btn_bake_time": {
+        "name": "Labearen botoi azkarraren erretze-denbora"
+      },
+      "bf_quick_btn_microwave_id": {
+        "name": "Labearen botoi azkarraren mikrouhin-IDa"
+      },
+      "bf_quick_btn_microwave_set": {
+        "name": "Labearen botoi azkarraren mikrouhin-ezarpena"
+      },
+      "bf_quick_btn_microwave_time": {
+        "name": "Labearen botoi azkarraren mikrouhin-denbora"
+      },
+      "bf_quick_btn_steam_id": {
+        "name": "Labearen botoi azkarraren lurrun-IDa"
+      },
+      "bf_quick_btn_steam_set": {
+        "name": "Labearen botoi azkarraren lurrun-ezarpena"
+      },
+      "bf_quick_btn_steam_time": {
+        "name": "Labearen botoi azkarraren lurrun-denbora"
+      },
+      "bf_recipe_code": {
+        "name": "Labearen errezeta-kodea"
+      },
+      "bf_remaining_time": {
+        "name": "Labean gelditzen den denbora"
+      },
+      "bf_steam": {
+        "name": "Labearen lurruna"
+      },
+      "bf_step_current": {
+        "name": "Labearen uneko urratsa"
+      },
+      "bf_step_total": {
+        "name": "Labearen urrats guztiak"
+      },
+      "bf_temp_down": {
+        "name": "Labearen beheko tenperatura"
+      },
+      "bf_temp_down_set": {
+        "name": "Labearen beheko tenperaturaren ezarpena"
+      },
+      "bf_temp_probe": {
+        "name": "Labearen zundaren tenperatura"
+      },
+      "bf_temp_probe_set": {
+        "name": "Labearen zundaren tenperaturaren ezarpena"
+      },
+      "bf_temp_up": {
+        "name": "Labearen goiko tenperatura"
+      },
+      "bf_temp_up_set": {
+        "name": "Labearen goiko tenperaturaren ezarpena"
+      },
+      "bf_tips_mark": {
+        "name": "Labearen aholku-marka",
+        "state": {
+          "apply": "Aplikatu",
+          "change_attachments": "Aldatu osagarriak",
+          "door_open": "Atea irekita",
+          "feed": "Elikatu",
+          "recipe_tips": "Errezeta-aholkuak",
+          "stir": "Nahastu"
+        }
+      },
+      "bf_weight_mount": {
+        "name": "Labearen pisu-euskarria"
+      },
+      "bf_weight_multiple": {
+        "name": "Labearen pisu-biderkatzailea",
+        "state": {
+          "g": "g",
+          "kg": "kg",
+          "ounce": "Ontza",
+          "pound": "Libra"
+        }
+      },
+      "bf_weight_unit": {
+        "name": "Labearen pisu-unitatea",
+        "state": {
+          "g": "g",
+          "kg": "kg",
+          "other": "Beste bat",
+          "ounce": "Ontza",
+          "pound": "Libra"
+        }
+      },
+      "bf_work_status": {
+        "name": "Labearen lan-egoera",
+        "state": {
+          "after_sale": "Salmenta ondorengoa",
+          "check_version": "Egiaztatu bertsioa",
+          "cloudmenu_setting": "Hodeiko menuaren ezarpena",
+          "demo": "Demo",
+          "done": "Eginda",
+          "keep": "Mantendu",
+          "love_three_seconds": "Maitatu hiru segundoz",
+          "open": "Ireki",
+          "order": "Agindua",
+          "pause": "Pausatu",
+          "pause_temporarily": "Pausatu aldi baterako",
+          "power_off": "Itzalita",
+          "self_check": "Auto-egiaztapena",
+          "working": "Lanean"
+        }
+      },
+      "bf_working_time": {
+        "name": "Labearen lan-denbora"
+      },
+      "e7_left_bottom_bridge_link": {
+        "name": "Indukzio ezker-beheko zubi-lotura",
+        "state": {
+          "off": "Itzalita",
+          "on": "Piztuta"
+        }
+      },
+      "e7_left_bottom_destination_time": {
+        "name": "Indukzio ezker-beheko xede-denbora"
+      },
+      "e7_left_bottom_efficiency": {
+        "name": "Indukzio ezker-beheko efizientzia"
+      },
+      "e7_left_bottom_gear": {
+        "name": "Indukzio ezker-beheko marxa"
+      },
+      "e7_left_bottom_mode": {
+        "name": "Indukzio ezker-beheko modua",
+        "state": {
+          "boiling": "Irakitea",
+          "heat_preservation": "Bero-mantentzea",
+          "none": "Bat ere ez",
+          "stew_soup": "Zopa-egostea",
+          "stir_frying": "Frijitzea"
+        }
+      },
+      "e7_left_bottom_remaining_time": {
+        "name": "Indukzio ezker-behean gelditzen den denbora"
+      },
+      "e7_left_bottom_work_status": {
+        "name": "Indukzio ezker-beheko lan-egoera",
+        "state": {
+          "auto": "Automatikoa",
+          "drying": "Lehortzen",
+          "finish": "Amaitu",
+          "order": "Agindua",
+          "pause": "Pausatu",
+          "power_off": "Itzalita",
+          "standby": "Zain",
+          "working": "Lanean"
+        }
+      },
+      "e7_left_bottom_work_time": {
+        "name": "Indukzio ezker-beheko lan-denbora"
+      },
+      "e7_left_bridge_link": {
+        "name": "Indukzio ezkerreko zubi-lotura",
+        "state": {
+          "off": "Itzalita",
+          "on": "Piztuta"
+        }
+      },
+      "e7_left_destination_time": {
+        "name": "Indukzio ezkerreko xede-denbora"
+      },
+      "e7_left_efficiency": {
+        "name": "Indukzio ezkerreko efizientzia"
+      },
+      "e7_left_gear": {
+        "name": "Indukzio ezkerreko marxa"
+      },
+      "e7_left_mode": {
+        "name": "Indukzio ezkerreko modua",
+        "state": {
+          "boiling": "Irakitea",
+          "heat_preservation": "Bero-mantentzea",
+          "none": "Bat ere ez",
+          "stew_soup": "Zopa-egostea",
+          "stir_frying": "Frijitzea"
+        }
+      },
+      "e7_left_remaining_time": {
+        "name": "Indukzio ezkerrean gelditzen den denbora"
+      },
+      "e7_left_top_bridge_link": {
+        "name": "Indukzio ezker-goiko zubi-lotura",
+        "state": {
+          "off": "Itzalita",
+          "on": "Piztuta"
+        }
+      },
+      "e7_left_top_destination_time": {
+        "name": "Indukzio ezker-goiko xede-denbora"
+      },
+      "e7_left_top_efficiency": {
+        "name": "Indukzio ezker-goiko efizientzia"
+      },
+      "e7_left_top_gear": {
+        "name": "Indukzio ezker-goiko marxa"
+      },
+      "e7_left_top_mode": {
+        "name": "Indukzio ezker-goiko modua",
+        "state": {
+          "boiling": "Irakitea",
+          "heat_preservation": "Bero-mantentzea",
+          "none": "Bat ere ez",
+          "stew_soup": "Zopa-egostea",
+          "stir_frying": "Frijitzea"
+        }
+      },
+      "e7_left_top_remaining_time": {
+        "name": "Indukzio ezker-goian gelditzen den denbora"
+      },
+      "e7_left_top_work_status": {
+        "name": "Indukzio ezker-goiko lan-egoera",
+        "state": {
+          "auto": "Automatikoa",
+          "drying": "Lehortzen",
+          "finish": "Amaitu",
+          "order": "Agindua",
+          "pause": "Pausatu",
+          "power_off": "Itzalita",
+          "standby": "Zain",
+          "working": "Lanean"
+        }
+      },
+      "e7_left_top_work_time": {
+        "name": "Indukzio ezker-goiko lan-denbora"
+      },
+      "e7_left_work_status": {
+        "name": "Indukzio ezkerreko lan-egoera",
+        "state": {
+          "auto": "Automatikoa",
+          "drying": "Lehortzen",
+          "finish": "Amaitu",
+          "order": "Agindua",
+          "pause": "Pausatu",
+          "power_off": "Itzalita",
+          "standby": "Zain",
+          "working": "Lanean"
+        }
+      },
+      "e7_left_work_time": {
+        "name": "Indukzio ezkerreko lan-denbora"
+      },
+      "e7_right_bottom_bridge_link": {
+        "name": "Indukzio eskuin-beheko zubi-lotura",
+        "state": {
+          "off": "Itzalita",
+          "on": "Piztuta"
+        }
+      },
+      "e7_right_bottom_destination_time": {
+        "name": "Indukzio eskuin-beheko xede-denbora"
+      },
+      "e7_right_bottom_efficiency": {
+        "name": "Indukzio eskuin-beheko efizientzia"
+      },
+      "e7_right_bottom_gear": {
+        "name": "Indukzio eskuin-beheko marxa"
+      },
+      "e7_right_bottom_mode": {
+        "name": "Indukzio eskuin-beheko modua",
+        "state": {
+          "boiling": "Irakitea",
+          "heat_preservation": "Bero-mantentzea",
+          "none": "Bat ere ez",
+          "stew_soup": "Zopa-egostea",
+          "stir_frying": "Frijitzea"
+        }
+      },
+      "e7_right_bottom_remaining_time": {
+        "name": "Indukzio eskuin-behean gelditzen den denbora"
+      },
+      "e7_right_bottom_work_status": {
+        "name": "Indukzio eskuin-beheko lan-egoera",
+        "state": {
+          "auto": "Automatikoa",
+          "drying": "Lehortzen",
+          "finish": "Amaitu",
+          "order": "Agindua",
+          "pause": "Pausatu",
+          "power_off": "Itzalita",
+          "standby": "Zain",
+          "working": "Lanean"
+        }
+      },
+      "e7_right_bottom_work_time": {
+        "name": "Indukzio eskuin-beheko lan-denbora"
+      },
+      "e7_right_bridge_link": {
+        "name": "Indukzio eskuineko zubi-lotura",
+        "state": {
+          "off": "Itzalita",
+          "on": "Piztuta"
+        }
+      },
+      "e7_right_destination_time": {
+        "name": "Indukzio eskuineko xede-denbora"
+      },
+      "e7_right_efficiency": {
+        "name": "Indukzio eskuineko efizientzia"
+      },
+      "e7_right_gear": {
+        "name": "Indukzio eskuineko marxa"
+      },
+      "e7_right_mode": {
+        "name": "Indukzio eskuineko modua",
+        "state": {
+          "boiling": "Irakitea",
+          "heat_preservation": "Bero-mantentzea",
+          "none": "Bat ere ez",
+          "stew_soup": "Zopa-egostea",
+          "stir_frying": "Frijitzea"
+        }
+      },
+      "e7_right_remaining_time": {
+        "name": "Indukzio eskuinean gelditzen den denbora"
+      },
+      "e7_right_top_bridge_link": {
+        "name": "Indukzio eskuin-goiko zubi-lotura",
+        "state": {
+          "off": "Itzalita",
+          "on": "Piztuta"
+        }
+      },
+      "e7_right_top_destination_time": {
+        "name": "Indukzio eskuin-goiko xede-denbora"
+      },
+      "e7_right_top_efficiency": {
+        "name": "Indukzio eskuin-goiko efizientzia"
+      },
+      "e7_right_top_gear": {
+        "name": "Indukzio eskuin-goiko marxa"
+      },
+      "e7_right_top_mode": {
+        "name": "Indukzio eskuin-goiko modua",
+        "state": {
+          "boiling": "Irakitea",
+          "heat_preservation": "Bero-mantentzea",
+          "none": "Bat ere ez",
+          "stew_soup": "Zopa-egostea",
+          "stir_frying": "Frijitzea"
+        }
+      },
+      "e7_right_top_remaining_time": {
+        "name": "Indukzio eskuin-goian gelditzen den denbora"
+      },
+      "e7_right_top_work_status": {
+        "name": "Indukzio eskuin-goiko lan-egoera",
+        "state": {
+          "auto": "Automatikoa",
+          "drying": "Lehortzen",
+          "finish": "Amaitu",
+          "order": "Agindua",
+          "pause": "Pausatu",
+          "power_off": "Itzalita",
+          "standby": "Zain",
+          "working": "Lanean"
+        }
+      },
+      "e7_right_top_work_time": {
+        "name": "Indukzio eskuin-goiko lan-denbora"
+      },
+      "e7_right_work_status": {
+        "name": "Indukzio eskuineko lan-egoera",
+        "state": {
+          "auto": "Automatikoa",
+          "drying": "Lehortzen",
+          "finish": "Amaitu",
+          "order": "Agindua",
+          "pause": "Pausatu",
+          "power_off": "Itzalita",
+          "standby": "Zain",
+          "working": "Lanean"
+        }
+      },
+      "e7_right_work_time": {
+        "name": "Indukzio eskuineko lan-denbora"
+      },
+      "electronic_version": {
+        "name": "Bertsio elektronikoa"
+      },
+      "error_list": {
+        "name": "Errore-zerrenda"
+      },
+      "sp_fandrying_destination_time": {
+        "name": "Plater-haizagailu lehortzearen xede-denbora"
+      },
+      "sp_fandrying_order_destination_time": {
+        "name": "Plater-haizagailu lehortzearen agindu-xede denbora"
+      },
+      "sp_fandrying_order_remaining_time": {
+        "name": "Plater-haizagailu lehortzearen agindu-gelditzen den denbora"
+      },
+      "sp_fandrying_remaining_time": {
+        "name": "Plater-haizagailu lehortzean gelditzen den denbora"
+      },
+      "sp_fandrying_setting_automode_day": {
+        "name": "Plater-haizagailu lehortzearen ezarpena modu automatikoaren eguna"
+      },
+      "sp_fandrying_setting_automode_starthour": {
+        "name": "Plater-haizagailu lehortzearen ezarpena modu automatikoaren hasiera-ordua"
+      },
+      "sp_fandrying_setting_automode_startminute": {
+        "name": "Plater-haizagailu lehortzearen ezarpena modu automatikoaren hasiera-minutua"
+      },
+      "sp_fandrying_status": {
+        "name": "Plater-haizagailu lehortzearen egoera",
+        "state": {
+          "drying": "Lehortzen",
+          "drying_pause": "Lehortze-pausa",
+          "ion_drying": "Ioi-lehortzea",
+          "ion_drying_pause": "Ioi-lehortze pausa",
+          "power_off": "Itzalita",
+          "uperization": "Uperizazioa",
+          "uperization_pause": "Uperizazio-pausa",
+          "warm_drink": "Edari epela",
+          "warm_drink_pause": "Edari epel pausa"
+        }
+      },
+      "sp_fandrying_temperature": {
+        "name": "Plater-haizagailu lehortzearen tenperatura"
+      },
+      "sp_heatingdisk_destination_time": {
+        "name": "Plater-beroketa diskoaren xede-denbora"
+      },
+      "sp_heatingdisk_order_destination_time": {
+        "name": "Plater-beroketa diskoaren agindu-xede denbora"
+      },
+      "sp_heatingdisk_order_remaining_time": {
+        "name": "Plater-beroketa diskoaren agindu-gelditzen den denbora"
+      },
+      "sp_heatingdisk_remaining_time": {
+        "name": "Plater-beroketa diskoan gelditzen den denbora"
+      },
+      "sp_heatingdisk_setting_automode_day": {
+        "name": "Plater-beroketa diskoaren ezarpena modu automatikoaren eguna"
+      },
+      "sp_heatingdisk_setting_automode_starthour": {
+        "name": "Plater-beroketa diskoaren ezarpena modu automatikoaren hasiera-ordua"
+      },
+      "sp_heatingdisk_setting_automode_startminute": {
+        "name": "Plater-beroketa diskoaren ezarpena modu automatikoaren hasiera-minutua"
+      },
+      "sp_heatingdisk_status": {
+        "name": "Plater-beroketa diskoaren egoera",
+        "state": {
+          "drying": "Lehortzen",
+          "drying_pause": "Lehortze-pausa",
+          "ion_drying": "Ioi-lehortzea",
+          "ion_drying_pause": "Ioi-lehortze pausa",
+          "power_off": "Itzalita",
+          "uperization": "Uperizazioa",
+          "uperization_pause": "Uperizazio-pausa",
+          "warm_drink": "Edari epela",
+          "warm_drink_pause": "Edari epel pausa"
+        }
+      },
+      "sp_heatingdisk_temperature": {
+        "name": "Plater-beroketa diskoaren tenperatura"
+      },
+      "sp_uvc_destination_time": {
+        "name": "Plater UVC xede-denbora"
+      },
+      "sp_uvc_order_destination_time": {
+        "name": "Plater UVC agindu-xede denbora"
+      },
+      "sp_uvc_order_remaining_time": {
+        "name": "Plater UVC agindu-gelditzen den denbora"
+      },
+      "sp_uvc_remaining_time": {
+        "name": "Plater UVC gelditzen den denbora"
+      },
+      "sp_uvc_setting_automode_day": {
+        "name": "Plater UVC ezarpena modu automatikoaren eguna"
+      },
+      "sp_uvc_setting_automode_starthour": {
+        "name": "Plater UVC ezarpena modu automatikoaren hasiera-ordua"
+      },
+      "sp_uvc_setting_automode_startminute": {
+        "name": "Plater UVC ezarpena modu automatikoaren hasiera-minutua"
+      },
+      "sp_uvc_status": {
+        "name": "Plater UVC egoera",
+        "state": {
+          "drying": "Lehortzen",
+          "drying_pause": "Lehortze-pausa",
+          "ion_drying": "Ioi-lehortzea",
+          "ion_drying_pause": "Ioi-lehortze pausa",
+          "power_off": "Itzalita",
+          "uperization": "Uperizazioa",
+          "uperization_pause": "Uperizazio-pausa",
+          "warm_drink": "Edari epela",
+          "warm_drink_pause": "Edari epel pausa"
+        }
+      },
+      "sp_uvc_temperature": {
+        "name": "Plater UVC tenperatura"
+      },
+      "total_error_code": {
+        "name": "Errore-kodea"
+      },
+      "total_error_type": {
+        "name": "Errore-mota"
+      },
+      "total_firewall_temp": {
+        "name": "Suebakiaren tenperatura"
+      },
+      "total_gesture": {
+        "name": "Keinua",
+        "state": {
+          "off": "Itzalita",
+          "on": "Piztuta"
+        }
+      },
+      "total_ir": {
+        "name": "IR",
+        "state": {
+          "off": "Itzalita",
+          "on": "Piztuta"
+        }
+      },
+      "total_lock_off_type": {
+        "name": "Blokeoa itzaltzeko mota",
+        "state": {
+          "local": "Lokala"
+        }
+      },
+      "total_lock_on_type": {
+        "name": "Blokeoa pizteko mota",
+        "state": {
+          "app": "Aplikazioa",
+          "local": "Lokala"
+        }
+      },
+      "total_shelving_unit_temp": {
+        "name": "Apalaren tenperatura"
+      },
+      "total_speak": {
+        "name": "Hitz egin",
+        "state": {
+          "off": "Itzalita",
+          "on": "Piztuta"
+        }
+      },
+      "total_tips_code": {
+        "name": "Aholku-kodea"
+      },
+      "total_tips_type": {
+        "name": "Aholku-mota"
+      },
+      "work_status": {
+        "name": "Lan-egoera",
+        "state": {
+          "save_power": "Aurreztu energia",
+          "standby": "Zain",
+          "work": "Lanean",
+          "pause": "Pausatuta",
+          "work_finish": "Amaituta",
+          "order": "Atzerapena",
+          "pause_c": "Pausatuta C",
+          "three": "Hiru",
+          "self_inspection": "Auto-ikuskapena",
+          "query_version": "Bertsio-kontsulta",
+          "demo": "Demo",
+          "ramadan": "Ramadan",
+          "after_checking": "Egiaztatu ondoren",
+          "wait_to_start": "Hasteko zain",
+          "ff": "Ezezaguna"
+        }
+      },
+      "x9b_fire_power": {
+        "name": "Su-potentzia",
+        "state": {
+          "high_power": "Altua",
+          "medium_high_power": "Ertain-altua",
+          "medium_power": "Ertaina",
+          "medium_low_power": "Ertain-baxua",
+          "low_power": "Baxua",
+          "ff": "Ezezaguna"
+        }
+      },
+      "pre_heat": {
+        "name": "Aurreberoketa",
+        "state": {
+          "off": "Itzalita",
+          "work": "Aurreberotzen",
+          "end": "Aurreberoketa amaituta"
+        }
+      },
+      "water_status": {
+        "name": "Ur-egoera",
+        "state": {
+          "normal": "Arrunta",
+          "lack_box": "Ontzia falta da",
+          "lack_water": "Ur eskasia",
+          "change_water": "Aldatu ura"
+        }
+      },
+      "dissipate_heat": {
+        "name": "Sakabanatu beroa",
+        "state": {
+          "off": "Itzalita",
+          "work": "Sakabanatzen"
+        }
+      },
+      "execute": {
+        "name": "Exekuzio-egoera",
+        "state": {
+          "ok": "Ados",
+          "status_nonsupport": "Egoera ez da onartzen",
+          "function_nonsupport": "Funtzioa ez da onartzen",
+          "param_range_error": "Parametro-tartearen errorea"
+        }
+      },
+      "sys_time_src": {
+        "name": "Sistemaren ordu-iturria",
+        "state": {
+          "module": "Modulua",
+          "app": "Aplikazioa",
+          "user_defined": "Erabiltzaileak definitua"
+        }
+      },
+      "cur_temperature": {
+        "name": "Uneko tenperatura"
+      },
+      "work_hour": {
+        "name": "Lan-ordua"
+      },
+      "work_minute": {
+        "name": "Lan-minutua"
+      },
+      "work_second": {
+        "name": "Lan-segundoa"
+      },
+      "cbs_version": {
+        "name": "CBS bertsioa"
+      }
+    },
+    "switch": {
+      "db_power": {
+        "name": "Garbigailuaren potentzia"
+      },
+      "dc_power": {
+        "name": "Lehorgailuaren potentzia"
+      },
+      "door_auto_open_setting": {
+        "name": "Atea automatikoki irekitzea"
+      },
+      "anion": {
+        "name": "Anioia"
+      },
+      "humidify": {
+        "name": "Hezetu"
+      },
+      "waterions": {
+        "name": "Ur-ioiak"
+      },
+      "anophelifuge": {
+        "name": "Eltxoen aurkakoa"
+      },
+      "display_on_off": {
+        "name": "Bistaratzea"
+      },
+      "auto_power_off": {
+        "name": "Itzaltze automatikoa"
+      },
+      "body_feeling_scan": {
+        "name": "Gorputz-sentsazioaren eskanerra"
+      },
+      "aux_heating": {
+        "name": "Beroketa osagarria"
+      },
+      "boost_mode": {
+        "name": "Boost modua"
+      },
+      "breezeless": {
+        "name": "Haize gabekoa"
+      },
+      "child_lock": {
+        "name": "Haur-blokeoa"
+      },
+      "cl_sterilization": {
+        "name": "CL esterilizazioa"
+      },
+      "comfort_mode": {
+        "name": "Erosotasun-modua"
+      },
+      "degerming": {
+        "name": "Germenak kentzea"
+      },
+      "dhw_power": {
+        "name": "DHW potentzia"
+      },
+      "disinfect": {
+        "name": "Desinfektatu"
+      },
+      "furnace_light": {
+        "name": "Labearen argia"
+      },
+      "hot_wind": {
+        "name": "Haize beroa"
+      },
+      "ramadan": {
+        "name": "Ramadan"
+      },
+      "turntable": {
+        "name": "Plater birakaria"
+      },
+      "maintenance_reminder": {
+        "name": "Mantentze-oroigarria"
+      },
+      "vacation_mode": {
+        "name": "Oporren modua"
+      },
+      "dry": {
+        "name": "Lehorra"
+      },
+      "cold_water_single": {
+        "name": "Ur hotza bakarra"
+      },
+      "cold_water_dot": {
+        "name": "Ur hotz tanta"
+      },
+      "eco_mode": {
+        "name": "ECO modua"
+      },
+      "memory": {
+        "name": "Memo U"
+      },
+      "fast_dhw": {
+        "name": "DHW azkarra"
+      },
+      "foam_shield": {
+        "name": "Aparraren babesa"
+      },
+      "frost_protect": {
+        "name": "Izozte-babesa"
+      },
+      "heating_power": {
+        "name": "Berotze-potentzia"
+      },
+      "indirect_wind": {
+        "name": "Zeharkako haizea"
+      },
+      "leak_water_protection": {
+        "name": "Ur-ihesaren babesa"
+      },
+      "light": {
+        "name": "Arina"
+      },
+      "link_to_ac": {
+        "name": "Lotu AC-ra"
+      },
+      "main_light": {
+        "name": "Argi nagusia"
+      },
+      "main_power": {
+        "name": "Potentzia nagusia"
+      },
+      "natural_wind": {
+        "name": "Haize naturala"
+      },
+      "night_light": {
+        "name": "Gaueko argia"
+      },
+      "oscillate": {
+        "name": "Oszilatu"
+      },
+      "power": {
+        "name": "Potentzia"
+      },
+      "powerful_purify": {
+        "name": "Garbiketa indartsua"
+      },
+      "prompt_tone": {
+        "name": "Abisu-tonua"
+      },
+      "regeneration": {
+        "name": "Birsorkuntza"
+      },
+      "water_pump": {
+        "name": "Ur-ponpa"
+      },
+      "water_way": {
+        "name": "Ur-bidea"
+      },
+      "screen_display": {
+        "name": "Pantailaren bistaratzea"
+      },
+      "screen_display_alternate": {
+        "name": "Pantailaren bistaratze txandakatua"
+      },
+      "sensor_light": {
+        "name": "Sentsore-argia"
+      },
+      "silent_mode": {
+        "name": "Isiltasun-modua"
+      },
+      "sleep_mode": {
+        "name": "Lo-modua"
+      },
+      "out_silent": {
+        "name": "Kanpoko isiltasun-modua"
+      },
+      "smart_eye": {
+        "name": "Begi adimenduna"
+      },
+      "smart_volume": {
+        "name": "Bolumen adimenduna"
+      },
+      "smelly_sensor": {
+        "name": "Usain-sentsorea"
+      },
+      "soften": {
+        "name": "Bigungarria"
+      },
+      "standby": {
+        "name": "Zain"
+      },
+      "start": {
+        "name": "Hasi"
+      },
+      "sterilization": {
+        "name": "Esterilizazioa"
+      },
+      "storage": {
+        "name": "Biltegiratzea"
+      },
+      "swing": {
+        "name": "Kulunka"
+      },
+      "swing_horizontal": {
+        "name": "Kulunka horizontala"
+      },
+      "swing_vertical": {
+        "name": "Kulunka bertikala"
+      },
+      "self_clean": {
+        "name": "Garbiketa automatikoa"
+      },
+      "ieco": {
+        "name": "iECO"
+      },
+      "sound": {
+        "name": "Soinua"
+      },
+      "tbh": {
+        "name": "TBH"
+      },
+      "variable_heating": {
+        "name": "Berotze aldakorra"
+      },
+      "ventilation": {
+        "name": "Aireztapena"
+      },
+      "whole_tank_heating": {
+        "name": "Depositu osoaren berotzea"
+      },
+      "zero_cold_pulse": {
+        "name": "Ur hotz zeroa (pultsua)"
+      },
+      "zero_cold_water": {
+        "name": "Ur hotz zeroa"
+      },
+      "zone1_curve": {
+        "name": "1. eremua kurba"
+      },
+      "zone1_power": {
+        "name": "1. eremua potentzia"
+      },
+      "zone2_curve": {
+        "name": "2. eremua kurba"
+      },
+      "zone2_power": {
+        "name": "2. eremua potentzia"
+      },
+      "boiling": {
+        "name": "Irakin ura"
+      },
+      "tea_bar_boil": {
+        "name": "Ur-irakite etengailua"
+      },
+      "tea_bar_child_lock": {
+        "name": "Haur-blokeoa"
+      },
+      "keep_warm": {
+        "name": "Mantendu bero"
+      },
+      "tea_bar_cooling": {
+        "name": "Te-barraren hozketa"
+      },
+      "screen_off": {
+        "name": "Pantaila itzalita"
+      },
+      "wash": {
+        "name": "Iragazki-garbiketa"
+      },
+      "antifreeze": {
+        "name": "Izozte-aurkakoa"
+      },
+      "heat": {
+        "name": "Beroa"
+      },
+      "holiday_on": {
+        "name": "Modua - Oporrak"
+      },
+      "dhw_disinfect": {
+        "name": "DHW - Desinfekzioa"
+      },
+      "ai_voice_microphone": {
+        "name": "AI ahots-mikrofonoa"
+      },
+      "total_lock": {
+        "name": "Haur-blokeoa"
+      },
+      "total_power": {
+        "name": "Potentzia"
+      },
+      "lock": {
+        "name": "Haur-blokeoa"
+      },
+      "camera": {
+        "name": "Kamera"
+      },
+      "dryer_sterilize": {
+        "name": "Esterilizazio multidimentsionala"
+      },
+      "dryer_anti_wrinkle": {
+        "name": "Zimur-aurkako adimenduna"
+      },
+      "washer_forget_free": {
+        "name": "Ahanzturarik gabeko zainketa"
+      }
+    },
+    "water_heater": {
+      "domestic_hot_water": {
+        "name": "Etxeko ur beroa"
+      },
+      "bathing": {
+        "name": "Bainua"
+      },
+      "heating": {
+        "name": "Berotzen"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "ip_address": "IP helbidea",
+          "refresh_interval": "Freskatze-tartea (0 esan nahi du ez dela aktiboki freskatzen)",
+          "sensors": "Sentsore gehigarriak",
+          "switches": "Kontrol gehigarriak",
+          "customize": "Pertsonalizatu",
+          "account": "Midea hodeiko kontua (erabilera-estatistiken sentsoreetarako)",
+          "password": "Midea hodeiko kontuaren pasahitza (erabilera-estatistiken sentsoreetarako)",
+          "server": "Kontuaren Midea hodeiko zerbitzaria (erabilera-estatistiken sentsoreetarako)"
+        },
+        "title": "Konfiguratu"
+      }
+    },
+    "abort": {
+      "account_option": "Kontuak ez du eragiketa hau onartzen.\nEgin klik \"GEHITU GAILUA\" botoian gailu berria gehitzeko."
+    }
+  },
+  "services": {
+    "set_attribute": {
+      "name": "Ezarri atributua",
+      "description": "Ezarri gailuaren atributu-balioa",
+      "fields": {
+        "device_id": {
+          "name": "Gailuaren kodea",
+          "description": "Gailuaren gailu-kodea (gailuaren IDa)"
+        },
+        "attribute": {
+          "name": "Atributua",
+          "description": "Ezarri nahi den atributuaren izena"
+        },
+        "value": {
+          "name": "Balioa",
+          "description": "Ezarri nahi den atributuaren balioa"
+        }
+      }
+    },
+    "send_command": {
+      "name": "Pertsonalizatu komandoa",
+      "description": "Bidali komando pertsonalizatu bat gailura",
+      "fields": {
+        "device_id": {
+          "name": "Gailuaren kodea",
+          "description": "Gailuaren gailu-kodea (gailuaren IDa)"
+        },
+        "cmd_type": {
+          "name": "Komando mota",
+          "description": "Komando mota, 3 (kontsulta) edo 2 (ezartzea) izan behar du"
+        },
+        "cmd_body": {
+          "name": "Komandoaren gorputza",
+          "description": "Komandoaren gorputza (ez du MSmart protokoloaren burua eta amaierako egiaztapen-batura barne hartzen)"
+        }
+      }
+    }
+  }
+}

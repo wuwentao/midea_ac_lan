@@ -1,0 +1,4402 @@
+{
+  "config": {
+    "error": {
+      "preset_account": "Неуспешно влизане с предварително зададен акаунт, моля, докладвайте този проблем",
+      "login_failed": "Неуспешно влизане, грешен акаунт или парола",
+      "no_devices": "В мрежата не са открити нови налични уреди",
+      "device_exist": "Уредът вече е конфигуриран",
+      "config_incorrect": "Конфигурацията е неправилна",
+      "connect_error": "Не може да се установи връзка с уреда",
+      "invalid_token": "Token или Key в неправилен формат"
+    },
+    "step": {
+      "user": {
+        "data": {
+          "way": "Добавяне на уреди"
+        },
+        "description": "Изберете начина за добавяне на уред",
+        "title": "Добавяне на нов уред"
+      },
+      "login": {
+        "data": {
+          "account": "Акаунт",
+          "password": "Парола"
+        },
+        "description": "Влезте и получете token на уреда.\n\n\nЗасега само лични акаунти SmartHome и Meiju могат да извличат Token на уредите. Вижте README за подробности.",
+        "title": "Вход"
+      },
+      "discovery": {
+        "description": "IP адрес на устройството, въведете „auto“ за автоматично откриване\nМожете също да използвате IP адрес за търсене в определена мрежа, например „192.168.1.255“",
+        "title": "Търсене",
+        "data": {
+          "ip_address": "IP адрес"
+        }
+      },
+      "list": {
+        "description": "{table}",
+        "title": "Уреди"
+      },
+      "auto": {
+        "data": {
+          "device": "Уреди"
+        },
+        "description": "Изберете уред за добавяне",
+        "title": "Открит е нов уред"
+      },
+      "manually": {
+        "data": {
+          "name": "Име (напр. Климатик във всекидневната)",
+          "device_id": "Код на уреда",
+          "type": "Тип",
+          "ip_address": "IP адрес",
+          "port": "Порт",
+          "model": "Модел",
+          "subtype": "Подтип",
+          "protocol": "Протокол",
+          "token": "Token",
+          "key": "Key"
+        },
+        "description": "Конфигурация на уреда",
+        "title": "Нов уред"
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "door_auto_open": {
+        "name": "Последна програма: автоматично отваряне на вратата"
+      },
+      "uv": {
+        "name": "UV"
+      },
+      "dry": {
+        "name": "Изсушаване"
+      },
+      "dry_status": {
+        "name": "Сушене"
+      },
+      "storage_status": {
+        "name": "Съхранението работи"
+      },
+      "waterswitch": {
+        "name": "Превключвател за вода"
+      },
+      "water_lack": {
+        "name": "Недостиг на вода"
+      },
+      "wifi_unabled": {
+        "name": "WiFi деактивиран"
+      },
+      "auto_throw": {
+        "name": "Автоматично дозиране"
+      },
+      "lock_power": {
+        "name": "Заключване на захранването"
+      },
+      "beep_control": {
+        "name": "Звуков сигнал"
+      },
+      "light_btn_on": {
+        "name": "Светлина на бутоните"
+      },
+      "light_strip_on": {
+        "name": "Светлинна лента"
+      },
+      "warm_power": {
+        "name": "Топла мощност"
+      },
+      "cold_power": {
+        "name": "Студена мощност"
+      },
+      "sleep_power": {
+        "name": "Мощност в режим сън"
+      },
+      "pump_on": {
+        "name": "Помпата е включена"
+      },
+      "bar_door": {
+        "name": "Вратичка на бара"
+      },
+      "bar_door_overtime": {
+        "name": "Вратичка на бара (просрочено)"
+      },
+      "bathing_working": {
+        "name": "Състояние на къпане"
+      },
+      "bottom_compartment_cooling": {
+        "name": "Охлаждане на долното отделение"
+      },
+      "bottom_compartment_door": {
+        "name": "Врата на долното отделение"
+      },
+      "bottom_compartment_preheating": {
+        "name": "Предварително загряване на долното отделение"
+      },
+      "burning_state": {
+        "name": "Състояние на горене"
+      },
+      "clean_scale": {
+        "name": "Премахване на котлен камък"
+      },
+      "clean_sink_ponding": {
+        "name": "Застояла вода в мивката"
+      },
+      "cleaning_reminder": {
+        "name": "Напомняне за почистване"
+      },
+      "compressor_status": {
+        "name": "Състояние на компресора"
+      },
+      "cooking": {
+        "name": "Готвене"
+      },
+      "dissipate_heat": {
+        "name": "Разсейване на топлина"
+      },
+      "door": {
+        "name": "Врата"
+      },
+      "error_code": {
+        "name": "Код на грешка"
+      },
+      "filter_change_reminder": {
+        "name": "Напомняне за смяна на филтъра"
+      },
+      "filter_cleaning_reminder": {
+        "name": "Напомняне за почистване на филтъра"
+      },
+      "finished": {
+        "name": "Завършено"
+      },
+      "flex_zone_door": {
+        "name": "Флекс врата"
+      },
+      "flex_zone_door_overtime": {
+        "name": "Врата на флекс зоната"
+      },
+      "flip_side": {
+        "name": "Обръщане на страната"
+      },
+      "freezer_door": {
+        "name": "Врата на фризера"
+      },
+      "freezer_door_overtime": {
+        "name": "Врата на фризера (просрочено)"
+      },
+      "full_dust": {
+        "name": "Пълно с прах"
+      },
+      "heating": {
+        "name": "Нагряване"
+      },
+      "dispensing": {
+        "name": "Подаване на вода"
+      },
+      "lack_water": {
+        "name": "Недостиг на вода"
+      },
+      "standby": {
+        "name": "В готовност"
+      },
+      "hot_water_dispensing": {
+        "name": "Подаване на гореща вода"
+      },
+      "fault": {
+        "name": "Неизправност"
+      },
+      "heating_working": {
+        "name": "Състояние на нагряването"
+      },
+      "high_temperature": {
+        "name": "Висока температура"
+      },
+      "high_temperature_lock": {
+        "name": "Заключване при висока температура"
+      },
+      "high_temperature_work": {
+        "name": "Работа при висока температура"
+      },
+      "keep_warm": {
+        "name": "Поддържане на топлина"
+      },
+      "leak_water": {
+        "name": "Теч на вода"
+      },
+      "lid_status": {
+        "name": "Състояние на капака"
+      },
+      "middle_compartment_cooling": {
+        "name": "Охлаждане на средното отделение"
+      },
+      "middle_compartment_door": {
+        "name": "Врата на средното отделение"
+      },
+      "middle_compartment_preheating": {
+        "name": "Предварително загряване на средното отделение"
+      },
+      "pre_heat": {
+        "name": "Предварително загряване"
+      },
+      "probe": {
+        "name": "Сонда"
+      },
+      "probe_mode": {
+        "name": "Режим на сондата"
+      },
+      "reaction": {
+        "name": "Реакция"
+      },
+      "top_elec_heat": {
+        "name": "Горен електрически нагревател"
+      },
+      "bottom_elec_heat": {
+        "name": "Долен електрически нагревател"
+      },
+      "mute_effect": {
+        "name": "Ефект на заглушаване"
+      },
+      "mute_status": {
+        "name": "Състояние на заглушаване"
+      },
+      "multi_terminal": {
+        "name": "Многотерминален"
+      },
+      "oilcup_full": {
+        "name": "Чашата за масло е пълна"
+      },
+      "protection": {
+        "name": "Защита"
+      },
+      "refrigerator_door": {
+        "name": "Врата на хладилника"
+      },
+      "refrigerator_door_overtime": {
+        "name": "Врата на хладилника (просрочено)"
+      },
+      "rinse_aid": {
+        "name": "Недостиг на препарат за изплакване"
+      },
+      "rsj_stand_by": {
+        "name": "В готовност"
+      },
+      "salt": {
+        "name": "Недостиг на сол"
+      },
+      "seat_status": {
+        "name": "Състояние на седалката"
+      },
+      "smart_grid": {
+        "name": "Интелигентна мрежа"
+      },
+      "eco": {
+        "name": "ECO"
+      },
+      "maintenance_reminder": {
+        "name": "Напомняне за поддръжка"
+      },
+      "dr_enable": {
+        "name": "Отговор при търсене"
+      },
+      "electric_rod_exception": {
+        "name": "Неизправност на електрическия нагревател"
+      },
+      "ac_heater_priority": {
+        "name": "Приоритет на термопомпата"
+      },
+      "high_temp_reminder": {
+        "name": "Напомняне за висока температура"
+      },
+      "new_version_water_heater": {
+        "name": "Разширен протокол на бойлера"
+      },
+      "heat_recovery_status": {
+        "name": "Рекуперация на топлина"
+      },
+      "holiday_mode": {
+        "name": "Ваканционен режим"
+      },
+      "hybrid_motion_mode": {
+        "name": "Хибриден режим на движение"
+      },
+      "support_boost_mode": {
+        "name": "Поддръжка на режим Boost"
+      },
+      "support_silent_mode": {
+        "name": "Поддръжка на тих режим"
+      },
+      "support_remaining_hot_water": {
+        "name": "Поддръжка на оставаща гореща вода"
+      },
+      "support_electric_mode": {
+        "name": "Поддръжка на електрически режим"
+      },
+      "support_auto_disinfect": {
+        "name": "Поддръжка на автоматична дезинфекция"
+      },
+      "support_force_e_heating": {
+        "name": "Поддръжка на принудително електрическо нагряване"
+      },
+      "support_tou": {
+        "name": "Поддръжка на тарифа по време на ползване"
+      },
+      "support_ac_heater_priority": {
+        "name": "Поддръжка на приоритет на термопомпата"
+      },
+      "support_heat_recovery": {
+        "name": "Поддръжка на рекуперация на топлина"
+      },
+      "support_heat_pump_mode": {
+        "name": "Поддръжка на режим термопомпа"
+      },
+      "support_smart_mode": {
+        "name": "Поддръжка на интелигентен режим"
+      },
+      "support_negative_temperature": {
+        "name": "Поддръжка на отрицателни температури"
+      },
+      "maintain_warn": {
+        "name": "Предупреждение за поддръжка"
+      },
+      "order1_effect": {
+        "name": "График 1 активен"
+      },
+      "order2_effect": {
+        "name": "График 2 активен"
+      },
+      "status_dhw": {
+        "name": "Състояние на БГВ"
+      },
+      "status_heating": {
+        "name": "Състояние на отоплението"
+      },
+      "status_ibh": {
+        "name": "Състояние на IBH"
+      },
+      "status_tbh": {
+        "name": "Състояние на TBH"
+      },
+      "tank_ejected": {
+        "name": "Резервоарът е изваден"
+      },
+      "tank_full": {
+        "name": "Състояние на резервоара"
+      },
+      "top_compartment_cooling": {
+        "name": "Охлаждане на горното отделение"
+      },
+      "top_compartment_door": {
+        "name": "Врата на горното отделение"
+      },
+      "top_compartment_preheating": {
+        "name": "Предварително загряване на горното отделение"
+      },
+      "water_change_reminder": {
+        "name": "Напомняне за смяна на водата"
+      },
+      "water_shortage": {
+        "name": "Недостиг на вода"
+      },
+      "with_pressure": {
+        "name": "Под налягане"
+      },
+      "zone1_room_temp_mode": {
+        "name": "Зона 1: режим по стайна температура"
+      },
+      "zone1_water_temp_mode": {
+        "name": "Зона 1: режим по температура на водата"
+      },
+      "zone2_room_temp_mode": {
+        "name": "Зона 2: режим по стайна температура"
+      },
+      "zone2_water_temp_mode": {
+        "name": "Зона 2: режим по температура на водата"
+      },
+      "microcrystal_fresh": {
+        "name": "Микрокристална свежест"
+      },
+      "electronic_smell": {
+        "name": "Дезодориране и стерилизация"
+      },
+      "water_pump_running": {
+        "name": "Водната помпа работи"
+      },
+      "filter_status": {
+        "name": "Аларма за филтъра"
+      },
+      "standby_status": {
+        "name": "Състояние в готовност"
+      },
+      "out_water": {
+        "name": "Изход на вода"
+      },
+      "out_hot_water": {
+        "name": "Изход на гореща вода"
+      },
+      "backflow": {
+        "name": "Обратен поток"
+      },
+      "sleep_status": {
+        "name": "Състояние на режим сън"
+      },
+      "status_cool": {
+        "name": "Състояние — Охлаждане"
+      },
+      "eco_function_state": {
+        "name": "Режим — ECO функция"
+      },
+      "eco_timer_state": {
+        "name": "Режим — ECO таймер"
+      },
+      "double_zone": {
+        "name": "Възможност — Двойна зона"
+      },
+      "room_thermal_support": {
+        "name": "Възможност — Стаен термостат"
+      },
+      "room_thermal_state": {
+        "name": "Състояние — Стаен термостат"
+      },
+      "time_set": {
+        "name": "Възможност — Настройка на времето"
+      },
+      "disinfect_run": {
+        "name": "БГВ — Дезинфекцията работи"
+      },
+      "remote_onoff": {
+        "name": "Възможност — Дистанционно вкл./изкл."
+      },
+      "tbh_control": {
+        "name": "Възможност — Управление на TBH"
+      },
+      "heat_capability": {
+        "name": "Възможност — Отопление"
+      },
+      "cool_capability": {
+        "name": "Възможност — Охлаждане"
+      },
+      "dhw_capability": {
+        "name": "Възможност — БГВ"
+      },
+      "sys_energy_ana_en": {
+        "name": "Възможност — Анализ на енергията (система)"
+      },
+      "hmi_energy_ana_set_en": {
+        "name": "Възможност — Анализ на енергията (HMI)"
+      },
+      "pump_i_running": {
+        "name": "Pump_I — Вътрешна"
+      },
+      "pump_o_running": {
+        "name": "Pump_O — Външна"
+      },
+      "pump_d_running": {
+        "name": "Pump_D — БГВ"
+      },
+      "pump_c_running": {
+        "name": "Pump_C — Смесен воден контур зона 2"
+      },
+      "pump_s_running": {
+        "name": "Pump_S — Слънчева"
+      },
+      "sv1_open": {
+        "name": "SV1 — Вентил (БГВ)"
+      },
+      "sv2_open": {
+        "name": "SV2 — Вентил (отопление)"
+      },
+      "load_output_tbh": {
+        "name": "Нагревател — Резервен за резервоара (TBH)"
+      },
+      "compressor_on": {
+        "name": "Компресор — Работи"
+      },
+      "ibh1_on": {
+        "name": "Нагревател — IBH1"
+      },
+      "ibh2_on": {
+        "name": "Нагревател — IBH2"
+      },
+      "sv3_open": {
+        "name": "SV3 — Вентил"
+      },
+      "crankcase_heater_on": {
+        "name": "Нагревател — Картер"
+      },
+      "alarm_on": {
+        "name": "Грешка — Аларма"
+      },
+      "aux_heat_on": {
+        "name": "Нагревател — Спомагателен източник"
+      },
+      "ac_air_direction": {
+        "name": "Посока на въздуха на климатика"
+      },
+      "ac_cooling_fan": {
+        "name": "Охлаждащ вентилатор на климатика"
+      },
+      "ac_draining_pump": {
+        "name": "Дренажна помпа на климатика"
+      },
+      "ac_low_temperature": {
+        "name": "Ниска температура на климатика"
+      },
+      "ac_over_temperature": {
+        "name": "Прегряване на климатика"
+      },
+      "ac_swing": {
+        "name": "Люлеене на климатика"
+      },
+      "ac_water_full": {
+        "name": "Климатик: пълен с вода"
+      },
+      "b2_downstair_clean_tips": {
+        "name": "Долна парна фурна: съвети за почистване"
+      },
+      "b2_downstair_door": {
+        "name": "Долна парна фурна: врата"
+      },
+      "b2_downstair_fresh_water": {
+        "name": "Долна парна фурна: прясна вода"
+      },
+      "b2_downstair_light": {
+        "name": "Долна парна фурна: осветление"
+      },
+      "b2_downstair_lock": {
+        "name": "Долна парна фурна: заключване"
+      },
+      "b2_downstair_must_clean_tips": {
+        "name": "Долна парна фурна: задължително почистване"
+      },
+      "b2_downstair_water_shortage": {
+        "name": "Долна парна фурна: недостиг на вода"
+      },
+      "b2_upstair_clean_tips": {
+        "name": "Горна парна фурна: съвети за почистване"
+      },
+      "b2_upstair_door": {
+        "name": "Горна парна фурна: врата"
+      },
+      "b2_upstair_fresh_water": {
+        "name": "Горна парна фурна: прясна вода"
+      },
+      "b2_upstair_light": {
+        "name": "Горна парна фурна: осветление"
+      },
+      "b2_upstair_lock": {
+        "name": "Горна парна фурна: заключване"
+      },
+      "b2_upstair_must_clean_tips": {
+        "name": "Горна парна фурна: задължително почистване"
+      },
+      "b2_upstair_water_shortage": {
+        "name": "Горна парна фурна: недостиг на вода"
+      },
+      "b3_downstair_door": {
+        "name": "Долен парен шкаф: врата"
+      },
+      "b3_downstair_door_lock": {
+        "name": "Долен парен шкаф: заключване на вратата"
+      },
+      "b3_downstair_infrared": {
+        "name": "Долен парен шкаф: инфрачервено"
+      },
+      "b3_downstair_ultraviolet": {
+        "name": "Долен парен шкаф: ултравиолетово"
+      },
+      "b3_upstair_door": {
+        "name": "Горен парен шкаф: врата"
+      },
+      "b3_upstair_door_lock": {
+        "name": "Горен парен шкаф: заключване на вратата"
+      },
+      "b3_upstair_infrared": {
+        "name": "Горен парен шкаф: инфрачервено"
+      },
+      "b3_upstair_ultraviolet": {
+        "name": "Горен парен шкаф: ултравиолетово"
+      },
+      "b6_tvoc_status": {
+        "name": "Аспиратор: състояние на TVOC"
+      },
+      "b6_delay_gear_linkage": {
+        "name": "Аспиратор: свързване на степен при забавяне"
+      },
+      "b6_delay_time": {
+        "name": "Аспиратор: време на забавяне"
+      },
+      "b6_gesture_status": {
+        "name": "Аспиратор: състояние на жестовете"
+      },
+      "b6_infrared_status": {
+        "name": "Аспиратор: инфрачервено състояние"
+      },
+      "b6_lock": {
+        "name": "Аспиратор: заключване"
+      },
+      "b6_power_on_light": {
+        "name": "Аспиратор: осветление при включване"
+      },
+      "b6_smoke_detector": {
+        "name": "Аспиратор: датчик за дим"
+      },
+      "b6_smoke_stove_linkage": {
+        "name": "Аспиратор: свързване дим-котлон"
+      },
+      "b7_left_dry_burning": {
+        "name": "Газов котлон ляв: сухо горене"
+      },
+      "b7_left_dry_burning_invalid": {
+        "name": "Газов котлон ляв: сухо горене невалидно"
+      },
+      "b7_left_gas_leakage": {
+        "name": "Газов котлон ляв: изтичане на газ"
+      },
+      "b7_left_has_fire": {
+        "name": "Газов котлон ляв: има пламък"
+      },
+      "b7_left_has_pot": {
+        "name": "Газов котлон ляв: има съд"
+      },
+      "b7_right_dry_burning": {
+        "name": "Газов котлон десен: сухо горене"
+      },
+      "b7_right_dry_burning_invalid": {
+        "name": "Газов котлон десен: сухо горене невалидно"
+      },
+      "b7_right_gas_leakage": {
+        "name": "Газов котлон десен: изтичане на газ"
+      },
+      "b7_right_has_fire": {
+        "name": "Газов котлон десен: има пламък"
+      },
+      "b7_right_has_pot": {
+        "name": "Газов котлон десен: има съд"
+      },
+      "bf_door": {
+        "name": "Врата на фурната"
+      },
+      "bf_error": {
+        "name": "Грешка на фурната"
+      },
+      "bf_flip": {
+        "name": "Обръщане на фурната"
+      },
+      "bf_hightemp_error": {
+        "name": "Грешка при висока температура на фурната"
+      },
+      "bf_hightemp_lock": {
+        "name": "Заключване при висока температура на фурната"
+      },
+      "bf_hightemp_over": {
+        "name": "Превишена висока температура на фурната"
+      },
+      "bf_hotwind": {
+        "name": "Горещ въздух на фурната"
+      },
+      "bf_hotwind_set": {
+        "name": "Настройка на горещия въздух на фурната"
+      },
+      "bf_hydrops_full": {
+        "name": "Фурна: препълване с кондензат"
+      },
+      "bf_light": {
+        "name": "Осветление на фурната"
+      },
+      "bf_lock": {
+        "name": "Заключване на фурната"
+      },
+      "bf_off_fromapp": {
+        "name": "Изключване на фурната от приложението"
+      },
+      "bf_on_smart": {
+        "name": "Интелигентно включване на фурната"
+      },
+      "bf_order": {
+        "name": "Поръчка на фурната"
+      },
+      "bf_order_time_isabsolute": {
+        "name": "Време на поръчката на фурната е абсолютно"
+      },
+      "bf_overheat": {
+        "name": "Прегряване на фурната"
+      },
+      "bf_preheat": {
+        "name": "Предварително загряване на фурната"
+      },
+      "bf_preheat_done": {
+        "name": "Предварителното загряване на фурната е завършено"
+      },
+      "bf_preheat_set": {
+        "name": "Настройка на предварителното загряване на фурната"
+      },
+      "bf_probe": {
+        "name": "Сонда на фурната"
+      },
+      "bf_probe_meat": {
+        "name": "Сонда за месо на фурната"
+      },
+      "bf_radiating": {
+        "name": "Фурната излъчва топлина"
+      },
+      "bf_repair_cook": {
+        "name": "Ремонтно готвене на фурната"
+      },
+      "bf_sabbath": {
+        "name": "Съботен режим на фурната"
+      },
+      "bf_scalehandling_remind": {
+        "name": "Фурна: напомняне за почистване на котлен камък"
+      },
+      "bf_sensor": {
+        "name": "Сензор на фурната"
+      },
+      "bf_stove_1": {
+        "name": "Котлон 1 на фурната"
+      },
+      "bf_stove_2": {
+        "name": "Котлон 2 на фурната"
+      },
+      "bf_stove_3": {
+        "name": "Котлон 3 на фурната"
+      },
+      "bf_stove_4": {
+        "name": "Котлон 4 на фурната"
+      },
+      "bf_stove_5": {
+        "name": "Котлон 5 на фурната"
+      },
+      "bf_temp_fahrenheit": {
+        "name": "Фурна: температура във Фаренхайт"
+      },
+      "bf_time_synchronization": {
+        "name": "Синхронизация на времето на фурната"
+      },
+      "bf_turntable": {
+        "name": "Въртяща се поставка на фурната"
+      },
+      "bf_turntable_reset": {
+        "name": "Нулиране на въртящата се поставка на фурната"
+      },
+      "bf_upload_interval": {
+        "name": "Интервал на качване на фурната"
+      },
+      "bf_voice_identify": {
+        "name": "Гласово разпознаване на фурната"
+      },
+      "bf_voice_module": {
+        "name": "Гласов модул на фурната"
+      },
+      "bf_water_box": {
+        "name": "Кутия за вода на фурната"
+      },
+      "bf_water_change": {
+        "name": "Смяна на водата на фурната"
+      },
+      "bf_water_shortage": {
+        "name": "Недостиг на вода на фурната"
+      },
+      "bf_wintersummertime": {
+        "name": "Фурна: зимно/лятно часово време"
+      },
+      "e7_left_bottom_has_pot": {
+        "name": "Индукционен ляв долен: има съд"
+      },
+      "e7_left_has_pot": {
+        "name": "Индукционен ляв: има съд"
+      },
+      "e7_left_top_has_pot": {
+        "name": "Индукционен ляв горен: има съд"
+      },
+      "e7_right_bottom_has_pot": {
+        "name": "Индукционен десен долен: има съд"
+      },
+      "e7_right_has_pot": {
+        "name": "Индукционен десен: има съд"
+      },
+      "e7_right_top_has_pot": {
+        "name": "Индукционен десен горен: има съд"
+      },
+      "sp_fandrying_door": {
+        "name": "Плоча за сушене с вентилатор: врата"
+      },
+      "sp_fandrying_setting_automode": {
+        "name": "Плоча за сушене с вентилатор: автоматичен режим"
+      },
+      "sp_fandrying_setting_linkage": {
+        "name": "Плоча за сушене с вентилатор: свързване"
+      },
+      "sp_fandrying_setting_linkcooker": {
+        "name": "Плоча за сушене с вентилатор: свързване с котлона"
+      },
+      "sp_fandrying_setting_sync": {
+        "name": "Плоча за сушене с вентилатор: синхронизация"
+      },
+      "sp_heatingdisk_door": {
+        "name": "Нагревателна плоча: врата"
+      },
+      "sp_heatingdisk_setting_automode": {
+        "name": "Нагревателна плоча: автоматичен режим"
+      },
+      "sp_heatingdisk_setting_linkage": {
+        "name": "Нагревателна плоча: свързване"
+      },
+      "sp_heatingdisk_setting_linkcooker": {
+        "name": "Нагревателна плоча: свързване с котлона"
+      },
+      "sp_heatingdisk_setting_sync": {
+        "name": "Нагревателна плоча: синхронизация"
+      },
+      "sp_uvc_door": {
+        "name": "UVC плоча: врата"
+      },
+      "sp_uvc_setting_automode": {
+        "name": "UVC плоча: автоматичен режим"
+      },
+      "sp_uvc_setting_linkage": {
+        "name": "UVC плоча: свързване"
+      },
+      "sp_uvc_setting_linkcooker": {
+        "name": "UVC плоча: свързване с котлона"
+      },
+      "sp_uvc_setting_sync": {
+        "name": "UVC плоча: синхронизация"
+      },
+      "total_water_shortage": {
+        "name": "Недостиг на вода"
+      },
+      "door_open": {
+        "name": "Отворена врата"
+      },
+      "turntable": {
+        "name": "Въртяща се поставка"
+      },
+      "lack_box": {
+        "name": "Липсва кутия"
+      },
+      "change_water": {
+        "name": "Напомняне за смяна на водата"
+      },
+      "ramadan": {
+        "name": "Рамадан"
+      },
+      "ota": {
+        "name": "OTA"
+      },
+      "laundry_appointment": {
+        "name": "Резервация"
+      }
+    },
+    "button": {
+      "start_delayed": {
+        "name": "Отложен старт"
+      },
+      "pause": {
+        "name": "Пауза"
+      },
+      "resume": {
+        "name": "Възобновяване"
+      },
+      "cancel": {
+        "name": "Отказ"
+      },
+      "start": {
+        "name": "Старт"
+      },
+      "laundry_cancel_appointment": {
+        "name": "Отмяна на резервацията"
+      }
+    },
+    "climate": {
+      "climate_zone1": {
+        "name": "Термостат на зона 1"
+      },
+      "climate_zone2": {
+        "name": "Термостат на зона 2"
+      },
+      "climate_key": {
+        "state_attributes": {
+          "fan_mode": {
+            "state": {
+              "silent": "Тих",
+              "full": "Пълен"
+            }
+          }
+        }
+      }
+    },
+    "fan": {
+      "bgf10000": {
+        "state_attributes": {
+          "preset_mode": {
+            "state": {
+              "normal": "Нормален",
+              "forest": "Гора",
+              "beach": "Плаж",
+              "countryside": "Провинция",
+              "baby": "Бебешки вятър",
+              "sleep_1": "Сън 1",
+              "sleep_2": "Сън 2",
+              "strong": "Силен"
+            }
+          }
+        }
+      },
+      "fresh_air": {
+        "name": "Свеж въздух"
+      },
+      "fresh_air_exhaust": {
+        "name": "Изпускане на свеж въздух"
+      }
+    },
+    "lock": {
+      "child_lock": {
+        "name": "Защита от деца"
+      }
+    },
+    "number": {
+      "delay_minutes": {
+        "name": "Забавяне"
+      },
+      "wash_region": {
+        "name": "Зона на измиване"
+      },
+      "water_level": {
+        "name": "Ниво на водата"
+      },
+      "water_strong_level": {
+        "name": "Ниво на налягане на водата"
+      },
+      "heating_target_temperature": {
+        "name": "Целева температура на отопление"
+      },
+      "dry_level": {
+        "name": "Ниво на сушене"
+      },
+      "heating_level": {
+        "name": "Ниво на нагряване"
+      },
+      "seat_temp_level": {
+        "name": "Ниво на температура на седалката"
+      },
+      "water_temp_level": {
+        "name": "Ниво на температура на водата"
+      },
+      "fan_speed_percent": {
+        "name": "Скорост на вентилатора в проценти"
+      },
+      "vacation_days": {
+        "name": "Дни на ваканция"
+      },
+      "max_temperature": {
+        "name": "Максимална целева температура"
+      },
+      "disinfection_temperature": {
+        "name": "Температура на дезинфекция"
+      },
+      "schedule_mode": {
+        "name": "Режим на график"
+      },
+      "leak_water_protection_value": {
+        "name": "Стойност на защитата при теч на вода"
+      },
+      "flushing_days": {
+        "name": "Дни за регенерация"
+      },
+      "water_hardness": {
+        "name": "Твърдост на водата"
+      },
+      "boil_temperature": {
+        "name": "Целева температура на кипене"
+      },
+      "keep_warm_time": {
+        "name": "Време за поддържане на топлина"
+      },
+      "ai_voice_volume": {
+        "name": "Сила на звука на гласовия асистент"
+      },
+      "screen_luminance": {
+        "name": "Яркост на екрана"
+      },
+      "volume": {
+        "name": "Сила на звука"
+      },
+      "temperature_number": {
+        "name": "Целева температура"
+      },
+      "temperature_above_number": {
+        "name": "Целева температура (горна)"
+      },
+      "temperature_underside_number": {
+        "name": "Целева температура (долна)"
+      },
+      "probe_temperature_number": {
+        "name": "Целева температура на сондата"
+      },
+      "steam_quantity_number": {
+        "name": "Количество пара"
+      },
+      "hour_set": {
+        "name": "Настройка на часа"
+      },
+      "minute_set": {
+        "name": "Настройка на минутите"
+      },
+      "second_set": {
+        "name": "Настройка на секундите"
+      },
+      "dryer_timed_extra": {
+        "name": "Удължаване на сушенето с таймер"
+      }
+    },
+    "select": {
+      "cur_quantify": {
+        "name": "Текуща предварителна настройка на количеството",
+        "state": {
+          "none": "Няма",
+          "preset_1": "Предварителна настройка 1",
+          "preset_2": "Предварителна настройка 2",
+          "preset_3": "Предварителна настройка 3",
+          "preset_4": "Предварителна настройка 4",
+          "preset_5": "Предварителна настройка 5"
+        }
+      },
+      "wash_mode_76000228": {
+        "name": "Режим на измиване",
+        "state": {
+          "neutral_gear": "Няма",
+          "auto_wash": "Автоматичен",
+          "strong_wash": "Интензивен",
+          "standard_wash": "Универсален",
+          "eco_wash": "ECO",
+          "glass_wash": "Стъкло",
+          "hour_wash": "90 мин",
+          "fast_wash": "Бърз",
+          "soak_wash": "Накисване",
+          "90min": "90 мин",
+          "self_clean": "Самопочистване",
+          "fruit_wash": "Плодове",
+          "self_define": "Персонализиран",
+          "germ": "Шепот",
+          "bowl_wash": "Купи",
+          "kill_germ": "Хигиена",
+          "sea_food_wash": "Самопочистване",
+          "hot_pot_wash": "Хотпот",
+          "quiet_night_wash": "Тиха нощ",
+          "less_wash": "Лек",
+          "max_rapid_wash": "Максимално бърз",
+          "oil_net_wash": "Маслен филтър",
+          "cloud_wash": "Облачна програма",
+          "single_dry": "Само сушене",
+          "single_disinfect": "Само дезинфекция",
+          "high_temp_wash": "Висока температура",
+          "wash_dry": "Пране и сушене"
+        }
+      },
+      "program_76000228": {
+        "name": "Програма",
+        "state": {
+          "auto_wash": "Автоматичен",
+          "strong_wash": "Интензивен",
+          "standard_wash": "Универсален",
+          "eco_wash": "ECO",
+          "glass_wash": "Стъкло",
+          "hour_wash": "90 мин",
+          "fast_wash": "Бърз",
+          "soak_wash": "Накисване",
+          "90min": "90 мин",
+          "self_clean": "Самопочистване",
+          "fruit_wash": "Плодове",
+          "self_define": "Персонализиран",
+          "germ": "Шепот",
+          "bowl_wash": "Купи",
+          "kill_germ": "Хигиена",
+          "sea_food_wash": "Самопочистване",
+          "hot_pot_wash": "Хотпот",
+          "quiet_night_wash": "Тиха нощ",
+          "less_wash": "Лек",
+          "max_rapid_wash": "Максимално бърз",
+          "oil_net_wash": "Маслен филтър",
+          "cloud_wash": "Облачна програма",
+          "single_dry": "Само сушене",
+          "single_disinfect": "Само дезинфекция",
+          "high_temp_wash": "Висока температура",
+          "wash_dry": "Пране и сушене"
+        }
+      },
+      "program": {
+        "name": "Програма",
+        "state": {
+          "auto_wash": "Автоматичен",
+          "strong_wash": "Интензивен",
+          "standard_wash": "Стандартен",
+          "eco_wash": "ECO",
+          "glass_wash": "Стъкло",
+          "hour_wash": "1 час",
+          "fast_wash": "Бърз",
+          "soak_wash": "Накисване",
+          "90min": "90 мин",
+          "self_clean": "Самопочистване",
+          "fruit_wash": "Плодове",
+          "self_define": "Персонализиран",
+          "germ": "Микроби",
+          "bowl_wash": "Купи",
+          "kill_germ": "Хигиена",
+          "sea_food_wash": "Морски дарове",
+          "hot_pot_wash": "Хотпот",
+          "quiet_night_wash": "Тиха нощ",
+          "less_wash": "Лек",
+          "max_rapid_wash": "Максимално бърз",
+          "oil_net_wash": "Маслен филтър",
+          "cloud_wash": "Облачна програма",
+          "single_dry": "Само сушене",
+          "single_disinfect": "Само дезинфекция",
+          "high_temp_wash": "Висока температура",
+          "wash_dry": "Пране и сушене"
+        }
+      },
+      "load": {
+        "name": "Товар",
+        "state": {
+          "0": "Пълен",
+          "2": "Половин"
+        }
+      },
+      "heating_mode": {
+        "name": "Режим на нагряване",
+        "state": {
+          "user": "Потребител",
+          "activity": "Активност",
+          "sleep": "Сън",
+          "unknown": "Неизвестно"
+        }
+      },
+      "detect_mode": {
+        "name": "Режим на откриване",
+        "state": {
+          "off": "Изкл.",
+          "pm_2_5": "PM 2.5",
+          "methanal": "Формалдехид"
+        }
+      },
+      "direction": {
+        "name": "Посока",
+        "state": {
+          "oscillate": "Осцилиране"
+        }
+      },
+      "fan_speed": {
+        "name": "Скорост на вентилатора",
+        "state": {
+          "auto": "Автоматичен",
+          "standby": "В готовност",
+          "low": "Ниска",
+          "medium": "Средна",
+          "high": "Висока"
+        }
+      },
+      "fresh_air_exhaust_mode": {
+        "name": "Скорост на изпускане на свеж въздух",
+        "state": {
+          "off": "Изкл.",
+          "silent": "Ниска",
+          "high": "Висока",
+          "full": "Пълен"
+        }
+      },
+      "fresh_air_mode": {
+        "name": "Скорост на свеж въздух",
+        "state": {
+          "off": "Изкл.",
+          "low": "Ниска",
+          "medium": "Средна",
+          "high": "Висока",
+          "full": "Пълен"
+        }
+      },
+      "mode": {
+        "name": "Режим",
+        "state": {
+          "standby": "В готовност",
+          "auto": "Автоматичен",
+          "manual": "Ръчен",
+          "sleep": "Сън",
+          "fast": "Бърз",
+          "smoke": "Дим",
+          "off": "Изкл.",
+          "heat_high": "Нагряване (високо)",
+          "heat_low": "Нагряване (ниско)",
+          "bath": "Баня",
+          "blow": "Издухване",
+          "ventilation": "Вентилация",
+          "dry": "Изсушаване"
+        }
+      },
+      "oscillation_angle": {
+        "name": "Ъгъл на осцилиране"
+      },
+      "oscillation_mode": {
+        "name": "Режим на осцилиране"
+      },
+      "rate_select": {
+        "name": "Ограничение на мощността"
+      },
+      "screen_display": {
+        "name": "Показване на екрана",
+        "state": {
+          "bright": "Ярък",
+          "dim": "Затъмнен",
+          "off": "Изкл."
+        }
+      },
+      "silent_level": {
+        "name": "Ниво на тишина"
+      },
+      "tilting_angle": {
+        "name": "Ъгъл на наклон"
+      },
+      "wash_mode": {
+        "name": "Режим на измиване",
+        "state": {
+          "neutral_gear": "Няма",
+          "auto_wash": "Автоматичен",
+          "strong_wash": "Интензивен",
+          "standard_wash": "Стандартен",
+          "eco_wash": "ECO",
+          "glass_wash": "Стъкло",
+          "hour_wash": "1 час",
+          "fast_wash": "Бърз",
+          "soak_wash": "Накисване",
+          "90min": "90 мин",
+          "self_clean": "Самопочистване",
+          "fruit_wash": "Плодове",
+          "self_define": "Персонализиран",
+          "germ": "Микроби",
+          "bowl_wash": "Купи",
+          "kill_germ": "Хигиена",
+          "sea_food_wash": "Морски дарове",
+          "hot_pot_wash": "Хотпот",
+          "quiet_night_wash": "Тиха нощ",
+          "less_wash": "Лек",
+          "max_rapid_wash": "Максимално бърз",
+          "oil_net_wash": "Маслен филтър",
+          "cloud_wash": "Облачна програма",
+          "single_dry": "Само сушене",
+          "single_disinfect": "Само дезинфекция",
+          "high_temp_wash": "Висока температура",
+          "wash_dry": "Пране и сушене"
+        }
+      },
+      "water_level_set": {
+        "name": "Настройка на нивото на водата"
+      },
+      "wind_lr_angle": {
+        "name": "Хоризонтален въздушен поток",
+        "state": {
+          "off": "Изкл.",
+          "left": "Ляво",
+          "left_mid": "Ляво-средно",
+          "middle": "Средно",
+          "right_mid": "Дясно-средно",
+          "right": "Дясно"
+        }
+      },
+      "wind_ud_angle": {
+        "name": "Вертикален въздушен поток",
+        "state": {
+          "off": "Изкл.",
+          "up": "Нагоре",
+          "up_mid": "Нагоре-средно",
+          "middle": "Средно",
+          "down_mid": "Надолу-средно",
+          "down": "Надолу"
+        }
+      },
+      "work_status_select": {
+        "name": "Състояние на работа",
+        "state": {
+          "save_power": "Пестене на енергия",
+          "standby": "В готовност",
+          "work": "Работи",
+          "pause": "На пауза",
+          "work_finish": "Завършено",
+          "order": "Забавяне",
+          "pause_c": "На пауза C",
+          "three": "Три",
+          "self_inspection": "Самодиагностика",
+          "query_version": "Запитване за версия",
+          "demo": "Демо",
+          "ramadan": "Рамадан",
+          "after_checking": "След проверка",
+          "wait_to_start": "Изчакване за старт",
+          "ff": "Неизвестно"
+        }
+      },
+      "x9b_fire_power_select": {
+        "name": "Мощност на огъня",
+        "state": {
+          "high_power": "Висока",
+          "medium_high_power": "Средно-висока",
+          "medium_power": "Средна",
+          "medium_low_power": "Средно-ниска",
+          "low_power": "Ниска",
+          "ff": "Неизвестно"
+        }
+      },
+      "door": {
+        "name": "Врата",
+        "state": {
+          "open": "Отваряне",
+          "close": "Затваряне"
+        }
+      },
+      "dryer_program_control": {
+        "name": "Програма за сушене",
+        "state": {
+          "mixed_wash": "Смесено",
+          "wool": "Вълна",
+          "night_dry": "Нощно сушене",
+          "big_dry": "Обемни предмети",
+          "small_piece_dry": "Малки предмети",
+          "baby_clothes": "Бебешки дрехи",
+          "down_jacket": "Пухени якета",
+          "quick_dry": "Бързо сушене",
+          "cotton": "Памук и лен",
+          "shirt": "Ризи",
+          "jean": "Дънки",
+          "underwear": "Бельо",
+          "school_uniform": "Училищни униформи",
+          "silk": "Коприна",
+          "towel": "Хавлии",
+          "chiffon": "Шифон",
+          "polar_fleece": "Полар",
+          "hanfu": "Ханфу",
+          "hanfu_tang": "Ханфу™ в стил Тан",
+          "hanfu_song": "Ханфу™ в стил Сун",
+          "hanfu_ming": "Ханфу™ в стил Мин",
+          "hanfu_modern": "Ханфу™ в модерен стил",
+          "sun_quilt": "Проветряване на завивки",
+          "bucket_self_clean": "Почистване на барабана",
+          "steam_care": "Парна грижа",
+          "fixed_time_dry": "Сушене с таймер",
+          "warm_clothes": "Затопляне на дрехи",
+          "cold_air_fresh_air": "Освежаване с хладен въздух",
+          "sterilize_mite": "Стерилизация и премахване на акари",
+          "bracket_dry": "Сушене на рафт",
+          "pet_sterilize": "Стерилизация за домашни любимци",
+          "sport_clothes": "Спортно облекло",
+          "outdoor": "Дрехи за на открито",
+          "quick_drying_clothes": "Бързосъхнещи дрехи",
+          "yoga": "Дрехи за йога",
+          "air_wash": "Въздушно пране",
+          "fiber": "Синтетика",
+          "bedsheet": "Чаршафи",
+          "plush": "Плюш",
+          "dehumidify": "Обезвлажняване",
+          "hot_air_dry": "Сушене с горещ въздух",
+          "standard": "Стандартен",
+          "fresh_air": "Свеж въздух",
+          "low_temp_dry": "Сушене при ниска температура",
+          "eco_dry": "Енергоспестяващо сушене",
+          "quick_dry_30": "Бързо сушене 30 мин",
+          "intelligent_dry": "Интелигентно сушене",
+          "big": "Обемни предмети",
+          "western_trouser": "Официални панталони",
+          "dehumidification": "Обезвлажняване",
+          "smart_dry": "Умно сушене",
+          "four_piece_suit": "Комплект спално бельо",
+          "quick_dry_20": "Бързо сушене 20 мин",
+          "steam_sterilize": "Парна стерилизация",
+          "enzyme": "Ензим",
+          "big_60": "Обемни предмети 60",
+          "steam_no_iron": "Парна грижа без гладене",
+          "bed_clothes": "Спално бельо",
+          "little_fast_dry": "Бързо сушене малък товар",
+          "wool_nurse": "Грижа за вълна",
+          "fresh_remove_smell": "Дезодориращо освежаване",
+          "sterilize": "Стерилизация"
+        }
+      },
+      "dryer_dryness_control": {
+        "name": "Сухота",
+        "state": {
+          "ready_to_wear": "Готови за обличане",
+          "storage": "Съхранение"
+        }
+      },
+      "dryer_temperature_control": {
+        "name": "Температура на сушене",
+        "state": {
+          "standard": "Стандартен",
+          "low": "Ниска"
+        }
+      },
+      "washer_program_control": {
+        "name": "Програма за пране",
+        "state": {
+          "water_mixed_wash": "Смесено пране",
+          "fast_wash": "Бързо пране 15 мин",
+          "single_dehytration": "Само центрофуга",
+          "rinsing_dehydration": "Изплакване и центрофуга",
+          "fast_wash_30": "Бързо пране 30 мин",
+          "big": "Обемни предмети",
+          "tub_clean": "Почистване на барабана",
+          "deep_tub_clean": "Дълбоко почистване на барабана",
+          "down_jacket": "Пухени якета",
+          "new_water_cotton": "Памук и лен",
+          "baby_clothes": "Бебешки дрехи",
+          "shirt": "Ризи",
+          "wool": "Вълна",
+          "water_underwear": "Бельо",
+          "silk": "Коприна",
+          "jacket": "Якета за на открито",
+          "new_clothes_wash": "Нови дрехи",
+          "jean": "Дънки",
+          "water_fiber": "Синтетика",
+          "water_eco": "Пестене на енергия",
+          "water_intelligent": "Умно пране",
+          "water_steep": "Пране с накисване",
+          "water_cold_wash": "Пране със студена вода",
+          "sterilization_wash": "Стерилизиращо пране",
+          "water_remove_mite_wash": "Премахване на акари",
+          "disinfection_wash": "Дезинфекциращо пране",
+          "stain_wash": "Пране на петна",
+          "sport_clothes": "Спортно облекло",
+          "yoga": "Дрехи за йога",
+          "quick_drying_clothes": "Бързосъхнещи дрехи"
+        }
+      },
+      "washer_temperature_control": {
+        "name": "Температура на водата",
+        "state": {
+          "cold": "Студена",
+          "20": "20 °C",
+          "30": "30 °C",
+          "40": "40 °C",
+          "60": "60 °C",
+          "95": "95 °C"
+        }
+      },
+      "washer_spin_speed_control": {
+        "name": "Скорост на центрофугиране",
+        "state": {
+          "0": "Без центрофуга",
+          "400": "400 об/мин",
+          "600": "600 об/мин",
+          "800": "800 об/мин",
+          "1000": "1000 об/мин",
+          "1200": "1200 об/мин",
+          "1400": "1400 об/мин"
+        }
+      },
+      "washer_rinse_count": {
+        "name": "Брой изплаквания",
+        "state": {
+          "1": "1",
+          "2": "2",
+          "3": "3",
+          "4": "4"
+        }
+      },
+      "washer_water_level_control": {
+        "name": "Ниво на водата",
+        "state": {
+          "auto": "Автоматичен",
+          "l1": "L1",
+          "l2": "L2",
+          "l3": "L3",
+          "l4": "L4"
+        }
+      },
+      "washer_detergent_control": {
+        "name": "Дозиране на препарата",
+        "state": {
+          "smart": "Умно",
+          "off": "Изкл.",
+          "l1": "L1",
+          "l2": "L2",
+          "l3": "L3",
+          "l4": "L4"
+        }
+      },
+      "washer_wash_time_control": {
+        "name": "Време за пране (мин)"
+      },
+      "washer_spin_time_control": {
+        "name": "Време за центрофуга (мин)"
+      }
+    },
+    "time": {
+      "timing_regeneration": {
+        "name": "Регенерация с таймер"
+      },
+      "laundry_appointment_finish": {
+        "name": "Час на завършване (задава резервация)"
+      }
+    },
+    "sensor": {
+      "db_running_status": {
+        "name": "Състояние на пералнята"
+      },
+      "db_progress": {
+        "name": "Напредък на пералнята"
+      },
+      "db_program": {
+        "name": "Програма за пране"
+      },
+      "db_remain_time": {
+        "name": "Оставащо време на пералнята"
+      },
+      "db_wash_time": {
+        "name": "Време за пране на пералнята"
+      },
+      "db_dehydration_time": {
+        "name": "Време за центрофугиране на пералнята"
+      },
+      "db_dehydration_speed": {
+        "name": "Скорост на центрофугиране на пералнята"
+      },
+      "db_water_level": {
+        "name": "Ниво на водата на пералнята"
+      },
+      "db_temperature": {
+        "name": "Температура на пералнята"
+      },
+      "db_rinse_count": {
+        "name": "Брой изплаквания на пералнята"
+      },
+      "db_detergent": {
+        "name": "Препарат на пералнята"
+      },
+      "db_softener": {
+        "name": "Омекотител на пералнята"
+      },
+      "db_appointment_time": {
+        "name": "Час на резервация на пералнята"
+      },
+      "db_appointment_end_time": {
+        "name": "Краен час на резервация на пералнята"
+      },
+      "db_error_code": {
+        "name": "Код на грешка на пералнята"
+      },
+      "db_water_consumption": {
+        "name": "Разход на вода на пералнята"
+      },
+      "db_power_consumption": {
+        "name": "Разход на енергия на пералнята"
+      },
+      "dc_running_status": {
+        "name": "Състояние на сушилнята"
+      },
+      "dc_dry_status": {
+        "name": "Състояние на сушене на сушилнята"
+      },
+      "dc_program": {
+        "name": "Програма за сушене"
+      },
+      "dc_remain_time": {
+        "name": "Оставащо време на сушилнята"
+      },
+      "dc_dry_time": {
+        "name": "Време за сушене на сушилнята"
+      },
+      "dc_intensity": {
+        "name": "Интензивност на сушилнята"
+      },
+      "dc_appointment_time": {
+        "name": "Час на резервация на сушилнята"
+      },
+      "dc_appointment_end_time": {
+        "name": "Краен час на резервация на сушилнята"
+      },
+      "dc_error_code": {
+        "name": "Код на грешка на сушилнята"
+      },
+      "dc_water_consumption": {
+        "name": "Разход на вода на сушилнята"
+      },
+      "dc_power_consumption": {
+        "name": "Разход на енергия на сушилнята"
+      },
+      "dishwasher_mode": {
+        "name": "Режим",
+        "state": {
+          "neutral_gear": "Няма",
+          "auto_wash": "Автоматичен",
+          "strong_wash": "Интензивен",
+          "standard_wash": "Стандартен",
+          "eco_wash": "ECO",
+          "glass_wash": "Стъкло",
+          "hour_wash": "1 час",
+          "fast_wash": "Бърз",
+          "soak_wash": "Накисване",
+          "90min": "90 мин",
+          "self_clean": "Самопочистване",
+          "fruit_wash": "Плодове",
+          "self_define": "Персонализиран",
+          "germ": "Микроби",
+          "bowl_wash": "Купи",
+          "kill_germ": "Хигиена",
+          "sea_food_wash": "Морски дарове",
+          "hot_pot_wash": "Хотпот",
+          "quiet_night_wash": "Тиха нощ",
+          "less_wash": "Лек",
+          "max_rapid_wash": "Максимално бърз",
+          "oil_net_wash": "Маслен филтър",
+          "cloud_wash": "Облачна програма",
+          "single_dry": "Само сушене",
+          "single_disinfect": "Само дезинфекция",
+          "high_temp_wash": "Висока температура",
+          "wash_dry": "Пране и сушене"
+        }
+      },
+      "dishwasher_mode_76000228": {
+        "name": "Режим",
+        "state": {
+          "neutral_gear": "Няма",
+          "auto_wash": "Автоматичен",
+          "strong_wash": "Интензивен",
+          "standard_wash": "Универсален",
+          "eco_wash": "ECO",
+          "glass_wash": "Стъкло",
+          "hour_wash": "90 мин",
+          "fast_wash": "Бърз",
+          "soak_wash": "Накисване",
+          "90min": "90 мин",
+          "self_clean": "Самопочистване",
+          "fruit_wash": "Плодове",
+          "self_define": "Персонализиран",
+          "germ": "Шепот",
+          "bowl_wash": "Купи",
+          "kill_germ": "Хигиена",
+          "sea_food_wash": "Самопочистване",
+          "hot_pot_wash": "Хотпот",
+          "quiet_night_wash": "Тиха нощ",
+          "less_wash": "Лек",
+          "max_rapid_wash": "Максимално бърз",
+          "oil_net_wash": "Маслен филтър",
+          "cloud_wash": "Облачна програма",
+          "single_dry": "Само сушене",
+          "single_disinfect": "Само дезинфекция",
+          "high_temp_wash": "Висока температура",
+          "wash_dry": "Пране и сушене"
+        }
+      },
+      "dishwasher_status": {
+        "name": "Състояние",
+        "state": {
+          "power_off": "Изкл.",
+          "cancel": "Бездействие",
+          "delay": "Отложен старт",
+          "running": "Работи",
+          "error": "Грешка"
+        }
+      },
+      "dishwasher_progress": {
+        "name": "Напредък",
+        "state": {
+          "idle": "Бездействие",
+          "pre_wash": "Предпране",
+          "wash": "Пране",
+          "rinse": "Изплакване",
+          "dry": "Изсушаване",
+          "complete": "Завършено"
+        }
+      },
+      "operator": {
+        "name": "Състояние на изпълнение",
+        "state": {
+          "start": "Работи",
+          "pause": "На пауза"
+        }
+      },
+      "wrong_operation": {
+        "name": "Грешна операция"
+      },
+      "dry_set_min": {
+        "name": "Зададено време за сушене"
+      },
+      "clean_left_hour": {
+        "name": "Оставащо почистване"
+      },
+      "kitchenware_left_hour": {
+        "name": "Оставащи съдове"
+      },
+      "device_version": {
+        "name": "Версия на устройството"
+      },
+      "throw_percent": {
+        "name": "Ниво на дозиране"
+      },
+      "delay_remaining": {
+        "name": "Оставащо време до отложен старт"
+      },
+      "gas_usage_daily": {
+        "name": "Дневен разход на газ"
+      },
+      "gas_usage_last_month": {
+        "name": "Разход на газ миналия месец"
+      },
+      "gas_usage_monthly": {
+        "name": "Месечен разход на газ"
+      },
+      "water_usage_daily": {
+        "name": "Дневен разход на вода"
+      },
+      "water_usage_last_month": {
+        "name": "Разход на вода миналия месец"
+      },
+      "water_usage_monthly": {
+        "name": "Месечен разход на вода"
+      },
+      "three_way_mode": {
+        "name": "Трипътен режим"
+      },
+      "heating_unit_type": {
+        "name": "Тип на нагревателния блок"
+      },
+      "return_temperature": {
+        "name": "Температура на връщане"
+      },
+      "heating_temperature": {
+        "name": "Температура на отопление"
+      },
+      "heating_gap_temperature": {
+        "name": "Температурна разлика на отопление"
+      },
+      "user_mode_target_temperature": {
+        "name": "Целева температура за потребителски режим"
+      },
+      "activity_mode_target_temperature": {
+        "name": "Целева температура за режим на активност"
+      },
+      "sleep_mode_target_temperature": {
+        "name": "Целева температура за режим на сън"
+      },
+      "last_time": {
+        "name": "Последно време"
+      },
+      "flow_volume": {
+        "name": "Дебит"
+      },
+      "bathing_leaving_temperature": {
+        "name": "Температура на изходящата вода при къпане"
+      },
+      "bf_status": {
+        "name": "Състояние",
+        "state": {
+          "save_power": "Пестене на енергия",
+          "standby": "В готовност",
+          "work": "Работи",
+          "work_finish": "Завършено",
+          "order": "Забавяне",
+          "pause": "На пауза",
+          "pause_c": "На пауза C",
+          "three": "Три",
+          "wait_to_start": "Изчакване за старт",
+          "self_inspection": "Самодиагностика",
+          "query_version": "Запитване за версия",
+          "demo": "Демо",
+          "after_checking": "След проверка",
+          "unknown": "Неизвестно"
+        }
+      },
+      "bottom_compartment_remaining": {
+        "name": "Оставащо на долното отделение"
+      },
+      "bottom_compartment_status": {
+        "name": "Състояние на долното отделение"
+      },
+      "bottom_compartment_temperature": {
+        "name": "Температура на долното отделение"
+      },
+      "bottom_temperature": {
+        "name": "Долна температура"
+      },
+      "bright": {
+        "name": "Ниво на яркост"
+      },
+      "cloudmenuid": {
+        "name": "ID на облачно меню"
+      },
+      "compressor_temperature": {
+        "name": "Температура на компресора"
+      },
+      "condenser_temperature": {
+        "name": "Температура на кондензатора"
+      },
+      "cur_probe_temperature": {
+        "name": "Текуща температура на сондата"
+      },
+      "cur_temperature_above": {
+        "name": "Текуща температура (горна)"
+      },
+      "cur_temperature_underside": {
+        "name": "Текуща температура (долна)"
+      },
+      "current_energy_consumption": {
+        "name": "Текущ разход на енергия"
+      },
+      "current_temperature": {
+        "name": "Текуща температура"
+      },
+      "dehydration_speed": {
+        "name": "Скорост на центрофугиране"
+      },
+      "dehydration_time": {
+        "name": "Време за центрофугиране"
+      },
+      "dehydration_time_value": {
+        "name": "Стойност на времето за центрофугиране"
+      },
+      "execute_status": {
+        "name": "Състояние на изпълнение",
+        "state": {
+          "ok": "OK",
+          "status_nonsupport": "Състоянието не се поддържа",
+          "function_nonsupport": "Функцията не се поддържа",
+          "param_range_error": "Грешка в обхвата на параметъра"
+        }
+      },
+      "fire_power": {
+        "name": "Мощност на огъня",
+        "state": {
+          "fire_power_0": "Ниво 0",
+          "fire_power_1": "Ниво 1",
+          "fire_power_2": "Ниво 2",
+          "fire_power_3": "Ниво 3",
+          "fire_power_4": "Ниво 4",
+          "fire_power_5": "Ниво 5",
+          "fire_power_6": "Ниво 6",
+          "fire_power_7": "Ниво 7",
+          "fire_power_8": "Ниво 8",
+          "fire_power_9": "Ниво 9",
+          "fire_power_10": "Ниво 10",
+          "unknown": "Неизвестно"
+        }
+      },
+      "minute_set": {
+        "name": "Настройка на минутите"
+      },
+      "people_number": {
+        "name": "Брой хора"
+      },
+      "probe_temperature": {
+        "name": "Температура на сондата"
+      },
+      "second_set": {
+        "name": "Настройка на секундите"
+      },
+      "steam_quantity": {
+        "name": "Количество пара"
+      },
+      "stepnum": {
+        "name": "Текуща стъпка"
+      },
+      "temperature": {
+        "name": "Температура"
+      },
+      "temperature_above": {
+        "name": "Температура (горна)"
+      },
+      "temperature_underside": {
+        "name": "Температура (долна)"
+      },
+      "totalstep": {
+        "name": "Общо стъпки"
+      },
+      "wash_time_value": {
+        "name": "Стойност на времето за пране"
+      },
+      "stains": {
+        "name": "Петна"
+      },
+      "dirty_degree": {
+        "name": "Степен на замърсяване"
+      },
+      "detergent": {
+        "name": "Препарат"
+      },
+      "intensity": {
+        "name": "Интензивност"
+      },
+      "dryness_level": {
+        "name": "Ниво на сухота"
+      },
+      "dry_temperature": {
+        "name": "Температура на сушене"
+      },
+      "door_warn": {
+        "name": "Предупреждение за вратата"
+      },
+      "ai_switch": {
+        "name": "Превключвател за изкуствен интелект"
+      },
+      "material": {
+        "name": "Материал"
+      },
+      "water_box": {
+        "name": "Кутия за вода"
+      },
+      "energy_consumption": {
+        "name": "Разход на енергия"
+      },
+      "error": {
+        "name": "Грешка",
+        "state": {
+          "no_error": "Няма грешка",
+          "e1_position_not_found": "E1 Позицията не е намерена",
+          "e2_photo_sensor_no_signal": "E2 Фотосензорът няма сигнал",
+          "e3_motor_not_running": "E3 Моторът не работи",
+          "e4_wrong_position": "E4 Грешна позиция",
+          "e1_motor_fault": "E1 Неизправност на мотора",
+          "e5_communication_fault": "E5 Неизправност в комуникацията",
+          "e6_salt_sensor_fault": "E6 Неизправност на сензора за сол",
+          "e7_chlorine_sterilization_fault": "E7 Неизправност на хлорната стерилизация"
+        }
+      },
+      "error_code": {
+        "name": "Код на грешка"
+      },
+      "humidify_feedback": {
+        "name": "Обратна връзка за влажността"
+      },
+      "temperature_feedback": {
+        "name": "Обратна връзка за температурата"
+      },
+      "humidify_mode": {
+        "name": "Режим на овлажняване"
+      },
+      "estimated_energy_consumption": {
+        "name": "Прогнозен разход на енергия"
+      },
+      "estimated_water_consumption": {
+        "name": "Прогнозен разход на вода"
+      },
+      "fan_level": {
+        "name": "Ниво на вентилатора"
+      },
+      "filter_life": {
+        "name": "Живот на филтъра"
+      },
+      "filter1_days": {
+        "name": "Филтър 1: налични дни"
+      },
+      "filter1_life": {
+        "name": "Филтър 1: ниво на живот"
+      },
+      "filter2_days": {
+        "name": "Филтър 2: налични дни"
+      },
+      "filter2_life": {
+        "name": "Филтър 2: ниво на живот"
+      },
+      "filter3_days": {
+        "name": "Филтър 3: налични дни"
+      },
+      "filter3_life": {
+        "name": "Филтър 3: ниво на живот"
+      },
+      "flex_zone_actual_temp": {
+        "name": "Флекс зона: действителна температура"
+      },
+      "flex_zone_setting_temp": {
+        "name": "Флекс зона: зададена температура"
+      },
+      "freezer_actual_temp": {
+        "name": "Фризер: действителна температура"
+      },
+      "freezer_setting_temp": {
+        "name": "Фризер: зададена температура"
+      },
+      "hcho": {
+        "name": "Формалдехид"
+      },
+      "heating_leaving_temperature": {
+        "name": "Температура на изходящата вода за отопление"
+      },
+      "heating_power": {
+        "name": "Мощност на отоплението"
+      },
+      "heating_time_remaining": {
+        "name": "Оставащо време за отопление"
+      },
+      "in_tds": {
+        "name": "Входящ TDS"
+      },
+      "indoor_humidity": {
+        "name": "Влажност на закрито"
+      },
+      "indoor_temperature": {
+        "name": "Температура на закрито"
+      },
+      "keep_warm_remaining": {
+        "name": "Оставащо време за поддържане на топлина"
+      },
+      "fault_code": {
+        "name": "Код на неизправност"
+      },
+      "keep_warm_time": {
+        "name": "Време за поддържане на топлина"
+      },
+      "left_salt": {
+        "name": "Останала сол"
+      },
+      "middle_compartment_remaining": {
+        "name": "Оставащо на средното отделение"
+      },
+      "middle_compartment_status": {
+        "name": "Състояние на средното отделение"
+      },
+      "middle_compartment_temperature": {
+        "name": "Температура на средното отделение"
+      },
+      "mode": {
+        "name": "Режим"
+      },
+      "out_tds": {
+        "name": "Изходящ TDS"
+      },
+      "outdoor_temperature": {
+        "name": "Температура на открито"
+      },
+      "comp_run_freq": {
+        "name": "Честота на компресора"
+      },
+      "outdoor_fan_speed": {
+        "name": "Скорост на външния вентилатор"
+      },
+      "unit_mode_run": {
+        "name": "Режим на работа на блока",
+        "state": {
+          "off": "Изкл.",
+          "auto": "Автоматичен",
+          "cool": "Охлаждане",
+          "heat": "Отопление",
+          "dhw": "БГВ"
+        }
+      },
+      "odu_target_fre": {
+        "name": "Целева честота на компресора"
+      },
+      "odu_voltage": {
+        "name": "Напрежение на външния блок"
+      },
+      "odu_comp_current": {
+        "name": "Ток на компресора"
+      },
+      "exv_current": {
+        "name": "Отваряне на електронния разширителен вентил"
+      },
+      "fg_capacity_need": {
+        "name": "Търсене на мощност"
+      },
+      "pressure_high": {
+        "name": "Налягане на хладилния агент (висока страна)"
+      },
+      "pressure_low": {
+        "name": "Налягане на хладилния агент (ниска страна)"
+      },
+      "temp_t1": {
+        "name": "Температурен сензор T1"
+      },
+      "temp_t2": {
+        "name": "Температура на пластинчатия топлообменник (T2)"
+      },
+      "temp_t2b": {
+        "name": "Температура на изхода на пластинчатия топлообменник (T2B)"
+      },
+      "temp_t3": {
+        "name": "Температура на външната серпентина (T3)"
+      },
+      "temp_tp": {
+        "name": "Температура на нагнетателната тръба (TP)"
+      },
+      "temp_th": {
+        "name": "Температура на засмукване (TH)"
+      },
+      "temp_tf": {
+        "name": "Температура на силовия модул (TF)"
+      },
+      "program": {
+        "name": "Програма"
+      },
+      "progress": {
+        "name": "Напредък"
+      },
+      "realtime_power": {
+        "name": "Мощност в реално време"
+      },
+      "pmv": {
+        "name": "PMV"
+      },
+      "refrigerator_actual_temp": {
+        "name": "Хладилник: действителна температура"
+      },
+      "refrigerator_setting_temp": {
+        "name": "Хладилник: зададена температура"
+      },
+      "regeneration_left_seconds": {
+        "name": "Оставащи секунди за регенерация"
+      },
+      "remaining_days": {
+        "name": "Оставащи дни"
+      },
+      "right_flex_zone_actual_temp": {
+        "name": "Дясна флекс зона: действителна температура"
+      },
+      "right_flex_zone_setting_temp": {
+        "name": "Дясна флекс зона: зададена температура"
+      },
+      "rinse_count": {
+        "name": "Брой изплаквания"
+      },
+      "rinse_level": {
+        "name": "Ниво на изплакване"
+      },
+      "salt_setting": {
+        "name": "Настройка на солта"
+      },
+      "seat_temperature": {
+        "name": "Температура на седалката"
+      },
+      "soak_time": {
+        "name": "Време за накисване"
+      },
+      "soft_available": {
+        "name": "Налична мека вода"
+      },
+      "softener": {
+        "name": "Омекотител"
+      },
+      "softwater": {
+        "name": "Ниво на мека вода"
+      },
+      "status": {
+        "name": "Състояние"
+      },
+      "storage_remaining": {
+        "name": "Оставащо съхранение"
+      },
+      "tank": {
+        "name": "Резервоар"
+      },
+      "tank_actual_temperature": {
+        "name": "Действителна температура на резервоара"
+      },
+      "target_temperature": {
+        "name": "Целева температура"
+      },
+      "time_remaining": {
+        "name": "Оставащо време"
+      },
+      "top_compartment_remaining": {
+        "name": "Оставащо на горното отделение"
+      },
+      "top_compartment_status": {
+        "name": "Състояние на горното отделение"
+      },
+      "top_compartment_temperature": {
+        "name": "Температура на горното отделение"
+      },
+      "top_temperature": {
+        "name": "Горна температура"
+      },
+      "total_energy_consumption": {
+        "name": "Общ разход на енергия"
+      },
+      "total_produced_energy": {
+        "name": "Общо произведена енергия"
+      },
+      "tvoc": {
+        "name": "TVOC"
+      },
+      "wash_level": {
+        "name": "Ниво на измиване"
+      },
+      "wash_strength": {
+        "name": "Сила на измиване"
+      },
+      "wash_time": {
+        "name": "Време за пране"
+      },
+      "water_consumption": {
+        "name": "Разход на вода"
+      },
+      "water_consumption_average": {
+        "name": "Среден разход на вода"
+      },
+      "water_consumption_big": {
+        "name": "Разход на вода"
+      },
+      "water_temperature": {
+        "name": "Температура на водата"
+      },
+      "water_level": {
+        "name": "Ниво на водата"
+      },
+      "weight": {
+        "name": "Тегло"
+      },
+      "wind": {
+        "name": "Вятър"
+      },
+      "typeinfo": {
+        "name": "Информация за типа"
+      },
+      "use_days": {
+        "name": "Дни на използване"
+      },
+      "elec_heat": {
+        "name": "Електрически нагревател"
+      },
+      "water_pump": {
+        "name": "Водна помпа"
+      },
+      "four_way": {
+        "name": "Четирипътен вентил"
+      },
+      "back_water": {
+        "name": "Обратна вода"
+      },
+      "sterilize": {
+        "name": "Стерилизиране"
+      },
+      "disinfection_temperature": {
+        "name": "Температура на дезинфекция"
+      },
+      "max_temperature": {
+        "name": "Максимална целева температура"
+      },
+      "max_temperature_upper_limit": {
+        "name": "Горна граница на максималната температура"
+      },
+      "max_temperature_lower_limit": {
+        "name": "Долна граница на максималната температура"
+      },
+      "disinfection_temperature_upper_limit": {
+        "name": "Горна граница на температурата на дезинфекция"
+      },
+      "disinfection_temperature_lower_limit": {
+        "name": "Долна граница на температурата на дезинфекция"
+      },
+      "dr_option": {
+        "name": "Опция за отговор при търсене"
+      },
+      "remaining_hot_water_max": {
+        "name": "Максимална оставаща гореща вода"
+      },
+      "force_e_heating_status": {
+        "name": "Състояние на принудителното електрическо нагряване"
+      },
+      "holiday_max": {
+        "name": "Максимална продължителност на ваканцията"
+      },
+      "holiday_min": {
+        "name": "Минимална продължителност на ваканцията"
+      },
+      "timer_step_gap": {
+        "name": "Стъпка на таймера"
+      },
+      "vacation_start_year": {
+        "name": "Начална година на ваканцията"
+      },
+      "vacation_start_month": {
+        "name": "Начален месец на ваканцията"
+      },
+      "vacation_start_day": {
+        "name": "Начален ден на ваканцията"
+      },
+      "auto_sterilize_week": {
+        "name": "Автоматична стерилизация: ден от седмицата"
+      },
+      "auto_sterilize_hour": {
+        "name": "Автоматична стерилизация: час"
+      },
+      "auto_sterilize_minute": {
+        "name": "Автоматична стерилизация: минута"
+      },
+      "work_mode": {
+        "name": "Работен режим",
+        "state": {
+          "microwave": "Микровълни",
+          "microwave_1": "Микровълни 1",
+          "microwave_2": "Микровълни 2",
+          "microwave_3": "Микровълни 3",
+          "microwave_4": "Микровълни 4",
+          "microwave_5": "Микровълни 5",
+          "microwave_steam_above_tube": "Микровълни с пара, горен нагревател",
+          "microwave_double_tube": "Микровълни, двоен нагревател",
+          "microwave_hot_wind_tube_fan": "Микровълни, вентилатор на тръбата за горещ въздух",
+          "microwave_underside_tube_hot_wind_tube_fan": "Микровълни, вентилатор за горещ въздух на долния нагревател",
+          "microwave_double_tube_hot_wind_tube_fan": "Микровълни, вентилатор за горещ въздух на двойния нагревател",
+          "microwave_steam": "Микровълни с пара",
+          "microwave_steam_1": "Микровълни с пара 1",
+          "unfreeze": "Размразяване",
+          "unfreeze_1": "Размразяване 1",
+          "unfreeze_2": "Размразяване 2",
+          "unfreeze_3": "Размразяване 3",
+          "unfreeze_t": "Размразяване T",
+          "microwave_above_tube": "Микровълни, горен нагревател",
+          "microwave_above_tube_1": "Микровълни, горен нагревател 1",
+          "microwave_above_tube_2": "Микровълни, горен нагревател 2",
+          "microwave_above_tube_fan": "Микровълни, вентилатор на горния нагревател",
+          "fast_unfreeze": "Бързо размразяване",
+          "fresh_unfreeze": "Свежо размразяване",
+          "microwave_zymosis": "Микровълнова ферментация",
+          "pure_steam": "Чиста пара",
+          "pure_steam_1": "Чиста пара 1",
+          "pure_steam_2": "Чиста пара 2",
+          "pure_steam_3": "Чиста пара 3",
+          "pure_steam_4": "Чиста пара 4",
+          "pure_steam_5": "Чиста пара 5",
+          "pure_steam_6": "Чиста пара 6",
+          "pure_steam_7": "Чиста пара 7",
+          "pure_steam_8": "Чиста пара 8",
+          "pure_steam_9": "Чиста пара 9",
+          "steam_above_tube": "Пара, горен нагревател",
+          "steam_underside_tube": "Пара, долен нагревател",
+          "steam_double_tube": "Пара, двоен нагревател",
+          "steam_hot_wind_tube_fan": "Пара, вентилатор на тръбата за горещ въздух",
+          "steam_hot_wind_tube_fan_1": "Пара, вентилатор на тръбата за горещ въздух 1",
+          "steam_hot_wind_tube_fan_2": "Пара, вентилатор на тръбата за горещ въздух 2",
+          "steam_hot_wind_tube": "Пара, тръба за горещ въздух",
+          "steam_double_tube_fan": "Пара, вентилатор на двойния нагревател",
+          "steam_above_inside_outside_tube_fan": "Пара, вентилатор на горния вътрешен и външен нагревател",
+          "steam_above_inside_tube_fan": "Пара, вентилатор на горния вътрешен нагревател",
+          "above_tube": "Горен нагревател",
+          "underside_tube": "Долен нагревател",
+          "double_tube": "Двоен нагревател",
+          "hot_wind_tube_fan": "Вентилатор на тръбата за горещ въздух",
+          "pure_preheat": "Чисто предварително загряване",
+          "pure_preheat_2": "Чисто предварително загряване 2",
+          "above_tube_hot_wind_tube_fan": "Горен нагревател, вентилатор за горещ въздух",
+          "underside_tube_hot_wind_tube_fan": "Долен нагревател, вентилатор за горещ въздух",
+          "zymosis": "Ферментация",
+          "double_tube_hot_wind_tube_fan": "Двоен нагревател, вентилатор за горещ въздух",
+          "above_tube_revolve": "Горен нагревател, въртене",
+          "underside_tube_revolve": "Долен нагревател, въртене",
+          "double_tube_revolve": "Двоен нагревател, въртене",
+          "hot_wind_tube_fan_revolve": "Тръба за горещ въздух, вентилатор, въртене",
+          "warm": "Поддържане на топлина",
+          "double_tube_fan": "Двоен нагревател, вентилатор",
+          "double_tube_fan_1": "Двоен нагревател, вентилатор 1",
+          "double_tube_fan_2": "Двоен нагревател, вентилатор 2",
+          "double_tube_fan_3": "Двоен нагревател, вентилатор 3",
+          "above_inside_tube_revolve": "Горен вътрешен нагревател, въртене",
+          "above_inside_tube_fan": "Горен вътрешен нагревател, вентилатор",
+          "above_inside_outside_tube_revolve": "Горен вътрешен и външен нагревател, въртене",
+          "above_inside_outside_tube_fan": "Горен вътрешен и външен нагревател, вентилатор",
+          "above_inside_underside_tube": "Горен вътрешен и долен нагревател",
+          "above_inside_underside_tube_1": "Горен вътрешен и долен нагревател 1",
+          "above_inside_underside_tube_fan": "Горен вътрешен и долен нагревател, вентилатор",
+          "above_inside_underside_tube_fan_1": "Горен вътрешен и долен нагревател, вентилатор 1",
+          "above_inside_tube": "Горен вътрешен нагревател",
+          "above_inside_outside_tube": "Горен вътрешен и външен нагревател",
+          "underside_tube_fan": "Долен нагревател, вентилатор",
+          "above_tube_fan": "Горен нагревател, вентилатор",
+          "above_tube_fan_1": "Горен нагревател, вентилатор 1",
+          "above_tube_fan_2": "Горен нагревател, вентилатор 2",
+          "scale_clean": "Премахване на котлен камък",
+          "clean": "Почистване",
+          "remove_odor": "Премахване на миризми",
+          "remove_odor_2": "Премахване на миризми 2",
+          "high_temperature_clean": "Почистване при висока температура",
+          "dining_utensils_clean": "Почистване на съдове за хранене",
+          "auto_menu": "Автоматично меню",
+          "eco": "Eco",
+          "above_tube_1": "Горен нагревател 1",
+          "above_tube_2": "Горен нагревател 2",
+          "above_tube_3": "Горен нагревател 3",
+          "underside_tube_1": "Долен нагревател 1",
+          "underside_tube_2": "Долен нагревател 2",
+          "double_tube_1": "Двоен нагревател 1",
+          "double_tube_2": "Двоен нагревател 2",
+          "double_tube_3": "Двоен нагревател 3",
+          "double_tube_4": "Двоен нагревател 4",
+          "double_tube_5": "Двоен нагревател 5",
+          "double_tube_6": "Двоен нагревател 6",
+          "hot_wind_tube_fan_1": "Тръба за горещ въздух, вентилатор 1",
+          "hot_wind_tube_fan_2": "Тръба за горещ въздух, вентилатор 2",
+          "hot_wind_tube_fan_3": "Тръба за горещ въздух, вентилатор 3",
+          "hot_wind_tube_fan_4": "Тръба за горещ въздух, вентилатор 4",
+          "hot_wind_tube_fan_5": "Тръба за горещ въздух, вентилатор 5",
+          "double_tube_hot_wind_tube_fan_1": "Двоен нагревател, вентилатор за горещ въздух 1",
+          "double_tube_hot_wind_tube_fan_2": "Двоен нагревател, вентилатор за горещ въздух 2",
+          "double_tube_hot_wind_tube_fan_3": "Двоен нагревател, вентилатор за горещ въздух 3",
+          "double_tube_hot_wind_tube_fan_4": "Двоен нагревател, вентилатор за горещ въздух 4",
+          "double_tube_hot_wind_tube_fan_5": "Двоен нагревател, вентилатор за горещ въздух 5",
+          "unknown": "Неизвестно"
+        }
+      },
+      "working_time": {
+        "name": "Работно време"
+      },
+      "humidity": {
+        "name": "Влажност"
+      },
+      "variable_mode": {
+        "name": "Променлив режим",
+        "state": {
+          "none": "Няма",
+          "soft_freezing": "Меко замразяване",
+          "zero_fresh": "Нулева свежест",
+          "cold_drink": "Студена напитка",
+          "fresh_product": "Пресни продукти",
+          "partial_freezing": "Частично замразяване",
+          "dry_zone": "Суха зона",
+          "freeze_warm": "Замразяване / затопляне",
+          "baby": "Майка и бебе",
+          "treasure": "Съкровище",
+          "zero": "Нулев градус"
+        }
+      },
+      "compressor_frequency": {
+        "name": "Честота на компресора"
+      },
+      "target_compressor_frequency": {
+        "name": "Целева честота на компресора"
+      },
+      "compressor_current": {
+        "name": "Ток на компресора"
+      },
+      "compressor_voltage": {
+        "name": "Напрежение на компресора"
+      },
+      "compressor_power": {
+        "name": "Мощност на компресора"
+      },
+      "indoor_ambient_temperature": {
+        "name": "Температура на околната среда на закрито (T1)"
+      },
+      "indoor_coil_temperature": {
+        "name": "Температура на вътрешната серпентина (T2)"
+      },
+      "outdoor_coil_temperature": {
+        "name": "Температура на външната серпентина (T3)"
+      },
+      "outdoor_ambient_temperature": {
+        "name": "Температура на околната среда на открито (T4)"
+      },
+      "discharge_pipe_temperature": {
+        "name": "Температура на нагнетателната тръба (TP)"
+      },
+      "indoor_fan_speed": {
+        "name": "Скорост на вътрешния вентилатор"
+      },
+      "target_indoor_fan_speed": {
+        "name": "Целева скорост на вътрешния вентилатор"
+      },
+      "velocity": {
+        "name": "Скорост"
+      },
+      "filter4_life": {
+        "name": "Филтър 4: ниво на живот"
+      },
+      "filter5_life": {
+        "name": "Филтър 5: ниво на живот"
+      },
+      "filter1_maxlife": {
+        "name": "Филтър 1: лимит на живот"
+      },
+      "filter2_maxlife": {
+        "name": "Филтър 2: лимит на живот"
+      },
+      "filter3_maxlife": {
+        "name": "Филтър 3: лимит на живот"
+      },
+      "filter4_maxlife": {
+        "name": "Филтър 4: лимит на живот"
+      },
+      "filter5_maxlife": {
+        "name": "Филтър 5: лимит на живот"
+      },
+      "hot_pot_temperature": {
+        "name": "Температура на хотпот"
+      },
+      "ice_gall_status": {
+        "name": "Състояние на ледената топка"
+      },
+      "water_kind": {
+        "name": "Вид вода",
+        "state": {
+          "idle": "Бездействие",
+          "warm": "Топла",
+          "cold": "Студена"
+        }
+      },
+      "heat_start": {
+        "name": "Начало на нагряване",
+        "state": {
+          "heating": "Нагряване",
+          "keep_warm": "Поддържане на топлина"
+        }
+      },
+      "no_obsolete_water_mode": {
+        "name": "Режим без застояла вода",
+        "state": {
+          "water_quality_priority": "Приоритет на качеството на водата",
+          "water_saving_priority": "Приоритет на пестенето на вода",
+          "custom": "Персонализиран"
+        }
+      },
+      "input_temperature_sensing": {
+        "name": "Входяща температура"
+      },
+      "temp_ta": {
+        "name": "Температура Ta — околна среда в стаята"
+      },
+      "water_flow": {
+        "name": "Вода — дебит"
+      },
+      "water_pressure": {
+        "name": "Вода — налягане"
+      },
+      "temp_t4": {
+        "name": "Температура T4 — околна среда на открито"
+      },
+      "temp_t5": {
+        "name": "Температура T5 — воден резервоар"
+      },
+      "temp_tb_t1": {
+        "name": "Температура TB-T1 — горна част на буферния резервоар"
+      },
+      "temp_tb_t2": {
+        "name": "Температура TB-T2 — долна част на буферния резервоар"
+      },
+      "temp_tsolar": {
+        "name": "Температура Tsolar — слънчев панел"
+      },
+      "temp_tw2": {
+        "name": "Температура Tw2 — вода зона 2"
+      },
+      "dc_current": {
+        "name": "ODU — ток на DC шината"
+      },
+      "dc_bus_voltage": {
+        "name": "ODU — напрежение на DC шината"
+      },
+      "current_unit_capacity": {
+        "name": "Текущ капацитет на блока (сурова стойност)"
+      },
+      "instant_power0": {
+        "name": "Мощност — разход за отопление"
+      },
+      "instant_renew_power0": {
+        "name": "Мощност — възобновяем топлинен капацитет"
+      },
+      "room_rel_hum": {
+        "name": "Относителна влажност в стаята"
+      },
+      "hydbox_subtype": {
+        "name": "Информация — подтип на хидравличния блок"
+      },
+      "machine_type": {
+        "name": "Информация — тип машина"
+      },
+      "odu_model": {
+        "name": "Информация — код на модела на ODU"
+      },
+      "hydrobox_capacity": {
+        "name": "Информация — капацитет на хидравличния блок"
+      },
+      "idu_t1s1": {
+        "name": "Температура — изчислена зона 1 (T1s)"
+      },
+      "idu_t1s2": {
+        "name": "Температура — изчислена зона 2 (T1s)"
+      },
+      "t5s": {
+        "name": "Температура T5s — зададена за БГВ"
+      },
+      "tas": {
+        "name": "Температура Tas — зададена за въздуха"
+      },
+      "zone1_temp_set": {
+        "name": "Температура — зададена зона 1"
+      },
+      "zone2_temp_set": {
+        "name": "Температура — зададена зона 2"
+      },
+      "disinfect_set_weekday": {
+        "name": "БГВ — ден за дезинфекция"
+      },
+      "disinfect_start_hour": {
+        "name": "БГВ — начален час на дезинфекцията"
+      },
+      "disinfect_start_minutes": {
+        "name": "БГВ — начална минута на дезинфекцията"
+      },
+      "error_code_description": {
+        "name": "Грешка — описание"
+      },
+      "hmi_sn_code": {
+        "name": "Сериен номер на HMI"
+      },
+      "temp_tw_in": {
+        "name": "Температура Tw_in — вход на водата"
+      },
+      "temp_tw_out": {
+        "name": "Температура Tw_out — изход на водата"
+      },
+      "comp_total_run_time": {
+        "name": "Енергия — време на работа на компресора"
+      },
+      "idu_software_version_str": {
+        "name": "Информация — софтуерна версия на IDU"
+      },
+      "odu_software_version_str": {
+        "name": "Информация — софтуерна версия на ODU"
+      },
+      "ac_air_direction_gear": {
+        "name": "Степен на посоката на въздуха на климатика"
+      },
+      "ac_air_direction_max_angle": {
+        "name": "Климатик: макс. ъгъл на посоката на въздуха"
+      },
+      "ac_air_direction_min_angle": {
+        "name": "Климатик: мин. ъгъл на посоката на въздуха"
+      },
+      "ac_ambient_temperature": {
+        "name": "Температура на околната среда на климатика"
+      },
+      "ac_current_temp": {
+        "name": "Текуща температура на климатика"
+      },
+      "ac_destination_temp": {
+        "name": "Целева температура на климатика"
+      },
+      "ac_destination_time": {
+        "name": "Целево време на климатика"
+      },
+      "ac_gear": {
+        "name": "Степен на климатика"
+      },
+      "ac_mode": {
+        "name": "Режим на климатика",
+        "state": {
+          "air_supply": "Подаване на въздух",
+          "dehumidification": "Обезвлажняване",
+          "net_flavour": "Нетна свежест",
+          "none": "Няма",
+          "refrigeration": "Охлаждане"
+        }
+      },
+      "ac_order_destination_time": {
+        "name": "Целево време на поръчката на климатика"
+      },
+      "ac_order_remaining_time": {
+        "name": "Оставащо време на поръчката на климатика"
+      },
+      "ac_remaining_time": {
+        "name": "Оставащо време на климатика"
+      },
+      "ac_swing_gear": {
+        "name": "Степен на люлеене на климатика"
+      },
+      "ac_swing_max_angle": {
+        "name": "Макс. ъгъл на люлеене на климатика"
+      },
+      "ac_swing_min_angle": {
+        "name": "Мин. ъгъл на люлеене на климатика"
+      },
+      "ac_work_status": {
+        "name": "Състояние на работа на климатика",
+        "state": {
+          "order": "Поръчка",
+          "power_off": "Изключено",
+          "reservation": "Резервация",
+          "reservation_and_order_ordering": "Резервация и поръчка: поръчване",
+          "reservation_and_order_reserving": "Резервация и поръчка: резервиране",
+          "working": "Работи"
+        }
+      },
+      "ai_voice_microphone_status": {
+        "name": "Състояние на микрофона на гласовия асистент",
+        "state": {
+          "failure": "Неуспех",
+          "success": "Успех"
+        }
+      },
+      "ai_voice_status": {
+        "name": "Състояние на гласовия асистент",
+        "state": {
+          "connecting": "Свързване",
+          "off": "Изкл.",
+          "on": "Вкл."
+        }
+      },
+      "ai_voice_volume_status": {
+        "name": "Състояние на силата на звука на гласовия асистент",
+        "state": {
+          "failure": "Неуспех",
+          "success": "Успех"
+        }
+      },
+      "b2_downstair_current_temp": {
+        "name": "Долна парна фурна: текуща температура"
+      },
+      "b2_downstair_destination_temp": {
+        "name": "Долна парна фурна: целева температура"
+      },
+      "b2_downstair_light_off_type": {
+        "name": "Долна парна фурна: тип изключване на осветлението",
+        "state": {
+          "app": "Приложение",
+          "local": "Локално"
+        }
+      },
+      "b2_downstair_light_on_type": {
+        "name": "Долна парна фурна: тип включване на осветлението",
+        "state": {
+          "app": "Приложение",
+          "local": "Локално"
+        }
+      },
+      "b2_downstair_order_destination_time": {
+        "name": "Долна парна фурна: целево време на поръчката"
+      },
+      "b2_downstair_order_remaining_time": {
+        "name": "Долна парна фурна: оставащо време на поръчката"
+      },
+      "b2_downstair_power_off_type": {
+        "name": "Долна парна фурна: тип изключване",
+        "state": {
+          "app": "Приложение",
+          "auto": "Автоматичен",
+          "error": "Грешка",
+          "local": "Локално",
+          "wifi": "Wifi"
+        }
+      },
+      "b2_downstair_power_on_type": {
+        "name": "Долна парна фурна: тип включване",
+        "state": {
+          "app": "Приложение",
+          "local": "Локално",
+          "order": "Поръчка"
+        }
+      },
+      "b2_downstair_preheating": {
+        "name": "Долна парна фурна: предварително загряване",
+        "state": {
+          "finish": "Завършване",
+          "none": "Няма",
+          "preheating": "Предварително загряване"
+        }
+      },
+      "b2_downstair_recipe_after": {
+        "name": "Долна парна фурна: след рецептата"
+      },
+      "b2_downstair_recipe_code": {
+        "name": "Долна парна фурна: код на рецептата"
+      },
+      "b2_downstair_recipe_current_mode": {
+        "name": "Долна парна фурна: текущ режим на рецептата"
+      },
+      "b2_downstair_recipe_current_step": {
+        "name": "Долна парна фурна: текуща стъпка на рецептата"
+      },
+      "b2_downstair_recipe_off_type": {
+        "name": "Долна парна фурна: тип изключване на рецептата",
+        "state": {
+          "app": "Приложение",
+          "auto": "Автоматичен",
+          "error": "Грешка",
+          "local": "Локално",
+          "wifi": "Wifi"
+        }
+      },
+      "b2_downstair_recipe_on_type": {
+        "name": "Долна парна фурна: тип включване на рецептата",
+        "state": {
+          "app": "Приложение",
+          "local": "Локално",
+          "order": "Поръчка"
+        }
+      },
+      "b2_downstair_recipe_total_steps": {
+        "name": "Долна парна фурна: общо стъпки на рецептата"
+      },
+      "b2_downstair_work_destination_time": {
+        "name": "Долна парна фурна: целево време на работа"
+      },
+      "b2_downstair_work_func": {
+        "name": "Долна парна фурна: работна функция"
+      },
+      "b2_downstair_work_menu": {
+        "name": "Долна парна фурна: работно меню"
+      },
+      "b2_downstair_work_remaining_time": {
+        "name": "Долна парна фурна: оставащо работно време"
+      },
+      "b2_downstair_work_status": {
+        "name": "Долна парна фурна: работно състояние",
+        "state": {
+          "auto": "Автоматичен",
+          "drying": "Сушене",
+          "finish": "Завършване",
+          "order": "Поръчка",
+          "pause": "Пауза",
+          "power_off": "Изключено",
+          "standby": "В готовност",
+          "working": "Работи"
+        }
+      },
+      "b2_upstair_current_temp": {
+        "name": "Горна парна фурна: текуща температура"
+      },
+      "b2_upstair_destination_temp": {
+        "name": "Горна парна фурна: целева температура"
+      },
+      "b2_upstair_light_off_type": {
+        "name": "Горна парна фурна: тип изключване на осветлението",
+        "state": {
+          "app": "Приложение",
+          "local": "Локално"
+        }
+      },
+      "b2_upstair_light_on_type": {
+        "name": "Горна парна фурна: тип включване на осветлението",
+        "state": {
+          "app": "Приложение",
+          "local": "Локално"
+        }
+      },
+      "b2_upstair_order_destination_time": {
+        "name": "Горна парна фурна: целево време на поръчката"
+      },
+      "b2_upstair_order_remaining_time": {
+        "name": "Горна парна фурна: оставащо време на поръчката"
+      },
+      "b2_upstair_power_off_type": {
+        "name": "Горна парна фурна: тип изключване",
+        "state": {
+          "app": "Приложение",
+          "auto": "Автоматичен",
+          "error": "Грешка",
+          "local": "Локално",
+          "wifi": "Wifi"
+        }
+      },
+      "b2_upstair_power_on_type": {
+        "name": "Горна парна фурна: тип включване",
+        "state": {
+          "app": "Приложение",
+          "local": "Локално",
+          "order": "Поръчка"
+        }
+      },
+      "b2_upstair_preheating": {
+        "name": "Горна парна фурна: предварително загряване",
+        "state": {
+          "finish": "Завършване",
+          "none": "Няма",
+          "preheating": "Предварително загряване"
+        }
+      },
+      "b2_upstair_recipe_after": {
+        "name": "Горна парна фурна: след рецептата"
+      },
+      "b2_upstair_recipe_code": {
+        "name": "Горна парна фурна: код на рецептата"
+      },
+      "b2_upstair_recipe_current_mode": {
+        "name": "Горна парна фурна: текущ режим на рецептата"
+      },
+      "b2_upstair_recipe_current_step": {
+        "name": "Горна парна фурна: текуща стъпка на рецептата"
+      },
+      "b2_upstair_recipe_off_type": {
+        "name": "Горна парна фурна: тип изключване на рецептата",
+        "state": {
+          "app": "Приложение",
+          "auto": "Автоматичен",
+          "error": "Грешка",
+          "local": "Локално",
+          "wifi": "Wifi"
+        }
+      },
+      "b2_upstair_recipe_on_type": {
+        "name": "Горна парна фурна: тип включване на рецептата",
+        "state": {
+          "app": "Приложение",
+          "local": "Локално",
+          "order": "Поръчка"
+        }
+      },
+      "b2_upstair_recipe_total_steps": {
+        "name": "Горна парна фурна: общо стъпки на рецептата"
+      },
+      "b2_upstair_work_destination_time": {
+        "name": "Горна парна фурна: целево време на работа"
+      },
+      "b2_upstair_work_func": {
+        "name": "Горна парна фурна: работна функция"
+      },
+      "b2_upstair_work_menu": {
+        "name": "Горна парна фурна: работно меню"
+      },
+      "b2_upstair_work_remaining_time": {
+        "name": "Горна парна фурна: оставащо работно време"
+      },
+      "b2_upstair_work_status": {
+        "name": "Горна парна фурна: работно състояние",
+        "state": {
+          "auto": "Автоматичен",
+          "drying": "Сушене",
+          "finish": "Завършване",
+          "order": "Поръчка",
+          "pause": "Пауза",
+          "power_off": "Изключено",
+          "standby": "В готовност",
+          "working": "Работи"
+        }
+      },
+      "b3_disinfect_off_type": {
+        "name": "Парен шкаф: тип изключване на дезинфекцията",
+        "state": {
+          "app": "Приложение",
+          "local": "Локално"
+        }
+      },
+      "b3_disinfect_on_type": {
+        "name": "Парен шкаф: тип включване на дезинфекцията",
+        "state": {
+          "app": "Приложение",
+          "local": "Локално"
+        }
+      },
+      "b3_downstair_current_temp": {
+        "name": "Долен парен шкаф: текуща температура"
+      },
+      "b3_downstair_destination_temp": {
+        "name": "Долен парен шкаф: целева температура"
+      },
+      "b3_downstair_destination_time": {
+        "name": "Долен парен шкаф: целево време"
+      },
+      "b3_downstair_remaining_time": {
+        "name": "Долен парен шкаф: оставащо време"
+      },
+      "b3_downstair_sensor": {
+        "name": "Долен парен шкаф: сензор"
+      },
+      "b3_downstair_status": {
+        "name": "Долен парен шкаф: състояние",
+        "state": {
+          "drying": "Сушене",
+          "drying_pause": "Пауза на сушенето",
+          "ion_drying": "Йонно сушене",
+          "ion_drying_pause": "Пауза на йонното сушене",
+          "power_off": "Изключено",
+          "uperization": "Уперизация",
+          "uperization_pause": "Пауза на уперизацията",
+          "warm_drink": "Топла напитка",
+          "warm_drink_pause": "Пауза на топлата напитка"
+        }
+      },
+      "b3_thermotank_off_type": {
+        "name": "Парен шкаф: тип изключване на термоблока",
+        "state": {
+          "app": "Приложение",
+          "local": "Локално"
+        }
+      },
+      "b3_thermotank_on_type": {
+        "name": "Парен шкаф: тип включване на термоблока",
+        "state": {
+          "app": "Приложение",
+          "local": "Локално"
+        }
+      },
+      "b3_upstair_current_temp": {
+        "name": "Горен парен шкаф: текуща температура"
+      },
+      "b3_upstair_destination_temp": {
+        "name": "Горен парен шкаф: целева температура"
+      },
+      "b3_upstair_destination_time": {
+        "name": "Горен парен шкаф: целево време"
+      },
+      "b3_upstair_remaining_time": {
+        "name": "Горен парен шкаф: оставащо време"
+      },
+      "b3_upstair_sensor": {
+        "name": "Горен парен шкаф: сензор"
+      },
+      "b3_upstair_status": {
+        "name": "Горен парен шкаф: състояние",
+        "state": {
+          "drying": "Сушене",
+          "drying_pause": "Пауза на сушенето",
+          "ion_drying": "Йонно сушене",
+          "ion_drying_pause": "Пауза на йонното сушене",
+          "power_off": "Изключено",
+          "uperization": "Уперизация",
+          "uperization_pause": "Пауза на уперизацията",
+          "warm_drink": "Топла напитка",
+          "warm_drink_pause": "Пауза на топлата напитка"
+        }
+      },
+      "b6_tvoc_value": {
+        "name": "Аспиратор: стойност на TVOC",
+        "state": {
+          "excellent": "Отлично",
+          "good": "Добро",
+          "medium": "Средна"
+        }
+      },
+      "b6_air_duct_detection_score": {
+        "name": "Аспиратор: оценка на откриването на въздуховода"
+      },
+      "b6_air_duct_detection_state": {
+        "name": "Аспиратор: състояние на откриването на въздуховода"
+      },
+      "b6_air_duct_detection_time": {
+        "name": "Аспиратор: време на откриването на въздуховода"
+      },
+      "b6_air_duct_detection_windage": {
+        "name": "Аспиратор: съпротивление при откриване на въздуховода"
+      },
+      "b6_air_volume": {
+        "name": "Аспиратор: обем на въздуха"
+      },
+      "b6_delay_gear_linkage_gear": {
+        "name": "Аспиратор: степен при свързване при забавяне"
+      },
+      "b6_delay_time_value": {
+        "name": "Аспиратор: стойност на времето на забавяне"
+      },
+      "b6_destination_time": {
+        "name": "Аспиратор: целево време"
+      },
+      "b6_gear": {
+        "name": "Аспиратор: степен"
+      },
+      "b6_gear_control_type": {
+        "name": "Аспиратор: тип управление на степента",
+        "state": {
+          "app": "Приложение",
+          "gesture": "Жест",
+          "linkage": "Свързване",
+          "local": "Локално",
+          "smoke_detector": "Датчик за дим"
+        }
+      },
+      "b6_gesture_sensitivity": {
+        "name": "Аспиратор: чувствителност на жестовете",
+        "state": {
+          "1": "1",
+          "2": "2",
+          "3": "3"
+        }
+      },
+      "b6_gesture_value": {
+        "name": "Аспиратор: стойност на жестовете",
+        "state": {
+          "light": "Лек",
+          "power": "Мощност",
+          "wind": "Вятър"
+        }
+      },
+      "b6_hotclean_tips": {
+        "name": "Аспиратор: съвети за горещо почистване"
+      },
+      "b6_infrared_value": {
+        "name": "Аспиратор: инфрачервена стойност",
+        "state": {
+          "power": "Мощност",
+          "wind": "Вятър"
+        }
+      },
+      "b6_inverter_ac_frequency": {
+        "name": "Аспиратор: честота на инверторния климатик"
+      },
+      "b6_inverter_back_electromotive_force": {
+        "name": "Аспиратор: обратна електродвижеща сила на инвертора"
+      },
+      "b6_inverter_capacity": {
+        "name": "Аспиратор: капацитет на инвертора"
+      },
+      "b6_inverter_efficiency": {
+        "name": "Аспиратор: ефективност на инвертора"
+      },
+      "b6_inverter_motor_compensation_angle": {
+        "name": "Аспиратор: ъгъл на компенсация на мотора на инвертора"
+      },
+      "b6_inverter_motor_speed": {
+        "name": "Аспиратор: скорост на мотора на инвертора"
+      },
+      "b6_inverter_q_axis_current": {
+        "name": "Аспиратор: ток по ос Q на инвертора"
+      },
+      "b6_inverter_start_time": {
+        "name": "Аспиратор: начално време на инвертора"
+      },
+      "b6_inverter_temperature": {
+        "name": "Аспиратор: температура на инвертора"
+      },
+      "b6_inverter_temperature_limit_sign": {
+        "name": "Аспиратор: знак за ограничение на температурата на инвертора"
+      },
+      "b6_inverter_voltage": {
+        "name": "Аспиратор: напрежение на инвертора"
+      },
+      "b6_inverter_wind_flow": {
+        "name": "Аспиратор: въздушен поток на инвертора"
+      },
+      "b6_inverter_wind_presssure": {
+        "name": "Аспиратор: налягане на въздуха на инвертора"
+      },
+      "b6_inverter_windage": {
+        "name": "Аспиратор: съпротивление на инвертора"
+      },
+      "b6_inverter_work_gear": {
+        "name": "Аспиратор: работна степен на инвертора"
+      },
+      "b6_last_hotclean_hour": {
+        "name": "Аспиратор: последен час на горещо почистване"
+      },
+      "b6_light": {
+        "name": "Аспиратор: осветление"
+      },
+      "b6_light_off_type": {
+        "name": "Аспиратор: тип изключване на осветлението",
+        "state": {
+          "app": "Приложение",
+          "error": "Грешка",
+          "gesture": "Жест",
+          "local": "Локално"
+        }
+      },
+      "b6_light_on_type": {
+        "name": "Аспиратор: тип включване на осветлението",
+        "state": {
+          "app": "Приложение",
+          "gesture": "Жест",
+          "local": "Локално"
+        }
+      },
+      "b6_lightness": {
+        "name": "Аспиратор: яркост"
+      },
+      "b6_lock_off_type": {
+        "name": "Аспиратор: тип изключване на заключването",
+        "state": {
+          "local": "Локално"
+        }
+      },
+      "b6_lock_on_type": {
+        "name": "Аспиратор: тип включване на заключването",
+        "state": {
+          "app": "Приложение",
+          "local": "Локално"
+        }
+      },
+      "b6_power": {
+        "name": "Аспиратор: захранване",
+        "state": {
+          "delay_off": "Забавено изключване",
+          "off": "Изкл.",
+          "on": "Вкл."
+        }
+      },
+      "b6_power_off_type": {
+        "name": "Аспиратор: тип изключване на захранването",
+        "state": {
+          "app": "Приложение",
+          "delay": "Забавяне",
+          "gesture": "Жест",
+          "linkage": "Свързване",
+          "local": "Локално"
+        }
+      },
+      "b6_power_on_type": {
+        "name": "Аспиратор: тип включване на захранването",
+        "state": {
+          "app": "Приложение",
+          "gesture": "Жест",
+          "linkage": "Свързване",
+          "local": "Локално"
+        }
+      },
+      "b6_remaining_time": {
+        "name": "Аспиратор: оставащо време"
+      },
+      "b6_smoke_detector_value": {
+        "name": "Аспиратор: стойност на датчика за дим"
+      },
+      "b6_smoke_potency": {
+        "name": "Аспиратор: сила на дима"
+      },
+      "b6_smoke_stove_linkage_flowin": {
+        "name": "Аспиратор: входящ поток при свързване дим-котлон",
+        "state": {
+          "no": "Не",
+          "yes": "Да"
+        }
+      },
+      "b6_smoke_stove_linkage_gear": {
+        "name": "Аспиратор: степен при свързване дим-котлон"
+      },
+      "b6_smoke_stove_linkage_gear_fix": {
+        "name": "Аспиратор: фиксиране на степента при свързване дим-котлон",
+        "state": {
+          "negative": "Отрицателно",
+          "positive": "Положително"
+        }
+      },
+      "b6_steaming": {
+        "name": "Аспиратор: обработка на пара",
+        "state": {
+          "off": "Изкл.",
+          "on": "Вкл."
+        }
+      },
+      "b6_steaming_stage": {
+        "name": "Аспиратор: етап на обработка на пара"
+      },
+      "b6_wind_pressure": {
+        "name": "Аспиратор: налягане на въздуха"
+      },
+      "b6_work_status": {
+        "name": "Аспиратор: работно състояние",
+        "state": {
+          "ai_dry_clean": "AI сухо почистване",
+          "air_duct_detection": "Откриване на въздуховода",
+          "check": "Проверка",
+          "clean": "Почистване",
+          "clean_finish": "Почистването е завършено",
+          "error": "Грешка",
+          "hotclean": "Горещо почистване",
+          "initial": "Начално",
+          "mute_gear": "Тиха степен",
+          "power_off": "Изключено",
+          "power_off_delay": "Забавяне на изключването",
+          "standby": "В готовност",
+          "vvvf_gear": "VVVF степен",
+          "working": "Работи"
+        }
+      },
+      "b7_left_current_temp": {
+        "name": "Газов котлон ляв: текуща температура"
+      },
+      "b7_left_destination_temp": {
+        "name": "Газов котлон ляв: целева температура"
+      },
+      "b7_left_destination_time": {
+        "name": "Газов котлон ляв: целево време"
+      },
+      "b7_left_gear": {
+        "name": "Газов котлон ляв: степен"
+      },
+      "b7_left_power_off_type": {
+        "name": "Газов котлон ляв: тип изключване на захранването",
+        "state": {
+          "app": "Приложение",
+          "auto": "Автоматичен",
+          "error": "Грешка",
+          "local": "Локално",
+          "wifi": "Wifi"
+        }
+      },
+      "b7_left_remaining_time": {
+        "name": "Газов котлон ляв: оставащо време"
+      },
+      "b7_left_status": {
+        "name": "Газов котлон ляв: състояние",
+        "state": {
+          "drying": "Сушене",
+          "drying_pause": "Пауза на сушенето",
+          "ion_drying": "Йонно сушене",
+          "ion_drying_pause": "Пауза на йонното сушене",
+          "power_off": "Изключено",
+          "uperization": "Уперизация",
+          "uperization_pause": "Пауза на уперизацията",
+          "warm_drink": "Топла напитка",
+          "warm_drink_pause": "Пауза на топлата напитка"
+        }
+      },
+      "b7_left_work_time": {
+        "name": "Газов котлон ляв: работно време"
+      },
+      "b7_right_current_temp": {
+        "name": "Газов котлон десен: текуща температура"
+      },
+      "b7_right_destination_temp": {
+        "name": "Газов котлон десен: целева температура"
+      },
+      "b7_right_destination_time": {
+        "name": "Газов котлон десен: целево време"
+      },
+      "b7_right_gear": {
+        "name": "Газов котлон десен: степен"
+      },
+      "b7_right_power_off_type": {
+        "name": "Газов котлон десен: тип изключване на захранването",
+        "state": {
+          "app": "Приложение",
+          "auto": "Автоматичен",
+          "error": "Грешка",
+          "local": "Локално",
+          "wifi": "Wifi"
+        }
+      },
+      "b7_right_remaining_time": {
+        "name": "Газов котлон десен: оставащо време"
+      },
+      "b7_right_status": {
+        "name": "Газов котлон десен: състояние",
+        "state": {
+          "drying": "Сушене",
+          "drying_pause": "Пауза на сушенето",
+          "ion_drying": "Йонно сушене",
+          "ion_drying_pause": "Пауза на йонното сушене",
+          "power_off": "Изключено",
+          "uperization": "Уперизация",
+          "uperization_pause": "Пауза на уперизацията",
+          "warm_drink": "Топла напитка",
+          "warm_drink_pause": "Пауза на топлата напитка"
+        }
+      },
+      "b7_right_work_time": {
+        "name": "Газов котлон десен: работно време"
+      },
+      "bf_cavity": {
+        "name": "Камера на фурната",
+        "state": {
+          "down": "Надолу",
+          "up": "Нагоре"
+        }
+      },
+      "bf_control_back": {
+        "name": "Връщане на управлението на фурната",
+        "state": {
+          "func_notsupport": "Функцията не се поддържа",
+          "status_notsupport": "Състоянието не се поддържа",
+          "success": "Успех",
+          "value_notsupport": "Стойността не се поддържа"
+        }
+      },
+      "bf_end_next": {
+        "name": "Фурна: край на следващото"
+      },
+      "bf_fire": {
+        "name": "Огън на фурната"
+      },
+      "bf_mode": {
+        "name": "Режим на фурната"
+      },
+      "bf_quick_btn_bake_id": {
+        "name": "Фурна: ID на бутон за бързо печене"
+      },
+      "bf_quick_btn_bake_set": {
+        "name": "Фурна: настройка на бутон за бързо печене"
+      },
+      "bf_quick_btn_bake_time": {
+        "name": "Фурна: време на бутон за бързо печене"
+      },
+      "bf_quick_btn_microwave_id": {
+        "name": "Фурна: ID на бутон за бързи микровълни"
+      },
+      "bf_quick_btn_microwave_set": {
+        "name": "Фурна: настройка на бутон за бързи микровълни"
+      },
+      "bf_quick_btn_microwave_time": {
+        "name": "Фурна: време на бутон за бързи микровълни"
+      },
+      "bf_quick_btn_steam_id": {
+        "name": "Фурна: ID на бутон за бърза пара"
+      },
+      "bf_quick_btn_steam_set": {
+        "name": "Фурна: настройка на бутон за бърза пара"
+      },
+      "bf_quick_btn_steam_time": {
+        "name": "Фурна: време на бутон за бърза пара"
+      },
+      "bf_recipe_code": {
+        "name": "Фурна: код на рецептата"
+      },
+      "bf_remaining_time": {
+        "name": "Фурна: оставащо време"
+      },
+      "bf_steam": {
+        "name": "Пара на фурната"
+      },
+      "bf_step_current": {
+        "name": "Фурна: текуща стъпка"
+      },
+      "bf_step_total": {
+        "name": "Фурна: общо стъпки"
+      },
+      "bf_temp_down": {
+        "name": "Фурна: долна температура"
+      },
+      "bf_temp_down_set": {
+        "name": "Фурна: настройка на долната температура"
+      },
+      "bf_temp_probe": {
+        "name": "Фурна: сонда за температура"
+      },
+      "bf_temp_probe_set": {
+        "name": "Фурна: настройка на сондата за температура"
+      },
+      "bf_temp_up": {
+        "name": "Фурна: горна температура"
+      },
+      "bf_temp_up_set": {
+        "name": "Фурна: настройка на горната температура"
+      },
+      "bf_tips_mark": {
+        "name": "Фурна: маркер за съвети",
+        "state": {
+          "apply": "Приложи",
+          "change_attachments": "Смяна на принадлежности",
+          "door_open": "Отворена врата",
+          "feed": "Добавяне",
+          "recipe_tips": "Съвети за рецепта",
+          "stir": "Разбъркване"
+        }
+      },
+      "bf_weight_mount": {
+        "name": "Фурна: поставка за тегло"
+      },
+      "bf_weight_multiple": {
+        "name": "Фурна: множител на теглото",
+        "state": {
+          "g": "г",
+          "kg": "кг",
+          "ounce": "унция",
+          "pound": "паунд"
+        }
+      },
+      "bf_weight_unit": {
+        "name": "Фурна: единица за тегло",
+        "state": {
+          "g": "г",
+          "kg": "кг",
+          "other": "Друго",
+          "ounce": "унция",
+          "pound": "паунд"
+        }
+      },
+      "bf_work_status": {
+        "name": "Работно състояние на фурната",
+        "state": {
+          "after_sale": "Следпродажбено обслужване",
+          "check_version": "Проверка на версията",
+          "cloudmenu_setting": "Настройка на облачното меню",
+          "demo": "Демо",
+          "done": "Готово",
+          "keep": "Запазване",
+          "love_three_seconds": "Задръжте три секунди за харесване",
+          "open": "Отваряне",
+          "order": "Поръчка",
+          "pause": "Пауза",
+          "pause_temporarily": "Временна пауза",
+          "power_off": "Изключено",
+          "self_check": "Самопроверка",
+          "working": "Работи"
+        }
+      },
+      "bf_working_time": {
+        "name": "Работно време на фурната"
+      },
+      "e7_left_bottom_bridge_link": {
+        "name": "Индукционен ляв долен: мостова връзка",
+        "state": {
+          "off": "Изкл.",
+          "on": "Вкл."
+        }
+      },
+      "e7_left_bottom_destination_time": {
+        "name": "Индукционен ляв долен: целево време"
+      },
+      "e7_left_bottom_efficiency": {
+        "name": "Индукционен ляв долен: ефективност"
+      },
+      "e7_left_bottom_gear": {
+        "name": "Индукционен ляв долен: степен"
+      },
+      "e7_left_bottom_mode": {
+        "name": "Индукционен ляв долен: режим",
+        "state": {
+          "boiling": "Кипване",
+          "heat_preservation": "Поддържане на топлина",
+          "none": "Няма",
+          "stew_soup": "Задушаване на супа",
+          "stir_frying": "Пържене с бъркане"
+        }
+      },
+      "e7_left_bottom_remaining_time": {
+        "name": "Индукционен ляв долен: оставащо време"
+      },
+      "e7_left_bottom_work_status": {
+        "name": "Индукционен ляв долен: работно състояние",
+        "state": {
+          "auto": "Автоматичен",
+          "drying": "Сушене",
+          "finish": "Завършване",
+          "order": "Поръчка",
+          "pause": "Пауза",
+          "power_off": "Изключено",
+          "standby": "В готовност",
+          "working": "Работи"
+        }
+      },
+      "e7_left_bottom_work_time": {
+        "name": "Индукционен ляв долен: работно време"
+      },
+      "e7_left_bridge_link": {
+        "name": "Индукционен ляв: мостова връзка",
+        "state": {
+          "off": "Изкл.",
+          "on": "Вкл."
+        }
+      },
+      "e7_left_destination_time": {
+        "name": "Индукционен ляв: целево време"
+      },
+      "e7_left_efficiency": {
+        "name": "Индукционен ляв: ефективност"
+      },
+      "e7_left_gear": {
+        "name": "Индукционен ляв: степен"
+      },
+      "e7_left_mode": {
+        "name": "Индукционен ляв: режим",
+        "state": {
+          "boiling": "Кипване",
+          "heat_preservation": "Поддържане на топлина",
+          "none": "Няма",
+          "stew_soup": "Задушаване на супа",
+          "stir_frying": "Пържене с бъркане"
+        }
+      },
+      "e7_left_remaining_time": {
+        "name": "Индукционен ляв: оставащо време"
+      },
+      "e7_left_top_bridge_link": {
+        "name": "Индукционен ляв горен: мостова връзка",
+        "state": {
+          "off": "Изкл.",
+          "on": "Вкл."
+        }
+      },
+      "e7_left_top_destination_time": {
+        "name": "Индукционен ляв горен: целево време"
+      },
+      "e7_left_top_efficiency": {
+        "name": "Индукционен ляв горен: ефективност"
+      },
+      "e7_left_top_gear": {
+        "name": "Индукционен ляв горен: степен"
+      },
+      "e7_left_top_mode": {
+        "name": "Индукционен ляв горен: режим",
+        "state": {
+          "boiling": "Кипване",
+          "heat_preservation": "Поддържане на топлина",
+          "none": "Няма",
+          "stew_soup": "Задушаване на супа",
+          "stir_frying": "Пържене с бъркане"
+        }
+      },
+      "e7_left_top_remaining_time": {
+        "name": "Индукционен ляв горен: оставащо време"
+      },
+      "e7_left_top_work_status": {
+        "name": "Индукционен ляв горен: работно състояние",
+        "state": {
+          "auto": "Автоматичен",
+          "drying": "Сушене",
+          "finish": "Завършване",
+          "order": "Поръчка",
+          "pause": "Пауза",
+          "power_off": "Изключено",
+          "standby": "В готовност",
+          "working": "Работи"
+        }
+      },
+      "e7_left_top_work_time": {
+        "name": "Индукционен ляв горен: работно време"
+      },
+      "e7_left_work_status": {
+        "name": "Индукционен ляв: работно състояние",
+        "state": {
+          "auto": "Автоматичен",
+          "drying": "Сушене",
+          "finish": "Завършване",
+          "order": "Поръчка",
+          "pause": "Пауза",
+          "power_off": "Изключено",
+          "standby": "В готовност",
+          "working": "Работи"
+        }
+      },
+      "e7_left_work_time": {
+        "name": "Индукционен ляв: работно време"
+      },
+      "e7_right_bottom_bridge_link": {
+        "name": "Индукционен десен долен: мостова връзка",
+        "state": {
+          "off": "Изкл.",
+          "on": "Вкл."
+        }
+      },
+      "e7_right_bottom_destination_time": {
+        "name": "Индукционен десен долен: целево време"
+      },
+      "e7_right_bottom_efficiency": {
+        "name": "Индукционен десен долен: ефективност"
+      },
+      "e7_right_bottom_gear": {
+        "name": "Индукционен десен долен: степен"
+      },
+      "e7_right_bottom_mode": {
+        "name": "Индукционен десен долен: режим",
+        "state": {
+          "boiling": "Кипване",
+          "heat_preservation": "Поддържане на топлина",
+          "none": "Няма",
+          "stew_soup": "Задушаване на супа",
+          "stir_frying": "Пържене с бъркане"
+        }
+      },
+      "e7_right_bottom_remaining_time": {
+        "name": "Индукционен десен долен: оставащо време"
+      },
+      "e7_right_bottom_work_status": {
+        "name": "Индукционен десен долен: работно състояние",
+        "state": {
+          "auto": "Автоматичен",
+          "drying": "Сушене",
+          "finish": "Завършване",
+          "order": "Поръчка",
+          "pause": "Пауза",
+          "power_off": "Изключено",
+          "standby": "В готовност",
+          "working": "Работи"
+        }
+      },
+      "e7_right_bottom_work_time": {
+        "name": "Индукционен десен долен: работно време"
+      },
+      "e7_right_bridge_link": {
+        "name": "Индукционен десен: мостова връзка",
+        "state": {
+          "off": "Изкл.",
+          "on": "Вкл."
+        }
+      },
+      "e7_right_destination_time": {
+        "name": "Индукционен десен: целево време"
+      },
+      "e7_right_efficiency": {
+        "name": "Индукционен десен: ефективност"
+      },
+      "e7_right_gear": {
+        "name": "Индукционен десен: степен"
+      },
+      "e7_right_mode": {
+        "name": "Индукционен десен: режим",
+        "state": {
+          "boiling": "Кипване",
+          "heat_preservation": "Поддържане на топлина",
+          "none": "Няма",
+          "stew_soup": "Задушаване на супа",
+          "stir_frying": "Пържене с бъркане"
+        }
+      },
+      "e7_right_remaining_time": {
+        "name": "Индукционен десен: оставащо време"
+      },
+      "e7_right_top_bridge_link": {
+        "name": "Индукционен десен горен: мостова връзка",
+        "state": {
+          "off": "Изкл.",
+          "on": "Вкл."
+        }
+      },
+      "e7_right_top_destination_time": {
+        "name": "Индукционен десен горен: целево време"
+      },
+      "e7_right_top_efficiency": {
+        "name": "Индукционен десен горен: ефективност"
+      },
+      "e7_right_top_gear": {
+        "name": "Индукционен десен горен: степен"
+      },
+      "e7_right_top_mode": {
+        "name": "Индукционен десен горен: режим",
+        "state": {
+          "boiling": "Кипване",
+          "heat_preservation": "Поддържане на топлина",
+          "none": "Няма",
+          "stew_soup": "Задушаване на супа",
+          "stir_frying": "Пържене с бъркане"
+        }
+      },
+      "e7_right_top_remaining_time": {
+        "name": "Индукционен десен горен: оставащо време"
+      },
+      "e7_right_top_work_status": {
+        "name": "Индукционен десен горен: работно състояние",
+        "state": {
+          "auto": "Автоматичен",
+          "drying": "Сушене",
+          "finish": "Завършване",
+          "order": "Поръчка",
+          "pause": "Пауза",
+          "power_off": "Изключено",
+          "standby": "В готовност",
+          "working": "Работи"
+        }
+      },
+      "e7_right_top_work_time": {
+        "name": "Индукционен десен горен: работно време"
+      },
+      "e7_right_work_status": {
+        "name": "Индукционен десен: работно състояние",
+        "state": {
+          "auto": "Автоматичен",
+          "drying": "Сушене",
+          "finish": "Завършване",
+          "order": "Поръчка",
+          "pause": "Пауза",
+          "power_off": "Изключено",
+          "standby": "В готовност",
+          "working": "Работи"
+        }
+      },
+      "e7_right_work_time": {
+        "name": "Индукционен десен: работно време"
+      },
+      "electronic_version": {
+        "name": "Електронна версия"
+      },
+      "error_list": {
+        "name": "Списък с грешки"
+      },
+      "sp_fandrying_destination_time": {
+        "name": "Плоча за сушене с вентилатор: целево време"
+      },
+      "sp_fandrying_order_destination_time": {
+        "name": "Плоча за сушене с вентилатор: целево време на поръчката"
+      },
+      "sp_fandrying_order_remaining_time": {
+        "name": "Плоча за сушене с вентилатор: оставащо време на поръчката"
+      },
+      "sp_fandrying_remaining_time": {
+        "name": "Плоча за сушене с вентилатор: оставащо време"
+      },
+      "sp_fandrying_setting_automode_day": {
+        "name": "Плоча за сушене с вентилатор: ден на автоматичния режим"
+      },
+      "sp_fandrying_setting_automode_starthour": {
+        "name": "Плоча за сушене с вентилатор: начален час на автоматичния режим"
+      },
+      "sp_fandrying_setting_automode_startminute": {
+        "name": "Плоча за сушене с вентилатор: начална минута на автоматичния режим"
+      },
+      "sp_fandrying_status": {
+        "name": "Плоча за сушене с вентилатор: състояние",
+        "state": {
+          "drying": "Сушене",
+          "drying_pause": "Пауза на сушенето",
+          "ion_drying": "Йонно сушене",
+          "ion_drying_pause": "Пауза на йонното сушене",
+          "power_off": "Изключено",
+          "uperization": "Уперизация",
+          "uperization_pause": "Пауза на уперизацията",
+          "warm_drink": "Топла напитка",
+          "warm_drink_pause": "Пауза на топлата напитка"
+        }
+      },
+      "sp_fandrying_temperature": {
+        "name": "Плоча за сушене с вентилатор: температура"
+      },
+      "sp_heatingdisk_destination_time": {
+        "name": "Нагревателна плоча: целево време"
+      },
+      "sp_heatingdisk_order_destination_time": {
+        "name": "Нагревателна плоча: целево време на поръчката"
+      },
+      "sp_heatingdisk_order_remaining_time": {
+        "name": "Нагревателна плоча: оставащо време на поръчката"
+      },
+      "sp_heatingdisk_remaining_time": {
+        "name": "Нагревателна плоча: оставащо време"
+      },
+      "sp_heatingdisk_setting_automode_day": {
+        "name": "Нагревателна плоча: ден на автоматичния режим"
+      },
+      "sp_heatingdisk_setting_automode_starthour": {
+        "name": "Нагревателна плоча: начален час на автоматичния режим"
+      },
+      "sp_heatingdisk_setting_automode_startminute": {
+        "name": "Нагревателна плоча: начална минута на автоматичния режим"
+      },
+      "sp_heatingdisk_status": {
+        "name": "Нагревателна плоча: състояние",
+        "state": {
+          "drying": "Сушене",
+          "drying_pause": "Пауза на сушенето",
+          "ion_drying": "Йонно сушене",
+          "ion_drying_pause": "Пауза на йонното сушене",
+          "power_off": "Изключено",
+          "uperization": "Уперизация",
+          "uperization_pause": "Пауза на уперизацията",
+          "warm_drink": "Топла напитка",
+          "warm_drink_pause": "Пауза на топлата напитка"
+        }
+      },
+      "sp_heatingdisk_temperature": {
+        "name": "Нагревателна плоча: температура"
+      },
+      "sp_uvc_destination_time": {
+        "name": "UVC плоча: целево време"
+      },
+      "sp_uvc_order_destination_time": {
+        "name": "UVC плоча: целево време на поръчката"
+      },
+      "sp_uvc_order_remaining_time": {
+        "name": "UVC плоча: оставащо време на поръчката"
+      },
+      "sp_uvc_remaining_time": {
+        "name": "UVC плоча: оставащо време"
+      },
+      "sp_uvc_setting_automode_day": {
+        "name": "UVC плоча: ден на автоматичния режим"
+      },
+      "sp_uvc_setting_automode_starthour": {
+        "name": "UVC плоча: начален час на автоматичния режим"
+      },
+      "sp_uvc_setting_automode_startminute": {
+        "name": "UVC плоча: начална минута на автоматичния режим"
+      },
+      "sp_uvc_status": {
+        "name": "UVC плоча: състояние",
+        "state": {
+          "drying": "Сушене",
+          "drying_pause": "Пауза на сушенето",
+          "ion_drying": "Йонно сушене",
+          "ion_drying_pause": "Пауза на йонното сушене",
+          "power_off": "Изключено",
+          "uperization": "Уперизация",
+          "uperization_pause": "Пауза на уперизацията",
+          "warm_drink": "Топла напитка",
+          "warm_drink_pause": "Пауза на топлата напитка"
+        }
+      },
+      "sp_uvc_temperature": {
+        "name": "UVC плоча: температура"
+      },
+      "total_error_code": {
+        "name": "Код на грешка"
+      },
+      "total_error_type": {
+        "name": "Тип грешка"
+      },
+      "total_firewall_temp": {
+        "name": "Температура на защитната стена"
+      },
+      "total_gesture": {
+        "name": "Жест",
+        "state": {
+          "off": "Изкл.",
+          "on": "Вкл."
+        }
+      },
+      "total_ir": {
+        "name": "IR",
+        "state": {
+          "off": "Изкл.",
+          "on": "Вкл."
+        }
+      },
+      "total_lock_off_type": {
+        "name": "Тип изключване на заключването",
+        "state": {
+          "local": "Локално"
+        }
+      },
+      "total_lock_on_type": {
+        "name": "Тип включване на заключването",
+        "state": {
+          "app": "Приложение",
+          "local": "Локално"
+        }
+      },
+      "total_shelving_unit_temp": {
+        "name": "Температура на рафта"
+      },
+      "total_speak": {
+        "name": "Говорене",
+        "state": {
+          "off": "Изкл.",
+          "on": "Вкл."
+        }
+      },
+      "total_tips_code": {
+        "name": "Код на съвета"
+      },
+      "total_tips_type": {
+        "name": "Тип на съвета"
+      },
+      "work_status": {
+        "name": "Състояние на работа",
+        "state": {
+          "save_power": "Пестене на енергия",
+          "standby": "В готовност",
+          "work": "Работи",
+          "pause": "На пауза",
+          "work_finish": "Завършено",
+          "order": "Забавяне",
+          "pause_c": "На пауза C",
+          "three": "Три",
+          "self_inspection": "Самодиагностика",
+          "query_version": "Запитване за версия",
+          "demo": "Демо",
+          "ramadan": "Рамадан",
+          "after_checking": "След проверка",
+          "wait_to_start": "Изчакване за старт",
+          "ff": "Неизвестно"
+        }
+      },
+      "x9b_fire_power": {
+        "name": "Мощност на огъня",
+        "state": {
+          "high_power": "Висока",
+          "medium_high_power": "Средно-висока",
+          "medium_power": "Средна",
+          "medium_low_power": "Средно-ниска",
+          "low_power": "Ниска",
+          "ff": "Неизвестно"
+        }
+      },
+      "pre_heat": {
+        "name": "Предварително загряване",
+        "state": {
+          "off": "Изкл.",
+          "work": "Предварително загряване",
+          "end": "Предварителното загряване е завършено"
+        }
+      },
+      "water_status": {
+        "name": "Състояние на водата",
+        "state": {
+          "normal": "Нормален",
+          "lack_box": "Липсваща кутия",
+          "lack_water": "Недостиг на вода",
+          "change_water": "Смяна на водата"
+        }
+      },
+      "dissipate_heat": {
+        "name": "Разсейване на топлина",
+        "state": {
+          "off": "Изкл.",
+          "work": "Разсейване"
+        }
+      },
+      "execute": {
+        "name": "Състояние на изпълнение",
+        "state": {
+          "ok": "OK",
+          "status_nonsupport": "Състоянието не се поддържа",
+          "function_nonsupport": "Функцията не се поддържа",
+          "param_range_error": "Грешка в обхвата на параметъра"
+        }
+      },
+      "sys_time_src": {
+        "name": "Източник на системното време",
+        "state": {
+          "module": "Модул",
+          "app": "Приложение",
+          "user_defined": "Потребителски"
+        }
+      },
+      "cur_temperature": {
+        "name": "Текуща температура"
+      },
+      "work_hour": {
+        "name": "Работен час"
+      },
+      "work_minute": {
+        "name": "Работна минута"
+      },
+      "work_second": {
+        "name": "Работна секунда"
+      },
+      "cbs_version": {
+        "name": "CBS версия"
+      }
+    },
+    "switch": {
+      "db_power": {
+        "name": "Мощност на пералнята"
+      },
+      "dc_power": {
+        "name": "Мощност на сушилнята"
+      },
+      "door_auto_open_setting": {
+        "name": "Автоматично отваряне на вратата"
+      },
+      "anion": {
+        "name": "Анион"
+      },
+      "humidify": {
+        "name": "Овлажняване"
+      },
+      "waterions": {
+        "name": "Водни йони"
+      },
+      "anophelifuge": {
+        "name": "Против комари"
+      },
+      "display_on_off": {
+        "name": "Дисплей"
+      },
+      "auto_power_off": {
+        "name": "Автоматично изключване"
+      },
+      "body_feeling_scan": {
+        "name": "Сканиране на присъствие"
+      },
+      "aux_heating": {
+        "name": "Спомагателно нагряване"
+      },
+      "boost_mode": {
+        "name": "Режим Boost"
+      },
+      "breezeless": {
+        "name": "Без течение"
+      },
+      "child_lock": {
+        "name": "Защита от деца"
+      },
+      "cl_sterilization": {
+        "name": "CL стерилизация"
+      },
+      "comfort_mode": {
+        "name": "Комфортен режим"
+      },
+      "degerming": {
+        "name": "Обеззаразяване"
+      },
+      "dhw_power": {
+        "name": "Захранване на БГВ"
+      },
+      "disinfect": {
+        "name": "Дезинфекция"
+      },
+      "furnace_light": {
+        "name": "Осветление на пещта"
+      },
+      "hot_wind": {
+        "name": "Горещ въздух"
+      },
+      "ramadan": {
+        "name": "Рамадан"
+      },
+      "turntable": {
+        "name": "Въртяща се поставка"
+      },
+      "maintenance_reminder": {
+        "name": "Напомняне за поддръжка"
+      },
+      "vacation_mode": {
+        "name": "Ваканционен режим"
+      },
+      "dry": {
+        "name": "Изсушаване"
+      },
+      "cold_water_single": {
+        "name": "Студена вода единично"
+      },
+      "cold_water_dot": {
+        "name": "Студена вода на капки"
+      },
+      "eco_mode": {
+        "name": "ECO режим"
+      },
+      "memory": {
+        "name": "Memo U"
+      },
+      "fast_dhw": {
+        "name": "Бърза БГВ"
+      },
+      "foam_shield": {
+        "name": "Защита от пяна"
+      },
+      "frost_protect": {
+        "name": "Защита от замръзване"
+      },
+      "heating_power": {
+        "name": "Мощност на отоплението"
+      },
+      "indirect_wind": {
+        "name": "Непряк въздух"
+      },
+      "leak_water_protection": {
+        "name": "Защита от теч на вода"
+      },
+      "light": {
+        "name": "Лек"
+      },
+      "link_to_ac": {
+        "name": "Свързване с климатика"
+      },
+      "main_light": {
+        "name": "Основно осветление"
+      },
+      "main_power": {
+        "name": "Основно захранване"
+      },
+      "natural_wind": {
+        "name": "Естествен вятър"
+      },
+      "night_light": {
+        "name": "Нощно осветление"
+      },
+      "oscillate": {
+        "name": "Осцилиране"
+      },
+      "power": {
+        "name": "Мощност"
+      },
+      "powerful_purify": {
+        "name": "Мощно пречистване"
+      },
+      "prompt_tone": {
+        "name": "Звуков сигнал"
+      },
+      "regeneration": {
+        "name": "Регенерация"
+      },
+      "water_pump": {
+        "name": "Водна помпа"
+      },
+      "water_way": {
+        "name": "Начин на подаване на вода"
+      },
+      "screen_display": {
+        "name": "Показване на екрана"
+      },
+      "screen_display_alternate": {
+        "name": "Алтернативно показване на екрана"
+      },
+      "sensor_light": {
+        "name": "Сензорно осветление"
+      },
+      "silent_mode": {
+        "name": "Тих режим"
+      },
+      "sleep_mode": {
+        "name": "Режим сън"
+      },
+      "out_silent": {
+        "name": "Тих режим на външния блок"
+      },
+      "smart_eye": {
+        "name": "Smart Eye"
+      },
+      "smart_volume": {
+        "name": "Интелигентна сила на звука"
+      },
+      "smelly_sensor": {
+        "name": "Сензор за миризми"
+      },
+      "soften": {
+        "name": "Омекотяване"
+      },
+      "standby": {
+        "name": "В готовност"
+      },
+      "start": {
+        "name": "Старт"
+      },
+      "sterilization": {
+        "name": "Стерилизация"
+      },
+      "storage": {
+        "name": "Съхранение"
+      },
+      "swing": {
+        "name": "Люлеене"
+      },
+      "swing_horizontal": {
+        "name": "Хоризонтално люлеене"
+      },
+      "swing_vertical": {
+        "name": "Вертикално люлеене"
+      },
+      "self_clean": {
+        "name": "Самопочистване"
+      },
+      "ieco": {
+        "name": "iECO"
+      },
+      "sound": {
+        "name": "Звук"
+      },
+      "tbh": {
+        "name": "TBH"
+      },
+      "variable_heating": {
+        "name": "Променливо нагряване"
+      },
+      "ventilation": {
+        "name": "Вентилация"
+      },
+      "whole_tank_heating": {
+        "name": "Нагряване на целия резервоар"
+      },
+      "zero_cold_pulse": {
+        "name": "Нулева студена вода (импулс)"
+      },
+      "zero_cold_water": {
+        "name": "Нулева студена вода"
+      },
+      "zone1_curve": {
+        "name": "Крива на зона 1"
+      },
+      "zone1_power": {
+        "name": "Захранване на зона 1"
+      },
+      "zone2_curve": {
+        "name": "Крива на зона 2"
+      },
+      "zone2_power": {
+        "name": "Захранване на зона 2"
+      },
+      "boiling": {
+        "name": "Кипване на вода"
+      },
+      "tea_bar_boil": {
+        "name": "Превключвател за кипване на вода"
+      },
+      "tea_bar_child_lock": {
+        "name": "Защита от деца"
+      },
+      "keep_warm": {
+        "name": "Поддържане на топлина"
+      },
+      "tea_bar_cooling": {
+        "name": "Охлаждане на чаения бар"
+      },
+      "screen_off": {
+        "name": "Изключен екран"
+      },
+      "wash": {
+        "name": "Измиване на филтъра"
+      },
+      "antifreeze": {
+        "name": "Против замръзване"
+      },
+      "heat": {
+        "name": "Отопление"
+      },
+      "holiday_on": {
+        "name": "Режим — Ваканция"
+      },
+      "dhw_disinfect": {
+        "name": "БГВ — Дезинфекция"
+      },
+      "ai_voice_microphone": {
+        "name": "Микрофон на гласовия асистент"
+      },
+      "total_lock": {
+        "name": "Защита от деца"
+      },
+      "total_power": {
+        "name": "Мощност"
+      },
+      "lock": {
+        "name": "Защита от деца"
+      },
+      "camera": {
+        "name": "Камера"
+      },
+      "dryer_sterilize": {
+        "name": "Многоизмерна стерилизация"
+      },
+      "dryer_anti_wrinkle": {
+        "name": "Интелигентно против намачкване"
+      },
+      "washer_forget_free": {
+        "name": "Безгрижна грижа"
+      }
+    },
+    "water_heater": {
+      "domestic_hot_water": {
+        "name": "Битова гореща вода"
+      },
+      "bathing": {
+        "name": "Къпане"
+      },
+      "heating": {
+        "name": "Нагряване"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "ip_address": "IP адрес",
+          "refresh_interval": "Интервал на опресняване (0 означава без активно опресняване)",
+          "sensors": "Допълнителни сензори",
+          "switches": "Допълнителни контроли",
+          "customize": "Персонализиране",
+          "account": "Облачен акаунт на Midea (за сензорите за статистика на употребата)",
+          "password": "Парола за облачния акаунт на Midea (за сензорите за статистика на употребата)",
+          "server": "Облачен сървър на акаунта в Midea (за сензорите за статистика на употребата)"
+        },
+        "title": "Конфигуриране"
+      }
+    },
+    "abort": {
+      "account_option": "Акаунтът не поддържа тази операция.\nНатиснете „ДОБАВИ УСТРОЙСТВО“, за да добавите ново устройство."
+    }
+  },
+  "services": {
+    "set_attribute": {
+      "name": "Задаване на атрибут",
+      "description": "Задаване на стойността на атрибут на устройството",
+      "fields": {
+        "device_id": {
+          "name": "Код на уреда",
+          "description": "Кодът на уреда (ID на устройството) на уреда"
+        },
+        "attribute": {
+          "name": "Атрибут",
+          "description": "Името на атрибута, който искате да зададете"
+        },
+        "value": {
+          "name": "Стойност",
+          "description": "Стойността на атрибута, която искате да зададете"
+        }
+      }
+    },
+    "send_command": {
+      "name": "Персонализирана команда",
+      "description": "Изпращане на персонализирана команда до устройството",
+      "fields": {
+        "device_id": {
+          "name": "Код на уреда",
+          "description": "Кодът на уреда (ID на устройството) на уреда"
+        },
+        "cmd_type": {
+          "name": "Тип команда",
+          "description": "Типът на командата, трябва да е 3 (запитване) или 2 (задаване)"
+        },
+        "cmd_body": {
+          "name": "Тяло на командата",
+          "description": "Тялото на командата (без MSmart протоколната глава и контролната сума в края)"
+        }
+      }
+    }
+  }
+}

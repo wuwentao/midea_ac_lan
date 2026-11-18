@@ -1,0 +1,4402 @@
+{
+  "config": {
+    "error": {
+      "preset_account": "Falha ao iniciar sessão com a conta predefinida, por favor reporte este problema",
+      "login_failed": "Falha ao iniciar sessão, a conta ou a palavra-passe estavam incorretas",
+      "no_devices": "Não foram encontrados novos aparelhos disponíveis na rede",
+      "device_exist": "O aparelho já está configurado",
+      "config_incorrect": "A configuração está incorreta",
+      "connect_error": "Não é possível ligar ao aparelho",
+      "invalid_token": "Token ou Key num formato incorreto"
+    },
+    "step": {
+      "user": {
+        "data": {
+          "way": "A adicionar aparelhos"
+        },
+        "description": "Escolha a forma de adicionar um aparelho",
+        "title": "Adicionar novo aparelho"
+      },
+      "login": {
+        "data": {
+          "account": "Conta",
+          "password": "Palavra-passe"
+        },
+        "description": "Inicie sessão e obtenha o Token do aparelho.\n\n\nAtualmente, apenas contas pessoais SmartHome e Meiju conseguem obter os Tokens dos aparelhos. Consulte o documento README para mais detalhes.",
+        "title": "Iniciar sessão"
+      },
+      "discovery": {
+        "description": "Endereço IP do dispositivo, introduza \"auto\" para descobrir automaticamente\nTambém pode usar um endereço IP para pesquisar dentro de uma rede específica, como \"192.168.1.255\"",
+        "title": "Pesquisar",
+        "data": {
+          "ip_address": "Endereço IP"
+        }
+      },
+      "list": {
+        "description": "{table}",
+        "title": "Aparelhos"
+      },
+      "auto": {
+        "data": {
+          "device": "Aparelhos"
+        },
+        "description": "Escolha um aparelho para adicionar",
+        "title": "Novo aparelho encontrado"
+      },
+      "manually": {
+        "data": {
+          "name": "Nome (por ex. AC da sala)",
+          "device_id": "Código do aparelho",
+          "type": "Tipo",
+          "ip_address": "Endereço IP",
+          "port": "Porta",
+          "model": "Modelo",
+          "subtype": "Subtipo",
+          "protocol": "Protocolo",
+          "token": "Token",
+          "key": "Key"
+        },
+        "description": "Configuração do aparelho",
+        "title": "Novo aparelho"
+      }
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "door_auto_open": {
+        "name": "Abertura automática da porta do último programa"
+      },
+      "uv": {
+        "name": "UV"
+      },
+      "dry": {
+        "name": "Secar"
+      },
+      "dry_status": {
+        "name": "A secar"
+      },
+      "storage_status": {
+        "name": "Armazenamento em funcionamento"
+      },
+      "waterswitch": {
+        "name": "Interruptor de água"
+      },
+      "water_lack": {
+        "name": "Falta de água"
+      },
+      "wifi_unabled": {
+        "name": "Wi-Fi desativado"
+      },
+      "auto_throw": {
+        "name": "Dispensa automática"
+      },
+      "lock_power": {
+        "name": "Bloqueio de energia"
+      },
+      "beep_control": {
+        "name": "Som"
+      },
+      "light_btn_on": {
+        "name": "Luz dos botões"
+      },
+      "light_strip_on": {
+        "name": "Fita de luz"
+      },
+      "warm_power": {
+        "name": "Potência de aquecimento"
+      },
+      "cold_power": {
+        "name": "Potência de arrefecimento"
+      },
+      "sleep_power": {
+        "name": "Potência em repouso"
+      },
+      "pump_on": {
+        "name": "Bomba ligada"
+      },
+      "bar_door": {
+        "name": "Porta do bar"
+      },
+      "bar_door_overtime": {
+        "name": "Porta do bar aberta há demasiado tempo"
+      },
+      "bathing_working": {
+        "name": "Estado de funcionamento do banho"
+      },
+      "bottom_compartment_cooling": {
+        "name": "Arrefecimento do compartimento inferior"
+      },
+      "bottom_compartment_door": {
+        "name": "Porta do compartimento inferior"
+      },
+      "bottom_compartment_preheating": {
+        "name": "Pré-aquecimento do compartimento inferior"
+      },
+      "burning_state": {
+        "name": "Estado de combustão"
+      },
+      "clean_scale": {
+        "name": "Descalcificação"
+      },
+      "clean_sink_ponding": {
+        "name": "Água acumulada no lava-loiça"
+      },
+      "cleaning_reminder": {
+        "name": "Lembrete de limpeza"
+      },
+      "compressor_status": {
+        "name": "Estado do compressor"
+      },
+      "cooking": {
+        "name": "A cozinhar"
+      },
+      "dissipate_heat": {
+        "name": "Dissipação de calor"
+      },
+      "door": {
+        "name": "Porta"
+      },
+      "error_code": {
+        "name": "Código de erro"
+      },
+      "filter_change_reminder": {
+        "name": "Lembrete de substituição do filtro"
+      },
+      "filter_cleaning_reminder": {
+        "name": "Lembrete de limpeza do filtro"
+      },
+      "finished": {
+        "name": "Concluído"
+      },
+      "flex_zone_door": {
+        "name": "Porta flexível"
+      },
+      "flex_zone_door_overtime": {
+        "name": "Porta da zona flexível"
+      },
+      "flip_side": {
+        "name": "Virar o lado"
+      },
+      "freezer_door": {
+        "name": "Porta do congelador"
+      },
+      "freezer_door_overtime": {
+        "name": "Porta do congelador aberta há demasiado tempo"
+      },
+      "full_dust": {
+        "name": "Cheio de pó"
+      },
+      "heating": {
+        "name": "A aquecer"
+      },
+      "dispensing": {
+        "name": "A dispensar água"
+      },
+      "lack_water": {
+        "name": "Falta de água"
+      },
+      "standby": {
+        "name": "Em espera"
+      },
+      "hot_water_dispensing": {
+        "name": "A dispensar água quente"
+      },
+      "fault": {
+        "name": "Avaria"
+      },
+      "heating_working": {
+        "name": "Estado de funcionamento do aquecimento"
+      },
+      "high_temperature": {
+        "name": "Temperatura elevada"
+      },
+      "high_temperature_lock": {
+        "name": "Bloqueio por temperatura elevada"
+      },
+      "high_temperature_work": {
+        "name": "Funcionamento a temperatura elevada"
+      },
+      "keep_warm": {
+        "name": "Manter quente"
+      },
+      "leak_water": {
+        "name": "Fuga de água"
+      },
+      "lid_status": {
+        "name": "Estado da tampa"
+      },
+      "middle_compartment_cooling": {
+        "name": "Arrefecimento do compartimento central"
+      },
+      "middle_compartment_door": {
+        "name": "Porta do compartimento central"
+      },
+      "middle_compartment_preheating": {
+        "name": "Pré-aquecimento do compartimento central"
+      },
+      "pre_heat": {
+        "name": "Pré-aquecer"
+      },
+      "probe": {
+        "name": "Sonda"
+      },
+      "probe_mode": {
+        "name": "Modo sonda"
+      },
+      "reaction": {
+        "name": "Reação"
+      },
+      "top_elec_heat": {
+        "name": "Aquecimento elétrico superior"
+      },
+      "bottom_elec_heat": {
+        "name": "Aquecimento elétrico inferior"
+      },
+      "mute_effect": {
+        "name": "Efeito de silêncio"
+      },
+      "mute_status": {
+        "name": "Estado de silêncio"
+      },
+      "multi_terminal": {
+        "name": "Multiterminal"
+      },
+      "oilcup_full": {
+        "name": "Copo de óleo cheio"
+      },
+      "protection": {
+        "name": "Proteção"
+      },
+      "refrigerator_door": {
+        "name": "Porta do frigorífico"
+      },
+      "refrigerator_door_overtime": {
+        "name": "Porta do frigorífico aberta há demasiado tempo"
+      },
+      "rinse_aid": {
+        "name": "Falta de abrilhantador"
+      },
+      "rsj_stand_by": {
+        "name": "Em espera"
+      },
+      "salt": {
+        "name": "Falta de sal"
+      },
+      "seat_status": {
+        "name": "Estado do assento"
+      },
+      "smart_grid": {
+        "name": "Rede inteligente"
+      },
+      "eco": {
+        "name": "ECO"
+      },
+      "maintenance_reminder": {
+        "name": "Lembrete de manutenção"
+      },
+      "dr_enable": {
+        "name": "Resposta à procura"
+      },
+      "electric_rod_exception": {
+        "name": "Avaria do aquecedor elétrico"
+      },
+      "ac_heater_priority": {
+        "name": "Prioridade da bomba de calor"
+      },
+      "high_temp_reminder": {
+        "name": "Lembrete de temperatura elevada"
+      },
+      "new_version_water_heater": {
+        "name": "Protocolo alargado do termoacumulador"
+      },
+      "heat_recovery_status": {
+        "name": "Recuperação de calor"
+      },
+      "holiday_mode": {
+        "name": "Modo de férias"
+      },
+      "hybrid_motion_mode": {
+        "name": "Modo de movimento híbrido"
+      },
+      "support_boost_mode": {
+        "name": "Suporte do modo Boost"
+      },
+      "support_silent_mode": {
+        "name": "Suporte do modo silencioso"
+      },
+      "support_remaining_hot_water": {
+        "name": "Suporte de água quente restante"
+      },
+      "support_electric_mode": {
+        "name": "Suporte do modo elétrico"
+      },
+      "support_auto_disinfect": {
+        "name": "Suporte de desinfeção automática"
+      },
+      "support_force_e_heating": {
+        "name": "Suporte de aquecimento elétrico forçado"
+      },
+      "support_tou": {
+        "name": "Suporte de tarifa horária"
+      },
+      "support_ac_heater_priority": {
+        "name": "Suporte de prioridade da bomba de calor"
+      },
+      "support_heat_recovery": {
+        "name": "Suporte de recuperação de calor"
+      },
+      "support_heat_pump_mode": {
+        "name": "Suporte do modo bomba de calor"
+      },
+      "support_smart_mode": {
+        "name": "Suporte do modo inteligente"
+      },
+      "support_negative_temperature": {
+        "name": "Suporte de temperatura negativa"
+      },
+      "maintain_warn": {
+        "name": "Aviso de manutenção"
+      },
+      "order1_effect": {
+        "name": "Programação 1 ativa"
+      },
+      "order2_effect": {
+        "name": "Programação 2 ativa"
+      },
+      "status_dhw": {
+        "name": "Estado de AQS"
+      },
+      "status_heating": {
+        "name": "Estado do aquecimento"
+      },
+      "status_ibh": {
+        "name": "Estado do IBH"
+      },
+      "status_tbh": {
+        "name": "Estado do TBH"
+      },
+      "tank_ejected": {
+        "name": "Depósito ejetado"
+      },
+      "tank_full": {
+        "name": "Estado do depósito"
+      },
+      "top_compartment_cooling": {
+        "name": "Arrefecimento do compartimento superior"
+      },
+      "top_compartment_door": {
+        "name": "Porta do compartimento superior"
+      },
+      "top_compartment_preheating": {
+        "name": "Pré-aquecimento do compartimento superior"
+      },
+      "water_change_reminder": {
+        "name": "Lembrete de mudança de água"
+      },
+      "water_shortage": {
+        "name": "Falta de água"
+      },
+      "with_pressure": {
+        "name": "Com pressão"
+      },
+      "zone1_room_temp_mode": {
+        "name": "Zona1 modo temperatura ambiente"
+      },
+      "zone1_water_temp_mode": {
+        "name": "Zona1 modo temperatura da água"
+      },
+      "zone2_room_temp_mode": {
+        "name": "Zona2 modo temperatura ambiente"
+      },
+      "zone2_water_temp_mode": {
+        "name": "Zona2 modo temperatura da água"
+      },
+      "microcrystal_fresh": {
+        "name": "Frescura microcristalina"
+      },
+      "electronic_smell": {
+        "name": "Desodorização e esterilização"
+      },
+      "water_pump_running": {
+        "name": "Bomba de água em funcionamento"
+      },
+      "filter_status": {
+        "name": "Alarme do filtro"
+      },
+      "standby_status": {
+        "name": "Estado em espera"
+      },
+      "out_water": {
+        "name": "Saída de água"
+      },
+      "out_hot_water": {
+        "name": "Saída de água quente"
+      },
+      "backflow": {
+        "name": "Refluxo"
+      },
+      "sleep_status": {
+        "name": "Estado de suspensão"
+      },
+      "status_cool": {
+        "name": "Estado - Arrefecimento"
+      },
+      "eco_function_state": {
+        "name": "Modo - Função ECO"
+      },
+      "eco_timer_state": {
+        "name": "Modo - Temporizador ECO"
+      },
+      "double_zone": {
+        "name": "Capacidade - Dupla zona"
+      },
+      "room_thermal_support": {
+        "name": "Capacidade - Termóstato de divisão"
+      },
+      "room_thermal_state": {
+        "name": "Estado - Termóstato de divisão"
+      },
+      "time_set": {
+        "name": "Capacidade - Acerto da hora"
+      },
+      "disinfect_run": {
+        "name": "AQS - Desinfeção em curso"
+      },
+      "remote_onoff": {
+        "name": "Capacidade - Ligar/desligar remoto"
+      },
+      "tbh_control": {
+        "name": "Capacidade - Controlo do TBH"
+      },
+      "heat_capability": {
+        "name": "Capacidade - Aquecimento"
+      },
+      "cool_capability": {
+        "name": "Capacidade - Arrefecimento"
+      },
+      "dhw_capability": {
+        "name": "Capacidade - AQS"
+      },
+      "sys_energy_ana_en": {
+        "name": "Capacidade - Análise de energia (Sistema)"
+      },
+      "hmi_energy_ana_set_en": {
+        "name": "Capacidade - Análise de energia (HMI)"
+      },
+      "pump_i_running": {
+        "name": "Pump_I - Interna"
+      },
+      "pump_o_running": {
+        "name": "Pump_O - Externa"
+      },
+      "pump_d_running": {
+        "name": "Pump_D - AQS"
+      },
+      "pump_c_running": {
+        "name": "Pump_C - Circuito de água misturada zona 2"
+      },
+      "pump_s_running": {
+        "name": "Pump_S - Solar"
+      },
+      "sv1_open": {
+        "name": "SV1 - Válvula (AQS)"
+      },
+      "sv2_open": {
+        "name": "SV2 - Válvula (Aquecimento)"
+      },
+      "load_output_tbh": {
+        "name": "Aquecedor - Reserva do depósito (TBH)"
+      },
+      "compressor_on": {
+        "name": "Compressor - Em funcionamento"
+      },
+      "ibh1_on": {
+        "name": "Aquecedor - IBH1"
+      },
+      "ibh2_on": {
+        "name": "Aquecedor - IBH2"
+      },
+      "sv3_open": {
+        "name": "SV3 - Válvula"
+      },
+      "crankcase_heater_on": {
+        "name": "Aquecedor - Cárter"
+      },
+      "alarm_on": {
+        "name": "Erro - Alarme"
+      },
+      "aux_heat_on": {
+        "name": "Aquecedor - Fonte auxiliar"
+      },
+      "ac_air_direction": {
+        "name": "Direção do ar do AC"
+      },
+      "ac_cooling_fan": {
+        "name": "Ventoinha de arrefecimento do AC"
+      },
+      "ac_draining_pump": {
+        "name": "Bomba de drenagem do AC"
+      },
+      "ac_low_temperature": {
+        "name": "Temperatura baixa do AC"
+      },
+      "ac_over_temperature": {
+        "name": "Temperatura excessiva do AC"
+      },
+      "ac_swing": {
+        "name": "Oscilação do AC"
+      },
+      "ac_water_full": {
+        "name": "Água cheia do AC"
+      },
+      "b2_downstair_clean_tips": {
+        "name": "Avisos de limpeza inferior do forno a vapor"
+      },
+      "b2_downstair_door": {
+        "name": "Porta inferior do forno a vapor"
+      },
+      "b2_downstair_fresh_water": {
+        "name": "Água limpa inferior do forno a vapor"
+      },
+      "b2_downstair_light": {
+        "name": "Luz inferior do forno a vapor"
+      },
+      "b2_downstair_lock": {
+        "name": "Bloqueio inferior do forno a vapor"
+      },
+      "b2_downstair_must_clean_tips": {
+        "name": "Avisos de limpeza obrigatória inferior do forno a vapor"
+      },
+      "b2_downstair_water_shortage": {
+        "name": "Falta de água inferior do forno a vapor"
+      },
+      "b2_upstair_clean_tips": {
+        "name": "Avisos de limpeza superior do forno a vapor"
+      },
+      "b2_upstair_door": {
+        "name": "Porta superior do forno a vapor"
+      },
+      "b2_upstair_fresh_water": {
+        "name": "Água limpa superior do forno a vapor"
+      },
+      "b2_upstair_light": {
+        "name": "Luz superior do forno a vapor"
+      },
+      "b2_upstair_lock": {
+        "name": "Bloqueio superior do forno a vapor"
+      },
+      "b2_upstair_must_clean_tips": {
+        "name": "Avisos de limpeza obrigatória superior do forno a vapor"
+      },
+      "b2_upstair_water_shortage": {
+        "name": "Falta de água superior do forno a vapor"
+      },
+      "b3_downstair_door": {
+        "name": "Porta inferior do armário a vapor"
+      },
+      "b3_downstair_door_lock": {
+        "name": "Bloqueio da porta inferior do armário a vapor"
+      },
+      "b3_downstair_infrared": {
+        "name": "Infravermelhos inferior do armário a vapor"
+      },
+      "b3_downstair_ultraviolet": {
+        "name": "Ultravioleta inferior do armário a vapor"
+      },
+      "b3_upstair_door": {
+        "name": "Porta superior do armário a vapor"
+      },
+      "b3_upstair_door_lock": {
+        "name": "Bloqueio da porta superior do armário a vapor"
+      },
+      "b3_upstair_infrared": {
+        "name": "Infravermelhos superior do armário a vapor"
+      },
+      "b3_upstair_ultraviolet": {
+        "name": "Ultravioleta superior do armário a vapor"
+      },
+      "b6_tvoc_status": {
+        "name": "Estado de TVOC do exaustor"
+      },
+      "b6_delay_gear_linkage": {
+        "name": "Ligação da velocidade com atraso do exaustor"
+      },
+      "b6_delay_time": {
+        "name": "Tempo de atraso do exaustor"
+      },
+      "b6_gesture_status": {
+        "name": "Estado de gestos do exaustor"
+      },
+      "b6_infrared_status": {
+        "name": "Estado de infravermelhos do exaustor"
+      },
+      "b6_lock": {
+        "name": "Bloqueio do exaustor"
+      },
+      "b6_power_on_light": {
+        "name": "Luz ao ligar do exaustor"
+      },
+      "b6_smoke_detector": {
+        "name": "Detetor de fumo do exaustor"
+      },
+      "b6_smoke_stove_linkage": {
+        "name": "Ligação fumo-fogão do exaustor"
+      },
+      "b7_left_dry_burning": {
+        "name": "Combustão a seco esquerda do fogão a gás"
+      },
+      "b7_left_dry_burning_invalid": {
+        "name": "Combustão a seco esquerda inválida do fogão a gás"
+      },
+      "b7_left_gas_leakage": {
+        "name": "Fuga de gás esquerda do fogão a gás"
+      },
+      "b7_left_has_fire": {
+        "name": "Chama presente à esquerda do fogão a gás"
+      },
+      "b7_left_has_pot": {
+        "name": "Panela presente à esquerda do fogão a gás"
+      },
+      "b7_right_dry_burning": {
+        "name": "Combustão a seco direita do fogão a gás"
+      },
+      "b7_right_dry_burning_invalid": {
+        "name": "Combustão a seco direita inválida do fogão a gás"
+      },
+      "b7_right_gas_leakage": {
+        "name": "Fuga de gás direita do fogão a gás"
+      },
+      "b7_right_has_fire": {
+        "name": "Chama presente à direita do fogão a gás"
+      },
+      "b7_right_has_pot": {
+        "name": "Panela presente à direita do fogão a gás"
+      },
+      "bf_door": {
+        "name": "Porta do forno"
+      },
+      "bf_error": {
+        "name": "Erro do forno"
+      },
+      "bf_flip": {
+        "name": "Virar do forno"
+      },
+      "bf_hightemp_error": {
+        "name": "Erro de temperatura elevada do forno"
+      },
+      "bf_hightemp_lock": {
+        "name": "Bloqueio por temperatura elevada do forno"
+      },
+      "bf_hightemp_over": {
+        "name": "Temperatura elevada excedida do forno"
+      },
+      "bf_hotwind": {
+        "name": "Ar quente do forno"
+      },
+      "bf_hotwind_set": {
+        "name": "Definição de ar quente do forno"
+      },
+      "bf_hydrops_full": {
+        "name": "Reservatório de condensação cheio do forno"
+      },
+      "bf_light": {
+        "name": "Luz do forno"
+      },
+      "bf_lock": {
+        "name": "Bloqueio do forno"
+      },
+      "bf_off_fromapp": {
+        "name": "Forno desligado pela app"
+      },
+      "bf_on_smart": {
+        "name": "Forno ligado em modo inteligente"
+      },
+      "bf_order": {
+        "name": "Agendamento do forno"
+      },
+      "bf_order_time_isabsolute": {
+        "name": "Hora de agendamento do forno é absoluta"
+      },
+      "bf_overheat": {
+        "name": "Sobreaquecimento do forno"
+      },
+      "bf_preheat": {
+        "name": "Pré-aquecimento do forno"
+      },
+      "bf_preheat_done": {
+        "name": "Pré-aquecimento do forno concluído"
+      },
+      "bf_preheat_set": {
+        "name": "Definição de pré-aquecimento do forno"
+      },
+      "bf_probe": {
+        "name": "Sonda do forno"
+      },
+      "bf_probe_meat": {
+        "name": "Sonda de carne do forno"
+      },
+      "bf_radiating": {
+        "name": "Forno a irradiar"
+      },
+      "bf_repair_cook": {
+        "name": "Cozedura de reparação do forno"
+      },
+      "bf_sabbath": {
+        "name": "Modo Sabbath do forno"
+      },
+      "bf_scalehandling_remind": {
+        "name": "Lembrete de descalcificação do forno"
+      },
+      "bf_sensor": {
+        "name": "Sensor do forno"
+      },
+      "bf_stove_1": {
+        "name": "Queimador 1 do forno"
+      },
+      "bf_stove_2": {
+        "name": "Queimador 2 do forno"
+      },
+      "bf_stove_3": {
+        "name": "Queimador 3 do forno"
+      },
+      "bf_stove_4": {
+        "name": "Queimador 4 do forno"
+      },
+      "bf_stove_5": {
+        "name": "Queimador 5 do forno"
+      },
+      "bf_temp_fahrenheit": {
+        "name": "Temperatura do forno em Fahrenheit"
+      },
+      "bf_time_synchronization": {
+        "name": "Sincronização da hora do forno"
+      },
+      "bf_turntable": {
+        "name": "Prato giratório do forno"
+      },
+      "bf_turntable_reset": {
+        "name": "Reposição do prato giratório do forno"
+      },
+      "bf_upload_interval": {
+        "name": "Intervalo de envio do forno"
+      },
+      "bf_voice_identify": {
+        "name": "Identificação de voz do forno"
+      },
+      "bf_voice_module": {
+        "name": "Módulo de voz do forno"
+      },
+      "bf_water_box": {
+        "name": "Reservatório de água do forno"
+      },
+      "bf_water_change": {
+        "name": "Mudança de água do forno"
+      },
+      "bf_water_shortage": {
+        "name": "Falta de água do forno"
+      },
+      "bf_wintersummertime": {
+        "name": "Horário de inverno/verão do forno"
+      },
+      "e7_left_bottom_has_pot": {
+        "name": "Panela presente na base esquerda da indução"
+      },
+      "e7_left_has_pot": {
+        "name": "Panela presente à esquerda da indução"
+      },
+      "e7_left_top_has_pot": {
+        "name": "Panela presente no topo esquerdo da indução"
+      },
+      "e7_right_bottom_has_pot": {
+        "name": "Panela presente na base direita da indução"
+      },
+      "e7_right_has_pot": {
+        "name": "Panela presente à direita da indução"
+      },
+      "e7_right_top_has_pot": {
+        "name": "Panela presente no topo direito da indução"
+      },
+      "sp_fandrying_door": {
+        "name": "Porta da secagem por ventoinha do prato"
+      },
+      "sp_fandrying_setting_automode": {
+        "name": "Modo automático da secagem por ventoinha do prato"
+      },
+      "sp_fandrying_setting_linkage": {
+        "name": "Ligação da secagem por ventoinha do prato"
+      },
+      "sp_fandrying_setting_linkcooker": {
+        "name": "Ligação ao fogão da secagem por ventoinha do prato"
+      },
+      "sp_fandrying_setting_sync": {
+        "name": "Sincronização da secagem por ventoinha do prato"
+      },
+      "sp_heatingdisk_door": {
+        "name": "Porta da placa de aquecimento do prato"
+      },
+      "sp_heatingdisk_setting_automode": {
+        "name": "Modo automático da placa de aquecimento do prato"
+      },
+      "sp_heatingdisk_setting_linkage": {
+        "name": "Ligação da placa de aquecimento do prato"
+      },
+      "sp_heatingdisk_setting_linkcooker": {
+        "name": "Ligação ao fogão da placa de aquecimento do prato"
+      },
+      "sp_heatingdisk_setting_sync": {
+        "name": "Sincronização da placa de aquecimento do prato"
+      },
+      "sp_uvc_door": {
+        "name": "Porta UVC do prato"
+      },
+      "sp_uvc_setting_automode": {
+        "name": "Modo automático UVC do prato"
+      },
+      "sp_uvc_setting_linkage": {
+        "name": "Ligação UVC do prato"
+      },
+      "sp_uvc_setting_linkcooker": {
+        "name": "Ligação ao fogão UVC do prato"
+      },
+      "sp_uvc_setting_sync": {
+        "name": "Sincronização UVC do prato"
+      },
+      "total_water_shortage": {
+        "name": "Falta de água"
+      },
+      "door_open": {
+        "name": "Porta aberta"
+      },
+      "turntable": {
+        "name": "Prato giratório"
+      },
+      "lack_box": {
+        "name": "Falta de reservatório"
+      },
+      "change_water": {
+        "name": "Lembrete de mudança de água"
+      },
+      "ramadan": {
+        "name": "Ramadão"
+      },
+      "ota": {
+        "name": "OTA"
+      },
+      "laundry_appointment": {
+        "name": "Reserva"
+      }
+    },
+    "button": {
+      "start_delayed": {
+        "name": "Início adiado"
+      },
+      "pause": {
+        "name": "Pausar"
+      },
+      "resume": {
+        "name": "Retomar"
+      },
+      "cancel": {
+        "name": "Cancelar"
+      },
+      "start": {
+        "name": "Iniciar"
+      },
+      "laundry_cancel_appointment": {
+        "name": "Cancelar reserva"
+      }
+    },
+    "climate": {
+      "climate_zone1": {
+        "name": "Termóstato da zona1"
+      },
+      "climate_zone2": {
+        "name": "Termóstato da zona2"
+      },
+      "climate_key": {
+        "state_attributes": {
+          "fan_mode": {
+            "state": {
+              "silent": "Silencioso",
+              "full": "Cheio"
+            }
+          }
+        }
+      }
+    },
+    "fan": {
+      "bgf10000": {
+        "state_attributes": {
+          "preset_mode": {
+            "state": {
+              "normal": "Normal",
+              "forest": "Floresta",
+              "beach": "Praia",
+              "countryside": "Campo",
+              "baby": "Brisa de bebé",
+              "sleep_1": "Suspensão 1",
+              "sleep_2": "Suspensão 2",
+              "strong": "Forte"
+            }
+          }
+        }
+      },
+      "fresh_air": {
+        "name": "Ar fresco"
+      },
+      "fresh_air_exhaust": {
+        "name": "Extração de ar fresco"
+      }
+    },
+    "lock": {
+      "child_lock": {
+        "name": "Bloqueio infantil"
+      }
+    },
+    "number": {
+      "delay_minutes": {
+        "name": "Atraso"
+      },
+      "wash_region": {
+        "name": "Zona de lavagem"
+      },
+      "water_level": {
+        "name": "Nível de água"
+      },
+      "water_strong_level": {
+        "name": "Nível de pressão de água"
+      },
+      "heating_target_temperature": {
+        "name": "Temperatura-alvo de aquecimento"
+      },
+      "dry_level": {
+        "name": "Nível de secagem"
+      },
+      "heating_level": {
+        "name": "Nível de aquecimento"
+      },
+      "seat_temp_level": {
+        "name": "Nível de temperatura do assento"
+      },
+      "water_temp_level": {
+        "name": "Nível de temperatura da água"
+      },
+      "fan_speed_percent": {
+        "name": "Percentagem de velocidade da ventoinha"
+      },
+      "vacation_days": {
+        "name": "Dias de férias"
+      },
+      "max_temperature": {
+        "name": "Temperatura-alvo máxima"
+      },
+      "disinfection_temperature": {
+        "name": "Temperatura de desinfeção"
+      },
+      "schedule_mode": {
+        "name": "Modo de programação"
+      },
+      "leak_water_protection_value": {
+        "name": "Valor de proteção contra fugas de água"
+      },
+      "flushing_days": {
+        "name": "Dias de regeneração"
+      },
+      "water_hardness": {
+        "name": "Dureza da água"
+      },
+      "boil_temperature": {
+        "name": "Temperatura-alvo de fervura"
+      },
+      "keep_warm_time": {
+        "name": "Tempo de manutenção de calor"
+      },
+      "ai_voice_volume": {
+        "name": "Volume da voz da IA"
+      },
+      "screen_luminance": {
+        "name": "Luminosidade do ecrã"
+      },
+      "volume": {
+        "name": "Volume"
+      },
+      "temperature_number": {
+        "name": "Temperatura-alvo"
+      },
+      "temperature_above_number": {
+        "name": "Temperatura-alvo superior"
+      },
+      "temperature_underside_number": {
+        "name": "Temperatura-alvo inferior"
+      },
+      "probe_temperature_number": {
+        "name": "Temperatura-alvo da sonda"
+      },
+      "steam_quantity_number": {
+        "name": "Quantidade de vapor"
+      },
+      "hour_set": {
+        "name": "Acerto da hora"
+      },
+      "minute_set": {
+        "name": "Acerto dos minutos"
+      },
+      "second_set": {
+        "name": "Acerto dos segundos"
+      },
+      "dryer_timed_extra": {
+        "name": "Extensão da secagem temporizada"
+      }
+    },
+    "select": {
+      "cur_quantify": {
+        "name": "Predefinição de quantidade atual",
+        "state": {
+          "none": "Nenhum",
+          "preset_1": "Predefinição 1",
+          "preset_2": "Predefinição 2",
+          "preset_3": "Predefinição 3",
+          "preset_4": "Predefinição 4",
+          "preset_5": "Predefinição 5"
+        }
+      },
+      "wash_mode_76000228": {
+        "name": "Modo de lavagem",
+        "state": {
+          "neutral_gear": "Nenhum",
+          "auto_wash": "Automático",
+          "strong_wash": "Intensivo",
+          "standard_wash": "Universal",
+          "eco_wash": "ECO",
+          "glass_wash": "Vidro",
+          "hour_wash": "90 min",
+          "fast_wash": "Rápido",
+          "soak_wash": "Demolhar",
+          "90min": "90 min",
+          "self_clean": "Autolimpeza",
+          "fruit_wash": "Fruta",
+          "self_define": "Personalizado",
+          "germ": "Sussurro",
+          "bowl_wash": "Taça",
+          "kill_germ": "Higiene",
+          "sea_food_wash": "Autolimpeza",
+          "hot_pot_wash": "Panela quente",
+          "quiet_night_wash": "Noite tranquila",
+          "less_wash": "Leve",
+          "max_rapid_wash": "Rápido máximo",
+          "oil_net_wash": "Filtro de óleo",
+          "cloud_wash": "Programa na nuvem",
+          "single_dry": "Apenas secar",
+          "single_disinfect": "Apenas desinfetar",
+          "high_temp_wash": "Temperatura elevada",
+          "wash_dry": "Lavar e secar"
+        }
+      },
+      "program_76000228": {
+        "name": "Programa",
+        "state": {
+          "auto_wash": "Automático",
+          "strong_wash": "Intensivo",
+          "standard_wash": "Universal",
+          "eco_wash": "ECO",
+          "glass_wash": "Vidro",
+          "hour_wash": "90 min",
+          "fast_wash": "Rápido",
+          "soak_wash": "Demolhar",
+          "90min": "90 min",
+          "self_clean": "Autolimpeza",
+          "fruit_wash": "Fruta",
+          "self_define": "Personalizado",
+          "germ": "Sussurro",
+          "bowl_wash": "Taça",
+          "kill_germ": "Higiene",
+          "sea_food_wash": "Autolimpeza",
+          "hot_pot_wash": "Panela quente",
+          "quiet_night_wash": "Noite tranquila",
+          "less_wash": "Leve",
+          "max_rapid_wash": "Rápido máximo",
+          "oil_net_wash": "Filtro de óleo",
+          "cloud_wash": "Programa na nuvem",
+          "single_dry": "Apenas secar",
+          "single_disinfect": "Apenas desinfetar",
+          "high_temp_wash": "Temperatura elevada",
+          "wash_dry": "Lavar e secar"
+        }
+      },
+      "program": {
+        "name": "Programa",
+        "state": {
+          "auto_wash": "Automático",
+          "strong_wash": "Intensivo",
+          "standard_wash": "Padrão",
+          "eco_wash": "ECO",
+          "glass_wash": "Vidro",
+          "hour_wash": "1 hora",
+          "fast_wash": "Rápido",
+          "soak_wash": "Demolhar",
+          "90min": "90 min",
+          "self_clean": "Autolimpeza",
+          "fruit_wash": "Fruta",
+          "self_define": "Personalizado",
+          "germ": "Germes",
+          "bowl_wash": "Taça",
+          "kill_germ": "Higiene",
+          "sea_food_wash": "Marisco",
+          "hot_pot_wash": "Panela quente",
+          "quiet_night_wash": "Noite tranquila",
+          "less_wash": "Leve",
+          "max_rapid_wash": "Rápido máximo",
+          "oil_net_wash": "Filtro de óleo",
+          "cloud_wash": "Programa na nuvem",
+          "single_dry": "Apenas secar",
+          "single_disinfect": "Apenas desinfetar",
+          "high_temp_wash": "Temperatura elevada",
+          "wash_dry": "Lavar e secar"
+        }
+      },
+      "load": {
+        "name": "Carga",
+        "state": {
+          "0": "Cheio",
+          "2": "Meia"
+        }
+      },
+      "heating_mode": {
+        "name": "Modo de aquecimento",
+        "state": {
+          "user": "Utilizador",
+          "activity": "Atividade",
+          "sleep": "Repouso",
+          "unknown": "Desconhecido"
+        }
+      },
+      "detect_mode": {
+        "name": "Modo de deteção",
+        "state": {
+          "off": "Desligado",
+          "pm_2_5": "PM 2.5",
+          "methanal": "Metanal"
+        }
+      },
+      "direction": {
+        "name": "Direção",
+        "state": {
+          "oscillate": "Oscilar"
+        }
+      },
+      "fan_speed": {
+        "name": "Velocidade da ventoinha",
+        "state": {
+          "auto": "Automático",
+          "standby": "Em espera",
+          "low": "Baixa",
+          "medium": "Média",
+          "high": "Alta"
+        }
+      },
+      "fresh_air_exhaust_mode": {
+        "name": "Velocidade de extração de ar fresco",
+        "state": {
+          "off": "Desligado",
+          "silent": "Baixa",
+          "high": "Alta",
+          "full": "Cheio"
+        }
+      },
+      "fresh_air_mode": {
+        "name": "Velocidade do ar fresco",
+        "state": {
+          "off": "Desligado",
+          "low": "Baixa",
+          "medium": "Média",
+          "high": "Alta",
+          "full": "Cheio"
+        }
+      },
+      "mode": {
+        "name": "Modo",
+        "state": {
+          "standby": "Em espera",
+          "auto": "Automático",
+          "manual": "Manual",
+          "sleep": "Repouso",
+          "fast": "Rápido",
+          "smoke": "Fumo",
+          "off": "Desligado",
+          "heat_high": "Aquecer (Alto)",
+          "heat_low": "Aquecer (Baixo)",
+          "bath": "Banho",
+          "blow": "Soprar",
+          "ventilation": "Ventilação",
+          "dry": "Secar"
+        }
+      },
+      "oscillation_angle": {
+        "name": "Ângulo de oscilação"
+      },
+      "oscillation_mode": {
+        "name": "Modo de oscilação"
+      },
+      "rate_select": {
+        "name": "Limite da taxa de potência"
+      },
+      "screen_display": {
+        "name": "Visualização no ecrã",
+        "state": {
+          "bright": "Brilhante",
+          "dim": "Ténue",
+          "off": "Desligado"
+        }
+      },
+      "silent_level": {
+        "name": "Nível de silêncio"
+      },
+      "tilting_angle": {
+        "name": "Ângulo de inclinação"
+      },
+      "wash_mode": {
+        "name": "Modo de lavagem",
+        "state": {
+          "neutral_gear": "Nenhum",
+          "auto_wash": "Automático",
+          "strong_wash": "Intensivo",
+          "standard_wash": "Padrão",
+          "eco_wash": "ECO",
+          "glass_wash": "Vidro",
+          "hour_wash": "1 hora",
+          "fast_wash": "Rápido",
+          "soak_wash": "Demolhar",
+          "90min": "90 min",
+          "self_clean": "Autolimpeza",
+          "fruit_wash": "Fruta",
+          "self_define": "Personalizado",
+          "germ": "Germes",
+          "bowl_wash": "Taça",
+          "kill_germ": "Higiene",
+          "sea_food_wash": "Marisco",
+          "hot_pot_wash": "Panela quente",
+          "quiet_night_wash": "Noite tranquila",
+          "less_wash": "Leve",
+          "max_rapid_wash": "Rápido máximo",
+          "oil_net_wash": "Filtro de óleo",
+          "cloud_wash": "Programa na nuvem",
+          "single_dry": "Apenas secar",
+          "single_disinfect": "Apenas desinfetar",
+          "high_temp_wash": "Temperatura elevada",
+          "wash_dry": "Lavar e secar"
+        }
+      },
+      "water_level_set": {
+        "name": "Definição do nível de água"
+      },
+      "wind_lr_angle": {
+        "name": "Fluxo de ar horizontal",
+        "state": {
+          "off": "Desligado",
+          "left": "Esquerda",
+          "left_mid": "Centro-esquerda",
+          "middle": "Centro",
+          "right_mid": "Centro-direita",
+          "right": "Direita"
+        }
+      },
+      "wind_ud_angle": {
+        "name": "Fluxo de ar vertical",
+        "state": {
+          "off": "Desligado",
+          "up": "Cima",
+          "up_mid": "Centro-cima",
+          "middle": "Centro",
+          "down_mid": "Centro-baixo",
+          "down": "Baixo"
+        }
+      },
+      "work_status_select": {
+        "name": "Estado de funcionamento",
+        "state": {
+          "save_power": "Poupar energia",
+          "standby": "Em espera",
+          "work": "Em funcionamento",
+          "pause": "Em pausa",
+          "work_finish": "Concluído",
+          "order": "Atraso",
+          "pause_c": "Em pausa C",
+          "three": "Três",
+          "self_inspection": "Autoinspeção",
+          "query_version": "Consultar versão",
+          "demo": "Demonstração",
+          "ramadan": "Ramadão",
+          "after_checking": "Após verificação",
+          "wait_to_start": "A aguardar início",
+          "ff": "Desconhecido"
+        }
+      },
+      "x9b_fire_power_select": {
+        "name": "Potência da chama",
+        "state": {
+          "high_power": "Alta",
+          "medium_high_power": "Médio-Alto",
+          "medium_power": "Média",
+          "medium_low_power": "Médio-Baixo",
+          "low_power": "Baixa",
+          "ff": "Desconhecido"
+        }
+      },
+      "door": {
+        "name": "Porta",
+        "state": {
+          "open": "Aberto",
+          "close": "Fechado"
+        }
+      },
+      "dryer_program_control": {
+        "name": "Programa de secagem",
+        "state": {
+          "mixed_wash": "Misto",
+          "wool": "Lã",
+          "night_dry": "Secagem noturna",
+          "big_dry": "Peças volumosas",
+          "small_piece_dry": "Peças pequenas",
+          "baby_clothes": "Roupa de bebé",
+          "down_jacket": "Casacos de penas",
+          "quick_dry": "Secagem rápida",
+          "cotton": "Algodão e linho",
+          "shirt": "Camisas",
+          "jean": "Ganga",
+          "underwear": "Roupa interior",
+          "school_uniform": "Uniformes escolares",
+          "silk": "Seda",
+          "towel": "Toalhas de banho",
+          "chiffon": "Chiffon",
+          "polar_fleece": "Velo polar",
+          "hanfu": "Hanfu",
+          "hanfu_tang": "Hanfu™ estilo Tang",
+          "hanfu_song": "Hanfu™ estilo Song",
+          "hanfu_ming": "Hanfu™ estilo Ming",
+          "hanfu_modern": "Hanfu™ estilo moderno",
+          "sun_quilt": "Arejamento de edredões",
+          "bucket_self_clean": "Limpeza do tambor",
+          "steam_care": "Cuidado a vapor",
+          "fixed_time_dry": "Secagem temporizada",
+          "warm_clothes": "Aquecer roupa",
+          "cold_air_fresh_air": "Refrescar com ar frio",
+          "sterilize_mite": "Esterilização e remoção de ácaros",
+          "bracket_dry": "Secagem em estendal",
+          "pet_sterilize": "Esterilização para animais",
+          "sport_clothes": "Roupa desportiva",
+          "outdoor": "Roupa de exterior",
+          "quick_drying_clothes": "Roupa de secagem rápida",
+          "yoga": "Roupa de ioga",
+          "air_wash": "Lavagem a ar",
+          "fiber": "Sintéticos",
+          "bedsheet": "Lençóis",
+          "plush": "Peluche",
+          "dehumidify": "Desumidificar",
+          "hot_air_dry": "Secagem por ar quente",
+          "standard": "Padrão",
+          "fresh_air": "Ar fresco",
+          "low_temp_dry": "Secagem a baixa temperatura",
+          "eco_dry": "Secagem com poupança de energia",
+          "quick_dry_30": "Secagem rápida 30 min",
+          "intelligent_dry": "Secagem inteligente",
+          "big": "Peças volumosas",
+          "western_trouser": "Calças de vestir",
+          "dehumidification": "Desumidificação",
+          "smart_dry": "Secagem inteligente",
+          "four_piece_suit": "Conjunto de roupa de cama",
+          "quick_dry_20": "Secagem rápida 20 min",
+          "steam_sterilize": "Esterilização a vapor",
+          "enzyme": "Enzimas",
+          "big_60": "Peças volumosas 60",
+          "steam_no_iron": "Cuidado a vapor sem engomar",
+          "bed_clothes": "Roupa de cama",
+          "little_fast_dry": "Secagem rápida de carga pequena",
+          "wool_nurse": "Cuidado da lã",
+          "fresh_remove_smell": "Refrescar e desodorizar",
+          "sterilize": "Esterilização"
+        }
+      },
+      "dryer_dryness_control": {
+        "name": "Grau de secagem",
+        "state": {
+          "ready_to_wear": "Pronto a vestir",
+          "storage": "Armazenamento"
+        }
+      },
+      "dryer_temperature_control": {
+        "name": "Temperatura de secagem",
+        "state": {
+          "standard": "Padrão",
+          "low": "Baixa"
+        }
+      },
+      "washer_program_control": {
+        "name": "Programa de lavagem",
+        "state": {
+          "water_mixed_wash": "Lavagem mista",
+          "fast_wash": "Lavagem rápida 15 min",
+          "single_dehytration": "Apenas centrifugar",
+          "rinsing_dehydration": "Enxaguar e centrifugar",
+          "fast_wash_30": "Lavagem rápida 30 min",
+          "big": "Peças volumosas",
+          "tub_clean": "Limpeza do tambor",
+          "deep_tub_clean": "Limpeza profunda do tambor",
+          "down_jacket": "Casacos de penas",
+          "new_water_cotton": "Algodão e linho",
+          "baby_clothes": "Roupa de bebé",
+          "shirt": "Camisas",
+          "wool": "Lã",
+          "water_underwear": "Roupa interior",
+          "silk": "Seda",
+          "jacket": "Casacos de exterior",
+          "new_clothes_wash": "Roupa nova",
+          "jean": "Ganga",
+          "water_fiber": "Sintéticos",
+          "water_eco": "Poupança de energia",
+          "water_intelligent": "Lavagem inteligente",
+          "water_steep": "Lavagem com demolha",
+          "water_cold_wash": "Lavagem a frio",
+          "sterilization_wash": "Lavagem esterilizante",
+          "water_remove_mite_wash": "Remoção de ácaros",
+          "disinfection_wash": "Lavagem desinfetante",
+          "stain_wash": "Lavagem de nódoas",
+          "sport_clothes": "Roupa desportiva",
+          "yoga": "Roupa de ioga",
+          "quick_drying_clothes": "Roupa de secagem rápida"
+        }
+      },
+      "washer_temperature_control": {
+        "name": "Temperatura da água",
+        "state": {
+          "cold": "Fria",
+          "20": "20 °C",
+          "30": "30 °C",
+          "40": "40 °C",
+          "60": "60 °C",
+          "95": "95 °C"
+        }
+      },
+      "washer_spin_speed_control": {
+        "name": "Velocidade de centrifugação",
+        "state": {
+          "0": "Sem centrifugação",
+          "400": "400 rpm",
+          "600": "600 rpm",
+          "800": "800 rpm",
+          "1000": "1000 rpm",
+          "1200": "1200 rpm",
+          "1400": "1400 rpm"
+        }
+      },
+      "washer_rinse_count": {
+        "name": "Número de enxaguamentos",
+        "state": {
+          "1": "1",
+          "2": "2",
+          "3": "3",
+          "4": "4"
+        }
+      },
+      "washer_water_level_control": {
+        "name": "Nível de água",
+        "state": {
+          "auto": "Automático",
+          "l1": "L1",
+          "l2": "L2",
+          "l3": "L3",
+          "l4": "L4"
+        }
+      },
+      "washer_detergent_control": {
+        "name": "Dosagem de detergente",
+        "state": {
+          "smart": "Inteligente",
+          "off": "Desligado",
+          "l1": "L1",
+          "l2": "L2",
+          "l3": "L3",
+          "l4": "L4"
+        }
+      },
+      "washer_wash_time_control": {
+        "name": "Tempo de lavagem (min)"
+      },
+      "washer_spin_time_control": {
+        "name": "Tempo de centrifugação (min)"
+      }
+    },
+    "time": {
+      "timing_regeneration": {
+        "name": "Regeneração temporizada"
+      },
+      "laundry_appointment_finish": {
+        "name": "Hora de conclusão (define a reserva)"
+      }
+    },
+    "sensor": {
+      "db_running_status": {
+        "name": "Estado da máquina de lavar"
+      },
+      "db_progress": {
+        "name": "Progresso da máquina de lavar"
+      },
+      "db_program": {
+        "name": "Programa de lavagem"
+      },
+      "db_remain_time": {
+        "name": "Tempo restante da máquina de lavar"
+      },
+      "db_wash_time": {
+        "name": "Tempo de lavagem da máquina de lavar"
+      },
+      "db_dehydration_time": {
+        "name": "Tempo de centrifugação da máquina de lavar"
+      },
+      "db_dehydration_speed": {
+        "name": "Velocidade de centrifugação da máquina de lavar"
+      },
+      "db_water_level": {
+        "name": "Nível de água da máquina de lavar"
+      },
+      "db_temperature": {
+        "name": "Temperatura da máquina de lavar"
+      },
+      "db_rinse_count": {
+        "name": "Número de enxaguamentos da máquina de lavar"
+      },
+      "db_detergent": {
+        "name": "Detergente da máquina de lavar"
+      },
+      "db_softener": {
+        "name": "Amaciador da máquina de lavar"
+      },
+      "db_appointment_time": {
+        "name": "Hora de reserva da máquina de lavar"
+      },
+      "db_appointment_end_time": {
+        "name": "Hora de fim da reserva da máquina de lavar"
+      },
+      "db_error_code": {
+        "name": "Código de erro da máquina de lavar"
+      },
+      "db_water_consumption": {
+        "name": "Consumo de água da máquina de lavar"
+      },
+      "db_power_consumption": {
+        "name": "Consumo de energia da máquina de lavar"
+      },
+      "dc_running_status": {
+        "name": "Estado da máquina de secar"
+      },
+      "dc_dry_status": {
+        "name": "Estado de secagem da máquina de secar"
+      },
+      "dc_program": {
+        "name": "Programa de secagem"
+      },
+      "dc_remain_time": {
+        "name": "Tempo restante da máquina de secar"
+      },
+      "dc_dry_time": {
+        "name": "Tempo de secagem da máquina de secar"
+      },
+      "dc_intensity": {
+        "name": "Intensidade da máquina de secar"
+      },
+      "dc_appointment_time": {
+        "name": "Hora de reserva da máquina de secar"
+      },
+      "dc_appointment_end_time": {
+        "name": "Hora de fim da reserva da máquina de secar"
+      },
+      "dc_error_code": {
+        "name": "Código de erro da máquina de secar"
+      },
+      "dc_water_consumption": {
+        "name": "Consumo de água da máquina de secar"
+      },
+      "dc_power_consumption": {
+        "name": "Consumo de energia da máquina de secar"
+      },
+      "dishwasher_mode": {
+        "name": "Modo",
+        "state": {
+          "neutral_gear": "Nenhum",
+          "auto_wash": "Automático",
+          "strong_wash": "Intensivo",
+          "standard_wash": "Padrão",
+          "eco_wash": "ECO",
+          "glass_wash": "Vidro",
+          "hour_wash": "1 hora",
+          "fast_wash": "Rápido",
+          "soak_wash": "Demolhar",
+          "90min": "90 min",
+          "self_clean": "Autolimpeza",
+          "fruit_wash": "Fruta",
+          "self_define": "Personalizado",
+          "germ": "Germes",
+          "bowl_wash": "Taça",
+          "kill_germ": "Higiene",
+          "sea_food_wash": "Marisco",
+          "hot_pot_wash": "Panela quente",
+          "quiet_night_wash": "Noite tranquila",
+          "less_wash": "Leve",
+          "max_rapid_wash": "Rápido máximo",
+          "oil_net_wash": "Filtro de óleo",
+          "cloud_wash": "Programa na nuvem",
+          "single_dry": "Apenas secar",
+          "single_disinfect": "Apenas desinfetar",
+          "high_temp_wash": "Temperatura elevada",
+          "wash_dry": "Lavar e secar"
+        }
+      },
+      "dishwasher_mode_76000228": {
+        "name": "Modo",
+        "state": {
+          "neutral_gear": "Nenhum",
+          "auto_wash": "Automático",
+          "strong_wash": "Intensivo",
+          "standard_wash": "Universal",
+          "eco_wash": "ECO",
+          "glass_wash": "Vidro",
+          "hour_wash": "90 min",
+          "fast_wash": "Rápido",
+          "soak_wash": "Demolhar",
+          "90min": "90 min",
+          "self_clean": "Autolimpeza",
+          "fruit_wash": "Fruta",
+          "self_define": "Personalizado",
+          "germ": "Sussurro",
+          "bowl_wash": "Taça",
+          "kill_germ": "Higiene",
+          "sea_food_wash": "Autolimpeza",
+          "hot_pot_wash": "Panela quente",
+          "quiet_night_wash": "Noite tranquila",
+          "less_wash": "Leve",
+          "max_rapid_wash": "Rápido máximo",
+          "oil_net_wash": "Filtro de óleo",
+          "cloud_wash": "Programa na nuvem",
+          "single_dry": "Apenas secar",
+          "single_disinfect": "Apenas desinfetar",
+          "high_temp_wash": "Temperatura elevada",
+          "wash_dry": "Lavar e secar"
+        }
+      },
+      "dishwasher_status": {
+        "name": "Estado",
+        "state": {
+          "power_off": "Desligado",
+          "cancel": "Inativo",
+          "delay": "Início adiado",
+          "running": "Em funcionamento",
+          "error": "Erro"
+        }
+      },
+      "dishwasher_progress": {
+        "name": "Progresso",
+        "state": {
+          "idle": "Inativo",
+          "pre_wash": "Pré-lavagem",
+          "wash": "Lavagem",
+          "rinse": "Enxaguamento",
+          "dry": "Secar",
+          "complete": "Concluído"
+        }
+      },
+      "operator": {
+        "name": "Estado de funcionamento",
+        "state": {
+          "start": "Em funcionamento",
+          "pause": "Em pausa"
+        }
+      },
+      "wrong_operation": {
+        "name": "Operação errada"
+      },
+      "dry_set_min": {
+        "name": "Tempo definido de secagem"
+      },
+      "clean_left_hour": {
+        "name": "Limpeza restante"
+      },
+      "kitchenware_left_hour": {
+        "name": "Utensílios de cozinha restantes"
+      },
+      "device_version": {
+        "name": "Versão do dispositivo"
+      },
+      "throw_percent": {
+        "name": "Nível de dispensa"
+      },
+      "delay_remaining": {
+        "name": "Restante do início adiado"
+      },
+      "gas_usage_daily": {
+        "name": "Consumo de gás diário"
+      },
+      "gas_usage_last_month": {
+        "name": "Consumo de gás do mês passado"
+      },
+      "gas_usage_monthly": {
+        "name": "Consumo de gás mensal"
+      },
+      "water_usage_daily": {
+        "name": "Consumo de água diário"
+      },
+      "water_usage_last_month": {
+        "name": "Consumo de água do mês passado"
+      },
+      "water_usage_monthly": {
+        "name": "Consumo de água mensal"
+      },
+      "three_way_mode": {
+        "name": "Modo de três vias"
+      },
+      "heating_unit_type": {
+        "name": "Tipo de unidade de aquecimento"
+      },
+      "return_temperature": {
+        "name": "Temperatura de retorno"
+      },
+      "heating_temperature": {
+        "name": "Temperatura de aquecimento"
+      },
+      "heating_gap_temperature": {
+        "name": "Temperatura de diferencial de aquecimento"
+      },
+      "user_mode_target_temperature": {
+        "name": "Temperatura-alvo do modo utilizador"
+      },
+      "activity_mode_target_temperature": {
+        "name": "Temperatura-alvo do modo atividade"
+      },
+      "sleep_mode_target_temperature": {
+        "name": "Temperatura-alvo do modo repouso"
+      },
+      "last_time": {
+        "name": "Última hora"
+      },
+      "flow_volume": {
+        "name": "Caudal"
+      },
+      "bathing_leaving_temperature": {
+        "name": "Temperatura da água de saída do banho"
+      },
+      "bf_status": {
+        "name": "Estado",
+        "state": {
+          "save_power": "Poupar energia",
+          "standby": "Em espera",
+          "work": "Em funcionamento",
+          "work_finish": "Concluído",
+          "order": "Atraso",
+          "pause": "Em pausa",
+          "pause_c": "Em pausa C",
+          "three": "Três",
+          "wait_to_start": "A aguardar início",
+          "self_inspection": "Autoinspeção",
+          "query_version": "Consultar versão",
+          "demo": "Demonstração",
+          "after_checking": "Após verificação",
+          "unknown": "Desconhecido"
+        }
+      },
+      "bottom_compartment_remaining": {
+        "name": "Restante do compartimento inferior"
+      },
+      "bottom_compartment_status": {
+        "name": "Estado do compartimento inferior"
+      },
+      "bottom_compartment_temperature": {
+        "name": "Temperatura do compartimento inferior"
+      },
+      "bottom_temperature": {
+        "name": "Temperatura inferior"
+      },
+      "bright": {
+        "name": "Nível de brilho"
+      },
+      "cloudmenuid": {
+        "name": "ID do menu na nuvem"
+      },
+      "compressor_temperature": {
+        "name": "Temperatura do compressor"
+      },
+      "condenser_temperature": {
+        "name": "Temperatura do condensador"
+      },
+      "cur_probe_temperature": {
+        "name": "Temperatura atual da sonda"
+      },
+      "cur_temperature_above": {
+        "name": "Temperatura atual superior"
+      },
+      "cur_temperature_underside": {
+        "name": "Temperatura atual inferior"
+      },
+      "current_energy_consumption": {
+        "name": "Consumo de energia atual"
+      },
+      "current_temperature": {
+        "name": "Temperatura atual"
+      },
+      "dehydration_speed": {
+        "name": "Velocidade de centrifugação"
+      },
+      "dehydration_time": {
+        "name": "Tempo de centrifugação"
+      },
+      "dehydration_time_value": {
+        "name": "Valor do tempo de centrifugação"
+      },
+      "execute_status": {
+        "name": "Estado de execução",
+        "state": {
+          "ok": "OK",
+          "status_nonsupport": "Estado não suportado",
+          "function_nonsupport": "Função não suportada",
+          "param_range_error": "Erro de intervalo de parâmetro"
+        }
+      },
+      "fire_power": {
+        "name": "Potência da chama",
+        "state": {
+          "fire_power_0": "Nível 0",
+          "fire_power_1": "Nível 1",
+          "fire_power_2": "Nível 2",
+          "fire_power_3": "Nível 3",
+          "fire_power_4": "Nível 4",
+          "fire_power_5": "Nível 5",
+          "fire_power_6": "Nível 6",
+          "fire_power_7": "Nível 7",
+          "fire_power_8": "Nível 8",
+          "fire_power_9": "Nível 9",
+          "fire_power_10": "Nível 10",
+          "unknown": "Desconhecido"
+        }
+      },
+      "minute_set": {
+        "name": "Acerto dos minutos"
+      },
+      "people_number": {
+        "name": "Número de pessoas"
+      },
+      "probe_temperature": {
+        "name": "Temperatura da sonda"
+      },
+      "second_set": {
+        "name": "Acerto dos segundos"
+      },
+      "steam_quantity": {
+        "name": "Quantidade de vapor"
+      },
+      "stepnum": {
+        "name": "Passo atual"
+      },
+      "temperature": {
+        "name": "Temperatura"
+      },
+      "temperature_above": {
+        "name": "Temperatura superior"
+      },
+      "temperature_underside": {
+        "name": "Temperatura inferior"
+      },
+      "totalstep": {
+        "name": "Total de passos"
+      },
+      "wash_time_value": {
+        "name": "Valor do tempo de lavagem"
+      },
+      "stains": {
+        "name": "Nódoas"
+      },
+      "dirty_degree": {
+        "name": "Grau de sujidade"
+      },
+      "detergent": {
+        "name": "Detergente"
+      },
+      "intensity": {
+        "name": "Intensidade"
+      },
+      "dryness_level": {
+        "name": "Nível de secagem"
+      },
+      "dry_temperature": {
+        "name": "Temperatura de secagem"
+      },
+      "door_warn": {
+        "name": "Aviso de porta"
+      },
+      "ai_switch": {
+        "name": "Interruptor da IA"
+      },
+      "material": {
+        "name": "Material"
+      },
+      "water_box": {
+        "name": "Reservatório de água"
+      },
+      "energy_consumption": {
+        "name": "Consumo de energia"
+      },
+      "error": {
+        "name": "Erro",
+        "state": {
+          "no_error": "Sem erro",
+          "e1_position_not_found": "E1 Posição não encontrada",
+          "e2_photo_sensor_no_signal": "E2 Sensor fotográfico sem sinal",
+          "e3_motor_not_running": "E3 Motor não funciona",
+          "e4_wrong_position": "E4 Posição errada",
+          "e1_motor_fault": "E1 Avaria do motor",
+          "e5_communication_fault": "E5 Avaria de comunicação",
+          "e6_salt_sensor_fault": "E6 Avaria do sensor de sal",
+          "e7_chlorine_sterilization_fault": "E7 Avaria da esterilização por cloro"
+        }
+      },
+      "error_code": {
+        "name": "Código de erro"
+      },
+      "humidify_feedback": {
+        "name": "Retorno de humidade"
+      },
+      "temperature_feedback": {
+        "name": "Retorno de temperatura"
+      },
+      "humidify_mode": {
+        "name": "Modo de humidificação"
+      },
+      "estimated_energy_consumption": {
+        "name": "Consumo de energia estimado"
+      },
+      "estimated_water_consumption": {
+        "name": "Consumo de água estimado"
+      },
+      "fan_level": {
+        "name": "Nível da ventoinha"
+      },
+      "filter_life": {
+        "name": "Vida útil do filtro"
+      },
+      "filter1_days": {
+        "name": "Dias disponíveis do filtro1"
+      },
+      "filter1_life": {
+        "name": "Nível de vida útil do filtro1"
+      },
+      "filter2_days": {
+        "name": "Dias disponíveis do filtro2"
+      },
+      "filter2_life": {
+        "name": "Nível de vida útil do filtro2"
+      },
+      "filter3_days": {
+        "name": "Dias disponíveis do filtro3"
+      },
+      "filter3_life": {
+        "name": "Nível de vida útil do filtro3"
+      },
+      "flex_zone_actual_temp": {
+        "name": "Temperatura real da zona flexível"
+      },
+      "flex_zone_setting_temp": {
+        "name": "Temperatura definida da zona flexível"
+      },
+      "freezer_actual_temp": {
+        "name": "Temperatura real do congelador"
+      },
+      "freezer_setting_temp": {
+        "name": "Temperatura definida do congelador"
+      },
+      "hcho": {
+        "name": "Metanal"
+      },
+      "heating_leaving_temperature": {
+        "name": "Temperatura da água de saída do aquecimento"
+      },
+      "heating_power": {
+        "name": "Potência de aquecimento"
+      },
+      "heating_time_remaining": {
+        "name": "Tempo restante de aquecimento"
+      },
+      "in_tds": {
+        "name": "TDS de entrada"
+      },
+      "indoor_humidity": {
+        "name": "Humidade interior"
+      },
+      "indoor_temperature": {
+        "name": "Temperatura interior"
+      },
+      "keep_warm_remaining": {
+        "name": "Restante de manutenção de calor"
+      },
+      "fault_code": {
+        "name": "Código de avaria"
+      },
+      "keep_warm_time": {
+        "name": "Tempo de manutenção de calor"
+      },
+      "left_salt": {
+        "name": "Sal restante"
+      },
+      "middle_compartment_remaining": {
+        "name": "Restante do compartimento central"
+      },
+      "middle_compartment_status": {
+        "name": "Estado do compartimento central"
+      },
+      "middle_compartment_temperature": {
+        "name": "Temperatura do compartimento central"
+      },
+      "mode": {
+        "name": "Modo"
+      },
+      "out_tds": {
+        "name": "TDS de saída"
+      },
+      "outdoor_temperature": {
+        "name": "Temperatura exterior"
+      },
+      "comp_run_freq": {
+        "name": "Frequência do compressor"
+      },
+      "outdoor_fan_speed": {
+        "name": "Velocidade da ventoinha exterior"
+      },
+      "unit_mode_run": {
+        "name": "Modo de funcionamento da unidade",
+        "state": {
+          "off": "Desligado",
+          "auto": "Automático",
+          "cool": "Arrefecer",
+          "heat": "Aquecer",
+          "dhw": "AQS"
+        }
+      },
+      "odu_target_fre": {
+        "name": "Frequência-alvo do compressor"
+      },
+      "odu_voltage": {
+        "name": "Tensão da unidade exterior"
+      },
+      "odu_comp_current": {
+        "name": "Corrente do compressor"
+      },
+      "exv_current": {
+        "name": "Abertura da válvula de expansão eletrónica"
+      },
+      "fg_capacity_need": {
+        "name": "Procura de capacidade"
+      },
+      "pressure_high": {
+        "name": "Pressão do refrigerante (lado de alta)"
+      },
+      "pressure_low": {
+        "name": "Pressão do refrigerante (lado de baixa)"
+      },
+      "temp_t1": {
+        "name": "Sensor de temperatura T1"
+      },
+      "temp_t2": {
+        "name": "Temperatura do permutador de calor de placas (T2)"
+      },
+      "temp_t2b": {
+        "name": "Temperatura de saída do permutador de calor de placas (T2B)"
+      },
+      "temp_t3": {
+        "name": "Temperatura da bateria exterior (T3)"
+      },
+      "temp_tp": {
+        "name": "Temperatura do tubo de descarga (TP)"
+      },
+      "temp_th": {
+        "name": "Temperatura de aspiração (TH)"
+      },
+      "temp_tf": {
+        "name": "Temperatura do módulo de potência (TF)"
+      },
+      "program": {
+        "name": "Programa"
+      },
+      "progress": {
+        "name": "Progresso"
+      },
+      "realtime_power": {
+        "name": "Potência em tempo real"
+      },
+      "pmv": {
+        "name": "PMV"
+      },
+      "refrigerator_actual_temp": {
+        "name": "Temperatura real do frigorífico"
+      },
+      "refrigerator_setting_temp": {
+        "name": "Temperatura definida do frigorífico"
+      },
+      "regeneration_left_seconds": {
+        "name": "Segundos restantes de regeneração"
+      },
+      "remaining_days": {
+        "name": "Dias restantes"
+      },
+      "right_flex_zone_actual_temp": {
+        "name": "Temperatura real da zona flexível direita"
+      },
+      "right_flex_zone_setting_temp": {
+        "name": "Temperatura definida da zona flexível direita"
+      },
+      "rinse_count": {
+        "name": "Número de enxaguamentos"
+      },
+      "rinse_level": {
+        "name": "Nível de enxaguamento"
+      },
+      "salt_setting": {
+        "name": "Definição de sal"
+      },
+      "seat_temperature": {
+        "name": "Temperatura do assento"
+      },
+      "soak_time": {
+        "name": "Tempo de demolha"
+      },
+      "soft_available": {
+        "name": "Água macia disponível"
+      },
+      "softener": {
+        "name": "Amaciador"
+      },
+      "softwater": {
+        "name": "Nível de água macia"
+      },
+      "status": {
+        "name": "Estado"
+      },
+      "storage_remaining": {
+        "name": "Restante de armazenamento"
+      },
+      "tank": {
+        "name": "Depósito"
+      },
+      "tank_actual_temperature": {
+        "name": "Temperatura real do depósito"
+      },
+      "target_temperature": {
+        "name": "Temperatura-alvo"
+      },
+      "time_remaining": {
+        "name": "Tempo restante"
+      },
+      "top_compartment_remaining": {
+        "name": "Restante do compartimento superior"
+      },
+      "top_compartment_status": {
+        "name": "Estado do compartimento superior"
+      },
+      "top_compartment_temperature": {
+        "name": "Temperatura do compartimento superior"
+      },
+      "top_temperature": {
+        "name": "Temperatura superior"
+      },
+      "total_energy_consumption": {
+        "name": "Consumo total de energia"
+      },
+      "total_produced_energy": {
+        "name": "Energia total produzida"
+      },
+      "tvoc": {
+        "name": "TVOC"
+      },
+      "wash_level": {
+        "name": "Nível de lavagem"
+      },
+      "wash_strength": {
+        "name": "Intensidade de lavagem"
+      },
+      "wash_time": {
+        "name": "Tempo de lavagem"
+      },
+      "water_consumption": {
+        "name": "Consumo de água"
+      },
+      "water_consumption_average": {
+        "name": "Consumo médio de água"
+      },
+      "water_consumption_big": {
+        "name": "Consumo de água"
+      },
+      "water_temperature": {
+        "name": "Temperatura da água"
+      },
+      "water_level": {
+        "name": "Nível de água"
+      },
+      "weight": {
+        "name": "Peso"
+      },
+      "wind": {
+        "name": "Vento"
+      },
+      "typeinfo": {
+        "name": "Informação de tipo"
+      },
+      "use_days": {
+        "name": "Dias de utilização"
+      },
+      "elec_heat": {
+        "name": "Aquecimento elétrico"
+      },
+      "water_pump": {
+        "name": "Bomba de água"
+      },
+      "four_way": {
+        "name": "Válvula de quatro vias"
+      },
+      "back_water": {
+        "name": "Retorno de água"
+      },
+      "sterilize": {
+        "name": "Esterilizar"
+      },
+      "disinfection_temperature": {
+        "name": "Temperatura de desinfeção"
+      },
+      "max_temperature": {
+        "name": "Temperatura-alvo máxima"
+      },
+      "max_temperature_upper_limit": {
+        "name": "Limite superior máximo de temperatura"
+      },
+      "max_temperature_lower_limit": {
+        "name": "Limite inferior máximo de temperatura"
+      },
+      "disinfection_temperature_upper_limit": {
+        "name": "Limite superior da temperatura de desinfeção"
+      },
+      "disinfection_temperature_lower_limit": {
+        "name": "Limite inferior da temperatura de desinfeção"
+      },
+      "dr_option": {
+        "name": "Opção de resposta à procura"
+      },
+      "remaining_hot_water_max": {
+        "name": "Água quente restante máxima"
+      },
+      "force_e_heating_status": {
+        "name": "Estado do aquecimento elétrico forçado"
+      },
+      "holiday_max": {
+        "name": "Duração máxima de férias"
+      },
+      "holiday_min": {
+        "name": "Duração mínima de férias"
+      },
+      "timer_step_gap": {
+        "name": "Incremento do temporizador"
+      },
+      "vacation_start_year": {
+        "name": "Ano de início das férias"
+      },
+      "vacation_start_month": {
+        "name": "Mês de início das férias"
+      },
+      "vacation_start_day": {
+        "name": "Dia de início das férias"
+      },
+      "auto_sterilize_week": {
+        "name": "Semana de esterilização automática"
+      },
+      "auto_sterilize_hour": {
+        "name": "Hora de esterilização automática"
+      },
+      "auto_sterilize_minute": {
+        "name": "Minuto de esterilização automática"
+      },
+      "work_mode": {
+        "name": "Modo de funcionamento",
+        "state": {
+          "microwave": "Micro-ondas",
+          "microwave_1": "Micro-ondas 1",
+          "microwave_2": "Micro-ondas 2",
+          "microwave_3": "Micro-ondas 3",
+          "microwave_4": "Micro-ondas 4",
+          "microwave_5": "Micro-ondas 5",
+          "microwave_steam_above_tube": "Micro-ondas tubo superior a vapor",
+          "microwave_double_tube": "Micro-ondas tubo duplo",
+          "microwave_hot_wind_tube_fan": "Micro-ondas ventoinha de tubo de ar quente",
+          "microwave_underside_tube_hot_wind_tube_fan": "Micro-ondas ventoinha de ar quente do tubo inferior",
+          "microwave_double_tube_hot_wind_tube_fan": "Micro-ondas ventoinha de ar quente do tubo duplo",
+          "microwave_steam": "Micro-ondas a vapor",
+          "microwave_steam_1": "Micro-ondas a vapor 1",
+          "unfreeze": "Descongelar",
+          "unfreeze_1": "Descongelar 1",
+          "unfreeze_2": "Descongelar 2",
+          "unfreeze_3": "Descongelar 3",
+          "unfreeze_t": "Descongelar T",
+          "microwave_above_tube": "Micro-ondas tubo superior",
+          "microwave_above_tube_1": "Micro-ondas tubo superior 1",
+          "microwave_above_tube_2": "Micro-ondas tubo superior 2",
+          "microwave_above_tube_fan": "Micro-ondas ventoinha do tubo superior",
+          "fast_unfreeze": "Descongelação rápida",
+          "fresh_unfreeze": "Descongelação fresca",
+          "microwave_zymosis": "Fermentação por micro-ondas",
+          "pure_steam": "Vapor puro",
+          "pure_steam_1": "Vapor puro 1",
+          "pure_steam_2": "Vapor puro 2",
+          "pure_steam_3": "Vapor puro 3",
+          "pure_steam_4": "Vapor puro 4",
+          "pure_steam_5": "Vapor puro 5",
+          "pure_steam_6": "Vapor puro 6",
+          "pure_steam_7": "Vapor puro 7",
+          "pure_steam_8": "Vapor puro 8",
+          "pure_steam_9": "Vapor puro 9",
+          "steam_above_tube": "Tubo superior a vapor",
+          "steam_underside_tube": "Tubo inferior a vapor",
+          "steam_double_tube": "Tubo duplo a vapor",
+          "steam_hot_wind_tube_fan": "Ventoinha do tubo de ar quente a vapor",
+          "steam_hot_wind_tube_fan_1": "Ventoinha do tubo de ar quente a vapor 1",
+          "steam_hot_wind_tube_fan_2": "Ventoinha do tubo de ar quente a vapor 2",
+          "steam_hot_wind_tube": "Tubo de ar quente a vapor",
+          "steam_double_tube_fan": "Ventoinha do tubo duplo a vapor",
+          "steam_above_inside_outside_tube_fan": "Ventoinha do tubo interior e exterior superior a vapor",
+          "steam_above_inside_tube_fan": "Ventoinha do tubo interior superior a vapor",
+          "above_tube": "Tubo superior",
+          "underside_tube": "Tubo inferior",
+          "double_tube": "Tubo duplo",
+          "hot_wind_tube_fan": "Ventoinha do tubo de ar quente",
+          "pure_preheat": "Pré-aquecimento puro",
+          "pure_preheat_2": "Pré-aquecimento puro 2",
+          "above_tube_hot_wind_tube_fan": "Ventoinha de ar quente do tubo superior",
+          "underside_tube_hot_wind_tube_fan": "Ventoinha de ar quente do tubo inferior",
+          "zymosis": "Fermentação",
+          "double_tube_hot_wind_tube_fan": "Ventoinha de ar quente do tubo duplo",
+          "above_tube_revolve": "Rotação do tubo superior",
+          "underside_tube_revolve": "Rotação do tubo inferior",
+          "double_tube_revolve": "Rotação do tubo duplo",
+          "hot_wind_tube_fan_revolve": "Rotação da ventoinha do tubo de ar quente",
+          "warm": "Manter quente",
+          "double_tube_fan": "Ventoinha do tubo duplo",
+          "double_tube_fan_1": "Ventoinha do tubo duplo 1",
+          "double_tube_fan_2": "Ventoinha do tubo duplo 2",
+          "double_tube_fan_3": "Ventoinha do tubo duplo 3",
+          "above_inside_tube_revolve": "Rotação do tubo interior superior",
+          "above_inside_tube_fan": "Ventoinha do tubo interior superior",
+          "above_inside_outside_tube_revolve": "Rotação do tubo interior e exterior superior",
+          "above_inside_outside_tube_fan": "Ventoinha do tubo interior e exterior superior",
+          "above_inside_underside_tube": "Tubo interior superior e inferior",
+          "above_inside_underside_tube_1": "Tubo interior superior e inferior 1",
+          "above_inside_underside_tube_fan": "Ventoinha do tubo interior superior e inferior",
+          "above_inside_underside_tube_fan_1": "Ventoinha do tubo interior superior e inferior 1",
+          "above_inside_tube": "Tubo interior superior",
+          "above_inside_outside_tube": "Tubo interior e exterior superior",
+          "underside_tube_fan": "Ventoinha do tubo inferior",
+          "above_tube_fan": "Ventoinha do tubo superior",
+          "above_tube_fan_1": "Ventoinha do tubo superior 1",
+          "above_tube_fan_2": "Ventoinha do tubo superior 2",
+          "scale_clean": "Descalcificação",
+          "clean": "Limpar",
+          "remove_odor": "Remover odores",
+          "remove_odor_2": "Remover odores 2",
+          "high_temperature_clean": "Limpeza a temperatura elevada",
+          "dining_utensils_clean": "Limpeza de utensílios de refeição",
+          "auto_menu": "Menu automático",
+          "eco": "Eco",
+          "above_tube_1": "Tubo superior 1",
+          "above_tube_2": "Tubo superior 2",
+          "above_tube_3": "Tubo superior 3",
+          "underside_tube_1": "Tubo inferior 1",
+          "underside_tube_2": "Tubo inferior 2",
+          "double_tube_1": "Tubo duplo 1",
+          "double_tube_2": "Tubo duplo 2",
+          "double_tube_3": "Tubo duplo 3",
+          "double_tube_4": "Tubo duplo 4",
+          "double_tube_5": "Tubo duplo 5",
+          "double_tube_6": "Tubo duplo 6",
+          "hot_wind_tube_fan_1": "Ventoinha do tubo de ar quente 1",
+          "hot_wind_tube_fan_2": "Ventoinha do tubo de ar quente 2",
+          "hot_wind_tube_fan_3": "Ventoinha do tubo de ar quente 3",
+          "hot_wind_tube_fan_4": "Ventoinha do tubo de ar quente 4",
+          "hot_wind_tube_fan_5": "Ventoinha do tubo de ar quente 5",
+          "double_tube_hot_wind_tube_fan_1": "Ventoinha de ar quente do tubo duplo 1",
+          "double_tube_hot_wind_tube_fan_2": "Ventoinha de ar quente do tubo duplo 2",
+          "double_tube_hot_wind_tube_fan_3": "Ventoinha de ar quente do tubo duplo 3",
+          "double_tube_hot_wind_tube_fan_4": "Ventoinha de ar quente do tubo duplo 4",
+          "double_tube_hot_wind_tube_fan_5": "Ventoinha de ar quente do tubo duplo 5",
+          "unknown": "Desconhecido"
+        }
+      },
+      "working_time": {
+        "name": "Tempo de funcionamento"
+      },
+      "humidity": {
+        "name": "Humidade"
+      },
+      "variable_mode": {
+        "name": "Modo variável",
+        "state": {
+          "none": "Nenhum",
+          "soft_freezing": "Congelação suave",
+          "zero_fresh": "Frescura zero",
+          "cold_drink": "Bebida fria",
+          "fresh_product": "Produtos frescos",
+          "partial_freezing": "Congelação parcial",
+          "dry_zone": "Zona seca",
+          "freeze_warm": "Congelar / Aquecer",
+          "baby": "Mãe e bebé",
+          "treasure": "Tesouro",
+          "zero": "Grau zero"
+        }
+      },
+      "compressor_frequency": {
+        "name": "Frequência do compressor"
+      },
+      "target_compressor_frequency": {
+        "name": "Frequência-alvo do compressor"
+      },
+      "compressor_current": {
+        "name": "Corrente do compressor"
+      },
+      "compressor_voltage": {
+        "name": "Tensão do compressor"
+      },
+      "compressor_power": {
+        "name": "Potência do compressor"
+      },
+      "indoor_ambient_temperature": {
+        "name": "Temperatura ambiente interior (T1)"
+      },
+      "indoor_coil_temperature": {
+        "name": "Temperatura da bateria interior (T2)"
+      },
+      "outdoor_coil_temperature": {
+        "name": "Temperatura da bateria exterior (T3)"
+      },
+      "outdoor_ambient_temperature": {
+        "name": "Temperatura ambiente exterior (T4)"
+      },
+      "discharge_pipe_temperature": {
+        "name": "Temperatura do tubo de descarga (TP)"
+      },
+      "indoor_fan_speed": {
+        "name": "Velocidade da ventoinha interior"
+      },
+      "target_indoor_fan_speed": {
+        "name": "Velocidade-alvo da ventoinha interior"
+      },
+      "velocity": {
+        "name": "Velocidade"
+      },
+      "filter4_life": {
+        "name": "Nível de vida útil do filtro4"
+      },
+      "filter5_life": {
+        "name": "Nível de vida útil do filtro5"
+      },
+      "filter1_maxlife": {
+        "name": "Limite de vida útil do filtro1"
+      },
+      "filter2_maxlife": {
+        "name": "Limite de vida útil do filtro2"
+      },
+      "filter3_maxlife": {
+        "name": "Limite de vida útil do filtro3"
+      },
+      "filter4_maxlife": {
+        "name": "Limite de vida útil do filtro4"
+      },
+      "filter5_maxlife": {
+        "name": "Limite de vida útil do filtro5"
+      },
+      "hot_pot_temperature": {
+        "name": "Temperatura da panela quente"
+      },
+      "ice_gall_status": {
+        "name": "Estado do depósito de gelo"
+      },
+      "water_kind": {
+        "name": "Tipo de água",
+        "state": {
+          "idle": "Inativo",
+          "warm": "Quente",
+          "cold": "Fria"
+        }
+      },
+      "heat_start": {
+        "name": "Início do aquecimento",
+        "state": {
+          "heating": "A aquecer",
+          "keep_warm": "A manter quente"
+        }
+      },
+      "no_obsolete_water_mode": {
+        "name": "Modo sem água obsoleta",
+        "state": {
+          "water_quality_priority": "Prioridade à qualidade da água",
+          "water_saving_priority": "Prioridade à poupança de água",
+          "custom": "Personalizado"
+        }
+      },
+      "input_temperature_sensing": {
+        "name": "Temperatura de entrada"
+      },
+      "temp_ta": {
+        "name": "Temperatura Ta - Ambiente da divisão"
+      },
+      "water_flow": {
+        "name": "Água - Caudal"
+      },
+      "water_pressure": {
+        "name": "Água - Pressão"
+      },
+      "temp_t4": {
+        "name": "Temperatura T4 - Ambiente exterior"
+      },
+      "temp_t5": {
+        "name": "Temperatura T5 - Depósito de água"
+      },
+      "temp_tb_t1": {
+        "name": "Temperatura TB-T1 - Topo do depósito de inércia"
+      },
+      "temp_tb_t2": {
+        "name": "Temperatura TB-T2 - Base do depósito de inércia"
+      },
+      "temp_tsolar": {
+        "name": "Temperatura Tsolar - Painel solar"
+      },
+      "temp_tw2": {
+        "name": "Temperatura Tw2 - Água da zona 2"
+      },
+      "dc_current": {
+        "name": "ODU - Corrente do barramento CC"
+      },
+      "dc_bus_voltage": {
+        "name": "ODU - Tensão do barramento CC"
+      },
+      "current_unit_capacity": {
+        "name": "Capacidade atual da unidade (bruta)"
+      },
+      "instant_power0": {
+        "name": "Potência - Consumo de aquecimento"
+      },
+      "instant_renew_power0": {
+        "name": "Potência - Capacidade de aquecimento renovável"
+      },
+      "room_rel_hum": {
+        "name": "Humidade relativa da divisão"
+      },
+      "hydbox_subtype": {
+        "name": "Informação - Subtipo da caixa hidráulica"
+      },
+      "machine_type": {
+        "name": "Informação - Tipo de máquina"
+      },
+      "odu_model": {
+        "name": "Informação - Código de modelo da ODU"
+      },
+      "hydrobox_capacity": {
+        "name": "Informação - Capacidade da caixa hidráulica"
+      },
+      "idu_t1s1": {
+        "name": "Temperatura - Zona 1 calculada (T1s)"
+      },
+      "idu_t1s2": {
+        "name": "Temperatura - Zona 2 calculada (T1s)"
+      },
+      "t5s": {
+        "name": "Temperatura T5s - Ponto de regulação de AQS"
+      },
+      "tas": {
+        "name": "Temperatura Tas - Ponto de regulação do ar"
+      },
+      "zone1_temp_set": {
+        "name": "Temperatura - Ponto de regulação da zona 1"
+      },
+      "zone2_temp_set": {
+        "name": "Temperatura - Ponto de regulação da zona 2"
+      },
+      "disinfect_set_weekday": {
+        "name": "AQS - Dia da semana de desinfeção"
+      },
+      "disinfect_start_hour": {
+        "name": "AQS - Hora de início da desinfeção"
+      },
+      "disinfect_start_minutes": {
+        "name": "AQS - Minuto de início da desinfeção"
+      },
+      "error_code_description": {
+        "name": "Erro - Descrição"
+      },
+      "hmi_sn_code": {
+        "name": "Número de série da HMI"
+      },
+      "temp_tw_in": {
+        "name": "Temperatura Tw_in - Entrada de água"
+      },
+      "temp_tw_out": {
+        "name": "Temperatura Tw_out - Saída de água"
+      },
+      "comp_total_run_time": {
+        "name": "Energia - Tempo de funcionamento do compressor"
+      },
+      "idu_software_version_str": {
+        "name": "Informação - Versão de software da IDU"
+      },
+      "odu_software_version_str": {
+        "name": "Informação - Versão de software da ODU"
+      },
+      "ac_air_direction_gear": {
+        "name": "Posição da direção do ar do AC"
+      },
+      "ac_air_direction_max_angle": {
+        "name": "Ângulo máximo da direção do ar do AC"
+      },
+      "ac_air_direction_min_angle": {
+        "name": "Ângulo mínimo da direção do ar do AC"
+      },
+      "ac_ambient_temperature": {
+        "name": "Temperatura ambiente do AC"
+      },
+      "ac_current_temp": {
+        "name": "Temperatura atual do AC"
+      },
+      "ac_destination_temp": {
+        "name": "Temperatura de destino do AC"
+      },
+      "ac_destination_time": {
+        "name": "Hora de destino do AC"
+      },
+      "ac_gear": {
+        "name": "Posição do AC"
+      },
+      "ac_mode": {
+        "name": "Modo do AC",
+        "state": {
+          "air_supply": "Abastecimento de ar",
+          "dehumidification": "Desumidificação",
+          "net_flavour": "Sabor da rede",
+          "none": "Nenhum",
+          "refrigeration": "Refrigeração"
+        }
+      },
+      "ac_order_destination_time": {
+        "name": "Hora de destino do agendamento do AC"
+      },
+      "ac_order_remaining_time": {
+        "name": "Tempo restante do agendamento do AC"
+      },
+      "ac_remaining_time": {
+        "name": "Tempo restante do AC"
+      },
+      "ac_swing_gear": {
+        "name": "Posição de oscilação do AC"
+      },
+      "ac_swing_max_angle": {
+        "name": "Ângulo máximo de oscilação do AC"
+      },
+      "ac_swing_min_angle": {
+        "name": "Ângulo mínimo de oscilação do AC"
+      },
+      "ac_work_status": {
+        "name": "Estado de funcionamento do AC",
+        "state": {
+          "order": "Agendamento",
+          "power_off": "Desligar",
+          "reservation": "Reserva",
+          "reservation_and_order_ordering": "Reserva e agendamento a agendar",
+          "reservation_and_order_reserving": "Reserva e agendamento a reservar",
+          "working": "Em funcionamento"
+        }
+      },
+      "ai_voice_microphone_status": {
+        "name": "Estado do microfone da voz da IA",
+        "state": {
+          "failure": "Falha",
+          "success": "Sucesso"
+        }
+      },
+      "ai_voice_status": {
+        "name": "Estado da voz da IA",
+        "state": {
+          "connecting": "A ligar",
+          "off": "Desligado",
+          "on": "Ligado"
+        }
+      },
+      "ai_voice_volume_status": {
+        "name": "Estado do volume da voz da IA",
+        "state": {
+          "failure": "Falha",
+          "success": "Sucesso"
+        }
+      },
+      "b2_downstair_current_temp": {
+        "name": "Temperatura atual inferior do forno a vapor"
+      },
+      "b2_downstair_destination_temp": {
+        "name": "Temperatura de destino inferior do forno a vapor"
+      },
+      "b2_downstair_light_off_type": {
+        "name": "Tipo de desligar da luz inferior do forno a vapor",
+        "state": {
+          "app": "App",
+          "local": "Local"
+        }
+      },
+      "b2_downstair_light_on_type": {
+        "name": "Tipo de ligar da luz inferior do forno a vapor",
+        "state": {
+          "app": "App",
+          "local": "Local"
+        }
+      },
+      "b2_downstair_order_destination_time": {
+        "name": "Hora de destino do agendamento inferior do forno a vapor"
+      },
+      "b2_downstair_order_remaining_time": {
+        "name": "Tempo restante do agendamento inferior do forno a vapor"
+      },
+      "b2_downstair_power_off_type": {
+        "name": "Tipo de desligar inferior do forno a vapor",
+        "state": {
+          "app": "App",
+          "auto": "Automático",
+          "error": "Erro",
+          "local": "Local",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b2_downstair_power_on_type": {
+        "name": "Tipo de ligar inferior do forno a vapor",
+        "state": {
+          "app": "App",
+          "local": "Local",
+          "order": "Agendamento"
+        }
+      },
+      "b2_downstair_preheating": {
+        "name": "Pré-aquecimento inferior do forno a vapor",
+        "state": {
+          "finish": "Concluído",
+          "none": "Nenhum",
+          "preheating": "A pré-aquecer"
+        }
+      },
+      "b2_downstair_recipe_after": {
+        "name": "Receita seguinte inferior do forno a vapor"
+      },
+      "b2_downstair_recipe_code": {
+        "name": "Código de receita inferior do forno a vapor"
+      },
+      "b2_downstair_recipe_current_mode": {
+        "name": "Modo atual de receita inferior do forno a vapor"
+      },
+      "b2_downstair_recipe_current_step": {
+        "name": "Passo atual de receita inferior do forno a vapor"
+      },
+      "b2_downstair_recipe_off_type": {
+        "name": "Tipo de desligar de receita inferior do forno a vapor",
+        "state": {
+          "app": "App",
+          "auto": "Automático",
+          "error": "Erro",
+          "local": "Local",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b2_downstair_recipe_on_type": {
+        "name": "Tipo de ligar de receita inferior do forno a vapor",
+        "state": {
+          "app": "App",
+          "local": "Local",
+          "order": "Agendamento"
+        }
+      },
+      "b2_downstair_recipe_total_steps": {
+        "name": "Total de passos de receita inferior do forno a vapor"
+      },
+      "b2_downstair_work_destination_time": {
+        "name": "Hora de destino de funcionamento inferior do forno a vapor"
+      },
+      "b2_downstair_work_func": {
+        "name": "Função de funcionamento inferior do forno a vapor"
+      },
+      "b2_downstair_work_menu": {
+        "name": "Menu de funcionamento inferior do forno a vapor"
+      },
+      "b2_downstair_work_remaining_time": {
+        "name": "Tempo restante de funcionamento inferior do forno a vapor"
+      },
+      "b2_downstair_work_status": {
+        "name": "Estado de funcionamento inferior do forno a vapor",
+        "state": {
+          "auto": "Automático",
+          "drying": "A secar",
+          "finish": "Concluído",
+          "order": "Agendamento",
+          "pause": "Pausar",
+          "power_off": "Desligar",
+          "standby": "Em espera",
+          "working": "Em funcionamento"
+        }
+      },
+      "b2_upstair_current_temp": {
+        "name": "Temperatura atual superior do forno a vapor"
+      },
+      "b2_upstair_destination_temp": {
+        "name": "Temperatura de destino superior do forno a vapor"
+      },
+      "b2_upstair_light_off_type": {
+        "name": "Tipo de desligar da luz superior do forno a vapor",
+        "state": {
+          "app": "App",
+          "local": "Local"
+        }
+      },
+      "b2_upstair_light_on_type": {
+        "name": "Tipo de ligar da luz superior do forno a vapor",
+        "state": {
+          "app": "App",
+          "local": "Local"
+        }
+      },
+      "b2_upstair_order_destination_time": {
+        "name": "Hora de destino do agendamento superior do forno a vapor"
+      },
+      "b2_upstair_order_remaining_time": {
+        "name": "Tempo restante do agendamento superior do forno a vapor"
+      },
+      "b2_upstair_power_off_type": {
+        "name": "Tipo de desligar superior do forno a vapor",
+        "state": {
+          "app": "App",
+          "auto": "Automático",
+          "error": "Erro",
+          "local": "Local",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b2_upstair_power_on_type": {
+        "name": "Tipo de ligar superior do forno a vapor",
+        "state": {
+          "app": "App",
+          "local": "Local",
+          "order": "Agendamento"
+        }
+      },
+      "b2_upstair_preheating": {
+        "name": "Pré-aquecimento superior do forno a vapor",
+        "state": {
+          "finish": "Concluído",
+          "none": "Nenhum",
+          "preheating": "A pré-aquecer"
+        }
+      },
+      "b2_upstair_recipe_after": {
+        "name": "Receita seguinte superior do forno a vapor"
+      },
+      "b2_upstair_recipe_code": {
+        "name": "Código de receita superior do forno a vapor"
+      },
+      "b2_upstair_recipe_current_mode": {
+        "name": "Modo atual de receita superior do forno a vapor"
+      },
+      "b2_upstair_recipe_current_step": {
+        "name": "Passo atual de receita superior do forno a vapor"
+      },
+      "b2_upstair_recipe_off_type": {
+        "name": "Tipo de desligar de receita superior do forno a vapor",
+        "state": {
+          "app": "App",
+          "auto": "Automático",
+          "error": "Erro",
+          "local": "Local",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b2_upstair_recipe_on_type": {
+        "name": "Tipo de ligar de receita superior do forno a vapor",
+        "state": {
+          "app": "App",
+          "local": "Local",
+          "order": "Agendamento"
+        }
+      },
+      "b2_upstair_recipe_total_steps": {
+        "name": "Total de passos de receita superior do forno a vapor"
+      },
+      "b2_upstair_work_destination_time": {
+        "name": "Hora de destino de funcionamento superior do forno a vapor"
+      },
+      "b2_upstair_work_func": {
+        "name": "Função de funcionamento superior do forno a vapor"
+      },
+      "b2_upstair_work_menu": {
+        "name": "Menu de funcionamento superior do forno a vapor"
+      },
+      "b2_upstair_work_remaining_time": {
+        "name": "Tempo restante de funcionamento superior do forno a vapor"
+      },
+      "b2_upstair_work_status": {
+        "name": "Estado de funcionamento superior do forno a vapor",
+        "state": {
+          "auto": "Automático",
+          "drying": "A secar",
+          "finish": "Concluído",
+          "order": "Agendamento",
+          "pause": "Pausar",
+          "power_off": "Desligar",
+          "standby": "Em espera",
+          "working": "Em funcionamento"
+        }
+      },
+      "b3_disinfect_off_type": {
+        "name": "Tipo de desligar da desinfeção do armário a vapor",
+        "state": {
+          "app": "App",
+          "local": "Local"
+        }
+      },
+      "b3_disinfect_on_type": {
+        "name": "Tipo de ligar da desinfeção do armário a vapor",
+        "state": {
+          "app": "App",
+          "local": "Local"
+        }
+      },
+      "b3_downstair_current_temp": {
+        "name": "Temperatura atual inferior do armário a vapor"
+      },
+      "b3_downstair_destination_temp": {
+        "name": "Temperatura de destino inferior do armário a vapor"
+      },
+      "b3_downstair_destination_time": {
+        "name": "Hora de destino inferior do armário a vapor"
+      },
+      "b3_downstair_remaining_time": {
+        "name": "Tempo restante inferior do armário a vapor"
+      },
+      "b3_downstair_sensor": {
+        "name": "Sensor inferior do armário a vapor"
+      },
+      "b3_downstair_status": {
+        "name": "Estado inferior do armário a vapor",
+        "state": {
+          "drying": "A secar",
+          "drying_pause": "Secagem em pausa",
+          "ion_drying": "Secagem por iões",
+          "ion_drying_pause": "Secagem por iões em pausa",
+          "power_off": "Desligar",
+          "uperization": "Esterilização a alta temperatura",
+          "uperization_pause": "Esterilização a alta temperatura em pausa",
+          "warm_drink": "Bebida morna",
+          "warm_drink_pause": "Bebida morna em pausa"
+        }
+      },
+      "b3_thermotank_off_type": {
+        "name": "Tipo de desligar do termoacumulador do armário a vapor",
+        "state": {
+          "app": "App",
+          "local": "Local"
+        }
+      },
+      "b3_thermotank_on_type": {
+        "name": "Tipo de ligar do termoacumulador do armário a vapor",
+        "state": {
+          "app": "App",
+          "local": "Local"
+        }
+      },
+      "b3_upstair_current_temp": {
+        "name": "Temperatura atual superior do armário a vapor"
+      },
+      "b3_upstair_destination_temp": {
+        "name": "Temperatura de destino superior do armário a vapor"
+      },
+      "b3_upstair_destination_time": {
+        "name": "Hora de destino superior do armário a vapor"
+      },
+      "b3_upstair_remaining_time": {
+        "name": "Tempo restante superior do armário a vapor"
+      },
+      "b3_upstair_sensor": {
+        "name": "Sensor superior do armário a vapor"
+      },
+      "b3_upstair_status": {
+        "name": "Estado superior do armário a vapor",
+        "state": {
+          "drying": "A secar",
+          "drying_pause": "Secagem em pausa",
+          "ion_drying": "Secagem por iões",
+          "ion_drying_pause": "Secagem por iões em pausa",
+          "power_off": "Desligar",
+          "uperization": "Esterilização a alta temperatura",
+          "uperization_pause": "Esterilização a alta temperatura em pausa",
+          "warm_drink": "Bebida morna",
+          "warm_drink_pause": "Bebida morna em pausa"
+        }
+      },
+      "b6_tvoc_value": {
+        "name": "Valor de TVOC do exaustor",
+        "state": {
+          "excellent": "Excelente",
+          "good": "Bom",
+          "medium": "Média"
+        }
+      },
+      "b6_air_duct_detection_score": {
+        "name": "Pontuação de deteção da conduta de ar do exaustor"
+      },
+      "b6_air_duct_detection_state": {
+        "name": "Estado de deteção da conduta de ar do exaustor"
+      },
+      "b6_air_duct_detection_time": {
+        "name": "Tempo de deteção da conduta de ar do exaustor"
+      },
+      "b6_air_duct_detection_windage": {
+        "name": "Resistência da deteção da conduta de ar do exaustor"
+      },
+      "b6_air_volume": {
+        "name": "Volume de ar do exaustor"
+      },
+      "b6_delay_gear_linkage_gear": {
+        "name": "Velocidade da ligação com atraso do exaustor"
+      },
+      "b6_delay_time_value": {
+        "name": "Valor do tempo de atraso do exaustor"
+      },
+      "b6_destination_time": {
+        "name": "Hora de destino do exaustor"
+      },
+      "b6_gear": {
+        "name": "Velocidade do exaustor"
+      },
+      "b6_gear_control_type": {
+        "name": "Tipo de controlo de velocidade do exaustor",
+        "state": {
+          "app": "App",
+          "gesture": "Gesto",
+          "linkage": "Ligação",
+          "local": "Local",
+          "smoke_detector": "Detetor de fumo"
+        }
+      },
+      "b6_gesture_sensitivity": {
+        "name": "Sensibilidade dos gestos do exaustor",
+        "state": {
+          "1": "1",
+          "2": "2",
+          "3": "3"
+        }
+      },
+      "b6_gesture_value": {
+        "name": "Valor dos gestos do exaustor",
+        "state": {
+          "light": "Leve",
+          "power": "Potência",
+          "wind": "Vento"
+        }
+      },
+      "b6_hotclean_tips": {
+        "name": "Avisos de limpeza a quente do exaustor"
+      },
+      "b6_infrared_value": {
+        "name": "Valor de infravermelhos do exaustor",
+        "state": {
+          "power": "Potência",
+          "wind": "Vento"
+        }
+      },
+      "b6_inverter_ac_frequency": {
+        "name": "Frequência do AC do inversor do exaustor"
+      },
+      "b6_inverter_back_electromotive_force": {
+        "name": "Força contraeletromotriz do inversor do exaustor"
+      },
+      "b6_inverter_capacity": {
+        "name": "Capacidade do inversor do exaustor"
+      },
+      "b6_inverter_efficiency": {
+        "name": "Eficiência do inversor do exaustor"
+      },
+      "b6_inverter_motor_compensation_angle": {
+        "name": "Ângulo de compensação do motor do inversor do exaustor"
+      },
+      "b6_inverter_motor_speed": {
+        "name": "Velocidade do motor do inversor do exaustor"
+      },
+      "b6_inverter_q_axis_current": {
+        "name": "Corrente do eixo Q do inversor do exaustor"
+      },
+      "b6_inverter_start_time": {
+        "name": "Hora de início do inversor do exaustor"
+      },
+      "b6_inverter_temperature": {
+        "name": "Temperatura do inversor do exaustor"
+      },
+      "b6_inverter_temperature_limit_sign": {
+        "name": "Indicação de limite de temperatura do inversor do exaustor"
+      },
+      "b6_inverter_voltage": {
+        "name": "Tensão do inversor do exaustor"
+      },
+      "b6_inverter_wind_flow": {
+        "name": "Caudal de ar do inversor do exaustor"
+      },
+      "b6_inverter_wind_presssure": {
+        "name": "Pressão do ar do inversor do exaustor"
+      },
+      "b6_inverter_windage": {
+        "name": "Resistência do inversor do exaustor"
+      },
+      "b6_inverter_work_gear": {
+        "name": "Velocidade de funcionamento do inversor do exaustor"
+      },
+      "b6_last_hotclean_hour": {
+        "name": "Última hora de limpeza a quente do exaustor"
+      },
+      "b6_light": {
+        "name": "Luz do exaustor"
+      },
+      "b6_light_off_type": {
+        "name": "Tipo de desligar da luz do exaustor",
+        "state": {
+          "app": "App",
+          "error": "Erro",
+          "gesture": "Gesto",
+          "local": "Local"
+        }
+      },
+      "b6_light_on_type": {
+        "name": "Tipo de ligar da luz do exaustor",
+        "state": {
+          "app": "App",
+          "gesture": "Gesto",
+          "local": "Local"
+        }
+      },
+      "b6_lightness": {
+        "name": "Luminosidade do exaustor"
+      },
+      "b6_lock_off_type": {
+        "name": "Tipo de desligar do bloqueio do exaustor",
+        "state": {
+          "local": "Local"
+        }
+      },
+      "b6_lock_on_type": {
+        "name": "Tipo de ligar do bloqueio do exaustor",
+        "state": {
+          "app": "App",
+          "local": "Local"
+        }
+      },
+      "b6_power": {
+        "name": "Potência do exaustor",
+        "state": {
+          "delay_off": "Desligar com atraso",
+          "off": "Desligado",
+          "on": "Ligado"
+        }
+      },
+      "b6_power_off_type": {
+        "name": "Tipo de desligar do exaustor",
+        "state": {
+          "app": "App",
+          "delay": "Atraso",
+          "gesture": "Gesto",
+          "linkage": "Ligação",
+          "local": "Local"
+        }
+      },
+      "b6_power_on_type": {
+        "name": "Tipo de ligar do exaustor",
+        "state": {
+          "app": "App",
+          "gesture": "Gesto",
+          "linkage": "Ligação",
+          "local": "Local"
+        }
+      },
+      "b6_remaining_time": {
+        "name": "Tempo restante do exaustor"
+      },
+      "b6_smoke_detector_value": {
+        "name": "Valor do detetor de fumo do exaustor"
+      },
+      "b6_smoke_potency": {
+        "name": "Intensidade de fumo do exaustor"
+      },
+      "b6_smoke_stove_linkage_flowin": {
+        "name": "Entrada de fluxo da ligação fumo-fogão do exaustor",
+        "state": {
+          "no": "Não",
+          "yes": "Sim"
+        }
+      },
+      "b6_smoke_stove_linkage_gear": {
+        "name": "Velocidade da ligação fumo-fogão do exaustor"
+      },
+      "b6_smoke_stove_linkage_gear_fix": {
+        "name": "Correção da velocidade da ligação fumo-fogão do exaustor",
+        "state": {
+          "negative": "Negativo",
+          "positive": "Positivo"
+        }
+      },
+      "b6_steaming": {
+        "name": "Exaustor a vaporizar",
+        "state": {
+          "off": "Desligado",
+          "on": "Ligado"
+        }
+      },
+      "b6_steaming_stage": {
+        "name": "Fase de vaporização do exaustor"
+      },
+      "b6_wind_pressure": {
+        "name": "Pressão do ar do exaustor"
+      },
+      "b6_work_status": {
+        "name": "Estado de funcionamento do exaustor",
+        "state": {
+          "ai_dry_clean": "Limpeza a seco por IA",
+          "air_duct_detection": "Deteção da conduta de ar",
+          "check": "Verificar",
+          "clean": "Limpar",
+          "clean_finish": "Limpeza concluída",
+          "error": "Erro",
+          "hotclean": "Limpeza a quente",
+          "initial": "Inicial",
+          "mute_gear": "Velocidade silenciosa",
+          "power_off": "Desligar",
+          "power_off_delay": "Atraso ao desligar",
+          "standby": "Em espera",
+          "vvvf_gear": "Velocidade VVVF",
+          "working": "Em funcionamento"
+        }
+      },
+      "b7_left_current_temp": {
+        "name": "Temperatura atual do fogão a gás esquerdo"
+      },
+      "b7_left_destination_temp": {
+        "name": "Temperatura de destino do fogão a gás esquerdo"
+      },
+      "b7_left_destination_time": {
+        "name": "Hora de destino do fogão a gás esquerdo"
+      },
+      "b7_left_gear": {
+        "name": "Posição do fogão a gás esquerdo"
+      },
+      "b7_left_power_off_type": {
+        "name": "Tipo de desligar do fogão a gás esquerdo",
+        "state": {
+          "app": "App",
+          "auto": "Automático",
+          "error": "Erro",
+          "local": "Local",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b7_left_remaining_time": {
+        "name": "Tempo restante do fogão a gás esquerdo"
+      },
+      "b7_left_status": {
+        "name": "Estado do fogão a gás esquerdo",
+        "state": {
+          "drying": "A secar",
+          "drying_pause": "Secagem em pausa",
+          "ion_drying": "Secagem por iões",
+          "ion_drying_pause": "Secagem por iões em pausa",
+          "power_off": "Desligar",
+          "uperization": "Esterilização a alta temperatura",
+          "uperization_pause": "Esterilização a alta temperatura em pausa",
+          "warm_drink": "Bebida morna",
+          "warm_drink_pause": "Bebida morna em pausa"
+        }
+      },
+      "b7_left_work_time": {
+        "name": "Tempo de funcionamento do fogão a gás esquerdo"
+      },
+      "b7_right_current_temp": {
+        "name": "Temperatura atual do fogão a gás direito"
+      },
+      "b7_right_destination_temp": {
+        "name": "Temperatura de destino do fogão a gás direito"
+      },
+      "b7_right_destination_time": {
+        "name": "Hora de destino do fogão a gás direito"
+      },
+      "b7_right_gear": {
+        "name": "Posição do fogão a gás direito"
+      },
+      "b7_right_power_off_type": {
+        "name": "Tipo de desligar do fogão a gás direito",
+        "state": {
+          "app": "App",
+          "auto": "Automático",
+          "error": "Erro",
+          "local": "Local",
+          "wifi": "Wi-Fi"
+        }
+      },
+      "b7_right_remaining_time": {
+        "name": "Tempo restante do fogão a gás direito"
+      },
+      "b7_right_status": {
+        "name": "Estado do fogão a gás direito",
+        "state": {
+          "drying": "A secar",
+          "drying_pause": "Secagem em pausa",
+          "ion_drying": "Secagem por iões",
+          "ion_drying_pause": "Secagem por iões em pausa",
+          "power_off": "Desligar",
+          "uperization": "Esterilização a alta temperatura",
+          "uperization_pause": "Esterilização a alta temperatura em pausa",
+          "warm_drink": "Bebida morna",
+          "warm_drink_pause": "Bebida morna em pausa"
+        }
+      },
+      "b7_right_work_time": {
+        "name": "Tempo de funcionamento do fogão a gás direito"
+      },
+      "bf_cavity": {
+        "name": "Cavidade do forno",
+        "state": {
+          "down": "Baixo",
+          "up": "Cima"
+        }
+      },
+      "bf_control_back": {
+        "name": "Retorno do controlo do forno",
+        "state": {
+          "func_notsupport": "Função não suportada",
+          "status_notsupport": "Estado não suportado",
+          "success": "Sucesso",
+          "value_notsupport": "Valor não suportado"
+        }
+      },
+      "bf_end_next": {
+        "name": "Fim seguinte do forno"
+      },
+      "bf_fire": {
+        "name": "Chama do forno"
+      },
+      "bf_mode": {
+        "name": "Modo do forno"
+      },
+      "bf_quick_btn_bake_id": {
+        "name": "ID do botão rápido de cozedura do forno"
+      },
+      "bf_quick_btn_bake_set": {
+        "name": "Definição do botão rápido de cozedura do forno"
+      },
+      "bf_quick_btn_bake_time": {
+        "name": "Tempo do botão rápido de cozedura do forno"
+      },
+      "bf_quick_btn_microwave_id": {
+        "name": "ID do botão rápido de micro-ondas do forno"
+      },
+      "bf_quick_btn_microwave_set": {
+        "name": "Definição do botão rápido de micro-ondas do forno"
+      },
+      "bf_quick_btn_microwave_time": {
+        "name": "Tempo do botão rápido de micro-ondas do forno"
+      },
+      "bf_quick_btn_steam_id": {
+        "name": "ID do botão rápido de vapor do forno"
+      },
+      "bf_quick_btn_steam_set": {
+        "name": "Definição do botão rápido de vapor do forno"
+      },
+      "bf_quick_btn_steam_time": {
+        "name": "Tempo do botão rápido de vapor do forno"
+      },
+      "bf_recipe_code": {
+        "name": "Código de receita do forno"
+      },
+      "bf_remaining_time": {
+        "name": "Tempo restante do forno"
+      },
+      "bf_steam": {
+        "name": "Vapor do forno"
+      },
+      "bf_step_current": {
+        "name": "Passo atual do forno"
+      },
+      "bf_step_total": {
+        "name": "Total de passos do forno"
+      },
+      "bf_temp_down": {
+        "name": "Temperatura inferior do forno"
+      },
+      "bf_temp_down_set": {
+        "name": "Definição da temperatura inferior do forno"
+      },
+      "bf_temp_probe": {
+        "name": "Sonda de temperatura do forno"
+      },
+      "bf_temp_probe_set": {
+        "name": "Definição da sonda de temperatura do forno"
+      },
+      "bf_temp_up": {
+        "name": "Temperatura superior do forno"
+      },
+      "bf_temp_up_set": {
+        "name": "Definição da temperatura superior do forno"
+      },
+      "bf_tips_mark": {
+        "name": "Marca de avisos do forno",
+        "state": {
+          "apply": "Aplicar",
+          "change_attachments": "Mudar acessórios",
+          "door_open": "Porta aberta",
+          "feed": "Adicionar ingredientes",
+          "recipe_tips": "Avisos de receita",
+          "stir": "Mexer"
+        }
+      },
+      "bf_weight_mount": {
+        "name": "Suporte de pesagem do forno"
+      },
+      "bf_weight_multiple": {
+        "name": "Múltiplo de pesagem do forno",
+        "state": {
+          "g": "g",
+          "kg": "kg",
+          "ounce": "Onça",
+          "pound": "Libra"
+        }
+      },
+      "bf_weight_unit": {
+        "name": "Unidade de peso do forno",
+        "state": {
+          "g": "g",
+          "kg": "kg",
+          "other": "Outro",
+          "ounce": "Onça",
+          "pound": "Libra"
+        }
+      },
+      "bf_work_status": {
+        "name": "Estado de funcionamento do forno",
+        "state": {
+          "after_sale": "Pós-venda",
+          "check_version": "Verificar versão",
+          "cloudmenu_setting": "Definição do menu na nuvem",
+          "demo": "Demonstração",
+          "done": "Concluído",
+          "keep": "Manter",
+          "love_three_seconds": "Toque três segundos",
+          "open": "Aberto",
+          "order": "Agendamento",
+          "pause": "Pausar",
+          "pause_temporarily": "Pausar temporariamente",
+          "power_off": "Desligar",
+          "self_check": "Autoverificação",
+          "working": "Em funcionamento"
+        }
+      },
+      "bf_working_time": {
+        "name": "Tempo de funcionamento do forno"
+      },
+      "e7_left_bottom_bridge_link": {
+        "name": "Ligação em ponte da base esquerda da indução",
+        "state": {
+          "off": "Desligado",
+          "on": "Ligado"
+        }
+      },
+      "e7_left_bottom_destination_time": {
+        "name": "Hora de destino da base esquerda da indução"
+      },
+      "e7_left_bottom_efficiency": {
+        "name": "Eficiência da base esquerda da indução"
+      },
+      "e7_left_bottom_gear": {
+        "name": "Posição da base esquerda da indução"
+      },
+      "e7_left_bottom_mode": {
+        "name": "Modo da base esquerda da indução",
+        "state": {
+          "boiling": "A ferver",
+          "heat_preservation": "Manutenção de calor",
+          "none": "Nenhum",
+          "stew_soup": "Estufar sopa",
+          "stir_frying": "Saltear"
+        }
+      },
+      "e7_left_bottom_remaining_time": {
+        "name": "Tempo restante da base esquerda da indução"
+      },
+      "e7_left_bottom_work_status": {
+        "name": "Estado de funcionamento da base esquerda da indução",
+        "state": {
+          "auto": "Automático",
+          "drying": "A secar",
+          "finish": "Concluído",
+          "order": "Agendamento",
+          "pause": "Pausar",
+          "power_off": "Desligar",
+          "standby": "Em espera",
+          "working": "Em funcionamento"
+        }
+      },
+      "e7_left_bottom_work_time": {
+        "name": "Tempo de funcionamento da base esquerda da indução"
+      },
+      "e7_left_bridge_link": {
+        "name": "Ligação em ponte da esquerda da indução",
+        "state": {
+          "off": "Desligado",
+          "on": "Ligado"
+        }
+      },
+      "e7_left_destination_time": {
+        "name": "Hora de destino da esquerda da indução"
+      },
+      "e7_left_efficiency": {
+        "name": "Eficiência da esquerda da indução"
+      },
+      "e7_left_gear": {
+        "name": "Posição da esquerda da indução"
+      },
+      "e7_left_mode": {
+        "name": "Modo da esquerda da indução",
+        "state": {
+          "boiling": "A ferver",
+          "heat_preservation": "Manutenção de calor",
+          "none": "Nenhum",
+          "stew_soup": "Estufar sopa",
+          "stir_frying": "Saltear"
+        }
+      },
+      "e7_left_remaining_time": {
+        "name": "Tempo restante da esquerda da indução"
+      },
+      "e7_left_top_bridge_link": {
+        "name": "Ligação em ponte do topo esquerdo da indução",
+        "state": {
+          "off": "Desligado",
+          "on": "Ligado"
+        }
+      },
+      "e7_left_top_destination_time": {
+        "name": "Hora de destino do topo esquerdo da indução"
+      },
+      "e7_left_top_efficiency": {
+        "name": "Eficiência do topo esquerdo da indução"
+      },
+      "e7_left_top_gear": {
+        "name": "Posição do topo esquerdo da indução"
+      },
+      "e7_left_top_mode": {
+        "name": "Modo do topo esquerdo da indução",
+        "state": {
+          "boiling": "A ferver",
+          "heat_preservation": "Manutenção de calor",
+          "none": "Nenhum",
+          "stew_soup": "Estufar sopa",
+          "stir_frying": "Saltear"
+        }
+      },
+      "e7_left_top_remaining_time": {
+        "name": "Tempo restante do topo esquerdo da indução"
+      },
+      "e7_left_top_work_status": {
+        "name": "Estado de funcionamento do topo esquerdo da indução",
+        "state": {
+          "auto": "Automático",
+          "drying": "A secar",
+          "finish": "Concluído",
+          "order": "Agendamento",
+          "pause": "Pausar",
+          "power_off": "Desligar",
+          "standby": "Em espera",
+          "working": "Em funcionamento"
+        }
+      },
+      "e7_left_top_work_time": {
+        "name": "Tempo de funcionamento do topo esquerdo da indução"
+      },
+      "e7_left_work_status": {
+        "name": "Estado de funcionamento da esquerda da indução",
+        "state": {
+          "auto": "Automático",
+          "drying": "A secar",
+          "finish": "Concluído",
+          "order": "Agendamento",
+          "pause": "Pausar",
+          "power_off": "Desligar",
+          "standby": "Em espera",
+          "working": "Em funcionamento"
+        }
+      },
+      "e7_left_work_time": {
+        "name": "Tempo de funcionamento da esquerda da indução"
+      },
+      "e7_right_bottom_bridge_link": {
+        "name": "Ligação em ponte da base direita da indução",
+        "state": {
+          "off": "Desligado",
+          "on": "Ligado"
+        }
+      },
+      "e7_right_bottom_destination_time": {
+        "name": "Hora de destino da base direita da indução"
+      },
+      "e7_right_bottom_efficiency": {
+        "name": "Eficiência da base direita da indução"
+      },
+      "e7_right_bottom_gear": {
+        "name": "Posição da base direita da indução"
+      },
+      "e7_right_bottom_mode": {
+        "name": "Modo da base direita da indução",
+        "state": {
+          "boiling": "A ferver",
+          "heat_preservation": "Manutenção de calor",
+          "none": "Nenhum",
+          "stew_soup": "Estufar sopa",
+          "stir_frying": "Saltear"
+        }
+      },
+      "e7_right_bottom_remaining_time": {
+        "name": "Tempo restante da base direita da indução"
+      },
+      "e7_right_bottom_work_status": {
+        "name": "Estado de funcionamento da base direita da indução",
+        "state": {
+          "auto": "Automático",
+          "drying": "A secar",
+          "finish": "Concluído",
+          "order": "Agendamento",
+          "pause": "Pausar",
+          "power_off": "Desligar",
+          "standby": "Em espera",
+          "working": "Em funcionamento"
+        }
+      },
+      "e7_right_bottom_work_time": {
+        "name": "Tempo de funcionamento da base direita da indução"
+      },
+      "e7_right_bridge_link": {
+        "name": "Ligação em ponte da direita da indução",
+        "state": {
+          "off": "Desligado",
+          "on": "Ligado"
+        }
+      },
+      "e7_right_destination_time": {
+        "name": "Hora de destino da direita da indução"
+      },
+      "e7_right_efficiency": {
+        "name": "Eficiência da direita da indução"
+      },
+      "e7_right_gear": {
+        "name": "Posição da direita da indução"
+      },
+      "e7_right_mode": {
+        "name": "Modo da direita da indução",
+        "state": {
+          "boiling": "A ferver",
+          "heat_preservation": "Manutenção de calor",
+          "none": "Nenhum",
+          "stew_soup": "Estufar sopa",
+          "stir_frying": "Saltear"
+        }
+      },
+      "e7_right_remaining_time": {
+        "name": "Tempo restante da direita da indução"
+      },
+      "e7_right_top_bridge_link": {
+        "name": "Ligação em ponte do topo direito da indução",
+        "state": {
+          "off": "Desligado",
+          "on": "Ligado"
+        }
+      },
+      "e7_right_top_destination_time": {
+        "name": "Hora de destino do topo direito da indução"
+      },
+      "e7_right_top_efficiency": {
+        "name": "Eficiência do topo direito da indução"
+      },
+      "e7_right_top_gear": {
+        "name": "Posição do topo direito da indução"
+      },
+      "e7_right_top_mode": {
+        "name": "Modo do topo direito da indução",
+        "state": {
+          "boiling": "A ferver",
+          "heat_preservation": "Manutenção de calor",
+          "none": "Nenhum",
+          "stew_soup": "Estufar sopa",
+          "stir_frying": "Saltear"
+        }
+      },
+      "e7_right_top_remaining_time": {
+        "name": "Tempo restante do topo direito da indução"
+      },
+      "e7_right_top_work_status": {
+        "name": "Estado de funcionamento do topo direito da indução",
+        "state": {
+          "auto": "Automático",
+          "drying": "A secar",
+          "finish": "Concluído",
+          "order": "Agendamento",
+          "pause": "Pausar",
+          "power_off": "Desligar",
+          "standby": "Em espera",
+          "working": "Em funcionamento"
+        }
+      },
+      "e7_right_top_work_time": {
+        "name": "Tempo de funcionamento do topo direito da indução"
+      },
+      "e7_right_work_status": {
+        "name": "Estado de funcionamento da direita da indução",
+        "state": {
+          "auto": "Automático",
+          "drying": "A secar",
+          "finish": "Concluído",
+          "order": "Agendamento",
+          "pause": "Pausar",
+          "power_off": "Desligar",
+          "standby": "Em espera",
+          "working": "Em funcionamento"
+        }
+      },
+      "e7_right_work_time": {
+        "name": "Tempo de funcionamento da direita da indução"
+      },
+      "electronic_version": {
+        "name": "Versão eletrónica"
+      },
+      "error_list": {
+        "name": "Lista de erros"
+      },
+      "sp_fandrying_destination_time": {
+        "name": "Hora de destino da secagem por ventoinha do prato"
+      },
+      "sp_fandrying_order_destination_time": {
+        "name": "Hora de destino do agendamento da secagem por ventoinha do prato"
+      },
+      "sp_fandrying_order_remaining_time": {
+        "name": "Tempo restante do agendamento da secagem por ventoinha do prato"
+      },
+      "sp_fandrying_remaining_time": {
+        "name": "Tempo restante da secagem por ventoinha do prato"
+      },
+      "sp_fandrying_setting_automode_day": {
+        "name": "Dia do modo automático da secagem por ventoinha do prato"
+      },
+      "sp_fandrying_setting_automode_starthour": {
+        "name": "Hora de início do modo automático da secagem por ventoinha do prato"
+      },
+      "sp_fandrying_setting_automode_startminute": {
+        "name": "Minuto de início do modo automático da secagem por ventoinha do prato"
+      },
+      "sp_fandrying_status": {
+        "name": "Estado da secagem por ventoinha do prato",
+        "state": {
+          "drying": "A secar",
+          "drying_pause": "Secagem em pausa",
+          "ion_drying": "Secagem por iões",
+          "ion_drying_pause": "Secagem por iões em pausa",
+          "power_off": "Desligar",
+          "uperization": "Esterilização a alta temperatura",
+          "uperization_pause": "Esterilização a alta temperatura em pausa",
+          "warm_drink": "Bebida morna",
+          "warm_drink_pause": "Bebida morna em pausa"
+        }
+      },
+      "sp_fandrying_temperature": {
+        "name": "Temperatura da secagem por ventoinha do prato"
+      },
+      "sp_heatingdisk_destination_time": {
+        "name": "Hora de destino da placa de aquecimento do prato"
+      },
+      "sp_heatingdisk_order_destination_time": {
+        "name": "Hora de destino do agendamento da placa de aquecimento do prato"
+      },
+      "sp_heatingdisk_order_remaining_time": {
+        "name": "Tempo restante do agendamento da placa de aquecimento do prato"
+      },
+      "sp_heatingdisk_remaining_time": {
+        "name": "Tempo restante da placa de aquecimento do prato"
+      },
+      "sp_heatingdisk_setting_automode_day": {
+        "name": "Dia do modo automático da placa de aquecimento do prato"
+      },
+      "sp_heatingdisk_setting_automode_starthour": {
+        "name": "Hora de início do modo automático da placa de aquecimento do prato"
+      },
+      "sp_heatingdisk_setting_automode_startminute": {
+        "name": "Minuto de início do modo automático da placa de aquecimento do prato"
+      },
+      "sp_heatingdisk_status": {
+        "name": "Estado da placa de aquecimento do prato",
+        "state": {
+          "drying": "A secar",
+          "drying_pause": "Secagem em pausa",
+          "ion_drying": "Secagem por iões",
+          "ion_drying_pause": "Secagem por iões em pausa",
+          "power_off": "Desligar",
+          "uperization": "Esterilização a alta temperatura",
+          "uperization_pause": "Esterilização a alta temperatura em pausa",
+          "warm_drink": "Bebida morna",
+          "warm_drink_pause": "Bebida morna em pausa"
+        }
+      },
+      "sp_heatingdisk_temperature": {
+        "name": "Temperatura da placa de aquecimento do prato"
+      },
+      "sp_uvc_destination_time": {
+        "name": "Hora de destino UVC do prato"
+      },
+      "sp_uvc_order_destination_time": {
+        "name": "Hora de destino do agendamento UVC do prato"
+      },
+      "sp_uvc_order_remaining_time": {
+        "name": "Tempo restante do agendamento UVC do prato"
+      },
+      "sp_uvc_remaining_time": {
+        "name": "Tempo restante UVC do prato"
+      },
+      "sp_uvc_setting_automode_day": {
+        "name": "Dia do modo automático UVC do prato"
+      },
+      "sp_uvc_setting_automode_starthour": {
+        "name": "Hora de início do modo automático UVC do prato"
+      },
+      "sp_uvc_setting_automode_startminute": {
+        "name": "Minuto de início do modo automático UVC do prato"
+      },
+      "sp_uvc_status": {
+        "name": "Estado UVC do prato",
+        "state": {
+          "drying": "A secar",
+          "drying_pause": "Secagem em pausa",
+          "ion_drying": "Secagem por iões",
+          "ion_drying_pause": "Secagem por iões em pausa",
+          "power_off": "Desligar",
+          "uperization": "Esterilização a alta temperatura",
+          "uperization_pause": "Esterilização a alta temperatura em pausa",
+          "warm_drink": "Bebida morna",
+          "warm_drink_pause": "Bebida morna em pausa"
+        }
+      },
+      "sp_uvc_temperature": {
+        "name": "Temperatura UVC do prato"
+      },
+      "total_error_code": {
+        "name": "Código de erro"
+      },
+      "total_error_type": {
+        "name": "Tipo de erro"
+      },
+      "total_firewall_temp": {
+        "name": "Temperatura da barreira corta-fogo"
+      },
+      "total_gesture": {
+        "name": "Gesto",
+        "state": {
+          "off": "Desligado",
+          "on": "Ligado"
+        }
+      },
+      "total_ir": {
+        "name": "IR",
+        "state": {
+          "off": "Desligado",
+          "on": "Ligado"
+        }
+      },
+      "total_lock_off_type": {
+        "name": "Tipo de desligar do bloqueio",
+        "state": {
+          "local": "Local"
+        }
+      },
+      "total_lock_on_type": {
+        "name": "Tipo de ligar do bloqueio",
+        "state": {
+          "app": "App",
+          "local": "Local"
+        }
+      },
+      "total_shelving_unit_temp": {
+        "name": "Temperatura da prateleira"
+      },
+      "total_speak": {
+        "name": "Falar",
+        "state": {
+          "off": "Desligado",
+          "on": "Ligado"
+        }
+      },
+      "total_tips_code": {
+        "name": "Código de avisos"
+      },
+      "total_tips_type": {
+        "name": "Tipo de avisos"
+      },
+      "work_status": {
+        "name": "Estado de funcionamento",
+        "state": {
+          "save_power": "Poupar energia",
+          "standby": "Em espera",
+          "work": "Em funcionamento",
+          "pause": "Em pausa",
+          "work_finish": "Concluído",
+          "order": "Atraso",
+          "pause_c": "Em pausa C",
+          "three": "Três",
+          "self_inspection": "Autoinspeção",
+          "query_version": "Consultar versão",
+          "demo": "Demonstração",
+          "ramadan": "Ramadão",
+          "after_checking": "Após verificação",
+          "wait_to_start": "A aguardar início",
+          "ff": "Desconhecido"
+        }
+      },
+      "x9b_fire_power": {
+        "name": "Potência da chama",
+        "state": {
+          "high_power": "Alta",
+          "medium_high_power": "Médio-Alto",
+          "medium_power": "Média",
+          "medium_low_power": "Médio-Baixo",
+          "low_power": "Baixa",
+          "ff": "Desconhecido"
+        }
+      },
+      "pre_heat": {
+        "name": "Pré-aquecer",
+        "state": {
+          "off": "Desligado",
+          "work": "A pré-aquecer",
+          "end": "Pré-aquecimento concluído"
+        }
+      },
+      "water_status": {
+        "name": "Estado da água",
+        "state": {
+          "normal": "Normal",
+          "lack_box": "Reservatório em falta",
+          "lack_water": "Falta de água",
+          "change_water": "Mudar água"
+        }
+      },
+      "dissipate_heat": {
+        "name": "Dissipar calor",
+        "state": {
+          "off": "Desligado",
+          "work": "A dissipar"
+        }
+      },
+      "execute": {
+        "name": "Estado de execução",
+        "state": {
+          "ok": "OK",
+          "status_nonsupport": "Estado não suportado",
+          "function_nonsupport": "Função não suportada",
+          "param_range_error": "Erro de intervalo de parâmetro"
+        }
+      },
+      "sys_time_src": {
+        "name": "Fonte da hora do sistema",
+        "state": {
+          "module": "Módulo",
+          "app": "App",
+          "user_defined": "Definido pelo utilizador"
+        }
+      },
+      "cur_temperature": {
+        "name": "Temperatura atual"
+      },
+      "work_hour": {
+        "name": "Hora de funcionamento"
+      },
+      "work_minute": {
+        "name": "Minuto de funcionamento"
+      },
+      "work_second": {
+        "name": "Segundo de funcionamento"
+      },
+      "cbs_version": {
+        "name": "Versão CBS"
+      }
+    },
+    "switch": {
+      "db_power": {
+        "name": "Potência da máquina de lavar"
+      },
+      "dc_power": {
+        "name": "Potência da máquina de secar"
+      },
+      "door_auto_open_setting": {
+        "name": "Abertura automática da porta"
+      },
+      "anion": {
+        "name": "Aniões"
+      },
+      "humidify": {
+        "name": "Humidificar"
+      },
+      "waterions": {
+        "name": "Iões de água"
+      },
+      "anophelifuge": {
+        "name": "Antimosquitos"
+      },
+      "display_on_off": {
+        "name": "Visor"
+      },
+      "auto_power_off": {
+        "name": "Desligar automático"
+      },
+      "body_feeling_scan": {
+        "name": "Deteção de presença corporal"
+      },
+      "aux_heating": {
+        "name": "Aquecimento auxiliar"
+      },
+      "boost_mode": {
+        "name": "Modo Boost"
+      },
+      "breezeless": {
+        "name": "Sem corrente de ar"
+      },
+      "child_lock": {
+        "name": "Bloqueio infantil"
+      },
+      "cl_sterilization": {
+        "name": "Esterilização CL"
+      },
+      "comfort_mode": {
+        "name": "Modo conforto"
+      },
+      "degerming": {
+        "name": "Desinfeção germicida"
+      },
+      "dhw_power": {
+        "name": "Potência de AQS"
+      },
+      "disinfect": {
+        "name": "Desinfetar"
+      },
+      "furnace_light": {
+        "name": "Luz do forno"
+      },
+      "hot_wind": {
+        "name": "Ar quente"
+      },
+      "ramadan": {
+        "name": "Ramadão"
+      },
+      "turntable": {
+        "name": "Prato giratório"
+      },
+      "maintenance_reminder": {
+        "name": "Lembrete de manutenção"
+      },
+      "vacation_mode": {
+        "name": "Modo de férias"
+      },
+      "dry": {
+        "name": "Secar"
+      },
+      "cold_water_single": {
+        "name": "Água fria contínua"
+      },
+      "cold_water_dot": {
+        "name": "Água fria intermitente"
+      },
+      "eco_mode": {
+        "name": "Modo ECO"
+      },
+      "memory": {
+        "name": "Memo U"
+      },
+      "fast_dhw": {
+        "name": "AQS rápida"
+      },
+      "foam_shield": {
+        "name": "Proteção contra espuma"
+      },
+      "frost_protect": {
+        "name": "Proteção antigelo"
+      },
+      "heating_power": {
+        "name": "Potência de aquecimento"
+      },
+      "indirect_wind": {
+        "name": "Vento indireto"
+      },
+      "leak_water_protection": {
+        "name": "Proteção contra fugas de água"
+      },
+      "light": {
+        "name": "Leve"
+      },
+      "link_to_ac": {
+        "name": "Ligar ao AC"
+      },
+      "main_light": {
+        "name": "Luz principal"
+      },
+      "main_power": {
+        "name": "Alimentação principal"
+      },
+      "natural_wind": {
+        "name": "Vento natural"
+      },
+      "night_light": {
+        "name": "Luz noturna"
+      },
+      "oscillate": {
+        "name": "Oscilar"
+      },
+      "power": {
+        "name": "Potência"
+      },
+      "powerful_purify": {
+        "name": "Purificação potente"
+      },
+      "prompt_tone": {
+        "name": "Tom de aviso"
+      },
+      "regeneration": {
+        "name": "Regeneração"
+      },
+      "water_pump": {
+        "name": "Bomba de água"
+      },
+      "water_way": {
+        "name": "Circuito de água"
+      },
+      "screen_display": {
+        "name": "Visualização no ecrã"
+      },
+      "screen_display_alternate": {
+        "name": "Visualização alternada no ecrã"
+      },
+      "sensor_light": {
+        "name": "Luz com sensor"
+      },
+      "silent_mode": {
+        "name": "Modo silencioso"
+      },
+      "sleep_mode": {
+        "name": "Modo de suspensão"
+      },
+      "out_silent": {
+        "name": "Modo silencioso exterior"
+      },
+      "smart_eye": {
+        "name": "Olho inteligente"
+      },
+      "smart_volume": {
+        "name": "Volume inteligente"
+      },
+      "smelly_sensor": {
+        "name": "Sensor de odores"
+      },
+      "soften": {
+        "name": "Amaciamento"
+      },
+      "standby": {
+        "name": "Em espera"
+      },
+      "start": {
+        "name": "Iniciar"
+      },
+      "sterilization": {
+        "name": "Esterilização"
+      },
+      "storage": {
+        "name": "Armazenamento"
+      },
+      "swing": {
+        "name": "Oscilação"
+      },
+      "swing_horizontal": {
+        "name": "Oscilação horizontal"
+      },
+      "swing_vertical": {
+        "name": "Oscilação vertical"
+      },
+      "self_clean": {
+        "name": "Autolimpeza"
+      },
+      "ieco": {
+        "name": "iECO"
+      },
+      "sound": {
+        "name": "Som"
+      },
+      "tbh": {
+        "name": "TBH"
+      },
+      "variable_heating": {
+        "name": "Aquecimento variável"
+      },
+      "ventilation": {
+        "name": "Ventilação"
+      },
+      "whole_tank_heating": {
+        "name": "Aquecimento de todo o depósito"
+      },
+      "zero_cold_pulse": {
+        "name": "Água fria zero (impulso)"
+      },
+      "zero_cold_water": {
+        "name": "Água fria zero"
+      },
+      "zone1_curve": {
+        "name": "Curva da zona1"
+      },
+      "zone1_power": {
+        "name": "Alimentação da zona1"
+      },
+      "zone2_curve": {
+        "name": "Curva da zona2"
+      },
+      "zone2_power": {
+        "name": "Alimentação da zona2"
+      },
+      "boiling": {
+        "name": "Ferver água"
+      },
+      "tea_bar_boil": {
+        "name": "Interruptor de fervura de água"
+      },
+      "tea_bar_child_lock": {
+        "name": "Bloqueio infantil"
+      },
+      "keep_warm": {
+        "name": "Manter quente"
+      },
+      "tea_bar_cooling": {
+        "name": "Arrefecimento do bar de chá"
+      },
+      "screen_off": {
+        "name": "Ecrã desligado"
+      },
+      "wash": {
+        "name": "Lavagem do filtro"
+      },
+      "antifreeze": {
+        "name": "Anticongelante"
+      },
+      "heat": {
+        "name": "Aquecer"
+      },
+      "holiday_on": {
+        "name": "Modo - Férias"
+      },
+      "dhw_disinfect": {
+        "name": "AQS - Desinfeção"
+      },
+      "ai_voice_microphone": {
+        "name": "Microfone da voz da IA"
+      },
+      "total_lock": {
+        "name": "Bloqueio infantil"
+      },
+      "total_power": {
+        "name": "Potência"
+      },
+      "lock": {
+        "name": "Bloqueio infantil"
+      },
+      "camera": {
+        "name": "Câmara"
+      },
+      "dryer_sterilize": {
+        "name": "Esterilização multidimensional"
+      },
+      "dryer_anti_wrinkle": {
+        "name": "Antirrugas inteligente"
+      },
+      "washer_forget_free": {
+        "name": "Cuidado sem esquecimentos"
+      }
+    },
+    "water_heater": {
+      "domestic_hot_water": {
+        "name": "Água quente sanitária"
+      },
+      "bathing": {
+        "name": "Banho"
+      },
+      "heating": {
+        "name": "A aquecer"
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "ip_address": "Endereço IP",
+          "refresh_interval": "Intervalo de atualização (0 significa sem atualização ativa)",
+          "sensors": "Sensores adicionais",
+          "switches": "Controlos adicionais",
+          "customize": "Personalizar",
+          "account": "Conta da nuvem Midea (para os sensores de estatísticas de utilização)",
+          "password": "Palavra-passe da conta da nuvem Midea (para os sensores de estatísticas de utilização)",
+          "server": "Servidor da nuvem Midea da conta (para os sensores de estatísticas de utilização)"
+        },
+        "title": "Configurar"
+      }
+    },
+    "abort": {
+      "account_option": "A conta não suporta esta operação.\nClique em \"ADICIONAR DISPOSITIVO\" para  adicionar um novo dispositivo."
+    }
+  },
+  "services": {
+    "set_attribute": {
+      "name": "Definir atributo",
+      "description": "Define o valor do atributo do dispositivo",
+      "fields": {
+        "device_id": {
+          "name": "Código do aparelho",
+          "description": "O código do aparelho (ID do dispositivo) do aparelho"
+        },
+        "attribute": {
+          "name": "Atributo",
+          "description": "O nome do atributo que se pretende definir"
+        },
+        "value": {
+          "name": "Valor",
+          "description": "O valor do atributo que se pretende definir"
+        }
+      }
+    },
+    "send_command": {
+      "name": "Comando personalizado",
+      "description": "Envia um comando personalizado para o dispositivo",
+      "fields": {
+        "device_id": {
+          "name": "Código do aparelho",
+          "description": "O código do aparelho (ID do dispositivo) do aparelho"
+        },
+        "cmd_type": {
+          "name": "Tipo de comando",
+          "description": "O tipo de comando, deve ser 3 (consulta) ou 2 (definição)"
+        },
+        "cmd_body": {
+          "name": "Corpo do comando",
+          "description": "O corpo do comando (não inclui o cabeçalho do protocolo MSmart nem a soma de verificação no fim)"
+        }
+      }
+    }
+  }
+}
