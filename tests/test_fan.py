@@ -109,20 +109,8 @@ async def test_x13_fan_model_and_subtype_gate(
     subtype: int,
     expected_count: int,
     device_factory: DeviceFactory,
-    install_config: InstallConfig,
 ) -> None:
     """Expose the fan only for the library-supported X13 layout."""
-    install_config(
-        {
-            "fan": {
-                "type": Platform.FAN,
-                "default": True,
-                "models": ["M0200008"],
-                "subtypes": [0],
-            },
-        },
-        DeviceType.X13,
-    )
     device, _ = device_factory(
         device_type=DeviceType.X13,
         model=model,
