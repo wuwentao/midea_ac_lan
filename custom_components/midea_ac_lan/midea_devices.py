@@ -5181,7 +5181,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             # Model 17100007 native energy telemetry (optional).
             "heating_power_consumption": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_heating_power_consumption",
+                "translation_key": "heating_power_consumption",
                 "name": "Heating electrical power",
                 "models": ["17100007"],
                 "required_attribute": "heating_power_consumption",
@@ -5191,7 +5191,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "heating_capacity": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_heating_capacity",
+                "translation_key": "heating_capacity",
                 "name": "Heating heat output",
                 "models": ["17100007"],
                 "required_attribute": "heating_capacity",
@@ -5201,7 +5201,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "heating_cop_eer": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_heating_cop_eer",
+                "translation_key": "heating_cop_eer",
                 "name": "Heating COP/EER",
                 "models": ["17100007"],
                 "required_attribute": "heating_cop_eer",
@@ -5210,7 +5210,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "heating_total_energy_consumption": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_heating_total_energy_consumption",
+                "translation_key": "heating_total_energy_consumption",
                 "name": "Heating total electricity",
                 "models": ["17100007"],
                 "required_attribute": "heating_total_energy_consumption",
@@ -5220,7 +5220,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "heating_total_produced_energy": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_heating_total_produced_energy",
+                "translation_key": "heating_total_produced_energy",
                 "name": "Heating total heat production",
                 "models": ["17100007"],
                 "required_attribute": "heating_total_produced_energy",
@@ -5230,7 +5230,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "heating_total_cop_eer": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_heating_total_cop_eer",
+                "translation_key": "heating_total_cop_eer",
                 "name": "Heating total COP/EER",
                 "models": ["17100007"],
                 "required_attribute": "heating_total_cop_eer",
@@ -5239,7 +5239,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "heating_energy_consumption_today": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_heating_energy_consumption_today",
+                "translation_key": "heating_energy_consumption_today",
                 "name": "Heating electricity today",
                 "models": ["17100007"],
                 "required_attribute": "heating_energy_consumption_today",
@@ -5249,7 +5249,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "heating_produced_energy_today": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_heating_produced_energy_today",
+                "translation_key": "heating_produced_energy_today",
                 "name": "Heating heat production today",
                 "models": ["17100007"],
                 "required_attribute": "heating_produced_energy_today",
@@ -5259,7 +5259,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "heating_cop_eer_today": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_heating_cop_eer_today",
+                "translation_key": "heating_cop_eer_today",
                 "name": "Heating COP/EER today",
                 "models": ["17100007"],
                 "required_attribute": "heating_cop_eer_today",
@@ -5268,7 +5268,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "heating_energy_consumption_this_week": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_heating_energy_consumption_this_week",
+                "translation_key": "heating_energy_consumption_this_week",
                 "name": "Heating electricity this week",
                 "models": ["17100007"],
                 "required_attribute": "heating_energy_consumption_this_week",
@@ -5278,7 +5278,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "heating_produced_energy_this_week": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_heating_produced_energy_this_week",
+                "translation_key": "heating_produced_energy_this_week",
                 "name": "Heating heat production this week",
                 "models": ["17100007"],
                 "required_attribute": "heating_produced_energy_this_week",
@@ -5288,7 +5288,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "heating_cop_eer_this_week": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_heating_cop_eer_this_week",
+                "translation_key": "heating_cop_eer_this_week",
                 "name": "Heating COP/EER this week",
                 "models": ["17100007"],
                 "required_attribute": "heating_cop_eer_this_week",
@@ -5297,7 +5297,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "heating_energy_consumption_this_month": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_heating_energy_consumption_this_month",
+                "translation_key": "heating_energy_consumption_this_month",
                 "name": "Heating electricity this month",
                 "models": ["17100007"],
                 "required_attribute": "heating_energy_consumption_this_month",
@@ -5307,7 +5307,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "heating_produced_energy_this_month": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_heating_produced_energy_this_month",
+                "translation_key": "heating_produced_energy_this_month",
                 "name": "Heating heat production this month",
                 "models": ["17100007"],
                 "required_attribute": "heating_produced_energy_this_month",
@@ -5317,7 +5317,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "heating_cop_eer_this_month": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_heating_cop_eer_this_month",
+                "translation_key": "heating_cop_eer_this_month",
                 "name": "Heating COP/EER this month",
                 "models": ["17100007"],
                 "required_attribute": "heating_cop_eer_this_month",
@@ -5326,7 +5326,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "heating_energy_consumption_this_year": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_heating_energy_consumption_this_year",
+                "translation_key": "heating_energy_consumption_this_year",
                 "name": "Heating electricity this year",
                 "models": ["17100007"],
                 "required_attribute": "heating_energy_consumption_this_year",
@@ -5336,7 +5336,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "heating_produced_energy_this_year": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_heating_produced_energy_this_year",
+                "translation_key": "heating_produced_energy_this_year",
                 "name": "Heating heat production this year",
                 "models": ["17100007"],
                 "required_attribute": "heating_produced_energy_this_year",
@@ -5346,7 +5346,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "heating_cop_eer_this_year": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_heating_cop_eer_this_year",
+                "translation_key": "heating_cop_eer_this_year",
                 "name": "Heating COP/EER this year",
                 "models": ["17100007"],
                 "required_attribute": "heating_cop_eer_this_year",
@@ -5355,7 +5355,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "cooling_power_consumption": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_cooling_power_consumption",
+                "translation_key": "cooling_power_consumption",
                 "name": "Cooling electrical power",
                 "models": ["17100007"],
                 "required_attribute": "cooling_power_consumption",
@@ -5365,7 +5365,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "cooling_capacity": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_cooling_capacity",
+                "translation_key": "cooling_capacity",
                 "name": "Cooling capacity",
                 "models": ["17100007"],
                 "required_attribute": "cooling_capacity",
@@ -5375,7 +5375,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "cooling_cop_eer": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_cooling_cop_eer",
+                "translation_key": "cooling_cop_eer",
                 "name": "Cooling COP/EER",
                 "models": ["17100007"],
                 "required_attribute": "cooling_cop_eer",
@@ -5384,7 +5384,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "cooling_total_energy_consumption": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_cooling_total_energy_consumption",
+                "translation_key": "cooling_total_energy_consumption",
                 "name": "Cooling total electricity",
                 "models": ["17100007"],
                 "required_attribute": "cooling_total_energy_consumption",
@@ -5394,7 +5394,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "cooling_total_produced_energy": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_cooling_total_produced_energy",
+                "translation_key": "cooling_total_produced_energy",
                 "name": "Cooling total produced energy",
                 "models": ["17100007"],
                 "required_attribute": "cooling_total_produced_energy",
@@ -5404,7 +5404,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "cooling_total_cop_eer": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_cooling_total_cop_eer",
+                "translation_key": "cooling_total_cop_eer",
                 "name": "Cooling total COP/EER",
                 "models": ["17100007"],
                 "required_attribute": "cooling_total_cop_eer",
@@ -5413,7 +5413,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "cooling_energy_consumption_today": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_cooling_energy_consumption_today",
+                "translation_key": "cooling_energy_consumption_today",
                 "name": "Cooling electricity today",
                 "models": ["17100007"],
                 "required_attribute": "cooling_energy_consumption_today",
@@ -5423,7 +5423,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "cooling_produced_energy_today": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_cooling_produced_energy_today",
+                "translation_key": "cooling_produced_energy_today",
                 "name": "Cooling produced energy today",
                 "models": ["17100007"],
                 "required_attribute": "cooling_produced_energy_today",
@@ -5433,7 +5433,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "cooling_cop_eer_today": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_cooling_cop_eer_today",
+                "translation_key": "cooling_cop_eer_today",
                 "name": "Cooling COP/EER today",
                 "models": ["17100007"],
                 "required_attribute": "cooling_cop_eer_today",
@@ -5442,7 +5442,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "cooling_energy_consumption_this_week": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_cooling_energy_consumption_this_week",
+                "translation_key": "cooling_energy_consumption_this_week",
                 "name": "Cooling electricity this week",
                 "models": ["17100007"],
                 "required_attribute": "cooling_energy_consumption_this_week",
@@ -5452,7 +5452,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "cooling_produced_energy_this_week": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_cooling_produced_energy_this_week",
+                "translation_key": "cooling_produced_energy_this_week",
                 "name": "Cooling produced energy this week",
                 "models": ["17100007"],
                 "required_attribute": "cooling_produced_energy_this_week",
@@ -5462,7 +5462,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "cooling_cop_eer_this_week": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_cooling_cop_eer_this_week",
+                "translation_key": "cooling_cop_eer_this_week",
                 "name": "Cooling COP/EER this week",
                 "models": ["17100007"],
                 "required_attribute": "cooling_cop_eer_this_week",
@@ -5471,7 +5471,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "cooling_energy_consumption_this_month": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_cooling_energy_consumption_this_month",
+                "translation_key": "cooling_energy_consumption_this_month",
                 "name": "Cooling electricity this month",
                 "models": ["17100007"],
                 "required_attribute": "cooling_energy_consumption_this_month",
@@ -5481,7 +5481,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "cooling_produced_energy_this_month": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_cooling_produced_energy_this_month",
+                "translation_key": "cooling_produced_energy_this_month",
                 "name": "Cooling produced energy this month",
                 "models": ["17100007"],
                 "required_attribute": "cooling_produced_energy_this_month",
@@ -5491,7 +5491,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "cooling_cop_eer_this_month": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_cooling_cop_eer_this_month",
+                "translation_key": "cooling_cop_eer_this_month",
                 "name": "Cooling COP/EER this month",
                 "models": ["17100007"],
                 "required_attribute": "cooling_cop_eer_this_month",
@@ -5500,7 +5500,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "cooling_energy_consumption_this_year": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_cooling_energy_consumption_this_year",
+                "translation_key": "cooling_energy_consumption_this_year",
                 "name": "Cooling electricity this year",
                 "models": ["17100007"],
                 "required_attribute": "cooling_energy_consumption_this_year",
@@ -5510,7 +5510,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "cooling_produced_energy_this_year": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_cooling_produced_energy_this_year",
+                "translation_key": "cooling_produced_energy_this_year",
                 "name": "Cooling produced energy this year",
                 "models": ["17100007"],
                 "required_attribute": "cooling_produced_energy_this_year",
@@ -5520,7 +5520,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "cooling_cop_eer_this_year": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_cooling_cop_eer_this_year",
+                "translation_key": "cooling_cop_eer_this_year",
                 "name": "Cooling COP/EER this year",
                 "models": ["17100007"],
                 "required_attribute": "cooling_cop_eer_this_year",
@@ -5529,7 +5529,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "dhw_power_consumption": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_dhw_power_consumption",
+                "translation_key": "dhw_power_consumption",
                 "name": "DHW electrical power",
                 "models": ["17100007"],
                 "required_attribute": "dhw_power_consumption",
@@ -5539,7 +5539,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "dhw_capacity": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_dhw_capacity",
+                "translation_key": "dhw_capacity",
                 "name": "DHW heat output",
                 "models": ["17100007"],
                 "required_attribute": "dhw_capacity",
@@ -5549,7 +5549,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "dhw_cop_eer": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_dhw_cop_eer",
+                "translation_key": "dhw_cop_eer",
                 "name": "DHW COP/EER",
                 "models": ["17100007"],
                 "required_attribute": "dhw_cop_eer",
@@ -5558,7 +5558,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "dhw_total_energy_consumption": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_dhw_total_energy_consumption",
+                "translation_key": "dhw_total_energy_consumption",
                 "name": "DHW total electricity",
                 "models": ["17100007"],
                 "required_attribute": "dhw_total_energy_consumption",
@@ -5568,7 +5568,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "dhw_total_produced_energy": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_dhw_total_produced_energy",
+                "translation_key": "dhw_total_produced_energy",
                 "name": "DHW total heat production",
                 "models": ["17100007"],
                 "required_attribute": "dhw_total_produced_energy",
@@ -5578,7 +5578,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "dhw_total_cop_eer": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_dhw_total_cop_eer",
+                "translation_key": "dhw_total_cop_eer",
                 "name": "DHW total COP/EER",
                 "models": ["17100007"],
                 "required_attribute": "dhw_total_cop_eer",
@@ -5587,7 +5587,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "dhw_energy_consumption_today": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_dhw_energy_consumption_today",
+                "translation_key": "dhw_energy_consumption_today",
                 "name": "DHW electricity today",
                 "models": ["17100007"],
                 "required_attribute": "dhw_energy_consumption_today",
@@ -5597,7 +5597,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "dhw_produced_energy_today": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_dhw_produced_energy_today",
+                "translation_key": "dhw_produced_energy_today",
                 "name": "DHW heat production today",
                 "models": ["17100007"],
                 "required_attribute": "dhw_produced_energy_today",
@@ -5607,7 +5607,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "dhw_cop_eer_today": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_dhw_cop_eer_today",
+                "translation_key": "dhw_cop_eer_today",
                 "name": "DHW COP/EER today",
                 "models": ["17100007"],
                 "required_attribute": "dhw_cop_eer_today",
@@ -5616,7 +5616,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "dhw_energy_consumption_this_week": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_dhw_energy_consumption_this_week",
+                "translation_key": "dhw_energy_consumption_this_week",
                 "name": "DHW electricity this week",
                 "models": ["17100007"],
                 "required_attribute": "dhw_energy_consumption_this_week",
@@ -5626,7 +5626,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "dhw_produced_energy_this_week": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_dhw_produced_energy_this_week",
+                "translation_key": "dhw_produced_energy_this_week",
                 "name": "DHW heat production this week",
                 "models": ["17100007"],
                 "required_attribute": "dhw_produced_energy_this_week",
@@ -5636,7 +5636,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "dhw_cop_eer_this_week": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_dhw_cop_eer_this_week",
+                "translation_key": "dhw_cop_eer_this_week",
                 "name": "DHW COP/EER this week",
                 "models": ["17100007"],
                 "required_attribute": "dhw_cop_eer_this_week",
@@ -5645,7 +5645,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "dhw_energy_consumption_this_month": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_dhw_energy_consumption_this_month",
+                "translation_key": "dhw_energy_consumption_this_month",
                 "name": "DHW electricity this month",
                 "models": ["17100007"],
                 "required_attribute": "dhw_energy_consumption_this_month",
@@ -5655,7 +5655,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "dhw_produced_energy_this_month": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_dhw_produced_energy_this_month",
+                "translation_key": "dhw_produced_energy_this_month",
                 "name": "DHW heat production this month",
                 "models": ["17100007"],
                 "required_attribute": "dhw_produced_energy_this_month",
@@ -5665,7 +5665,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "dhw_cop_eer_this_month": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_dhw_cop_eer_this_month",
+                "translation_key": "dhw_cop_eer_this_month",
                 "name": "DHW COP/EER this month",
                 "models": ["17100007"],
                 "required_attribute": "dhw_cop_eer_this_month",
@@ -5674,7 +5674,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "dhw_energy_consumption_this_year": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_dhw_energy_consumption_this_year",
+                "translation_key": "dhw_energy_consumption_this_year",
                 "name": "DHW electricity this year",
                 "models": ["17100007"],
                 "required_attribute": "dhw_energy_consumption_this_year",
@@ -5684,7 +5684,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "dhw_produced_energy_this_year": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_dhw_produced_energy_this_year",
+                "translation_key": "dhw_produced_energy_this_year",
                 "name": "DHW heat production this year",
                 "models": ["17100007"],
                 "required_attribute": "dhw_produced_energy_this_year",
@@ -5694,7 +5694,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "dhw_cop_eer_this_year": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_dhw_cop_eer_this_year",
+                "translation_key": "dhw_cop_eer_this_year",
                 "name": "DHW COP/EER this year",
                 "models": ["17100007"],
                 "required_attribute": "dhw_cop_eer_this_year",
@@ -5703,7 +5703,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "instant_cop_eer": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_instant_cop_eer",
+                "translation_key": "instant_cop_eer",
                 "name": "Instantaneous COP/EER",
                 "models": ["17100007"],
                 "required_attribute": "instant_cop_eer",
@@ -5712,7 +5712,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             "total_cop_eer": {
                 "type": Platform.SENSOR,
-                "translation_key": "c3_total_cop_eer",
+                "translation_key": "total_cop_eer",
                 "name": "Total COP/EER",
                 "models": ["17100007"],
                 "required_attribute": "total_cop_eer",

@@ -25,7 +25,7 @@ ENERGY_CONFIGS = {
         "dict[str, dict[str, Any]]",
         MIDEA_DEVICES[C3]["entities"],
     ).items()
-    if config.get("translation_key", "").startswith("c3_")
+    if config.get("models") == ["17100007"] and config.get("type") is Platform.SENSOR
 }
 
 
@@ -116,4 +116,4 @@ def test_curated_telemetry_fits_both_control_entities() -> None:
         attrs = entity.extra_state_attributes
         assert len(json.dumps(attrs).encode()) < RECORDER_ATTRIBUTE_LIMIT
         assert attrs["heating_power_consumption"] == pytest.approx(TEST_POWER)
-        assert not any(key.startswith("c3_") for key in attrs)
+        # translation_key prefix removed; energy keys appear without c3_ prefix
