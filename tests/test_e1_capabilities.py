@@ -63,7 +63,13 @@ def test_estimates_use_model_mode_and_count_once(key: str, expected: float) -> N
     device = _device("760001EC")
     sensor = MideaEstimatedUsageSensor(device, key)
     sensor.hass = Mock()
-    sensor.platform = Mock()
+    # Stub the HA state-write path like the sibling sensor tests do. A bare
+    # Mock hass makes is_stopping truthy, so schedule_update_if_running would
+    # evaluate self.name; on HA >= 2026 that resolves through platform_data
+    # (None for an unattached entity) and raises. The accumulation logic under
+    # test runs before this call, so stubbing it keeps the test HA-version
+    # independent without touching what it verifies.
+    sensor.schedule_update_if_running = Mock()
     assert sensor.has_estimates
     assert "self_clean" in sensor.extra_state_attributes["known_modes"]
     device._attributes.update(status="running", progress="wash", mode="self_clean")
