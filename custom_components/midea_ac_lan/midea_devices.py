@@ -3884,6 +3884,34 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "icon": "mdi:alert-circle",
                 "device_class": BinarySensorDeviceClass.PROBLEM,
             },
+            # Verified on models 22396933/22396945/22396937: the BB X11 status
+            # frame carries the humidify switch and target humidity percentage.
+            # Read-only for now; the AA/X40 set-frame offsets are not verified.
+            ACAttributes.humidify: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "humidify",
+                "name": "Humidify",
+                "icon": "mdi:water-percent",
+                "device_class": BinarySensorDeviceClass.RUNNING,
+                "required_attribute": ACAttributes.humidify,
+                "models": ["22396933", "22396945", "22396937"],
+                "subtypes": [0, 1],
+                "default": True,
+            },
+            ACAttributes.target_humidity: {
+                "type": Platform.SENSOR,
+                "translation_key": "target_humidity",
+                "name": "Target Humidity",
+                "icon": "mdi:water-percent",
+                "device_class": SensorDeviceClass.HUMIDITY,
+                "unit": PERCENTAGE,
+                "state_class": SensorStateClass.MEASUREMENT,
+                "missing_values": [0],
+                "required_attribute": ACAttributes.target_humidity,
+                "models": ["22396933", "22396945", "22396937"],
+                "subtypes": [0, 1],
+                "default": True,
+            },
             ACAttributes.indoor_humidity: {
                 "type": Platform.SENSOR,
                 "translation_key": "indoor_humidity",
