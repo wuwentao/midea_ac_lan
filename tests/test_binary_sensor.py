@@ -1,7 +1,5 @@
 """Tests for Midea binary sensor entities."""
 
-from typing import Any, cast
-
 import pytest
 from homeassistant.components.binary_sensor import BinarySensorDeviceClass
 from homeassistant.const import Platform
@@ -16,7 +14,8 @@ from custom_components.midea_ac_lan.midea_devices import MIDEA_DEVICES
 
 from .helpers import DeviceFactory, InstallConfig, setup_context
 
-AC_ENTITIES = cast("dict[str, Any]", MIDEA_DEVICES[0xAC]["entities"])
+AC_ENTITIES = MIDEA_DEVICES[0xAC]["entities"]
+assert isinstance(AC_ENTITIES, dict)
 HUMIDIFY_CONFIG = AC_ENTITIES[ACAttributes.humidify]
 
 
