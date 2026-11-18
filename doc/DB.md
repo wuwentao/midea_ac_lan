@@ -163,6 +163,8 @@ All three v41 models expose the read-only status fields of
 `T_0000_DB_41.lua`, marked "(v41)" in the table above: drying level, soak
 count, delay start minutes, error code, and the speedy, child lock, pre-wash,
 steam wash, extra rinse, fresh air (`wind_dispel`) and remote control flags.
+These fields are decoded by
+[`midea-lan` PR #273](https://github.com/wuwentao/midea-lan/pull/273).
 The end-of-cycle report adds the water and power consumption of the last
 cycle as raw counters; the Lua file defines no unit for them. It also carries
 the appliance wash count (read by the official app plugin, not the Lua file).
