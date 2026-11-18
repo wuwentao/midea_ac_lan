@@ -3,10 +3,11 @@
 from unittest.mock import Mock, patch
 
 import pytest
-from midea_ac_lan.select import MideaSelect
-from midea_ac_lan.sensor import MideaEstimatedUsageSensor
 from midealan.const import ProtocolVersion
 from midealan.devices.e1 import DeviceAttributes, MideaE1Device
+
+from custom_components.midea_ac_lan.select import MideaSelect
+from custom_components.midea_ac_lan.sensor import MideaEstimatedUsageSensor
 
 
 def _device(model: str) -> MideaE1Device:
@@ -50,7 +51,7 @@ def test_program_selection_uses_model_codes(entity_key: str) -> None:
         if entity_key == DeviceAttributes.program:
             assert selector.current_option == "self_clean"
             device.set_attribute(DeviceAttributes.status, "work")
-    assert send.call_args.args[0].mode == 0x10  # ruff: ignore[magic-value-comparison]
+    assert send.call_args.args[0].mode == 0x10
 
 
 @pytest.mark.parametrize(

@@ -49,7 +49,10 @@ async def test_async_setup_entry_builds_all_sensor_types(
             "estimate": {
                 "type": Platform.SENSOR,
                 "default": True,
-                "estimate": {"values_by_model": {}},
+                "estimate": {
+                    "values_method": "get_estimated_consumption",
+                    "kind": "energy",
+                },
             },
             "duration": {
                 "type": Platform.SENSOR,
@@ -127,6 +130,31 @@ async def test_async_setup_entry_skips_unconfigured_cloud_once(
     ) as create:
         await async_setup_entry(hass, entry, add_entities)
     create.assert_called_once_with(hass, entry, device.device_id, device.name)
+    add_entities.assert_called_once_with([])
+
+
+async def test_async_setup_entry_skips_estimate_with_no_data(
+    device_factory: DeviceFactory,
+    install_config: InstallConfig,
+) -> None:
+    """Omit estimate sensors when the device has no figures for the model."""
+    install_config(
+        {
+            "usage": {
+                "type": Platform.SENSOR,
+                "default": True,
+                "estimate": {
+                    "values_method": "get_estimated_consumption",
+                    "kind": "energy",
+                },
+            },
+        },
+    )
+    device, _ = device_factory()
+    # Mock returns empty dict → no estimates for this model.
+    device.get_estimated_consumption = Mock(return_value={})
+    hass, entry, add_entities = setup_context(device)
+    await async_setup_entry(hass, entry, add_entities)
     add_entities.assert_called_once_with([])
 
 
@@ -433,6 +461,10 @@ def estimated_device(
     device.mac = None
     device.serial_number = None
     device.modes = {1: "eco", 2: "intensive"}
+    device.supported_modes = {1: "eco", 2: "intensive"}
+    device.get_estimated_consumption.side_effect = lambda _kind: (
+        {1: 1.2345, 3: 2.5} if device.model == "TEST-MODEL" else {}
+    )
     device.get_attribute.side_effect = values.get
     return device
 
@@ -442,9 +474,8 @@ def estimated_config() -> dict[str, object]:
     return {
         "type": Platform.SENSOR,
         "estimate": {
-            "values_by_model": {
-                "TEST-MODEL": {1: 1.2345, 3: 2.5},
-            },
+            "values_method": "get_estimated_consumption",
+            "kind": "energy",
         },
     }
 

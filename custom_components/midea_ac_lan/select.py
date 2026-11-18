@@ -84,6 +84,11 @@ class MideaSelect(MideaEntity, SelectEntity):
         if value is None:
             return None
         if self._options_method:
+            state_map = self._config.get("state_map")
+            if state_map is not None:
+                value = state_map.get(value)
+            if value is None:
+                return None
             option = str(value)
             return option if option in self.options else None
         state_map = self._config.get("state_map")
