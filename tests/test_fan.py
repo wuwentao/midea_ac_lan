@@ -315,7 +315,7 @@ def test_x40_fan(
     ]
 
 
-def test_x13_fan(
+async def test_x13_fan(
     device_factory: DeviceFactory,
     install_config: InstallConfig,
 ) -> None:
@@ -352,3 +352,27 @@ def test_x13_fan(
         attr=X13Attributes.fan_speed,
         value=41,
     )
+
+    fan.async_set_percentage = AsyncMock()
+    values[X13Attributes.fan_speed] = 21
+    await fan.async_increase_speed()
+    await fan.async_decrease_speed()
+    await fan.async_increase_speed(5)
+    await fan.async_decrease_speed(5)
+    values[X13Attributes.fan_speed] = 100
+    await fan.async_increase_speed()
+    values[X13Attributes.fan_speed] = 1
+    await fan.async_decrease_speed()
+    values[X13Attributes.fan_speed] = 0
+    await fan.async_increase_speed()
+    await fan.async_decrease_speed()
+    assert fan.async_set_percentage.await_args_list == [
+        call(41),
+        call(1),
+        call(26),
+        call(16),
+        call(100),
+        call(0),
+        call(1),
+        call(0),
+    ]

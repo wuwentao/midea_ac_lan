@@ -1,6 +1,7 @@
 """Midea Fan entries."""
 
 import logging
+from bisect import bisect_left, bisect_right
 from typing import Any, cast
 
 from homeassistant.components.fan import FanEntity, FanEntityFeature
@@ -439,6 +440,24 @@ class MideaX13Fan(MideaFan):
         if not speed:
             return None
         return int(cast("int", speed))
+
+    async def async_increase_speed(self, percentage_step: int | None = None) -> None:
+        """Advance to the next gear for a default speed increase."""
+        if percentage_step is not None:
+            await super().async_increase_speed(percentage_step)
+            return
+        current = self.percentage or 0
+        index = min(bisect_right(X13_FAN_SPEEDS, current), len(X13_FAN_SPEEDS) - 1)
+        await self.async_set_percentage(X13_FAN_SPEEDS[index])
+
+    async def async_decrease_speed(self, percentage_step: int | None = None) -> None:
+        """Move to the previous gear for a default speed decrease."""
+        if percentage_step is not None:
+            await super().async_decrease_speed(percentage_step)
+            return
+        current = self.percentage or 0
+        index = bisect_left(X13_FAN_SPEEDS, current) - 1
+        await self.async_set_percentage(X13_FAN_SPEEDS[index] if index >= 0 else 0)
 
     def turn_on(
         self,
