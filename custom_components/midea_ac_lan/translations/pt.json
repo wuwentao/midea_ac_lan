@@ -887,6 +887,9 @@
       },
       "has_token": {
         "name": "Tem token"
+      },
+      "humidify": {
+        "name": "Humidificar"
       }
     },
     "button": {
@@ -1107,75 +1110,13 @@
           "preset_5": "Predefinição 5"
         }
       },
-      "wash_mode_76000228": {
-        "name": "Modo de lavagem",
-        "state": {
-          "neutral_gear": "Nenhum",
-          "auto_wash": "Automático",
-          "strong_wash": "Intensivo",
-          "standard_wash": "Universal",
-          "eco_wash": "ECO",
-          "glass_wash": "Vidro",
-          "hour_wash": "90 min",
-          "fast_wash": "Rápido",
-          "soak_wash": "Demolhar",
-          "90min": "90 min",
-          "self_clean": "Autolimpeza",
-          "fruit_wash": "Fruta",
-          "self_define": "Personalizado",
-          "germ": "Sussurro",
-          "bowl_wash": "Taça",
-          "kill_germ": "Higiene",
-          "sea_food_wash": "Autolimpeza",
-          "hot_pot_wash": "Panela quente",
-          "quiet_night_wash": "Noite tranquila",
-          "less_wash": "Leve",
-          "max_rapid_wash": "Rápido máximo",
-          "oil_net_wash": "Filtro de óleo",
-          "cloud_wash": "Programa na nuvem",
-          "single_dry": "Apenas secar",
-          "single_disinfect": "Apenas desinfetar",
-          "high_temp_wash": "Temperatura elevada",
-          "wash_dry": "Lavar e secar"
-        }
-      },
-      "program_76000228": {
-        "name": "Programa",
-        "state": {
-          "auto_wash": "Automático",
-          "strong_wash": "Intensivo",
-          "standard_wash": "Universal",
-          "eco_wash": "ECO",
-          "glass_wash": "Vidro",
-          "hour_wash": "90 min",
-          "fast_wash": "Rápido",
-          "soak_wash": "Demolhar",
-          "90min": "90 min",
-          "self_clean": "Autolimpeza",
-          "fruit_wash": "Fruta",
-          "self_define": "Personalizado",
-          "germ": "Sussurro",
-          "bowl_wash": "Taça",
-          "kill_germ": "Higiene",
-          "sea_food_wash": "Autolimpeza",
-          "hot_pot_wash": "Panela quente",
-          "quiet_night_wash": "Noite tranquila",
-          "less_wash": "Leve",
-          "max_rapid_wash": "Rápido máximo",
-          "oil_net_wash": "Filtro de óleo",
-          "cloud_wash": "Programa na nuvem",
-          "single_dry": "Apenas secar",
-          "single_disinfect": "Apenas desinfetar",
-          "high_temp_wash": "Temperatura elevada",
-          "wash_dry": "Lavar e secar"
-        }
-      },
       "program": {
         "name": "Programa",
         "state": {
           "auto_wash": "Automático",
           "strong_wash": "Intensivo",
           "standard_wash": "Padrão",
+          "universal_wash": "Universal",
           "eco_wash": "ECO",
           "glass_wash": "Vidro",
           "hour_wash": "1 hora",
@@ -1186,6 +1127,7 @@
           "fruit_wash": "Fruta",
           "self_define": "Personalizado",
           "germ": "Germes",
+          "whisper_wash": "Silencioso",
           "bowl_wash": "Taça",
           "kill_germ": "Higiene",
           "sea_food_wash": "Marisco",
@@ -1198,7 +1140,8 @@
           "single_dry": "Apenas secar",
           "single_disinfect": "Apenas desinfetar",
           "high_temp_wash": "Temperatura elevada",
-          "wash_dry": "Lavar e secar"
+          "wash_dry": "Lavar e secar",
+          "anion1": "Frescura iónica"
         }
       },
       "load": {
@@ -1308,6 +1251,7 @@
           "auto_wash": "Automático",
           "strong_wash": "Intensivo",
           "standard_wash": "Padrão",
+          "universal_wash": "Universal",
           "eco_wash": "ECO",
           "glass_wash": "Vidro",
           "hour_wash": "1 hora",
@@ -1318,6 +1262,7 @@
           "fruit_wash": "Fruta",
           "self_define": "Personalizado",
           "germ": "Germes",
+          "whisper_wash": "Silencioso",
           "bowl_wash": "Taça",
           "kill_germ": "Higiene",
           "sea_food_wash": "Marisco",
@@ -1330,7 +1275,8 @@
           "single_dry": "Apenas secar",
           "single_disinfect": "Apenas desinfetar",
           "high_temp_wash": "Temperatura elevada",
-          "wash_dry": "Lavar e secar"
+          "wash_dry": "Lavar e secar",
+          "anion1": "Frescura iónica"
         }
       },
       "water_level_set": {
@@ -1672,6 +1618,7 @@
           "auto_wash": "Automático",
           "strong_wash": "Intensivo",
           "standard_wash": "Padrão",
+          "universal_wash": "Universal",
           "eco_wash": "ECO",
           "glass_wash": "Vidro",
           "hour_wash": "1 hora",
@@ -1682,6 +1629,7 @@
           "fruit_wash": "Fruta",
           "self_define": "Personalizado",
           "germ": "Germes",
+          "whisper_wash": "Silencioso",
           "bowl_wash": "Taça",
           "kill_germ": "Higiene",
           "sea_food_wash": "Marisco",
@@ -1694,39 +1642,8 @@
           "single_dry": "Apenas secar",
           "single_disinfect": "Apenas desinfetar",
           "high_temp_wash": "Temperatura elevada",
-          "wash_dry": "Lavar e secar"
-        }
-      },
-      "dishwasher_mode_76000228": {
-        "name": "Modo",
-        "state": {
-          "neutral_gear": "Nenhum",
-          "auto_wash": "Automático",
-          "strong_wash": "Intensivo",
-          "standard_wash": "Universal",
-          "eco_wash": "ECO",
-          "glass_wash": "Vidro",
-          "hour_wash": "90 min",
-          "fast_wash": "Rápido",
-          "soak_wash": "Demolhar",
-          "90min": "90 min",
-          "self_clean": "Autolimpeza",
-          "fruit_wash": "Fruta",
-          "self_define": "Personalizado",
-          "germ": "Sussurro",
-          "bowl_wash": "Taça",
-          "kill_germ": "Higiene",
-          "sea_food_wash": "Autolimpeza",
-          "hot_pot_wash": "Panela quente",
-          "quiet_night_wash": "Noite tranquila",
-          "less_wash": "Leve",
-          "max_rapid_wash": "Rápido máximo",
-          "oil_net_wash": "Filtro de óleo",
-          "cloud_wash": "Programa na nuvem",
-          "single_dry": "Apenas secar",
-          "single_disinfect": "Apenas desinfetar",
-          "high_temp_wash": "Temperatura elevada",
-          "wash_dry": "Lavar e secar"
+          "wash_dry": "Lavar e secar",
+          "anion1": "Frescura iónica"
         }
       },
       "dishwasher_status": {
@@ -2073,6 +1990,9 @@
       },
       "indoor_humidity": {
         "name": "Humidade interior"
+      },
+      "target_humidity": {
+        "name": "Humidade-alvo"
       },
       "indoor_temperature": {
         "name": "Temperatura interior"
@@ -4082,68 +4002,53 @@
       "panel_status": {
         "name": "Estado do painel"
       },
-      "heating_power_consumption": {
-        "name": "Potência elétrica aquecimento"
-      },
-      "heating_capacity": {
-        "name": "Potência calorífica aquecimento"
-      },
-      "heating_cop_eer": {
-        "name": "Aquecimento COP/EER"
-      },
-      "heating_total_energy_consumption": {
-        "name": "Eletricidade aquecimento total"
-      },
-      "heating_total_produced_energy": {
-        "name": "Energia calorífica aquecimento total"
-      },
-      "heating_total_cop_eer": {
-        "name": "Aquecimento COP/EER total"
-      },
-      "heating_energy_consumption_today": {
-        "name": "Eletricidade aquecimento hoje"
-      },
-      "heating_produced_energy_today": {
-        "name": "Energia calorífica aquecimento hoje"
-      },
-      "heating_cop_eer_today": {
-        "name": "Aquecimento COP/EER hoje"
-      },
-      "heating_energy_consumption_this_week": {
-        "name": "Eletricidade aquecimento esta semana"
-      },
-      "heating_produced_energy_this_week": {
-        "name": "Energia calorífica aquecimento esta semana"
-      },
-      "heating_cop_eer_this_week": {
-        "name": "Aquecimento COP/EER esta semana"
-      },
-      "heating_energy_consumption_this_month": {
-        "name": "Eletricidade aquecimento este mês"
-      },
-      "heating_produced_energy_this_month": {
-        "name": "Energia calorífica aquecimento este mês"
-      },
-      "heating_cop_eer_this_month": {
-        "name": "Aquecimento COP/EER este mês"
-      },
-      "heating_energy_consumption_this_year": {
-        "name": "Eletricidade aquecimento este ano"
-      },
-      "heating_produced_energy_this_year": {
-        "name": "Energia calorífica aquecimento este ano"
-      },
-      "heating_cop_eer_this_year": {
-        "name": "Aquecimento COP/EER este ano"
-      },
-      "cooling_power_consumption": {
-        "name": "Potência elétrica arrefecimento"
-      },
       "cooling_capacity": {
         "name": "Potência frigorífica"
       },
       "cooling_cop_eer": {
         "name": "Arrefecimento COP/EER"
+      },
+      "cooling_cop_eer_this_month": {
+        "name": "Arrefecimento COP/EER este mês"
+      },
+      "cooling_cop_eer_this_week": {
+        "name": "Arrefecimento COP/EER esta semana"
+      },
+      "cooling_cop_eer_this_year": {
+        "name": "Arrefecimento COP/EER este ano"
+      },
+      "cooling_cop_eer_today": {
+        "name": "Arrefecimento COP/EER hoje"
+      },
+      "cooling_energy_consumption_this_month": {
+        "name": "Eletricidade arrefecimento este mês"
+      },
+      "cooling_energy_consumption_this_week": {
+        "name": "Eletricidade arrefecimento esta semana"
+      },
+      "cooling_energy_consumption_this_year": {
+        "name": "Eletricidade arrefecimento este ano"
+      },
+      "cooling_energy_consumption_today": {
+        "name": "Eletricidade arrefecimento hoje"
+      },
+      "cooling_power_consumption": {
+        "name": "Potência elétrica arrefecimento"
+      },
+      "cooling_produced_energy_this_month": {
+        "name": "Energia frigorífica produzida este mês"
+      },
+      "cooling_produced_energy_this_week": {
+        "name": "Energia frigorífica produzida esta semana"
+      },
+      "cooling_produced_energy_this_year": {
+        "name": "Energia frigorífica produzida este ano"
+      },
+      "cooling_produced_energy_today": {
+        "name": "Energia frigorífica produzida hoje"
+      },
+      "cooling_total_cop_eer": {
+        "name": "Arrefecimento COP/EER total"
       },
       "cooling_total_energy_consumption": {
         "name": "Eletricidade arrefecimento total"
@@ -4151,53 +4056,53 @@
       "cooling_total_produced_energy": {
         "name": "Energia frigorífica produzida total"
       },
-      "cooling_total_cop_eer": {
-        "name": "Arrefecimento COP/EER total"
-      },
-      "cooling_energy_consumption_today": {
-        "name": "Eletricidade arrefecimento hoje"
-      },
-      "cooling_produced_energy_today": {
-        "name": "Energia frigorífica produzida hoje"
-      },
-      "cooling_cop_eer_today": {
-        "name": "Arrefecimento COP/EER hoje"
-      },
-      "cooling_energy_consumption_this_week": {
-        "name": "Eletricidade arrefecimento esta semana"
-      },
-      "cooling_produced_energy_this_week": {
-        "name": "Energia frigorífica produzida esta semana"
-      },
-      "cooling_cop_eer_this_week": {
-        "name": "Arrefecimento COP/EER esta semana"
-      },
-      "cooling_energy_consumption_this_month": {
-        "name": "Eletricidade arrefecimento este mês"
-      },
-      "cooling_produced_energy_this_month": {
-        "name": "Energia frigorífica produzida este mês"
-      },
-      "cooling_cop_eer_this_month": {
-        "name": "Arrefecimento COP/EER este mês"
-      },
-      "cooling_energy_consumption_this_year": {
-        "name": "Eletricidade arrefecimento este ano"
-      },
-      "cooling_produced_energy_this_year": {
-        "name": "Energia frigorífica produzida este ano"
-      },
-      "cooling_cop_eer_this_year": {
-        "name": "Arrefecimento COP/EER este ano"
-      },
-      "dhw_power_consumption": {
-        "name": "Potência elétrica AQS"
-      },
       "dhw_capacity": {
         "name": "Potência térmica AQS"
       },
       "dhw_cop_eer": {
         "name": "AQS COP/EER"
+      },
+      "dhw_cop_eer_this_month": {
+        "name": "AQS COP/EER este mês"
+      },
+      "dhw_cop_eer_this_week": {
+        "name": "AQS COP/EER esta semana"
+      },
+      "dhw_cop_eer_this_year": {
+        "name": "AQS COP/EER este ano"
+      },
+      "dhw_cop_eer_today": {
+        "name": "AQS COP/EER hoje"
+      },
+      "dhw_energy_consumption_this_month": {
+        "name": "Eletricidade AQS este mês"
+      },
+      "dhw_energy_consumption_this_week": {
+        "name": "Eletricidade AQS esta semana"
+      },
+      "dhw_energy_consumption_this_year": {
+        "name": "Eletricidade AQS este ano"
+      },
+      "dhw_energy_consumption_today": {
+        "name": "Eletricidade AQS hoje"
+      },
+      "dhw_power_consumption": {
+        "name": "Potência elétrica AQS"
+      },
+      "dhw_produced_energy_this_month": {
+        "name": "Energia térmica AQS produzida este mês"
+      },
+      "dhw_produced_energy_this_week": {
+        "name": "Energia térmica AQS produzida esta semana"
+      },
+      "dhw_produced_energy_this_year": {
+        "name": "Energia térmica AQS produzida este ano"
+      },
+      "dhw_produced_energy_today": {
+        "name": "Energia térmica AQS produzida hoje"
+      },
+      "dhw_total_cop_eer": {
+        "name": "AQS COP/EER total"
       },
       "dhw_total_energy_consumption": {
         "name": "Eletricidade AQS total"
@@ -4205,44 +4110,59 @@
       "dhw_total_produced_energy": {
         "name": "Energia térmica AQS produzida total"
       },
-      "dhw_total_cop_eer": {
-        "name": "AQS COP/EER total"
+      "heating_capacity": {
+        "name": "Potência calorífica aquecimento"
       },
-      "dhw_energy_consumption_today": {
-        "name": "Eletricidade AQS hoje"
+      "heating_cop_eer": {
+        "name": "Aquecimento COP/EER"
       },
-      "dhw_produced_energy_today": {
-        "name": "Energia térmica AQS produzida hoje"
+      "heating_cop_eer_this_month": {
+        "name": "Aquecimento COP/EER este mês"
       },
-      "dhw_cop_eer_today": {
-        "name": "AQS COP/EER hoje"
+      "heating_cop_eer_this_week": {
+        "name": "Aquecimento COP/EER esta semana"
       },
-      "dhw_energy_consumption_this_week": {
-        "name": "Eletricidade AQS esta semana"
+      "heating_cop_eer_this_year": {
+        "name": "Aquecimento COP/EER este ano"
       },
-      "dhw_produced_energy_this_week": {
-        "name": "Energia térmica AQS produzida esta semana"
+      "heating_cop_eer_today": {
+        "name": "Aquecimento COP/EER hoje"
       },
-      "dhw_cop_eer_this_week": {
-        "name": "AQS COP/EER esta semana"
+      "heating_energy_consumption_this_month": {
+        "name": "Eletricidade aquecimento este mês"
       },
-      "dhw_energy_consumption_this_month": {
-        "name": "Eletricidade AQS este mês"
+      "heating_energy_consumption_this_week": {
+        "name": "Eletricidade aquecimento esta semana"
       },
-      "dhw_produced_energy_this_month": {
-        "name": "Energia térmica AQS produzida este mês"
+      "heating_energy_consumption_this_year": {
+        "name": "Eletricidade aquecimento este ano"
       },
-      "dhw_cop_eer_this_month": {
-        "name": "AQS COP/EER este mês"
+      "heating_energy_consumption_today": {
+        "name": "Eletricidade aquecimento hoje"
       },
-      "dhw_energy_consumption_this_year": {
-        "name": "Eletricidade AQS este ano"
+      "heating_power_consumption": {
+        "name": "Potência elétrica aquecimento"
       },
-      "dhw_produced_energy_this_year": {
-        "name": "Energia térmica AQS produzida este ano"
+      "heating_produced_energy_this_month": {
+        "name": "Energia calorífica aquecimento este mês"
       },
-      "dhw_cop_eer_this_year": {
-        "name": "AQS COP/EER este ano"
+      "heating_produced_energy_this_week": {
+        "name": "Energia calorífica aquecimento esta semana"
+      },
+      "heating_produced_energy_this_year": {
+        "name": "Energia calorífica aquecimento este ano"
+      },
+      "heating_produced_energy_today": {
+        "name": "Energia calorífica aquecimento hoje"
+      },
+      "heating_total_cop_eer": {
+        "name": "Aquecimento COP/EER total"
+      },
+      "heating_total_energy_consumption": {
+        "name": "Eletricidade aquecimento total"
+      },
+      "heating_total_produced_energy": {
+        "name": "Energia calorífica aquecimento total"
       },
       "instant_cop_eer": {
         "name": "COP/EER instantâneo"

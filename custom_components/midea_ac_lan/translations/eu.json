@@ -887,6 +887,9 @@
       },
       "has_token": {
         "name": "Tokena du"
+      },
+      "humidify": {
+        "name": "Hezetu"
       }
     },
     "button": {
@@ -1107,75 +1110,13 @@
           "preset_5": "5. aurrezarpena"
         }
       },
-      "wash_mode_76000228": {
-        "name": "Garbiketa-modua",
-        "state": {
-          "neutral_gear": "Bat ere ez",
-          "auto_wash": "Automatikoa",
-          "strong_wash": "Bizia",
-          "standard_wash": "Unibertsala",
-          "eco_wash": "ECO",
-          "glass_wash": "Beira",
-          "hour_wash": "90 min",
-          "fast_wash": "Azkarra",
-          "soak_wash": "Beratzea",
-          "90min": "90 min",
-          "self_clean": "Garbiketa automatikoa",
-          "fruit_wash": "Fruta",
-          "self_define": "Pertsonalizatua",
-          "germ": "Xuxurla",
-          "bowl_wash": "Ontzia",
-          "kill_germ": "Higienea",
-          "sea_food_wash": "Garbiketa automatikoa",
-          "hot_pot_wash": "Lapiko beroa",
-          "quiet_night_wash": "Gau isila",
-          "less_wash": "Arina",
-          "max_rapid_wash": "Gehienezko azkarra",
-          "oil_net_wash": "Olio-iragazkia",
-          "cloud_wash": "Hodeiko programa",
-          "single_dry": "Lehortu soilik",
-          "single_disinfect": "Desinfektatu soilik",
-          "high_temp_wash": "Tenperatura altua",
-          "wash_dry": "Garbitu eta lehortu"
-        }
-      },
-      "program_76000228": {
-        "name": "Programa",
-        "state": {
-          "auto_wash": "Automatikoa",
-          "strong_wash": "Bizia",
-          "standard_wash": "Unibertsala",
-          "eco_wash": "ECO",
-          "glass_wash": "Beira",
-          "hour_wash": "90 min",
-          "fast_wash": "Azkarra",
-          "soak_wash": "Beratzea",
-          "90min": "90 min",
-          "self_clean": "Garbiketa automatikoa",
-          "fruit_wash": "Fruta",
-          "self_define": "Pertsonalizatua",
-          "germ": "Xuxurla",
-          "bowl_wash": "Ontzia",
-          "kill_germ": "Higienea",
-          "sea_food_wash": "Garbiketa automatikoa",
-          "hot_pot_wash": "Lapiko beroa",
-          "quiet_night_wash": "Gau isila",
-          "less_wash": "Arina",
-          "max_rapid_wash": "Gehienezko azkarra",
-          "oil_net_wash": "Olio-iragazkia",
-          "cloud_wash": "Hodeiko programa",
-          "single_dry": "Lehortu soilik",
-          "single_disinfect": "Desinfektatu soilik",
-          "high_temp_wash": "Tenperatura altua",
-          "wash_dry": "Garbitu eta lehortu"
-        }
-      },
       "program": {
         "name": "Programa",
         "state": {
           "auto_wash": "Automatikoa",
           "strong_wash": "Bizia",
           "standard_wash": "Estandarra",
+          "universal_wash": "Unibertsala",
           "eco_wash": "ECO",
           "glass_wash": "Beira",
           "hour_wash": "Ordu 1",
@@ -1186,6 +1127,7 @@
           "fruit_wash": "Fruta",
           "self_define": "Pertsonalizatua",
           "germ": "Germena",
+          "whisper_wash": "Isila",
           "bowl_wash": "Ontzia",
           "kill_germ": "Higienea",
           "sea_food_wash": "Itsaskiak",
@@ -1198,7 +1140,8 @@
           "single_dry": "Lehortu soilik",
           "single_disinfect": "Desinfektatu soilik",
           "high_temp_wash": "Tenperatura altua",
-          "wash_dry": "Garbitu eta lehortu"
+          "wash_dry": "Garbitu eta lehortu",
+          "anion1": "Ioi-freskotasuna"
         }
       },
       "load": {
@@ -1308,6 +1251,7 @@
           "auto_wash": "Automatikoa",
           "strong_wash": "Bizia",
           "standard_wash": "Estandarra",
+          "universal_wash": "Unibertsala",
           "eco_wash": "ECO",
           "glass_wash": "Beira",
           "hour_wash": "Ordu 1",
@@ -1318,6 +1262,7 @@
           "fruit_wash": "Fruta",
           "self_define": "Pertsonalizatua",
           "germ": "Germena",
+          "whisper_wash": "Isila",
           "bowl_wash": "Ontzia",
           "kill_germ": "Higienea",
           "sea_food_wash": "Itsaskiak",
@@ -1330,7 +1275,8 @@
           "single_dry": "Lehortu soilik",
           "single_disinfect": "Desinfektatu soilik",
           "high_temp_wash": "Tenperatura altua",
-          "wash_dry": "Garbitu eta lehortu"
+          "wash_dry": "Garbitu eta lehortu",
+          "anion1": "Ioi-freskotasuna"
         }
       },
       "water_level_set": {
@@ -1672,6 +1618,7 @@
           "auto_wash": "Automatikoa",
           "strong_wash": "Bizia",
           "standard_wash": "Estandarra",
+          "universal_wash": "Unibertsala",
           "eco_wash": "ECO",
           "glass_wash": "Beira",
           "hour_wash": "Ordu 1",
@@ -1682,6 +1629,7 @@
           "fruit_wash": "Fruta",
           "self_define": "Pertsonalizatua",
           "germ": "Germena",
+          "whisper_wash": "Isila",
           "bowl_wash": "Ontzia",
           "kill_germ": "Higienea",
           "sea_food_wash": "Itsaskiak",
@@ -1694,39 +1642,8 @@
           "single_dry": "Lehortu soilik",
           "single_disinfect": "Desinfektatu soilik",
           "high_temp_wash": "Tenperatura altua",
-          "wash_dry": "Garbitu eta lehortu"
-        }
-      },
-      "dishwasher_mode_76000228": {
-        "name": "Modua",
-        "state": {
-          "neutral_gear": "Bat ere ez",
-          "auto_wash": "Automatikoa",
-          "strong_wash": "Bizia",
-          "standard_wash": "Unibertsala",
-          "eco_wash": "ECO",
-          "glass_wash": "Beira",
-          "hour_wash": "90 min",
-          "fast_wash": "Azkarra",
-          "soak_wash": "Beratzea",
-          "90min": "90 min",
-          "self_clean": "Garbiketa automatikoa",
-          "fruit_wash": "Fruta",
-          "self_define": "Pertsonalizatua",
-          "germ": "Xuxurla",
-          "bowl_wash": "Ontzia",
-          "kill_germ": "Higienea",
-          "sea_food_wash": "Garbiketa automatikoa",
-          "hot_pot_wash": "Lapiko beroa",
-          "quiet_night_wash": "Gau isila",
-          "less_wash": "Arina",
-          "max_rapid_wash": "Gehienezko azkarra",
-          "oil_net_wash": "Olio-iragazkia",
-          "cloud_wash": "Hodeiko programa",
-          "single_dry": "Lehortu soilik",
-          "single_disinfect": "Desinfektatu soilik",
-          "high_temp_wash": "Tenperatura altua",
-          "wash_dry": "Garbitu eta lehortu"
+          "wash_dry": "Garbitu eta lehortu",
+          "anion1": "Ioi-freskotasuna"
         }
       },
       "dishwasher_status": {
@@ -2073,6 +1990,9 @@
       },
       "indoor_humidity": {
         "name": "Barneko hezetasuna"
+      },
+      "target_humidity": {
+        "name": "Xede-hezetasuna"
       },
       "indoor_temperature": {
         "name": "Barneko tenperatura"
@@ -4082,68 +4002,53 @@
       "panel_status": {
         "name": "Panelaren egoera"
       },
-      "heating_power_consumption": {
-        "name": "Berokuntza-potentzia elektrikoa"
-      },
-      "heating_capacity": {
-        "name": "Berokuntza-potentzia"
-      },
-      "heating_cop_eer": {
-        "name": "Berokuntza COP/EER"
-      },
-      "heating_total_energy_consumption": {
-        "name": "Berokuntza-elektrizitatea guztira"
-      },
-      "heating_total_produced_energy": {
-        "name": "Sortutako berokuntza-energia guztira"
-      },
-      "heating_total_cop_eer": {
-        "name": "Berokuntza guztirako COP/EER"
-      },
-      "heating_energy_consumption_today": {
-        "name": "Berokuntza-elektrizitatea gaur"
-      },
-      "heating_produced_energy_today": {
-        "name": "Sortutako berokuntza-energia gaur"
-      },
-      "heating_cop_eer_today": {
-        "name": "Berokuntza COP/EER gaur"
-      },
-      "heating_energy_consumption_this_week": {
-        "name": "Berokuntza-elektrizitatea aste honetan"
-      },
-      "heating_produced_energy_this_week": {
-        "name": "Sortutako berokuntza-energia aste honetan"
-      },
-      "heating_cop_eer_this_week": {
-        "name": "Berokuntza COP/EER aste honetan"
-      },
-      "heating_energy_consumption_this_month": {
-        "name": "Berokuntza-elektrizitatea hilabete honetan"
-      },
-      "heating_produced_energy_this_month": {
-        "name": "Sortutako berokuntza-energia hilabete honetan"
-      },
-      "heating_cop_eer_this_month": {
-        "name": "Berokuntza COP/EER hilabete honetan"
-      },
-      "heating_energy_consumption_this_year": {
-        "name": "Berokuntza-elektrizitatea urte honetan"
-      },
-      "heating_produced_energy_this_year": {
-        "name": "Sortutako berokuntza-energia urte honetan"
-      },
-      "heating_cop_eer_this_year": {
-        "name": "Berokuntza COP/EER urte honetan"
-      },
-      "cooling_power_consumption": {
-        "name": "Hozte-potentzia elektrikoa"
-      },
       "cooling_capacity": {
         "name": "Hozte-potentzia"
       },
       "cooling_cop_eer": {
         "name": "Hoztea COP/EER"
+      },
+      "cooling_cop_eer_this_month": {
+        "name": "Hoztea COP/EER hilabete honetan"
+      },
+      "cooling_cop_eer_this_week": {
+        "name": "Hoztea COP/EER aste honetan"
+      },
+      "cooling_cop_eer_this_year": {
+        "name": "Hoztea COP/EER urte honetan"
+      },
+      "cooling_cop_eer_today": {
+        "name": "Hoztea COP/EER gaur"
+      },
+      "cooling_energy_consumption_this_month": {
+        "name": "Hozte-elektrizitatea hilabete honetan"
+      },
+      "cooling_energy_consumption_this_week": {
+        "name": "Hozte-elektrizitatea aste honetan"
+      },
+      "cooling_energy_consumption_this_year": {
+        "name": "Hozte-elektrizitatea urte honetan"
+      },
+      "cooling_energy_consumption_today": {
+        "name": "Hozte-elektrizitatea gaur"
+      },
+      "cooling_power_consumption": {
+        "name": "Hozte-potentzia elektrikoa"
+      },
+      "cooling_produced_energy_this_month": {
+        "name": "Sortutako hotz-energia hilabete honetan"
+      },
+      "cooling_produced_energy_this_week": {
+        "name": "Sortutako hotz-energia aste honetan"
+      },
+      "cooling_produced_energy_this_year": {
+        "name": "Sortutako hotz-energia urte honetan"
+      },
+      "cooling_produced_energy_today": {
+        "name": "Sortutako hotz-energia gaur"
+      },
+      "cooling_total_cop_eer": {
+        "name": "Hoztea guztirako COP/EER"
       },
       "cooling_total_energy_consumption": {
         "name": "Hozte-elektrizitatea guztira"
@@ -4151,53 +4056,53 @@
       "cooling_total_produced_energy": {
         "name": "Sortutako hotz-energia guztira"
       },
-      "cooling_total_cop_eer": {
-        "name": "Hoztea guztirako COP/EER"
-      },
-      "cooling_energy_consumption_today": {
-        "name": "Hozte-elektrizitatea gaur"
-      },
-      "cooling_produced_energy_today": {
-        "name": "Sortutako hotz-energia gaur"
-      },
-      "cooling_cop_eer_today": {
-        "name": "Hoztea COP/EER gaur"
-      },
-      "cooling_energy_consumption_this_week": {
-        "name": "Hozte-elektrizitatea aste honetan"
-      },
-      "cooling_produced_energy_this_week": {
-        "name": "Sortutako hotz-energia aste honetan"
-      },
-      "cooling_cop_eer_this_week": {
-        "name": "Hoztea COP/EER aste honetan"
-      },
-      "cooling_energy_consumption_this_month": {
-        "name": "Hozte-elektrizitatea hilabete honetan"
-      },
-      "cooling_produced_energy_this_month": {
-        "name": "Sortutako hotz-energia hilabete honetan"
-      },
-      "cooling_cop_eer_this_month": {
-        "name": "Hoztea COP/EER hilabete honetan"
-      },
-      "cooling_energy_consumption_this_year": {
-        "name": "Hozte-elektrizitatea urte honetan"
-      },
-      "cooling_produced_energy_this_year": {
-        "name": "Sortutako hotz-energia urte honetan"
-      },
-      "cooling_cop_eer_this_year": {
-        "name": "Hoztea COP/EER urte honetan"
-      },
-      "dhw_power_consumption": {
-        "name": "UBS potentzia elektrikoa"
-      },
       "dhw_capacity": {
         "name": "UBS bero-potentzia"
       },
       "dhw_cop_eer": {
         "name": "UBS COP/EER"
+      },
+      "dhw_cop_eer_this_month": {
+        "name": "UBS COP/EER hilabete honetan"
+      },
+      "dhw_cop_eer_this_week": {
+        "name": "UBS COP/EER aste honetan"
+      },
+      "dhw_cop_eer_this_year": {
+        "name": "UBS COP/EER urte honetan"
+      },
+      "dhw_cop_eer_today": {
+        "name": "UBS COP/EER gaur"
+      },
+      "dhw_energy_consumption_this_month": {
+        "name": "UBS elektrizitatea hilabete honetan"
+      },
+      "dhw_energy_consumption_this_week": {
+        "name": "UBS elektrizitatea aste honetan"
+      },
+      "dhw_energy_consumption_this_year": {
+        "name": "UBS elektrizitatea urte honetan"
+      },
+      "dhw_energy_consumption_today": {
+        "name": "UBS elektrizitatea gaur"
+      },
+      "dhw_power_consumption": {
+        "name": "UBS potentzia elektrikoa"
+      },
+      "dhw_produced_energy_this_month": {
+        "name": "Sortutako UBS bero-energia hilabete honetan"
+      },
+      "dhw_produced_energy_this_week": {
+        "name": "Sortutako UBS bero-energia aste honetan"
+      },
+      "dhw_produced_energy_this_year": {
+        "name": "Sortutako UBS bero-energia urte honetan"
+      },
+      "dhw_produced_energy_today": {
+        "name": "Sortutako UBS bero-energia gaur"
+      },
+      "dhw_total_cop_eer": {
+        "name": "UBS guztirako COP/EER"
       },
       "dhw_total_energy_consumption": {
         "name": "UBS elektrizitatea guztira"
@@ -4205,44 +4110,59 @@
       "dhw_total_produced_energy": {
         "name": "Sortutako UBS bero-energia guztira"
       },
-      "dhw_total_cop_eer": {
-        "name": "UBS guztirako COP/EER"
+      "heating_capacity": {
+        "name": "Berokuntza-potentzia"
       },
-      "dhw_energy_consumption_today": {
-        "name": "UBS elektrizitatea gaur"
+      "heating_cop_eer": {
+        "name": "Berokuntza COP/EER"
       },
-      "dhw_produced_energy_today": {
-        "name": "Sortutako UBS bero-energia gaur"
+      "heating_cop_eer_this_month": {
+        "name": "Berokuntza COP/EER hilabete honetan"
       },
-      "dhw_cop_eer_today": {
-        "name": "UBS COP/EER gaur"
+      "heating_cop_eer_this_week": {
+        "name": "Berokuntza COP/EER aste honetan"
       },
-      "dhw_energy_consumption_this_week": {
-        "name": "UBS elektrizitatea aste honetan"
+      "heating_cop_eer_this_year": {
+        "name": "Berokuntza COP/EER urte honetan"
       },
-      "dhw_produced_energy_this_week": {
-        "name": "Sortutako UBS bero-energia aste honetan"
+      "heating_cop_eer_today": {
+        "name": "Berokuntza COP/EER gaur"
       },
-      "dhw_cop_eer_this_week": {
-        "name": "UBS COP/EER aste honetan"
+      "heating_energy_consumption_this_month": {
+        "name": "Berokuntza-elektrizitatea hilabete honetan"
       },
-      "dhw_energy_consumption_this_month": {
-        "name": "UBS elektrizitatea hilabete honetan"
+      "heating_energy_consumption_this_week": {
+        "name": "Berokuntza-elektrizitatea aste honetan"
       },
-      "dhw_produced_energy_this_month": {
-        "name": "Sortutako UBS bero-energia hilabete honetan"
+      "heating_energy_consumption_this_year": {
+        "name": "Berokuntza-elektrizitatea urte honetan"
       },
-      "dhw_cop_eer_this_month": {
-        "name": "UBS COP/EER hilabete honetan"
+      "heating_energy_consumption_today": {
+        "name": "Berokuntza-elektrizitatea gaur"
       },
-      "dhw_energy_consumption_this_year": {
-        "name": "UBS elektrizitatea urte honetan"
+      "heating_power_consumption": {
+        "name": "Berokuntza-potentzia elektrikoa"
       },
-      "dhw_produced_energy_this_year": {
-        "name": "Sortutako UBS bero-energia urte honetan"
+      "heating_produced_energy_this_month": {
+        "name": "Sortutako berokuntza-energia hilabete honetan"
       },
-      "dhw_cop_eer_this_year": {
-        "name": "UBS COP/EER urte honetan"
+      "heating_produced_energy_this_week": {
+        "name": "Sortutako berokuntza-energia aste honetan"
+      },
+      "heating_produced_energy_this_year": {
+        "name": "Sortutako berokuntza-energia urte honetan"
+      },
+      "heating_produced_energy_today": {
+        "name": "Sortutako berokuntza-energia gaur"
+      },
+      "heating_total_cop_eer": {
+        "name": "Berokuntza guztirako COP/EER"
+      },
+      "heating_total_energy_consumption": {
+        "name": "Berokuntza-elektrizitatea guztira"
+      },
+      "heating_total_produced_energy": {
+        "name": "Sortutako berokuntza-energia guztira"
       },
       "instant_cop_eer": {
         "name": "Berehalako COP/EER"

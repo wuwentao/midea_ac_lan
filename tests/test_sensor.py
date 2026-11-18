@@ -7,8 +7,11 @@ from unittest.mock import AsyncMock, Mock, patch
 import pytest
 from homeassistant.components.sensor import SensorDeviceClass, SensorStateClass
 from homeassistant.const import Platform
+from midealan.devices.ac import DeviceAttributes as ACAttributes
 from midealan.devices.e1 import MideaE1Device
 
+from custom_components.midea_ac_lan.const import supports_device
+from custom_components.midea_ac_lan.midea_devices import MIDEA_DEVICES
 from custom_components.midea_ac_lan.sensor import (
     MideaCloudUsageSensor,
     MideaEstimatedUsageSensor,
@@ -46,7 +49,10 @@ async def test_async_setup_entry_builds_all_sensor_types(
             "estimate": {
                 "type": Platform.SENSOR,
                 "default": True,
-                "estimate": {"values_by_model": {}},
+                "estimate": {
+                    "values_method": "get_estimated_consumption",
+                    "kind": "energy",
+                },
             },
             "duration": {
                 "type": Platform.SENSOR,
@@ -124,6 +130,31 @@ async def test_async_setup_entry_skips_unconfigured_cloud_once(
     ) as create:
         await async_setup_entry(hass, entry, add_entities)
     create.assert_called_once_with(hass, entry, device.device_id, device.name)
+    add_entities.assert_called_once_with([])
+
+
+async def test_async_setup_entry_skips_estimate_with_no_data(
+    device_factory: DeviceFactory,
+    install_config: InstallConfig,
+) -> None:
+    """Omit estimate sensors when the device has no figures for the model."""
+    install_config(
+        {
+            "usage": {
+                "type": Platform.SENSOR,
+                "default": True,
+                "estimate": {
+                    "values_method": "get_estimated_consumption",
+                    "kind": "energy",
+                },
+            },
+        },
+    )
+    device, _ = device_factory()
+    # Mock returns empty dict → no estimates for this model.
+    device.get_estimated_consumption = Mock(return_value={})
+    hass, entry, add_entities = setup_context(device)
+    await async_setup_entry(hass, entry, add_entities)
     add_entities.assert_called_once_with([])
 
 
@@ -430,6 +461,10 @@ def estimated_device(
     device.mac = None
     device.serial_number = None
     device.modes = {1: "eco", 2: "intensive"}
+    device.supported_modes = {1: "eco", 2: "intensive"}
+    device.get_estimated_consumption.side_effect = lambda _kind: (
+        {1: 1.2345, 3: 2.5} if device.model == "TEST-MODEL" else {}
+    )
     device.get_attribute.side_effect = values.get
     return device
 
@@ -439,9 +474,8 @@ def estimated_config() -> dict[str, object]:
     return {
         "type": Platform.SENSOR,
         "estimate": {
-            "values_by_model": {
-                "TEST-MODEL": {1: 1.2345, 3: 2.5},
-            },
+            "values_method": "get_estimated_consumption",
+            "kind": "energy",
         },
     }
 
@@ -568,3 +602,45 @@ def test_estimated_usage_detached_update(
     sensor.schedule_update_if_running = Mock()
     sensor.update_state({"progress": "complete"})
     sensor.schedule_update_if_running.assert_not_called()
+
+
+AC_ENTITIES = MIDEA_DEVICES[0xAC]["entities"]
+assert isinstance(AC_ENTITIES, dict)
+TARGET_HUMIDITY_CONFIG = AC_ENTITIES[ACAttributes.target_humidity]
+
+
+@pytest.mark.parametrize(
+    ("model", "subtype", "expected"),
+    [
+        ("22396933", 1, True),
+        ("22396945", 1, True),
+        ("22396937", 0, True),
+        ("22396933", 2, False),
+        ("OTHER", 1, False),
+    ],
+)
+def test_target_humidity_registry_gate(
+    model: str,
+    subtype: int,
+    expected: bool,
+) -> None:
+    """Gate the target humidity sensor to the verified AC models and subtypes."""
+    assert supports_device(model, subtype, TARGET_HUMIDITY_CONFIG) is expected
+
+
+def test_target_humidity_native_value(
+    device_factory: DeviceFactory,
+    install_config: InstallConfig,
+) -> None:
+    """Pass the parsed percentage through and map zero to unknown."""
+    install_config({"target_humidity": TARGET_HUMIDITY_CONFIG})
+    device, values = device_factory(attributes={"target_humidity": 50})
+    entity = MideaSensor(device, "target_humidity")
+
+    assert entity.native_value == 50
+    values["target_humidity"] = 60
+    assert entity.native_value == 60
+    values["target_humidity"] = 0
+    assert entity.native_value is None
+    values["target_humidity"] = None
+    assert entity.native_value is None

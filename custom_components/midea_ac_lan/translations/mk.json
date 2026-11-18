@@ -887,6 +887,9 @@
       },
       "has_token": {
         "name": "Има токен"
+      },
+      "humidify": {
+        "name": "Навлажнување"
       }
     },
     "button": {
@@ -1107,75 +1110,13 @@
           "preset_5": "Претходно поставено 5"
         }
       },
-      "wash_mode_76000228": {
-        "name": "Режим на миење",
-        "state": {
-          "neutral_gear": "Ниедно",
-          "auto_wash": "Автоматски",
-          "strong_wash": "Интензивно",
-          "standard_wash": "Универзално",
-          "eco_wash": "ECO",
-          "glass_wash": "Стакло",
-          "hour_wash": "90 мин",
-          "fast_wash": "Брзо",
-          "soak_wash": "Натопување",
-          "90min": "90 мин",
-          "self_clean": "Самочистење",
-          "fruit_wash": "Овошје",
-          "self_define": "Прилагодено",
-          "germ": "Шепот",
-          "bowl_wash": "Сад",
-          "kill_germ": "Хигиена",
-          "sea_food_wash": "Самочистење",
-          "hot_pot_wash": "Жешко тенџере",
-          "quiet_night_wash": "Тивка ноќ",
-          "less_wash": "Лесно",
-          "max_rapid_wash": "Макс. брзо",
-          "oil_net_wash": "Филтер за масло",
-          "cloud_wash": "Облачна програма",
-          "single_dry": "Само сушење",
-          "single_disinfect": "Само дезинфекција",
-          "high_temp_wash": "Висока температура",
-          "wash_dry": "Миење и сушење"
-        }
-      },
-      "program_76000228": {
-        "name": "Програма",
-        "state": {
-          "auto_wash": "Автоматски",
-          "strong_wash": "Интензивно",
-          "standard_wash": "Универзално",
-          "eco_wash": "ECO",
-          "glass_wash": "Стакло",
-          "hour_wash": "90 мин",
-          "fast_wash": "Брзо",
-          "soak_wash": "Натопување",
-          "90min": "90 мин",
-          "self_clean": "Самочистење",
-          "fruit_wash": "Овошје",
-          "self_define": "Прилагодено",
-          "germ": "Шепот",
-          "bowl_wash": "Сад",
-          "kill_germ": "Хигиена",
-          "sea_food_wash": "Самочистење",
-          "hot_pot_wash": "Жешко тенџере",
-          "quiet_night_wash": "Тивка ноќ",
-          "less_wash": "Лесно",
-          "max_rapid_wash": "Макс. брзо",
-          "oil_net_wash": "Филтер за масло",
-          "cloud_wash": "Облачна програма",
-          "single_dry": "Само сушење",
-          "single_disinfect": "Само дезинфекција",
-          "high_temp_wash": "Висока температура",
-          "wash_dry": "Миење и сушење"
-        }
-      },
       "program": {
         "name": "Програма",
         "state": {
           "auto_wash": "Автоматски",
           "strong_wash": "Интензивно",
           "standard_wash": "Стандардно",
+          "universal_wash": "Универзално",
           "eco_wash": "ECO",
           "glass_wash": "Стакло",
           "hour_wash": "1 час",
@@ -1186,6 +1127,7 @@
           "fruit_wash": "Овошје",
           "self_define": "Прилагодено",
           "germ": "Микроби",
+          "whisper_wash": "Тивко",
           "bowl_wash": "Сад",
           "kill_germ": "Хигиена",
           "sea_food_wash": "Морска храна",
@@ -1198,7 +1140,8 @@
           "single_dry": "Само сушење",
           "single_disinfect": "Само дезинфекција",
           "high_temp_wash": "Висока температура",
-          "wash_dry": "Миење и сушење"
+          "wash_dry": "Миење и сушење",
+          "anion1": "Јонско освежување"
         }
       },
       "load": {
@@ -1308,6 +1251,7 @@
           "auto_wash": "Автоматски",
           "strong_wash": "Интензивно",
           "standard_wash": "Стандардно",
+          "universal_wash": "Универзално",
           "eco_wash": "ECO",
           "glass_wash": "Стакло",
           "hour_wash": "1 час",
@@ -1318,6 +1262,7 @@
           "fruit_wash": "Овошје",
           "self_define": "Прилагодено",
           "germ": "Микроби",
+          "whisper_wash": "Тивко",
           "bowl_wash": "Сад",
           "kill_germ": "Хигиена",
           "sea_food_wash": "Морска храна",
@@ -1330,7 +1275,8 @@
           "single_dry": "Само сушење",
           "single_disinfect": "Само дезинфекција",
           "high_temp_wash": "Висока температура",
-          "wash_dry": "Миење и сушење"
+          "wash_dry": "Миење и сушење",
+          "anion1": "Јонско освежување"
         }
       },
       "water_level_set": {
@@ -1672,6 +1618,7 @@
           "auto_wash": "Автоматски",
           "strong_wash": "Интензивно",
           "standard_wash": "Стандардно",
+          "universal_wash": "Универзално",
           "eco_wash": "ECO",
           "glass_wash": "Стакло",
           "hour_wash": "1 час",
@@ -1682,6 +1629,7 @@
           "fruit_wash": "Овошје",
           "self_define": "Прилагодено",
           "germ": "Микроби",
+          "whisper_wash": "Тивко",
           "bowl_wash": "Сад",
           "kill_germ": "Хигиена",
           "sea_food_wash": "Морска храна",
@@ -1694,39 +1642,8 @@
           "single_dry": "Само сушење",
           "single_disinfect": "Само дезинфекција",
           "high_temp_wash": "Висока температура",
-          "wash_dry": "Миење и сушење"
-        }
-      },
-      "dishwasher_mode_76000228": {
-        "name": "Режим",
-        "state": {
-          "neutral_gear": "Ниедно",
-          "auto_wash": "Автоматски",
-          "strong_wash": "Интензивно",
-          "standard_wash": "Универзално",
-          "eco_wash": "ECO",
-          "glass_wash": "Стакло",
-          "hour_wash": "90 мин",
-          "fast_wash": "Брзо",
-          "soak_wash": "Натопување",
-          "90min": "90 мин",
-          "self_clean": "Самочистење",
-          "fruit_wash": "Овошје",
-          "self_define": "Прилагодено",
-          "germ": "Шепот",
-          "bowl_wash": "Сад",
-          "kill_germ": "Хигиена",
-          "sea_food_wash": "Самочистење",
-          "hot_pot_wash": "Жешко тенџере",
-          "quiet_night_wash": "Тивка ноќ",
-          "less_wash": "Лесно",
-          "max_rapid_wash": "Макс. брзо",
-          "oil_net_wash": "Филтер за масло",
-          "cloud_wash": "Облачна програма",
-          "single_dry": "Само сушење",
-          "single_disinfect": "Само дезинфекција",
-          "high_temp_wash": "Висока температура",
-          "wash_dry": "Миење и сушење"
+          "wash_dry": "Миење и сушење",
+          "anion1": "Јонско освежување"
         }
       },
       "dishwasher_status": {
@@ -2073,6 +1990,9 @@
       },
       "indoor_humidity": {
         "name": "Внатрешна влажност"
+      },
+      "target_humidity": {
+        "name": "Целна влажност"
       },
       "indoor_temperature": {
         "name": "Внатрешна температура"
@@ -4082,68 +4002,53 @@
       "panel_status": {
         "name": "Состојба на панелот"
       },
-      "heating_power_consumption": {
-        "name": "Електрична моќност греење"
-      },
-      "heating_capacity": {
-        "name": "Топлинска моќност греење"
-      },
-      "heating_cop_eer": {
-        "name": "Греење COP/EER"
-      },
-      "heating_total_energy_consumption": {
-        "name": "Вкупна потрошувачка на струја греење"
-      },
-      "heating_total_produced_energy": {
-        "name": "Вкупна произведена топлина греење"
-      },
-      "heating_total_cop_eer": {
-        "name": "Греење вкупно COP/EER"
-      },
-      "heating_energy_consumption_today": {
-        "name": "Потрошувачка на струја греење денес"
-      },
-      "heating_produced_energy_today": {
-        "name": "Произведена топлина греење денес"
-      },
-      "heating_cop_eer_today": {
-        "name": "Греење COP/EER денес"
-      },
-      "heating_energy_consumption_this_week": {
-        "name": "Потрошувачка на струја греење оваа недела"
-      },
-      "heating_produced_energy_this_week": {
-        "name": "Произведена топлина греење оваа недела"
-      },
-      "heating_cop_eer_this_week": {
-        "name": "Греење COP/EER оваа недела"
-      },
-      "heating_energy_consumption_this_month": {
-        "name": "Потрошувачка на струја греење овој месец"
-      },
-      "heating_produced_energy_this_month": {
-        "name": "Произведена топлина греење овој месец"
-      },
-      "heating_cop_eer_this_month": {
-        "name": "Греење COP/EER овој месец"
-      },
-      "heating_energy_consumption_this_year": {
-        "name": "Потрошувачка на струја греење оваа година"
-      },
-      "heating_produced_energy_this_year": {
-        "name": "Произведена топлина греење оваа година"
-      },
-      "heating_cop_eer_this_year": {
-        "name": "Греење COP/EER оваа година"
-      },
-      "cooling_power_consumption": {
-        "name": "Електрична моќност ладење"
-      },
       "cooling_capacity": {
         "name": "Расладна моќност"
       },
       "cooling_cop_eer": {
         "name": "Ладење COP/EER"
+      },
+      "cooling_cop_eer_this_month": {
+        "name": "Ладење COP/EER овој месец"
+      },
+      "cooling_cop_eer_this_week": {
+        "name": "Ладење COP/EER оваа недела"
+      },
+      "cooling_cop_eer_this_year": {
+        "name": "Ладење COP/EER оваа година"
+      },
+      "cooling_cop_eer_today": {
+        "name": "Ладење COP/EER денес"
+      },
+      "cooling_energy_consumption_this_month": {
+        "name": "Потрошувачка на струја ладење овој месец"
+      },
+      "cooling_energy_consumption_this_week": {
+        "name": "Потрошувачка на струја ладење оваа недела"
+      },
+      "cooling_energy_consumption_this_year": {
+        "name": "Потрошувачка на струја ладење оваа година"
+      },
+      "cooling_energy_consumption_today": {
+        "name": "Потрошувачка на струја ладење денес"
+      },
+      "cooling_power_consumption": {
+        "name": "Електрична моќност ладење"
+      },
+      "cooling_produced_energy_this_month": {
+        "name": "Произведена расладна енергија овој месец"
+      },
+      "cooling_produced_energy_this_week": {
+        "name": "Произведена расладна енергија оваа недела"
+      },
+      "cooling_produced_energy_this_year": {
+        "name": "Произведена расладна енергија оваа година"
+      },
+      "cooling_produced_energy_today": {
+        "name": "Произведена расладна енергија денес"
+      },
+      "cooling_total_cop_eer": {
+        "name": "Ладење вкупно COP/EER"
       },
       "cooling_total_energy_consumption": {
         "name": "Вкупна потрошувачка на струја ладење"
@@ -4151,53 +4056,53 @@
       "cooling_total_produced_energy": {
         "name": "Вкупна произведена расладна енергија"
       },
-      "cooling_total_cop_eer": {
-        "name": "Ладење вкупно COP/EER"
-      },
-      "cooling_energy_consumption_today": {
-        "name": "Потрошувачка на струја ладење денес"
-      },
-      "cooling_produced_energy_today": {
-        "name": "Произведена расладна енергија денес"
-      },
-      "cooling_cop_eer_today": {
-        "name": "Ладење COP/EER денес"
-      },
-      "cooling_energy_consumption_this_week": {
-        "name": "Потрошувачка на струја ладење оваа недела"
-      },
-      "cooling_produced_energy_this_week": {
-        "name": "Произведена расладна енергија оваа недела"
-      },
-      "cooling_cop_eer_this_week": {
-        "name": "Ладење COP/EER оваа недела"
-      },
-      "cooling_energy_consumption_this_month": {
-        "name": "Потрошувачка на струја ладење овој месец"
-      },
-      "cooling_produced_energy_this_month": {
-        "name": "Произведена расладна енергија овој месец"
-      },
-      "cooling_cop_eer_this_month": {
-        "name": "Ладење COP/EER овој месец"
-      },
-      "cooling_energy_consumption_this_year": {
-        "name": "Потрошувачка на струја ладење оваа година"
-      },
-      "cooling_produced_energy_this_year": {
-        "name": "Произведена расладна енергија оваа година"
-      },
-      "cooling_cop_eer_this_year": {
-        "name": "Ладење COP/EER оваа година"
-      },
-      "dhw_power_consumption": {
-        "name": "Електрична моќност ПТВ"
-      },
       "dhw_capacity": {
         "name": "Топлинска моќност ПТВ"
       },
       "dhw_cop_eer": {
         "name": "ПТВ COP/EER"
+      },
+      "dhw_cop_eer_this_month": {
+        "name": "ПТВ COP/EER овој месец"
+      },
+      "dhw_cop_eer_this_week": {
+        "name": "ПТВ COP/EER оваа недела"
+      },
+      "dhw_cop_eer_this_year": {
+        "name": "ПТВ COP/EER оваа година"
+      },
+      "dhw_cop_eer_today": {
+        "name": "ПТВ COP/EER денес"
+      },
+      "dhw_energy_consumption_this_month": {
+        "name": "Потрошувачка на струја ПТВ овој месец"
+      },
+      "dhw_energy_consumption_this_week": {
+        "name": "Потрошувачка на струја ПТВ оваа недела"
+      },
+      "dhw_energy_consumption_this_year": {
+        "name": "Потрошувачка на струја ПТВ оваа година"
+      },
+      "dhw_energy_consumption_today": {
+        "name": "Потрошувачка на струја ПТВ денес"
+      },
+      "dhw_power_consumption": {
+        "name": "Електрична моќност ПТВ"
+      },
+      "dhw_produced_energy_this_month": {
+        "name": "Произведена топлина ПТВ овој месец"
+      },
+      "dhw_produced_energy_this_week": {
+        "name": "Произведена топлина ПТВ оваа недела"
+      },
+      "dhw_produced_energy_this_year": {
+        "name": "Произведена топлина ПТВ оваа година"
+      },
+      "dhw_produced_energy_today": {
+        "name": "Произведена топлина ПТВ денес"
+      },
+      "dhw_total_cop_eer": {
+        "name": "ПТВ вкупно COP/EER"
       },
       "dhw_total_energy_consumption": {
         "name": "Вкупна потрошувачка на струја ПТВ"
@@ -4205,44 +4110,59 @@
       "dhw_total_produced_energy": {
         "name": "Вкупна произведена топлина ПТВ"
       },
-      "dhw_total_cop_eer": {
-        "name": "ПТВ вкупно COP/EER"
+      "heating_capacity": {
+        "name": "Топлинска моќност греење"
       },
-      "dhw_energy_consumption_today": {
-        "name": "Потрошувачка на струја ПТВ денес"
+      "heating_cop_eer": {
+        "name": "Греење COP/EER"
       },
-      "dhw_produced_energy_today": {
-        "name": "Произведена топлина ПТВ денес"
+      "heating_cop_eer_this_month": {
+        "name": "Греење COP/EER овој месец"
       },
-      "dhw_cop_eer_today": {
-        "name": "ПТВ COP/EER денес"
+      "heating_cop_eer_this_week": {
+        "name": "Греење COP/EER оваа недела"
       },
-      "dhw_energy_consumption_this_week": {
-        "name": "Потрошувачка на струја ПТВ оваа недела"
+      "heating_cop_eer_this_year": {
+        "name": "Греење COP/EER оваа година"
       },
-      "dhw_produced_energy_this_week": {
-        "name": "Произведена топлина ПТВ оваа недела"
+      "heating_cop_eer_today": {
+        "name": "Греење COP/EER денес"
       },
-      "dhw_cop_eer_this_week": {
-        "name": "ПТВ COP/EER оваа недела"
+      "heating_energy_consumption_this_month": {
+        "name": "Потрошувачка на струја греење овој месец"
       },
-      "dhw_energy_consumption_this_month": {
-        "name": "Потрошувачка на струја ПТВ овој месец"
+      "heating_energy_consumption_this_week": {
+        "name": "Потрошувачка на струја греење оваа недела"
       },
-      "dhw_produced_energy_this_month": {
-        "name": "Произведена топлина ПТВ овој месец"
+      "heating_energy_consumption_this_year": {
+        "name": "Потрошувачка на струја греење оваа година"
       },
-      "dhw_cop_eer_this_month": {
-        "name": "ПТВ COP/EER овој месец"
+      "heating_energy_consumption_today": {
+        "name": "Потрошувачка на струја греење денес"
       },
-      "dhw_energy_consumption_this_year": {
-        "name": "Потрошувачка на струја ПТВ оваа година"
+      "heating_power_consumption": {
+        "name": "Електрична моќност греење"
       },
-      "dhw_produced_energy_this_year": {
-        "name": "Произведена топлина ПТВ оваа година"
+      "heating_produced_energy_this_month": {
+        "name": "Произведена топлина греење овој месец"
       },
-      "dhw_cop_eer_this_year": {
-        "name": "ПТВ COP/EER оваа година"
+      "heating_produced_energy_this_week": {
+        "name": "Произведена топлина греење оваа недела"
+      },
+      "heating_produced_energy_this_year": {
+        "name": "Произведена топлина греење оваа година"
+      },
+      "heating_produced_energy_today": {
+        "name": "Произведена топлина греење денес"
+      },
+      "heating_total_cop_eer": {
+        "name": "Греење вкупно COP/EER"
+      },
+      "heating_total_energy_consumption": {
+        "name": "Вкупна потрошувачка на струја греење"
+      },
+      "heating_total_produced_energy": {
+        "name": "Вкупна произведена топлина греење"
       },
       "instant_cop_eer": {
         "name": "Тренутен COP/EER"

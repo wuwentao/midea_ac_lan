@@ -887,6 +887,9 @@
       },
       "has_token": {
         "name": "トークンあり"
+      },
+      "humidify": {
+        "name": "加湿"
       }
     },
     "button": {
@@ -1107,75 +1110,13 @@
           "preset_5": "プリセット 5"
         }
       },
-      "wash_mode_76000228": {
-        "name": "洗浄モード",
-        "state": {
-          "neutral_gear": "なし",
-          "auto_wash": "自動",
-          "strong_wash": "強力",
-          "standard_wash": "標準",
-          "eco_wash": "ECO",
-          "glass_wash": "ガラス",
-          "hour_wash": "90 分",
-          "fast_wash": "高速",
-          "soak_wash": "つけおき",
-          "90min": "90 分",
-          "self_clean": "セルフクリーニング",
-          "fruit_wash": "フルーツ",
-          "self_define": "カスタム",
-          "germ": "ささやき",
-          "bowl_wash": "お椀",
-          "kill_germ": "衛生",
-          "sea_food_wash": "セルフクリーニング",
-          "hot_pot_wash": "鍋",
-          "quiet_night_wash": "おやすみ",
-          "less_wash": "ライト",
-          "max_rapid_wash": "最速",
-          "oil_net_wash": "オイルフィルター",
-          "cloud_wash": "クラウドプログラム",
-          "single_dry": "乾燥のみ",
-          "single_disinfect": "除菌のみ",
-          "high_temp_wash": "高温",
-          "wash_dry": "洗浄・乾燥"
-        }
-      },
-      "program_76000228": {
-        "name": "プログラム",
-        "state": {
-          "auto_wash": "自動",
-          "strong_wash": "強力",
-          "standard_wash": "標準",
-          "eco_wash": "ECO",
-          "glass_wash": "ガラス",
-          "hour_wash": "90 分",
-          "fast_wash": "高速",
-          "soak_wash": "つけおき",
-          "90min": "90 分",
-          "self_clean": "セルフクリーニング",
-          "fruit_wash": "フルーツ",
-          "self_define": "カスタム",
-          "germ": "ささやき",
-          "bowl_wash": "お椀",
-          "kill_germ": "衛生",
-          "sea_food_wash": "セルフクリーニング",
-          "hot_pot_wash": "鍋",
-          "quiet_night_wash": "おやすみ",
-          "less_wash": "ライト",
-          "max_rapid_wash": "最速",
-          "oil_net_wash": "オイルフィルター",
-          "cloud_wash": "クラウドプログラム",
-          "single_dry": "乾燥のみ",
-          "single_disinfect": "除菌のみ",
-          "high_temp_wash": "高温",
-          "wash_dry": "洗浄・乾燥"
-        }
-      },
       "program": {
         "name": "プログラム",
         "state": {
           "auto_wash": "自動",
           "strong_wash": "強力",
           "standard_wash": "標準",
+          "universal_wash": "万能",
           "eco_wash": "ECO",
           "glass_wash": "ガラス",
           "hour_wash": "1 時間",
@@ -1186,6 +1127,7 @@
           "fruit_wash": "フルーツ",
           "self_define": "カスタム",
           "germ": "除菌",
+          "whisper_wash": "静音",
           "bowl_wash": "お椀",
           "kill_germ": "衛生",
           "sea_food_wash": "シーフード",
@@ -1198,7 +1140,8 @@
           "single_dry": "乾燥のみ",
           "single_disinfect": "除菌のみ",
           "high_temp_wash": "高温",
-          "wash_dry": "洗浄・乾燥"
+          "wash_dry": "洗浄・乾燥",
+          "anion1": "イオン消臭"
         }
       },
       "load": {
@@ -1308,6 +1251,7 @@
           "auto_wash": "自動",
           "strong_wash": "強力",
           "standard_wash": "標準",
+          "universal_wash": "万能",
           "eco_wash": "ECO",
           "glass_wash": "ガラス",
           "hour_wash": "1 時間",
@@ -1318,6 +1262,7 @@
           "fruit_wash": "フルーツ",
           "self_define": "カスタム",
           "germ": "除菌",
+          "whisper_wash": "静音",
           "bowl_wash": "お椀",
           "kill_germ": "衛生",
           "sea_food_wash": "シーフード",
@@ -1330,7 +1275,8 @@
           "single_dry": "乾燥のみ",
           "single_disinfect": "除菌のみ",
           "high_temp_wash": "高温",
-          "wash_dry": "洗浄・乾燥"
+          "wash_dry": "洗浄・乾燥",
+          "anion1": "イオン消臭"
         }
       },
       "water_level_set": {
@@ -1672,6 +1618,7 @@
           "auto_wash": "自動",
           "strong_wash": "強力",
           "standard_wash": "標準",
+          "universal_wash": "万能",
           "eco_wash": "ECO",
           "glass_wash": "ガラス",
           "hour_wash": "1 時間",
@@ -1682,6 +1629,7 @@
           "fruit_wash": "フルーツ",
           "self_define": "カスタム",
           "germ": "除菌",
+          "whisper_wash": "静音",
           "bowl_wash": "お椀",
           "kill_germ": "衛生",
           "sea_food_wash": "シーフード",
@@ -1694,39 +1642,8 @@
           "single_dry": "乾燥のみ",
           "single_disinfect": "除菌のみ",
           "high_temp_wash": "高温",
-          "wash_dry": "洗浄・乾燥"
-        }
-      },
-      "dishwasher_mode_76000228": {
-        "name": "モード",
-        "state": {
-          "neutral_gear": "なし",
-          "auto_wash": "自動",
-          "strong_wash": "強力",
-          "standard_wash": "標準",
-          "eco_wash": "ECO",
-          "glass_wash": "ガラス",
-          "hour_wash": "90 分",
-          "fast_wash": "高速",
-          "soak_wash": "つけおき",
-          "90min": "90 分",
-          "self_clean": "セルフクリーニング",
-          "fruit_wash": "フルーツ",
-          "self_define": "カスタム",
-          "germ": "ささやき",
-          "bowl_wash": "お椀",
-          "kill_germ": "衛生",
-          "sea_food_wash": "セルフクリーニング",
-          "hot_pot_wash": "鍋",
-          "quiet_night_wash": "おやすみ",
-          "less_wash": "ライト",
-          "max_rapid_wash": "最速",
-          "oil_net_wash": "オイルフィルター",
-          "cloud_wash": "クラウドプログラム",
-          "single_dry": "乾燥のみ",
-          "single_disinfect": "除菌のみ",
-          "high_temp_wash": "高温",
-          "wash_dry": "洗浄・乾燥"
+          "wash_dry": "洗浄・乾燥",
+          "anion1": "イオン消臭"
         }
       },
       "dishwasher_status": {
@@ -2073,6 +1990,9 @@
       },
       "indoor_humidity": {
         "name": "室内湿度"
+      },
+      "target_humidity": {
+        "name": "目標湿度"
       },
       "indoor_temperature": {
         "name": "室内温度"
@@ -4082,68 +4002,53 @@
       "panel_status": {
         "name": "パネル状態"
       },
-      "heating_power_consumption": {
-        "name": "暖房消費電力"
-      },
-      "heating_capacity": {
-        "name": "暖房能力"
-      },
-      "heating_cop_eer": {
-        "name": "暖房 COP/EER"
-      },
-      "heating_total_energy_consumption": {
-        "name": "暖房累計消費電力量"
-      },
-      "heating_total_produced_energy": {
-        "name": "暖房累計生産熱量"
-      },
-      "heating_total_cop_eer": {
-        "name": "暖房累計 COP/EER"
-      },
-      "heating_energy_consumption_today": {
-        "name": "本日の暖房消費電力量"
-      },
-      "heating_produced_energy_today": {
-        "name": "本日の暖房生産熱量"
-      },
-      "heating_cop_eer_today": {
-        "name": "本日の暖房 COP/EER"
-      },
-      "heating_energy_consumption_this_week": {
-        "name": "今週の暖房消費電力量"
-      },
-      "heating_produced_energy_this_week": {
-        "name": "今週の暖房生産熱量"
-      },
-      "heating_cop_eer_this_week": {
-        "name": "今週の暖房 COP/EER"
-      },
-      "heating_energy_consumption_this_month": {
-        "name": "今月の暖房消費電力量"
-      },
-      "heating_produced_energy_this_month": {
-        "name": "今月の暖房生産熱量"
-      },
-      "heating_cop_eer_this_month": {
-        "name": "今月の暖房 COP/EER"
-      },
-      "heating_energy_consumption_this_year": {
-        "name": "今年の暖房消費電力量"
-      },
-      "heating_produced_energy_this_year": {
-        "name": "今年の暖房生産熱量"
-      },
-      "heating_cop_eer_this_year": {
-        "name": "今年の暖房 COP/EER"
-      },
-      "cooling_power_consumption": {
-        "name": "冷房消費電力"
-      },
       "cooling_capacity": {
         "name": "冷房能力"
       },
       "cooling_cop_eer": {
         "name": "冷房 COP/EER"
+      },
+      "cooling_cop_eer_this_month": {
+        "name": "今月の冷房 COP/EER"
+      },
+      "cooling_cop_eer_this_week": {
+        "name": "今週の冷房 COP/EER"
+      },
+      "cooling_cop_eer_this_year": {
+        "name": "今年の冷房 COP/EER"
+      },
+      "cooling_cop_eer_today": {
+        "name": "本日の冷房 COP/EER"
+      },
+      "cooling_energy_consumption_this_month": {
+        "name": "今月の冷房消費電力量"
+      },
+      "cooling_energy_consumption_this_week": {
+        "name": "今週の冷房消費電力量"
+      },
+      "cooling_energy_consumption_this_year": {
+        "name": "今年の冷房消費電力量"
+      },
+      "cooling_energy_consumption_today": {
+        "name": "本日の冷房消費電力量"
+      },
+      "cooling_power_consumption": {
+        "name": "冷房消費電力"
+      },
+      "cooling_produced_energy_this_month": {
+        "name": "今月の冷房生産エネルギー"
+      },
+      "cooling_produced_energy_this_week": {
+        "name": "今週の冷房生産エネルギー"
+      },
+      "cooling_produced_energy_this_year": {
+        "name": "今年の冷房生産エネルギー"
+      },
+      "cooling_produced_energy_today": {
+        "name": "本日の冷房生産エネルギー"
+      },
+      "cooling_total_cop_eer": {
+        "name": "冷房累計 COP/EER"
       },
       "cooling_total_energy_consumption": {
         "name": "冷房累計消費電力量"
@@ -4151,53 +4056,53 @@
       "cooling_total_produced_energy": {
         "name": "冷房累計生産エネルギー"
       },
-      "cooling_total_cop_eer": {
-        "name": "冷房累計 COP/EER"
-      },
-      "cooling_energy_consumption_today": {
-        "name": "本日の冷房消費電力量"
-      },
-      "cooling_produced_energy_today": {
-        "name": "本日の冷房生産エネルギー"
-      },
-      "cooling_cop_eer_today": {
-        "name": "本日の冷房 COP/EER"
-      },
-      "cooling_energy_consumption_this_week": {
-        "name": "今週の冷房消費電力量"
-      },
-      "cooling_produced_energy_this_week": {
-        "name": "今週の冷房生産エネルギー"
-      },
-      "cooling_cop_eer_this_week": {
-        "name": "今週の冷房 COP/EER"
-      },
-      "cooling_energy_consumption_this_month": {
-        "name": "今月の冷房消費電力量"
-      },
-      "cooling_produced_energy_this_month": {
-        "name": "今月の冷房生産エネルギー"
-      },
-      "cooling_cop_eer_this_month": {
-        "name": "今月の冷房 COP/EER"
-      },
-      "cooling_energy_consumption_this_year": {
-        "name": "今年の冷房消費電力量"
-      },
-      "cooling_produced_energy_this_year": {
-        "name": "今年の冷房生産エネルギー"
-      },
-      "cooling_cop_eer_this_year": {
-        "name": "今年の冷房 COP/EER"
-      },
-      "dhw_power_consumption": {
-        "name": "給湯消費電力"
-      },
       "dhw_capacity": {
         "name": "給湯熱出力"
       },
       "dhw_cop_eer": {
         "name": "給湯 COP/EER"
+      },
+      "dhw_cop_eer_this_month": {
+        "name": "今月の給湯 COP/EER"
+      },
+      "dhw_cop_eer_this_week": {
+        "name": "今週の給湯 COP/EER"
+      },
+      "dhw_cop_eer_this_year": {
+        "name": "今年の給湯 COP/EER"
+      },
+      "dhw_cop_eer_today": {
+        "name": "本日の給湯 COP/EER"
+      },
+      "dhw_energy_consumption_this_month": {
+        "name": "今月の給湯消費電力量"
+      },
+      "dhw_energy_consumption_this_week": {
+        "name": "今週の給湯消費電力量"
+      },
+      "dhw_energy_consumption_this_year": {
+        "name": "今年の給湯消費電力量"
+      },
+      "dhw_energy_consumption_today": {
+        "name": "本日の給湯消費電力量"
+      },
+      "dhw_power_consumption": {
+        "name": "給湯消費電力"
+      },
+      "dhw_produced_energy_this_month": {
+        "name": "今月の給湯生産熱量"
+      },
+      "dhw_produced_energy_this_week": {
+        "name": "今週の給湯生産熱量"
+      },
+      "dhw_produced_energy_this_year": {
+        "name": "今年の給湯生産熱量"
+      },
+      "dhw_produced_energy_today": {
+        "name": "本日の給湯生産熱量"
+      },
+      "dhw_total_cop_eer": {
+        "name": "給湯累計 COP/EER"
       },
       "dhw_total_energy_consumption": {
         "name": "給湯累計消費電力量"
@@ -4205,44 +4110,59 @@
       "dhw_total_produced_energy": {
         "name": "給湯累計生産熱量"
       },
-      "dhw_total_cop_eer": {
-        "name": "給湯累計 COP/EER"
+      "heating_capacity": {
+        "name": "暖房能力"
       },
-      "dhw_energy_consumption_today": {
-        "name": "本日の給湯消費電力量"
+      "heating_cop_eer": {
+        "name": "暖房 COP/EER"
       },
-      "dhw_produced_energy_today": {
-        "name": "本日の給湯生産熱量"
+      "heating_cop_eer_this_month": {
+        "name": "今月の暖房 COP/EER"
       },
-      "dhw_cop_eer_today": {
-        "name": "本日の給湯 COP/EER"
+      "heating_cop_eer_this_week": {
+        "name": "今週の暖房 COP/EER"
       },
-      "dhw_energy_consumption_this_week": {
-        "name": "今週の給湯消費電力量"
+      "heating_cop_eer_this_year": {
+        "name": "今年の暖房 COP/EER"
       },
-      "dhw_produced_energy_this_week": {
-        "name": "今週の給湯生産熱量"
+      "heating_cop_eer_today": {
+        "name": "本日の暖房 COP/EER"
       },
-      "dhw_cop_eer_this_week": {
-        "name": "今週の給湯 COP/EER"
+      "heating_energy_consumption_this_month": {
+        "name": "今月の暖房消費電力量"
       },
-      "dhw_energy_consumption_this_month": {
-        "name": "今月の給湯消費電力量"
+      "heating_energy_consumption_this_week": {
+        "name": "今週の暖房消費電力量"
       },
-      "dhw_produced_energy_this_month": {
-        "name": "今月の給湯生産熱量"
+      "heating_energy_consumption_this_year": {
+        "name": "今年の暖房消費電力量"
       },
-      "dhw_cop_eer_this_month": {
-        "name": "今月の給湯 COP/EER"
+      "heating_energy_consumption_today": {
+        "name": "本日の暖房消費電力量"
       },
-      "dhw_energy_consumption_this_year": {
-        "name": "今年の給湯消費電力量"
+      "heating_power_consumption": {
+        "name": "暖房消費電力"
       },
-      "dhw_produced_energy_this_year": {
-        "name": "今年の給湯生産熱量"
+      "heating_produced_energy_this_month": {
+        "name": "今月の暖房生産熱量"
       },
-      "dhw_cop_eer_this_year": {
-        "name": "今年の給湯 COP/EER"
+      "heating_produced_energy_this_week": {
+        "name": "今週の暖房生産熱量"
+      },
+      "heating_produced_energy_this_year": {
+        "name": "今年の暖房生産熱量"
+      },
+      "heating_produced_energy_today": {
+        "name": "本日の暖房生産熱量"
+      },
+      "heating_total_cop_eer": {
+        "name": "暖房累計 COP/EER"
+      },
+      "heating_total_energy_consumption": {
+        "name": "暖房累計消費電力量"
+      },
+      "heating_total_produced_energy": {
+        "name": "暖房累計生産熱量"
       },
       "instant_cop_eer": {
         "name": "瞬時 COP/EER"

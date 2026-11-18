@@ -85,6 +85,8 @@ async def async_setup_entry(
             )
         elif config.get("estimate"):
             sensor = MideaEstimatedUsageSensor(device, entity_key)
+            if not sensor.has_estimates:
+                continue
             sensors.append(sensor)
         elif config.get("duration_from_minutes"):
             sensor = MideaMinuteDurationSensor(device, entity_key)
@@ -368,7 +370,7 @@ class MideaEstimatedUsageSensor(MideaSensor, RestoreEntity):
     ``progress`` attribute reaching ``"complete"``; a cancelled or errored run
     never reaches that state and is therefore not counted. The estimate table
     is keyed by mode code, so it doesn't depend on the library's mode names,
-    and chosen per model (``values_by_model``), since figures differ by model.
+    and provided by ``midea-lan`` for the detected model.
     """
 
     # Values reported by midea-lan since 2026.9.2 (lowercase keys).
@@ -403,6 +405,11 @@ class MideaEstimatedUsageSensor(MideaSensor, RestoreEntity):
         return round(self._native_value, 3)
 
     @property
+    def has_estimates(self) -> bool:
+        """Whether midea-lan provides estimates for this device model."""
+        return bool(self._values())
+
+    @property
     def extra_state_attributes(self) -> dict[str, Any]:
         """Estimate metadata for the sensor."""
         modes = self._modes()
@@ -421,11 +428,11 @@ class MideaEstimatedUsageSensor(MideaSensor, RestoreEntity):
         Estimate per mode code, empty if the model has no figures.
 
         """
-        by_model = cast(
-            "dict[str, dict[int, float]]",
-            self._config["estimate"]["values_by_model"],
+        estimate = self._config["estimate"]
+        return cast(
+            "dict[int, float]",
+            getattr(self._device, estimate["values_method"])(estimate["kind"]),
         )
-        return by_model.get(str(self._device.model), {})
 
     def _modes(self) -> dict[int, str]:
         """Return the dishwasher's mode names keyed by code.
@@ -436,7 +443,7 @@ class MideaEstimatedUsageSensor(MideaSensor, RestoreEntity):
 
         """
         if isinstance(self._device, MideaE1Device):
-            return self._device.modes
+            return self._device.supported_modes
         return {}
 
     def _mode_code(self, mode: str | None) -> int | None:
