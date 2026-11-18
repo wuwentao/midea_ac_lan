@@ -1,6 +1,7 @@
 """Midea Fan entries."""
 
 import logging
+from bisect import bisect_left, bisect_right
 from typing import Any, cast
 
 from homeassistant.components.fan import FanEntity, FanEntityFeature
@@ -19,10 +20,12 @@ from midealan.devices.b6 import MideaB6Device
 from midealan.devices.ce import DeviceAttributes as CEAttributes
 from midealan.devices.ce import MideaCEDevice
 from midealan.devices.fa import MideaFADevice
+from midealan.devices.x13 import DeviceAttributes as X13Attributes
+from midealan.devices.x13 import Midea13Device
 from midealan.devices.x40 import DeviceAttributes as X40Attributes
 from midealan.devices.x40 import MideaX40Device
 
-from .const import DEVICES, DOMAIN
+from .const import DEVICES, DOMAIN, supports_device
 from .midea_devices import (
     FRESH_AIR_EXHAUST,
     FRESH_AIR_EXHAUST_MODE,
@@ -34,6 +37,9 @@ from .midea_entity import MideaEntity
 
 _LOGGER = logging.getLogger(__name__)
 BGF10000_SUBTYPE = 15
+#: Fan percentages the X13 fan-light accepts, one for each physical gear.
+X13_FAN_SPEEDS: tuple[int, ...] = (1, 21, 41, 61, 81, 100)
+X13_FAN_DEFAULT_SPEED = 41
 
 
 async def async_setup_entry(
@@ -46,7 +52,12 @@ async def async_setup_entry(
     device = hass.data[DOMAIN][DEVICES].get(device_id)
     extra_switches = config_entry.options.get(CONF_SWITCHES, [])
     devs: list[
-        MideaFAFan | MideaB6Fan | MideaACFreshAirFan | MideaCEFan | MideaX40Fan
+        MideaFAFan
+        | MideaB6Fan
+        | MideaACFreshAirFan
+        | MideaCEFan
+        | MideaX40Fan
+        | MideaX13Fan
     ] = []
     for entity_key, config in cast(
         "dict",
@@ -58,8 +69,10 @@ async def async_setup_entry(
             and required_attribute not in device.attributes
         ):
             continue
-        if config["type"] == Platform.FAN and (
-            config.get("default") or entity_key in extra_switches
+        if (
+            config["type"] == Platform.FAN
+            and supports_device(device.model, device.subtype, config)
+            and (config.get("default") or entity_key in extra_switches)
         ):
             if device.device_type == DeviceType.FA:
                 devs.append(MideaFAFan(device, entity_key))
@@ -71,6 +84,8 @@ async def async_setup_entry(
                 devs.append(MideaCEFan(device, entity_key))
             elif device.device_type == DeviceType.X40:
                 devs.append(MideaX40Fan(device, entity_key))
+            elif device.device_type == DeviceType.X13:
+                devs.append(MideaX13Fan(device, entity_key))
     async_add_entities(devs)
 
 
@@ -393,3 +408,85 @@ class MideaX40Fan(MideaFan):
     def turn_off(self, **kwargs: Any) -> None:  # ruff:ignore[any-type, unused-method-argument]
         """Midea X40 Fan turn off."""
         self._device.set_attribute(attr=X40Attributes.fan_speed, value=0)
+
+
+class MideaX13Fan(MideaFan):
+    """Midea X13 fan-light fan entries.
+
+    The appliance reports the fan speed as a plain percentage (1..100)
+    quantised to six gears; ``set_percentage`` snaps onto one of the gear
+    values the hardware accepts.
+    """
+
+    _device: Midea13Device
+
+    def __init__(self, device: Midea13Device, entity_key: str) -> None:
+        """Midea X13 Fan entity init."""
+        super().__init__(device, entity_key)
+        self._attr_supported_features = (
+            FanEntityFeature.SET_SPEED | FAN_FEATURE_TURN_ON_OFF
+        )
+        self._attr_speed_count = 100
+
+    @property
+    def is_on(self) -> bool:
+        """Midea X13 Fan fan power state."""
+        return cast("bool", self._device.get_attribute(X13Attributes.fan_power))
+
+    @property
+    def percentage(self) -> int | None:
+        """Midea X13 Fan percentage."""
+        speed = self._device.get_attribute(X13Attributes.fan_speed)
+        if not speed:
+            return None
+        return int(cast("int", speed))
+
+    async def async_increase_speed(self, percentage_step: int | None = None) -> None:
+        """Advance to the next gear for a default speed increase."""
+        if percentage_step is not None:
+            await super().async_increase_speed(percentage_step)
+            return
+        current = self.percentage or 0
+        index = min(bisect_right(X13_FAN_SPEEDS, current), len(X13_FAN_SPEEDS) - 1)
+        await self.async_set_percentage(X13_FAN_SPEEDS[index])
+
+    async def async_decrease_speed(self, percentage_step: int | None = None) -> None:
+        """Move to the previous gear for a default speed decrease."""
+        if percentage_step is not None:
+            await super().async_decrease_speed(percentage_step)
+            return
+        current = self.percentage or 0
+        index = bisect_left(X13_FAN_SPEEDS, current) - 1
+        await self.async_set_percentage(X13_FAN_SPEEDS[index] if index >= 0 else 0)
+
+    def turn_on(
+        self,
+        percentage: int | None = None,
+        preset_mode: str | None = None,  # ruff:ignore[unused-method-argument]
+        **kwargs: Any,  # ruff:ignore[any-type, unused-method-argument]
+    ) -> None:
+        """Midea X13 Fan turn on.
+
+        Writing a speed also powers the fan on, so a plain turn-on reuses
+        the speed last reported by the appliance.
+        """
+        if percentage is not None:
+            self.set_percentage(percentage)
+            return
+        speed = self._device.get_attribute(X13Attributes.fan_speed)
+        self._device.set_attribute(
+            attr=X13Attributes.fan_speed,
+            value=int(cast("int", speed)) if speed else X13_FAN_DEFAULT_SPEED,
+        )
+
+    def turn_off(self, **kwargs: Any) -> None:  # ruff:ignore[any-type, unused-method-argument]
+        """Midea X13 Fan turn off."""
+        self._device.set_attribute(attr=X13Attributes.fan_power, value=False)
+
+    def set_percentage(self, percentage: int) -> None:
+        """Midea X13 Fan set percentage, snapped onto a hardware gear."""
+        if percentage <= 0:
+            self.turn_off()
+            return
+        speed = min(X13_FAN_SPEEDS, key=lambda value: abs(value - percentage))
+        self._device.set_attribute(attr=X13Attributes.fan_speed, value=speed)
