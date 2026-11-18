@@ -86,12 +86,7 @@ from midealan.devices.x9c import DeviceAttributes as _X9CAttributes
 from midealan.devices.x26 import DeviceAttributes as X26Attributes
 from midealan.devices.x34 import DeviceAttributes as X34Attributes
 from midealan.devices.x40 import DeviceAttributes as X40Attributes
-
-# The pinned midea-lan release has no x44 module yet. It arrives with the
-# paired library change, so pylint cannot resolve this import until then.
-from midealan.devices.x44 import (  # pylint: disable=import-error,no-name-in-module
-    DeviceAttributes as X44Attributes,
-)
+from midealan.devices.x44 import DeviceAttributes as X44Attributes
 
 # The protocol library exposes this capability only for verified model/subtype
 # pairs. String keys keep imports compatible with the currently released SDK.
