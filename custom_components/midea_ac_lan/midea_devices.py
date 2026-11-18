@@ -191,8 +191,18 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
         "entities": {
             "light": {
                 "type": Platform.LIGHT,
+                "translation_key": "light",
                 "icon": "mdi:lightbulb",
                 "default": True,
+            },
+            "fan": {
+                "type": Platform.FAN,
+                "translation_key": "fan",
+                "icon": "mdi:fan",
+                "default": True,
+                # The library exposes fan registers only for this layout.
+                "models": ["M0200008"],
+                "subtypes": [0],
             },
         },
     },
