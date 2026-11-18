@@ -1,5 +1,7 @@
 """Tests for version-dependent device registry constants."""
 
+import json
+from pathlib import Path
 from types import SimpleNamespace
 
 import homeassistant.const as ha_const
@@ -7,6 +9,20 @@ import pytest
 from homeassistant.const import MAJOR_VERSION, MINOR_VERSION
 
 from .helpers import load_integration_module
+
+TRANSLATIONS_DIR = (
+    Path(__file__).parent.parent / "custom_components" / "midea_ac_lan" / "translations"
+)
+
+
+def test_x13_entity_names_exist_in_all_translations() -> None:
+    """Require localized X13 fan and light names in every shipped language."""
+    translation_files = sorted(TRANSLATIONS_DIR.glob("*.json"))
+    assert translation_files
+    for translation_file in translation_files:
+        translation = json.loads(translation_file.read_text(encoding="utf-8"))
+        assert translation["entity"]["fan"]["fan"]["name"]
+        assert translation["entity"]["light"]["light"]["name"]
 
 
 def test_opposite_version_concentration_units(
