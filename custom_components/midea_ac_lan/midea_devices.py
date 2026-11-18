@@ -8250,6 +8250,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             DBAttributes.water_consumption: {
                 "type": Platform.SENSOR,
                 "required_attribute": DBAttributes.dryer,
+                "restore_last_value": True,
                 "translation_key": "db_last_cycle_water_consumption",
                 "name": "Last cycle water consumption",
                 "icon": "mdi:water-pump",
@@ -8257,6 +8258,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             DBAttributes.power_consumption: {
                 "type": Platform.SENSOR,
                 "required_attribute": DBAttributes.dryer,
+                "restore_last_value": True,
                 "translation_key": "power_consumption",
                 "name": "Last cycle power consumption",
                 "icon": "mdi:lightning-bolt",
@@ -8264,6 +8266,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             DBAttributes.wash_count: {
                 "type": Platform.SENSOR,
                 "required_attribute": DBAttributes.dryer,
+                "restore_last_value": True,
                 "translation_key": "wash_count",
                 "name": "Wash count",
                 "icon": "mdi:counter",

@@ -16,6 +16,7 @@ from custom_components.midea_ac_lan.sensor import (
     MideaCloudUsageSensor,
     MideaEstimatedUsageSensor,
     MideaFlagStateSensor,
+    MideaLastValueSensor,
     MideaMinuteDurationSensor,
     MideaSensor,
     async_setup_entry,
@@ -64,6 +65,11 @@ async def test_async_setup_entry_builds_all_sensor_types(
                 "default": True,
                 "state_from_flags": {"working": "on"},
             },
+            "restored": {
+                "type": Platform.SENSOR,
+                "default": True,
+                "restore_last_value": True,
+            },
             "plain": {"type": Platform.SENSOR},
             "missing": {
                 "type": Platform.SENSOR,
@@ -95,6 +101,7 @@ async def test_async_setup_entry_builds_all_sensor_types(
         MideaEstimatedUsageSensor,
         MideaMinuteDurationSensor,
         MideaFlagStateSensor,
+        MideaLastValueSensor,
         MideaSensor,
     ]
     assert added[0]._coordinator is coordinator
@@ -168,6 +175,74 @@ def make_sensor(
     install_config({"value": {"type": Platform.SENSOR, **config}})
     device, values = device_factory(attributes={"value": value})
     return MideaSensor(device, "value"), device, values
+
+
+@pytest.mark.parametrize(
+    ("restored", "expected"),
+    [
+        (None, None),
+        ("unknown", None),
+        ("unavailable", None),
+        ("bad", None),
+        (SimpleNamespace(state=None), None),
+        ("0", 0),
+        ("324", 324),
+    ],
+)
+async def test_last_value_sensor_restore(
+    restored: str | SimpleNamespace | None,
+    expected: int | None,
+    device_factory: DeviceFactory,
+    install_config: InstallConfig,
+) -> None:
+    """Restore valid integers and ignore missing or invalid HA states."""
+    install_config(
+        {
+            "value": {
+                "type": Platform.SENSOR,
+                "restore_last_value": True,
+            },
+        },
+    )
+    device, _ = device_factory(attributes={"value": None})
+    sensor = MideaLastValueSensor(device, "value")
+    state = (
+        restored
+        if isinstance(restored, SimpleNamespace) or restored is None
+        else SimpleNamespace(state=restored)
+    )
+    sensor.async_get_last_state = AsyncMock(return_value=state)
+
+    await sensor.async_added_to_hass()
+
+    assert sensor.native_value == expected
+
+
+async def test_last_value_sensor_prefers_live_value(
+    device_factory: DeviceFactory,
+    install_config: InstallConfig,
+) -> None:
+    """Use a live value, including zero, without reading stale HA state."""
+    install_config(
+        {
+            "value": {
+                "type": Platform.SENSOR,
+                "restore_last_value": True,
+            },
+        },
+    )
+    device, values = device_factory(attributes={"value": 17})
+    sensor = MideaLastValueSensor(device, "value")
+    sensor.async_get_last_state = AsyncMock(
+        return_value=SimpleNamespace(state="324"),
+    )
+
+    await sensor.async_added_to_hass()
+
+    assert sensor.native_value == 17
+    sensor.async_get_last_state.assert_not_awaited()
+    values["value"] = 0
+    assert sensor.native_value == 0
 
 
 def test_sensor_native_values_and_metadata(

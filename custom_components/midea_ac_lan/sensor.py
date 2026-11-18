@@ -94,6 +94,9 @@ async def async_setup_entry(
         elif config.get("state_from_flags"):
             sensor = MideaFlagStateSensor(device, entity_key)
             sensors.append(sensor)
+        elif config.get("restore_last_value"):
+            sensor = MideaLastValueSensor(device, entity_key)
+            sensors.append(sensor)
         else:
             sensor = MideaSensor(device, entity_key)
             sensors.append(sensor)
@@ -359,6 +362,32 @@ class MideaFlagStateSensor(MideaSensor):
 
         """
         return cast("dict[str, str]", self._config["state_from_flags"])
+
+
+class MideaLastValueSensor(MideaSensor, RestoreEntity):
+    """Retain a sporadically reported value across entity reloads."""
+
+    def __init__(self, device: MideaDevice, entity_key: str) -> None:
+        """Initialize a sensor whose source is not present in every report."""
+        super().__init__(device, entity_key)
+        self._restored_value: int | None = None
+
+    @property
+    def native_value(self) -> StateType:
+        """Prefer the device value and otherwise use the last HA state."""
+        value = super().native_value
+        return self._restored_value if value is None else value
+
+    async def async_added_to_hass(self) -> None:
+        """Restore the last value only when the new device has none."""
+        await super().async_added_to_hass()
+        if super().native_value is not None:
+            return
+        if last_state := await self.async_get_last_state():
+            try:
+                self._restored_value = int(last_state.state)
+            except (TypeError, ValueError):
+                self._restored_value = None
 
 
 class MideaEstimatedUsageSensor(MideaSensor, RestoreEntity):

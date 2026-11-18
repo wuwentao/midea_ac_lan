@@ -168,5 +168,6 @@ These fields are decoded by
 The end-of-cycle report adds the water and power consumption of the last
 cycle as raw counters; the Lua file defines no unit for them. It also carries
 the appliance wash count (read by the official app plugin, not the Lua file).
-Enable these
-entities in **CONFIGURE**; older protocol-library versions skip them.
+Enable these entities in **CONFIGURE**. The `midea-lan` version pinned by this
+integration is required; older releases do not define these attributes and are
+not supported for these entities.
