@@ -155,7 +155,11 @@ can send incorrect commands.
 Model `38123703 / subtype 16695` (MF200D80WB/T-A1 washer-dryer) uses the same
 read-only v41 profile.
 
-Both v41 models also expose the read-only status fields of
+Model `38131780 / subtype 13914` (MD10L7PRO washer-dryer) is the third device
+using this profile, as added by
+[`midea-lan` PR #274](https://github.com/wuwentao/midea-lan/pull/274).
+
+All three v41 models expose the read-only status fields of
 `T_0000_DB_41.lua`, marked "(v41)" in the table above: drying level, soak
 count, delay start minutes, error code, and the speedy, child lock, pre-wash,
 steam wash, extra rinse, fresh air (`wind_dispel`) and remote control flags.
