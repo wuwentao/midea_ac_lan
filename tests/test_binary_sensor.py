@@ -5,6 +5,7 @@ from typing import Any, cast
 import pytest
 from homeassistant.components.binary_sensor import BinarySensorDeviceClass
 from homeassistant.const import Platform
+from midealan.devices.ac import DeviceAttributes as ACAttributes
 
 from custom_components.midea_ac_lan.binary_sensor import (
     MideaBinarySensor,
@@ -16,7 +17,7 @@ from custom_components.midea_ac_lan.midea_devices import MIDEA_DEVICES
 from .helpers import DeviceFactory, InstallConfig, setup_context
 
 AC_ENTITIES = cast("dict[str, Any]", MIDEA_DEVICES[0xAC]["entities"])
-HUMIDIFY_CONFIG = AC_ENTITIES["humidify"]
+HUMIDIFY_CONFIG = AC_ENTITIES[ACAttributes.humidify]
 
 
 async def test_async_setup_entry_filters_entities(

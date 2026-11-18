@@ -8,6 +8,7 @@ from unittest.mock import AsyncMock, Mock, patch
 import pytest
 from homeassistant.components.sensor import SensorDeviceClass, SensorStateClass
 from homeassistant.const import Platform
+from midealan.devices.ac import DeviceAttributes as ACAttributes
 from midealan.devices.e1 import MideaE1Device
 
 from custom_components.midea_ac_lan.const import supports_device
@@ -574,7 +575,7 @@ def test_estimated_usage_detached_update(
 
 
 AC_ENTITIES = cast("dict[str, Any]", MIDEA_DEVICES[0xAC]["entities"])
-TARGET_HUMIDITY_CONFIG = AC_ENTITIES["target_humidity"]
+TARGET_HUMIDITY_CONFIG = AC_ENTITIES[ACAttributes.target_humidity]
 
 
 @pytest.mark.parametrize(
