@@ -10496,6 +10496,16 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Prompt Tone",
                 "icon": "mdi:bell",
             },
+            # Lua 2024110101 reports this value only when wet-pad drying is
+            # supported, so keep the optional entity protocol-capability gated.
+            FDAttributes.wet_pad_dry: {
+                "type": Platform.SWITCH,
+                "required_attribute": FDAttributes.wet_pad_dry,
+                "available_value_attribute": FDAttributes.wet_pad_dry,
+                "translation_key": "wet_pad_dry",
+                "name": "Wet Pad Drying",
+                "icon": "mdi:water-off-outline",
+            },
             FDAttributes.power: {
                 "type": Platform.SWITCH,
                 "translation_key": "power",
