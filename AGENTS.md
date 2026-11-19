@@ -91,6 +91,8 @@ Dependencies (including the per-Python `homeassistant==` pins) live in `pyprojec
 
 The pinned Node version under `default_language_version` in `.pre-commit-config.yaml` keeps Prettier reproducible across platforms. Do not remove or change it without validating the full pre-commit suite on Windows as well as the primary development platform.
 
+Keep `uv.lock` on the canonical PyPI index (`files.pythonhosted.org`). If a package mirror is configured in uv's own config — a global `~/.config/uv/uv.toml` with an `[[index]]` pointing at a mirror such as `pypi.tuna.tsinghua.edu.cn` or an Aliyun mirror, or `UV_DEFAULT_INDEX` / `--index-url` — uv rewrites every `url`/`sdist`/`wheel` entry in `uv.lock` to that mirror host the next time the lock is regenerated. That rewrite is non-portable (mirrors lag on Home Assistant pre-releases and resolve to different hosts) and must never be committed. Before committing any `uv.lock` change, confirm it references only `files.pythonhosted.org` — for example, `grep -E 'tuna\.tsinghua|aliyun|mirrors\.' uv.lock` must print nothing. If you only meant to bump a dependency version, regenerate the lock against the default PyPI index with the mirror disabled, or restore the unrelated URL churn from `main`. Keep any mirror or proxy scoped to the single command that needs it; never persist it into the global uv config the lock step reads.
+
 ## Conventions
 
 - **Commits must follow Conventional Commits** — enforced by commitlint + commitizen on the `commit-msg` hook. Types: `feat`, `fix`, `chore`, `docs`, `refactor`, `test`. Releases are automated from these messages (see recent `chore(main): midea_ac_lan release vX.Y.Z` commits).
