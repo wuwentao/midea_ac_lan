@@ -3711,7 +3711,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             A1Attributes.compressor: {
                 "type": Platform.BINARY_SENSOR,
                 "required_attribute": A1Attributes.compressor,
-                "translation_key": "compressor",
+                "translation_key": "compressor_on",
                 "name": "Compressor Running",
                 "device_class": BinarySensorDeviceClass.RUNNING,
             },
