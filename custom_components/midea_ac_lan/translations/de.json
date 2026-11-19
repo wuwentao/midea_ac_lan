@@ -973,6 +973,9 @@
       }
     },
     "number": {
+      "curtain_position": {
+        "name": "Position"
+      },
       "delay_minutes": {
         "name": "Startverzögerung"
       },
@@ -1104,6 +1107,21 @@
       }
     },
     "select": {
+      "curtain_status": {
+        "name": "Vorhang",
+        "state": {
+          "open": "Öffnen",
+          "close": "Schließen",
+          "stop": "Stoppen"
+        }
+      },
+      "curtain_direction": {
+        "name": "Richtung",
+        "state": {
+          "positive": "Vorwärts",
+          "reverse": "Rückwärts"
+        }
+      },
       "aux_heat_mode": {
         "name": "Zusatzheizmodus",
         "state": {
@@ -1485,6 +1503,9 @@
       }
     },
     "sensor": {
+      "software_version": {
+        "name": "Softwareversion"
+      },
       "evaporator_temperature": {
         "name": "Verdampfertemperatur"
       },

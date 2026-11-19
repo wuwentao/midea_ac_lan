@@ -989,6 +989,9 @@
       }
     },
     "number": {
+      "curtain_position": {
+        "name": "Положення"
+      },
       "delay_minutes": {
         "name": "Затримка"
       },
@@ -1120,6 +1123,21 @@
       }
     },
     "select": {
+      "curtain_status": {
+        "name": "Штора",
+        "state": {
+          "open": "Відкрити",
+          "close": "Закрити",
+          "stop": "Зупинити"
+        }
+      },
+      "curtain_direction": {
+        "name": "Напрямок",
+        "state": {
+          "positive": "Прямий",
+          "reverse": "Зворотний"
+        }
+      },
       "aux_heat_mode": {
         "name": "Режим допоміжного нагріву",
         "state": {
@@ -1564,6 +1582,9 @@
       }
     },
     "sensor": {
+      "software_version": {
+        "name": "Версія ПЗ"
+      },
       "evaporator_temperature": {
         "name": "Температура випарника"
       },

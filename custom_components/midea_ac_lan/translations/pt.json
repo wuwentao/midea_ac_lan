@@ -989,6 +989,9 @@
       }
     },
     "number": {
+      "curtain_position": {
+        "name": "Posição"
+      },
       "delay_minutes": {
         "name": "Atraso"
       },
@@ -1120,6 +1123,21 @@
       }
     },
     "select": {
+      "curtain_status": {
+        "name": "Cortina",
+        "state": {
+          "open": "Aberto",
+          "close": "Fechado",
+          "stop": "Parar"
+        }
+      },
+      "curtain_direction": {
+        "name": "Direção",
+        "state": {
+          "positive": "Positiva",
+          "reverse": "Inversa"
+        }
+      },
       "aux_heat_mode": {
         "name": "Modo de aquecimento auxiliar",
         "state": {
@@ -1564,6 +1582,9 @@
       }
     },
     "sensor": {
+      "software_version": {
+        "name": "Versão do software"
+      },
       "evaporator_temperature": {
         "name": "Temperatura do evaporador"
       },

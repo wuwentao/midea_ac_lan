@@ -973,6 +973,9 @@
       }
     },
     "number": {
+      "curtain_position": {
+        "name": "Pozíció"
+      },
       "delay_minutes": {
         "name": "Késleltetés"
       },
@@ -1104,6 +1107,21 @@
       }
     },
     "select": {
+      "curtain_status": {
+        "name": "Függöny",
+        "state": {
+          "open": "Nyitás",
+          "close": "Zárás",
+          "stop": "Leállítás"
+        }
+      },
+      "curtain_direction": {
+        "name": "Irány",
+        "state": {
+          "positive": "Pozitív",
+          "reverse": "Fordított"
+        }
+      },
       "aux_heat_mode": {
         "name": "Kiegészítő fűtés mód",
         "state": {
@@ -1485,6 +1503,9 @@
       }
     },
     "sensor": {
+      "software_version": {
+        "name": "Szoftververzió"
+      },
       "evaporator_temperature": {
         "name": "Elpárologtató hőmérséklete"
       },

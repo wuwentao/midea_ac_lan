@@ -989,6 +989,9 @@
       }
     },
     "number": {
+      "curtain_position": {
+        "name": "위치"
+      },
       "delay_minutes": {
         "name": "지연"
       },
@@ -1120,6 +1123,21 @@
       }
     },
     "select": {
+      "curtain_status": {
+        "name": "커튼",
+        "state": {
+          "open": "열기",
+          "close": "닫기",
+          "stop": "정지"
+        }
+      },
+      "curtain_direction": {
+        "name": "방향",
+        "state": {
+          "positive": "정방향",
+          "reverse": "역방향"
+        }
+      },
       "aux_heat_mode": {
         "name": "보조 난방 모드",
         "state": {
@@ -1564,6 +1582,9 @@
       }
     },
     "sensor": {
+      "software_version": {
+        "name": "소프트웨어 버전"
+      },
       "evaporator_temperature": {
         "name": "증발기 온도"
       },

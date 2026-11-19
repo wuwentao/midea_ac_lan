@@ -973,6 +973,9 @@
       }
     },
     "number": {
+      "curtain_position": {
+        "name": "Posizione"
+      },
       "delay_minutes": {
         "name": "Ritardo"
       },
@@ -1104,6 +1107,21 @@
       }
     },
     "select": {
+      "curtain_status": {
+        "name": "Tenda",
+        "state": {
+          "open": "Apri",
+          "close": "Chiudi",
+          "stop": "Arresta"
+        }
+      },
+      "curtain_direction": {
+        "name": "Direzione",
+        "state": {
+          "positive": "Positiva",
+          "reverse": "Inversa"
+        }
+      },
       "aux_heat_mode": {
         "name": "Modalità riscaldamento ausiliario",
         "state": {
@@ -1485,6 +1503,9 @@
       }
     },
     "sensor": {
+      "software_version": {
+        "name": "Versione software"
+      },
       "evaporator_temperature": {
         "name": "Temperatura dell'evaporatore"
       },

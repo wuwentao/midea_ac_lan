@@ -973,6 +973,9 @@
       }
     },
     "number": {
+      "curtain_position": {
+        "name": "Position"
+      },
       "delay_minutes": {
         "name": "Délai"
       },
@@ -1104,6 +1107,21 @@
       }
     },
     "select": {
+      "curtain_status": {
+        "name": "Rideau",
+        "state": {
+          "open": "Ouvrir",
+          "close": "Fermer",
+          "stop": "Arrêter"
+        }
+      },
+      "curtain_direction": {
+        "name": "Direction",
+        "state": {
+          "positive": "Positif",
+          "reverse": "Inverse"
+        }
+      },
       "aux_heat_mode": {
         "name": "Mode chauffage d'appoint",
         "state": {
@@ -1485,6 +1503,9 @@
       }
     },
     "sensor": {
+      "software_version": {
+        "name": "Version du logiciel"
+      },
       "evaporator_temperature": {
         "name": "Température de l’évaporateur"
       },

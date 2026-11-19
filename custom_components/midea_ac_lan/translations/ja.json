@@ -989,6 +989,9 @@
       }
     },
     "number": {
+      "curtain_position": {
+        "name": "位置"
+      },
       "delay_minutes": {
         "name": "遅延"
       },
@@ -1120,6 +1123,21 @@
       }
     },
     "select": {
+      "curtain_status": {
+        "name": "カーテン",
+        "state": {
+          "open": "開",
+          "close": "閉",
+          "stop": "停止"
+        }
+      },
+      "curtain_direction": {
+        "name": "方向",
+        "state": {
+          "positive": "正方向",
+          "reverse": "逆方向"
+        }
+      },
       "aux_heat_mode": {
         "name": "補助暖房モード",
         "state": {
@@ -1564,6 +1582,9 @@
       }
     },
     "sensor": {
+      "software_version": {
+        "name": "ソフトウェアバージョン"
+      },
       "evaporator_temperature": {
         "name": "蒸発器温度"
       },

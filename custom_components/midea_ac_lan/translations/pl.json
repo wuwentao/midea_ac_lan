@@ -989,6 +989,9 @@
       }
     },
     "number": {
+      "curtain_position": {
+        "name": "Pozycja"
+      },
       "delay_minutes": {
         "name": "Opóźnienie"
       },
@@ -1120,6 +1123,21 @@
       }
     },
     "select": {
+      "curtain_status": {
+        "name": "Zasłona",
+        "state": {
+          "open": "Otwórz",
+          "close": "Zamknij",
+          "stop": "Zatrzymaj"
+        }
+      },
+      "curtain_direction": {
+        "name": "Kierunek",
+        "state": {
+          "positive": "Dodatni",
+          "reverse": "Odwrotny"
+        }
+      },
       "aux_heat_mode": {
         "name": "Tryb ogrzewania pomocniczego",
         "state": {
@@ -1564,6 +1582,9 @@
       }
     },
     "sensor": {
+      "software_version": {
+        "name": "Wersja oprogramowania"
+      },
       "evaporator_temperature": {
         "name": "Temperatura parownika"
       },
