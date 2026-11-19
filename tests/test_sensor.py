@@ -7,12 +7,16 @@ from unittest.mock import AsyncMock, Mock, patch
 import pytest
 from homeassistant.components.sensor import SensorDeviceClass, SensorStateClass
 from homeassistant.const import Platform
+from midealan.devices.ac import DeviceAttributes as ACAttributes
 from midealan.devices.e1 import MideaE1Device
 
+from custom_components.midea_ac_lan.const import supports_device
+from custom_components.midea_ac_lan.midea_devices import MIDEA_DEVICES
 from custom_components.midea_ac_lan.sensor import (
     MideaCloudUsageSensor,
     MideaEstimatedUsageSensor,
     MideaFlagStateSensor,
+    MideaLastValueSensor,
     MideaMinuteDurationSensor,
     MideaSensor,
     async_setup_entry,
@@ -46,7 +50,10 @@ async def test_async_setup_entry_builds_all_sensor_types(
             "estimate": {
                 "type": Platform.SENSOR,
                 "default": True,
-                "estimate": {"values_by_model": {}},
+                "estimate": {
+                    "values_method": "get_estimated_consumption",
+                    "kind": "energy",
+                },
             },
             "duration": {
                 "type": Platform.SENSOR,
@@ -57,6 +64,11 @@ async def test_async_setup_entry_builds_all_sensor_types(
                 "type": Platform.SENSOR,
                 "default": True,
                 "state_from_flags": {"working": "on"},
+            },
+            "restored": {
+                "type": Platform.SENSOR,
+                "default": True,
+                "restore_last_value": True,
             },
             "plain": {"type": Platform.SENSOR},
             "missing": {
@@ -89,6 +101,7 @@ async def test_async_setup_entry_builds_all_sensor_types(
         MideaEstimatedUsageSensor,
         MideaMinuteDurationSensor,
         MideaFlagStateSensor,
+        MideaLastValueSensor,
         MideaSensor,
     ]
     assert added[0]._coordinator is coordinator
@@ -127,6 +140,31 @@ async def test_async_setup_entry_skips_unconfigured_cloud_once(
     add_entities.assert_called_once_with([])
 
 
+async def test_async_setup_entry_skips_estimate_with_no_data(
+    device_factory: DeviceFactory,
+    install_config: InstallConfig,
+) -> None:
+    """Omit estimate sensors when the device has no figures for the model."""
+    install_config(
+        {
+            "usage": {
+                "type": Platform.SENSOR,
+                "default": True,
+                "estimate": {
+                    "values_method": "get_estimated_consumption",
+                    "kind": "energy",
+                },
+            },
+        },
+    )
+    device, _ = device_factory()
+    # Mock returns empty dict → no estimates for this model.
+    device.get_estimated_consumption = Mock(return_value={})
+    hass, entry, add_entities = setup_context(device)
+    await async_setup_entry(hass, entry, add_entities)
+    add_entities.assert_called_once_with([])
+
+
 def make_sensor(
     device_factory: DeviceFactory,
     install_config: InstallConfig,
@@ -137,6 +175,100 @@ def make_sensor(
     install_config({"value": {"type": Platform.SENSOR, **config}})
     device, values = device_factory(attributes={"value": value})
     return MideaSensor(device, "value"), device, values
+
+
+@pytest.mark.parametrize(
+    ("restored_data", "expected"),
+    [
+        (None, None),
+        (SimpleNamespace(native_value="unknown"), None),
+        (SimpleNamespace(native_value="unavailable"), None),
+        (SimpleNamespace(native_value="bad"), None),
+        (SimpleNamespace(native_value=None), None),
+        (SimpleNamespace(native_value="0"), 0),
+        (SimpleNamespace(native_value="324"), 324),
+    ],
+)
+async def test_last_value_sensor_restore(
+    restored_data: SimpleNamespace | None,
+    expected: int | None,
+    device_factory: DeviceFactory,
+    install_config: InstallConfig,
+) -> None:
+    """Restore valid integers and ignore missing or invalid HA states."""
+    install_config(
+        {
+            "value": {
+                "type": Platform.SENSOR,
+                "restore_last_value": True,
+            },
+        },
+    )
+    device, _ = device_factory(attributes={"value": None})
+    sensor = MideaLastValueSensor(device, "value")
+    sensor.async_get_last_sensor_data = AsyncMock(return_value=restored_data)
+
+    await sensor.async_added_to_hass()
+
+    assert sensor.native_value == expected
+
+
+async def test_last_value_sensor_prefers_live_value(
+    device_factory: DeviceFactory,
+    install_config: InstallConfig,
+) -> None:
+    """Use a live value, including zero, without reading stale HA state."""
+    install_config(
+        {
+            "value": {
+                "type": Platform.SENSOR,
+                "restore_last_value": True,
+            },
+        },
+    )
+    device, values = device_factory(attributes={"value": 17})
+    sensor = MideaLastValueSensor(device, "value")
+    sensor.async_get_last_sensor_data = AsyncMock(
+        return_value=SimpleNamespace(native_value="324"),
+    )
+
+    await sensor.async_added_to_hass()
+
+    assert sensor.native_value == 17
+    sensor.async_get_last_sensor_data.assert_not_awaited()
+    values["value"] = 0
+    assert sensor.native_value == 0
+
+
+async def test_last_value_sensor_restores_native_value_saved_while_offline(
+    device_factory: DeviceFactory,
+    install_config: InstallConfig,
+) -> None:
+    """Keep native cycle data when HA publishes the entity as unavailable."""
+    install_config(
+        {
+            "value": {
+                "type": Platform.SENSOR,
+                "restore_last_value": True,
+            },
+        },
+    )
+    old_device, _ = device_factory(
+        attributes={"value": 324},
+        available=False,
+    )
+    old_sensor = MideaLastValueSensor(old_device, "value")
+    assert old_sensor.available is False
+    stored_data = old_sensor.extra_restore_state_data
+    assert stored_data.native_value == 324
+
+    new_device, _ = device_factory(attributes={"value": None})
+    new_sensor = MideaLastValueSensor(new_device, "value")
+    new_sensor.async_get_last_sensor_data = AsyncMock(return_value=stored_data)
+    await new_sensor.async_added_to_hass()
+
+    assert new_sensor.available is True
+    assert new_sensor.native_value == 324
 
 
 def test_sensor_native_values_and_metadata(
@@ -430,6 +562,10 @@ def estimated_device(
     device.mac = None
     device.serial_number = None
     device.modes = {1: "eco", 2: "intensive"}
+    device.supported_modes = {1: "eco", 2: "intensive"}
+    device.get_estimated_consumption.side_effect = lambda _kind: (
+        {1: 1.2345, 3: 2.5} if device.model == "TEST-MODEL" else {}
+    )
     device.get_attribute.side_effect = values.get
     return device
 
@@ -439,9 +575,8 @@ def estimated_config() -> dict[str, object]:
     return {
         "type": Platform.SENSOR,
         "estimate": {
-            "values_by_model": {
-                "TEST-MODEL": {1: 1.2345, 3: 2.5},
-            },
+            "values_method": "get_estimated_consumption",
+            "kind": "energy",
         },
     }
 
@@ -568,3 +703,45 @@ def test_estimated_usage_detached_update(
     sensor.schedule_update_if_running = Mock()
     sensor.update_state({"progress": "complete"})
     sensor.schedule_update_if_running.assert_not_called()
+
+
+AC_ENTITIES = MIDEA_DEVICES[0xAC]["entities"]
+assert isinstance(AC_ENTITIES, dict)
+TARGET_HUMIDITY_CONFIG = AC_ENTITIES[ACAttributes.target_humidity]
+
+
+@pytest.mark.parametrize(
+    ("model", "subtype", "expected"),
+    [
+        ("22396933", 1, True),
+        ("22396945", 1, True),
+        ("22396937", 0, True),
+        ("22396933", 2, False),
+        ("OTHER", 1, False),
+    ],
+)
+def test_target_humidity_registry_gate(
+    model: str,
+    subtype: int,
+    expected: bool,
+) -> None:
+    """Gate the target humidity sensor to the verified AC models and subtypes."""
+    assert supports_device(model, subtype, TARGET_HUMIDITY_CONFIG) is expected
+
+
+def test_target_humidity_native_value(
+    device_factory: DeviceFactory,
+    install_config: InstallConfig,
+) -> None:
+    """Pass the parsed percentage through and map zero to unknown."""
+    install_config({"target_humidity": TARGET_HUMIDITY_CONFIG})
+    device, values = device_factory(attributes={"target_humidity": 50})
+    entity = MideaSensor(device, "target_humidity")
+
+    assert entity.native_value == 50
+    values["target_humidity"] = 60
+    assert entity.native_value == 60
+    values["target_humidity"] = 0
+    assert entity.native_value is None
+    values["target_humidity"] = None
+    assert entity.native_value is None

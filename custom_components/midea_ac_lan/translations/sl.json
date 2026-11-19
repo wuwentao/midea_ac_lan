@@ -884,6 +884,33 @@
       },
       "laundry_appointment": {
         "name": "Rezervacija"
+      },
+      "has_token": {
+        "name": "Ima žeton"
+      },
+      "humidify": {
+        "name": "Vlaženje"
+      },
+      "speedy": {
+        "name": "Hitro pranje"
+      },
+      "lock": {
+        "name": "Otroška ključavnica"
+      },
+      "beforehand_wash": {
+        "name": "Predpranje"
+      },
+      "steam_wash": {
+        "name": "Parno pranje"
+      },
+      "add_rinse": {
+        "name": "Dodatno izpiranje"
+      },
+      "wind_dispel": {
+        "name": "Osvežitev z zrakom"
+      },
+      "remote_control_flag": {
+        "name": "Daljinsko upravljanje"
       }
     },
     "button": {
@@ -925,6 +952,9 @@
       }
     },
     "fan": {
+      "fan": {
+        "name": "Ventilator"
+      },
       "bgf10000": {
         "state_attributes": {
           "preset_mode": {
@@ -948,12 +978,27 @@
         "name": "Odvod svežega zraka"
       }
     },
+    "light": {
+      "light": {
+        "name": "Osvetlitev"
+      }
+    },
     "lock": {
       "child_lock": {
         "name": "Otroška ključavnica"
       }
     },
     "number": {
+      "work_status": { "name": "Stanje delovanja" },
+      "function_no": { "name": "Številka funkcije" },
+      "fire_level": { "name": "Stopnja ogrevanja" },
+      "time_reserve_hr": { "name": "Ure rezervacije" },
+      "time_reserve_min": { "name": "Minute rezervacije" },
+      "definite_time_hr": { "name": "Ure časovnika" },
+      "definite_time_min": { "name": "Minute časovnika" },
+      "curtain_position": {
+        "name": "Položaj"
+      },
       "delay_minutes": {
         "name": "Zakasnitev"
       },
@@ -1046,9 +1091,74 @@
       },
       "dryer_timed_extra": {
         "name": "Podaljšanje časovno nastavljenega sušenja"
+      },
+      "auto_off_screen_type": {
+        "name": "Vrsta samodejnega izklopa zaslona"
+      },
+      "theme": {
+        "name": "Tema"
+      },
+      "night_volume": {
+        "name": "Nočna glasnost"
+      },
+      "voice_volume": {
+        "name": "Glasnost glasu"
+      },
+      "sleep_start_hour": {
+        "name": "Ura začetka spanja"
+      },
+      "sleep_start_minute": {
+        "name": "Minuta začetka spanja"
+      },
+      "sleep_duration_hour": {
+        "name": "Trajanje spanja (ure)"
+      },
+      "sleep_duration_minute": {
+        "name": "Trajanje spanja (minute)"
+      },
+      "brightness": {
+        "name": "Svetlost"
+      },
+      "left_button_work_mode": {
+        "name": "Način delovanja levega gumba"
+      },
+      "middle_button_work_mode": {
+        "name": "Način delovanja srednjega gumba"
+      },
+      "right_button_work_mode": {
+        "name": "Način delovanja desnega gumba"
+      },
+      "watt": {
+        "name": "Moč mikrovalov"
+      },
+      "weight": {
+        "name": "Teža"
       }
     },
     "select": {
+      "curtain_status": {
+        "name": "Zavesa",
+        "state": {
+          "open": "Odpri",
+          "close": "Zapri",
+          "stop": "Ustavi"
+        }
+      },
+      "curtain_direction": {
+        "name": "Smer",
+        "state": {
+          "positive": "Pozitivna",
+          "reverse": "Obratna"
+        }
+      },
+      "aux_heat_mode": {
+        "name": "Način pomožnega ogrevanja",
+        "state": {
+          "off": "Izklopljeno",
+          "aux_heat": "Pomožno ogrevanje",
+          "aux_only": "Samo pomožno ogrevanje"
+        }
+      },
       "cur_quantify": {
         "name": "Trenutna prednastavljena količina",
         "state": {
@@ -1060,75 +1170,13 @@
           "preset_5": "Prednastavitev 5"
         }
       },
-      "wash_mode_76000228": {
-        "name": "Način pranja",
-        "state": {
-          "neutral_gear": "Brez",
-          "auto_wash": "Samodejno",
-          "strong_wash": "Intenzivno",
-          "standard_wash": "Univerzalno",
-          "eco_wash": "ECO",
-          "glass_wash": "Steklo",
-          "hour_wash": "90 min",
-          "fast_wash": "Hitro",
-          "soak_wash": "Namakanje",
-          "90min": "90 min",
-          "self_clean": "Samodejno čiščenje",
-          "fruit_wash": "Sadje",
-          "self_define": "Po meri",
-          "germ": "Šepet",
-          "bowl_wash": "Skleda",
-          "kill_germ": "Higiena",
-          "sea_food_wash": "Samodejno čiščenje",
-          "hot_pot_wash": "Kuhanje v loncu",
-          "quiet_night_wash": "Tiha noč",
-          "less_wash": "Lahko",
-          "max_rapid_wash": "Najhitrejše",
-          "oil_net_wash": "Oljni filter",
-          "cloud_wash": "Program v oblaku",
-          "single_dry": "Samo sušenje",
-          "single_disinfect": "Samo razkuževanje",
-          "high_temp_wash": "Visoka temperatura",
-          "wash_dry": "Pranje in sušenje"
-        }
-      },
-      "program_76000228": {
-        "name": "Program",
-        "state": {
-          "auto_wash": "Samodejno",
-          "strong_wash": "Intenzivno",
-          "standard_wash": "Univerzalno",
-          "eco_wash": "ECO",
-          "glass_wash": "Steklo",
-          "hour_wash": "90 min",
-          "fast_wash": "Hitro",
-          "soak_wash": "Namakanje",
-          "90min": "90 min",
-          "self_clean": "Samodejno čiščenje",
-          "fruit_wash": "Sadje",
-          "self_define": "Po meri",
-          "germ": "Šepet",
-          "bowl_wash": "Skleda",
-          "kill_germ": "Higiena",
-          "sea_food_wash": "Samodejno čiščenje",
-          "hot_pot_wash": "Kuhanje v loncu",
-          "quiet_night_wash": "Tiha noč",
-          "less_wash": "Lahko",
-          "max_rapid_wash": "Najhitrejše",
-          "oil_net_wash": "Oljni filter",
-          "cloud_wash": "Program v oblaku",
-          "single_dry": "Samo sušenje",
-          "single_disinfect": "Samo razkuževanje",
-          "high_temp_wash": "Visoka temperatura",
-          "wash_dry": "Pranje in sušenje"
-        }
-      },
       "program": {
         "name": "Program",
         "state": {
           "auto_wash": "Samodejno",
           "strong_wash": "Intenzivno",
           "standard_wash": "Standardno",
+          "universal_wash": "Univerzalno",
           "eco_wash": "ECO",
           "glass_wash": "Steklo",
           "hour_wash": "1 ura",
@@ -1139,6 +1187,7 @@
           "fruit_wash": "Sadje",
           "self_define": "Po meri",
           "germ": "Klice",
+          "whisper_wash": "Tiho",
           "bowl_wash": "Skleda",
           "kill_germ": "Higiena",
           "sea_food_wash": "Morski sadeži",
@@ -1151,7 +1200,8 @@
           "single_dry": "Samo sušenje",
           "single_disinfect": "Samo razkuževanje",
           "high_temp_wash": "Visoka temperatura",
-          "wash_dry": "Pranje in sušenje"
+          "wash_dry": "Pranje in sušenje",
+          "anion1": "Ionsko osveževanje"
         }
       },
       "load": {
@@ -1228,7 +1278,22 @@
           "bath": "Kopel",
           "blow": "Pihanje",
           "ventilation": "Prezračevanje",
-          "dry": "Sušenje"
+          "dry": "Sušenje",
+          "keep_warm": "Ohranjanje toplote",
+          "stero_baking": "Tridimenzionalno pečenje",
+          "whole_baking": "Celotno pečenje",
+          "up_down_baking": "Zgornje/spodnje pečenje",
+          "unfreeze": "Odtajanje",
+          "hot_air_convection": "Konvekcija vročega zraka",
+          "power_saving": "Varčevanje z energijo",
+          "center_baking": "Sredinsko pečenje",
+          "rotary_baking": "Vrtljivo pečenje",
+          "fermentation": "Fermentacija",
+          "stoving": "Sušenje",
+          "down_baking": "Spodnje pečenje",
+          "pizza": "Pica",
+          "up_infrared_fan": "Zgornji infrardeči ventilator",
+          "microwave": "Mikrovalovi"
         }
       },
       "oscillation_angle": {
@@ -1261,6 +1326,7 @@
           "auto_wash": "Samodejno",
           "strong_wash": "Intenzivno",
           "standard_wash": "Standardno",
+          "universal_wash": "Univerzalno",
           "eco_wash": "ECO",
           "glass_wash": "Steklo",
           "hour_wash": "1 ura",
@@ -1271,6 +1337,7 @@
           "fruit_wash": "Sadje",
           "self_define": "Po meri",
           "germ": "Klice",
+          "whisper_wash": "Tiho",
           "bowl_wash": "Skleda",
           "kill_germ": "Higiena",
           "sea_food_wash": "Morski sadeži",
@@ -1283,7 +1350,8 @@
           "single_dry": "Samo sušenje",
           "single_disinfect": "Samo razkuževanje",
           "high_temp_wash": "Visoka temperatura",
-          "wash_dry": "Pranje in sušenje"
+          "wash_dry": "Pranje in sušenje",
+          "anion1": "Ionsko osveževanje"
         }
       },
       "water_level_set": {
@@ -1312,7 +1380,7 @@
         }
       },
       "work_status_select": {
-        "name": "Stanje delovanja",
+        "name": "Nastavi stanje delovanja",
         "state": {
           "save_power": "Varčevanje z energijo",
           "standby": "Pripravljenost",
@@ -1328,7 +1396,10 @@
           "ramadan": "Ramadan",
           "after_checking": "Po preverjanju",
           "wait_to_start": "Čakanje na zagon",
-          "ff": "Neznano"
+          "ff": "Neznano",
+          "cancel": "Preklicano",
+          "end": "Končano",
+          "appointment": "Načrtovani zagon"
         }
       },
       "x9b_fire_power_select": {
@@ -1523,6 +1594,14 @@
       },
       "washer_spin_time_control": {
         "name": "Čas ožemanja (min)"
+      },
+      "updown": {
+        "name": "Dvig/Spust",
+        "state": {
+          "pause": "Premor",
+          "up": "Gor",
+          "down": "Dol"
+        }
       }
     },
     "time": {
@@ -1534,6 +1613,17 @@
       }
     },
     "sensor": {
+      "time_running_hr": { "name": "Ure delovanja" },
+      "time_running_min": { "name": "Minute delovanja" },
+      "time_surplus_hr": { "name": "Preostale ure" },
+      "time_surplus_min": { "name": "Preostale minute" },
+      "work_stage": { "name": "Faza delovanja" },
+      "software_version": {
+        "name": "Različica programske opreme"
+      },
+      "evaporator_temperature": {
+        "name": "Temperatura uparjalnika"
+      },
       "db_running_status": {
         "name": "Stanje pralnega stroja"
       },
@@ -1625,6 +1715,7 @@
           "auto_wash": "Samodejno",
           "strong_wash": "Intenzivno",
           "standard_wash": "Standardno",
+          "universal_wash": "Univerzalno",
           "eco_wash": "ECO",
           "glass_wash": "Steklo",
           "hour_wash": "1 ura",
@@ -1635,6 +1726,7 @@
           "fruit_wash": "Sadje",
           "self_define": "Po meri",
           "germ": "Klice",
+          "whisper_wash": "Tiho",
           "bowl_wash": "Skleda",
           "kill_germ": "Higiena",
           "sea_food_wash": "Morski sadeži",
@@ -1647,39 +1739,8 @@
           "single_dry": "Samo sušenje",
           "single_disinfect": "Samo razkuževanje",
           "high_temp_wash": "Visoka temperatura",
-          "wash_dry": "Pranje in sušenje"
-        }
-      },
-      "dishwasher_mode_76000228": {
-        "name": "Način",
-        "state": {
-          "neutral_gear": "Brez",
-          "auto_wash": "Samodejno",
-          "strong_wash": "Intenzivno",
-          "standard_wash": "Univerzalno",
-          "eco_wash": "ECO",
-          "glass_wash": "Steklo",
-          "hour_wash": "90 min",
-          "fast_wash": "Hitro",
-          "soak_wash": "Namakanje",
-          "90min": "90 min",
-          "self_clean": "Samodejno čiščenje",
-          "fruit_wash": "Sadje",
-          "self_define": "Po meri",
-          "germ": "Šepet",
-          "bowl_wash": "Skleda",
-          "kill_germ": "Higiena",
-          "sea_food_wash": "Samodejno čiščenje",
-          "hot_pot_wash": "Kuhanje v loncu",
-          "quiet_night_wash": "Tiha noč",
-          "less_wash": "Lahko",
-          "max_rapid_wash": "Najhitrejše",
-          "oil_net_wash": "Oljni filter",
-          "cloud_wash": "Program v oblaku",
-          "single_dry": "Samo sušenje",
-          "single_disinfect": "Samo razkuževanje",
-          "high_temp_wash": "Visoka temperatura",
-          "wash_dry": "Pranje in sušenje"
+          "wash_dry": "Pranje in sušenje",
+          "anion1": "Ionsko osveževanje"
         }
       },
       "dishwasher_status": {
@@ -2026,6 +2087,9 @@
       },
       "indoor_humidity": {
         "name": "Notranja vlažnost"
+      },
+      "target_humidity": {
+        "name": "Ciljna vlažnost"
       },
       "indoor_temperature": {
         "name": "Notranja temperatura"
@@ -3962,7 +4026,10 @@
           "ramadan": "Ramadan",
           "after_checking": "Po preverjanju",
           "wait_to_start": "Čakanje na zagon",
-          "ff": "Neznano"
+          "ff": "Neznano",
+          "cancel": "Preklicano",
+          "end": "Končano",
+          "appointment": "Načrtovani zagon"
         }
       },
       "x9b_fire_power": {
@@ -4031,6 +4098,195 @@
       },
       "cbs_version": {
         "name": "Različica CBS"
+      },
+      "panel_status": {
+        "name": "Stanje plošče"
+      },
+      "cooling_capacity": {
+        "name": "Hladilna moč"
+      },
+      "cooling_cop_eer": {
+        "name": "Hlajenje COP/EER"
+      },
+      "cooling_cop_eer_this_month": {
+        "name": "Hlajenje COP/EER ta mesec"
+      },
+      "cooling_cop_eer_this_week": {
+        "name": "Hlajenje COP/EER ta teden"
+      },
+      "cooling_cop_eer_this_year": {
+        "name": "Hlajenje COP/EER letos"
+      },
+      "cooling_cop_eer_today": {
+        "name": "Hlajenje COP/EER danes"
+      },
+      "cooling_energy_consumption_this_month": {
+        "name": "Poraba elektrike hlajenje ta mesec"
+      },
+      "cooling_energy_consumption_this_week": {
+        "name": "Poraba elektrike hlajenje ta teden"
+      },
+      "cooling_energy_consumption_this_year": {
+        "name": "Poraba elektrike hlajenje letos"
+      },
+      "cooling_energy_consumption_today": {
+        "name": "Poraba elektrike hlajenje danes"
+      },
+      "cooling_power_consumption": {
+        "name": "Električna moč hlajenja"
+      },
+      "cooling_produced_energy_this_month": {
+        "name": "Proizvedena hladilna energija ta mesec"
+      },
+      "cooling_produced_energy_this_week": {
+        "name": "Proizvedena hladilna energija ta teden"
+      },
+      "cooling_produced_energy_this_year": {
+        "name": "Proizvedena hladilna energija letos"
+      },
+      "cooling_produced_energy_today": {
+        "name": "Proizvedena hladilna energija danes"
+      },
+      "cooling_total_cop_eer": {
+        "name": "Hlajenje skupni COP/EER"
+      },
+      "cooling_total_energy_consumption": {
+        "name": "Skupna poraba elektrike hlajenje"
+      },
+      "cooling_total_produced_energy": {
+        "name": "Skupna proizvedena hladilna energija"
+      },
+      "dhw_capacity": {
+        "name": "Toplotna moč sanitarne vode"
+      },
+      "dhw_cop_eer": {
+        "name": "Sanitarna voda COP/EER"
+      },
+      "dhw_cop_eer_this_month": {
+        "name": "Sanitarna voda COP/EER ta mesec"
+      },
+      "dhw_cop_eer_this_week": {
+        "name": "Sanitarna voda COP/EER ta teden"
+      },
+      "dhw_cop_eer_this_year": {
+        "name": "Sanitarna voda COP/EER letos"
+      },
+      "dhw_cop_eer_today": {
+        "name": "Sanitarna voda COP/EER danes"
+      },
+      "dhw_energy_consumption_this_month": {
+        "name": "Poraba elektrike sanitarna voda ta mesec"
+      },
+      "dhw_energy_consumption_this_week": {
+        "name": "Poraba elektrike sanitarna voda ta teden"
+      },
+      "dhw_energy_consumption_this_year": {
+        "name": "Poraba elektrike sanitarna voda letos"
+      },
+      "dhw_energy_consumption_today": {
+        "name": "Poraba elektrike sanitarna voda danes"
+      },
+      "dhw_power_consumption": {
+        "name": "Električna moč sanitarne vode"
+      },
+      "dhw_produced_energy_this_month": {
+        "name": "Proizvedena toplotna energija sanitarne vode ta mesec"
+      },
+      "dhw_produced_energy_this_week": {
+        "name": "Proizvedena toplotna energija sanitarne vode ta teden"
+      },
+      "dhw_produced_energy_this_year": {
+        "name": "Proizvedena toplotna energija sanitarne vode letos"
+      },
+      "dhw_produced_energy_today": {
+        "name": "Proizvedena toplotna energija sanitarne vode danes"
+      },
+      "dhw_total_cop_eer": {
+        "name": "Sanitarna voda skupni COP/EER"
+      },
+      "dhw_total_energy_consumption": {
+        "name": "Skupna poraba elektrike sanitarna voda"
+      },
+      "dhw_total_produced_energy": {
+        "name": "Skupna proizvedena toplotna energija sanitarne vode"
+      },
+      "heating_capacity": {
+        "name": "Ogrevalna moč"
+      },
+      "heating_cop_eer": {
+        "name": "Ogrevanje COP/EER"
+      },
+      "heating_cop_eer_this_month": {
+        "name": "Ogrevanje COP/EER ta mesec"
+      },
+      "heating_cop_eer_this_week": {
+        "name": "Ogrevanje COP/EER ta teden"
+      },
+      "heating_cop_eer_this_year": {
+        "name": "Ogrevanje COP/EER letos"
+      },
+      "heating_cop_eer_today": {
+        "name": "Ogrevanje COP/EER danes"
+      },
+      "heating_energy_consumption_this_month": {
+        "name": "Poraba elektrike ogrevanje ta mesec"
+      },
+      "heating_energy_consumption_this_week": {
+        "name": "Poraba elektrike ogrevanje ta teden"
+      },
+      "heating_energy_consumption_this_year": {
+        "name": "Poraba elektrike ogrevanje letos"
+      },
+      "heating_energy_consumption_today": {
+        "name": "Poraba elektrike ogrevanje danes"
+      },
+      "heating_power_consumption": {
+        "name": "Električna moč ogrevanja"
+      },
+      "heating_produced_energy_this_month": {
+        "name": "Proizvedena toplotna energija ogrevanja ta mesec"
+      },
+      "heating_produced_energy_this_week": {
+        "name": "Proizvedena toplotna energija ogrevanja ta teden"
+      },
+      "heating_produced_energy_this_year": {
+        "name": "Proizvedena toplotna energija ogrevanja letos"
+      },
+      "heating_produced_energy_today": {
+        "name": "Proizvedena toplotna energija ogrevanja danes"
+      },
+      "heating_total_cop_eer": {
+        "name": "Ogrevanje skupni COP/EER"
+      },
+      "heating_total_energy_consumption": {
+        "name": "Skupna poraba elektrike ogrevanje"
+      },
+      "heating_total_produced_energy": {
+        "name": "Skupna proizvedena toplotna energija ogrevanja"
+      },
+      "instant_cop_eer": {
+        "name": "Takojšnji COP/EER"
+      },
+      "total_cop_eer": {
+        "name": "Skupni COP/EER"
+      },
+      "dryer": {
+        "name": "Stopnja sušenja"
+      },
+      "soak_count": {
+        "name": "Število namakanj"
+      },
+      "appointment_time": {
+        "name": "Čas zakasnjenega zagona"
+      },
+      "db_last_cycle_water_consumption": {
+        "name": "Poraba vode v zadnjem ciklu"
+      },
+      "power_consumption": {
+        "name": "Poraba energije v zadnjem ciklu"
+      },
+      "wash_count": {
+        "name": "Število pranj"
       }
     },
     "switch": {
@@ -4112,6 +4368,9 @@
       "dry": {
         "name": "Sušenje"
       },
+      "wet_pad_dry": {
+        "name": "Sušenje vlažilne blazinice"
+      },
       "cold_water_single": {
         "name": "Hladna voda enkratno"
       },
@@ -4143,7 +4402,7 @@
         "name": "Zaščita pred puščanjem vode"
       },
       "light": {
-        "name": "Lahko"
+        "name": "Luč"
       },
       "link_to_ac": {
         "name": "Povezava s klimo"
@@ -4327,6 +4586,48 @@
       },
       "washer_forget_free": {
         "name": "Nega brez skrbi"
+      },
+      "sterilize": {
+        "name": "Sterilizacija"
+      },
+      "baking": {
+        "name": "Ogrevanje"
+      },
+      "left_button": {
+        "name": "Levi gumb"
+      },
+      "middle_button": {
+        "name": "Srednji gumb"
+      },
+      "right_button": {
+        "name": "Desni gumb"
+      },
+      "show_button_name": {
+        "name": "Prikaži ime gumba"
+      },
+      "close_screen_bright": {
+        "name": "Zatemni zaslon ob zaprtju"
+      },
+      "sleep_mode_switch": {
+        "name": "Stikalo načina spanja"
+      },
+      "sleep_mode_mute": {
+        "name": "Utišanje v načinu spanja"
+      },
+      "left_button_keep": {
+        "name": "Ohrani levi gumb"
+      },
+      "middle_button_keep": {
+        "name": "Ohrani srednji gumb"
+      },
+      "right_button_keep": {
+        "name": "Ohrani desni gumb"
+      },
+      "voice_control": {
+        "name": "Glasovno upravljanje"
+      },
+      "screen_state": {
+        "name": "Zaslon"
       }
     },
     "water_heater": {

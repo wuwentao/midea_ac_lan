@@ -605,6 +605,39 @@ class MideaACClimate(MideaClimate):
                 return self._mode_index[mode]
         return HVACMode.OFF
 
+    @property
+    def hvac_action(self) -> HVACAction | None:
+        """Midea AC Climate hvac action, from the compressor group data.
+
+        None (unknown) when the device doesn't answer the group 1 query,
+        and in auto mode while the compressor runs (heating or cooling is
+        not known from the reported data).
+        """
+        hvac_mode = self.hvac_mode
+        if hvac_mode == HVACMode.OFF:
+            return HVACAction.OFF
+        # HVACAction.DEFROSTING exists since Home Assistant 2024.8
+        if (MAJOR_VERSION, MINOR_VERSION) >= (2024, 8) and self._device.get_attribute(
+            ACAttributes.defrosting,
+        ):
+            return HVACAction.DEFROSTING  # pylint: disable=no-member
+        if hvac_mode == HVACMode.FAN_ONLY:
+            return HVACAction.FAN
+        compressor_frequency = self._device.get_attribute(
+            ACAttributes.compressor_frequency,
+        )
+        if compressor_frequency is None:
+            return None
+        if compressor_frequency == 0:
+            return HVACAction.IDLE
+        if hvac_mode == HVACMode.DRY:
+            return HVACAction.DRYING
+        if hvac_mode == HVACMode.AUTO:
+            return None
+        if hvac_mode == HVACMode.HEAT:
+            return HVACAction.HEATING
+        return HVACAction.COOLING
+
     def set_hvac_mode(self, hvac_mode: HVACMode) -> None:
         """Midea AC Climate set hvac mode (via the fixed map index)."""
         if hvac_mode == HVACMode.OFF:
@@ -999,8 +1032,25 @@ class MideaC3Climate(MideaClimate):
 
     @property
     def native_current_temperature(self) -> float | None:
-        """Midea C3 Climate current temperature."""
-        return None
+        """Midea C3 Climate current temperature.
+
+        Select the sensor from the configured zone temperature type, which is
+        independent of whether the zone is currently powered. Water zones use
+        T1 for zone 1 and the mixed-circuit outlet Tw2 for zone 2; room zones
+        use the room sensor Ta. An unknown type returns None.
+        """
+        temp_types = self._device.get_attribute(C3Attributes.zone_temp_type)
+        if not isinstance(temp_types, list) or len(temp_types) <= self._zone:
+            return None
+        water = temp_types[self._zone]
+        if water is None:
+            return None
+        if water:
+            attribute = (C3Attributes.temp_t1, C3Attributes.temp_tw2)[self._zone]
+        else:
+            attribute = C3Attributes.temp_ta
+        value = self._device.get_attribute(attribute)
+        return None if value is None else float(cast("float", value))
 
     def set_temperature(self, **kwargs: Any) -> None:  # ruff:ignore[any-type]
         """Midea C3 Climate set temperature."""
