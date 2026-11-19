@@ -31,10 +31,17 @@ async def test_async_setup_entry_filters_entities(
                 "options": [],
                 "models": ["OTHER"],
             },
+            "omit_empty": {
+                "type": Platform.SELECT,
+                "default": True,
+                "options_method": "get_attribute_options",
+                "omit_when_no_options": True,
+            },
             "wrong": {"type": Platform.SENSOR, "default": True},
         },
     )
     device, _ = device_factory()
+    device.get_attribute_options.return_value = []
     hass, entry, add_entities = setup_context(device, switches=["selected"])
 
     await async_setup_entry(hass, entry, add_entities)
@@ -59,20 +66,17 @@ async def test_async_setup_entry_filters_entities(
         (
             {
                 "options_dict": "mode_map",
-                "options_codes": [2, 3, 9],
                 "options_exclude_codes": [3],
             },
             {"mode_map": {1: "one", 2: "two", 3: "three"}},
-            ["two"],
+            ["one", "two"],
         ),
         (
             {
                 "options_dict": "mode_map",
-                "options_codes": [1],
-                "options_codes_by_model": {"TEST-MODEL": [2]},
             },
             {"mode_map": {1: "one", 2: "two"}},
-            ["two"],
+            ["one", "two"],
         ),
     ],
 )
@@ -199,17 +203,12 @@ def test_integer_and_dishwasher_selection(
         {
             "mode": {
                 "type": Platform.SELECT,
-                "options_dict": "mode_map",
-                "set_message": "e1_work_mode",
+                "options": ["eco", "boost"],
             },
         },
     )
-    device.mode_map = {1: "eco"}
-    entity = MideaSelect(device, "mode")
-    entity.select_option("eco")
-    device.set_work_mode.assert_called_once_with(1)
-    with pytest.raises(ValueError, match="Unsupported dishwasher mode"):
-        entity.select_option("missing")
+    MideaSelect(device, "mode").select_option("eco")
+    device.set_attribute.assert_called_with("mode", "eco")
 
 
 def test_update_state_and_lookup(

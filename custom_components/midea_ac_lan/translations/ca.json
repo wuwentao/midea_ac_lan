@@ -884,6 +884,33 @@
       },
       "laundry_appointment": {
         "name": "Reserva"
+      },
+      "has_token": {
+        "name": "Té un token"
+      },
+      "humidify": {
+        "name": "Humidificació"
+      },
+      "speedy": {
+        "name": "Rentat ràpid"
+      },
+      "lock": {
+        "name": "Bloqueig infantil"
+      },
+      "beforehand_wash": {
+        "name": "Prerentat"
+      },
+      "steam_wash": {
+        "name": "Rentat amb vapor"
+      },
+      "add_rinse": {
+        "name": "Esbandida addicional"
+      },
+      "wind_dispel": {
+        "name": "Aire fresc"
+      },
+      "remote_control_flag": {
+        "name": "Control remot"
       }
     },
     "button": {
@@ -925,6 +952,9 @@
       }
     },
     "fan": {
+      "fan": {
+        "name": "Ventilador"
+      },
       "bgf10000": {
         "state_attributes": {
           "preset_mode": {
@@ -946,6 +976,11 @@
       },
       "fresh_air_exhaust": {
         "name": "Extracció d'aire fresc"
+      }
+    },
+    "light": {
+      "light": {
+        "name": "Il·luminació"
       }
     },
     "lock": {
@@ -1046,9 +1081,53 @@
       },
       "dryer_timed_extra": {
         "name": "Ampliació de l'assecat temporitzat"
+      },
+      "auto_off_screen_type": {
+        "name": "Tipus d'apagada automàtica de pantalla"
+      },
+      "theme": {
+        "name": "Tema"
+      },
+      "night_volume": {
+        "name": "Volum nocturn"
+      },
+      "voice_volume": {
+        "name": "Volum de veu"
+      },
+      "sleep_start_hour": {
+        "name": "Hora d'inici del repòs"
+      },
+      "sleep_start_minute": {
+        "name": "Minut d'inici del repòs"
+      },
+      "sleep_duration_hour": {
+        "name": "Durada del repòs (hores)"
+      },
+      "sleep_duration_minute": {
+        "name": "Durada del repòs (minuts)"
+      },
+      "brightness": {
+        "name": "Lluminositat"
+      },
+      "left_button_work_mode": {
+        "name": "Mode de funcionament del botó esquerre"
+      },
+      "middle_button_work_mode": {
+        "name": "Mode de funcionament del botó central"
+      },
+      "right_button_work_mode": {
+        "name": "Mode de funcionament del botó dret"
       }
     },
     "select": {
+      "aux_heat_mode": {
+        "name": "Mode de calefacció auxiliar",
+        "state": {
+          "off": "Apagat",
+          "aux_heat": "Calefacció auxiliar",
+          "aux_only": "Només calefacció auxiliar"
+        }
+      },
       "cur_quantify": {
         "name": "Quantitat actual predefinida",
         "state": {
@@ -1060,75 +1139,13 @@
           "preset_5": "Predefinit 5"
         }
       },
-      "wash_mode_76000228": {
-        "name": "Mode de rentat",
-        "state": {
-          "neutral_gear": "Cap",
-          "auto_wash": "Automàtic",
-          "strong_wash": "Intensiu",
-          "standard_wash": "Universal",
-          "eco_wash": "ECO",
-          "glass_wash": "Vidre",
-          "hour_wash": "90 min",
-          "fast_wash": "Ràpid",
-          "soak_wash": "Remull",
-          "90min": "90 min",
-          "self_clean": "Autoneteja",
-          "fruit_wash": "Fruita",
-          "self_define": "Personalitzat",
-          "germ": "Xiuxiueig",
-          "bowl_wash": "Bols",
-          "kill_germ": "Higiene",
-          "sea_food_wash": "Autoneteja",
-          "hot_pot_wash": "Olla calenta",
-          "quiet_night_wash": "Nit tranquil·la",
-          "less_wash": "Lleuger",
-          "max_rapid_wash": "Ràpid màxim",
-          "oil_net_wash": "Filtre d'oli",
-          "cloud_wash": "Programa al núvol",
-          "single_dry": "Només assecat",
-          "single_disinfect": "Només desinfecció",
-          "high_temp_wash": "Temperatura alta",
-          "wash_dry": "Rentat i assecat"
-        }
-      },
-      "program_76000228": {
-        "name": "Programa",
-        "state": {
-          "auto_wash": "Automàtic",
-          "strong_wash": "Intensiu",
-          "standard_wash": "Universal",
-          "eco_wash": "ECO",
-          "glass_wash": "Vidre",
-          "hour_wash": "90 min",
-          "fast_wash": "Ràpid",
-          "soak_wash": "Remull",
-          "90min": "90 min",
-          "self_clean": "Autoneteja",
-          "fruit_wash": "Fruita",
-          "self_define": "Personalitzat",
-          "germ": "Xiuxiueig",
-          "bowl_wash": "Bols",
-          "kill_germ": "Higiene",
-          "sea_food_wash": "Autoneteja",
-          "hot_pot_wash": "Olla calenta",
-          "quiet_night_wash": "Nit tranquil·la",
-          "less_wash": "Lleuger",
-          "max_rapid_wash": "Ràpid màxim",
-          "oil_net_wash": "Filtre d'oli",
-          "cloud_wash": "Programa al núvol",
-          "single_dry": "Només assecat",
-          "single_disinfect": "Només desinfecció",
-          "high_temp_wash": "Temperatura alta",
-          "wash_dry": "Rentat i assecat"
-        }
-      },
       "program": {
         "name": "Programa",
         "state": {
           "auto_wash": "Automàtic",
           "strong_wash": "Intensiu",
           "standard_wash": "Estàndard",
+          "universal_wash": "Universal",
           "eco_wash": "ECO",
           "glass_wash": "Vidre",
           "hour_wash": "1 hora",
@@ -1139,6 +1156,7 @@
           "fruit_wash": "Fruita",
           "self_define": "Personalitzat",
           "germ": "Gèrmens",
+          "whisper_wash": "Silenciós",
           "bowl_wash": "Bols",
           "kill_germ": "Higiene",
           "sea_food_wash": "Marisc",
@@ -1151,7 +1169,8 @@
           "single_dry": "Només assecat",
           "single_disinfect": "Només desinfecció",
           "high_temp_wash": "Temperatura alta",
-          "wash_dry": "Rentat i assecat"
+          "wash_dry": "Rentat i assecat",
+          "anion1": "Frescor iònica"
         }
       },
       "load": {
@@ -1261,6 +1280,7 @@
           "auto_wash": "Automàtic",
           "strong_wash": "Intensiu",
           "standard_wash": "Estàndard",
+          "universal_wash": "Universal",
           "eco_wash": "ECO",
           "glass_wash": "Vidre",
           "hour_wash": "1 hora",
@@ -1271,6 +1291,7 @@
           "fruit_wash": "Fruita",
           "self_define": "Personalitzat",
           "germ": "Gèrmens",
+          "whisper_wash": "Silenciós",
           "bowl_wash": "Bols",
           "kill_germ": "Higiene",
           "sea_food_wash": "Marisc",
@@ -1283,7 +1304,8 @@
           "single_dry": "Només assecat",
           "single_disinfect": "Només desinfecció",
           "high_temp_wash": "Temperatura alta",
-          "wash_dry": "Rentat i assecat"
+          "wash_dry": "Rentat i assecat",
+          "anion1": "Frescor iònica"
         }
       },
       "water_level_set": {
@@ -1523,6 +1545,14 @@
       },
       "washer_spin_time_control": {
         "name": "Temps de centrifugat (min)"
+      },
+      "updown": {
+        "name": "Pujar/Baixar",
+        "state": {
+          "pause": "Pausa",
+          "up": "Amunt",
+          "down": "Avall"
+        }
       }
     },
     "time": {
@@ -1534,6 +1564,9 @@
       }
     },
     "sensor": {
+      "evaporator_temperature": {
+        "name": "Temperatura de l'evaporador"
+      },
       "db_running_status": {
         "name": "Estat de la rentadora"
       },
@@ -1625,6 +1658,7 @@
           "auto_wash": "Automàtic",
           "strong_wash": "Intensiu",
           "standard_wash": "Estàndard",
+          "universal_wash": "Universal",
           "eco_wash": "ECO",
           "glass_wash": "Vidre",
           "hour_wash": "1 hora",
@@ -1635,6 +1669,7 @@
           "fruit_wash": "Fruita",
           "self_define": "Personalitzat",
           "germ": "Gèrmens",
+          "whisper_wash": "Silenciós",
           "bowl_wash": "Bols",
           "kill_germ": "Higiene",
           "sea_food_wash": "Marisc",
@@ -1647,39 +1682,8 @@
           "single_dry": "Només assecat",
           "single_disinfect": "Només desinfecció",
           "high_temp_wash": "Temperatura alta",
-          "wash_dry": "Rentat i assecat"
-        }
-      },
-      "dishwasher_mode_76000228": {
-        "name": "Mode",
-        "state": {
-          "neutral_gear": "Cap",
-          "auto_wash": "Automàtic",
-          "strong_wash": "Intensiu",
-          "standard_wash": "Universal",
-          "eco_wash": "ECO",
-          "glass_wash": "Vidre",
-          "hour_wash": "90 min",
-          "fast_wash": "Ràpid",
-          "soak_wash": "Remull",
-          "90min": "90 min",
-          "self_clean": "Autoneteja",
-          "fruit_wash": "Fruita",
-          "self_define": "Personalitzat",
-          "germ": "Xiuxiueig",
-          "bowl_wash": "Bols",
-          "kill_germ": "Higiene",
-          "sea_food_wash": "Autoneteja",
-          "hot_pot_wash": "Olla calenta",
-          "quiet_night_wash": "Nit tranquil·la",
-          "less_wash": "Lleuger",
-          "max_rapid_wash": "Ràpid màxim",
-          "oil_net_wash": "Filtre d'oli",
-          "cloud_wash": "Programa al núvol",
-          "single_dry": "Només assecat",
-          "single_disinfect": "Només desinfecció",
-          "high_temp_wash": "Temperatura alta",
-          "wash_dry": "Rentat i assecat"
+          "wash_dry": "Rentat i assecat",
+          "anion1": "Frescor iònica"
         }
       },
       "dishwasher_status": {
@@ -2026,6 +2030,9 @@
       },
       "indoor_humidity": {
         "name": "Humitat interior"
+      },
+      "target_humidity": {
+        "name": "Humitat objectiu"
       },
       "indoor_temperature": {
         "name": "Temperatura interior"
@@ -4031,6 +4038,195 @@
       },
       "cbs_version": {
         "name": "Versió del CBS"
+      },
+      "panel_status": {
+        "name": "Estat del panell"
+      },
+      "cooling_capacity": {
+        "name": "Potència frigorífica"
+      },
+      "cooling_cop_eer": {
+        "name": "Refrigeració COP/EER"
+      },
+      "cooling_cop_eer_this_month": {
+        "name": "Refrigeració COP/EER aquest mes"
+      },
+      "cooling_cop_eer_this_week": {
+        "name": "Refrigeració COP/EER aquesta setmana"
+      },
+      "cooling_cop_eer_this_year": {
+        "name": "Refrigeració COP/EER aquest any"
+      },
+      "cooling_cop_eer_today": {
+        "name": "Refrigeració COP/EER avui"
+      },
+      "cooling_energy_consumption_this_month": {
+        "name": "Electricitat refrigeració aquest mes"
+      },
+      "cooling_energy_consumption_this_week": {
+        "name": "Electricitat refrigeració aquesta setmana"
+      },
+      "cooling_energy_consumption_this_year": {
+        "name": "Electricitat refrigeració aquest any"
+      },
+      "cooling_energy_consumption_today": {
+        "name": "Electricitat refrigeració avui"
+      },
+      "cooling_power_consumption": {
+        "name": "Potència elèctrica refrigeració"
+      },
+      "cooling_produced_energy_this_month": {
+        "name": "Energia frigorífica produïda aquest mes"
+      },
+      "cooling_produced_energy_this_week": {
+        "name": "Energia frigorífica produïda aquesta setmana"
+      },
+      "cooling_produced_energy_this_year": {
+        "name": "Energia frigorífica produïda aquest any"
+      },
+      "cooling_produced_energy_today": {
+        "name": "Energia frigorífica produïda avui"
+      },
+      "cooling_total_cop_eer": {
+        "name": "Refrigeració COP/EER total"
+      },
+      "cooling_total_energy_consumption": {
+        "name": "Electricitat refrigeració total"
+      },
+      "cooling_total_produced_energy": {
+        "name": "Energia frigorífica produïda total"
+      },
+      "dhw_capacity": {
+        "name": "Potència tèrmica ACS"
+      },
+      "dhw_cop_eer": {
+        "name": "ACS COP/EER"
+      },
+      "dhw_cop_eer_this_month": {
+        "name": "ACS COP/EER aquest mes"
+      },
+      "dhw_cop_eer_this_week": {
+        "name": "ACS COP/EER aquesta setmana"
+      },
+      "dhw_cop_eer_this_year": {
+        "name": "ACS COP/EER aquest any"
+      },
+      "dhw_cop_eer_today": {
+        "name": "ACS COP/EER avui"
+      },
+      "dhw_energy_consumption_this_month": {
+        "name": "Electricitat ACS aquest mes"
+      },
+      "dhw_energy_consumption_this_week": {
+        "name": "Electricitat ACS aquesta setmana"
+      },
+      "dhw_energy_consumption_this_year": {
+        "name": "Electricitat ACS aquest any"
+      },
+      "dhw_energy_consumption_today": {
+        "name": "Electricitat ACS avui"
+      },
+      "dhw_power_consumption": {
+        "name": "Potència elèctrica ACS"
+      },
+      "dhw_produced_energy_this_month": {
+        "name": "Energia tèrmica ACS produïda aquest mes"
+      },
+      "dhw_produced_energy_this_week": {
+        "name": "Energia tèrmica ACS produïda aquesta setmana"
+      },
+      "dhw_produced_energy_this_year": {
+        "name": "Energia tèrmica ACS produïda aquest any"
+      },
+      "dhw_produced_energy_today": {
+        "name": "Energia tèrmica ACS produïda avui"
+      },
+      "dhw_total_cop_eer": {
+        "name": "ACS COP/EER total"
+      },
+      "dhw_total_energy_consumption": {
+        "name": "Electricitat ACS total"
+      },
+      "dhw_total_produced_energy": {
+        "name": "Energia tèrmica ACS produïda total"
+      },
+      "heating_capacity": {
+        "name": "Potència calorífica"
+      },
+      "heating_cop_eer": {
+        "name": "Calefacció COP/EER"
+      },
+      "heating_cop_eer_this_month": {
+        "name": "Calefacció COP/EER aquest mes"
+      },
+      "heating_cop_eer_this_week": {
+        "name": "Calefacció COP/EER aquesta setmana"
+      },
+      "heating_cop_eer_this_year": {
+        "name": "Calefacció COP/EER aquest any"
+      },
+      "heating_cop_eer_today": {
+        "name": "Calefacció COP/EER avui"
+      },
+      "heating_energy_consumption_this_month": {
+        "name": "Electricitat calefacció aquest mes"
+      },
+      "heating_energy_consumption_this_week": {
+        "name": "Electricitat calefacció aquesta setmana"
+      },
+      "heating_energy_consumption_this_year": {
+        "name": "Electricitat calefacció aquest any"
+      },
+      "heating_energy_consumption_today": {
+        "name": "Electricitat calefacció avui"
+      },
+      "heating_power_consumption": {
+        "name": "Potència elèctrica calefacció"
+      },
+      "heating_produced_energy_this_month": {
+        "name": "Energia calorífica produïda aquest mes"
+      },
+      "heating_produced_energy_this_week": {
+        "name": "Energia calorífica produïda aquesta setmana"
+      },
+      "heating_produced_energy_this_year": {
+        "name": "Energia calorífica produïda aquest any"
+      },
+      "heating_produced_energy_today": {
+        "name": "Energia calorífica produïda avui"
+      },
+      "heating_total_cop_eer": {
+        "name": "Calefacció COP/EER total"
+      },
+      "heating_total_energy_consumption": {
+        "name": "Electricitat calefacció total"
+      },
+      "heating_total_produced_energy": {
+        "name": "Energia calorífica produïda total"
+      },
+      "instant_cop_eer": {
+        "name": "COP/EER instantani"
+      },
+      "total_cop_eer": {
+        "name": "COP/EER total"
+      },
+      "dryer": {
+        "name": "Nivell d'assecat"
+      },
+      "soak_count": {
+        "name": "Nombre de remulls"
+      },
+      "appointment_time": {
+        "name": "Temps fins a l'inici diferit"
+      },
+      "db_last_cycle_water_consumption": {
+        "name": "Consum d'aigua de l'últim cicle"
+      },
+      "power_consumption": {
+        "name": "Consum d'energia de l'últim cicle"
+      },
+      "wash_count": {
+        "name": "Nombre de rentats"
       }
     },
     "switch": {
@@ -4143,7 +4339,7 @@
         "name": "Protecció contra fuites d'aigua"
       },
       "light": {
-        "name": "Lleuger"
+        "name": "Llum"
       },
       "link_to_ac": {
         "name": "Vincle amb l'AC"
@@ -4327,6 +4523,48 @@
       },
       "washer_forget_free": {
         "name": "Cura sense oblits"
+      },
+      "sterilize": {
+        "name": "Esterilitzar"
+      },
+      "baking": {
+        "name": "Escalfament"
+      },
+      "left_button": {
+        "name": "Botó esquerre"
+      },
+      "middle_button": {
+        "name": "Botó central"
+      },
+      "right_button": {
+        "name": "Botó dret"
+      },
+      "show_button_name": {
+        "name": "Mostra el nom del botó"
+      },
+      "close_screen_bright": {
+        "name": "Atenua la pantalla en tancar"
+      },
+      "sleep_mode_switch": {
+        "name": "Interruptor del mode repòs"
+      },
+      "sleep_mode_mute": {
+        "name": "Silenci del mode repòs"
+      },
+      "left_button_keep": {
+        "name": "Mantén el botó esquerre"
+      },
+      "middle_button_keep": {
+        "name": "Mantén el botó central"
+      },
+      "right_button_keep": {
+        "name": "Mantén el botó dret"
+      },
+      "voice_control": {
+        "name": "Control per veu"
+      },
+      "screen_state": {
+        "name": "Pantalla"
       }
     },
     "water_heater": {

@@ -14,6 +14,7 @@ from homeassistant.const import (
     CONF_DEVICE_ID,
     CONF_SWITCHES,
     PRECISION_HALVES,
+    PRECISION_TENTHS,
     PRECISION_WHOLE,
     STATE_OFF,
     STATE_ON,
@@ -288,6 +289,17 @@ class MideaC3WaterHeater(MideaWaterHeater):
     def __init__(self, device: MideaC3Device, entity_key: str) -> None:
         """Midea C3 Water Heater entity init."""
         super().__init__(device, entity_key)
+
+    @property
+    def precision(self) -> float:
+        """Midea C3 Water Heater precision (tank T5 is reported in 0.1 °C)."""
+        return float(PRECISION_TENTHS)
+
+    @property
+    def target_temperature_step(self) -> float | None:
+        """Midea C3 Water Heater target temperature step (from the device)."""
+        step = self._device.temperature_step
+        return None if step is None else float(step)
 
     @property
     def supported_features(self) -> WaterHeaterEntityFeature:
