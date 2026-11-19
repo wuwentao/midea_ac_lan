@@ -1,0 +1,20 @@
+codecov:
+  branch: main
+
+coverage:
+  precision: 2
+  round: down
+  status:
+    project:
+      default:
+        target: 100%
+        threshold: 0%
+    patch:
+      default:
+        target: 100%
+        threshold: 0%
+
+comment:
+  layout: "condensed_header, diff, files"
+  behavior: default
+  require_changes: false

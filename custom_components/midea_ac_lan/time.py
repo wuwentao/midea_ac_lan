@@ -2,12 +2,12 @@
 
 import logging
 from datetime import UTC, datetime, time, timedelta
-from typing import cast
+from typing import Any, cast
 
 from homeassistant.components.time import TimeEntity
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_DEVICE_ID, CONF_SWITCHES, Platform
-from homeassistant.core import HomeAssistant
+from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.util import dt as dt_util
 from midealan.device import MideaDevice
@@ -165,3 +165,20 @@ class MideaTime(MideaEntity, TimeEntity):
             return
         self._device.set_attribute(self._hour_attr, value.hour)
         self._device.set_attribute(self._min_attr, value.minute)
+
+    @callback
+    def update_state(self, status: Any) -> None:  # ruff:ignore[any-type]
+        """Refresh when any attribute used to build the time changes."""
+        super().update_state(status)
+        completion_attribute = self._config.get("completion_attribute")
+        state_attributes = {
+            completion_attribute,
+            self._hour_attr,
+            self._min_attr,
+        }
+        if (
+            self.hass
+            and self._state_attribute_key not in status
+            and state_attributes.intersection(status)
+        ):
+            self.schedule_update_if_running()

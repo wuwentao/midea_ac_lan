@@ -116,7 +116,7 @@ The config is created under `./config` on first run. In VS Code you can also use
 
 ## 5. Testing Multiple Python Versions
 
-Each supported Python version targets the minimum Home Assistant version it must work with. `uv` selects the right Home Assistant automatically (via environment markers in `pyproject.toml`):
+Each supported Python version targets the minimum Home Assistant version it must work with. The pytest environment is kept separate from the development environment because each Home Assistant test harness pins its own test dependencies:
 
 | Python | Home Assistant |
 | ------ | -------------- |
@@ -124,13 +124,14 @@ Each supported Python version targets the minimum Home Assistant version it must
 | 3.13   | 2024.12.1      |
 | 3.14   | 2026.3.1       |
 
-Switch the active environment to another version at any time:
+Create and run the minimum-supported test environment with:
 
 ```bash
-uv sync --python 3.13   # or 3.14
+UV_PROJECT_ENVIRONMENT=.venv-test312 uv sync --locked --no-default-groups --group test --python 3.12
+UV_PROJECT_ENVIRONMENT=.venv-test312 uv run --no-sync pytest
 ```
 
-uv downloads the interpreter if it is not already present.
+Change the environment path and `--python` to test another baseline. See the [testing guide](../doc/testing.md) for the exact harness matrix, current Home Assistant preview, coverage commands, and test-writing conventions.
 
 ---
 

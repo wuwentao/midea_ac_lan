@@ -1,45 +1,55 @@
 ---
-name: Bug report
-description: Integration or entity is not working right
+name: Bug report (English)
+description: Report an integration, appliance, or entity that is not working correctly
+title: "[Bug] "
 labels: ["bug"]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a problem. Complete every required field and attach the full debug log as a file.
+        Without appliance details and a complete debug log, the problem cannot be confirmed and the issue will be closed; no other information is needed.
+        Protocol parsing and device-command problems may need to be fixed in midea-lan; this repository primarily contains the Home Assistant integration layer.
+
   - type: checkboxes
-    id: ensure
+    id: prerequisites
     attributes:
-      label: Verify Issue Submission
-      description: Before submitting, please check the following options to confirm you have followed the template requirements, otherwise this issue will be closed.
+      label: Before submitting
       options:
-        - label: I have read the [README documentation](https://github.com/wuwentao/midea_ac_lan/blob/main/README.md) , understand how to use midea_ac_lan and enable debug log.
-          required: false
-        - label: I have read the [device documentation](https://github.com/wuwentao/midea_ac_lan/blob/main/README.md#4-supported-appliances) for my device in the README, but the problem still can't fix.
-          required: false
-        - label: I have submitted the device type and SN information.
+        - label: I have read the [README](https://github.com/wuwentao/midea_ac_lan/blob/main/README.md), the documentation for my appliance type, and the [debug guide](https://github.com/wuwentao/midea_ac_lan/blob/main/doc/debug.md).
           required: true
-        - label: I have uploaded the full debug log file, rather than just paste a parts of log based on my own judgment.
+        - label: I searched existing issues and did not find the same problem.
           required: true
-        - label: I have accurately and clearly described what the current error is and what the expected correct result should be.
+        - label: I provided the appliance details and complete debug log.
           required: true
-        - label: I have searched for my issue in the [Issue Tracker](https://github.com/wuwentao/midea_ac_lan/issues) and have not found it.
-          required: false
+
   - type: input
+    id: ha_version
     attributes:
-      label: HA core version
-      placeholder: 2023.4.2
-  - type: input
+      label: Home Assistant Core version
+      placeholder: 2026.10.0
     validations:
       required: true
-    attributes:
-      label: Current integration version
-      placeholder: 0.4.3
+
   - type: input
+    id: integration_version
+    attributes:
+      label: midea_ac_lan version
+      placeholder: 2026.10.0
     validations:
       required: true
-    attributes:
-      label: Last known working integration version
-      placeholder: 0.4.1
+
   - type: input
+    id: last_working_version
+    attributes:
+      label: Last known working version
+      description: Enter N/A if it has never worked.
+      placeholder: N/A
     validations:
       required: true
+
+  - type: input
+    id: device
     attributes:
       label: Device type and Device SN
       placeholder: Air Conditioner, SN 22012225xxxxxx
@@ -47,38 +57,51 @@ body:
         > The model can be found in Settings -> Devices & Services -> Midea AC LAN -> Devices -> Device Info
         > The SN can be found in Settings -> Devices & Services -> Midea AC LAN -> Add device -> Just list appliances
         > The SN also can be found in your SmartHome APP
-        > The SN also can be discovery via debug doc in README
-  - type: input
+        > The SN also can be discovered via the discovery command in the debug guide
     validations:
       required: true
+
+  - type: dropdown
+    id: cloud
     attributes:
-      label: Working mobile app
-      placeholder: SmartHome
-      description: Which mobile app is used to successfully control the device
-  - type: textarea
+      label: App / Cloud containing the appliance
+      description: Names match the integration setup screen and are intentionally not translated.
+      options:
+        - 美的美居
+        - SmartHome
+        - Midea Air
+        - NetHome Plus
+        - Ariston Clima
+        - TSmartLife
+        - Toshiba Iolife
+        - N/A / manually configured
     validations:
       required: true
-    attributes:
-      label: The detail description of bug/problem
-      description: description the device type and the error details
-      value: |
-        1. description the device type and name(you may have multiple devices)
-        2. description the error action or error info (device have multiple data/features)
-        3. Summary: Device SN describes detailed device information. Please clearly describe what the problem and error are. What should the correct expected result be? Finally: How can you prove what you're saying is correct? The debug log file is used to prove the error genuinely exists, and app screenshots or other data are used to prove the correct expected result.
-        4. Submit Issue that don't follow the template's requirements will be closed immediately. If you have a specific reason for not providing certain information, please explain it separately..
-        5. Submit Issue that don't follow the template's requirements will be closed immediately. If you have a specific reason for not providing certain information, please explain it separately.
-        6. Submit Issue that don't follow the template's requirements will be closed immediately. If you have a specific reason for not providing certain information, please explain it separately.
 
   - type: textarea
+    id: problem
     attributes:
-      label: The logs
-      description: DEBUG log MUST be enabled, and execute the action to trigger error log and upload the debug log file as attachment. please refer to README document to enable DEBUG log
-      value: |
-        1. DEBUG log MUST be enabled (Please refer to README document), Submit issue without debug log will be directly closed
-        2. Execute the action to trigger error log（you should description the error action）
-        3. Upload the debug log file as attachment。
-        4. Summary: Device SN describes detailed device information. Please clearly describe what the problem and error are. What should the correct expected result be? Finally: How can you prove what you're saying is correct? The debug log file is used to prove the error genuinely exists, and app screenshots or other data are used to prove the correct expected result.
-        5. Please don't paste the log content! upload it as a attachment file.
-        6. Please don't paste the log content! upload it as a attachment file.
-        7. Please don't paste the log content! upload it as a attachment file.
-        ...
+      label: Problem and reproduction steps
+      description: Identify the appliance and describe the exact action, actual result, expected result, and corresponding official-app behavior.
+      placeholder: |
+        1. Steps to reproduce:
+        2. Actual result:
+        3. Expected result:
+        4. Result in the official app:
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Complete debug log
+      description: Enable debug logging, reproduce the problem, and drag the complete log file here. Do not paste only selected lines. Many startup and initialization parameters are important for analysis. Bugs often apply only to a specific appliance subtype, not every model/subtype. For some appliances, the customize parameters in the corresponding appliance documentation may resolve the problem.
+      placeholder: Drag the log file here
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional context
+      description: Add official-app screenshots, diagnostics, or related issue links if useful.

@@ -66,10 +66,11 @@ data:
   midealan: debug
 ```
 
-5. Trigger the problematic action.
-6. Download the log via **Settings → System → Logs**.
+5. Go to **Settings → Devices & services → Midea AC LAN → Devices → Configure → Reload**.
+6. Trigger the problematic action.
+7. Download the log via **Settings → System → Logs**.
 
-> This method does **not** capture errors that occur during Home Assistant startup. Prefer Method 1 for debugging.
+> This method requires reloading `midea_ac_lan` to capture errors and device capabilities that are reported only during `midea_ac_lan` startup.
 
 ---
 
@@ -173,6 +174,8 @@ When a device is successfully added, `midea_ac_lan` stores its configuration und
 3. `ls` to list files; `cat <device_id>.json` to view a specific device.
 
 > Do **not** delete or edit these files unless you know what you are doing. Rename/backup them first if you need to experiment.
+>
+> To restore a backup, copy the corresponding `.json` file into `/config/.storage/midea_ac_lan/`. The next time you add that appliance, `midea_ac_lan` automatically recognizes and loads the cached configuration, skipping the Cloud request for its Token and Key.
 
 ---
 

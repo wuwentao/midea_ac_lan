@@ -14,6 +14,7 @@ from homeassistant.const import (
     CONF_DEVICE_ID,
     CONF_SWITCHES,
     PRECISION_HALVES,
+    PRECISION_TENTHS,
     PRECISION_WHOLE,
     STATE_OFF,
     STATE_ON,
@@ -36,6 +37,7 @@ from midealan.devices.e6 import MideaE6Device
 from .const import DEVICES, DOMAIN, supports_device
 from .midea_devices import MIDEA_DEVICES
 from .midea_entity import MideaEntity
+from .native_temperature import NativeTemperatureCompat
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -88,7 +90,7 @@ type MideaWaterHeaterDevice = (
 )
 
 
-class MideaWaterHeater(MideaEntity, WaterHeaterEntity):
+class MideaWaterHeater(NativeTemperatureCompat, MideaEntity, WaterHeaterEntity):
     """Midea Water Heater Entries Base Class."""
 
     _device: MideaWaterHeaterDevice
@@ -127,7 +129,7 @@ class MideaWaterHeater(MideaEntity, WaterHeaterEntity):
         return float(PRECISION_WHOLE)
 
     @property
-    def temperature_unit(self) -> UnitOfTemperature:
+    def native_temperature_unit(self) -> UnitOfTemperature:
         """Midea Water Heater temperature unix."""
         return UnitOfTemperature.CELSIUS
 
@@ -144,12 +146,12 @@ class MideaWaterHeater(MideaEntity, WaterHeaterEntity):
         )
 
     @property
-    def current_temperature(self) -> float:
+    def native_current_temperature(self) -> float:
         """Midea Water Heater current temperature."""
         return cast("float", self._device.get_attribute("current_temperature"))
 
     @property
-    def target_temperature(self) -> float:
+    def native_target_temperature(self) -> float:
         """Midea Water Heater target temperature."""
         return cast("float", self._device.get_attribute("target_temperature"))
 
@@ -289,6 +291,17 @@ class MideaC3WaterHeater(MideaWaterHeater):
         super().__init__(device, entity_key)
 
     @property
+    def precision(self) -> float:
+        """Midea C3 Water Heater precision (tank T5 is reported in 0.1 °C)."""
+        return float(PRECISION_TENTHS)
+
+    @property
+    def target_temperature_step(self) -> float | None:
+        """Midea C3 Water Heater target temperature step (from the device)."""
+        step = self._device.temperature_step
+        return None if step is None else float(step)
+
+    @property
     def supported_features(self) -> WaterHeaterEntityFeature:
         """Midea C3 Water Heater supported features."""
         # C3 implements turn_on/turn_off (dhw_power) and reports on/off state,
@@ -310,7 +323,7 @@ class MideaC3WaterHeater(MideaWaterHeater):
         )
 
     @property
-    def current_temperature(self) -> float:
+    def native_current_temperature(self) -> float:
         """Midea C3 Water Heater current temperature."""
         return cast(
             "float",
@@ -318,7 +331,7 @@ class MideaC3WaterHeater(MideaWaterHeater):
         )
 
     @property
-    def target_temperature(self) -> float:
+    def native_target_temperature(self) -> float:
         """Midea C3 Water Heater target temperature."""
         return cast("float", self._device.get_attribute(C3Attributes.dhw_target_temp))
 
@@ -410,12 +423,12 @@ class MideaE6WaterHeater(MideaWaterHeater):
         )
 
     @property
-    def current_temperature(self) -> float:
+    def native_current_temperature(self) -> float:
         """Midea E6 Water Heater current temperature."""
         return cast("float", self._device.get_attribute(self._current_temperature_attr))
 
     @property
-    def target_temperature(self) -> float:
+    def native_target_temperature(self) -> float:
         """Midea E6 Water Heater target temperature."""
         return cast("float", self._device.get_attribute(self._target_temperature_attr))
 

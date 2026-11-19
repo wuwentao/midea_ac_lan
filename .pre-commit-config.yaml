@@ -2,6 +2,8 @@
 # See https://pre-commit.com/hooks.html for more hooks
 exclude: "CHANGELOG.md|.copier-answers.yml"
 default_stages: [pre-commit]
+default_language_version:
+  node: "26.13.0"
 
 ci:
   autofix_commit_msg: "chore(pre-commit.ci): auto fixes"
@@ -59,7 +61,7 @@ repos:
     hooks:
       - id: codespell
         args: ["-L hass,lookin,nam,astroid,moteur,Foto,pary", "-w"]
-        exclude: "uv\\.lock|custom_components/midea_ac_lan/translations/(de|es|fr|hu|it|sk).json"
+        exclude: "uv\\.lock|custom_components/midea_ac_lan/translations/(?!en\\.json).*\\.json"
   - repo: local
     hooks:
       - id: mypy

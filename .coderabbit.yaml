@@ -10,6 +10,9 @@ reviews:
   # Do not gate merges on CodeRabbit; CI (ruff/mypy/pylint) is the gate.
   request_changes_workflow: false
   high_level_summary: true
+  # Keep the contributor's PR description intact. Publish the summary in the
+  # walkthrough review comment instead of appending it to the description.
+  high_level_summary_in_walkthrough: true
   review_status: true
   collapse_walkthrough: true
   changed_files_summary: true
@@ -33,12 +36,30 @@ reviews:
     - "!.venv/**"
     - "!brands/**"
     # Machine/community-translated locale files - review en/zh only, skip the rest.
+    - "!custom_components/midea_ac_lan/translations/bg.json"
+    - "!custom_components/midea_ac_lan/translations/ca.json"
+    - "!custom_components/midea_ac_lan/translations/cs.json"
     - "!custom_components/midea_ac_lan/translations/de.json"
     - "!custom_components/midea_ac_lan/translations/es.json"
+    - "!custom_components/midea_ac_lan/translations/eu.json"
     - "!custom_components/midea_ac_lan/translations/fr.json"
+    - "!custom_components/midea_ac_lan/translations/hr.json"
     - "!custom_components/midea_ac_lan/translations/hu.json"
     - "!custom_components/midea_ac_lan/translations/it.json"
+    - "!custom_components/midea_ac_lan/translations/ja.json"
+    - "!custom_components/midea_ac_lan/translations/ko.json"
+    - "!custom_components/midea_ac_lan/translations/mk.json"
+    - "!custom_components/midea_ac_lan/translations/nb.json"
+    - "!custom_components/midea_ac_lan/translations/nl.json"
+    - "!custom_components/midea_ac_lan/translations/pl.json"
+    - "!custom_components/midea_ac_lan/translations/pt.json"
+    - "!custom_components/midea_ac_lan/translations/ro.json"
+    - "!custom_components/midea_ac_lan/translations/ru.json"
     - "!custom_components/midea_ac_lan/translations/sk.json"
+    - "!custom_components/midea_ac_lan/translations/sl.json"
+    - "!custom_components/midea_ac_lan/translations/tr.json"
+    - "!custom_components/midea_ac_lan/translations/uk.json"
+    - "!custom_components/midea_ac_lan/translations/zh-Hant.json"
 
   path_instructions:
     - path: "custom_components/midea_ac_lan/**/*.py"

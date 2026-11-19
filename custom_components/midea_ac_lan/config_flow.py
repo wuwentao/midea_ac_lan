@@ -40,8 +40,6 @@ from homeassistant.const import (
     CONF_SWITCHES,
     CONF_TOKEN,
     CONF_TYPE,
-    MAJOR_VERSION,
-    MINOR_VERSION,
 )
 from homeassistant.core import callback
 from homeassistant.helpers.aiohttp_client import async_create_clientsession
@@ -64,12 +62,7 @@ from midealan.discover import discover
 if TYPE_CHECKING:
     from aiohttp import ClientSession
 
-if (MAJOR_VERSION, MINOR_VERSION) >= (2024, 4):
-    from homeassistant.config_entries import ConfigFlowResult  # pylint: disable=E0611
-else:
-    from homeassistant.data_entry_flow import (  # type: ignore[assignment]
-        FlowResult as ConfigFlowResult,
-    )
+from homeassistant.config_entries import ConfigFlowResult  # pylint: disable=E0611
 
 from .const import (
     CONF_ACCOUNT,
@@ -199,7 +192,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
             )
         )
 
-    def _already_configured(self, device_id: str, ip_address: str) -> bool:
+    def _already_configured(self, device_id: int | str, ip_address: str) -> bool:
         """Check device from json with device_id or ip address.
 
         Returns
@@ -208,8 +201,10 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
 
         """
         for entry in self._async_current_entries():
-            if device_id == entry.data.get(
-                CONF_DEVICE_ID,
+            configured_device_id = entry.data.get(CONF_DEVICE_ID)
+            if (
+                configured_device_id is not None
+                and str(device_id) == str(configured_device_id)
             ) or ip_address == entry.data.get(CONF_IP_ADDRESS):
                 return True
         return False
@@ -309,13 +304,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
             if user_input[CONF_SERVER] == next(iter(default_keys)):
                 # use preset account and DEFAULT_CLOUD cloud
                 _LOGGER.debug("skip login matched, cloud_servers: %s", cloud_servers)
-                # get DEFAULT_CLOUD key from dict
-                key = next(
-                    key
-                    for key, value in cloud_servers.items()
-                    if value == DEFAULT_CLOUD
-                )
-                cloud_server = cloud_servers[key]
+                cloud_server = DEFAULT_CLOUD
                 account = self.preset_account
                 password = self.preset_password
                 # set a login_mode flag
@@ -380,7 +369,8 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
         # available devices exist
         if len(all_devices) > 0:
             table = (
-                "Appliance code|Type|IP address|SN|Supported\n:--:|:--:|:--:|:--:|:--:"
+                "Appliance code|Type|IP address|SN|Supported|Reason\n"
+                ":--:|:--:|:--:|:--:|:--:|:--:"
             )
             green = "<font color=gree>YES</font>"
             red = "<font color=red>NO</font>"
@@ -393,11 +383,24 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                 sn = device.get("sn") or (
                     "encrypted (from cloud)" if device.get("sn_encrypted") else ""
                 )
+                # For an unsupported device, explain why so the user can file an
+                # actionable report instead of a blank "device not found". Prefer
+                # the reason midea-lan's discover() attaches (it describes the
+                # protocol-level cause, e.g. no device package, or a TLS
+                # transport still being verified); fall back to a generic note
+                # when running against an older midea-lan that has no such field.
+                # Guarded with .get() so the absent field degrades gracefully.
+                reason = (
+                    ""
+                    if supported
+                    else device.get("support_reason") or "not yet supported"
+                )
                 table += (
                     f"\n{device_id}|{f'{device.get(CONF_TYPE):02X}'}|"
                     f"{device.get(CONF_IP_ADDRESS)}|"
                     f"{sn}|"
-                    f"{green if supported else red}"
+                    f"{green if supported else red}|"
+                    f"{reason}"
                 )
         # no available device
         else:

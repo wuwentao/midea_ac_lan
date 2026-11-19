@@ -66,10 +66,11 @@ data:
   midealan: debug
 ```
 
-5. 执行会触发问题的操作。
-6. 通过 **设置 → 系统 → 日志** 下载完整日志。
+5. 进入 **设置 → 设备与服务 → Midea AC LAN → 设备 → 配置 → 重新加载** 即可。
+6. 执行会触发问题的操作。
+7. 通过 **设置 → 系统 → 日志** 下载完整日志。
 
-> 此方法**无法**捕获 Home Assistant 启动阶段的错误。建议调试时优先使用方法 1。
+> 此方法需要重新加载 `midea_ac_lan`，才能捕获仅在 `midea_ac_lan` 启动时出现的错误和设备能力信息。
 
 ---
 
@@ -173,6 +174,8 @@ wget https://github.com/wuwentao/midea-lan/raw/<commit>/midealan/devices/cd/mess
 3. 使用 `ls` 查看文件列表；使用 `cat <device_id>.json` 查看具体设备配置。
 
 > 无特殊情况请勿删除或编辑这些文件。如需操作，请先重命名备份。
+>
+> 恢复备份时，只需将对应的 `.json` 文件复制到 `/config/.storage/midea_ac_lan/`。后续添加该设备时，`midea_ac_lan` 会自动识别并加载缓存配置，跳过通过 Cloud 获取 Token 和 Key 的步骤。
 
 ---
 

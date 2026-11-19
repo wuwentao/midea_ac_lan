@@ -12,15 +12,16 @@ from unittest.mock import Mock, patch
 
 import pytest
 from homeassistant.const import Platform
-from midea_ac_lan.button import MideaButton
-from midea_ac_lan.midea_devices import MIDEA_DEVICES
-from midea_ac_lan.number import MideaNumber
-from midea_ac_lan.select import MideaSelect
-from midea_ac_lan.switch import MideaSwitch
-from midea_ac_lan.time import MideaTime
+
+from custom_components.midea_ac_lan.button import MideaButton
+from custom_components.midea_ac_lan.midea_devices import MIDEA_DEVICES
+from custom_components.midea_ac_lan.number import MideaNumber
+from custom_components.midea_ac_lan.select import MideaSelect
+from custom_components.midea_ac_lan.switch import MideaSwitch
+from custom_components.midea_ac_lan.time import MideaTime
 
 if TYPE_CHECKING:
-    from midea_ac_lan.midea_entity import MideaEntity
+    from custom_components.midea_ac_lan.midea_entity import MideaEntity
 
 ENTITY_CLASSES = {
     Platform.BUTTON: MideaButton,
@@ -50,6 +51,7 @@ def _gated_controls() -> list[tuple["MideaEntity", dict[str, bool], str]]:
             device.available = True
             device.get_attribute.side_effect = attributes.get
             entity = ENTITY_CLASSES[config["type"]](device, key)
+            entity._attr_name = "Test entity"
             entity.hass = Mock()
             entity.platform = Mock()
             controls.append((entity, attributes, capability))

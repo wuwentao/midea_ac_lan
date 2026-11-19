@@ -1,0 +1,11 @@
+[run]
+branch = true
+relative_files = true
+source = custom_components/midea_ac_lan
+
+[report]
+fail_under = 100
+show_missing = true
+skip_covered = true
+exclude_also =
+    if TYPE_CHECKING:

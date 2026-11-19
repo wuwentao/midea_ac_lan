@@ -8,7 +8,7 @@ import logging
 from datetime import timedelta
 
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import CONF_PASSWORD
+from homeassistant.const import CONF_PASSWORD, MAJOR_VERSION, MINOR_VERSION
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.update_coordinator import (
@@ -35,17 +35,25 @@ class MideaCloudCoordinator(DataUpdateCoordinator[E3DayReport | None]):
         self,
         hass: HomeAssistant,
         client: E3CloudClient,
+        config_entry: ConfigEntry,
         appliance_id: int,
         device_name: str,
     ) -> None:
         """Initialize the cloud usage coordinator."""
-        super().__init__(
-            hass,
-            _LOGGER,
-            name=f"{device_name} cloud usage report",
-            update_interval=CLOUD_UPDATE_INTERVAL,
-            always_update=False,
-        )
+        coordinator_args = {
+            "name": f"{device_name} cloud usage report",
+            "update_interval": CLOUD_UPDATE_INTERVAL,
+            "always_update": False,
+        }
+        if (MAJOR_VERSION, MINOR_VERSION) >= (2024, 12):
+            super().__init__(
+                hass,
+                _LOGGER,
+                config_entry=config_entry,  # type: ignore[call-arg]
+                **coordinator_args,
+            )
+        else:
+            super().__init__(hass, _LOGGER, **coordinator_args)
         self._client = client
         self.appliance_id = appliance_id
 
@@ -110,4 +118,10 @@ def create_cloud_coordinator(
             ex,
         )
         return None
-    return MideaCloudCoordinator(hass, client, int(device_id), device_name)
+    return MideaCloudCoordinator(
+        hass,
+        client,
+        config_entry,
+        int(device_id),
+        device_name,
+    )
