@@ -989,6 +989,13 @@
       }
     },
     "number": {
+      "work_status": { "name": "Driftsstatus" },
+      "function_no": { "name": "Funksjonsnummer" },
+      "fire_level": { "name": "Varmenivå" },
+      "time_reserve_hr": { "name": "Reservasjonstimer" },
+      "time_reserve_min": { "name": "Reservasjonsminutter" },
+      "definite_time_hr": { "name": "Timer på tidsur" },
+      "definite_time_min": { "name": "Minutter på tidsur" },
       "curtain_position": {
         "name": "Posisjon"
       },
@@ -1582,6 +1589,11 @@
       }
     },
     "sensor": {
+      "time_running_hr": { "name": "Driftstimer" },
+      "time_running_min": { "name": "Driftsminutter" },
+      "time_surplus_hr": { "name": "Gjenstående timer" },
+      "time_surplus_min": { "name": "Gjenstående minutter" },
+      "work_stage": { "name": "Driftsfase" },
       "software_version": {
         "name": "Programvareversjon"
       },

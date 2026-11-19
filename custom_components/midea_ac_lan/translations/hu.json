@@ -973,6 +973,13 @@
       }
     },
     "number": {
+      "work_status": { "name": "Működési állapot" },
+      "function_no": { "name": "Funkció száma" },
+      "fire_level": { "name": "Fűtési szint" },
+      "time_reserve_hr": { "name": "Foglalási órák" },
+      "time_reserve_min": { "name": "Foglalási percek" },
+      "definite_time_hr": { "name": "Időzítő órái" },
+      "definite_time_min": { "name": "Időzítő percei" },
       "curtain_position": {
         "name": "Pozíció"
       },
@@ -1503,6 +1510,11 @@
       }
     },
     "sensor": {
+      "time_running_hr": { "name": "Működési órák" },
+      "time_running_min": { "name": "Működési percek" },
+      "time_surplus_hr": { "name": "Hátralévő órák" },
+      "time_surplus_min": { "name": "Hátralévő percek" },
+      "work_stage": { "name": "Működési szakasz" },
       "software_version": {
         "name": "Szoftververzió"
       },

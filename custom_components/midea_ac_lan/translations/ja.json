@@ -989,6 +989,13 @@
       }
     },
     "number": {
+      "work_status": { "name": "運転状態" },
+      "function_no": { "name": "機能番号" },
+      "fire_level": { "name": "加熱レベル" },
+      "time_reserve_hr": { "name": "予約時間（時）" },
+      "time_reserve_min": { "name": "予約時間（分）" },
+      "definite_time_hr": { "name": "タイマー時間（時）" },
+      "definite_time_min": { "name": "タイマー時間（分）" },
       "curtain_position": {
         "name": "位置"
       },
@@ -1582,6 +1589,11 @@
       }
     },
     "sensor": {
+      "time_running_hr": { "name": "運転時間（時）" },
+      "time_running_min": { "name": "運転時間（分）" },
+      "time_surplus_hr": { "name": "残り時間（時）" },
+      "time_surplus_min": { "name": "残り時間（分）" },
+      "work_stage": { "name": "運転段階" },
       "software_version": {
         "name": "ソフトウェアバージョン"
       },

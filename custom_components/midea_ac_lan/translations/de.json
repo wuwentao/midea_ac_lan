@@ -973,6 +973,13 @@
       }
     },
     "number": {
+      "work_status": { "name": "Betriebsstatus" },
+      "function_no": { "name": "Funktionsnummer" },
+      "fire_level": { "name": "Heizstufe" },
+      "time_reserve_hr": { "name": "Reservierungsstunden" },
+      "time_reserve_min": { "name": "Reservierungsminuten" },
+      "definite_time_hr": { "name": "Timerstunden" },
+      "definite_time_min": { "name": "Timerminuten" },
       "curtain_position": {
         "name": "Position"
       },
@@ -1503,6 +1510,11 @@
       }
     },
     "sensor": {
+      "time_running_hr": { "name": "Betriebsstunden" },
+      "time_running_min": { "name": "Betriebsminuten" },
+      "time_surplus_hr": { "name": "Verbleibende Stunden" },
+      "time_surplus_min": { "name": "Verbleibende Minuten" },
+      "work_stage": { "name": "Betriebsphase" },
       "software_version": {
         "name": "Softwareversion"
       },

@@ -989,6 +989,13 @@
       }
     },
     "number": {
+      "work_status": { "name": "Stav provozu" },
+      "function_no": { "name": "Číslo funkce" },
+      "fire_level": { "name": "Úroveň ohřevu" },
+      "time_reserve_hr": { "name": "Hodiny rezervace" },
+      "time_reserve_min": { "name": "Minuty rezervace" },
+      "definite_time_hr": { "name": "Hodiny časovače" },
+      "definite_time_min": { "name": "Minuty časovače" },
       "curtain_position": {
         "name": "Poloha"
       },
@@ -1582,6 +1589,11 @@
       }
     },
     "sensor": {
+      "time_running_hr": { "name": "Hodiny provozu" },
+      "time_running_min": { "name": "Minuty provozu" },
+      "time_surplus_hr": { "name": "Zbývající hodiny" },
+      "time_surplus_min": { "name": "Zbývající minuty" },
+      "work_stage": { "name": "Fáze provozu" },
       "software_version": {
         "name": "Verze softwaru"
       },

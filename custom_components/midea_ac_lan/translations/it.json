@@ -973,6 +973,13 @@
       }
     },
     "number": {
+      "work_status": { "name": "Stato di funzionamento" },
+      "function_no": { "name": "Numero della funzione" },
+      "fire_level": { "name": "Livello di calore" },
+      "time_reserve_hr": { "name": "Ore di prenotazione" },
+      "time_reserve_min": { "name": "Minuti di prenotazione" },
+      "definite_time_hr": { "name": "Ore del timer" },
+      "definite_time_min": { "name": "Minuti del timer" },
       "curtain_position": {
         "name": "Posizione"
       },
@@ -1503,6 +1510,11 @@
       }
     },
     "sensor": {
+      "time_running_hr": { "name": "Ore di funzionamento" },
+      "time_running_min": { "name": "Minuti di funzionamento" },
+      "time_surplus_hr": { "name": "Ore rimanenti" },
+      "time_surplus_min": { "name": "Minuti rimanenti" },
+      "work_stage": { "name": "Fase di funzionamento" },
       "software_version": {
         "name": "Versione software"
       },

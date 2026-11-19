@@ -973,6 +973,13 @@
       }
     },
     "number": {
+      "work_status": { "name": "État de fonctionnement" },
+      "function_no": { "name": "Numéro de fonction" },
+      "fire_level": { "name": "Niveau de chauffe" },
+      "time_reserve_hr": { "name": "Heures de réservation" },
+      "time_reserve_min": { "name": "Minutes de réservation" },
+      "definite_time_hr": { "name": "Heures du minuteur" },
+      "definite_time_min": { "name": "Minutes du minuteur" },
       "curtain_position": {
         "name": "Position"
       },
@@ -1503,6 +1510,11 @@
       }
     },
     "sensor": {
+      "time_running_hr": { "name": "Heures de fonctionnement" },
+      "time_running_min": { "name": "Minutes de fonctionnement" },
+      "time_surplus_hr": { "name": "Heures restantes" },
+      "time_surplus_min": { "name": "Minutes restantes" },
+      "work_stage": { "name": "Étape de fonctionnement" },
       "software_version": {
         "name": "Version du logiciel"
       },

@@ -989,6 +989,13 @@
       }
     },
     "number": {
+      "work_status": { "name": "Radni status" },
+      "function_no": { "name": "Broj funkcije" },
+      "fire_level": { "name": "Razina grijanja" },
+      "time_reserve_hr": { "name": "Sati rezervacije" },
+      "time_reserve_min": { "name": "Minute rezervacije" },
+      "definite_time_hr": { "name": "Sati mjerača vremena" },
+      "definite_time_min": { "name": "Minute mjerača vremena" },
       "curtain_position": {
         "name": "Položaj"
       },
@@ -1582,6 +1589,11 @@
       }
     },
     "sensor": {
+      "time_running_hr": { "name": "Sati rada" },
+      "time_running_min": { "name": "Minute rada" },
+      "time_surplus_hr": { "name": "Preostali sati" },
+      "time_surplus_min": { "name": "Preostale minute" },
+      "work_stage": { "name": "Faza rada" },
       "software_version": {
         "name": "Verzija softvera"
       },

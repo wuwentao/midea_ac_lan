@@ -989,6 +989,13 @@
       }
     },
     "number": {
+      "work_status": { "name": "작동 상태" },
+      "function_no": { "name": "기능 번호" },
+      "fire_level": { "name": "가열 단계" },
+      "time_reserve_hr": { "name": "예약 시간(시)" },
+      "time_reserve_min": { "name": "예약 시간(분)" },
+      "definite_time_hr": { "name": "타이머 시간(시)" },
+      "definite_time_min": { "name": "타이머 시간(분)" },
       "curtain_position": {
         "name": "위치"
       },
@@ -1582,6 +1589,11 @@
       }
     },
     "sensor": {
+      "time_running_hr": { "name": "작동 시간(시)" },
+      "time_running_min": { "name": "작동 시간(분)" },
+      "time_surplus_hr": { "name": "남은 시간(시)" },
+      "time_surplus_min": { "name": "남은 시간(분)" },
+      "work_stage": { "name": "작동 단계" },
       "software_version": {
         "name": "소프트웨어 버전"
       },

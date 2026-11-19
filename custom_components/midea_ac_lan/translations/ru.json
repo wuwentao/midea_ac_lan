@@ -973,6 +973,13 @@
       }
     },
     "number": {
+      "work_status": { "name": "Рабочий статус" },
+      "function_no": { "name": "Номер функции" },
+      "fire_level": { "name": "Уровень нагрева" },
+      "time_reserve_hr": { "name": "Часы отложенного запуска" },
+      "time_reserve_min": { "name": "Минуты отложенного запуска" },
+      "definite_time_hr": { "name": "Часы таймера" },
+      "definite_time_min": { "name": "Минуты таймера" },
       "curtain_position": {
         "name": "Положение"
       },
@@ -1539,6 +1546,11 @@
       }
     },
     "sensor": {
+      "time_running_hr": { "name": "Часы работы" },
+      "time_running_min": { "name": "Минуты работы" },
+      "time_surplus_hr": { "name": "Оставшиеся часы" },
+      "time_surplus_min": { "name": "Оставшиеся минуты" },
+      "work_stage": { "name": "Этап работы" },
       "software_version": {
         "name": "Версия ПО"
       },

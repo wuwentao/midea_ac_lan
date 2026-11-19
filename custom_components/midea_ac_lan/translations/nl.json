@@ -989,6 +989,13 @@
       }
     },
     "number": {
+      "work_status": { "name": "Bedrijfsstatus" },
+      "function_no": { "name": "Functienummer" },
+      "fire_level": { "name": "Verwarmingsniveau" },
+      "time_reserve_hr": { "name": "Reserveringsuren" },
+      "time_reserve_min": { "name": "Reserveringsminuten" },
+      "definite_time_hr": { "name": "Timeruren" },
+      "definite_time_min": { "name": "Timerminuten" },
       "curtain_position": {
         "name": "Positie"
       },
@@ -1582,6 +1589,11 @@
       }
     },
     "sensor": {
+      "time_running_hr": { "name": "Bedrijfsuren" },
+      "time_running_min": { "name": "Bedrijfsminuten" },
+      "time_surplus_hr": { "name": "Resterende uren" },
+      "time_surplus_min": { "name": "Resterende minuten" },
+      "work_stage": { "name": "Bedrijfsfase" },
       "software_version": {
         "name": "Softwareversie"
       },

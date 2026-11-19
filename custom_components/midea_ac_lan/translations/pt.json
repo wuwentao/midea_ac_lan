@@ -989,6 +989,13 @@
       }
     },
     "number": {
+      "work_status": { "name": "Estado de funcionamento" },
+      "function_no": { "name": "Número da função" },
+      "fire_level": { "name": "Nível de aquecimento" },
+      "time_reserve_hr": { "name": "Horas de reserva" },
+      "time_reserve_min": { "name": "Minutos de reserva" },
+      "definite_time_hr": { "name": "Horas do temporizador" },
+      "definite_time_min": { "name": "Minutos do temporizador" },
       "curtain_position": {
         "name": "Posição"
       },
@@ -1582,6 +1589,11 @@
       }
     },
     "sensor": {
+      "time_running_hr": { "name": "Horas de funcionamento" },
+      "time_running_min": { "name": "Minutos de funcionamento" },
+      "time_surplus_hr": { "name": "Horas restantes" },
+      "time_surplus_min": { "name": "Minutos restantes" },
+      "work_stage": { "name": "Etapa de funcionamento" },
       "software_version": {
         "name": "Versão do software"
       },
