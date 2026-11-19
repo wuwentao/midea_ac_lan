@@ -323,7 +323,7 @@ async def test_login_form_and_input_paths() -> None:
 
 
 async def test_list_devices() -> None:
-    """Render supported, unsupported, plain, encrypted, and empty discovery results."""
+    """Render supported, unsupported, encrypted, reason fallbacks, and empty results."""
     flow = make_flow()
     supported_type = next(iter(flow.supports))
     flow.hass.async_add_executor_job.return_value = {
@@ -344,6 +344,16 @@ async def test_list_devices() -> None:
             CONF_IP_ADDRESS: "192.0.2.3",
             CONF_SN: "",
         },
+        # Unsupported device whose midea-lan reason field is present but empty.
+        # This exercises the `or "not yet supported"` fallback specifically
+        # (an empty string is falsy), which a `.get("support_reason", default)`
+        # would not catch. It guards against that regression.
+        4: {
+            CONF_TYPE: 0xFFFF,
+            CONF_IP_ADDRESS: "192.0.2.4",
+            CONF_SN: "",
+            "support_reason": "",
+        },
     }
     result = await flow.async_step_list(error="warning")
     table = result["description_placeholders"]["table"]
@@ -351,10 +361,25 @@ async def test_list_devices() -> None:
     assert "encrypted (from cloud)" in table
     assert "YES" in table
     assert "NO" in table
-    # An unsupported device surfaces midea-lan's reason verbatim when present.
-    assert "udp_version>=4 TLS transport" in table
-    # An unsupported device with no reason field (older midea-lan) falls back.
-    assert "not yet supported" in table
+    # The Reason column must be a real sixth column: verify the header, the
+    # separator, and every data row are all six fields wide, otherwise the
+    # per-row reason checks below could pass while HA dropped the cells.
+    lines = table.splitlines()
+    assert lines[0] == "Appliance code|Type|IP address|SN|Supported|Reason"
+    assert lines[1] == ":--:|:--:|:--:|:--:|:--:|:--:"
+    assert all(len(line.split("|")) == 6 for line in lines[2:])
+    # Assert the reason per device row (keyed by appliance code in column 0,
+    # reason in the last column) so a reason cannot silently land on the wrong
+    # row or stay blank.
+    reasons = {row.split("|")[0]: row.split("|")[-1] for row in lines[2:]}
+    # Supported device -> no reason.
+    assert reasons["1"] == ""
+    # Unsupported device -> midea-lan reason verbatim.
+    assert reasons["2"] == "type 0xffff uses the udp_version>=4 TLS transport"
+    # Unsupported device, reason field absent (older midea-lan) -> fallback.
+    assert reasons["3"] == "not yet supported"
+    # Unsupported device, reason field present but empty -> same fallback.
+    assert reasons["4"] == "not yet supported"
     assert result["errors"] == {"base": "warning"}
     flow.hass.async_add_executor_job.return_value = {}
     result = await flow.async_step_list()
