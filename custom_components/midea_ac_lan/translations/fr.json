@@ -1104,6 +1104,14 @@
       }
     },
     "select": {
+      "aux_heat_mode": {
+        "name": "Mode chauffage d'appoint",
+        "state": {
+          "off": "Arrêt",
+          "aux_heat": "Chauffage d'appoint",
+          "aux_only": "Chauffage d'appoint uniquement"
+        }
+      },
       "program": {
         "name": "Programme"
       },
