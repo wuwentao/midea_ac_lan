@@ -5,6 +5,7 @@
 - Supports preset mode
 - Supports fan mode
 - Supports humidity setting
+- Supports protocol-specific mode, fan, and display layouts
 
 ## Entities
 
@@ -51,6 +52,12 @@ Set the attribute of appliance. Service data:
 | device_id | The Appliance code (Device ID) of appliance |
 | attribute | "screen_display"                            |
 | value     | "Bright"<br/>"Dim"<br/>"Off"                |
+
+Available modes, fan speeds, and screen display choices depend on the
+automatically detected device protocol. Lua 25 devices expose their verified
+fan choices without `Off`; their display choices are `Bright`/`Off`, without
+`Dim`. Lua `2024110101` devices expose `Manual`/`Sleep`/`Moist skin`,
+`Low`/`Medium`/`High`, and `Bright`/`Dim`/`Off`.
 
 Example
 

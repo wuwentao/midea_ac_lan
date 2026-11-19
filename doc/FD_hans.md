@@ -5,6 +5,7 @@
 - 支持运行模式
 - 支持风扇模式设定
 - 支持湿度设定
+- 支持按设备协议自动匹配运行模式、风速和屏幕布局
 
 ## 生成实体
 
@@ -51,6 +52,12 @@
 | device_id | 设备的编号(Device ID)        |
 | attribute | "screen_display"             |
 | value     | "Bright"<br/>"Dim"<br/>"Off" |
+
+可用运行模式、风速和屏幕选项取决于自动检测到的设备协议。Lua 25 设备提供实机验证过的
+风速选项，但不提供 `Off` 风速；其屏幕选项为 `Bright`/`Off`，不提供 `Dim`。
+Lua `2024110101` 设备提供
+`Manual`/`Sleep`/`Moist skin`、`Low`/`Medium`/`High` 和
+`Bright`/`Dim`/`Off`。
 
 示例
 
