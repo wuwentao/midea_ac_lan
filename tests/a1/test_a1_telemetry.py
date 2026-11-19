@@ -27,7 +27,7 @@ def test_group_one_telemetry_entities() -> None:
     assert entities[A1Attributes.compressor] == {
         "type": Platform.BINARY_SENSOR,
         "required_attribute": A1Attributes.compressor,
-        "translation_key": "compressor_on",
+        "translation_key": "compressor",
         "name": "Compressor Running",
         "device_class": BinarySensorDeviceClass.RUNNING,
     }
@@ -48,5 +48,5 @@ def test_group_one_telemetry_names_exist_in_all_translations() -> None:
     assert translation_files
     for translation_file in translation_files:
         translation = json.loads(translation_file.read_text(encoding="utf-8"))
-        assert translation["entity"]["binary_sensor"]["compressor_on"]["name"]
+        assert translation["entity"]["binary_sensor"]["compressor"]["name"]
         assert translation["entity"]["sensor"]["evaporator_temperature"]["name"]
