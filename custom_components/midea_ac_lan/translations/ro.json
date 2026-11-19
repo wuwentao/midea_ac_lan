@@ -989,6 +989,9 @@
       }
     },
     "number": {
+      "curtain_position": {
+        "name": "Poziție"
+      },
       "delay_minutes": {
         "name": "Întârziere"
       },
@@ -1120,6 +1123,21 @@
       }
     },
     "select": {
+      "curtain_status": {
+        "name": "Perdea",
+        "state": {
+          "open": "Deschis",
+          "close": "Închis",
+          "stop": "Oprire"
+        }
+      },
+      "curtain_direction": {
+        "name": "Direcție",
+        "state": {
+          "positive": "Pozitivă",
+          "reverse": "Inversă"
+        }
+      },
       "aux_heat_mode": {
         "name": "Mod încălzire auxiliară",
         "state": {
@@ -1564,6 +1582,9 @@
       }
     },
     "sensor": {
+      "software_version": {
+        "name": "Versiune software"
+      },
       "evaporator_temperature": {
         "name": "Temperatura vaporizatorului"
       },

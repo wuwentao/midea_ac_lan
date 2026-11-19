@@ -989,6 +989,9 @@
       }
     },
     "number": {
+      "curtain_position": {
+        "name": "Poloha"
+      },
       "delay_minutes": {
         "name": "Zpoždění"
       },
@@ -1120,6 +1123,21 @@
       }
     },
     "select": {
+      "curtain_status": {
+        "name": "Závěs",
+        "state": {
+          "open": "Otevřít",
+          "close": "Zavřít",
+          "stop": "Zastavit"
+        }
+      },
+      "curtain_direction": {
+        "name": "Směr",
+        "state": {
+          "positive": "Dopředný",
+          "reverse": "Opačný"
+        }
+      },
       "aux_heat_mode": {
         "name": "Režim přídavného topení",
         "state": {
@@ -1564,6 +1582,9 @@
       }
     },
     "sensor": {
+      "software_version": {
+        "name": "Verze softwaru"
+      },
       "evaporator_temperature": {
         "name": "Teplota výparníku"
       },

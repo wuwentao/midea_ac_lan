@@ -989,6 +989,9 @@
       }
     },
     "number": {
+      "curtain_position": {
+        "name": "Položaj"
+      },
       "delay_minutes": {
         "name": "Zakasnitev"
       },
@@ -1120,6 +1123,21 @@
       }
     },
     "select": {
+      "curtain_status": {
+        "name": "Zavesa",
+        "state": {
+          "open": "Odpri",
+          "close": "Zapri",
+          "stop": "Ustavi"
+        }
+      },
+      "curtain_direction": {
+        "name": "Smer",
+        "state": {
+          "positive": "Pozitivna",
+          "reverse": "Obratna"
+        }
+      },
       "aux_heat_mode": {
         "name": "Način pomožnega ogrevanja",
         "state": {
@@ -1564,6 +1582,9 @@
       }
     },
     "sensor": {
+      "software_version": {
+        "name": "Različica programske opreme"
+      },
       "evaporator_temperature": {
         "name": "Temperatura uparjalnika"
       },

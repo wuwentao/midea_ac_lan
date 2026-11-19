@@ -989,6 +989,9 @@
       }
     },
     "number": {
+      "curtain_position": {
+        "name": "Positie"
+      },
       "delay_minutes": {
         "name": "Vertraging"
       },
@@ -1120,6 +1123,21 @@
       }
     },
     "select": {
+      "curtain_status": {
+        "name": "Gordijn",
+        "state": {
+          "open": "Open",
+          "close": "Dicht",
+          "stop": "Stoppen"
+        }
+      },
+      "curtain_direction": {
+        "name": "Richting",
+        "state": {
+          "positive": "Positief",
+          "reverse": "Omgekeerd"
+        }
+      },
       "aux_heat_mode": {
         "name": "Bijverwarmingsmodus",
         "state": {
@@ -1564,6 +1582,9 @@
       }
     },
     "sensor": {
+      "software_version": {
+        "name": "Softwareversie"
+      },
       "evaporator_temperature": {
         "name": "Verdampertemperatuur"
       },

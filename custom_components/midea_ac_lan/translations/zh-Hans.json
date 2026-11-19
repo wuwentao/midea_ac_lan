@@ -989,6 +989,9 @@
       }
     },
     "number": {
+      "curtain_position": {
+        "name": "位置"
+      },
       "delay_minutes": {
         "name": "预约时间"
       },
@@ -1120,6 +1123,21 @@
       }
     },
     "select": {
+      "curtain_status": {
+        "name": "窗帘",
+        "state": {
+          "open": "打开",
+          "close": "关闭",
+          "stop": "停止"
+        }
+      },
+      "curtain_direction": {
+        "name": "方向",
+        "state": {
+          "positive": "正向",
+          "reverse": "反向"
+        }
+      },
       "aux_heat_mode": {
         "name": "电辅热模式",
         "state": {
@@ -1537,6 +1555,9 @@
       }
     },
     "sensor": {
+      "software_version": {
+        "name": "软件版本"
+      },
       "evaporator_temperature": {
         "name": "蒸发器温度"
       },

@@ -989,6 +989,9 @@
       }
     },
     "number": {
+      "curtain_position": {
+        "name": "Posizioa"
+      },
       "delay_minutes": {
         "name": "Atzerapena"
       },
@@ -1120,6 +1123,21 @@
       }
     },
     "select": {
+      "curtain_status": {
+        "name": "Gortina",
+        "state": {
+          "open": "Ireki",
+          "close": "Itxi",
+          "stop": "Gelditu"
+        }
+      },
+      "curtain_direction": {
+        "name": "Norabidea",
+        "state": {
+          "positive": "Positiboa",
+          "reverse": "Alderantzizkoa"
+        }
+      },
       "aux_heat_mode": {
         "name": "Laguntza-berogailu modua",
         "state": {
@@ -1564,6 +1582,9 @@
       }
     },
     "sensor": {
+      "software_version": {
+        "name": "Softwarearen bertsioa"
+      },
       "evaporator_temperature": {
         "name": "Lurrungailuaren tenperatura"
       },

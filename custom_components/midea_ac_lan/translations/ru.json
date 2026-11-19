@@ -973,6 +973,9 @@
       }
     },
     "number": {
+      "curtain_position": {
+        "name": "Положение"
+      },
       "delay_minutes": {
         "name": "Задержка"
       },
@@ -1104,6 +1107,21 @@
       }
     },
     "select": {
+      "curtain_status": {
+        "name": "Штора",
+        "state": {
+          "open": "Открыть",
+          "close": "Закрыть",
+          "stop": "Остановить"
+        }
+      },
+      "curtain_direction": {
+        "name": "Направление",
+        "state": {
+          "positive": "Прямое",
+          "reverse": "Обратное"
+        }
+      },
       "aux_heat_mode": {
         "name": "Режим вспом. нагрева",
         "state": {
@@ -1521,6 +1539,9 @@
       }
     },
     "sensor": {
+      "software_version": {
+        "name": "Версия ПО"
+      },
       "evaporator_temperature": {
         "name": "Температура испарителя"
       },

@@ -989,6 +989,9 @@
       }
     },
     "number": {
+      "curtain_position": {
+        "name": "Konum"
+      },
       "delay_minutes": {
         "name": "Gecikme"
       },
@@ -1120,6 +1123,21 @@
       }
     },
     "select": {
+      "curtain_status": {
+        "name": "Perde",
+        "state": {
+          "open": "Aç",
+          "close": "Kapat",
+          "stop": "Durdur"
+        }
+      },
+      "curtain_direction": {
+        "name": "Yön",
+        "state": {
+          "positive": "Pozitif",
+          "reverse": "Ters"
+        }
+      },
       "aux_heat_mode": {
         "name": "Yardımcı ısıtma modu",
         "state": {
@@ -1564,6 +1582,9 @@
       }
     },
     "sensor": {
+      "software_version": {
+        "name": "Yazılım sürümü"
+      },
       "evaporator_temperature": {
         "name": "Evaporatör sıcaklığı"
       },

@@ -91,6 +91,7 @@ Midea AC LAN 由三个职责不同的仓库共同组成：
 | ---- | --------------------------- | ---------------------------- |
 | 10   | 电源电器                    | [10_hans.md](doc/10_hans.md) |
 | 13   | 灯                          | [13_hans.md](doc/13_hans.md) |
+| 14   | 电动窗帘                    | [14_hans.md](doc/14_hans.md) |
 | 17   | 电动晾衣机                  | [17_hans.md](doc/17_hans.md) |
 | 26   | 浴霸                        | [26_hans.md](doc/26_hans.md) |
 | 34   | 水槽式洗碗机                | [34_hans.md](doc/34_hans.md) |

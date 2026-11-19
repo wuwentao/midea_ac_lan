@@ -92,6 +92,7 @@ Please check the document links below for the supported features and usage of ea
 | ---- | ------------------------------- | ------------------ |
 | 10   | Power Appliance                 | [10.md](doc/10.md) |
 | 13   | Light                           | [13.md](doc/13.md) |
+| 14   | Electric Curtain                | [14.md](doc/14.md) |
 | 17   | Clothes Drying Rack             | [17.md](doc/17.md) |
 | 26   | Bathroom Master                 | [26.md](doc/26.md) |
 | 34   | Sink Dishwasher                 | [34.md](doc/34.md) |

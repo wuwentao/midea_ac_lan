@@ -989,6 +989,9 @@
       }
     },
     "number": {
+      "curtain_position": {
+        "name": "Позиция"
+      },
       "delay_minutes": {
         "name": "Забавяне"
       },
@@ -1120,6 +1123,21 @@
       }
     },
     "select": {
+      "curtain_status": {
+        "name": "Завеса",
+        "state": {
+          "open": "Отваряне",
+          "close": "Затваряне",
+          "stop": "Спиране"
+        }
+      },
+      "curtain_direction": {
+        "name": "Посока",
+        "state": {
+          "positive": "Права",
+          "reverse": "Обратна"
+        }
+      },
       "aux_heat_mode": {
         "name": "Режим на допълнително отопление",
         "state": {
@@ -1564,6 +1582,9 @@
       }
     },
     "sensor": {
+      "software_version": {
+        "name": "Версия на софтуера"
+      },
       "evaporator_temperature": {
         "name": "Температура на изпарителя"
       },

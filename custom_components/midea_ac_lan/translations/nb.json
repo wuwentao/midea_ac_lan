@@ -989,6 +989,9 @@
       }
     },
     "number": {
+      "curtain_position": {
+        "name": "Posisjon"
+      },
       "delay_minutes": {
         "name": "Forsinkelse"
       },
@@ -1120,6 +1123,21 @@
       }
     },
     "select": {
+      "curtain_status": {
+        "name": "Gardin",
+        "state": {
+          "open": "Åpne",
+          "close": "Lukk",
+          "stop": "Stopp"
+        }
+      },
+      "curtain_direction": {
+        "name": "Retning",
+        "state": {
+          "positive": "Positiv",
+          "reverse": "Omvendt"
+        }
+      },
       "aux_heat_mode": {
         "name": "Tilleggsvarmemodus",
         "state": {
@@ -1564,6 +1582,9 @@
       }
     },
     "sensor": {
+      "software_version": {
+        "name": "Programvareversjon"
+      },
       "evaporator_temperature": {
         "name": "Fordampertemperatur"
       },

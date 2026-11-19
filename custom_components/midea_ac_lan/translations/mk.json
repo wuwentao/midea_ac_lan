@@ -989,6 +989,9 @@
       }
     },
     "number": {
+      "curtain_position": {
+        "name": "Позиција"
+      },
       "delay_minutes": {
         "name": "Одложување"
       },
@@ -1120,6 +1123,21 @@
       }
     },
     "select": {
+      "curtain_status": {
+        "name": "Завеса",
+        "state": {
+          "open": "Отвори",
+          "close": "Затвори",
+          "stop": "Стоп"
+        }
+      },
+      "curtain_direction": {
+        "name": "Насока",
+        "state": {
+          "positive": "Позитивна",
+          "reverse": "Обратна"
+        }
+      },
       "aux_heat_mode": {
         "name": "Режим на помошно греење",
         "state": {
@@ -1564,6 +1582,9 @@
       }
     },
     "sensor": {
+      "software_version": {
+        "name": "Верзија на софтвер"
+      },
       "evaporator_temperature": {
         "name": "Температура на испарувачот"
       },
