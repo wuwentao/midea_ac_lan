@@ -1466,6 +1466,14 @@
       },
       "washer_spin_time_control": {
         "name": "Centrifugálási idő (perc)"
+      },
+      "updown": {
+        "name": "Emelés/Süllyesztés",
+        "state": {
+          "pause": "Szünet",
+          "up": "Fel",
+          "down": "Le"
+        }
       }
     },
     "time": {
@@ -4138,7 +4146,7 @@
         "name": "Vakáció mód"
       },
       "dry": {
-        "name": "Dry"
+        "name": "Szárítás"
       },
       "cold_water_single": {
         "name": "Hideg víz egyszeri"
@@ -4177,7 +4185,7 @@
         "name": "Védelem a vízszivárgás ellen"
       },
       "light": {
-        "name": "Light"
+        "name": "Világítás"
       },
       "link_to_ac": {
         "name": "Link to AC"
@@ -4364,6 +4372,12 @@
       },
       "washer_forget_free": {
         "name": "Gondtalan ápolás"
+      },
+      "sterilize": {
+        "name": "Fertőtlenítés"
+      },
+      "baking": {
+        "name": "Melegítés"
       },
       "left_button": {
         "name": "Bal gomb"
