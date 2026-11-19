@@ -1545,6 +1545,14 @@
       },
       "washer_spin_time_control": {
         "name": "Sentrifugeringstid (min)"
+      },
+      "updown": {
+        "name": "Hev/Senk",
+        "state": {
+          "pause": "Pause",
+          "up": "Opp",
+          "down": "Ned"
+        }
       }
     },
     "time": {
@@ -4298,7 +4306,7 @@
         "name": "Feriemodus"
       },
       "dry": {
-        "name": "Tørr"
+        "name": "Tørking"
       },
       "cold_water_single": {
         "name": "Kaldtvann enkel"
@@ -4331,7 +4339,7 @@
         "name": "Vannlekkasjebeskyttelse"
       },
       "light": {
-        "name": "Lett"
+        "name": "Lys"
       },
       "link_to_ac": {
         "name": "Koble til AC"
@@ -4515,6 +4523,12 @@
       },
       "washer_forget_free": {
         "name": "Glem-fri pleie"
+      },
+      "sterilize": {
+        "name": "Steriliser"
+      },
+      "baking": {
+        "name": "Oppvarming"
       },
       "left_button": {
         "name": "Venstre knapp"

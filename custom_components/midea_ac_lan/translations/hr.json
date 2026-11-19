@@ -1545,6 +1545,14 @@
       },
       "washer_spin_time_control": {
         "name": "Vrijeme centrifuge (min)"
+      },
+      "updown": {
+        "name": "Podigni/Spusti",
+        "state": {
+          "pause": "Pauza",
+          "up": "Gore",
+          "down": "Dolje"
+        }
       }
     },
     "time": {
@@ -4298,7 +4306,7 @@
         "name": "Način rada za odmor"
       },
       "dry": {
-        "name": "Suho"
+        "name": "Sušenje"
       },
       "cold_water_single": {
         "name": "Hladna voda jednostruko"
@@ -4331,7 +4339,7 @@
         "name": "Zaštita od curenja vode"
       },
       "light": {
-        "name": "Lagano"
+        "name": "Svjetlo"
       },
       "link_to_ac": {
         "name": "Povezivanje s klimom"
@@ -4515,6 +4523,12 @@
       },
       "washer_forget_free": {
         "name": "Njega bez zaboravljanja"
+      },
+      "sterilize": {
+        "name": "Sterilizacija"
+      },
+      "baking": {
+        "name": "Grijanje"
       },
       "left_button": {
         "name": "Lijeva tipka"

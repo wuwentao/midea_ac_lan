@@ -1545,6 +1545,14 @@
       },
       "washer_spin_time_control": {
         "name": "탈수 시간 (분)"
+      },
+      "updown": {
+        "name": "올림/내림",
+        "state": {
+          "pause": "정지",
+          "up": "올림",
+          "down": "내림"
+        }
       }
     },
     "time": {
@@ -4331,7 +4339,7 @@
         "name": "누수 보호"
       },
       "light": {
-        "name": "가벼움"
+        "name": "조명"
       },
       "link_to_ac": {
         "name": "에어컨 연동"
@@ -4515,6 +4523,12 @@
       },
       "washer_forget_free": {
         "name": "잊음 방지 케어"
+      },
+      "sterilize": {
+        "name": "살균"
+      },
+      "baking": {
+        "name": "가열"
       },
       "left_button": {
         "name": "왼쪽 버튼"

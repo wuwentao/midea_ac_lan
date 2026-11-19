@@ -1502,6 +1502,14 @@
       },
       "washer_spin_time_control": {
         "name": "Время отжима (мин)"
+      },
+      "updown": {
+        "name": "Поднять/Опустить",
+        "state": {
+          "pause": "Пауза",
+          "up": "Вверх",
+          "down": "Вниз"
+        }
       }
     },
     "time": {
@@ -4192,7 +4200,7 @@
         "name": "Режим отпуска"
       },
       "dry": {
-        "name": "Dry"
+        "name": "Сушка"
       },
       "cold_water_single": {
         "name": "Холодная вода (однократно)"
@@ -4418,6 +4426,12 @@
       },
       "washer_forget_free": {
         "name": "Уход без контроля"
+      },
+      "sterilize": {
+        "name": "Стерилизация"
+      },
+      "baking": {
+        "name": "Нагрев"
       },
       "left_button": {
         "name": "Левая кнопка"
