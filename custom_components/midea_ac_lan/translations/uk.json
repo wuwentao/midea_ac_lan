@@ -884,6 +884,33 @@
       },
       "laundry_appointment": {
         "name": "Резервування"
+      },
+      "has_token": {
+        "name": "Має токен"
+      },
+      "humidify": {
+        "name": "Зволоження"
+      },
+      "speedy": {
+        "name": "Швидке прання"
+      },
+      "lock": {
+        "name": "Захист від дітей"
+      },
+      "beforehand_wash": {
+        "name": "Попереднє прання"
+      },
+      "steam_wash": {
+        "name": "Прання з парою"
+      },
+      "add_rinse": {
+        "name": "Додаткове полоскання"
+      },
+      "wind_dispel": {
+        "name": "Освіження повітрям"
+      },
+      "remote_control_flag": {
+        "name": "Дистанційне керування"
       }
     },
     "button": {
@@ -925,6 +952,9 @@
       }
     },
     "fan": {
+      "fan": {
+        "name": "Вентилятор"
+      },
       "bgf10000": {
         "state_attributes": {
           "preset_mode": {
@@ -946,6 +976,11 @@
       },
       "fresh_air_exhaust": {
         "name": "Витяжка свіжого повітря"
+      }
+    },
+    "light": {
+      "light": {
+        "name": "Освітлення"
       }
     },
     "lock": {
@@ -1046,9 +1081,53 @@
       },
       "dryer_timed_extra": {
         "name": "Продовження таймерного сушіння"
+      },
+      "auto_off_screen_type": {
+        "name": "Тип автоматичного вимкнення екрана"
+      },
+      "theme": {
+        "name": "Тема"
+      },
+      "night_volume": {
+        "name": "Нічна гучність"
+      },
+      "voice_volume": {
+        "name": "Гучність голосу"
+      },
+      "sleep_start_hour": {
+        "name": "Година початку сну"
+      },
+      "sleep_start_minute": {
+        "name": "Хвилина початку сну"
+      },
+      "sleep_duration_hour": {
+        "name": "Тривалість сну (години)"
+      },
+      "sleep_duration_minute": {
+        "name": "Тривалість сну (хвилини)"
+      },
+      "brightness": {
+        "name": "Яскравість"
+      },
+      "left_button_work_mode": {
+        "name": "Режим роботи лівої кнопки"
+      },
+      "middle_button_work_mode": {
+        "name": "Режим роботи середньої кнопки"
+      },
+      "right_button_work_mode": {
+        "name": "Режим роботи правої кнопки"
       }
     },
     "select": {
+      "aux_heat_mode": {
+        "name": "Режим допоміжного нагріву",
+        "state": {
+          "off": "Вимк",
+          "aux_heat": "Допоміжний нагрів",
+          "aux_only": "Лише допоміжний нагрів"
+        }
+      },
       "cur_quantify": {
         "name": "Поточна задана кількість",
         "state": {
@@ -1060,75 +1139,13 @@
           "preset_5": "Пресет 5"
         }
       },
-      "wash_mode_76000228": {
-        "name": "Режим миття",
-        "state": {
-          "neutral_gear": "Немає",
-          "auto_wash": "Авто",
-          "strong_wash": "Інтенсивний",
-          "standard_wash": "Універсальний",
-          "eco_wash": "ECO",
-          "glass_wash": "Скло",
-          "hour_wash": "90 хв",
-          "fast_wash": "Швидкий",
-          "soak_wash": "Замочування",
-          "90min": "90 хв",
-          "self_clean": "Самоочищення",
-          "fruit_wash": "Фрукти",
-          "self_define": "Користувацький",
-          "germ": "Шепіт",
-          "bowl_wash": "Посуд",
-          "kill_germ": "Гігієна",
-          "sea_food_wash": "Самоочищення",
-          "hot_pot_wash": "Гаряча каструля",
-          "quiet_night_wash": "Тиха ніч",
-          "less_wash": "Легкий",
-          "max_rapid_wash": "Макс. швидкий",
-          "oil_net_wash": "Масляний фільтр",
-          "cloud_wash": "Хмарна програма",
-          "single_dry": "Лише сушіння",
-          "single_disinfect": "Лише дезінфекція",
-          "high_temp_wash": "Висока температура",
-          "wash_dry": "Миття та сушіння"
-        }
-      },
-      "program_76000228": {
-        "name": "Програма",
-        "state": {
-          "auto_wash": "Авто",
-          "strong_wash": "Інтенсивний",
-          "standard_wash": "Універсальний",
-          "eco_wash": "ECO",
-          "glass_wash": "Скло",
-          "hour_wash": "90 хв",
-          "fast_wash": "Швидкий",
-          "soak_wash": "Замочування",
-          "90min": "90 хв",
-          "self_clean": "Самоочищення",
-          "fruit_wash": "Фрукти",
-          "self_define": "Користувацький",
-          "germ": "Шепіт",
-          "bowl_wash": "Посуд",
-          "kill_germ": "Гігієна",
-          "sea_food_wash": "Самоочищення",
-          "hot_pot_wash": "Гаряча каструля",
-          "quiet_night_wash": "Тиха ніч",
-          "less_wash": "Легкий",
-          "max_rapid_wash": "Макс. швидкий",
-          "oil_net_wash": "Масляний фільтр",
-          "cloud_wash": "Хмарна програма",
-          "single_dry": "Лише сушіння",
-          "single_disinfect": "Лише дезінфекція",
-          "high_temp_wash": "Висока температура",
-          "wash_dry": "Миття та сушіння"
-        }
-      },
       "program": {
         "name": "Програма",
         "state": {
           "auto_wash": "Авто",
           "strong_wash": "Інтенсивний",
           "standard_wash": "Стандартний",
+          "universal_wash": "Універсальний",
           "eco_wash": "ECO",
           "glass_wash": "Скло",
           "hour_wash": "1 година",
@@ -1139,6 +1156,7 @@
           "fruit_wash": "Фрукти",
           "self_define": "Користувацький",
           "germ": "Знищення мікробів",
+          "whisper_wash": "Тихий",
           "bowl_wash": "Посуд",
           "kill_germ": "Гігієна",
           "sea_food_wash": "Морепродукти",
@@ -1151,7 +1169,8 @@
           "single_dry": "Лише сушіння",
           "single_disinfect": "Лише дезінфекція",
           "high_temp_wash": "Висока температура",
-          "wash_dry": "Миття та сушіння"
+          "wash_dry": "Миття та сушіння",
+          "anion1": "Іонне освіження"
         }
       },
       "load": {
@@ -1261,6 +1280,7 @@
           "auto_wash": "Авто",
           "strong_wash": "Інтенсивний",
           "standard_wash": "Стандартний",
+          "universal_wash": "Універсальний",
           "eco_wash": "ECO",
           "glass_wash": "Скло",
           "hour_wash": "1 година",
@@ -1271,6 +1291,7 @@
           "fruit_wash": "Фрукти",
           "self_define": "Користувацький",
           "germ": "Знищення мікробів",
+          "whisper_wash": "Тихий",
           "bowl_wash": "Посуд",
           "kill_germ": "Гігієна",
           "sea_food_wash": "Морепродукти",
@@ -1283,7 +1304,8 @@
           "single_dry": "Лише сушіння",
           "single_disinfect": "Лише дезінфекція",
           "high_temp_wash": "Висока температура",
-          "wash_dry": "Миття та сушіння"
+          "wash_dry": "Миття та сушіння",
+          "anion1": "Іонне освіження"
         }
       },
       "water_level_set": {
@@ -1534,6 +1556,9 @@
       }
     },
     "sensor": {
+      "evaporator_temperature": {
+        "name": "Температура випарника"
+      },
       "db_running_status": {
         "name": "Стан пральної машини"
       },
@@ -1625,6 +1650,7 @@
           "auto_wash": "Авто",
           "strong_wash": "Інтенсивний",
           "standard_wash": "Стандартний",
+          "universal_wash": "Універсальний",
           "eco_wash": "ECO",
           "glass_wash": "Скло",
           "hour_wash": "1 година",
@@ -1635,6 +1661,7 @@
           "fruit_wash": "Фрукти",
           "self_define": "Користувацький",
           "germ": "Знищення мікробів",
+          "whisper_wash": "Тихий",
           "bowl_wash": "Посуд",
           "kill_germ": "Гігієна",
           "sea_food_wash": "Морепродукти",
@@ -1647,39 +1674,8 @@
           "single_dry": "Лише сушіння",
           "single_disinfect": "Лише дезінфекція",
           "high_temp_wash": "Висока температура",
-          "wash_dry": "Миття та сушіння"
-        }
-      },
-      "dishwasher_mode_76000228": {
-        "name": "Режим",
-        "state": {
-          "neutral_gear": "Немає",
-          "auto_wash": "Авто",
-          "strong_wash": "Інтенсивний",
-          "standard_wash": "Універсальний",
-          "eco_wash": "ECO",
-          "glass_wash": "Скло",
-          "hour_wash": "90 хв",
-          "fast_wash": "Швидкий",
-          "soak_wash": "Замочування",
-          "90min": "90 хв",
-          "self_clean": "Самоочищення",
-          "fruit_wash": "Фрукти",
-          "self_define": "Користувацький",
-          "germ": "Шепіт",
-          "bowl_wash": "Посуд",
-          "kill_germ": "Гігієна",
-          "sea_food_wash": "Самоочищення",
-          "hot_pot_wash": "Гаряча каструля",
-          "quiet_night_wash": "Тиха ніч",
-          "less_wash": "Легкий",
-          "max_rapid_wash": "Макс. швидкий",
-          "oil_net_wash": "Масляний фільтр",
-          "cloud_wash": "Хмарна програма",
-          "single_dry": "Лише сушіння",
-          "single_disinfect": "Лише дезінфекція",
-          "high_temp_wash": "Висока температура",
-          "wash_dry": "Миття та сушіння"
+          "wash_dry": "Миття та сушіння",
+          "anion1": "Іонне освіження"
         }
       },
       "dishwasher_status": {
@@ -2026,6 +2022,9 @@
       },
       "indoor_humidity": {
         "name": "Вологість у приміщенні"
+      },
+      "target_humidity": {
+        "name": "Цільова вологість"
       },
       "indoor_temperature": {
         "name": "Температура в приміщенні"
@@ -4031,6 +4030,195 @@
       },
       "cbs_version": {
         "name": "Версія CBS"
+      },
+      "panel_status": {
+        "name": "Стан панелі"
+      },
+      "cooling_capacity": {
+        "name": "Холодопродуктивність"
+      },
+      "cooling_cop_eer": {
+        "name": "Охолодження COP/EER"
+      },
+      "cooling_cop_eer_this_month": {
+        "name": "Охолодження COP/EER цього місяця"
+      },
+      "cooling_cop_eer_this_week": {
+        "name": "Охолодження COP/EER цього тижня"
+      },
+      "cooling_cop_eer_this_year": {
+        "name": "Охолодження COP/EER цього року"
+      },
+      "cooling_cop_eer_today": {
+        "name": "Охолодження COP/EER сьогодні"
+      },
+      "cooling_energy_consumption_this_month": {
+        "name": "Споживання електроенергії охолодження цього місяця"
+      },
+      "cooling_energy_consumption_this_week": {
+        "name": "Споживання електроенергії охолодження цього тижня"
+      },
+      "cooling_energy_consumption_this_year": {
+        "name": "Споживання електроенергії охолодження цього року"
+      },
+      "cooling_energy_consumption_today": {
+        "name": "Споживання електроенергії охолодження сьогодні"
+      },
+      "cooling_power_consumption": {
+        "name": "Електрична потужність охолодження"
+      },
+      "cooling_produced_energy_this_month": {
+        "name": "Вироблена холодова енергія цього місяця"
+      },
+      "cooling_produced_energy_this_week": {
+        "name": "Вироблена холодова енергія цього тижня"
+      },
+      "cooling_produced_energy_this_year": {
+        "name": "Вироблена холодова енергія цього року"
+      },
+      "cooling_produced_energy_today": {
+        "name": "Вироблена холодова енергія сьогодні"
+      },
+      "cooling_total_cop_eer": {
+        "name": "Охолодження сумарний COP/EER"
+      },
+      "cooling_total_energy_consumption": {
+        "name": "Сумарне споживання електроенергії охолодження"
+      },
+      "cooling_total_produced_energy": {
+        "name": "Сумарна вироблена холодова енергія"
+      },
+      "dhw_capacity": {
+        "name": "Теплова потужність ГВП"
+      },
+      "dhw_cop_eer": {
+        "name": "ГВП COP/EER"
+      },
+      "dhw_cop_eer_this_month": {
+        "name": "ГВП COP/EER цього місяця"
+      },
+      "dhw_cop_eer_this_week": {
+        "name": "ГВП COP/EER цього тижня"
+      },
+      "dhw_cop_eer_this_year": {
+        "name": "ГВП COP/EER цього року"
+      },
+      "dhw_cop_eer_today": {
+        "name": "ГВП COP/EER сьогодні"
+      },
+      "dhw_energy_consumption_this_month": {
+        "name": "Споживання електроенергії ГВП цього місяця"
+      },
+      "dhw_energy_consumption_this_week": {
+        "name": "Споживання електроенергії ГВП цього тижня"
+      },
+      "dhw_energy_consumption_this_year": {
+        "name": "Споживання електроенергії ГВП цього року"
+      },
+      "dhw_energy_consumption_today": {
+        "name": "Споживання електроенергії ГВП сьогодні"
+      },
+      "dhw_power_consumption": {
+        "name": "Електрична потужність ГВП"
+      },
+      "dhw_produced_energy_this_month": {
+        "name": "Вироблена теплова енергія ГВП цього місяця"
+      },
+      "dhw_produced_energy_this_week": {
+        "name": "Вироблена теплова енергія ГВП цього тижня"
+      },
+      "dhw_produced_energy_this_year": {
+        "name": "Вироблена теплова енергія ГВП цього року"
+      },
+      "dhw_produced_energy_today": {
+        "name": "Вироблена теплова енергія ГВП сьогодні"
+      },
+      "dhw_total_cop_eer": {
+        "name": "ГВП сумарний COP/EER"
+      },
+      "dhw_total_energy_consumption": {
+        "name": "Сумарне споживання електроенергії ГВП"
+      },
+      "dhw_total_produced_energy": {
+        "name": "Сумарна вироблена теплова енергія ГВП"
+      },
+      "heating_capacity": {
+        "name": "Теплопродуктивність"
+      },
+      "heating_cop_eer": {
+        "name": "Опалення COP/EER"
+      },
+      "heating_cop_eer_this_month": {
+        "name": "Опалення COP/EER цього місяця"
+      },
+      "heating_cop_eer_this_week": {
+        "name": "Опалення COP/EER цього тижня"
+      },
+      "heating_cop_eer_this_year": {
+        "name": "Опалення COP/EER цього року"
+      },
+      "heating_cop_eer_today": {
+        "name": "Опалення COP/EER сьогодні"
+      },
+      "heating_energy_consumption_this_month": {
+        "name": "Споживання електроенергії опалення цього місяця"
+      },
+      "heating_energy_consumption_this_week": {
+        "name": "Споживання електроенергії опалення цього тижня"
+      },
+      "heating_energy_consumption_this_year": {
+        "name": "Споживання електроенергії опалення цього року"
+      },
+      "heating_energy_consumption_today": {
+        "name": "Споживання електроенергії опалення сьогодні"
+      },
+      "heating_power_consumption": {
+        "name": "Електрична потужність опалення"
+      },
+      "heating_produced_energy_this_month": {
+        "name": "Вироблена теплова енергія опалення цього місяця"
+      },
+      "heating_produced_energy_this_week": {
+        "name": "Вироблена теплова енергія опалення цього тижня"
+      },
+      "heating_produced_energy_this_year": {
+        "name": "Вироблена теплова енергія опалення цього року"
+      },
+      "heating_produced_energy_today": {
+        "name": "Вироблена теплова енергія опалення сьогодні"
+      },
+      "heating_total_cop_eer": {
+        "name": "Опалення сумарний COP/EER"
+      },
+      "heating_total_energy_consumption": {
+        "name": "Сумарне споживання електроенергії опалення"
+      },
+      "heating_total_produced_energy": {
+        "name": "Сумарна вироблена теплова енергія опалення"
+      },
+      "instant_cop_eer": {
+        "name": "Миттєвий COP/EER"
+      },
+      "total_cop_eer": {
+        "name": "Сумарний COP/EER"
+      },
+      "dryer": {
+        "name": "Рівень сушіння"
+      },
+      "soak_count": {
+        "name": "Кількість замочувань"
+      },
+      "appointment_time": {
+        "name": "Час відкладеного старту"
+      },
+      "db_last_cycle_water_consumption": {
+        "name": "Споживання води за останній цикл"
+      },
+      "power_consumption": {
+        "name": "Споживання енергії за останній цикл"
+      },
+      "wash_count": {
+        "name": "Кількість прань"
       }
     },
     "switch": {
@@ -4327,6 +4515,42 @@
       },
       "washer_forget_free": {
         "name": "Догляд без турбот"
+      },
+      "left_button": {
+        "name": "Ліва кнопка"
+      },
+      "middle_button": {
+        "name": "Середня кнопка"
+      },
+      "right_button": {
+        "name": "Права кнопка"
+      },
+      "show_button_name": {
+        "name": "Показувати назву кнопки"
+      },
+      "close_screen_bright": {
+        "name": "Приглушувати екран після закриття"
+      },
+      "sleep_mode_switch": {
+        "name": "Перемикач режиму сну"
+      },
+      "sleep_mode_mute": {
+        "name": "Вимкнення звуку в режимі сну"
+      },
+      "left_button_keep": {
+        "name": "Зберігати ліву кнопку"
+      },
+      "middle_button_keep": {
+        "name": "Зберігати середню кнопку"
+      },
+      "right_button_keep": {
+        "name": "Зберігати праву кнопку"
+      },
+      "voice_control": {
+        "name": "Голосове керування"
+      },
+      "screen_state": {
+        "name": "Екран"
       }
     },
     "water_heater": {

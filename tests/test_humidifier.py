@@ -134,3 +134,104 @@ def test_update_state_attached_and_detached(
     attached.schedule_update_if_running = Mock()
     attached.update_state({})
     attached.schedule_update_if_running.assert_called_once_with()
+
+
+@pytest.mark.parametrize(
+    ("entity_class", "device_type"),
+    [
+        (MideaA1Humidifier, DeviceType.A1),
+        (MideaFDHumidifier, DeviceType.FD),
+    ],
+)
+@pytest.mark.parametrize(
+    ("tank", "expected_full"),
+    [
+        (101, True),
+        (100.5, True),
+        (100, True),
+        (99.5, False),
+        (99, False),
+        (None, False),
+    ],
+)
+def test_extra_state_attributes_tank_full(
+    entity_class: type[MideaHumidifier],
+    device_type: int,
+    tank: float | None,
+    expected_full: bool,
+    device_factory: DeviceFactory,
+    install_config: InstallConfig,
+) -> None:
+    """Expose the tank level and report full at 100 percent or more."""
+    install_config({"main": {"type": Platform.HUMIDIFIER}}, device_type)
+
+    attributes = {"tank": tank}
+    if device_type == DeviceType.A1:
+        # A1 devices receive tank_full directly from the library.
+        attributes["tank_full"] = expected_full
+
+    device, _ = device_factory(device_type=device_type, attributes=attributes)
+    entity = entity_class(device, "main")
+
+    attrs = entity.extra_state_attributes
+    assert attrs["tank"] == tank
+    assert attrs["tank_full"] is expected_full
+
+
+@pytest.mark.parametrize(
+    ("entity_class", "device_type"),
+    [
+        (MideaA1Humidifier, DeviceType.A1),
+        (MideaFDHumidifier, DeviceType.FD),
+    ],
+)
+def test_extra_state_attributes_tank_update(
+    entity_class: type[MideaHumidifier],
+    device_type: int,
+    device_factory: DeviceFactory,
+    install_config: InstallConfig,
+) -> None:
+    """Follow later device reports so tank_full turns on and off at 100 percent."""
+    install_config({"main": {"type": Platform.HUMIDIFIER}}, device_type)
+
+    attributes = {"tank": 99}
+    if device_type == DeviceType.A1:
+        attributes["tank_full"] = False
+
+    device, values = device_factory(device_type=device_type, attributes=attributes)
+    entity = entity_class(device, "main")
+
+    assert entity.extra_state_attributes["tank_full"] is False
+
+    values["tank"] = 100
+    if device_type == DeviceType.A1:
+        values["tank_full"] = True
+
+    attrs = entity.extra_state_attributes
+    assert attrs["tank"] == 100
+    assert attrs["tank_full"] is True
+
+    values["tank"] = 99
+    if device_type == DeviceType.A1:
+        values["tank_full"] = False
+
+    attrs = entity.extra_state_attributes
+    assert attrs["tank"] == 99
+    assert attrs["tank_full"] is False
+
+
+def test_extra_state_attributes_a1_delegation(
+    device_factory: DeviceFactory,
+    install_config: InstallConfig,
+) -> None:
+    """Use the library-provided tank_full value for A1 devices."""
+    install_config({"main": {"type": Platform.HUMIDIFIER}}, DeviceType.A1)
+    device, _ = device_factory(
+        device_type=DeviceType.A1,
+        attributes={"tank": 50, "tank_full": True},
+    )
+    entity = MideaA1Humidifier(device, "main")
+
+    attrs = entity.extra_state_attributes
+    assert attrs["tank"] == 50
+    assert attrs["tank_full"] is True
