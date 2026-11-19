@@ -11,6 +11,10 @@ Steam / warming cooking appliance (device type 0xEB).
 - Supports Countdown timer
 - Reports running / remaining time and work stage
 
+The writable ranges match `midea-lan`: `function_no` is 0–65535,
+`work_status` is 0–255, `fire_level` is 0–21, timer hours are 0–23,
+and timer minutes are 0–59.
+
 ## Customize
 
 No customize
@@ -25,21 +29,21 @@ No default entity
 
 The table below lists both number controls (writable) and sensors (read-only).
 
-| EntityID                                | Class  | Description       |
-| --------------------------------------- | ------ | ----------------- |
-| number.{DEVICEID}\_eb_function_no       | number | Function number   |
-| number.{DEVICEID}\_eb_work_status       | number | Work status       |
-| number.{DEVICEID}\_eb_fire_level        | number | Fire level        |
-| number.{DEVICEID}\_eb_time_reserve_hr   | number | Reserve hours     |
-| number.{DEVICEID}\_eb_time_reserve_min  | number | Reserve minutes   |
-| number.{DEVICEID}\_eb_definite_time_hr  | number | Timer hours       |
-| number.{DEVICEID}\_eb_definite_time_min | number | Timer minutes     |
-| sensor.{DEVICEID}\_eb_time_running_hr   | sensor | Running hours     |
-| sensor.{DEVICEID}\_eb_time_running_min  | sensor | Running minutes   |
-| sensor.{DEVICEID}\_eb_time_surplus_hr   | sensor | Remaining hours   |
-| sensor.{DEVICEID}\_eb_time_surplus_min  | sensor | Remaining minutes |
-| sensor.{DEVICEID}\_eb_work_stage        | sensor | Work stage        |
-| sensor.{DEVICEID}\_error_code           | sensor | Error code        |
+| EntityID                             | Class  | Description       |
+| ------------------------------------ | ------ | ----------------- |
+| number.{DEVICEID}\_function_no       | number | Function number   |
+| number.{DEVICEID}\_work_status       | number | Work status       |
+| number.{DEVICEID}\_fire_level        | number | Fire level        |
+| number.{DEVICEID}\_time_reserve_hr   | number | Reserve hours     |
+| number.{DEVICEID}\_time_reserve_min  | number | Reserve minutes   |
+| number.{DEVICEID}\_definite_time_hr  | number | Timer hours       |
+| number.{DEVICEID}\_definite_time_min | number | Timer minutes     |
+| sensor.{DEVICEID}\_time_running_hr   | sensor | Running hours     |
+| sensor.{DEVICEID}\_time_running_min  | sensor | Running minutes   |
+| sensor.{DEVICEID}\_time_surplus_hr   | sensor | Remaining hours   |
+| sensor.{DEVICEID}\_time_surplus_min  | sensor | Remaining minutes |
+| sensor.{DEVICEID}\_work_stage        | sensor | Work stage        |
+| sensor.{DEVICEID}\_error_code        | sensor | Error code        |
 
 ## Service
 

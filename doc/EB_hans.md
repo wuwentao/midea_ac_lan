@@ -11,6 +11,10 @@
 - 支持倒计时定时
 - 上报运行 / 剩余时间与工作阶段
 
+可写范围与 `midea-lan` 保持一致：`function_no` 为 0–65535，
+`work_status` 为 0–255，`fire_level` 为 0–21，定时小时为 0–23，
+定时分钟为 0–59。
+
 ## 自定义
 
 无自定义
@@ -25,21 +29,21 @@
 
 下表同时包含 number 控制实体(可写)与 sensor 传感器实体(只读)。
 
-| 实体ID                                  | 类型   | 描述     |
-| --------------------------------------- | ------ | -------- |
-| number.{DEVICEID}\_eb_function_no       | number | 功能编号 |
-| number.{DEVICEID}\_eb_work_status       | number | 工作状态 |
-| number.{DEVICEID}\_eb_fire_level        | number | 火力档位 |
-| number.{DEVICEID}\_eb_time_reserve_hr   | number | 预约小时 |
-| number.{DEVICEID}\_eb_time_reserve_min  | number | 预约分钟 |
-| number.{DEVICEID}\_eb_definite_time_hr  | number | 定时小时 |
-| number.{DEVICEID}\_eb_definite_time_min | number | 定时分钟 |
-| sensor.{DEVICEID}\_eb_time_running_hr   | sensor | 运行小时 |
-| sensor.{DEVICEID}\_eb_time_running_min  | sensor | 运行分钟 |
-| sensor.{DEVICEID}\_eb_time_surplus_hr   | sensor | 剩余小时 |
-| sensor.{DEVICEID}\_eb_time_surplus_min  | sensor | 剩余分钟 |
-| sensor.{DEVICEID}\_eb_work_stage        | sensor | 工作阶段 |
-| sensor.{DEVICEID}\_error_code           | sensor | 错误代码 |
+| 实体ID                               | 类型   | 描述     |
+| ------------------------------------ | ------ | -------- |
+| number.{DEVICEID}\_function_no       | number | 功能编号 |
+| number.{DEVICEID}\_work_status       | number | 工作状态 |
+| number.{DEVICEID}\_fire_level        | number | 火力档位 |
+| number.{DEVICEID}\_time_reserve_hr   | number | 预约小时 |
+| number.{DEVICEID}\_time_reserve_min  | number | 预约分钟 |
+| number.{DEVICEID}\_definite_time_hr  | number | 定时小时 |
+| number.{DEVICEID}\_definite_time_min | number | 定时分钟 |
+| sensor.{DEVICEID}\_time_running_hr   | sensor | 运行小时 |
+| sensor.{DEVICEID}\_time_running_min  | sensor | 运行分钟 |
+| sensor.{DEVICEID}\_time_surplus_hr   | sensor | 剩余小时 |
+| sensor.{DEVICEID}\_time_surplus_min  | sensor | 剩余分钟 |
+| sensor.{DEVICEID}\_work_stage        | sensor | 工作阶段 |
+| sensor.{DEVICEID}\_error_code        | sensor | 错误代码 |
 
 ## 服务
 
