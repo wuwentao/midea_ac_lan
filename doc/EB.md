@@ -15,6 +15,10 @@ The writable ranges match `midea-lan`: `function_no` is 0–65535,
 `work_status` is 0–255, `fire_level` is 0–21, timer hours are 0–23,
 and timer minutes are 0–59.
 
+The protocol defines these `work_status` codes: `0` = standby, `1` = start,
+`2` = reserve, `3` = warming, `4` = suspended, `5` = power off, and `9` =
+no cookware. Other values in the raw byte range are not named by the protocol.
+
 ## Customize
 
 No customize
