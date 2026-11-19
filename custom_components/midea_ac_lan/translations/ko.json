@@ -884,6 +884,33 @@
       },
       "laundry_appointment": {
         "name": "예약"
+      },
+      "has_token": {
+        "name": "토큰 있음"
+      },
+      "humidify": {
+        "name": "가습"
+      },
+      "speedy": {
+        "name": "쾌속 세탁"
+      },
+      "lock": {
+        "name": "어린이 잠금"
+      },
+      "beforehand_wash": {
+        "name": "애벌 세탁"
+      },
+      "steam_wash": {
+        "name": "스팀 세탁"
+      },
+      "add_rinse": {
+        "name": "추가 헹굼"
+      },
+      "wind_dispel": {
+        "name": "신선 공기"
+      },
+      "remote_control_flag": {
+        "name": "원격 제어"
       }
     },
     "button": {
@@ -925,6 +952,9 @@
       }
     },
     "fan": {
+      "fan": {
+        "name": "팬"
+      },
       "bgf10000": {
         "state_attributes": {
           "preset_mode": {
@@ -946,6 +976,11 @@
       },
       "fresh_air_exhaust": {
         "name": "신선 공기 배출"
+      }
+    },
+    "light": {
+      "light": {
+        "name": "조명"
       }
     },
     "lock": {
@@ -1046,9 +1081,53 @@
       },
       "dryer_timed_extra": {
         "name": "타이머 건조 연장"
+      },
+      "auto_off_screen_type": {
+        "name": "자동 화면 꺼짐 유형"
+      },
+      "theme": {
+        "name": "테마"
+      },
+      "night_volume": {
+        "name": "야간 음량"
+      },
+      "voice_volume": {
+        "name": "음성 음량"
+      },
+      "sleep_start_hour": {
+        "name": "수면 시작 시"
+      },
+      "sleep_start_minute": {
+        "name": "수면 시작 분"
+      },
+      "sleep_duration_hour": {
+        "name": "수면 지속 시간(시간)"
+      },
+      "sleep_duration_minute": {
+        "name": "수면 지속 시간(분)"
+      },
+      "brightness": {
+        "name": "밝기"
+      },
+      "left_button_work_mode": {
+        "name": "왼쪽 버튼 작동 모드"
+      },
+      "middle_button_work_mode": {
+        "name": "가운데 버튼 작동 모드"
+      },
+      "right_button_work_mode": {
+        "name": "오른쪽 버튼 작동 모드"
       }
     },
     "select": {
+      "aux_heat_mode": {
+        "name": "보조 난방 모드",
+        "state": {
+          "off": "꺼짐",
+          "aux_heat": "보조 난방",
+          "aux_only": "보조 난방만"
+        }
+      },
       "cur_quantify": {
         "name": "현재 양 프리셋",
         "state": {
@@ -1060,75 +1139,13 @@
           "preset_5": "프리셋 5"
         }
       },
-      "wash_mode_76000228": {
-        "name": "세척 모드",
-        "state": {
-          "neutral_gear": "없음",
-          "auto_wash": "자동",
-          "strong_wash": "강력",
-          "standard_wash": "표준",
-          "eco_wash": "ECO",
-          "glass_wash": "유리",
-          "hour_wash": "90분",
-          "fast_wash": "쾌속",
-          "soak_wash": "불림",
-          "90min": "90분",
-          "self_clean": "자동 청소",
-          "fruit_wash": "과일",
-          "self_define": "사용자 지정",
-          "germ": "속삭임",
-          "bowl_wash": "그릇",
-          "kill_germ": "위생",
-          "sea_food_wash": "자동 청소",
-          "hot_pot_wash": "전골",
-          "quiet_night_wash": "조용한 밤",
-          "less_wash": "가벼움",
-          "max_rapid_wash": "최대 쾌속",
-          "oil_net_wash": "기름 필터",
-          "cloud_wash": "클라우드 프로그램",
-          "single_dry": "건조 전용",
-          "single_disinfect": "살균 전용",
-          "high_temp_wash": "고온",
-          "wash_dry": "세척 및 건조"
-        }
-      },
-      "program_76000228": {
-        "name": "프로그램",
-        "state": {
-          "auto_wash": "자동",
-          "strong_wash": "강력",
-          "standard_wash": "표준",
-          "eco_wash": "ECO",
-          "glass_wash": "유리",
-          "hour_wash": "90분",
-          "fast_wash": "쾌속",
-          "soak_wash": "불림",
-          "90min": "90분",
-          "self_clean": "자동 청소",
-          "fruit_wash": "과일",
-          "self_define": "사용자 지정",
-          "germ": "속삭임",
-          "bowl_wash": "그릇",
-          "kill_germ": "위생",
-          "sea_food_wash": "자동 청소",
-          "hot_pot_wash": "전골",
-          "quiet_night_wash": "조용한 밤",
-          "less_wash": "가벼움",
-          "max_rapid_wash": "최대 쾌속",
-          "oil_net_wash": "기름 필터",
-          "cloud_wash": "클라우드 프로그램",
-          "single_dry": "건조 전용",
-          "single_disinfect": "살균 전용",
-          "high_temp_wash": "고온",
-          "wash_dry": "세척 및 건조"
-        }
-      },
       "program": {
         "name": "프로그램",
         "state": {
           "auto_wash": "자동",
           "strong_wash": "강력",
           "standard_wash": "표준",
+          "universal_wash": "만능",
           "eco_wash": "ECO",
           "glass_wash": "유리",
           "hour_wash": "1시간",
@@ -1139,6 +1156,7 @@
           "fruit_wash": "과일",
           "self_define": "사용자 지정",
           "germ": "살균",
+          "whisper_wash": "저소음",
           "bowl_wash": "그릇",
           "kill_germ": "위생",
           "sea_food_wash": "해산물",
@@ -1151,7 +1169,8 @@
           "single_dry": "건조 전용",
           "single_disinfect": "살균 전용",
           "high_temp_wash": "고온",
-          "wash_dry": "세척 및 건조"
+          "wash_dry": "세척 및 건조",
+          "anion1": "이온 탈취"
         }
       },
       "load": {
@@ -1261,6 +1280,7 @@
           "auto_wash": "자동",
           "strong_wash": "강력",
           "standard_wash": "표준",
+          "universal_wash": "만능",
           "eco_wash": "ECO",
           "glass_wash": "유리",
           "hour_wash": "1시간",
@@ -1271,6 +1291,7 @@
           "fruit_wash": "과일",
           "self_define": "사용자 지정",
           "germ": "살균",
+          "whisper_wash": "저소음",
           "bowl_wash": "그릇",
           "kill_germ": "위생",
           "sea_food_wash": "해산물",
@@ -1283,7 +1304,8 @@
           "single_dry": "건조 전용",
           "single_disinfect": "살균 전용",
           "high_temp_wash": "고온",
-          "wash_dry": "세척 및 건조"
+          "wash_dry": "세척 및 건조",
+          "anion1": "이온 탈취"
         }
       },
       "water_level_set": {
@@ -1534,6 +1556,9 @@
       }
     },
     "sensor": {
+      "evaporator_temperature": {
+        "name": "증발기 온도"
+      },
       "db_running_status": {
         "name": "세탁기 상태"
       },
@@ -1625,6 +1650,7 @@
           "auto_wash": "자동",
           "strong_wash": "강력",
           "standard_wash": "표준",
+          "universal_wash": "만능",
           "eco_wash": "ECO",
           "glass_wash": "유리",
           "hour_wash": "1시간",
@@ -1635,6 +1661,7 @@
           "fruit_wash": "과일",
           "self_define": "사용자 지정",
           "germ": "살균",
+          "whisper_wash": "저소음",
           "bowl_wash": "그릇",
           "kill_germ": "위생",
           "sea_food_wash": "해산물",
@@ -1647,39 +1674,8 @@
           "single_dry": "건조 전용",
           "single_disinfect": "살균 전용",
           "high_temp_wash": "고온",
-          "wash_dry": "세척 및 건조"
-        }
-      },
-      "dishwasher_mode_76000228": {
-        "name": "모드",
-        "state": {
-          "neutral_gear": "없음",
-          "auto_wash": "자동",
-          "strong_wash": "강력",
-          "standard_wash": "표준",
-          "eco_wash": "ECO",
-          "glass_wash": "유리",
-          "hour_wash": "90분",
-          "fast_wash": "쾌속",
-          "soak_wash": "불림",
-          "90min": "90분",
-          "self_clean": "자동 청소",
-          "fruit_wash": "과일",
-          "self_define": "사용자 지정",
-          "germ": "속삭임",
-          "bowl_wash": "그릇",
-          "kill_germ": "위생",
-          "sea_food_wash": "자동 청소",
-          "hot_pot_wash": "전골",
-          "quiet_night_wash": "조용한 밤",
-          "less_wash": "가벼움",
-          "max_rapid_wash": "최대 쾌속",
-          "oil_net_wash": "기름 필터",
-          "cloud_wash": "클라우드 프로그램",
-          "single_dry": "건조 전용",
-          "single_disinfect": "살균 전용",
-          "high_temp_wash": "고온",
-          "wash_dry": "세척 및 건조"
+          "wash_dry": "세척 및 건조",
+          "anion1": "이온 탈취"
         }
       },
       "dishwasher_status": {
@@ -2026,6 +2022,9 @@
       },
       "indoor_humidity": {
         "name": "실내 습도"
+      },
+      "target_humidity": {
+        "name": "목표 습도"
       },
       "indoor_temperature": {
         "name": "실내 온도"
@@ -4031,6 +4030,195 @@
       },
       "cbs_version": {
         "name": "CBS 버전"
+      },
+      "panel_status": {
+        "name": "패널 상태"
+      },
+      "cooling_capacity": {
+        "name": "냉방 용량"
+      },
+      "cooling_cop_eer": {
+        "name": "냉방 COP/EER"
+      },
+      "cooling_cop_eer_this_month": {
+        "name": "이번 달 냉방 COP/EER"
+      },
+      "cooling_cop_eer_this_week": {
+        "name": "이번 주 냉방 COP/EER"
+      },
+      "cooling_cop_eer_this_year": {
+        "name": "올해 냉방 COP/EER"
+      },
+      "cooling_cop_eer_today": {
+        "name": "오늘 냉방 COP/EER"
+      },
+      "cooling_energy_consumption_this_month": {
+        "name": "이번 달 냉방 전력 소비량"
+      },
+      "cooling_energy_consumption_this_week": {
+        "name": "이번 주 냉방 전력 소비량"
+      },
+      "cooling_energy_consumption_this_year": {
+        "name": "올해 냉방 전력 소비량"
+      },
+      "cooling_energy_consumption_today": {
+        "name": "오늘 냉방 전력 소비량"
+      },
+      "cooling_power_consumption": {
+        "name": "냉방 소비 전력"
+      },
+      "cooling_produced_energy_this_month": {
+        "name": "이번 달 냉방 생산 에너지"
+      },
+      "cooling_produced_energy_this_week": {
+        "name": "이번 주 냉방 생산 에너지"
+      },
+      "cooling_produced_energy_this_year": {
+        "name": "올해 냉방 생산 에너지"
+      },
+      "cooling_produced_energy_today": {
+        "name": "오늘 냉방 생산 에너지"
+      },
+      "cooling_total_cop_eer": {
+        "name": "냉방 누적 COP/EER"
+      },
+      "cooling_total_energy_consumption": {
+        "name": "냉방 누적 전력 소비량"
+      },
+      "cooling_total_produced_energy": {
+        "name": "냉방 누적 생산 에너지"
+      },
+      "dhw_capacity": {
+        "name": "급탕 열출력"
+      },
+      "dhw_cop_eer": {
+        "name": "급탕 COP/EER"
+      },
+      "dhw_cop_eer_this_month": {
+        "name": "이번 달 급탕 COP/EER"
+      },
+      "dhw_cop_eer_this_week": {
+        "name": "이번 주 급탕 COP/EER"
+      },
+      "dhw_cop_eer_this_year": {
+        "name": "올해 급탕 COP/EER"
+      },
+      "dhw_cop_eer_today": {
+        "name": "오늘 급탕 COP/EER"
+      },
+      "dhw_energy_consumption_this_month": {
+        "name": "이번 달 급탕 전력 소비량"
+      },
+      "dhw_energy_consumption_this_week": {
+        "name": "이번 주 급탕 전력 소비량"
+      },
+      "dhw_energy_consumption_this_year": {
+        "name": "올해 급탕 전력 소비량"
+      },
+      "dhw_energy_consumption_today": {
+        "name": "오늘 급탕 전력 소비량"
+      },
+      "dhw_power_consumption": {
+        "name": "급탕 소비 전력"
+      },
+      "dhw_produced_energy_this_month": {
+        "name": "이번 달 급탕 생산 열량"
+      },
+      "dhw_produced_energy_this_week": {
+        "name": "이번 주 급탕 생산 열량"
+      },
+      "dhw_produced_energy_this_year": {
+        "name": "올해 급탕 생산 열량"
+      },
+      "dhw_produced_energy_today": {
+        "name": "오늘 급탕 생산 열량"
+      },
+      "dhw_total_cop_eer": {
+        "name": "급탕 누적 COP/EER"
+      },
+      "dhw_total_energy_consumption": {
+        "name": "급탕 누적 전력 소비량"
+      },
+      "dhw_total_produced_energy": {
+        "name": "급탕 누적 생산 열량"
+      },
+      "heating_capacity": {
+        "name": "난방 열출력"
+      },
+      "heating_cop_eer": {
+        "name": "난방 COP/EER"
+      },
+      "heating_cop_eer_this_month": {
+        "name": "이번 달 난방 COP/EER"
+      },
+      "heating_cop_eer_this_week": {
+        "name": "이번 주 난방 COP/EER"
+      },
+      "heating_cop_eer_this_year": {
+        "name": "올해 난방 COP/EER"
+      },
+      "heating_cop_eer_today": {
+        "name": "오늘 난방 COP/EER"
+      },
+      "heating_energy_consumption_this_month": {
+        "name": "이번 달 난방 전력 소비량"
+      },
+      "heating_energy_consumption_this_week": {
+        "name": "이번 주 난방 전력 소비량"
+      },
+      "heating_energy_consumption_this_year": {
+        "name": "올해 난방 전력 소비량"
+      },
+      "heating_energy_consumption_today": {
+        "name": "오늘 난방 전력 소비량"
+      },
+      "heating_power_consumption": {
+        "name": "난방 소비 전력"
+      },
+      "heating_produced_energy_this_month": {
+        "name": "이번 달 난방 생산 열량"
+      },
+      "heating_produced_energy_this_week": {
+        "name": "이번 주 난방 생산 열량"
+      },
+      "heating_produced_energy_this_year": {
+        "name": "올해 난방 생산 열량"
+      },
+      "heating_produced_energy_today": {
+        "name": "오늘 난방 생산 열량"
+      },
+      "heating_total_cop_eer": {
+        "name": "난방 누적 COP/EER"
+      },
+      "heating_total_energy_consumption": {
+        "name": "난방 누적 전력 소비량"
+      },
+      "heating_total_produced_energy": {
+        "name": "난방 누적 생산 열량"
+      },
+      "instant_cop_eer": {
+        "name": "순간 COP/EER"
+      },
+      "total_cop_eer": {
+        "name": "전체 COP/EER"
+      },
+      "dryer": {
+        "name": "건조 단계"
+      },
+      "soak_count": {
+        "name": "불림 횟수"
+      },
+      "appointment_time": {
+        "name": "지연 시작 시간"
+      },
+      "db_last_cycle_water_consumption": {
+        "name": "직전 사이클 물 사용량"
+      },
+      "power_consumption": {
+        "name": "직전 사이클 전력 소비량"
+      },
+      "wash_count": {
+        "name": "세탁 횟수"
       }
     },
     "switch": {
@@ -4327,6 +4515,42 @@
       },
       "washer_forget_free": {
         "name": "잊음 방지 케어"
+      },
+      "left_button": {
+        "name": "왼쪽 버튼"
+      },
+      "middle_button": {
+        "name": "가운데 버튼"
+      },
+      "right_button": {
+        "name": "오른쪽 버튼"
+      },
+      "show_button_name": {
+        "name": "버튼 이름 표시"
+      },
+      "close_screen_bright": {
+        "name": "닫을 때 화면 어둡게"
+      },
+      "sleep_mode_switch": {
+        "name": "수면 모드 스위치"
+      },
+      "sleep_mode_mute": {
+        "name": "수면 모드 음소거"
+      },
+      "left_button_keep": {
+        "name": "왼쪽 버튼 유지"
+      },
+      "middle_button_keep": {
+        "name": "가운데 버튼 유지"
+      },
+      "right_button_keep": {
+        "name": "오른쪽 버튼 유지"
+      },
+      "voice_control": {
+        "name": "음성 제어"
+      },
+      "screen_state": {
+        "name": "화면"
       }
     },
     "water_heater": {

@@ -884,6 +884,33 @@
       },
       "laundry_appointment": {
         "name": "Rezervace"
+      },
+      "has_token": {
+        "name": "Token k dispozici"
+      },
+      "humidify": {
+        "name": "Zvlhčování"
+      },
+      "speedy": {
+        "name": "Rychlé praní"
+      },
+      "lock": {
+        "name": "Dětský zámek"
+      },
+      "beforehand_wash": {
+        "name": "Předpírka"
+      },
+      "steam_wash": {
+        "name": "Parní praní"
+      },
+      "add_rinse": {
+        "name": "Dodatečné máchání"
+      },
+      "wind_dispel": {
+        "name": "Čerstvý vzduch"
+      },
+      "remote_control_flag": {
+        "name": "Dálkové ovládání"
       }
     },
     "button": {
@@ -925,6 +952,9 @@
       }
     },
     "fan": {
+      "fan": {
+        "name": "Ventilátor"
+      },
       "bgf10000": {
         "state_attributes": {
           "preset_mode": {
@@ -946,6 +976,11 @@
       },
       "fresh_air_exhaust": {
         "name": "Odvod čerstvého vzduchu"
+      }
+    },
+    "light": {
+      "light": {
+        "name": "Osvětlení"
       }
     },
     "lock": {
@@ -1046,9 +1081,53 @@
       },
       "dryer_timed_extra": {
         "name": "Prodloužení časovaného sušení"
+      },
+      "auto_off_screen_type": {
+        "name": "Typ automatického vypnutí obrazovky"
+      },
+      "theme": {
+        "name": "Motiv"
+      },
+      "night_volume": {
+        "name": "Noční hlasitost"
+      },
+      "voice_volume": {
+        "name": "Hlasitost hlasu"
+      },
+      "sleep_start_hour": {
+        "name": "Hodina začátku spánku"
+      },
+      "sleep_start_minute": {
+        "name": "Minuta začátku spánku"
+      },
+      "sleep_duration_hour": {
+        "name": "Délka spánku (hodiny)"
+      },
+      "sleep_duration_minute": {
+        "name": "Délka spánku (minuty)"
+      },
+      "brightness": {
+        "name": "Jas"
+      },
+      "left_button_work_mode": {
+        "name": "Provozní režim levého tlačítka"
+      },
+      "middle_button_work_mode": {
+        "name": "Provozní režim prostředního tlačítka"
+      },
+      "right_button_work_mode": {
+        "name": "Provozní režim pravého tlačítka"
       }
     },
     "select": {
+      "aux_heat_mode": {
+        "name": "Režim přídavného topení",
+        "state": {
+          "off": "Vypnuto",
+          "aux_heat": "Přídavné topení",
+          "aux_only": "Pouze přídavné topení"
+        }
+      },
       "cur_quantify": {
         "name": "Aktuální přednastavené množství",
         "state": {
@@ -1060,75 +1139,13 @@
           "preset_5": "Předvolba 5"
         }
       },
-      "wash_mode_76000228": {
-        "name": "Režim mytí",
-        "state": {
-          "neutral_gear": "Žádné",
-          "auto_wash": "Automaticky",
-          "strong_wash": "Intenzivní",
-          "standard_wash": "Univerzální",
-          "eco_wash": "ECO",
-          "glass_wash": "Sklo",
-          "hour_wash": "90 min",
-          "fast_wash": "Rychlý",
-          "soak_wash": "Namáčení",
-          "90min": "90 min",
-          "self_clean": "Samočištění",
-          "fruit_wash": "Ovoce",
-          "self_define": "Vlastní",
-          "germ": "Šepot",
-          "bowl_wash": "Miska",
-          "kill_germ": "Hygiena",
-          "sea_food_wash": "Samočištění",
-          "hot_pot_wash": "Hotpot",
-          "quiet_night_wash": "Tichá noc",
-          "less_wash": "Lehký",
-          "max_rapid_wash": "Maximální rychlost",
-          "oil_net_wash": "Olejový filtr",
-          "cloud_wash": "Cloudový program",
-          "single_dry": "Pouze sušení",
-          "single_disinfect": "Pouze dezinfekce",
-          "high_temp_wash": "Vysoká teplota",
-          "wash_dry": "Mytí a sušení"
-        }
-      },
-      "program_76000228": {
-        "name": "Program",
-        "state": {
-          "auto_wash": "Automaticky",
-          "strong_wash": "Intenzivní",
-          "standard_wash": "Univerzální",
-          "eco_wash": "ECO",
-          "glass_wash": "Sklo",
-          "hour_wash": "90 min",
-          "fast_wash": "Rychlý",
-          "soak_wash": "Namáčení",
-          "90min": "90 min",
-          "self_clean": "Samočištění",
-          "fruit_wash": "Ovoce",
-          "self_define": "Vlastní",
-          "germ": "Šepot",
-          "bowl_wash": "Miska",
-          "kill_germ": "Hygiena",
-          "sea_food_wash": "Samočištění",
-          "hot_pot_wash": "Hotpot",
-          "quiet_night_wash": "Tichá noc",
-          "less_wash": "Lehký",
-          "max_rapid_wash": "Maximální rychlost",
-          "oil_net_wash": "Olejový filtr",
-          "cloud_wash": "Cloudový program",
-          "single_dry": "Pouze sušení",
-          "single_disinfect": "Pouze dezinfekce",
-          "high_temp_wash": "Vysoká teplota",
-          "wash_dry": "Mytí a sušení"
-        }
-      },
       "program": {
         "name": "Program",
         "state": {
           "auto_wash": "Automaticky",
           "strong_wash": "Intenzivní",
           "standard_wash": "Standardní",
+          "universal_wash": "Univerzální",
           "eco_wash": "ECO",
           "glass_wash": "Sklo",
           "hour_wash": "1 hodina",
@@ -1139,6 +1156,7 @@
           "fruit_wash": "Ovoce",
           "self_define": "Vlastní",
           "germ": "Choroboplodné zárodky",
+          "whisper_wash": "Tichý",
           "bowl_wash": "Miska",
           "kill_germ": "Hygiena",
           "sea_food_wash": "Mořské plody",
@@ -1151,7 +1169,8 @@
           "single_dry": "Pouze sušení",
           "single_disinfect": "Pouze dezinfekce",
           "high_temp_wash": "Vysoká teplota",
-          "wash_dry": "Mytí a sušení"
+          "wash_dry": "Mytí a sušení",
+          "anion1": "Iontové osvěžení"
         }
       },
       "load": {
@@ -1261,6 +1280,7 @@
           "auto_wash": "Automaticky",
           "strong_wash": "Intenzivní",
           "standard_wash": "Standardní",
+          "universal_wash": "Univerzální",
           "eco_wash": "ECO",
           "glass_wash": "Sklo",
           "hour_wash": "1 hodina",
@@ -1271,6 +1291,7 @@
           "fruit_wash": "Ovoce",
           "self_define": "Vlastní",
           "germ": "Choroboplodné zárodky",
+          "whisper_wash": "Tichý",
           "bowl_wash": "Miska",
           "kill_germ": "Hygiena",
           "sea_food_wash": "Mořské plody",
@@ -1283,7 +1304,8 @@
           "single_dry": "Pouze sušení",
           "single_disinfect": "Pouze dezinfekce",
           "high_temp_wash": "Vysoká teplota",
-          "wash_dry": "Mytí a sušení"
+          "wash_dry": "Mytí a sušení",
+          "anion1": "Iontové osvěžení"
         }
       },
       "water_level_set": {
@@ -1534,6 +1556,9 @@
       }
     },
     "sensor": {
+      "evaporator_temperature": {
+        "name": "Teplota výparníku"
+      },
       "db_running_status": {
         "name": "Stav pračky"
       },
@@ -1625,6 +1650,7 @@
           "auto_wash": "Automaticky",
           "strong_wash": "Intenzivní",
           "standard_wash": "Standardní",
+          "universal_wash": "Univerzální",
           "eco_wash": "ECO",
           "glass_wash": "Sklo",
           "hour_wash": "1 hodina",
@@ -1635,6 +1661,7 @@
           "fruit_wash": "Ovoce",
           "self_define": "Vlastní",
           "germ": "Choroboplodné zárodky",
+          "whisper_wash": "Tichý",
           "bowl_wash": "Miska",
           "kill_germ": "Hygiena",
           "sea_food_wash": "Mořské plody",
@@ -1647,39 +1674,8 @@
           "single_dry": "Pouze sušení",
           "single_disinfect": "Pouze dezinfekce",
           "high_temp_wash": "Vysoká teplota",
-          "wash_dry": "Mytí a sušení"
-        }
-      },
-      "dishwasher_mode_76000228": {
-        "name": "Režim",
-        "state": {
-          "neutral_gear": "Žádné",
-          "auto_wash": "Automaticky",
-          "strong_wash": "Intenzivní",
-          "standard_wash": "Univerzální",
-          "eco_wash": "ECO",
-          "glass_wash": "Sklo",
-          "hour_wash": "90 min",
-          "fast_wash": "Rychlý",
-          "soak_wash": "Namáčení",
-          "90min": "90 min",
-          "self_clean": "Samočištění",
-          "fruit_wash": "Ovoce",
-          "self_define": "Vlastní",
-          "germ": "Šepot",
-          "bowl_wash": "Miska",
-          "kill_germ": "Hygiena",
-          "sea_food_wash": "Samočištění",
-          "hot_pot_wash": "Hotpot",
-          "quiet_night_wash": "Tichá noc",
-          "less_wash": "Lehký",
-          "max_rapid_wash": "Maximální rychlost",
-          "oil_net_wash": "Olejový filtr",
-          "cloud_wash": "Cloudový program",
-          "single_dry": "Pouze sušení",
-          "single_disinfect": "Pouze dezinfekce",
-          "high_temp_wash": "Vysoká teplota",
-          "wash_dry": "Mytí a sušení"
+          "wash_dry": "Mytí a sušení",
+          "anion1": "Iontové osvěžení"
         }
       },
       "dishwasher_status": {
@@ -2026,6 +2022,9 @@
       },
       "indoor_humidity": {
         "name": "Vnitřní vlhkost"
+      },
+      "target_humidity": {
+        "name": "Cílová vlhkost"
       },
       "indoor_temperature": {
         "name": "Vnitřní teplota"
@@ -4031,6 +4030,195 @@
       },
       "cbs_version": {
         "name": "Verze CBS"
+      },
+      "panel_status": {
+        "name": "Stav panelu"
+      },
+      "cooling_capacity": {
+        "name": "Chladicí výkon"
+      },
+      "cooling_cop_eer": {
+        "name": "Chlazení COP/EER"
+      },
+      "cooling_cop_eer_this_month": {
+        "name": "Chlazení COP/EER tento měsíc"
+      },
+      "cooling_cop_eer_this_week": {
+        "name": "Chlazení COP/EER tento týden"
+      },
+      "cooling_cop_eer_this_year": {
+        "name": "Chlazení COP/EER tento rok"
+      },
+      "cooling_cop_eer_today": {
+        "name": "Chlazení COP/EER dnes"
+      },
+      "cooling_energy_consumption_this_month": {
+        "name": "Spotřeba elektřiny chlazení tento měsíc"
+      },
+      "cooling_energy_consumption_this_week": {
+        "name": "Spotřeba elektřiny chlazení tento týden"
+      },
+      "cooling_energy_consumption_this_year": {
+        "name": "Spotřeba elektřiny chlazení tento rok"
+      },
+      "cooling_energy_consumption_today": {
+        "name": "Spotřeba elektřiny chlazení dnes"
+      },
+      "cooling_power_consumption": {
+        "name": "Elektrický příkon chlazení"
+      },
+      "cooling_produced_energy_this_month": {
+        "name": "Vyrobená chladicí energie tento měsíc"
+      },
+      "cooling_produced_energy_this_week": {
+        "name": "Vyrobená chladicí energie tento týden"
+      },
+      "cooling_produced_energy_this_year": {
+        "name": "Vyrobená chladicí energie tento rok"
+      },
+      "cooling_produced_energy_today": {
+        "name": "Vyrobená chladicí energie dnes"
+      },
+      "cooling_total_cop_eer": {
+        "name": "Chlazení celkové COP/EER"
+      },
+      "cooling_total_energy_consumption": {
+        "name": "Celková spotřeba elektřiny chlazení"
+      },
+      "cooling_total_produced_energy": {
+        "name": "Celková vyrobená chladicí energie"
+      },
+      "dhw_capacity": {
+        "name": "Tepelný výkon TUV"
+      },
+      "dhw_cop_eer": {
+        "name": "TUV COP/EER"
+      },
+      "dhw_cop_eer_this_month": {
+        "name": "TUV COP/EER tento měsíc"
+      },
+      "dhw_cop_eer_this_week": {
+        "name": "TUV COP/EER tento týden"
+      },
+      "dhw_cop_eer_this_year": {
+        "name": "TUV COP/EER tento rok"
+      },
+      "dhw_cop_eer_today": {
+        "name": "TUV COP/EER dnes"
+      },
+      "dhw_energy_consumption_this_month": {
+        "name": "Spotřeba elektřiny TUV tento měsíc"
+      },
+      "dhw_energy_consumption_this_week": {
+        "name": "Spotřeba elektřiny TUV tento týden"
+      },
+      "dhw_energy_consumption_this_year": {
+        "name": "Spotřeba elektřiny TUV tento rok"
+      },
+      "dhw_energy_consumption_today": {
+        "name": "Spotřeba elektřiny TUV dnes"
+      },
+      "dhw_power_consumption": {
+        "name": "Elektrický příkon TUV"
+      },
+      "dhw_produced_energy_this_month": {
+        "name": "Vyrobená tepelná energie TUV tento měsíc"
+      },
+      "dhw_produced_energy_this_week": {
+        "name": "Vyrobená tepelná energie TUV tento týden"
+      },
+      "dhw_produced_energy_this_year": {
+        "name": "Vyrobená tepelná energie TUV tento rok"
+      },
+      "dhw_produced_energy_today": {
+        "name": "Vyrobená tepelná energie TUV dnes"
+      },
+      "dhw_total_cop_eer": {
+        "name": "TUV celkové COP/EER"
+      },
+      "dhw_total_energy_consumption": {
+        "name": "Celková spotřeba elektřiny TUV"
+      },
+      "dhw_total_produced_energy": {
+        "name": "Celková vyrobená tepelná energie TUV"
+      },
+      "heating_capacity": {
+        "name": "Tepelný výkon vytápění"
+      },
+      "heating_cop_eer": {
+        "name": "Vytápění COP/EER"
+      },
+      "heating_cop_eer_this_month": {
+        "name": "Vytápění COP/EER tento měsíc"
+      },
+      "heating_cop_eer_this_week": {
+        "name": "Vytápění COP/EER tento týden"
+      },
+      "heating_cop_eer_this_year": {
+        "name": "Vytápění COP/EER tento rok"
+      },
+      "heating_cop_eer_today": {
+        "name": "Vytápění COP/EER dnes"
+      },
+      "heating_energy_consumption_this_month": {
+        "name": "Spotřeba elektřiny vytápění tento měsíc"
+      },
+      "heating_energy_consumption_this_week": {
+        "name": "Spotřeba elektřiny vytápění tento týden"
+      },
+      "heating_energy_consumption_this_year": {
+        "name": "Spotřeba elektřiny vytápění tento rok"
+      },
+      "heating_energy_consumption_today": {
+        "name": "Spotřeba elektřiny vytápění dnes"
+      },
+      "heating_power_consumption": {
+        "name": "Elektrický příkon vytápění"
+      },
+      "heating_produced_energy_this_month": {
+        "name": "Vyrobená tepelná energie vytápění tento měsíc"
+      },
+      "heating_produced_energy_this_week": {
+        "name": "Vyrobená tepelná energie vytápění tento týden"
+      },
+      "heating_produced_energy_this_year": {
+        "name": "Vyrobená tepelná energie vytápění tento rok"
+      },
+      "heating_produced_energy_today": {
+        "name": "Vyrobená tepelná energie vytápění dnes"
+      },
+      "heating_total_cop_eer": {
+        "name": "Vytápění celkové COP/EER"
+      },
+      "heating_total_energy_consumption": {
+        "name": "Celková spotřeba elektřiny vytápění"
+      },
+      "heating_total_produced_energy": {
+        "name": "Celková vyrobená tepelná energie vytápění"
+      },
+      "instant_cop_eer": {
+        "name": "Okamžitý COP/EER"
+      },
+      "total_cop_eer": {
+        "name": "Celkový COP/EER"
+      },
+      "dryer": {
+        "name": "Úroveň sušení"
+      },
+      "soak_count": {
+        "name": "Počet namáčení"
+      },
+      "appointment_time": {
+        "name": "Doba do odloženého startu"
+      },
+      "db_last_cycle_water_consumption": {
+        "name": "Spotřeba vody za poslední cyklus"
+      },
+      "power_consumption": {
+        "name": "Spotřeba energie za poslední cyklus"
+      },
+      "wash_count": {
+        "name": "Počet praní"
       }
     },
     "switch": {
@@ -4327,6 +4515,42 @@
       },
       "washer_forget_free": {
         "name": "Bezstarostná péče"
+      },
+      "left_button": {
+        "name": "Levé tlačítko"
+      },
+      "middle_button": {
+        "name": "Prostřední tlačítko"
+      },
+      "right_button": {
+        "name": "Pravé tlačítko"
+      },
+      "show_button_name": {
+        "name": "Zobrazit název tlačítka"
+      },
+      "close_screen_bright": {
+        "name": "Ztlumit obrazovku při zavření"
+      },
+      "sleep_mode_switch": {
+        "name": "Přepínač režimu spánku"
+      },
+      "sleep_mode_mute": {
+        "name": "Ztlumení v režimu spánku"
+      },
+      "left_button_keep": {
+        "name": "Zachovat levé tlačítko"
+      },
+      "middle_button_keep": {
+        "name": "Zachovat prostřední tlačítko"
+      },
+      "right_button_keep": {
+        "name": "Zachovat pravé tlačítko"
+      },
+      "voice_control": {
+        "name": "Hlasové ovládání"
+      },
+      "screen_state": {
+        "name": "Obrazovka"
       }
     },
     "water_heater": {

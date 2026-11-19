@@ -884,6 +884,33 @@
       },
       "laundry_appointment": {
         "name": "Foglalás"
+      },
+      "has_token": {
+        "name": "Van token"
+      },
+      "humidify": {
+        "name": "Párásítás"
+      },
+      "speedy": {
+        "name": "Gyorsmosás"
+      },
+      "lock": {
+        "name": "Gyerekzár"
+      },
+      "beforehand_wash": {
+        "name": "Előmosás"
+      },
+      "steam_wash": {
+        "name": "Gőzmosás"
+      },
+      "add_rinse": {
+        "name": "Extra öblítés"
+      },
+      "wind_dispel": {
+        "name": "Friss levegő"
+      },
+      "remote_control_flag": {
+        "name": "Távvezérlés"
       }
     },
     "button": {
@@ -925,11 +952,19 @@
       }
     },
     "fan": {
+      "fan": {
+        "name": "Ventilátor"
+      },
       "fresh_air": {
         "name": "Fresh Air"
       },
       "fresh_air_exhaust": {
         "name": "Frisslevegő elszívás"
+      }
+    },
+    "light": {
+      "light": {
+        "name": "Világítás"
       }
     },
     "lock": {
@@ -1030,14 +1065,52 @@
       },
       "dryer_timed_extra": {
         "name": "Szárítási idő meghosszabbítása"
+      },
+      "auto_off_screen_type": {
+        "name": "Automatikus képernyő-kikapcsolás típusa"
+      },
+      "theme": {
+        "name": "Téma"
+      },
+      "night_volume": {
+        "name": "Éjszakai hangerő"
+      },
+      "voice_volume": {
+        "name": "Beszédhangerő"
+      },
+      "sleep_start_hour": {
+        "name": "Alvó mód kezdési órája"
+      },
+      "sleep_start_minute": {
+        "name": "Alvó mód kezdési perce"
+      },
+      "sleep_duration_hour": {
+        "name": "Alvó mód időtartama (óra)"
+      },
+      "sleep_duration_minute": {
+        "name": "Alvó mód időtartama (perc)"
+      },
+      "brightness": {
+        "name": "Fényerő"
+      },
+      "left_button_work_mode": {
+        "name": "Bal gomb működési módja"
+      },
+      "middle_button_work_mode": {
+        "name": "Középső gomb működési módja"
+      },
+      "right_button_work_mode": {
+        "name": "Jobb gomb működési módja"
       }
     },
     "select": {
-      "wash_mode_76000228": {
-        "name": "Mosási mód"
-      },
-      "program_76000228": {
-        "name": "Program"
+      "aux_heat_mode": {
+        "name": "Kiegészítő fűtés mód",
+        "state": {
+          "off": "Ki",
+          "aux_heat": "Kiegészítő fűtés",
+          "aux_only": "Csak kiegészítő fűtés"
+        }
       },
       "program": {
         "name": "Program"
@@ -1404,6 +1477,9 @@
       }
     },
     "sensor": {
+      "evaporator_temperature": {
+        "name": "Elpárologtató hőmérséklete"
+      },
       "db_running_status": {
         "name": "Mosógép állapota"
       },
@@ -1489,9 +1565,6 @@
         "name": "Szárítógép energiafogyasztás"
       },
       "dishwasher_mode": {
-        "name": "Mode"
-      },
-      "dishwasher_mode_76000228": {
         "name": "Mode"
       },
       "dishwasher_status": {
@@ -1681,7 +1754,7 @@
         }
       },
       "error_code": {
-        "name": "Error Code"
+        "name": "Hibakód"
       },
       "humidify_feedback": {
         "name": "Páratartalom visszajelzés"
@@ -1777,6 +1850,9 @@
       },
       "indoor_humidity": {
         "name": "Indoor Humidity"
+      },
+      "target_humidity": {
+        "name": "Célpáratartalom"
       },
       "indoor_temperature": {
         "name": "Indoor Temperature"
@@ -3806,6 +3882,195 @@
       },
       "work_second": {
         "name": "Munkamásodperc"
+      },
+      "panel_status": {
+        "name": "Panel állapota"
+      },
+      "cooling_capacity": {
+        "name": "Hűtési teljesítmény"
+      },
+      "cooling_cop_eer": {
+        "name": "Hűtés COP/EER"
+      },
+      "cooling_cop_eer_this_month": {
+        "name": "Hűtés COP/EER ezen a hónapon"
+      },
+      "cooling_cop_eer_this_week": {
+        "name": "Hűtés COP/EER ezen a héten"
+      },
+      "cooling_cop_eer_this_year": {
+        "name": "Hűtés COP/EER ebben az évben"
+      },
+      "cooling_cop_eer_today": {
+        "name": "Hűtés COP/EER ma"
+      },
+      "cooling_energy_consumption_this_month": {
+        "name": "Hűtés áramfogyasztás ezen a hónapon"
+      },
+      "cooling_energy_consumption_this_week": {
+        "name": "Hűtés áramfogyasztás ezen a héten"
+      },
+      "cooling_energy_consumption_this_year": {
+        "name": "Hűtés áramfogyasztás ebben az évben"
+      },
+      "cooling_energy_consumption_today": {
+        "name": "Hűtés áramfogyasztás ma"
+      },
+      "cooling_power_consumption": {
+        "name": "Hűtés elektromos teljesítményfelvétel"
+      },
+      "cooling_produced_energy_this_month": {
+        "name": "Termelt hűtési energia ezen a hónapon"
+      },
+      "cooling_produced_energy_this_week": {
+        "name": "Termelt hűtési energia ezen a héten"
+      },
+      "cooling_produced_energy_this_year": {
+        "name": "Termelt hűtési energia ebben az évben"
+      },
+      "cooling_produced_energy_today": {
+        "name": "Termelt hűtési energia ma"
+      },
+      "cooling_total_cop_eer": {
+        "name": "Hűtés összes COP/EER"
+      },
+      "cooling_total_energy_consumption": {
+        "name": "Hűtés összes áramfogyasztás"
+      },
+      "cooling_total_produced_energy": {
+        "name": "Termelt hűtési energia összesen"
+      },
+      "dhw_capacity": {
+        "name": "HMV hőteljesítmény"
+      },
+      "dhw_cop_eer": {
+        "name": "HMV COP/EER"
+      },
+      "dhw_cop_eer_this_month": {
+        "name": "HMV COP/EER ezen a hónapon"
+      },
+      "dhw_cop_eer_this_week": {
+        "name": "HMV COP/EER ezen a héten"
+      },
+      "dhw_cop_eer_this_year": {
+        "name": "HMV COP/EER ebben az évben"
+      },
+      "dhw_cop_eer_today": {
+        "name": "HMV COP/EER ma"
+      },
+      "dhw_energy_consumption_this_month": {
+        "name": "HMV áramfogyasztás ezen a hónapon"
+      },
+      "dhw_energy_consumption_this_week": {
+        "name": "HMV áramfogyasztás ezen a héten"
+      },
+      "dhw_energy_consumption_this_year": {
+        "name": "HMV áramfogyasztás ebben az évben"
+      },
+      "dhw_energy_consumption_today": {
+        "name": "HMV áramfogyasztás ma"
+      },
+      "dhw_power_consumption": {
+        "name": "HMV elektromos teljesítményfelvétel"
+      },
+      "dhw_produced_energy_this_month": {
+        "name": "Termelt HMV hőenergia ezen a hónapon"
+      },
+      "dhw_produced_energy_this_week": {
+        "name": "Termelt HMV hőenergia ezen a héten"
+      },
+      "dhw_produced_energy_this_year": {
+        "name": "Termelt HMV hőenergia ebben az évben"
+      },
+      "dhw_produced_energy_today": {
+        "name": "Termelt HMV hőenergia ma"
+      },
+      "dhw_total_cop_eer": {
+        "name": "HMV összes COP/EER"
+      },
+      "dhw_total_energy_consumption": {
+        "name": "HMV összes áramfogyasztás"
+      },
+      "dhw_total_produced_energy": {
+        "name": "Termelt HMV hőenergia összesen"
+      },
+      "heating_capacity": {
+        "name": "Fűtési hőteljesítmény"
+      },
+      "heating_cop_eer": {
+        "name": "Fűtés COP/EER"
+      },
+      "heating_cop_eer_this_month": {
+        "name": "Fűtés COP/EER ezen a hónapon"
+      },
+      "heating_cop_eer_this_week": {
+        "name": "Fűtés COP/EER ezen a héten"
+      },
+      "heating_cop_eer_this_year": {
+        "name": "Fűtés COP/EER ebben az évben"
+      },
+      "heating_cop_eer_today": {
+        "name": "Fűtés COP/EER ma"
+      },
+      "heating_energy_consumption_this_month": {
+        "name": "Fűtés áramfogyasztás ezen a hónapon"
+      },
+      "heating_energy_consumption_this_week": {
+        "name": "Fűtés áramfogyasztás ezen a héten"
+      },
+      "heating_energy_consumption_this_year": {
+        "name": "Fűtés áramfogyasztás ebben az évben"
+      },
+      "heating_energy_consumption_today": {
+        "name": "Fűtés áramfogyasztás ma"
+      },
+      "heating_power_consumption": {
+        "name": "Fűtés elektromos teljesítményfelvétel"
+      },
+      "heating_produced_energy_this_month": {
+        "name": "Termelt fűtési hőenergia ezen a hónapon"
+      },
+      "heating_produced_energy_this_week": {
+        "name": "Termelt fűtési hőenergia ezen a héten"
+      },
+      "heating_produced_energy_this_year": {
+        "name": "Termelt fűtési hőenergia ebben az évben"
+      },
+      "heating_produced_energy_today": {
+        "name": "Termelt fűtési hőenergia ma"
+      },
+      "heating_total_cop_eer": {
+        "name": "Fűtés összes COP/EER"
+      },
+      "heating_total_energy_consumption": {
+        "name": "Fűtés összes áramfogyasztás"
+      },
+      "heating_total_produced_energy": {
+        "name": "Termelt fűtési hőenergia összesen"
+      },
+      "instant_cop_eer": {
+        "name": "Pillanatnyi COP/EER"
+      },
+      "total_cop_eer": {
+        "name": "Összes COP/EER"
+      },
+      "dryer": {
+        "name": "Szárítási szint"
+      },
+      "soak_count": {
+        "name": "Áztatások száma"
+      },
+      "appointment_time": {
+        "name": "Késleltetett indításig hátralévő idő"
+      },
+      "db_last_cycle_water_consumption": {
+        "name": "Legutóbbi ciklus vízfogyasztása"
+      },
+      "power_consumption": {
+        "name": "Legutóbbi ciklus energiafogyasztása"
+      },
+      "wash_count": {
+        "name": "Mosások száma"
       }
     },
     "switch": {
@@ -3933,7 +4198,7 @@
         "name": "Oscillate"
       },
       "power": {
-        "name": "Power"
+        "name": "Tápellátás"
       },
       "powerful_purify": {
         "name": "Powerful Purification"
@@ -3966,7 +4231,7 @@
         "name": "Silent Mode"
       },
       "sleep_mode": {
-        "name": "Sleep Mode"
+        "name": "Alvó mód"
       },
       "out_silent": {
         "name": "Kültéri csendes mód"
@@ -4099,6 +4364,42 @@
       },
       "washer_forget_free": {
         "name": "Gondtalan ápolás"
+      },
+      "left_button": {
+        "name": "Bal gomb"
+      },
+      "middle_button": {
+        "name": "Középső gomb"
+      },
+      "right_button": {
+        "name": "Jobb gomb"
+      },
+      "show_button_name": {
+        "name": "Gomb nevének megjelenítése"
+      },
+      "close_screen_bright": {
+        "name": "Képernyő elsötétítése bezáráskor"
+      },
+      "sleep_mode_switch": {
+        "name": "Alvó mód kapcsolója"
+      },
+      "sleep_mode_mute": {
+        "name": "Némítás alvó módban"
+      },
+      "left_button_keep": {
+        "name": "Bal gomb megtartása"
+      },
+      "middle_button_keep": {
+        "name": "Középső gomb megtartása"
+      },
+      "right_button_keep": {
+        "name": "Jobb gomb megtartása"
+      },
+      "voice_control": {
+        "name": "Hangvezérlés"
+      },
+      "screen_state": {
+        "name": "Képernyő"
       }
     },
     "water_heater": {
