@@ -9324,7 +9324,8 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Function No",
                 "icon": "mdi:numeric",
                 "min": 0,
-                "max": 65535,
+                "max": 0xFFFFFFFF,
+                "max_by_subtype": {6: 0xFFFF},
                 "step": 1,
             },
             E7Attributes.fire_level: {

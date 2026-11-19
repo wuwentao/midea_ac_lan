@@ -80,6 +80,30 @@ def test_number_bounds_metadata_and_value(
     device.set_attribute.assert_called_once_with("level", 50)
 
 
+def test_number_maximum_can_depend_on_subtype(
+    device_factory: DeviceFactory,
+    install_config: InstallConfig,
+) -> None:
+    """Use a subtype-specific maximum while retaining the default maximum."""
+    install_config(
+        {
+            "function_no": {
+                "type": Platform.NUMBER,
+                "min": 0,
+                "max": 0xFFFFFFFF,
+                "max_by_subtype": {6: 0xFFFF},
+                "step": 1,
+            },
+        },
+    )
+
+    legacy_device, _ = device_factory(subtype=6)
+    modern_device, _ = device_factory(subtype=8)
+
+    assert MideaNumber(legacy_device, "function_no").native_max_value == 0xFFFF
+    assert MideaNumber(modern_device, "function_no").native_max_value == 0xFFFFFFFF
+
+
 def test_optimistic_number_updates(
     device_factory: DeviceFactory,
     install_config: InstallConfig,
