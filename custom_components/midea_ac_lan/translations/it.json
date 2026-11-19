@@ -884,6 +884,12 @@
       },
       "laundry_appointment": {
         "name": "Prenotazione"
+      },
+      "has_token": {
+        "name": "Token disponibile"
+      },
+      "humidify": {
+        "name": "Umidifica"
       }
     },
     "button": {
@@ -925,11 +931,19 @@
       }
     },
     "fan": {
+      "fan": {
+        "name": "Ventilatore"
+      },
       "fresh_air": {
         "name": "Aria Fresca"
       },
       "fresh_air_exhaust": {
         "name": "Estrazione Aria Fresca"
+      }
+    },
+    "light": {
+      "light": {
+        "name": "Illuminazione"
       }
     },
     "lock": {
@@ -1030,15 +1044,45 @@
       },
       "dryer_timed_extra": {
         "name": "Prolungamento asciugatura a tempo"
+      },
+      "auto_off_screen_type": {
+        "name": "Tipo di spegnimento automatico dello schermo"
+      },
+      "theme": {
+        "name": "Tema"
+      },
+      "night_volume": {
+        "name": "Volume notturno"
+      },
+      "voice_volume": {
+        "name": "Volume voce"
+      },
+      "sleep_start_hour": {
+        "name": "Ora di inizio modalità sospensione"
+      },
+      "sleep_start_minute": {
+        "name": "Minuto di inizio modalità sospensione"
+      },
+      "sleep_duration_hour": {
+        "name": "Durata modalità sospensione (ore)"
+      },
+      "sleep_duration_minute": {
+        "name": "Durata modalità sospensione (minuti)"
+      },
+      "brightness": {
+        "name": "Luminosità"
+      },
+      "left_button_work_mode": {
+        "name": "Modalità operativa pulsante sinistro"
+      },
+      "middle_button_work_mode": {
+        "name": "Modalità operativa pulsante centrale"
+      },
+      "right_button_work_mode": {
+        "name": "Modalità operativa pulsante destro"
       }
     },
     "select": {
-      "wash_mode_76000228": {
-        "name": "Modalità Lavaggio"
-      },
-      "program_76000228": {
-        "name": "Programma"
-      },
       "program": {
         "name": "Programma"
       },
@@ -1491,9 +1535,6 @@
       "dishwasher_mode": {
         "name": "Modalità"
       },
-      "dishwasher_mode_76000228": {
-        "name": "Modalità"
-      },
       "dishwasher_status": {
         "name": "Stato"
       },
@@ -1795,6 +1836,9 @@
       },
       "indoor_humidity": {
         "name": "Umidità Interna"
+      },
+      "target_humidity": {
+        "name": "Umidità obiettivo"
       },
       "indoor_temperature": {
         "name": "Temperatura Interna"
@@ -3800,6 +3844,177 @@
       },
       "cbs_version": {
         "name": "Versione CBS"
+      },
+      "panel_status": {
+        "name": "Stato pannello"
+      },
+      "cooling_capacity": {
+        "name": "Potenza frigorifera"
+      },
+      "cooling_cop_eer": {
+        "name": "Raffreddamento COP/EER"
+      },
+      "cooling_cop_eer_this_month": {
+        "name": "Raffreddamento COP/EER questo mese"
+      },
+      "cooling_cop_eer_this_week": {
+        "name": "Raffreddamento COP/EER questa settimana"
+      },
+      "cooling_cop_eer_this_year": {
+        "name": "Raffreddamento COP/EER quest'anno"
+      },
+      "cooling_cop_eer_today": {
+        "name": "Raffreddamento COP/EER oggi"
+      },
+      "cooling_energy_consumption_this_month": {
+        "name": "Elettricità raffreddamento questo mese"
+      },
+      "cooling_energy_consumption_this_week": {
+        "name": "Elettricità raffreddamento questa settimana"
+      },
+      "cooling_energy_consumption_this_year": {
+        "name": "Elettricità raffreddamento quest'anno"
+      },
+      "cooling_energy_consumption_today": {
+        "name": "Elettricità raffreddamento oggi"
+      },
+      "cooling_power_consumption": {
+        "name": "Potenza elettrica raffreddamento"
+      },
+      "cooling_produced_energy_this_month": {
+        "name": "Energia frigorifera prodotta questo mese"
+      },
+      "cooling_produced_energy_this_week": {
+        "name": "Energia frigorifera prodotta questa settimana"
+      },
+      "cooling_produced_energy_this_year": {
+        "name": "Energia frigorifera prodotta quest'anno"
+      },
+      "cooling_produced_energy_today": {
+        "name": "Energia frigorifera prodotta oggi"
+      },
+      "cooling_total_cop_eer": {
+        "name": "Raffreddamento COP/EER totale"
+      },
+      "cooling_total_energy_consumption": {
+        "name": "Elettricità raffreddamento totale"
+      },
+      "cooling_total_produced_energy": {
+        "name": "Energia frigorifera prodotta totale"
+      },
+      "dhw_capacity": {
+        "name": "Potenza termica ACS"
+      },
+      "dhw_cop_eer": {
+        "name": "ACS COP/EER"
+      },
+      "dhw_cop_eer_this_month": {
+        "name": "ACS COP/EER questo mese"
+      },
+      "dhw_cop_eer_this_week": {
+        "name": "ACS COP/EER questa settimana"
+      },
+      "dhw_cop_eer_this_year": {
+        "name": "ACS COP/EER quest'anno"
+      },
+      "dhw_cop_eer_today": {
+        "name": "ACS COP/EER oggi"
+      },
+      "dhw_energy_consumption_this_month": {
+        "name": "Elettricità ACS questo mese"
+      },
+      "dhw_energy_consumption_this_week": {
+        "name": "Elettricità ACS questa settimana"
+      },
+      "dhw_energy_consumption_this_year": {
+        "name": "Elettricità ACS quest'anno"
+      },
+      "dhw_energy_consumption_today": {
+        "name": "Elettricità ACS oggi"
+      },
+      "dhw_power_consumption": {
+        "name": "Potenza elettrica ACS"
+      },
+      "dhw_produced_energy_this_month": {
+        "name": "Energia termica ACS prodotta questo mese"
+      },
+      "dhw_produced_energy_this_week": {
+        "name": "Energia termica ACS prodotta questa settimana"
+      },
+      "dhw_produced_energy_this_year": {
+        "name": "Energia termica ACS prodotta quest'anno"
+      },
+      "dhw_produced_energy_today": {
+        "name": "Energia termica ACS prodotta oggi"
+      },
+      "dhw_total_cop_eer": {
+        "name": "ACS COP/EER totale"
+      },
+      "dhw_total_energy_consumption": {
+        "name": "Elettricità ACS totale"
+      },
+      "dhw_total_produced_energy": {
+        "name": "Energia termica ACS prodotta totale"
+      },
+      "heating_capacity": {
+        "name": "Potenza calorifica riscaldamento"
+      },
+      "heating_cop_eer": {
+        "name": "Riscaldamento COP/EER"
+      },
+      "heating_cop_eer_this_month": {
+        "name": "Riscaldamento COP/EER questo mese"
+      },
+      "heating_cop_eer_this_week": {
+        "name": "Riscaldamento COP/EER questa settimana"
+      },
+      "heating_cop_eer_this_year": {
+        "name": "Riscaldamento COP/EER quest'anno"
+      },
+      "heating_cop_eer_today": {
+        "name": "Riscaldamento COP/EER oggi"
+      },
+      "heating_energy_consumption_this_month": {
+        "name": "Elettricità riscaldamento questo mese"
+      },
+      "heating_energy_consumption_this_week": {
+        "name": "Elettricità riscaldamento questa settimana"
+      },
+      "heating_energy_consumption_this_year": {
+        "name": "Elettricità riscaldamento quest'anno"
+      },
+      "heating_energy_consumption_today": {
+        "name": "Elettricità riscaldamento oggi"
+      },
+      "heating_power_consumption": {
+        "name": "Potenza elettrica riscaldamento"
+      },
+      "heating_produced_energy_this_month": {
+        "name": "Energia calorifica riscaldamento questo mese"
+      },
+      "heating_produced_energy_this_week": {
+        "name": "Energia calorifica riscaldamento questa settimana"
+      },
+      "heating_produced_energy_this_year": {
+        "name": "Energia calorifica riscaldamento quest'anno"
+      },
+      "heating_produced_energy_today": {
+        "name": "Energia calorifica riscaldamento oggi"
+      },
+      "heating_total_cop_eer": {
+        "name": "Riscaldamento COP/EER totale"
+      },
+      "heating_total_energy_consumption": {
+        "name": "Elettricità riscaldamento totale"
+      },
+      "heating_total_produced_energy": {
+        "name": "Energia calorifica riscaldamento totale"
+      },
+      "instant_cop_eer": {
+        "name": "COP/EER istantaneo"
+      },
+      "total_cop_eer": {
+        "name": "COP/EER totale"
       }
     },
     "switch": {
@@ -3960,7 +4175,7 @@
         "name": "Modalità Silenziosa"
       },
       "sleep_mode": {
-        "name": "Modalità Sonno"
+        "name": "Modalità sospensione"
       },
       "out_silent": {
         "name": "Modalità Silenziosa Esterna"
@@ -4093,6 +4308,42 @@
       },
       "washer_forget_free": {
         "name": "Cura senza pensieri"
+      },
+      "left_button": {
+        "name": "Pulsante sinistro"
+      },
+      "middle_button": {
+        "name": "Pulsante centrale"
+      },
+      "right_button": {
+        "name": "Pulsante destro"
+      },
+      "show_button_name": {
+        "name": "Mostra nome pulsante"
+      },
+      "close_screen_bright": {
+        "name": "Oscura lo schermo alla chiusura"
+      },
+      "sleep_mode_switch": {
+        "name": "Interruttore modalità sospensione"
+      },
+      "sleep_mode_mute": {
+        "name": "Silenzioso in modalità sospensione"
+      },
+      "left_button_keep": {
+        "name": "Mantieni pulsante sinistro"
+      },
+      "middle_button_keep": {
+        "name": "Mantieni pulsante centrale"
+      },
+      "right_button_keep": {
+        "name": "Mantieni pulsante destro"
+      },
+      "voice_control": {
+        "name": "Controllo vocale"
+      },
+      "screen_state": {
+        "name": "Schermo"
       }
     },
     "water_heater": {
