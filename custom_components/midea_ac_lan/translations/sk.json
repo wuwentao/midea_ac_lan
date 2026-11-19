@@ -884,6 +884,33 @@
       },
       "laundry_appointment": {
         "name": "Rezervácia"
+      },
+      "has_token": {
+        "name": "Token je k dispozícii"
+      },
+      "humidify": {
+        "name": "Zvlhčovanie"
+      },
+      "speedy": {
+        "name": "Rýchle pranie"
+      },
+      "lock": {
+        "name": "Detský zámok"
+      },
+      "beforehand_wash": {
+        "name": "Predpieranie"
+      },
+      "steam_wash": {
+        "name": "Parné pranie"
+      },
+      "add_rinse": {
+        "name": "Dodatočné plákanie"
+      },
+      "wind_dispel": {
+        "name": "Osvieženie vzduchom"
+      },
+      "remote_control_flag": {
+        "name": "Diaľkové ovládanie"
       }
     },
     "button": {
@@ -925,11 +952,19 @@
       }
     },
     "fan": {
+      "fan": {
+        "name": "Ventilátor"
+      },
       "fresh_air": {
         "name": "Fresh Air"
       },
       "fresh_air_exhaust": {
         "name": "Odvod čerstvého vzduchu"
+      }
+    },
+    "light": {
+      "light": {
+        "name": "Osvetlenie"
       }
     },
     "lock": {
@@ -938,6 +973,16 @@
       }
     },
     "number": {
+      "work_status": { "name": "Stav prevádzky" },
+      "function_no": { "name": "Číslo funkcie" },
+      "fire_level": { "name": "Úroveň ohrevu" },
+      "time_reserve_hr": { "name": "Hodiny rezervácie" },
+      "time_reserve_min": { "name": "Minúty rezervácie" },
+      "definite_time_hr": { "name": "Hodiny časovača" },
+      "definite_time_min": { "name": "Minúty časovača" },
+      "curtain_position": {
+        "name": "Poloha"
+      },
       "delay_minutes": {
         "name": "Oneskorenie"
       },
@@ -1030,14 +1075,67 @@
       },
       "dryer_timed_extra": {
         "name": "Predĺženie časovaného sušenia"
+      },
+      "auto_off_screen_type": {
+        "name": "Typ automatického vypnutia obrazovky"
+      },
+      "theme": {
+        "name": "Motív"
+      },
+      "night_volume": {
+        "name": "Nočná hlasitosť"
+      },
+      "voice_volume": {
+        "name": "Hlasitosť hlasu"
+      },
+      "sleep_start_hour": {
+        "name": "Hodina začiatku spánku"
+      },
+      "sleep_start_minute": {
+        "name": "Minúta začiatku spánku"
+      },
+      "sleep_duration_hour": {
+        "name": "Trvanie spánku (hodiny)"
+      },
+      "sleep_duration_minute": {
+        "name": "Trvanie spánku (minúty)"
+      },
+      "brightness": {
+        "name": "Jas"
+      },
+      "left_button_work_mode": {
+        "name": "Prevádzkový režim ľavého tlačidla"
+      },
+      "middle_button_work_mode": {
+        "name": "Prevádzkový režim stredného tlačidla"
+      },
+      "right_button_work_mode": {
+        "name": "Prevádzkový režim pravého tlačidla"
       }
     },
     "select": {
-      "wash_mode_76000228": {
-        "name": "Režim prania"
+      "curtain_status": {
+        "name": "Záves",
+        "state": {
+          "open": "Otvoriť",
+          "close": "Zavrieť",
+          "stop": "Zastaviť"
+        }
       },
-      "program_76000228": {
-        "name": "Program"
+      "curtain_direction": {
+        "name": "Smer",
+        "state": {
+          "positive": "Priamy",
+          "reverse": "Obrátený"
+        }
+      },
+      "aux_heat_mode": {
+        "name": "Režim prídavného ohrevu",
+        "state": {
+          "off": "Vypnuté",
+          "aux_heat": "Prídavný ohrev",
+          "aux_only": "Iba prídavný ohrev"
+        }
       },
       "program": {
         "name": "Program"
@@ -1393,6 +1491,14 @@
       },
       "washer_spin_time_control": {
         "name": "Čas odstreďovania (min)"
+      },
+      "updown": {
+        "name": "Zdvihnúť/Spustiť",
+        "state": {
+          "pause": "Pauza",
+          "up": "Hore",
+          "down": "Dole"
+        }
       }
     },
     "time": {
@@ -1404,6 +1510,17 @@
       }
     },
     "sensor": {
+      "time_running_hr": { "name": "Hodiny prevádzky" },
+      "time_running_min": { "name": "Minúty prevádzky" },
+      "time_surplus_hr": { "name": "Zostávajúce hodiny" },
+      "time_surplus_min": { "name": "Zostávajúce minúty" },
+      "work_stage": { "name": "Fáza prevádzky" },
+      "software_version": {
+        "name": "Verzia softvéru"
+      },
+      "evaporator_temperature": {
+        "name": "Teplota výparníka"
+      },
       "db_running_status": {
         "name": "Stav práčky"
       },
@@ -1489,9 +1606,6 @@
         "name": "Spotreba energie sušičky"
       },
       "dishwasher_mode": {
-        "name": "Mode"
-      },
-      "dishwasher_mode_76000228": {
         "name": "Mode"
       },
       "dishwasher_status": {
@@ -1681,7 +1795,7 @@
         }
       },
       "error_code": {
-        "name": "Error Code"
+        "name": "Kód chyby"
       },
       "humidify_feedback": {
         "name": "Spätná väzba vlhkosti"
@@ -1777,6 +1891,9 @@
       },
       "indoor_humidity": {
         "name": "Indoor Humidity"
+      },
+      "target_humidity": {
+        "name": "Cieľová vlhkosť"
       },
       "indoor_temperature": {
         "name": "Indoor Temperature"
@@ -3806,6 +3923,195 @@
       },
       "work_second": {
         "name": "Pracovná sekunda"
+      },
+      "panel_status": {
+        "name": "Stav panela"
+      },
+      "cooling_capacity": {
+        "name": "Chladiaci výkon"
+      },
+      "cooling_cop_eer": {
+        "name": "Chladenie COP/EER"
+      },
+      "cooling_cop_eer_this_month": {
+        "name": "Chladenie COP/EER tento mesiac"
+      },
+      "cooling_cop_eer_this_week": {
+        "name": "Chladenie COP/EER tento týždeň"
+      },
+      "cooling_cop_eer_this_year": {
+        "name": "Chladenie COP/EER tento rok"
+      },
+      "cooling_cop_eer_today": {
+        "name": "Chladenie COP/EER dnes"
+      },
+      "cooling_energy_consumption_this_month": {
+        "name": "Spotreba elektriny chladenie tento mesiac"
+      },
+      "cooling_energy_consumption_this_week": {
+        "name": "Spotreba elektriny chladenie tento týždeň"
+      },
+      "cooling_energy_consumption_this_year": {
+        "name": "Spotreba elektriny chladenie tento rok"
+      },
+      "cooling_energy_consumption_today": {
+        "name": "Spotreba elektriny chladenie dnes"
+      },
+      "cooling_power_consumption": {
+        "name": "Elektrický príkon chladenia"
+      },
+      "cooling_produced_energy_this_month": {
+        "name": "Vyrobená chladiaca energia tento mesiac"
+      },
+      "cooling_produced_energy_this_week": {
+        "name": "Vyrobená chladiaca energia tento týždeň"
+      },
+      "cooling_produced_energy_this_year": {
+        "name": "Vyrobená chladiaca energia tento rok"
+      },
+      "cooling_produced_energy_today": {
+        "name": "Vyrobená chladiaca energia dnes"
+      },
+      "cooling_total_cop_eer": {
+        "name": "Chladenie celkové COP/EER"
+      },
+      "cooling_total_energy_consumption": {
+        "name": "Celková spotreba elektriny chladenie"
+      },
+      "cooling_total_produced_energy": {
+        "name": "Celková vyrobená chladiaca energia"
+      },
+      "dhw_capacity": {
+        "name": "Tepelný výkon TÚV"
+      },
+      "dhw_cop_eer": {
+        "name": "TÚV COP/EER"
+      },
+      "dhw_cop_eer_this_month": {
+        "name": "TÚV COP/EER tento mesiac"
+      },
+      "dhw_cop_eer_this_week": {
+        "name": "TÚV COP/EER tento týždeň"
+      },
+      "dhw_cop_eer_this_year": {
+        "name": "TÚV COP/EER tento rok"
+      },
+      "dhw_cop_eer_today": {
+        "name": "TÚV COP/EER dnes"
+      },
+      "dhw_energy_consumption_this_month": {
+        "name": "Spotreba elektriny TÚV tento mesiac"
+      },
+      "dhw_energy_consumption_this_week": {
+        "name": "Spotreba elektriny TÚV tento týždeň"
+      },
+      "dhw_energy_consumption_this_year": {
+        "name": "Spotreba elektriny TÚV tento rok"
+      },
+      "dhw_energy_consumption_today": {
+        "name": "Spotreba elektriny TÚV dnes"
+      },
+      "dhw_power_consumption": {
+        "name": "Elektrický príkon TÚV"
+      },
+      "dhw_produced_energy_this_month": {
+        "name": "Vyrobená tepelná energia TÚV tento mesiac"
+      },
+      "dhw_produced_energy_this_week": {
+        "name": "Vyrobená tepelná energia TÚV tento týždeň"
+      },
+      "dhw_produced_energy_this_year": {
+        "name": "Vyrobená tepelná energia TÚV tento rok"
+      },
+      "dhw_produced_energy_today": {
+        "name": "Vyrobená tepelná energia TÚV dnes"
+      },
+      "dhw_total_cop_eer": {
+        "name": "TÚV celkové COP/EER"
+      },
+      "dhw_total_energy_consumption": {
+        "name": "Celková spotreba elektriny TÚV"
+      },
+      "dhw_total_produced_energy": {
+        "name": "Celková vyrobená tepelná energia TÚV"
+      },
+      "heating_capacity": {
+        "name": "Tepelný výkon vykurovania"
+      },
+      "heating_cop_eer": {
+        "name": "Vykurovanie COP/EER"
+      },
+      "heating_cop_eer_this_month": {
+        "name": "Vykurovanie COP/EER tento mesiac"
+      },
+      "heating_cop_eer_this_week": {
+        "name": "Vykurovanie COP/EER tento týždeň"
+      },
+      "heating_cop_eer_this_year": {
+        "name": "Vykurovanie COP/EER tento rok"
+      },
+      "heating_cop_eer_today": {
+        "name": "Vykurovanie COP/EER dnes"
+      },
+      "heating_energy_consumption_this_month": {
+        "name": "Spotreba elektriny vykurovanie tento mesiac"
+      },
+      "heating_energy_consumption_this_week": {
+        "name": "Spotreba elektriny vykurovanie tento týždeň"
+      },
+      "heating_energy_consumption_this_year": {
+        "name": "Spotreba elektriny vykurovanie tento rok"
+      },
+      "heating_energy_consumption_today": {
+        "name": "Spotreba elektriny vykurovanie dnes"
+      },
+      "heating_power_consumption": {
+        "name": "Elektrický príkon vykurovania"
+      },
+      "heating_produced_energy_this_month": {
+        "name": "Vyrobená tepelná energia vykurovania tento mesiac"
+      },
+      "heating_produced_energy_this_week": {
+        "name": "Vyrobená tepelná energia vykurovania tento týždeň"
+      },
+      "heating_produced_energy_this_year": {
+        "name": "Vyrobená tepelná energia vykurovania tento rok"
+      },
+      "heating_produced_energy_today": {
+        "name": "Vyrobená tepelná energia vykurovania dnes"
+      },
+      "heating_total_cop_eer": {
+        "name": "Vykurovanie celkové COP/EER"
+      },
+      "heating_total_energy_consumption": {
+        "name": "Celková spotreba elektriny vykurovanie"
+      },
+      "heating_total_produced_energy": {
+        "name": "Celková vyrobená tepelná energia vykurovania"
+      },
+      "instant_cop_eer": {
+        "name": "Okamžitý COP/EER"
+      },
+      "total_cop_eer": {
+        "name": "Celkový COP/EER"
+      },
+      "dryer": {
+        "name": "Stupeň vysušenia"
+      },
+      "soak_count": {
+        "name": "Počet namáčaní"
+      },
+      "appointment_time": {
+        "name": "Čas odloženého štartu"
+      },
+      "db_last_cycle_water_consumption": {
+        "name": "Spotreba vody posledného cyklu"
+      },
+      "power_consumption": {
+        "name": "Spotreba energie posledného cyklu"
+      },
+      "wash_count": {
+        "name": "Počet praní"
       }
     },
     "switch": {
@@ -3873,7 +4179,10 @@
         "name": "Režim dovolenky"
       },
       "dry": {
-        "name": "Dry"
+        "name": "Sušenie"
+      },
+      "wet_pad_dry": {
+        "name": "Sušenie zvlhčovacej vložky"
       },
       "cold_water_single": {
         "name": "Studená voda jednorazovo"
@@ -3915,7 +4224,7 @@
         "name": "Ochrana proti úniku vody"
       },
       "light": {
-        "name": "Light"
+        "name": "Svetlo"
       },
       "link_to_ac": {
         "name": "Link to AC"
@@ -3936,7 +4245,7 @@
         "name": "Oscillate"
       },
       "power": {
-        "name": "Power"
+        "name": "Napájanie"
       },
       "powerful_purify": {
         "name": "Powerful Purification"
@@ -3969,7 +4278,7 @@
         "name": "Silent Mode"
       },
       "sleep_mode": {
-        "name": "Sleep Mode"
+        "name": "Režim spánku"
       },
       "out_silent": {
         "name": "Vonkajší tichý režim"
@@ -4102,6 +4411,48 @@
       },
       "washer_forget_free": {
         "name": "Bezstarostná starostlivosť"
+      },
+      "sterilize": {
+        "name": "Sterilizácia"
+      },
+      "baking": {
+        "name": "Ohrev"
+      },
+      "left_button": {
+        "name": "Ľavé tlačidlo"
+      },
+      "middle_button": {
+        "name": "Stredné tlačidlo"
+      },
+      "right_button": {
+        "name": "Pravé tlačidlo"
+      },
+      "show_button_name": {
+        "name": "Zobraziť názov tlačidla"
+      },
+      "close_screen_bright": {
+        "name": "Stlmiť obrazovku pri zatvorení"
+      },
+      "sleep_mode_switch": {
+        "name": "Prepínač režimu spánku"
+      },
+      "sleep_mode_mute": {
+        "name": "Stlmenie v režime spánku"
+      },
+      "left_button_keep": {
+        "name": "Zachovať ľavé tlačidlo"
+      },
+      "middle_button_keep": {
+        "name": "Zachovať stredné tlačidlo"
+      },
+      "right_button_keep": {
+        "name": "Zachovať pravé tlačidlo"
+      },
+      "voice_control": {
+        "name": "Hlasové ovládanie"
+      },
+      "screen_state": {
+        "name": "Obrazovka"
       }
     },
     "water_heater": {

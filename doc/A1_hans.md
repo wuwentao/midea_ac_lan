@@ -17,20 +17,24 @@
 
 ### 额外生成实体
 
-| EntityID                               | 类型          | 名称                | 描述             |
-| -------------------------------------- | ------------- | ------------------- | ---------------- |
-| sensor.{DEVICEID}\_tank_full           | binary_sensor | Tank Full           | 水箱已达设置水位 |
-| sensor.{DEVICEID}\_tank                | sensor        | Tank                | 水箱水位         |
-| sensor.{DEVICEID}\_current_humidity    | sensor        | Current Humidity    | 当前湿度         |
-| sensor.{DEVICEID}\_current_temperature | sensor        | Current Temperature | 当前温度         |
-| lock.{DEVICEID}\_child_lock            | lock          | Child Lock          | 童锁             |
-| switch.{DEVICEID}\_anion               | switch        | Anion               | 负离子开关       |
-| switch.{DEVICEID}\_prompt_tone         | switch        | Prompt Tone         | 提示音           |
-| switch.{DEVICEID}\_power               | switch        | Power               | 电源开关         |
-| switch.{DEVICEID}\_swing               | switch        | Swing               | 摆风开关         |
-| switch.{DEVICEID}\_pump                | switch        | Water Pump          | 水泵开关         |
-| select.{DEVICEID}\_fan_speed           | select        | Fan Speed           | 风速设定         |
-| select.{DEVICEID}\_water_level_set     | select        | Water Level Setting | 水位设定         |
+压缩机运行状态和蒸发器温度仅适用于协议配置支持第一组遥测查询的型号。
+
+| EntityID                                  | 类型          | 名称                   | 描述             |
+| ----------------------------------------- | ------------- | ---------------------- | ---------------- |
+| sensor.{DEVICEID}\_tank_full              | binary_sensor | Tank Full              | 水箱已达设置水位 |
+| binary_sensor.{DEVICEID}\_compressor      | binary_sensor | Compressor Running     | 压缩机运行状态   |
+| sensor.{DEVICEID}\_tank                   | sensor        | Tank                   | 水箱水位         |
+| sensor.{DEVICEID}\_current_humidity       | sensor        | Current Humidity       | 当前湿度         |
+| sensor.{DEVICEID}\_current_temperature    | sensor        | Current Temperature    | 当前温度         |
+| sensor.{DEVICEID}\_evaporator_temperature | sensor        | Evaporator Temperature | 蒸发器温度       |
+| lock.{DEVICEID}\_child_lock               | lock          | Child Lock             | 童锁             |
+| switch.{DEVICEID}\_anion                  | switch        | Anion                  | 负离子开关       |
+| switch.{DEVICEID}\_prompt_tone            | switch        | Prompt Tone            | 提示音           |
+| switch.{DEVICEID}\_power                  | switch        | Power                  | 电源开关         |
+| switch.{DEVICEID}\_swing                  | switch        | Swing                  | 摆风开关         |
+| switch.{DEVICEID}\_pump                   | switch        | Water Pump             | 水泵开关         |
+| select.{DEVICEID}\_fan_speed              | select        | Fan Speed              | 风速设定         |
+| select.{DEVICEID}\_water_level_set        | select        | Water Level Setting    | 水位设定         |
 
 ## 服务
 
