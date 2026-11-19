@@ -86,6 +86,7 @@ from midealan.devices.x9c import DeviceAttributes as _X9CAttributes
 from midealan.devices.x26 import DeviceAttributes as X26Attributes
 from midealan.devices.x34 import DeviceAttributes as X34Attributes
 from midealan.devices.x40 import DeviceAttributes as X40Attributes
+from midealan.devices.x44 import DeviceAttributes as X44Attributes
 
 # The protocol library exposes this capability only for verified model/subtype
 # pairs. String keys keep imports compatible with the currently released SDK.
@@ -141,11 +142,6 @@ FRESH_AIR_EXHAUST = "fresh_air_exhaust"
 FRESH_AIR_EXHAUST_MODE = "fresh_air_exhaust_mode"
 FRESH_AIR_EXHAUST_POWER = "fresh_air_exhaust_power"
 FRESH_AIR_EXHAUST_SPEED = "fresh_air_exhaust_speed"
-# A1 group-one telemetry attributes. Referenced by string so this integration
-# remains importable with the released midea-lan version; required_attribute
-# hides both entities until the feature library exposes the matching keys.
-A1_COMPRESSOR = "compressor"
-A1_EVAPORATOR_TEMPERATURE = "evaporator_temperature"
 ED_TEA_BAR_SUBTYPES = [395]
 ED_TEA_BAR_MODELS = ["63000622"]
 ED_TEA_BAR_DEVICES = [(ED_TEA_BAR_MODELS[0], ED_TEA_BAR_SUBTYPES[0])]
@@ -196,8 +192,18 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
         "entities": {
             "light": {
                 "type": Platform.LIGHT,
+                "translation_key": "light",
                 "icon": "mdi:lightbulb",
                 "default": True,
+            },
+            "fan": {
+                "type": Platform.FAN,
+                "translation_key": "fan",
+                "icon": "mdi:fan",
+                "default": True,
+                # The library exposes fan registers only for this layout.
+                "models": ["M0200008"],
+                "subtypes": [0],
             },
         },
     },
@@ -398,6 +404,230 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Direction",
                 "options": "directions",
                 "icon": "mdi:arrow-split-vertical",
+            },
+        },
+    },
+    0x44: {
+        "name": "Smart Panel",
+        "entities": {
+            # Read-only screen record. 255 on the wire means "unchanged" and is
+            # omitted by the library, so these sensors go unknown until reported.
+            X44Attributes.has_token: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "has_token",
+                "name": "Has Token",
+                "icon": "mdi:key",
+                "entity_category": EntityCategory.DIAGNOSTIC,
+            },
+            X44Attributes.panel_status: {
+                "type": Platform.SENSOR,
+                "translation_key": "panel_status",
+                "name": "Panel Status",
+                "icon": "mdi:information",
+                "entity_category": EntityCategory.DIAGNOSTIC,
+            },
+            X44Attributes.error_code: {
+                "type": Platform.SENSOR,
+                "translation_key": "error_code",
+                "name": "Error Code",
+                "icon": "mdi:alert-box",
+                "entity_category": EntityCategory.DIAGNOSTIC,
+                "default": True,
+            },
+            X44Attributes.screen_state: {
+                "type": Platform.SWITCH,
+                "translation_key": "screen_state",
+                "name": "Screen",
+                "icon": "mdi:monitor",
+                "default": True,
+            },
+            X44Attributes.voice_control: {
+                "type": Platform.SWITCH,
+                "translation_key": "voice_control",
+                "name": "Voice Control",
+                "icon": "mdi:microphone",
+                "default": True,
+            },
+            X44Attributes.sleep_mode: {
+                "type": Platform.SWITCH,
+                "translation_key": "sleep_mode",
+                "name": "Sleep Mode",
+                "icon": "mdi:sleep",
+                "default": True,
+            },
+            X44Attributes.voice_volume: {
+                "type": Platform.NUMBER,
+                "translation_key": "voice_volume",
+                "name": "Voice Volume",
+                "icon": "mdi:volume-high",
+                "min": 0,
+                "max": 254,
+                "step": 1,
+                "default": True,
+            },
+            X44Attributes.brightness: {
+                "type": Platform.NUMBER,
+                "translation_key": "brightness",
+                "name": "Brightness",
+                "icon": "mdi:brightness-6",
+                "min": 0,
+                "max": 254,
+                "step": 1,
+                "default": True,
+            },
+            X44Attributes.left_button: {
+                "type": Platform.SWITCH,
+                "translation_key": "left_button",
+                "name": "Left Button",
+                "icon": "mdi:gesture-tap-button",
+            },
+            X44Attributes.middle_button: {
+                "type": Platform.SWITCH,
+                "translation_key": "middle_button",
+                "name": "Middle Button",
+                "icon": "mdi:gesture-tap-button",
+            },
+            X44Attributes.right_button: {
+                "type": Platform.SWITCH,
+                "translation_key": "right_button",
+                "name": "Right Button",
+                "icon": "mdi:gesture-tap-button",
+            },
+            X44Attributes.show_button_name: {
+                "type": Platform.SWITCH,
+                "translation_key": "show_button_name",
+                "name": "Show Button Name",
+                "icon": "mdi:format-title",
+            },
+            X44Attributes.close_screen_bright: {
+                "type": Platform.SWITCH,
+                "translation_key": "close_screen_bright",
+                "name": "Dim Screen When Closed",
+                "icon": "mdi:brightness-5",
+            },
+            X44Attributes.sleep_mode_switch: {
+                "type": Platform.SWITCH,
+                "translation_key": "sleep_mode_switch",
+                "name": "Sleep Mode Switch",
+                "icon": "mdi:sleep",
+            },
+            X44Attributes.sleep_mode_mute: {
+                "type": Platform.SWITCH,
+                "translation_key": "sleep_mode_mute",
+                "name": "Sleep Mode Mute",
+                "icon": "mdi:volume-mute",
+            },
+            X44Attributes.left_button_keep: {
+                "type": Platform.SWITCH,
+                "translation_key": "left_button_keep",
+                "name": "Keep Left Button",
+                "icon": "mdi:gesture-tap-hold",
+            },
+            X44Attributes.middle_button_keep: {
+                "type": Platform.SWITCH,
+                "translation_key": "middle_button_keep",
+                "name": "Keep Middle Button",
+                "icon": "mdi:gesture-tap-hold",
+            },
+            X44Attributes.right_button_keep: {
+                "type": Platform.SWITCH,
+                "translation_key": "right_button_keep",
+                "name": "Keep Right Button",
+                "icon": "mdi:gesture-tap-hold",
+            },
+            X44Attributes.auto_off_screen_type: {
+                "type": Platform.NUMBER,
+                "translation_key": "auto_off_screen_type",
+                "name": "Auto Off Screen Type",
+                "icon": "mdi:monitor-off",
+                "min": 0,
+                "max": 254,
+                "step": 1,
+            },
+            X44Attributes.theme: {
+                "type": Platform.NUMBER,
+                "translation_key": "theme",
+                "name": "Theme",
+                "icon": "mdi:palette",
+                "min": 0,
+                "max": 254,
+                "step": 1,
+            },
+            X44Attributes.night_volume: {
+                "type": Platform.NUMBER,
+                "translation_key": "night_volume",
+                "name": "Night Volume",
+                "icon": "mdi:volume-medium",
+                "min": 0,
+                "max": 254,
+                "step": 1,
+            },
+            X44Attributes.sleep_start_hour: {
+                "type": Platform.NUMBER,
+                "translation_key": "sleep_start_hour",
+                "name": "Sleep Start Hour",
+                "icon": "mdi:clock-start",
+                "unit": UnitOfTime.HOURS,
+                "min": 0,
+                "max": 23,
+                "step": 1,
+            },
+            X44Attributes.sleep_start_minute: {
+                "type": Platform.NUMBER,
+                "translation_key": "sleep_start_minute",
+                "name": "Sleep Start Minute",
+                "icon": "mdi:clock-start",
+                "unit": UnitOfTime.MINUTES,
+                "min": 0,
+                "max": 59,
+                "step": 1,
+            },
+            X44Attributes.sleep_duration_hour: {
+                "type": Platform.NUMBER,
+                "translation_key": "sleep_duration_hour",
+                "name": "Sleep Duration Hour",
+                "icon": "mdi:timer",
+                "unit": UnitOfTime.HOURS,
+                "min": 0,
+                "max": 254,
+                "step": 1,
+            },
+            X44Attributes.sleep_duration_minute: {
+                "type": Platform.NUMBER,
+                "translation_key": "sleep_duration_minute",
+                "name": "Sleep Duration Minute",
+                "icon": "mdi:timer",
+                "unit": UnitOfTime.MINUTES,
+                "min": 0,
+                "max": 59,
+                "step": 1,
+            },
+            X44Attributes.left_button_work_mode: {
+                "type": Platform.NUMBER,
+                "translation_key": "left_button_work_mode",
+                "name": "Left Button Work Mode",
+                "icon": "mdi:cog",
+                "min": 0,
+                "max": 254,
+                "step": 1,
+            },
+            X44Attributes.middle_button_work_mode: {
+                "type": Platform.NUMBER,
+                "translation_key": "middle_button_work_mode",
+                "name": "Middle Button Work Mode",
+                "icon": "mdi:cog",
+                "min": 0,
+                "max": 254,
+                "step": 1,
+            },
+            X44Attributes.right_button_work_mode: {
+                "type": Platform.NUMBER,
+                "translation_key": "right_button_work_mode",
+                "name": "Right Button Work Mode",
+                "icon": "mdi:cog",
+                "min": 0,
+                "max": 254,
+                "step": 1,
             },
         },
     },
@@ -3447,9 +3677,9 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "unit": UnitOfTemperature.CELSIUS,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
-            A1_EVAPORATOR_TEMPERATURE: {
+            A1Attributes.evaporator_temperature: {
                 "type": Platform.SENSOR,
-                "required_attribute": A1_EVAPORATOR_TEMPERATURE,
+                "required_attribute": A1Attributes.evaporator_temperature,
                 "translation_key": "evaporator_temperature",
                 "name": "Evaporator Temperature",
                 "device_class": SensorDeviceClass.TEMPERATURE,
@@ -3478,9 +3708,9 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "icon": "mdi:alert-circle",
                 "device_class": BinarySensorDeviceClass.PROBLEM,
             },
-            A1_COMPRESSOR: {
+            A1Attributes.compressor: {
                 "type": Platform.BINARY_SENSOR,
-                "required_attribute": A1_COMPRESSOR,
+                "required_attribute": A1Attributes.compressor,
                 "translation_key": "compressor_on",
                 "name": "Compressor Running",
                 "device_class": BinarySensorDeviceClass.RUNNING,
@@ -3530,6 +3760,13 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "aux_heating",
                 "name": "Aux Heating",
                 "icon": "mdi:heat-wave",
+            },
+            ACAttributes.aux_heat_mode: {
+                "type": Platform.SELECT,
+                "translation_key": "aux_heat_mode",
+                "name": "Aux Heat Mode",
+                "icon": "mdi:heat-wave",
+                "options": "supported_aux_heat_modes",
             },
             ACAttributes.boost_mode: {
                 "type": Platform.SWITCH,
@@ -3669,6 +3906,34 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Full of Dust",
                 "icon": "mdi:alert-circle",
                 "device_class": BinarySensorDeviceClass.PROBLEM,
+            },
+            # Verified on models 22396933/22396945/22396937: the BB X11 status
+            # frame carries the humidify switch and target humidity percentage.
+            # Read-only for now; the AA/X40 set-frame offsets are not verified.
+            ACAttributes.humidify: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "humidify",
+                "name": "Humidify",
+                "icon": "mdi:water-percent",
+                "device_class": BinarySensorDeviceClass.RUNNING,
+                "required_attribute": ACAttributes.humidify,
+                "models": ["22396933", "22396945", "22396937"],
+                "subtypes": [0, 1],
+                "default": True,
+            },
+            ACAttributes.target_humidity: {
+                "type": Platform.SENSOR,
+                "translation_key": "target_humidity",
+                "name": "Target Humidity",
+                "icon": "mdi:water-percent",
+                "device_class": SensorDeviceClass.HUMIDITY,
+                "unit": PERCENTAGE,
+                "state_class": SensorStateClass.MEASUREMENT,
+                "missing_values": [0],
+                "required_attribute": ACAttributes.target_humidity,
+                "models": ["22396933", "22396945", "22396937"],
+                "subtypes": [0, 1],
+                "default": True,
             },
             ACAttributes.indoor_humidity: {
                 "type": Platform.SENSOR,
@@ -5199,6 +5464,547 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
     0xC3: {
         "name": "Heat Pump Wi-Fi Controller",
         "entities": {
+            # Model 17100007 native energy telemetry (optional).
+            "heating_power_consumption": {
+                "type": Platform.SENSOR,
+                "translation_key": "heating_power_consumption",
+                "name": "Heating electrical power",
+                "models": ["17100007"],
+                "required_attribute": "heating_power_consumption",
+                "device_class": SensorDeviceClass.POWER,
+                "unit": UnitOfPower.KILO_WATT,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            "heating_capacity": {
+                "type": Platform.SENSOR,
+                "translation_key": "heating_capacity",
+                "name": "Heating heat output",
+                "models": ["17100007"],
+                "required_attribute": "heating_capacity",
+                "device_class": SensorDeviceClass.POWER,
+                "unit": UnitOfPower.KILO_WATT,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            "heating_cop_eer": {
+                "type": Platform.SENSOR,
+                "translation_key": "heating_cop_eer",
+                "name": "Heating COP/EER",
+                "models": ["17100007"],
+                "required_attribute": "heating_cop_eer",
+                "state_class": SensorStateClass.MEASUREMENT,
+                "icon": "mdi:gauge",
+            },
+            "heating_total_energy_consumption": {
+                "type": Platform.SENSOR,
+                "translation_key": "heating_total_energy_consumption",
+                "name": "Heating total electricity",
+                "models": ["17100007"],
+                "required_attribute": "heating_total_energy_consumption",
+                "device_class": SensorDeviceClass.ENERGY,
+                "unit": UnitOfEnergy.KILO_WATT_HOUR,
+                "state_class": SensorStateClass.TOTAL_INCREASING,
+            },
+            "heating_total_produced_energy": {
+                "type": Platform.SENSOR,
+                "translation_key": "heating_total_produced_energy",
+                "name": "Heating total heat production",
+                "models": ["17100007"],
+                "required_attribute": "heating_total_produced_energy",
+                "device_class": SensorDeviceClass.ENERGY,
+                "unit": UnitOfEnergy.KILO_WATT_HOUR,
+                "state_class": SensorStateClass.TOTAL_INCREASING,
+            },
+            "heating_total_cop_eer": {
+                "type": Platform.SENSOR,
+                "translation_key": "heating_total_cop_eer",
+                "name": "Heating total COP/EER",
+                "models": ["17100007"],
+                "required_attribute": "heating_total_cop_eer",
+                "state_class": SensorStateClass.MEASUREMENT,
+                "icon": "mdi:gauge",
+            },
+            "heating_energy_consumption_today": {
+                "type": Platform.SENSOR,
+                "translation_key": "heating_energy_consumption_today",
+                "name": "Heating electricity today",
+                "models": ["17100007"],
+                "required_attribute": "heating_energy_consumption_today",
+                "device_class": SensorDeviceClass.ENERGY,
+                "unit": UnitOfEnergy.KILO_WATT_HOUR,
+                "state_class": SensorStateClass.TOTAL_INCREASING,
+            },
+            "heating_produced_energy_today": {
+                "type": Platform.SENSOR,
+                "translation_key": "heating_produced_energy_today",
+                "name": "Heating heat production today",
+                "models": ["17100007"],
+                "required_attribute": "heating_produced_energy_today",
+                "device_class": SensorDeviceClass.ENERGY,
+                "unit": UnitOfEnergy.KILO_WATT_HOUR,
+                "state_class": SensorStateClass.TOTAL_INCREASING,
+            },
+            "heating_cop_eer_today": {
+                "type": Platform.SENSOR,
+                "translation_key": "heating_cop_eer_today",
+                "name": "Heating COP/EER today",
+                "models": ["17100007"],
+                "required_attribute": "heating_cop_eer_today",
+                "state_class": SensorStateClass.MEASUREMENT,
+                "icon": "mdi:gauge",
+            },
+            "heating_energy_consumption_this_week": {
+                "type": Platform.SENSOR,
+                "translation_key": "heating_energy_consumption_this_week",
+                "name": "Heating electricity this week",
+                "models": ["17100007"],
+                "required_attribute": "heating_energy_consumption_this_week",
+                "device_class": SensorDeviceClass.ENERGY,
+                "unit": UnitOfEnergy.KILO_WATT_HOUR,
+                "state_class": SensorStateClass.TOTAL_INCREASING,
+            },
+            "heating_produced_energy_this_week": {
+                "type": Platform.SENSOR,
+                "translation_key": "heating_produced_energy_this_week",
+                "name": "Heating heat production this week",
+                "models": ["17100007"],
+                "required_attribute": "heating_produced_energy_this_week",
+                "device_class": SensorDeviceClass.ENERGY,
+                "unit": UnitOfEnergy.KILO_WATT_HOUR,
+                "state_class": SensorStateClass.TOTAL_INCREASING,
+            },
+            "heating_cop_eer_this_week": {
+                "type": Platform.SENSOR,
+                "translation_key": "heating_cop_eer_this_week",
+                "name": "Heating COP/EER this week",
+                "models": ["17100007"],
+                "required_attribute": "heating_cop_eer_this_week",
+                "state_class": SensorStateClass.MEASUREMENT,
+                "icon": "mdi:gauge",
+            },
+            "heating_energy_consumption_this_month": {
+                "type": Platform.SENSOR,
+                "translation_key": "heating_energy_consumption_this_month",
+                "name": "Heating electricity this month",
+                "models": ["17100007"],
+                "required_attribute": "heating_energy_consumption_this_month",
+                "device_class": SensorDeviceClass.ENERGY,
+                "unit": UnitOfEnergy.KILO_WATT_HOUR,
+                "state_class": SensorStateClass.TOTAL_INCREASING,
+            },
+            "heating_produced_energy_this_month": {
+                "type": Platform.SENSOR,
+                "translation_key": "heating_produced_energy_this_month",
+                "name": "Heating heat production this month",
+                "models": ["17100007"],
+                "required_attribute": "heating_produced_energy_this_month",
+                "device_class": SensorDeviceClass.ENERGY,
+                "unit": UnitOfEnergy.KILO_WATT_HOUR,
+                "state_class": SensorStateClass.TOTAL_INCREASING,
+            },
+            "heating_cop_eer_this_month": {
+                "type": Platform.SENSOR,
+                "translation_key": "heating_cop_eer_this_month",
+                "name": "Heating COP/EER this month",
+                "models": ["17100007"],
+                "required_attribute": "heating_cop_eer_this_month",
+                "state_class": SensorStateClass.MEASUREMENT,
+                "icon": "mdi:gauge",
+            },
+            "heating_energy_consumption_this_year": {
+                "type": Platform.SENSOR,
+                "translation_key": "heating_energy_consumption_this_year",
+                "name": "Heating electricity this year",
+                "models": ["17100007"],
+                "required_attribute": "heating_energy_consumption_this_year",
+                "device_class": SensorDeviceClass.ENERGY,
+                "unit": UnitOfEnergy.KILO_WATT_HOUR,
+                "state_class": SensorStateClass.TOTAL_INCREASING,
+            },
+            "heating_produced_energy_this_year": {
+                "type": Platform.SENSOR,
+                "translation_key": "heating_produced_energy_this_year",
+                "name": "Heating heat production this year",
+                "models": ["17100007"],
+                "required_attribute": "heating_produced_energy_this_year",
+                "device_class": SensorDeviceClass.ENERGY,
+                "unit": UnitOfEnergy.KILO_WATT_HOUR,
+                "state_class": SensorStateClass.TOTAL_INCREASING,
+            },
+            "heating_cop_eer_this_year": {
+                "type": Platform.SENSOR,
+                "translation_key": "heating_cop_eer_this_year",
+                "name": "Heating COP/EER this year",
+                "models": ["17100007"],
+                "required_attribute": "heating_cop_eer_this_year",
+                "state_class": SensorStateClass.MEASUREMENT,
+                "icon": "mdi:gauge",
+            },
+            "cooling_power_consumption": {
+                "type": Platform.SENSOR,
+                "translation_key": "cooling_power_consumption",
+                "name": "Cooling electrical power",
+                "models": ["17100007"],
+                "required_attribute": "cooling_power_consumption",
+                "device_class": SensorDeviceClass.POWER,
+                "unit": UnitOfPower.KILO_WATT,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            "cooling_capacity": {
+                "type": Platform.SENSOR,
+                "translation_key": "cooling_capacity",
+                "name": "Cooling capacity",
+                "models": ["17100007"],
+                "required_attribute": "cooling_capacity",
+                "device_class": SensorDeviceClass.POWER,
+                "unit": UnitOfPower.KILO_WATT,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            "cooling_cop_eer": {
+                "type": Platform.SENSOR,
+                "translation_key": "cooling_cop_eer",
+                "name": "Cooling COP/EER",
+                "models": ["17100007"],
+                "required_attribute": "cooling_cop_eer",
+                "state_class": SensorStateClass.MEASUREMENT,
+                "icon": "mdi:gauge",
+            },
+            "cooling_total_energy_consumption": {
+                "type": Platform.SENSOR,
+                "translation_key": "cooling_total_energy_consumption",
+                "name": "Cooling total electricity",
+                "models": ["17100007"],
+                "required_attribute": "cooling_total_energy_consumption",
+                "device_class": SensorDeviceClass.ENERGY,
+                "unit": UnitOfEnergy.KILO_WATT_HOUR,
+                "state_class": SensorStateClass.TOTAL_INCREASING,
+            },
+            "cooling_total_produced_energy": {
+                "type": Platform.SENSOR,
+                "translation_key": "cooling_total_produced_energy",
+                "name": "Cooling total produced energy",
+                "models": ["17100007"],
+                "required_attribute": "cooling_total_produced_energy",
+                "device_class": SensorDeviceClass.ENERGY,
+                "unit": UnitOfEnergy.KILO_WATT_HOUR,
+                "state_class": SensorStateClass.TOTAL_INCREASING,
+            },
+            "cooling_total_cop_eer": {
+                "type": Platform.SENSOR,
+                "translation_key": "cooling_total_cop_eer",
+                "name": "Cooling total COP/EER",
+                "models": ["17100007"],
+                "required_attribute": "cooling_total_cop_eer",
+                "state_class": SensorStateClass.MEASUREMENT,
+                "icon": "mdi:gauge",
+            },
+            "cooling_energy_consumption_today": {
+                "type": Platform.SENSOR,
+                "translation_key": "cooling_energy_consumption_today",
+                "name": "Cooling electricity today",
+                "models": ["17100007"],
+                "required_attribute": "cooling_energy_consumption_today",
+                "device_class": SensorDeviceClass.ENERGY,
+                "unit": UnitOfEnergy.KILO_WATT_HOUR,
+                "state_class": SensorStateClass.TOTAL_INCREASING,
+            },
+            "cooling_produced_energy_today": {
+                "type": Platform.SENSOR,
+                "translation_key": "cooling_produced_energy_today",
+                "name": "Cooling produced energy today",
+                "models": ["17100007"],
+                "required_attribute": "cooling_produced_energy_today",
+                "device_class": SensorDeviceClass.ENERGY,
+                "unit": UnitOfEnergy.KILO_WATT_HOUR,
+                "state_class": SensorStateClass.TOTAL_INCREASING,
+            },
+            "cooling_cop_eer_today": {
+                "type": Platform.SENSOR,
+                "translation_key": "cooling_cop_eer_today",
+                "name": "Cooling COP/EER today",
+                "models": ["17100007"],
+                "required_attribute": "cooling_cop_eer_today",
+                "state_class": SensorStateClass.MEASUREMENT,
+                "icon": "mdi:gauge",
+            },
+            "cooling_energy_consumption_this_week": {
+                "type": Platform.SENSOR,
+                "translation_key": "cooling_energy_consumption_this_week",
+                "name": "Cooling electricity this week",
+                "models": ["17100007"],
+                "required_attribute": "cooling_energy_consumption_this_week",
+                "device_class": SensorDeviceClass.ENERGY,
+                "unit": UnitOfEnergy.KILO_WATT_HOUR,
+                "state_class": SensorStateClass.TOTAL_INCREASING,
+            },
+            "cooling_produced_energy_this_week": {
+                "type": Platform.SENSOR,
+                "translation_key": "cooling_produced_energy_this_week",
+                "name": "Cooling produced energy this week",
+                "models": ["17100007"],
+                "required_attribute": "cooling_produced_energy_this_week",
+                "device_class": SensorDeviceClass.ENERGY,
+                "unit": UnitOfEnergy.KILO_WATT_HOUR,
+                "state_class": SensorStateClass.TOTAL_INCREASING,
+            },
+            "cooling_cop_eer_this_week": {
+                "type": Platform.SENSOR,
+                "translation_key": "cooling_cop_eer_this_week",
+                "name": "Cooling COP/EER this week",
+                "models": ["17100007"],
+                "required_attribute": "cooling_cop_eer_this_week",
+                "state_class": SensorStateClass.MEASUREMENT,
+                "icon": "mdi:gauge",
+            },
+            "cooling_energy_consumption_this_month": {
+                "type": Platform.SENSOR,
+                "translation_key": "cooling_energy_consumption_this_month",
+                "name": "Cooling electricity this month",
+                "models": ["17100007"],
+                "required_attribute": "cooling_energy_consumption_this_month",
+                "device_class": SensorDeviceClass.ENERGY,
+                "unit": UnitOfEnergy.KILO_WATT_HOUR,
+                "state_class": SensorStateClass.TOTAL_INCREASING,
+            },
+            "cooling_produced_energy_this_month": {
+                "type": Platform.SENSOR,
+                "translation_key": "cooling_produced_energy_this_month",
+                "name": "Cooling produced energy this month",
+                "models": ["17100007"],
+                "required_attribute": "cooling_produced_energy_this_month",
+                "device_class": SensorDeviceClass.ENERGY,
+                "unit": UnitOfEnergy.KILO_WATT_HOUR,
+                "state_class": SensorStateClass.TOTAL_INCREASING,
+            },
+            "cooling_cop_eer_this_month": {
+                "type": Platform.SENSOR,
+                "translation_key": "cooling_cop_eer_this_month",
+                "name": "Cooling COP/EER this month",
+                "models": ["17100007"],
+                "required_attribute": "cooling_cop_eer_this_month",
+                "state_class": SensorStateClass.MEASUREMENT,
+                "icon": "mdi:gauge",
+            },
+            "cooling_energy_consumption_this_year": {
+                "type": Platform.SENSOR,
+                "translation_key": "cooling_energy_consumption_this_year",
+                "name": "Cooling electricity this year",
+                "models": ["17100007"],
+                "required_attribute": "cooling_energy_consumption_this_year",
+                "device_class": SensorDeviceClass.ENERGY,
+                "unit": UnitOfEnergy.KILO_WATT_HOUR,
+                "state_class": SensorStateClass.TOTAL_INCREASING,
+            },
+            "cooling_produced_energy_this_year": {
+                "type": Platform.SENSOR,
+                "translation_key": "cooling_produced_energy_this_year",
+                "name": "Cooling produced energy this year",
+                "models": ["17100007"],
+                "required_attribute": "cooling_produced_energy_this_year",
+                "device_class": SensorDeviceClass.ENERGY,
+                "unit": UnitOfEnergy.KILO_WATT_HOUR,
+                "state_class": SensorStateClass.TOTAL_INCREASING,
+            },
+            "cooling_cop_eer_this_year": {
+                "type": Platform.SENSOR,
+                "translation_key": "cooling_cop_eer_this_year",
+                "name": "Cooling COP/EER this year",
+                "models": ["17100007"],
+                "required_attribute": "cooling_cop_eer_this_year",
+                "state_class": SensorStateClass.MEASUREMENT,
+                "icon": "mdi:gauge",
+            },
+            "dhw_power_consumption": {
+                "type": Platform.SENSOR,
+                "translation_key": "dhw_power_consumption",
+                "name": "DHW electrical power",
+                "models": ["17100007"],
+                "required_attribute": "dhw_power_consumption",
+                "device_class": SensorDeviceClass.POWER,
+                "unit": UnitOfPower.KILO_WATT,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            "dhw_capacity": {
+                "type": Platform.SENSOR,
+                "translation_key": "dhw_capacity",
+                "name": "DHW heat output",
+                "models": ["17100007"],
+                "required_attribute": "dhw_capacity",
+                "device_class": SensorDeviceClass.POWER,
+                "unit": UnitOfPower.KILO_WATT,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            "dhw_cop_eer": {
+                "type": Platform.SENSOR,
+                "translation_key": "dhw_cop_eer",
+                "name": "DHW COP/EER",
+                "models": ["17100007"],
+                "required_attribute": "dhw_cop_eer",
+                "state_class": SensorStateClass.MEASUREMENT,
+                "icon": "mdi:gauge",
+            },
+            "dhw_total_energy_consumption": {
+                "type": Platform.SENSOR,
+                "translation_key": "dhw_total_energy_consumption",
+                "name": "DHW total electricity",
+                "models": ["17100007"],
+                "required_attribute": "dhw_total_energy_consumption",
+                "device_class": SensorDeviceClass.ENERGY,
+                "unit": UnitOfEnergy.KILO_WATT_HOUR,
+                "state_class": SensorStateClass.TOTAL_INCREASING,
+            },
+            "dhw_total_produced_energy": {
+                "type": Platform.SENSOR,
+                "translation_key": "dhw_total_produced_energy",
+                "name": "DHW total heat production",
+                "models": ["17100007"],
+                "required_attribute": "dhw_total_produced_energy",
+                "device_class": SensorDeviceClass.ENERGY,
+                "unit": UnitOfEnergy.KILO_WATT_HOUR,
+                "state_class": SensorStateClass.TOTAL_INCREASING,
+            },
+            "dhw_total_cop_eer": {
+                "type": Platform.SENSOR,
+                "translation_key": "dhw_total_cop_eer",
+                "name": "DHW total COP/EER",
+                "models": ["17100007"],
+                "required_attribute": "dhw_total_cop_eer",
+                "state_class": SensorStateClass.MEASUREMENT,
+                "icon": "mdi:gauge",
+            },
+            "dhw_energy_consumption_today": {
+                "type": Platform.SENSOR,
+                "translation_key": "dhw_energy_consumption_today",
+                "name": "DHW electricity today",
+                "models": ["17100007"],
+                "required_attribute": "dhw_energy_consumption_today",
+                "device_class": SensorDeviceClass.ENERGY,
+                "unit": UnitOfEnergy.KILO_WATT_HOUR,
+                "state_class": SensorStateClass.TOTAL_INCREASING,
+            },
+            "dhw_produced_energy_today": {
+                "type": Platform.SENSOR,
+                "translation_key": "dhw_produced_energy_today",
+                "name": "DHW heat production today",
+                "models": ["17100007"],
+                "required_attribute": "dhw_produced_energy_today",
+                "device_class": SensorDeviceClass.ENERGY,
+                "unit": UnitOfEnergy.KILO_WATT_HOUR,
+                "state_class": SensorStateClass.TOTAL_INCREASING,
+            },
+            "dhw_cop_eer_today": {
+                "type": Platform.SENSOR,
+                "translation_key": "dhw_cop_eer_today",
+                "name": "DHW COP/EER today",
+                "models": ["17100007"],
+                "required_attribute": "dhw_cop_eer_today",
+                "state_class": SensorStateClass.MEASUREMENT,
+                "icon": "mdi:gauge",
+            },
+            "dhw_energy_consumption_this_week": {
+                "type": Platform.SENSOR,
+                "translation_key": "dhw_energy_consumption_this_week",
+                "name": "DHW electricity this week",
+                "models": ["17100007"],
+                "required_attribute": "dhw_energy_consumption_this_week",
+                "device_class": SensorDeviceClass.ENERGY,
+                "unit": UnitOfEnergy.KILO_WATT_HOUR,
+                "state_class": SensorStateClass.TOTAL_INCREASING,
+            },
+            "dhw_produced_energy_this_week": {
+                "type": Platform.SENSOR,
+                "translation_key": "dhw_produced_energy_this_week",
+                "name": "DHW heat production this week",
+                "models": ["17100007"],
+                "required_attribute": "dhw_produced_energy_this_week",
+                "device_class": SensorDeviceClass.ENERGY,
+                "unit": UnitOfEnergy.KILO_WATT_HOUR,
+                "state_class": SensorStateClass.TOTAL_INCREASING,
+            },
+            "dhw_cop_eer_this_week": {
+                "type": Platform.SENSOR,
+                "translation_key": "dhw_cop_eer_this_week",
+                "name": "DHW COP/EER this week",
+                "models": ["17100007"],
+                "required_attribute": "dhw_cop_eer_this_week",
+                "state_class": SensorStateClass.MEASUREMENT,
+                "icon": "mdi:gauge",
+            },
+            "dhw_energy_consumption_this_month": {
+                "type": Platform.SENSOR,
+                "translation_key": "dhw_energy_consumption_this_month",
+                "name": "DHW electricity this month",
+                "models": ["17100007"],
+                "required_attribute": "dhw_energy_consumption_this_month",
+                "device_class": SensorDeviceClass.ENERGY,
+                "unit": UnitOfEnergy.KILO_WATT_HOUR,
+                "state_class": SensorStateClass.TOTAL_INCREASING,
+            },
+            "dhw_produced_energy_this_month": {
+                "type": Platform.SENSOR,
+                "translation_key": "dhw_produced_energy_this_month",
+                "name": "DHW heat production this month",
+                "models": ["17100007"],
+                "required_attribute": "dhw_produced_energy_this_month",
+                "device_class": SensorDeviceClass.ENERGY,
+                "unit": UnitOfEnergy.KILO_WATT_HOUR,
+                "state_class": SensorStateClass.TOTAL_INCREASING,
+            },
+            "dhw_cop_eer_this_month": {
+                "type": Platform.SENSOR,
+                "translation_key": "dhw_cop_eer_this_month",
+                "name": "DHW COP/EER this month",
+                "models": ["17100007"],
+                "required_attribute": "dhw_cop_eer_this_month",
+                "state_class": SensorStateClass.MEASUREMENT,
+                "icon": "mdi:gauge",
+            },
+            "dhw_energy_consumption_this_year": {
+                "type": Platform.SENSOR,
+                "translation_key": "dhw_energy_consumption_this_year",
+                "name": "DHW electricity this year",
+                "models": ["17100007"],
+                "required_attribute": "dhw_energy_consumption_this_year",
+                "device_class": SensorDeviceClass.ENERGY,
+                "unit": UnitOfEnergy.KILO_WATT_HOUR,
+                "state_class": SensorStateClass.TOTAL_INCREASING,
+            },
+            "dhw_produced_energy_this_year": {
+                "type": Platform.SENSOR,
+                "translation_key": "dhw_produced_energy_this_year",
+                "name": "DHW heat production this year",
+                "models": ["17100007"],
+                "required_attribute": "dhw_produced_energy_this_year",
+                "device_class": SensorDeviceClass.ENERGY,
+                "unit": UnitOfEnergy.KILO_WATT_HOUR,
+                "state_class": SensorStateClass.TOTAL_INCREASING,
+            },
+            "dhw_cop_eer_this_year": {
+                "type": Platform.SENSOR,
+                "translation_key": "dhw_cop_eer_this_year",
+                "name": "DHW COP/EER this year",
+                "models": ["17100007"],
+                "required_attribute": "dhw_cop_eer_this_year",
+                "state_class": SensorStateClass.MEASUREMENT,
+                "icon": "mdi:gauge",
+            },
+            "instant_cop_eer": {
+                "type": Platform.SENSOR,
+                "translation_key": "instant_cop_eer",
+                "name": "Instantaneous COP/EER",
+                "models": ["17100007"],
+                "required_attribute": "instant_cop_eer",
+                "state_class": SensorStateClass.MEASUREMENT,
+                "icon": "mdi:gauge",
+            },
+            "total_cop_eer": {
+                "type": Platform.SENSOR,
+                "translation_key": "total_cop_eer",
+                "name": "Total COP/EER",
+                "models": ["17100007"],
+                "required_attribute": "total_cop_eer",
+                "state_class": SensorStateClass.MEASUREMENT,
+                "icon": "mdi:gauge",
+            },
             "climate_zone1": {
                 "type": Platform.CLIMATE,
                 "translation_key": "climate_zone1",
@@ -5214,6 +6020,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "icon": "mdi:air-conditioner",
                 "zone": 1,
                 "default": False,
+                "available_attribute": C3Attributes.double_zone,
             },
             "water_heater": {
                 "type": Platform.WATER_HEATER,
@@ -5406,6 +6213,9 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "holiday_on",
                 "name": "Holiday Mode",
                 "icon": "mdi:palm-tree",
+                # 17100007 only reports holiday_on_state; the vendor Lua sets
+                # holidays through a dated schedule table, not an on/off write.
+                "excluded_models": ["17100007"],
             },
             C3Attributes.status_cool: {
                 "type": Platform.BINARY_SENSOR,
@@ -5605,10 +6415,9 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "unit": UnitOfElectricPotential.VOLT,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
-            # NOTE: instant_power (kW, /100 scaled) never made it into
-            # midea-lan; main exposes the same two raw bytes unscaled as
-            # current_unit_capacity. Surfaced as a raw diagnostic until a
-            # future lib PR adds the /100 scaling.
+            # Official 0x2F12 tag 2 is /100 kW, but this shared attribute is
+            # also populated by legacy C3 layouts whose scale is not proven.
+            # Keep the common entity raw and diagnostic for those devices.
             C3Attributes.current_unit_capacity: {
                 "type": Platform.SENSOR,
                 "translation_key": "current_unit_capacity",
@@ -5634,8 +6443,6 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "unit": UnitOfPower.WATT,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
-            # instant_cop (thermal capacity / electrical draw) is not computed
-            # by midea-lan yet - deferred until a future lib PR adds it.
             # --- Pump / valve statuses (LOAD_OUTPUT bitmap, X10 byte[33]) ---
             C3Attributes.pump_i_running: {
                 "type": Platform.BINARY_SENSOR,
@@ -7429,6 +8236,114 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Dirty_degree",
                 "icon": "mdi:water-outline",
             },
+            DBAttributes.dryer: {
+                "type": Platform.SENSOR,
+                "required_attribute": DBAttributes.dryer,
+                "translation_key": "dryer",
+                "name": "Drying level",
+                "icon": "mdi:tumble-dryer",
+            },
+            DBAttributes.soak_count: {
+                "type": Platform.SENSOR,
+                "required_attribute": DBAttributes.soak_count,
+                "translation_key": "soak_count",
+                "name": "Soak count",
+                "icon": "mdi:water-sync",
+            },
+            DBAttributes.appointment_time: {
+                "type": Platform.SENSOR,
+                "required_attribute": DBAttributes.appointment_time,
+                "translation_key": "appointment_time",
+                "name": "Delay start time",
+                "icon": "mdi:calendar-clock",
+                "device_class": SensorDeviceClass.DURATION,
+                "unit": UnitOfTime.MINUTES,
+            },
+            DBAttributes.error_code: {
+                "type": Platform.SENSOR,
+                "required_attribute": DBAttributes.error_code,
+                "translation_key": "error_code",
+                "name": "Error code",
+                "icon": "mdi:alert-circle-outline",
+            },
+            # The 0405 counters only arrive at cycle end, while the options flow
+            # lists an entity once its required_attribute holds a value. Guard
+            # them with a field of every v41 status frame so they can be enabled
+            # before the first report; they stay unknown until it arrives.
+            DBAttributes.water_consumption: {
+                "type": Platform.SENSOR,
+                "required_attribute": DBAttributes.dryer,
+                "restore_last_value": True,
+                "translation_key": "db_last_cycle_water_consumption",
+                "name": "Last cycle water consumption",
+                "icon": "mdi:water-pump",
+            },
+            DBAttributes.power_consumption: {
+                "type": Platform.SENSOR,
+                "required_attribute": DBAttributes.dryer,
+                "restore_last_value": True,
+                "translation_key": "power_consumption",
+                "name": "Last cycle power consumption",
+                "icon": "mdi:lightning-bolt",
+            },
+            DBAttributes.wash_count: {
+                "type": Platform.SENSOR,
+                "required_attribute": DBAttributes.dryer,
+                "restore_last_value": True,
+                "translation_key": "wash_count",
+                "name": "Wash count",
+                "icon": "mdi:counter",
+                "state_class": SensorStateClass.TOTAL_INCREASING,
+            },
+            DBAttributes.speedy: {
+                "type": Platform.BINARY_SENSOR,
+                "required_attribute": DBAttributes.speedy,
+                "translation_key": "speedy",
+                "name": "Speedy",
+                "icon": "mdi:flash",
+            },
+            DBAttributes.lock: {
+                "type": Platform.BINARY_SENSOR,
+                "required_attribute": DBAttributes.lock,
+                "translation_key": "lock",
+                "name": "Child lock",
+                "icon": "mdi:lock",
+            },
+            DBAttributes.beforehand_wash: {
+                "type": Platform.BINARY_SENSOR,
+                "required_attribute": DBAttributes.beforehand_wash,
+                "translation_key": "beforehand_wash",
+                "name": "Pre-wash",
+                "icon": "mdi:water-plus",
+            },
+            DBAttributes.steam_wash: {
+                "type": Platform.BINARY_SENSOR,
+                "required_attribute": DBAttributes.steam_wash,
+                "translation_key": "steam_wash",
+                "name": "Steam wash",
+                "icon": "mdi:weather-fog",
+            },
+            DBAttributes.add_rinse: {
+                "type": Platform.BINARY_SENSOR,
+                "required_attribute": DBAttributes.add_rinse,
+                "translation_key": "add_rinse",
+                "name": "Extra rinse",
+                "icon": "mdi:waves",
+            },
+            DBAttributes.wind_dispel: {
+                "type": Platform.BINARY_SENSOR,
+                "required_attribute": DBAttributes.wind_dispel,
+                "translation_key": "wind_dispel",
+                "name": "Fresh air",
+                "icon": "mdi:fan",
+            },
+            DBAttributes.remote_control_flag: {
+                "type": Platform.BINARY_SENSOR,
+                "required_attribute": DBAttributes.remote_control_flag,
+                "translation_key": "remote_control_flag",
+                "name": "Remote control",
+                "icon": "mdi:remote",
+            },
         },
     },
     0xDC: {
@@ -7703,16 +8618,9 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             E1Attributes.program: {
                 "type": Platform.SELECT,
                 "translation_key": "program",
-                "translation_key_by_model": {"76000228": "program_76000228"},
                 "name": "Program",
                 "icon": "mdi:dishwasher",
-                "options_dict": "modes",
-                "options_codes_by_model": {
-                    "7600024L": [13, 4, 8, 6, 2, 11, 10],
-                    # From the Midea app (wuwentao/midea_ac_lan#709)
-                    "76000228": [2, 3, 4, 5, 6, 7, 8, 13, 15, 16],
-                },
-                "options_exclude_codes": [0],
+                "options_method": "get_attribute_options",
                 "available_power_attribute": E1Attributes.power,
                 "default": True,
             },
@@ -7739,9 +8647,9 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "load",
                 "name": "Load",
                 "icon": "mdi:silverware-clean",
-                "options": [0, 2],
+                "options_method": "get_attribute_options",
+                "omit_when_no_options": True,
                 "option_type": "int",
-                "models": ["76000228"],
                 "default": True,
             },
             E1Attributes.delay_remaining: {
@@ -7767,7 +8675,6 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             E1Attributes.mode: {
                 "type": Platform.SENSOR,
                 "translation_key": "dishwasher_mode",
-                "translation_key_by_model": {"76000228": "dishwasher_mode_76000228"},
                 "name": "Working Mode",
                 "icon": "mdi:dishwasher",
             },
@@ -7775,15 +8682,8 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "type": Platform.SELECT,
                 "attribute": E1Attributes.mode,
                 "translation_key": "wash_mode",
-                "translation_key_by_model": {"76000228": "wash_mode_76000228"},
                 "name": "Wash Mode",
-                "options_dict": "modes",
-                "options_codes_by_model": {
-                    "7600024L": [13, 4, 8, 6, 2, 11, 10],
-                    # From the Midea app (wuwentao/midea_ac_lan#709)
-                    "76000228": [2, 3, 4, 5, 6, 7, 8, 13, 15, 16],
-                },
-                "set_message": "e1_work_mode",
+                "options_method": "get_attribute_options",
                 "available_power_attribute": E1Attributes.power,
                 "icon": "mdi:dishwasher",
                 "default": True,
@@ -7798,33 +8698,8 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "state_class": SensorStateClass.TOTAL_INCREASING,
                 "estimate": {
                     "kind": "energy",
-                    "values_by_model": {
-                        "7600024L": {
-                            0x0D: 0.765,  # germ
-                            0x04: 0.99,  # eco_wash
-                            0x02: 1.28,  # strong_wash
-                            0x06: 0.91,  # hour_wash
-                            0x08: 0.02,  # soak_wash
-                            0x0A: 1.524,  # self_clean
-                            0x0B: 1.625,  # fruit_wash
-                        },
-                        # MDWPF1433CSS-W-EU manual, programme table; only ECO
-                        # is measured to EN 60436, the rest are indicative.
-                        "76000228": {
-                            0x02: 1.615,  # strong_wash, Intensive
-                            0x03: 1.23,  # standard_wash, Universal
-                            0x04: 0.746,  # eco_wash, ECO
-                            0x05: 0.995,  # glass_wash, Glass
-                            0x06: 1.18,  # hour_wash, 90 min
-                            0x07: 0.82,  # fast_wash, Rapid
-                            0x08: 0.018,  # soak_wash, Soak
-                            0x0D: 0.771,  # germ, Whisper
-                            0x0F: 1.815,  # kill_germ, Hygiene
-                            0x10: 1.405,  # sea_food_wash, Self clean
-                        },
-                    },
+                    "values_method": "get_estimated_consumption",
                 },
-                "models": ["7600024L", "76000228"],
                 "default": True,
             },
             "estimated_water_consumption": {
@@ -7837,33 +8712,8 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "state_class": SensorStateClass.TOTAL_INCREASING,
                 "estimate": {
                     "kind": "water",
-                    "values_by_model": {
-                        "7600024L": {
-                            0x0D: 9.9,  # germ
-                            0x04: 10.4,  # eco_wash
-                            0x02: 13.9,  # strong_wash
-                            0x06: 10.4,  # hour_wash
-                            0x08: 3.4,  # soak_wash
-                            0x0A: 10.3,  # self_clean
-                            0x0B: 13.3,  # fruit_wash
-                        },
-                        # MDWPF1433CSS-W-EU manual, programme table; only ECO
-                        # is measured to EN 60436, the rest are indicative.
-                        "76000228": {
-                            0x02: 18.6,  # strong_wash, Intensive
-                            0x03: 14.8,  # standard_wash, Universal
-                            0x04: 10.2,  # eco_wash, ECO
-                            0x05: 14.8,  # glass_wash, Glass
-                            0x06: 11.9,  # hour_wash, 90 min
-                            0x07: 11.3,  # fast_wash, Rapid
-                            0x08: 4.1,  # soak_wash, Soak
-                            0x0D: 10.2,  # germ, Whisper
-                            0x0F: 14.9,  # kill_germ, Hygiene
-                            0x10: 15.1,  # sea_food_wash, Self clean
-                        },
-                    },
+                    "values_method": "get_estimated_consumption",
                 },
-                "models": ["7600024L", "76000228"],
                 "default": True,
             },
             E1Attributes.error_code: {

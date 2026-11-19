@@ -884,6 +884,33 @@
       },
       "laundry_appointment": {
         "name": "Rezerwacja"
+      },
+      "has_token": {
+        "name": "Ma token"
+      },
+      "humidify": {
+        "name": "Nawilżanie"
+      },
+      "speedy": {
+        "name": "Szybkie pranie"
+      },
+      "lock": {
+        "name": "Blokada rodzicielska"
+      },
+      "beforehand_wash": {
+        "name": "Pranie wstępne"
+      },
+      "steam_wash": {
+        "name": "Pranie parowe"
+      },
+      "add_rinse": {
+        "name": "Dodatkowe płukanie"
+      },
+      "wind_dispel": {
+        "name": "Świeże powietrze"
+      },
+      "remote_control_flag": {
+        "name": "Zdalne sterowanie"
       }
     },
     "button": {
@@ -925,6 +952,9 @@
       }
     },
     "fan": {
+      "fan": {
+        "name": "Wentylator"
+      },
       "bgf10000": {
         "state_attributes": {
           "preset_mode": {
@@ -946,6 +976,11 @@
       },
       "fresh_air_exhaust": {
         "name": "Wywiew świeżego powietrza"
+      }
+    },
+    "light": {
+      "light": {
+        "name": "Oświetlenie"
       }
     },
     "lock": {
@@ -1046,9 +1081,53 @@
       },
       "dryer_timed_extra": {
         "name": "Przedłużenie suszenia czasowego"
+      },
+      "auto_off_screen_type": {
+        "name": "Typ automatycznego wyłączania ekranu"
+      },
+      "theme": {
+        "name": "Motyw"
+      },
+      "night_volume": {
+        "name": "Głośność nocna"
+      },
+      "voice_volume": {
+        "name": "Głośność głosu"
+      },
+      "sleep_start_hour": {
+        "name": "Godzina rozpoczęcia snu"
+      },
+      "sleep_start_minute": {
+        "name": "Minuta rozpoczęcia snu"
+      },
+      "sleep_duration_hour": {
+        "name": "Czas trwania snu (godziny)"
+      },
+      "sleep_duration_minute": {
+        "name": "Czas trwania snu (minuty)"
+      },
+      "brightness": {
+        "name": "Jasność"
+      },
+      "left_button_work_mode": {
+        "name": "Tryb działania lewego przycisku"
+      },
+      "middle_button_work_mode": {
+        "name": "Tryb działania środkowego przycisku"
+      },
+      "right_button_work_mode": {
+        "name": "Tryb działania prawego przycisku"
       }
     },
     "select": {
+      "aux_heat_mode": {
+        "name": "Tryb ogrzewania pomocniczego",
+        "state": {
+          "off": "Wyłączone",
+          "aux_heat": "Ogrzewanie pomocnicze",
+          "aux_only": "Tylko ogrzewanie pomocnicze"
+        }
+      },
       "cur_quantify": {
         "name": "Bieżące ustawienie ilości",
         "state": {
@@ -1060,75 +1139,13 @@
           "preset_5": "Ustawienie 5"
         }
       },
-      "wash_mode_76000228": {
-        "name": "Tryb mycia",
-        "state": {
-          "neutral_gear": "Brak",
-          "auto_wash": "Auto",
-          "strong_wash": "Intensywny",
-          "standard_wash": "Uniwersalny",
-          "eco_wash": "ECO",
-          "glass_wash": "Szkło",
-          "hour_wash": "90 min",
-          "fast_wash": "Szybki",
-          "soak_wash": "Namaczanie",
-          "90min": "90 min",
-          "self_clean": "Samoczyszczenie",
-          "fruit_wash": "Owoce",
-          "self_define": "Własny",
-          "germ": "Cichy",
-          "bowl_wash": "Miska",
-          "kill_germ": "Higiena",
-          "sea_food_wash": "Samoczyszczenie",
-          "hot_pot_wash": "Gorący kociołek",
-          "quiet_night_wash": "Cicha noc",
-          "less_wash": "Lekki",
-          "max_rapid_wash": "Maks. szybki",
-          "oil_net_wash": "Filtr oleju",
-          "cloud_wash": "Program w chmurze",
-          "single_dry": "Tylko suszenie",
-          "single_disinfect": "Tylko dezynfekcja",
-          "high_temp_wash": "Wysoka temperatura",
-          "wash_dry": "Pranie i suszenie"
-        }
-      },
-      "program_76000228": {
-        "name": "Program",
-        "state": {
-          "auto_wash": "Auto",
-          "strong_wash": "Intensywny",
-          "standard_wash": "Uniwersalny",
-          "eco_wash": "ECO",
-          "glass_wash": "Szkło",
-          "hour_wash": "90 min",
-          "fast_wash": "Szybki",
-          "soak_wash": "Namaczanie",
-          "90min": "90 min",
-          "self_clean": "Samoczyszczenie",
-          "fruit_wash": "Owoce",
-          "self_define": "Własny",
-          "germ": "Cichy",
-          "bowl_wash": "Miska",
-          "kill_germ": "Higiena",
-          "sea_food_wash": "Samoczyszczenie",
-          "hot_pot_wash": "Gorący kociołek",
-          "quiet_night_wash": "Cicha noc",
-          "less_wash": "Lekki",
-          "max_rapid_wash": "Maks. szybki",
-          "oil_net_wash": "Filtr oleju",
-          "cloud_wash": "Program w chmurze",
-          "single_dry": "Tylko suszenie",
-          "single_disinfect": "Tylko dezynfekcja",
-          "high_temp_wash": "Wysoka temperatura",
-          "wash_dry": "Pranie i suszenie"
-        }
-      },
       "program": {
         "name": "Program",
         "state": {
           "auto_wash": "Auto",
           "strong_wash": "Intensywny",
           "standard_wash": "Standardowy",
+          "universal_wash": "Uniwersalny",
           "eco_wash": "ECO",
           "glass_wash": "Szkło",
           "hour_wash": "1 godzina",
@@ -1139,6 +1156,7 @@
           "fruit_wash": "Owoce",
           "self_define": "Własny",
           "germ": "Zarazki",
+          "whisper_wash": "Cichy",
           "bowl_wash": "Miska",
           "kill_germ": "Higiena",
           "sea_food_wash": "Owoce morza",
@@ -1151,7 +1169,8 @@
           "single_dry": "Tylko suszenie",
           "single_disinfect": "Tylko dezynfekcja",
           "high_temp_wash": "Wysoka temperatura",
-          "wash_dry": "Pranie i suszenie"
+          "wash_dry": "Pranie i suszenie",
+          "anion1": "Odświeżanie jonowe"
         }
       },
       "load": {
@@ -1261,6 +1280,7 @@
           "auto_wash": "Auto",
           "strong_wash": "Intensywny",
           "standard_wash": "Standardowy",
+          "universal_wash": "Uniwersalny",
           "eco_wash": "ECO",
           "glass_wash": "Szkło",
           "hour_wash": "1 godzina",
@@ -1271,6 +1291,7 @@
           "fruit_wash": "Owoce",
           "self_define": "Własny",
           "germ": "Zarazki",
+          "whisper_wash": "Cichy",
           "bowl_wash": "Miska",
           "kill_germ": "Higiena",
           "sea_food_wash": "Owoce morza",
@@ -1283,7 +1304,8 @@
           "single_dry": "Tylko suszenie",
           "single_disinfect": "Tylko dezynfekcja",
           "high_temp_wash": "Wysoka temperatura",
-          "wash_dry": "Pranie i suszenie"
+          "wash_dry": "Pranie i suszenie",
+          "anion1": "Odświeżanie jonowe"
         }
       },
       "water_level_set": {
@@ -1628,6 +1650,7 @@
           "auto_wash": "Auto",
           "strong_wash": "Intensywny",
           "standard_wash": "Standardowy",
+          "universal_wash": "Uniwersalny",
           "eco_wash": "ECO",
           "glass_wash": "Szkło",
           "hour_wash": "1 godzina",
@@ -1638,6 +1661,7 @@
           "fruit_wash": "Owoce",
           "self_define": "Własny",
           "germ": "Zarazki",
+          "whisper_wash": "Cichy",
           "bowl_wash": "Miska",
           "kill_germ": "Higiena",
           "sea_food_wash": "Owoce morza",
@@ -1650,39 +1674,8 @@
           "single_dry": "Tylko suszenie",
           "single_disinfect": "Tylko dezynfekcja",
           "high_temp_wash": "Wysoka temperatura",
-          "wash_dry": "Pranie i suszenie"
-        }
-      },
-      "dishwasher_mode_76000228": {
-        "name": "Tryb",
-        "state": {
-          "neutral_gear": "Brak",
-          "auto_wash": "Auto",
-          "strong_wash": "Intensywny",
-          "standard_wash": "Uniwersalny",
-          "eco_wash": "ECO",
-          "glass_wash": "Szkło",
-          "hour_wash": "90 min",
-          "fast_wash": "Szybki",
-          "soak_wash": "Namaczanie",
-          "90min": "90 min",
-          "self_clean": "Samoczyszczenie",
-          "fruit_wash": "Owoce",
-          "self_define": "Własny",
-          "germ": "Cichy",
-          "bowl_wash": "Miska",
-          "kill_germ": "Higiena",
-          "sea_food_wash": "Samoczyszczenie",
-          "hot_pot_wash": "Gorący kociołek",
-          "quiet_night_wash": "Cicha noc",
-          "less_wash": "Lekki",
-          "max_rapid_wash": "Maks. szybki",
-          "oil_net_wash": "Filtr oleju",
-          "cloud_wash": "Program w chmurze",
-          "single_dry": "Tylko suszenie",
-          "single_disinfect": "Tylko dezynfekcja",
-          "high_temp_wash": "Wysoka temperatura",
-          "wash_dry": "Pranie i suszenie"
+          "wash_dry": "Pranie i suszenie",
+          "anion1": "Odświeżanie jonowe"
         }
       },
       "dishwasher_status": {
@@ -2029,6 +2022,9 @@
       },
       "indoor_humidity": {
         "name": "Wilgotność w pomieszczeniu"
+      },
+      "target_humidity": {
+        "name": "Wilgotność docelowa"
       },
       "indoor_temperature": {
         "name": "Temperatura w pomieszczeniu"
@@ -4034,6 +4030,195 @@
       },
       "cbs_version": {
         "name": "Wersja CBS"
+      },
+      "panel_status": {
+        "name": "Stan panelu"
+      },
+      "cooling_capacity": {
+        "name": "Moc chłodnicza"
+      },
+      "cooling_cop_eer": {
+        "name": "Chłodzenie COP/EER"
+      },
+      "cooling_cop_eer_this_month": {
+        "name": "Chłodzenie COP/EER w tym miesiącu"
+      },
+      "cooling_cop_eer_this_week": {
+        "name": "Chłodzenie COP/EER w tym tygodniu"
+      },
+      "cooling_cop_eer_this_year": {
+        "name": "Chłodzenie COP/EER w tym roku"
+      },
+      "cooling_cop_eer_today": {
+        "name": "Chłodzenie COP/EER dzisiaj"
+      },
+      "cooling_energy_consumption_this_month": {
+        "name": "Zużycie energii elektrycznej chłodzenie w tym miesiącu"
+      },
+      "cooling_energy_consumption_this_week": {
+        "name": "Zużycie energii elektrycznej chłodzenie w tym tygodniu"
+      },
+      "cooling_energy_consumption_this_year": {
+        "name": "Zużycie energii elektrycznej chłodzenie w tym roku"
+      },
+      "cooling_energy_consumption_today": {
+        "name": "Zużycie energii elektrycznej chłodzenie dzisiaj"
+      },
+      "cooling_power_consumption": {
+        "name": "Moc elektryczna chłodzenia"
+      },
+      "cooling_produced_energy_this_month": {
+        "name": "Wyprodukowana energia chłodnicza w tym miesiącu"
+      },
+      "cooling_produced_energy_this_week": {
+        "name": "Wyprodukowana energia chłodnicza w tym tygodniu"
+      },
+      "cooling_produced_energy_this_year": {
+        "name": "Wyprodukowana energia chłodnicza w tym roku"
+      },
+      "cooling_produced_energy_today": {
+        "name": "Wyprodukowana energia chłodnicza dzisiaj"
+      },
+      "cooling_total_cop_eer": {
+        "name": "Chłodzenie łączne COP/EER"
+      },
+      "cooling_total_energy_consumption": {
+        "name": "Łączne zużycie energii elektrycznej chłodzenie"
+      },
+      "cooling_total_produced_energy": {
+        "name": "Łączna wyprodukowana energia chłodnicza"
+      },
+      "dhw_capacity": {
+        "name": "Moc cieplna CWU"
+      },
+      "dhw_cop_eer": {
+        "name": "CWU COP/EER"
+      },
+      "dhw_cop_eer_this_month": {
+        "name": "CWU COP/EER w tym miesiącu"
+      },
+      "dhw_cop_eer_this_week": {
+        "name": "CWU COP/EER w tym tygodniu"
+      },
+      "dhw_cop_eer_this_year": {
+        "name": "CWU COP/EER w tym roku"
+      },
+      "dhw_cop_eer_today": {
+        "name": "CWU COP/EER dzisiaj"
+      },
+      "dhw_energy_consumption_this_month": {
+        "name": "Zużycie energii elektrycznej CWU w tym miesiącu"
+      },
+      "dhw_energy_consumption_this_week": {
+        "name": "Zużycie energii elektrycznej CWU w tym tygodniu"
+      },
+      "dhw_energy_consumption_this_year": {
+        "name": "Zużycie energii elektrycznej CWU w tym roku"
+      },
+      "dhw_energy_consumption_today": {
+        "name": "Zużycie energii elektrycznej CWU dzisiaj"
+      },
+      "dhw_power_consumption": {
+        "name": "Moc elektryczna CWU"
+      },
+      "dhw_produced_energy_this_month": {
+        "name": "Wyprodukowana energia cieplna CWU w tym miesiącu"
+      },
+      "dhw_produced_energy_this_week": {
+        "name": "Wyprodukowana energia cieplna CWU w tym tygodniu"
+      },
+      "dhw_produced_energy_this_year": {
+        "name": "Wyprodukowana energia cieplna CWU w tym roku"
+      },
+      "dhw_produced_energy_today": {
+        "name": "Wyprodukowana energia cieplna CWU dzisiaj"
+      },
+      "dhw_total_cop_eer": {
+        "name": "CWU łączne COP/EER"
+      },
+      "dhw_total_energy_consumption": {
+        "name": "Łączne zużycie energii elektrycznej CWU"
+      },
+      "dhw_total_produced_energy": {
+        "name": "Łączna wyprodukowana energia cieplna CWU"
+      },
+      "heating_capacity": {
+        "name": "Moc cieplna ogrzewania"
+      },
+      "heating_cop_eer": {
+        "name": "Ogrzewanie COP/EER"
+      },
+      "heating_cop_eer_this_month": {
+        "name": "Ogrzewanie COP/EER w tym miesiącu"
+      },
+      "heating_cop_eer_this_week": {
+        "name": "Ogrzewanie COP/EER w tym tygodniu"
+      },
+      "heating_cop_eer_this_year": {
+        "name": "Ogrzewanie COP/EER w tym roku"
+      },
+      "heating_cop_eer_today": {
+        "name": "Ogrzewanie COP/EER dzisiaj"
+      },
+      "heating_energy_consumption_this_month": {
+        "name": "Zużycie energii elektrycznej ogrzewanie w tym miesiącu"
+      },
+      "heating_energy_consumption_this_week": {
+        "name": "Zużycie energii elektrycznej ogrzewanie w tym tygodniu"
+      },
+      "heating_energy_consumption_this_year": {
+        "name": "Zużycie energii elektrycznej ogrzewanie w tym roku"
+      },
+      "heating_energy_consumption_today": {
+        "name": "Zużycie energii elektrycznej ogrzewanie dzisiaj"
+      },
+      "heating_power_consumption": {
+        "name": "Moc elektryczna ogrzewania"
+      },
+      "heating_produced_energy_this_month": {
+        "name": "Wyprodukowana energia cieplna ogrzewania w tym miesiącu"
+      },
+      "heating_produced_energy_this_week": {
+        "name": "Wyprodukowana energia cieplna ogrzewania w tym tygodniu"
+      },
+      "heating_produced_energy_this_year": {
+        "name": "Wyprodukowana energia cieplna ogrzewania w tym roku"
+      },
+      "heating_produced_energy_today": {
+        "name": "Wyprodukowana energia cieplna ogrzewania dzisiaj"
+      },
+      "heating_total_cop_eer": {
+        "name": "Ogrzewanie łączne COP/EER"
+      },
+      "heating_total_energy_consumption": {
+        "name": "Łączne zużycie energii elektrycznej ogrzewanie"
+      },
+      "heating_total_produced_energy": {
+        "name": "Łączna wyprodukowana energia cieplna ogrzewania"
+      },
+      "instant_cop_eer": {
+        "name": "Chwilowe COP/EER"
+      },
+      "total_cop_eer": {
+        "name": "Łączne COP/EER"
+      },
+      "dryer": {
+        "name": "Poziom suszenia"
+      },
+      "soak_count": {
+        "name": "Liczba namoczeń"
+      },
+      "appointment_time": {
+        "name": "Czas do opóźnionego startu"
+      },
+      "db_last_cycle_water_consumption": {
+        "name": "Zużycie wody w ostatnim cyklu"
+      },
+      "power_consumption": {
+        "name": "Zużycie energii w ostatnim cyklu"
+      },
+      "wash_count": {
+        "name": "Liczba prań"
       }
     },
     "switch": {
@@ -4330,6 +4515,42 @@
       },
       "washer_forget_free": {
         "name": "Pielęgnacja bez zapominania"
+      },
+      "left_button": {
+        "name": "Lewy przycisk"
+      },
+      "middle_button": {
+        "name": "Środkowy przycisk"
+      },
+      "right_button": {
+        "name": "Prawy przycisk"
+      },
+      "show_button_name": {
+        "name": "Pokaż nazwę przycisku"
+      },
+      "close_screen_bright": {
+        "name": "Przyciemnij ekran po zamknięciu"
+      },
+      "sleep_mode_switch": {
+        "name": "Przełącznik trybu uśpienia"
+      },
+      "sleep_mode_mute": {
+        "name": "Wyciszenie w trybie uśpienia"
+      },
+      "left_button_keep": {
+        "name": "Zachowaj lewy przycisk"
+      },
+      "middle_button_keep": {
+        "name": "Zachowaj środkowy przycisk"
+      },
+      "right_button_keep": {
+        "name": "Zachowaj prawy przycisk"
+      },
+      "voice_control": {
+        "name": "Sterowanie głosowe"
+      },
+      "screen_state": {
+        "name": "Ekran"
       }
     },
     "water_heater": {
