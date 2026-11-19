@@ -139,6 +139,13 @@ def test_x9a_translations_cover_every_locale_and_state() -> None:
     entities = x9a_entities()
     translation_files = sorted(TRANSLATIONS_DIR.glob("*.json"))
     assert translation_files
+    english = json.loads((TRANSLATIONS_DIR / "en.json").read_text(encoding="utf-8"))[
+        "entity"
+    ]
+    language_invariant_names = {
+        ("ca", Platform.SELECT.value, "mode"),
+        ("fr", Platform.SELECT.value, "mode"),
+    }
 
     for translation_file in translation_files:
         translations = json.loads(translation_file.read_text(encoding="utf-8"))[
@@ -148,7 +155,19 @@ def test_x9a_translations_cover_every_locale_and_state() -> None:
             platform = cast("Platform", config["type"]).value
             translation_key = cast("str", config["translation_key"])
             translation = translations[platform][translation_key]
-            assert translation["name"].strip()
+            name = translation["name"].strip()
+            assert name
+            if translation_file.stem != "en":
+                uses_english_name = name == english[platform][translation_key]["name"]
+                assert (
+                    not uses_english_name
+                    or (
+                        translation_file.stem,
+                        platform,
+                        translation_key,
+                    )
+                    in language_invariant_names
+                )
             for option in config.get("options", []):
                 assert translation["state"][option].strip()
 
