@@ -160,6 +160,9 @@ ED_TEA_BAR_SUBTYPES = [395]
 ED_TEA_BAR_MODELS = ["63000622"]
 ED_TEA_BAR_DEVICES = [(ED_TEA_BAR_MODELS[0], ED_TEA_BAR_SUBTYPES[0])]
 ED_SOFT_WATER_SUBTYPES = [703]
+# Model 00000Q13 (subtype 0) silently drops 0x41 display toggles and reports
+# unstable screen_display state in C0 responses.
+AC_NO_DISPLAY_DEVICES = [("00000Q13", 0)]
 BF_WORK_MODES = list(BF_WORK_MODE_MAP)
 BF_FIRE_POWERS = list(BFFirePower.__members__)
 BF_TEMPERATURES = list(range(251))
@@ -4231,12 +4234,14 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "screen_display",
                 "name": "Screen Display",
                 "icon": "mdi:television-ambient-light",
+                "excluded_devices": AC_NO_DISPLAY_DEVICES,
             },
             ACAttributes.screen_display_alternate: {
                 "type": Platform.SWITCH,
                 "translation_key": "screen_display_alternate",
                 "name": "Screen Display Alternate",
                 "icon": "mdi:television-ambient-light",
+                "excluded_devices": AC_NO_DISPLAY_DEVICES,
             },
             ACAttributes.sleep_mode: {
                 "type": Platform.SWITCH,
