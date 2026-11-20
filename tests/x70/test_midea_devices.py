@@ -76,6 +76,10 @@ def test_x70_translations_cover_every_locale_and_state() -> None:
     english = json.loads(
         (TRANSLATIONS_DIR / "en.json").read_text(encoding="utf-8"),
     )["entity"][Platform.SENSOR]
+    assert english["box1_status"]["state"] == {
+        "no": "Present",
+        "missing": "Missing",
+    }
 
     for translation_file in translation_files:
         sensors = json.loads(translation_file.read_text(encoding="utf-8"))["entity"][
