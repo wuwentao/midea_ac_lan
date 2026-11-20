@@ -884,6 +884,33 @@
       },
       "laundry_appointment": {
         "name": "Rezervasyon"
+      },
+      "has_token": {
+        "name": "Belirteç var"
+      },
+      "humidify": {
+        "name": "Nemlendirme"
+      },
+      "speedy": {
+        "name": "Hızlı yıkama"
+      },
+      "lock": {
+        "name": "Çocuk kilidi"
+      },
+      "beforehand_wash": {
+        "name": "Ön yıkama"
+      },
+      "steam_wash": {
+        "name": "Buharlı yıkama"
+      },
+      "add_rinse": {
+        "name": "Ek durulama"
+      },
+      "wind_dispel": {
+        "name": "Taze hava"
+      },
+      "remote_control_flag": {
+        "name": "Uzaktan kumanda"
       }
     },
     "button": {
@@ -925,6 +952,9 @@
       }
     },
     "fan": {
+      "fan": {
+        "name": "Fan"
+      },
       "bgf10000": {
         "state_attributes": {
           "preset_mode": {
@@ -948,12 +978,41 @@
         "name": "Taze Hava Tahliyesi"
       }
     },
+    "light": {
+      "light": {
+        "name": "Aydınlatma"
+      }
+    },
     "lock": {
       "child_lock": {
         "name": "Çocuk Kilidi"
       }
     },
     "number": {
+      "work_status": {
+        "name": "Çalışma durumu"
+      },
+      "function_no": {
+        "name": "İşlev numarası"
+      },
+      "fire_level": {
+        "name": "Isıtma seviyesi"
+      },
+      "time_reserve_hr": {
+        "name": "Erteleme saati"
+      },
+      "time_reserve_min": {
+        "name": "Erteleme dakikası"
+      },
+      "definite_time_hr": {
+        "name": "Zamanlayıcı saati"
+      },
+      "definite_time_min": {
+        "name": "Zamanlayıcı dakikası"
+      },
+      "curtain_position": {
+        "name": "Konum"
+      },
       "delay_minutes": {
         "name": "Gecikme"
       },
@@ -1046,9 +1105,131 @@
       },
       "dryer_timed_extra": {
         "name": "Zamanlı kurutma uzatması"
+      },
+      "e9_volume": {
+        "name": "Ekmek boyutu"
+      },
+      "color": {
+        "name": "Kabuk rengi"
+      },
+      "dosing": {
+        "name": "Malzeme dozajı"
+      },
+      "bake_temperature": {
+        "name": "Pişirme sıcaklığı"
+      },
+      "time_cuisine_hr": {
+        "name": "Pişirme süresi (saat)"
+      },
+      "time_cuisine_min": {
+        "name": "Pişirme süresi (dakika)"
+      },
+      "control_cmd_code": {
+        "name": "Komut kodu"
+      },
+      "auto_off_screen_type": {
+        "name": "Otomatik ekran kapanma türü"
+      },
+      "theme": {
+        "name": "Tema"
+      },
+      "night_volume": {
+        "name": "Gece ses düzeyi"
+      },
+      "voice_volume": {
+        "name": "Konuşma ses düzeyi"
+      },
+      "sleep_start_hour": {
+        "name": "Uyku başlangıç saati"
+      },
+      "sleep_start_minute": {
+        "name": "Uyku başlangıç dakikası"
+      },
+      "sleep_duration_hour": {
+        "name": "Uyku süresi (saat)"
+      },
+      "sleep_duration_minute": {
+        "name": "Uyku süresi (dakika)"
+      },
+      "brightness": {
+        "name": "Parlaklık"
+      },
+      "left_button_work_mode": {
+        "name": "Sol düğme çalışma modu"
+      },
+      "middle_button_work_mode": {
+        "name": "Orta düğme çalışma modu"
+      },
+      "right_button_work_mode": {
+        "name": "Sağ düğme çalışma modu"
+      },
+      "watt": {
+        "name": "Mikrodalga gücü"
+      },
+      "weight": {
+        "name": "Ağırlık"
+      },
+      "speed": {
+        "name": "Hız"
+      },
+      "set_work_temp": {
+        "name": "Çalışma sıcaklığı"
+      },
+      "set_keep_warm_temp": {
+        "name": "Sıcak tutma sıcaklığı"
+      },
+      "set_work_time": {
+        "name": "Çalışma süresi"
+      },
+      "set_keep_warm_time": {
+        "name": "Sıcak tutma süresi"
+      },
+      "appoint_time": {
+        "name": "Zamanlanmış başlatma"
+      },
+      "code_id": {
+        "name": "Tarif kodu"
+      },
+      "work_mode": {
+        "name": "Çalışma modu"
+      },
+      "temperature_setting": {
+        "name": "Ayarlanan sıcaklık"
+      },
+      "time_warm_hr": {
+        "name": "Sıcak tutma süresi (saat)"
+      },
+      "time_warm_min": {
+        "name": "Sıcak tutma süresi (dakika)"
+      },
+      "cmd_id": {
+        "name": "Komut kimliği"
       }
     },
     "select": {
+      "curtain_status": {
+        "name": "Perde",
+        "state": {
+          "open": "Aç",
+          "close": "Kapat",
+          "stop": "Durdur"
+        }
+      },
+      "curtain_direction": {
+        "name": "Yön",
+        "state": {
+          "positive": "Pozitif",
+          "reverse": "Ters"
+        }
+      },
+      "aux_heat_mode": {
+        "name": "Yardımcı ısıtma modu",
+        "state": {
+          "off": "Kapalı",
+          "aux_heat": "Yardımcı ısıtma",
+          "aux_only": "Yalnızca yardımcı ısıtma"
+        }
+      },
       "cur_quantify": {
         "name": "Mevcut Miktar Ön Ayarı",
         "state": {
@@ -1060,75 +1241,13 @@
           "preset_5": "Ön Ayar 5"
         }
       },
-      "wash_mode_76000228": {
-        "name": "Yıkama Modu",
-        "state": {
-          "neutral_gear": "Yok",
-          "auto_wash": "Otomatik",
-          "strong_wash": "Yoğun",
-          "standard_wash": "Üniversal",
-          "eco_wash": "ECO",
-          "glass_wash": "Cam",
-          "hour_wash": "90 dk",
-          "fast_wash": "Hızlı",
-          "soak_wash": "Islatma",
-          "90min": "90 dk",
-          "self_clean": "Kendi kendine temizleme",
-          "fruit_wash": "Meyve",
-          "self_define": "Özel",
-          "germ": "Fısıltı",
-          "bowl_wash": "Kase",
-          "kill_germ": "Hijyen",
-          "sea_food_wash": "Kendi kendine temizleme",
-          "hot_pot_wash": "Güveç",
-          "quiet_night_wash": "Sessiz gece",
-          "less_wash": "Hafif",
-          "max_rapid_wash": "En hızlı",
-          "oil_net_wash": "Yağ filtresi",
-          "cloud_wash": "Bulut programı",
-          "single_dry": "Yalnızca kurutma",
-          "single_disinfect": "Yalnızca dezenfeksiyon",
-          "high_temp_wash": "Yüksek sıcaklık",
-          "wash_dry": "Yıka ve kurut"
-        }
-      },
-      "program_76000228": {
-        "name": "Program",
-        "state": {
-          "auto_wash": "Otomatik",
-          "strong_wash": "Yoğun",
-          "standard_wash": "Üniversal",
-          "eco_wash": "ECO",
-          "glass_wash": "Cam",
-          "hour_wash": "90 dk",
-          "fast_wash": "Hızlı",
-          "soak_wash": "Islatma",
-          "90min": "90 dk",
-          "self_clean": "Kendi kendine temizleme",
-          "fruit_wash": "Meyve",
-          "self_define": "Özel",
-          "germ": "Fısıltı",
-          "bowl_wash": "Kase",
-          "kill_germ": "Hijyen",
-          "sea_food_wash": "Kendi kendine temizleme",
-          "hot_pot_wash": "Güveç",
-          "quiet_night_wash": "Sessiz gece",
-          "less_wash": "Hafif",
-          "max_rapid_wash": "En hızlı",
-          "oil_net_wash": "Yağ filtresi",
-          "cloud_wash": "Bulut programı",
-          "single_dry": "Yalnızca kurutma",
-          "single_disinfect": "Yalnızca dezenfeksiyon",
-          "high_temp_wash": "Yüksek sıcaklık",
-          "wash_dry": "Yıka ve kurut"
-        }
-      },
       "program": {
         "name": "Program",
         "state": {
           "auto_wash": "Otomatik",
           "strong_wash": "Yoğun",
           "standard_wash": "Standart",
+          "universal_wash": "Genel",
           "eco_wash": "ECO",
           "glass_wash": "Cam",
           "hour_wash": "1 saat",
@@ -1139,6 +1258,7 @@
           "fruit_wash": "Meyve",
           "self_define": "Özel",
           "germ": "Mikrop",
+          "whisper_wash": "Sessiz",
           "bowl_wash": "Kase",
           "kill_germ": "Hijyen",
           "sea_food_wash": "Deniz ürünleri",
@@ -1151,7 +1271,8 @@
           "single_dry": "Yalnızca kurutma",
           "single_disinfect": "Yalnızca dezenfeksiyon",
           "high_temp_wash": "Yüksek sıcaklık",
-          "wash_dry": "Yıka ve kurut"
+          "wash_dry": "Yıka ve kurut",
+          "anion1": "İyonik tazelik"
         }
       },
       "load": {
@@ -1228,7 +1349,36 @@
           "bath": "Banyo",
           "blow": "Üfleme",
           "ventilation": "Havalandırma",
-          "dry": "Kurutma"
+          "dry": "Kurutma",
+          "keep_warm": "Sıcak tutma",
+          "stero_baking": "Üç boyutlu pişirme",
+          "whole_baking": "Tam pişirme",
+          "up_down_baking": "Üst/alt pişirme",
+          "unfreeze": "Buz çözme",
+          "hot_air_convection": "Sıcak hava konveksiyonu",
+          "power_saving": "Enerji tasarrufu",
+          "center_baking": "Orta pişirme",
+          "rotary_baking": "Döner pişirme",
+          "fermentation": "Fermantasyon",
+          "stoving": "Kurutma",
+          "down_baking": "Alt pişirme",
+          "pizza": "Pizza",
+          "up_infrared_fan": "Üst kızılötesi fan",
+          "microwave": "Mikrodalga",
+          "fish": "Balık",
+          "meat": "Et",
+          "egg": "Yumurta",
+          "seafood": "Deniz ürünleri",
+          "steam_clean": "Buharlı temizleme",
+          "common": "Genel",
+          "grain": "Tahıl",
+          "rice": "Pirinç",
+          "zymosis": "Mayalama",
+          "heat": "Yeniden ısıtma",
+          "furring_clean": "Kireç çözme",
+          "disinfect": "Dezenfeksiyon",
+          "vegetable": "Sebze",
+          "chop": "Doğranmış yiyecek"
         }
       },
       "oscillation_angle": {
@@ -1261,6 +1411,7 @@
           "auto_wash": "Otomatik",
           "strong_wash": "Yoğun",
           "standard_wash": "Standart",
+          "universal_wash": "Genel",
           "eco_wash": "ECO",
           "glass_wash": "Cam",
           "hour_wash": "1 saat",
@@ -1271,6 +1422,7 @@
           "fruit_wash": "Meyve",
           "self_define": "Özel",
           "germ": "Mikrop",
+          "whisper_wash": "Sessiz",
           "bowl_wash": "Kase",
           "kill_germ": "Hijyen",
           "sea_food_wash": "Deniz ürünleri",
@@ -1283,7 +1435,8 @@
           "single_dry": "Yalnızca kurutma",
           "single_disinfect": "Yalnızca dezenfeksiyon",
           "high_temp_wash": "Yüksek sıcaklık",
-          "wash_dry": "Yıka ve kurut"
+          "wash_dry": "Yıka ve kurut",
+          "anion1": "İyonik tazelik"
         }
       },
       "water_level_set": {
@@ -1312,7 +1465,7 @@
         }
       },
       "work_status_select": {
-        "name": "Çalışma Durumu",
+        "name": "Çalışma durumunu ayarla",
         "state": {
           "save_power": "Güç Tasarrufu",
           "standby": "Beklemede",
@@ -1328,7 +1481,12 @@
           "ramadan": "Ramazan",
           "after_checking": "Denetimden Sonra",
           "wait_to_start": "Başlamayı Bekle",
-          "ff": "Bilinmiyor"
+          "ff": "Bilinmiyor",
+          "cancel": "İptal edildi",
+          "end": "Tamamlandı",
+          "appointment": "Zamanlanmış başlangıç",
+          "reservation": "Rezervasyon",
+          "none": "Yok"
         }
       },
       "x9b_fire_power_select": {
@@ -1468,12 +1626,12 @@
       "washer_temperature_control": {
         "name": "Su sıcaklığı",
         "state": {
-          "cold": "Soğuk",
           "20": "20 °C",
           "30": "30 °C",
           "40": "40 °C",
           "60": "60 °C",
-          "95": "95 °C"
+          "95": "95 °C",
+          "cold": "Soğuk"
         }
       },
       "washer_spin_speed_control": {
@@ -1523,6 +1681,21 @@
       },
       "washer_spin_time_control": {
         "name": "Sıkma süresi (dk)"
+      },
+      "updown": {
+        "name": "Yukarı/Aşağı",
+        "state": {
+          "pause": "Duraklat",
+          "up": "Yukarı",
+          "down": "Aşağı"
+        }
+      },
+      "drink_style": {
+        "name": "İçecek türü",
+        "state": {
+          "hot_drink": "Sıcak içecek",
+          "warm_drink": "Ilık içecek"
+        }
       }
     },
     "time": {
@@ -1534,6 +1707,47 @@
       }
     },
     "sensor": {
+      "response_type": {
+        "name": "Yanıt",
+        "state": {
+          "response_normal": "Normal yanıt",
+          "response_error_e2": "E2 hatası",
+          "response_error": "Hata"
+        }
+      },
+      "time_work_hr": {
+        "name": "Çalışma süresi (saat)"
+      },
+      "time_work_min": {
+        "name": "Çalışma süresi (dakika)"
+      },
+      "time_warm_hr": {
+        "name": "Sıcak tutma süresi (saat)"
+      },
+      "time_warm_min": {
+        "name": "Sıcak tutma süresi (dakika)"
+      },
+      "time_running_hr": {
+        "name": "Çalışma saati"
+      },
+      "time_running_min": {
+        "name": "Çalışma dakikası"
+      },
+      "time_surplus_hr": {
+        "name": "Kalan saat"
+      },
+      "time_surplus_min": {
+        "name": "Kalan dakika"
+      },
+      "work_stage": {
+        "name": "Çalışma aşaması"
+      },
+      "software_version": {
+        "name": "Yazılım sürümü"
+      },
+      "evaporator_temperature": {
+        "name": "Evaporatör sıcaklığı"
+      },
       "db_running_status": {
         "name": "Çamaşır makinesi durumu"
       },
@@ -1625,6 +1839,7 @@
           "auto_wash": "Otomatik",
           "strong_wash": "Yoğun",
           "standard_wash": "Standart",
+          "universal_wash": "Genel",
           "eco_wash": "ECO",
           "glass_wash": "Cam",
           "hour_wash": "1 saat",
@@ -1635,6 +1850,7 @@
           "fruit_wash": "Meyve",
           "self_define": "Özel",
           "germ": "Mikrop",
+          "whisper_wash": "Sessiz",
           "bowl_wash": "Kase",
           "kill_germ": "Hijyen",
           "sea_food_wash": "Deniz ürünleri",
@@ -1647,39 +1863,8 @@
           "single_dry": "Yalnızca kurutma",
           "single_disinfect": "Yalnızca dezenfeksiyon",
           "high_temp_wash": "Yüksek sıcaklık",
-          "wash_dry": "Yıka ve kurut"
-        }
-      },
-      "dishwasher_mode_76000228": {
-        "name": "Mod",
-        "state": {
-          "neutral_gear": "Yok",
-          "auto_wash": "Otomatik",
-          "strong_wash": "Yoğun",
-          "standard_wash": "Üniversal",
-          "eco_wash": "ECO",
-          "glass_wash": "Cam",
-          "hour_wash": "90 dk",
-          "fast_wash": "Hızlı",
-          "soak_wash": "Islatma",
-          "90min": "90 dk",
-          "self_clean": "Kendi kendine temizleme",
-          "fruit_wash": "Meyve",
-          "self_define": "Özel",
-          "germ": "Fısıltı",
-          "bowl_wash": "Kase",
-          "kill_germ": "Hijyen",
-          "sea_food_wash": "Kendi kendine temizleme",
-          "hot_pot_wash": "Güveç",
-          "quiet_night_wash": "Sessiz gece",
-          "less_wash": "Hafif",
-          "max_rapid_wash": "En hızlı",
-          "oil_net_wash": "Yağ filtresi",
-          "cloud_wash": "Bulut programı",
-          "single_dry": "Yalnızca kurutma",
-          "single_disinfect": "Yalnızca dezenfeksiyon",
-          "high_temp_wash": "Yüksek sıcaklık",
-          "wash_dry": "Yıka ve kurut"
+          "wash_dry": "Yıka ve kurut",
+          "anion1": "İyonik tazelik"
         }
       },
       "dishwasher_status": {
@@ -2026,6 +2211,9 @@
       },
       "indoor_humidity": {
         "name": "İç Mekan Nemi"
+      },
+      "target_humidity": {
+        "name": "Hedef nem"
       },
       "indoor_temperature": {
         "name": "İç Mekan Sıcaklığı"
@@ -3962,7 +4150,12 @@
           "ramadan": "Ramazan",
           "after_checking": "Denetimden Sonra",
           "wait_to_start": "Başlamayı Bekle",
-          "ff": "Bilinmiyor"
+          "ff": "Bilinmiyor",
+          "cancel": "İptal edildi",
+          "end": "Tamamlandı",
+          "appointment": "Zamanlanmış başlangıç",
+          "reservation": "Rezervasyon",
+          "none": "Yok"
         }
       },
       "x9b_fire_power": {
@@ -4031,6 +4224,330 @@
       },
       "cbs_version": {
         "name": "CBS Sürümü"
+      },
+      "panel_status": {
+        "name": "Panel durumu"
+      },
+      "cooling_capacity": {
+        "name": "Soğutma kapasitesi"
+      },
+      "cooling_cop_eer": {
+        "name": "Soğutma COP/EER"
+      },
+      "cooling_cop_eer_this_month": {
+        "name": "Soğutma COP/EER bu ay"
+      },
+      "cooling_cop_eer_this_week": {
+        "name": "Soğutma COP/EER bu hafta"
+      },
+      "cooling_cop_eer_this_year": {
+        "name": "Soğutma COP/EER bu yıl"
+      },
+      "cooling_cop_eer_today": {
+        "name": "Soğutma COP/EER bugün"
+      },
+      "cooling_energy_consumption_this_month": {
+        "name": "Soğutma elektrik tüketimi bu ay"
+      },
+      "cooling_energy_consumption_this_week": {
+        "name": "Soğutma elektrik tüketimi bu hafta"
+      },
+      "cooling_energy_consumption_this_year": {
+        "name": "Soğutma elektrik tüketimi bu yıl"
+      },
+      "cooling_energy_consumption_today": {
+        "name": "Soğutma elektrik tüketimi bugün"
+      },
+      "cooling_power_consumption": {
+        "name": "Soğutma elektrik gücü"
+      },
+      "cooling_produced_energy_this_month": {
+        "name": "Üretilen soğutma enerjisi bu ay"
+      },
+      "cooling_produced_energy_this_week": {
+        "name": "Üretilen soğutma enerjisi bu hafta"
+      },
+      "cooling_produced_energy_this_year": {
+        "name": "Üretilen soğutma enerjisi bu yıl"
+      },
+      "cooling_produced_energy_today": {
+        "name": "Üretilen soğutma enerjisi bugün"
+      },
+      "cooling_total_cop_eer": {
+        "name": "Soğutma toplam COP/EER"
+      },
+      "cooling_total_energy_consumption": {
+        "name": "Soğutma toplam elektrik tüketimi"
+      },
+      "cooling_total_produced_energy": {
+        "name": "Toplam üretilen soğutma enerjisi"
+      },
+      "dhw_capacity": {
+        "name": "Sıcak kullanım suyu ısıl çıkışı"
+      },
+      "dhw_cop_eer": {
+        "name": "SKS COP/EER"
+      },
+      "dhw_cop_eer_this_month": {
+        "name": "SKS COP/EER bu ay"
+      },
+      "dhw_cop_eer_this_week": {
+        "name": "SKS COP/EER bu hafta"
+      },
+      "dhw_cop_eer_this_year": {
+        "name": "SKS COP/EER bu yıl"
+      },
+      "dhw_cop_eer_today": {
+        "name": "SKS COP/EER bugün"
+      },
+      "dhw_energy_consumption_this_month": {
+        "name": "SKS elektrik tüketimi bu ay"
+      },
+      "dhw_energy_consumption_this_week": {
+        "name": "SKS elektrik tüketimi bu hafta"
+      },
+      "dhw_energy_consumption_this_year": {
+        "name": "SKS elektrik tüketimi bu yıl"
+      },
+      "dhw_energy_consumption_today": {
+        "name": "SKS elektrik tüketimi bugün"
+      },
+      "dhw_power_consumption": {
+        "name": "SKS elektrik gücü"
+      },
+      "dhw_produced_energy_this_month": {
+        "name": "SKS üretilen ısı enerjisi bu ay"
+      },
+      "dhw_produced_energy_this_week": {
+        "name": "SKS üretilen ısı enerjisi bu hafta"
+      },
+      "dhw_produced_energy_this_year": {
+        "name": "SKS üretilen ısı enerjisi bu yıl"
+      },
+      "dhw_produced_energy_today": {
+        "name": "SKS üretilen ısı enerjisi bugün"
+      },
+      "dhw_total_cop_eer": {
+        "name": "SKS toplam COP/EER"
+      },
+      "dhw_total_energy_consumption": {
+        "name": "SKS toplam elektrik tüketimi"
+      },
+      "dhw_total_produced_energy": {
+        "name": "SKS toplam üretilen ısı enerjisi"
+      },
+      "heating_capacity": {
+        "name": "Isıtma kapasitesi"
+      },
+      "heating_cop_eer": {
+        "name": "Isıtma COP/EER"
+      },
+      "heating_cop_eer_this_month": {
+        "name": "Isıtma COP/EER bu ay"
+      },
+      "heating_cop_eer_this_week": {
+        "name": "Isıtma COP/EER bu hafta"
+      },
+      "heating_cop_eer_this_year": {
+        "name": "Isıtma COP/EER bu yıl"
+      },
+      "heating_cop_eer_today": {
+        "name": "Isıtma COP/EER bugün"
+      },
+      "heating_energy_consumption_this_month": {
+        "name": "Isıtma elektrik tüketimi bu ay"
+      },
+      "heating_energy_consumption_this_week": {
+        "name": "Isıtma elektrik tüketimi bu hafta"
+      },
+      "heating_energy_consumption_this_year": {
+        "name": "Isıtma elektrik tüketimi bu yıl"
+      },
+      "heating_energy_consumption_today": {
+        "name": "Isıtma elektrik tüketimi bugün"
+      },
+      "heating_power_consumption": {
+        "name": "Isıtma elektrik gücü"
+      },
+      "heating_produced_energy_this_month": {
+        "name": "Isıtma üretilen ısı enerjisi bu ay"
+      },
+      "heating_produced_energy_this_week": {
+        "name": "Isıtma üretilen ısı enerjisi bu hafta"
+      },
+      "heating_produced_energy_this_year": {
+        "name": "Isıtma üretilen ısı enerjisi bu yıl"
+      },
+      "heating_produced_energy_today": {
+        "name": "Isıtma üretilen ısı enerjisi bugün"
+      },
+      "heating_total_cop_eer": {
+        "name": "Isıtma toplam COP/EER"
+      },
+      "heating_total_energy_consumption": {
+        "name": "Isıtma toplam elektrik tüketimi"
+      },
+      "heating_total_produced_energy": {
+        "name": "Isıtma toplam üretilen ısı enerjisi"
+      },
+      "instant_cop_eer": {
+        "name": "Anlık COP/EER"
+      },
+      "total_cop_eer": {
+        "name": "Toplam COP/EER"
+      },
+      "dryer": {
+        "name": "Kurutma seviyesi"
+      },
+      "soak_count": {
+        "name": "Islatma sayısı"
+      },
+      "appointment_time": {
+        "name": "Gecikmeli başlatma süresi"
+      },
+      "db_last_cycle_water_consumption": {
+        "name": "Son döngü su tüketimi"
+      },
+      "power_consumption": {
+        "name": "Son döngü enerji tüketimi"
+      },
+      "wash_count": {
+        "name": "Yıkama sayısı"
+      },
+      "water_state": {
+        "name": "Su haznesi",
+        "state": {
+          "full": "Dolu",
+          "empty": "Boş"
+        }
+      },
+      "box_state": {
+        "name": "Buharlı fırın",
+        "state": {
+          "in": "Takılı",
+          "out": "Çıkarıldı"
+        }
+      },
+      "door_state": {
+        "name": "Kapı",
+        "state": {
+          "open": "Açık",
+          "close": "Kapalı"
+        }
+      },
+      "f1_response_type": {
+        "name": "Yanıt",
+        "state": {
+          "success": "Başarılı",
+          "fail": "Başarısız"
+        }
+      },
+      "step_status": {
+        "name": "Adım durumu"
+      },
+      "lid_status": {
+        "name": "Kapak durumu",
+        "state": {
+          "have_cup": "Fincan takılı",
+          "no_cup": "Fincan yok"
+        }
+      },
+      "cup_status": {
+        "name": "Fincan durumu",
+        "state": {
+          "default": "Varsayılan",
+          "hot_cup": "Sıcak fincan",
+          "cold_cup": "Soğuk fincan"
+        }
+      },
+      "current_time": {
+        "name": "Geçerli süre"
+      },
+      "box1_type": {
+        "name": "Hazne 1 türü"
+      },
+      "box1_status": {
+        "name": "Hazne 1 durumu",
+        "state": {
+          "no": "Mevcut",
+          "missing": "Eksik"
+        }
+      },
+      "box2_type": {
+        "name": "Hazne 2 türü"
+      },
+      "box2_status": {
+        "name": "Hazne 2 durumu",
+        "state": {
+          "no": "Mevcut",
+          "missing": "Eksik"
+        }
+      },
+      "box3_type": {
+        "name": "Hazne 3 türü"
+      },
+      "box3_status": {
+        "name": "Hazne 3 durumu",
+        "state": {
+          "no": "Mevcut",
+          "missing": "Eksik"
+        }
+      },
+      "box4_type": {
+        "name": "Hazne 4 türü"
+      },
+      "box4_status": {
+        "name": "Hazne 4 durumu",
+        "state": {
+          "no": "Mevcut",
+          "missing": "Eksik"
+        }
+      },
+      "box5_type": {
+        "name": "Hazne 5 türü"
+      },
+      "box5_status": {
+        "name": "Hazne 5 durumu",
+        "state": {
+          "no": "Mevcut",
+          "missing": "Eksik"
+        }
+      },
+      "box6_type": {
+        "name": "Hazne 6 türü"
+      },
+      "box6_status": {
+        "name": "Hazne 6 durumu",
+        "state": {
+          "no": "Mevcut",
+          "missing": "Eksik"
+        }
+      },
+      "box7_type": {
+        "name": "Hazne 7 türü"
+      },
+      "box7_status": {
+        "name": "Hazne 7 durumu",
+        "state": {
+          "no": "Mevcut",
+          "missing": "Eksik"
+        }
+      },
+      "box8_type": {
+        "name": "Hazne 8 türü"
+      },
+      "box8_status": {
+        "name": "Hazne 8 durumu",
+        "state": {
+          "no": "Mevcut",
+          "missing": "Eksik"
+        }
+      },
+      "process_status": {
+        "name": "İşlem durumu"
+      },
+      "time_max": {
+        "name": "Maksimum süre"
       }
     },
     "switch": {
@@ -4112,6 +4629,9 @@
       "dry": {
         "name": "Kurutma"
       },
+      "wet_pad_dry": {
+        "name": "Nemlendirme pedi kurutma"
+      },
       "cold_water_single": {
         "name": "Soğuk Su Tek"
       },
@@ -4143,7 +4663,7 @@
         "name": "Su Sızıntısı Koruması"
       },
       "light": {
-        "name": "Hafif"
+        "name": "Işık"
       },
       "link_to_ac": {
         "name": "Klimaya Bağlantı"
@@ -4327,6 +4847,51 @@
       },
       "washer_forget_free": {
         "name": "Unutma karşıtı bakım"
+      },
+      "sterilize": {
+        "name": "Sterilizasyon"
+      },
+      "baking": {
+        "name": "Isıtma"
+      },
+      "left_button": {
+        "name": "Sol düğme"
+      },
+      "middle_button": {
+        "name": "Orta düğme"
+      },
+      "right_button": {
+        "name": "Sağ düğme"
+      },
+      "show_button_name": {
+        "name": "Düğme adını göster"
+      },
+      "close_screen_bright": {
+        "name": "Kapatıldığında ekranı karart"
+      },
+      "sleep_mode_switch": {
+        "name": "Uyku modu anahtarı"
+      },
+      "sleep_mode_mute": {
+        "name": "Uyku modunda sessiz"
+      },
+      "left_button_keep": {
+        "name": "Sol düğmeyi koru"
+      },
+      "middle_button_keep": {
+        "name": "Orta düğmeyi koru"
+      },
+      "right_button_keep": {
+        "name": "Sağ düğmeyi koru"
+      },
+      "voice_control": {
+        "name": "Sesli kontrol"
+      },
+      "screen_state": {
+        "name": "Ekran"
+      },
+      "reserve": {
+        "name": "Rezervasyon"
       }
     },
     "water_heater": {

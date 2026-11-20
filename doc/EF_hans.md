@@ -21,27 +21,27 @@
 
 ### 扩展传感器
 
-| 实体ID                                    | 类型   | 描述     |
-| ----------------------------------------- | ------ | -------- |
-| switch.{DEVICEID}\_ef_reserve             | switch | 预约     |
-| switch.{DEVICEID}\_ef_warm                | switch | 保温     |
-| select.{DEVICEID}\_ef_drink_style         | select | 饮品类型 |
-| number.{DEVICEID}\_ef_temperature_setting | number | 设置温度 |
-| number.{DEVICEID}\_ef_time_reserve_hr     | number | 预约小时 |
-| number.{DEVICEID}\_ef_time_reserve_min    | number | 预约分钟 |
-| number.{DEVICEID}\_ef_time_warm_hr        | number | 保温小时 |
-| number.{DEVICEID}\_ef_time_warm_min       | number | 保温分钟 |
-| number.{DEVICEID}\_ef_cmd_code            | number | 命令码   |
-| number.{DEVICEID}\_ef_cmd_id              | number | 命令 ID  |
-| sensor.{DEVICEID}\_ef_response_type       | sensor | 响应     |
-| sensor.{DEVICEID}\_ef_work_status         | sensor | 工作状态 |
-| sensor.{DEVICEID}\_ef_work_step           | sensor | 工作步骤 |
-| sensor.{DEVICEID}\_ef_process_status      | sensor | 进程状态 |
-| sensor.{DEVICEID}\_ef_time_work_hr        | sensor | 工作小时 |
-| sensor.{DEVICEID}\_ef_time_work_min       | sensor | 工作分钟 |
-| sensor.{DEVICEID}\_ef_time_max            | sensor | 最大时间 |
-| sensor.{DEVICEID}\_ef_temperature_current | sensor | 当前温度 |
-| sensor.{DEVICEID}\_error_code             | sensor | 错误代码 |
+| 实体ID                                 | 类型   | 描述     |
+| -------------------------------------- | ------ | -------- |
+| switch.{DEVICEID}\_reserve             | switch | 预约     |
+| switch.{DEVICEID}\_warm                | switch | 保温     |
+| select.{DEVICEID}\_drink_style         | select | 饮品类型 |
+| number.{DEVICEID}\_temperature_setting | number | 设置温度 |
+| number.{DEVICEID}\_time_reserve_hr     | number | 预约小时 |
+| number.{DEVICEID}\_time_reserve_min    | number | 预约分钟 |
+| number.{DEVICEID}\_time_warm_hr        | number | 保温小时 |
+| number.{DEVICEID}\_time_warm_min       | number | 保温分钟 |
+| number.{DEVICEID}\_cmd_code            | number | 命令码   |
+| number.{DEVICEID}\_cmd_id              | number | 命令 ID  |
+| sensor.{DEVICEID}\_response_type       | sensor | 响应     |
+| sensor.{DEVICEID}\_work_status         | sensor | 工作状态 |
+| sensor.{DEVICEID}\_work_step           | sensor | 工作步骤 |
+| sensor.{DEVICEID}\_process_status      | sensor | 进程状态 |
+| sensor.{DEVICEID}\_time_work_hr        | sensor | 工作小时 |
+| sensor.{DEVICEID}\_time_work_min       | sensor | 工作分钟 |
+| sensor.{DEVICEID}\_time_max            | sensor | 最大时间 |
+| sensor.{DEVICEID}\_temperature_current | sensor | 当前温度 |
+| sensor.{DEVICEID}\_error_code          | sensor | 错误代码 |
 
 ## 服务
 

@@ -884,6 +884,33 @@
       },
       "laundry_appointment": {
         "name": "Reservering"
+      },
+      "has_token": {
+        "name": "Heeft token"
+      },
+      "humidify": {
+        "name": "Bevochtigen"
+      },
+      "speedy": {
+        "name": "Snelwas"
+      },
+      "lock": {
+        "name": "Kinderslot"
+      },
+      "beforehand_wash": {
+        "name": "Voorwas"
+      },
+      "steam_wash": {
+        "name": "Stoomwas"
+      },
+      "add_rinse": {
+        "name": "Extra spoeling"
+      },
+      "wind_dispel": {
+        "name": "Verse lucht"
+      },
+      "remote_control_flag": {
+        "name": "Bediening op afstand"
       }
     },
     "button": {
@@ -925,6 +952,9 @@
       }
     },
     "fan": {
+      "fan": {
+        "name": "Ventilator"
+      },
       "bgf10000": {
         "state_attributes": {
           "preset_mode": {
@@ -948,12 +978,41 @@
         "name": "Verse lucht afvoer"
       }
     },
+    "light": {
+      "light": {
+        "name": "Verlichting"
+      }
+    },
     "lock": {
       "child_lock": {
         "name": "Kinderslot"
       }
     },
     "number": {
+      "work_status": {
+        "name": "Bedrijfsstatus"
+      },
+      "function_no": {
+        "name": "Functienummer"
+      },
+      "fire_level": {
+        "name": "Verwarmingsniveau"
+      },
+      "time_reserve_hr": {
+        "name": "Reserveringsuren"
+      },
+      "time_reserve_min": {
+        "name": "Reserveringsminuten"
+      },
+      "definite_time_hr": {
+        "name": "Timeruren"
+      },
+      "definite_time_min": {
+        "name": "Timerminuten"
+      },
+      "curtain_position": {
+        "name": "Positie"
+      },
       "delay_minutes": {
         "name": "Vertraging"
       },
@@ -1046,9 +1105,131 @@
       },
       "dryer_timed_extra": {
         "name": "Verlenging getimed drogen"
+      },
+      "e9_volume": {
+        "name": "Broodgrootte"
+      },
+      "color": {
+        "name": "Korstkleur"
+      },
+      "dosing": {
+        "name": "Dosering van ingrediënten"
+      },
+      "bake_temperature": {
+        "name": "Baktemperatuur"
+      },
+      "time_cuisine_hr": {
+        "name": "Bereidingstijd (uren)"
+      },
+      "time_cuisine_min": {
+        "name": "Bereidingstijd (minuten)"
+      },
+      "control_cmd_code": {
+        "name": "Opdrachtcode"
+      },
+      "auto_off_screen_type": {
+        "name": "Type automatisch scherm uitschakelen"
+      },
+      "theme": {
+        "name": "Thema"
+      },
+      "night_volume": {
+        "name": "Nachtvolume"
+      },
+      "voice_volume": {
+        "name": "Spraakvolume"
+      },
+      "sleep_start_hour": {
+        "name": "Startuur slaapmodus"
+      },
+      "sleep_start_minute": {
+        "name": "Startminuut slaapmodus"
+      },
+      "sleep_duration_hour": {
+        "name": "Duur slaapmodus (uren)"
+      },
+      "sleep_duration_minute": {
+        "name": "Duur slaapmodus (minuten)"
+      },
+      "brightness": {
+        "name": "Helderheid"
+      },
+      "left_button_work_mode": {
+        "name": "Werkmodus linkerknop"
+      },
+      "middle_button_work_mode": {
+        "name": "Werkmodus middelste knop"
+      },
+      "right_button_work_mode": {
+        "name": "Werkmodus rechterknop"
+      },
+      "watt": {
+        "name": "Magnetronvermogen"
+      },
+      "weight": {
+        "name": "Gewicht"
+      },
+      "speed": {
+        "name": "Snelheid"
+      },
+      "set_work_temp": {
+        "name": "Werktemperatuur"
+      },
+      "set_keep_warm_temp": {
+        "name": "Warmhoudtemperatuur"
+      },
+      "set_work_time": {
+        "name": "Werktijd"
+      },
+      "set_keep_warm_time": {
+        "name": "Warmhoudtijd"
+      },
+      "appoint_time": {
+        "name": "Geplande starttijd"
+      },
+      "code_id": {
+        "name": "Receptcode"
+      },
+      "work_mode": {
+        "name": "Werkmodus"
+      },
+      "temperature_setting": {
+        "name": "Ingestelde temperatuur"
+      },
+      "time_warm_hr": {
+        "name": "Warmhoudtijd (uren)"
+      },
+      "time_warm_min": {
+        "name": "Warmhoudtijd (minuten)"
+      },
+      "cmd_id": {
+        "name": "Opdracht-ID"
       }
     },
     "select": {
+      "curtain_status": {
+        "name": "Gordijn",
+        "state": {
+          "open": "Open",
+          "close": "Dicht",
+          "stop": "Stoppen"
+        }
+      },
+      "curtain_direction": {
+        "name": "Richting",
+        "state": {
+          "positive": "Positief",
+          "reverse": "Omgekeerd"
+        }
+      },
+      "aux_heat_mode": {
+        "name": "Bijverwarmingsmodus",
+        "state": {
+          "off": "Uit",
+          "aux_heat": "Bijverwarming",
+          "aux_only": "Alleen bijverwarming"
+        }
+      },
       "cur_quantify": {
         "name": "Huidige hoeveelheid voorinstelling",
         "state": {
@@ -1060,75 +1241,13 @@
           "preset_5": "Voorinstelling 5"
         }
       },
-      "wash_mode_76000228": {
-        "name": "Wasmodus",
-        "state": {
-          "neutral_gear": "Geen",
-          "auto_wash": "Automatisch",
-          "strong_wash": "Intensief",
-          "standard_wash": "Universeel",
-          "eco_wash": "ECO",
-          "glass_wash": "Glas",
-          "hour_wash": "90 min",
-          "fast_wash": "Snel",
-          "soak_wash": "Weken",
-          "90min": "90 min",
-          "self_clean": "Zelfreiniging",
-          "fruit_wash": "Fruit",
-          "self_define": "Aangepast",
-          "germ": "Fluisterstil",
-          "bowl_wash": "Kommen",
-          "kill_germ": "Hygiëne",
-          "sea_food_wash": "Zelfreiniging",
-          "hot_pot_wash": "Hotpot",
-          "quiet_night_wash": "Stille nacht",
-          "less_wash": "Licht",
-          "max_rapid_wash": "Max snel",
-          "oil_net_wash": "Oliefilter",
-          "cloud_wash": "Cloudprogramma",
-          "single_dry": "Alleen drogen",
-          "single_disinfect": "Alleen desinfecteren",
-          "high_temp_wash": "Hoge temperatuur",
-          "wash_dry": "Wassen en drogen"
-        }
-      },
-      "program_76000228": {
-        "name": "Programma",
-        "state": {
-          "auto_wash": "Automatisch",
-          "strong_wash": "Intensief",
-          "standard_wash": "Universeel",
-          "eco_wash": "ECO",
-          "glass_wash": "Glas",
-          "hour_wash": "90 min",
-          "fast_wash": "Snel",
-          "soak_wash": "Weken",
-          "90min": "90 min",
-          "self_clean": "Zelfreiniging",
-          "fruit_wash": "Fruit",
-          "self_define": "Aangepast",
-          "germ": "Fluisterstil",
-          "bowl_wash": "Kommen",
-          "kill_germ": "Hygiëne",
-          "sea_food_wash": "Zelfreiniging",
-          "hot_pot_wash": "Hotpot",
-          "quiet_night_wash": "Stille nacht",
-          "less_wash": "Licht",
-          "max_rapid_wash": "Max snel",
-          "oil_net_wash": "Oliefilter",
-          "cloud_wash": "Cloudprogramma",
-          "single_dry": "Alleen drogen",
-          "single_disinfect": "Alleen desinfecteren",
-          "high_temp_wash": "Hoge temperatuur",
-          "wash_dry": "Wassen en drogen"
-        }
-      },
       "program": {
         "name": "Programma",
         "state": {
           "auto_wash": "Automatisch",
           "strong_wash": "Intensief",
           "standard_wash": "Standaard",
+          "universal_wash": "Universeel",
           "eco_wash": "ECO",
           "glass_wash": "Glas",
           "hour_wash": "1 uur",
@@ -1139,6 +1258,7 @@
           "fruit_wash": "Fruit",
           "self_define": "Aangepast",
           "germ": "Kiem",
+          "whisper_wash": "Stil",
           "bowl_wash": "Kommen",
           "kill_germ": "Hygiëne",
           "sea_food_wash": "Zeevruchten",
@@ -1151,7 +1271,8 @@
           "single_dry": "Alleen drogen",
           "single_disinfect": "Alleen desinfecteren",
           "high_temp_wash": "Hoge temperatuur",
-          "wash_dry": "Wassen en drogen"
+          "wash_dry": "Wassen en drogen",
+          "anion1": "Ionenfrisheid"
         }
       },
       "load": {
@@ -1228,7 +1349,36 @@
           "bath": "Bad",
           "blow": "Blazen",
           "ventilation": "Ventilatie",
-          "dry": "Drogen"
+          "dry": "Drogen",
+          "keep_warm": "Warmhouden",
+          "stero_baking": "Driedimensionaal bakken",
+          "whole_baking": "Volledig bakken",
+          "up_down_baking": "Boven-/onderwarmte",
+          "unfreeze": "Ontdooien",
+          "hot_air_convection": "Heteluchtconvectie",
+          "power_saving": "Energiebesparing",
+          "center_baking": "Middenbakken",
+          "rotary_baking": "Roterend bakken",
+          "fermentation": "Fermenteren",
+          "stoving": "Drogen",
+          "down_baking": "Onderwarmte",
+          "pizza": "Pizza",
+          "up_infrared_fan": "Bovenste infraroodventilator",
+          "microwave": "Magnetron",
+          "fish": "Vis",
+          "meat": "Vlees",
+          "egg": "Ei",
+          "seafood": "Zeevruchten",
+          "steam_clean": "Stoomreiniging",
+          "common": "Algemeen",
+          "grain": "Granen",
+          "rice": "Rijst",
+          "zymosis": "Fermentatie",
+          "heat": "Opwarmen",
+          "furring_clean": "Ontkalken",
+          "disinfect": "Desinfecteren",
+          "vegetable": "Groenten",
+          "chop": "Gesneden voedsel"
         }
       },
       "oscillation_angle": {
@@ -1261,6 +1411,7 @@
           "auto_wash": "Automatisch",
           "strong_wash": "Intensief",
           "standard_wash": "Standaard",
+          "universal_wash": "Universeel",
           "eco_wash": "ECO",
           "glass_wash": "Glas",
           "hour_wash": "1 uur",
@@ -1271,6 +1422,7 @@
           "fruit_wash": "Fruit",
           "self_define": "Aangepast",
           "germ": "Kiem",
+          "whisper_wash": "Stil",
           "bowl_wash": "Kommen",
           "kill_germ": "Hygiëne",
           "sea_food_wash": "Zeevruchten",
@@ -1283,7 +1435,8 @@
           "single_dry": "Alleen drogen",
           "single_disinfect": "Alleen desinfecteren",
           "high_temp_wash": "Hoge temperatuur",
-          "wash_dry": "Wassen en drogen"
+          "wash_dry": "Wassen en drogen",
+          "anion1": "Ionenfrisheid"
         }
       },
       "water_level_set": {
@@ -1312,7 +1465,7 @@
         }
       },
       "work_status_select": {
-        "name": "Werkstatus",
+        "name": "Werkstatus instellen",
         "state": {
           "save_power": "Energie besparen",
           "standby": "Stand-by",
@@ -1328,7 +1481,12 @@
           "ramadan": "Ramadan",
           "after_checking": "Na controle",
           "wait_to_start": "Wachten op start",
-          "ff": "Onbekend"
+          "ff": "Onbekend",
+          "cancel": "Geannuleerd",
+          "end": "Beëindigd",
+          "appointment": "Geplande start",
+          "reservation": "Reservering",
+          "none": "Geen"
         }
       },
       "x9b_fire_power_select": {
@@ -1468,12 +1626,12 @@
       "washer_temperature_control": {
         "name": "Watertemperatuur",
         "state": {
-          "cold": "Koud",
           "20": "20 °C",
           "30": "30 °C",
           "40": "40 °C",
           "60": "60 °C",
-          "95": "95 °C"
+          "95": "95 °C",
+          "cold": "Koud"
         }
       },
       "washer_spin_speed_control": {
@@ -1523,6 +1681,21 @@
       },
       "washer_spin_time_control": {
         "name": "Centrifugetijd (min)"
+      },
+      "updown": {
+        "name": "Omhoog/Omlaag",
+        "state": {
+          "pause": "Pauze",
+          "up": "Omhoog",
+          "down": "Omlaag"
+        }
+      },
+      "drink_style": {
+        "name": "Dranktype",
+        "state": {
+          "hot_drink": "Hete drank",
+          "warm_drink": "Warme drank"
+        }
       }
     },
     "time": {
@@ -1534,6 +1707,47 @@
       }
     },
     "sensor": {
+      "response_type": {
+        "name": "Reactie",
+        "state": {
+          "response_normal": "Normale reactie",
+          "response_error_e2": "E2-fout",
+          "response_error": "Fout"
+        }
+      },
+      "time_work_hr": {
+        "name": "Werkingsduur (uren)"
+      },
+      "time_work_min": {
+        "name": "Werkingsduur (minuten)"
+      },
+      "time_warm_hr": {
+        "name": "Warmhoudtijd (uren)"
+      },
+      "time_warm_min": {
+        "name": "Warmhoudtijd (minuten)"
+      },
+      "time_running_hr": {
+        "name": "Bedrijfsuren"
+      },
+      "time_running_min": {
+        "name": "Bedrijfsminuten"
+      },
+      "time_surplus_hr": {
+        "name": "Resterende uren"
+      },
+      "time_surplus_min": {
+        "name": "Resterende minuten"
+      },
+      "work_stage": {
+        "name": "Bedrijfsfase"
+      },
+      "software_version": {
+        "name": "Softwareversie"
+      },
+      "evaporator_temperature": {
+        "name": "Verdampertemperatuur"
+      },
       "db_running_status": {
         "name": "Wasmachinestatus"
       },
@@ -1625,6 +1839,7 @@
           "auto_wash": "Automatisch",
           "strong_wash": "Intensief",
           "standard_wash": "Standaard",
+          "universal_wash": "Universeel",
           "eco_wash": "ECO",
           "glass_wash": "Glas",
           "hour_wash": "1 uur",
@@ -1635,6 +1850,7 @@
           "fruit_wash": "Fruit",
           "self_define": "Aangepast",
           "germ": "Kiem",
+          "whisper_wash": "Stil",
           "bowl_wash": "Kommen",
           "kill_germ": "Hygiëne",
           "sea_food_wash": "Zeevruchten",
@@ -1647,39 +1863,8 @@
           "single_dry": "Alleen drogen",
           "single_disinfect": "Alleen desinfecteren",
           "high_temp_wash": "Hoge temperatuur",
-          "wash_dry": "Wassen en drogen"
-        }
-      },
-      "dishwasher_mode_76000228": {
-        "name": "Modus",
-        "state": {
-          "neutral_gear": "Geen",
-          "auto_wash": "Automatisch",
-          "strong_wash": "Intensief",
-          "standard_wash": "Universeel",
-          "eco_wash": "ECO",
-          "glass_wash": "Glas",
-          "hour_wash": "90 min",
-          "fast_wash": "Snel",
-          "soak_wash": "Weken",
-          "90min": "90 min",
-          "self_clean": "Zelfreiniging",
-          "fruit_wash": "Fruit",
-          "self_define": "Aangepast",
-          "germ": "Fluisterstil",
-          "bowl_wash": "Kommen",
-          "kill_germ": "Hygiëne",
-          "sea_food_wash": "Zelfreiniging",
-          "hot_pot_wash": "Hotpot",
-          "quiet_night_wash": "Stille nacht",
-          "less_wash": "Licht",
-          "max_rapid_wash": "Max snel",
-          "oil_net_wash": "Oliefilter",
-          "cloud_wash": "Cloudprogramma",
-          "single_dry": "Alleen drogen",
-          "single_disinfect": "Alleen desinfecteren",
-          "high_temp_wash": "Hoge temperatuur",
-          "wash_dry": "Wassen en drogen"
+          "wash_dry": "Wassen en drogen",
+          "anion1": "Ionenfrisheid"
         }
       },
       "dishwasher_status": {
@@ -2026,6 +2211,9 @@
       },
       "indoor_humidity": {
         "name": "Luchtvochtigheid binnen"
+      },
+      "target_humidity": {
+        "name": "Doelluchtvochtigheid"
       },
       "indoor_temperature": {
         "name": "Binnentemperatuur"
@@ -3962,7 +4150,12 @@
           "ramadan": "Ramadan",
           "after_checking": "Na controle",
           "wait_to_start": "Wachten op start",
-          "ff": "Onbekend"
+          "ff": "Onbekend",
+          "cancel": "Geannuleerd",
+          "end": "Beëindigd",
+          "appointment": "Geplande start",
+          "reservation": "Reservering",
+          "none": "Geen"
         }
       },
       "x9b_fire_power": {
@@ -4031,6 +4224,330 @@
       },
       "cbs_version": {
         "name": "CBS-versie"
+      },
+      "panel_status": {
+        "name": "Paneelstatus"
+      },
+      "cooling_capacity": {
+        "name": "Koelvermogen"
+      },
+      "cooling_cop_eer": {
+        "name": "Koeling COP/EER"
+      },
+      "cooling_cop_eer_this_month": {
+        "name": "Koeling COP/EER deze maand"
+      },
+      "cooling_cop_eer_this_week": {
+        "name": "Koeling COP/EER deze week"
+      },
+      "cooling_cop_eer_this_year": {
+        "name": "Koeling COP/EER dit jaar"
+      },
+      "cooling_cop_eer_today": {
+        "name": "Koeling COP/EER vandaag"
+      },
+      "cooling_energy_consumption_this_month": {
+        "name": "Stroomverbruik koeling deze maand"
+      },
+      "cooling_energy_consumption_this_week": {
+        "name": "Stroomverbruik koeling deze week"
+      },
+      "cooling_energy_consumption_this_year": {
+        "name": "Stroomverbruik koeling dit jaar"
+      },
+      "cooling_energy_consumption_today": {
+        "name": "Stroomverbruik koeling vandaag"
+      },
+      "cooling_power_consumption": {
+        "name": "Elektrisch vermogen koeling"
+      },
+      "cooling_produced_energy_this_month": {
+        "name": "Geproduceerde koelenergie deze maand"
+      },
+      "cooling_produced_energy_this_week": {
+        "name": "Geproduceerde koelenergie deze week"
+      },
+      "cooling_produced_energy_this_year": {
+        "name": "Geproduceerde koelenergie dit jaar"
+      },
+      "cooling_produced_energy_today": {
+        "name": "Geproduceerde koelenergie vandaag"
+      },
+      "cooling_total_cop_eer": {
+        "name": "Koeling totaal COP/EER"
+      },
+      "cooling_total_energy_consumption": {
+        "name": "Totaal stroomverbruik koeling"
+      },
+      "cooling_total_produced_energy": {
+        "name": "Totaal geproduceerde koelenergie"
+      },
+      "dhw_capacity": {
+        "name": "Warmtevermogen tapwater"
+      },
+      "dhw_cop_eer": {
+        "name": "Tapwater COP/EER"
+      },
+      "dhw_cop_eer_this_month": {
+        "name": "Tapwater COP/EER deze maand"
+      },
+      "dhw_cop_eer_this_week": {
+        "name": "Tapwater COP/EER deze week"
+      },
+      "dhw_cop_eer_this_year": {
+        "name": "Tapwater COP/EER dit jaar"
+      },
+      "dhw_cop_eer_today": {
+        "name": "Tapwater COP/EER vandaag"
+      },
+      "dhw_energy_consumption_this_month": {
+        "name": "Stroomverbruik tapwater deze maand"
+      },
+      "dhw_energy_consumption_this_week": {
+        "name": "Stroomverbruik tapwater deze week"
+      },
+      "dhw_energy_consumption_this_year": {
+        "name": "Stroomverbruik tapwater dit jaar"
+      },
+      "dhw_energy_consumption_today": {
+        "name": "Stroomverbruik tapwater vandaag"
+      },
+      "dhw_power_consumption": {
+        "name": "Elektrisch vermogen tapwater"
+      },
+      "dhw_produced_energy_this_month": {
+        "name": "Geproduceerde warmte tapwater deze maand"
+      },
+      "dhw_produced_energy_this_week": {
+        "name": "Geproduceerde warmte tapwater deze week"
+      },
+      "dhw_produced_energy_this_year": {
+        "name": "Geproduceerde warmte tapwater dit jaar"
+      },
+      "dhw_produced_energy_today": {
+        "name": "Geproduceerde warmte tapwater vandaag"
+      },
+      "dhw_total_cop_eer": {
+        "name": "Tapwater totaal COP/EER"
+      },
+      "dhw_total_energy_consumption": {
+        "name": "Totaal stroomverbruik tapwater"
+      },
+      "dhw_total_produced_energy": {
+        "name": "Totaal geproduceerde warmte tapwater"
+      },
+      "heating_capacity": {
+        "name": "Warmtevermogen verwarming"
+      },
+      "heating_cop_eer": {
+        "name": "Verwarming COP/EER"
+      },
+      "heating_cop_eer_this_month": {
+        "name": "Verwarming COP/EER deze maand"
+      },
+      "heating_cop_eer_this_week": {
+        "name": "Verwarming COP/EER deze week"
+      },
+      "heating_cop_eer_this_year": {
+        "name": "Verwarming COP/EER dit jaar"
+      },
+      "heating_cop_eer_today": {
+        "name": "Verwarming COP/EER vandaag"
+      },
+      "heating_energy_consumption_this_month": {
+        "name": "Stroomverbruik verwarming deze maand"
+      },
+      "heating_energy_consumption_this_week": {
+        "name": "Stroomverbruik verwarming deze week"
+      },
+      "heating_energy_consumption_this_year": {
+        "name": "Stroomverbruik verwarming dit jaar"
+      },
+      "heating_energy_consumption_today": {
+        "name": "Stroomverbruik verwarming vandaag"
+      },
+      "heating_power_consumption": {
+        "name": "Elektrisch vermogen verwarming"
+      },
+      "heating_produced_energy_this_month": {
+        "name": "Geproduceerde warmte verwarming deze maand"
+      },
+      "heating_produced_energy_this_week": {
+        "name": "Geproduceerde warmte verwarming deze week"
+      },
+      "heating_produced_energy_this_year": {
+        "name": "Geproduceerde warmte verwarming dit jaar"
+      },
+      "heating_produced_energy_today": {
+        "name": "Geproduceerde warmte verwarming vandaag"
+      },
+      "heating_total_cop_eer": {
+        "name": "Verwarming totaal COP/EER"
+      },
+      "heating_total_energy_consumption": {
+        "name": "Totaal stroomverbruik verwarming"
+      },
+      "heating_total_produced_energy": {
+        "name": "Totaal geproduceerde warmte verwarming"
+      },
+      "instant_cop_eer": {
+        "name": "Momentaan COP/EER"
+      },
+      "total_cop_eer": {
+        "name": "Totaal COP/EER"
+      },
+      "dryer": {
+        "name": "Droogniveau"
+      },
+      "soak_count": {
+        "name": "Aantal inweekbeurten"
+      },
+      "appointment_time": {
+        "name": "Tijd tot uitgestelde start"
+      },
+      "db_last_cycle_water_consumption": {
+        "name": "Waterverbruik van de laatste cyclus"
+      },
+      "power_consumption": {
+        "name": "Energieverbruik van de laatste cyclus"
+      },
+      "wash_count": {
+        "name": "Aantal wasbeurten"
+      },
+      "water_state": {
+        "name": "Waterreservoir",
+        "state": {
+          "full": "Vol",
+          "empty": "Leeg"
+        }
+      },
+      "box_state": {
+        "name": "Stoomoven",
+        "state": {
+          "in": "Geplaatst",
+          "out": "Verwijderd"
+        }
+      },
+      "door_state": {
+        "name": "Deur",
+        "state": {
+          "open": "Open",
+          "close": "Gesloten"
+        }
+      },
+      "f1_response_type": {
+        "name": "Antwoord",
+        "state": {
+          "success": "Geslaagd",
+          "fail": "Mislukt"
+        }
+      },
+      "step_status": {
+        "name": "Stapstatus"
+      },
+      "lid_status": {
+        "name": "Dekselstatus",
+        "state": {
+          "have_cup": "Kop geplaatst",
+          "no_cup": "Geen kop"
+        }
+      },
+      "cup_status": {
+        "name": "Kopstatus",
+        "state": {
+          "default": "Standaard",
+          "hot_cup": "Warme kop",
+          "cold_cup": "Koude kop"
+        }
+      },
+      "current_time": {
+        "name": "Huidige tijd"
+      },
+      "box1_type": {
+        "name": "Baktype 1"
+      },
+      "box1_status": {
+        "name": "Bakstatus 1",
+        "state": {
+          "no": "Aanwezig",
+          "missing": "Ontbreekt"
+        }
+      },
+      "box2_type": {
+        "name": "Baktype 2"
+      },
+      "box2_status": {
+        "name": "Bakstatus 2",
+        "state": {
+          "no": "Aanwezig",
+          "missing": "Ontbreekt"
+        }
+      },
+      "box3_type": {
+        "name": "Baktype 3"
+      },
+      "box3_status": {
+        "name": "Bakstatus 3",
+        "state": {
+          "no": "Aanwezig",
+          "missing": "Ontbreekt"
+        }
+      },
+      "box4_type": {
+        "name": "Baktype 4"
+      },
+      "box4_status": {
+        "name": "Bakstatus 4",
+        "state": {
+          "no": "Aanwezig",
+          "missing": "Ontbreekt"
+        }
+      },
+      "box5_type": {
+        "name": "Baktype 5"
+      },
+      "box5_status": {
+        "name": "Bakstatus 5",
+        "state": {
+          "no": "Aanwezig",
+          "missing": "Ontbreekt"
+        }
+      },
+      "box6_type": {
+        "name": "Baktype 6"
+      },
+      "box6_status": {
+        "name": "Bakstatus 6",
+        "state": {
+          "no": "Aanwezig",
+          "missing": "Ontbreekt"
+        }
+      },
+      "box7_type": {
+        "name": "Baktype 7"
+      },
+      "box7_status": {
+        "name": "Bakstatus 7",
+        "state": {
+          "no": "Aanwezig",
+          "missing": "Ontbreekt"
+        }
+      },
+      "box8_type": {
+        "name": "Baktype 8"
+      },
+      "box8_status": {
+        "name": "Bakstatus 8",
+        "state": {
+          "no": "Aanwezig",
+          "missing": "Ontbreekt"
+        }
+      },
+      "process_status": {
+        "name": "Processtatus"
+      },
+      "time_max": {
+        "name": "Maximale tijd"
       }
     },
     "switch": {
@@ -4111,6 +4628,9 @@
       },
       "dry": {
         "name": "Drogen"
+      },
+      "wet_pad_dry": {
+        "name": "Drogen van bevochtigingsmat"
       },
       "cold_water_single": {
         "name": "Koud water doorlopend"
@@ -4327,6 +4847,51 @@
       },
       "washer_forget_free": {
         "name": "Zorgeloze verzorging"
+      },
+      "sterilize": {
+        "name": "Steriliseren"
+      },
+      "baking": {
+        "name": "Verwarmen"
+      },
+      "left_button": {
+        "name": "Linkerknop"
+      },
+      "middle_button": {
+        "name": "Middelste knop"
+      },
+      "right_button": {
+        "name": "Rechterknop"
+      },
+      "show_button_name": {
+        "name": "Knopnaam tonen"
+      },
+      "close_screen_bright": {
+        "name": "Scherm dimmen bij sluiten"
+      },
+      "sleep_mode_switch": {
+        "name": "Schakelaar slaapmodus"
+      },
+      "sleep_mode_mute": {
+        "name": "Dempen in slaapmodus"
+      },
+      "left_button_keep": {
+        "name": "Linkerknop behouden"
+      },
+      "middle_button_keep": {
+        "name": "Middelste knop behouden"
+      },
+      "right_button_keep": {
+        "name": "Rechterknop behouden"
+      },
+      "voice_control": {
+        "name": "Spraakbediening"
+      },
+      "screen_state": {
+        "name": "Scherm"
+      },
+      "reserve": {
+        "name": "Reservering"
       }
     },
     "water_heater": {

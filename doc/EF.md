@@ -21,27 +21,27 @@ No default entity
 
 ### Extra entity
 
-| EntityID                                  | Class  | Description         |
-| ----------------------------------------- | ------ | ------------------- |
-| switch.{DEVICEID}\_ef_reserve             | switch | Reservation         |
-| switch.{DEVICEID}\_ef_warm                | switch | Keep Warm           |
-| select.{DEVICEID}\_ef_drink_style         | select | Drink Style         |
-| number.{DEVICEID}\_ef_temperature_setting | number | Set Temperature     |
-| number.{DEVICEID}\_ef_time_reserve_hr     | number | Reserve Hours       |
-| number.{DEVICEID}\_ef_time_reserve_min    | number | Reserve Minutes     |
-| number.{DEVICEID}\_ef_time_warm_hr        | number | Keep Warm Hours     |
-| number.{DEVICEID}\_ef_time_warm_min       | number | Keep Warm Minutes   |
-| number.{DEVICEID}\_ef_cmd_code            | number | Command Code        |
-| number.{DEVICEID}\_ef_cmd_id              | number | Command ID          |
-| sensor.{DEVICEID}\_ef_response_type       | sensor | Response            |
-| sensor.{DEVICEID}\_ef_work_status         | sensor | Work Status         |
-| sensor.{DEVICEID}\_ef_work_step           | sensor | Work Step           |
-| sensor.{DEVICEID}\_ef_process_status      | sensor | Process Status      |
-| sensor.{DEVICEID}\_ef_time_work_hr        | sensor | Work Hours          |
-| sensor.{DEVICEID}\_ef_time_work_min       | sensor | Work Minutes        |
-| sensor.{DEVICEID}\_ef_time_max            | sensor | Max Time            |
-| sensor.{DEVICEID}\_ef_temperature_current | sensor | Current Temperature |
-| sensor.{DEVICEID}\_error_code             | sensor | Error code          |
+| EntityID                               | Class  | Description         |
+| -------------------------------------- | ------ | ------------------- |
+| switch.{DEVICEID}\_reserve             | switch | Reservation         |
+| switch.{DEVICEID}\_warm                | switch | Keep Warm           |
+| select.{DEVICEID}\_drink_style         | select | Drink Style         |
+| number.{DEVICEID}\_temperature_setting | number | Set Temperature     |
+| number.{DEVICEID}\_time_reserve_hr     | number | Reserve Hours       |
+| number.{DEVICEID}\_time_reserve_min    | number | Reserve Minutes     |
+| number.{DEVICEID}\_time_warm_hr        | number | Keep Warm Hours     |
+| number.{DEVICEID}\_time_warm_min       | number | Keep Warm Minutes   |
+| number.{DEVICEID}\_cmd_code            | number | Command Code        |
+| number.{DEVICEID}\_cmd_id              | number | Command ID          |
+| sensor.{DEVICEID}\_response_type       | sensor | Response            |
+| sensor.{DEVICEID}\_work_status         | sensor | Work Status         |
+| sensor.{DEVICEID}\_work_step           | sensor | Work Step           |
+| sensor.{DEVICEID}\_process_status      | sensor | Process Status      |
+| sensor.{DEVICEID}\_time_work_hr        | sensor | Work Hours          |
+| sensor.{DEVICEID}\_time_work_min       | sensor | Work Minutes        |
+| sensor.{DEVICEID}\_time_max            | sensor | Max Time            |
+| sensor.{DEVICEID}\_temperature_current | sensor | Current Temperature |
+| sensor.{DEVICEID}\_error_code          | sensor | Error code          |
 
 ## Service
 

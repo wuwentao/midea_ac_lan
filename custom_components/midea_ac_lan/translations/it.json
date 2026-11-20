@@ -884,6 +884,33 @@
       },
       "laundry_appointment": {
         "name": "Prenotazione"
+      },
+      "has_token": {
+        "name": "Token disponibile"
+      },
+      "humidify": {
+        "name": "Umidifica"
+      },
+      "speedy": {
+        "name": "Lavaggio rapido"
+      },
+      "lock": {
+        "name": "Blocco Bambini"
+      },
+      "beforehand_wash": {
+        "name": "Prelavaggio"
+      },
+      "steam_wash": {
+        "name": "Lavaggio a vapore"
+      },
+      "add_rinse": {
+        "name": "Risciacquo extra"
+      },
+      "wind_dispel": {
+        "name": "Aria Fresca"
+      },
+      "remote_control_flag": {
+        "name": "Controllo remoto"
       }
     },
     "button": {
@@ -925,11 +952,19 @@
       }
     },
     "fan": {
+      "fan": {
+        "name": "Ventilatore"
+      },
       "fresh_air": {
         "name": "Aria Fresca"
       },
       "fresh_air_exhaust": {
         "name": "Estrazione Aria Fresca"
+      }
+    },
+    "light": {
+      "light": {
+        "name": "Illuminazione"
       }
     },
     "lock": {
@@ -938,6 +973,30 @@
       }
     },
     "number": {
+      "work_status": {
+        "name": "Stato di funzionamento"
+      },
+      "function_no": {
+        "name": "Numero della funzione"
+      },
+      "fire_level": {
+        "name": "Livello di calore"
+      },
+      "time_reserve_hr": {
+        "name": "Ore di prenotazione"
+      },
+      "time_reserve_min": {
+        "name": "Minuti di prenotazione"
+      },
+      "definite_time_hr": {
+        "name": "Ore del timer"
+      },
+      "definite_time_min": {
+        "name": "Minuti del timer"
+      },
+      "curtain_position": {
+        "name": "Posizione"
+      },
       "delay_minutes": {
         "name": "Ritardo"
       },
@@ -1030,14 +1089,130 @@
       },
       "dryer_timed_extra": {
         "name": "Prolungamento asciugatura a tempo"
+      },
+      "e9_volume": {
+        "name": "Dimensione del pane"
+      },
+      "color": {
+        "name": "Colore della crosta"
+      },
+      "dosing": {
+        "name": "Dosaggio degli ingredienti"
+      },
+      "bake_temperature": {
+        "name": "Temperatura di cottura"
+      },
+      "time_cuisine_hr": {
+        "name": "Ore di cottura"
+      },
+      "time_cuisine_min": {
+        "name": "Minuti di cottura"
+      },
+      "control_cmd_code": {
+        "name": "Codice comando"
+      },
+      "auto_off_screen_type": {
+        "name": "Tipo di spegnimento automatico dello schermo"
+      },
+      "theme": {
+        "name": "Tema"
+      },
+      "night_volume": {
+        "name": "Volume notturno"
+      },
+      "voice_volume": {
+        "name": "Volume voce"
+      },
+      "sleep_start_hour": {
+        "name": "Ora di inizio modalità sospensione"
+      },
+      "sleep_start_minute": {
+        "name": "Minuto di inizio modalità sospensione"
+      },
+      "sleep_duration_hour": {
+        "name": "Durata modalità sospensione (ore)"
+      },
+      "sleep_duration_minute": {
+        "name": "Durata modalità sospensione (minuti)"
+      },
+      "brightness": {
+        "name": "Luminosità"
+      },
+      "left_button_work_mode": {
+        "name": "Modalità operativa pulsante sinistro"
+      },
+      "middle_button_work_mode": {
+        "name": "Modalità operativa pulsante centrale"
+      },
+      "right_button_work_mode": {
+        "name": "Modalità operativa pulsante destro"
+      },
+      "watt": {
+        "name": "Potenza microonde"
+      },
+      "weight": {
+        "name": "Peso"
+      },
+      "speed": {
+        "name": "Velocità"
+      },
+      "set_work_temp": {
+        "name": "Temperatura di lavoro"
+      },
+      "set_keep_warm_temp": {
+        "name": "Temperatura di mantenimento"
+      },
+      "set_work_time": {
+        "name": "Tempo di lavoro"
+      },
+      "set_keep_warm_time": {
+        "name": "Tempo di mantenimento"
+      },
+      "appoint_time": {
+        "name": "Ora programmata"
+      },
+      "code_id": {
+        "name": "Codice ricetta"
+      },
+      "work_mode": {
+        "name": "Modalità di lavoro"
+      },
+      "temperature_setting": {
+        "name": "Temperatura impostata"
+      },
+      "time_warm_hr": {
+        "name": "Ore di mantenimento in caldo"
+      },
+      "time_warm_min": {
+        "name": "Minuti di mantenimento in caldo"
+      },
+      "cmd_id": {
+        "name": "ID comando"
       }
     },
     "select": {
-      "wash_mode_76000228": {
-        "name": "Modalità Lavaggio"
+      "curtain_status": {
+        "name": "Tenda",
+        "state": {
+          "open": "Apri",
+          "close": "Chiudi",
+          "stop": "Arresta"
+        }
       },
-      "program_76000228": {
-        "name": "Programma"
+      "curtain_direction": {
+        "name": "Direzione",
+        "state": {
+          "positive": "Positiva",
+          "reverse": "Inversa"
+        }
+      },
+      "aux_heat_mode": {
+        "name": "Modalità riscaldamento ausiliario",
+        "state": {
+          "off": "Spento",
+          "aux_heat": "Riscaldamento ausiliario",
+          "aux_only": "Solo riscaldamento ausiliario"
+        }
       },
       "program": {
         "name": "Programma"
@@ -1127,7 +1302,36 @@
           "bath": "Bagno",
           "blow": "Soffio",
           "ventilation": "Ventilazione",
-          "dry": "Asciugatura"
+          "dry": "Asciugatura",
+          "keep_warm": "Mantenimento in caldo",
+          "stero_baking": "Cottura tridimensionale",
+          "whole_baking": "Cottura completa",
+          "up_down_baking": "Cottura sopra/sotto",
+          "unfreeze": "Scongelamento",
+          "hot_air_convection": "Convezione ad aria calda",
+          "power_saving": "Risparmio energetico",
+          "center_baking": "Cottura centrale",
+          "rotary_baking": "Cottura rotante",
+          "fermentation": "Fermentazione",
+          "stoving": "Essiccazione",
+          "down_baking": "Cottura inferiore",
+          "pizza": "Pizza",
+          "up_infrared_fan": "Ventola a infrarossi superiore",
+          "microwave": "Microonde",
+          "fish": "Pesce",
+          "meat": "Carne",
+          "egg": "Uovo",
+          "seafood": "Frutti di mare",
+          "steam_clean": "Pulizia a vapore",
+          "common": "Generale",
+          "grain": "Cereali",
+          "rice": "Riso",
+          "zymosis": "Fermentazione",
+          "heat": "Riscaldamento",
+          "furring_clean": "Decalcificazione",
+          "disinfect": "Disinfezione",
+          "vegetable": "Verdure",
+          "chop": "Alimenti tritati"
         }
       },
       "oscillation_angle": {
@@ -1182,7 +1386,7 @@
         }
       },
       "work_status_select": {
-        "name": "Stato di Lavoro",
+        "name": "Imposta stato di lavoro",
         "state": {
           "save_power": "Risparmio Energetico",
           "standby": "Standby",
@@ -1198,7 +1402,12 @@
           "ramadan": "Ramadan",
           "after_checking": "Dopo il Controllo",
           "wait_to_start": "In Attesa di Avvio",
-          "ff": "Sconosciuto"
+          "ff": "Sconosciuto",
+          "cancel": "Annullato",
+          "end": "Terminato",
+          "appointment": "Avvio programmato",
+          "reservation": "Prenotazione",
+          "none": "Nessuna"
         }
       },
       "x9b_fire_power_select": {
@@ -1338,12 +1547,12 @@
       "washer_temperature_control": {
         "name": "Temperatura dell'acqua",
         "state": {
-          "cold": "Freddo",
           "20": "20 °C",
           "30": "30 °C",
           "40": "40 °C",
           "60": "60 °C",
-          "95": "95 °C"
+          "95": "95 °C",
+          "cold": "Freddo"
         }
       },
       "washer_spin_speed_control": {
@@ -1393,6 +1602,21 @@
       },
       "washer_spin_time_control": {
         "name": "Tempo di centrifuga (min)"
+      },
+      "updown": {
+        "name": "Solleva/Abbassa",
+        "state": {
+          "pause": "Pausa",
+          "up": "Su",
+          "down": "Giù"
+        }
+      },
+      "drink_style": {
+        "name": "Tipo di bevanda",
+        "state": {
+          "hot_drink": "Bevanda calda",
+          "warm_drink": "Bevanda tiepida"
+        }
       }
     },
     "time": {
@@ -1404,6 +1628,47 @@
       }
     },
     "sensor": {
+      "response_type": {
+        "name": "Risposta",
+        "state": {
+          "response_normal": "Risposta normale",
+          "response_error_e2": "Errore E2",
+          "response_error": "Errore"
+        }
+      },
+      "time_work_hr": {
+        "name": "Ore di funzionamento"
+      },
+      "time_work_min": {
+        "name": "Minuti di funzionamento"
+      },
+      "time_warm_hr": {
+        "name": "Ore di mantenimento in caldo"
+      },
+      "time_warm_min": {
+        "name": "Minuti di mantenimento in caldo"
+      },
+      "time_running_hr": {
+        "name": "Ore di funzionamento"
+      },
+      "time_running_min": {
+        "name": "Minuti di funzionamento"
+      },
+      "time_surplus_hr": {
+        "name": "Ore rimanenti"
+      },
+      "time_surplus_min": {
+        "name": "Minuti rimanenti"
+      },
+      "work_stage": {
+        "name": "Fase di funzionamento"
+      },
+      "software_version": {
+        "name": "Versione software"
+      },
+      "evaporator_temperature": {
+        "name": "Temperatura dell'evaporatore"
+      },
       "db_running_status": {
         "name": "Stato lavatrice"
       },
@@ -1489,9 +1754,6 @@
         "name": "Consumo energetico asciugatrice"
       },
       "dishwasher_mode": {
-        "name": "Modalità"
-      },
-      "dishwasher_mode_76000228": {
         "name": "Modalità"
       },
       "dishwasher_status": {
@@ -1795,6 +2057,9 @@
       },
       "indoor_humidity": {
         "name": "Umidità Interna"
+      },
+      "target_humidity": {
+        "name": "Umidità obiettivo"
       },
       "indoor_temperature": {
         "name": "Temperatura Interna"
@@ -3731,7 +3996,12 @@
           "ramadan": "Ramadan",
           "after_checking": "Dopo il Controllo",
           "wait_to_start": "In Attesa di Avvio",
-          "ff": "Sconosciuto"
+          "ff": "Sconosciuto",
+          "cancel": "Annullato",
+          "end": "Terminato",
+          "appointment": "Avvio programmato",
+          "reservation": "Prenotazione",
+          "none": "Nessuna"
         }
       },
       "x9b_fire_power": {
@@ -3800,6 +4070,330 @@
       },
       "cbs_version": {
         "name": "Versione CBS"
+      },
+      "panel_status": {
+        "name": "Stato pannello"
+      },
+      "cooling_capacity": {
+        "name": "Potenza frigorifera"
+      },
+      "cooling_cop_eer": {
+        "name": "Raffreddamento COP/EER"
+      },
+      "cooling_cop_eer_this_month": {
+        "name": "Raffreddamento COP/EER questo mese"
+      },
+      "cooling_cop_eer_this_week": {
+        "name": "Raffreddamento COP/EER questa settimana"
+      },
+      "cooling_cop_eer_this_year": {
+        "name": "Raffreddamento COP/EER quest'anno"
+      },
+      "cooling_cop_eer_today": {
+        "name": "Raffreddamento COP/EER oggi"
+      },
+      "cooling_energy_consumption_this_month": {
+        "name": "Elettricità raffreddamento questo mese"
+      },
+      "cooling_energy_consumption_this_week": {
+        "name": "Elettricità raffreddamento questa settimana"
+      },
+      "cooling_energy_consumption_this_year": {
+        "name": "Elettricità raffreddamento quest'anno"
+      },
+      "cooling_energy_consumption_today": {
+        "name": "Elettricità raffreddamento oggi"
+      },
+      "cooling_power_consumption": {
+        "name": "Potenza elettrica raffreddamento"
+      },
+      "cooling_produced_energy_this_month": {
+        "name": "Energia frigorifera prodotta questo mese"
+      },
+      "cooling_produced_energy_this_week": {
+        "name": "Energia frigorifera prodotta questa settimana"
+      },
+      "cooling_produced_energy_this_year": {
+        "name": "Energia frigorifera prodotta quest'anno"
+      },
+      "cooling_produced_energy_today": {
+        "name": "Energia frigorifera prodotta oggi"
+      },
+      "cooling_total_cop_eer": {
+        "name": "Raffreddamento COP/EER totale"
+      },
+      "cooling_total_energy_consumption": {
+        "name": "Elettricità raffreddamento totale"
+      },
+      "cooling_total_produced_energy": {
+        "name": "Energia frigorifera prodotta totale"
+      },
+      "dhw_capacity": {
+        "name": "Potenza termica ACS"
+      },
+      "dhw_cop_eer": {
+        "name": "ACS COP/EER"
+      },
+      "dhw_cop_eer_this_month": {
+        "name": "ACS COP/EER questo mese"
+      },
+      "dhw_cop_eer_this_week": {
+        "name": "ACS COP/EER questa settimana"
+      },
+      "dhw_cop_eer_this_year": {
+        "name": "ACS COP/EER quest'anno"
+      },
+      "dhw_cop_eer_today": {
+        "name": "ACS COP/EER oggi"
+      },
+      "dhw_energy_consumption_this_month": {
+        "name": "Elettricità ACS questo mese"
+      },
+      "dhw_energy_consumption_this_week": {
+        "name": "Elettricità ACS questa settimana"
+      },
+      "dhw_energy_consumption_this_year": {
+        "name": "Elettricità ACS quest'anno"
+      },
+      "dhw_energy_consumption_today": {
+        "name": "Elettricità ACS oggi"
+      },
+      "dhw_power_consumption": {
+        "name": "Potenza elettrica ACS"
+      },
+      "dhw_produced_energy_this_month": {
+        "name": "Energia termica ACS prodotta questo mese"
+      },
+      "dhw_produced_energy_this_week": {
+        "name": "Energia termica ACS prodotta questa settimana"
+      },
+      "dhw_produced_energy_this_year": {
+        "name": "Energia termica ACS prodotta quest'anno"
+      },
+      "dhw_produced_energy_today": {
+        "name": "Energia termica ACS prodotta oggi"
+      },
+      "dhw_total_cop_eer": {
+        "name": "ACS COP/EER totale"
+      },
+      "dhw_total_energy_consumption": {
+        "name": "Elettricità ACS totale"
+      },
+      "dhw_total_produced_energy": {
+        "name": "Energia termica ACS prodotta totale"
+      },
+      "heating_capacity": {
+        "name": "Potenza calorifica riscaldamento"
+      },
+      "heating_cop_eer": {
+        "name": "Riscaldamento COP/EER"
+      },
+      "heating_cop_eer_this_month": {
+        "name": "Riscaldamento COP/EER questo mese"
+      },
+      "heating_cop_eer_this_week": {
+        "name": "Riscaldamento COP/EER questa settimana"
+      },
+      "heating_cop_eer_this_year": {
+        "name": "Riscaldamento COP/EER quest'anno"
+      },
+      "heating_cop_eer_today": {
+        "name": "Riscaldamento COP/EER oggi"
+      },
+      "heating_energy_consumption_this_month": {
+        "name": "Elettricità riscaldamento questo mese"
+      },
+      "heating_energy_consumption_this_week": {
+        "name": "Elettricità riscaldamento questa settimana"
+      },
+      "heating_energy_consumption_this_year": {
+        "name": "Elettricità riscaldamento quest'anno"
+      },
+      "heating_energy_consumption_today": {
+        "name": "Elettricità riscaldamento oggi"
+      },
+      "heating_power_consumption": {
+        "name": "Potenza elettrica riscaldamento"
+      },
+      "heating_produced_energy_this_month": {
+        "name": "Energia calorifica riscaldamento questo mese"
+      },
+      "heating_produced_energy_this_week": {
+        "name": "Energia calorifica riscaldamento questa settimana"
+      },
+      "heating_produced_energy_this_year": {
+        "name": "Energia calorifica riscaldamento quest'anno"
+      },
+      "heating_produced_energy_today": {
+        "name": "Energia calorifica riscaldamento oggi"
+      },
+      "heating_total_cop_eer": {
+        "name": "Riscaldamento COP/EER totale"
+      },
+      "heating_total_energy_consumption": {
+        "name": "Elettricità riscaldamento totale"
+      },
+      "heating_total_produced_energy": {
+        "name": "Energia calorifica riscaldamento totale"
+      },
+      "instant_cop_eer": {
+        "name": "COP/EER istantaneo"
+      },
+      "total_cop_eer": {
+        "name": "COP/EER totale"
+      },
+      "dryer": {
+        "name": "Livello Asciugatura"
+      },
+      "soak_count": {
+        "name": "Numero di ammolli"
+      },
+      "appointment_time": {
+        "name": "Tempo fino all'avvio ritardato"
+      },
+      "db_last_cycle_water_consumption": {
+        "name": "Consumo d'acqua dell'ultimo ciclo"
+      },
+      "power_consumption": {
+        "name": "Consumo energetico dell'ultimo ciclo"
+      },
+      "wash_count": {
+        "name": "Numero di lavaggi"
+      },
+      "water_state": {
+        "name": "Serbatoio dell'acqua",
+        "state": {
+          "full": "Pieno",
+          "empty": "Vuoto"
+        }
+      },
+      "box_state": {
+        "name": "Forno a vapore",
+        "state": {
+          "in": "Inserito",
+          "out": "Rimosso"
+        }
+      },
+      "door_state": {
+        "name": "Porta",
+        "state": {
+          "open": "Aperta",
+          "close": "Chiusa"
+        }
+      },
+      "f1_response_type": {
+        "name": "Risposta",
+        "state": {
+          "success": "Riuscito",
+          "fail": "Non riuscito"
+        }
+      },
+      "step_status": {
+        "name": "Stato della fase"
+      },
+      "lid_status": {
+        "name": "Stato del coperchio",
+        "state": {
+          "have_cup": "Tazza presente",
+          "no_cup": "Nessuna tazza"
+        }
+      },
+      "cup_status": {
+        "name": "Stato della tazza",
+        "state": {
+          "default": "Predefinito",
+          "hot_cup": "Tazza calda",
+          "cold_cup": "Tazza fredda"
+        }
+      },
+      "current_time": {
+        "name": "Tempo attuale"
+      },
+      "box1_type": {
+        "name": "Tipo contenitore 1"
+      },
+      "box1_status": {
+        "name": "Stato contenitore 1",
+        "state": {
+          "no": "Presente",
+          "missing": "Mancante"
+        }
+      },
+      "box2_type": {
+        "name": "Tipo contenitore 2"
+      },
+      "box2_status": {
+        "name": "Stato contenitore 2",
+        "state": {
+          "no": "Presente",
+          "missing": "Mancante"
+        }
+      },
+      "box3_type": {
+        "name": "Tipo contenitore 3"
+      },
+      "box3_status": {
+        "name": "Stato contenitore 3",
+        "state": {
+          "no": "Presente",
+          "missing": "Mancante"
+        }
+      },
+      "box4_type": {
+        "name": "Tipo contenitore 4"
+      },
+      "box4_status": {
+        "name": "Stato contenitore 4",
+        "state": {
+          "no": "Presente",
+          "missing": "Mancante"
+        }
+      },
+      "box5_type": {
+        "name": "Tipo contenitore 5"
+      },
+      "box5_status": {
+        "name": "Stato contenitore 5",
+        "state": {
+          "no": "Presente",
+          "missing": "Mancante"
+        }
+      },
+      "box6_type": {
+        "name": "Tipo contenitore 6"
+      },
+      "box6_status": {
+        "name": "Stato contenitore 6",
+        "state": {
+          "no": "Presente",
+          "missing": "Mancante"
+        }
+      },
+      "box7_type": {
+        "name": "Tipo contenitore 7"
+      },
+      "box7_status": {
+        "name": "Stato contenitore 7",
+        "state": {
+          "no": "Presente",
+          "missing": "Mancante"
+        }
+      },
+      "box8_type": {
+        "name": "Tipo contenitore 8"
+      },
+      "box8_status": {
+        "name": "Stato contenitore 8",
+        "state": {
+          "no": "Presente",
+          "missing": "Mancante"
+        }
+      },
+      "process_status": {
+        "name": "Stato del processo"
+      },
+      "time_max": {
+        "name": "Tempo massimo"
       }
     },
     "switch": {
@@ -3877,6 +4471,9 @@
       },
       "dry": {
         "name": "Asciugatura"
+      },
+      "wet_pad_dry": {
+        "name": "Asciugatura del pannello umidificatore"
       },
       "cold_water_single": {
         "name": "Acqua Fredda Singola"
@@ -3960,7 +4557,7 @@
         "name": "Modalità Silenziosa"
       },
       "sleep_mode": {
-        "name": "Modalità Sonno"
+        "name": "Modalità sospensione"
       },
       "out_silent": {
         "name": "Modalità Silenziosa Esterna"
@@ -4093,6 +4690,51 @@
       },
       "washer_forget_free": {
         "name": "Cura senza pensieri"
+      },
+      "sterilize": {
+        "name": "Sterilizza"
+      },
+      "baking": {
+        "name": "Riscaldamento"
+      },
+      "left_button": {
+        "name": "Pulsante sinistro"
+      },
+      "middle_button": {
+        "name": "Pulsante centrale"
+      },
+      "right_button": {
+        "name": "Pulsante destro"
+      },
+      "show_button_name": {
+        "name": "Mostra nome pulsante"
+      },
+      "close_screen_bright": {
+        "name": "Oscura lo schermo alla chiusura"
+      },
+      "sleep_mode_switch": {
+        "name": "Interruttore modalità sospensione"
+      },
+      "sleep_mode_mute": {
+        "name": "Silenzioso in modalità sospensione"
+      },
+      "left_button_keep": {
+        "name": "Mantieni pulsante sinistro"
+      },
+      "middle_button_keep": {
+        "name": "Mantieni pulsante centrale"
+      },
+      "right_button_keep": {
+        "name": "Mantieni pulsante destro"
+      },
+      "voice_control": {
+        "name": "Controllo vocale"
+      },
+      "screen_state": {
+        "name": "Schermo"
+      },
+      "reserve": {
+        "name": "Prenotazione"
       }
     },
     "water_heater": {
