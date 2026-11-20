@@ -884,6 +884,45 @@
       },
       "laundry_appointment": {
         "name": "Foglalás"
+      },
+      "has_token": {
+        "name": "Van token"
+      },
+      "humidify": {
+        "name": "Párásítás"
+      },
+      "speedy": {
+        "name": "Gyorsmosás"
+      },
+      "lock": {
+        "name": "Gyerekzár"
+      },
+      "beforehand_wash": {
+        "name": "Előmosás"
+      },
+      "steam_wash": {
+        "name": "Gőzmosás"
+      },
+      "add_rinse": {
+        "name": "Extra öblítés"
+      },
+      "wind_dispel": {
+        "name": "Friss levegő"
+      },
+      "remote_control_flag": {
+        "name": "Távvezérlés"
+      },
+      "gas_warn": {
+        "name": "Gázriasztás"
+      },
+      "left_smart_bl": {
+        "name": "Bal égő: Intelligens szárazonfutás-védelem"
+      },
+      "right_smart_bl": {
+        "name": "Jobb égő: Intelligens szárazonfutás-védelem"
+      },
+      "menu_mark": {
+        "name": "Menüjelölés"
       }
     },
     "button": {
@@ -904,6 +943,12 @@
       },
       "laundry_cancel_appointment": {
         "name": "Foglalás törlése"
+      },
+      "left_power": {
+        "name": "Bal égő begyújtása"
+      },
+      "right_power": {
+        "name": "Jobb égő begyújtása"
       }
     },
     "climate": {
@@ -925,11 +970,19 @@
       }
     },
     "fan": {
+      "fan": {
+        "name": "Ventilátor"
+      },
       "fresh_air": {
         "name": "Fresh Air"
       },
       "fresh_air_exhaust": {
         "name": "Frisslevegő elszívás"
+      }
+    },
+    "light": {
+      "light": {
+        "name": "Világítás"
       }
     },
     "lock": {
@@ -938,6 +991,30 @@
       }
     },
     "number": {
+      "work_status": {
+        "name": "Működési állapot"
+      },
+      "function_no": {
+        "name": "Funkció száma"
+      },
+      "fire_level": {
+        "name": "Fűtési szint"
+      },
+      "time_reserve_hr": {
+        "name": "Foglalási órák"
+      },
+      "time_reserve_min": {
+        "name": "Foglalási percek"
+      },
+      "definite_time_hr": {
+        "name": "Időzítő órái"
+      },
+      "definite_time_min": {
+        "name": "Időzítő percei"
+      },
+      "curtain_position": {
+        "name": "Pozíció"
+      },
       "delay_minutes": {
         "name": "Késleltetés"
       },
@@ -1030,14 +1107,139 @@
       },
       "dryer_timed_extra": {
         "name": "Szárítási idő meghosszabbítása"
+      },
+      "e9_volume": {
+        "name": "Kenyérméret"
+      },
+      "color": {
+        "name": "Héjszín"
+      },
+      "dosing": {
+        "name": "Hozzávalók adagolása"
+      },
+      "bake_temperature": {
+        "name": "Sütési hőmérséklet"
+      },
+      "time_cuisine_hr": {
+        "name": "Sütési idő (óra)"
+      },
+      "time_cuisine_min": {
+        "name": "Sütési idő (perc)"
+      },
+      "control_cmd_code": {
+        "name": "Parancskód"
+      },
+      "auto_off_screen_type": {
+        "name": "Automatikus képernyő-kikapcsolás típusa"
+      },
+      "theme": {
+        "name": "Téma"
+      },
+      "night_volume": {
+        "name": "Éjszakai hangerő"
+      },
+      "voice_volume": {
+        "name": "Beszédhangerő"
+      },
+      "sleep_start_hour": {
+        "name": "Alvó mód kezdési órája"
+      },
+      "sleep_start_minute": {
+        "name": "Alvó mód kezdési perce"
+      },
+      "sleep_duration_hour": {
+        "name": "Alvó mód időtartama (óra)"
+      },
+      "sleep_duration_minute": {
+        "name": "Alvó mód időtartama (perc)"
+      },
+      "brightness": {
+        "name": "Fényerő"
+      },
+      "left_button_work_mode": {
+        "name": "Bal gomb működési módja"
+      },
+      "middle_button_work_mode": {
+        "name": "Középső gomb működési módja"
+      },
+      "right_button_work_mode": {
+        "name": "Jobb gomb működési módja"
+      },
+      "watt": {
+        "name": "Mikrohullámú teljesítmény"
+      },
+      "weight": {
+        "name": "Súly"
+      },
+      "speed": {
+        "name": "Sebesség"
+      },
+      "set_work_temp": {
+        "name": "Működési hőmérséklet"
+      },
+      "set_keep_warm_temp": {
+        "name": "Melegen tartási hőmérséklet"
+      },
+      "set_work_time": {
+        "name": "Működési idő"
+      },
+      "set_keep_warm_time": {
+        "name": "Melegen tartási idő"
+      },
+      "appoint_time": {
+        "name": "Időzített indítás"
+      },
+      "code_id": {
+        "name": "Receptkód"
+      },
+      "work_mode": {
+        "name": "Működési mód"
+      },
+      "time_warm_hr": {
+        "name": "Melegen tartási idő (óra)"
+      },
+      "time_warm_min": {
+        "name": "Melegen tartási idő (perc)"
+      },
+      "cmd_id": {
+        "name": "Parancsazonosító"
+      },
+      "left_gear_set": {
+        "name": "Bal égő: Fokozat"
+      },
+      "right_gear_set": {
+        "name": "Jobb égő: Fokozat"
+      },
+      "left_temp_set": {
+        "name": "Bal égő: Célhőmérséklet"
+      },
+      "right_temp_set": {
+        "name": "Jobb égő: Célhőmérséklet"
       }
     },
     "select": {
-      "wash_mode_76000228": {
-        "name": "Mosási mód"
+      "curtain_status": {
+        "name": "Függöny",
+        "state": {
+          "open": "Nyitás",
+          "close": "Zárás",
+          "stop": "Leállítás"
+        }
       },
-      "program_76000228": {
-        "name": "Program"
+      "curtain_direction": {
+        "name": "Irány",
+        "state": {
+          "positive": "Pozitív",
+          "reverse": "Fordított"
+        }
+      },
+      "aux_heat_mode": {
+        "name": "Kiegészítő fűtés mód",
+        "state": {
+          "off": "Ki",
+          "aux_heat": "Kiegészítő fűtés",
+          "aux_only": "Csak kiegészítő fűtés"
+        }
       },
       "program": {
         "name": "Program"
@@ -1113,7 +1315,7 @@
         }
       },
       "mode": {
-        "name": "Mode",
+        "name": "Üzemmód",
         "state": {
           "standby": "Készenlét",
           "auto": "Automatikus",
@@ -1127,7 +1329,36 @@
           "bath": "Fürdés",
           "blow": "Fújás",
           "ventilation": "Szellőztetés",
-          "dry": "Szárítás"
+          "dry": "Szárítás",
+          "keep_warm": "Melegen tartás",
+          "stero_baking": "Térbeli sütés",
+          "whole_baking": "Teljes sütés",
+          "up_down_baking": "Alsó-felső sütés",
+          "unfreeze": "Kiolvasztás",
+          "hot_air_convection": "Forrólevegős légkeverés",
+          "power_saving": "Energiatakarékos",
+          "center_baking": "Középső sütés",
+          "rotary_baking": "Forgó sütés",
+          "fermentation": "Kelesztés",
+          "stoving": "Szárítás",
+          "down_baking": "Alsó sütés",
+          "pizza": "Pizza",
+          "up_infrared_fan": "Felső infravörös ventilátor",
+          "microwave": "Mikrohullám",
+          "fish": "Hal",
+          "meat": "Hús",
+          "egg": "Tojás",
+          "seafood": "Tenger gyümölcsei",
+          "steam_clean": "Gőztisztítás",
+          "common": "Általános",
+          "grain": "Gabonafélék",
+          "rice": "Rizs",
+          "zymosis": "Erjesztés",
+          "heat": "Újramelegítés",
+          "furring_clean": "Vízkőmentesítés",
+          "disinfect": "Fertőtlenítés",
+          "vegetable": "Zöldség",
+          "chop": "Aprított étel"
         }
       },
       "oscillation_angle": {
@@ -1182,7 +1413,7 @@
         }
       },
       "work_status_select": {
-        "name": "Munkaállapot",
+        "name": "Működési állapot beállítása",
         "state": {
           "save_power": "Energiatakarékos",
           "standby": "Készenlét",
@@ -1198,7 +1429,12 @@
           "ramadan": "Ramadán",
           "after_checking": "Ellenőrzés Után",
           "wait_to_start": "Indításra Vár",
-          "ff": "Ismeretlen"
+          "ff": "Ismeretlen",
+          "cancel": "Megszakítva",
+          "end": "Befejezve",
+          "appointment": "Időzített indítás",
+          "reservation": "Előjegyzés",
+          "none": "Nincs"
         }
       },
       "x9b_fire_power_select": {
@@ -1338,12 +1574,12 @@
       "washer_temperature_control": {
         "name": "Vízhőmérséklet",
         "state": {
-          "cold": "Hideg",
           "20": "20 °C",
           "30": "30 °C",
           "40": "40 °C",
           "60": "60 °C",
-          "95": "95 °C"
+          "95": "95 °C",
+          "cold": "Hideg"
         }
       },
       "washer_spin_speed_control": {
@@ -1393,6 +1629,21 @@
       },
       "washer_spin_time_control": {
         "name": "Centrifugálási idő (perc)"
+      },
+      "updown": {
+        "name": "Emelés/Süllyesztés",
+        "state": {
+          "pause": "Szünet",
+          "up": "Fel",
+          "down": "Le"
+        }
+      },
+      "drink_style": {
+        "name": "Ital típusa",
+        "state": {
+          "hot_drink": "Forró ital",
+          "warm_drink": "Meleg ital"
+        }
       }
     },
     "time": {
@@ -1404,6 +1655,47 @@
       }
     },
     "sensor": {
+      "response_type": {
+        "name": "Válasz",
+        "state": {
+          "response_normal": "Normál válasz",
+          "response_error_e2": "E2 hiba",
+          "response_error": "Hiba"
+        }
+      },
+      "time_work_hr": {
+        "name": "Működési idő (óra)"
+      },
+      "time_work_min": {
+        "name": "Működési idő (perc)"
+      },
+      "time_warm_hr": {
+        "name": "Melegen tartási idő (óra)"
+      },
+      "time_warm_min": {
+        "name": "Melegen tartási idő (perc)"
+      },
+      "time_running_hr": {
+        "name": "Működési órák"
+      },
+      "time_running_min": {
+        "name": "Működési percek"
+      },
+      "time_surplus_hr": {
+        "name": "Hátralévő órák"
+      },
+      "time_surplus_min": {
+        "name": "Hátralévő percek"
+      },
+      "work_stage": {
+        "name": "Működési szakasz"
+      },
+      "software_version": {
+        "name": "Szoftververzió"
+      },
+      "evaporator_temperature": {
+        "name": "Elpárologtató hőmérséklete"
+      },
       "db_running_status": {
         "name": "Mosógép állapota"
       },
@@ -1489,9 +1781,6 @@
         "name": "Szárítógép energiafogyasztás"
       },
       "dishwasher_mode": {
-        "name": "Mode"
-      },
-      "dishwasher_mode_76000228": {
         "name": "Mode"
       },
       "dishwasher_status": {
@@ -1586,7 +1875,7 @@
         "name": "Bottom Compartment Temperature"
       },
       "bottom_temperature": {
-        "name": "Bottom Temperature"
+        "name": "Alsó hőmérséklet"
       },
       "bright": {
         "name": "Bright Level"
@@ -1616,7 +1905,7 @@
         "name": "Current Energy Consumption"
       },
       "current_temperature": {
-        "name": "Current Temperature"
+        "name": "Jelenlegi hőmérséklet"
       },
       "dehydration_speed": {
         "name": "dehydration speed"
@@ -1681,7 +1970,7 @@
         }
       },
       "error_code": {
-        "name": "Error Code"
+        "name": "Hibakód"
       },
       "humidify_feedback": {
         "name": "Páratartalom visszajelzés"
@@ -1777,6 +2066,9 @@
       },
       "indoor_humidity": {
         "name": "Indoor Humidity"
+      },
+      "target_humidity": {
+        "name": "Célpáratartalom"
       },
       "indoor_temperature": {
         "name": "Indoor Temperature"
@@ -3740,7 +4032,12 @@
           "ramadan": "Ramadán",
           "after_checking": "Ellenőrzés Után",
           "wait_to_start": "Indításra Vár",
-          "ff": "Ismeretlen"
+          "ff": "Ismeretlen",
+          "cancel": "Megszakítva",
+          "end": "Befejezve",
+          "appointment": "Időzített indítás",
+          "reservation": "Előjegyzés",
+          "none": "Nincs"
         }
       },
       "x9b_fire_power": {
@@ -3806,6 +4103,387 @@
       },
       "work_second": {
         "name": "Munkamásodperc"
+      },
+      "panel_status": {
+        "name": "Panel állapota"
+      },
+      "cooling_capacity": {
+        "name": "Hűtési teljesítmény"
+      },
+      "cooling_cop_eer": {
+        "name": "Hűtés COP/EER"
+      },
+      "cooling_cop_eer_this_month": {
+        "name": "Hűtés COP/EER ezen a hónapon"
+      },
+      "cooling_cop_eer_this_week": {
+        "name": "Hűtés COP/EER ezen a héten"
+      },
+      "cooling_cop_eer_this_year": {
+        "name": "Hűtés COP/EER ebben az évben"
+      },
+      "cooling_cop_eer_today": {
+        "name": "Hűtés COP/EER ma"
+      },
+      "cooling_energy_consumption_this_month": {
+        "name": "Hűtés áramfogyasztás ezen a hónapon"
+      },
+      "cooling_energy_consumption_this_week": {
+        "name": "Hűtés áramfogyasztás ezen a héten"
+      },
+      "cooling_energy_consumption_this_year": {
+        "name": "Hűtés áramfogyasztás ebben az évben"
+      },
+      "cooling_energy_consumption_today": {
+        "name": "Hűtés áramfogyasztás ma"
+      },
+      "cooling_power_consumption": {
+        "name": "Hűtés elektromos teljesítményfelvétel"
+      },
+      "cooling_produced_energy_this_month": {
+        "name": "Termelt hűtési energia ezen a hónapon"
+      },
+      "cooling_produced_energy_this_week": {
+        "name": "Termelt hűtési energia ezen a héten"
+      },
+      "cooling_produced_energy_this_year": {
+        "name": "Termelt hűtési energia ebben az évben"
+      },
+      "cooling_produced_energy_today": {
+        "name": "Termelt hűtési energia ma"
+      },
+      "cooling_total_cop_eer": {
+        "name": "Hűtés összes COP/EER"
+      },
+      "cooling_total_energy_consumption": {
+        "name": "Hűtés összes áramfogyasztás"
+      },
+      "cooling_total_produced_energy": {
+        "name": "Termelt hűtési energia összesen"
+      },
+      "dhw_capacity": {
+        "name": "HMV hőteljesítmény"
+      },
+      "dhw_cop_eer": {
+        "name": "HMV COP/EER"
+      },
+      "dhw_cop_eer_this_month": {
+        "name": "HMV COP/EER ezen a hónapon"
+      },
+      "dhw_cop_eer_this_week": {
+        "name": "HMV COP/EER ezen a héten"
+      },
+      "dhw_cop_eer_this_year": {
+        "name": "HMV COP/EER ebben az évben"
+      },
+      "dhw_cop_eer_today": {
+        "name": "HMV COP/EER ma"
+      },
+      "dhw_energy_consumption_this_month": {
+        "name": "HMV áramfogyasztás ezen a hónapon"
+      },
+      "dhw_energy_consumption_this_week": {
+        "name": "HMV áramfogyasztás ezen a héten"
+      },
+      "dhw_energy_consumption_this_year": {
+        "name": "HMV áramfogyasztás ebben az évben"
+      },
+      "dhw_energy_consumption_today": {
+        "name": "HMV áramfogyasztás ma"
+      },
+      "dhw_power_consumption": {
+        "name": "HMV elektromos teljesítményfelvétel"
+      },
+      "dhw_produced_energy_this_month": {
+        "name": "Termelt HMV hőenergia ezen a hónapon"
+      },
+      "dhw_produced_energy_this_week": {
+        "name": "Termelt HMV hőenergia ezen a héten"
+      },
+      "dhw_produced_energy_this_year": {
+        "name": "Termelt HMV hőenergia ebben az évben"
+      },
+      "dhw_produced_energy_today": {
+        "name": "Termelt HMV hőenergia ma"
+      },
+      "dhw_total_cop_eer": {
+        "name": "HMV összes COP/EER"
+      },
+      "dhw_total_energy_consumption": {
+        "name": "HMV összes áramfogyasztás"
+      },
+      "dhw_total_produced_energy": {
+        "name": "Termelt HMV hőenergia összesen"
+      },
+      "heating_capacity": {
+        "name": "Fűtési hőteljesítmény"
+      },
+      "heating_cop_eer": {
+        "name": "Fűtés COP/EER"
+      },
+      "heating_cop_eer_this_month": {
+        "name": "Fűtés COP/EER ezen a hónapon"
+      },
+      "heating_cop_eer_this_week": {
+        "name": "Fűtés COP/EER ezen a héten"
+      },
+      "heating_cop_eer_this_year": {
+        "name": "Fűtés COP/EER ebben az évben"
+      },
+      "heating_cop_eer_today": {
+        "name": "Fűtés COP/EER ma"
+      },
+      "heating_energy_consumption_this_month": {
+        "name": "Fűtés áramfogyasztás ezen a hónapon"
+      },
+      "heating_energy_consumption_this_week": {
+        "name": "Fűtés áramfogyasztás ezen a héten"
+      },
+      "heating_energy_consumption_this_year": {
+        "name": "Fűtés áramfogyasztás ebben az évben"
+      },
+      "heating_energy_consumption_today": {
+        "name": "Fűtés áramfogyasztás ma"
+      },
+      "heating_power_consumption": {
+        "name": "Fűtés elektromos teljesítményfelvétel"
+      },
+      "heating_produced_energy_this_month": {
+        "name": "Termelt fűtési hőenergia ezen a hónapon"
+      },
+      "heating_produced_energy_this_week": {
+        "name": "Termelt fűtési hőenergia ezen a héten"
+      },
+      "heating_produced_energy_this_year": {
+        "name": "Termelt fűtési hőenergia ebben az évben"
+      },
+      "heating_produced_energy_today": {
+        "name": "Termelt fűtési hőenergia ma"
+      },
+      "heating_total_cop_eer": {
+        "name": "Fűtés összes COP/EER"
+      },
+      "heating_total_energy_consumption": {
+        "name": "Fűtés összes áramfogyasztás"
+      },
+      "heating_total_produced_energy": {
+        "name": "Termelt fűtési hőenergia összesen"
+      },
+      "instant_cop_eer": {
+        "name": "Pillanatnyi COP/EER"
+      },
+      "total_cop_eer": {
+        "name": "Összes COP/EER"
+      },
+      "dryer": {
+        "name": "Szárítási szint"
+      },
+      "soak_count": {
+        "name": "Áztatások száma"
+      },
+      "appointment_time": {
+        "name": "Késleltetett indításig hátralévő idő"
+      },
+      "db_last_cycle_water_consumption": {
+        "name": "Legutóbbi ciklus vízfogyasztása"
+      },
+      "power_consumption": {
+        "name": "Legutóbbi ciklus energiafogyasztása"
+      },
+      "wash_count": {
+        "name": "Mosások száma"
+      },
+      "water_state": {
+        "name": "Víztartály",
+        "state": {
+          "full": "Tele",
+          "empty": "Üres"
+        }
+      },
+      "box_state": {
+        "name": "Gőzsütő",
+        "state": {
+          "in": "Behelyezve",
+          "out": "Eltávolítva"
+        }
+      },
+      "door_state": {
+        "name": "Ajtó",
+        "state": {
+          "open": "Nyitva",
+          "close": "Zárva"
+        }
+      },
+      "f1_response_type": {
+        "name": "Válasz",
+        "state": {
+          "success": "Sikeres",
+          "fail": "Sikertelen"
+        }
+      },
+      "step_status": {
+        "name": "Lépés állapota"
+      },
+      "lid_status": {
+        "name": "Fedél állapota",
+        "state": {
+          "have_cup": "Csésze behelyezve",
+          "no_cup": "Nincs csésze"
+        }
+      },
+      "cup_status": {
+        "name": "Csésze állapota",
+        "state": {
+          "default": "Alapértelmezett",
+          "hot_cup": "Meleg csésze",
+          "cold_cup": "Hideg csésze"
+        }
+      },
+      "current_time": {
+        "name": "Aktuális idő"
+      },
+      "box1_type": {
+        "name": "1. tartály típusa"
+      },
+      "box1_status": {
+        "name": "1. tartály állapota",
+        "state": {
+          "no": "Jelen",
+          "missing": "Hiányzik"
+        }
+      },
+      "box2_type": {
+        "name": "2. tartály típusa"
+      },
+      "box2_status": {
+        "name": "2. tartály állapota",
+        "state": {
+          "no": "Jelen",
+          "missing": "Hiányzik"
+        }
+      },
+      "box3_type": {
+        "name": "3. tartály típusa"
+      },
+      "box3_status": {
+        "name": "3. tartály állapota",
+        "state": {
+          "no": "Jelen",
+          "missing": "Hiányzik"
+        }
+      },
+      "box4_type": {
+        "name": "4. tartály típusa"
+      },
+      "box4_status": {
+        "name": "4. tartály állapota",
+        "state": {
+          "no": "Jelen",
+          "missing": "Hiányzik"
+        }
+      },
+      "box5_type": {
+        "name": "5. tartály típusa"
+      },
+      "box5_status": {
+        "name": "5. tartály állapota",
+        "state": {
+          "no": "Jelen",
+          "missing": "Hiányzik"
+        }
+      },
+      "box6_type": {
+        "name": "6. tartály típusa"
+      },
+      "box6_status": {
+        "name": "6. tartály állapota",
+        "state": {
+          "no": "Jelen",
+          "missing": "Hiányzik"
+        }
+      },
+      "box7_type": {
+        "name": "7. tartály típusa"
+      },
+      "box7_status": {
+        "name": "7. tartály állapota",
+        "state": {
+          "no": "Jelen",
+          "missing": "Hiányzik"
+        }
+      },
+      "box8_type": {
+        "name": "8. tartály típusa"
+      },
+      "box8_status": {
+        "name": "8. tartály állapota",
+        "state": {
+          "no": "Jelen",
+          "missing": "Hiányzik"
+        }
+      },
+      "process_status": {
+        "name": "Folyamat állapota"
+      },
+      "time_max": {
+        "name": "Maximális idő"
+      },
+      "left_status": {
+        "name": "Bal égő: Állapot"
+      },
+      "right_status": {
+        "name": "Jobb égő: Állapot"
+      },
+      "left_gear": {
+        "name": "Bal égő: Fokozat"
+      },
+      "right_gear": {
+        "name": "Jobb égő: Fokozat"
+      },
+      "left_work_mode": {
+        "name": "Bal égő: Üzemmód"
+      },
+      "right_work_mode": {
+        "name": "Jobb égő: Üzemmód"
+      },
+      "left_temp": {
+        "name": "Bal égő: Hőmérséklet"
+      },
+      "right_temp": {
+        "name": "Jobb égő: Hőmérséklet"
+      },
+      "left_surplus_hours": {
+        "name": "Bal égő: Hátralévő idő (óra)"
+      },
+      "left_surplus_minutes": {
+        "name": "Bal égő: Hátralévő idő (perc)"
+      },
+      "right_surplus_hours": {
+        "name": "Jobb égő: Hátralévő idő (óra)"
+      },
+      "right_surplus_minutes": {
+        "name": "Jobb égő: Hátralévő idő (perc)"
+      },
+      "left_work_hours": {
+        "name": "Bal égő: Működési idő (óra)"
+      },
+      "left_work_minutes": {
+        "name": "Bal égő: Működési idő (perc)"
+      },
+      "left_work_seconds": {
+        "name": "Bal égő: Működési idő (másodperc)"
+      },
+      "right_work_hours": {
+        "name": "Jobb égő: Működési idő (óra)"
+      },
+      "right_work_minutes": {
+        "name": "Jobb égő: Működési idő (perc)"
+      },
+      "right_work_seconds": {
+        "name": "Jobb égő: Működési idő (másodperc)"
+      },
+      "tips_code": {
+        "name": "Tájékoztató kód"
       }
     },
     "switch": {
@@ -3873,7 +4551,10 @@
         "name": "Vakáció mód"
       },
       "dry": {
-        "name": "Dry"
+        "name": "Szárítás"
+      },
+      "wet_pad_dry": {
+        "name": "Nedves betét szárítása"
       },
       "cold_water_single": {
         "name": "Hideg víz egyszeri"
@@ -3912,7 +4593,7 @@
         "name": "Védelem a vízszivárgás ellen"
       },
       "light": {
-        "name": "Light"
+        "name": "Világítás"
       },
       "link_to_ac": {
         "name": "Link to AC"
@@ -3933,7 +4614,7 @@
         "name": "Oscillate"
       },
       "power": {
-        "name": "Power"
+        "name": "Tápellátás"
       },
       "powerful_purify": {
         "name": "Powerful Purification"
@@ -3966,7 +4647,7 @@
         "name": "Silent Mode"
       },
       "sleep_mode": {
-        "name": "Sleep Mode"
+        "name": "Alvó mód"
       },
       "out_silent": {
         "name": "Kültéri csendes mód"
@@ -4099,6 +4780,54 @@
       },
       "washer_forget_free": {
         "name": "Gondtalan ápolás"
+      },
+      "sterilize": {
+        "name": "Fertőtlenítés"
+      },
+      "baking": {
+        "name": "Melegítés"
+      },
+      "left_button": {
+        "name": "Bal gomb"
+      },
+      "middle_button": {
+        "name": "Középső gomb"
+      },
+      "right_button": {
+        "name": "Jobb gomb"
+      },
+      "show_button_name": {
+        "name": "Gomb nevének megjelenítése"
+      },
+      "close_screen_bright": {
+        "name": "Képernyő elsötétítése bezáráskor"
+      },
+      "sleep_mode_switch": {
+        "name": "Alvó mód kapcsolója"
+      },
+      "sleep_mode_mute": {
+        "name": "Némítás alvó módban"
+      },
+      "left_button_keep": {
+        "name": "Bal gomb megtartása"
+      },
+      "middle_button_keep": {
+        "name": "Középső gomb megtartása"
+      },
+      "right_button_keep": {
+        "name": "Jobb gomb megtartása"
+      },
+      "voice_control": {
+        "name": "Hangvezérlés"
+      },
+      "screen_state": {
+        "name": "Képernyő"
+      },
+      "reserve": {
+        "name": "Foglalás"
+      },
+      "b7_lock": {
+        "name": "Panelzár"
       }
     },
     "water_heater": {

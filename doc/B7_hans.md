@@ -7,7 +7,7 @@
 - 报告燃气报警、智能防干烧及菜谱标记状态
 - 报告错误代码和提示代码
 - 控制面板锁（开/关）
-- 控制左右炉头电源（点火/熄火触发）
+- 触发左右炉头点火（瞬时操作）
 - 控制左右炉头档位（0–255）
 - 控制左右炉头温度设定（0–65535 °C）
 
@@ -34,8 +34,8 @@
 | 实体ID                                   | 类型          | 描述                  |
 | ---------------------------------------- | ------------- | --------------------- |
 | switch.{DEVICEID}\_lock                  | switch        | 面板锁                |
-| switch.{DEVICEID}\_left_power            | switch        | 左侧炉头电源          |
-| switch.{DEVICEID}\_right_power           | switch        | 右侧炉头电源          |
+| button.{DEVICEID}\_left_power            | button        | 点燃左侧炉头          |
+| button.{DEVICEID}\_right_power           | button        | 点燃右侧炉头          |
 | number.{DEVICEID}\_left_gear_set         | number        | 左侧炉头档位（0–255） |
 | number.{DEVICEID}\_right_gear_set        | number        | 右侧炉头档位（0–255） |
 | number.{DEVICEID}\_left_temp_set         | number        | 左侧炉头温度设定      |

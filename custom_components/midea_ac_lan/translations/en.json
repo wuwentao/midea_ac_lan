@@ -884,6 +884,45 @@
       },
       "laundry_appointment": {
         "name": "Reservation"
+      },
+      "has_token": {
+        "name": "Has Token"
+      },
+      "humidify": {
+        "name": "Humidify"
+      },
+      "speedy": {
+        "name": "Speedy"
+      },
+      "lock": {
+        "name": "Child lock"
+      },
+      "beforehand_wash": {
+        "name": "Pre-wash"
+      },
+      "steam_wash": {
+        "name": "Steam wash"
+      },
+      "add_rinse": {
+        "name": "Extra rinse"
+      },
+      "wind_dispel": {
+        "name": "Fresh air"
+      },
+      "remote_control_flag": {
+        "name": "Remote control"
+      },
+      "gas_warn": {
+        "name": "Gas Warning"
+      },
+      "left_smart_bl": {
+        "name": "Left Burner: Smart Boil-dry Protection"
+      },
+      "right_smart_bl": {
+        "name": "Right Burner: Smart Boil-dry Protection"
+      },
+      "menu_mark": {
+        "name": "Menu Mark"
       }
     },
     "button": {
@@ -904,6 +943,12 @@
       },
       "laundry_cancel_appointment": {
         "name": "Cancel reservation"
+      },
+      "left_power": {
+        "name": "Ignite Left Burner"
+      },
+      "right_power": {
+        "name": "Ignite Right Burner"
       }
     },
     "climate": {
@@ -925,6 +970,9 @@
       }
     },
     "fan": {
+      "fan": {
+        "name": "Fan"
+      },
       "bgf10000": {
         "state_attributes": {
           "preset_mode": {
@@ -946,18 +994,11 @@
       },
       "fresh_air_exhaust": {
         "name": "Fresh Air Exhaust"
-      },
-      "b7_gas_warn": {
-        "name": "Gas Warning"
-      },
-      "b7_left_smart_bl": {
-        "name": "Left Smart Boil-dry Protection"
-      },
-      "b7_right_smart_bl": {
-        "name": "Right Smart Boil-dry Protection"
-      },
-      "b7_menu_mark": {
-        "name": "Menu Mark"
+      }
+    },
+    "light": {
+      "light": {
+        "name": "Lighting"
       }
     },
     "lock": {
@@ -966,6 +1007,30 @@
       }
     },
     "number": {
+      "work_status": {
+        "name": "Work Status"
+      },
+      "function_no": {
+        "name": "Function No"
+      },
+      "fire_level": {
+        "name": "Fire Level"
+      },
+      "time_reserve_hr": {
+        "name": "Reserve Hours"
+      },
+      "time_reserve_min": {
+        "name": "Reserve Minutes"
+      },
+      "definite_time_hr": {
+        "name": "Timer Hours"
+      },
+      "definite_time_min": {
+        "name": "Timer Minutes"
+      },
+      "curtain_position": {
+        "name": "Position"
+      },
       "delay_minutes": {
         "name": "Delay"
       },
@@ -1058,9 +1123,140 @@
       },
       "dryer_timed_extra": {
         "name": "Timed drying extension"
+      },
+      "e9_volume": {
+        "name": "Loaf Size"
+      },
+      "color": {
+        "name": "Crust Color"
+      },
+      "dosing": {
+        "name": "Dosing"
+      },
+      "bake_temperature": {
+        "name": "Bake Temperature"
+      },
+      "time_cuisine_hr": {
+        "name": "Cuisine Hours"
+      },
+      "time_cuisine_min": {
+        "name": "Cuisine Minutes"
+      },
+      "control_cmd_code": {
+        "name": "Command Code"
+      },
+      "auto_off_screen_type": {
+        "name": "Auto Off Screen Type"
+      },
+      "theme": {
+        "name": "Theme"
+      },
+      "night_volume": {
+        "name": "Night Volume"
+      },
+      "voice_volume": {
+        "name": "Voice Volume"
+      },
+      "sleep_start_hour": {
+        "name": "Sleep Start Hour"
+      },
+      "sleep_start_minute": {
+        "name": "Sleep Start Minute"
+      },
+      "sleep_duration_hour": {
+        "name": "Sleep Duration Hour"
+      },
+      "sleep_duration_minute": {
+        "name": "Sleep Duration Minute"
+      },
+      "brightness": {
+        "name": "Brightness"
+      },
+      "left_button_work_mode": {
+        "name": "Left Button Work Mode"
+      },
+      "middle_button_work_mode": {
+        "name": "Middle Button Work Mode"
+      },
+      "right_button_work_mode": {
+        "name": "Right Button Work Mode"
+      },
+      "watt": {
+        "name": "Microwave Power"
+      },
+      "weight": {
+        "name": "Weight"
+      },
+      "speed": {
+        "name": "Speed"
+      },
+      "set_work_temp": {
+        "name": "Work Temperature"
+      },
+      "set_keep_warm_temp": {
+        "name": "Keep Warm Temperature"
+      },
+      "set_work_time": {
+        "name": "Work Time"
+      },
+      "set_keep_warm_time": {
+        "name": "Keep Warm Time"
+      },
+      "appoint_time": {
+        "name": "Appointment Time"
+      },
+      "code_id": {
+        "name": "Recipe Code"
+      },
+      "work_mode": {
+        "name": "Work Mode"
+      },
+      "time_warm_hr": {
+        "name": "Keep Warm Hours"
+      },
+      "time_warm_min": {
+        "name": "Keep Warm Minutes"
+      },
+      "cmd_id": {
+        "name": "Command ID"
+      },
+      "left_gear_set": {
+        "name": "Left Burner: Gear"
+      },
+      "right_gear_set": {
+        "name": "Right Burner: Gear"
+      },
+      "left_temp_set": {
+        "name": "Left Burner: Temperature Setpoint"
+      },
+      "right_temp_set": {
+        "name": "Right Burner: Temperature Setpoint"
       }
     },
     "select": {
+      "curtain_status": {
+        "name": "Curtain",
+        "state": {
+          "open": "Open",
+          "close": "Close",
+          "stop": "Stop"
+        }
+      },
+      "curtain_direction": {
+        "name": "Direction",
+        "state": {
+          "positive": "Positive",
+          "reverse": "Reverse"
+        }
+      },
+      "aux_heat_mode": {
+        "name": "Aux Heat Mode",
+        "state": {
+          "off": "Off",
+          "aux_heat": "Auxiliary Heat",
+          "aux_only": "Auxiliary Only"
+        }
+      },
       "cur_quantify": {
         "name": "Current Quantity Preset",
         "state": {
@@ -1072,75 +1268,13 @@
           "preset_5": "Preset 5"
         }
       },
-      "wash_mode_76000228": {
-        "name": "Wash Mode",
-        "state": {
-          "neutral_gear": "None",
-          "auto_wash": "Auto",
-          "strong_wash": "Intensive",
-          "standard_wash": "Universal",
-          "eco_wash": "ECO",
-          "glass_wash": "Glass",
-          "hour_wash": "90 min",
-          "fast_wash": "Rapid",
-          "soak_wash": "Soak",
-          "90min": "90 min",
-          "self_clean": "Self clean",
-          "fruit_wash": "Fruit",
-          "self_define": "Custom",
-          "germ": "Whisper",
-          "bowl_wash": "Bowl",
-          "kill_germ": "Hygiene",
-          "sea_food_wash": "Self clean",
-          "hot_pot_wash": "Hot pot",
-          "quiet_night_wash": "Quiet night",
-          "less_wash": "Light",
-          "max_rapid_wash": "Max rapid",
-          "oil_net_wash": "Oil filter",
-          "cloud_wash": "Cloud program",
-          "single_dry": "Dry only",
-          "single_disinfect": "Disinfect only",
-          "high_temp_wash": "High temperature",
-          "wash_dry": "Wash and dry"
-        }
-      },
-      "program_76000228": {
-        "name": "Program",
-        "state": {
-          "auto_wash": "Auto",
-          "strong_wash": "Intensive",
-          "standard_wash": "Universal",
-          "eco_wash": "ECO",
-          "glass_wash": "Glass",
-          "hour_wash": "90 min",
-          "fast_wash": "Rapid",
-          "soak_wash": "Soak",
-          "90min": "90 min",
-          "self_clean": "Self clean",
-          "fruit_wash": "Fruit",
-          "self_define": "Custom",
-          "germ": "Whisper",
-          "bowl_wash": "Bowl",
-          "kill_germ": "Hygiene",
-          "sea_food_wash": "Self clean",
-          "hot_pot_wash": "Hot pot",
-          "quiet_night_wash": "Quiet night",
-          "less_wash": "Light",
-          "max_rapid_wash": "Max rapid",
-          "oil_net_wash": "Oil filter",
-          "cloud_wash": "Cloud program",
-          "single_dry": "Dry only",
-          "single_disinfect": "Disinfect only",
-          "high_temp_wash": "High temperature",
-          "wash_dry": "Wash and dry"
-        }
-      },
       "program": {
         "name": "Program",
         "state": {
           "auto_wash": "Auto",
           "strong_wash": "Intensive",
           "standard_wash": "Standard",
+          "universal_wash": "Universal",
           "eco_wash": "ECO",
           "glass_wash": "Glass",
           "hour_wash": "1 hour",
@@ -1151,6 +1285,7 @@
           "fruit_wash": "Fruit",
           "self_define": "Custom",
           "germ": "Germ",
+          "whisper_wash": "Whisper",
           "bowl_wash": "Bowl",
           "kill_germ": "Hygiene",
           "sea_food_wash": "Seafood",
@@ -1163,7 +1298,8 @@
           "single_dry": "Dry only",
           "single_disinfect": "Disinfect only",
           "high_temp_wash": "High temperature",
-          "wash_dry": "Wash and dry"
+          "wash_dry": "Wash and dry",
+          "anion1": "Ion Dishfresh"
         }
       },
       "load": {
@@ -1240,7 +1376,36 @@
           "bath": "Bath",
           "blow": "Blow",
           "ventilation": "Ventilation",
-          "dry": "Dry"
+          "dry": "Dry",
+          "keep_warm": "Keep Warm",
+          "stero_baking": "Stereo Baking",
+          "whole_baking": "Whole Baking",
+          "up_down_baking": "Up/Down Baking",
+          "unfreeze": "Unfreeze",
+          "hot_air_convection": "Hot Air Convection",
+          "power_saving": "Power Saving",
+          "center_baking": "Center Baking",
+          "rotary_baking": "Rotary Baking",
+          "fermentation": "Fermentation",
+          "stoving": "Stoving",
+          "down_baking": "Down Baking",
+          "pizza": "Pizza",
+          "up_infrared_fan": "Upper Infrared Fan",
+          "microwave": "Microwave",
+          "fish": "Fish",
+          "meat": "Meat",
+          "egg": "Egg",
+          "seafood": "Seafood",
+          "steam_clean": "Steam Clean",
+          "common": "General",
+          "grain": "Grain",
+          "rice": "Rice",
+          "zymosis": "Fermentation",
+          "heat": "Reheat",
+          "furring_clean": "Descale",
+          "disinfect": "Disinfect",
+          "vegetable": "Vegetable",
+          "chop": "Chopped Food"
         }
       },
       "oscillation_angle": {
@@ -1273,6 +1438,7 @@
           "auto_wash": "Auto",
           "strong_wash": "Intensive",
           "standard_wash": "Standard",
+          "universal_wash": "Universal",
           "eco_wash": "ECO",
           "glass_wash": "Glass",
           "hour_wash": "1 hour",
@@ -1283,6 +1449,7 @@
           "fruit_wash": "Fruit",
           "self_define": "Custom",
           "germ": "Germ",
+          "whisper_wash": "Whisper",
           "bowl_wash": "Bowl",
           "kill_germ": "Hygiene",
           "sea_food_wash": "Seafood",
@@ -1295,7 +1462,8 @@
           "single_dry": "Dry only",
           "single_disinfect": "Disinfect only",
           "high_temp_wash": "High temperature",
-          "wash_dry": "Wash and dry"
+          "wash_dry": "Wash and dry",
+          "anion1": "Ion Dishfresh"
         }
       },
       "water_level_set": {
@@ -1324,7 +1492,7 @@
         }
       },
       "work_status_select": {
-        "name": "Work Status",
+        "name": "Set Work Status",
         "state": {
           "save_power": "Save Power",
           "standby": "Standby",
@@ -1340,7 +1508,12 @@
           "ramadan": "Ramadan",
           "after_checking": "After Checking",
           "wait_to_start": "Wait to Start",
-          "ff": "Unknown"
+          "ff": "Unknown",
+          "cancel": "Cancel",
+          "end": "End",
+          "appointment": "Appointment",
+          "reservation": "Reservation",
+          "none": "None"
         }
       },
       "x9b_fire_power_select": {
@@ -1480,12 +1653,12 @@
       "washer_temperature_control": {
         "name": "Water temperature",
         "state": {
-          "cold": "Cold",
           "20": "20 °C",
           "30": "30 °C",
           "40": "40 °C",
           "60": "60 °C",
-          "95": "95 °C"
+          "95": "95 °C",
+          "cold": "Cold"
         }
       },
       "washer_spin_speed_control": {
@@ -1536,17 +1709,20 @@
       "washer_spin_time_control": {
         "name": "Spin time (min)"
       },
-      "b7_left_gear_set": {
-        "name": "Left Burner Gear"
+      "updown": {
+        "name": "Raise/Lower",
+        "state": {
+          "pause": "Pause",
+          "up": "Up",
+          "down": "Down"
+        }
       },
-      "b7_right_gear_set": {
-        "name": "Right Burner Gear"
-      },
-      "b7_left_temp_set": {
-        "name": "Left Burner Temperature Set"
-      },
-      "b7_right_temp_set": {
-        "name": "Right Burner Temperature Set"
+      "drink_style": {
+        "name": "Drink Style",
+        "state": {
+          "hot_drink": "Hot Drink",
+          "warm_drink": "Warm Drink"
+        }
       }
     },
     "time": {
@@ -1558,6 +1734,47 @@
       }
     },
     "sensor": {
+      "response_type": {
+        "name": "Response",
+        "state": {
+          "response_normal": "Normal",
+          "response_error_e2": "Error E2",
+          "response_error": "Error"
+        }
+      },
+      "time_work_hr": {
+        "name": "Work Hours"
+      },
+      "time_work_min": {
+        "name": "Work Minutes"
+      },
+      "time_warm_hr": {
+        "name": "Keep Warm Hours"
+      },
+      "time_warm_min": {
+        "name": "Keep Warm Minutes"
+      },
+      "time_running_hr": {
+        "name": "Running Hours"
+      },
+      "time_running_min": {
+        "name": "Running Minutes"
+      },
+      "time_surplus_hr": {
+        "name": "Remaining Hours"
+      },
+      "time_surplus_min": {
+        "name": "Remaining Minutes"
+      },
+      "work_stage": {
+        "name": "Work Stage"
+      },
+      "software_version": {
+        "name": "Software Version"
+      },
+      "evaporator_temperature": {
+        "name": "Evaporator Temperature"
+      },
       "db_running_status": {
         "name": "Washer status"
       },
@@ -1649,6 +1866,7 @@
           "auto_wash": "Auto",
           "strong_wash": "Intensive",
           "standard_wash": "Standard",
+          "universal_wash": "Universal",
           "eco_wash": "ECO",
           "glass_wash": "Glass",
           "hour_wash": "1 hour",
@@ -1659,6 +1877,7 @@
           "fruit_wash": "Fruit",
           "self_define": "Custom",
           "germ": "Germ",
+          "whisper_wash": "Whisper",
           "bowl_wash": "Bowl",
           "kill_germ": "Hygiene",
           "sea_food_wash": "Seafood",
@@ -1671,39 +1890,8 @@
           "single_dry": "Dry only",
           "single_disinfect": "Disinfect only",
           "high_temp_wash": "High temperature",
-          "wash_dry": "Wash and dry"
-        }
-      },
-      "dishwasher_mode_76000228": {
-        "name": "Mode",
-        "state": {
-          "neutral_gear": "None",
-          "auto_wash": "Auto",
-          "strong_wash": "Intensive",
-          "standard_wash": "Universal",
-          "eco_wash": "ECO",
-          "glass_wash": "Glass",
-          "hour_wash": "90 min",
-          "fast_wash": "Rapid",
-          "soak_wash": "Soak",
-          "90min": "90 min",
-          "self_clean": "Self clean",
-          "fruit_wash": "Fruit",
-          "self_define": "Custom",
-          "germ": "Whisper",
-          "bowl_wash": "Bowl",
-          "kill_germ": "Hygiene",
-          "sea_food_wash": "Self clean",
-          "hot_pot_wash": "Hot pot",
-          "quiet_night_wash": "Quiet night",
-          "less_wash": "Light",
-          "max_rapid_wash": "Max rapid",
-          "oil_net_wash": "Oil filter",
-          "cloud_wash": "Cloud program",
-          "single_dry": "Dry only",
-          "single_disinfect": "Disinfect only",
-          "high_temp_wash": "High temperature",
-          "wash_dry": "Wash and dry"
+          "wash_dry": "Wash and dry",
+          "anion1": "Ion Dishfresh"
         }
       },
       "dishwasher_status": {
@@ -3986,7 +4174,12 @@
           "ramadan": "Ramadan",
           "after_checking": "After Checking",
           "wait_to_start": "Wait to Start",
-          "ff": "Unknown"
+          "ff": "Unknown",
+          "cancel": "Cancel",
+          "end": "End",
+          "appointment": "Appointment",
+          "reservation": "Reservation",
+          "none": "None"
         }
       },
       "x9b_fire_power": {
@@ -4056,64 +4249,388 @@
       "cbs_version": {
         "name": "CBS Version"
       },
-      "b7_left_status": {
-        "name": "Left Burner Status"
+      "panel_status": {
+        "name": "Panel Status"
       },
-      "b7_right_status": {
-        "name": "Right Burner Status"
+      "target_humidity": {
+        "name": "Target Humidity"
       },
-      "b7_left_gear": {
-        "name": "Left Burner Gear"
+      "cooling_capacity": {
+        "name": "Cooling capacity"
       },
-      "b7_right_gear": {
-        "name": "Right Burner Gear"
+      "cooling_cop_eer": {
+        "name": "Cooling COP/EER"
       },
-      "b7_left_work_mode": {
-        "name": "Left Burner Work Mode"
+      "cooling_cop_eer_this_month": {
+        "name": "Cooling COP/EER this month"
       },
-      "b7_right_work_mode": {
-        "name": "Right Burner Work Mode"
+      "cooling_cop_eer_this_week": {
+        "name": "Cooling COP/EER this week"
       },
-      "b7_left_temp": {
-        "name": "Left Burner Temperature"
+      "cooling_cop_eer_this_year": {
+        "name": "Cooling COP/EER this year"
       },
-      "b7_right_temp": {
-        "name": "Right Burner Temperature"
+      "cooling_cop_eer_today": {
+        "name": "Cooling COP/EER today"
       },
-      "b7_left_surplus_hours": {
-        "name": "Left Surplus Hours"
+      "cooling_energy_consumption_this_month": {
+        "name": "Cooling electricity this month"
       },
-      "b7_left_surplus_minutes": {
-        "name": "Left Surplus Minutes"
+      "cooling_energy_consumption_this_week": {
+        "name": "Cooling electricity this week"
       },
-      "b7_right_surplus_hours": {
-        "name": "Right Surplus Hours"
+      "cooling_energy_consumption_this_year": {
+        "name": "Cooling electricity this year"
       },
-      "b7_right_surplus_minutes": {
-        "name": "Right Surplus Minutes"
+      "cooling_energy_consumption_today": {
+        "name": "Cooling electricity today"
       },
-      "b7_left_work_hours": {
-        "name": "Left Work Hours"
+      "cooling_power_consumption": {
+        "name": "Cooling electrical power"
       },
-      "b7_left_work_minutes": {
-        "name": "Left Work Minutes"
+      "cooling_produced_energy_this_month": {
+        "name": "Cooling produced energy this month"
       },
-      "b7_left_work_seconds": {
-        "name": "Left Work Seconds"
+      "cooling_produced_energy_this_week": {
+        "name": "Cooling produced energy this week"
       },
-      "b7_right_work_hours": {
-        "name": "Right Work Hours"
+      "cooling_produced_energy_this_year": {
+        "name": "Cooling produced energy this year"
       },
-      "b7_right_work_minutes": {
-        "name": "Right Work Minutes"
+      "cooling_produced_energy_today": {
+        "name": "Cooling produced energy today"
       },
-      "b7_right_work_seconds": {
-        "name": "Right Work Seconds"
+      "cooling_total_cop_eer": {
+        "name": "Cooling total COP/EER"
       },
-      "b7_error_code": {
-        "name": "Error Code"
+      "cooling_total_energy_consumption": {
+        "name": "Cooling total electricity"
       },
-      "b7_tips_code": {
+      "cooling_total_produced_energy": {
+        "name": "Cooling total produced energy"
+      },
+      "dhw_capacity": {
+        "name": "DHW heat output"
+      },
+      "dhw_cop_eer": {
+        "name": "DHW COP/EER"
+      },
+      "dhw_cop_eer_this_month": {
+        "name": "DHW COP/EER this month"
+      },
+      "dhw_cop_eer_this_week": {
+        "name": "DHW COP/EER this week"
+      },
+      "dhw_cop_eer_this_year": {
+        "name": "DHW COP/EER this year"
+      },
+      "dhw_cop_eer_today": {
+        "name": "DHW COP/EER today"
+      },
+      "dhw_energy_consumption_this_month": {
+        "name": "DHW electricity this month"
+      },
+      "dhw_energy_consumption_this_week": {
+        "name": "DHW electricity this week"
+      },
+      "dhw_energy_consumption_this_year": {
+        "name": "DHW electricity this year"
+      },
+      "dhw_energy_consumption_today": {
+        "name": "DHW electricity today"
+      },
+      "dhw_power_consumption": {
+        "name": "DHW electrical power"
+      },
+      "dhw_produced_energy_this_month": {
+        "name": "DHW heat production this month"
+      },
+      "dhw_produced_energy_this_week": {
+        "name": "DHW heat production this week"
+      },
+      "dhw_produced_energy_this_year": {
+        "name": "DHW heat production this year"
+      },
+      "dhw_produced_energy_today": {
+        "name": "DHW heat production today"
+      },
+      "dhw_total_cop_eer": {
+        "name": "DHW total COP/EER"
+      },
+      "dhw_total_energy_consumption": {
+        "name": "DHW total electricity"
+      },
+      "dhw_total_produced_energy": {
+        "name": "DHW total heat production"
+      },
+      "heating_capacity": {
+        "name": "Heating heat output"
+      },
+      "heating_cop_eer": {
+        "name": "Heating COP/EER"
+      },
+      "heating_cop_eer_this_month": {
+        "name": "Heating COP/EER this month"
+      },
+      "heating_cop_eer_this_week": {
+        "name": "Heating COP/EER this week"
+      },
+      "heating_cop_eer_this_year": {
+        "name": "Heating COP/EER this year"
+      },
+      "heating_cop_eer_today": {
+        "name": "Heating COP/EER today"
+      },
+      "heating_energy_consumption_this_month": {
+        "name": "Heating electricity this month"
+      },
+      "heating_energy_consumption_this_week": {
+        "name": "Heating electricity this week"
+      },
+      "heating_energy_consumption_this_year": {
+        "name": "Heating electricity this year"
+      },
+      "heating_energy_consumption_today": {
+        "name": "Heating electricity today"
+      },
+      "heating_power_consumption": {
+        "name": "Heating electrical power"
+      },
+      "heating_produced_energy_this_month": {
+        "name": "Heating heat production this month"
+      },
+      "heating_produced_energy_this_week": {
+        "name": "Heating heat production this week"
+      },
+      "heating_produced_energy_this_year": {
+        "name": "Heating heat production this year"
+      },
+      "heating_produced_energy_today": {
+        "name": "Heating heat production today"
+      },
+      "heating_total_cop_eer": {
+        "name": "Heating total COP/EER"
+      },
+      "heating_total_energy_consumption": {
+        "name": "Heating total electricity"
+      },
+      "heating_total_produced_energy": {
+        "name": "Heating total heat production"
+      },
+      "instant_cop_eer": {
+        "name": "Instantaneous COP/EER"
+      },
+      "total_cop_eer": {
+        "name": "Total COP/EER"
+      },
+      "dryer": {
+        "name": "Drying level"
+      },
+      "soak_count": {
+        "name": "Soak count"
+      },
+      "appointment_time": {
+        "name": "Delay start time"
+      },
+      "db_last_cycle_water_consumption": {
+        "name": "Last cycle water consumption"
+      },
+      "power_consumption": {
+        "name": "Last cycle power consumption"
+      },
+      "wash_count": {
+        "name": "Wash count"
+      },
+      "water_state": {
+        "name": "Water Tank",
+        "state": {
+          "full": "Full",
+          "empty": "Empty"
+        }
+      },
+      "box_state": {
+        "name": "Steam Box",
+        "state": {
+          "in": "Inserted",
+          "out": "Removed"
+        }
+      },
+      "door_state": {
+        "name": "Door",
+        "state": {
+          "open": "Open",
+          "close": "Closed"
+        }
+      },
+      "f1_response_type": {
+        "name": "Response",
+        "state": {
+          "success": "Success",
+          "fail": "Fail"
+        }
+      },
+      "step_status": {
+        "name": "Step Status"
+      },
+      "lid_status": {
+        "name": "Lid Status",
+        "state": {
+          "have_cup": "Cup present",
+          "no_cup": "No cup"
+        }
+      },
+      "cup_status": {
+        "name": "Cup Status",
+        "state": {
+          "default": "Default",
+          "hot_cup": "Hot cup",
+          "cold_cup": "Cold cup"
+        }
+      },
+      "current_time": {
+        "name": "Current Time"
+      },
+      "box1_type": {
+        "name": "Box 1 Type"
+      },
+      "box1_status": {
+        "name": "Box 1 Status",
+        "state": {
+          "no": "Present",
+          "missing": "Missing"
+        }
+      },
+      "box2_type": {
+        "name": "Box 2 Type"
+      },
+      "box2_status": {
+        "name": "Box 2 Status",
+        "state": {
+          "no": "Present",
+          "missing": "Missing"
+        }
+      },
+      "box3_type": {
+        "name": "Box 3 Type"
+      },
+      "box3_status": {
+        "name": "Box 3 Status",
+        "state": {
+          "no": "Present",
+          "missing": "Missing"
+        }
+      },
+      "box4_type": {
+        "name": "Box 4 Type"
+      },
+      "box4_status": {
+        "name": "Box 4 Status",
+        "state": {
+          "no": "Present",
+          "missing": "Missing"
+        }
+      },
+      "box5_type": {
+        "name": "Box 5 Type"
+      },
+      "box5_status": {
+        "name": "Box 5 Status",
+        "state": {
+          "no": "Present",
+          "missing": "Missing"
+        }
+      },
+      "box6_type": {
+        "name": "Box 6 Type"
+      },
+      "box6_status": {
+        "name": "Box 6 Status",
+        "state": {
+          "no": "Present",
+          "missing": "Missing"
+        }
+      },
+      "box7_type": {
+        "name": "Box 7 Type"
+      },
+      "box7_status": {
+        "name": "Box 7 Status",
+        "state": {
+          "no": "Present",
+          "missing": "Missing"
+        }
+      },
+      "box8_type": {
+        "name": "Box 8 Type"
+      },
+      "box8_status": {
+        "name": "Box 8 Status",
+        "state": {
+          "no": "Present",
+          "missing": "Missing"
+        }
+      },
+      "process_status": {
+        "name": "Process Status"
+      },
+      "time_max": {
+        "name": "Max Time"
+      },
+      "left_status": {
+        "name": "Left Burner: Status"
+      },
+      "right_status": {
+        "name": "Right Burner: Status"
+      },
+      "left_gear": {
+        "name": "Left Burner: Gear"
+      },
+      "right_gear": {
+        "name": "Right Burner: Gear"
+      },
+      "left_work_mode": {
+        "name": "Left Burner: Work Mode"
+      },
+      "right_work_mode": {
+        "name": "Right Burner: Work Mode"
+      },
+      "left_temp": {
+        "name": "Left Burner: Temperature"
+      },
+      "right_temp": {
+        "name": "Right Burner: Temperature"
+      },
+      "left_surplus_hours": {
+        "name": "Left Burner: Remaining Time (Hours)"
+      },
+      "left_surplus_minutes": {
+        "name": "Left Burner: Remaining Time (Minutes)"
+      },
+      "right_surplus_hours": {
+        "name": "Right Burner: Remaining Time (Hours)"
+      },
+      "right_surplus_minutes": {
+        "name": "Right Burner: Remaining Time (Minutes)"
+      },
+      "left_work_hours": {
+        "name": "Left Burner: Work Time (Hours)"
+      },
+      "left_work_minutes": {
+        "name": "Left Burner: Work Time (Minutes)"
+      },
+      "left_work_seconds": {
+        "name": "Left Burner: Work Time (Seconds)"
+      },
+      "right_work_hours": {
+        "name": "Right Burner: Work Time (Hours)"
+      },
+      "right_work_minutes": {
+        "name": "Right Burner: Work Time (Minutes)"
+      },
+      "right_work_seconds": {
+        "name": "Right Burner: Work Time (Seconds)"
+      },
+      "tips_code": {
         "name": "Tips Code"
       }
     },
@@ -4123,12 +4640,6 @@
       },
       "dc_power": {
         "name": "Dryer power"
-      },
-      "b7_left_power": {
-        "name": "Left Burner Power"
-      },
-      "b7_right_power": {
-        "name": "Right Burner Power"
       },
       "door_auto_open_setting": {
         "name": "Door Auto-Open"
@@ -4201,6 +4712,9 @@
       },
       "dry": {
         "name": "Dry"
+      },
+      "wet_pad_dry": {
+        "name": "Wet Pad Drying"
       },
       "cold_water_single": {
         "name": "Cold Water Single"
@@ -4417,6 +4931,54 @@
       },
       "washer_forget_free": {
         "name": "Forget-free care"
+      },
+      "sterilize": {
+        "name": "Sterilize"
+      },
+      "baking": {
+        "name": "Baking"
+      },
+      "left_button": {
+        "name": "Left Button"
+      },
+      "middle_button": {
+        "name": "Middle Button"
+      },
+      "right_button": {
+        "name": "Right Button"
+      },
+      "show_button_name": {
+        "name": "Show Button Name"
+      },
+      "close_screen_bright": {
+        "name": "Dim Screen When Closed"
+      },
+      "sleep_mode_switch": {
+        "name": "Sleep Mode Switch"
+      },
+      "sleep_mode_mute": {
+        "name": "Sleep Mode Mute"
+      },
+      "left_button_keep": {
+        "name": "Keep Left Button"
+      },
+      "middle_button_keep": {
+        "name": "Keep Middle Button"
+      },
+      "right_button_keep": {
+        "name": "Keep Right Button"
+      },
+      "voice_control": {
+        "name": "Voice Control"
+      },
+      "screen_state": {
+        "name": "Screen"
+      },
+      "reserve": {
+        "name": "Reservation"
+      },
+      "b7_lock": {
+        "name": "Panel Lock"
       }
     },
     "water_heater": {
