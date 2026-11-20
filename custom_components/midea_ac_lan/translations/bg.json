@@ -884,6 +884,33 @@
       },
       "laundry_appointment": {
         "name": "Резервация"
+      },
+      "has_token": {
+        "name": "Има токен"
+      },
+      "humidify": {
+        "name": "Овлажняване"
+      },
+      "speedy": {
+        "name": "Бързо пране"
+      },
+      "lock": {
+        "name": "Защита от деца"
+      },
+      "beforehand_wash": {
+        "name": "Предпране"
+      },
+      "steam_wash": {
+        "name": "Пране с пара"
+      },
+      "add_rinse": {
+        "name": "Допълнително изплакване"
+      },
+      "wind_dispel": {
+        "name": "Свеж въздух"
+      },
+      "remote_control_flag": {
+        "name": "Дистанционно управление"
       }
     },
     "button": {
@@ -925,6 +952,9 @@
       }
     },
     "fan": {
+      "fan": {
+        "name": "Вентилатор"
+      },
       "bgf10000": {
         "state_attributes": {
           "preset_mode": {
@@ -948,12 +978,41 @@
         "name": "Изпускане на свеж въздух"
       }
     },
+    "light": {
+      "light": {
+        "name": "Осветление"
+      }
+    },
     "lock": {
       "child_lock": {
         "name": "Защита от деца"
       }
     },
     "number": {
+      "work_status": {
+        "name": "Работен статус"
+      },
+      "function_no": {
+        "name": "Номер на функция"
+      },
+      "fire_level": {
+        "name": "Ниво на нагряване"
+      },
+      "time_reserve_hr": {
+        "name": "Часове за отлагане"
+      },
+      "time_reserve_min": {
+        "name": "Минути за отлагане"
+      },
+      "definite_time_hr": {
+        "name": "Часове на таймера"
+      },
+      "definite_time_min": {
+        "name": "Минути на таймера"
+      },
+      "curtain_position": {
+        "name": "Позиция"
+      },
       "delay_minutes": {
         "name": "Забавяне"
       },
@@ -1046,9 +1105,119 @@
       },
       "dryer_timed_extra": {
         "name": "Удължаване на сушенето с таймер"
+      },
+      "e9_volume": {
+        "name": "Размер на хляба"
+      },
+      "color": {
+        "name": "Цвят на коричката"
+      },
+      "dosing": {
+        "name": "Дозиране на съставките"
+      },
+      "bake_temperature": {
+        "name": "Температура на печене"
+      },
+      "time_cuisine_hr": {
+        "name": "Часове за готвене"
+      },
+      "time_cuisine_min": {
+        "name": "Минути за готвене"
+      },
+      "control_cmd_code": {
+        "name": "Код на командата"
+      },
+      "auto_off_screen_type": {
+        "name": "Тип автоматично изключване на екрана"
+      },
+      "theme": {
+        "name": "Тема"
+      },
+      "night_volume": {
+        "name": "Нощна сила на звука"
+      },
+      "voice_volume": {
+        "name": "Сила на гласа"
+      },
+      "sleep_start_hour": {
+        "name": "Начален час на сън"
+      },
+      "sleep_start_minute": {
+        "name": "Начална минута на сън"
+      },
+      "sleep_duration_hour": {
+        "name": "Продължителност на съня (часове)"
+      },
+      "sleep_duration_minute": {
+        "name": "Продължителност на съня (минути)"
+      },
+      "brightness": {
+        "name": "Яркост"
+      },
+      "left_button_work_mode": {
+        "name": "Режим на работа на левия бутон"
+      },
+      "middle_button_work_mode": {
+        "name": "Режим на работа на средния бутон"
+      },
+      "right_button_work_mode": {
+        "name": "Режим на работа на десния бутон"
+      },
+      "watt": {
+        "name": "Микровълнова мощност"
+      },
+      "weight": {
+        "name": "Тегло"
+      },
+      "speed": {
+        "name": "Скорост"
+      },
+      "set_work_temp": {
+        "name": "Работна температура"
+      },
+      "set_keep_warm_temp": {
+        "name": "Температура за поддържане"
+      },
+      "set_work_time": {
+        "name": "Време за работа"
+      },
+      "set_keep_warm_time": {
+        "name": "Време за поддържане"
+      },
+      "appoint_time": {
+        "name": "Време за отложен старт"
+      },
+      "code_id": {
+        "name": "Код на рецепта"
+      },
+      "work_mode": {
+        "name": "Режим на работа"
       }
     },
     "select": {
+      "curtain_status": {
+        "name": "Завеса",
+        "state": {
+          "open": "Отваряне",
+          "close": "Затваряне",
+          "stop": "Спиране"
+        }
+      },
+      "curtain_direction": {
+        "name": "Посока",
+        "state": {
+          "positive": "Права",
+          "reverse": "Обратна"
+        }
+      },
+      "aux_heat_mode": {
+        "name": "Режим на допълнително отопление",
+        "state": {
+          "off": "Изключено",
+          "aux_heat": "Допълнително отопление",
+          "aux_only": "Само допълнително отопление"
+        }
+      },
       "cur_quantify": {
         "name": "Текуща предварителна настройка на количеството",
         "state": {
@@ -1060,75 +1229,13 @@
           "preset_5": "Предварителна настройка 5"
         }
       },
-      "wash_mode_76000228": {
-        "name": "Режим на измиване",
-        "state": {
-          "neutral_gear": "Няма",
-          "auto_wash": "Автоматичен",
-          "strong_wash": "Интензивен",
-          "standard_wash": "Универсален",
-          "eco_wash": "ECO",
-          "glass_wash": "Стъкло",
-          "hour_wash": "90 мин",
-          "fast_wash": "Бърз",
-          "soak_wash": "Накисване",
-          "90min": "90 мин",
-          "self_clean": "Самопочистване",
-          "fruit_wash": "Плодове",
-          "self_define": "Персонализиран",
-          "germ": "Шепот",
-          "bowl_wash": "Купи",
-          "kill_germ": "Хигиена",
-          "sea_food_wash": "Самопочистване",
-          "hot_pot_wash": "Хотпот",
-          "quiet_night_wash": "Тиха нощ",
-          "less_wash": "Лек",
-          "max_rapid_wash": "Максимално бърз",
-          "oil_net_wash": "Маслен филтър",
-          "cloud_wash": "Облачна програма",
-          "single_dry": "Само сушене",
-          "single_disinfect": "Само дезинфекция",
-          "high_temp_wash": "Висока температура",
-          "wash_dry": "Пране и сушене"
-        }
-      },
-      "program_76000228": {
-        "name": "Програма",
-        "state": {
-          "auto_wash": "Автоматичен",
-          "strong_wash": "Интензивен",
-          "standard_wash": "Универсален",
-          "eco_wash": "ECO",
-          "glass_wash": "Стъкло",
-          "hour_wash": "90 мин",
-          "fast_wash": "Бърз",
-          "soak_wash": "Накисване",
-          "90min": "90 мин",
-          "self_clean": "Самопочистване",
-          "fruit_wash": "Плодове",
-          "self_define": "Персонализиран",
-          "germ": "Шепот",
-          "bowl_wash": "Купи",
-          "kill_germ": "Хигиена",
-          "sea_food_wash": "Самопочистване",
-          "hot_pot_wash": "Хотпот",
-          "quiet_night_wash": "Тиха нощ",
-          "less_wash": "Лек",
-          "max_rapid_wash": "Максимално бърз",
-          "oil_net_wash": "Маслен филтър",
-          "cloud_wash": "Облачна програма",
-          "single_dry": "Само сушене",
-          "single_disinfect": "Само дезинфекция",
-          "high_temp_wash": "Висока температура",
-          "wash_dry": "Пране и сушене"
-        }
-      },
       "program": {
         "name": "Програма",
         "state": {
           "auto_wash": "Автоматичен",
           "strong_wash": "Интензивен",
           "standard_wash": "Стандартен",
+          "universal_wash": "Универсален",
           "eco_wash": "ECO",
           "glass_wash": "Стъкло",
           "hour_wash": "1 час",
@@ -1139,6 +1246,7 @@
           "fruit_wash": "Плодове",
           "self_define": "Персонализиран",
           "germ": "Микроби",
+          "whisper_wash": "Тих",
           "bowl_wash": "Купи",
           "kill_germ": "Хигиена",
           "sea_food_wash": "Морски дарове",
@@ -1151,7 +1259,8 @@
           "single_dry": "Само сушене",
           "single_disinfect": "Само дезинфекция",
           "high_temp_wash": "Висока температура",
-          "wash_dry": "Пране и сушене"
+          "wash_dry": "Пране и сушене",
+          "anion1": "Йонно освежаване"
         }
       },
       "load": {
@@ -1228,7 +1337,36 @@
           "bath": "Баня",
           "blow": "Издухване",
           "ventilation": "Вентилация",
-          "dry": "Изсушаване"
+          "dry": "Изсушаване",
+          "keep_warm": "Поддържане на топлина",
+          "stero_baking": "Обемно печене",
+          "whole_baking": "Цялостно печене",
+          "up_down_baking": "Горно/долно печене",
+          "unfreeze": "Размразяване",
+          "hot_air_convection": "Конвекция с горещ въздух",
+          "power_saving": "Енергоспестяване",
+          "center_baking": "Централно печене",
+          "rotary_baking": "Ротационно печене",
+          "fermentation": "Ферментация",
+          "stoving": "Сушене",
+          "down_baking": "Долно печене",
+          "pizza": "Пица",
+          "up_infrared_fan": "Горен инфрачервен вентилатор",
+          "microwave": "Микровълни",
+          "fish": "Риба",
+          "meat": "Месо",
+          "egg": "Яйца",
+          "seafood": "Морски дарове",
+          "steam_clean": "Почистване с пара",
+          "common": "Общ режим",
+          "grain": "Зърнени храни",
+          "rice": "Ориз",
+          "zymosis": "Ферментация",
+          "heat": "Подгряване",
+          "furring_clean": "Премахване на котлен камък",
+          "disinfect": "Дезинфекция",
+          "vegetable": "Зеленчуци",
+          "chop": "Нарязана храна"
         }
       },
       "oscillation_angle": {
@@ -1261,6 +1399,7 @@
           "auto_wash": "Автоматичен",
           "strong_wash": "Интензивен",
           "standard_wash": "Стандартен",
+          "universal_wash": "Универсален",
           "eco_wash": "ECO",
           "glass_wash": "Стъкло",
           "hour_wash": "1 час",
@@ -1271,6 +1410,7 @@
           "fruit_wash": "Плодове",
           "self_define": "Персонализиран",
           "germ": "Микроби",
+          "whisper_wash": "Тих",
           "bowl_wash": "Купи",
           "kill_germ": "Хигиена",
           "sea_food_wash": "Морски дарове",
@@ -1283,7 +1423,8 @@
           "single_dry": "Само сушене",
           "single_disinfect": "Само дезинфекция",
           "high_temp_wash": "Висока температура",
-          "wash_dry": "Пране и сушене"
+          "wash_dry": "Пране и сушене",
+          "anion1": "Йонно освежаване"
         }
       },
       "water_level_set": {
@@ -1312,7 +1453,7 @@
         }
       },
       "work_status_select": {
-        "name": "Състояние на работа",
+        "name": "Задаване на работен статус",
         "state": {
           "save_power": "Пестене на енергия",
           "standby": "В готовност",
@@ -1328,7 +1469,12 @@
           "ramadan": "Рамадан",
           "after_checking": "След проверка",
           "wait_to_start": "Изчакване за старт",
-          "ff": "Неизвестно"
+          "ff": "Неизвестно",
+          "cancel": "Отказ",
+          "end": "Край",
+          "appointment": "Отложен старт",
+          "reservation": "Резервация",
+          "none": "Няма"
         }
       },
       "x9b_fire_power_select": {
@@ -1468,12 +1614,12 @@
       "washer_temperature_control": {
         "name": "Температура на водата",
         "state": {
-          "cold": "Студена",
           "20": "20 °C",
           "30": "30 °C",
           "40": "40 °C",
           "60": "60 °C",
-          "95": "95 °C"
+          "95": "95 °C",
+          "cold": "Студена"
         }
       },
       "washer_spin_speed_control": {
@@ -1523,6 +1669,14 @@
       },
       "washer_spin_time_control": {
         "name": "Време за центрофуга (мин)"
+      },
+      "updown": {
+        "name": "Повдигане/Спускане",
+        "state": {
+          "pause": "Пауза",
+          "up": "Нагоре",
+          "down": "Надолу"
+        }
       }
     },
     "time": {
@@ -1534,6 +1688,46 @@
       }
     },
     "sensor": {
+      "response_type": {
+        "name": "Отговор",
+        "state": {
+          "response_normal": "Нормален отговор",
+          "response_error_e2": "Грешка E2"
+        }
+      },
+      "time_work_hr": {
+        "name": "Работни часове"
+      },
+      "time_work_min": {
+        "name": "Работни минути"
+      },
+      "time_warm_hr": {
+        "name": "Часове за поддържане на топлина"
+      },
+      "time_warm_min": {
+        "name": "Минути за поддържане на топлина"
+      },
+      "time_running_hr": {
+        "name": "Часове работа"
+      },
+      "time_running_min": {
+        "name": "Минути работа"
+      },
+      "time_surplus_hr": {
+        "name": "Оставащи часове"
+      },
+      "time_surplus_min": {
+        "name": "Оставащи минути"
+      },
+      "work_stage": {
+        "name": "Етап на работа"
+      },
+      "software_version": {
+        "name": "Версия на софтуера"
+      },
+      "evaporator_temperature": {
+        "name": "Температура на изпарителя"
+      },
       "db_running_status": {
         "name": "Състояние на пералнята"
       },
@@ -1625,6 +1819,7 @@
           "auto_wash": "Автоматичен",
           "strong_wash": "Интензивен",
           "standard_wash": "Стандартен",
+          "universal_wash": "Универсален",
           "eco_wash": "ECO",
           "glass_wash": "Стъкло",
           "hour_wash": "1 час",
@@ -1635,6 +1830,7 @@
           "fruit_wash": "Плодове",
           "self_define": "Персонализиран",
           "germ": "Микроби",
+          "whisper_wash": "Тих",
           "bowl_wash": "Купи",
           "kill_germ": "Хигиена",
           "sea_food_wash": "Морски дарове",
@@ -1647,39 +1843,8 @@
           "single_dry": "Само сушене",
           "single_disinfect": "Само дезинфекция",
           "high_temp_wash": "Висока температура",
-          "wash_dry": "Пране и сушене"
-        }
-      },
-      "dishwasher_mode_76000228": {
-        "name": "Режим",
-        "state": {
-          "neutral_gear": "Няма",
-          "auto_wash": "Автоматичен",
-          "strong_wash": "Интензивен",
-          "standard_wash": "Универсален",
-          "eco_wash": "ECO",
-          "glass_wash": "Стъкло",
-          "hour_wash": "90 мин",
-          "fast_wash": "Бърз",
-          "soak_wash": "Накисване",
-          "90min": "90 мин",
-          "self_clean": "Самопочистване",
-          "fruit_wash": "Плодове",
-          "self_define": "Персонализиран",
-          "germ": "Шепот",
-          "bowl_wash": "Купи",
-          "kill_germ": "Хигиена",
-          "sea_food_wash": "Самопочистване",
-          "hot_pot_wash": "Хотпот",
-          "quiet_night_wash": "Тиха нощ",
-          "less_wash": "Лек",
-          "max_rapid_wash": "Максимално бърз",
-          "oil_net_wash": "Маслен филтър",
-          "cloud_wash": "Облачна програма",
-          "single_dry": "Само сушене",
-          "single_disinfect": "Само дезинфекция",
-          "high_temp_wash": "Висока температура",
-          "wash_dry": "Пране и сушене"
+          "wash_dry": "Пране и сушене",
+          "anion1": "Йонно освежаване"
         }
       },
       "dishwasher_status": {
@@ -2026,6 +2191,9 @@
       },
       "indoor_humidity": {
         "name": "Влажност на закрито"
+      },
+      "target_humidity": {
+        "name": "Целева влажност"
       },
       "indoor_temperature": {
         "name": "Температура на закрито"
@@ -3962,7 +4130,12 @@
           "ramadan": "Рамадан",
           "after_checking": "След проверка",
           "wait_to_start": "Изчакване за старт",
-          "ff": "Неизвестно"
+          "ff": "Неизвестно",
+          "cancel": "Отказ",
+          "end": "Край",
+          "appointment": "Отложен старт",
+          "reservation": "Резервация",
+          "none": "Няма"
         }
       },
       "x9b_fire_power": {
@@ -4031,6 +4204,324 @@
       },
       "cbs_version": {
         "name": "CBS версия"
+      },
+      "panel_status": {
+        "name": "Състояние на панела"
+      },
+      "cooling_capacity": {
+        "name": "Студова мощност"
+      },
+      "cooling_cop_eer": {
+        "name": "Охлаждане COP/EER"
+      },
+      "cooling_cop_eer_this_month": {
+        "name": "Охлаждане COP/EER за месеца"
+      },
+      "cooling_cop_eer_this_week": {
+        "name": "Охлаждане COP/EER за седмицата"
+      },
+      "cooling_cop_eer_this_year": {
+        "name": "Охлаждане COP/EER за годината"
+      },
+      "cooling_cop_eer_today": {
+        "name": "Охлаждане COP/EER днес"
+      },
+      "cooling_energy_consumption_this_month": {
+        "name": "Консумация ел. енергия охлаждане за месеца"
+      },
+      "cooling_energy_consumption_this_week": {
+        "name": "Консумация ел. енергия охлаждане за седмицата"
+      },
+      "cooling_energy_consumption_this_year": {
+        "name": "Консумация ел. енергия охлаждане за годината"
+      },
+      "cooling_energy_consumption_today": {
+        "name": "Консумация ел. енергия охлаждане днес"
+      },
+      "cooling_power_consumption": {
+        "name": "Ел. мощност охлаждане"
+      },
+      "cooling_produced_energy_this_month": {
+        "name": "Произведена студена енергия за месеца"
+      },
+      "cooling_produced_energy_this_week": {
+        "name": "Произведена студена енергия за седмицата"
+      },
+      "cooling_produced_energy_this_year": {
+        "name": "Произведена студена енергия за годината"
+      },
+      "cooling_produced_energy_today": {
+        "name": "Произведена студена енергия днес"
+      },
+      "cooling_total_cop_eer": {
+        "name": "Общо охлаждане COP/EER"
+      },
+      "cooling_total_energy_consumption": {
+        "name": "Общо консумация ел. енергия охлаждане"
+      },
+      "cooling_total_produced_energy": {
+        "name": "Общо произведена студена енергия"
+      },
+      "dhw_capacity": {
+        "name": "Топлинна мощност БГВ"
+      },
+      "dhw_cop_eer": {
+        "name": "БГВ COP/EER"
+      },
+      "dhw_cop_eer_this_month": {
+        "name": "БГВ COP/EER за месеца"
+      },
+      "dhw_cop_eer_this_week": {
+        "name": "БГВ COP/EER за седмицата"
+      },
+      "dhw_cop_eer_this_year": {
+        "name": "БГВ COP/EER за годината"
+      },
+      "dhw_cop_eer_today": {
+        "name": "БГВ COP/EER днес"
+      },
+      "dhw_energy_consumption_this_month": {
+        "name": "Консумация ел. енергия БГВ за месеца"
+      },
+      "dhw_energy_consumption_this_week": {
+        "name": "Консумация ел. енергия БГВ за седмицата"
+      },
+      "dhw_energy_consumption_this_year": {
+        "name": "Консумация ел. енергия БГВ за годината"
+      },
+      "dhw_energy_consumption_today": {
+        "name": "Консумация ел. енергия БГВ днес"
+      },
+      "dhw_power_consumption": {
+        "name": "Ел. мощност БГВ"
+      },
+      "dhw_produced_energy_this_month": {
+        "name": "Произведена топлина БГВ за месеца"
+      },
+      "dhw_produced_energy_this_week": {
+        "name": "Произведена топлина БГВ за седмицата"
+      },
+      "dhw_produced_energy_this_year": {
+        "name": "Произведена топлина БГВ за годината"
+      },
+      "dhw_produced_energy_today": {
+        "name": "Произведена топлина БГВ днес"
+      },
+      "dhw_total_cop_eer": {
+        "name": "Общо БГВ COP/EER"
+      },
+      "dhw_total_energy_consumption": {
+        "name": "Общо консумация ел. енергия БГВ"
+      },
+      "dhw_total_produced_energy": {
+        "name": "Общо произведена топлина БГВ"
+      },
+      "heating_capacity": {
+        "name": "Топлинна мощност отопление"
+      },
+      "heating_cop_eer": {
+        "name": "Отопление COP/EER"
+      },
+      "heating_cop_eer_this_month": {
+        "name": "Отопление COP/EER за месеца"
+      },
+      "heating_cop_eer_this_week": {
+        "name": "Отопление COP/EER за седмицата"
+      },
+      "heating_cop_eer_this_year": {
+        "name": "Отопление COP/EER за годината"
+      },
+      "heating_cop_eer_today": {
+        "name": "Отопление COP/EER днес"
+      },
+      "heating_energy_consumption_this_month": {
+        "name": "Консумация ел. енергия отопление за месеца"
+      },
+      "heating_energy_consumption_this_week": {
+        "name": "Консумация ел. енергия отопление за седмицата"
+      },
+      "heating_energy_consumption_this_year": {
+        "name": "Консумация ел. енергия отопление за годината"
+      },
+      "heating_energy_consumption_today": {
+        "name": "Консумация ел. енергия отопление днес"
+      },
+      "heating_power_consumption": {
+        "name": "Ел. мощност отопление"
+      },
+      "heating_produced_energy_this_month": {
+        "name": "Произведена топлина отопление за месеца"
+      },
+      "heating_produced_energy_this_week": {
+        "name": "Произведена топлина отопление за седмицата"
+      },
+      "heating_produced_energy_this_year": {
+        "name": "Произведена топлина отопление за годината"
+      },
+      "heating_produced_energy_today": {
+        "name": "Произведена топлина отопление днес"
+      },
+      "heating_total_cop_eer": {
+        "name": "Общо отопление COP/EER"
+      },
+      "heating_total_energy_consumption": {
+        "name": "Общо консумация ел. енергия отопление"
+      },
+      "heating_total_produced_energy": {
+        "name": "Общо произведена топлина отопление"
+      },
+      "instant_cop_eer": {
+        "name": "Мигновен COP/EER"
+      },
+      "total_cop_eer": {
+        "name": "Общо COP/EER"
+      },
+      "dryer": {
+        "name": "Ниво на сушене"
+      },
+      "soak_count": {
+        "name": "Брой накисвания"
+      },
+      "appointment_time": {
+        "name": "Време до отложения старт"
+      },
+      "db_last_cycle_water_consumption": {
+        "name": "Разход на вода за последния цикъл"
+      },
+      "power_consumption": {
+        "name": "Разход на енергия за последния цикъл"
+      },
+      "wash_count": {
+        "name": "Брой изпирания"
+      },
+      "water_state": {
+        "name": "Резервоар за вода",
+        "state": {
+          "full": "Пълен",
+          "empty": "Празен"
+        }
+      },
+      "box_state": {
+        "name": "Парна фурна",
+        "state": {
+          "in": "Поставена",
+          "out": "Извадена"
+        }
+      },
+      "door_state": {
+        "name": "Врата",
+        "state": {
+          "open": "Отворена",
+          "close": "Затворена"
+        }
+      },
+      "f1_response_type": {
+        "name": "Отговор",
+        "state": {
+          "success": "Успешно",
+          "fail": "Неуспешно"
+        }
+      },
+      "step_status": {
+        "name": "Статус на стъпката"
+      },
+      "lid_status": {
+        "name": "Състояние на капака",
+        "state": {
+          "have_cup": "Чашата е поставена",
+          "no_cup": "Няма чаша"
+        }
+      },
+      "cup_status": {
+        "name": "Състояние на чашата",
+        "state": {
+          "default": "Стандартна",
+          "hot_cup": "Гореща чаша",
+          "cold_cup": "Студена чаша"
+        }
+      },
+      "current_time": {
+        "name": "Текущо време"
+      },
+      "box1_type": {
+        "name": "Тип на кутия 1"
+      },
+      "box1_status": {
+        "name": "Състояние на кутия 1",
+        "state": {
+          "no": "Празна",
+          "missing": "Липсва"
+        }
+      },
+      "box2_type": {
+        "name": "Тип на кутия 2"
+      },
+      "box2_status": {
+        "name": "Състояние на кутия 2",
+        "state": {
+          "no": "Празна",
+          "missing": "Липсва"
+        }
+      },
+      "box3_type": {
+        "name": "Тип на кутия 3"
+      },
+      "box3_status": {
+        "name": "Състояние на кутия 3",
+        "state": {
+          "no": "Празна",
+          "missing": "Липсва"
+        }
+      },
+      "box4_type": {
+        "name": "Тип на кутия 4"
+      },
+      "box4_status": {
+        "name": "Състояние на кутия 4",
+        "state": {
+          "no": "Празна",
+          "missing": "Липсва"
+        }
+      },
+      "box5_type": {
+        "name": "Тип на кутия 5"
+      },
+      "box5_status": {
+        "name": "Състояние на кутия 5",
+        "state": {
+          "no": "Празна",
+          "missing": "Липсва"
+        }
+      },
+      "box6_type": {
+        "name": "Тип на кутия 6"
+      },
+      "box6_status": {
+        "name": "Състояние на кутия 6",
+        "state": {
+          "no": "Празна",
+          "missing": "Липсва"
+        }
+      },
+      "box7_type": {
+        "name": "Тип на кутия 7"
+      },
+      "box7_status": {
+        "name": "Състояние на кутия 7",
+        "state": {
+          "no": "Празна",
+          "missing": "Липсва"
+        }
+      },
+      "box8_type": {
+        "name": "Тип на кутия 8"
+      },
+      "box8_status": {
+        "name": "Състояние на кутия 8",
+        "state": {
+          "no": "Празна",
+          "missing": "Липсва"
+        }
       }
     },
     "switch": {
@@ -4112,6 +4603,9 @@
       "dry": {
         "name": "Изсушаване"
       },
+      "wet_pad_dry": {
+        "name": "Сушене на овлажняващата подложка"
+      },
       "cold_water_single": {
         "name": "Студена вода единично"
       },
@@ -4143,7 +4637,7 @@
         "name": "Защита от теч на вода"
       },
       "light": {
-        "name": "Лек"
+        "name": "Осветление"
       },
       "link_to_ac": {
         "name": "Свързване с климатика"
@@ -4327,6 +4821,48 @@
       },
       "washer_forget_free": {
         "name": "Безгрижна грижа"
+      },
+      "sterilize": {
+        "name": "Стерилизиране"
+      },
+      "baking": {
+        "name": "Нагряване"
+      },
+      "left_button": {
+        "name": "Ляв бутон"
+      },
+      "middle_button": {
+        "name": "Среден бутон"
+      },
+      "right_button": {
+        "name": "Десен бутон"
+      },
+      "show_button_name": {
+        "name": "Показване името на бутона"
+      },
+      "close_screen_bright": {
+        "name": "Затъмняване на екрана при затваряне"
+      },
+      "sleep_mode_switch": {
+        "name": "Превключвател на режим сън"
+      },
+      "sleep_mode_mute": {
+        "name": "Заглушаване в режим сън"
+      },
+      "left_button_keep": {
+        "name": "Запазване на левия бутон"
+      },
+      "middle_button_keep": {
+        "name": "Запазване на средния бутон"
+      },
+      "right_button_keep": {
+        "name": "Запазване на десния бутон"
+      },
+      "voice_control": {
+        "name": "Гласово управление"
+      },
+      "screen_state": {
+        "name": "Екран"
       }
     },
     "water_heater": {

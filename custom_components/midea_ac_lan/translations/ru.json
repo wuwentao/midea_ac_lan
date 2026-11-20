@@ -884,6 +884,33 @@
       },
       "laundry_appointment": {
         "name": "Отложенный старт"
+      },
+      "has_token": {
+        "name": "Токен доступен"
+      },
+      "humidify": {
+        "name": "Увлажнение"
+      },
+      "speedy": {
+        "name": "Быстрая стирка"
+      },
+      "lock": {
+        "name": "Блокировка от детей"
+      },
+      "beforehand_wash": {
+        "name": "Предварительная стирка"
+      },
+      "steam_wash": {
+        "name": "Стирка с паром"
+      },
+      "add_rinse": {
+        "name": "Дополнительное полоскание"
+      },
+      "wind_dispel": {
+        "name": "Освежение воздухом"
+      },
+      "remote_control_flag": {
+        "name": "Дистанционное управление"
       }
     },
     "button": {
@@ -925,11 +952,19 @@
       }
     },
     "fan": {
+      "fan": {
+        "name": "Вентилятор"
+      },
       "fresh_air": {
         "name": "Fresh Air"
       },
       "fresh_air_exhaust": {
         "name": "Вытяжка свежего воздуха"
+      }
+    },
+    "light": {
+      "light": {
+        "name": "Освещение"
       }
     },
     "lock": {
@@ -938,6 +973,30 @@
       }
     },
     "number": {
+      "work_status": {
+        "name": "Рабочий статус"
+      },
+      "function_no": {
+        "name": "Номер функции"
+      },
+      "fire_level": {
+        "name": "Уровень нагрева"
+      },
+      "time_reserve_hr": {
+        "name": "Часы отложенного запуска"
+      },
+      "time_reserve_min": {
+        "name": "Минуты отложенного запуска"
+      },
+      "definite_time_hr": {
+        "name": "Часы таймера"
+      },
+      "definite_time_min": {
+        "name": "Минуты таймера"
+      },
+      "curtain_position": {
+        "name": "Положение"
+      },
       "delay_minutes": {
         "name": "Задержка"
       },
@@ -1030,17 +1089,139 @@
       },
       "dryer_timed_extra": {
         "name": "Продление времени сушки"
+      },
+      "e9_volume": {
+        "name": "Размер буханки"
+      },
+      "color": {
+        "name": "Цвет корочки"
+      },
+      "dosing": {
+        "name": "Дозирование ингредиентов"
+      },
+      "bake_temperature": {
+        "name": "Температура выпекания"
+      },
+      "time_cuisine_hr": {
+        "name": "Время приготовления (часы)"
+      },
+      "time_cuisine_min": {
+        "name": "Время приготовления (минуты)"
+      },
+      "control_cmd_code": {
+        "name": "Код команды"
+      },
+      "auto_off_screen_type": {
+        "name": "Тип автоматического отключения экрана"
+      },
+      "theme": {
+        "name": "Тема"
+      },
+      "night_volume": {
+        "name": "Ночная громкость"
+      },
+      "voice_volume": {
+        "name": "Громкость голоса"
+      },
+      "sleep_start_hour": {
+        "name": "Час начала режима сна"
+      },
+      "sleep_start_minute": {
+        "name": "Минута начала режима сна"
+      },
+      "sleep_duration_hour": {
+        "name": "Длительность режима сна (часы)"
+      },
+      "sleep_duration_minute": {
+        "name": "Длительность режима сна (минуты)"
+      },
+      "brightness": {
+        "name": "Яркость"
+      },
+      "left_button_work_mode": {
+        "name": "Режим работы левой кнопки"
+      },
+      "middle_button_work_mode": {
+        "name": "Режим работы средней кнопки"
+      },
+      "right_button_work_mode": {
+        "name": "Режим работы правой кнопки"
+      },
+      "watt": {
+        "name": "Мощность микроволн"
+      },
+      "weight": {
+        "name": "Вес"
+      },
+      "speed": {
+        "name": "Скорость"
+      },
+      "set_work_temp": {
+        "name": "Рабочая температура"
+      },
+      "set_keep_warm_temp": {
+        "name": "Температура поддержания тепла"
+      },
+      "set_work_time": {
+        "name": "Время работы"
+      },
+      "set_keep_warm_time": {
+        "name": "Время поддержания тепла"
+      },
+      "appoint_time": {
+        "name": "Время отложенного запуска"
+      },
+      "code_id": {
+        "name": "Код рецепта"
+      },
+      "work_mode": {
+        "name": "Режим работы"
       }
     },
     "select": {
-      "wash_mode_76000228": {
-        "name": "Режим мойки"
+      "curtain_status": {
+        "name": "Штора",
+        "state": {
+          "open": "Открыть",
+          "close": "Закрыть",
+          "stop": "Остановить"
+        }
       },
-      "program_76000228": {
-        "name": "Программа"
+      "curtain_direction": {
+        "name": "Направление",
+        "state": {
+          "positive": "Прямое",
+          "reverse": "Обратное"
+        }
+      },
+      "aux_heat_mode": {
+        "name": "Режим вспом. нагрева",
+        "state": {
+          "off": "Выкл",
+          "aux_heat": "Вспомогательный нагрев",
+          "aux_only": "Только вспом. нагрев"
+        }
       },
       "program": {
-        "name": "Программа"
+        "name": "Программа",
+        "state": {
+          "neutral_gear": "Нет",
+          "auto_wash": "Авто",
+          "strong_wash": "Интенсивная",
+          "standard_wash": "Стандартная",
+          "universal_wash": "Универсальная",
+          "eco_wash": "ЭКО",
+          "glass_wash": "Стекло",
+          "hour_wash": "1 час",
+          "fast_wash": "Быстрая",
+          "soak_wash": "Замачивание",
+          "90min": "90 мин",
+          "self_clean": "Самоочистка",
+          "germ": "Обеззараживание",
+          "whisper_wash": "Ночная",
+          "kill_germ": "Гигиена",
+          "anion1": "Ion Dishfresh"
+        }
       },
       "load": {
         "name": "Загрузка",
@@ -1127,7 +1308,36 @@
           "bath": "Ванна",
           "blow": "Обдув",
           "ventilation": "Вентиляция",
-          "dry": "Сушка"
+          "dry": "Сушка",
+          "keep_warm": "Поддержание тепла",
+          "stero_baking": "Объёмное запекание",
+          "whole_baking": "Полное запекание",
+          "up_down_baking": "Верхний/нижний нагрев",
+          "unfreeze": "Разморозка",
+          "hot_air_convection": "Конвекция горячего воздуха",
+          "power_saving": "Энергосбережение",
+          "center_baking": "Центральное запекание",
+          "rotary_baking": "Вращающееся запекание",
+          "fermentation": "Ферментация",
+          "stoving": "Сушка",
+          "down_baking": "Нижний нагрев",
+          "pizza": "Пицца",
+          "up_infrared_fan": "Верхний инфракрасный вентилятор",
+          "microwave": "Микроволны",
+          "fish": "Рыба",
+          "meat": "Мясо",
+          "egg": "Яйцо",
+          "seafood": "Морепродукты",
+          "steam_clean": "Очистка паром",
+          "common": "Обычный",
+          "grain": "Крупы",
+          "rice": "Рис",
+          "zymosis": "Брожение",
+          "heat": "Разогрев",
+          "furring_clean": "Удаление накипи",
+          "disinfect": "Дезинфекция",
+          "vegetable": "Овощи",
+          "chop": "Измельчённые продукты"
         }
       },
       "oscillation_angle": {
@@ -1154,7 +1364,25 @@
         "name": "Угол поворота"
       },
       "wash_mode": {
-        "name": "Режим мойки"
+        "name": "Режим мойки",
+        "state": {
+          "neutral_gear": "Нет",
+          "auto_wash": "Авто",
+          "strong_wash": "Интенсивная",
+          "standard_wash": "Стандартная",
+          "universal_wash": "Универсальная",
+          "eco_wash": "ЭКО",
+          "glass_wash": "Стекло",
+          "hour_wash": "1 час",
+          "fast_wash": "Быстрая",
+          "soak_wash": "Замачивание",
+          "90min": "90 мин",
+          "self_clean": "Самоочистка",
+          "germ": "Обеззараживание",
+          "whisper_wash": "Ночная",
+          "kill_germ": "Гигиена",
+          "anion1": "Ion Dishfresh"
+        }
       },
       "water_level_set": {
         "name": "Water Level Setting"
@@ -1182,7 +1410,7 @@
         }
       },
       "work_status_select": {
-        "name": "Статус работы",
+        "name": "Установить рабочее состояние",
         "state": {
           "save_power": "Энергосбережение",
           "standby": "Ожидание",
@@ -1198,7 +1426,12 @@
           "ramadan": "Рамадан",
           "after_checking": "После проверки",
           "wait_to_start": "Ожидание запуска",
-          "ff": "Неизвестно"
+          "ff": "Неизвестно",
+          "cancel": "Отменено",
+          "end": "Завершено",
+          "appointment": "Отложенный запуск",
+          "reservation": "Резервирование",
+          "none": "Нет"
         }
       },
       "x9b_fire_power_select": {
@@ -1338,12 +1571,12 @@
       "washer_temperature_control": {
         "name": "Температура воды",
         "state": {
-          "cold": "Холодная",
           "20": "20 °C",
           "30": "30 °C",
           "40": "40 °C",
           "60": "60 °C",
-          "95": "95 °C"
+          "95": "95 °C",
+          "cold": "Холодная"
         }
       },
       "washer_spin_speed_control": {
@@ -1393,6 +1626,14 @@
       },
       "washer_spin_time_control": {
         "name": "Время отжима (мин)"
+      },
+      "updown": {
+        "name": "Поднять/Опустить",
+        "state": {
+          "pause": "Пауза",
+          "up": "Вверх",
+          "down": "Вниз"
+        }
       }
     },
     "time": {
@@ -1404,6 +1645,46 @@
       }
     },
     "sensor": {
+      "response_type": {
+        "name": "Ответ",
+        "state": {
+          "response_normal": "Нормальный ответ",
+          "response_error_e2": "Ошибка E2"
+        }
+      },
+      "time_work_hr": {
+        "name": "Время работы (часы)"
+      },
+      "time_work_min": {
+        "name": "Время работы (минуты)"
+      },
+      "time_warm_hr": {
+        "name": "Время поддержания тепла (часы)"
+      },
+      "time_warm_min": {
+        "name": "Время поддержания тепла (минуты)"
+      },
+      "time_running_hr": {
+        "name": "Часы работы"
+      },
+      "time_running_min": {
+        "name": "Минуты работы"
+      },
+      "time_surplus_hr": {
+        "name": "Оставшиеся часы"
+      },
+      "time_surplus_min": {
+        "name": "Оставшиеся минуты"
+      },
+      "work_stage": {
+        "name": "Этап работы"
+      },
+      "software_version": {
+        "name": "Версия ПО"
+      },
+      "evaporator_temperature": {
+        "name": "Температура испарителя"
+      },
       "db_running_status": {
         "name": "Состояние стиральной машины"
       },
@@ -1489,10 +1770,25 @@
         "name": "Энергопотребление сушки"
       },
       "dishwasher_mode": {
-        "name": "Режим"
-      },
-      "dishwasher_mode_76000228": {
-        "name": "Режим"
+        "name": "Режим",
+        "state": {
+          "neutral_gear": "Нет",
+          "auto_wash": "Авто",
+          "strong_wash": "Интенсивная",
+          "standard_wash": "Стандартная",
+          "universal_wash": "Универсальная",
+          "eco_wash": "ЭКО",
+          "glass_wash": "Стекло",
+          "hour_wash": "1 час",
+          "fast_wash": "Быстрая",
+          "soak_wash": "Замачивание",
+          "90min": "90 мин",
+          "self_clean": "Самоочистка",
+          "germ": "Обеззараживание",
+          "whisper_wash": "Ночная",
+          "kill_germ": "Гигиена",
+          "anion1": "Ion Dishfresh"
+        }
       },
       "dishwasher_status": {
         "name": "Статус"
@@ -1586,7 +1882,7 @@
         "name": "Bottom Compartment Temperature"
       },
       "bottom_temperature": {
-        "name": "Bottom Temperature"
+        "name": "Температура дна"
       },
       "bright": {
         "name": "Bright Level"
@@ -1804,6 +2100,9 @@
       },
       "indoor_humidity": {
         "name": "Indoor Humidity"
+      },
+      "target_humidity": {
+        "name": "Целевая влажность"
       },
       "indoor_temperature": {
         "name": "Indoor Temperature"
@@ -3740,7 +4039,12 @@
           "ramadan": "Рамадан",
           "after_checking": "После проверки",
           "wait_to_start": "Ожидание запуска",
-          "ff": "Неизвестно"
+          "ff": "Неизвестно",
+          "cancel": "Отменено",
+          "end": "Завершено",
+          "appointment": "Отложенный запуск",
+          "reservation": "Резервирование",
+          "none": "Нет"
         }
       },
       "x9b_fire_power": {
@@ -3806,6 +4110,324 @@
       },
       "work_second": {
         "name": "Секунды работы"
+      },
+      "panel_status": {
+        "name": "Состояние панели"
+      },
+      "cooling_capacity": {
+        "name": "Холодопроизводительность"
+      },
+      "cooling_cop_eer": {
+        "name": "Охлаждение COP/EER"
+      },
+      "cooling_cop_eer_this_month": {
+        "name": "Охлаждение COP/EER за месяц"
+      },
+      "cooling_cop_eer_this_week": {
+        "name": "Охлаждение COP/EER за неделю"
+      },
+      "cooling_cop_eer_this_year": {
+        "name": "Охлаждение COP/EER за год"
+      },
+      "cooling_cop_eer_today": {
+        "name": "Охлаждение COP/EER сегодня"
+      },
+      "cooling_energy_consumption_this_month": {
+        "name": "Потребление электроэнергии охлаждение за месяц"
+      },
+      "cooling_energy_consumption_this_week": {
+        "name": "Потребление электроэнергии охлаждение за неделю"
+      },
+      "cooling_energy_consumption_this_year": {
+        "name": "Потребление электроэнергии охлаждение за год"
+      },
+      "cooling_energy_consumption_today": {
+        "name": "Потребление электроэнергии охлаждение сегодня"
+      },
+      "cooling_power_consumption": {
+        "name": "Электрическая мощность охлаждения"
+      },
+      "cooling_produced_energy_this_month": {
+        "name": "Выработанная холодовая энергия за месяц"
+      },
+      "cooling_produced_energy_this_week": {
+        "name": "Выработанная холодовая энергия за неделю"
+      },
+      "cooling_produced_energy_this_year": {
+        "name": "Выработанная холодовая энергия за год"
+      },
+      "cooling_produced_energy_today": {
+        "name": "Выработанная холодовая энергия сегодня"
+      },
+      "cooling_total_cop_eer": {
+        "name": "Охлаждение суммарный COP/EER"
+      },
+      "cooling_total_energy_consumption": {
+        "name": "Суммарное потребление электроэнергии охлаждение"
+      },
+      "cooling_total_produced_energy": {
+        "name": "Суммарная выработанная холодовая энергия"
+      },
+      "dhw_capacity": {
+        "name": "Тепловая мощность ГВС"
+      },
+      "dhw_cop_eer": {
+        "name": "ГВС COP/EER"
+      },
+      "dhw_cop_eer_this_month": {
+        "name": "ГВС COP/EER за месяц"
+      },
+      "dhw_cop_eer_this_week": {
+        "name": "ГВС COP/EER за неделю"
+      },
+      "dhw_cop_eer_this_year": {
+        "name": "ГВС COP/EER за год"
+      },
+      "dhw_cop_eer_today": {
+        "name": "ГВС COP/EER сегодня"
+      },
+      "dhw_energy_consumption_this_month": {
+        "name": "Потребление электроэнергии ГВС за месяц"
+      },
+      "dhw_energy_consumption_this_week": {
+        "name": "Потребление электроэнергии ГВС за неделю"
+      },
+      "dhw_energy_consumption_this_year": {
+        "name": "Потребление электроэнергии ГВС за год"
+      },
+      "dhw_energy_consumption_today": {
+        "name": "Потребление электроэнергии ГВС сегодня"
+      },
+      "dhw_power_consumption": {
+        "name": "Электрическая мощность ГВС"
+      },
+      "dhw_produced_energy_this_month": {
+        "name": "Выработанная тепловая энергия ГВС за месяц"
+      },
+      "dhw_produced_energy_this_week": {
+        "name": "Выработанная тепловая энергия ГВС за неделю"
+      },
+      "dhw_produced_energy_this_year": {
+        "name": "Выработанная тепловая энергия ГВС за год"
+      },
+      "dhw_produced_energy_today": {
+        "name": "Выработанная тепловая энергия ГВС сегодня"
+      },
+      "dhw_total_cop_eer": {
+        "name": "ГВС суммарный COP/EER"
+      },
+      "dhw_total_energy_consumption": {
+        "name": "Суммарное потребление электроэнергии ГВС"
+      },
+      "dhw_total_produced_energy": {
+        "name": "Суммарная выработанная тепловая энергия ГВС"
+      },
+      "heating_capacity": {
+        "name": "Теплопроизводительность"
+      },
+      "heating_cop_eer": {
+        "name": "Отопление COP/EER"
+      },
+      "heating_cop_eer_this_month": {
+        "name": "Отопление COP/EER за месяц"
+      },
+      "heating_cop_eer_this_week": {
+        "name": "Отопление COP/EER за неделю"
+      },
+      "heating_cop_eer_this_year": {
+        "name": "Отопление COP/EER за год"
+      },
+      "heating_cop_eer_today": {
+        "name": "Отопление COP/EER сегодня"
+      },
+      "heating_energy_consumption_this_month": {
+        "name": "Потребление электроэнергии отопление за месяц"
+      },
+      "heating_energy_consumption_this_week": {
+        "name": "Потребление электроэнергии отопление за неделю"
+      },
+      "heating_energy_consumption_this_year": {
+        "name": "Потребление электроэнергии отопление за год"
+      },
+      "heating_energy_consumption_today": {
+        "name": "Потребление электроэнергии отопление сегодня"
+      },
+      "heating_power_consumption": {
+        "name": "Электрическая мощность отопления"
+      },
+      "heating_produced_energy_this_month": {
+        "name": "Выработанная тепловая энергия отопление за месяц"
+      },
+      "heating_produced_energy_this_week": {
+        "name": "Выработанная тепловая энергия отопление за неделю"
+      },
+      "heating_produced_energy_this_year": {
+        "name": "Выработанная тепловая энергия отопление за год"
+      },
+      "heating_produced_energy_today": {
+        "name": "Выработанная тепловая энергия отопление сегодня"
+      },
+      "heating_total_cop_eer": {
+        "name": "Отопление суммарный COP/EER"
+      },
+      "heating_total_energy_consumption": {
+        "name": "Суммарное потребление электроэнергии отопление"
+      },
+      "heating_total_produced_energy": {
+        "name": "Суммарная выработанная тепловая энергия отопление"
+      },
+      "instant_cop_eer": {
+        "name": "Мгновенный COP/EER"
+      },
+      "total_cop_eer": {
+        "name": "Суммарный COP/EER"
+      },
+      "dryer": {
+        "name": "Степень сушки"
+      },
+      "soak_count": {
+        "name": "Количество замачиваний"
+      },
+      "appointment_time": {
+        "name": "Время отложенного старта"
+      },
+      "db_last_cycle_water_consumption": {
+        "name": "Расход воды за последний цикл"
+      },
+      "power_consumption": {
+        "name": "Энергопотребление за последний цикл"
+      },
+      "wash_count": {
+        "name": "Количество стирок"
+      },
+      "water_state": {
+        "name": "Резервуар для воды",
+        "state": {
+          "full": "Полный",
+          "empty": "Пустой"
+        }
+      },
+      "box_state": {
+        "name": "Паровой шкаф",
+        "state": {
+          "in": "Вставлен",
+          "out": "Извлечён"
+        }
+      },
+      "door_state": {
+        "name": "Дверца",
+        "state": {
+          "open": "Открыта",
+          "close": "Закрыта"
+        }
+      },
+      "f1_response_type": {
+        "name": "Ответ",
+        "state": {
+          "success": "Успешно",
+          "fail": "Ошибка"
+        }
+      },
+      "step_status": {
+        "name": "Состояние шага"
+      },
+      "lid_status": {
+        "name": "Состояние крышки",
+        "state": {
+          "have_cup": "Чашка установлена",
+          "no_cup": "Чашки нет"
+        }
+      },
+      "cup_status": {
+        "name": "Состояние чашки",
+        "state": {
+          "default": "По умолчанию",
+          "hot_cup": "Горячая чашка",
+          "cold_cup": "Холодная чашка"
+        }
+      },
+      "current_time": {
+        "name": "Текущее время"
+      },
+      "box1_type": {
+        "name": "Тип контейнера 1"
+      },
+      "box1_status": {
+        "name": "Состояние контейнера 1",
+        "state": {
+          "no": "Пуст",
+          "missing": "Отсутствует"
+        }
+      },
+      "box2_type": {
+        "name": "Тип контейнера 2"
+      },
+      "box2_status": {
+        "name": "Состояние контейнера 2",
+        "state": {
+          "no": "Пуст",
+          "missing": "Отсутствует"
+        }
+      },
+      "box3_type": {
+        "name": "Тип контейнера 3"
+      },
+      "box3_status": {
+        "name": "Состояние контейнера 3",
+        "state": {
+          "no": "Пуст",
+          "missing": "Отсутствует"
+        }
+      },
+      "box4_type": {
+        "name": "Тип контейнера 4"
+      },
+      "box4_status": {
+        "name": "Состояние контейнера 4",
+        "state": {
+          "no": "Пуст",
+          "missing": "Отсутствует"
+        }
+      },
+      "box5_type": {
+        "name": "Тип контейнера 5"
+      },
+      "box5_status": {
+        "name": "Состояние контейнера 5",
+        "state": {
+          "no": "Пуст",
+          "missing": "Отсутствует"
+        }
+      },
+      "box6_type": {
+        "name": "Тип контейнера 6"
+      },
+      "box6_status": {
+        "name": "Состояние контейнера 6",
+        "state": {
+          "no": "Пуст",
+          "missing": "Отсутствует"
+        }
+      },
+      "box7_type": {
+        "name": "Тип контейнера 7"
+      },
+      "box7_status": {
+        "name": "Состояние контейнера 7",
+        "state": {
+          "no": "Пуст",
+          "missing": "Отсутствует"
+        }
+      },
+      "box8_type": {
+        "name": "Тип контейнера 8"
+      },
+      "box8_status": {
+        "name": "Состояние контейнера 8",
+        "state": {
+          "no": "Пуст",
+          "missing": "Отсутствует"
+        }
       }
     },
     "switch": {
@@ -3873,7 +4495,10 @@
         "name": "Режим отпуска"
       },
       "dry": {
-        "name": "Dry"
+        "name": "Сушка"
+      },
+      "wet_pad_dry": {
+        "name": "Сушка увлажняющего фильтра"
       },
       "cold_water_single": {
         "name": "Холодная вода (однократно)"
@@ -3966,7 +4591,7 @@
         "name": "Silent Mode"
       },
       "sleep_mode": {
-        "name": "Sleep Mode"
+        "name": "Режим сна"
       },
       "out_silent": {
         "name": "Тихий режим наружного блока"
@@ -4099,6 +4724,48 @@
       },
       "washer_forget_free": {
         "name": "Уход без контроля"
+      },
+      "sterilize": {
+        "name": "Стерилизация"
+      },
+      "baking": {
+        "name": "Нагрев"
+      },
+      "left_button": {
+        "name": "Левая кнопка"
+      },
+      "middle_button": {
+        "name": "Средняя кнопка"
+      },
+      "right_button": {
+        "name": "Правая кнопка"
+      },
+      "show_button_name": {
+        "name": "Показывать название кнопки"
+      },
+      "close_screen_bright": {
+        "name": "Затемнять экран при закрытии"
+      },
+      "sleep_mode_switch": {
+        "name": "Переключатель режима сна"
+      },
+      "sleep_mode_mute": {
+        "name": "Без звука в режиме сна"
+      },
+      "left_button_keep": {
+        "name": "Сохранять левую кнопку"
+      },
+      "middle_button_keep": {
+        "name": "Сохранять среднюю кнопку"
+      },
+      "right_button_keep": {
+        "name": "Сохранять правую кнопку"
+      },
+      "voice_control": {
+        "name": "Голосовое управление"
+      },
+      "screen_state": {
+        "name": "Экран"
       }
     },
     "water_heater": {

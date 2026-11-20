@@ -740,6 +740,83 @@ def test_ac_state_and_commands(
 
 
 @pytest.mark.parametrize(
+    ("power", "mode", "frequency", "expected"),
+    [
+        (False, 4, 50, HVACAction.OFF),
+        (True, 0, 50, HVACAction.OFF),
+        (True, 5, None, HVACAction.FAN),
+        (True, 5, 0, HVACAction.FAN),
+        (True, 2, None, None),
+        (True, 2, 0, HVACAction.IDLE),
+        (True, 2, 50, HVACAction.COOLING),
+        (True, 3, 0, HVACAction.IDLE),
+        (True, 3, 50, HVACAction.DRYING),
+        (True, 4, 0, HVACAction.IDLE),
+        (True, 4, 50, HVACAction.HEATING),
+        (True, 1, 0, HVACAction.IDLE),
+        (True, 1, 50, None),
+    ],
+)
+def test_ac_hvac_action(
+    device_factory: DeviceFactory,
+    install_config: InstallConfig,
+    power: bool,
+    mode: int,
+    frequency: int | None,
+    expected: HVACAction | None,
+) -> None:
+    """Map the AC mode and compressor frequency to the hvac action."""
+    entity, _, _ = make_ac(
+        device_factory,
+        install_config,
+        attributes={
+            "power": power,
+            "mode": mode,
+            ACAttributes.compressor_frequency: frequency,
+            ACAttributes.defrosting: False,
+        },
+    )
+    assert entity.hvac_action == expected
+
+
+@pytest.mark.parametrize(
+    ("version", "expected_heat", "expected_fan"),
+    [
+        ((2024, 7), HVACAction.HEATING, HVACAction.FAN),
+        ((2024, 8), "defrosting", "defrosting"),
+    ],
+)
+def test_ac_hvac_action_defrosting(
+    monkeypatch: pytest.MonkeyPatch,
+    device_factory: DeviceFactory,
+    install_config: InstallConfig,
+    version: tuple[int, int],
+    expected_heat: str,
+    expected_fan: str,
+) -> None:
+    """Report defrosting before the mode, only where HA has the action."""
+    monkeypatch.setattr(climate_module, "MAJOR_VERSION", version[0])
+    monkeypatch.setattr(climate_module, "MINOR_VERSION", version[1])
+    # HVACAction.DEFROSTING is missing before HA 2024.8 (oldest test baseline)
+    actions = {action.name: action for action in HVACAction}
+    actions.setdefault("DEFROSTING", "defrosting")
+    monkeypatch.setattr(climate_module, "HVACAction", SimpleNamespace(**actions))
+    entity, _, values = make_ac(
+        device_factory,
+        install_config,
+        attributes={
+            "power": True,
+            "mode": 4,
+            ACAttributes.compressor_frequency: 50,
+            ACAttributes.defrosting: True,
+        },
+    )
+    assert entity.hvac_action == expected_heat
+    values["mode"] = 5
+    assert entity.hvac_action == expected_fan
+
+
+@pytest.mark.parametrize(
     ("vertical", "horizontal", "expected"),
     [
         (False, False, SWING_OFF),
