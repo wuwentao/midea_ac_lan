@@ -11001,7 +11001,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             F1Attributes.current_temp: {
                 "type": Platform.SENSOR,
-                "translation_key": "current_temp",
+                "translation_key": "current_temperature",
                 "name": "Current Temperature",
                 "device_class": SensorDeviceClass.TEMPERATURE,
                 "unit": UnitOfTemperature.CELSIUS,

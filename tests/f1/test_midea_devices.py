@@ -135,15 +135,14 @@ def test_f1_sensor_metadata_matches_library_values() -> None:
 
 
 def test_f1_translation_keys_follow_shared_key_rules() -> None:
-    """Use attribute names except for the conflicting response enum."""
+    """Reuse shared keys except for the conflicting response enum."""
     entities = f1_entities()
 
     for attribute, config in entities.items():
-        expected_key = (
-            "f1_response_type"
-            if attribute is DeviceAttributes.response_type
-            else attribute.value
-        )
+        expected_key = {
+            DeviceAttributes.current_temp: "current_temperature",
+            DeviceAttributes.response_type: "f1_response_type",
+        }.get(attribute, attribute.value)
         assert config["translation_key"] == expected_key
 
 
@@ -172,7 +171,6 @@ def test_f1_translations_cover_every_locale_without_english_fallback() -> None:
             "lid_status",
             "cup_status",
             "current_time",
-            "current_temp",
         },
     }
 
