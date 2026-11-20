@@ -4,6 +4,76 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+## [2026.11.0](https://github.com/wuwentao/midea_ac_lan/compare/v2026.10.0...v2026.11.0) (2026-11-20)
+
+### Features
+- **translations:** Add 17 UI translation languages [#1207](https://github.com/wuwentao/midea_ac_lan/pull/1207) ([c864d67](https://github.com/wuwentao/midea_ac_lan/commit/c864d6755e323a795fbeb90c46de263b0923749e))
+- **ac:** Report hvac_action from compressor group data [#1221](https://github.com/wuwentao/midea_ac_lan/pull/1221) ([a57622e](https://github.com/wuwentao/midea_ac_lan/commit/a57622ebed072d2cfa084dd97c61b51343f9b2cf))
+- **humidifier:** Expose tank and tank_full attributes [#1203](https://github.com/wuwentao/midea_ac_lan/pull/1203) ([8486c85](https://github.com/wuwentao/midea_ac_lan/commit/8486c854f89d0b5f6fd744bbb155a46142b452ee))
+- **x13:** Expose the fan of fan-light models [#1145](https://github.com/wuwentao/midea_ac_lan/pull/1145) ([629880c](https://github.com/wuwentao/midea_ac_lan/commit/629880c1aa8d0191e4a52f31e6cf9a92b80c68a3))
+- **44:** Add smart panel entities [#1154](https://github.com/wuwentao/midea_ac_lan/pull/1154) ([6fafccc](https://github.com/wuwentao/midea_ac_lan/commit/6fafccca39b980167cdbb2ee001730bcc782ed98))
+- **ac:** Expose BB X11 humidify status and target humidity [#1187](https://github.com/wuwentao/midea_ac_lan/pull/1187) ([05b561a](https://github.com/wuwentao/midea_ac_lan/commit/05b561a7bac2946803073316bcaf4316151423ec))
+- **e1:** Add support model 760001EC - energy & water [#1144](https://github.com/wuwentao/midea_ac_lan/pull/1144) ([1bf4d2e](https://github.com/wuwentao/midea_ac_lan/commit/1bf4d2ea7a2c48c33ea682015acb215948cb5387))
+- **c3:** Add optional native 17100007 energy sensors [#1159](https://github.com/wuwentao/midea_ac_lan/pull/1159) ([7691f49](https://github.com/wuwentao/midea_ac_lan/commit/7691f49f568ba55b4453522f225cf93a2cde41c7))
+- **config-flow:** Show unsupport reason for unsupported devices [#1208](https://github.com/wuwentao/midea_ac_lan/pull/1208) ([9583795](https://github.com/wuwentao/midea_ac_lan/commit/95837956ef94614d9e65b6608cd80e1607832574))
+- **db:** Add v41 washer-dryer status entities [#1205](https://github.com/wuwentao/midea_ac_lan/pull/1205) ([7a9523d](https://github.com/wuwentao/midea_ac_lan/commit/7a9523d304e22b516d31e71a98ad206b06c7fb1d))
+- **ac:** Add aux_heat_mode select for electric aux heat (PTC) [#1150](https://github.com/wuwentao/midea_ac_lan/pull/1150) ([92ee0fe](https://github.com/wuwentao/midea_ac_lan/commit/92ee0fe19ae4696592045b855b0a158689f76e5d))
+- **a1:** Expose group-one telemetry in Home Assistant [#1231](https://github.com/wuwentao/midea_ac_lan/pull/1231) ([5968d67](https://github.com/wuwentao/midea_ac_lan/commit/5968d6748209c4feb9fb071d4c5d747deb5f9ad6))
+- Add 0x10 Power Appliance device support [#1210](https://github.com/wuwentao/midea_ac_lan/pull/1210) ([19713cb](https://github.com/wuwentao/midea_ac_lan/commit/19713cb176d5aa0ff57c3645a95eb4c100fd7eaa))
+- Add 0x17 clothes-drying rack device support [#1209](https://github.com/wuwentao/midea_ac_lan/pull/1209) ([934349c](https://github.com/wuwentao/midea_ac_lan/commit/934349c41a0b5df2ae8c217f5eb68475191b4c03))
+- Add 0x14 Electric Curtain device support [#1211](https://github.com/wuwentao/midea_ac_lan/pull/1211) ([4ab8c1b](https://github.com/wuwentao/midea_ac_lan/commit/4ab8c1b4440f760ffebe17249d53c2be8e6369d8))
+- **fd:** Expose wet-pad drying control [#1238](https://github.com/wuwentao/midea_ac_lan/pull/1238) ([bb71d29](https://github.com/wuwentao/midea_ac_lan/commit/bb71d2933f23439c6714cd4f964b1847e26ef23c))
+- Add 0xE7 Steam Cooking Appliance device support [#1212](https://github.com/wuwentao/midea_ac_lan/pull/1212) ([4ef74cd](https://github.com/wuwentao/midea_ac_lan/commit/4ef74cd9e4d64d5ea53d847fd87e08fd0a08ead8))
+- Add 0xEB Warming Cooking Appliance device support [#1213](https://github.com/wuwentao/midea_ac_lan/pull/1213) ([89cb5d1](https://github.com/wuwentao/midea_ac_lan/commit/89cb5d1f7feca19110cd1e17506650a89bcd09fc))
+- Add 0x9A Microwave Steam-Bake Oven device support [#1214](https://github.com/wuwentao/midea_ac_lan/pull/1214) ([f62de3f](https://github.com/wuwentao/midea_ac_lan/commit/f62de3fcd9acfc6c89a59ea87a1184c3bf009373))
+- Add 0xB2 Steam Box device support [#1215](https://github.com/wuwentao/midea_ac_lan/pull/1215) ([f765b15](https://github.com/wuwentao/midea_ac_lan/commit/f765b153a91e3cdf76dafa5818067782a877db70))
+- Add 0xE9 Bread Maker device support [#1216](https://github.com/wuwentao/midea_ac_lan/pull/1216) ([3383efb](https://github.com/wuwentao/midea_ac_lan/commit/3383efbb45bf8647f043166cd68e85c10b5b76cb))
+- Add 0xF1 Tea Brewer device support [#1217](https://github.com/wuwentao/midea_ac_lan/pull/1217) ([248bf1f](https://github.com/wuwentao/midea_ac_lan/commit/248bf1f6d2e105d28f83dccbe6c9eb026ac2d4b6))
+- Add 0x70 Seasoning Dispenser device support [#1218](https://github.com/wuwentao/midea_ac_lan/pull/1218) ([082d5c9](https://github.com/wuwentao/midea_ac_lan/commit/082d5c9c9ba42d3077ce7abbf78e5fe7897c021d))
+- Add 0xEF Beverage Maker device support [#1219](https://github.com/wuwentao/midea_ac_lan/pull/1219) ([a319067](https://github.com/wuwentao/midea_ac_lan/commit/a319067904b895b16e74fcd7cd515e96dd4af469))
+- **b7:** Add smart gas stove device support [#1222](https://github.com/wuwentao/midea_ac_lan/pull/1222) ([7955aed](https://github.com/wuwentao/midea_ac_lan/commit/7955aed463c6805250f8c2a1f565c1ce94a279d5))
+
+### Bug Fixes
+- Refresh time entities on mapped updates [#1181](https://github.com/wuwentao/midea_ac_lan/pull/1181) ([2f4d42f](https://github.com/wuwentao/midea_ac_lan/commit/2f4d42f5358fd8ade3bbf63a758bd58eeff176b4))
+- Support cloud coordinator config entries [#1185](https://github.com/wuwentao/midea_ac_lan/pull/1185) ([add1f26](https://github.com/wuwentao/midea_ac_lan/commit/add1f2630d878001783550d2f9826430d1ede349))
+- Use native temperature members on climate and water heater [#1189](https://github.com/wuwentao/midea_ac_lan/pull/1189) ([9848e53](https://github.com/wuwentao/midea_ac_lan/commit/9848e53f1b4f03514d7d25a16f33513229e308f1))
+- Show main branch coverage in badges [#1202](https://github.com/wuwentao/midea_ac_lan/pull/1202) ([a2bc865](https://github.com/wuwentao/midea_ac_lan/commit/a2bc86526652a4ff44dd195b39b9a9b95a4717ef))
+
+### Refactor
+- Remove obsolete lifecycle compatibility [#1186](https://github.com/wuwentao/midea_ac_lan/pull/1186) ([8da8fc1](https://github.com/wuwentao/midea_ac_lan/commit/8da8fc19c8c6c4e60691d41c171853686ded81ea))
+
+### Documentation
+- Explain project architecture and cloud support [#1166](https://github.com/wuwentao/midea_ac_lan/pull/1166) ([015adce](https://github.com/wuwentao/midea_ac_lan/commit/015adce5628453320531b44faece77a75b50b859))
+- Improve contribution templates and agent guidance [#1167](https://github.com/wuwentao/midea_ac_lan/pull/1167) ([d0875ac](https://github.com/wuwentao/midea_ac_lan/commit/d0875acfaafc9ec83df6c89df69fc55da5d7ae28))
+- Add AI-agent issue/PR submission rules [#1199](https://github.com/wuwentao/midea_ac_lan/pull/1199) ([6b29443](https://github.com/wuwentao/midea_ac_lan/commit/6b29443b39a943b71355cf917d23bdc22fc0a1f7))
+- Require full URLs for cross-repo issue/PR refs [#1206](https://github.com/wuwentao/midea_ac_lan/pull/1206) ([232aac1](https://github.com/wuwentao/midea_ac_lan/commit/232aac1eae436e67d96039f80d25062c3c8b6ced))
+- Add Traditional Chinese (Taiwan) README [#1223](https://github.com/wuwentao/midea_ac_lan/pull/1223) ([14688ca](https://github.com/wuwentao/midea_ac_lan/commit/14688ca467660c2d9b7a2f3d13aab6c78eeb092d))
+- Improve README navigation, installation, and sponsorship [#1225](https://github.com/wuwentao/midea_ac_lan/pull/1225) ([8fd12bc](https://github.com/wuwentao/midea_ac_lan/commit/8fd12bcc38a0152aaf9ef655e8243854da15a4a3))
+- Require complete translations and coverage [#1235](https://github.com/wuwentao/midea_ac_lan/pull/1235) ([0511811](https://github.com/wuwentao/midea_ac_lan/commit/0511811b61c3723c563357b2b548d75c200067b8))
+- **c3:** Document firmware query limitations [#1228](https://github.com/wuwentao/midea_ac_lan/pull/1228) ([a1a225c](https://github.com/wuwentao/midea_ac_lan/commit/a1a225c0b6f2f9856fa431767beb724860200074))
+- **agents:** Keep uv.lock on the canonical PyPI index [#1236](https://github.com/wuwentao/midea_ac_lan/pull/1236) ([9a05f5e](https://github.com/wuwentao/midea_ac_lan/commit/9a05f5ed21ed61bac2ecbe26ca1ee49b63b8cc67))
+
+### Testing
+- Add Home Assistant pytest foundation [#1172](https://github.com/wuwentao/midea_ac_lan/pull/1172) ([7854653](https://github.com/wuwentao/midea_ac_lan/commit/7854653e84334a4e3d1c7200945315924fc17ece))
+- Cover the shared Midea entity base [#1174](https://github.com/wuwentao/midea_ac_lan/pull/1174) ([e643a1a](https://github.com/wuwentao/midea_ac_lan/commit/e643a1aad382221ffb462a5416868457feda0cdb))
+- Cover binary sensor entities [#1175](https://github.com/wuwentao/midea_ac_lan/pull/1175) ([3547af2](https://github.com/wuwentao/midea_ac_lan/commit/3547af2db70aac17e03e69fa8ddcea1f5e544635))
+- Complete button entity coverage [#1176](https://github.com/wuwentao/midea_ac_lan/pull/1176) ([c8c447a](https://github.com/wuwentao/midea_ac_lan/commit/c8c447a15530979eac270abd8a2926c028033442))
+- Cover lock entities [#1177](https://github.com/wuwentao/midea_ac_lan/pull/1177) ([5c5ad06](https://github.com/wuwentao/midea_ac_lan/commit/5c5ad06bb328552805eed85efbd74a3b0cf24217))
+- Cover number entities [#1178](https://github.com/wuwentao/midea_ac_lan/pull/1178) ([c61a8be](https://github.com/wuwentao/midea_ac_lan/commit/c61a8be2731f6cbb42ed4e6f50b32ef7e1effec8))
+- Cover select entities [#1179](https://github.com/wuwentao/midea_ac_lan/pull/1179) ([0899c6b](https://github.com/wuwentao/midea_ac_lan/commit/0899c6b3a3bbec6064ccae11f03b6de1597a9a7f))
+- Cover switch entities [#1180](https://github.com/wuwentao/midea_ac_lan/pull/1180) ([29b72f4](https://github.com/wuwentao/midea_ac_lan/commit/29b72f4b36687f6707ab641f2a86795e272f94f8))
+- Exercise simple platforms through Home Assistant [#1182](https://github.com/wuwentao/midea_ac_lan/pull/1182) ([17447a5](https://github.com/wuwentao/midea_ac_lan/commit/17447a58e318220cb087d8e271cf30be18a5b7a9))
+- Cover device support constants [#1183](https://github.com/wuwentao/midea_ac_lan/pull/1183) ([5f5dc7d](https://github.com/wuwentao/midea_ac_lan/commit/5f5dc7dd204d6585a0394bd6611ea2359138c2a0))
+- Cover diagnostics redaction [#1184](https://github.com/wuwentao/midea_ac_lan/pull/1184) ([39ab20f](https://github.com/wuwentao/midea_ac_lan/commit/39ab20ff043219843fcf48d9392e3eb7efbb5c4e))
+- Cover config flow [#1190](https://github.com/wuwentao/midea_ac_lan/pull/1190) ([bde0113](https://github.com/wuwentao/midea_ac_lan/commit/bde01134fbf918f0bc97d25d3d0a707e5d3dbbcc))
+- Cover fan platform [#1191](https://github.com/wuwentao/midea_ac_lan/pull/1191) ([ac481ea](https://github.com/wuwentao/midea_ac_lan/commit/ac481eaa6781287be7bdcdc3fcf9807b3172aa55))
+- Cover humidifier platform [#1193](https://github.com/wuwentao/midea_ac_lan/pull/1193) ([6c381cd](https://github.com/wuwentao/midea_ac_lan/commit/6c381cd97aa03d71343702f25bed0d893e594308))
+- Cover light platform [#1194](https://github.com/wuwentao/midea_ac_lan/pull/1194) ([b85ae97](https://github.com/wuwentao/midea_ac_lan/commit/b85ae97446fa54313544da17c3f5fa105a19b4fe))
+- Cover sensor platform [#1195](https://github.com/wuwentao/midea_ac_lan/pull/1195) ([18f185f](https://github.com/wuwentao/midea_ac_lan/commit/18f185f02573aff9f70a3f37d3dcdde8b4fc1fda))
+- Cover water heater platform [#1196](https://github.com/wuwentao/midea_ac_lan/pull/1196) ([9fce030](https://github.com/wuwentao/midea_ac_lan/commit/9fce0302aa1a455c96a0506eef45a0e36eb285de))
+- Cover climate platform [#1197](https://github.com/wuwentao/midea_ac_lan/pull/1197) ([a03e876](https://github.com/wuwentao/midea_ac_lan/commit/a03e8761fe31daff17a4c8648a88ed56e0ac7ed0))
+- Cover HA version compatibility branches [#1198](https://github.com/wuwentao/midea_ac_lan/pull/1198) ([92a660e](https://github.com/wuwentao/midea_ac_lan/commit/92a660e41141bcdb4fa5f74608fc56c5390d06f6))
+- Enforce 100% coverage [#1200](https://github.com/wuwentao/midea_ac_lan/pull/1200) ([a2402f1](https://github.com/wuwentao/midea_ac_lan/commit/a2402f1211383549948fa71ae22d4f30fe28276d))
 ## [2026.10.0](https://github.com/wuwentao/midea_ac_lan/compare/v2026.9.2...v2026.10.0) (2026-10-23)
 
 ### Features
