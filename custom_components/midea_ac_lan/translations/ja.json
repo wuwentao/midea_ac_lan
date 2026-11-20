@@ -884,6 +884,33 @@
       },
       "laundry_appointment": {
         "name": "予約"
+      },
+      "has_token": {
+        "name": "トークンあり"
+      },
+      "humidify": {
+        "name": "加湿"
+      },
+      "speedy": {
+        "name": "スピード洗い"
+      },
+      "lock": {
+        "name": "チャイルドロック"
+      },
+      "beforehand_wash": {
+        "name": "予洗い"
+      },
+      "steam_wash": {
+        "name": "スチーム洗い"
+      },
+      "add_rinse": {
+        "name": "追加すすぎ"
+      },
+      "wind_dispel": {
+        "name": "換気"
+      },
+      "remote_control_flag": {
+        "name": "遠隔操作"
       }
     },
     "button": {
@@ -925,6 +952,9 @@
       }
     },
     "fan": {
+      "fan": {
+        "name": "ファン"
+      },
       "bgf10000": {
         "state_attributes": {
           "preset_mode": {
@@ -948,12 +978,27 @@
         "name": "換気排気"
       }
     },
+    "light": {
+      "light": {
+        "name": "照明"
+      }
+    },
     "lock": {
       "child_lock": {
         "name": "チャイルドロック"
       }
     },
     "number": {
+      "work_status": { "name": "運転状態" },
+      "function_no": { "name": "機能番号" },
+      "fire_level": { "name": "加熱レベル" },
+      "time_reserve_hr": { "name": "予約時間（時）" },
+      "time_reserve_min": { "name": "予約時間（分）" },
+      "definite_time_hr": { "name": "タイマー時間（時）" },
+      "definite_time_min": { "name": "タイマー時間（分）" },
+      "curtain_position": {
+        "name": "位置"
+      },
       "delay_minutes": {
         "name": "遅延"
       },
@@ -1046,9 +1091,95 @@
       },
       "dryer_timed_extra": {
         "name": "乾燥時間延長"
+      },
+      "e9_volume": {
+        "name": "パンのサイズ"
+      },
+      "color": {
+        "name": "焼き色"
+      },
+      "dosing": {
+        "name": "材料の投入"
+      },
+      "bake_temperature": {
+        "name": "焼成温度"
+      },
+      "time_cuisine_hr": {
+        "name": "調理時間（時）"
+      },
+      "time_cuisine_min": {
+        "name": "調理時間（分）"
+      },
+      "control_cmd_code": {
+        "name": "コマンドコード"
+      },
+      "auto_off_screen_type": {
+        "name": "自動画面オフの種類"
+      },
+      "theme": {
+        "name": "テーマ"
+      },
+      "night_volume": {
+        "name": "夜間音量"
+      },
+      "voice_volume": {
+        "name": "音声音量"
+      },
+      "sleep_start_hour": {
+        "name": "スリープ開始時"
+      },
+      "sleep_start_minute": {
+        "name": "スリープ開始分"
+      },
+      "sleep_duration_hour": {
+        "name": "スリープ継続時間（時）"
+      },
+      "sleep_duration_minute": {
+        "name": "スリープ継続時間（分）"
+      },
+      "brightness": {
+        "name": "明るさ"
+      },
+      "left_button_work_mode": {
+        "name": "左ボタン動作モード"
+      },
+      "middle_button_work_mode": {
+        "name": "中央ボタン動作モード"
+      },
+      "right_button_work_mode": {
+        "name": "右ボタン動作モード"
+      },
+      "watt": {
+        "name": "電子レンジ出力"
+      },
+      "weight": {
+        "name": "重量"
       }
     },
     "select": {
+      "curtain_status": {
+        "name": "カーテン",
+        "state": {
+          "open": "開",
+          "close": "閉",
+          "stop": "停止"
+        }
+      },
+      "curtain_direction": {
+        "name": "方向",
+        "state": {
+          "positive": "正方向",
+          "reverse": "逆方向"
+        }
+      },
+      "aux_heat_mode": {
+        "name": "補助暖房モード",
+        "state": {
+          "off": "オフ",
+          "aux_heat": "補助暖房",
+          "aux_only": "補助暖房のみ"
+        }
+      },
       "cur_quantify": {
         "name": "現在の量プリセット",
         "state": {
@@ -1060,75 +1191,13 @@
           "preset_5": "プリセット 5"
         }
       },
-      "wash_mode_76000228": {
-        "name": "洗浄モード",
-        "state": {
-          "neutral_gear": "なし",
-          "auto_wash": "自動",
-          "strong_wash": "強力",
-          "standard_wash": "標準",
-          "eco_wash": "ECO",
-          "glass_wash": "ガラス",
-          "hour_wash": "90 分",
-          "fast_wash": "高速",
-          "soak_wash": "つけおき",
-          "90min": "90 分",
-          "self_clean": "セルフクリーニング",
-          "fruit_wash": "フルーツ",
-          "self_define": "カスタム",
-          "germ": "ささやき",
-          "bowl_wash": "お椀",
-          "kill_germ": "衛生",
-          "sea_food_wash": "セルフクリーニング",
-          "hot_pot_wash": "鍋",
-          "quiet_night_wash": "おやすみ",
-          "less_wash": "ライト",
-          "max_rapid_wash": "最速",
-          "oil_net_wash": "オイルフィルター",
-          "cloud_wash": "クラウドプログラム",
-          "single_dry": "乾燥のみ",
-          "single_disinfect": "除菌のみ",
-          "high_temp_wash": "高温",
-          "wash_dry": "洗浄・乾燥"
-        }
-      },
-      "program_76000228": {
-        "name": "プログラム",
-        "state": {
-          "auto_wash": "自動",
-          "strong_wash": "強力",
-          "standard_wash": "標準",
-          "eco_wash": "ECO",
-          "glass_wash": "ガラス",
-          "hour_wash": "90 分",
-          "fast_wash": "高速",
-          "soak_wash": "つけおき",
-          "90min": "90 分",
-          "self_clean": "セルフクリーニング",
-          "fruit_wash": "フルーツ",
-          "self_define": "カスタム",
-          "germ": "ささやき",
-          "bowl_wash": "お椀",
-          "kill_germ": "衛生",
-          "sea_food_wash": "セルフクリーニング",
-          "hot_pot_wash": "鍋",
-          "quiet_night_wash": "おやすみ",
-          "less_wash": "ライト",
-          "max_rapid_wash": "最速",
-          "oil_net_wash": "オイルフィルター",
-          "cloud_wash": "クラウドプログラム",
-          "single_dry": "乾燥のみ",
-          "single_disinfect": "除菌のみ",
-          "high_temp_wash": "高温",
-          "wash_dry": "洗浄・乾燥"
-        }
-      },
       "program": {
         "name": "プログラム",
         "state": {
           "auto_wash": "自動",
           "strong_wash": "強力",
           "standard_wash": "標準",
+          "universal_wash": "万能",
           "eco_wash": "ECO",
           "glass_wash": "ガラス",
           "hour_wash": "1 時間",
@@ -1139,6 +1208,7 @@
           "fruit_wash": "フルーツ",
           "self_define": "カスタム",
           "germ": "除菌",
+          "whisper_wash": "静音",
           "bowl_wash": "お椀",
           "kill_germ": "衛生",
           "sea_food_wash": "シーフード",
@@ -1151,7 +1221,8 @@
           "single_dry": "乾燥のみ",
           "single_disinfect": "除菌のみ",
           "high_temp_wash": "高温",
-          "wash_dry": "洗浄・乾燥"
+          "wash_dry": "洗浄・乾燥",
+          "anion1": "イオン消臭"
         }
       },
       "load": {
@@ -1228,7 +1299,36 @@
           "bath": "バス",
           "blow": "送風",
           "ventilation": "換気",
-          "dry": "乾燥"
+          "dry": "乾燥",
+          "keep_warm": "保温",
+          "stero_baking": "立体焼き",
+          "whole_baking": "全体焼き",
+          "up_down_baking": "上下加熱",
+          "unfreeze": "解凍",
+          "hot_air_convection": "熱風対流",
+          "power_saving": "省エネ",
+          "center_baking": "中央加熱",
+          "rotary_baking": "回転焼き",
+          "fermentation": "発酵",
+          "stoving": "乾燥",
+          "down_baking": "下部加熱",
+          "pizza": "ピザ",
+          "up_infrared_fan": "上部赤外線ファン",
+          "microwave": "電子レンジ",
+          "fish": "魚",
+          "meat": "肉",
+          "egg": "卵",
+          "seafood": "魚介類",
+          "steam_clean": "スチーム洗浄",
+          "common": "標準",
+          "grain": "穀物",
+          "rice": "ご飯",
+          "zymosis": "発酵",
+          "heat": "再加熱",
+          "furring_clean": "除石灰",
+          "disinfect": "消毒",
+          "vegetable": "野菜",
+          "chop": "刻み料理"
         }
       },
       "oscillation_angle": {
@@ -1261,6 +1361,7 @@
           "auto_wash": "自動",
           "strong_wash": "強力",
           "standard_wash": "標準",
+          "universal_wash": "万能",
           "eco_wash": "ECO",
           "glass_wash": "ガラス",
           "hour_wash": "1 時間",
@@ -1271,6 +1372,7 @@
           "fruit_wash": "フルーツ",
           "self_define": "カスタム",
           "germ": "除菌",
+          "whisper_wash": "静音",
           "bowl_wash": "お椀",
           "kill_germ": "衛生",
           "sea_food_wash": "シーフード",
@@ -1283,7 +1385,8 @@
           "single_dry": "乾燥のみ",
           "single_disinfect": "除菌のみ",
           "high_temp_wash": "高温",
-          "wash_dry": "洗浄・乾燥"
+          "wash_dry": "洗浄・乾燥",
+          "anion1": "イオン消臭"
         }
       },
       "water_level_set": {
@@ -1312,7 +1415,7 @@
         }
       },
       "work_status_select": {
-        "name": "運転状態",
+        "name": "動作状態を設定",
         "state": {
           "save_power": "節電",
           "standby": "待機中",
@@ -1328,7 +1431,12 @@
           "ramadan": "ラマダン",
           "after_checking": "確認後",
           "wait_to_start": "開始待ち",
-          "ff": "不明"
+          "ff": "不明",
+          "cancel": "キャンセル",
+          "end": "終了",
+          "appointment": "予約",
+          "reservation": "予約",
+          "none": "なし"
         }
       },
       "x9b_fire_power_select": {
@@ -1523,6 +1631,14 @@
       },
       "washer_spin_time_control": {
         "name": "脱水時間（分）"
+      },
+      "updown": {
+        "name": "昇降",
+        "state": {
+          "pause": "停止",
+          "up": "上昇",
+          "down": "下降"
+        }
       }
     },
     "time": {
@@ -1534,6 +1650,39 @@
       }
     },
     "sensor": {
+      "response_type": {
+        "name": "応答",
+        "state": {
+          "response_normal": "正常応答",
+          "response_error_e2": "E2 エラー"
+        }
+      },
+      "time_work_hr": {
+        "name": "運転時間（時）"
+      },
+      "time_work_min": {
+        "name": "運転時間（分）"
+      },
+      "time_warm_hr": {
+        "name": "保温時間（時）"
+      },
+      "time_warm_min": {
+        "name": "保温時間（分）"
+      },
+      "product_volume": {
+        "name": "製品サイズ"
+      },
+      "time_running_hr": { "name": "運転時間（時）" },
+      "time_running_min": { "name": "運転時間（分）" },
+      "time_surplus_hr": { "name": "残り時間（時）" },
+      "time_surplus_min": { "name": "残り時間（分）" },
+      "work_stage": { "name": "運転段階" },
+      "software_version": {
+        "name": "ソフトウェアバージョン"
+      },
+      "evaporator_temperature": {
+        "name": "蒸発器温度"
+      },
       "db_running_status": {
         "name": "洗濯機の状態"
       },
@@ -1625,6 +1774,7 @@
           "auto_wash": "自動",
           "strong_wash": "強力",
           "standard_wash": "標準",
+          "universal_wash": "万能",
           "eco_wash": "ECO",
           "glass_wash": "ガラス",
           "hour_wash": "1 時間",
@@ -1635,6 +1785,7 @@
           "fruit_wash": "フルーツ",
           "self_define": "カスタム",
           "germ": "除菌",
+          "whisper_wash": "静音",
           "bowl_wash": "お椀",
           "kill_germ": "衛生",
           "sea_food_wash": "シーフード",
@@ -1647,39 +1798,8 @@
           "single_dry": "乾燥のみ",
           "single_disinfect": "除菌のみ",
           "high_temp_wash": "高温",
-          "wash_dry": "洗浄・乾燥"
-        }
-      },
-      "dishwasher_mode_76000228": {
-        "name": "モード",
-        "state": {
-          "neutral_gear": "なし",
-          "auto_wash": "自動",
-          "strong_wash": "強力",
-          "standard_wash": "標準",
-          "eco_wash": "ECO",
-          "glass_wash": "ガラス",
-          "hour_wash": "90 分",
-          "fast_wash": "高速",
-          "soak_wash": "つけおき",
-          "90min": "90 分",
-          "self_clean": "セルフクリーニング",
-          "fruit_wash": "フルーツ",
-          "self_define": "カスタム",
-          "germ": "ささやき",
-          "bowl_wash": "お椀",
-          "kill_germ": "衛生",
-          "sea_food_wash": "セルフクリーニング",
-          "hot_pot_wash": "鍋",
-          "quiet_night_wash": "おやすみ",
-          "less_wash": "ライト",
-          "max_rapid_wash": "最速",
-          "oil_net_wash": "オイルフィルター",
-          "cloud_wash": "クラウドプログラム",
-          "single_dry": "乾燥のみ",
-          "single_disinfect": "除菌のみ",
-          "high_temp_wash": "高温",
-          "wash_dry": "洗浄・乾燥"
+          "wash_dry": "洗浄・乾燥",
+          "anion1": "イオン消臭"
         }
       },
       "dishwasher_status": {
@@ -2026,6 +2146,9 @@
       },
       "indoor_humidity": {
         "name": "室内湿度"
+      },
+      "target_humidity": {
+        "name": "目標湿度"
       },
       "indoor_temperature": {
         "name": "室内温度"
@@ -3962,7 +4085,12 @@
           "ramadan": "ラマダン",
           "after_checking": "確認後",
           "wait_to_start": "開始待ち",
-          "ff": "不明"
+          "ff": "不明",
+          "cancel": "キャンセル",
+          "end": "終了",
+          "appointment": "予約",
+          "reservation": "予約",
+          "none": "なし"
         }
       },
       "x9b_fire_power": {
@@ -4031,6 +4159,216 @@
       },
       "cbs_version": {
         "name": "CBS バージョン"
+      },
+      "panel_status": {
+        "name": "パネル状態"
+      },
+      "cooling_capacity": {
+        "name": "冷房能力"
+      },
+      "cooling_cop_eer": {
+        "name": "冷房 COP/EER"
+      },
+      "cooling_cop_eer_this_month": {
+        "name": "今月の冷房 COP/EER"
+      },
+      "cooling_cop_eer_this_week": {
+        "name": "今週の冷房 COP/EER"
+      },
+      "cooling_cop_eer_this_year": {
+        "name": "今年の冷房 COP/EER"
+      },
+      "cooling_cop_eer_today": {
+        "name": "本日の冷房 COP/EER"
+      },
+      "cooling_energy_consumption_this_month": {
+        "name": "今月の冷房消費電力量"
+      },
+      "cooling_energy_consumption_this_week": {
+        "name": "今週の冷房消費電力量"
+      },
+      "cooling_energy_consumption_this_year": {
+        "name": "今年の冷房消費電力量"
+      },
+      "cooling_energy_consumption_today": {
+        "name": "本日の冷房消費電力量"
+      },
+      "cooling_power_consumption": {
+        "name": "冷房消費電力"
+      },
+      "cooling_produced_energy_this_month": {
+        "name": "今月の冷房生産エネルギー"
+      },
+      "cooling_produced_energy_this_week": {
+        "name": "今週の冷房生産エネルギー"
+      },
+      "cooling_produced_energy_this_year": {
+        "name": "今年の冷房生産エネルギー"
+      },
+      "cooling_produced_energy_today": {
+        "name": "本日の冷房生産エネルギー"
+      },
+      "cooling_total_cop_eer": {
+        "name": "冷房累計 COP/EER"
+      },
+      "cooling_total_energy_consumption": {
+        "name": "冷房累計消費電力量"
+      },
+      "cooling_total_produced_energy": {
+        "name": "冷房累計生産エネルギー"
+      },
+      "dhw_capacity": {
+        "name": "給湯熱出力"
+      },
+      "dhw_cop_eer": {
+        "name": "給湯 COP/EER"
+      },
+      "dhw_cop_eer_this_month": {
+        "name": "今月の給湯 COP/EER"
+      },
+      "dhw_cop_eer_this_week": {
+        "name": "今週の給湯 COP/EER"
+      },
+      "dhw_cop_eer_this_year": {
+        "name": "今年の給湯 COP/EER"
+      },
+      "dhw_cop_eer_today": {
+        "name": "本日の給湯 COP/EER"
+      },
+      "dhw_energy_consumption_this_month": {
+        "name": "今月の給湯消費電力量"
+      },
+      "dhw_energy_consumption_this_week": {
+        "name": "今週の給湯消費電力量"
+      },
+      "dhw_energy_consumption_this_year": {
+        "name": "今年の給湯消費電力量"
+      },
+      "dhw_energy_consumption_today": {
+        "name": "本日の給湯消費電力量"
+      },
+      "dhw_power_consumption": {
+        "name": "給湯消費電力"
+      },
+      "dhw_produced_energy_this_month": {
+        "name": "今月の給湯生産熱量"
+      },
+      "dhw_produced_energy_this_week": {
+        "name": "今週の給湯生産熱量"
+      },
+      "dhw_produced_energy_this_year": {
+        "name": "今年の給湯生産熱量"
+      },
+      "dhw_produced_energy_today": {
+        "name": "本日の給湯生産熱量"
+      },
+      "dhw_total_cop_eer": {
+        "name": "給湯累計 COP/EER"
+      },
+      "dhw_total_energy_consumption": {
+        "name": "給湯累計消費電力量"
+      },
+      "dhw_total_produced_energy": {
+        "name": "給湯累計生産熱量"
+      },
+      "heating_capacity": {
+        "name": "暖房能力"
+      },
+      "heating_cop_eer": {
+        "name": "暖房 COP/EER"
+      },
+      "heating_cop_eer_this_month": {
+        "name": "今月の暖房 COP/EER"
+      },
+      "heating_cop_eer_this_week": {
+        "name": "今週の暖房 COP/EER"
+      },
+      "heating_cop_eer_this_year": {
+        "name": "今年の暖房 COP/EER"
+      },
+      "heating_cop_eer_today": {
+        "name": "本日の暖房 COP/EER"
+      },
+      "heating_energy_consumption_this_month": {
+        "name": "今月の暖房消費電力量"
+      },
+      "heating_energy_consumption_this_week": {
+        "name": "今週の暖房消費電力量"
+      },
+      "heating_energy_consumption_this_year": {
+        "name": "今年の暖房消費電力量"
+      },
+      "heating_energy_consumption_today": {
+        "name": "本日の暖房消費電力量"
+      },
+      "heating_power_consumption": {
+        "name": "暖房消費電力"
+      },
+      "heating_produced_energy_this_month": {
+        "name": "今月の暖房生産熱量"
+      },
+      "heating_produced_energy_this_week": {
+        "name": "今週の暖房生産熱量"
+      },
+      "heating_produced_energy_this_year": {
+        "name": "今年の暖房生産熱量"
+      },
+      "heating_produced_energy_today": {
+        "name": "本日の暖房生産熱量"
+      },
+      "heating_total_cop_eer": {
+        "name": "暖房累計 COP/EER"
+      },
+      "heating_total_energy_consumption": {
+        "name": "暖房累計消費電力量"
+      },
+      "heating_total_produced_energy": {
+        "name": "暖房累計生産熱量"
+      },
+      "instant_cop_eer": {
+        "name": "瞬時 COP/EER"
+      },
+      "total_cop_eer": {
+        "name": "総合 COP/EER"
+      },
+      "dryer": {
+        "name": "乾燥レベル"
+      },
+      "soak_count": {
+        "name": "つけ置き回数"
+      },
+      "appointment_time": {
+        "name": "運転開始までの時間"
+      },
+      "db_last_cycle_water_consumption": {
+        "name": "前回の水使用量"
+      },
+      "power_consumption": {
+        "name": "前回の消費電力量"
+      },
+      "wash_count": {
+        "name": "洗濯回数"
+      },
+      "water_state": {
+        "name": "給水タンク",
+        "state": {
+          "full": "満水",
+          "empty": "空"
+        }
+      },
+      "box_state": {
+        "name": "スチームオーブン",
+        "state": {
+          "in": "挿入済み",
+          "out": "取り外し済み"
+        }
+      },
+      "door_state": {
+        "name": "ドア",
+        "state": {
+          "open": "開いている",
+          "close": "閉じている"
+        }
       }
     },
     "switch": {
@@ -4111,6 +4449,9 @@
       },
       "dry": {
         "name": "乾燥"
+      },
+      "wet_pad_dry": {
+        "name": "加湿フィルター乾燥"
       },
       "cold_water_single": {
         "name": "冷水 シングル"
@@ -4327,6 +4668,48 @@
       },
       "washer_forget_free": {
         "name": "忘れずケア"
+      },
+      "sterilize": {
+        "name": "除菌"
+      },
+      "baking": {
+        "name": "加熱"
+      },
+      "left_button": {
+        "name": "左ボタン"
+      },
+      "middle_button": {
+        "name": "中央ボタン"
+      },
+      "right_button": {
+        "name": "右ボタン"
+      },
+      "show_button_name": {
+        "name": "ボタン名を表示"
+      },
+      "close_screen_bright": {
+        "name": "閉じたときに画面を暗くする"
+      },
+      "sleep_mode_switch": {
+        "name": "スリープモードスイッチ"
+      },
+      "sleep_mode_mute": {
+        "name": "スリープモード消音"
+      },
+      "left_button_keep": {
+        "name": "左ボタンを保持"
+      },
+      "middle_button_keep": {
+        "name": "中央ボタンを保持"
+      },
+      "right_button_keep": {
+        "name": "右ボタンを保持"
+      },
+      "voice_control": {
+        "name": "音声操作"
+      },
+      "screen_state": {
+        "name": "画面"
       }
     },
     "water_heater": {

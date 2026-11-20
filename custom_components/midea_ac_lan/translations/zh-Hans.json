@@ -884,6 +884,33 @@
       },
       "laundry_appointment": {
         "name": "已预约"
+      },
+      "has_token": {
+        "name": "已有令牌"
+      },
+      "humidify": {
+        "name": "加湿"
+      },
+      "speedy": {
+        "name": "快洗"
+      },
+      "lock": {
+        "name": "童锁"
+      },
+      "beforehand_wash": {
+        "name": "预洗"
+      },
+      "steam_wash": {
+        "name": "蒸汽洗"
+      },
+      "add_rinse": {
+        "name": "加漂洗"
+      },
+      "wind_dispel": {
+        "name": "风除味"
+      },
+      "remote_control_flag": {
+        "name": "远程控制"
       }
     },
     "button": {
@@ -925,6 +952,9 @@
       }
     },
     "fan": {
+      "fan": {
+        "name": "风扇"
+      },
       "fresh_air": {
         "name": "新风"
       },
@@ -948,12 +978,41 @@
         }
       }
     },
+    "light": {
+      "light": {
+        "name": "照明"
+      }
+    },
     "lock": {
       "child_lock": {
         "name": "童锁"
       }
     },
     "number": {
+      "work_status": {
+        "name": "工作状态"
+      },
+      "function_no": {
+        "name": "功能编号"
+      },
+      "fire_level": {
+        "name": "火力档位"
+      },
+      "time_reserve_hr": {
+        "name": "预约小时"
+      },
+      "time_reserve_min": {
+        "name": "预约分钟"
+      },
+      "definite_time_hr": {
+        "name": "定时小时"
+      },
+      "definite_time_min": {
+        "name": "定时分钟"
+      },
+      "curtain_position": {
+        "name": "位置"
+      },
       "delay_minutes": {
         "name": "预约时间"
       },
@@ -1047,38 +1106,94 @@
       "dryer_timed_extra": {
         "name": "定时加时"
       },
-      "e9_work_status": {
-        "name": "工作状态"
-      },
       "e9_volume": {
         "name": "面包重量"
       },
-      "e9_color": {
+      "color": {
         "name": "烤色"
       },
-      "e9_dosing": {
+      "dosing": {
         "name": "投料"
       },
-      "e9_bake_temperature": {
+      "bake_temperature": {
         "name": "烘烤温度"
       },
-      "e9_time_cuisine_hr": {
+      "time_cuisine_hr": {
         "name": "烹饪小时"
       },
-      "e9_time_cuisine_min": {
+      "time_cuisine_min": {
         "name": "烹饪分钟"
       },
-      "e9_time_reserve_hr": {
-        "name": "预约小时"
-      },
-      "e9_time_reserve_min": {
-        "name": "预约分钟"
-      },
-      "e9_control_cmd_code": {
+      "control_cmd_code": {
         "name": "命令码"
+      },
+      "auto_off_screen_type": {
+        "name": "自动息屏类型"
+      },
+      "theme": {
+        "name": "主题"
+      },
+      "night_volume": {
+        "name": "夜间音量"
+      },
+      "voice_volume": {
+        "name": "语音音量"
+      },
+      "sleep_start_hour": {
+        "name": "休眠开始小时"
+      },
+      "sleep_start_minute": {
+        "name": "休眠开始分钟"
+      },
+      "sleep_duration_hour": {
+        "name": "休眠时长小时"
+      },
+      "sleep_duration_minute": {
+        "name": "休眠时长分钟"
+      },
+      "brightness": {
+        "name": "亮度"
+      },
+      "left_button_work_mode": {
+        "name": "左键工作模式"
+      },
+      "middle_button_work_mode": {
+        "name": "中键工作模式"
+      },
+      "right_button_work_mode": {
+        "name": "右键工作模式"
+      },
+      "watt": {
+        "name": "微波功率"
+      },
+      "weight": {
+        "name": "重量"
       }
     },
     "select": {
+      "curtain_status": {
+        "name": "窗帘",
+        "state": {
+          "open": "打开",
+          "close": "关闭",
+          "stop": "停止"
+        }
+      },
+      "curtain_direction": {
+        "name": "方向",
+        "state": {
+          "positive": "正向",
+          "reverse": "反向"
+        }
+      },
+      "aux_heat_mode": {
+        "name": "电辅热模式",
+        "state": {
+          "off": "关闭",
+          "aux_heat": "电辅热",
+          "aux_only": "纯电加热"
+        }
+      },
       "cur_quantify": {
         "name": "当前定量预设",
         "state": {
@@ -1090,14 +1205,26 @@
           "preset_5": "定量预设5"
         }
       },
-      "wash_mode_76000228": {
-        "name": "洗涤模式"
-      },
-      "program_76000228": {
-        "name": "程序"
-      },
       "program": {
-        "name": "程序"
+        "name": "程序",
+        "state": {
+          "neutral_gear": "无",
+          "auto_wash": "自动洗",
+          "strong_wash": "强力洗",
+          "standard_wash": "标准洗",
+          "universal_wash": "通用洗",
+          "eco_wash": "节能洗",
+          "glass_wash": "玻璃洗",
+          "hour_wash": "1 小时",
+          "fast_wash": "快速洗",
+          "soak_wash": "浸泡洗",
+          "90min": "90 分钟",
+          "self_clean": "自清洁",
+          "germ": "除菌",
+          "whisper_wash": "静音洗",
+          "kill_germ": "高温除菌",
+          "anion1": "离子除味"
+        }
       },
       "load": {
         "name": "负载",
@@ -1173,7 +1300,36 @@
           "bath": "洗浴",
           "blow": "吹风",
           "ventilation": "换气",
-          "dry": "干燥"
+          "dry": "干燥",
+          "keep_warm": "保温",
+          "stero_baking": "立体烘烤",
+          "whole_baking": "全烤",
+          "up_down_baking": "上下烘烤",
+          "unfreeze": "解冻",
+          "hot_air_convection": "热风对流",
+          "power_saving": "节能",
+          "center_baking": "中心烘烤",
+          "rotary_baking": "旋转烘烤",
+          "fermentation": "发酵",
+          "stoving": "烘干",
+          "down_baking": "下部烘烤",
+          "pizza": "披萨",
+          "up_infrared_fan": "上部红外风扇",
+          "microwave": "微波",
+          "fish": "鱼",
+          "meat": "肉",
+          "egg": "蛋",
+          "seafood": "海鲜",
+          "steam_clean": "蒸汽清洁",
+          "common": "通用",
+          "grain": "杂粮",
+          "rice": "米饭",
+          "zymosis": "发酵",
+          "heat": "加热",
+          "furring_clean": "除垢",
+          "disinfect": "消毒",
+          "vegetable": "蔬菜",
+          "chop": "剁碎食物"
         }
       },
       "oscillation_angle": {
@@ -1200,7 +1356,25 @@
         "name": "垂直摆头角度"
       },
       "wash_mode": {
-        "name": "洗涤模式"
+        "name": "洗涤模式",
+        "state": {
+          "neutral_gear": "无",
+          "auto_wash": "自动洗",
+          "strong_wash": "强力洗",
+          "standard_wash": "标准洗",
+          "universal_wash": "通用洗",
+          "eco_wash": "节能洗",
+          "glass_wash": "玻璃洗",
+          "hour_wash": "1 小时",
+          "fast_wash": "快速洗",
+          "soak_wash": "浸泡洗",
+          "90min": "90 分钟",
+          "self_clean": "自清洁",
+          "germ": "除菌",
+          "whisper_wash": "静音洗",
+          "kill_germ": "高温除菌",
+          "anion1": "离子除味"
+        }
       },
       "water_level_set": {
         "name": "水位设定"
@@ -1228,7 +1402,7 @@
         }
       },
       "work_status_select": {
-        "name": "工作状态",
+        "name": "设置工作状态",
         "state": {
           "save_power": "节能",
           "standby": "待机",
@@ -1244,7 +1418,12 @@
           "ramadan": "斋月",
           "after_checking": "检查后",
           "wait_to_start": "等待开始",
-          "ff": "未知"
+          "ff": "未知",
+          "cancel": "取消",
+          "end": "结束",
+          "appointment": "预约",
+          "reservation": "预约",
+          "none": "无"
         }
       },
       "x9b_fire_power_select": {
@@ -1439,6 +1618,14 @@
       },
       "washer_spin_time_control": {
         "name": "脱水时间（分钟）"
+      },
+      "updown": {
+        "name": "升降",
+        "state": {
+          "pause": "暂停",
+          "up": "上升",
+          "down": "下降"
+        }
       }
     },
     "time": {
@@ -1450,30 +1637,48 @@
       }
     },
     "sensor": {
-      "e9_response_type": {
+      "response_type": {
         "name": "响应",
         "state": {
           "response_normal": "正常",
           "response_error_e2": "错误 E2"
         }
       },
-      "e9_work_stage": {
-        "name": "工作阶段"
-      },
-      "e9_time_work_hr": {
+      "time_work_hr": {
         "name": "工作小时"
       },
-      "e9_time_work_min": {
+      "time_work_min": {
         "name": "工作分钟"
       },
-      "e9_time_warm_hr": {
+      "time_warm_hr": {
         "name": "保温小时"
       },
-      "e9_time_warm_min": {
+      "time_warm_min": {
         "name": "保温分钟"
       },
-      "e9_product_volume": {
+      "product_volume": {
         "name": "成品重量"
+      },
+      "time_running_hr": {
+        "name": "运行小时"
+      },
+      "time_running_min": {
+        "name": "运行分钟"
+      },
+      "time_surplus_hr": {
+        "name": "剩余小时"
+      },
+      "time_surplus_min": {
+        "name": "剩余分钟"
+      },
+      "work_stage": {
+        "name": "工作阶段"
+      },
+      "software_version": {
+        "name": "软件版本"
+      },
+      "evaporator_temperature": {
+        "name": "蒸发器温度"
       },
       "db_running_status": {
         "name": "洗衣机状态"
@@ -1560,10 +1765,25 @@
         "name": "烘干机耗电量"
       },
       "dishwasher_mode": {
-        "name": "模式"
-      },
-      "dishwasher_mode_76000228": {
-        "name": "模式"
+        "name": "模式",
+        "state": {
+          "neutral_gear": "无",
+          "auto_wash": "自动洗",
+          "strong_wash": "强力洗",
+          "standard_wash": "标准洗",
+          "universal_wash": "通用洗",
+          "eco_wash": "节能洗",
+          "glass_wash": "玻璃洗",
+          "hour_wash": "1 小时",
+          "fast_wash": "快速洗",
+          "soak_wash": "浸泡洗",
+          "90min": "90 分钟",
+          "self_clean": "自清洁",
+          "germ": "除菌",
+          "whisper_wash": "静音洗",
+          "kill_germ": "高温除菌",
+          "anion1": "离子除味"
+        }
       },
       "dishwasher_status": {
         "name": "状态"
@@ -3826,7 +4046,12 @@
           "ramadan": "斋月",
           "after_checking": "检查后",
           "wait_to_start": "等待开始",
-          "ff": "未知"
+          "ff": "未知",
+          "cancel": "取消",
+          "end": "结束",
+          "appointment": "预约",
+          "reservation": "预约",
+          "none": "无"
         }
       },
       "x9b_fire_power": {
@@ -3895,6 +4120,219 @@
       },
       "cbs_version": {
         "name": "CBS版本"
+      },
+      "panel_status": {
+        "name": "面板状态"
+      },
+      "target_humidity": {
+        "name": "目标湿度"
+      },
+      "cooling_capacity": {
+        "name": "制冷输出功率"
+      },
+      "cooling_cop_eer": {
+        "name": "制冷能效比（COP/EER）"
+      },
+      "cooling_cop_eer_this_month": {
+        "name": "本月制冷能效比（COP/EER）"
+      },
+      "cooling_cop_eer_this_week": {
+        "name": "本周制冷能效比（COP/EER）"
+      },
+      "cooling_cop_eer_this_year": {
+        "name": "本年制冷能效比（COP/EER）"
+      },
+      "cooling_cop_eer_today": {
+        "name": "今日制冷能效比（COP/EER）"
+      },
+      "cooling_energy_consumption_this_month": {
+        "name": "本月制冷用电量"
+      },
+      "cooling_energy_consumption_this_week": {
+        "name": "本周制冷用电量"
+      },
+      "cooling_energy_consumption_this_year": {
+        "name": "本年制冷用电量"
+      },
+      "cooling_energy_consumption_today": {
+        "name": "今日制冷用电量"
+      },
+      "cooling_power_consumption": {
+        "name": "制冷输入电功率"
+      },
+      "cooling_produced_energy_this_month": {
+        "name": "本月制冷量"
+      },
+      "cooling_produced_energy_this_week": {
+        "name": "本周制冷量"
+      },
+      "cooling_produced_energy_this_year": {
+        "name": "本年制冷量"
+      },
+      "cooling_produced_energy_today": {
+        "name": "今日制冷量"
+      },
+      "cooling_total_cop_eer": {
+        "name": "累计制冷能效比（COP/EER）"
+      },
+      "cooling_total_energy_consumption": {
+        "name": "累计制冷用电量"
+      },
+      "cooling_total_produced_energy": {
+        "name": "累计制冷量"
+      },
+      "dhw_capacity": {
+        "name": "生活热水制热功率"
+      },
+      "dhw_cop_eer": {
+        "name": "生活热水能效比（COP/EER）"
+      },
+      "dhw_cop_eer_this_month": {
+        "name": "本月生活热水能效比（COP/EER）"
+      },
+      "dhw_cop_eer_this_week": {
+        "name": "本周生活热水能效比（COP/EER）"
+      },
+      "dhw_cop_eer_this_year": {
+        "name": "本年生活热水能效比（COP/EER）"
+      },
+      "dhw_cop_eer_today": {
+        "name": "今日生活热水能效比（COP/EER）"
+      },
+      "dhw_energy_consumption_this_month": {
+        "name": "本月生活热水用电量"
+      },
+      "dhw_energy_consumption_this_week": {
+        "name": "本周生活热水用电量"
+      },
+      "dhw_energy_consumption_this_year": {
+        "name": "本年生活热水用电量"
+      },
+      "dhw_energy_consumption_today": {
+        "name": "今日生活热水用电量"
+      },
+      "dhw_power_consumption": {
+        "name": "生活热水输入电功率"
+      },
+      "dhw_produced_energy_this_month": {
+        "name": "本月生活热水制热量"
+      },
+      "dhw_produced_energy_this_week": {
+        "name": "本周生活热水制热量"
+      },
+      "dhw_produced_energy_this_year": {
+        "name": "本年生活热水制热量"
+      },
+      "dhw_produced_energy_today": {
+        "name": "今日生活热水制热量"
+      },
+      "dhw_total_cop_eer": {
+        "name": "累计生活热水能效比（COP/EER）"
+      },
+      "dhw_total_energy_consumption": {
+        "name": "累计生活热水用电量"
+      },
+      "dhw_total_produced_energy": {
+        "name": "累计生活热水制热量"
+      },
+      "heating_capacity": {
+        "name": "供暖制热功率"
+      },
+      "heating_cop_eer": {
+        "name": "供暖能效比（COP/EER）"
+      },
+      "heating_cop_eer_this_month": {
+        "name": "本月供暖能效比（COP/EER）"
+      },
+      "heating_cop_eer_this_week": {
+        "name": "本周供暖能效比（COP/EER）"
+      },
+      "heating_cop_eer_this_year": {
+        "name": "本年供暖能效比（COP/EER）"
+      },
+      "heating_cop_eer_today": {
+        "name": "今日供暖能效比（COP/EER）"
+      },
+      "heating_energy_consumption_this_month": {
+        "name": "本月供暖用电量"
+      },
+      "heating_energy_consumption_this_week": {
+        "name": "本周供暖用电量"
+      },
+      "heating_energy_consumption_this_year": {
+        "name": "本年供暖用电量"
+      },
+      "heating_energy_consumption_today": {
+        "name": "今日供暖用电量"
+      },
+      "heating_power_consumption": {
+        "name": "供暖输入电功率"
+      },
+      "heating_produced_energy_this_month": {
+        "name": "本月供暖制热量"
+      },
+      "heating_produced_energy_this_week": {
+        "name": "本周供暖制热量"
+      },
+      "heating_produced_energy_this_year": {
+        "name": "本年供暖制热量"
+      },
+      "heating_produced_energy_today": {
+        "name": "今日供暖制热量"
+      },
+      "heating_total_cop_eer": {
+        "name": "累计供暖能效比（COP/EER）"
+      },
+      "heating_total_energy_consumption": {
+        "name": "累计供暖用电量"
+      },
+      "heating_total_produced_energy": {
+        "name": "累计供暖制热量"
+      },
+      "instant_cop_eer": {
+        "name": "瞬时能效系数（COP/EER）"
+      },
+      "total_cop_eer": {
+        "name": "累计能效系数（COP/EER）"
+      },
+      "dryer": {
+        "name": "烘干等级"
+      },
+      "soak_count": {
+        "name": "浸泡次数"
+      },
+      "appointment_time": {
+        "name": "预约时间"
+      },
+      "db_last_cycle_water_consumption": {
+        "name": "上次用水量"
+      },
+      "power_consumption": {
+        "name": "上次耗电量"
+      },
+      "wash_count": {
+        "name": "洗涤次数"
+      },
+      "water_state": {
+        "name": "水箱",
+        "state": {
+          "full": "已满",
+          "empty": "缺水"
+        }
+      },
+      "box_state": {
+        "name": "蒸箱",
+        "state": {
+          "in": "已放入",
+          "out": "已取出"
+        }
+      },
+      "door_state": {
+        "name": "门",
+        "state": {
+          "open": "已打开",
+          "close": "已关闭"
+        }
       }
     },
     "switch": {
@@ -3963,6 +4401,9 @@
       },
       "dry": {
         "name": "干燥"
+      },
+      "wet_pad_dry": {
+        "name": "湿帘风干"
       },
       "cold_water_single": {
         "name": "单次零冷水"
@@ -4191,6 +4632,48 @@
       },
       "washer_forget_free": {
         "name": "忘取无忧"
+      },
+      "sterilize": {
+        "name": "杀菌"
+      },
+      "baking": {
+        "name": "烘烤"
+      },
+      "left_button": {
+        "name": "左键"
+      },
+      "middle_button": {
+        "name": "中键"
+      },
+      "right_button": {
+        "name": "右键"
+      },
+      "show_button_name": {
+        "name": "显示按键名称"
+      },
+      "close_screen_bright": {
+        "name": "关闭时降低亮度"
+      },
+      "sleep_mode_switch": {
+        "name": "睡眠模式开关"
+      },
+      "sleep_mode_mute": {
+        "name": "睡眠模式静音"
+      },
+      "left_button_keep": {
+        "name": "左键保持"
+      },
+      "middle_button_keep": {
+        "name": "中键保持"
+      },
+      "right_button_keep": {
+        "name": "右键保持"
+      },
+      "voice_control": {
+        "name": "语音控制"
+      },
+      "screen_state": {
+        "name": "屏幕"
       }
     },
     "water_heater": {

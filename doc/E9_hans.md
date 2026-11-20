@@ -22,27 +22,27 @@
 
 ### 扩展实体
 
-| 实体ID                                 | 类型   | 描述     |
-| -------------------------------------- | ------ | -------- |
-| number.{DEVICEID}\_e9_work_status      | number | 工作状态 |
-| number.{DEVICEID}\_e9_volume           | number | 面包重量 |
-| number.{DEVICEID}\_e9_color            | number | 烤色     |
-| number.{DEVICEID}\_e9_dosing           | number | 投料     |
-| number.{DEVICEID}\_e9_bake_temperature | number | 烘烤温度 |
-| number.{DEVICEID}\_e9_time_cuisine_hr  | number | 烹饪小时 |
-| number.{DEVICEID}\_e9_time_cuisine_min | number | 烹饪分钟 |
-| number.{DEVICEID}\_e9_time_reserve_hr  | number | 预约小时 |
-| number.{DEVICEID}\_e9_time_reserve_min | number | 预约分钟 |
-| number.{DEVICEID}\_e9_control_cmd_code | number | 命令码   |
-| sensor.{DEVICEID}\_e9_response_type    | sensor | 响应类型 |
-| sensor.{DEVICEID}\_e9_work_stage       | sensor | 工作阶段 |
-| sensor.{DEVICEID}\_bottom_temperature  | sensor | 底部温度 |
-| sensor.{DEVICEID}\_e9_time_work_hr     | sensor | 工作小时 |
-| sensor.{DEVICEID}\_e9_time_work_min    | sensor | 工作分钟 |
-| sensor.{DEVICEID}\_e9_time_warm_hr     | sensor | 保温小时 |
-| sensor.{DEVICEID}\_e9_time_warm_min    | sensor | 保温分钟 |
-| sensor.{DEVICEID}\_e9_product_volume   | sensor | 成品重量 |
-| sensor.{DEVICEID}\_error_code          | sensor | 错误代码 |
+| 实体ID                                | 类型   | 描述     |
+| ------------------------------------- | ------ | -------- |
+| number.{DEVICEID}\_work_status        | number | 工作状态 |
+| number.{DEVICEID}\_volume             | number | 面包重量 |
+| number.{DEVICEID}\_color              | number | 烤色     |
+| number.{DEVICEID}\_dosing             | number | 投料     |
+| number.{DEVICEID}\_bake_temperature   | number | 烘烤温度 |
+| number.{DEVICEID}\_time_cuisine_hr    | number | 烹饪小时 |
+| number.{DEVICEID}\_time_cuisine_min   | number | 烹饪分钟 |
+| number.{DEVICEID}\_time_reserve_hr    | number | 预约小时 |
+| number.{DEVICEID}\_time_reserve_min   | number | 预约分钟 |
+| number.{DEVICEID}\_control_cmd_code   | number | 命令码   |
+| sensor.{DEVICEID}\_response_type      | sensor | 响应类型 |
+| sensor.{DEVICEID}\_work_stage         | sensor | 工作阶段 |
+| sensor.{DEVICEID}\_bottom_temperature | sensor | 底部温度 |
+| sensor.{DEVICEID}\_time_work_hr       | sensor | 工作小时 |
+| sensor.{DEVICEID}\_time_work_min      | sensor | 工作分钟 |
+| sensor.{DEVICEID}\_time_warm_hr       | sensor | 保温小时 |
+| sensor.{DEVICEID}\_time_warm_min      | sensor | 保温分钟 |
+| sensor.{DEVICEID}\_product_volume     | sensor | 成品重量 |
+| sensor.{DEVICEID}\_error_code         | sensor | 错误代码 |
 
 ## 服务
 

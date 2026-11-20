@@ -884,6 +884,33 @@
       },
       "laundry_appointment": {
         "name": "Rezervare"
+      },
+      "has_token": {
+        "name": "Are token"
+      },
+      "humidify": {
+        "name": "Umidificare"
+      },
+      "speedy": {
+        "name": "Spălare rapidă"
+      },
+      "lock": {
+        "name": "Blocare pentru copii"
+      },
+      "beforehand_wash": {
+        "name": "Prespălare"
+      },
+      "steam_wash": {
+        "name": "Spălare cu abur"
+      },
+      "add_rinse": {
+        "name": "Clătire suplimentară"
+      },
+      "wind_dispel": {
+        "name": "Aer proaspăt"
+      },
+      "remote_control_flag": {
+        "name": "Control de la distanță"
       }
     },
     "button": {
@@ -925,6 +952,9 @@
       }
     },
     "fan": {
+      "fan": {
+        "name": "Ventilator"
+      },
       "bgf10000": {
         "state_attributes": {
           "preset_mode": {
@@ -948,12 +978,27 @@
         "name": "Evacuare aer proaspăt"
       }
     },
+    "light": {
+      "light": {
+        "name": "Iluminare"
+      }
+    },
     "lock": {
       "child_lock": {
         "name": "Blocare pentru copii"
       }
     },
     "number": {
+      "work_status": { "name": "Starea de funcționare" },
+      "function_no": { "name": "Numărul funcției" },
+      "fire_level": { "name": "Nivel de încălzire" },
+      "time_reserve_hr": { "name": "Ore de rezervare" },
+      "time_reserve_min": { "name": "Minute de rezervare" },
+      "definite_time_hr": { "name": "Ore ale temporizatorului" },
+      "definite_time_min": { "name": "Minute ale temporizatorului" },
+      "curtain_position": {
+        "name": "Poziție"
+      },
       "delay_minutes": {
         "name": "Întârziere"
       },
@@ -1046,9 +1091,95 @@
       },
       "dryer_timed_extra": {
         "name": "Prelungire uscare temporizată"
+      },
+      "e9_volume": {
+        "name": "Dimensiunea pâinii"
+      },
+      "color": {
+        "name": "Culoarea crustei"
+      },
+      "dosing": {
+        "name": "Dozarea ingredientelor"
+      },
+      "bake_temperature": {
+        "name": "Temperatura de coacere"
+      },
+      "time_cuisine_hr": {
+        "name": "Durata coacerii (ore)"
+      },
+      "time_cuisine_min": {
+        "name": "Durata coacerii (minute)"
+      },
+      "control_cmd_code": {
+        "name": "Cod comandă"
+      },
+      "auto_off_screen_type": {
+        "name": "Tip oprire automată a ecranului"
+      },
+      "theme": {
+        "name": "Temă"
+      },
+      "night_volume": {
+        "name": "Volum nocturn"
+      },
+      "voice_volume": {
+        "name": "Volum voce"
+      },
+      "sleep_start_hour": {
+        "name": "Ora de începere a somnului"
+      },
+      "sleep_start_minute": {
+        "name": "Minutul de începere a somnului"
+      },
+      "sleep_duration_hour": {
+        "name": "Durata somnului (ore)"
+      },
+      "sleep_duration_minute": {
+        "name": "Durata somnului (minute)"
+      },
+      "brightness": {
+        "name": "Luminozitate"
+      },
+      "left_button_work_mode": {
+        "name": "Mod de funcționare buton stânga"
+      },
+      "middle_button_work_mode": {
+        "name": "Mod de funcționare buton central"
+      },
+      "right_button_work_mode": {
+        "name": "Mod de funcționare buton dreapta"
+      },
+      "watt": {
+        "name": "Putere microunde"
+      },
+      "weight": {
+        "name": "Greutate"
       }
     },
     "select": {
+      "curtain_status": {
+        "name": "Perdea",
+        "state": {
+          "open": "Deschis",
+          "close": "Închis",
+          "stop": "Oprire"
+        }
+      },
+      "curtain_direction": {
+        "name": "Direcție",
+        "state": {
+          "positive": "Pozitivă",
+          "reverse": "Inversă"
+        }
+      },
+      "aux_heat_mode": {
+        "name": "Mod încălzire auxiliară",
+        "state": {
+          "off": "Oprit",
+          "aux_heat": "Încălzire auxiliară",
+          "aux_only": "Doar încălzire auxiliară"
+        }
+      },
       "cur_quantify": {
         "name": "Cantitate presetată curentă",
         "state": {
@@ -1060,75 +1191,13 @@
           "preset_5": "Presetarea 5"
         }
       },
-      "wash_mode_76000228": {
-        "name": "Mod spălare",
-        "state": {
-          "neutral_gear": "Niciunul",
-          "auto_wash": "Automat",
-          "strong_wash": "Intensiv",
-          "standard_wash": "Universal",
-          "eco_wash": "ECO",
-          "glass_wash": "Sticlă",
-          "hour_wash": "90 min",
-          "fast_wash": "Rapid",
-          "soak_wash": "Înmuiere",
-          "90min": "90 min",
-          "self_clean": "Autocurățare",
-          "fruit_wash": "Fructe",
-          "self_define": "Personalizat",
-          "germ": "Șoaptă",
-          "bowl_wash": "Boluri",
-          "kill_germ": "Igienă",
-          "sea_food_wash": "Autocurățare",
-          "hot_pot_wash": "Fondue",
-          "quiet_night_wash": "Noapte liniștită",
-          "less_wash": "Ușor",
-          "max_rapid_wash": "Rapid maxim",
-          "oil_net_wash": "Filtru de ulei",
-          "cloud_wash": "Program din cloud",
-          "single_dry": "Doar uscare",
-          "single_disinfect": "Doar dezinfectare",
-          "high_temp_wash": "Temperatură ridicată",
-          "wash_dry": "Spălare și uscare"
-        }
-      },
-      "program_76000228": {
-        "name": "Program",
-        "state": {
-          "auto_wash": "Automat",
-          "strong_wash": "Intensiv",
-          "standard_wash": "Universal",
-          "eco_wash": "ECO",
-          "glass_wash": "Sticlă",
-          "hour_wash": "90 min",
-          "fast_wash": "Rapid",
-          "soak_wash": "Înmuiere",
-          "90min": "90 min",
-          "self_clean": "Autocurățare",
-          "fruit_wash": "Fructe",
-          "self_define": "Personalizat",
-          "germ": "Șoaptă",
-          "bowl_wash": "Boluri",
-          "kill_germ": "Igienă",
-          "sea_food_wash": "Autocurățare",
-          "hot_pot_wash": "Fondue",
-          "quiet_night_wash": "Noapte liniștită",
-          "less_wash": "Ușor",
-          "max_rapid_wash": "Rapid maxim",
-          "oil_net_wash": "Filtru de ulei",
-          "cloud_wash": "Program din cloud",
-          "single_dry": "Doar uscare",
-          "single_disinfect": "Doar dezinfectare",
-          "high_temp_wash": "Temperatură ridicată",
-          "wash_dry": "Spălare și uscare"
-        }
-      },
       "program": {
         "name": "Program",
         "state": {
           "auto_wash": "Automat",
           "strong_wash": "Intensiv",
           "standard_wash": "Standard",
+          "universal_wash": "Universal",
           "eco_wash": "ECO",
           "glass_wash": "Sticlă",
           "hour_wash": "1 oră",
@@ -1139,6 +1208,7 @@
           "fruit_wash": "Fructe",
           "self_define": "Personalizat",
           "germ": "Germeni",
+          "whisper_wash": "Silențios",
           "bowl_wash": "Boluri",
           "kill_germ": "Igienă",
           "sea_food_wash": "Fructe de mare",
@@ -1151,7 +1221,8 @@
           "single_dry": "Doar uscare",
           "single_disinfect": "Doar dezinfectare",
           "high_temp_wash": "Temperatură ridicată",
-          "wash_dry": "Spălare și uscare"
+          "wash_dry": "Spălare și uscare",
+          "anion1": "Prospețime ionică"
         }
       },
       "load": {
@@ -1228,7 +1299,36 @@
           "bath": "Baie",
           "blow": "Suflare",
           "ventilation": "Ventilare",
-          "dry": "Uscat"
+          "dry": "Uscat",
+          "keep_warm": "Menținere la cald",
+          "stero_baking": "Coacere tridimensională",
+          "whole_baking": "Coacere completă",
+          "up_down_baking": "Coacere sus/jos",
+          "unfreeze": "Dezghețare",
+          "hot_air_convection": "Convecție cu aer cald",
+          "power_saving": "Economie de energie",
+          "center_baking": "Coacere centrală",
+          "rotary_baking": "Coacere rotativă",
+          "fermentation": "Fermentare",
+          "stoving": "Uscare",
+          "down_baking": "Coacere inferioară",
+          "pizza": "Pizza",
+          "up_infrared_fan": "Ventilator infraroșu superior",
+          "microwave": "Microunde",
+          "fish": "Pește",
+          "meat": "Carne",
+          "egg": "Ou",
+          "seafood": "Fructe de mare",
+          "steam_clean": "Curățare cu abur",
+          "common": "General",
+          "grain": "Cereale",
+          "rice": "Orez",
+          "zymosis": "Fermentare",
+          "heat": "Reîncălzire",
+          "furring_clean": "Detartrare",
+          "disinfect": "Dezinfectare",
+          "vegetable": "Legume",
+          "chop": "Alimente tocate"
         }
       },
       "oscillation_angle": {
@@ -1261,6 +1361,7 @@
           "auto_wash": "Automat",
           "strong_wash": "Intensiv",
           "standard_wash": "Standard",
+          "universal_wash": "Universal",
           "eco_wash": "ECO",
           "glass_wash": "Sticlă",
           "hour_wash": "1 oră",
@@ -1271,6 +1372,7 @@
           "fruit_wash": "Fructe",
           "self_define": "Personalizat",
           "germ": "Germeni",
+          "whisper_wash": "Silențios",
           "bowl_wash": "Boluri",
           "kill_germ": "Igienă",
           "sea_food_wash": "Fructe de mare",
@@ -1283,7 +1385,8 @@
           "single_dry": "Doar uscare",
           "single_disinfect": "Doar dezinfectare",
           "high_temp_wash": "Temperatură ridicată",
-          "wash_dry": "Spălare și uscare"
+          "wash_dry": "Spălare și uscare",
+          "anion1": "Prospețime ionică"
         }
       },
       "water_level_set": {
@@ -1312,7 +1415,7 @@
         }
       },
       "work_status_select": {
-        "name": "Stare funcționare",
+        "name": "Setare stare de lucru",
         "state": {
           "save_power": "Economisire energie",
           "standby": "În așteptare",
@@ -1328,7 +1431,12 @@
           "ramadan": "Ramadan",
           "after_checking": "După verificare",
           "wait_to_start": "În așteptarea pornirii",
-          "ff": "Necunoscut"
+          "ff": "Necunoscut",
+          "cancel": "Anulat",
+          "end": "Încheiat",
+          "appointment": "Pornire programată",
+          "reservation": "Rezervare",
+          "none": "Niciunul"
         }
       },
       "x9b_fire_power_select": {
@@ -1523,6 +1631,14 @@
       },
       "washer_spin_time_control": {
         "name": "Timp centrifugare (min)"
+      },
+      "updown": {
+        "name": "Ridicare/Coborâre",
+        "state": {
+          "pause": "Pauză",
+          "up": "Sus",
+          "down": "Jos"
+        }
       }
     },
     "time": {
@@ -1534,6 +1650,39 @@
       }
     },
     "sensor": {
+      "response_type": {
+        "name": "Răspuns",
+        "state": {
+          "response_normal": "Răspuns normal",
+          "response_error_e2": "Eroare E2"
+        }
+      },
+      "time_work_hr": {
+        "name": "Durata funcționării (ore)"
+      },
+      "time_work_min": {
+        "name": "Durata funcționării (minute)"
+      },
+      "time_warm_hr": {
+        "name": "Durata menținerii la cald (ore)"
+      },
+      "time_warm_min": {
+        "name": "Durata menținerii la cald (minute)"
+      },
+      "product_volume": {
+        "name": "Dimensiunea produsului"
+      },
+      "time_running_hr": { "name": "Ore de funcționare" },
+      "time_running_min": { "name": "Minute de funcționare" },
+      "time_surplus_hr": { "name": "Ore rămase" },
+      "time_surplus_min": { "name": "Minute rămase" },
+      "work_stage": { "name": "Etapa de funcționare" },
+      "software_version": {
+        "name": "Versiune software"
+      },
+      "evaporator_temperature": {
+        "name": "Temperatura vaporizatorului"
+      },
       "db_running_status": {
         "name": "Stare mașină de spălat"
       },
@@ -1625,6 +1774,7 @@
           "auto_wash": "Automat",
           "strong_wash": "Intensiv",
           "standard_wash": "Standard",
+          "universal_wash": "Universal",
           "eco_wash": "ECO",
           "glass_wash": "Sticlă",
           "hour_wash": "1 oră",
@@ -1635,6 +1785,7 @@
           "fruit_wash": "Fructe",
           "self_define": "Personalizat",
           "germ": "Germeni",
+          "whisper_wash": "Silențios",
           "bowl_wash": "Boluri",
           "kill_germ": "Igienă",
           "sea_food_wash": "Fructe de mare",
@@ -1647,39 +1798,8 @@
           "single_dry": "Doar uscare",
           "single_disinfect": "Doar dezinfectare",
           "high_temp_wash": "Temperatură ridicată",
-          "wash_dry": "Spălare și uscare"
-        }
-      },
-      "dishwasher_mode_76000228": {
-        "name": "Mod",
-        "state": {
-          "neutral_gear": "Niciunul",
-          "auto_wash": "Automat",
-          "strong_wash": "Intensiv",
-          "standard_wash": "Universal",
-          "eco_wash": "ECO",
-          "glass_wash": "Sticlă",
-          "hour_wash": "90 min",
-          "fast_wash": "Rapid",
-          "soak_wash": "Înmuiere",
-          "90min": "90 min",
-          "self_clean": "Autocurățare",
-          "fruit_wash": "Fructe",
-          "self_define": "Personalizat",
-          "germ": "Șoaptă",
-          "bowl_wash": "Boluri",
-          "kill_germ": "Igienă",
-          "sea_food_wash": "Autocurățare",
-          "hot_pot_wash": "Fondue",
-          "quiet_night_wash": "Noapte liniștită",
-          "less_wash": "Ușor",
-          "max_rapid_wash": "Rapid maxim",
-          "oil_net_wash": "Filtru de ulei",
-          "cloud_wash": "Program din cloud",
-          "single_dry": "Doar uscare",
-          "single_disinfect": "Doar dezinfectare",
-          "high_temp_wash": "Temperatură ridicată",
-          "wash_dry": "Spălare și uscare"
+          "wash_dry": "Spălare și uscare",
+          "anion1": "Prospețime ionică"
         }
       },
       "dishwasher_status": {
@@ -2026,6 +2146,9 @@
       },
       "indoor_humidity": {
         "name": "Umiditate interioară"
+      },
+      "target_humidity": {
+        "name": "Umiditate țintă"
       },
       "indoor_temperature": {
         "name": "Temperatură interioară"
@@ -3962,7 +4085,12 @@
           "ramadan": "Ramadan",
           "after_checking": "După verificare",
           "wait_to_start": "În așteptarea pornirii",
-          "ff": "Necunoscut"
+          "ff": "Necunoscut",
+          "cancel": "Anulat",
+          "end": "Încheiat",
+          "appointment": "Pornire programată",
+          "reservation": "Rezervare",
+          "none": "Niciunul"
         }
       },
       "x9b_fire_power": {
@@ -4031,6 +4159,216 @@
       },
       "cbs_version": {
         "name": "Versiune CBS"
+      },
+      "panel_status": {
+        "name": "Stare panou"
+      },
+      "cooling_capacity": {
+        "name": "Putere frigorifică"
+      },
+      "cooling_cop_eer": {
+        "name": "Răcire COP/EER"
+      },
+      "cooling_cop_eer_this_month": {
+        "name": "Răcire COP/EER luna aceasta"
+      },
+      "cooling_cop_eer_this_week": {
+        "name": "Răcire COP/EER săptămâna aceasta"
+      },
+      "cooling_cop_eer_this_year": {
+        "name": "Răcire COP/EER anul acesta"
+      },
+      "cooling_cop_eer_today": {
+        "name": "Răcire COP/EER astăzi"
+      },
+      "cooling_energy_consumption_this_month": {
+        "name": "Consum electric răcire luna aceasta"
+      },
+      "cooling_energy_consumption_this_week": {
+        "name": "Consum electric răcire săptămâna aceasta"
+      },
+      "cooling_energy_consumption_this_year": {
+        "name": "Consum electric răcire anul acesta"
+      },
+      "cooling_energy_consumption_today": {
+        "name": "Consum electric răcire astăzi"
+      },
+      "cooling_power_consumption": {
+        "name": "Putere electrică răcire"
+      },
+      "cooling_produced_energy_this_month": {
+        "name": "Energie frigorifică produsă luna aceasta"
+      },
+      "cooling_produced_energy_this_week": {
+        "name": "Energie frigorifică produsă săptămâna aceasta"
+      },
+      "cooling_produced_energy_this_year": {
+        "name": "Energie frigorifică produsă anul acesta"
+      },
+      "cooling_produced_energy_today": {
+        "name": "Energie frigorifică produsă astăzi"
+      },
+      "cooling_total_cop_eer": {
+        "name": "Răcire COP/EER total"
+      },
+      "cooling_total_energy_consumption": {
+        "name": "Consum electric răcire total"
+      },
+      "cooling_total_produced_energy": {
+        "name": "Energie frigorifică produsă total"
+      },
+      "dhw_capacity": {
+        "name": "Putere termică ACM"
+      },
+      "dhw_cop_eer": {
+        "name": "ACM COP/EER"
+      },
+      "dhw_cop_eer_this_month": {
+        "name": "ACM COP/EER luna aceasta"
+      },
+      "dhw_cop_eer_this_week": {
+        "name": "ACM COP/EER săptămâna aceasta"
+      },
+      "dhw_cop_eer_this_year": {
+        "name": "ACM COP/EER anul acesta"
+      },
+      "dhw_cop_eer_today": {
+        "name": "ACM COP/EER astăzi"
+      },
+      "dhw_energy_consumption_this_month": {
+        "name": "Consum electric ACM luna aceasta"
+      },
+      "dhw_energy_consumption_this_week": {
+        "name": "Consum electric ACM săptămâna aceasta"
+      },
+      "dhw_energy_consumption_this_year": {
+        "name": "Consum electric ACM anul acesta"
+      },
+      "dhw_energy_consumption_today": {
+        "name": "Consum electric ACM astăzi"
+      },
+      "dhw_power_consumption": {
+        "name": "Putere electrică ACM"
+      },
+      "dhw_produced_energy_this_month": {
+        "name": "Energie termică ACM produsă luna aceasta"
+      },
+      "dhw_produced_energy_this_week": {
+        "name": "Energie termică ACM produsă săptămâna aceasta"
+      },
+      "dhw_produced_energy_this_year": {
+        "name": "Energie termică ACM produsă anul acesta"
+      },
+      "dhw_produced_energy_today": {
+        "name": "Energie termică ACM produsă astăzi"
+      },
+      "dhw_total_cop_eer": {
+        "name": "ACM COP/EER total"
+      },
+      "dhw_total_energy_consumption": {
+        "name": "Consum electric ACM total"
+      },
+      "dhw_total_produced_energy": {
+        "name": "Energie termică ACM produsă total"
+      },
+      "heating_capacity": {
+        "name": "Putere termică încălzire"
+      },
+      "heating_cop_eer": {
+        "name": "Încălzire COP/EER"
+      },
+      "heating_cop_eer_this_month": {
+        "name": "Încălzire COP/EER luna aceasta"
+      },
+      "heating_cop_eer_this_week": {
+        "name": "Încălzire COP/EER săptămâna aceasta"
+      },
+      "heating_cop_eer_this_year": {
+        "name": "Încălzire COP/EER anul acesta"
+      },
+      "heating_cop_eer_today": {
+        "name": "Încălzire COP/EER astăzi"
+      },
+      "heating_energy_consumption_this_month": {
+        "name": "Consum electric încălzire luna aceasta"
+      },
+      "heating_energy_consumption_this_week": {
+        "name": "Consum electric încălzire săptămâna aceasta"
+      },
+      "heating_energy_consumption_this_year": {
+        "name": "Consum electric încălzire anul acesta"
+      },
+      "heating_energy_consumption_today": {
+        "name": "Consum electric încălzire astăzi"
+      },
+      "heating_power_consumption": {
+        "name": "Putere electrică încălzire"
+      },
+      "heating_produced_energy_this_month": {
+        "name": "Energie termică încălzire produsă luna aceasta"
+      },
+      "heating_produced_energy_this_week": {
+        "name": "Energie termică încălzire produsă săptămâna aceasta"
+      },
+      "heating_produced_energy_this_year": {
+        "name": "Energie termică încălzire produsă anul acesta"
+      },
+      "heating_produced_energy_today": {
+        "name": "Energie termică încălzire produsă astăzi"
+      },
+      "heating_total_cop_eer": {
+        "name": "Încălzire COP/EER total"
+      },
+      "heating_total_energy_consumption": {
+        "name": "Consum electric încălzire total"
+      },
+      "heating_total_produced_energy": {
+        "name": "Energie termică încălzire produsă total"
+      },
+      "instant_cop_eer": {
+        "name": "COP/EER instantaneu"
+      },
+      "total_cop_eer": {
+        "name": "COP/EER total"
+      },
+      "dryer": {
+        "name": "Grad de uscare"
+      },
+      "soak_count": {
+        "name": "Număr de înmuieri"
+      },
+      "appointment_time": {
+        "name": "Timp de pornire întârziată"
+      },
+      "db_last_cycle_water_consumption": {
+        "name": "Consum de apă al ultimului ciclu"
+      },
+      "power_consumption": {
+        "name": "Consum de energie al ultimului ciclu"
+      },
+      "wash_count": {
+        "name": "Număr de spălări"
+      },
+      "water_state": {
+        "name": "Rezervor de apă",
+        "state": {
+          "full": "Plin",
+          "empty": "Gol"
+        }
+      },
+      "box_state": {
+        "name": "Cuptor cu abur",
+        "state": {
+          "in": "Introdus",
+          "out": "Scos"
+        }
+      },
+      "door_state": {
+        "name": "Ușă",
+        "state": {
+          "open": "Deschisă",
+          "close": "Închisă"
+        }
       }
     },
     "switch": {
@@ -4110,7 +4448,10 @@
         "name": "Mod vacanță"
       },
       "dry": {
-        "name": "Uscat"
+        "name": "Uscare"
+      },
+      "wet_pad_dry": {
+        "name": "Uscarea filtrului de umidificare"
       },
       "cold_water_single": {
         "name": "Apă rece unică"
@@ -4143,7 +4484,7 @@
         "name": "Protecție scurgere apă"
       },
       "light": {
-        "name": "Ușor"
+        "name": "Lumină"
       },
       "link_to_ac": {
         "name": "Conectare la AC"
@@ -4327,6 +4668,48 @@
       },
       "washer_forget_free": {
         "name": "Îngrijire fără griji"
+      },
+      "sterilize": {
+        "name": "Sterilizare"
+      },
+      "baking": {
+        "name": "Încălzire"
+      },
+      "left_button": {
+        "name": "Buton stânga"
+      },
+      "middle_button": {
+        "name": "Buton central"
+      },
+      "right_button": {
+        "name": "Buton dreapta"
+      },
+      "show_button_name": {
+        "name": "Afișează numele butonului"
+      },
+      "close_screen_bright": {
+        "name": "Estompează ecranul la închidere"
+      },
+      "sleep_mode_switch": {
+        "name": "Comutator mod somn"
+      },
+      "sleep_mode_mute": {
+        "name": "Dezactivare sunet în modul somn"
+      },
+      "left_button_keep": {
+        "name": "Menține butonul stânga"
+      },
+      "middle_button_keep": {
+        "name": "Menține butonul central"
+      },
+      "right_button_keep": {
+        "name": "Menține butonul dreapta"
+      },
+      "voice_control": {
+        "name": "Control vocal"
+      },
+      "screen_state": {
+        "name": "Ecran"
       }
     },
     "water_heater": {

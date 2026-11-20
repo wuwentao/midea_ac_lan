@@ -50,7 +50,10 @@ class MideaNumber(MideaEntity, NumberEntity):
     def __init__(self, device: MideaDevice, entity_key: str) -> None:
         """Midea number sensor init."""
         super().__init__(device, entity_key)
-        self._max_value = self._config.get("max")
+        self._max_value = self._config.get("max_by_subtype", {}).get(
+            device.subtype,
+            self._config.get("max"),
+        )
         self._min_value = self._config.get("min")
         self._step_value = self._config.get("step")
         self._attr_device_class: NumberDeviceClass | None = self._config.get(

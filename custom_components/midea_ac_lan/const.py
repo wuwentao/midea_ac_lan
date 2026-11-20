@@ -55,6 +55,9 @@ def supports_model(model: object, config: dict[str, Any]) -> bool:
     True if the entity is available for the device model.
 
     """
+    excluded_models = config.get("excluded_models")
+    if excluded_models and str(model) in cast("list[str]", excluded_models):
+        return False
     models = config.get("models")
     return not models or str(model) in cast("list[str]", models)
 
