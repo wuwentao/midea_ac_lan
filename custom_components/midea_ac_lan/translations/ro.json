@@ -1192,6 +1192,15 @@
       },
       "work_mode": {
         "name": "Mod de lucru"
+      },
+      "time_warm_hr": {
+        "name": "Durata menținerii la cald (ore)"
+      },
+      "time_warm_min": {
+        "name": "Durata menținerii la cald (minute)"
+      },
+      "cmd_id": {
+        "name": "ID comandă"
       }
     },
     "select": {
@@ -1677,6 +1686,13 @@
           "up": "Sus",
           "down": "Jos"
         }
+      },
+      "drink_style": {
+        "name": "Tip băutură",
+        "state": {
+          "hot_drink": "Băutură fierbinte",
+          "warm_drink": "Băutură caldă"
+        }
       }
     },
     "time": {
@@ -1692,7 +1708,8 @@
         "name": "Răspuns",
         "state": {
           "response_normal": "Răspuns normal",
-          "response_error_e2": "Eroare E2"
+          "response_error_e2": "Eroare E2",
+          "response_error": "Eroare"
         }
       },
       "time_work_hr": {
@@ -4522,6 +4539,12 @@
           "no": "Prezent",
           "missing": "Lipsește"
         }
+      },
+      "process_status": {
+        "name": "Starea procesului"
+      },
+      "time_max": {
+        "name": "Timp maxim"
       }
     },
     "switch": {
@@ -4863,6 +4886,9 @@
       },
       "screen_state": {
         "name": "Ecran"
+      },
+      "reserve": {
+        "name": "Rezervare"
       }
     },
     "water_heater": {

@@ -81,6 +81,7 @@ from midealan.devices.ea import DeviceAttributes as EAAttributes
 from midealan.devices.eb import DeviceAttributes as EBAttributes
 from midealan.devices.ec import DeviceAttributes as ECAttributes
 from midealan.devices.ed import DeviceAttributes as EDAttributes
+from midealan.devices.ef import DeviceAttributes as EFAttributes
 from midealan.devices.f1 import DeviceAttributes as F1Attributes
 from midealan.devices.f1 import message as f1_message
 from midealan.devices.fa import DeviceAttributes as FAAttributes
@@ -10992,6 +10993,127 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 },
                 "excluded_devices": ED_TEA_BAR_DEVICES,
                 "excluded_subtypes": ED_SOFT_WATER_SUBTYPES,
+            },
+        },
+    },
+    0xEF: {
+        "name": "Beverage Maker",
+        "entities": {
+            EFAttributes.reserve: {
+                "type": Platform.SWITCH,
+                "translation_key": "reserve",
+                "name": "Reservation",
+                "icon": "mdi:calendar-clock",
+            },
+            EFAttributes.warm: {
+                "type": Platform.SWITCH,
+                "translation_key": "keep_warm",
+                "name": "Keep Warm",
+                "icon": "mdi:kettle-steam",
+            },
+            EFAttributes.drink_style: {
+                "type": Platform.SELECT,
+                "translation_key": "drink_style",
+                "name": "Drink Style",
+                "options": ["hot_drink", "warm_drink"],
+                "icon": "mdi:coffee",
+            },
+            EFAttributes.temperature_setting: {
+                "type": Platform.NUMBER,
+                "translation_key": "temperature_number",
+                "name": "Set Temperature",
+                "device_class": NumberDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "min": 0,
+                "max": 98,
+                "step": 1,
+                "icon": "mdi:thermometer",
+            },
+            EFAttributes.cmd_code: {
+                "type": Platform.NUMBER,
+                "translation_key": "control_cmd_code",
+                "name": "Command Code",
+                "min": 0,
+                "max": 65535,
+                "step": 1,
+                "icon": "mdi:numeric",
+            },
+            EFAttributes.cmd_id: {
+                "type": Platform.NUMBER,
+                "translation_key": "cmd_id",
+                "name": "Command ID",
+                "min": 0,
+                "max": 255,
+                "step": 1,
+                "icon": "mdi:numeric",
+            },
+            EFAttributes.response_type: {
+                "type": Platform.SENSOR,
+                "translation_key": "response_type",
+                "name": "Response",
+                "icon": "mdi:message-reply",
+                "device_class": SensorDeviceClass.ENUM,
+                "options": {
+                    "response_normal": "response_normal",
+                    "response_error": "response_error",
+                },
+            },
+            EFAttributes.work_status: {
+                "type": Platform.SENSOR,
+                "translation_key": "work_status",
+                "name": "Work Status",
+                "icon": "mdi:information",
+            },
+            EFAttributes.work_step: {
+                "type": Platform.SENSOR,
+                "translation_key": "step_status",
+                "name": "Work Step",
+                "icon": "mdi:format-list-numbered",
+            },
+            EFAttributes.process_status: {
+                "type": Platform.SENSOR,
+                "translation_key": "process_status",
+                "name": "Process Status",
+                "icon": "mdi:progress-clock",
+            },
+            EFAttributes.time_work_hr: {
+                "type": Platform.SENSOR,
+                "translation_key": "time_work_hr",
+                "name": "Work Hours",
+                "icon": "mdi:timer",
+                "device_class": SensorDeviceClass.DURATION,
+                "unit": UnitOfTime.HOURS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            EFAttributes.time_work_min: {
+                "type": Platform.SENSOR,
+                "translation_key": "time_work_min",
+                "name": "Work Minutes",
+                "icon": "mdi:timer",
+                "device_class": SensorDeviceClass.DURATION,
+                "unit": UnitOfTime.MINUTES,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            EFAttributes.time_max: {
+                "type": Platform.SENSOR,
+                "translation_key": "time_max",
+                "name": "Max Time",
+                "icon": "mdi:timer",
+            },
+            EFAttributes.temperature_current: {
+                "type": Platform.SENSOR,
+                "translation_key": "current_temperature",
+                "name": "Current Temperature",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            EFAttributes.error_code: {
+                "type": Platform.SENSOR,
+                "translation_key": "error_code",
+                "name": "Error Code",
+                "icon": "mdi:alert-circle",
+                "entity_category": EntityCategory.DIAGNOSTIC,
             },
         },
     },

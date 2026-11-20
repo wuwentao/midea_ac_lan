@@ -1192,6 +1192,15 @@
       },
       "work_mode": {
         "name": "Режим на работа"
+      },
+      "time_warm_hr": {
+        "name": "Часове за поддържане на топлина"
+      },
+      "time_warm_min": {
+        "name": "Минути за поддържане на топлина"
+      },
+      "cmd_id": {
+        "name": "Идентификатор на командата"
       }
     },
     "select": {
@@ -1677,6 +1686,13 @@
           "up": "Нагоре",
           "down": "Надолу"
         }
+      },
+      "drink_style": {
+        "name": "Стил на напитката",
+        "state": {
+          "hot_drink": "Гореща напитка",
+          "warm_drink": "Топла напитка"
+        }
       }
     },
     "time": {
@@ -1692,7 +1708,8 @@
         "name": "Отговор",
         "state": {
           "response_normal": "Нормален отговор",
-          "response_error_e2": "Грешка E2"
+          "response_error_e2": "Грешка E2",
+          "response_error": "Грешка"
         }
       },
       "time_work_hr": {
@@ -4522,6 +4539,12 @@
           "no": "Налична",
           "missing": "Липсва"
         }
+      },
+      "process_status": {
+        "name": "Състояние на процеса"
+      },
+      "time_max": {
+        "name": "Максимално време"
       }
     },
     "switch": {
@@ -4863,6 +4886,9 @@
       },
       "screen_state": {
         "name": "Екран"
+      },
+      "reserve": {
+        "name": "Резервация"
       }
     },
     "water_heater": {

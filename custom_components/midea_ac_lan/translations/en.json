@@ -1192,6 +1192,15 @@
       },
       "work_mode": {
         "name": "Work Mode"
+      },
+      "time_warm_hr": {
+        "name": "Keep Warm Hours"
+      },
+      "time_warm_min": {
+        "name": "Keep Warm Minutes"
+      },
+      "cmd_id": {
+        "name": "Command ID"
       }
     },
     "select": {
@@ -1677,6 +1686,13 @@
           "up": "Up",
           "down": "Down"
         }
+      },
+      "drink_style": {
+        "name": "Drink Style",
+        "state": {
+          "hot_drink": "Hot Drink",
+          "warm_drink": "Warm Drink"
+        }
       }
     },
     "time": {
@@ -1692,7 +1708,8 @@
         "name": "Response",
         "state": {
           "response_normal": "Normal",
-          "response_error_e2": "Error E2"
+          "response_error_e2": "Error E2",
+          "response_error": "Error"
         }
       },
       "time_work_hr": {
@@ -4522,6 +4539,12 @@
           "no": "Present",
           "missing": "Missing"
         }
+      },
+      "process_status": {
+        "name": "Process Status"
+      },
+      "time_max": {
+        "name": "Max Time"
       }
     },
     "switch": {
@@ -4863,6 +4886,9 @@
       },
       "screen_state": {
         "name": "Screen"
+      },
+      "reserve": {
+        "name": "Reservation"
       }
     },
     "water_heater": {

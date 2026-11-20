@@ -1192,6 +1192,15 @@
       },
       "work_mode": {
         "name": "工作模式"
+      },
+      "time_warm_hr": {
+        "name": "保溫小時"
+      },
+      "time_warm_min": {
+        "name": "保溫分鐘"
+      },
+      "cmd_id": {
+        "name": "命令 ID"
       }
     },
     "select": {
@@ -1677,6 +1686,13 @@
           "up": "上升",
           "down": "下降"
         }
+      },
+      "drink_style": {
+        "name": "飲品類型",
+        "state": {
+          "hot_drink": "熱飲",
+          "warm_drink": "溫飲"
+        }
       }
     },
     "time": {
@@ -1692,7 +1708,8 @@
         "name": "回應",
         "state": {
           "response_normal": "正常回應",
-          "response_error_e2": "錯誤 E2"
+          "response_error_e2": "錯誤 E2",
+          "response_error": "錯誤"
         }
       },
       "time_work_hr": {
@@ -4522,6 +4539,12 @@
           "no": "已安裝",
           "missing": "缺少"
         }
+      },
+      "process_status": {
+        "name": "程序狀態"
+      },
+      "time_max": {
+        "name": "最長時間"
       }
     },
     "switch": {
@@ -4863,6 +4886,9 @@
       },
       "screen_state": {
         "name": "螢幕"
+      },
+      "reserve": {
+        "name": "預約"
       }
     },
     "water_heater": {

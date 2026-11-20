@@ -1192,6 +1192,15 @@
       },
       "work_mode": {
         "name": "Tryb pracy"
+      },
+      "time_warm_hr": {
+        "name": "Czas podtrzymywania ciepła (godziny)"
+      },
+      "time_warm_min": {
+        "name": "Czas podtrzymywania ciepła (minuty)"
+      },
+      "cmd_id": {
+        "name": "Identyfikator polecenia"
       }
     },
     "select": {
@@ -1677,6 +1686,13 @@
           "up": "W górę",
           "down": "W dół"
         }
+      },
+      "drink_style": {
+        "name": "Rodzaj napoju",
+        "state": {
+          "hot_drink": "Gorący napój",
+          "warm_drink": "Ciepły napój"
+        }
       }
     },
     "time": {
@@ -1692,7 +1708,8 @@
         "name": "Odpowiedź",
         "state": {
           "response_normal": "Prawidłowa odpowiedź",
-          "response_error_e2": "Błąd E2"
+          "response_error_e2": "Błąd E2",
+          "response_error": "Błąd"
         }
       },
       "time_work_hr": {
@@ -4522,6 +4539,12 @@
           "no": "Obecny",
           "missing": "Brak"
         }
+      },
+      "process_status": {
+        "name": "Stan procesu"
+      },
+      "time_max": {
+        "name": "Maksymalny czas"
       }
     },
     "switch": {
@@ -4863,6 +4886,9 @@
       },
       "screen_state": {
         "name": "Ekran"
+      },
+      "reserve": {
+        "name": "Rezerwacja"
       }
     },
     "water_heater": {

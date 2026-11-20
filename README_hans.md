@@ -135,6 +135,7 @@ Midea AC LAN 由三个职责不同的仓库共同组成：
 | EB   | 保温烹饪器具                | [EB_hans.md](doc/EB_hans.md) |
 | EC   | 电压力锅                    | [EC_hans.md](doc/EC_hans.md) |
 | ED   | 饮用水设备                  | [ED_hans.md](doc/ED_hans.md) |
+| EF   | 饮品机                      | [EF_hans.md](doc/EF_hans.md) |
 | F1   | 泡茶机                      | [F1_hans.md](doc/F1_hans.md) |
 | FA   | 电风扇                      | [FA_hans.md](doc/FA_hans.md) |
 | FB   | 电取暖器                    | [FB_hans.md](doc/FB_hans.md) |

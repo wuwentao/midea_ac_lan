@@ -1176,6 +1176,15 @@
       },
       "work_mode": {
         "name": "Режим работы"
+      },
+      "time_warm_hr": {
+        "name": "Время поддержания тепла (часы)"
+      },
+      "time_warm_min": {
+        "name": "Время поддержания тепла (минуты)"
+      },
+      "cmd_id": {
+        "name": "Идентификатор команды"
       }
     },
     "select": {
@@ -1634,6 +1643,13 @@
           "up": "Вверх",
           "down": "Вниз"
         }
+      },
+      "drink_style": {
+        "name": "Тип напитка",
+        "state": {
+          "hot_drink": "Горячий напиток",
+          "warm_drink": "Тёплый напиток"
+        }
       }
     },
     "time": {
@@ -1649,7 +1665,8 @@
         "name": "Ответ",
         "state": {
           "response_normal": "Нормальный ответ",
-          "response_error_e2": "Ошибка E2"
+          "response_error_e2": "Ошибка E2",
+          "response_error": "Ошибка"
         }
       },
       "time_work_hr": {
@@ -4428,6 +4445,12 @@
           "no": "Установлен",
           "missing": "Отсутствует"
         }
+      },
+      "process_status": {
+        "name": "Состояние процесса"
+      },
+      "time_max": {
+        "name": "Максимальное время"
       }
     },
     "switch": {
@@ -4766,6 +4789,9 @@
       },
       "screen_state": {
         "name": "Экран"
+      },
+      "reserve": {
+        "name": "Резервирование"
       }
     },
     "water_heater": {

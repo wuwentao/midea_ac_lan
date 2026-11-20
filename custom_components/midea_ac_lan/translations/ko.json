@@ -1192,6 +1192,15 @@
       },
       "work_mode": {
         "name": "작동 모드"
+      },
+      "time_warm_hr": {
+        "name": "보온 시간(시)"
+      },
+      "time_warm_min": {
+        "name": "보온 시간(분)"
+      },
+      "cmd_id": {
+        "name": "명령 ID"
       }
     },
     "select": {
@@ -1677,6 +1686,13 @@
           "up": "올림",
           "down": "내림"
         }
+      },
+      "drink_style": {
+        "name": "음료 종류",
+        "state": {
+          "hot_drink": "뜨거운 음료",
+          "warm_drink": "따뜻한 음료"
+        }
       }
     },
     "time": {
@@ -1692,7 +1708,8 @@
         "name": "응답",
         "state": {
           "response_normal": "정상 응답",
-          "response_error_e2": "E2 오류"
+          "response_error_e2": "E2 오류",
+          "response_error": "오류"
         }
       },
       "time_work_hr": {
@@ -4522,6 +4539,12 @@
           "no": "장착됨",
           "missing": "없음"
         }
+      },
+      "process_status": {
+        "name": "프로세스 상태"
+      },
+      "time_max": {
+        "name": "최대 시간"
       }
     },
     "switch": {
@@ -4863,6 +4886,9 @@
       },
       "screen_state": {
         "name": "화면"
+      },
+      "reserve": {
+        "name": "예약"
       }
     },
     "water_heater": {

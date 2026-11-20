@@ -1192,6 +1192,15 @@
       },
       "work_mode": {
         "name": "Lan-modua"
+      },
+      "time_warm_hr": {
+        "name": "Bero mantentzeko orduak"
+      },
+      "time_warm_min": {
+        "name": "Bero mantentzeko minutuak"
+      },
+      "cmd_id": {
+        "name": "Komandoaren IDa"
       }
     },
     "select": {
@@ -1677,6 +1686,13 @@
           "up": "Gora",
           "down": "Behera"
         }
+      },
+      "drink_style": {
+        "name": "Edari mota",
+        "state": {
+          "hot_drink": "Edari beroa",
+          "warm_drink": "Edari epela"
+        }
       }
     },
     "time": {
@@ -1692,7 +1708,8 @@
         "name": "Erantzuna",
         "state": {
           "response_normal": "Erantzun normala",
-          "response_error_e2": "E2 errorea"
+          "response_error_e2": "E2 errorea",
+          "response_error": "Errorea"
         }
       },
       "time_work_hr": {
@@ -4522,6 +4539,12 @@
           "no": "Badago",
           "missing": "Falta da"
         }
+      },
+      "process_status": {
+        "name": "Prozesuaren egoera"
+      },
+      "time_max": {
+        "name": "Gehieneko denbora"
       }
     },
     "switch": {
@@ -4863,6 +4886,9 @@
       },
       "screen_state": {
         "name": "Pantaila"
+      },
+      "reserve": {
+        "name": "Erreserba"
       }
     },
     "water_heater": {

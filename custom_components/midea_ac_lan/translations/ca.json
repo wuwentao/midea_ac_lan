@@ -1192,6 +1192,15 @@
       },
       "work_mode": {
         "name": "Mode de treball"
+      },
+      "time_warm_hr": {
+        "name": "Hores de manteniment en calent"
+      },
+      "time_warm_min": {
+        "name": "Minuts de manteniment en calent"
+      },
+      "cmd_id": {
+        "name": "ID de l'ordre"
       }
     },
     "select": {
@@ -1677,6 +1686,13 @@
           "up": "Amunt",
           "down": "Avall"
         }
+      },
+      "drink_style": {
+        "name": "Tipus de beguda",
+        "state": {
+          "hot_drink": "Beguda calenta",
+          "warm_drink": "Beguda tèbia"
+        }
       }
     },
     "time": {
@@ -1692,7 +1708,8 @@
         "name": "Resposta",
         "state": {
           "response_normal": "Resposta normal",
-          "response_error_e2": "Error de resposta E2"
+          "response_error_e2": "Error de resposta E2",
+          "response_error": "Error"
         }
       },
       "time_work_hr": {
@@ -4522,6 +4539,12 @@
           "no": "Instal·lada",
           "missing": "Absent"
         }
+      },
+      "process_status": {
+        "name": "Estat del procés"
+      },
+      "time_max": {
+        "name": "Temps màxim"
       }
     },
     "switch": {
@@ -4863,6 +4886,9 @@
       },
       "screen_state": {
         "name": "Pantalla"
+      },
+      "reserve": {
+        "name": "Reserva"
       }
     },
     "water_heater": {

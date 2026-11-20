@@ -1192,6 +1192,15 @@
       },
       "work_mode": {
         "name": "Çalışma modu"
+      },
+      "time_warm_hr": {
+        "name": "Sıcak tutma süresi (saat)"
+      },
+      "time_warm_min": {
+        "name": "Sıcak tutma süresi (dakika)"
+      },
+      "cmd_id": {
+        "name": "Komut kimliği"
       }
     },
     "select": {
@@ -1677,6 +1686,13 @@
           "up": "Yukarı",
           "down": "Aşağı"
         }
+      },
+      "drink_style": {
+        "name": "İçecek türü",
+        "state": {
+          "hot_drink": "Sıcak içecek",
+          "warm_drink": "Ilık içecek"
+        }
       }
     },
     "time": {
@@ -1692,7 +1708,8 @@
         "name": "Yanıt",
         "state": {
           "response_normal": "Normal yanıt",
-          "response_error_e2": "E2 hatası"
+          "response_error_e2": "E2 hatası",
+          "response_error": "Hata"
         }
       },
       "time_work_hr": {
@@ -4522,6 +4539,12 @@
           "no": "Mevcut",
           "missing": "Eksik"
         }
+      },
+      "process_status": {
+        "name": "İşlem durumu"
+      },
+      "time_max": {
+        "name": "Maksimum süre"
       }
     },
     "switch": {
@@ -4863,6 +4886,9 @@
       },
       "screen_state": {
         "name": "Ekran"
+      },
+      "reserve": {
+        "name": "Rezervasyon"
       }
     },
     "water_heater": {

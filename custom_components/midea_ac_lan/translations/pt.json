@@ -1192,6 +1192,15 @@
       },
       "work_mode": {
         "name": "Modo de funcionamento"
+      },
+      "time_warm_hr": {
+        "name": "Tempo de manutenção do calor (horas)"
+      },
+      "time_warm_min": {
+        "name": "Tempo de manutenção do calor (minutos)"
+      },
+      "cmd_id": {
+        "name": "ID do comando"
       }
     },
     "select": {
@@ -1677,6 +1686,13 @@
           "up": "Subir",
           "down": "Descer"
         }
+      },
+      "drink_style": {
+        "name": "Tipo de bebida",
+        "state": {
+          "hot_drink": "Bebida quente",
+          "warm_drink": "Bebida morna"
+        }
       }
     },
     "time": {
@@ -1692,7 +1708,8 @@
         "name": "Resposta",
         "state": {
           "response_normal": "Resposta normal",
-          "response_error_e2": "Erro E2"
+          "response_error_e2": "Erro E2",
+          "response_error": "Erro"
         }
       },
       "time_work_hr": {
@@ -4522,6 +4539,12 @@
           "no": "Presente",
           "missing": "Ausente"
         }
+      },
+      "process_status": {
+        "name": "Estado do processo"
+      },
+      "time_max": {
+        "name": "Tempo máximo"
       }
     },
     "switch": {
@@ -4863,6 +4886,9 @@
       },
       "screen_state": {
         "name": "Ecrã"
+      },
+      "reserve": {
+        "name": "Reserva"
       }
     },
     "water_heater": {

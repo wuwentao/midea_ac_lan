@@ -1192,6 +1192,15 @@
       },
       "work_mode": {
         "name": "Arbeidsmodus"
+      },
+      "time_warm_hr": {
+        "name": "Varmholdingstid (timer)"
+      },
+      "time_warm_min": {
+        "name": "Varmholdingstid (minutter)"
+      },
+      "cmd_id": {
+        "name": "Kommando-ID"
       }
     },
     "select": {
@@ -1677,6 +1686,13 @@
           "up": "Opp",
           "down": "Ned"
         }
+      },
+      "drink_style": {
+        "name": "Drikketype",
+        "state": {
+          "hot_drink": "Het drikk",
+          "warm_drink": "Varm drikk"
+        }
       }
     },
     "time": {
@@ -1692,7 +1708,8 @@
         "name": "Svar",
         "state": {
           "response_normal": "Normalt svar",
-          "response_error_e2": "E2-feil"
+          "response_error_e2": "E2-feil",
+          "response_error": "Feil"
         }
       },
       "time_work_hr": {
@@ -4522,6 +4539,12 @@
           "no": "Tilstede",
           "missing": "Mangler"
         }
+      },
+      "process_status": {
+        "name": "Prosessstatus"
+      },
+      "time_max": {
+        "name": "Maksimal tid"
       }
     },
     "switch": {
@@ -4863,6 +4886,9 @@
       },
       "screen_state": {
         "name": "Skjerm"
+      },
+      "reserve": {
+        "name": "Reservasjon"
       }
     },
     "water_heater": {

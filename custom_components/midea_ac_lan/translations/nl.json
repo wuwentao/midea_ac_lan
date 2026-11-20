@@ -1192,6 +1192,15 @@
       },
       "work_mode": {
         "name": "Werkmodus"
+      },
+      "time_warm_hr": {
+        "name": "Warmhoudtijd (uren)"
+      },
+      "time_warm_min": {
+        "name": "Warmhoudtijd (minuten)"
+      },
+      "cmd_id": {
+        "name": "Opdracht-ID"
       }
     },
     "select": {
@@ -1677,6 +1686,13 @@
           "up": "Omhoog",
           "down": "Omlaag"
         }
+      },
+      "drink_style": {
+        "name": "Dranktype",
+        "state": {
+          "hot_drink": "Hete drank",
+          "warm_drink": "Warme drank"
+        }
       }
     },
     "time": {
@@ -1692,7 +1708,8 @@
         "name": "Reactie",
         "state": {
           "response_normal": "Normale reactie",
-          "response_error_e2": "E2-fout"
+          "response_error_e2": "E2-fout",
+          "response_error": "Fout"
         }
       },
       "time_work_hr": {
@@ -4522,6 +4539,12 @@
           "no": "Aanwezig",
           "missing": "Ontbreekt"
         }
+      },
+      "process_status": {
+        "name": "Processtatus"
+      },
+      "time_max": {
+        "name": "Maximale tijd"
       }
     },
     "switch": {
@@ -4863,6 +4886,9 @@
       },
       "screen_state": {
         "name": "Scherm"
+      },
+      "reserve": {
+        "name": "Reservering"
       }
     },
     "water_heater": {

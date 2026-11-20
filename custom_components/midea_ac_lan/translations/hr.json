@@ -1192,6 +1192,15 @@
       },
       "work_mode": {
         "name": "Način rada"
+      },
+      "time_warm_hr": {
+        "name": "Sati održavanja topline"
+      },
+      "time_warm_min": {
+        "name": "Minute održavanja topline"
+      },
+      "cmd_id": {
+        "name": "ID naredbe"
       }
     },
     "select": {
@@ -1677,6 +1686,13 @@
           "up": "Gore",
           "down": "Dolje"
         }
+      },
+      "drink_style": {
+        "name": "Vrsta napitka",
+        "state": {
+          "hot_drink": "Vrući napitak",
+          "warm_drink": "Topli napitak"
+        }
       }
     },
     "time": {
@@ -1692,7 +1708,8 @@
         "name": "Odgovor",
         "state": {
           "response_normal": "Uobičajeni odgovor",
-          "response_error_e2": "Pogreška E2"
+          "response_error_e2": "Pogreška E2",
+          "response_error": "Pogreška"
         }
       },
       "time_work_hr": {
@@ -4522,6 +4539,12 @@
           "no": "Prisutan",
           "missing": "Nedostaje"
         }
+      },
+      "process_status": {
+        "name": "Status procesa"
+      },
+      "time_max": {
+        "name": "Maksimalno vrijeme"
       }
     },
     "switch": {
@@ -4863,6 +4886,9 @@
       },
       "screen_state": {
         "name": "Zaslon"
+      },
+      "reserve": {
+        "name": "Rezervacija"
       }
     },
     "water_heater": {

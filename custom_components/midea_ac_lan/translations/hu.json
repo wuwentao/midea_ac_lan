@@ -1176,6 +1176,15 @@
       },
       "work_mode": {
         "name": "Működési mód"
+      },
+      "time_warm_hr": {
+        "name": "Melegen tartási idő (óra)"
+      },
+      "time_warm_min": {
+        "name": "Melegen tartási idő (perc)"
+      },
+      "cmd_id": {
+        "name": "Parancsazonosító"
       }
     },
     "select": {
@@ -1598,6 +1607,13 @@
           "up": "Fel",
           "down": "Le"
         }
+      },
+      "drink_style": {
+        "name": "Ital típusa",
+        "state": {
+          "hot_drink": "Forró ital",
+          "warm_drink": "Meleg ital"
+        }
       }
     },
     "time": {
@@ -1613,7 +1629,8 @@
         "name": "Válasz",
         "state": {
           "response_normal": "Normál válasz",
-          "response_error_e2": "E2 hiba"
+          "response_error_e2": "E2 hiba",
+          "response_error": "Hiba"
         }
       },
       "time_work_hr": {
@@ -4374,6 +4391,12 @@
           "no": "Jelen",
           "missing": "Hiányzik"
         }
+      },
+      "process_status": {
+        "name": "Folyamat állapota"
+      },
+      "time_max": {
+        "name": "Maximális idő"
       }
     },
     "switch": {
@@ -4712,6 +4735,9 @@
       },
       "screen_state": {
         "name": "Képernyő"
+      },
+      "reserve": {
+        "name": "Foglalás"
       }
     },
     "water_heater": {

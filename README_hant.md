@@ -133,6 +133,7 @@ Midea AC LAN 分成三個儲存庫，各自負責不同的工作：
 | EB   | 保溫烹飪器具      | [EB.md](doc/EB.md) |
 | EC   | 電壓力鍋          | [EC.md](doc/EC.md) |
 | ED   | 飲水機            | [ED.md](doc/ED.md) |
+| EF   | 飲品機            | [EF.md](doc/EF.md) |
 | FA   | 電風扇            | [FA.md](doc/FA.md) |
 | FB   | 電暖器            | [FB.md](doc/FB.md) |
 | FC   | 空氣清淨機        | [FC.md](doc/FC.md) |

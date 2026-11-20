@@ -1176,6 +1176,15 @@
       },
       "work_mode": {
         "name": "Pracovný režim"
+      },
+      "time_warm_hr": {
+        "name": "Čas udržiavania teploty (hodiny)"
+      },
+      "time_warm_min": {
+        "name": "Čas udržiavania teploty (minúty)"
+      },
+      "cmd_id": {
+        "name": "ID príkazu"
       }
     },
     "select": {
@@ -1598,6 +1607,13 @@
           "up": "Hore",
           "down": "Dole"
         }
+      },
+      "drink_style": {
+        "name": "Druh nápoja",
+        "state": {
+          "hot_drink": "Horúci nápoj",
+          "warm_drink": "Teplý nápoj"
+        }
       }
     },
     "time": {
@@ -1613,7 +1629,8 @@
         "name": "Odpoveď",
         "state": {
           "response_normal": "Normálna odpoveď",
-          "response_error_e2": "Chyba E2"
+          "response_error_e2": "Chyba E2",
+          "response_error": "Chyba"
         }
       },
       "time_work_hr": {
@@ -4374,6 +4391,12 @@
           "no": "Prítomný",
           "missing": "Chýba"
         }
+      },
+      "process_status": {
+        "name": "Stav procesu"
+      },
+      "time_max": {
+        "name": "Maximálny čas"
       }
     },
     "switch": {
@@ -4715,6 +4738,9 @@
       },
       "screen_state": {
         "name": "Obrazovka"
+      },
+      "reserve": {
+        "name": "Rezervácia"
       }
     },
     "water_heater": {

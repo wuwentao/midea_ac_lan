@@ -1192,6 +1192,15 @@
       },
       "work_mode": {
         "name": "動作モード"
+      },
+      "time_warm_hr": {
+        "name": "保温時間（時）"
+      },
+      "time_warm_min": {
+        "name": "保温時間（分）"
+      },
+      "cmd_id": {
+        "name": "コマンド ID"
       }
     },
     "select": {
@@ -1677,6 +1686,13 @@
           "up": "上昇",
           "down": "下降"
         }
+      },
+      "drink_style": {
+        "name": "飲み物の種類",
+        "state": {
+          "hot_drink": "ホットドリンク",
+          "warm_drink": "温かい飲み物"
+        }
       }
     },
     "time": {
@@ -1692,7 +1708,8 @@
         "name": "応答",
         "state": {
           "response_normal": "正常応答",
-          "response_error_e2": "E2 エラー"
+          "response_error_e2": "E2 エラー",
+          "response_error": "エラー"
         }
       },
       "time_work_hr": {
@@ -4522,6 +4539,12 @@
           "no": "装着済み",
           "missing": "未装着"
         }
+      },
+      "process_status": {
+        "name": "処理状態"
+      },
+      "time_max": {
+        "name": "最大時間"
       }
     },
     "switch": {
@@ -4863,6 +4886,9 @@
       },
       "screen_state": {
         "name": "画面"
+      },
+      "reserve": {
+        "name": "予約"
       }
     },
     "water_heater": {

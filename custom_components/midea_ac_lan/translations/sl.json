@@ -1192,6 +1192,15 @@
       },
       "work_mode": {
         "name": "Način delovanja"
+      },
+      "time_warm_hr": {
+        "name": "Čas ohranjanja toplote (ure)"
+      },
+      "time_warm_min": {
+        "name": "Čas ohranjanja toplote (minute)"
+      },
+      "cmd_id": {
+        "name": "ID ukaza"
       }
     },
     "select": {
@@ -1677,6 +1686,13 @@
           "up": "Gor",
           "down": "Dol"
         }
+      },
+      "drink_style": {
+        "name": "Vrsta napitka",
+        "state": {
+          "hot_drink": "Vroč napitek",
+          "warm_drink": "Topel napitek"
+        }
       }
     },
     "time": {
@@ -1692,7 +1708,8 @@
         "name": "Odziv",
         "state": {
           "response_normal": "Običajen odziv",
-          "response_error_e2": "Napaka E2"
+          "response_error_e2": "Napaka E2",
+          "response_error": "Napaka"
         }
       },
       "time_work_hr": {
@@ -4522,6 +4539,12 @@
           "no": "Prisotna",
           "missing": "Manjka"
         }
+      },
+      "process_status": {
+        "name": "Stanje postopka"
+      },
+      "time_max": {
+        "name": "Najdaljši čas"
       }
     },
     "switch": {
@@ -4863,6 +4886,9 @@
       },
       "screen_state": {
         "name": "Zaslon"
+      },
+      "reserve": {
+        "name": "Rezervacija"
       }
     },
     "water_heater": {

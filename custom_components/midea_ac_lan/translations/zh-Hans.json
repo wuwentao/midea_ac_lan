@@ -1192,6 +1192,15 @@
       },
       "work_mode": {
         "name": "工作模式"
+      },
+      "time_warm_hr": {
+        "name": "保温小时"
+      },
+      "time_warm_min": {
+        "name": "保温分钟"
+      },
+      "cmd_id": {
+        "name": "命令 ID"
       }
     },
     "select": {
@@ -1650,6 +1659,13 @@
           "up": "上升",
           "down": "下降"
         }
+      },
+      "drink_style": {
+        "name": "饮品类型",
+        "state": {
+          "hot_drink": "热饮",
+          "warm_drink": "温饮"
+        }
       }
     },
     "time": {
@@ -1665,7 +1681,8 @@
         "name": "响应",
         "state": {
           "response_normal": "正常",
-          "response_error_e2": "错误 E2"
+          "response_error_e2": "错误 E2",
+          "response_error": "错误"
         }
       },
       "time_work_hr": {
@@ -4462,6 +4479,12 @@
           "no": "在位",
           "missing": "缺失"
         }
+      },
+      "process_status": {
+        "name": "进程状态"
+      },
+      "time_max": {
+        "name": "最大时间"
       }
     },
     "switch": {
@@ -4803,6 +4826,9 @@
       },
       "screen_state": {
         "name": "屏幕"
+      },
+      "reserve": {
+        "name": "预约"
       }
     },
     "water_heater": {
