@@ -41,7 +41,6 @@
 | sensor.{DEVICEID}\_time_work_min      | sensor | 工作分钟 |
 | sensor.{DEVICEID}\_time_warm_hr       | sensor | 保温小时 |
 | sensor.{DEVICEID}\_time_warm_min      | sensor | 保温分钟 |
-| sensor.{DEVICEID}\_product_volume     | sensor | 成品重量 |
 | sensor.{DEVICEID}\_error_code         | sensor | 错误代码 |
 
 ## 服务

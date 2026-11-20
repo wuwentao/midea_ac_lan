@@ -27,10 +27,13 @@ def e9_entities() -> dict[DeviceAttributes, dict[str, Any]]:
 
 
 def test_e9_registry_matches_released_library() -> None:
-    """Expose every released 0xE9 attribute on the matching HA platform."""
+    """Expose every currently retrievable E9 attribute on its HA platform."""
     entities = e9_entities()
 
-    assert set(entities) == set(DeviceAttributes)
+    # midea-lan 2026.11.0 decodes product_volume from query-info (0x51), but
+    # its polling path only sends query-status (0x52), so it cannot supply that
+    # value to Home Assistant until a future library release adds 0x51 polling.
+    assert set(entities) == set(DeviceAttributes) - {DeviceAttributes.product_volume}
     expected_platforms = {
         Platform.NUMBER: {
             DeviceAttributes.control_cmd_code,
@@ -52,7 +55,6 @@ def test_e9_registry_matches_released_library() -> None:
             DeviceAttributes.time_work_hr,
             DeviceAttributes.time_warm_min,
             DeviceAttributes.time_warm_hr,
-            DeviceAttributes.product_volume,
             DeviceAttributes.error_code,
         },
     }
@@ -167,7 +169,7 @@ def test_e9_translation_keys_follow_shared_key_rules() -> None:
     """Use attribute names unless a same-platform semantic collision exists."""
     entities = e9_entities()
 
-    for attribute in DeviceAttributes:
+    for attribute in set(DeviceAttributes) - {DeviceAttributes.product_volume}:
         expected_key = (
             "e9_volume" if attribute is DeviceAttributes.volume else attribute.value
         )

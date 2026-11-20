@@ -9888,12 +9888,8 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "unit": UnitOfTime.MINUTES,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
-            E9Attributes.product_volume: {
-                "type": Platform.SENSOR,
-                "translation_key": "product_volume",
-                "name": "Product Volume",
-                "icon": "mdi:bread-slice",
-            },
+            # product_volume requires query-info (0x51) polling, which the
+            # released midea-lan 2026.11.0 package does not issue yet.
             E9Attributes.error_code: {
                 "type": Platform.SENSOR,
                 "translation_key": "error_code",
