@@ -1168,6 +1168,30 @@
       },
       "weight": {
         "name": "Weight"
+      },
+      "speed": {
+        "name": "Speed"
+      },
+      "set_work_temp": {
+        "name": "Work Temperature"
+      },
+      "set_keep_warm_temp": {
+        "name": "Keep Warm Temperature"
+      },
+      "set_work_time": {
+        "name": "Work Time"
+      },
+      "set_keep_warm_time": {
+        "name": "Keep Warm Time"
+      },
+      "appoint_time": {
+        "name": "Appointment Time"
+      },
+      "code_id": {
+        "name": "Recipe Code"
+      },
+      "work_mode": {
+        "name": "Work Mode"
       }
     },
     "select": {
@@ -1590,12 +1614,12 @@
       "washer_temperature_control": {
         "name": "Water temperature",
         "state": {
-          "cold": "Cold",
           "20": "20 °C",
           "30": "30 °C",
           "40": "40 °C",
           "60": "60 °C",
-          "95": "95 °C"
+          "95": "95 °C",
+          "cold": "Cold"
         }
       },
       "washer_spin_speed_control": {
@@ -4390,6 +4414,34 @@
           "open": "Open",
           "close": "Closed"
         }
+      },
+      "f1_response_type": {
+        "name": "Response",
+        "state": {
+          "success": "Success",
+          "fail": "Fail"
+        }
+      },
+      "step_status": {
+        "name": "Step Status"
+      },
+      "lid_status": {
+        "name": "Lid Status",
+        "state": {
+          "have_cup": "Cup present",
+          "no_cup": "No cup"
+        }
+      },
+      "cup_status": {
+        "name": "Cup Status",
+        "state": {
+          "default": "Default",
+          "hot_cup": "Hot cup",
+          "cold_cup": "Cold cup"
+        }
+      },
+      "current_time": {
+        "name": "Current Time"
       }
     },
     "switch": {

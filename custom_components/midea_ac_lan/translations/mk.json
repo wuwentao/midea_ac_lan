@@ -989,13 +989,27 @@
       }
     },
     "number": {
-      "work_status": { "name": "Работен статус" },
-      "function_no": { "name": "Број на функција" },
-      "fire_level": { "name": "Ниво на загревање" },
-      "time_reserve_hr": { "name": "Часови за резервација" },
-      "time_reserve_min": { "name": "Минути за резервација" },
-      "definite_time_hr": { "name": "Часови на тајмерот" },
-      "definite_time_min": { "name": "Минути на тајмерот" },
+      "work_status": {
+        "name": "Работен статус"
+      },
+      "function_no": {
+        "name": "Број на функција"
+      },
+      "fire_level": {
+        "name": "Ниво на загревање"
+      },
+      "time_reserve_hr": {
+        "name": "Часови за резервација"
+      },
+      "time_reserve_min": {
+        "name": "Минути за резервација"
+      },
+      "definite_time_hr": {
+        "name": "Часови на тајмерот"
+      },
+      "definite_time_min": {
+        "name": "Минути на тајмерот"
+      },
       "curtain_position": {
         "name": "Позиција"
       },
@@ -1154,6 +1168,30 @@
       },
       "weight": {
         "name": "Тежина"
+      },
+      "speed": {
+        "name": "Брзина"
+      },
+      "set_work_temp": {
+        "name": "Работна температура"
+      },
+      "set_keep_warm_temp": {
+        "name": "Температура за одржување"
+      },
+      "set_work_time": {
+        "name": "Време на работа"
+      },
+      "set_keep_warm_time": {
+        "name": "Време на одржување"
+      },
+      "appoint_time": {
+        "name": "Време за одложен почеток"
+      },
+      "code_id": {
+        "name": "Код на рецепт"
+      },
+      "work_mode": {
+        "name": "Режим на работа"
       }
     },
     "select": {
@@ -1576,12 +1614,12 @@
       "washer_temperature_control": {
         "name": "Температура на вода",
         "state": {
-          "cold": "Ладно",
           "20": "20 °C",
           "30": "30 °C",
           "40": "40 °C",
           "60": "60 °C",
-          "95": "95 °C"
+          "95": "95 °C",
+          "cold": "Ладно"
         }
       },
       "washer_spin_speed_control": {
@@ -1669,11 +1707,21 @@
       "time_warm_min": {
         "name": "Минути за одржување топлина"
       },
-      "time_running_hr": { "name": "Часови на работа" },
-      "time_running_min": { "name": "Минути на работа" },
-      "time_surplus_hr": { "name": "Преостанати часови" },
-      "time_surplus_min": { "name": "Преостанати минути" },
-      "work_stage": { "name": "Фаза на работа" },
+      "time_running_hr": {
+        "name": "Часови на работа"
+      },
+      "time_running_min": {
+        "name": "Минути на работа"
+      },
+      "time_surplus_hr": {
+        "name": "Преостанати часови"
+      },
+      "time_surplus_min": {
+        "name": "Преостанати минути"
+      },
+      "work_stage": {
+        "name": "Фаза на работа"
+      },
       "software_version": {
         "name": "Верзија на софтвер"
       },
@@ -4366,6 +4414,34 @@
           "open": "Отворена",
           "close": "Затворена"
         }
+      },
+      "f1_response_type": {
+        "name": "Одговор",
+        "state": {
+          "success": "Успешно",
+          "fail": "Неуспешно"
+        }
+      },
+      "step_status": {
+        "name": "Статус на чекорот"
+      },
+      "lid_status": {
+        "name": "Статус на капакот",
+        "state": {
+          "have_cup": "Чашата е поставена",
+          "no_cup": "Нема чаша"
+        }
+      },
+      "cup_status": {
+        "name": "Статус на чашата",
+        "state": {
+          "default": "Стандардно",
+          "hot_cup": "Топла чаша",
+          "cold_cup": "Ладна чаша"
+        }
+      },
+      "current_time": {
+        "name": "Тековно време"
       }
     },
     "switch": {

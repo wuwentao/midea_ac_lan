@@ -989,13 +989,27 @@
       }
     },
     "number": {
-      "work_status": { "name": "Stan pracy" },
-      "function_no": { "name": "Numer funkcji" },
-      "fire_level": { "name": "Poziom grzania" },
-      "time_reserve_hr": { "name": "Godziny rezerwacji" },
-      "time_reserve_min": { "name": "Minuty rezerwacji" },
-      "definite_time_hr": { "name": "Godziny timera" },
-      "definite_time_min": { "name": "Minuty timera" },
+      "work_status": {
+        "name": "Stan pracy"
+      },
+      "function_no": {
+        "name": "Numer funkcji"
+      },
+      "fire_level": {
+        "name": "Poziom grzania"
+      },
+      "time_reserve_hr": {
+        "name": "Godziny rezerwacji"
+      },
+      "time_reserve_min": {
+        "name": "Minuty rezerwacji"
+      },
+      "definite_time_hr": {
+        "name": "Godziny timera"
+      },
+      "definite_time_min": {
+        "name": "Minuty timera"
+      },
       "curtain_position": {
         "name": "Pozycja"
       },
@@ -1154,6 +1168,30 @@
       },
       "weight": {
         "name": "Waga"
+      },
+      "speed": {
+        "name": "Prędkość"
+      },
+      "set_work_temp": {
+        "name": "Temperatura pracy"
+      },
+      "set_keep_warm_temp": {
+        "name": "Temperatura podtrzymania ciepła"
+      },
+      "set_work_time": {
+        "name": "Czas pracy"
+      },
+      "set_keep_warm_time": {
+        "name": "Czas podtrzymania ciepła"
+      },
+      "appoint_time": {
+        "name": "Czas opóźnionego startu"
+      },
+      "code_id": {
+        "name": "Kod przepisu"
+      },
+      "work_mode": {
+        "name": "Tryb pracy"
       }
     },
     "select": {
@@ -1576,12 +1614,12 @@
       "washer_temperature_control": {
         "name": "Temperatura wody",
         "state": {
-          "cold": "Zimna",
           "20": "20 °C",
           "30": "30 °C",
           "40": "40 °C",
           "60": "60 °C",
-          "95": "95 °C"
+          "95": "95 °C",
+          "cold": "Zimna"
         }
       },
       "washer_spin_speed_control": {
@@ -1669,11 +1707,21 @@
       "time_warm_min": {
         "name": "Czas podtrzymywania ciepła (minuty)"
       },
-      "time_running_hr": { "name": "Godziny pracy" },
-      "time_running_min": { "name": "Minuty pracy" },
-      "time_surplus_hr": { "name": "Pozostałe godziny" },
-      "time_surplus_min": { "name": "Pozostałe minuty" },
-      "work_stage": { "name": "Etap pracy" },
+      "time_running_hr": {
+        "name": "Godziny pracy"
+      },
+      "time_running_min": {
+        "name": "Minuty pracy"
+      },
+      "time_surplus_hr": {
+        "name": "Pozostałe godziny"
+      },
+      "time_surplus_min": {
+        "name": "Pozostałe minuty"
+      },
+      "work_stage": {
+        "name": "Etap pracy"
+      },
       "software_version": {
         "name": "Wersja oprogramowania"
       },
@@ -4366,6 +4414,34 @@
           "open": "Otwarte",
           "close": "Zamknięte"
         }
+      },
+      "f1_response_type": {
+        "name": "Odpowiedź",
+        "state": {
+          "success": "Powodzenie",
+          "fail": "Niepowodzenie"
+        }
+      },
+      "step_status": {
+        "name": "Stan kroku"
+      },
+      "lid_status": {
+        "name": "Stan pokrywy",
+        "state": {
+          "have_cup": "Filiżanka włożona",
+          "no_cup": "Brak filiżanki"
+        }
+      },
+      "cup_status": {
+        "name": "Stan filiżanki",
+        "state": {
+          "default": "Domyślny",
+          "hot_cup": "Ciepła filiżanka",
+          "cold_cup": "Zimna filiżanka"
+        }
+      },
+      "current_time": {
+        "name": "Bieżący czas"
       }
     },
     "switch": {

@@ -973,13 +973,27 @@
       }
     },
     "number": {
-      "work_status": { "name": "Рабочий статус" },
-      "function_no": { "name": "Номер функции" },
-      "fire_level": { "name": "Уровень нагрева" },
-      "time_reserve_hr": { "name": "Часы отложенного запуска" },
-      "time_reserve_min": { "name": "Минуты отложенного запуска" },
-      "definite_time_hr": { "name": "Часы таймера" },
-      "definite_time_min": { "name": "Минуты таймера" },
+      "work_status": {
+        "name": "Рабочий статус"
+      },
+      "function_no": {
+        "name": "Номер функции"
+      },
+      "fire_level": {
+        "name": "Уровень нагрева"
+      },
+      "time_reserve_hr": {
+        "name": "Часы отложенного запуска"
+      },
+      "time_reserve_min": {
+        "name": "Минуты отложенного запуска"
+      },
+      "definite_time_hr": {
+        "name": "Часы таймера"
+      },
+      "definite_time_min": {
+        "name": "Минуты таймера"
+      },
       "curtain_position": {
         "name": "Положение"
       },
@@ -1138,6 +1152,30 @@
       },
       "weight": {
         "name": "Вес"
+      },
+      "speed": {
+        "name": "Скорость"
+      },
+      "set_work_temp": {
+        "name": "Рабочая температура"
+      },
+      "set_keep_warm_temp": {
+        "name": "Температура поддержания тепла"
+      },
+      "set_work_time": {
+        "name": "Время работы"
+      },
+      "set_keep_warm_time": {
+        "name": "Время поддержания тепла"
+      },
+      "appoint_time": {
+        "name": "Время отложенного запуска"
+      },
+      "code_id": {
+        "name": "Код рецепта"
+      },
+      "work_mode": {
+        "name": "Режим работы"
       }
     },
     "select": {
@@ -1533,12 +1571,12 @@
       "washer_temperature_control": {
         "name": "Температура воды",
         "state": {
-          "cold": "Холодная",
           "20": "20 °C",
           "30": "30 °C",
           "40": "40 °C",
           "60": "60 °C",
-          "95": "95 °C"
+          "95": "95 °C",
+          "cold": "Холодная"
         }
       },
       "washer_spin_speed_control": {
@@ -1626,11 +1664,21 @@
       "time_warm_min": {
         "name": "Время поддержания тепла (минуты)"
       },
-      "time_running_hr": { "name": "Часы работы" },
-      "time_running_min": { "name": "Минуты работы" },
-      "time_surplus_hr": { "name": "Оставшиеся часы" },
-      "time_surplus_min": { "name": "Оставшиеся минуты" },
-      "work_stage": { "name": "Этап работы" },
+      "time_running_hr": {
+        "name": "Часы работы"
+      },
+      "time_running_min": {
+        "name": "Минуты работы"
+      },
+      "time_surplus_hr": {
+        "name": "Оставшиеся часы"
+      },
+      "time_surplus_min": {
+        "name": "Оставшиеся минуты"
+      },
+      "work_stage": {
+        "name": "Этап работы"
+      },
       "software_version": {
         "name": "Версия ПО"
       },
@@ -4272,6 +4320,34 @@
           "open": "Открыта",
           "close": "Закрыта"
         }
+      },
+      "f1_response_type": {
+        "name": "Ответ",
+        "state": {
+          "success": "Успешно",
+          "fail": "Ошибка"
+        }
+      },
+      "step_status": {
+        "name": "Состояние шага"
+      },
+      "lid_status": {
+        "name": "Состояние крышки",
+        "state": {
+          "have_cup": "Чашка установлена",
+          "no_cup": "Чашки нет"
+        }
+      },
+      "cup_status": {
+        "name": "Состояние чашки",
+        "state": {
+          "default": "По умолчанию",
+          "hot_cup": "Горячая чашка",
+          "cold_cup": "Холодная чашка"
+        }
+      },
+      "current_time": {
+        "name": "Текущее время"
       }
     },
     "switch": {

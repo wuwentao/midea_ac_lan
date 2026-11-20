@@ -989,13 +989,27 @@
       }
     },
     "number": {
-      "work_status": { "name": "작동 상태" },
-      "function_no": { "name": "기능 번호" },
-      "fire_level": { "name": "가열 단계" },
-      "time_reserve_hr": { "name": "예약 시간(시)" },
-      "time_reserve_min": { "name": "예약 시간(분)" },
-      "definite_time_hr": { "name": "타이머 시간(시)" },
-      "definite_time_min": { "name": "타이머 시간(분)" },
+      "work_status": {
+        "name": "작동 상태"
+      },
+      "function_no": {
+        "name": "기능 번호"
+      },
+      "fire_level": {
+        "name": "가열 단계"
+      },
+      "time_reserve_hr": {
+        "name": "예약 시간(시)"
+      },
+      "time_reserve_min": {
+        "name": "예약 시간(분)"
+      },
+      "definite_time_hr": {
+        "name": "타이머 시간(시)"
+      },
+      "definite_time_min": {
+        "name": "타이머 시간(분)"
+      },
       "curtain_position": {
         "name": "위치"
       },
@@ -1154,6 +1168,30 @@
       },
       "weight": {
         "name": "무게"
+      },
+      "speed": {
+        "name": "속도"
+      },
+      "set_work_temp": {
+        "name": "작동 온도"
+      },
+      "set_keep_warm_temp": {
+        "name": "보온 온도"
+      },
+      "set_work_time": {
+        "name": "작동 시간"
+      },
+      "set_keep_warm_time": {
+        "name": "보온 시간"
+      },
+      "appoint_time": {
+        "name": "예약 시간"
+      },
+      "code_id": {
+        "name": "레시피 코드"
+      },
+      "work_mode": {
+        "name": "작동 모드"
       }
     },
     "select": {
@@ -1576,12 +1614,12 @@
       "washer_temperature_control": {
         "name": "수온",
         "state": {
-          "cold": "냉수",
           "20": "20 °C",
           "30": "30 °C",
           "40": "40 °C",
           "60": "60 °C",
-          "95": "95 °C"
+          "95": "95 °C",
+          "cold": "냉수"
         }
       },
       "washer_spin_speed_control": {
@@ -1669,11 +1707,21 @@
       "time_warm_min": {
         "name": "보온 시간(분)"
       },
-      "time_running_hr": { "name": "작동 시간(시)" },
-      "time_running_min": { "name": "작동 시간(분)" },
-      "time_surplus_hr": { "name": "남은 시간(시)" },
-      "time_surplus_min": { "name": "남은 시간(분)" },
-      "work_stage": { "name": "작동 단계" },
+      "time_running_hr": {
+        "name": "작동 시간(시)"
+      },
+      "time_running_min": {
+        "name": "작동 시간(분)"
+      },
+      "time_surplus_hr": {
+        "name": "남은 시간(시)"
+      },
+      "time_surplus_min": {
+        "name": "남은 시간(분)"
+      },
+      "work_stage": {
+        "name": "작동 단계"
+      },
       "software_version": {
         "name": "소프트웨어 버전"
       },
@@ -4366,6 +4414,34 @@
           "open": "열림",
           "close": "닫힘"
         }
+      },
+      "f1_response_type": {
+        "name": "응답",
+        "state": {
+          "success": "성공",
+          "fail": "실패"
+        }
+      },
+      "step_status": {
+        "name": "단계 상태"
+      },
+      "lid_status": {
+        "name": "뚜껑 상태",
+        "state": {
+          "have_cup": "컵 있음",
+          "no_cup": "컵 없음"
+        }
+      },
+      "cup_status": {
+        "name": "컵 상태",
+        "state": {
+          "default": "기본값",
+          "hot_cup": "따뜻한 컵",
+          "cold_cup": "차가운 컵"
+        }
+      },
+      "current_time": {
+        "name": "현재 시간"
       }
     },
     "switch": {

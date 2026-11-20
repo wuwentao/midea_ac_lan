@@ -81,6 +81,8 @@ from midealan.devices.ea import DeviceAttributes as EAAttributes
 from midealan.devices.eb import DeviceAttributes as EBAttributes
 from midealan.devices.ec import DeviceAttributes as ECAttributes
 from midealan.devices.ed import DeviceAttributes as EDAttributes
+from midealan.devices.f1 import DeviceAttributes as F1Attributes
+from midealan.devices.f1 import message as f1_message
 from midealan.devices.fa import DeviceAttributes as FAAttributes
 from midealan.devices.fb import DeviceAttributes as FBAttributes
 from midealan.devices.fc import DeviceAttributes as FCAttributes
@@ -10853,6 +10855,164 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 },
                 "excluded_devices": ED_TEA_BAR_DEVICES,
                 "excluded_subtypes": ED_SOFT_WATER_SUBTYPES,
+            },
+        },
+    },
+    0xF1: {
+        "name": "Tea Brewer",
+        "entities": {
+            F1Attributes.power: {
+                "type": Platform.SWITCH,
+                "translation_key": "power",
+                "name": "Power",
+                "icon": "mdi:power",
+                "default": True,
+            },
+            F1Attributes.speed: {
+                "type": Platform.NUMBER,
+                "translation_key": "speed",
+                "name": "Speed",
+                "icon": "mdi:speedometer",
+                "min": f1_message.SPEED_LOW,
+                "max": f1_message.SPEED_HIGH,
+                "step": 1,
+            },
+            F1Attributes.set_work_temp: {
+                "type": Platform.NUMBER,
+                "translation_key": "set_work_temp",
+                "name": "Work Temperature",
+                "device_class": NumberDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "icon": "mdi:thermometer",
+                "min": f1_message.TEMP_LOW,
+                "max": f1_message.TEMP_HIGH,
+                "step": 1,
+            },
+            F1Attributes.set_keep_warm_temp: {
+                "type": Platform.NUMBER,
+                "translation_key": "set_keep_warm_temp",
+                "name": "Keep Warm Temperature",
+                "device_class": NumberDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "icon": "mdi:thermometer",
+                "min": f1_message.TEMP_LOW,
+                "max": f1_message.TEMP_HIGH,
+                "step": 1,
+            },
+            F1Attributes.set_work_time: {
+                "type": Platform.NUMBER,
+                "translation_key": "set_work_time",
+                "name": "Work Time",
+                "icon": "mdi:timer",
+                "min": f1_message.TIME_16_LOW,
+                "max": f1_message.TIME_16_HIGH,
+                "step": 1,
+            },
+            F1Attributes.set_keep_warm_time: {
+                "type": Platform.NUMBER,
+                "translation_key": "set_keep_warm_time",
+                "name": "Keep Warm Time",
+                "icon": "mdi:timer",
+                "min": f1_message.WARM_TIME_LOW,
+                "max": f1_message.WARM_TIME_HIGH,
+                "step": 1,
+            },
+            F1Attributes.appoint_time: {
+                "type": Platform.NUMBER,
+                "translation_key": "appoint_time",
+                "name": "Appointment Time",
+                "icon": "mdi:timer",
+                "min": f1_message.TIME_16_LOW,
+                "max": f1_message.TIME_16_HIGH,
+                "step": 1,
+            },
+            F1Attributes.code_id: {
+                "type": Platform.NUMBER,
+                "translation_key": "code_id",
+                "name": "Recipe Code",
+                "icon": "mdi:numeric",
+                "min": f1_message.CODE_ID_LOW,
+                "max": f1_message.CODE_ID_HIGH,
+                "step": 1,
+            },
+            F1Attributes.work_mode: {
+                "type": Platform.NUMBER,
+                "translation_key": "work_mode",
+                "name": "Work Mode",
+                "icon": "mdi:cog",
+                "min": f1_message.MODE_LOW,
+                "max": f1_message.MODE_HIGH,
+                "step": 1,
+            },
+            F1Attributes.response_type: {
+                "type": Platform.SENSOR,
+                "translation_key": "f1_response_type",
+                "name": "Response",
+                "icon": "mdi:message-reply",
+                "device_class": SensorDeviceClass.ENUM,
+                "options": {
+                    response: response
+                    for response in f1_message.RESPONSE_NAMES.values()
+                },
+            },
+            F1Attributes.work_status: {
+                "type": Platform.SENSOR,
+                "translation_key": "work_status",
+                "name": "Work Status",
+                "icon": "mdi:information",
+            },
+            F1Attributes.step_status: {
+                "type": Platform.SENSOR,
+                "translation_key": "step_status",
+                "name": "Step Status",
+                "icon": "mdi:format-list-numbered",
+            },
+            F1Attributes.work_stage: {
+                "type": Platform.SENSOR,
+                "translation_key": "work_stage",
+                "name": "Work Stage",
+                "icon": "mdi:format-list-numbered",
+            },
+            F1Attributes.lid_status: {
+                "type": Platform.SENSOR,
+                "translation_key": "lid_status",
+                "name": "Lid Status",
+                "icon": "mdi:cup",
+                "device_class": SensorDeviceClass.ENUM,
+                "options": {
+                    status: status for status in f1_message.LID_STATUS_NAMES.values()
+                },
+            },
+            F1Attributes.cup_status: {
+                "type": Platform.SENSOR,
+                "translation_key": "cup_status",
+                "name": "Cup Status",
+                "icon": "mdi:cup-water",
+                "device_class": SensorDeviceClass.ENUM,
+                "options": {
+                    status: status for status in f1_message.CUP_STATUS_NAMES.values()
+                },
+            },
+            F1Attributes.current_time: {
+                "type": Platform.SENSOR,
+                "translation_key": "current_time",
+                "name": "Current Time",
+                "icon": "mdi:timer",
+            },
+            F1Attributes.current_temp: {
+                "type": Platform.SENSOR,
+                "translation_key": "current_temperature",
+                "name": "Current Temperature",
+                "device_class": SensorDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "state_class": SensorStateClass.MEASUREMENT,
+            },
+            F1Attributes.error_code: {
+                "type": Platform.SENSOR,
+                "translation_key": "error_code",
+                "name": "Error Code",
+                "icon": "mdi:alert-circle",
+                "entity_category": EntityCategory.DIAGNOSTIC,
             },
         },
     },

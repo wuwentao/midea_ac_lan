@@ -989,13 +989,27 @@
       }
     },
     "number": {
-      "work_status": { "name": "Driftsstatus" },
-      "function_no": { "name": "Funksjonsnummer" },
-      "fire_level": { "name": "Varmenivå" },
-      "time_reserve_hr": { "name": "Reservasjonstimer" },
-      "time_reserve_min": { "name": "Reservasjonsminutter" },
-      "definite_time_hr": { "name": "Timer på tidsur" },
-      "definite_time_min": { "name": "Minutter på tidsur" },
+      "work_status": {
+        "name": "Driftsstatus"
+      },
+      "function_no": {
+        "name": "Funksjonsnummer"
+      },
+      "fire_level": {
+        "name": "Varmenivå"
+      },
+      "time_reserve_hr": {
+        "name": "Reservasjonstimer"
+      },
+      "time_reserve_min": {
+        "name": "Reservasjonsminutter"
+      },
+      "definite_time_hr": {
+        "name": "Timer på tidsur"
+      },
+      "definite_time_min": {
+        "name": "Minutter på tidsur"
+      },
       "curtain_position": {
         "name": "Posisjon"
       },
@@ -1154,6 +1168,30 @@
       },
       "weight": {
         "name": "Vekt"
+      },
+      "speed": {
+        "name": "Hastighet"
+      },
+      "set_work_temp": {
+        "name": "Arbeidstemperatur"
+      },
+      "set_keep_warm_temp": {
+        "name": "Varmholdingstemperatur"
+      },
+      "set_work_time": {
+        "name": "Arbeidstid"
+      },
+      "set_keep_warm_time": {
+        "name": "Varmholdingstid"
+      },
+      "appoint_time": {
+        "name": "Utsatt starttid"
+      },
+      "code_id": {
+        "name": "Oppskriftskode"
+      },
+      "work_mode": {
+        "name": "Arbeidsmodus"
       }
     },
     "select": {
@@ -1576,12 +1614,12 @@
       "washer_temperature_control": {
         "name": "Vanntemperatur",
         "state": {
-          "cold": "Kald",
           "20": "20 °C",
           "30": "30 °C",
           "40": "40 °C",
           "60": "60 °C",
-          "95": "95 °C"
+          "95": "95 °C",
+          "cold": "Kald"
         }
       },
       "washer_spin_speed_control": {
@@ -1669,11 +1707,21 @@
       "time_warm_min": {
         "name": "Varmholdingstid (minutter)"
       },
-      "time_running_hr": { "name": "Driftstimer" },
-      "time_running_min": { "name": "Driftsminutter" },
-      "time_surplus_hr": { "name": "Gjenstående timer" },
-      "time_surplus_min": { "name": "Gjenstående minutter" },
-      "work_stage": { "name": "Driftsfase" },
+      "time_running_hr": {
+        "name": "Driftstimer"
+      },
+      "time_running_min": {
+        "name": "Driftsminutter"
+      },
+      "time_surplus_hr": {
+        "name": "Gjenstående timer"
+      },
+      "time_surplus_min": {
+        "name": "Gjenstående minutter"
+      },
+      "work_stage": {
+        "name": "Driftsfase"
+      },
       "software_version": {
         "name": "Programvareversjon"
       },
@@ -4366,6 +4414,34 @@
           "open": "Åpen",
           "close": "Lukket"
         }
+      },
+      "f1_response_type": {
+        "name": "Svar",
+        "state": {
+          "success": "Vellykket",
+          "fail": "Mislykket"
+        }
+      },
+      "step_status": {
+        "name": "Trinnstatus"
+      },
+      "lid_status": {
+        "name": "Lokkstatus",
+        "state": {
+          "have_cup": "Kopp satt inn",
+          "no_cup": "Ingen kopp"
+        }
+      },
+      "cup_status": {
+        "name": "Koppstatus",
+        "state": {
+          "default": "Standard",
+          "hot_cup": "Varm kopp",
+          "cold_cup": "Kald kopp"
+        }
+      },
+      "current_time": {
+        "name": "Gjeldende tid"
       }
     },
     "switch": {

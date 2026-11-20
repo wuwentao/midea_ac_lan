@@ -989,13 +989,27 @@
       }
     },
     "number": {
-      "work_status": { "name": "Estat de treball" },
-      "function_no": { "name": "Número de funció" },
-      "fire_level": { "name": "Nivell de foc" },
-      "time_reserve_hr": { "name": "Hores de reserva" },
-      "time_reserve_min": { "name": "Minuts de reserva" },
-      "definite_time_hr": { "name": "Hores del temporitzador" },
-      "definite_time_min": { "name": "Minuts del temporitzador" },
+      "work_status": {
+        "name": "Estat de treball"
+      },
+      "function_no": {
+        "name": "Número de funció"
+      },
+      "fire_level": {
+        "name": "Nivell de foc"
+      },
+      "time_reserve_hr": {
+        "name": "Hores de reserva"
+      },
+      "time_reserve_min": {
+        "name": "Minuts de reserva"
+      },
+      "definite_time_hr": {
+        "name": "Hores del temporitzador"
+      },
+      "definite_time_min": {
+        "name": "Minuts del temporitzador"
+      },
       "curtain_position": {
         "name": "Posició"
       },
@@ -1154,6 +1168,30 @@
       },
       "weight": {
         "name": "Pes"
+      },
+      "speed": {
+        "name": "Velocitat"
+      },
+      "set_work_temp": {
+        "name": "Temperatura de treball"
+      },
+      "set_keep_warm_temp": {
+        "name": "Temperatura de manteniment"
+      },
+      "set_work_time": {
+        "name": "Temps de treball"
+      },
+      "set_keep_warm_time": {
+        "name": "Temps de manteniment"
+      },
+      "appoint_time": {
+        "name": "Temps de programació"
+      },
+      "code_id": {
+        "name": "Codi de recepta"
+      },
+      "work_mode": {
+        "name": "Mode de treball"
       }
     },
     "select": {
@@ -1576,12 +1614,12 @@
       "washer_temperature_control": {
         "name": "Temperatura de l'aigua",
         "state": {
-          "cold": "Freda",
           "20": "20 °C",
           "30": "30 °C",
           "40": "40 °C",
           "60": "60 °C",
-          "95": "95 °C"
+          "95": "95 °C",
+          "cold": "Freda"
         }
       },
       "washer_spin_speed_control": {
@@ -1669,11 +1707,21 @@
       "time_warm_min": {
         "name": "Minuts de manteniment en calent"
       },
-      "time_running_hr": { "name": "Hores de funcionament" },
-      "time_running_min": { "name": "Minuts de funcionament" },
-      "time_surplus_hr": { "name": "Hores restants" },
-      "time_surplus_min": { "name": "Minuts restants" },
-      "work_stage": { "name": "Fase de treball" },
+      "time_running_hr": {
+        "name": "Hores de funcionament"
+      },
+      "time_running_min": {
+        "name": "Minuts de funcionament"
+      },
+      "time_surplus_hr": {
+        "name": "Hores restants"
+      },
+      "time_surplus_min": {
+        "name": "Minuts restants"
+      },
+      "work_stage": {
+        "name": "Fase de treball"
+      },
       "software_version": {
         "name": "Versió del programari"
       },
@@ -4366,6 +4414,34 @@
           "open": "Oberta",
           "close": "Tancada"
         }
+      },
+      "f1_response_type": {
+        "name": "Resposta",
+        "state": {
+          "success": "Correcte",
+          "fail": "Error"
+        }
+      },
+      "step_status": {
+        "name": "Estat del pas"
+      },
+      "lid_status": {
+        "name": "Estat de la tapa",
+        "state": {
+          "have_cup": "Tassa present",
+          "no_cup": "Sense tassa"
+        }
+      },
+      "cup_status": {
+        "name": "Estat de la tassa",
+        "state": {
+          "default": "Predeterminat",
+          "hot_cup": "Tassa calenta",
+          "cold_cup": "Tassa freda"
+        }
+      },
+      "current_time": {
+        "name": "Temps actual"
       }
     },
     "switch": {

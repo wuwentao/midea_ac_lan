@@ -989,13 +989,27 @@
       }
     },
     "number": {
-      "work_status": { "name": "Bedrijfsstatus" },
-      "function_no": { "name": "Functienummer" },
-      "fire_level": { "name": "Verwarmingsniveau" },
-      "time_reserve_hr": { "name": "Reserveringsuren" },
-      "time_reserve_min": { "name": "Reserveringsminuten" },
-      "definite_time_hr": { "name": "Timeruren" },
-      "definite_time_min": { "name": "Timerminuten" },
+      "work_status": {
+        "name": "Bedrijfsstatus"
+      },
+      "function_no": {
+        "name": "Functienummer"
+      },
+      "fire_level": {
+        "name": "Verwarmingsniveau"
+      },
+      "time_reserve_hr": {
+        "name": "Reserveringsuren"
+      },
+      "time_reserve_min": {
+        "name": "Reserveringsminuten"
+      },
+      "definite_time_hr": {
+        "name": "Timeruren"
+      },
+      "definite_time_min": {
+        "name": "Timerminuten"
+      },
       "curtain_position": {
         "name": "Positie"
       },
@@ -1154,6 +1168,30 @@
       },
       "weight": {
         "name": "Gewicht"
+      },
+      "speed": {
+        "name": "Snelheid"
+      },
+      "set_work_temp": {
+        "name": "Werktemperatuur"
+      },
+      "set_keep_warm_temp": {
+        "name": "Warmhoudtemperatuur"
+      },
+      "set_work_time": {
+        "name": "Werktijd"
+      },
+      "set_keep_warm_time": {
+        "name": "Warmhoudtijd"
+      },
+      "appoint_time": {
+        "name": "Geplande starttijd"
+      },
+      "code_id": {
+        "name": "Receptcode"
+      },
+      "work_mode": {
+        "name": "Werkmodus"
       }
     },
     "select": {
@@ -1576,12 +1614,12 @@
       "washer_temperature_control": {
         "name": "Watertemperatuur",
         "state": {
-          "cold": "Koud",
           "20": "20 °C",
           "30": "30 °C",
           "40": "40 °C",
           "60": "60 °C",
-          "95": "95 °C"
+          "95": "95 °C",
+          "cold": "Koud"
         }
       },
       "washer_spin_speed_control": {
@@ -1669,11 +1707,21 @@
       "time_warm_min": {
         "name": "Warmhoudtijd (minuten)"
       },
-      "time_running_hr": { "name": "Bedrijfsuren" },
-      "time_running_min": { "name": "Bedrijfsminuten" },
-      "time_surplus_hr": { "name": "Resterende uren" },
-      "time_surplus_min": { "name": "Resterende minuten" },
-      "work_stage": { "name": "Bedrijfsfase" },
+      "time_running_hr": {
+        "name": "Bedrijfsuren"
+      },
+      "time_running_min": {
+        "name": "Bedrijfsminuten"
+      },
+      "time_surplus_hr": {
+        "name": "Resterende uren"
+      },
+      "time_surplus_min": {
+        "name": "Resterende minuten"
+      },
+      "work_stage": {
+        "name": "Bedrijfsfase"
+      },
       "software_version": {
         "name": "Softwareversie"
       },
@@ -4366,6 +4414,34 @@
           "open": "Open",
           "close": "Gesloten"
         }
+      },
+      "f1_response_type": {
+        "name": "Antwoord",
+        "state": {
+          "success": "Geslaagd",
+          "fail": "Mislukt"
+        }
+      },
+      "step_status": {
+        "name": "Stapstatus"
+      },
+      "lid_status": {
+        "name": "Dekselstatus",
+        "state": {
+          "have_cup": "Kop geplaatst",
+          "no_cup": "Geen kop"
+        }
+      },
+      "cup_status": {
+        "name": "Kopstatus",
+        "state": {
+          "default": "Standaard",
+          "hot_cup": "Warme kop",
+          "cold_cup": "Koude kop"
+        }
+      },
+      "current_time": {
+        "name": "Huidige tijd"
       }
     },
     "switch": {

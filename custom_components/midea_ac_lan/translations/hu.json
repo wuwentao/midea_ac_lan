@@ -973,13 +973,27 @@
       }
     },
     "number": {
-      "work_status": { "name": "Működési állapot" },
-      "function_no": { "name": "Funkció száma" },
-      "fire_level": { "name": "Fűtési szint" },
-      "time_reserve_hr": { "name": "Foglalási órák" },
-      "time_reserve_min": { "name": "Foglalási percek" },
-      "definite_time_hr": { "name": "Időzítő órái" },
-      "definite_time_min": { "name": "Időzítő percei" },
+      "work_status": {
+        "name": "Működési állapot"
+      },
+      "function_no": {
+        "name": "Funkció száma"
+      },
+      "fire_level": {
+        "name": "Fűtési szint"
+      },
+      "time_reserve_hr": {
+        "name": "Foglalási órák"
+      },
+      "time_reserve_min": {
+        "name": "Foglalási percek"
+      },
+      "definite_time_hr": {
+        "name": "Időzítő órái"
+      },
+      "definite_time_min": {
+        "name": "Időzítő percei"
+      },
       "curtain_position": {
         "name": "Pozíció"
       },
@@ -1138,6 +1152,30 @@
       },
       "weight": {
         "name": "Súly"
+      },
+      "speed": {
+        "name": "Sebesség"
+      },
+      "set_work_temp": {
+        "name": "Működési hőmérséklet"
+      },
+      "set_keep_warm_temp": {
+        "name": "Melegen tartási hőmérséklet"
+      },
+      "set_work_time": {
+        "name": "Működési idő"
+      },
+      "set_keep_warm_time": {
+        "name": "Melegen tartási idő"
+      },
+      "appoint_time": {
+        "name": "Időzített indítás"
+      },
+      "code_id": {
+        "name": "Receptkód"
+      },
+      "work_mode": {
+        "name": "Működési mód"
       }
     },
     "select": {
@@ -1497,12 +1535,12 @@
       "washer_temperature_control": {
         "name": "Vízhőmérséklet",
         "state": {
-          "cold": "Hideg",
           "20": "20 °C",
           "30": "30 °C",
           "40": "40 °C",
           "60": "60 °C",
-          "95": "95 °C"
+          "95": "95 °C",
+          "cold": "Hideg"
         }
       },
       "washer_spin_speed_control": {
@@ -1590,11 +1628,21 @@
       "time_warm_min": {
         "name": "Melegen tartási idő (perc)"
       },
-      "time_running_hr": { "name": "Működési órák" },
-      "time_running_min": { "name": "Működési percek" },
-      "time_surplus_hr": { "name": "Hátralévő órák" },
-      "time_surplus_min": { "name": "Hátralévő percek" },
-      "work_stage": { "name": "Működési szakasz" },
+      "time_running_hr": {
+        "name": "Működési órák"
+      },
+      "time_running_min": {
+        "name": "Működési percek"
+      },
+      "time_surplus_hr": {
+        "name": "Hátralévő órák"
+      },
+      "time_surplus_min": {
+        "name": "Hátralévő percek"
+      },
+      "work_stage": {
+        "name": "Működési szakasz"
+      },
       "software_version": {
         "name": "Szoftververzió"
       },
@@ -4218,6 +4266,34 @@
           "open": "Nyitva",
           "close": "Zárva"
         }
+      },
+      "f1_response_type": {
+        "name": "Válasz",
+        "state": {
+          "success": "Sikeres",
+          "fail": "Sikertelen"
+        }
+      },
+      "step_status": {
+        "name": "Lépés állapota"
+      },
+      "lid_status": {
+        "name": "Fedél állapota",
+        "state": {
+          "have_cup": "Csésze behelyezve",
+          "no_cup": "Nincs csésze"
+        }
+      },
+      "cup_status": {
+        "name": "Csésze állapota",
+        "state": {
+          "default": "Alapértelmezett",
+          "hot_cup": "Meleg csésze",
+          "cold_cup": "Hideg csésze"
+        }
+      },
+      "current_time": {
+        "name": "Aktuális idő"
       }
     },
     "switch": {

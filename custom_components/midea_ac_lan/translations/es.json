@@ -973,13 +973,27 @@
       }
     },
     "number": {
-      "work_status": { "name": "Estado de funcionamiento" },
-      "function_no": { "name": "Número de función" },
-      "fire_level": { "name": "Nivel de calor" },
-      "time_reserve_hr": { "name": "Horas de reserva" },
-      "time_reserve_min": { "name": "Minutos de reserva" },
-      "definite_time_hr": { "name": "Horas del temporizador" },
-      "definite_time_min": { "name": "Minutos del temporizador" },
+      "work_status": {
+        "name": "Estado de funcionamiento"
+      },
+      "function_no": {
+        "name": "Número de función"
+      },
+      "fire_level": {
+        "name": "Nivel de calor"
+      },
+      "time_reserve_hr": {
+        "name": "Horas de reserva"
+      },
+      "time_reserve_min": {
+        "name": "Minutos de reserva"
+      },
+      "definite_time_hr": {
+        "name": "Horas del temporizador"
+      },
+      "definite_time_min": {
+        "name": "Minutos del temporizador"
+      },
       "curtain_position": {
         "name": "Posición"
       },
@@ -1138,6 +1152,30 @@
       },
       "weight": {
         "name": "Peso"
+      },
+      "speed": {
+        "name": "Velocidad"
+      },
+      "set_work_temp": {
+        "name": "Temperatura de trabajo"
+      },
+      "set_keep_warm_temp": {
+        "name": "Temperatura de mantenimiento"
+      },
+      "set_work_time": {
+        "name": "Tiempo de trabajo"
+      },
+      "set_keep_warm_time": {
+        "name": "Tiempo de mantenimiento"
+      },
+      "appoint_time": {
+        "name": "Hora programada"
+      },
+      "code_id": {
+        "name": "Código de receta"
+      },
+      "work_mode": {
+        "name": "Modo de trabajo"
       }
     },
     "select": {
@@ -1558,12 +1596,12 @@
       "washer_temperature_control": {
         "name": "Temperatura del agua",
         "state": {
-          "cold": "Frío",
           "20": "20 °C",
           "30": "30 °C",
           "40": "40 °C",
           "60": "60 °C",
-          "95": "95 °C"
+          "95": "95 °C",
+          "cold": "Frío"
         }
       },
       "washer_spin_speed_control": {
@@ -1651,11 +1689,21 @@
       "time_warm_min": {
         "name": "Minutos de mantenimiento del calor"
       },
-      "time_running_hr": { "name": "Horas de funcionamiento" },
-      "time_running_min": { "name": "Minutos de funcionamiento" },
-      "time_surplus_hr": { "name": "Horas restantes" },
-      "time_surplus_min": { "name": "Minutos restantes" },
-      "work_stage": { "name": "Etapa de funcionamiento" },
+      "time_running_hr": {
+        "name": "Horas de funcionamiento"
+      },
+      "time_running_min": {
+        "name": "Minutos de funcionamiento"
+      },
+      "time_surplus_hr": {
+        "name": "Horas restantes"
+      },
+      "time_surplus_min": {
+        "name": "Minutos restantes"
+      },
+      "work_stage": {
+        "name": "Etapa de funcionamiento"
+      },
       "software_version": {
         "name": "Versión del software"
       },
@@ -4329,6 +4377,34 @@
           "open": "Abierta",
           "close": "Cerrada"
         }
+      },
+      "f1_response_type": {
+        "name": "Respuesta",
+        "state": {
+          "success": "Correcto",
+          "fail": "Fallido"
+        }
+      },
+      "step_status": {
+        "name": "Estado del paso"
+      },
+      "lid_status": {
+        "name": "Estado de la tapa",
+        "state": {
+          "have_cup": "Taza colocada",
+          "no_cup": "Sin taza"
+        }
+      },
+      "cup_status": {
+        "name": "Estado de la taza",
+        "state": {
+          "default": "Predeterminado",
+          "hot_cup": "Taza caliente",
+          "cold_cup": "Taza fría"
+        }
+      },
+      "current_time": {
+        "name": "Tiempo actual"
       }
     },
     "switch": {

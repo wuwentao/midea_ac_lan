@@ -989,13 +989,27 @@
       }
     },
     "number": {
-      "work_status": { "name": "Stav provozu" },
-      "function_no": { "name": "Číslo funkce" },
-      "fire_level": { "name": "Úroveň ohřevu" },
-      "time_reserve_hr": { "name": "Hodiny rezervace" },
-      "time_reserve_min": { "name": "Minuty rezervace" },
-      "definite_time_hr": { "name": "Hodiny časovače" },
-      "definite_time_min": { "name": "Minuty časovače" },
+      "work_status": {
+        "name": "Stav provozu"
+      },
+      "function_no": {
+        "name": "Číslo funkce"
+      },
+      "fire_level": {
+        "name": "Úroveň ohřevu"
+      },
+      "time_reserve_hr": {
+        "name": "Hodiny rezervace"
+      },
+      "time_reserve_min": {
+        "name": "Minuty rezervace"
+      },
+      "definite_time_hr": {
+        "name": "Hodiny časovače"
+      },
+      "definite_time_min": {
+        "name": "Minuty časovače"
+      },
       "curtain_position": {
         "name": "Poloha"
       },
@@ -1154,6 +1168,30 @@
       },
       "weight": {
         "name": "Hmotnost"
+      },
+      "speed": {
+        "name": "Rychlost"
+      },
+      "set_work_temp": {
+        "name": "Pracovní teplota"
+      },
+      "set_keep_warm_temp": {
+        "name": "Teplota udržování"
+      },
+      "set_work_time": {
+        "name": "Doba provozu"
+      },
+      "set_keep_warm_time": {
+        "name": "Doba udržování"
+      },
+      "appoint_time": {
+        "name": "Čas odloženého spuštění"
+      },
+      "code_id": {
+        "name": "Kód receptu"
+      },
+      "work_mode": {
+        "name": "Pracovní režim"
       }
     },
     "select": {
@@ -1576,12 +1614,12 @@
       "washer_temperature_control": {
         "name": "Teplota vody",
         "state": {
-          "cold": "Studená",
           "20": "20 °C",
           "30": "30 °C",
           "40": "40 °C",
           "60": "60 °C",
-          "95": "95 °C"
+          "95": "95 °C",
+          "cold": "Studená"
         }
       },
       "washer_spin_speed_control": {
@@ -1669,11 +1707,21 @@
       "time_warm_min": {
         "name": "Minuty udržování teploty"
       },
-      "time_running_hr": { "name": "Hodiny provozu" },
-      "time_running_min": { "name": "Minuty provozu" },
-      "time_surplus_hr": { "name": "Zbývající hodiny" },
-      "time_surplus_min": { "name": "Zbývající minuty" },
-      "work_stage": { "name": "Fáze provozu" },
+      "time_running_hr": {
+        "name": "Hodiny provozu"
+      },
+      "time_running_min": {
+        "name": "Minuty provozu"
+      },
+      "time_surplus_hr": {
+        "name": "Zbývající hodiny"
+      },
+      "time_surplus_min": {
+        "name": "Zbývající minuty"
+      },
+      "work_stage": {
+        "name": "Fáze provozu"
+      },
       "software_version": {
         "name": "Verze softwaru"
       },
@@ -4366,6 +4414,34 @@
           "open": "Otevřená",
           "close": "Zavřená"
         }
+      },
+      "f1_response_type": {
+        "name": "Odezva",
+        "state": {
+          "success": "Úspěch",
+          "fail": "Selhání"
+        }
+      },
+      "step_status": {
+        "name": "Stav kroku"
+      },
+      "lid_status": {
+        "name": "Stav víka",
+        "state": {
+          "have_cup": "Šálek vložen",
+          "no_cup": "Bez šálku"
+        }
+      },
+      "cup_status": {
+        "name": "Stav šálku",
+        "state": {
+          "default": "Výchozí",
+          "hot_cup": "Teplý šálek",
+          "cold_cup": "Studený šálek"
+        }
+      },
+      "current_time": {
+        "name": "Aktuální čas"
       }
     },
     "switch": {

@@ -989,13 +989,27 @@
       }
     },
     "number": {
-      "work_status": { "name": "Starea de funcționare" },
-      "function_no": { "name": "Numărul funcției" },
-      "fire_level": { "name": "Nivel de încălzire" },
-      "time_reserve_hr": { "name": "Ore de rezervare" },
-      "time_reserve_min": { "name": "Minute de rezervare" },
-      "definite_time_hr": { "name": "Ore ale temporizatorului" },
-      "definite_time_min": { "name": "Minute ale temporizatorului" },
+      "work_status": {
+        "name": "Starea de funcționare"
+      },
+      "function_no": {
+        "name": "Numărul funcției"
+      },
+      "fire_level": {
+        "name": "Nivel de încălzire"
+      },
+      "time_reserve_hr": {
+        "name": "Ore de rezervare"
+      },
+      "time_reserve_min": {
+        "name": "Minute de rezervare"
+      },
+      "definite_time_hr": {
+        "name": "Ore ale temporizatorului"
+      },
+      "definite_time_min": {
+        "name": "Minute ale temporizatorului"
+      },
       "curtain_position": {
         "name": "Poziție"
       },
@@ -1154,6 +1168,30 @@
       },
       "weight": {
         "name": "Greutate"
+      },
+      "speed": {
+        "name": "Viteză"
+      },
+      "set_work_temp": {
+        "name": "Temperatura de lucru"
+      },
+      "set_keep_warm_temp": {
+        "name": "Temperatura de menținere"
+      },
+      "set_work_time": {
+        "name": "Timp de lucru"
+      },
+      "set_keep_warm_time": {
+        "name": "Timp de menținere"
+      },
+      "appoint_time": {
+        "name": "Ora programată"
+      },
+      "code_id": {
+        "name": "Cod rețetă"
+      },
+      "work_mode": {
+        "name": "Mod de lucru"
       }
     },
     "select": {
@@ -1576,12 +1614,12 @@
       "washer_temperature_control": {
         "name": "Temperatură apă",
         "state": {
-          "cold": "Rece",
           "20": "20 °C",
           "30": "30 °C",
           "40": "40 °C",
           "60": "60 °C",
-          "95": "95 °C"
+          "95": "95 °C",
+          "cold": "Rece"
         }
       },
       "washer_spin_speed_control": {
@@ -1669,11 +1707,21 @@
       "time_warm_min": {
         "name": "Durata menținerii la cald (minute)"
       },
-      "time_running_hr": { "name": "Ore de funcționare" },
-      "time_running_min": { "name": "Minute de funcționare" },
-      "time_surplus_hr": { "name": "Ore rămase" },
-      "time_surplus_min": { "name": "Minute rămase" },
-      "work_stage": { "name": "Etapa de funcționare" },
+      "time_running_hr": {
+        "name": "Ore de funcționare"
+      },
+      "time_running_min": {
+        "name": "Minute de funcționare"
+      },
+      "time_surplus_hr": {
+        "name": "Ore rămase"
+      },
+      "time_surplus_min": {
+        "name": "Minute rămase"
+      },
+      "work_stage": {
+        "name": "Etapa de funcționare"
+      },
       "software_version": {
         "name": "Versiune software"
       },
@@ -4366,6 +4414,34 @@
           "open": "Deschisă",
           "close": "Închisă"
         }
+      },
+      "f1_response_type": {
+        "name": "Răspuns",
+        "state": {
+          "success": "Reușit",
+          "fail": "Eșuat"
+        }
+      },
+      "step_status": {
+        "name": "Starea etapei"
+      },
+      "lid_status": {
+        "name": "Starea capacului",
+        "state": {
+          "have_cup": "Cană prezentă",
+          "no_cup": "Fără cană"
+        }
+      },
+      "cup_status": {
+        "name": "Starea cănii",
+        "state": {
+          "default": "Implicit",
+          "hot_cup": "Cană caldă",
+          "cold_cup": "Cană rece"
+        }
+      },
+      "current_time": {
+        "name": "Timp curent"
       }
     },
     "switch": {

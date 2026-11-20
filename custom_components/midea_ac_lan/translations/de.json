@@ -973,13 +973,27 @@
       }
     },
     "number": {
-      "work_status": { "name": "Betriebsstatus" },
-      "function_no": { "name": "Funktionsnummer" },
-      "fire_level": { "name": "Heizstufe" },
-      "time_reserve_hr": { "name": "Reservierungsstunden" },
-      "time_reserve_min": { "name": "Reservierungsminuten" },
-      "definite_time_hr": { "name": "Timerstunden" },
-      "definite_time_min": { "name": "Timerminuten" },
+      "work_status": {
+        "name": "Betriebsstatus"
+      },
+      "function_no": {
+        "name": "Funktionsnummer"
+      },
+      "fire_level": {
+        "name": "Heizstufe"
+      },
+      "time_reserve_hr": {
+        "name": "Reservierungsstunden"
+      },
+      "time_reserve_min": {
+        "name": "Reservierungsminuten"
+      },
+      "definite_time_hr": {
+        "name": "Timerstunden"
+      },
+      "definite_time_min": {
+        "name": "Timerminuten"
+      },
       "curtain_position": {
         "name": "Position"
       },
@@ -1138,6 +1152,30 @@
       },
       "weight": {
         "name": "Gewicht"
+      },
+      "speed": {
+        "name": "Geschwindigkeit"
+      },
+      "set_work_temp": {
+        "name": "Arbeitstemperatur"
+      },
+      "set_keep_warm_temp": {
+        "name": "Warmhaltetemperatur"
+      },
+      "set_work_time": {
+        "name": "Arbeitszeit"
+      },
+      "set_keep_warm_time": {
+        "name": "Warmhaltezeit"
+      },
+      "appoint_time": {
+        "name": "Startzeitvorwahl"
+      },
+      "code_id": {
+        "name": "Rezeptcode"
+      },
+      "work_mode": {
+        "name": "Betriebsmodus"
       }
     },
     "select": {
@@ -1497,12 +1535,12 @@
       "washer_temperature_control": {
         "name": "Wassertemperatur",
         "state": {
-          "cold": "Kalt",
           "20": "20 °C",
           "30": "30 °C",
           "40": "40 °C",
           "60": "60 °C",
-          "95": "95 °C"
+          "95": "95 °C",
+          "cold": "Kalt"
         }
       },
       "washer_spin_speed_control": {
@@ -1590,11 +1628,21 @@
       "time_warm_min": {
         "name": "Warmhaltezeit (Minuten)"
       },
-      "time_running_hr": { "name": "Betriebsstunden" },
-      "time_running_min": { "name": "Betriebsminuten" },
-      "time_surplus_hr": { "name": "Verbleibende Stunden" },
-      "time_surplus_min": { "name": "Verbleibende Minuten" },
-      "work_stage": { "name": "Betriebsphase" },
+      "time_running_hr": {
+        "name": "Betriebsstunden"
+      },
+      "time_running_min": {
+        "name": "Betriebsminuten"
+      },
+      "time_surplus_hr": {
+        "name": "Verbleibende Stunden"
+      },
+      "time_surplus_min": {
+        "name": "Verbleibende Minuten"
+      },
+      "work_stage": {
+        "name": "Betriebsphase"
+      },
       "software_version": {
         "name": "Softwareversion"
       },
@@ -4218,6 +4266,34 @@
           "open": "Offen",
           "close": "Geschlossen"
         }
+      },
+      "f1_response_type": {
+        "name": "Antwort",
+        "state": {
+          "success": "Erfolgreich",
+          "fail": "Fehlgeschlagen"
+        }
+      },
+      "step_status": {
+        "name": "Schrittstatus"
+      },
+      "lid_status": {
+        "name": "Deckelstatus",
+        "state": {
+          "have_cup": "Tasse eingesetzt",
+          "no_cup": "Keine Tasse"
+        }
+      },
+      "cup_status": {
+        "name": "Tassenstatus",
+        "state": {
+          "default": "Standard",
+          "hot_cup": "Warme Tasse",
+          "cold_cup": "Kalte Tasse"
+        }
+      },
+      "current_time": {
+        "name": "Aktuelle Zeit"
       }
     },
     "switch": {

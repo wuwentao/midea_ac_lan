@@ -989,13 +989,27 @@
       }
     },
     "number": {
-      "work_status": { "name": "Estado de funcionamento" },
-      "function_no": { "name": "Número da função" },
-      "fire_level": { "name": "Nível de aquecimento" },
-      "time_reserve_hr": { "name": "Horas de reserva" },
-      "time_reserve_min": { "name": "Minutos de reserva" },
-      "definite_time_hr": { "name": "Horas do temporizador" },
-      "definite_time_min": { "name": "Minutos do temporizador" },
+      "work_status": {
+        "name": "Estado de funcionamento"
+      },
+      "function_no": {
+        "name": "Número da função"
+      },
+      "fire_level": {
+        "name": "Nível de aquecimento"
+      },
+      "time_reserve_hr": {
+        "name": "Horas de reserva"
+      },
+      "time_reserve_min": {
+        "name": "Minutos de reserva"
+      },
+      "definite_time_hr": {
+        "name": "Horas do temporizador"
+      },
+      "definite_time_min": {
+        "name": "Minutos do temporizador"
+      },
       "curtain_position": {
         "name": "Posição"
       },
@@ -1154,6 +1168,30 @@
       },
       "weight": {
         "name": "Peso"
+      },
+      "speed": {
+        "name": "Velocidade"
+      },
+      "set_work_temp": {
+        "name": "Temperatura de funcionamento"
+      },
+      "set_keep_warm_temp": {
+        "name": "Temperatura de manutenção"
+      },
+      "set_work_time": {
+        "name": "Tempo de funcionamento"
+      },
+      "set_keep_warm_time": {
+        "name": "Tempo de manutenção"
+      },
+      "appoint_time": {
+        "name": "Hora programada"
+      },
+      "code_id": {
+        "name": "Código da receita"
+      },
+      "work_mode": {
+        "name": "Modo de funcionamento"
       }
     },
     "select": {
@@ -1576,12 +1614,12 @@
       "washer_temperature_control": {
         "name": "Temperatura da água",
         "state": {
-          "cold": "Fria",
           "20": "20 °C",
           "30": "30 °C",
           "40": "40 °C",
           "60": "60 °C",
-          "95": "95 °C"
+          "95": "95 °C",
+          "cold": "Fria"
         }
       },
       "washer_spin_speed_control": {
@@ -1669,11 +1707,21 @@
       "time_warm_min": {
         "name": "Tempo de manutenção do calor (minutos)"
       },
-      "time_running_hr": { "name": "Horas de funcionamento" },
-      "time_running_min": { "name": "Minutos de funcionamento" },
-      "time_surplus_hr": { "name": "Horas restantes" },
-      "time_surplus_min": { "name": "Minutos restantes" },
-      "work_stage": { "name": "Etapa de funcionamento" },
+      "time_running_hr": {
+        "name": "Horas de funcionamento"
+      },
+      "time_running_min": {
+        "name": "Minutos de funcionamento"
+      },
+      "time_surplus_hr": {
+        "name": "Horas restantes"
+      },
+      "time_surplus_min": {
+        "name": "Minutos restantes"
+      },
+      "work_stage": {
+        "name": "Etapa de funcionamento"
+      },
       "software_version": {
         "name": "Versão do software"
       },
@@ -4366,6 +4414,34 @@
           "open": "Aberta",
           "close": "Fechada"
         }
+      },
+      "f1_response_type": {
+        "name": "Resposta",
+        "state": {
+          "success": "Sucesso",
+          "fail": "Falha"
+        }
+      },
+      "step_status": {
+        "name": "Estado da etapa"
+      },
+      "lid_status": {
+        "name": "Estado da tampa",
+        "state": {
+          "have_cup": "Chávena colocada",
+          "no_cup": "Sem chávena"
+        }
+      },
+      "cup_status": {
+        "name": "Estado da chávena",
+        "state": {
+          "default": "Predefinido",
+          "hot_cup": "Chávena quente",
+          "cold_cup": "Chávena fria"
+        }
+      },
+      "current_time": {
+        "name": "Tempo atual"
       }
     },
     "switch": {

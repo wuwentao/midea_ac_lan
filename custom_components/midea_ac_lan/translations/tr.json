@@ -989,13 +989,27 @@
       }
     },
     "number": {
-      "work_status": { "name": "Çalışma durumu" },
-      "function_no": { "name": "İşlev numarası" },
-      "fire_level": { "name": "Isıtma seviyesi" },
-      "time_reserve_hr": { "name": "Erteleme saati" },
-      "time_reserve_min": { "name": "Erteleme dakikası" },
-      "definite_time_hr": { "name": "Zamanlayıcı saati" },
-      "definite_time_min": { "name": "Zamanlayıcı dakikası" },
+      "work_status": {
+        "name": "Çalışma durumu"
+      },
+      "function_no": {
+        "name": "İşlev numarası"
+      },
+      "fire_level": {
+        "name": "Isıtma seviyesi"
+      },
+      "time_reserve_hr": {
+        "name": "Erteleme saati"
+      },
+      "time_reserve_min": {
+        "name": "Erteleme dakikası"
+      },
+      "definite_time_hr": {
+        "name": "Zamanlayıcı saati"
+      },
+      "definite_time_min": {
+        "name": "Zamanlayıcı dakikası"
+      },
       "curtain_position": {
         "name": "Konum"
       },
@@ -1154,6 +1168,30 @@
       },
       "weight": {
         "name": "Ağırlık"
+      },
+      "speed": {
+        "name": "Hız"
+      },
+      "set_work_temp": {
+        "name": "Çalışma sıcaklığı"
+      },
+      "set_keep_warm_temp": {
+        "name": "Sıcak tutma sıcaklığı"
+      },
+      "set_work_time": {
+        "name": "Çalışma süresi"
+      },
+      "set_keep_warm_time": {
+        "name": "Sıcak tutma süresi"
+      },
+      "appoint_time": {
+        "name": "Zamanlanmış başlatma"
+      },
+      "code_id": {
+        "name": "Tarif kodu"
+      },
+      "work_mode": {
+        "name": "Çalışma modu"
       }
     },
     "select": {
@@ -1576,12 +1614,12 @@
       "washer_temperature_control": {
         "name": "Su sıcaklığı",
         "state": {
-          "cold": "Soğuk",
           "20": "20 °C",
           "30": "30 °C",
           "40": "40 °C",
           "60": "60 °C",
-          "95": "95 °C"
+          "95": "95 °C",
+          "cold": "Soğuk"
         }
       },
       "washer_spin_speed_control": {
@@ -1669,11 +1707,21 @@
       "time_warm_min": {
         "name": "Sıcak tutma süresi (dakika)"
       },
-      "time_running_hr": { "name": "Çalışma saati" },
-      "time_running_min": { "name": "Çalışma dakikası" },
-      "time_surplus_hr": { "name": "Kalan saat" },
-      "time_surplus_min": { "name": "Kalan dakika" },
-      "work_stage": { "name": "Çalışma aşaması" },
+      "time_running_hr": {
+        "name": "Çalışma saati"
+      },
+      "time_running_min": {
+        "name": "Çalışma dakikası"
+      },
+      "time_surplus_hr": {
+        "name": "Kalan saat"
+      },
+      "time_surplus_min": {
+        "name": "Kalan dakika"
+      },
+      "work_stage": {
+        "name": "Çalışma aşaması"
+      },
       "software_version": {
         "name": "Yazılım sürümü"
       },
@@ -4366,6 +4414,34 @@
           "open": "Açık",
           "close": "Kapalı"
         }
+      },
+      "f1_response_type": {
+        "name": "Yanıt",
+        "state": {
+          "success": "Başarılı",
+          "fail": "Başarısız"
+        }
+      },
+      "step_status": {
+        "name": "Adım durumu"
+      },
+      "lid_status": {
+        "name": "Kapak durumu",
+        "state": {
+          "have_cup": "Fincan takılı",
+          "no_cup": "Fincan yok"
+        }
+      },
+      "cup_status": {
+        "name": "Fincan durumu",
+        "state": {
+          "default": "Varsayılan",
+          "hot_cup": "Sıcak fincan",
+          "cold_cup": "Soğuk fincan"
+        }
+      },
+      "current_time": {
+        "name": "Geçerli süre"
       }
     },
     "switch": {

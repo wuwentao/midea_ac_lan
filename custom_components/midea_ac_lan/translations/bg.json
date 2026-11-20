@@ -989,13 +989,27 @@
       }
     },
     "number": {
-      "work_status": { "name": "Работен статус" },
-      "function_no": { "name": "Номер на функция" },
-      "fire_level": { "name": "Ниво на нагряване" },
-      "time_reserve_hr": { "name": "Часове за отлагане" },
-      "time_reserve_min": { "name": "Минути за отлагане" },
-      "definite_time_hr": { "name": "Часове на таймера" },
-      "definite_time_min": { "name": "Минути на таймера" },
+      "work_status": {
+        "name": "Работен статус"
+      },
+      "function_no": {
+        "name": "Номер на функция"
+      },
+      "fire_level": {
+        "name": "Ниво на нагряване"
+      },
+      "time_reserve_hr": {
+        "name": "Часове за отлагане"
+      },
+      "time_reserve_min": {
+        "name": "Минути за отлагане"
+      },
+      "definite_time_hr": {
+        "name": "Часове на таймера"
+      },
+      "definite_time_min": {
+        "name": "Минути на таймера"
+      },
       "curtain_position": {
         "name": "Позиция"
       },
@@ -1154,6 +1168,30 @@
       },
       "weight": {
         "name": "Тегло"
+      },
+      "speed": {
+        "name": "Скорост"
+      },
+      "set_work_temp": {
+        "name": "Работна температура"
+      },
+      "set_keep_warm_temp": {
+        "name": "Температура за поддържане"
+      },
+      "set_work_time": {
+        "name": "Време за работа"
+      },
+      "set_keep_warm_time": {
+        "name": "Време за поддържане"
+      },
+      "appoint_time": {
+        "name": "Време за отложен старт"
+      },
+      "code_id": {
+        "name": "Код на рецепта"
+      },
+      "work_mode": {
+        "name": "Режим на работа"
       }
     },
     "select": {
@@ -1576,12 +1614,12 @@
       "washer_temperature_control": {
         "name": "Температура на водата",
         "state": {
-          "cold": "Студена",
           "20": "20 °C",
           "30": "30 °C",
           "40": "40 °C",
           "60": "60 °C",
-          "95": "95 °C"
+          "95": "95 °C",
+          "cold": "Студена"
         }
       },
       "washer_spin_speed_control": {
@@ -1669,11 +1707,21 @@
       "time_warm_min": {
         "name": "Минути за поддържане на топлина"
       },
-      "time_running_hr": { "name": "Часове работа" },
-      "time_running_min": { "name": "Минути работа" },
-      "time_surplus_hr": { "name": "Оставащи часове" },
-      "time_surplus_min": { "name": "Оставащи минути" },
-      "work_stage": { "name": "Етап на работа" },
+      "time_running_hr": {
+        "name": "Часове работа"
+      },
+      "time_running_min": {
+        "name": "Минути работа"
+      },
+      "time_surplus_hr": {
+        "name": "Оставащи часове"
+      },
+      "time_surplus_min": {
+        "name": "Оставащи минути"
+      },
+      "work_stage": {
+        "name": "Етап на работа"
+      },
       "software_version": {
         "name": "Версия на софтуера"
       },
@@ -4366,6 +4414,34 @@
           "open": "Отворена",
           "close": "Затворена"
         }
+      },
+      "f1_response_type": {
+        "name": "Отговор",
+        "state": {
+          "success": "Успешно",
+          "fail": "Неуспешно"
+        }
+      },
+      "step_status": {
+        "name": "Статус на стъпката"
+      },
+      "lid_status": {
+        "name": "Състояние на капака",
+        "state": {
+          "have_cup": "Чашата е поставена",
+          "no_cup": "Няма чаша"
+        }
+      },
+      "cup_status": {
+        "name": "Състояние на чашата",
+        "state": {
+          "default": "Стандартна",
+          "hot_cup": "Гореща чаша",
+          "cold_cup": "Студена чаша"
+        }
+      },
+      "current_time": {
+        "name": "Текущо време"
       }
     },
     "switch": {
