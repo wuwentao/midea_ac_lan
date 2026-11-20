@@ -1307,7 +1307,21 @@
           "down_baking": "Down Baking",
           "pizza": "Pizza",
           "up_infrared_fan": "Upper Infrared Fan",
-          "microwave": "Microwave"
+          "microwave": "Microwave",
+          "fish": "Fish",
+          "meat": "Meat",
+          "egg": "Egg",
+          "seafood": "Seafood",
+          "steam_clean": "Steam Clean",
+          "common": "General",
+          "grain": "Grain",
+          "rice": "Rice",
+          "zymosis": "Fermentation",
+          "heat": "Reheat",
+          "furring_clean": "Descale",
+          "disinfect": "Disinfect",
+          "vegetable": "Vegetable",
+          "chop": "Chopped Food"
         }
       },
       "oscillation_angle": {
@@ -1413,7 +1427,9 @@
           "ff": "Unknown",
           "cancel": "Cancel",
           "end": "End",
-          "appointment": "Appointment"
+          "appointment": "Appointment",
+          "reservation": "Reservation",
+          "none": "None"
         }
       },
       "x9b_fire_power_select": {
@@ -4050,7 +4066,9 @@
           "ff": "Unknown",
           "cancel": "Cancel",
           "end": "End",
-          "appointment": "Appointment"
+          "appointment": "Appointment",
+          "reservation": "Reservation",
+          "none": "None"
         }
       },
       "x9b_fire_power": {
@@ -4311,6 +4329,27 @@
       },
       "wash_count": {
         "name": "Wash count"
+      },
+      "water_state": {
+        "name": "Water Tank",
+        "state": {
+          "full": "Full",
+          "empty": "Empty"
+        }
+      },
+      "box_state": {
+        "name": "Steam Box",
+        "state": {
+          "in": "Inserted",
+          "out": "Removed"
+        }
+      },
+      "door_state": {
+        "name": "Door",
+        "state": {
+          "open": "Open",
+          "close": "Closed"
+        }
       }
     },
     "switch": {

@@ -1246,7 +1246,21 @@
           "down_baking": "Alsó sütés",
           "pizza": "Pizza",
           "up_infrared_fan": "Felső infravörös ventilátor",
-          "microwave": "Mikrohullám"
+          "microwave": "Mikrohullám",
+          "fish": "Hal",
+          "meat": "Hús",
+          "egg": "Tojás",
+          "seafood": "Tenger gyümölcsei",
+          "steam_clean": "Gőztisztítás",
+          "common": "Általános",
+          "grain": "Gabonafélék",
+          "rice": "Rizs",
+          "zymosis": "Erjesztés",
+          "heat": "Újramelegítés",
+          "furring_clean": "Vízkőmentesítés",
+          "disinfect": "Fertőtlenítés",
+          "vegetable": "Zöldség",
+          "chop": "Aprított étel"
         }
       },
       "oscillation_angle": {
@@ -1320,7 +1334,9 @@
           "ff": "Ismeretlen",
           "cancel": "Megszakítva",
           "end": "Befejezve",
-          "appointment": "Időzített indítás"
+          "appointment": "Időzített indítás",
+          "reservation": "Előjegyzés",
+          "none": "Nincs"
         }
       },
       "x9b_fire_power_select": {
@@ -3884,7 +3900,9 @@
           "ff": "Ismeretlen",
           "cancel": "Megszakítva",
           "end": "Befejezve",
-          "appointment": "Időzített indítás"
+          "appointment": "Időzített indítás",
+          "reservation": "Előjegyzés",
+          "none": "Nincs"
         }
       },
       "x9b_fire_power": {
@@ -4139,6 +4157,27 @@
       },
       "wash_count": {
         "name": "Mosások száma"
+      },
+      "water_state": {
+        "name": "Víztartály",
+        "state": {
+          "full": "Tele",
+          "empty": "Üres"
+        }
+      },
+      "box_state": {
+        "name": "Gőzsütő",
+        "state": {
+          "in": "Behelyezve",
+          "out": "Eltávolítva"
+        }
+      },
+      "door_state": {
+        "name": "Ajtó",
+        "state": {
+          "open": "Nyitva",
+          "close": "Zárva"
+        }
       }
     },
     "switch": {

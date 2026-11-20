@@ -1293,7 +1293,21 @@
           "down_baking": "Grzanie dolne",
           "pizza": "Pizza",
           "up_infrared_fan": "Górny wentylator podczerwieni",
-          "microwave": "Mikrofale"
+          "microwave": "Mikrofale",
+          "fish": "Ryba",
+          "meat": "Mięso",
+          "egg": "Jajko",
+          "seafood": "Owoce morza",
+          "steam_clean": "Czyszczenie parą",
+          "common": "Ogólny",
+          "grain": "Zboża",
+          "rice": "Ryż",
+          "zymosis": "Fermentacja",
+          "heat": "Podgrzewanie",
+          "furring_clean": "Odkamienianie",
+          "disinfect": "Dezynfekcja",
+          "vegetable": "Warzywa",
+          "chop": "Posiekane jedzenie"
         }
       },
       "oscillation_angle": {
@@ -1399,7 +1413,9 @@
           "ff": "Nieznany",
           "cancel": "Anulowano",
           "end": "Zakończono",
-          "appointment": "Zaplanowany start"
+          "appointment": "Zaplanowany start",
+          "reservation": "Rezerwacja",
+          "none": "Brak"
         }
       },
       "x9b_fire_power_select": {
@@ -4029,7 +4045,9 @@
           "ff": "Nieznany",
           "cancel": "Anulowano",
           "end": "Zakończono",
-          "appointment": "Zaplanowany start"
+          "appointment": "Zaplanowany start",
+          "reservation": "Rezerwacja",
+          "none": "Brak"
         }
       },
       "x9b_fire_power": {
@@ -4287,6 +4305,27 @@
       },
       "wash_count": {
         "name": "Liczba prań"
+      },
+      "water_state": {
+        "name": "Zbiornik na wodę",
+        "state": {
+          "full": "Pełny",
+          "empty": "Pusty"
+        }
+      },
+      "box_state": {
+        "name": "Piekarnik parowy",
+        "state": {
+          "in": "Włożony",
+          "out": "Wyjęty"
+        }
+      },
+      "door_state": {
+        "name": "Drzwiczki",
+        "state": {
+          "open": "Otwarte",
+          "close": "Zamknięte"
+        }
       }
     },
     "switch": {

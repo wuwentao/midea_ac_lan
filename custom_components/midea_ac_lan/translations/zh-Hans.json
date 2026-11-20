@@ -1294,7 +1294,21 @@
           "down_baking": "下部烘烤",
           "pizza": "披萨",
           "up_infrared_fan": "上部红外风扇",
-          "microwave": "微波"
+          "microwave": "微波",
+          "fish": "鱼",
+          "meat": "肉",
+          "egg": "蛋",
+          "seafood": "海鲜",
+          "steam_clean": "蒸汽清洁",
+          "common": "通用",
+          "grain": "杂粮",
+          "rice": "米饭",
+          "zymosis": "发酵",
+          "heat": "加热",
+          "furring_clean": "除垢",
+          "disinfect": "消毒",
+          "vegetable": "蔬菜",
+          "chop": "剁碎食物"
         }
       },
       "oscillation_angle": {
@@ -1386,7 +1400,9 @@
           "ff": "未知",
           "cancel": "取消",
           "end": "结束",
-          "appointment": "预约"
+          "appointment": "预约",
+          "reservation": "预约",
+          "none": "无"
         }
       },
       "x9b_fire_power_select": {
@@ -3990,7 +4006,9 @@
           "ff": "未知",
           "cancel": "取消",
           "end": "结束",
-          "appointment": "预约"
+          "appointment": "预约",
+          "reservation": "预约",
+          "none": "无"
         }
       },
       "x9b_fire_power": {
@@ -4251,6 +4269,27 @@
       },
       "wash_count": {
         "name": "洗涤次数"
+      },
+      "water_state": {
+        "name": "水箱",
+        "state": {
+          "full": "已满",
+          "empty": "缺水"
+        }
+      },
+      "box_state": {
+        "name": "蒸箱",
+        "state": {
+          "in": "已放入",
+          "out": "已取出"
+        }
+      },
+      "door_state": {
+        "name": "门",
+        "state": {
+          "open": "已打开",
+          "close": "已关闭"
+        }
       }
     },
     "switch": {

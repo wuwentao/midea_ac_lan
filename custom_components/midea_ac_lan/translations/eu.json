@@ -1293,7 +1293,21 @@
           "down_baking": "Beheko labea",
           "pizza": "Pizza",
           "up_infrared_fan": "Goiko infragorri haizagailua",
-          "microwave": "Mikrouhinak"
+          "microwave": "Mikrouhinak",
+          "fish": "Arraina",
+          "meat": "Haragia",
+          "egg": "Arrautza",
+          "seafood": "Itsaskiak",
+          "steam_clean": "Lurrun bidezko garbiketa",
+          "common": "Orokorra",
+          "grain": "Zerealak",
+          "rice": "Arroza",
+          "zymosis": "Hartzidura",
+          "heat": "Berotu",
+          "furring_clean": "Karea kendu",
+          "disinfect": "Desinfektatu",
+          "vegetable": "Barazkiak",
+          "chop": "Elikagai txikituak"
         }
       },
       "oscillation_angle": {
@@ -1399,7 +1413,9 @@
           "ff": "Ezezaguna",
           "cancel": "Utzita",
           "end": "Amaituta",
-          "appointment": "Programatutako hasiera"
+          "appointment": "Programatutako hasiera",
+          "reservation": "Erreserba",
+          "none": "Bat ere ez"
         }
       },
       "x9b_fire_power_select": {
@@ -4029,7 +4045,9 @@
           "ff": "Ezezaguna",
           "cancel": "Utzita",
           "end": "Amaituta",
-          "appointment": "Programatutako hasiera"
+          "appointment": "Programatutako hasiera",
+          "reservation": "Erreserba",
+          "none": "Bat ere ez"
         }
       },
       "x9b_fire_power": {
@@ -4287,6 +4305,27 @@
       },
       "wash_count": {
         "name": "Garbiketa-kopurua"
+      },
+      "water_state": {
+        "name": "Ur-depositua",
+        "state": {
+          "full": "Beteta",
+          "empty": "Hutsik"
+        }
+      },
+      "box_state": {
+        "name": "Lurrun-labea",
+        "state": {
+          "in": "Sartuta",
+          "out": "Kenduta"
+        }
+      },
+      "door_state": {
+        "name": "Atea",
+        "state": {
+          "open": "Irekita",
+          "close": "Itxita"
+        }
       }
     },
     "switch": {

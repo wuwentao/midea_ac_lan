@@ -1293,7 +1293,21 @@
           "down_baking": "하단 베이킹",
           "pizza": "피자",
           "up_infrared_fan": "상단 적외선 팬",
-          "microwave": "전자레인지"
+          "microwave": "전자레인지",
+          "fish": "생선",
+          "meat": "고기",
+          "egg": "달걀",
+          "seafood": "해산물",
+          "steam_clean": "스팀 청소",
+          "common": "일반",
+          "grain": "곡물",
+          "rice": "쌀",
+          "zymosis": "발효",
+          "heat": "재가열",
+          "furring_clean": "석회질 제거",
+          "disinfect": "살균",
+          "vegetable": "채소",
+          "chop": "다진 음식"
         }
       },
       "oscillation_angle": {
@@ -1399,7 +1413,9 @@
           "ff": "알 수 없음",
           "cancel": "취소",
           "end": "종료",
-          "appointment": "예약"
+          "appointment": "예약",
+          "reservation": "예약",
+          "none": "없음"
         }
       },
       "x9b_fire_power_select": {
@@ -4029,7 +4045,9 @@
           "ff": "알 수 없음",
           "cancel": "취소",
           "end": "종료",
-          "appointment": "예약"
+          "appointment": "예약",
+          "reservation": "예약",
+          "none": "없음"
         }
       },
       "x9b_fire_power": {
@@ -4287,6 +4305,27 @@
       },
       "wash_count": {
         "name": "세탁 횟수"
+      },
+      "water_state": {
+        "name": "물탱크",
+        "state": {
+          "full": "가득 참",
+          "empty": "비어 있음"
+        }
+      },
+      "box_state": {
+        "name": "스팀 오븐",
+        "state": {
+          "in": "삽입됨",
+          "out": "제거됨"
+        }
+      },
+      "door_state": {
+        "name": "도어",
+        "state": {
+          "open": "열림",
+          "close": "닫힘"
+        }
       }
     },
     "switch": {

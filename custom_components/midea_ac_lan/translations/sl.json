@@ -1293,7 +1293,21 @@
           "down_baking": "Spodnje pečenje",
           "pizza": "Pica",
           "up_infrared_fan": "Zgornji infrardeči ventilator",
-          "microwave": "Mikrovalovi"
+          "microwave": "Mikrovalovi",
+          "fish": "Ribe",
+          "meat": "Meso",
+          "egg": "Jajce",
+          "seafood": "Morski sadeži",
+          "steam_clean": "Čiščenje s paro",
+          "common": "Splošno",
+          "grain": "Žita",
+          "rice": "Riž",
+          "zymosis": "Fermentacija",
+          "heat": "Pogrevanje",
+          "furring_clean": "Odstranjevanje vodnega kamna",
+          "disinfect": "Razkuževanje",
+          "vegetable": "Zelenjava",
+          "chop": "Sesekljana hrana"
         }
       },
       "oscillation_angle": {
@@ -1399,7 +1413,9 @@
           "ff": "Neznano",
           "cancel": "Preklicano",
           "end": "Končano",
-          "appointment": "Načrtovani zagon"
+          "appointment": "Načrtovani zagon",
+          "reservation": "Rezervacija",
+          "none": "Brez"
         }
       },
       "x9b_fire_power_select": {
@@ -4029,7 +4045,9 @@
           "ff": "Neznano",
           "cancel": "Preklicano",
           "end": "Končano",
-          "appointment": "Načrtovani zagon"
+          "appointment": "Načrtovani zagon",
+          "reservation": "Rezervacija",
+          "none": "Brez"
         }
       },
       "x9b_fire_power": {
@@ -4287,6 +4305,27 @@
       },
       "wash_count": {
         "name": "Število pranj"
+      },
+      "water_state": {
+        "name": "Posoda za vodo",
+        "state": {
+          "full": "Polna",
+          "empty": "Prazna"
+        }
+      },
+      "box_state": {
+        "name": "Parna pečica",
+        "state": {
+          "in": "Vstavljena",
+          "out": "Odstranjena"
+        }
+      },
+      "door_state": {
+        "name": "Vrata",
+        "state": {
+          "open": "Odprta",
+          "close": "Zaprta"
+        }
       }
     },
     "switch": {

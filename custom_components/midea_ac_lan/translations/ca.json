@@ -1293,7 +1293,21 @@
           "down_baking": "Cocció inferior",
           "pizza": "Pizza",
           "up_infrared_fan": "Ventilador infraroig superior",
-          "microwave": "Microones"
+          "microwave": "Microones",
+          "fish": "Peix",
+          "meat": "Carn",
+          "egg": "Ous",
+          "seafood": "Marisc",
+          "steam_clean": "Neteja amb vapor",
+          "common": "General",
+          "grain": "Cereals",
+          "rice": "Arròs",
+          "zymosis": "Fermentació",
+          "heat": "Reescalfar",
+          "furring_clean": "Descalcificar",
+          "disinfect": "Desinfectar",
+          "vegetable": "Verdura",
+          "chop": "Aliments trossejats"
         }
       },
       "oscillation_angle": {
@@ -1399,7 +1413,9 @@
           "ff": "Desconegut",
           "cancel": "Cancel·lat",
           "end": "Finalitzat",
-          "appointment": "Inici programat"
+          "appointment": "Inici programat",
+          "reservation": "Reserva",
+          "none": "Cap"
         }
       },
       "x9b_fire_power_select": {
@@ -4029,7 +4045,9 @@
           "ff": "Desconegut",
           "cancel": "Cancel·lat",
           "end": "Finalitzat",
-          "appointment": "Inici programat"
+          "appointment": "Inici programat",
+          "reservation": "Reserva",
+          "none": "Cap"
         }
       },
       "x9b_fire_power": {
@@ -4287,6 +4305,27 @@
       },
       "wash_count": {
         "name": "Nombre de rentats"
+      },
+      "water_state": {
+        "name": "Dipòsit d'aigua",
+        "state": {
+          "full": "Ple",
+          "empty": "Buit"
+        }
+      },
+      "box_state": {
+        "name": "Forn de vapor",
+        "state": {
+          "in": "Inserit",
+          "out": "Retirat"
+        }
+      },
+      "door_state": {
+        "name": "Porta",
+        "state": {
+          "open": "Oberta",
+          "close": "Tancada"
+        }
       }
     },
     "switch": {

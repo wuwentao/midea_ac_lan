@@ -1293,7 +1293,21 @@
           "down_baking": "Onderwarmte",
           "pizza": "Pizza",
           "up_infrared_fan": "Bovenste infraroodventilator",
-          "microwave": "Magnetron"
+          "microwave": "Magnetron",
+          "fish": "Vis",
+          "meat": "Vlees",
+          "egg": "Ei",
+          "seafood": "Zeevruchten",
+          "steam_clean": "Stoomreiniging",
+          "common": "Algemeen",
+          "grain": "Granen",
+          "rice": "Rijst",
+          "zymosis": "Fermentatie",
+          "heat": "Opwarmen",
+          "furring_clean": "Ontkalken",
+          "disinfect": "Desinfecteren",
+          "vegetable": "Groenten",
+          "chop": "Gesneden voedsel"
         }
       },
       "oscillation_angle": {
@@ -1399,7 +1413,9 @@
           "ff": "Onbekend",
           "cancel": "Geannuleerd",
           "end": "Beëindigd",
-          "appointment": "Geplande start"
+          "appointment": "Geplande start",
+          "reservation": "Reservering",
+          "none": "Geen"
         }
       },
       "x9b_fire_power_select": {
@@ -4029,7 +4045,9 @@
           "ff": "Onbekend",
           "cancel": "Geannuleerd",
           "end": "Beëindigd",
-          "appointment": "Geplande start"
+          "appointment": "Geplande start",
+          "reservation": "Reservering",
+          "none": "Geen"
         }
       },
       "x9b_fire_power": {
@@ -4287,6 +4305,27 @@
       },
       "wash_count": {
         "name": "Aantal wasbeurten"
+      },
+      "water_state": {
+        "name": "Waterreservoir",
+        "state": {
+          "full": "Vol",
+          "empty": "Leeg"
+        }
+      },
+      "box_state": {
+        "name": "Stoomoven",
+        "state": {
+          "in": "Geplaatst",
+          "out": "Verwijderd"
+        }
+      },
+      "door_state": {
+        "name": "Deur",
+        "state": {
+          "open": "Open",
+          "close": "Gesloten"
+        }
       }
     },
     "switch": {

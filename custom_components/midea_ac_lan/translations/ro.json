@@ -1293,7 +1293,21 @@
           "down_baking": "Coacere inferioară",
           "pizza": "Pizza",
           "up_infrared_fan": "Ventilator infraroșu superior",
-          "microwave": "Microunde"
+          "microwave": "Microunde",
+          "fish": "Pește",
+          "meat": "Carne",
+          "egg": "Ou",
+          "seafood": "Fructe de mare",
+          "steam_clean": "Curățare cu abur",
+          "common": "General",
+          "grain": "Cereale",
+          "rice": "Orez",
+          "zymosis": "Fermentare",
+          "heat": "Reîncălzire",
+          "furring_clean": "Detartrare",
+          "disinfect": "Dezinfectare",
+          "vegetable": "Legume",
+          "chop": "Alimente tocate"
         }
       },
       "oscillation_angle": {
@@ -1399,7 +1413,9 @@
           "ff": "Necunoscut",
           "cancel": "Anulat",
           "end": "Încheiat",
-          "appointment": "Pornire programată"
+          "appointment": "Pornire programată",
+          "reservation": "Rezervare",
+          "none": "Niciunul"
         }
       },
       "x9b_fire_power_select": {
@@ -4029,7 +4045,9 @@
           "ff": "Necunoscut",
           "cancel": "Anulat",
           "end": "Încheiat",
-          "appointment": "Pornire programată"
+          "appointment": "Pornire programată",
+          "reservation": "Rezervare",
+          "none": "Niciunul"
         }
       },
       "x9b_fire_power": {
@@ -4287,6 +4305,27 @@
       },
       "wash_count": {
         "name": "Număr de spălări"
+      },
+      "water_state": {
+        "name": "Rezervor de apă",
+        "state": {
+          "full": "Plin",
+          "empty": "Gol"
+        }
+      },
+      "box_state": {
+        "name": "Cuptor cu abur",
+        "state": {
+          "in": "Introdus",
+          "out": "Scos"
+        }
+      },
+      "door_state": {
+        "name": "Ușă",
+        "state": {
+          "open": "Deschisă",
+          "close": "Închisă"
+        }
       }
     },
     "switch": {

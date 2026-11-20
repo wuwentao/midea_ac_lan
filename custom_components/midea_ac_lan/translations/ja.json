@@ -1293,7 +1293,21 @@
           "down_baking": "下部加熱",
           "pizza": "ピザ",
           "up_infrared_fan": "上部赤外線ファン",
-          "microwave": "電子レンジ"
+          "microwave": "電子レンジ",
+          "fish": "魚",
+          "meat": "肉",
+          "egg": "卵",
+          "seafood": "魚介類",
+          "steam_clean": "スチーム洗浄",
+          "common": "標準",
+          "grain": "穀物",
+          "rice": "ご飯",
+          "zymosis": "発酵",
+          "heat": "再加熱",
+          "furring_clean": "除石灰",
+          "disinfect": "消毒",
+          "vegetable": "野菜",
+          "chop": "刻み料理"
         }
       },
       "oscillation_angle": {
@@ -1399,7 +1413,9 @@
           "ff": "不明",
           "cancel": "キャンセル",
           "end": "終了",
-          "appointment": "予約"
+          "appointment": "予約",
+          "reservation": "予約",
+          "none": "なし"
         }
       },
       "x9b_fire_power_select": {
@@ -4029,7 +4045,9 @@
           "ff": "不明",
           "cancel": "キャンセル",
           "end": "終了",
-          "appointment": "予約"
+          "appointment": "予約",
+          "reservation": "予約",
+          "none": "なし"
         }
       },
       "x9b_fire_power": {
@@ -4287,6 +4305,27 @@
       },
       "wash_count": {
         "name": "洗濯回数"
+      },
+      "water_state": {
+        "name": "給水タンク",
+        "state": {
+          "full": "満水",
+          "empty": "空"
+        }
+      },
+      "box_state": {
+        "name": "スチームオーブン",
+        "state": {
+          "in": "挿入済み",
+          "out": "取り外し済み"
+        }
+      },
+      "door_state": {
+        "name": "ドア",
+        "state": {
+          "open": "開いている",
+          "close": "閉じている"
+        }
       }
     },
     "switch": {

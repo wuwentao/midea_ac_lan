@@ -49,6 +49,8 @@ from midealan.devices.ac import DeviceAttributes as ACAttributes
 from midealan.devices.ad import DeviceAttributes as ADAttributes
 from midealan.devices.b0 import DeviceAttributes as B0Attributes
 from midealan.devices.b1 import DeviceAttributes as B1Attributes
+from midealan.devices.b2 import DeviceAttributes as B2Attributes
+from midealan.devices.b2 import message as b2_message
 from midealan.devices.b3 import DeviceAttributes as B3Attributes
 from midealan.devices.b4 import DeviceAttributes as B4Attributes
 from midealan.devices.b6 import DeviceAttributes as B6Attributes
@@ -4670,6 +4672,104 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "device_class": SensorDeviceClass.TEMPERATURE,
                 "unit": UnitOfTemperature.CELSIUS,
                 "state_class": SensorStateClass.MEASUREMENT,
+            },
+        },
+    },
+    0xB2: {
+        "name": "Steam Box",
+        "entities": {
+            B2Attributes.work_status: {
+                "type": Platform.SENSOR,
+                "translation_key": "work_status",
+                "name": "Work Status",
+                "icon": "mdi:play-pause",
+                "device_class": SensorDeviceClass.ENUM,
+                "options": {
+                    state: state for state in b2_message.WORK_STATUS_NAMES.values()
+                },
+            },
+            # work_finish is reported but rejected by the released B2 setter.
+            "work_status_select": {
+                "type": Platform.SELECT,
+                "attribute": B2Attributes.work_status,
+                "translation_key": "work_status_select",
+                "name": "Set Work Status",
+                "icon": "mdi:play-pause",
+                "options": list(b2_message.WORK_STATUS_CODES),
+            },
+            B2Attributes.work_mode: {
+                "type": Platform.SELECT,
+                "translation_key": "mode",
+                "name": "Mode",
+                "icon": "mdi:pot-steam",
+                "options": list(b2_message.MODE_CODES),
+            },
+            B2Attributes.work_hour: {
+                "type": Platform.NUMBER,
+                "translation_key": "hour_set",
+                "name": "Hours",
+                "icon": "mdi:timer",
+                "unit": UnitOfTime.HOURS,
+                "min": b2_message.WORK_HOUR_MIN,
+                "max": b2_message.WORK_HOUR_MAX,
+                "step": 1,
+            },
+            B2Attributes.work_minute: {
+                "type": Platform.NUMBER,
+                "translation_key": "minute_set",
+                "name": "Minutes",
+                "icon": "mdi:timer",
+                "unit": UnitOfTime.MINUTES,
+                "min": b2_message.WORK_MINUTE_MIN,
+                "max": b2_message.WORK_MINUTE_MAX,
+                "step": 1,
+            },
+            B2Attributes.temperature: {
+                "type": Platform.NUMBER,
+                "translation_key": "temperature_number",
+                "name": "Temperature",
+                "device_class": NumberDeviceClass.TEMPERATURE,
+                "unit": UnitOfTemperature.CELSIUS,
+                "icon": "mdi:thermometer",
+                "min": b2_message.TEMPERATURE_MIN,
+                "max": b2_message.TEMPERATURE_MAX,
+                "step": 1,
+            },
+            B2Attributes.lock: {
+                "type": Platform.SWITCH,
+                "translation_key": "lock",
+                "name": "Lock",
+                "icon": "mdi:lock",
+            },
+            B2Attributes.door_state: {
+                "type": Platform.SENSOR,
+                "translation_key": "door_state",
+                "name": "Door",
+                "icon": "mdi:door",
+                "device_class": SensorDeviceClass.ENUM,
+                "options": {
+                    state: state for state in b2_message.DOOR_STATE_NAMES.values()
+                },
+            },
+            B2Attributes.water_state: {
+                "type": Platform.SENSOR,
+                "translation_key": "water_state",
+                "name": "Water Tank",
+                "icon": "mdi:water",
+                "device_class": SensorDeviceClass.ENUM,
+                "options": {
+                    state: state for state in b2_message.WATER_STATE_NAMES.values()
+                },
+            },
+            B2Attributes.box_state: {
+                "type": Platform.SENSOR,
+                "translation_key": "box_state",
+                "name": "Steam Box",
+                "icon": "mdi:tray",
+                "device_class": SensorDeviceClass.ENUM,
+                "options": {
+                    state: state for state in b2_message.BOX_STATE_NAMES.values()
+                },
             },
         },
     },

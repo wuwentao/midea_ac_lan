@@ -1276,7 +1276,21 @@
           "down_baking": "Horneado inferior",
           "pizza": "Pizza",
           "up_infrared_fan": "Ventilador infrarrojo superior",
-          "microwave": "Microondas"
+          "microwave": "Microondas",
+          "fish": "Pescado",
+          "meat": "Carne",
+          "egg": "Huevo",
+          "seafood": "Marisco",
+          "steam_clean": "Limpieza a vapor",
+          "common": "General",
+          "grain": "Cereales",
+          "rice": "Arroz",
+          "zymosis": "Fermentación",
+          "heat": "Recalentar",
+          "furring_clean": "Descalcificar",
+          "disinfect": "Desinfectar",
+          "vegetable": "Verdura",
+          "chop": "Alimentos picados"
         }
       },
       "oscillation_angle": {
@@ -1381,7 +1395,9 @@
           "ff": "Desconocido",
           "cancel": "Cancelado",
           "end": "Finalizado",
-          "appointment": "Inicio programado"
+          "appointment": "Inicio programado",
+          "reservation": "Reserva",
+          "none": "Ninguno"
         }
       },
       "x9b_fire_power_select": {
@@ -3995,7 +4011,9 @@
           "ff": "Desconocido",
           "cancel": "Cancelado",
           "end": "Finalizado",
-          "appointment": "Inicio programado"
+          "appointment": "Inicio programado",
+          "reservation": "Reserva",
+          "none": "Ninguno"
         }
       },
       "x9b_fire_power": {
@@ -4250,6 +4268,27 @@
       },
       "wash_count": {
         "name": "Cantidad de lavados"
+      },
+      "water_state": {
+        "name": "Depósito de agua",
+        "state": {
+          "full": "Lleno",
+          "empty": "Vacío"
+        }
+      },
+      "box_state": {
+        "name": "Horno de vapor",
+        "state": {
+          "in": "Insertado",
+          "out": "Retirado"
+        }
+      },
+      "door_state": {
+        "name": "Puerta",
+        "state": {
+          "open": "Abierta",
+          "close": "Cerrada"
+        }
       }
     },
     "switch": {

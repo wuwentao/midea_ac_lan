@@ -1246,7 +1246,21 @@
           "down_baking": "Dolný ohrev",
           "pizza": "Pizza",
           "up_infrared_fan": "Horný infračervený ventilátor",
-          "microwave": "Mikrovlny"
+          "microwave": "Mikrovlny",
+          "fish": "Ryba",
+          "meat": "Mäso",
+          "egg": "Vajce",
+          "seafood": "Morské plody",
+          "steam_clean": "Parné čistenie",
+          "common": "Všeobecný",
+          "grain": "Obilniny",
+          "rice": "Ryža",
+          "zymosis": "Kvasenie",
+          "heat": "Ohrev",
+          "furring_clean": "Odvápnenie",
+          "disinfect": "Dezinfekcia",
+          "vegetable": "Zelenina",
+          "chop": "Nasekané potraviny"
         }
       },
       "oscillation_angle": {
@@ -1320,7 +1334,9 @@
           "ff": "Neznáme",
           "cancel": "Zrušené",
           "end": "Ukončené",
-          "appointment": "Odložený štart"
+          "appointment": "Odložený štart",
+          "reservation": "Rezervácia",
+          "none": "Žiadna"
         }
       },
       "x9b_fire_power_select": {
@@ -3884,7 +3900,9 @@
           "ff": "Neznáme",
           "cancel": "Zrušené",
           "end": "Ukončené",
-          "appointment": "Odložený štart"
+          "appointment": "Odložený štart",
+          "reservation": "Rezervácia",
+          "none": "Žiadna"
         }
       },
       "x9b_fire_power": {
@@ -4139,6 +4157,27 @@
       },
       "wash_count": {
         "name": "Počet praní"
+      },
+      "water_state": {
+        "name": "Nádržka na vodu",
+        "state": {
+          "full": "Plná",
+          "empty": "Prázdna"
+        }
+      },
+      "box_state": {
+        "name": "Parná rúra",
+        "state": {
+          "in": "Vložená",
+          "out": "Vybratá"
+        }
+      },
+      "door_state": {
+        "name": "Dvere",
+        "state": {
+          "open": "Otvorené",
+          "close": "Zatvorené"
+        }
       }
     },
     "switch": {
