@@ -1106,15 +1106,6 @@
       "dryer_timed_extra": {
         "name": "定时加时"
       },
-      "steambox_hour": {
-        "name": "小时"
-      },
-      "steambox_minute": {
-        "name": "分钟"
-      },
-      "steambox_temperature": {
-        "name": "温度"
-      },
       "auto_off_screen_type": {
         "name": "自动息屏类型"
       },
@@ -1303,7 +1294,21 @@
           "down_baking": "下部烘烤",
           "pizza": "披萨",
           "up_infrared_fan": "上部红外风扇",
-          "microwave": "微波"
+          "microwave": "微波",
+          "fish": "鱼",
+          "meat": "肉",
+          "egg": "蛋",
+          "seafood": "海鲜",
+          "steam_clean": "蒸汽清洁",
+          "common": "通用",
+          "grain": "杂粮",
+          "rice": "米饭",
+          "zymosis": "发酵",
+          "heat": "加热",
+          "furring_clean": "除垢",
+          "disinfect": "消毒",
+          "vegetable": "蔬菜",
+          "chop": "剁碎食物"
         }
       },
       "oscillation_angle": {
@@ -1395,7 +1400,9 @@
           "ff": "未知",
           "cancel": "取消",
           "end": "结束",
-          "appointment": "预约"
+          "appointment": "预约",
+          "reservation": "预约",
+          "none": "无"
         }
       },
       "x9b_fire_power_select": {
@@ -1606,39 +1613,6 @@
       },
       "laundry_appointment_finish": {
         "name": "预约完成时间（设置即预约）"
-      },
-      "steambox_work_status": {
-        "name": "工作状态",
-        "state": {
-          "standby": "待机",
-          "work": "工作中",
-          "pause": "暂停",
-          "work_finish": "已完成",
-          "reservation": "预约",
-          "save_power": "节能",
-          "none": "无"
-        }
-      },
-      "steambox_mode": {
-        "name": "模式",
-        "state": {
-          "unfreeze": "解冻",
-          "keep_warm": "保温",
-          "fish": "鱼",
-          "meat": "肉",
-          "egg": "蛋",
-          "seafood": "海鲜",
-          "steam_clean": "蒸汽清洁",
-          "common": "通用",
-          "grain": "杂粮",
-          "rice": "米饭",
-          "zymosis": "发酵",
-          "heat": "加热",
-          "furring_clean": "除垢",
-          "disinfect": "消毒",
-          "vegetable": "蔬菜",
-          "chop": "剁碎食物"
-        }
       }
     },
     "sensor": {
@@ -4032,7 +4006,9 @@
           "ff": "未知",
           "cancel": "取消",
           "end": "结束",
-          "appointment": "预约"
+          "appointment": "预约",
+          "reservation": "预约",
+          "none": "无"
         }
       },
       "x9b_fire_power": {
@@ -4101,27 +4077,6 @@
       },
       "cbs_version": {
         "name": "CBS版本"
-      },
-      "steambox_door": {
-        "name": "门",
-        "state": {
-          "close": "已关闭",
-          "open": "已打开"
-        }
-      },
-      "steambox_water": {
-        "name": "水箱",
-        "state": {
-          "full": "已满",
-          "empty": "缺水"
-        }
-      },
-      "steambox_box": {
-        "name": "蒸箱",
-        "state": {
-          "in": "已放入",
-          "out": "已取出"
-        }
       },
       "panel_status": {
         "name": "面板状态"
@@ -4314,6 +4269,27 @@
       },
       "wash_count": {
         "name": "洗涤次数"
+      },
+      "water_state": {
+        "name": "水箱",
+        "state": {
+          "full": "已满",
+          "empty": "缺水"
+        }
+      },
+      "box_state": {
+        "name": "蒸箱",
+        "state": {
+          "in": "已放入",
+          "out": "已取出"
+        }
+      },
+      "door_state": {
+        "name": "门",
+        "state": {
+          "open": "已打开",
+          "close": "已关闭"
+        }
       }
     },
     "switch": {

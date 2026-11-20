@@ -4,7 +4,8 @@
 
 ## 特性
 
-- 支持工作状态 (待机 / 工作 / 暂停 / 已完成 / 预约 / 节能)
+- 上报工作状态 (待机 / 工作 / 暂停 / 已完成 / 预约 / 节能)
+- 控制可设置的工作状态 (待机 / 工作 / 暂停 / 预约 / 节能 / 无)
 - 支持烹饪模式 (16 种)
 - 支持定时小时 / 分钟
 - 支持温度
@@ -21,19 +22,20 @@
 
 无默认实体
 
-### 扩展传感器
+### 扩展实体
 
-| 实体ID                         | 类型   | 描述                   |
-| ------------------------------ | ------ | ---------------------- |
-| select.{DEVICEID}\_work_status | select | 工作状态               |
-| select.{DEVICEID}\_work_mode   | select | 烹饪模式               |
-| number.{DEVICEID}\_work_hour   | number | 定时小时 (0-9)         |
-| number.{DEVICEID}\_work_minute | number | 定时分钟 (0-59)        |
-| number.{DEVICEID}\_temperature | number | 目标温度 (50-100°C)    |
-| switch.{DEVICEID}\_lock        | switch | 童锁                   |
-| sensor.{DEVICEID}\_door_state  | sensor | 门状态 (关闭 / 打开)   |
-| sensor.{DEVICEID}\_water_state | sensor | 水箱状态 (已满 / 缺水) |
-| sensor.{DEVICEID}\_box_state   | sensor | 蒸箱状态 (放入 / 取出) |
+| 实体ID                                | 类型   | 描述                         |
+| ------------------------------------- | ------ | ---------------------------- |
+| sensor.{DEVICEID}\_work_status        | sensor | 上报的工作状态（包括已完成） |
+| select.{DEVICEID}\_work_status_select | select | 可设置的工作状态             |
+| select.{DEVICEID}\_work_mode          | select | 烹饪模式                     |
+| number.{DEVICEID}\_work_hour          | number | 定时小时 (0-9)               |
+| number.{DEVICEID}\_work_minute        | number | 定时分钟 (0-59)              |
+| number.{DEVICEID}\_temperature        | number | 目标温度 (50-100°C)          |
+| switch.{DEVICEID}\_lock               | switch | 童锁                         |
+| sensor.{DEVICEID}\_door_state         | sensor | 门状态 (关闭 / 打开)         |
+| sensor.{DEVICEID}\_water_state        | sensor | 水箱状态 (已满 / 缺水)       |
+| sensor.{DEVICEID}\_box_state          | sensor | 蒸箱状态 (放入 / 取出)       |
 
 ## 服务
 

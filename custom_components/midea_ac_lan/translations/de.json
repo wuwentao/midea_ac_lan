@@ -1246,7 +1246,21 @@
           "down_baking": "Unterhitze",
           "pizza": "Pizza",
           "up_infrared_fan": "Oberer Infrarotlüfter",
-          "microwave": "Mikrowelle"
+          "microwave": "Mikrowelle",
+          "fish": "Fisch",
+          "meat": "Fleisch",
+          "egg": "Ei",
+          "seafood": "Meeresfrüchte",
+          "steam_clean": "Dampfreinigung",
+          "common": "Allgemein",
+          "grain": "Getreide",
+          "rice": "Reis",
+          "zymosis": "Gärung",
+          "heat": "Aufwärmen",
+          "furring_clean": "Entkalken",
+          "disinfect": "Desinfizieren",
+          "vegetable": "Gemüse",
+          "chop": "Geschnittene Lebensmittel"
         }
       },
       "oscillation_angle": {
@@ -1320,7 +1334,9 @@
           "ff": "Unbekannt",
           "cancel": "Abgebrochen",
           "end": "Beendet",
-          "appointment": "Zeitvorwahl"
+          "appointment": "Zeitvorwahl",
+          "reservation": "Reservierung",
+          "none": "Keine"
         }
       },
       "x9b_fire_power_select": {
@@ -3884,7 +3900,9 @@
           "ff": "Unbekannt",
           "cancel": "Abgebrochen",
           "end": "Beendet",
-          "appointment": "Zeitvorwahl"
+          "appointment": "Zeitvorwahl",
+          "reservation": "Reservierung",
+          "none": "Keine"
         }
       },
       "x9b_fire_power": {
@@ -4139,6 +4157,27 @@
       },
       "wash_count": {
         "name": "Anzahl der Waschgänge"
+      },
+      "water_state": {
+        "name": "Wassertank",
+        "state": {
+          "full": "Voll",
+          "empty": "Leer"
+        }
+      },
+      "box_state": {
+        "name": "Dampfgarer",
+        "state": {
+          "in": "Eingesetzt",
+          "out": "Entfernt"
+        }
+      },
+      "door_state": {
+        "name": "Tür",
+        "state": {
+          "open": "Offen",
+          "close": "Geschlossen"
+        }
       }
     },
     "switch": {

@@ -1106,15 +1106,6 @@
       "dryer_timed_extra": {
         "name": "Timed drying extension"
       },
-      "steambox_hour": {
-        "name": "Hours"
-      },
-      "steambox_minute": {
-        "name": "Minutes"
-      },
-      "steambox_temperature": {
-        "name": "Temperature"
-      },
       "auto_off_screen_type": {
         "name": "Auto Off Screen Type"
       },
@@ -1316,7 +1307,21 @@
           "down_baking": "Down Baking",
           "pizza": "Pizza",
           "up_infrared_fan": "Upper Infrared Fan",
-          "microwave": "Microwave"
+          "microwave": "Microwave",
+          "fish": "Fish",
+          "meat": "Meat",
+          "egg": "Egg",
+          "seafood": "Seafood",
+          "steam_clean": "Steam Clean",
+          "common": "General",
+          "grain": "Grain",
+          "rice": "Rice",
+          "zymosis": "Fermentation",
+          "heat": "Reheat",
+          "furring_clean": "Descale",
+          "disinfect": "Disinfect",
+          "vegetable": "Vegetable",
+          "chop": "Chopped Food"
         }
       },
       "oscillation_angle": {
@@ -1422,7 +1427,9 @@
           "ff": "Unknown",
           "cancel": "Cancel",
           "end": "End",
-          "appointment": "Appointment"
+          "appointment": "Appointment",
+          "reservation": "Reservation",
+          "none": "None"
         }
       },
       "x9b_fire_power_select": {
@@ -1633,39 +1640,6 @@
       },
       "laundry_appointment_finish": {
         "name": "Finish time (sets reservation)"
-      },
-      "steambox_work_status": {
-        "name": "Work Status",
-        "state": {
-          "standby": "Standby",
-          "work": "Working",
-          "pause": "Paused",
-          "work_finish": "Finished",
-          "reservation": "Reservation",
-          "save_power": "Power Saving",
-          "none": "None"
-        }
-      },
-      "steambox_mode": {
-        "name": "Mode",
-        "state": {
-          "unfreeze": "Defrost",
-          "keep_warm": "Keep Warm",
-          "fish": "Fish",
-          "meat": "Meat",
-          "egg": "Egg",
-          "seafood": "Seafood",
-          "steam_clean": "Steam Clean",
-          "common": "General",
-          "grain": "Grain",
-          "rice": "Rice",
-          "zymosis": "Fermentation",
-          "heat": "Reheat",
-          "furring_clean": "Descale",
-          "disinfect": "Disinfect",
-          "vegetable": "Vegetable",
-          "chop": "Chopped Food"
-        }
       }
     },
     "sensor": {
@@ -4092,7 +4066,9 @@
           "ff": "Unknown",
           "cancel": "Cancel",
           "end": "End",
-          "appointment": "Appointment"
+          "appointment": "Appointment",
+          "reservation": "Reservation",
+          "none": "None"
         }
       },
       "x9b_fire_power": {
@@ -4161,27 +4137,6 @@
       },
       "cbs_version": {
         "name": "CBS Version"
-      },
-      "steambox_door": {
-        "name": "Door",
-        "state": {
-          "close": "Closed",
-          "open": "Open"
-        }
-      },
-      "steambox_water": {
-        "name": "Water Tank",
-        "state": {
-          "full": "Full",
-          "empty": "Empty"
-        }
-      },
-      "steambox_box": {
-        "name": "Steam Box",
-        "state": {
-          "in": "Inserted",
-          "out": "Removed"
-        }
       },
       "panel_status": {
         "name": "Panel Status"
@@ -4374,6 +4329,27 @@
       },
       "wash_count": {
         "name": "Wash count"
+      },
+      "water_state": {
+        "name": "Water Tank",
+        "state": {
+          "full": "Full",
+          "empty": "Empty"
+        }
+      },
+      "box_state": {
+        "name": "Steam Box",
+        "state": {
+          "in": "Inserted",
+          "out": "Removed"
+        }
+      },
+      "door_state": {
+        "name": "Door",
+        "state": {
+          "open": "Open",
+          "close": "Closed"
+        }
       }
     },
     "switch": {

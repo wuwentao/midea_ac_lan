@@ -105,6 +105,7 @@ Midea AC LAN 分成三個儲存庫，各自負責不同的工作：
 | AD   | 空氣盒子          | [AD.md](doc/AD.md) |
 | B0   | 微波爐            | [B0.md](doc/B0.md) |
 | B1   | 電烤箱            | [B1.md](doc/B1.md) |
+| B2   | 蒸箱              | [B2.md](doc/B2.md) |
 | B3   | 餐具消毒櫃        | [B3.md](doc/B3.md) |
 | B4   | 烤麵包機          | [B4.md](doc/B4.md) |
 | B6   | 排油煙機          | [B6.md](doc/B6.md) |

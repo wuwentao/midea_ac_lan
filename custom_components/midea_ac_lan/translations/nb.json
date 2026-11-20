@@ -1293,7 +1293,21 @@
           "down_baking": "Undervarme",
           "pizza": "Pizza",
           "up_infrared_fan": "Øvre infrarøde vifte",
-          "microwave": "Mikrobølge"
+          "microwave": "Mikrobølge",
+          "fish": "Fisk",
+          "meat": "Kjøtt",
+          "egg": "Egg",
+          "seafood": "Sjømat",
+          "steam_clean": "Damprengjøring",
+          "common": "Generell",
+          "grain": "Korn",
+          "rice": "Ris",
+          "zymosis": "Heving",
+          "heat": "Oppvarming",
+          "furring_clean": "Avkalking",
+          "disinfect": "Desinfisering",
+          "vegetable": "Grønnsaker",
+          "chop": "Hakket mat"
         }
       },
       "oscillation_angle": {
@@ -1399,7 +1413,9 @@
           "ff": "Ukjent",
           "cancel": "Avbrutt",
           "end": "Avsluttet",
-          "appointment": "Planlagt start"
+          "appointment": "Planlagt start",
+          "reservation": "Reservasjon",
+          "none": "Ingen"
         }
       },
       "x9b_fire_power_select": {
@@ -4029,7 +4045,9 @@
           "ff": "Ukjent",
           "cancel": "Avbrutt",
           "end": "Avsluttet",
-          "appointment": "Planlagt start"
+          "appointment": "Planlagt start",
+          "reservation": "Reservasjon",
+          "none": "Ingen"
         }
       },
       "x9b_fire_power": {
@@ -4287,6 +4305,27 @@
       },
       "wash_count": {
         "name": "Antall vaskesykluser"
+      },
+      "water_state": {
+        "name": "Vanntank",
+        "state": {
+          "full": "Full",
+          "empty": "Tom"
+        }
+      },
+      "box_state": {
+        "name": "Dampovn",
+        "state": {
+          "in": "Satt inn",
+          "out": "Tatt ut"
+        }
+      },
+      "door_state": {
+        "name": "Dør",
+        "state": {
+          "open": "Åpen",
+          "close": "Lukket"
+        }
       }
     },
     "switch": {

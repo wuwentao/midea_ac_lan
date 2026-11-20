@@ -50,6 +50,7 @@ from midealan.devices.ad import DeviceAttributes as ADAttributes
 from midealan.devices.b0 import DeviceAttributes as B0Attributes
 from midealan.devices.b1 import DeviceAttributes as B1Attributes
 from midealan.devices.b2 import DeviceAttributes as B2Attributes
+from midealan.devices.b2 import message as b2_message
 from midealan.devices.b3 import DeviceAttributes as B3Attributes
 from midealan.devices.b4 import DeviceAttributes as B4Attributes
 from midealan.devices.b6 import DeviceAttributes as B6Attributes
@@ -4678,70 +4679,60 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
         "name": "Steam Box",
         "entities": {
             B2Attributes.work_status: {
-                "type": Platform.SELECT,
-                "translation_key": "steambox_work_status",
+                "type": Platform.SENSOR,
+                "translation_key": "work_status",
                 "name": "Work Status",
                 "icon": "mdi:play-pause",
-                "options": [
-                    "standby",
-                    "work",
-                    "pause",
-                    "reservation",
-                    "save_power",
-                    "none",
-                ],
+                "device_class": SensorDeviceClass.ENUM,
+                "options": {
+                    state: state for state in b2_message.WORK_STATUS_NAMES.values()
+                },
+            },
+            # work_finish is reported but rejected by the released B2 setter.
+            "work_status_select": {
+                "type": Platform.SELECT,
+                "attribute": B2Attributes.work_status,
+                "translation_key": "work_status_select",
+                "name": "Set Work Status",
+                "icon": "mdi:play-pause",
+                "options": list(b2_message.WORK_STATUS_CODES),
             },
             B2Attributes.work_mode: {
                 "type": Platform.SELECT,
-                "translation_key": "steambox_mode",
+                "translation_key": "mode",
                 "name": "Mode",
                 "icon": "mdi:pot-steam",
-                "options": [
-                    "unfreeze",
-                    "keep_warm",
-                    "fish",
-                    "meat",
-                    "egg",
-                    "seafood",
-                    "steam_clean",
-                    "common",
-                    "grain",
-                    "rice",
-                    "zymosis",
-                    "heat",
-                    "furring_clean",
-                    "disinfect",
-                    "vegetable",
-                    "chop",
-                ],
+                "options": list(b2_message.MODE_CODES),
             },
             B2Attributes.work_hour: {
                 "type": Platform.NUMBER,
-                "translation_key": "steambox_hour",
+                "translation_key": "hour_set",
                 "name": "Hours",
                 "icon": "mdi:timer",
-                "min": 0,
-                "max": 9,
+                "unit": UnitOfTime.HOURS,
+                "min": b2_message.WORK_HOUR_MIN,
+                "max": b2_message.WORK_HOUR_MAX,
                 "step": 1,
             },
             B2Attributes.work_minute: {
                 "type": Platform.NUMBER,
-                "translation_key": "steambox_minute",
+                "translation_key": "minute_set",
                 "name": "Minutes",
                 "icon": "mdi:timer",
-                "min": 0,
-                "max": 59,
+                "unit": UnitOfTime.MINUTES,
+                "min": b2_message.WORK_MINUTE_MIN,
+                "max": b2_message.WORK_MINUTE_MAX,
                 "step": 1,
             },
             B2Attributes.temperature: {
                 "type": Platform.NUMBER,
-                "translation_key": "steambox_temperature",
+                "translation_key": "temperature_number",
                 "name": "Temperature",
                 "device_class": NumberDeviceClass.TEMPERATURE,
                 "unit": UnitOfTemperature.CELSIUS,
                 "icon": "mdi:thermometer",
-                "min": 50,
-                "max": 100,
+                "min": b2_message.TEMPERATURE_MIN,
+                "max": b2_message.TEMPERATURE_MAX,
                 "step": 1,
             },
             B2Attributes.lock: {
@@ -4752,27 +4743,33 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             B2Attributes.door_state: {
                 "type": Platform.SENSOR,
-                "translation_key": "steambox_door",
+                "translation_key": "door_state",
                 "name": "Door",
                 "icon": "mdi:door",
                 "device_class": SensorDeviceClass.ENUM,
-                "options": {"close": "close", "open": "open"},
+                "options": {
+                    state: state for state in b2_message.DOOR_STATE_NAMES.values()
+                },
             },
             B2Attributes.water_state: {
                 "type": Platform.SENSOR,
-                "translation_key": "steambox_water",
+                "translation_key": "water_state",
                 "name": "Water Tank",
                 "icon": "mdi:water",
                 "device_class": SensorDeviceClass.ENUM,
-                "options": {"full": "full", "empty": "empty"},
+                "options": {
+                    state: state for state in b2_message.WATER_STATE_NAMES.values()
+                },
             },
             B2Attributes.box_state: {
                 "type": Platform.SENSOR,
-                "translation_key": "steambox_box",
+                "translation_key": "box_state",
                 "name": "Steam Box",
                 "icon": "mdi:tray",
                 "device_class": SensorDeviceClass.ENUM,
-                "options": {"in": "in", "out": "out"},
+                "options": {
+                    state: state for state in b2_message.BOX_STATE_NAMES.values()
+                },
             },
         },
     },

@@ -1293,7 +1293,21 @@
           "down_baking": "Alt pişirme",
           "pizza": "Pizza",
           "up_infrared_fan": "Üst kızılötesi fan",
-          "microwave": "Mikrodalga"
+          "microwave": "Mikrodalga",
+          "fish": "Balık",
+          "meat": "Et",
+          "egg": "Yumurta",
+          "seafood": "Deniz ürünleri",
+          "steam_clean": "Buharlı temizleme",
+          "common": "Genel",
+          "grain": "Tahıl",
+          "rice": "Pirinç",
+          "zymosis": "Mayalama",
+          "heat": "Yeniden ısıtma",
+          "furring_clean": "Kireç çözme",
+          "disinfect": "Dezenfeksiyon",
+          "vegetable": "Sebze",
+          "chop": "Doğranmış yiyecek"
         }
       },
       "oscillation_angle": {
@@ -1399,7 +1413,9 @@
           "ff": "Bilinmiyor",
           "cancel": "İptal edildi",
           "end": "Tamamlandı",
-          "appointment": "Zamanlanmış başlangıç"
+          "appointment": "Zamanlanmış başlangıç",
+          "reservation": "Rezervasyon",
+          "none": "Yok"
         }
       },
       "x9b_fire_power_select": {
@@ -4029,7 +4045,9 @@
           "ff": "Bilinmiyor",
           "cancel": "İptal edildi",
           "end": "Tamamlandı",
-          "appointment": "Zamanlanmış başlangıç"
+          "appointment": "Zamanlanmış başlangıç",
+          "reservation": "Rezervasyon",
+          "none": "Yok"
         }
       },
       "x9b_fire_power": {
@@ -4287,6 +4305,27 @@
       },
       "wash_count": {
         "name": "Yıkama sayısı"
+      },
+      "water_state": {
+        "name": "Su haznesi",
+        "state": {
+          "full": "Dolu",
+          "empty": "Boş"
+        }
+      },
+      "box_state": {
+        "name": "Buharlı fırın",
+        "state": {
+          "in": "Takılı",
+          "out": "Çıkarıldı"
+        }
+      },
+      "door_state": {
+        "name": "Kapı",
+        "state": {
+          "open": "Açık",
+          "close": "Kapalı"
+        }
       }
     },
     "switch": {

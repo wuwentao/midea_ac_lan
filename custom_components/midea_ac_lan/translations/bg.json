@@ -1293,7 +1293,21 @@
           "down_baking": "Долно печене",
           "pizza": "Пица",
           "up_infrared_fan": "Горен инфрачервен вентилатор",
-          "microwave": "Микровълни"
+          "microwave": "Микровълни",
+          "fish": "Риба",
+          "meat": "Месо",
+          "egg": "Яйца",
+          "seafood": "Морски дарове",
+          "steam_clean": "Почистване с пара",
+          "common": "Общ режим",
+          "grain": "Зърнени храни",
+          "rice": "Ориз",
+          "zymosis": "Ферментация",
+          "heat": "Подгряване",
+          "furring_clean": "Премахване на котлен камък",
+          "disinfect": "Дезинфекция",
+          "vegetable": "Зеленчуци",
+          "chop": "Нарязана храна"
         }
       },
       "oscillation_angle": {
@@ -1399,7 +1413,9 @@
           "ff": "Неизвестно",
           "cancel": "Отказ",
           "end": "Край",
-          "appointment": "Отложен старт"
+          "appointment": "Отложен старт",
+          "reservation": "Резервация",
+          "none": "Няма"
         }
       },
       "x9b_fire_power_select": {
@@ -4029,7 +4045,9 @@
           "ff": "Неизвестно",
           "cancel": "Отказ",
           "end": "Край",
-          "appointment": "Отложен старт"
+          "appointment": "Отложен старт",
+          "reservation": "Резервация",
+          "none": "Няма"
         }
       },
       "x9b_fire_power": {
@@ -4287,6 +4305,27 @@
       },
       "wash_count": {
         "name": "Брой изпирания"
+      },
+      "water_state": {
+        "name": "Резервоар за вода",
+        "state": {
+          "full": "Пълен",
+          "empty": "Празен"
+        }
+      },
+      "box_state": {
+        "name": "Парна фурна",
+        "state": {
+          "in": "Поставена",
+          "out": "Извадена"
+        }
+      },
+      "door_state": {
+        "name": "Врата",
+        "state": {
+          "open": "Отворена",
+          "close": "Затворена"
+        }
       }
     },
     "switch": {

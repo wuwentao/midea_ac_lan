@@ -1246,7 +1246,21 @@
           "down_baking": "Cuisson par le bas",
           "pizza": "Pizza",
           "up_infrared_fan": "Ventilateur infrarouge supérieur",
-          "microwave": "Micro-ondes"
+          "microwave": "Micro-ondes",
+          "fish": "Poisson",
+          "meat": "Viande",
+          "egg": "Œuf",
+          "seafood": "Fruits de mer",
+          "steam_clean": "Nettoyage vapeur",
+          "common": "Général",
+          "grain": "Céréales",
+          "rice": "Riz",
+          "zymosis": "Fermentation",
+          "heat": "Réchauffer",
+          "furring_clean": "Détartrer",
+          "disinfect": "Désinfecter",
+          "vegetable": "Légumes",
+          "chop": "Aliments hachés"
         }
       },
       "oscillation_angle": {
@@ -1320,7 +1334,9 @@
           "ff": "Inconnu",
           "cancel": "Annulé",
           "end": "Terminé",
-          "appointment": "Départ programmé"
+          "appointment": "Départ programmé",
+          "reservation": "Réservation",
+          "none": "Aucun"
         }
       },
       "x9b_fire_power_select": {
@@ -3884,7 +3900,9 @@
           "ff": "Inconnu",
           "cancel": "Annulé",
           "end": "Terminé",
-          "appointment": "Départ programmé"
+          "appointment": "Départ programmé",
+          "reservation": "Réservation",
+          "none": "Aucun"
         }
       },
       "x9b_fire_power": {
@@ -4139,6 +4157,27 @@
       },
       "wash_count": {
         "name": "Nombre de lavages"
+      },
+      "water_state": {
+        "name": "Réservoir d'eau",
+        "state": {
+          "full": "Plein",
+          "empty": "Vide"
+        }
+      },
+      "box_state": {
+        "name": "Four vapeur",
+        "state": {
+          "in": "Inséré",
+          "out": "Retiré"
+        }
+      },
+      "door_state": {
+        "name": "Porte",
+        "state": {
+          "open": "Ouverte",
+          "close": "Fermée"
+        }
       }
     },
     "switch": {
