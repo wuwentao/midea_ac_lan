@@ -1092,6 +1092,27 @@
       "dryer_timed_extra": {
         "name": "Prelungire uscare temporizată"
       },
+      "e9_volume": {
+        "name": "Dimensiunea pâinii"
+      },
+      "color": {
+        "name": "Culoarea crustei"
+      },
+      "dosing": {
+        "name": "Dozarea ingredientelor"
+      },
+      "bake_temperature": {
+        "name": "Temperatura de coacere"
+      },
+      "time_cuisine_hr": {
+        "name": "Durata coacerii (ore)"
+      },
+      "time_cuisine_min": {
+        "name": "Durata coacerii (minute)"
+      },
+      "control_cmd_code": {
+        "name": "Cod comandă"
+      },
       "auto_off_screen_type": {
         "name": "Tip oprire automată a ecranului"
       },
@@ -1629,6 +1650,25 @@
       }
     },
     "sensor": {
+      "response_type": {
+        "name": "Răspuns",
+        "state": {
+          "response_normal": "Răspuns normal",
+          "response_error_e2": "Eroare E2"
+        }
+      },
+      "time_work_hr": {
+        "name": "Durata funcționării (ore)"
+      },
+      "time_work_min": {
+        "name": "Durata funcționării (minute)"
+      },
+      "time_warm_hr": {
+        "name": "Durata menținerii la cald (ore)"
+      },
+      "time_warm_min": {
+        "name": "Durata menținerii la cald (minute)"
+      },
       "time_running_hr": { "name": "Ore de funcționare" },
       "time_running_min": { "name": "Minute de funcționare" },
       "time_surplus_hr": { "name": "Ore rămase" },

@@ -1092,6 +1092,27 @@
       "dryer_timed_extra": {
         "name": "定時乾燥延長"
       },
+      "e9_volume": {
+        "name": "麵包重量"
+      },
+      "color": {
+        "name": "烤色"
+      },
+      "dosing": {
+        "name": "投料"
+      },
+      "bake_temperature": {
+        "name": "烘烤溫度"
+      },
+      "time_cuisine_hr": {
+        "name": "烹飪小時"
+      },
+      "time_cuisine_min": {
+        "name": "烹飪分鐘"
+      },
+      "control_cmd_code": {
+        "name": "命令碼"
+      },
       "auto_off_screen_type": {
         "name": "自動關閉螢幕類型"
       },
@@ -1629,6 +1650,25 @@
       }
     },
     "sensor": {
+      "response_type": {
+        "name": "回應",
+        "state": {
+          "response_normal": "正常回應",
+          "response_error_e2": "錯誤 E2"
+        }
+      },
+      "time_work_hr": {
+        "name": "工作小時"
+      },
+      "time_work_min": {
+        "name": "工作分鐘"
+      },
+      "time_warm_hr": {
+        "name": "保溫小時"
+      },
+      "time_warm_min": {
+        "name": "保溫分鐘"
+      },
       "time_running_hr": { "name": "運行小時" },
       "time_running_min": { "name": "運行分鐘" },
       "time_surplus_hr": { "name": "剩餘小時" },

@@ -1076,6 +1076,27 @@
       "dryer_timed_extra": {
         "name": "Szárítási idő meghosszabbítása"
       },
+      "e9_volume": {
+        "name": "Kenyérméret"
+      },
+      "color": {
+        "name": "Héjszín"
+      },
+      "dosing": {
+        "name": "Hozzávalók adagolása"
+      },
+      "bake_temperature": {
+        "name": "Sütési hőmérséklet"
+      },
+      "time_cuisine_hr": {
+        "name": "Sütési idő (óra)"
+      },
+      "time_cuisine_min": {
+        "name": "Sütési idő (perc)"
+      },
+      "control_cmd_code": {
+        "name": "Parancskód"
+      },
       "auto_off_screen_type": {
         "name": "Automatikus képernyő-kikapcsolás típusa"
       },
@@ -1550,6 +1571,25 @@
       }
     },
     "sensor": {
+      "response_type": {
+        "name": "Válasz",
+        "state": {
+          "response_normal": "Normál válasz",
+          "response_error_e2": "E2 hiba"
+        }
+      },
+      "time_work_hr": {
+        "name": "Működési idő (óra)"
+      },
+      "time_work_min": {
+        "name": "Működési idő (perc)"
+      },
+      "time_warm_hr": {
+        "name": "Melegen tartási idő (óra)"
+      },
+      "time_warm_min": {
+        "name": "Melegen tartási idő (perc)"
+      },
       "time_running_hr": { "name": "Működési órák" },
       "time_running_min": { "name": "Működési percek" },
       "time_surplus_hr": { "name": "Hátralévő órák" },
@@ -1740,7 +1780,7 @@
         "name": "Bottom Compartment Temperature"
       },
       "bottom_temperature": {
-        "name": "Bottom Temperature"
+        "name": "Alsó hőmérséklet"
       },
       "bright": {
         "name": "Bright Level"

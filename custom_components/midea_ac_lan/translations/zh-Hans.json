@@ -1106,6 +1106,27 @@
       "dryer_timed_extra": {
         "name": "定时加时"
       },
+      "e9_volume": {
+        "name": "面包重量"
+      },
+      "color": {
+        "name": "烤色"
+      },
+      "dosing": {
+        "name": "投料"
+      },
+      "bake_temperature": {
+        "name": "烘烤温度"
+      },
+      "time_cuisine_hr": {
+        "name": "烹饪小时"
+      },
+      "time_cuisine_min": {
+        "name": "烹饪分钟"
+      },
+      "control_cmd_code": {
+        "name": "命令码"
+      },
       "auto_off_screen_type": {
         "name": "自动息屏类型"
       },
@@ -1616,6 +1637,25 @@
       }
     },
     "sensor": {
+      "response_type": {
+        "name": "响应",
+        "state": {
+          "response_normal": "正常",
+          "response_error_e2": "错误 E2"
+        }
+      },
+      "time_work_hr": {
+        "name": "工作小时"
+      },
+      "time_work_min": {
+        "name": "工作分钟"
+      },
+      "time_warm_hr": {
+        "name": "保温小时"
+      },
+      "time_warm_min": {
+        "name": "保温分钟"
+      },
       "time_running_hr": {
         "name": "运行小时"
       },

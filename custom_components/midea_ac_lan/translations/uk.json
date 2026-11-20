@@ -1092,6 +1092,27 @@
       "dryer_timed_extra": {
         "name": "Продовження таймерного сушіння"
       },
+      "e9_volume": {
+        "name": "Розмір буханця"
+      },
+      "color": {
+        "name": "Колір скоринки"
+      },
+      "dosing": {
+        "name": "Дозування інгредієнтів"
+      },
+      "bake_temperature": {
+        "name": "Температура випікання"
+      },
+      "time_cuisine_hr": {
+        "name": "Час приготування (години)"
+      },
+      "time_cuisine_min": {
+        "name": "Час приготування (хвилини)"
+      },
+      "control_cmd_code": {
+        "name": "Код команди"
+      },
       "auto_off_screen_type": {
         "name": "Тип автоматичного вимкнення екрана"
       },
@@ -1629,6 +1650,25 @@
       }
     },
     "sensor": {
+      "response_type": {
+        "name": "Відповідь",
+        "state": {
+          "response_normal": "Нормальна відповідь",
+          "response_error_e2": "Помилка E2"
+        }
+      },
+      "time_work_hr": {
+        "name": "Час роботи (години)"
+      },
+      "time_work_min": {
+        "name": "Час роботи (хвилини)"
+      },
+      "time_warm_hr": {
+        "name": "Час підтримання тепла (години)"
+      },
+      "time_warm_min": {
+        "name": "Час підтримання тепла (хвилини)"
+      },
       "time_running_hr": { "name": "Години роботи" },
       "time_running_min": { "name": "Хвилини роботи" },
       "time_surplus_hr": { "name": "Години, що залишилися" },

@@ -1092,6 +1092,27 @@
       "dryer_timed_extra": {
         "name": "Przedłużenie suszenia czasowego"
       },
+      "e9_volume": {
+        "name": "Rozmiar bochenka"
+      },
+      "color": {
+        "name": "Kolor skórki"
+      },
+      "dosing": {
+        "name": "Dozowanie składników"
+      },
+      "bake_temperature": {
+        "name": "Temperatura pieczenia"
+      },
+      "time_cuisine_hr": {
+        "name": "Czas pieczenia (godziny)"
+      },
+      "time_cuisine_min": {
+        "name": "Czas pieczenia (minuty)"
+      },
+      "control_cmd_code": {
+        "name": "Kod polecenia"
+      },
       "auto_off_screen_type": {
         "name": "Typ automatycznego wyłączania ekranu"
       },
@@ -1629,6 +1650,25 @@
       }
     },
     "sensor": {
+      "response_type": {
+        "name": "Odpowiedź",
+        "state": {
+          "response_normal": "Prawidłowa odpowiedź",
+          "response_error_e2": "Błąd E2"
+        }
+      },
+      "time_work_hr": {
+        "name": "Czas pracy (godziny)"
+      },
+      "time_work_min": {
+        "name": "Czas pracy (minuty)"
+      },
+      "time_warm_hr": {
+        "name": "Czas podtrzymywania ciepła (godziny)"
+      },
+      "time_warm_min": {
+        "name": "Czas podtrzymywania ciepła (minuty)"
+      },
       "time_running_hr": { "name": "Godziny pracy" },
       "time_running_min": { "name": "Minuty pracy" },
       "time_surplus_hr": { "name": "Pozostałe godziny" },

@@ -1092,6 +1092,27 @@
       "dryer_timed_extra": {
         "name": "Lehortze tenporizatuaren luzapena"
       },
+      "e9_volume": {
+        "name": "Ogiaren tamaina"
+      },
+      "color": {
+        "name": "Azalaren kolorea"
+      },
+      "dosing": {
+        "name": "Osagaien dosifikazioa"
+      },
+      "bake_temperature": {
+        "name": "Labekatze-tenperatura"
+      },
+      "time_cuisine_hr": {
+        "name": "Egosketa-orduak"
+      },
+      "time_cuisine_min": {
+        "name": "Egosketa-minutuak"
+      },
+      "control_cmd_code": {
+        "name": "Komando-kodea"
+      },
       "auto_off_screen_type": {
         "name": "Pantaila automatikoki itzaltzeko mota"
       },
@@ -1629,6 +1650,25 @@
       }
     },
     "sensor": {
+      "response_type": {
+        "name": "Erantzuna",
+        "state": {
+          "response_normal": "Erantzun normala",
+          "response_error_e2": "E2 errorea"
+        }
+      },
+      "time_work_hr": {
+        "name": "Lan-orduak"
+      },
+      "time_work_min": {
+        "name": "Lan-minutuak"
+      },
+      "time_warm_hr": {
+        "name": "Bero mantentzeko orduak"
+      },
+      "time_warm_min": {
+        "name": "Bero mantentzeko minutuak"
+      },
       "time_running_hr": { "name": "Funtzionamendu-orduak" },
       "time_running_min": { "name": "Funtzionamendu-minutuak" },
       "time_surplus_hr": { "name": "Geratzen diren orduak" },

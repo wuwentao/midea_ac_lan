@@ -1106,6 +1106,27 @@
       "dryer_timed_extra": {
         "name": "Timed drying extension"
       },
+      "e9_volume": {
+        "name": "Loaf Size"
+      },
+      "color": {
+        "name": "Crust Color"
+      },
+      "dosing": {
+        "name": "Dosing"
+      },
+      "bake_temperature": {
+        "name": "Bake Temperature"
+      },
+      "time_cuisine_hr": {
+        "name": "Cuisine Hours"
+      },
+      "time_cuisine_min": {
+        "name": "Cuisine Minutes"
+      },
+      "control_cmd_code": {
+        "name": "Command Code"
+      },
       "auto_off_screen_type": {
         "name": "Auto Off Screen Type"
       },
@@ -1643,6 +1664,25 @@
       }
     },
     "sensor": {
+      "response_type": {
+        "name": "Response",
+        "state": {
+          "response_normal": "Normal",
+          "response_error_e2": "Error E2"
+        }
+      },
+      "time_work_hr": {
+        "name": "Work Hours"
+      },
+      "time_work_min": {
+        "name": "Work Minutes"
+      },
+      "time_warm_hr": {
+        "name": "Keep Warm Hours"
+      },
+      "time_warm_min": {
+        "name": "Keep Warm Minutes"
+      },
       "time_running_hr": {
         "name": "Running Hours"
       },

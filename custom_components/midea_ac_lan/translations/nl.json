@@ -1092,6 +1092,27 @@
       "dryer_timed_extra": {
         "name": "Verlenging getimed drogen"
       },
+      "e9_volume": {
+        "name": "Broodgrootte"
+      },
+      "color": {
+        "name": "Korstkleur"
+      },
+      "dosing": {
+        "name": "Dosering van ingrediënten"
+      },
+      "bake_temperature": {
+        "name": "Baktemperatuur"
+      },
+      "time_cuisine_hr": {
+        "name": "Bereidingstijd (uren)"
+      },
+      "time_cuisine_min": {
+        "name": "Bereidingstijd (minuten)"
+      },
+      "control_cmd_code": {
+        "name": "Opdrachtcode"
+      },
       "auto_off_screen_type": {
         "name": "Type automatisch scherm uitschakelen"
       },
@@ -1629,6 +1650,25 @@
       }
     },
     "sensor": {
+      "response_type": {
+        "name": "Reactie",
+        "state": {
+          "response_normal": "Normale reactie",
+          "response_error_e2": "E2-fout"
+        }
+      },
+      "time_work_hr": {
+        "name": "Werkingsduur (uren)"
+      },
+      "time_work_min": {
+        "name": "Werkingsduur (minuten)"
+      },
+      "time_warm_hr": {
+        "name": "Warmhoudtijd (uren)"
+      },
+      "time_warm_min": {
+        "name": "Warmhoudtijd (minuten)"
+      },
       "time_running_hr": { "name": "Bedrijfsuren" },
       "time_running_min": { "name": "Bedrijfsminuten" },
       "time_surplus_hr": { "name": "Resterende uren" },

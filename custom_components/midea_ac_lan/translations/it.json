@@ -1076,6 +1076,27 @@
       "dryer_timed_extra": {
         "name": "Prolungamento asciugatura a tempo"
       },
+      "e9_volume": {
+        "name": "Dimensione del pane"
+      },
+      "color": {
+        "name": "Colore della crosta"
+      },
+      "dosing": {
+        "name": "Dosaggio degli ingredienti"
+      },
+      "bake_temperature": {
+        "name": "Temperatura di cottura"
+      },
+      "time_cuisine_hr": {
+        "name": "Ore di cottura"
+      },
+      "time_cuisine_min": {
+        "name": "Minuti di cottura"
+      },
+      "control_cmd_code": {
+        "name": "Codice comando"
+      },
       "auto_off_screen_type": {
         "name": "Tipo di spegnimento automatico dello schermo"
       },
@@ -1550,6 +1571,25 @@
       }
     },
     "sensor": {
+      "response_type": {
+        "name": "Risposta",
+        "state": {
+          "response_normal": "Risposta normale",
+          "response_error_e2": "Errore E2"
+        }
+      },
+      "time_work_hr": {
+        "name": "Ore di funzionamento"
+      },
+      "time_work_min": {
+        "name": "Minuti di funzionamento"
+      },
+      "time_warm_hr": {
+        "name": "Ore di mantenimento in caldo"
+      },
+      "time_warm_min": {
+        "name": "Minuti di mantenimento in caldo"
+      },
       "time_running_hr": { "name": "Ore di funzionamento" },
       "time_running_min": { "name": "Minuti di funzionamento" },
       "time_surplus_hr": { "name": "Ore rimanenti" },

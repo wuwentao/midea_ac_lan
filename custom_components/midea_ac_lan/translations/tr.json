@@ -1092,6 +1092,27 @@
       "dryer_timed_extra": {
         "name": "Zamanlı kurutma uzatması"
       },
+      "e9_volume": {
+        "name": "Ekmek boyutu"
+      },
+      "color": {
+        "name": "Kabuk rengi"
+      },
+      "dosing": {
+        "name": "Malzeme dozajı"
+      },
+      "bake_temperature": {
+        "name": "Pişirme sıcaklığı"
+      },
+      "time_cuisine_hr": {
+        "name": "Pişirme süresi (saat)"
+      },
+      "time_cuisine_min": {
+        "name": "Pişirme süresi (dakika)"
+      },
+      "control_cmd_code": {
+        "name": "Komut kodu"
+      },
       "auto_off_screen_type": {
         "name": "Otomatik ekran kapanma türü"
       },
@@ -1629,6 +1650,25 @@
       }
     },
     "sensor": {
+      "response_type": {
+        "name": "Yanıt",
+        "state": {
+          "response_normal": "Normal yanıt",
+          "response_error_e2": "E2 hatası"
+        }
+      },
+      "time_work_hr": {
+        "name": "Çalışma süresi (saat)"
+      },
+      "time_work_min": {
+        "name": "Çalışma süresi (dakika)"
+      },
+      "time_warm_hr": {
+        "name": "Sıcak tutma süresi (saat)"
+      },
+      "time_warm_min": {
+        "name": "Sıcak tutma süresi (dakika)"
+      },
       "time_running_hr": { "name": "Çalışma saati" },
       "time_running_min": { "name": "Çalışma dakikası" },
       "time_surplus_hr": { "name": "Kalan saat" },

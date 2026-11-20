@@ -1092,6 +1092,27 @@
       "dryer_timed_extra": {
         "name": "Extensão da secagem temporizada"
       },
+      "e9_volume": {
+        "name": "Tamanho do pão"
+      },
+      "color": {
+        "name": "Cor da crosta"
+      },
+      "dosing": {
+        "name": "Dosagem de ingredientes"
+      },
+      "bake_temperature": {
+        "name": "Temperatura de cozedura"
+      },
+      "time_cuisine_hr": {
+        "name": "Tempo de cozedura (horas)"
+      },
+      "time_cuisine_min": {
+        "name": "Tempo de cozedura (minutos)"
+      },
+      "control_cmd_code": {
+        "name": "Código do comando"
+      },
       "auto_off_screen_type": {
         "name": "Tipo de desligamento automático do ecrã"
       },
@@ -1629,6 +1650,25 @@
       }
     },
     "sensor": {
+      "response_type": {
+        "name": "Resposta",
+        "state": {
+          "response_normal": "Resposta normal",
+          "response_error_e2": "Erro E2"
+        }
+      },
+      "time_work_hr": {
+        "name": "Tempo de funcionamento (horas)"
+      },
+      "time_work_min": {
+        "name": "Tempo de funcionamento (minutos)"
+      },
+      "time_warm_hr": {
+        "name": "Tempo de manutenção do calor (horas)"
+      },
+      "time_warm_min": {
+        "name": "Tempo de manutenção do calor (minutos)"
+      },
       "time_running_hr": { "name": "Horas de funcionamento" },
       "time_running_min": { "name": "Minutos de funcionamento" },
       "time_surplus_hr": { "name": "Horas restantes" },

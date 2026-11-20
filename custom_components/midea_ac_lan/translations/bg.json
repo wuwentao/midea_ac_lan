@@ -1092,6 +1092,27 @@
       "dryer_timed_extra": {
         "name": "Удължаване на сушенето с таймер"
       },
+      "e9_volume": {
+        "name": "Размер на хляба"
+      },
+      "color": {
+        "name": "Цвят на коричката"
+      },
+      "dosing": {
+        "name": "Дозиране на съставките"
+      },
+      "bake_temperature": {
+        "name": "Температура на печене"
+      },
+      "time_cuisine_hr": {
+        "name": "Часове за готвене"
+      },
+      "time_cuisine_min": {
+        "name": "Минути за готвене"
+      },
+      "control_cmd_code": {
+        "name": "Код на командата"
+      },
       "auto_off_screen_type": {
         "name": "Тип автоматично изключване на екрана"
       },
@@ -1629,6 +1650,25 @@
       }
     },
     "sensor": {
+      "response_type": {
+        "name": "Отговор",
+        "state": {
+          "response_normal": "Нормален отговор",
+          "response_error_e2": "Грешка E2"
+        }
+      },
+      "time_work_hr": {
+        "name": "Работни часове"
+      },
+      "time_work_min": {
+        "name": "Работни минути"
+      },
+      "time_warm_hr": {
+        "name": "Часове за поддържане на топлина"
+      },
+      "time_warm_min": {
+        "name": "Минути за поддържане на топлина"
+      },
       "time_running_hr": { "name": "Часове работа" },
       "time_running_min": { "name": "Минути работа" },
       "time_surplus_hr": { "name": "Оставащи часове" },

@@ -130,6 +130,7 @@ Please check the document links below for the supported features and usage of ea
 | E6   | Gas Boiler                      | [E6.md](doc/E6.md) |
 | E7   | Steam Cooking Appliance         | [E7.md](doc/E7.md) |
 | E8   | Electric Slow Cooker            | [E8.md](doc/E8.md) |
+| E9   | Bread Maker                     | [E9.md](doc/E9.md) |
 | EA   | Electric Rice Cooker            | [EA.md](doc/EA.md) |
 | EB   | Warming Cooking Appliance       | [EB.md](doc/EB.md) |
 | EC   | Electric Pressure Cooker        | [EC.md](doc/EC.md) |

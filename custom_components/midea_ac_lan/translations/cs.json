@@ -1092,6 +1092,27 @@
       "dryer_timed_extra": {
         "name": "Prodloužení časovaného sušení"
       },
+      "e9_volume": {
+        "name": "Velikost bochníku"
+      },
+      "color": {
+        "name": "Barva kůrky"
+      },
+      "dosing": {
+        "name": "Dávkování přísad"
+      },
+      "bake_temperature": {
+        "name": "Teplota pečení"
+      },
+      "time_cuisine_hr": {
+        "name": "Hodiny přípravy"
+      },
+      "time_cuisine_min": {
+        "name": "Minuty přípravy"
+      },
+      "control_cmd_code": {
+        "name": "Kód příkazu"
+      },
       "auto_off_screen_type": {
         "name": "Typ automatického vypnutí obrazovky"
       },
@@ -1629,6 +1650,25 @@
       }
     },
     "sensor": {
+      "response_type": {
+        "name": "Odpověď",
+        "state": {
+          "response_normal": "Normální odpověď",
+          "response_error_e2": "Chyba E2"
+        }
+      },
+      "time_work_hr": {
+        "name": "Hodiny provozu"
+      },
+      "time_work_min": {
+        "name": "Minuty provozu"
+      },
+      "time_warm_hr": {
+        "name": "Hodiny udržování teploty"
+      },
+      "time_warm_min": {
+        "name": "Minuty udržování teploty"
+      },
       "time_running_hr": { "name": "Hodiny provozu" },
       "time_running_min": { "name": "Minuty provozu" },
       "time_surplus_hr": { "name": "Zbývající hodiny" },

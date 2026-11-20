@@ -1092,6 +1092,27 @@
       "dryer_timed_extra": {
         "name": "타이머 건조 연장"
       },
+      "e9_volume": {
+        "name": "빵 크기"
+      },
+      "color": {
+        "name": "굽기 색상"
+      },
+      "dosing": {
+        "name": "재료 투입"
+      },
+      "bake_temperature": {
+        "name": "굽기 온도"
+      },
+      "time_cuisine_hr": {
+        "name": "조리 시간(시)"
+      },
+      "time_cuisine_min": {
+        "name": "조리 시간(분)"
+      },
+      "control_cmd_code": {
+        "name": "명령 코드"
+      },
       "auto_off_screen_type": {
         "name": "자동 화면 꺼짐 유형"
       },
@@ -1629,6 +1650,25 @@
       }
     },
     "sensor": {
+      "response_type": {
+        "name": "응답",
+        "state": {
+          "response_normal": "정상 응답",
+          "response_error_e2": "E2 오류"
+        }
+      },
+      "time_work_hr": {
+        "name": "작동 시간(시)"
+      },
+      "time_work_min": {
+        "name": "작동 시간(분)"
+      },
+      "time_warm_hr": {
+        "name": "보온 시간(시)"
+      },
+      "time_warm_min": {
+        "name": "보온 시간(분)"
+      },
       "time_running_hr": { "name": "작동 시간(시)" },
       "time_running_min": { "name": "작동 시간(분)" },
       "time_surplus_hr": { "name": "남은 시간(시)" },

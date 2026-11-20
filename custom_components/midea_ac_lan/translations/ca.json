@@ -1092,6 +1092,27 @@
       "dryer_timed_extra": {
         "name": "Ampliació de l'assecat temporitzat"
       },
+      "e9_volume": {
+        "name": "Mida del pa"
+      },
+      "color": {
+        "name": "Color de la crosta"
+      },
+      "dosing": {
+        "name": "Dosificació d'ingredients"
+      },
+      "bake_temperature": {
+        "name": "Temperatura de cocció"
+      },
+      "time_cuisine_hr": {
+        "name": "Hores de cocció"
+      },
+      "time_cuisine_min": {
+        "name": "Minuts de cocció"
+      },
+      "control_cmd_code": {
+        "name": "Codi d'ordre"
+      },
       "auto_off_screen_type": {
         "name": "Tipus d'apagada automàtica de pantalla"
       },
@@ -1629,6 +1650,25 @@
       }
     },
     "sensor": {
+      "response_type": {
+        "name": "Resposta",
+        "state": {
+          "response_normal": "Resposta normal",
+          "response_error_e2": "Error de resposta E2"
+        }
+      },
+      "time_work_hr": {
+        "name": "Hores de funcionament"
+      },
+      "time_work_min": {
+        "name": "Minuts de funcionament"
+      },
+      "time_warm_hr": {
+        "name": "Hores de manteniment en calent"
+      },
+      "time_warm_min": {
+        "name": "Minuts de manteniment en calent"
+      },
       "time_running_hr": { "name": "Hores de funcionament" },
       "time_running_min": { "name": "Minuts de funcionament" },
       "time_surplus_hr": { "name": "Hores restants" },

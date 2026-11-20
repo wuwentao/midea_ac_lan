@@ -1092,6 +1092,27 @@
       "dryer_timed_extra": {
         "name": "Podaljšanje časovno nastavljenega sušenja"
       },
+      "e9_volume": {
+        "name": "Velikost hlebca"
+      },
+      "color": {
+        "name": "Barva skorje"
+      },
+      "dosing": {
+        "name": "Doziranje sestavin"
+      },
+      "bake_temperature": {
+        "name": "Temperatura peke"
+      },
+      "time_cuisine_hr": {
+        "name": "Čas priprave (ure)"
+      },
+      "time_cuisine_min": {
+        "name": "Čas priprave (minute)"
+      },
+      "control_cmd_code": {
+        "name": "Koda ukaza"
+      },
       "auto_off_screen_type": {
         "name": "Vrsta samodejnega izklopa zaslona"
       },
@@ -1629,6 +1650,25 @@
       }
     },
     "sensor": {
+      "response_type": {
+        "name": "Odziv",
+        "state": {
+          "response_normal": "Običajen odziv",
+          "response_error_e2": "Napaka E2"
+        }
+      },
+      "time_work_hr": {
+        "name": "Čas delovanja (ure)"
+      },
+      "time_work_min": {
+        "name": "Čas delovanja (minute)"
+      },
+      "time_warm_hr": {
+        "name": "Čas ohranjanja toplote (ure)"
+      },
+      "time_warm_min": {
+        "name": "Čas ohranjanja toplote (minute)"
+      },
       "time_running_hr": { "name": "Ure delovanja" },
       "time_running_min": { "name": "Minute delovanja" },
       "time_surplus_hr": { "name": "Preostale ure" },

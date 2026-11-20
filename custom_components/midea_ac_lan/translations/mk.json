@@ -1092,6 +1092,27 @@
       "dryer_timed_extra": {
         "name": "Продолжување на тајмирано сушење"
       },
+      "e9_volume": {
+        "name": "Големина на лебот"
+      },
+      "color": {
+        "name": "Боја на кората"
+      },
+      "dosing": {
+        "name": "Дозирање на состојки"
+      },
+      "bake_temperature": {
+        "name": "Температура на печење"
+      },
+      "time_cuisine_hr": {
+        "name": "Часови за готвење"
+      },
+      "time_cuisine_min": {
+        "name": "Минути за готвење"
+      },
+      "control_cmd_code": {
+        "name": "Код на командата"
+      },
       "auto_off_screen_type": {
         "name": "Тип на автоматско исклучување на екранот"
       },
@@ -1629,6 +1650,25 @@
       }
     },
     "sensor": {
+      "response_type": {
+        "name": "Одговор",
+        "state": {
+          "response_normal": "Нормален одговор",
+          "response_error_e2": "Грешка E2"
+        }
+      },
+      "time_work_hr": {
+        "name": "Работни часови"
+      },
+      "time_work_min": {
+        "name": "Работни минути"
+      },
+      "time_warm_hr": {
+        "name": "Часови за одржување топлина"
+      },
+      "time_warm_min": {
+        "name": "Минути за одржување топлина"
+      },
       "time_running_hr": { "name": "Часови на работа" },
       "time_running_min": { "name": "Минути на работа" },
       "time_surplus_hr": { "name": "Преостанати часови" },

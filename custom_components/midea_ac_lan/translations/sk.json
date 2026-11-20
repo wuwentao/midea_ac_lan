@@ -1076,6 +1076,27 @@
       "dryer_timed_extra": {
         "name": "Predĺženie časovaného sušenia"
       },
+      "e9_volume": {
+        "name": "Veľkosť bochníka"
+      },
+      "color": {
+        "name": "Farba kôrky"
+      },
+      "dosing": {
+        "name": "Dávkovanie prísad"
+      },
+      "bake_temperature": {
+        "name": "Teplota pečenia"
+      },
+      "time_cuisine_hr": {
+        "name": "Čas prípravy (hodiny)"
+      },
+      "time_cuisine_min": {
+        "name": "Čas prípravy (minúty)"
+      },
+      "control_cmd_code": {
+        "name": "Kód príkazu"
+      },
       "auto_off_screen_type": {
         "name": "Typ automatického vypnutia obrazovky"
       },
@@ -1550,6 +1571,25 @@
       }
     },
     "sensor": {
+      "response_type": {
+        "name": "Odpoveď",
+        "state": {
+          "response_normal": "Normálna odpoveď",
+          "response_error_e2": "Chyba E2"
+        }
+      },
+      "time_work_hr": {
+        "name": "Čas prevádzky (hodiny)"
+      },
+      "time_work_min": {
+        "name": "Čas prevádzky (minúty)"
+      },
+      "time_warm_hr": {
+        "name": "Čas udržiavania teploty (hodiny)"
+      },
+      "time_warm_min": {
+        "name": "Čas udržiavania teploty (minúty)"
+      },
       "time_running_hr": { "name": "Hodiny prevádzky" },
       "time_running_min": { "name": "Minúty prevádzky" },
       "time_surplus_hr": { "name": "Zostávajúce hodiny" },
@@ -1740,7 +1780,7 @@
         "name": "Bottom Compartment Temperature"
       },
       "bottom_temperature": {
-        "name": "Bottom Temperature"
+        "name": "Teplota dna"
       },
       "bright": {
         "name": "Bright Level"

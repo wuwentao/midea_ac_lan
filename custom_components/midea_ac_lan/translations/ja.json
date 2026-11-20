@@ -1092,6 +1092,27 @@
       "dryer_timed_extra": {
         "name": "乾燥時間延長"
       },
+      "e9_volume": {
+        "name": "パンのサイズ"
+      },
+      "color": {
+        "name": "焼き色"
+      },
+      "dosing": {
+        "name": "材料の投入"
+      },
+      "bake_temperature": {
+        "name": "焼成温度"
+      },
+      "time_cuisine_hr": {
+        "name": "調理時間（時）"
+      },
+      "time_cuisine_min": {
+        "name": "調理時間（分）"
+      },
+      "control_cmd_code": {
+        "name": "コマンドコード"
+      },
       "auto_off_screen_type": {
         "name": "自動画面オフの種類"
       },
@@ -1629,6 +1650,25 @@
       }
     },
     "sensor": {
+      "response_type": {
+        "name": "応答",
+        "state": {
+          "response_normal": "正常応答",
+          "response_error_e2": "E2 エラー"
+        }
+      },
+      "time_work_hr": {
+        "name": "運転時間（時）"
+      },
+      "time_work_min": {
+        "name": "運転時間（分）"
+      },
+      "time_warm_hr": {
+        "name": "保温時間（時）"
+      },
+      "time_warm_min": {
+        "name": "保温時間（分）"
+      },
       "time_running_hr": { "name": "運転時間（時）" },
       "time_running_min": { "name": "運転時間（分）" },
       "time_surplus_hr": { "name": "残り時間（時）" },

@@ -1076,6 +1076,27 @@
       "dryer_timed_extra": {
         "name": "Продление времени сушки"
       },
+      "e9_volume": {
+        "name": "Размер буханки"
+      },
+      "color": {
+        "name": "Цвет корочки"
+      },
+      "dosing": {
+        "name": "Дозирование ингредиентов"
+      },
+      "bake_temperature": {
+        "name": "Температура выпекания"
+      },
+      "time_cuisine_hr": {
+        "name": "Время приготовления (часы)"
+      },
+      "time_cuisine_min": {
+        "name": "Время приготовления (минуты)"
+      },
+      "control_cmd_code": {
+        "name": "Код команды"
+      },
       "auto_off_screen_type": {
         "name": "Тип автоматического отключения экрана"
       },
@@ -1586,6 +1607,25 @@
       }
     },
     "sensor": {
+      "response_type": {
+        "name": "Ответ",
+        "state": {
+          "response_normal": "Нормальный ответ",
+          "response_error_e2": "Ошибка E2"
+        }
+      },
+      "time_work_hr": {
+        "name": "Время работы (часы)"
+      },
+      "time_work_min": {
+        "name": "Время работы (минуты)"
+      },
+      "time_warm_hr": {
+        "name": "Время поддержания тепла (часы)"
+      },
+      "time_warm_min": {
+        "name": "Время поддержания тепла (минуты)"
+      },
       "time_running_hr": { "name": "Часы работы" },
       "time_running_min": { "name": "Минуты работы" },
       "time_surplus_hr": { "name": "Оставшиеся часы" },
@@ -1794,7 +1834,7 @@
         "name": "Bottom Compartment Temperature"
       },
       "bottom_temperature": {
-        "name": "Bottom Temperature"
+        "name": "Температура дна"
       },
       "bright": {
         "name": "Bright Level"

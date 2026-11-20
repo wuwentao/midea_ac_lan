@@ -1076,6 +1076,27 @@
       "dryer_timed_extra": {
         "name": "Trockenzeit verlängern"
       },
+      "e9_volume": {
+        "name": "Brotgröße"
+      },
+      "color": {
+        "name": "Krustenfarbe"
+      },
+      "dosing": {
+        "name": "Zutatendosierung"
+      },
+      "bake_temperature": {
+        "name": "Backtemperatur"
+      },
+      "time_cuisine_hr": {
+        "name": "Garzeit (Stunden)"
+      },
+      "time_cuisine_min": {
+        "name": "Garzeit (Minuten)"
+      },
+      "control_cmd_code": {
+        "name": "Befehlscode"
+      },
       "auto_off_screen_type": {
         "name": "Typ der automatischen Bildschirmabschaltung"
       },
@@ -1550,6 +1571,25 @@
       }
     },
     "sensor": {
+      "response_type": {
+        "name": "Antwort",
+        "state": {
+          "response_normal": "Normale Antwort",
+          "response_error_e2": "Fehler E2"
+        }
+      },
+      "time_work_hr": {
+        "name": "Betriebszeit (Stunden)"
+      },
+      "time_work_min": {
+        "name": "Betriebszeit (Minuten)"
+      },
+      "time_warm_hr": {
+        "name": "Warmhaltezeit (Stunden)"
+      },
+      "time_warm_min": {
+        "name": "Warmhaltezeit (Minuten)"
+      },
       "time_running_hr": { "name": "Betriebsstunden" },
       "time_running_min": { "name": "Betriebsminuten" },
       "time_surplus_hr": { "name": "Verbleibende Stunden" },
@@ -1740,7 +1780,7 @@
         "name": "Bottom Compartment Temperature"
       },
       "bottom_temperature": {
-        "name": "Bottom Temperature"
+        "name": "Bodentemperatur"
       },
       "bright": {
         "name": "Helligkeitsstufe"

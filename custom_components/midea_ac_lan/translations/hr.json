@@ -1092,6 +1092,27 @@
       "dryer_timed_extra": {
         "name": "Produljenje vremenski određenog sušenja"
       },
+      "e9_volume": {
+        "name": "Veličina kruha"
+      },
+      "color": {
+        "name": "Boja kore"
+      },
+      "dosing": {
+        "name": "Doziranje sastojaka"
+      },
+      "bake_temperature": {
+        "name": "Temperatura pečenja"
+      },
+      "time_cuisine_hr": {
+        "name": "Sati kuhanja"
+      },
+      "time_cuisine_min": {
+        "name": "Minute kuhanja"
+      },
+      "control_cmd_code": {
+        "name": "Kod naredbe"
+      },
       "auto_off_screen_type": {
         "name": "Vrsta automatskog isključivanja zaslona"
       },
@@ -1629,6 +1650,25 @@
       }
     },
     "sensor": {
+      "response_type": {
+        "name": "Odgovor",
+        "state": {
+          "response_normal": "Uobičajeni odgovor",
+          "response_error_e2": "Pogreška E2"
+        }
+      },
+      "time_work_hr": {
+        "name": "Radni sati"
+      },
+      "time_work_min": {
+        "name": "Radne minute"
+      },
+      "time_warm_hr": {
+        "name": "Sati održavanja topline"
+      },
+      "time_warm_min": {
+        "name": "Minute održavanja topline"
+      },
       "time_running_hr": { "name": "Sati rada" },
       "time_running_min": { "name": "Minute rada" },
       "time_surplus_hr": { "name": "Preostali sati" },

@@ -1092,6 +1092,27 @@
       "dryer_timed_extra": {
         "name": "Forlengelse av tidsinnstilt tørking"
       },
+      "e9_volume": {
+        "name": "Brødstørrelse"
+      },
+      "color": {
+        "name": "Skorpefarge"
+      },
+      "dosing": {
+        "name": "Dosering av ingredienser"
+      },
+      "bake_temperature": {
+        "name": "Steketemperatur"
+      },
+      "time_cuisine_hr": {
+        "name": "Tilberedningstid (timer)"
+      },
+      "time_cuisine_min": {
+        "name": "Tilberedningstid (minutter)"
+      },
+      "control_cmd_code": {
+        "name": "Kommandokode"
+      },
       "auto_off_screen_type": {
         "name": "Type automatisk skjermavslåing"
       },
@@ -1629,6 +1650,25 @@
       }
     },
     "sensor": {
+      "response_type": {
+        "name": "Svar",
+        "state": {
+          "response_normal": "Normalt svar",
+          "response_error_e2": "E2-feil"
+        }
+      },
+      "time_work_hr": {
+        "name": "Driftstid (timer)"
+      },
+      "time_work_min": {
+        "name": "Driftstid (minutter)"
+      },
+      "time_warm_hr": {
+        "name": "Varmholdingstid (timer)"
+      },
+      "time_warm_min": {
+        "name": "Varmholdingstid (minutter)"
+      },
       "time_running_hr": { "name": "Driftstimer" },
       "time_running_min": { "name": "Driftsminutter" },
       "time_surplus_hr": { "name": "Gjenstående timer" },
