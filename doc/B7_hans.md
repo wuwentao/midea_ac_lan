@@ -19,7 +19,7 @@
 }
 ```
 
-- `refresh_interval`：轮询间隔，单位秒（默认：30）。
+- `refresh_interval`：轮询间隔，单位秒（默认：30）。保存配置表单后，配置选项中的轮询间隔会覆盖此值。
 
 ## 实体
 
@@ -66,4 +66,24 @@
 
 ## 服务
 
-无服务
+### midea_ac_lan.set_attribute
+
+[![服务](https://my.home-assistant.io/badges/developer_call_service.svg)](https://my.home-assistant.io/redirect/developer_call_service/?service=midea_ac_lan.set_attribute)
+
+设置可写的设备属性。服务数据：
+
+| 名称      | 描述                                                                                         |
+| --------- | -------------------------------------------------------------------------------------------- |
+| device_id | 设备的 Appliance code（设备 ID）                                                             |
+| attribute | `lock`<br />`left_gear_set`<br />`right_gear_set`<br />`left_temp_set`<br />`right_temp_set` |
+| value     | `lock` 使用布尔值；档位使用 0 至 255 的整数；温度使用 0 至 65535 的摄氏度整数                |
+
+示例
+
+```yaml
+service: midea_ac_lan.set_attribute
+data:
+  device_id: XXXXXXXXXXXX
+  attribute: left_gear_set
+  value: 5
+```
