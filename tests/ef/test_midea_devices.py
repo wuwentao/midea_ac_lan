@@ -17,6 +17,12 @@ REPOSITORY_ROOT = Path(__file__).parents[2]
 TRANSLATIONS_DIR = (
     REPOSITORY_ROOT / "custom_components" / "midea_ac_lan" / "translations"
 )
+DEFERRED_TIMER_CONTROLS = {
+    DeviceAttributes.time_reserve_hr,
+    DeviceAttributes.time_reserve_min,
+    DeviceAttributes.time_warm_hr,
+    DeviceAttributes.time_warm_min,
+}
 
 
 def ef_entities() -> dict[DeviceAttributes, dict[str, Any]]:
@@ -28,10 +34,10 @@ def ef_entities() -> dict[DeviceAttributes, dict[str, Any]]:
 
 
 def test_ef_registry_matches_released_library() -> None:
-    """Expose every attribute available in midea-lan 2026.11.0."""
+    """Expose every reliable attribute available in midea-lan 2026.11.0."""
     entities = ef_entities()
 
-    assert set(entities) == set(DeviceAttributes)
+    assert set(entities) == set(DeviceAttributes) - DEFERRED_TIMER_CONTROLS
     expected_platforms = {
         Platform.SWITCH: {
             DeviceAttributes.reserve,
@@ -41,10 +47,6 @@ def test_ef_registry_matches_released_library() -> None:
         Platform.NUMBER: {
             DeviceAttributes.cmd_code,
             DeviceAttributes.cmd_id,
-            DeviceAttributes.time_reserve_hr,
-            DeviceAttributes.time_reserve_min,
-            DeviceAttributes.time_warm_hr,
-            DeviceAttributes.time_warm_min,
             DeviceAttributes.temperature_setting,
         },
         Platform.SENSOR: {
@@ -90,26 +92,6 @@ def test_ef_number_controls_match_library_ranges() -> None:
             ef_message.CMD_ID_LOW,
             ef_message.CMD_ID_HIGH,
             None,
-        ),
-        DeviceAttributes.time_reserve_hr: (
-            ef_message.TIME_HR_LOW,
-            ef_message.TIME_HR_HIGH,
-            UnitOfTime.HOURS,
-        ),
-        DeviceAttributes.time_reserve_min: (
-            ef_message.TIME_MIN_LOW,
-            ef_message.TIME_MIN_HIGH,
-            UnitOfTime.MINUTES,
-        ),
-        DeviceAttributes.time_warm_hr: (
-            ef_message.TIME_HR_LOW,
-            ef_message.TIME_HR_HIGH,
-            UnitOfTime.HOURS,
-        ),
-        DeviceAttributes.time_warm_min: (
-            ef_message.TIME_MIN_LOW,
-            ef_message.TIME_MIN_HIGH,
-            UnitOfTime.MINUTES,
         ),
         DeviceAttributes.temperature_setting: (
             ef_message.TEMPERATURE_LOW,
@@ -159,6 +141,7 @@ def test_ef_translation_keys_follow_shared_key_rules() -> None:
         DeviceAttributes.warm: "keep_warm",
         DeviceAttributes.cmd_code: "control_cmd_code",
         DeviceAttributes.work_step: "step_status",
+        DeviceAttributes.temperature_setting: "temperature_number",
         DeviceAttributes.temperature_current: "current_temperature",
     }
 
@@ -176,9 +159,6 @@ def test_ef_translations_cover_every_locale_without_english_fallback() -> None:
     )["entity"]
     new_translation_paths = (
         (Platform.SWITCH, "reserve", "name"),
-        (Platform.NUMBER, "temperature_setting", "name"),
-        (Platform.NUMBER, "time_warm_hr", "name"),
-        (Platform.NUMBER, "time_warm_min", "name"),
         (Platform.NUMBER, "cmd_id", "name"),
         (Platform.SELECT, "drink_style", "name"),
         (Platform.SENSOR, "process_status", "name"),
@@ -221,8 +201,10 @@ def test_ef_documentation_uses_real_entity_ids() -> None:
     for document in ("doc/EF.md", "doc/EF_hans.md"):
         content = (REPOSITORY_ROOT / document).read_text(encoding="utf-8")
         assert "\\_ef_" not in content
-        for attribute in DeviceAttributes:
+        for attribute in set(DeviceAttributes) - DEFERRED_TIMER_CONTROLS:
             assert f"\\_{attribute.value}" in content
+        for attribute in DEFERRED_TIMER_CONTROLS:
+            assert f"\\_{attribute.value}" not in content
 
     expected_rows = {
         "README.md": "| EF   | Beverage Maker",
