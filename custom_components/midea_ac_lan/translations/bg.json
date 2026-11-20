@@ -1127,6 +1127,12 @@
       },
       "right_button_work_mode": {
         "name": "Режим на работа на десния бутон"
+      },
+      "watt": {
+        "name": "Микровълнова мощност"
+      },
+      "weight": {
+        "name": "Тегло"
       }
     },
     "select": {
@@ -1272,7 +1278,22 @@
           "bath": "Баня",
           "blow": "Издухване",
           "ventilation": "Вентилация",
-          "dry": "Изсушаване"
+          "dry": "Изсушаване",
+          "keep_warm": "Поддържане на топлина",
+          "stero_baking": "Обемно печене",
+          "whole_baking": "Цялостно печене",
+          "up_down_baking": "Горно/долно печене",
+          "unfreeze": "Размразяване",
+          "hot_air_convection": "Конвекция с горещ въздух",
+          "power_saving": "Енергоспестяване",
+          "center_baking": "Централно печене",
+          "rotary_baking": "Ротационно печене",
+          "fermentation": "Ферментация",
+          "stoving": "Сушене",
+          "down_baking": "Долно печене",
+          "pizza": "Пица",
+          "up_infrared_fan": "Горен инфрачервен вентилатор",
+          "microwave": "Микровълни"
         }
       },
       "oscillation_angle": {
@@ -1359,7 +1380,7 @@
         }
       },
       "work_status_select": {
-        "name": "Състояние на работа",
+        "name": "Задаване на работен статус",
         "state": {
           "save_power": "Пестене на енергия",
           "standby": "В готовност",
@@ -1375,7 +1396,10 @@
           "ramadan": "Рамадан",
           "after_checking": "След проверка",
           "wait_to_start": "Изчакване за старт",
-          "ff": "Неизвестно"
+          "ff": "Неизвестно",
+          "cancel": "Отказ",
+          "end": "Край",
+          "appointment": "Отложен старт"
         }
       },
       "x9b_fire_power_select": {
@@ -4002,7 +4026,10 @@
           "ramadan": "Рамадан",
           "after_checking": "След проверка",
           "wait_to_start": "Изчакване за старт",
-          "ff": "Неизвестно"
+          "ff": "Неизвестно",
+          "cancel": "Отказ",
+          "end": "Край",
+          "appointment": "Отложен старт"
         }
       },
       "x9b_fire_power": {

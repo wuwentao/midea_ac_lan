@@ -1127,6 +1127,12 @@
       },
       "right_button_work_mode": {
         "name": "Provozní režim pravého tlačítka"
+      },
+      "watt": {
+        "name": "Mikrovlnný výkon"
+      },
+      "weight": {
+        "name": "Hmotnost"
       }
     },
     "select": {
@@ -1272,7 +1278,22 @@
           "bath": "Koupel",
           "blow": "Foukání",
           "ventilation": "Ventilace",
-          "dry": "Suché"
+          "dry": "Suché",
+          "keep_warm": "Udržování teploty",
+          "stero_baking": "Prostorové pečení",
+          "whole_baking": "Celkové pečení",
+          "up_down_baking": "Horní/dolní pečení",
+          "unfreeze": "Rozmrazování",
+          "hot_air_convection": "Horkovzdušná konvekce",
+          "power_saving": "Úspora energie",
+          "center_baking": "Středové pečení",
+          "rotary_baking": "Rotační pečení",
+          "fermentation": "Kynutí",
+          "stoving": "Sušení",
+          "down_baking": "Spodní pečení",
+          "pizza": "Pizza",
+          "up_infrared_fan": "Horní infračervený ventilátor",
+          "microwave": "Mikrovlny"
         }
       },
       "oscillation_angle": {
@@ -1359,7 +1380,7 @@
         }
       },
       "work_status_select": {
-        "name": "Pracovní stav",
+        "name": "Nastavit pracovní stav",
         "state": {
           "save_power": "Úspora energie",
           "standby": "Pohotovostní režim",
@@ -1375,7 +1396,10 @@
           "ramadan": "Ramadán",
           "after_checking": "Po kontrole",
           "wait_to_start": "Čekání na start",
-          "ff": "Neznámé"
+          "ff": "Neznámé",
+          "cancel": "Zrušeno",
+          "end": "Ukončeno",
+          "appointment": "Odložený start"
         }
       },
       "x9b_fire_power_select": {
@@ -4002,7 +4026,10 @@
           "ramadan": "Ramadán",
           "after_checking": "Po kontrole",
           "wait_to_start": "Čekání na start",
-          "ff": "Neznámé"
+          "ff": "Neznámé",
+          "cancel": "Zrušeno",
+          "end": "Ukončeno",
+          "appointment": "Odložený start"
         }
       },
       "x9b_fire_power": {

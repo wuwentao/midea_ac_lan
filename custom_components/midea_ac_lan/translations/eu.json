@@ -1127,6 +1127,12 @@
       },
       "right_button_work_mode": {
         "name": "Eskuineko botoiaren lan-modua"
+      },
+      "watt": {
+        "name": "Mikrouhin-potentzia"
+      },
+      "weight": {
+        "name": "Pisua"
       }
     },
     "select": {
@@ -1272,7 +1278,22 @@
           "bath": "Bainua",
           "blow": "Putza",
           "ventilation": "Aireztapena",
-          "dry": "Lehorra"
+          "dry": "Lehorra",
+          "keep_warm": "Bero mantendu",
+          "stero_baking": "Labe tridimentsionala",
+          "whole_baking": "Labe osoa",
+          "up_down_baking": "Goiko/beheko labea",
+          "unfreeze": "Desizoztea",
+          "hot_air_convection": "Aire beroko konbekzioa",
+          "power_saving": "Energia aurreztea",
+          "center_baking": "Erdiko labea",
+          "rotary_baking": "Labe birakaria",
+          "fermentation": "Hartzidura",
+          "stoving": "Lehortzea",
+          "down_baking": "Beheko labea",
+          "pizza": "Pizza",
+          "up_infrared_fan": "Goiko infragorri haizagailua",
+          "microwave": "Mikrouhinak"
         }
       },
       "oscillation_angle": {
@@ -1359,7 +1380,7 @@
         }
       },
       "work_status_select": {
-        "name": "Lan-egoera",
+        "name": "Ezarri lan-egoera",
         "state": {
           "save_power": "Aurreztu energia",
           "standby": "Zain",
@@ -1375,7 +1396,10 @@
           "ramadan": "Ramadan",
           "after_checking": "Egiaztatu ondoren",
           "wait_to_start": "Hasteko zain",
-          "ff": "Ezezaguna"
+          "ff": "Ezezaguna",
+          "cancel": "Utzita",
+          "end": "Amaituta",
+          "appointment": "Programatutako hasiera"
         }
       },
       "x9b_fire_power_select": {
@@ -4002,7 +4026,10 @@
           "ramadan": "Ramadan",
           "after_checking": "Egiaztatu ondoren",
           "wait_to_start": "Hasteko zain",
-          "ff": "Ezezaguna"
+          "ff": "Ezezaguna",
+          "cancel": "Utzita",
+          "end": "Amaituta",
+          "appointment": "Programatutako hasiera"
         }
       },
       "x9b_fire_power": {

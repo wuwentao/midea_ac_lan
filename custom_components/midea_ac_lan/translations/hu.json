@@ -1111,6 +1111,12 @@
       },
       "right_button_work_mode": {
         "name": "Jobb gomb működési módja"
+      },
+      "watt": {
+        "name": "Mikrohullámú teljesítmény"
+      },
+      "weight": {
+        "name": "Súly"
       }
     },
     "select": {
@@ -1211,7 +1217,7 @@
         }
       },
       "mode": {
-        "name": "Mode",
+        "name": "Üzemmód",
         "state": {
           "standby": "Készenlét",
           "auto": "Automatikus",
@@ -1225,7 +1231,22 @@
           "bath": "Fürdés",
           "blow": "Fújás",
           "ventilation": "Szellőztetés",
-          "dry": "Szárítás"
+          "dry": "Szárítás",
+          "keep_warm": "Melegen tartás",
+          "stero_baking": "Térbeli sütés",
+          "whole_baking": "Teljes sütés",
+          "up_down_baking": "Alsó-felső sütés",
+          "unfreeze": "Kiolvasztás",
+          "hot_air_convection": "Forrólevegős légkeverés",
+          "power_saving": "Energiatakarékos",
+          "center_baking": "Középső sütés",
+          "rotary_baking": "Forgó sütés",
+          "fermentation": "Kelesztés",
+          "stoving": "Szárítás",
+          "down_baking": "Alsó sütés",
+          "pizza": "Pizza",
+          "up_infrared_fan": "Felső infravörös ventilátor",
+          "microwave": "Mikrohullám"
         }
       },
       "oscillation_angle": {
@@ -1280,7 +1301,7 @@
         }
       },
       "work_status_select": {
-        "name": "Munkaállapot",
+        "name": "Működési állapot beállítása",
         "state": {
           "save_power": "Energiatakarékos",
           "standby": "Készenlét",
@@ -1296,7 +1317,10 @@
           "ramadan": "Ramadán",
           "after_checking": "Ellenőrzés Után",
           "wait_to_start": "Indításra Vár",
-          "ff": "Ismeretlen"
+          "ff": "Ismeretlen",
+          "cancel": "Megszakítva",
+          "end": "Befejezve",
+          "appointment": "Időzített indítás"
         }
       },
       "x9b_fire_power_select": {
@@ -1730,7 +1754,7 @@
         "name": "Current Energy Consumption"
       },
       "current_temperature": {
-        "name": "Current Temperature"
+        "name": "Jelenlegi hőmérséklet"
       },
       "dehydration_speed": {
         "name": "dehydration speed"
@@ -3857,7 +3881,10 @@
           "ramadan": "Ramadán",
           "after_checking": "Ellenőrzés Után",
           "wait_to_start": "Indításra Vár",
-          "ff": "Ismeretlen"
+          "ff": "Ismeretlen",
+          "cancel": "Megszakítva",
+          "end": "Befejezve",
+          "appointment": "Időzített indítás"
         }
       },
       "x9b_fire_power": {

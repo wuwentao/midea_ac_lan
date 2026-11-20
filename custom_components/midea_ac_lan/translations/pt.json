@@ -1127,6 +1127,12 @@
       },
       "right_button_work_mode": {
         "name": "Modo de funcionamento do botão direito"
+      },
+      "watt": {
+        "name": "Potência do micro-ondas"
+      },
+      "weight": {
+        "name": "Peso"
       }
     },
     "select": {
@@ -1272,7 +1278,22 @@
           "bath": "Banho",
           "blow": "Soprar",
           "ventilation": "Ventilação",
-          "dry": "Secar"
+          "dry": "Secar",
+          "keep_warm": "Manter quente",
+          "stero_baking": "Cozedura tridimensional",
+          "whole_baking": "Cozedura completa",
+          "up_down_baking": "Cozedura superior/inferior",
+          "unfreeze": "Descongelar",
+          "hot_air_convection": "Convecção de ar quente",
+          "power_saving": "Poupança de energia",
+          "center_baking": "Cozedura central",
+          "rotary_baking": "Cozedura rotativa",
+          "fermentation": "Fermentação",
+          "stoving": "Secagem",
+          "down_baking": "Cozedura inferior",
+          "pizza": "Pizza",
+          "up_infrared_fan": "Ventoinha de infravermelhos superior",
+          "microwave": "Micro-ondas"
         }
       },
       "oscillation_angle": {
@@ -1359,7 +1380,7 @@
         }
       },
       "work_status_select": {
-        "name": "Estado de funcionamento",
+        "name": "Definir estado de funcionamento",
         "state": {
           "save_power": "Poupar energia",
           "standby": "Em espera",
@@ -1375,7 +1396,10 @@
           "ramadan": "Ramadão",
           "after_checking": "Após verificação",
           "wait_to_start": "A aguardar início",
-          "ff": "Desconhecido"
+          "ff": "Desconhecido",
+          "cancel": "Cancelado",
+          "end": "Concluído",
+          "appointment": "Início programado"
         }
       },
       "x9b_fire_power_select": {
@@ -4002,7 +4026,10 @@
           "ramadan": "Ramadão",
           "after_checking": "Após verificação",
           "wait_to_start": "A aguardar início",
-          "ff": "Desconhecido"
+          "ff": "Desconhecido",
+          "cancel": "Cancelado",
+          "end": "Concluído",
+          "appointment": "Início programado"
         }
       },
       "x9b_fire_power": {

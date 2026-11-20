@@ -1111,6 +1111,12 @@
       },
       "right_button_work_mode": {
         "name": "Betriebsmodus der rechten Taste"
+      },
+      "watt": {
+        "name": "Mikrowellenleistung"
+      },
+      "weight": {
+        "name": "Gewicht"
       }
     },
     "select": {
@@ -1225,7 +1231,22 @@
           "bath": "Baden",
           "blow": "Blasen",
           "ventilation": "Lüftung",
-          "dry": "Trocknen"
+          "dry": "Trocknen",
+          "keep_warm": "Warmhalten",
+          "stero_baking": "3D-Backen",
+          "whole_baking": "Komplettbacken",
+          "up_down_baking": "Ober-/Unterhitze",
+          "unfreeze": "Auftauen",
+          "hot_air_convection": "Heißluft",
+          "power_saving": "Energiesparen",
+          "center_baking": "Mittiges Backen",
+          "rotary_baking": "Drehbacken",
+          "fermentation": "Gären",
+          "stoving": "Trocknen",
+          "down_baking": "Unterhitze",
+          "pizza": "Pizza",
+          "up_infrared_fan": "Oberer Infrarotlüfter",
+          "microwave": "Mikrowelle"
         }
       },
       "oscillation_angle": {
@@ -1280,7 +1301,7 @@
         }
       },
       "work_status_select": {
-        "name": "Betriebsstatus",
+        "name": "Arbeitsstatus festlegen",
         "state": {
           "save_power": "Energiesparen",
           "standby": "Standby",
@@ -1296,7 +1317,10 @@
           "ramadan": "Ramadan",
           "after_checking": "Nach Prüfung",
           "wait_to_start": "Startbereit",
-          "ff": "Unbekannt"
+          "ff": "Unbekannt",
+          "cancel": "Abgebrochen",
+          "end": "Beendet",
+          "appointment": "Zeitvorwahl"
         }
       },
       "x9b_fire_power_select": {
@@ -3857,7 +3881,10 @@
           "ramadan": "Ramadan",
           "after_checking": "Nach Prüfung",
           "wait_to_start": "Startbereit",
-          "ff": "Unbekannt"
+          "ff": "Unbekannt",
+          "cancel": "Abgebrochen",
+          "end": "Beendet",
+          "appointment": "Zeitvorwahl"
         }
       },
       "x9b_fire_power": {

@@ -1127,6 +1127,12 @@
       },
       "right_button_work_mode": {
         "name": "오른쪽 버튼 작동 모드"
+      },
+      "watt": {
+        "name": "전자레인지 출력"
+      },
+      "weight": {
+        "name": "무게"
       }
     },
     "select": {
@@ -1272,7 +1278,22 @@
           "bath": "목욕",
           "blow": "송풍",
           "ventilation": "환기",
-          "dry": "건조"
+          "dry": "건조",
+          "keep_warm": "보온",
+          "stero_baking": "입체 베이킹",
+          "whole_baking": "전체 베이킹",
+          "up_down_baking": "상하 베이킹",
+          "unfreeze": "해동",
+          "hot_air_convection": "열풍 대류",
+          "power_saving": "절전",
+          "center_baking": "중앙 베이킹",
+          "rotary_baking": "회전 베이킹",
+          "fermentation": "발효",
+          "stoving": "건조",
+          "down_baking": "하단 베이킹",
+          "pizza": "피자",
+          "up_infrared_fan": "상단 적외선 팬",
+          "microwave": "전자레인지"
         }
       },
       "oscillation_angle": {
@@ -1359,7 +1380,7 @@
         }
       },
       "work_status_select": {
-        "name": "작동 상태",
+        "name": "작동 상태 설정",
         "state": {
           "save_power": "절전",
           "standby": "대기",
@@ -1375,7 +1396,10 @@
           "ramadan": "라마단",
           "after_checking": "점검 후",
           "wait_to_start": "시작 대기",
-          "ff": "알 수 없음"
+          "ff": "알 수 없음",
+          "cancel": "취소",
+          "end": "종료",
+          "appointment": "예약"
         }
       },
       "x9b_fire_power_select": {
@@ -4002,7 +4026,10 @@
           "ramadan": "라마단",
           "after_checking": "점검 후",
           "wait_to_start": "시작 대기",
-          "ff": "알 수 없음"
+          "ff": "알 수 없음",
+          "cancel": "취소",
+          "end": "종료",
+          "appointment": "예약"
         }
       },
       "x9b_fire_power": {

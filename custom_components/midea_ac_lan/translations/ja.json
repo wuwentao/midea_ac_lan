@@ -1127,6 +1127,12 @@
       },
       "right_button_work_mode": {
         "name": "右ボタン動作モード"
+      },
+      "watt": {
+        "name": "電子レンジ出力"
+      },
+      "weight": {
+        "name": "重量"
       }
     },
     "select": {
@@ -1272,7 +1278,22 @@
           "bath": "バス",
           "blow": "送風",
           "ventilation": "換気",
-          "dry": "乾燥"
+          "dry": "乾燥",
+          "keep_warm": "保温",
+          "stero_baking": "立体焼き",
+          "whole_baking": "全体焼き",
+          "up_down_baking": "上下加熱",
+          "unfreeze": "解凍",
+          "hot_air_convection": "熱風対流",
+          "power_saving": "省エネ",
+          "center_baking": "中央加熱",
+          "rotary_baking": "回転焼き",
+          "fermentation": "発酵",
+          "stoving": "乾燥",
+          "down_baking": "下部加熱",
+          "pizza": "ピザ",
+          "up_infrared_fan": "上部赤外線ファン",
+          "microwave": "電子レンジ"
         }
       },
       "oscillation_angle": {
@@ -1359,7 +1380,7 @@
         }
       },
       "work_status_select": {
-        "name": "運転状態",
+        "name": "動作状態を設定",
         "state": {
           "save_power": "節電",
           "standby": "待機中",
@@ -1375,7 +1396,10 @@
           "ramadan": "ラマダン",
           "after_checking": "確認後",
           "wait_to_start": "開始待ち",
-          "ff": "不明"
+          "ff": "不明",
+          "cancel": "キャンセル",
+          "end": "終了",
+          "appointment": "予約"
         }
       },
       "x9b_fire_power_select": {
@@ -4002,7 +4026,10 @@
           "ramadan": "ラマダン",
           "after_checking": "確認後",
           "wait_to_start": "開始待ち",
-          "ff": "不明"
+          "ff": "不明",
+          "cancel": "キャンセル",
+          "end": "終了",
+          "appointment": "予約"
         }
       },
       "x9b_fire_power": {

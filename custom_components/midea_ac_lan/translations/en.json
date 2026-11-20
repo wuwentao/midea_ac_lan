@@ -1141,6 +1141,12 @@
       },
       "right_button_work_mode": {
         "name": "Right Button Work Mode"
+      },
+      "watt": {
+        "name": "Microwave Power"
+      },
+      "weight": {
+        "name": "Weight"
       }
     },
     "select": {
@@ -1286,7 +1292,22 @@
           "bath": "Bath",
           "blow": "Blow",
           "ventilation": "Ventilation",
-          "dry": "Dry"
+          "dry": "Dry",
+          "keep_warm": "Keep Warm",
+          "stero_baking": "Stereo Baking",
+          "whole_baking": "Whole Baking",
+          "up_down_baking": "Up/Down Baking",
+          "unfreeze": "Unfreeze",
+          "hot_air_convection": "Hot Air Convection",
+          "power_saving": "Power Saving",
+          "center_baking": "Center Baking",
+          "rotary_baking": "Rotary Baking",
+          "fermentation": "Fermentation",
+          "stoving": "Stoving",
+          "down_baking": "Down Baking",
+          "pizza": "Pizza",
+          "up_infrared_fan": "Upper Infrared Fan",
+          "microwave": "Microwave"
         }
       },
       "oscillation_angle": {
@@ -1373,7 +1394,7 @@
         }
       },
       "work_status_select": {
-        "name": "Work Status",
+        "name": "Set Work Status",
         "state": {
           "save_power": "Save Power",
           "standby": "Standby",
@@ -1389,7 +1410,10 @@
           "ramadan": "Ramadan",
           "after_checking": "After Checking",
           "wait_to_start": "Wait to Start",
-          "ff": "Unknown"
+          "ff": "Unknown",
+          "cancel": "Cancel",
+          "end": "End",
+          "appointment": "Appointment"
         }
       },
       "x9b_fire_power_select": {
@@ -4023,7 +4047,10 @@
           "ramadan": "Ramadan",
           "after_checking": "After Checking",
           "wait_to_start": "Wait to Start",
-          "ff": "Unknown"
+          "ff": "Unknown",
+          "cancel": "Cancel",
+          "end": "End",
+          "appointment": "Appointment"
         }
       },
       "x9b_fire_power": {

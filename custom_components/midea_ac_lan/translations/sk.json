@@ -1111,6 +1111,12 @@
       },
       "right_button_work_mode": {
         "name": "Prevádzkový režim pravého tlačidla"
+      },
+      "watt": {
+        "name": "Mikrovlnný výkon"
+      },
+      "weight": {
+        "name": "Hmotnosť"
       }
     },
     "select": {
@@ -1211,7 +1217,7 @@
         }
       },
       "mode": {
-        "name": "Mode",
+        "name": "Režim",
         "state": {
           "standby": "Pohotovostný režim",
           "auto": "Automatický",
@@ -1225,7 +1231,22 @@
           "bath": "Kúpanie",
           "blow": "Fúkanie",
           "ventilation": "Vetranie",
-          "dry": "Sušenie"
+          "dry": "Sušenie",
+          "keep_warm": "Udržiavanie teploty",
+          "stero_baking": "Priestorové pečenie",
+          "whole_baking": "Celkové pečenie",
+          "up_down_baking": "Horný/dolný ohrev",
+          "unfreeze": "Rozmrazovanie",
+          "hot_air_convection": "Teplovzdušná konvekcia",
+          "power_saving": "Úspora energie",
+          "center_baking": "Stredové pečenie",
+          "rotary_baking": "Rotačné pečenie",
+          "fermentation": "Kysnutie",
+          "stoving": "Sušenie",
+          "down_baking": "Dolný ohrev",
+          "pizza": "Pizza",
+          "up_infrared_fan": "Horný infračervený ventilátor",
+          "microwave": "Mikrovlny"
         }
       },
       "oscillation_angle": {
@@ -1280,7 +1301,7 @@
         }
       },
       "work_status_select": {
-        "name": "Stav prevádzky",
+        "name": "Nastaviť pracovný stav",
         "state": {
           "save_power": "Úspora energie",
           "standby": "Pohotovosť",
@@ -1296,7 +1317,10 @@
           "ramadan": "Ramadán",
           "after_checking": "Po kontrole",
           "wait_to_start": "Čaká na spustenie",
-          "ff": "Neznáme"
+          "ff": "Neznáme",
+          "cancel": "Zrušené",
+          "end": "Ukončené",
+          "appointment": "Odložený štart"
         }
       },
       "x9b_fire_power_select": {
@@ -1730,7 +1754,7 @@
         "name": "Current Energy Consumption"
       },
       "current_temperature": {
-        "name": "Current Temperature"
+        "name": "Aktuálna teplota"
       },
       "dehydration_speed": {
         "name": "dehydration speed"
@@ -3857,7 +3881,10 @@
           "ramadan": "Ramadán",
           "after_checking": "Po kontrole",
           "wait_to_start": "Čaká na spustenie",
-          "ff": "Neznáme"
+          "ff": "Neznáme",
+          "cancel": "Zrušené",
+          "end": "Ukončené",
+          "appointment": "Odložený štart"
         }
       },
       "x9b_fire_power": {

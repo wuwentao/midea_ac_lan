@@ -1111,6 +1111,12 @@
       },
       "right_button_work_mode": {
         "name": "Mode de fonctionnement du bouton droit"
+      },
+      "watt": {
+        "name": "Puissance du micro-ondes"
+      },
+      "weight": {
+        "name": "Poids"
       }
     },
     "select": {
@@ -1225,7 +1231,22 @@
           "bath": "Bain",
           "blow": "Soufflage",
           "ventilation": "Ventilation",
-          "dry": "Séchage"
+          "dry": "Séchage",
+          "keep_warm": "Maintien au chaud",
+          "stero_baking": "Cuisson tridimensionnelle",
+          "whole_baking": "Cuisson complète",
+          "up_down_baking": "Cuisson voûte/sole",
+          "unfreeze": "Décongélation",
+          "hot_air_convection": "Chaleur tournante",
+          "power_saving": "Économie d'énergie",
+          "center_baking": "Cuisson centrale",
+          "rotary_baking": "Cuisson rotative",
+          "fermentation": "Fermentation",
+          "stoving": "Séchage",
+          "down_baking": "Cuisson par le bas",
+          "pizza": "Pizza",
+          "up_infrared_fan": "Ventilateur infrarouge supérieur",
+          "microwave": "Micro-ondes"
         }
       },
       "oscillation_angle": {
@@ -1280,7 +1301,7 @@
         }
       },
       "work_status_select": {
-        "name": "État de Fonctionnement",
+        "name": "Définir l'état de fonctionnement",
         "state": {
           "save_power": "Économie d'Énergie",
           "standby": "Veille",
@@ -1296,7 +1317,10 @@
           "ramadan": "Ramadan",
           "after_checking": "Après Vérification",
           "wait_to_start": "En Attente de Démarrage",
-          "ff": "Inconnu"
+          "ff": "Inconnu",
+          "cancel": "Annulé",
+          "end": "Terminé",
+          "appointment": "Départ programmé"
         }
       },
       "x9b_fire_power_select": {
@@ -1730,7 +1754,7 @@
         "name": "Current Energy Consumption"
       },
       "current_temperature": {
-        "name": "Current Temperature"
+        "name": "Température actuelle"
       },
       "dehydration_speed": {
         "name": "dehydration speed"
@@ -3857,7 +3881,10 @@
           "ramadan": "Ramadan",
           "after_checking": "Après Vérification",
           "wait_to_start": "En Attente de Démarrage",
-          "ff": "Inconnu"
+          "ff": "Inconnu",
+          "cancel": "Annulé",
+          "end": "Terminé",
+          "appointment": "Départ programmé"
         }
       },
       "x9b_fire_power": {

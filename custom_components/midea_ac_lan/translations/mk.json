@@ -1127,6 +1127,12 @@
       },
       "right_button_work_mode": {
         "name": "Режим на работа на десното копче"
+      },
+      "watt": {
+        "name": "Микробранова моќност"
+      },
+      "weight": {
+        "name": "Тежина"
       }
     },
     "select": {
@@ -1272,7 +1278,22 @@
           "bath": "Бања",
           "blow": "Дување",
           "ventilation": "Вентилација",
-          "dry": "Суво"
+          "dry": "Суво",
+          "keep_warm": "Одржување топлина",
+          "stero_baking": "Тридимензионално печење",
+          "whole_baking": "Целосно печење",
+          "up_down_baking": "Горно/долно печење",
+          "unfreeze": "Одмрзнување",
+          "hot_air_convection": "Конвекција со топол воздух",
+          "power_saving": "Заштеда на енергија",
+          "center_baking": "Централно печење",
+          "rotary_baking": "Ротационо печење",
+          "fermentation": "Ферментација",
+          "stoving": "Сушење",
+          "down_baking": "Долно печење",
+          "pizza": "Пица",
+          "up_infrared_fan": "Горен инфрацрвен вентилатор",
+          "microwave": "Микробранови"
         }
       },
       "oscillation_angle": {
@@ -1359,7 +1380,7 @@
         }
       },
       "work_status_select": {
-        "name": "Статус на работа",
+        "name": "Постави работен статус",
         "state": {
           "save_power": "Заштеда на енергија",
           "standby": "Подготвеност",
@@ -1375,7 +1396,10 @@
           "ramadan": "Рамазан",
           "after_checking": "По проверка",
           "wait_to_start": "Чекање за старт",
-          "ff": "Непознато"
+          "ff": "Непознато",
+          "cancel": "Откажано",
+          "end": "Завршено",
+          "appointment": "Одложен почеток"
         }
       },
       "x9b_fire_power_select": {
@@ -4002,7 +4026,10 @@
           "ramadan": "Рамазан",
           "after_checking": "По проверка",
           "wait_to_start": "Чекање за старт",
-          "ff": "Непознато"
+          "ff": "Непознато",
+          "cancel": "Откажано",
+          "end": "Завршено",
+          "appointment": "Одложен почеток"
         }
       },
       "x9b_fire_power": {

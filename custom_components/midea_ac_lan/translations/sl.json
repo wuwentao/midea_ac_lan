@@ -1127,6 +1127,12 @@
       },
       "right_button_work_mode": {
         "name": "Način delovanja desnega gumba"
+      },
+      "watt": {
+        "name": "Moč mikrovalov"
+      },
+      "weight": {
+        "name": "Teža"
       }
     },
     "select": {
@@ -1272,7 +1278,22 @@
           "bath": "Kopel",
           "blow": "Pihanje",
           "ventilation": "Prezračevanje",
-          "dry": "Sušenje"
+          "dry": "Sušenje",
+          "keep_warm": "Ohranjanje toplote",
+          "stero_baking": "Tridimenzionalno pečenje",
+          "whole_baking": "Celotno pečenje",
+          "up_down_baking": "Zgornje/spodnje pečenje",
+          "unfreeze": "Odtajanje",
+          "hot_air_convection": "Konvekcija vročega zraka",
+          "power_saving": "Varčevanje z energijo",
+          "center_baking": "Sredinsko pečenje",
+          "rotary_baking": "Vrtljivo pečenje",
+          "fermentation": "Fermentacija",
+          "stoving": "Sušenje",
+          "down_baking": "Spodnje pečenje",
+          "pizza": "Pica",
+          "up_infrared_fan": "Zgornji infrardeči ventilator",
+          "microwave": "Mikrovalovi"
         }
       },
       "oscillation_angle": {
@@ -1359,7 +1380,7 @@
         }
       },
       "work_status_select": {
-        "name": "Stanje delovanja",
+        "name": "Nastavi stanje delovanja",
         "state": {
           "save_power": "Varčevanje z energijo",
           "standby": "Pripravljenost",
@@ -1375,7 +1396,10 @@
           "ramadan": "Ramadan",
           "after_checking": "Po preverjanju",
           "wait_to_start": "Čakanje na zagon",
-          "ff": "Neznano"
+          "ff": "Neznano",
+          "cancel": "Preklicano",
+          "end": "Končano",
+          "appointment": "Načrtovani zagon"
         }
       },
       "x9b_fire_power_select": {
@@ -4002,7 +4026,10 @@
           "ramadan": "Ramadan",
           "after_checking": "Po preverjanju",
           "wait_to_start": "Čakanje na zagon",
-          "ff": "Neznano"
+          "ff": "Neznano",
+          "cancel": "Preklicano",
+          "end": "Končano",
+          "appointment": "Načrtovani zagon"
         }
       },
       "x9b_fire_power": {

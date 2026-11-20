@@ -1141,6 +1141,12 @@
       },
       "right_button_work_mode": {
         "name": "右键工作模式"
+      },
+      "watt": {
+        "name": "微波功率"
+      },
+      "weight": {
+        "name": "重量"
       }
     },
     "select": {
@@ -1273,7 +1279,22 @@
           "bath": "洗浴",
           "blow": "吹风",
           "ventilation": "换气",
-          "dry": "干燥"
+          "dry": "干燥",
+          "keep_warm": "保温",
+          "stero_baking": "立体烘烤",
+          "whole_baking": "全烤",
+          "up_down_baking": "上下烘烤",
+          "unfreeze": "解冻",
+          "hot_air_convection": "热风对流",
+          "power_saving": "节能",
+          "center_baking": "中心烘烤",
+          "rotary_baking": "旋转烘烤",
+          "fermentation": "发酵",
+          "stoving": "烘干",
+          "down_baking": "下部烘烤",
+          "pizza": "披萨",
+          "up_infrared_fan": "上部红外风扇",
+          "microwave": "微波"
         }
       },
       "oscillation_angle": {
@@ -1346,7 +1367,7 @@
         }
       },
       "work_status_select": {
-        "name": "工作状态",
+        "name": "设置工作状态",
         "state": {
           "save_power": "节能",
           "standby": "待机",
@@ -1362,7 +1383,10 @@
           "ramadan": "斋月",
           "after_checking": "检查后",
           "wait_to_start": "等待开始",
-          "ff": "未知"
+          "ff": "未知",
+          "cancel": "取消",
+          "end": "结束",
+          "appointment": "预约"
         }
       },
       "x9b_fire_power_select": {
@@ -3963,7 +3987,10 @@
           "ramadan": "斋月",
           "after_checking": "检查后",
           "wait_to_start": "等待开始",
-          "ff": "未知"
+          "ff": "未知",
+          "cancel": "取消",
+          "end": "结束",
+          "appointment": "预约"
         }
       },
       "x9b_fire_power": {

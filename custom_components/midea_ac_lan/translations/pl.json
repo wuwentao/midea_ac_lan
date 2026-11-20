@@ -1127,6 +1127,12 @@
       },
       "right_button_work_mode": {
         "name": "Tryb działania prawego przycisku"
+      },
+      "watt": {
+        "name": "Moc mikrofal"
+      },
+      "weight": {
+        "name": "Waga"
       }
     },
     "select": {
@@ -1272,7 +1278,22 @@
           "bath": "Kąpiel",
           "blow": "Nadmuch",
           "ventilation": "Wentylacja",
-          "dry": "Suszenie"
+          "dry": "Suszenie",
+          "keep_warm": "Podtrzymywanie ciepła",
+          "stero_baking": "Pieczenie przestrzenne",
+          "whole_baking": "Pieczenie pełne",
+          "up_down_baking": "Grzanie góra/dół",
+          "unfreeze": "Rozmrażanie",
+          "hot_air_convection": "Termoobieg",
+          "power_saving": "Oszczędzanie energii",
+          "center_baking": "Pieczenie środkowe",
+          "rotary_baking": "Pieczenie obrotowe",
+          "fermentation": "Fermentacja",
+          "stoving": "Suszenie",
+          "down_baking": "Grzanie dolne",
+          "pizza": "Pizza",
+          "up_infrared_fan": "Górny wentylator podczerwieni",
+          "microwave": "Mikrofale"
         }
       },
       "oscillation_angle": {
@@ -1359,7 +1380,7 @@
         }
       },
       "work_status_select": {
-        "name": "Stan pracy",
+        "name": "Ustaw stan pracy",
         "state": {
           "save_power": "Oszczędzanie energii",
           "standby": "Czuwanie",
@@ -1375,7 +1396,10 @@
           "ramadan": "Ramadan",
           "after_checking": "Po sprawdzeniu",
           "wait_to_start": "Oczekiwanie na start",
-          "ff": "Nieznany"
+          "ff": "Nieznany",
+          "cancel": "Anulowano",
+          "end": "Zakończono",
+          "appointment": "Zaplanowany start"
         }
       },
       "x9b_fire_power_select": {
@@ -4002,7 +4026,10 @@
           "ramadan": "Ramadan",
           "after_checking": "Po sprawdzeniu",
           "wait_to_start": "Oczekiwanie na start",
-          "ff": "Nieznany"
+          "ff": "Nieznany",
+          "cancel": "Anulowano",
+          "end": "Zakończono",
+          "appointment": "Zaplanowany start"
         }
       },
       "x9b_fire_power": {

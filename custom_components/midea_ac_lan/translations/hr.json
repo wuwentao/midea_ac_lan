@@ -1127,6 +1127,12 @@
       },
       "right_button_work_mode": {
         "name": "Način rada desne tipke"
+      },
+      "watt": {
+        "name": "Snaga mikrovalova"
+      },
+      "weight": {
+        "name": "Težina"
       }
     },
     "select": {
@@ -1272,7 +1278,22 @@
           "bath": "Kupanje",
           "blow": "Puhanje",
           "ventilation": "Ventilacija",
-          "dry": "Suho"
+          "dry": "Suho",
+          "keep_warm": "Održavanje topline",
+          "stero_baking": "Trodimenzionalno pečenje",
+          "whole_baking": "Potpuno pečenje",
+          "up_down_baking": "Gornje/donje pečenje",
+          "unfreeze": "Odmrzavanje",
+          "hot_air_convection": "Konvekcija vrućeg zraka",
+          "power_saving": "Ušteda energije",
+          "center_baking": "Središnje pečenje",
+          "rotary_baking": "Rotacijsko pečenje",
+          "fermentation": "Fermentacija",
+          "stoving": "Sušenje",
+          "down_baking": "Donje pečenje",
+          "pizza": "Pizza",
+          "up_infrared_fan": "Gornji infracrveni ventilator",
+          "microwave": "Mikrovalovi"
         }
       },
       "oscillation_angle": {
@@ -1359,7 +1380,7 @@
         }
       },
       "work_status_select": {
-        "name": "Status rada",
+        "name": "Postavi radni status",
         "state": {
           "save_power": "Ušteda energije",
           "standby": "Pripravnost",
@@ -1375,7 +1396,10 @@
           "ramadan": "Ramazan",
           "after_checking": "Nakon provjere",
           "wait_to_start": "Čekanje na pokretanje",
-          "ff": "Nepoznato"
+          "ff": "Nepoznato",
+          "cancel": "Otkazano",
+          "end": "Završeno",
+          "appointment": "Odgođeni početak"
         }
       },
       "x9b_fire_power_select": {
@@ -4002,7 +4026,10 @@
           "ramadan": "Ramazan",
           "after_checking": "Nakon provjere",
           "wait_to_start": "Čekanje na pokretanje",
-          "ff": "Nepoznato"
+          "ff": "Nepoznato",
+          "cancel": "Otkazano",
+          "end": "Završeno",
+          "appointment": "Odgođeni početak"
         }
       },
       "x9b_fire_power": {

@@ -1127,6 +1127,12 @@
       },
       "right_button_work_mode": {
         "name": "Mode de funcionament del botó dret"
+      },
+      "watt": {
+        "name": "Potència de microones"
+      },
+      "weight": {
+        "name": "Pes"
       }
     },
     "select": {
@@ -1272,7 +1278,22 @@
           "bath": "Bany",
           "blow": "Bufa",
           "ventilation": "Ventilació",
-          "dry": "Assecat"
+          "dry": "Assecat",
+          "keep_warm": "Mantenir calent",
+          "stero_baking": "Cocció tridimensional",
+          "whole_baking": "Cocció completa",
+          "up_down_baking": "Cocció superior/inferior",
+          "unfreeze": "Descongelació",
+          "hot_air_convection": "Convecció d'aire calent",
+          "power_saving": "Estalvi d'energia",
+          "center_baking": "Cocció central",
+          "rotary_baking": "Cocció rotativa",
+          "fermentation": "Fermentació",
+          "stoving": "Assecat",
+          "down_baking": "Cocció inferior",
+          "pizza": "Pizza",
+          "up_infrared_fan": "Ventilador infraroig superior",
+          "microwave": "Microones"
         }
       },
       "oscillation_angle": {
@@ -1359,7 +1380,7 @@
         }
       },
       "work_status_select": {
-        "name": "Estat de funcionament",
+        "name": "Configura l'estat de treball",
         "state": {
           "save_power": "Estalvi d'energia",
           "standby": "En espera",
@@ -1375,7 +1396,10 @@
           "ramadan": "Ramadà",
           "after_checking": "Després de comprovar",
           "wait_to_start": "A l'espera d'iniciar",
-          "ff": "Desconegut"
+          "ff": "Desconegut",
+          "cancel": "Cancel·lat",
+          "end": "Finalitzat",
+          "appointment": "Inici programat"
         }
       },
       "x9b_fire_power_select": {
@@ -4002,7 +4026,10 @@
           "ramadan": "Ramadà",
           "after_checking": "Després de comprovar",
           "wait_to_start": "A l'espera d'iniciar",
-          "ff": "Desconegut"
+          "ff": "Desconegut",
+          "cancel": "Cancel·lat",
+          "end": "Finalitzat",
+          "appointment": "Inici programat"
         }
       },
       "x9b_fire_power": {

@@ -1127,6 +1127,12 @@
       },
       "right_button_work_mode": {
         "name": "Werkmodus rechterknop"
+      },
+      "watt": {
+        "name": "Magnetronvermogen"
+      },
+      "weight": {
+        "name": "Gewicht"
       }
     },
     "select": {
@@ -1272,7 +1278,22 @@
           "bath": "Bad",
           "blow": "Blazen",
           "ventilation": "Ventilatie",
-          "dry": "Drogen"
+          "dry": "Drogen",
+          "keep_warm": "Warmhouden",
+          "stero_baking": "Driedimensionaal bakken",
+          "whole_baking": "Volledig bakken",
+          "up_down_baking": "Boven-/onderwarmte",
+          "unfreeze": "Ontdooien",
+          "hot_air_convection": "Heteluchtconvectie",
+          "power_saving": "Energiebesparing",
+          "center_baking": "Middenbakken",
+          "rotary_baking": "Roterend bakken",
+          "fermentation": "Fermenteren",
+          "stoving": "Drogen",
+          "down_baking": "Onderwarmte",
+          "pizza": "Pizza",
+          "up_infrared_fan": "Bovenste infraroodventilator",
+          "microwave": "Magnetron"
         }
       },
       "oscillation_angle": {
@@ -1359,7 +1380,7 @@
         }
       },
       "work_status_select": {
-        "name": "Werkstatus",
+        "name": "Werkstatus instellen",
         "state": {
           "save_power": "Energie besparen",
           "standby": "Stand-by",
@@ -1375,7 +1396,10 @@
           "ramadan": "Ramadan",
           "after_checking": "Na controle",
           "wait_to_start": "Wachten op start",
-          "ff": "Onbekend"
+          "ff": "Onbekend",
+          "cancel": "Geannuleerd",
+          "end": "Beëindigd",
+          "appointment": "Geplande start"
         }
       },
       "x9b_fire_power_select": {
@@ -4002,7 +4026,10 @@
           "ramadan": "Ramadan",
           "after_checking": "Na controle",
           "wait_to_start": "Wachten op start",
-          "ff": "Onbekend"
+          "ff": "Onbekend",
+          "cancel": "Geannuleerd",
+          "end": "Beëindigd",
+          "appointment": "Geplande start"
         }
       },
       "x9b_fire_power": {

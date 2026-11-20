@@ -1127,6 +1127,12 @@
       },
       "right_button_work_mode": {
         "name": "Driftsmodus for høyre knapp"
+      },
+      "watt": {
+        "name": "Mikrobølgeeffekt"
+      },
+      "weight": {
+        "name": "Vekt"
       }
     },
     "select": {
@@ -1272,7 +1278,22 @@
           "bath": "Bad",
           "blow": "Blås",
           "ventilation": "Ventilasjon",
-          "dry": "Tørr"
+          "dry": "Tørr",
+          "keep_warm": "Hold varm",
+          "stero_baking": "Tredimensjonal steking",
+          "whole_baking": "Helsteking",
+          "up_down_baking": "Over-/undervarme",
+          "unfreeze": "Tining",
+          "hot_air_convection": "Varmluft",
+          "power_saving": "Energisparing",
+          "center_baking": "Midtsteking",
+          "rotary_baking": "Roterende steking",
+          "fermentation": "Heving",
+          "stoving": "Tørking",
+          "down_baking": "Undervarme",
+          "pizza": "Pizza",
+          "up_infrared_fan": "Øvre infrarøde vifte",
+          "microwave": "Mikrobølge"
         }
       },
       "oscillation_angle": {
@@ -1359,7 +1380,7 @@
         }
       },
       "work_status_select": {
-        "name": "Arbeidsstatus",
+        "name": "Angi arbeidsstatus",
         "state": {
           "save_power": "Spar strøm",
           "standby": "Hvilemodus",
@@ -1375,7 +1396,10 @@
           "ramadan": "Ramadan",
           "after_checking": "Etter kontroll",
           "wait_to_start": "Venter på å starte",
-          "ff": "Ukjent"
+          "ff": "Ukjent",
+          "cancel": "Avbrutt",
+          "end": "Avsluttet",
+          "appointment": "Planlagt start"
         }
       },
       "x9b_fire_power_select": {
@@ -4002,7 +4026,10 @@
           "ramadan": "Ramadan",
           "after_checking": "Etter kontroll",
           "wait_to_start": "Venter på å starte",
-          "ff": "Ukjent"
+          "ff": "Ukjent",
+          "cancel": "Avbrutt",
+          "end": "Avsluttet",
+          "appointment": "Planlagt start"
         }
       },
       "x9b_fire_power": {
