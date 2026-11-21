@@ -55,6 +55,7 @@ from .const import (
     supports_device,
 )
 from .midea_devices import MIDEA_DEVICES
+from .ca_modes import attach_ca_mode_support
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -304,6 +305,7 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
         config_entry.data.get(CONF_CLOUD_NAME),
     )
     if device:
+        attach_ca_mode_support(device)
         if refresh_interval is not None:
             device.set_refresh_interval(refresh_interval)
         await device.open()
