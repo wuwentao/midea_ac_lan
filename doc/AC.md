@@ -184,6 +184,7 @@ Known settings:
 | sensor.{DEVICEID}\_indoor_fan_speed            | sensor        | Indoor Fan Speed                 |
 | sensor.{DEVICEID}\_target_indoor_fan_speed     | sensor        | Target Indoor Fan Speed          |
 | sensor.{DEVICEID}\_water_pump_running          | binary_sensor | Water Pump Running               |
+| binary_sensor.{DEVICEID}\_defrosting           | binary_sensor | Defrosting                       |
 | fan.{DEVICEID}\_fresh_air                      | fan           | Fresh Air Fan                    |
 | fan.{DEVICEID}\_fresh_air_exhaust              | fan           | Fresh Air Exhaust                |
 | select.{DEVICEID}\_fresh_air_mode              | select        | Fresh Air Speed                  |
@@ -216,6 +217,13 @@ Known settings:
 
 Service diagnostic entities are optional. Devices that do not return the
 corresponding Midea group data may leave these entities in an unknown state.
+
+The optional Defrosting sensor appears in the integration options after the
+device reports a valid Group 5 defrost value, including an inactive report.
+Once enabled, the sensor is unavailable when the device is offline or no
+defrost value is known. While the device remains online, the last reported value
+can persist if subsequent Group 5 reports are missing or incomplete. The sensor
+does not expire that value automatically.
 
 ## Built-in fresh air system
 
