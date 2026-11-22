@@ -81,6 +81,12 @@
 | lock.{DEVICEID}\_child_lock              | lock          | Child Lock                  | 童锁                                          |
 | switch.{DEVICEID}\_power                 | switch        | Power                       | 电源开关                                      |
 | switch.{DEVICEID}\_storage               | switch        | Storage                     | 保管开关                                      |
+| switch.{DEVICEID}\_dry_setting           | switch        | Disinfect and Dry           | 洗涤后消毒烘干 (型号 `7600644C`，子类型 `3`)   |
+| number.{DEVICEID}\_storage_set_time      | number        | Storage Duration            | 保管时长 (0–72 小时；型号 `7600644C`，子类型 `3`) |
+
+洗碗机上报状态后，在集成的扩展控制中勾选 **消毒烘干** 和 **保管时长**。
+消毒烘干开关决定洗涤后是否启用该功能；**烘干中** 仍表示设备正在烘干。
+**保管时长** 显示设备设定的时长，不是保管剩余时间；调整它不会打开 **保管开关**。
 
 ## 服务
 
@@ -103,6 +109,8 @@
 | child_lock                 | true 或 false                            |
 | power                      | true 或 false                            |
 | storage                    | true 或 false                            |
+| dry_setting                | true 或 false (型号 `7600644C`，子类型 `3`) |
+| storage_set_time            | 0 至 72 整数小时 (型号 `7600644C`，子类型 `3`) |
 | mode_select                | 程序名, 如 `eco_wash`; 立即启动          |
 | program                    | 程序名, 如 `eco_wash` (不会启动)         |
 | delay_minutes              | 1 至 1440                                |

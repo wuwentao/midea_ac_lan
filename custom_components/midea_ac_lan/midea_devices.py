@@ -9318,6 +9318,28 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Storage",
                 "icon": "mdi:repeat-variant",
             },
+            # The library only declares these controls for verified models.
+            "dry_setting": {
+                "type": Platform.SWITCH,
+                "translation_key": "dry_setting",
+                "name": "Disinfect and Dry",
+                "icon": "mdi:hair-dryer",
+                "required_attribute": "dry_setting",
+                "available_value_attribute": "dry_setting",
+            },
+            "storage_set_time": {
+                "type": Platform.NUMBER,
+                "translation_key": "storage_set_time",
+                "name": "Storage Duration",
+                "icon": "mdi:timer-outline",
+                "device_class": NumberDeviceClass.DURATION,
+                "unit": UnitOfTime.HOURS,
+                "min": 0,
+                "max": 72,
+                "step": 1,
+                "required_attribute": "storage_set_time",
+                "available_value_attribute": "storage_set_time",
+            },
             "start": {
                 "type": Platform.BUTTON,
                 "translation_key": "start",
