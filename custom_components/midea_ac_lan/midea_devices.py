@@ -9322,7 +9322,11 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             "dry_setting": {
                 "type": Platform.SWITCH,
                 "translation_key": "dry_setting",
-                "name": "Disinfect and Dry",
+                # Only 7600644C's app names this switch "Disinfect and Dry"; the
+                # other verified models expose the same vendor field as a plain
+                # drying switch.
+                "translation_key_by_model": {"7600644C": "dry_setting_7600644c"},
+                "name": "Drying Switch",
                 "icon": "mdi:hair-dryer",
                 "required_attribute": "dry_setting",
                 "available_value_attribute": "dry_setting",
@@ -9605,8 +9609,6 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "device_class": SensorDeviceClass.DURATION,
                 "unit": UnitOfTime.MINUTES,
                 "cloud_report": "filter_wash_time",
-                "models": ["7600644C"],
-                "subtypes": [3],
             },
             E1Attributes.clean_left_hour: {
                 "type": Platform.SENSOR,

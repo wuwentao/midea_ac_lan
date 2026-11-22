@@ -12,7 +12,9 @@ from homeassistant.const import (
     Platform,
 )
 from homeassistant.core import HomeAssistant
+from midealan.const import ProtocolVersion
 from midealan.device import DeviceType
+from midealan.devices.e1 import MideaE1Device
 
 from tests.conftest import TEST_DEVICE_ID, setup_integration
 from tests.ha import MockConfigEntry
@@ -22,6 +24,45 @@ pytestmark = pytest.mark.usefixtures("enable_integration", "mock_device_selector
 DRY = f"switch.{TEST_DEVICE_ID}_dry_setting"
 STORAGE_TIME = f"number.{TEST_DEVICE_ID}_storage_set_time"
 CONTROLS = ["dry_setting", "storage_set_time"]
+
+
+def _device(model: str, subtype: int) -> MideaE1Device:
+    """Create an offline dishwasher using the real library mapping."""
+    return MideaE1Device(
+        name="Dishwasher",
+        device_id=1,
+        ip_address="127.0.0.1",
+        port=6444,
+        token="AA",  # ruff: ignore[hardcoded-password-func-arg]
+        key="BB",
+        device_protocol=ProtocolVersion.V3,
+        model=model,
+        subtype=subtype,
+        customize="",
+    )
+
+
+@pytest.mark.parametrize(
+    ("model", "subtype", "supported"),
+    [
+        ("7600644C", 3, True),
+        ("7600002B", 1, True),
+        ("760001EC", 1, True),
+        ("760RX20S", 1, True),
+        ("7600644C", 1, False),
+        ("76000228", 3, False),
+        ("7600024L", 1, False),
+    ],
+)
+def test_dry_and_storage_controls_follow_vendor_model_scope(
+    model: str,
+    subtype: int,
+    supported: bool,
+) -> None:
+    """Declare the optional controls only for models with matching vendor Lua."""
+    device = _device(model, subtype)
+    assert ("dry_setting" in device.attributes) is supported
+    assert ("storage_set_time" in device.attributes) is supported
 
 
 @pytest.mark.parametrize("supported", [True, False])
