@@ -61,7 +61,8 @@ async def test_e1_extended_controls_follow_device_support_and_opt_in(
 
     dry = hass.states.get(DRY)
     storage_time = hass.states.get(STORAGE_TIME)
-    assert dry is not None and dry.state == STATE_OFF
+    assert dry is not None
+    assert dry.state == STATE_OFF
     assert storage_time is not None
     assert float(storage_time.state) == pytest.approx(0)
 

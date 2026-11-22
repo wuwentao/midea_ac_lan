@@ -62,6 +62,7 @@
 | sensor.{DEVICEID}\_bright                | sensor        | Bright Level                | 亮碟剂档位                                    |
 | sensor.{DEVICEID}\_wrong_operation       | sensor        | Wrong Operation             | 误操作 (诊断)                                 |
 | sensor.{DEVICEID}\_dry_set_min           | sensor        | Dry Set Time                | 烘干设定时间 (分钟)                           |
+| sensor.{DEVICEID}\_filter_wash_time      | sensor        | 滤网累计洗涤时长              | 清洁复位后的累计洗涤分钟数 (型号 `7600644C`，子类型 `3`) |
 | sensor.{DEVICEID}\_clean_left_hour       | sensor        | Clean Remaining             | 剩余清洁时间 (小时)                           |
 | sensor.{DEVICEID}\_kitchenware_left_hour | sensor        | Kitchenware Remaining       | 剩余餐具时间 (小时)                           |
 | sensor.{DEVICEID}\_device_version        | sensor        | Device Version              | 设备版本 (诊断)                               |
@@ -87,6 +88,12 @@
 洗碗机上报状态后，在集成的扩展控制中勾选 **消毒烘干** 和 **保管时长**。
 消毒烘干开关决定洗涤后是否启用该功能；**烘干中** 仍表示设备正在烘干。
 **保管时长** 显示设备设定的时长，不是保管剩余时间；调整它不会打开 **保管开关**。
+
+**滤网累计洗涤时长** 默认不启用，仅适用于型号 `7600644C`、子类型 `3`。
+如需使用，请在集成选项中勾选该传感器，并配置自己已绑定这台洗碗机的美的美居账号。
+传感器通过 HTTPS 只读查询美的美居云端，不从局域网读取。数值单位为分钟，
+累计洗涤时间，不含烘干及保管。清洗滤网后，在 App 中执行清洁复位会使该数值下降。
+尚未使用真实账号验证此云端查询。
 
 ## 服务
 

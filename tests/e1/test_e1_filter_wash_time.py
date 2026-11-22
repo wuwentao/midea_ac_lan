@@ -1,0 +1,173 @@
+"""Exercise the optional cloud filter sensor through Home Assistant."""
+
+from asyncio import Event
+from collections.abc import Generator
+from datetime import timedelta
+from unittest.mock import AsyncMock, Mock, patch
+
+import pytest
+from homeassistant.const import (
+    CONF_PASSWORD,
+    CONF_SENSORS,
+    CONF_TYPE,
+    STATE_UNAVAILABLE,
+    Platform,
+)
+from homeassistant.core import HomeAssistant
+from homeassistant.data_entry_flow import FlowResultType
+from homeassistant.util.dt import utcnow
+from midealan.device import DeviceType
+from midealan.exceptions import CloudAuthError, CloudError
+
+from custom_components.midea_ac_lan.const import (
+    CONF_ACCOUNT,
+    CONF_MODEL,
+    CONF_SERVER,
+    CONF_SUBTYPE,
+)
+from tests.conftest import TEST_DEVICE_ID, setup_integration
+from tests.ha import MockConfigEntry, async_fire_time_changed
+
+pytestmark = pytest.mark.usefixtures("enable_integration", "mock_device_selector")
+
+KEY = "filter_wash_time"
+ENTITY_ID = f"sensor.{TEST_DEVICE_ID}_{KEY}"
+CLOUD_OPTIONS = {CONF_ACCOUNT: "tester@example.invalid", CONF_PASSWORD: "unused"}
+
+
+@pytest.fixture
+def filter_appliance(
+    hass: HomeAssistant,
+    config_entry: MockConfigEntry,
+    mock_device: Mock,
+) -> Generator[None]:
+    """Load a supported dishwasher's real sensor platform without a LAN socket."""
+    hass.config_entries.async_update_entry(
+        config_entry,
+        data={
+            **config_entry.data,
+            CONF_TYPE: DeviceType.E1,
+            CONF_MODEL: "7600644C",
+            CONF_SUBTYPE: 3,
+        },
+    )
+    mock_device.device_type = DeviceType.E1
+    mock_device.model = "7600644C"
+    mock_device.subtype = 3
+    mock_device.attributes["temperature"] = 27.0
+    mock_device.get_estimated_consumption = Mock(return_value={})
+    with (
+        patch("custom_components.midea_ac_lan.ALL_PLATFORM", [Platform.SENSOR]),
+        patch("custom_components.midea_ac_lan.cloud.async_get_clientsession"),
+    ):
+        yield
+
+
+@pytest.mark.usefixtures("filter_appliance")
+async def test_filter_sensor_opt_in_and_cloud_session_renewal(
+    hass: HomeAssistant,
+    config_entry: MockConfigEntry,
+    mock_device: Mock,
+) -> None:
+    """Load locally, retry after token expiry, and later observe a cloud reset."""
+    ready = Event()
+    readings = iter([817, 0])
+
+    async def read_cloud(_appliance_id: int) -> int:
+        await ready.wait()
+        if cloud.login.await_count == 1:
+            raise CloudAuthError("expired")
+        return next(readings)
+
+    cloud = Mock(
+        login=AsyncMock(return_value=True),
+        get_e1_filter_wash_time=AsyncMock(side_effect=read_cloud),
+    )
+    with patch(
+        "custom_components.midea_ac_lan.cloud.get_midea_cloud",
+        return_value=cloud,
+    ) as factory:
+        await setup_integration(hass, config_entry)
+        assert hass.states.get(ENTITY_ID) is None
+        factory.assert_not_called()
+
+        form = await hass.config_entries.options.async_init(config_entry.entry_id)
+        assert form["type"] is FlowResultType.FORM
+        assert CONF_SERVER not in {str(key) for key in form["data_schema"].schema}
+        result = await hass.config_entries.options.async_configure(
+            form["flow_id"],
+            {CONF_SENSORS: [KEY, "temperature"], **CLOUD_OPTIONS},
+        )
+        assert result["type"] is FlowResultType.CREATE_ENTRY
+        assert CONF_SERVER not in result["data"]
+        await hass.async_block_till_done()
+        # The optional cloud login must not gate the local entities.
+        temperature = hass.states.get(f"sensor.{TEST_DEVICE_ID}_temperature")
+        assert temperature is not None
+        assert float(temperature.state) == pytest.approx(27.0)
+        assert hass.states.get(ENTITY_ID).state == STATE_UNAVAILABLE
+
+        ready.set()
+        await hass.async_block_till_done(wait_background_tasks=True)
+        state = hass.states.get(ENTITY_ID)
+        assert state is not None
+        assert float(state.state) == pytest.approx(817)
+
+        async_fire_time_changed(hass, utcnow() + timedelta(hours=1, minutes=1))
+        await hass.async_block_till_done(wait_background_tasks=True)
+
+    state = hass.states.get(ENTITY_ID)
+    assert state is not None
+    assert float(state.state) == pytest.approx(0)
+    assert cloud.login.await_count == 2
+    assert cloud.get_e1_filter_wash_time.await_count == 3
+    mock_device.set_attribute.assert_not_called()
+
+
+@pytest.mark.parametrize(
+    "failure",
+    ["unconfigured", "old_library", "login", "denied", "offline", "missing"],
+)
+@pytest.mark.usefixtures("filter_appliance")
+async def test_filter_sensor_never_reports_zero_for_missing_cloud_data(
+    hass: HomeAssistant,
+    config_entry: MockConfigEntry,
+    failure: str,
+) -> None:
+    """Keep local sensors working when cloud data or credentials are missing."""
+    cloud = Mock(login=AsyncMock(return_value=failure != "login"))
+    if failure == "old_library":
+        del cloud.get_e1_filter_wash_time
+    else:
+        query_error = {
+            "offline": CloudError("service offline"),
+            "denied": CloudAuthError("access denied"),
+        }.get(failure)
+        cloud.get_e1_filter_wash_time = AsyncMock(
+            side_effect=query_error,
+            return_value=None,
+        )
+    options: dict = {CONF_SENSORS: [KEY, "temperature"]}
+    if failure != "unconfigured":
+        options.update(CLOUD_OPTIONS)
+    hass.config_entries.async_update_entry(config_entry, options=options)
+    with patch(
+        "custom_components.midea_ac_lan.cloud.get_midea_cloud",
+        return_value=cloud,
+    ):
+        await setup_integration(hass, config_entry)
+
+    state = hass.states.get(ENTITY_ID)
+    if failure == "unconfigured":
+        assert state is None
+        cloud.login.assert_not_awaited()
+    else:
+        assert state is not None
+        assert state.state == STATE_UNAVAILABLE
+        if failure == "old_library":
+            cloud.login.assert_not_awaited()
+        if failure == "denied":
+            assert cloud.get_e1_filter_wash_time.await_count == 2
+    temperature = hass.states.get(f"sensor.{TEST_DEVICE_ID}_temperature")
+    assert temperature is not None
+    assert float(temperature.state) == pytest.approx(27.0)

@@ -19,12 +19,14 @@ from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.event import async_track_time_interval
 from homeassistant.helpers.restore_state import RestoreEntity
 from homeassistant.helpers.typing import StateType
-from midealan.device import MideaDevice
+from midealan.device import DeviceType, MideaDevice
 from midealan.devices.e1 import MideaE1Device
+from midealan.devices.e3.cloud import E3DayReport
 
 from .cloud import (
     MideaCloudCoordinator,
     create_cloud_coordinator,
+    create_filter_wash_time_coordinator,
 )
 from .const import DEVICES, DOMAIN, supports_device
 from .midea_devices import MIDEA_DEVICES
@@ -45,7 +47,9 @@ async def async_setup_entry(
     sensors = []
     # Shared by all cloud usage sensors of the device; created lazily by the
     # first opted-in one and left None when no cloud account is stored.
-    cloud_coordinator: MideaCloudCoordinator | None = None
+    cloud_coordinator: (
+        MideaCloudCoordinator[E3DayReport] | MideaCloudCoordinator[int] | None
+    ) = None
     cloud_unconfigured = False
     for entity_key, config in cast(
         "dict",
@@ -65,19 +69,17 @@ async def async_setup_entry(
             continue
         if config.get("cloud_report") is not None:
             if cloud_coordinator is None and not cloud_unconfigured:
-                cloud_coordinator = create_cloud_coordinator(
-                    hass,
-                    config_entry,
-                    device_id,
-                    device.name,
+                factory = (
+                    create_filter_wash_time_coordinator
+                    if config["cloud_report"] == "filter_wash_time"
+                    else create_cloud_coordinator
                 )
+                cloud_coordinator = factory(hass, config_entry, device_id, device.name)
                 if cloud_coordinator is None:
                     cloud_unconfigured = True
                     _LOGGER.warning(
-                        "Usage statistics sensors of device %s are selected, "
-                        "but no Midea cloud account is stored in the "
-                        "integration options; skipping them",
-                        device_id,
+                        "Optional Midea cloud sensors are selected, but no usable "
+                        "Midea cloud account is configured; skipping them",
                     )
             if cloud_coordinator is None:
                 continue
@@ -102,9 +104,15 @@ async def async_setup_entry(
             sensor = MideaSensor(device, entity_key)
             sensors.append(sensor)
     if cloud_coordinator is not None:
-        # Prime the sensors with the current report; failures keep them
-        # unavailable and are reported by the coordinator.
-        await cloud_coordinator.async_refresh()
+        if device.device_type == DeviceType.E1:
+            # Never delay dishwasher LAN entities on an optional cloud login.
+            config_entry.async_create_background_task(
+                hass,
+                cloud_coordinator.async_refresh(),
+                "midea_ac_lan first filter wash time refresh",
+            )
+        else:
+            await cloud_coordinator.async_refresh()
     async_add_entities(sensors)
 
 
@@ -228,7 +236,7 @@ class MideaSensor(MideaEntity, SensorEntity):
 
 
 class MideaCloudUsageSensor(MideaSensor):
-    """Represent a usage statistic from the Midea cloud day report.
+    """Represent a statistic reported by the Midea cloud.
 
     The value does not come from the LAN device but from the cloud report
     coordinator, so availability follows the coordinator instead of the
@@ -239,7 +247,7 @@ class MideaCloudUsageSensor(MideaSensor):
         self,
         device: MideaDevice,
         entity_key: str,
-        coordinator: MideaCloudCoordinator,
+        coordinator: MideaCloudCoordinator[E3DayReport] | MideaCloudCoordinator[int],
     ) -> None:
         """Initialize cloud usage sensor."""
         super().__init__(device, entity_key)
@@ -249,8 +257,8 @@ class MideaCloudUsageSensor(MideaSensor):
     def native_value(self) -> StateType:
         """Newest value of the configured cloud report field."""
         report = self._coordinator.data
-        if report is None:
-            return None
+        if report is None or isinstance(report, int):
+            return report
         return cast(
             "StateType",
             getattr(report, cast("str", self._config["cloud_report"])),
@@ -266,11 +274,11 @@ class MideaCloudUsageSensor(MideaSensor):
 
     @property
     def extra_state_attributes(self) -> dict[str, str]:
-        """Date the underlying cloud day report covers."""
+        """Date the E3 cloud day report covers, when applicable."""
         report = self._coordinator.data
         return (
             {}
-            if report is None
+            if report is None or isinstance(report, int)
             else {
                 "report_date": report.report_date.isoformat(),
             }

@@ -9597,6 +9597,17 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "unit": UnitOfTime.MINUTES,
                 "state_class": SensorStateClass.MEASUREMENT,
             },
+            "filter_wash_time": {
+                "type": Platform.SENSOR,
+                "translation_key": "filter_wash_time",
+                "name": "Filter Wash Time Since Cleaning",
+                "icon": "mdi:filter-outline",
+                "device_class": SensorDeviceClass.DURATION,
+                "unit": UnitOfTime.MINUTES,
+                "cloud_report": "filter_wash_time",
+                "models": ["7600644C"],
+                "subtypes": [3],
+            },
             E1Attributes.clean_left_hour: {
                 "type": Platform.SENSOR,
                 "translation_key": "clean_left_hour",
