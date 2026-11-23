@@ -435,9 +435,15 @@ def test_mask_account() -> None:
     assert "semihal.devs" not in masked
     # Plain username (no "@"): keep the prefix, mask the tail.
     assert config_flow._mask_account("myplainusername") == "mypla**********"
-    # Short values (<= visible window) are kept as-is; nothing is invented.
-    assert config_flow._mask_account("joe@x.com") == "joe@x.com"
-    assert config_flow._mask_account("abcde") == "abcde"
+    # Short values still mask at least the last char of the local part, so no
+    # nonempty account is ever logged in full.
+    assert config_flow._mask_account("joe@x.com") == "jo*@x.com"
+    assert config_flow._mask_account("abcde") == "abcd*"
+    assert config_flow._mask_account("a@y.com") == "*@y.com"
+    assert config_flow._mask_account("a") == "*"
+    # Every nonempty account keeps at least one masked character.
+    for account in ("semihal.devs@gmail.com", "joe@x.com", "abcde", "a"):
+        assert "*" in config_flow._mask_account(account)
     # Falsy input is rendered without raising.
     assert config_flow._mask_account("") == ""
     assert config_flow._mask_account(None) == "None"

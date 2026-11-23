@@ -96,22 +96,23 @@ _ACCOUNT_VISIBLE_CHARS = 5
 def _mask_account(account: str | None) -> str:
     """Mask an account for logging while keeping it recognizable.
 
-    Keep the first ``_ACCOUNT_VISIBLE_CHARS`` characters and mask the rest. For
-    an email, only the local part is shortened while the domain is preserved
-    (e.g. ``semih***@gmail.com``), so the line stays recognizable but does not
-    expose the full address. A value shorter than the visible window is kept as
-    is so nothing is invented.
+    Keep at most the first ``_ACCOUNT_VISIBLE_CHARS`` characters of the local
+    part and mask the rest, always masking at least its last character so no
+    nonempty account is logged in full. For an email the domain is preserved
+    (e.g. ``semih*******@gmail.com``), so the line stays recognizable without
+    exposing the whole address.
 
     Returns
     -------
-    The account with its middle/tail masked, safe to write to the debug log.
+    The account with its tail masked, safe to write to the debug log.
 
     """
     if not account:
         return str(account)
     local, sep, domain = account.partition("@")
-    hidden = max(0, len(local) - _ACCOUNT_VISIBLE_CHARS)
-    masked_local = local[:_ACCOUNT_VISIBLE_CHARS] + "*" * hidden
+    # Always hide at least the last character of the local part.
+    visible = max(0, min(_ACCOUNT_VISIBLE_CHARS, len(local) - 1))
+    masked_local = local[:visible] + "*" * (len(local) - visible)
     return f"{masked_local}{sep}{domain}"
 
 
