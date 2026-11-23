@@ -100,7 +100,9 @@ def _mask_account(account: str | None) -> str:
     part and mask the rest, always masking at least its last character so no
     nonempty account is logged in full. For an email the domain is preserved
     (e.g. ``semih*******@gmail.com``), so the line stays recognizable without
-    exposing the whole address.
+    exposing the whole address. If nothing would actually be hidden (no local
+    part such as ``@example.com``, or the characters to mask were already
+    ``*``), the whole value is masked instead.
 
     Returns
     -------
@@ -112,8 +114,12 @@ def _mask_account(account: str | None) -> str:
     local, sep, domain = account.partition("@")
     # Always hide at least the last character of the local part.
     visible = max(0, min(_ACCOUNT_VISIBLE_CHARS, len(local) - 1))
-    masked_local = local[:visible] + "*" * (len(local) - visible)
-    return f"{masked_local}{sep}{domain}"
+    masked = f"{local[:visible]}{'*' * (len(local) - visible)}{sep}{domain}"
+    # If the result still equals the input, nothing was hidden (empty local
+    # part, or the masked chars were already "*"); mask the value in full.
+    if masked == account:
+        return "*" * len(account)
+    return masked
 
 
 ADD_WAY = {
