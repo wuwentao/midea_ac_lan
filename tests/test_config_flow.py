@@ -446,6 +446,10 @@ def test_mask_account() -> None:
     # A literal "*" in the local part would make the masked tail equal the
     # input; fall back to masking the whole value so nothing leaks.
     assert config_flow._mask_account("a*@example.com") == "*" * len("a*@example.com")
+    # A quoted local part containing "@" is split on the last "@", so the
+    # embedded address stays in the masked local part and does not leak.
+    assert config_flow._mask_account('"a@b"@example.com') == '"a@**@example.com'
+    assert "a@b" not in config_flow._mask_account('"a@b"@example.com')
     # Every nonempty account that carries real (non-"*") characters keeps at
     # least one of them hidden; the input never survives verbatim.
     for account in (
@@ -455,6 +459,7 @@ def test_mask_account() -> None:
         "a",
         "@example.com",
         "a*@example.com",
+        '"a@b"@example.com',
     ):
         assert account not in config_flow._mask_account(account)
     # Falsy input is rendered without raising.

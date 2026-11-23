@@ -97,12 +97,12 @@ def _mask_account(account: str | None) -> str:
     """Mask an account for logging while keeping it recognizable.
 
     Keep at most the first ``_ACCOUNT_VISIBLE_CHARS`` characters of the local
-    part and mask the rest, always masking at least its last character so no
-    nonempty account is logged in full. For an email the domain is preserved
-    (e.g. ``sem*********@gmail.com``), so the line stays recognizable without
-    exposing the whole address. If nothing would actually be hidden (no local
-    part such as ``@example.com``, or the characters to mask were already
-    ``*``), the whole value is masked instead.
+    part (split on the last ``@``) and mask the rest, always masking at least
+    its last character so no nonempty account is logged in full. For an email
+    the domain is preserved (e.g. ``sem*********@gmail.com``), so the line stays
+    recognizable without exposing the whole address. If nothing would actually
+    be hidden (no local part such as ``@example.com``, or the characters to mask
+    were already ``*``), the whole value is masked instead.
 
     Returns
     -------
@@ -111,7 +111,13 @@ def _mask_account(account: str | None) -> str:
     """
     if not account:
         return str(account)
-    local, sep, domain = account.partition("@")
+    # Split on the last "@" so a quoted local part that itself contains "@"
+    # (e.g. '"a@b"@example.com') stays wholly in the masked local part instead
+    # of leaking into the domain. rpartition puts the value in the tail when
+    # there is no "@", so fall back to treating the whole value as the local part.
+    local, sep, domain = account.rpartition("@")
+    if not sep:
+        local, domain = account, ""
     # Always hide at least the last character of the local part.
     visible = max(0, min(_ACCOUNT_VISIBLE_CHARS, len(local) - 1))
     masked = f"{local[:visible]}{'*' * (len(local) - visible)}{sep}{domain}"
