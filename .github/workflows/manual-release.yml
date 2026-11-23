@@ -62,7 +62,7 @@ jobs:
 
       - name: Install git-cliff
         run: |
-          curl -sSL https://github.com/orhun/git-cliff/releases/download/v2.7.0/git-cliff-2.7.0-x86_64-unknown-linux-gnu.tar.gz \
+          curl -sSL https://github.com/orhun/git-cliff/releases/download/v2.14.2/git-cliff-2.14.2-x86_64-unknown-linux-gnu.tar.gz \
             | tar xz --strip-components=1 -C /usr/local/bin
 
       - name: Get last release tag
@@ -73,6 +73,9 @@ jobs:
           echo "Last release tag: ${LAST_TAG:-none}"
 
       - name: Generate changelog for new version
+        env:
+          # git-cliff uses the GitHub API to resolve each pull request author.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           if [ -n "${{ steps.last_tag.outputs.last_tag }}" ]; then
             # Incremental: generate only new changes since last tag
@@ -83,6 +86,17 @@ jobs:
             # First release: generate full changelog
             git-cliff --tag v${{ inputs.version }} \
               --prepend CHANGELOG.md
+          fi
+
+          if missing_contributors=$(
+            git diff --unified=0 -- CHANGELOG.md |
+              sed -n 's/^+//p' |
+              grep -E '^- .*https://github.com/wuwentao/midea_ac_lan/pull/[0-9]+' |
+              grep -Ev ' by \[@.+\]\(https://github.com/[^)]+\)'
+          ); then
+            echo "::error::Changelog entries with pull requests must include contributors"
+            printf '%s\n' "$missing_contributors"
+            exit 1
           fi
 
       - name: Update version in component manifest
