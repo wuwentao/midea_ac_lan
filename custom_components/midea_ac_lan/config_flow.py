@@ -87,6 +87,47 @@ from .midea_devices import MIDEA_DEVICES
 
 _LOGGER = logging.getLogger(__name__)
 
+# Keep this many leading characters of an account visible when masking it for
+# the debug log, so a reporter can still recognize which account a login line
+# refers to without the full email / phone / username reaching a shared log.
+_ACCOUNT_VISIBLE_CHARS = 3
+
+
+def _mask_account(account: str | None) -> str:
+    """Mask an account for logging while keeping it recognizable.
+
+    Keep at most the first ``_ACCOUNT_VISIBLE_CHARS`` characters of the local
+    part (split on the last ``@``) and mask the rest, always masking at least
+    its last character so no nonempty account is logged in full. For an email
+    the domain is preserved (e.g. ``sem*********@gmail.com``), so the line stays
+    recognizable without exposing the whole address. If nothing would actually
+    be hidden (no local part such as ``@example.com``, or the characters to mask
+    were already ``*``), the whole value is masked instead.
+
+    Returns
+    -------
+    The account with its tail masked, safe to write to the debug log.
+
+    """
+    if not account:
+        return str(account)
+    # Split on the last "@" so a quoted local part that itself contains "@"
+    # (e.g. '"a@b"@example.com') stays wholly in the masked local part instead
+    # of leaking into the domain. rpartition puts the value in the tail when
+    # there is no "@", so fall back to treating the whole value as the local part.
+    local, sep, domain = account.rpartition("@")
+    if not sep:
+        local, domain = account, ""
+    # Always hide at least the last character of the local part.
+    visible = max(0, min(_ACCOUNT_VISIBLE_CHARS, len(local) - 1))
+    masked = f"{local[:visible]}{'*' * (len(local) - visible)}{sep}{domain}"
+    # If the result still equals the input, nothing was hidden (empty local
+    # part, or the masked chars were already "*"); mask the value in full.
+    if masked == account:
+        return "*" * len(account)
+    return masked
+
+
 ADD_WAY = {
     "discovery": "Discover automatically",
     "manually": "Configure manually",
@@ -505,13 +546,13 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
         if await self.cloud.login():
             _LOGGER.debug(
                 "Using account %s login to %s cloud pass",
-                account,
+                _mask_account(account),
                 cloud_name,
             )
             return True
         _LOGGER.debug(
             "ERROR: unable to use account %s login to %s cloud",
-            account,
+            _mask_account(account),
             cloud_name,
         )
         return False
@@ -655,7 +696,9 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                 _LOGGER.debug(
                     "Login with cached %s account %s failed in %s server",
                     self.hass.data[DOMAIN].get("login_mode"),
-                    self.hass.data[DOMAIN]["login_data"][CONF_ACCOUNT],
+                    _mask_account(
+                        self.hass.data[DOMAIN]["login_data"][CONF_ACCOUNT],
+                    ),
                     self.hass.data[DOMAIN]["login_data"][CONF_SERVER],
                 )
                 # remove error cache and relogin
