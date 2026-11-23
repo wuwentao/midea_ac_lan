@@ -202,6 +202,24 @@ Fix all reported issues before committing. The same checks run in CI on every pu
 4. Push and open a Pull Request.
    GitHub Actions will validate your commit messages and run the linters automatically.
 
+5. For a change that depends on an unreleased `midea-lan` PR, you may point
+   `custom_components/midea_ac_lan/manifest.json` at the contributor's fork and
+   branch/commit while that library PR is unmerged. This lets integration CI and
+   end-to-end verification run immediately. After the library PR merges, change
+   the requirement to:
+
+   ```json
+   "midea-lan @ git+https://github.com/wuwentao/midea-lan.git@main"
+   ```
+
+   You may instead use upstream `main` from the start and wait for the library PR
+   to merge. Before the integration PR is merged, its requirement must reference
+   either upstream `main` or a released `midea-lan` version; never merge a
+   contributor fork/branch reference. If the PR already uses upstream `main`, no
+   dependency edit is needed after the library merge. During an integration
+   release, maintainers replace the upstream-main reference with the latest
+   released `midea-lan` version in a separate PR and publish `midea_ac_lan`.
+
 > ℹ️ Commits directly to `main` are blocked by a pre-commit hook — always work on a branch.
 
 ---

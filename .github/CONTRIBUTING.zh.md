@@ -202,6 +202,20 @@ uv run pre-commit run --all-files
 4. 推送并创建 Pull Request。
    GitHub Actions 会自动验证 commit message 格式并运行检查。
 
+5. 如果改动依赖尚未合并的 `midea-lan` PR，可以在该库 PR 合并前，将
+   `custom_components/midea_ac_lan/manifest.json` 指向贡献者的 fork 与分支/提交，
+   以便立即运行集成 CI 和端到端验证。库 PR 合并后，将依赖改为：
+
+   ```json
+   "midea-lan @ git+https://github.com/wuwentao/midea-lan.git@main"
+   ```
+
+   也可以从一开始就指向上游 `main`，等待库 PR 合并后再继续验证。集成 PR 合并前，
+   依赖必须指向上游 `main` 或正式发布的 `midea-lan` 版本，绝不能保留贡献者的
+   fork/分支。如果已经指向上游 `main`，库 PR 合并后无需再修改依赖。发布
+   `midea_ac_lan` 时，维护者会另提 PR，把上游 `main` 替换为最新发布的
+   `midea-lan` 版本并发布集成。
+
 > ℹ️ pre-commit 钩子会阻止直接向 `main` 分支提交——请始终在分支上开发。
 
 ---

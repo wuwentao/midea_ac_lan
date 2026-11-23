@@ -294,10 +294,12 @@ cd midea_ac_lan
 
 ### 10.1 新增裝置
 
-想在本整合中支援一種新的美的家電類型嗎？完整流程的文件，以 `0xD9` 洗烘一體機（[PR #1086](https://github.com/wuwentao/midea_ac_lan/pull/1086)）為主要範例，並以 `0x9B` 烤箱（[PR #1096](https://github.com/wuwentao/midea_ac_lan/pull/1096)）作為第二個、規模更大的範例，涵蓋：將 `midea-lan` 相依套件指向你的函式庫作業以便本機測試、在 `midea_devices.py` 註冊裝置、選擇每個屬性的平台／`device_class`／`unit`／`translation_key`、新增翻譯檔、撰寫裝置文件，以及開啟 PR：
+想在本整合中支援一種新的美的家電類型嗎？完整流程的文件，以 `0xD9` 洗烘一體機（[PR #1086](https://github.com/wuwentao/midea_ac_lan/pull/1086)）為主要範例，並以 `0x9B` 烤箱（[PR #1096](https://github.com/wuwentao/midea_ac_lan/pull/1096)）作為第二個、規模更大的範例，涵蓋：將 `midea-lan` 相依套件指向你的函式庫作業以便開發與執行 CI、在 `midea_devices.py` 註冊裝置、選擇每個屬性的平台／`device_class`／`unit`／`translation_key`、新增翻譯檔、撰寫裝置文件，以及開啟 PR：
 
 - [Adding a New Device to the midea_ac_lan Integration](doc/adding-a-new-device.md)
 - [为 midea_ac_lan 集成新增一款设备（中文）](doc/adding-a-new-device.zh-Hans.md)
+
+配套函式庫改動尚未發布時，整合 PR 可以暫時把 `manifest.json` 指向貢獻者的 `midea-lan` fork／分支，以便立即驗證功能與 CI。函式庫 PR 合併後，應切換到 `wuwentao/midea-lan@main`（也可以從一開始就指向上游 `main`）。整合 PR 合併前，相依套件必須是上游 `main` 或正式發布版本，絕不能保留貢獻者的 fork／分支。發布整合時，維護者會把上游 `main` 替換為最新發布的 `midea-lan` 版本。
 
 函式庫端的配套指南位於 `midea-lan` 儲存庫：[Adding a New Device Type](https://github.com/wuwentao/midea-lan/blob/main/docs/adding-a-new-device.md)。
 

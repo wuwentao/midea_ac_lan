@@ -27,7 +27,7 @@ encryption, and cloud-token logic lives in the external `midea-lan` library
 already:
 
 - have a `midealan/devices/<type>/` package with a `DeviceAttributes(StrEnum)`, and
-- be published to PyPI (or pinned to a compatible version).
+- be available from the contributor fork, upstream `main`, or a released version.
 
 If an attribute you need does not exist, the fix is in `midea-lan`, not here. See
 the library guide linked above. Once the library is ready, come back and follow the
@@ -36,7 +36,7 @@ steps below.
 ## Contents
 
 1. [How the integration is wired](#1-how-the-integration-is-wired)
-2. [Step 1 — Point the `midea-lan` dependency at your library work (local only)](#2-step-1--point-the-midea-lan-dependency-at-your-library-work-local-only)
+2. [Step 1 — Point the `midea-lan` dependency at your library work](#2-step-1--point-the-midea-lan-dependency-at-your-library-work)
 3. [Step 2 — Register the device in `midea_devices.py`](#3-step-2--register-the-device-in-midea_devicespy)
 4. [Step 3 — Choose the platform, `device_class`, and `unit` per attribute](#4-step-3--choose-the-platform-device_class-and-unit-per-attribute)
 5. [Step 4 — Add `translation_key`s and translation files](#5-step-4--add-translation_keys-and-translation-files)
@@ -93,7 +93,7 @@ and
 
 ---
 
-## 2. Step 1 — Point the `midea-lan` dependency at your library work (local only)
+## 2. Step 1 — Point the `midea-lan` dependency at your library work
 
 The integration pins the library version in
 `custom_components/midea_ac_lan/manifest.json`:
@@ -103,38 +103,39 @@ The integration pins the library version in
 ```
 
 Your new device lives on a branch/commit of your `midea-lan` fork that has not
-been released to PyPI yet. So for **local development and testing only**,
-temporarily point this entry at your fork's Git ref. For example, edit
-`/config/custom_components/midea_ac_lan/manifest.json`:
+been released yet. Point the entry at that Git ref for local development and in
+the integration PR while the library PR is unmerged. For example:
 
 ```json
 "requirements": [
-  "midea-lan @ git+https://github.com/wuwentao/midea-lan.git@b59cfbc"
+  "midea-lan @ git+https://github.com/<owner>/midea-lan.git@<branch-or-commit>"
 ]
 ```
 
-Replace `b59cfbc` with the commit hash, branch name, or tag you want to test
-against. This lets Home Assistant install your unreleased library code so you can
-develop and verify the integration end to end.
+Replace the placeholders with the fork owner and branch or commit you want to
+test. This lets Home Assistant and CI install the unreleased library code, so the
+integration feature can be verified without waiting for a library release.
 
-**Do not commit this manifest change to a review-ready PR.** Keep the manifest
-edit purely local. The device PR should contain only the feature support itself
-(registry entry, translations, docs) built against the latest library changes.
+After the related `midea-lan` PR merges, change the requirement to upstream
+`main`:
 
-If you do want the manifest Git-ref in the PR so CI and reviewers can test
-against your unreleased library branch/commit, mark the PR as a **draft** while
-it carries that edit, then remove it and restore the released pin before marking
-the PR ready for review. The maintainer syncs the real pin after the library
-release.
+```json
+"requirements": [
+  "midea-lan @ git+https://github.com/wuwentao/midea-lan.git@main"
+]
+```
 
-Because the released `midea-lan` does not yet contain your device, expect the PR's
-CI / GitHub Actions to fail with library-not-supported / import errors, and any
-release-version mismatch warnings — **ignore these for now.** They are expected
-and are not something the device PR fixes. The maintainer decides the appropriate
-`midea-lan` release version based on the PR and the bug-fix situation, cuts that
-release, and opens a follow-up PR to bump the pin in `midea_ac_lan`. Once the
-library release lands and the pin is synced, the failing CI checks pass
-automatically — no further action needed on the device PR.
+You may instead use upstream `main` from the start and wait for the library PR to
+merge before running the final verification. If the integration PR already uses
+upstream `main`, do not change it after the library merge.
+
+**Merge gate:** before the `midea_ac_lan` PR is merged, `manifest.json` must
+reference either `wuwentao/midea-lan@main` or a released version such as
+`midea-lan==2026.11.0`. Never merge a contributor fork/branch reference. All
+required CI checks must pass against the merge-safe dependency. When publishing
+an integration release, the maintainer opens a PR that replaces the upstream
+`main` reference with the latest released `midea-lan` version and then publishes
+`midea_ac_lan`. Do not hand-edit the integration's `version` in a feature PR.
 
 ---
 
@@ -454,13 +455,11 @@ scripts/run.sh                        # starts HA with ./config, integration on 
 ```
 
 Fix everything `pre-commit` reports before committing. CI (`tests.yml` +
-`linter.yml` + `validate.yml`) runs the same checks. Note: `validate.yml`
-(HACS/hassfest) may
-fail because the released `midea-lan` does not yet contain your device — that
-library-not-supported failure is expected and out of scope for the device PR (see
-[Step 1](#2-step-1--point-the-midea-lan-dependency-at-your-library-work-local-only)).
-Your job is to make the lint/format/type checks pass; the library-dependent
-checks go green once the maintainer releases the library and syncs the pin.
+`linter.yml` + `validate.yml`) runs the same checks. Pointing the manifest at the
+unmerged fork branch lets library-dependent checks exercise that work immediately
+(see [Step 1](#2-step-1--point-the-midea-lan-dependency-at-your-library-work)).
+After the library PR merges, rerun the checks against upstream `main` or a released
+version; all required checks must pass before the integration PR is merged.
 
 ---
 
@@ -471,15 +470,17 @@ checks go green once the maintainer releases the library and syncs the pin.
 - **Conventional Commits**: `feat(d9): add washer/dryer combo support`.
   commitlint/commitizen enforce the format; releases are automated from these
   messages.
-- **`manifest.json`**: do **not** commit the temporary fork/Git-ref
-  `requirements` edit from [Step 1](#2-step-1--point-the-midea-lan-dependency-at-your-library-work-local-only),
-  and do not hand-edit the `version`. Both the library pin and the release version
-  are the maintainer's to set — they'll bump the pin in a follow-up PR after the
-  library release. Keep your PR to the feature itself.
+- **`manifest.json`**: while the library PR is unmerged, commit its fork/branch
+  Git ref when needed so CI and reviewers can verify the integration. Once it
+  merges, switch to `wuwentao/midea-lan@main`; alternatively, use upstream
+  `main` from the start and wait. Before this PR merges, the requirement must be
+  upstream `main` or a released version, never a contributor fork/branch. Do not
+  hand-edit the integration `version`. At release time, the maintainer replaces
+  upstream `main` with the latest released library version.
 - **PR description**: summarize the device, list the entities, and link the paired
   `midea-lan` library PR/commit your work depends on. State plainly what you
-  verified (lint clean, smoke-tested in HA against your fork, etc.), and note that
-  the library-dependent CI checks will stay red until the library release is synced.
+  verified (lint clean, smoke-tested in HA against your fork, etc.) and record
+  which dependency source was used for CI.
 - **CodeRabbit**: the AI reviewer skips draft PRs. To get a review on a draft,
   comment `@coderabbitai review`, then address every finding in-thread.
 
@@ -589,10 +590,10 @@ specific oven lacks.
 
 ## 11. Checklist
 
-- [ ] Library first: `midealan/devices/<type>/` exists and is published; if not,
-      finish the [`midea-lan` guide](https://github.com/wuwentao/midea-lan/blob/main/docs/adding-a-new-device.md).
-- [ ] For local testing only: pointed `manifest.json` `requirements` at your
-      `midea-lan` fork's Git ref — and did **not** commit that change to the PR.
+- [ ] Library first: `midealan/devices/<type>/` exists in the paired library PR;
+      if not, finish the [`midea-lan` guide](https://github.com/wuwentao/midea-lan/blob/main/docs/adding-a-new-device.md).
+- [ ] While the library PR is unmerged, pointed `manifest.json` at its fork/branch
+      when needed to run integration CI and end-to-end verification.
 - [ ] Imported `DeviceAttributes as <X>Attributes` in `midea_devices.py`.
 - [ ] Added the `0xXX` entry with `name` and an `entities` row per attribute.
 - [ ] Each row has the right `type` (platform), and sensors/numbers have
@@ -606,8 +607,9 @@ specific oven lacks.
 - [ ] Added the appliance row to `README.md` and `README_hans.md` (hex order).
 - [ ] `uv run pre-commit run --all-files` passes; optionally smoke-tested with
       `scripts/run.sh`.
-- [ ] Only the feature is in the PR (no manifest pin/version edit); expected
-      library-dependent CI failures noted and left for the maintainer to resolve
-      via the library release + pin sync.
+- [ ] Before merge, `manifest.json` points to `wuwentao/midea-lan@main` or a
+      released version, never a contributor fork/branch; all required CI passes.
+- [ ] The integration `version` is unchanged; maintainers replace upstream main
+      with the latest library release when publishing `midea_ac_lan`.
 - [ ] PR on a feature branch, Conventional Commit title, library PR/commit linked,
       CodeRabbit findings resolved.

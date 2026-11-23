@@ -24,15 +24,18 @@
 <!--
 Device-protocol work normally starts with a Lua source in midea-lua, is
 implemented and tested in midea-lan, and is then exposed as Home Assistant
-entities here. Open and cross-link the applicable PRs. Do not bump the
-midea-lan requirement in a feature PR; maintainers update it after the library
-release.
+entities here. Open and cross-link the applicable PRs.
 
-To test against unreleased midea-lan work, mark this PR as a draft and
-temporarily point the manifest.json requirements entry at the midea-lan test
-branch/commit (e.g. "midea-lan @ git+https://github.com/<owner>/midea-lan.git@<ref>").
-Remove that change and restore the released pin before marking the PR ready for
-review.
+While the related midea-lan PR is unmerged, this PR may point manifest.json at
+that contributor fork/branch so CI and end-to-end testing can run. Once the
+midea-lan PR is merged, change the requirement to upstream main:
+"midea-lan @ git+https://github.com/wuwentao/midea-lan.git@main". You may also
+use upstream main from the start and wait for the library PR to merge. Before
+this PR is merged, the requirement must reference either wuwentao/midea-lan
+main or a released midea-lan version; a contributor fork/branch must never be
+merged. If it already references upstream main, no dependency edit is needed
+after the library PR merges. During an integration release, maintainers replace
+the upstream-main requirement with the latest released midea-lan version.
 -->
 
 ## Appliance and App / Cloud impact
@@ -57,3 +60,4 @@ review.
 - [ ] I will address actionable CodeRabbit comments, reply with test evidence, and resolve the conversations before merge.
 - [ ] I linked the related `midea_ac_lan` issue, or explained why none applies.
 - [ ] I linked the related `midea-lan` PR, or explained why none applies.
+- [ ] Before merge, `manifest.json` references `wuwentao/midea-lan@main` or a released `midea-lan` version, not a contributor fork/branch.
