@@ -7825,7 +7825,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "type": Platform.SWITCH,
                 "attribute": "holiday_mode",
                 "unique_id_attribute": "holiday_mode",
-                "translation_key": "holiday_mode",
+                "translation_key": "holiday_on",
                 "name": "Modo Férias",
                 "icon": "mdi:palm-tree",
                 "models": ["310Z999Z"],
