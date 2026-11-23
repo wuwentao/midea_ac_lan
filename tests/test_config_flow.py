@@ -431,14 +431,14 @@ def test_mask_account() -> None:
     """Partially mask accounts in login logs, keeping them recognizable."""
     # Email: keep the local-part prefix and the whole domain, hide the rest.
     masked = config_flow._mask_account("semihal.devs@gmail.com")
-    assert masked == "semih*******@gmail.com"
+    assert masked == "sem*********@gmail.com"
     assert "semihal.devs" not in masked
     # Plain username (no "@"): keep the prefix, mask the tail.
-    assert config_flow._mask_account("myplainusername") == "mypla**********"
+    assert config_flow._mask_account("myplainusername") == "myp************"
     # Short values still mask at least the last char of the local part, so no
     # nonempty account is ever logged in full.
     assert config_flow._mask_account("joe@x.com") == "jo*@x.com"
-    assert config_flow._mask_account("abcde") == "abcd*"
+    assert config_flow._mask_account("abcde") == "abc**"
     assert config_flow._mask_account("a@y.com") == "*@y.com"
     assert config_flow._mask_account("a") == "*"
     # No local part (starts with "@"): mask the whole value, never log in full.

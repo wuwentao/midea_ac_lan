@@ -90,7 +90,7 @@ _LOGGER = logging.getLogger(__name__)
 # Keep this many leading characters of an account visible when masking it for
 # the debug log, so a reporter can still recognize which account a login line
 # refers to without the full email / phone / username reaching a shared log.
-_ACCOUNT_VISIBLE_CHARS = 5
+_ACCOUNT_VISIBLE_CHARS = 3
 
 
 def _mask_account(account: str | None) -> str:
@@ -99,7 +99,7 @@ def _mask_account(account: str | None) -> str:
     Keep at most the first ``_ACCOUNT_VISIBLE_CHARS`` characters of the local
     part and mask the rest, always masking at least its last character so no
     nonempty account is logged in full. For an email the domain is preserved
-    (e.g. ``semih*******@gmail.com``), so the line stays recognizable without
+    (e.g. ``sem*********@gmail.com``), so the line stays recognizable without
     exposing the whole address. If nothing would actually be hidden (no local
     part such as ``@example.com``, or the characters to mask were already
     ``*``), the whole value is masked instead.
