@@ -87,6 +87,34 @@ from .midea_devices import MIDEA_DEVICES
 
 _LOGGER = logging.getLogger(__name__)
 
+# Keep this many leading characters of an account visible when masking it for
+# the debug log, so a reporter can still recognize which account a login line
+# refers to without the full email / phone / username reaching a shared log.
+_ACCOUNT_VISIBLE_CHARS = 5
+
+
+def _mask_account(account: str | None) -> str:
+    """Mask an account for logging while keeping it recognizable.
+
+    Keep the first ``_ACCOUNT_VISIBLE_CHARS`` characters and mask the rest. For
+    an email, only the local part is shortened while the domain is preserved
+    (e.g. ``semih***@gmail.com``), so the line stays recognizable but does not
+    expose the full address. A value shorter than the visible window is kept as
+    is so nothing is invented.
+
+    Returns
+    -------
+    The account with its middle/tail masked, safe to write to the debug log.
+
+    """
+    if not account:
+        return str(account)
+    local, sep, domain = account.partition("@")
+    hidden = max(0, len(local) - _ACCOUNT_VISIBLE_CHARS)
+    masked_local = local[:_ACCOUNT_VISIBLE_CHARS] + "*" * hidden
+    return f"{masked_local}{sep}{domain}"
+
+
 ADD_WAY = {
     "discovery": "Discover automatically",
     "manually": "Configure manually",
@@ -505,13 +533,13 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
         if await self.cloud.login():
             _LOGGER.debug(
                 "Using account %s login to %s cloud pass",
-                account,
+                _mask_account(account),
                 cloud_name,
             )
             return True
         _LOGGER.debug(
             "ERROR: unable to use account %s login to %s cloud",
-            account,
+            _mask_account(account),
             cloud_name,
         )
         return False
@@ -655,7 +683,9 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                 _LOGGER.debug(
                     "Login with cached %s account %s failed in %s server",
                     self.hass.data[DOMAIN].get("login_mode"),
-                    self.hass.data[DOMAIN]["login_data"][CONF_ACCOUNT],
+                    _mask_account(
+                        self.hass.data[DOMAIN]["login_data"][CONF_ACCOUNT],
+                    ),
                     self.hass.data[DOMAIN]["login_data"][CONF_SERVER],
                 )
                 # remove error cache and relogin

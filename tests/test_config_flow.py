@@ -427,6 +427,22 @@ async def test_discovery_executes_executor_callable() -> None:
     discover_mock.assert_called_once_with(list(flow.supports), ip_address=None)
 
 
+def test_mask_account() -> None:
+    """Partially mask accounts in login logs, keeping them recognizable."""
+    # Email: keep the local-part prefix and the whole domain, hide the rest.
+    masked = config_flow._mask_account("semihal.devs@gmail.com")
+    assert masked == "semih*******@gmail.com"
+    assert "semihal.devs" not in masked
+    # Plain username (no "@"): keep the prefix, mask the tail.
+    assert config_flow._mask_account("myplainusername") == "mypla**********"
+    # Short values (<= visible window) are kept as-is; nothing is invented.
+    assert config_flow._mask_account("joe@x.com") == "joe@x.com"
+    assert config_flow._mask_account("abcde") == "abcde"
+    # Falsy input is rendered without raising.
+    assert config_flow._mask_account("") == ""
+    assert config_flow._mask_account(None) == "None"
+
+
 async def test_cloud_login_helper() -> None:
     """Initialize/reuse cloud clients and return their login result."""
     flow = make_flow()
