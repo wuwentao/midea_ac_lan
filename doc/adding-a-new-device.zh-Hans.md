@@ -130,12 +130,12 @@ uv run --no-sync python -c 'import importlib.metadata as m; print(m.distribution
 从一开始就使用上游 `main`，无需切换来源。只修改 manifest 中的依赖来源不需要重新生成
 `uv.lock`。
 
-**合并门槛：**`midea_ac_lan` PR 合并前，manifest 必须指向
-`wuwentao/midea-lan@main` 或正式发布版本（如 `midea-lan==2026.11.0`），绝不能保留贡献者
-fork/分支。所有必需 CI 都必须基于可合并的依赖来源通过。发布集成时，维护者先确认正式
-发布的 `midea-lan` 版本已包含合并后的库改动，再另提 PR 将 manifest 中的上游 `main`
-替换为该版本。Manual Release workflow 生成集成版本/changelog PR；该 PR 合并后自动打 tag、
-构建并上传集成压缩包。不要在功能 PR 中手改集成 `version`。
+**合并门槛：**`midea_ac_lan` 集成 PR 合并前，manifest 必须指向
+`wuwentao/midea-lan@main` 或正式发布版本（如 `midea-lan==2026.11.0`），不能保留贡献者fork分支。
+所有必需 CI 都必须基于可合并的依赖来源通过。库 PR 合并后不会立即发布库版本，但集成 PR
+无需等待：切换到上游 `main` 后即可继续验证。维护者会根据已合并的 PR 定期发布集成版本：
+生成 changelog，将 manifest 中的 `midea-lan` 更新为包含合并后库改动的正式发布版本，并发布
+`midea_ac_lan` release。不要在功能 PR 中手改集成 `version`。
 
 ---
 
@@ -448,12 +448,12 @@ scripts/run.sh                        # 用 ./config 启动 HA，集成在 PYTHO
   `feat/d9-washer-dryer-combo`。
 - **Conventional Commits**：`feat(d9): add washer/dryer combo support`。
   commitlint/commitizen 强制格式；发布由这些提交消息自动完成。
-- **依赖文件**：库 PR 尚未合并时，只把 `manifest.json` 指向其 fork/分支 Git ref；CI
-  与本地初始化会从该文件安装，`pyproject.toml` 和 `uv.lock` 保持不变。库 PR 合并后，
-  将 manifest 切换到 `wuwentao/midea-lan@main`；集成 PR 合并前绝不能保留贡献者 fork/分支。
-  发布时，维护者确认正式发布版本已包含库改动，再通过 PR 将 manifest 的上游 `main` 替换为
-  该版本。Manual Release workflow 生成集成版本/changelog PR，合并后自动打 tag、构建并上传
-  集成压缩包。
+- **依赖文件**：`midea-lan` lib PR 尚未合并时，对应的 `midea_ac_lan` 集成 PR 可以只把
+  `manifest.json` 中的 `midea-lan` 指向 fork/分支 Git ref；CI 与本地初始化会从该文件安装，
+  `pyproject.toml` 和 `uv.lock` 保持不变。lib PR 合并后，将集成 manifest 切换到
+  `wuwentao/midea-lan@main`；集成 PR 合并前不能保留贡献者fork分支。维护者会根据已合并的
+  PR 定期发布集成版本：生成 changelog，将 manifest 中的 `midea-lan` 更新为包含库改动的
+  正式发布版本，并发布 `midea_ac_lan` release。
 - **PR 描述**：概述该设备、列出实体，并链接你依赖的配套 `midea-lan` 库 PR/提交。
   如实陈述你验证了什么（lint 通过、基于你的 fork 在 HA 中冒烟测试等），并记录 CI
   使用的依赖来源。
@@ -568,9 +568,7 @@ False`，这样就不会在缺少某功能的型号上给用户显示空白/损�
 - [ ] 已把设备行加入 `README.md` 与 `README_hans.md`（十六进制顺序）。
 - [ ] `uv run --no-sync pre-commit run --all-files` 通过；可选地用 `scripts/run.sh` 冒烟
       测试。
-- [ ] 合并前，manifest 指向 `wuwentao/midea-lan@main` 或正式发布版本，绝不保留贡献者
-      fork/分支；所有必需 CI 均通过。
-- [ ] 集成 `version` 未修改；正式发布版本包含合并后的库改动后，维护者才会在发布
-      `midea_ac_lan` 时把上游 `main` 替换为该版本。
+- [ ] 合并前，该集成 PR 的 manifest 指向 `wuwentao/midea-lan@main` 或正式发布版本，不能保留贡献者fork分支；所有必需 CI 均通过。
+- [ ] 集成 `version` 未修改；维护者会根据定期发布流程更新版本并发布 `midea_ac_lan`。
 - [ ] 在特性分支上提 PR，Conventional Commit 标题，链接库 PR/提交，处理完
       CodeRabbit 意见。

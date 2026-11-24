@@ -88,7 +88,7 @@ cd midea_ac_lan
 
 ```bash
 uv sync
-uv run --no-sync python scripts/install_manifest_requirements.py
+uv run --no-sync python scripts/install_midea_lan.py
 uv run --no-sync pre-commit install
 uv run --no-sync pre-commit install --hook-type commit-msg
 ```
@@ -130,7 +130,7 @@ uv run --no-sync --group run hass --config config --debug
 
 ```bash
 UV_PROJECT_ENVIRONMENT=.venv-test312 uv sync --locked --no-default-groups --group test --python 3.12
-UV_PROJECT_ENVIRONMENT=.venv-test312 uv run --no-sync python scripts/install_manifest_requirements.py
+UV_PROJECT_ENVIRONMENT=.venv-test312 uv run --no-sync python scripts/install_midea_lan.py
 UV_PROJECT_ENVIRONMENT=.venv-test312 uv run --no-sync pytest
 ```
 
@@ -207,8 +207,9 @@ uv run --no-sync pre-commit run --all-files
 4. 推送并创建 Pull Request。
    GitHub Actions 会自动验证 commit message 格式并运行检查。
 
-5. 如果改动依赖尚未合并的 `midea-lan` PR，可以在该库 PR 合并前，将
-   `custom_components/midea_ac_lan/manifest.json` 指向贡献者的 fork 与分支/提交，
+5. 如果改动依赖尚未合并的 `midea-lan` lib PR，可以在该 lib PR 合并前，由对应的
+   `midea_ac_lan` 集成 PR 将 `custom_components/midea_ac_lan/manifest.json` 中的
+   `midea-lan` 指向你的 fork 与分支/提交，
    以便立即运行集成 CI 和端到端验证。CI 与本地环境会直接从 manifest 安装运行时依赖；
    `pyproject.toml` 和 `uv.lock` 仅管理开发/测试依赖，因此测试尚未发布的库代码时无需修改它们。
    库 PR 合并后，将 manifest 改为：
@@ -218,10 +219,9 @@ uv run --no-sync pre-commit run --all-files
    ```
 
    也可以从一开始就指向上游 `main`，等待库 PR 合并后再继续验证。集成 PR 合并前，manifest
-   必须指向上游 `main` 或正式发布的 `midea-lan` 版本，绝不能保留贡献者的 fork/分支。
-   手工 release workflow 接收维护者输入的集成版本号，生成 changelog 并创建更新版本信息的 PR。
-   该 PR 合并后，正式 release workflow 会打 tag、构建集成压缩包并上传到 GitHub Release。
-   发布前，维护者须确认 manifest 指向的正式 `midea-lan` 版本包含所需的库改动。
+   必须指向上游 `main` 或正式发布的 `midea-lan` 版本，不能保留贡献者fork分支。
+   维护者会根据已合并的 PR 定期发布集成版本：生成 changelog，将 manifest 中的
+   `midea-lan` 更新为包含所需库改动的正式发布版本，并发布 `midea_ac_lan` release。
 
 > ℹ️ pre-commit 钩子会阻止直接向 `main` 分支提交——请始终在分支上开发。
 

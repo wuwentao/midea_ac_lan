@@ -1,4 +1,4 @@
-"""Install the integration dependencies declared by manifest.json."""
+"""Install midea-lan declared by the integration manifest.json."""
 
 from __future__ import annotations
 

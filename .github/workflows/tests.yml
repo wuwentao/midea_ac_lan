@@ -50,7 +50,7 @@ jobs:
           --group ${{ matrix.group }} --python ${{ matrix.python }}
 
       - name: Install integration requirements
-        run: uv run --no-sync python scripts/install_manifest_requirements.py
+        run: uv run --no-sync python scripts/install_midea_lan.py
 
       - name: Test and report coverage
         run: >-

@@ -146,15 +146,17 @@ You may instead use upstream `main` from the start and wait for the library PR t
 merge before running the final verification. A manifest-only source change does
 not require regenerating `uv.lock`.
 
-**Merge gate:** before the `midea_ac_lan` PR is merged, `manifest.json` must
-reference either `wuwentao/midea-lan@main` or a released version such as
-`midea-lan==2026.11.0`. Never merge a contributor fork/branch reference. All
-required CI checks must pass against the merge-safe dependency. Before an
-integration release, the maintainer opens a PR replacing upstream `main` with a
-released library version containing the merged changes. The Manual Release
-workflow then creates the integration version/changelog PR; after it merges,
-release automation tags, builds, and uploads the integration archive. Do not
-hand-edit the integration's `version` in a feature PR.
+**Merge gate:** before the `midea_ac_lan` integration PR is merged,
+`manifest.json` must reference either `wuwentao/midea-lan@main` or a released
+version such as `midea-lan==2026.11.0`. It must not retain a contributor
+fork/branch. All required CI checks must pass against the merge-safe dependency.
+PR merge does not immediately publish the library, but the integration PR does
+not need to wait for a library release: switch to upstream `main` after the
+`midea-lan` lib PR merges. Maintainers periodically publish an integration
+release based on merged PRs: they generate the changelog, update `manifest.json`
+to a released library version containing the merged changes, and publish the
+`midea_ac_lan` release. Do not hand-edit the integration's `version` in a
+feature PR.
 
 ---
 
@@ -494,11 +496,12 @@ version; all required checks must pass before the integration PR is merged.
   that file; `pyproject.toml` and `uv.lock` remain unchanged. Once it merges,
   switch the manifest to `wuwentao/midea-lan@main` (or use upstream `main` from
   the start). Before this PR merges, the manifest must reference upstream `main`
-  or a released version, never a contributor fork/branch. Before integration
-  release, the maintainer changes the manifest to a released library version
-  containing the merged changes. The Manual Release workflow then creates a PR
-  for the integration version/changelog; after merge, release automation tags,
-  builds, and uploads the integration archive.
+  or a released version; it must not retain a contributor fork/branch. The
+  library PR merge does not immediately publish a library release, but the
+  integration PR need not wait: switch to upstream `main` after the library PR
+  merges. Maintainers periodically publish an integration release based on
+  merged PRs: they generate the changelog, update the manifest to a released
+  library version containing the merged changes, and publish `midea_ac_lan`.
 - **PR description**: summarize the device, list the entities, and link the paired
   `midea-lan` library PR/commit your work depends on. State plainly what you
   verified (lint clean, smoke-tested in HA against your fork, etc.) and record
@@ -614,8 +617,9 @@ specific oven lacks.
 
 - [ ] Library first: `midealan/devices/<type>/` exists in the paired library PR;
       if not, finish the [`midea-lan` guide](https://github.com/wuwentao/midea-lan/blob/main/docs/adding-a-new-device.md).
-- [ ] While the library PR is unmerged, pointed `manifest.json` at its
-      fork/branch when needed; left `pyproject.toml` and `uv.lock` unchanged.
+- [ ] While the `midea-lan` lib PR is unmerged, the corresponding integration PR
+      may point the `midea-lan` requirement in its manifest at the fork/branch;
+      leave `pyproject.toml` and `uv.lock` unchanged.
 - [ ] Imported `DeviceAttributes as <X>Attributes` in `midea_devices.py`.
 - [ ] Added the `0xXX` entry with `name` and an `entities` row per attribute.
 - [ ] Each row has the right `type` (platform), and sensors/numbers have
@@ -629,10 +633,10 @@ specific oven lacks.
 - [ ] Added the appliance row to `README.md` and `README_hans.md` (hex order).
 - [ ] `uv run --no-sync pre-commit run --all-files` passes; optionally smoke-tested with
       `scripts/run.sh`.
-- [ ] Before merge, `manifest.json` points to `wuwentao/midea-lan@main` or a
-      released version, never a contributor fork/branch; all required CI passes.
-- [ ] The integration `version` is unchanged; after a library release containing
-      the merged changes exists, maintainers replace upstream main with that
-      release when publishing `midea_ac_lan`.
+- [ ] Before merge, this integration PR's manifest points to
+      `wuwentao/midea-lan@main` or a released version; it must not retain a
+      contributor fork/branch, and all required CI passes.
+- [ ] The integration `version` is unchanged; maintainers update it and publish
+      the integration release according to the periodic release process.
 - [ ] PR on a feature branch, Conventional Commit title, library PR/commit linked,
       CodeRabbit findings resolved.

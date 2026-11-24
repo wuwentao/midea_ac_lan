@@ -40,7 +40,7 @@ jobs:
         run: uv sync --locked --python ${{ matrix.python-version }}
 
       - name: Install integration requirements
-        run: uv run --no-sync python scripts/install_manifest_requirements.py
+        run: uv run --no-sync python scripts/install_midea_lan.py
 
       - name: Cache pre-commit
         uses: actions/cache@v6

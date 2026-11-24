@@ -8,7 +8,7 @@ cd "$(dirname "$0")/.."
 
 # Install runtime requirements from manifest.json after uv has synchronized the
 # development environment. Keep later uv commands from syncing them away.
-uv run --group run python scripts/install_manifest_requirements.py
+uv run --group run python scripts/install_midea_lan.py
 
 # Create config dir if not present
 if [[ ! -d "${PWD}/config" ]]; then

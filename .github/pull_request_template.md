@@ -26,21 +26,23 @@ Device-protocol work normally starts with a Lua source in midea-lua, is
 implemented and tested in midea-lan, and is then exposed as Home Assistant
 entities here. Open and cross-link the applicable PRs.
 
-While the related midea-lan PR is unmerged, this PR may point manifest.json at
-that contributor fork/branch so integration CI and end-to-end testing can run.
+While the related `midea-lan` lib PR is unmerged, the corresponding
+`midea_ac_lan` integration PR may point the `midea-lan` requirement in
+`custom_components/midea_ac_lan/manifest.json` at your fork/branch so integration
+CI and end-to-end testing can run.
 CI and local setup install the runtime requirement directly from manifest.json;
 `pyproject.toml` and `uv.lock` only manage the development and test environment.
-Do not change either file to test unreleased midea-lan work. Once the midea-lan
-PR is merged, change manifest.json to upstream main:
+Do not change either file to test unreleased midea-lan work. Once the `midea-lan`
+lib PR is merged, change the integration PR's manifest requirement to upstream
+main:
 "midea-lan@git+https://github.com/wuwentao/midea-lan.git@main". You may also
-use upstream main from the start and wait for the library PR to merge. Before
-this PR is merged, manifest.json must reference either wuwentao/midea-lan main
-or a released midea-lan version; a contributor fork/branch must never be merged.
-The manual release workflow accepts an integration version and creates a PR
-updating the version and changelog. After that PR merges, the release workflow
-creates the tag, builds the zip, and uploads it to GitHub Releases. Before
-publishing, maintainers set manifest.json to a released midea-lan version that
-contains the required merged library changes.
+use upstream main from the start and wait for the lib PR to merge. Before this
+integration PR is merged, its manifest must reference either upstream `main` or
+a released `midea-lan` version; it must not retain a contributor fork/branch.
+Maintainers periodically publish an integration release based on merged PRs:
+they generate the changelog, update `manifest.json` to a released `midea-lan`
+version containing the required library changes, and publish the `midea_ac_lan`
+release.
 -->
 
 ## Appliance and App / Cloud impact
@@ -65,4 +67,3 @@ contains the required merged library changes.
 - [ ] I will address actionable CodeRabbit comments, reply with test evidence, and resolve the conversations before merge.
 - [ ] I linked the related `midea_ac_lan` issue, or explained why none applies.
 - [ ] I linked the related `midea-lan` PR, or explained why none applies.
-- [ ] Before merge, `manifest.json` references `wuwentao/midea-lan@main` or a released `midea-lan` version, not a contributor fork/branch.

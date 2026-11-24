@@ -299,7 +299,7 @@ cd midea_ac_lan
 - [Adding a New Device to the midea_ac_lan Integration](doc/adding-a-new-device.md)
 - [为 midea_ac_lan 集成新增一款设备（中文）](doc/adding-a-new-device.zh-Hans.md)
 
-配套函式庫改動尚未發布時，整合 manifest 是 `midea-lan` 唯一執行階段相依來源，CI 與本機初始化都從 `manifest.json` 安裝；`pyproject.toml` 和 `uv.lock` 僅管理開發/測試相依套件。整合 PR 可暫時將 manifest 指向貢獻者的函式庫 fork／分支，以便立即驗證功能與 CI。函式庫 PR 合併後，將 manifest 切換至 `wuwentao/midea-lan@main`（也可一開始就指向上游 `main`）。整合 PR 合併前，manifest 必須是上游 `main` 或正式發布版本，不可保留貢獻者 fork。發布整合前，維護者確認正式發布的 `midea-lan` 版本已包含所需變更，並以 PR 更新 manifest。Manual Release workflow 接收整合版本號，產生 changelog 並建立更新 manifest 版本的 PR；該 PR 合併後觸發 tag/GitHub Release，接著建置並上傳整合 zip。
+配套函式庫改動尚未發布時，整合 manifest 是 `midea-lan` 唯一執行階段相依來源，CI 與本機初始化都從 `manifest.json` 安裝；`pyproject.toml` 和 `uv.lock` 僅管理開發/測試相依套件。當 `midea-lan` lib PR 尚未合併時，對應的 `midea_ac_lan` 整合 PR 可暫時將 manifest 中的 `midea-lan` 指向你的函式庫 fork／分支，以便立即驗證功能與 CI。lib PR 合併後，將整合 manifest 切換至 `wuwentao/midea-lan@main`（也可一開始就指向上游 `main`）。整合 PR 合併前，manifest 必須是上游 `main` 或正式發布版本，不能保留貢獻者fork分支。lib PR 合併後不會立即發布庫版本，集成 PR 可繼續基於上游 `main` 驗證。維護者會依據已合併的 PR 定期發布整合版本：產生 changelog，將 manifest 中的 `midea-lan` 更新為包含所需改動的正式發布版本，並發布 `midea_ac_lan` release。
 
 函式庫端的配套指南位於 `midea-lan` 儲存庫：[Adding a New Device Type](https://github.com/wuwentao/midea-lan/blob/main/docs/adding-a-new-device.md)。
 

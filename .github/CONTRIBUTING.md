@@ -88,7 +88,7 @@ Prefer to do it manually? These commands are equivalent:
 
 ```bash
 uv sync
-uv run --no-sync python scripts/install_manifest_requirements.py
+uv run --no-sync python scripts/install_midea_lan.py
 uv run --no-sync pre-commit install
 uv run --no-sync pre-commit install --hook-type commit-msg
 ```
@@ -130,7 +130,7 @@ Create and run the minimum-supported test environment with:
 
 ```bash
 UV_PROJECT_ENVIRONMENT=.venv-test312 uv sync --locked --no-default-groups --group test --python 3.12
-UV_PROJECT_ENVIRONMENT=.venv-test312 uv run --no-sync python scripts/install_manifest_requirements.py
+UV_PROJECT_ENVIRONMENT=.venv-test312 uv run --no-sync python scripts/install_midea_lan.py
 UV_PROJECT_ENVIRONMENT=.venv-test312 uv run --no-sync pytest
 ```
 
@@ -208,9 +208,10 @@ Fix all reported issues before committing. The same checks run in CI on every pu
 4. Push and open a Pull Request.
    GitHub Actions will validate your commit messages and run the linters automatically.
 
-5. For a change that depends on an unreleased `midea-lan` PR, you may point
-   `custom_components/midea_ac_lan/manifest.json` at the contributor's fork and
-   branch/commit while that library PR is unmerged. CI and local setup install
+5. For a change that depends on an unreleased `midea-lan` lib PR, the
+   corresponding `midea_ac_lan` integration PR may point the `midea-lan`
+   requirement in `custom_components/midea_ac_lan/manifest.json` at your fork
+   and branch/commit while that lib PR is unmerged. CI and local setup install
    the runtime dependency from `manifest.json`; `pyproject.toml` and `uv.lock`
    only manage development and test dependencies, so do not edit them to test
    unreleased library code. After the library PR merges, change the manifest to:
@@ -219,15 +220,13 @@ Fix all reported issues before committing. The same checks run in CI on every pu
    "midea-lan@git+https://github.com/wuwentao/midea-lan.git@main"
    ```
 
-   You may instead use upstream `main` from the start and wait for the library PR
-   to merge. Before the integration PR is merged, `manifest.json` must reference
-   either upstream `main` or a released `midea-lan` version; never merge a
-   contributor fork/branch reference. The manual release workflow takes a
-   maintainer-supplied integration version and creates a PR updating the version
-   and changelog. After that PR merges, the release workflow tags the version,
-   builds the integration zip, and uploads it to GitHub Releases. Before
-   publishing, maintainers set the manifest to a released `midea-lan` version
-   containing all required library changes.
+   You may instead use upstream `main` from the start and wait for the lib PR
+   to merge. Before the integration PR is merged, its `manifest.json` must
+   reference either upstream `main` or a released `midea-lan` version; it must
+   not retain a contributor fork/branch. Maintainers periodically publish an
+   integration release based on merged PRs: they generate the changelog, update
+   the manifest to a released `midea-lan` version containing all required library
+   changes, and publish the `midea_ac_lan` release.
 
 > ℹ️ Commits directly to `main` are blocked by a pre-commit hook — always work on a branch.
 

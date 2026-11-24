@@ -14,7 +14,7 @@ cd "$(dirname "$0")/.."
 uv sync
 
 # Runtime integration requirements are owned by manifest.json, not pyproject.toml.
-uv run --no-sync python scripts/install_manifest_requirements.py
+uv run --no-sync python scripts/install_midea_lan.py
 
 # Install the git hooks (pre-commit + commit-msg for Conventional Commits).
 uv run --no-sync pre-commit install

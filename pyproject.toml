@@ -8,7 +8,7 @@ readme = "README.md"
 requires-python = ">=3.12,<3.15"
 license = { text = "MIT" }
 # Runtime dependencies are installed from the Home Assistant manifest by
-# `scripts/install_manifest_requirements.py`. Keep this project metadata focused
+# `scripts/install_midea_lan.py`. Keep this project metadata focused
 # on the development and test environment; otherwise unreleased midea-lan work
 # would require temporary changes to pyproject.toml and uv.lock in every PR.
 
@@ -131,7 +131,7 @@ ignore = [
 ]
 
 [tool.ruff.lint.per-file-ignores]
-"scripts/install_manifest_requirements.py" = ["INP001", "S404", "S603", "S607"]
+"scripts/install_midea_lan.py" = ["INP001", "S404", "S603", "S607"]
 "library_test.py" = [
   "too-many-statements", # Too many statements
   "print",    # `print` found
