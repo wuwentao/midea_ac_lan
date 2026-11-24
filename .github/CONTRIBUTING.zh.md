@@ -31,7 +31,7 @@ GitHub 文件路径：`.github/CONTRIBUTING.zh.md`
 
 - 创建并管理虚拟环境（`.venv`）；
 - **自动下载所需的 Python 版本**（在 `.python-version` 中固定为 `3.12`）——你**无需**自己安装 Python；
-- 根据 `pyproject.toml` / `uv.lock` 安装全部依赖。
+- 根据 `pyproject.toml` / `uv.lock` 安装开发/测试依赖，再从 `custom_components/midea_ac_lan/manifest.json` 安装运行时库。
 
 支持的 Python 版本：**3.12、3.13、3.14**。
 
@@ -82,14 +82,15 @@ cd midea_ac_lan
 ./scripts/setup.sh
 ```
 
-`scripts/setup.sh` 会执行 `uv sync`（创建 `.venv` 并安装项目及 `dev` 依赖组）并安装 git 钩子。
+`scripts/setup.sh` 会执行 `uv sync`、从 manifest 安装运行时依赖并安装 git 钩子。`midea-lan` 不再列入 `pyproject.toml` 或 `uv.lock`。
 
-想手动执行？以下两步等价：
+想手动执行？以下命令等价：
 
 ```bash
 uv sync
-uv run pre-commit install
-uv run pre-commit install --hook-type commit-msg
+uv run --no-sync python scripts/install_midea_lan.py
+uv run --no-sync pre-commit install
+uv run --no-sync pre-commit install --hook-type commit-msg
 ```
 
 > 在没有 bash 的 Windows 环境下，请直接运行上面的手动命令，而不是 `scripts/setup.sh`。
@@ -104,10 +105,11 @@ uv run pre-commit install --hook-type commit-msg
 ./scripts/run.sh
 ```
 
-或直接运行：
+运行过 `scripts/setup.sh` 后，也可以直接执行以下命令；`--no-sync` 可避免 uv 重新同步并
+移除仅由 manifest 安装的依赖：
 
 ```bash
-uv run hass --config config --debug
+uv run --no-sync --group run hass --config config --debug
 ```
 
 首次运行会在 `./config` 下创建配置。在 VS Code 中也可使用 **“Run Home Assistant on port 8123”** 任务或 **“Python Debugger: Launch Home Assistant”** 调试配置。
@@ -128,6 +130,7 @@ uv run hass --config config --debug
 
 ```bash
 UV_PROJECT_ENVIRONMENT=.venv-test312 uv sync --locked --no-default-groups --group test --python 3.12
+UV_PROJECT_ENVIRONMENT=.venv-test312 uv run --no-sync python scripts/install_midea_lan.py
 UV_PROJECT_ENVIRONMENT=.venv-test312 uv run --no-sync pytest
 ```
 
@@ -161,7 +164,7 @@ $env:UV_PYTHON_INSTALL_MIRROR = "https://mirror.nju.edu.cn/github-release/astral
 所有检查都通过 uv 环境中的 **pre-commit** 运行：
 
 ```bash
-uv run pre-commit run --all-files
+uv run --no-sync pre-commit run --all-files
 ```
 
 其中包括：
@@ -173,7 +176,9 @@ uv run pre-commit run --all-files
 
 提交前请修复所有报错。CI 会在每个 Pull Request 上运行相同的检查。
 
-> 若你修改了 `pyproject.toml` 中的依赖，请运行 `uv lock`（或由 `uv-lock` 这个 pre-commit 钩子自动完成）并提交更新后的 `uv.lock`。
+> 若修改 `pyproject.toml` 中的开发或测试依赖，请运行 `uv lock`（或由 `uv-lock`
+> 这个 pre-commit 钩子自动完成）并提交更新后的 `uv.lock`。集成运行时依赖只放在
+> `manifest.json` 中，不影响 `uv.lock`。
 
 ---
 
@@ -201,6 +206,22 @@ uv run pre-commit run --all-files
 
 4. 推送并创建 Pull Request。
    GitHub Actions 会自动验证 commit message 格式并运行检查。
+
+5. 如果改动依赖尚未合并的 `midea-lan` lib PR，可以在该 lib PR 合并前，由对应的
+   `midea_ac_lan` 集成 PR 将 `custom_components/midea_ac_lan/manifest.json` 中的
+   `midea-lan` 指向你的 fork 与分支/提交，
+   以便立即运行集成 CI 和端到端验证。CI 与本地环境会直接从 manifest 安装运行时依赖；
+   `pyproject.toml` 和 `uv.lock` 仅管理开发/测试依赖，因此测试尚未发布的库代码时无需修改它们。
+   库 PR 合并后，将 manifest 改为：
+
+   ```json
+   "midea-lan@git+https://github.com/wuwentao/midea-lan.git@main"
+   ```
+
+   也可以从一开始就指向上游 `main`，等待库 PR 合并后再继续验证。集成 PR 合并前，manifest
+   必须指向上游 `main` 或正式发布的 `midea-lan` 版本，不能保留贡献者fork分支。
+   维护者会根据已合并的 PR 定期发布集成版本：生成 changelog，将 manifest 中的
+   `midea-lan` 更新为包含所需库改动的正式发布版本，并发布 `midea_ac_lan` release。
 
 > ℹ️ pre-commit 钩子会阻止直接向 `main` 分支提交——请始终在分支上开发。
 

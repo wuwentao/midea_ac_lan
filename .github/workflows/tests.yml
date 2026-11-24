@@ -49,6 +49,9 @@ jobs:
           uv sync --locked --no-default-groups
           --group ${{ matrix.group }} --python ${{ matrix.python }}
 
+      - name: Install integration requirements
+        run: uv run --no-sync python scripts/install_midea_lan.py
+
       - name: Test and report coverage
         run: >-
           uv run --no-sync pytest

@@ -106,7 +106,7 @@ wget https://github.com/wuwentao/midea_ac_lan/raw/<commit-or-branch>/custom_comp
 
 ```json
 "requirements": [
-  "midea-lan @ git+https://github.com/wuwentao/midea-lan.git@b59cfbc"
+  "midea-lan@git+https://github.com/wuwentao/midea-lan.git@b59cfbc"
 ]
 ```
 
