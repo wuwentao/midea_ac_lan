@@ -9,17 +9,15 @@ from midealan.const import DeviceType
 from custom_components.midea_ac_lan.midea_devices import MIDEA_DEVICES
 
 TRANSLATIONS_DIR = (
-    Path(__file__).parents[2]
-    / "custom_components"
-    / "midea_ac_lan"
-    / "translations"
+    Path(__file__).parents[2] / "custom_components" / "midea_ac_lan" / "translations"
 )
 
 
 def test_ca_mode_switch_translations_exist_in_all_locales() -> None:
     """Require localized names for every CA refrigerator mode switch."""
     entities = cast(
-        "dict[str, dict[str, object]]", MIDEA_DEVICES[DeviceType.CA]["entities"],
+        "dict[str, dict[str, object]]",
+        MIDEA_DEVICES[DeviceType.CA]["entities"],
     )
     expected = {
         "refrigeracao_rapida": "storage_mode",
