@@ -204,17 +204,19 @@ uv run pre-commit run --all-files
 
 5. 如果改动依赖尚未合并的 `midea-lan` PR，可以在该库 PR 合并前，将
    `custom_components/midea_ac_lan/manifest.json` 指向贡献者的 fork 与分支/提交，
-   以便立即运行集成 CI 和端到端验证。库 PR 合并后，将依赖改为：
+   以便立即运行集成 CI 和端到端验证。lint/type-check CI 会通过
+   `uv sync --locked` 从 `pyproject.toml` 安装 `midea-lan`，因此测试尚未发布的库代码时，
+   也要把该依赖指向相同的 fork/ref 并重新生成 `uv.lock`。库 PR 合并后，将两处依赖改为：
 
    ```json
-   "midea-lan @ git+https://github.com/wuwentao/midea-lan.git@main"
+   "midea-lan@git+https://github.com/wuwentao/midea-lan.git@main"
    ```
 
    也可以从一开始就指向上游 `main`，等待库 PR 合并后再继续验证。集成 PR 合并前，
-   依赖必须指向上游 `main` 或正式发布的 `midea-lan` 版本，绝不能保留贡献者的
-   fork/分支。如果已经指向上游 `main`，库 PR 合并后无需再修改依赖。发布
-   `midea_ac_lan` 时，维护者会另提 PR，把上游 `main` 替换为最新发布的
-   `midea-lan` 版本并发布集成。
+   `manifest.json`、`pyproject.toml` 和 `uv.lock` 都必须指向上游 `main` 或正式发布的
+   `midea-lan` 版本，绝不能保留贡献者的 fork/分支。如果已经指向上游 `main`，库 PR 合并后
+   无需再修改依赖。发布 `midea_ac_lan` 时，维护者会先确认正式发布的库版本已包含合并后的
+   库改动，再另提 PR 将上游 `main` 替换为该版本并发布集成。
 
 > ℹ️ pre-commit 钩子会阻止直接向 `main` 分支提交——请始终在分支上开发。
 

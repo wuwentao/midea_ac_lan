@@ -27,15 +27,19 @@ implemented and tested in midea-lan, and is then exposed as Home Assistant
 entities here. Open and cross-link the applicable PRs.
 
 While the related midea-lan PR is unmerged, this PR may point manifest.json at
-that contributor fork/branch so CI and end-to-end testing can run. Once the
-midea-lan PR is merged, change the requirement to upstream main:
-"midea-lan @ git+https://github.com/wuwentao/midea-lan.git@main". You may also
+that contributor fork/branch so integration CI and end-to-end testing can run.
+The lint/type-check CI also installs `midea-lan` from `pyproject.toml` with
+`uv sync --locked`, so update that requirement to the same fork/ref and
+regenerate `uv.lock` while testing unreleased code. Once the midea-lan PR is
+merged, change the requirements to upstream main:
+"midea-lan@git+https://github.com/wuwentao/midea-lan.git@main". You may also
 use upstream main from the start and wait for the library PR to merge. Before
-this PR is merged, the requirement must reference either wuwentao/midea-lan
-main or a released midea-lan version; a contributor fork/branch must never be
-merged. If it already references upstream main, no dependency edit is needed
-after the library PR merges. During an integration release, maintainers replace
-the upstream-main requirement with the latest released midea-lan version.
+this PR is merged, `manifest.json`, `pyproject.toml`, and `uv.lock` must
+reference either wuwentao/midea-lan main or a released midea-lan version; a
+contributor fork/branch must never be merged. If they already reference
+upstream main, no dependency edit is needed after the library PR merges. During
+an integration release, maintainers replace the upstream-main requirement with
+a released midea-lan version that contains the merged library changes.
 -->
 
 ## Appliance and App / Cloud impact
@@ -60,4 +64,4 @@ the upstream-main requirement with the latest released midea-lan version.
 - [ ] I will address actionable CodeRabbit comments, reply with test evidence, and resolve the conversations before merge.
 - [ ] I linked the related `midea_ac_lan` issue, or explained why none applies.
 - [ ] I linked the related `midea-lan` PR, or explained why none applies.
-- [ ] Before merge, `manifest.json` references `wuwentao/midea-lan@main` or a released `midea-lan` version, not a contributor fork/branch.
+- [ ] Before merge, `manifest.json`, `pyproject.toml`, and `uv.lock` reference `wuwentao/midea-lan@main` or a released `midea-lan` version, not a contributor fork/branch.

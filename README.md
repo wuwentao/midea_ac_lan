@@ -303,7 +303,7 @@ Want to expose a new Midea appliance type in this integration? The end-to-end re
 - [Adding a New Device to the midea_ac_lan Integration](doc/adding-a-new-device.md)
 - [为 midea_ac_lan 集成新增一款设备（中文）](doc/adding-a-new-device.zh-Hans.md)
 
-For paired unreleased work, an integration PR may temporarily point `manifest.json` at the contributor's `midea-lan` fork/branch so the feature and CI can be verified immediately. Once the library PR merges, switch the requirement to `wuwentao/midea-lan@main` (or use upstream `main` from the start). Before the integration PR merges, the requirement must be upstream `main` or a released version, never a contributor fork/branch. At integration release time, maintainers replace upstream `main` with the latest released `midea-lan` version.
+For paired unreleased work, an integration PR may temporarily point `manifest.json` at the contributor's `midea-lan` fork/branch so the feature and CI can be verified immediately. Because lint/type-check CI installs the library from `pyproject.toml` with `uv sync --locked`, that requirement and `uv.lock` must use the same fork/ref during unreleased testing. Once the library PR merges, switch all three dependency declarations to `wuwentao/midea-lan@main` (or use upstream `main` from the start). Before the integration PR merges, they must be upstream `main` or a released version, never a contributor fork/branch. At integration release time, after a released `midea-lan` version containing the merged changes is available, maintainers replace upstream `main` with that version.
 
 The companion guide for the protocol library side lives in the `midea-lan` repo: [Adding a New Device Type](https://github.com/wuwentao/midea-lan/blob/main/docs/adding-a-new-device.md).
 

@@ -300,7 +300,7 @@ cd midea_ac_lan
 - [为 midea_ac_lan 集成新增一款设备（中文）](doc/adding-a-new-device.zh-Hans.md)
 - [Adding a New Device to the midea_ac_lan Integration（English）](doc/adding-a-new-device.md)
 
-配套库改动尚未发布时，集成 PR 可以临时把 `manifest.json` 指向贡献者的 `midea-lan` fork/分支，以便立即验证功能和 CI。库 PR 合并后，应切换到 `wuwentao/midea-lan@main`（也可以从一开始就指向上游 `main`）。集成 PR 合并前，依赖必须是上游 `main` 或正式发布版本，绝不能保留贡献者的 fork/分支。发布集成时，维护者会把上游 `main` 替换为最新发布的 `midea-lan` 版本。
+配套库改动尚未发布时，集成 PR 可以临时把 `manifest.json` 指向贡献者的 `midea-lan` fork/分支，以便立即验证功能和 CI。由于 lint/type-check CI 会通过 `uv sync --locked` 从 `pyproject.toml` 安装库，测试尚未发布的代码时，`pyproject.toml` 和 `uv.lock` 也必须使用相同的 fork/ref。库 PR 合并后，应将三处依赖切换到 `wuwentao/midea-lan@main`（也可以从一开始就指向上游 `main`）。集成 PR 合并前，三处依赖必须是上游 `main` 或正式发布版本，绝不能保留贡献者的 fork/分支。发布集成时，维护者会先确认正式发布的 `midea-lan` 版本已包含合并后的库改动，再把上游 `main` 替换为该版本。
 
 协议库侧的配套指南位于 `midea-lan` 仓库：[新增设备类型支持指南](https://github.com/wuwentao/midea-lan/blob/main/docs/adding-a-new-device.zh-Hans.md)。
 

@@ -106,7 +106,7 @@ This is the cleanest way when the change already exists on GitHub (a PR, a branc
 
 ```json
 "requirements": [
-  "midea-lan @ git+https://github.com/wuwentao/midea-lan.git@b59cfbc"
+  "midea-lan@git+https://github.com/wuwentao/midea-lan.git@b59cfbc"
 ]
 ```
 
