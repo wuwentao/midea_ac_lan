@@ -84,10 +84,12 @@ uv run --no-sync ruff check .                 # lint (config: ruff.toml, lint.se
 uv run --no-sync ruff format .                # format
 scripts/mypy.sh                     # mypy (config: mypy.ini) — note: NOT `mypy .` directly
 uv run --no-sync pylint custom_components     # pylint (config: pylintrc)
-uv run --no-sync --no-default-groups --group test pytest --cov=custom_components.midea_ac_lan --cov-report=term-missing  # tests with the 100% coverage gate
+uv sync --locked --no-default-groups --group test  # install the HA test harness (replaces dev)
+uv run --no-sync python scripts/install_midea_lan.py  # restore the manifest runtime requirement
+uv run --no-sync pytest --cov=custom_components.midea_ac_lan --cov-report=term-missing  # tests with the 100% coverage gate
 ```
 
-Development and test dependencies (including per-Python `homeassistant==` pins) live in `pyproject.toml`/`uv.lock` and are resolved by environment markers. Runtime requirements live in `custom_components/midea_ac_lan/manifest.json` and are installed by setup and CI. Use `uv run --no-sync` for later commands so uv does not remove the manifest-installed library during resynchronization. There are no `requirements-dev-3.1x.txt` files anymore.
+Development and test dependencies (including per-Python `homeassistant==` pins) live in `pyproject.toml`/`uv.lock` and are resolved by environment markers. Runtime requirements live in `custom_components/midea_ac_lan/manifest.json` and are installed by setup and CI. The test sync replaces the dev group; to return to linting, run `uv sync --locked` followed by `uv run --no-sync python scripts/install_midea_lan.py`. Use `uv run --no-sync` for later commands so uv does not remove the manifest-installed library during resynchronization. There are no `requirements-dev-3.1x.txt` files anymore.
 
 The pinned Node version under `default_language_version` in `.pre-commit-config.yaml` keeps Prettier reproducible across platforms. Do not remove or change it without validating the full pre-commit suite on Windows as well as the primary development platform.
 
