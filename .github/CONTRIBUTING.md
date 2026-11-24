@@ -31,7 +31,7 @@ This project uses **[uv](https://docs.astral.sh/uv/)**, an extremely fast Python
 
 - Create and manage a virtual environment (`.venv`) for you.
 - **Automatically download the correct Python version** (pinned to `3.12` in `.python-version`) — you do **not** need to install Python yourself.
-- Install all dependencies from `pyproject.toml` / `uv.lock`.
+- Install development/test dependencies from `pyproject.toml` / `uv.lock`, then install the runtime library from `custom_components/midea_ac_lan/manifest.json`.
 
 Supported Python versions: **3.12, 3.13, 3.14**.
 
@@ -82,14 +82,15 @@ cd midea_ac_lan
 ./scripts/setup.sh
 ```
 
-`scripts/setup.sh` runs `uv sync` (creating `.venv` and installing the project plus the `dev` dependency group) and installs the git hooks.
+`scripts/setup.sh` runs `uv sync`, installs runtime requirements from `manifest.json`, and installs the git hooks. `midea-lan` is intentionally not listed in `pyproject.toml` or `uv.lock`.
 
-Prefer to do it manually? These two steps are equivalent:
+Prefer to do it manually? These commands are equivalent:
 
 ```bash
 uv sync
-uv run pre-commit install
-uv run pre-commit install --hook-type commit-msg
+uv run --no-sync python scripts/install_manifest_requirements.py
+uv run --no-sync pre-commit install
+uv run --no-sync pre-commit install --hook-type commit-msg
 ```
 
 > On Windows without a bash shell, run the manual commands above instead of `scripts/setup.sh`.
@@ -104,10 +105,11 @@ Start a local Home Assistant instance with this integration loaded on <http://lo
 ./scripts/run.sh
 ```
 
-Or run it directly:
+After running `scripts/setup.sh`, you can also run it directly without letting uv
+resynchronize and remove manifest-only requirements:
 
 ```bash
-uv run hass --config config --debug
+uv run --no-sync --group run hass --config config --debug
 ```
 
 The config is created under `./config` on first run. In VS Code you can also use the **"Run Home Assistant on port 8123"** task or the **"Python Debugger: Launch Home Assistant"** launch configuration.
@@ -128,6 +130,7 @@ Create and run the minimum-supported test environment with:
 
 ```bash
 UV_PROJECT_ENVIRONMENT=.venv-test312 uv sync --locked --no-default-groups --group test --python 3.12
+UV_PROJECT_ENVIRONMENT=.venv-test312 uv run --no-sync python scripts/install_manifest_requirements.py
 UV_PROJECT_ENVIRONMENT=.venv-test312 uv run --no-sync pytest
 ```
 
@@ -161,7 +164,7 @@ $env:UV_PYTHON_INSTALL_MIRROR = "https://mirror.nju.edu.cn/github-release/astral
 All checks run through **pre-commit** inside the uv environment:
 
 ```bash
-uv run pre-commit run --all-files
+uv run --no-sync pre-commit run --all-files
 ```
 
 This runs, among others:
@@ -173,7 +176,10 @@ This runs, among others:
 
 Fix all reported issues before committing. The same checks run in CI on every pull request.
 
-> If you change dependencies in `pyproject.toml`, run `uv lock` (or let the `uv-lock` pre-commit hook do it) and commit the updated `uv.lock`.
+> If you change development or test dependencies in `pyproject.toml`, run `uv lock`
+> (or let the `uv-lock` pre-commit hook do it) and commit the updated `uv.lock`.
+> Runtime integration requirements belong only in `manifest.json` and do not
+> change `uv.lock`.
 
 ---
 
@@ -204,24 +210,24 @@ Fix all reported issues before committing. The same checks run in CI on every pu
 
 5. For a change that depends on an unreleased `midea-lan` PR, you may point
    `custom_components/midea_ac_lan/manifest.json` at the contributor's fork and
-   branch/commit while that library PR is unmerged. The lint/type-check CI
-   installs `midea-lan` from `pyproject.toml` with `uv sync --locked`, so point
-   that requirement at the same fork/ref and regenerate `uv.lock` while testing
-   unreleased code. After the library PR merges, change both requirements to:
+   branch/commit while that library PR is unmerged. CI and local setup install
+   the runtime dependency from `manifest.json`; `pyproject.toml` and `uv.lock`
+   only manage development and test dependencies, so do not edit them to test
+   unreleased library code. After the library PR merges, change the manifest to:
 
    ```json
    "midea-lan@git+https://github.com/wuwentao/midea-lan.git@main"
    ```
 
    You may instead use upstream `main` from the start and wait for the library PR
-   to merge. Before the integration PR is merged, `manifest.json`,
-   `pyproject.toml`, and `uv.lock` must reference either upstream `main` or a
-   released `midea-lan` version; never merge a contributor fork/branch
-   reference. If the PR already uses upstream `main`, no dependency edit is
-   needed after the library merge. During an integration release, maintainers
-   first confirm a released `midea-lan` version contains the merged library
-   changes, then replace the upstream-main reference with that version in a
-   separate PR and publish `midea_ac_lan`.
+   to merge. Before the integration PR is merged, `manifest.json` must reference
+   either upstream `main` or a released `midea-lan` version; never merge a
+   contributor fork/branch reference. The manual release workflow takes a
+   maintainer-supplied integration version and creates a PR updating the version
+   and changelog. After that PR merges, the release workflow tags the version,
+   builds the integration zip, and uploads it to GitHub Releases. Before
+   publishing, maintainers set the manifest to a released `midea-lan` version
+   containing all required library changes.
 
 > ℹ️ Commits directly to `main` are blocked by a pre-commit hook — always work on a branch.
 

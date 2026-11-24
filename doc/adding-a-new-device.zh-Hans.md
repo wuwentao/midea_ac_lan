@@ -104,10 +104,16 @@ sensor/switch **无需**改任何 platform 文件。复杂 platform（`climate.p
 把占位符替换为 fork 所有者和要测试的分支或提交。Home Assistant 与 CI 将安装这份
 尚未发布的库代码，因此无需等待库发布即可验证集成功能。
 
-集成 lint 和 type-check 工作流会通过 `uv sync --locked` 从项目依赖
-`pyproject.toml` 安装 `midea-lan`，不会读取集成 manifest。因此也要把
-`pyproject.toml` 中的 `midea-lan` 指向相同的 fork 和 ref，然后重新生成并提交
-`uv.lock`。这样 lint、类型检查、测试和 Home Assistant 运行时验证才会使用同一份库代码。
+CI 与本地初始化都直接从 `manifest.json` 安装运行时依赖，这是集成仓库中唯一的
+`midea-lan` 依赖来源。`pyproject.toml` 和 `uv.lock` 只管理开发/测试依赖，测试尚未
+发布的库 ref 时不要修改它们。安装脚本会强制重新安装 manifest 中的依赖。本地端到端
+测试请通过 `scripts/run.sh` 启动 Home Assistant（或手动启动 HA 前先运行 manifest 安装
+脚本）；在 HA 2024.4.1 中，已有安装包可能会满足依赖检查，而不会核对 Git ref。测试前
+确认已安装库的来源和 commit：
+
+```bash
+uv run --no-sync python -c 'import importlib.metadata as m; print(m.distribution("midea-lan").read_text("direct_url.json"))'
+```
 
 相关 `midea-lan` PR 合并后，把依赖改为上游 `main`：
 
@@ -117,18 +123,19 @@ sensor/switch **无需**改任何 platform 文件。复杂 platform（`climate.p
 ]
 ```
 
-还要把 `pyproject.toml` 改为匹配的上游 main 依赖，并更新 `uv.lock`。如果这些文件
-已经使用上游 `main`，库 PR 合并后无需修改。
+不要修改 `pyproject.toml` 或 `uv.lock`；修改 manifest 后重新运行完整 CI，安装脚本会
+获取包含库 PR 的 commit。
 
 也可以从一开始就使用上游 `main`，等待库 PR 合并后再做最终验证。如果集成 PR 已经
-从一开始就使用上游 `main`。
+从一开始就使用上游 `main`，无需切换来源。只修改 manifest 中的依赖来源不需要重新生成
+`uv.lock`。
 
-**合并门槛：**`midea_ac_lan` PR 合并前，`manifest.json`、`pyproject.toml` 和
-`uv.lock` 都必须指向 `wuwentao/midea-lan@main` 或正式发布版本（如
-`midea-lan==2026.11.0`），绝不能保留贡献者的 fork/分支。所有必需 CI 都必须基于可合并的
-依赖来源通过。发布集成时，维护者会先确认正式发布的 `midea-lan` 版本已包含合并后的库
-改动，再另提 PR 将上游 `main` 替换为该版本、更新 lockfile，然后发布 `midea_ac_lan`。
-功能 PR 不要手改集成的 `version`。
+**合并门槛：**`midea_ac_lan` PR 合并前，manifest 必须指向
+`wuwentao/midea-lan@main` 或正式发布版本（如 `midea-lan==2026.11.0`），绝不能保留贡献者
+fork/分支。所有必需 CI 都必须基于可合并的依赖来源通过。发布集成时，维护者先确认正式
+发布的 `midea-lan` 版本已包含合并后的库改动，再另提 PR 将 manifest 中的上游 `main`
+替换为该版本。Manual Release workflow 生成集成版本/changelog PR；该 PR 合并后自动打 tag、
+构建并上传集成压缩包。不要在功能 PR 中手改集成 `version`。
 
 ---
 
@@ -411,12 +418,12 @@ CI 会运行基于 Home Assistant 的 pytest 测试套件、lint 与 HACS/hassfe
 ```bash
 scripts/setup.sh                      # uv sync + 安装 git 钩子
 
-uv run pre-commit run --all-files     # ruff、ruff-format、mypy、pylint、codespell、
+uv run --no-sync pre-commit run --all-files  # ruff、ruff-format、mypy、pylint、codespell、
                                       # commitlint、prettier —— CI 跑的全部
-uv run ruff check .
-uv run ruff format .
+uv run --no-sync ruff check .
+uv run --no-sync ruff format .
 scripts/mypy.sh                       # mypy（不要直接 `mypy .`）
-uv run pylint custom_components
+uv run --no-sync pylint custom_components
 ```
 
 集成行为必须增加测试，并按照[测试指南](testing.zh-Hans.md)运行受支持版本矩阵。
@@ -441,12 +448,12 @@ scripts/run.sh                        # 用 ./config 启动 HA，集成在 PYTHO
   `feat/d9-washer-dryer-combo`。
 - **Conventional Commits**：`feat(d9): add washer/dryer combo support`。
   commitlint/commitizen 强制格式；发布由这些提交消息自动完成。
-- **依赖文件**：库 PR 尚未合并时，可以把 `manifest.json` 和 `pyproject.toml` 指向其
-  fork/分支 Git ref，并重新生成 `uv.lock`；CI 使用后两者。库 PR 合并后，三处都切换到
-  `wuwentao/midea-lan@main`；也可以从一开始就使用上游 `main` 并等待。集成 PR 合并前，
-  三处依赖都必须是上游 `main` 或正式发布版本，绝不能保留贡献者 fork/分支。不要手改集成
-  `version`。发布时，维护者会先确认正式发布版本已包含合并后的库改动，再把上游 `main`
-  替换为该版本并更新 lockfile。
+- **依赖文件**：库 PR 尚未合并时，只把 `manifest.json` 指向其 fork/分支 Git ref；CI
+  与本地初始化会从该文件安装，`pyproject.toml` 和 `uv.lock` 保持不变。库 PR 合并后，
+  将 manifest 切换到 `wuwentao/midea-lan@main`；集成 PR 合并前绝不能保留贡献者 fork/分支。
+  发布时，维护者确认正式发布版本已包含库改动，再通过 PR 将 manifest 的上游 `main` 替换为
+  该版本。Manual Release workflow 生成集成版本/changelog PR，合并后自动打 tag、构建并上传
+  集成压缩包。
 - **PR 描述**：概述该设备、列出实体，并链接你依赖的配套 `midea-lan` 库 PR/提交。
   如实陈述你验证了什么（lint 通过、基于你的 fork 在 HA 中冒烟测试等），并记录 CI
   使用的依赖来源。
@@ -547,8 +554,8 @@ False`，这样就不会在缺少某功能的型号上给用户显示空白/损�
 
 - [ ] 库先行：`midealan/devices/<type>/` 已存在于配套库 PR；若未，先完成
       [`midea-lan` 指南](https://github.com/wuwentao/midea-lan/blob/main/docs/adding-a-new-device.zh-Hans.md)。
-- [ ] 库 PR 尚未合并时，按需把 `manifest.json` 和 `pyproject.toml` 指向其 fork/分支，
-      并重新生成 `uv.lock`，确保集成 CI 和端到端验证使用同一份库代码。
+- [ ] 库 PR 尚未合并时，按需把 `manifest.json` 指向其 fork/分支；不要修改
+      `pyproject.toml` 或 `uv.lock`，CI 和本地安装脚本会使用 manifest 中的目标 ref。
 - [ ] 已在 `midea_devices.py` 中导入 `DeviceAttributes as <X>Attributes`。
 - [ ] 已添加含 `name` 与逐属性 `entities` 行的 `0xXX` 条目。
 - [ ] 每行都有正确的 `type`（platform），sensor/number 带来自 HA 常量的
@@ -559,10 +566,10 @@ False`，这样就不会在缺少某功能的型号上给用户显示空白/损�
       states）。
 - [ ] 已编写 `doc/<TYPE>.md` 与 `doc/<TYPE>_hans.md`。
 - [ ] 已把设备行加入 `README.md` 与 `README_hans.md`（十六进制顺序）。
-- [ ] `uv run pre-commit run --all-files` 通过；可选地用 `scripts/run.sh` 冒烟
+- [ ] `uv run --no-sync pre-commit run --all-files` 通过；可选地用 `scripts/run.sh` 冒烟
       测试。
-- [ ] 合并前，`manifest.json`、`pyproject.toml` 和 `uv.lock` 都指向
-      `wuwentao/midea-lan@main` 或正式发布版本，绝不保留贡献者 fork/分支；所有必需 CI 均通过。
+- [ ] 合并前，manifest 指向 `wuwentao/midea-lan@main` 或正式发布版本，绝不保留贡献者
+      fork/分支；所有必需 CI 均通过。
 - [ ] 集成 `version` 未修改；正式发布版本包含合并后的库改动后，维护者才会在发布
       `midea_ac_lan` 时把上游 `main` 替换为该版本。
 - [ ] 在特性分支上提 PR，Conventional Commit 标题，链接库 PR/提交，处理完

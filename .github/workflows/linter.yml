@@ -35,8 +35,12 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Install dependencies
-        # --locked fails the build if uv.lock is out of date with pyproject.toml
+        # --locked keeps the development and test tools reproducible. Runtime
+        # integration requirements are installed from manifest.json below.
         run: uv sync --locked --python ${{ matrix.python-version }}
+
+      - name: Install integration requirements
+        run: uv run --no-sync python scripts/install_manifest_requirements.py
 
       - name: Cache pre-commit
         uses: actions/cache@v6
@@ -47,4 +51,4 @@ jobs:
             hashFiles('.pre-commit-config.yaml') }}
 
       - name: Pre-commit
-        run: uv run pre-commit run --all-files --show-diff-on-failure
+        run: uv run --no-sync pre-commit run --all-files --show-diff-on-failure

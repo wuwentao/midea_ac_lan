@@ -28,18 +28,19 @@ entities here. Open and cross-link the applicable PRs.
 
 While the related midea-lan PR is unmerged, this PR may point manifest.json at
 that contributor fork/branch so integration CI and end-to-end testing can run.
-The lint/type-check CI also installs `midea-lan` from `pyproject.toml` with
-`uv sync --locked`, so update that requirement to the same fork/ref and
-regenerate `uv.lock` while testing unreleased code. Once the midea-lan PR is
-merged, change the requirements to upstream main:
+CI and local setup install the runtime requirement directly from manifest.json;
+`pyproject.toml` and `uv.lock` only manage the development and test environment.
+Do not change either file to test unreleased midea-lan work. Once the midea-lan
+PR is merged, change manifest.json to upstream main:
 "midea-lan@git+https://github.com/wuwentao/midea-lan.git@main". You may also
 use upstream main from the start and wait for the library PR to merge. Before
-this PR is merged, `manifest.json`, `pyproject.toml`, and `uv.lock` must
-reference either wuwentao/midea-lan main or a released midea-lan version; a
-contributor fork/branch must never be merged. If they already reference
-upstream main, no dependency edit is needed after the library PR merges. During
-an integration release, maintainers replace the upstream-main requirement with
-a released midea-lan version that contains the merged library changes.
+this PR is merged, manifest.json must reference either wuwentao/midea-lan main
+or a released midea-lan version; a contributor fork/branch must never be merged.
+The manual release workflow accepts an integration version and creates a PR
+updating the version and changelog. After that PR merges, the release workflow
+creates the tag, builds the zip, and uploads it to GitHub Releases. Before
+publishing, maintainers set manifest.json to a released midea-lan version that
+contains the required merged library changes.
 -->
 
 ## Appliance and App / Cloud impact
@@ -64,4 +65,4 @@ a released midea-lan version that contains the merged library changes.
 - [ ] I will address actionable CodeRabbit comments, reply with test evidence, and resolve the conversations before merge.
 - [ ] I linked the related `midea_ac_lan` issue, or explained why none applies.
 - [ ] I linked the related `midea-lan` PR, or explained why none applies.
-- [ ] Before merge, `manifest.json`, `pyproject.toml`, and `uv.lock` reference `wuwentao/midea-lan@main` or a released `midea-lan` version, not a contributor fork/branch.
+- [ ] Before merge, `manifest.json` references `wuwentao/midea-lan@main` or a released `midea-lan` version, not a contributor fork/branch.

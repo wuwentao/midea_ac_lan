@@ -16,7 +16,7 @@ Device support commonly spans three repositories. Keep their responsibilities se
 - [`midea-lan`](https://github.com/wuwentao/midea-lan) implements discovery, Cloud access, authentication, encryption, message parsing/encoding, appliance attributes, and LAN commands. Protocol and device-behavior fixes belong there and require tests.
 - [`midea_ac_lan`](https://github.com/wuwentao/midea_ac_lan) maps `midealan` attributes to Home Assistant entities, configuration flows, services, translations, and user documentation.
 
-For protocol-backed device work, link the exact `midea-lua` file, the related `midea-lan` issue/PR, and the matching `midea_ac_lan` issue/PR. Use `N/A` with a short explanation only when a layer genuinely does not apply. While the library PR is unmerged, the integration PR may point `manifest.json` at its fork/branch for CI and end-to-end testing. Before the integration PR is merged, it must point at `wuwentao/midea-lan@main` or a released `midea-lan` version, never a contributor fork/branch.
+For protocol-backed device work, link the exact `midea-lua` file, the related `midea-lan` issue/PR, and the matching `midea_ac_lan` issue/PR. Use `N/A` with a short explanation only when a layer genuinely does not apply. The integration's `manifest.json` is the sole source of its `midea-lan` runtime requirement; CI and local setup install it from that file. Do not add `midea-lan` to `pyproject.toml` or `uv.lock`. While the library PR is unmerged, the integration PR may point the manifest at its fork/branch for CI and end-to-end testing. After the library PR merges, switch it to `wuwentao/midea-lan@main` (unless already there). Before the integration PR is merged, the manifest must point at upstream `main` or a released `midea-lan` version, never a contributor fork/branch.
 
 ## Architecture
 
@@ -69,7 +69,7 @@ The integration supports a wide HA version range by branching on `(MAJOR_VERSION
 
 ## Common commands
 
-Dev environment is managed by **[uv](https://docs.astral.sh/uv/)**. Install uv first, then run `scripts/setup.sh`: it runs `uv sync` (creates `.venv`, installs the project + `dev` dependency group, and downloads the Python version pinned in `.python-version` if needed) and installs the pre-commit + commit-msg git hooks.
+Dev environment is managed by **[uv](https://docs.astral.sh/uv/)**. Install uv first, then run `scripts/setup.sh`: it runs `uv sync` (creates `.venv`, installs development/test tools, and downloads the Python version pinned in `.python-version` if needed), installs runtime requirements from the integration manifest, and installs the pre-commit + commit-msg git hooks.
 
 ```bash
 scripts/setup.sh        # uv sync + install pre-commit/commit-msg hooks
@@ -79,15 +79,15 @@ scripts/run.sh          # run Home Assistant locally with ./config, integration 
 Linting and checks:
 
 ```bash
-uv run pre-commit run --all-files   # run everything: ruff, ruff-format, mypy, pylint, codespell, commitlint, prettier
-uv run ruff check .                 # lint (config: ruff.toml, lint.select = ALL, target py312)
-uv run ruff format .                # format
+uv run --no-sync pre-commit run --all-files   # run everything: ruff, ruff-format, mypy, pylint, codespell, commitlint, prettier
+uv run --no-sync ruff check .                 # lint (config: ruff.toml, lint.select = ALL, target py312)
+uv run --no-sync ruff format .                # format
 scripts/mypy.sh                     # mypy (config: mypy.ini) — note: NOT `mypy .` directly
-uv run pylint custom_components     # pylint (config: pylintrc)
-uv run --no-default-groups --group test pytest --cov=custom_components.midea_ac_lan --cov-report=term-missing  # tests with the 100% coverage gate
+uv run --no-sync pylint custom_components     # pylint (config: pylintrc)
+uv run --no-sync --no-default-groups --group test pytest --cov=custom_components.midea_ac_lan --cov-report=term-missing  # tests with the 100% coverage gate
 ```
 
-Dependencies (including the per-Python `homeassistant==` pins) live in `pyproject.toml` and are resolved by environment markers; `uv sync` installs the right set for your Python. There are no `requirements-dev-3.1x.txt` files anymore.
+Development and test dependencies (including per-Python `homeassistant==` pins) live in `pyproject.toml`/`uv.lock` and are resolved by environment markers. Runtime requirements live in `custom_components/midea_ac_lan/manifest.json` and are installed by setup and CI. Use `uv run --no-sync` for later commands so uv does not remove the manifest-installed library during resynchronization. There are no `requirements-dev-3.1x.txt` files anymore.
 
 The pinned Node version under `default_language_version` in `.pre-commit-config.yaml` keeps Prettier reproducible across platforms. Do not remove or change it without validating the full pre-commit suite on Windows as well as the primary development platform.
 
@@ -131,7 +131,7 @@ Most issues and PRs here are now drafted with an AI agent. The agent MUST drive 
   3. If no Lua protocol applies, use `N/A` with a one-line reason.
 - **Route the change to the right layer and cross-link.** Protocol and device-behavior fixes usually belong in [`midea-lan`](https://github.com/wuwentao/midea-lan), not here (see "Project family and change routing" above). Link the related `midea-lan` issue/PR, the `midea-lua` source, and the matching `midea_ac_lan` issue/PR so the three-repo change set stays traceable.
 - **Cross-repo issue/PR references MUST use the full URL — never a bare `#NNN`.** On GitHub a bare `#NNN` always resolves to an issue/PR _in the repository where the text is posted_. Use the bare `#NNN` form **only** when the issue/PR lives in this same repo (`midea_ac_lan`) and you have confirmed that. For anything in a different repo — `midea-lan`, `midea-lua` — always write the complete `https://github.com/<owner>/<repo>/issues/NNN` or `.../pull/NNN` URL. This matters most when posting a comment here that points at a `midea-lan` PR/issue: a bare `#NNN` resolves to a `midea_ac_lan` number instead and links to the wrong repo almost every time, leaving reviewers with a pile of mis-linked references. When in doubt, prefer the full URL.
-- **Use the `midea-lan` dependency handoff for paired PRs.** While the related `midea-lan` PR is unmerged, `manifest.json` may point at that contributor fork/branch (for example, `"midea-lan@git+https://github.com/<owner>/midea-lan.git@<ref>"`) so integration CI and end-to-end tests exercise the unreleased code. Because lint and type-check CI installs the project dependency from `pyproject.toml` with `uv sync --locked`, point that dependency at the same fork/ref and regenerate `uv.lock` when testing unreleased library code. After the library PR merges, change `manifest.json` and `pyproject.toml` to `"midea-lan@git+https://github.com/wuwentao/midea-lan.git@main"`, then refresh `uv.lock`; alternatively, use upstream `main` from the start and wait for the library PR to merge. Before the `midea_ac_lan` PR merges, all dependency declarations must point to upstream `main` or a released `midea-lan` version and must never point to a contributor fork/branch. If they already point to upstream `main`, leave them unchanged after the library merge. When releasing `midea_ac_lan`, first confirm that a released `midea-lan` version contains the merged library changes, then open a PR replacing the upstream-main requirement with that version and publish the integration.
+- **Use the `midea-lan` dependency handoff for paired PRs.** The integration manifest is the sole source of the runtime requirement; CI and local setup install it from `manifest.json`. Keep `midea-lan` out of `pyproject.toml` and `uv.lock`, which manage development/test dependencies only. While the related library PR is unmerged, the manifest may point at a contributor fork/branch (for example, `"midea-lan@git+https://github.com/<owner>/midea-lan.git@<ref>"`) so integration CI can exercise unreleased code. After the library PR merges, change the manifest to `"midea-lan@git+https://github.com/wuwentao/midea-lan.git@main"`, unless already there. Before the integration PR merges, its manifest must use upstream `main` or a released version, never a contributor fork/branch. Before publishing `midea_ac_lan`, maintainers confirm a released library version contains the merged changes and update the manifest in a PR. The Manual Release workflow accepts an integration version and opens a PR updating the changelog and manifest version; merging it triggers tag/GitHub Release creation, followed by zip build and upload.
 - **Redact secrets.** Never paste account credentials, tokens, keys, full device IDs, MAC addresses, or unredacted logs / `.storage` JSON. Mask them.
 
 ### Keep code consistent with what exists

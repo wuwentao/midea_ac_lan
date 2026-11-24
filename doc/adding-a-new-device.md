@@ -116,12 +116,19 @@ Replace the placeholders with the fork owner and branch or commit you want to
 test. This lets Home Assistant and CI install the unreleased library code, so the
 integration feature can be verified without waiting for a library release.
 
-The integration lint and type-check workflows install `midea-lan` from the
-project dependency in `pyproject.toml` using `uv sync --locked`; they do not read
-the integration manifest. Point the `midea-lan` dependency in `pyproject.toml`
-at the same fork and ref, then regenerate and commit `uv.lock` as well. This
-keeps lint, type checks, tests, and Home Assistant runtime validation on the
-same library code.
+CI and local setup install the runtime dependency from `manifest.json`; this is
+the only `midea-lan` dependency source in the integration repository.
+`pyproject.toml` and `uv.lock` contain development/test dependencies only, so do
+not edit them when testing an unreleased library ref. The setup and CI installer
+reinstalls the manifest requirement. For local end-to-end testing, start Home
+Assistant with `scripts/run.sh` (or run the manifest installer before launching
+HA manually); on HA 2024.4.1 an already-installed package may otherwise satisfy
+the requirement without checking the Git ref. Confirm the installed source and
+commit before testing:
+
+```bash
+uv run --no-sync python -c 'import importlib.metadata as m; print(m.distribution("midea-lan").read_text("direct_url.json"))'
+```
 
 After the related `midea-lan` PR merges, change the requirement to upstream
 `main`:
@@ -132,22 +139,22 @@ After the related `midea-lan` PR merges, change the requirement to upstream
 ]
 ```
 
-Also update `pyproject.toml` to the matching upstream-main dependency and
-refresh `uv.lock`. If these already use upstream `main`, leave them unchanged
-after the library PR merges.
+Do not update `pyproject.toml` or `uv.lock`; after the manifest change, rerun the
+normal CI checks so the installer fetches the merged library commit.
 
 You may instead use upstream `main` from the start and wait for the library PR to
-merge before running the final verification.
+merge before running the final verification. A manifest-only source change does
+not require regenerating `uv.lock`.
 
-**Merge gate:** before the `midea_ac_lan` PR is merged, `manifest.json`,
-`pyproject.toml`, and `uv.lock` must reference either `wuwentao/midea-lan@main`
-or a released version such as `midea-lan==2026.11.0`. Never merge a contributor
-fork/branch reference. All required CI checks must pass against the merge-safe
-dependency. When publishing an integration release, the maintainer opens a PR
-that replaces the upstream `main` references with a released `midea-lan` version
-that contains the merged library changes, updates the lockfile, and then
-publishes `midea_ac_lan`. Do not hand-edit the integration's `version` in a
-feature PR.
+**Merge gate:** before the `midea_ac_lan` PR is merged, `manifest.json` must
+reference either `wuwentao/midea-lan@main` or a released version such as
+`midea-lan==2026.11.0`. Never merge a contributor fork/branch reference. All
+required CI checks must pass against the merge-safe dependency. Before an
+integration release, the maintainer opens a PR replacing upstream `main` with a
+released library version containing the merged changes. The Manual Release
+workflow then creates the integration version/changelog PR; after it merges,
+release automation tags, builds, and uploads the integration archive. Do not
+hand-edit the integration's `version` in a feature PR.
 
 ---
 
@@ -448,12 +455,12 @@ validators. The dev environment is managed by [uv](https://docs.astral.sh/uv/):
 ```bash
 scripts/setup.sh                      # uv sync + install git hooks
 
-uv run pre-commit run --all-files     # ruff, ruff-format, mypy, pylint, codespell,
+uv run --no-sync pre-commit run --all-files  # ruff, ruff-format, mypy, pylint, codespell,
                                       # commitlint, prettier — everything CI runs
-uv run ruff check .
-uv run ruff format .
+uv run --no-sync ruff check .
+uv run --no-sync ruff format .
 scripts/mypy.sh                       # mypy (NOT `mypy .` directly)
-uv run pylint custom_components
+uv run --no-sync pylint custom_components
 ```
 
 Add tests for integration behavior and run the supported-version matrix described
@@ -482,15 +489,16 @@ version; all required checks must pass before the integration PR is merged.
 - **Conventional Commits**: `feat(d9): add washer/dryer combo support`.
   commitlint/commitizen enforce the format; releases are automated from these
   messages.
-- **Dependency files**: while the library PR is unmerged, point `manifest.json`
-  and the `pyproject.toml` dependency at its fork/branch Git ref, then regenerate
-  `uv.lock`; CI reads the latter two files. Once it merges, switch all three to
-  `wuwentao/midea-lan@main`; alternatively, use upstream `main` from the start
-  and wait. Before this PR merges, all three must reference upstream `main` or a
-  released version, never a contributor fork/branch. Do not hand-edit the
-  integration `version`. At release time, after a library release containing
-  the merged changes exists, the maintainer replaces upstream `main` with that
-  released library version and refreshes the lockfile.
+- **Dependency files**: while the library PR is unmerged, point only
+  `manifest.json` at its fork/branch Git ref. CI and local setup install from
+  that file; `pyproject.toml` and `uv.lock` remain unchanged. Once it merges,
+  switch the manifest to `wuwentao/midea-lan@main` (or use upstream `main` from
+  the start). Before this PR merges, the manifest must reference upstream `main`
+  or a released version, never a contributor fork/branch. Before integration
+  release, the maintainer changes the manifest to a released library version
+  containing the merged changes. The Manual Release workflow then creates a PR
+  for the integration version/changelog; after merge, release automation tags,
+  builds, and uploads the integration archive.
 - **PR description**: summarize the device, list the entities, and link the paired
   `midea-lan` library PR/commit your work depends on. State plainly what you
   verified (lint clean, smoke-tested in HA against your fork, etc.) and record
@@ -606,9 +614,8 @@ specific oven lacks.
 
 - [ ] Library first: `midealan/devices/<type>/` exists in the paired library PR;
       if not, finish the [`midea-lan` guide](https://github.com/wuwentao/midea-lan/blob/main/docs/adding-a-new-device.md).
-- [ ] While the library PR is unmerged, pointed `manifest.json` and
-      `pyproject.toml` at its fork/branch when needed, and regenerated `uv.lock`
-      so integration CI and end-to-end verification use the same library code.
+- [ ] While the library PR is unmerged, pointed `manifest.json` at its
+      fork/branch when needed; left `pyproject.toml` and `uv.lock` unchanged.
 - [ ] Imported `DeviceAttributes as <X>Attributes` in `midea_devices.py`.
 - [ ] Added the `0xXX` entry with `name` and an `entities` row per attribute.
 - [ ] Each row has the right `type` (platform), and sensors/numbers have
@@ -620,11 +627,10 @@ specific oven lacks.
       (states included for selects).
 - [ ] Wrote `doc/<TYPE>.md` and `doc/<TYPE>_hans.md`.
 - [ ] Added the appliance row to `README.md` and `README_hans.md` (hex order).
-- [ ] `uv run pre-commit run --all-files` passes; optionally smoke-tested with
+- [ ] `uv run --no-sync pre-commit run --all-files` passes; optionally smoke-tested with
       `scripts/run.sh`.
-- [ ] Before merge, `manifest.json`, `pyproject.toml`, and `uv.lock` point to
-      `wuwentao/midea-lan@main` or a released version, never a contributor
-      fork/branch; all required CI passes.
+- [ ] Before merge, `manifest.json` points to `wuwentao/midea-lan@main` or a
+      released version, never a contributor fork/branch; all required CI passes.
 - [ ] The integration `version` is unchanged; after a library release containing
       the merged changes exists, maintainers replace upstream main with that
       release when publishing `midea_ac_lan`.
