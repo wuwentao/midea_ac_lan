@@ -31,6 +31,7 @@ from homeassistant.const import (
     PRECISION_HALVES,
     PRECISION_WHOLE,
     Platform,
+    UnitOfTemperature,
 )
 from midealan.device import DeviceType
 from midealan.devices.ac import DeviceAttributes as ACAttributes
@@ -94,6 +95,7 @@ def make_ac(
     *,
     attributes: dict[object, object] | None = None,
     capabilities: object = None,
+    model: str = "TEST-MODEL",
     **options: object,
 ) -> tuple[MideaACClimate, Mock, dict[object, object]]:
     """Build an AC climate with explicit capabilities."""
@@ -101,6 +103,7 @@ def make_ac(
     device, values = device_factory(
         device_type=DeviceType.AC,
         attributes=attributes,
+        model=model,
     )
     device.capabilities = {} if capabilities is None else capabilities
     device.temperature_step = 0.5
@@ -737,6 +740,147 @@ def test_ac_state_and_commands(
         swing_horizontal=True,
     )
     assert "Error setting temperature" in caplog.text
+
+
+@pytest.mark.parametrize(
+    "model",
+    [
+        "00000Q11",
+        "00000Q13",
+        "00000Q14",
+        "00000Q15",
+        "00000Q17",
+        "00000Q18",
+        "00000Q19",
+        "00000Q1B",
+        "00000Q1C",
+        "00000Q1E",
+        "00000Q1F",
+        "24",
+        "20601026",
+    ],
+)
+def test_ac_lua_fahrenheit_lookup_models(
+    model: str,
+    device_factory: DeviceFactory,
+    install_config: InstallConfig,
+) -> None:
+    """Apply the vendor lookup to all AC models with matching Lua profiles."""
+    entity, _, _ = make_ac(
+        device_factory,
+        install_config,
+        attributes={
+            ACAttributes.temp_fahrenheit: True,
+            ACAttributes.target_temperature: 16.5,
+            ACAttributes.indoor_temperature: 19.0,
+        },
+        model=model,
+    )
+
+    assert entity.native_temperature_unit == UnitOfTemperature.FAHRENHEIT
+    assert entity.native_target_temperature == 61
+    assert entity.native_current_temperature == pytest.approx(66.2)
+    assert entity.target_temperature_step == PRECISION_WHOLE
+
+
+def test_ac_lua_fahrenheit_lookup_commands_and_live_unit(
+    device_factory: DeviceFactory,
+    install_config: InstallConfig,
+) -> None:
+    """Use the Lua reverse table for setpoints and follow the live unit bit."""
+    entity, device, values = make_ac(
+        device_factory,
+        install_config,
+        attributes={
+            ACAttributes.temp_fahrenheit: True,
+            ACAttributes.target_temperature: 18.5,
+            ACAttributes.min_temperature: 16.0,
+            ACAttributes.max_temperature: 31.5,
+        },
+        model="00000Q15",
+    )
+
+    assert entity.native_target_temperature == 65
+    assert entity.min_temp == 60
+    assert entity.max_temp == 89
+    assert entity.native_target_temperature_low == 60
+    assert entity.native_target_temperature_high == 89
+    entity.set_temperature(**{ATTR_TEMPERATURE: 65})
+    device.set_target_temperature.assert_called_once_with(
+        target_temperature=18.5,
+        mode=None,
+        zone=None,
+    )
+
+    values[ACAttributes.temp_fahrenheit] = False
+    assert entity.native_temperature_unit == UnitOfTemperature.CELSIUS
+    assert entity.native_target_temperature == pytest.approx(18.5)
+    assert entity.min_temp == pytest.approx(16.0)
+    assert entity.max_temp == pytest.approx(31.5)
+    assert entity.target_temperature_step == PRECISION_HALVES
+
+
+def test_ac_without_lua_fahrenheit_lookup_keeps_celsius(
+    device_factory: DeviceFactory,
+    install_config: InstallConfig,
+) -> None:
+    """A Fahrenheit flag alone does not opt unrelated AC models into the map."""
+    entity, device, _ = make_ac(
+        device_factory,
+        install_config,
+        attributes={
+            ACAttributes.temp_fahrenheit: True,
+            ACAttributes.target_temperature: 18.5,
+            ACAttributes.indoor_temperature: 19.0,
+        },
+        model="22259015",
+    )
+
+    assert entity.native_temperature_unit == UnitOfTemperature.CELSIUS
+    assert entity.native_target_temperature == pytest.approx(18.5)
+    assert entity.native_current_temperature == pytest.approx(19.0)
+    assert entity.target_temperature_step == PRECISION_HALVES
+    entity.set_temperature(**{ATTR_TEMPERATURE: 65})
+    device.set_target_temperature.assert_called_once_with(
+        target_temperature=65.0,
+        mode=None,
+        zone=None,
+    )
+
+
+def test_ac_lua_fahrenheit_lookup_fallbacks(
+    device_factory: DeviceFactory,
+    install_config: InstallConfig,
+) -> None:
+    """Use arithmetic fallbacks outside the table and Celsius when disabled."""
+    entity, device, values = make_ac(
+        device_factory,
+        install_config,
+        attributes={
+            ACAttributes.temp_fahrenheit: True,
+            ACAttributes.target_temperature: 32.0,
+            ACAttributes.indoor_temperature: None,
+        },
+        model="00000Q15",
+    )
+
+    assert entity.native_target_temperature == pytest.approx(89.6)
+    assert entity.native_current_temperature is None
+    entity.set_temperature(**{ATTR_TEMPERATURE: 100})
+    device.set_target_temperature.assert_called_once_with(
+        target_temperature=38.0,
+        mode=None,
+        zone=None,
+    )
+
+    values[ACAttributes.temp_fahrenheit] = False
+    assert entity.native_target_temperature == pytest.approx(32.0)
+    entity.set_temperature(**{ATTR_TEMPERATURE: 20})
+    assert device.set_target_temperature.call_args_list[-1] == call(
+        target_temperature=20.0,
+        mode=None,
+        zone=None,
+    )
 
 
 @pytest.mark.parametrize(

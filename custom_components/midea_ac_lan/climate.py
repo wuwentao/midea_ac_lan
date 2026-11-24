@@ -68,6 +68,85 @@ _LOGGER = logging.getLogger(__name__)
 TEMPERATURE_MAX = 30
 TEMPERATURE_MIN = 16
 
+# These AC Lua profiles use AC_LUA_C_TO_F / AC_LUA_F_TO_C lookup tables for
+# setpoint values.  The model/variant names are the SN8 or short variant from
+# the corresponding midea-lua filename (for example, T_0000_AC_00000Q15_...).
+# Keep this list explicit: other AC profiles may expose a temperature-unit bit
+# but do not implement the same lookup semantics.
+LUA_FAHRENHEIT_MODELS = frozenset(
+    {
+        "00000Q11",
+        "00000Q13",
+        "00000Q14",
+        "00000Q15",
+        "00000Q17",
+        "00000Q18",
+        "00000Q19",
+        "00000Q1B",
+        "00000Q1C",
+        "00000Q1E",
+        "00000Q1F",
+        "24",
+        "20601026",
+    },
+)
+
+# The table is shared by all supported profiles over the normal AC setpoint
+# range.  The 20601026 profile additionally contains 8-9.5 C entries; those
+# are included here so the model gate remains faithful if its lower limit is
+# exposed by a future capability response.
+LUA_C_TO_F = {
+    8.0: 46,
+    8.5: 47,
+    9.0: 48,
+    9.5: 49,
+    10.0: 50,
+    10.5: 51,
+    11.0: 52,
+    11.5: 53,
+    12.0: 54,
+    12.5: 54,
+    13.0: 55,
+    13.5: 56,
+    14.0: 57,
+    14.5: 58,
+    15.0: 59,
+    15.5: 59,
+    16.0: 60,
+    16.5: 61,
+    17.0: 62,
+    17.5: 63,
+    18.0: 64,
+    18.5: 65,
+    19.0: 66,
+    19.5: 67,
+    20.0: 68,
+    20.5: 69,
+    21.0: 70,
+    21.5: 71,
+    22.0: 72,
+    22.5: 73,
+    23.0: 73,
+    23.5: 74,
+    24.0: 75,
+    24.5: 76,
+    25.0: 77,
+    25.5: 78,
+    26.0: 79,
+    26.5: 80,
+    27.0: 81,
+    27.5: 82,
+    28.0: 82,
+    28.5: 83,
+    29.0: 84,
+    29.5: 85,
+    30.0: 86,
+    30.5: 87,
+    31.0: 88,
+    31.5: 89,
+}
+LUA_F_TO_C = {fahrenheit: celsius for celsius, fahrenheit in LUA_C_TO_F.items()}
+
 FAN_SILENT = "silent"
 FAN_FULL_SPEED = "full"
 
@@ -385,7 +464,7 @@ class MideaEDTeaBarClimate(NativeTemperatureCompat, MideaEntity, ClimateEntity):
         self.schedule_update_if_running()
 
 
-class MideaACClimate(MideaClimate):
+class MideaACClimate(MideaClimate):  # ruff: ignore[too-many-public-methods]
     """Midea AC Climate Entries."""
 
     _device: MideaACDevice
@@ -446,6 +525,87 @@ class MideaACClimate(MideaClimate):
             and "indoor_humidity" in config_entry.options["sensors"]
         )
         self._parse_capability_customize(config_entry)
+
+    @property
+    def _uses_lua_fahrenheit(self) -> bool:
+        """Whether this model uses the vendor's Fahrenheit lookup table."""
+        return str(self._device.model) in LUA_FAHRENHEIT_MODELS and bool(
+            self._device.get_attribute(ACAttributes.temp_fahrenheit),
+        )
+
+    def _target_celsius_to_native(self, value: float) -> float:
+        """Convert a Lua setpoint Celsius value to the entity's native unit.
+
+        Returns:
+            The setpoint in the unit exposed by Home Assistant.
+
+        """
+        if not self._uses_lua_fahrenheit:
+            return value
+        celsius = round(float(value) * 2) / 2
+        mapped = LUA_C_TO_F.get(celsius)
+        if mapped is not None:
+            return float(mapped)
+        return celsius * 9.0 / 5.0 + 32.0
+
+    def _target_native_to_celsius(self, value: float) -> float:
+        """Convert an entity-native setpoint to the device's Celsius value.
+
+        Returns:
+            The setpoint in Celsius for the Midea LAN command.
+
+        """
+        if not self._uses_lua_fahrenheit:
+            return value
+        fahrenheit = round(float(value))
+        mapped = LUA_F_TO_C.get(fahrenheit)
+        if mapped is not None:
+            return float(mapped)
+        return (float(value) - 32.0) * 5.0 / 9.0
+
+    @property
+    def native_temperature_unit(self) -> str:
+        """Live native unit used by the model's setpoint protocol."""
+        return (
+            str(UnitOfTemperature.FAHRENHEIT)
+            if self._uses_lua_fahrenheit
+            else str(UnitOfTemperature.CELSIUS)
+        )
+
+    @property
+    def native_target_temperature(self) -> float:
+        """Midea AC target temperature in the live native unit."""
+        value = cast(
+            "float",
+            self._device.get_attribute(ACAttributes.target_temperature),
+        )
+        return self._target_celsius_to_native(value)
+
+    @property
+    def native_current_temperature(self) -> float | None:
+        """Midea AC indoor temperature in the live native unit.
+
+        Lua's Fahrenheit lookup applies to the setpoint field only. Indoor
+        temperature is a physical Celsius reading, so it uses the ordinary
+        arithmetic conversion when the entity is exposed in Fahrenheit.
+        """
+        value = self._device.get_attribute(ACAttributes.indoor_temperature)
+        if not isinstance(value, (int, float)):
+            return None
+        celsius = float(value)
+        if not self._uses_lua_fahrenheit:
+            return celsius
+        return celsius * 9.0 / 5.0 + 32.0
+
+    @property
+    def native_target_temperature_low(self) -> float:
+        """Lowest target temperature in the live native unit."""
+        return self.min_temp
+
+    @property
+    def native_target_temperature_high(self) -> float:
+        """Highest target temperature in the live native unit."""
+        return self.max_temp
 
     def _parse_capability_customize(self, config_entry: ConfigEntry) -> None:
         """Parse the swing / hvac_modes customize overrides (highest priority).
@@ -656,7 +816,8 @@ class MideaACClimate(MideaClimate):
         """
         if ATTR_TEMPERATURE not in kwargs:
             return
-        temperature = float(int((float(kwargs[ATTR_TEMPERATURE]) * 2) + 0.5)) / 2
+        temperature = self._target_native_to_celsius(float(kwargs[ATTR_TEMPERATURE]))
+        temperature = float(int((temperature * 2) + 0.5)) / 2
         hvac_mode = kwargs.get(ATTR_HVAC_MODE)
         if hvac_mode == HVACMode.OFF:
             self.turn_off()
@@ -733,6 +894,8 @@ class MideaACClimate(MideaClimate):
     @property
     def target_temperature_step(self) -> float:
         """Midea AC Climate target temperature step."""
+        if self._uses_lua_fahrenheit:
+            return float(PRECISION_WHOLE)
         return float(
             PRECISION_WHOLE if self._device.temperature_step == 1 else PRECISION_HALVES,
         )
@@ -771,17 +934,17 @@ class MideaACClimate(MideaClimate):
     def min_temp(self) -> float:
         """Midea AC Climate min temperature (from device capability)."""
         value = self._device.get_attribute(ACAttributes.min_temperature)
-        if value is None:
-            return TEMPERATURE_MIN
-        return cast("float", value)
+        if not isinstance(value, (int, float)):
+            value = TEMPERATURE_MIN
+        return self._target_celsius_to_native(value)
 
     @property
     def max_temp(self) -> float:
         """Midea AC Climate max temperature (from device capability)."""
         value = self._device.get_attribute(ACAttributes.max_temperature)
-        if value is None:
-            return TEMPERATURE_MAX
-        return cast("float", value)
+        if not isinstance(value, (int, float)):
+            value = TEMPERATURE_MAX
+        return self._target_celsius_to_native(value)
 
     def set_fan_mode(self, fan_mode: str) -> None:
         """Midea AC Climate set fan mode."""
