@@ -94,6 +94,7 @@ def make_ac(
     *,
     attributes: dict[object, object] | None = None,
     capabilities: object = None,
+    model: str = "TEST-MODEL",
     **options: object,
 ) -> tuple[MideaACClimate, Mock, dict[object, object]]:
     """Build an AC climate with explicit capabilities."""
@@ -101,6 +102,7 @@ def make_ac(
     device, values = device_factory(
         device_type=DeviceType.AC,
         attributes=attributes,
+        model=model,
     )
     device.capabilities = {} if capabilities is None else capabilities
     device.temperature_step = 0.5
@@ -737,6 +739,19 @@ def test_ac_state_and_commands(
         swing_horizontal=True,
     )
     assert "Error setting temperature" in caplog.text
+
+
+def test_ac_climate_converter_fallback_for_older_library(
+    device_factory: DeviceFactory,
+    install_config: InstallConfig,
+) -> None:
+    """Retain Celsius behavior when the installed library lacks its new API."""
+    entity, device, _ = make_ac(device_factory, install_config)
+    device.target_temperature_for_display = None
+    device.target_temperature_from_display = None
+
+    assert entity._target_celsius_to_native(20.0) == pytest.approx(20.0)
+    assert entity._target_native_to_celsius(68.0) == pytest.approx(68.0)
 
 
 @pytest.mark.parametrize(

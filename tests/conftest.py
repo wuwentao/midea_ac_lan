@@ -82,6 +82,9 @@ def mock_device() -> Mock:
     device.register_update.side_effect = callbacks.append
     device.unregister_update.side_effect = callbacks.remove
     device.get_attribute.side_effect = device.attributes.get
+    device.uses_fahrenheit_setpoint = False
+    device.target_temperature_for_display = Mock(side_effect=lambda value: value)
+    device.target_temperature_from_display = Mock(side_effect=lambda value: value)
 
     def notify(status: dict[str, Any]) -> None:
         """Deliver a report, including any availability transition."""

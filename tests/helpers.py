@@ -75,6 +75,9 @@ def device_factory() -> DeviceFactory:
             return values.get(attr if attr is not None else attribute)
 
         device.get_attribute.side_effect = get_attribute
+        device.uses_fahrenheit_setpoint = False
+        device.target_temperature_for_display.side_effect = lambda value: value
+        device.target_temperature_from_display.side_effect = lambda value: value
         return device, values
 
     return _factory
