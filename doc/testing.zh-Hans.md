@@ -12,6 +12,7 @@
 
 ```sh
 UV_PROJECT_ENVIRONMENT=.venv-test312 uv sync --locked --no-default-groups --group test --python 3.12
+UV_PROJECT_ENVIRONMENT=.venv-test312 uv run --no-sync python scripts/install_midea_lan.py
 UV_PROJECT_ENVIRONMENT=.venv-test312 uv run --no-sync pytest
 UV_PROJECT_ENVIRONMENT=.venv-test312 uv run --no-sync pytest --cov=custom_components.midea_ac_lan --cov-report=term-missing --cov-report=html --cov-report=xml
 ```

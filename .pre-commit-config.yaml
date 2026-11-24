@@ -32,7 +32,7 @@ repos:
   - repo: https://github.com/astral-sh/uv-pre-commit
     rev: 0.12.1
     hooks:
-      # Keep uv.lock in sync with pyproject.toml.
+      # Keep uv.lock in sync with the development/test dependencies in pyproject.toml.
       - id: uv-lock
   - repo: https://github.com/commitizen-tools/commitizen
     rev: v4.17.0
@@ -72,6 +72,6 @@ repos:
         pass_filenames: false
       - id: pylint
         name: pylint
-        entry: uv run pylint
+        entry: uv run --no-sync pylint
         language: system
         types: [python]

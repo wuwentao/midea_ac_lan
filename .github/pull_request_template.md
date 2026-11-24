@@ -24,15 +24,25 @@
 <!--
 Device-protocol work normally starts with a Lua source in midea-lua, is
 implemented and tested in midea-lan, and is then exposed as Home Assistant
-entities here. Open and cross-link the applicable PRs. Do not bump the
-midea-lan requirement in a feature PR; maintainers update it after the library
-release.
+entities here. Open and cross-link the applicable PRs.
 
-To test against unreleased midea-lan work, mark this PR as a draft and
-temporarily point the manifest.json requirements entry at the midea-lan test
-branch/commit (e.g. "midea-lan @ git+https://github.com/<owner>/midea-lan.git@<ref>").
-Remove that change and restore the released pin before marking the PR ready for
-review.
+While the related `midea-lan` lib PR is unmerged, the corresponding
+`midea_ac_lan` integration PR may point the `midea-lan` requirement in
+`custom_components/midea_ac_lan/manifest.json` at your fork/branch so integration
+CI and end-to-end testing can run.
+CI and local setup install the runtime requirement directly from manifest.json;
+`pyproject.toml` and `uv.lock` only manage the development and test environment.
+Do not change either file to test unreleased midea-lan work. Once the `midea-lan`
+lib PR is merged, change the integration PR's manifest requirement to upstream
+main:
+"midea-lan@git+https://github.com/wuwentao/midea-lan.git@main". You may also
+use upstream main from the start and wait for the lib PR to merge. Before this
+integration PR is merged, its manifest must reference either upstream `main` or
+a released `midea-lan` version; it must not retain a contributor fork/branch.
+Maintainers periodically publish an integration release based on merged PRs:
+they generate the changelog, update `manifest.json` to a released `midea-lan`
+version containing the required library changes, and publish the `midea_ac_lan`
+release.
 -->
 
 ## Appliance and App / Cloud impact
