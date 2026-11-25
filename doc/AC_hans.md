@@ -165,6 +165,7 @@
 | sensor.{DEVICEID}\_indoor_fan_speed            | sensor        | Indoor Fan Speed                 | 内风机转速        |
 | sensor.{DEVICEID}\_target_indoor_fan_speed     | sensor        | Target Indoor Fan Speed          | 内风机目标转速    |
 | sensor.{DEVICEID}\_water_pump_running          | binary_sensor | Water Pump Running               | 水泵运行          |
+| binary_sensor.{DEVICEID}\_defrosting           | binary_sensor | Defrosting                       | 除霜              |
 | fan.{DEVICEID}\_fresh_air                      | fan           | Fresh Air                        | 新风              |
 | fan.{DEVICEID}\_fresh_air_exhaust              | fan           | Fresh Air Exhaust                | 排风              |
 | select.{DEVICEID}\_fresh_air_mode              | select        | Fresh Air Speed                  | 新风风速          |
@@ -193,6 +194,11 @@
 | switch.{DEVICEID}\_fan_speed                   | number        | Fan Speed Percent                | 风速百分比        |
 
 服务诊断实体为可选实体。如果设备不返回相应的美的分组数据，这些实体可能保持未知状态。
+
+可选的除霜传感器会在设备通过第 5 组数据报告有效的除霜状态后出现在集成选项中，
+包括设备报告未在除霜时。启用后，如果设备离线或尚未获得除霜状态，传感器将显示为不可用。
+设备在线时，如果后续第 5 组数据缺失或不完整，传感器可能保留上一次报告的状态，
+该状态不会自动过期。
 
 ## 内置新风系统
 

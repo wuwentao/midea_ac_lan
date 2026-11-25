@@ -4504,6 +4504,16 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "icon": "mdi:water-pump",
                 "device_class": BinarySensorDeviceClass.RUNNING,
             },
+            # group 5: defrost state
+            ACAttributes.defrosting: {
+                "type": Platform.BINARY_SENSOR,
+                "translation_key": "defrosting",
+                "name": "Defrosting",
+                "icon": "mdi:snowflake-melt",
+                "device_class": BinarySensorDeviceClass.RUNNING,
+                "required_attribute": ACAttributes.defrosting,
+                "available_value_attribute": ACAttributes.defrosting,
+            },
             # group 7: real time compressor power
             ACAttributes.compressor_power: {
                 "type": Platform.SENSOR,
