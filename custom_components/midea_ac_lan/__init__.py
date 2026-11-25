@@ -11,6 +11,8 @@ integration load process:
 
 import asyncio
 import logging
+import re
+from collections.abc import Mapping
 from typing import Any, cast
 
 import homeassistant.helpers.config_validation as cv
@@ -32,7 +34,7 @@ from homeassistant.const import (
 from homeassistant.core import Event, HomeAssistant
 from homeassistant.helpers.typing import ConfigType
 from midealan.device import DeviceType, MideaDevice, ProtocolVersion
-from midealan.devices import device_selector
+from midealan.devices import device_selector, x44
 from midealan.discover import discover
 
 from .const import (
@@ -55,6 +57,46 @@ from .const import (
 from .midea_devices import MIDEA_DEVICES
 
 _LOGGER = logging.getLogger(__name__)
+
+
+def x44_model_info(data: Mapping[str, Any]) -> tuple[str | None, int | None]:
+    """Look up the panel model for display and HA entity selection.
+
+    Returns
+    -------
+    The recognized model name and delegated device type, when available.
+
+    """
+    model = data.get(CONF_MODEL)
+    sn8 = data.get(CONF_SN8)
+    resolve = getattr(x44, "resolve_profile", None)
+    if not callable(resolve):
+        # The older library only implements the 404M0001 screen.
+        codes = {(value or "").strip(" \t\r\n\x00").upper() for value in (model, sn8)}
+        codes = {code for code in codes if re.fullmatch(r"[A-Z0-9]{8}", code)}
+        return ("ZKP-3INCH01" if codes - {"00000000"} == {"404M0001"} else None), None
+    # The pinned SDK used by pylint predates this optional interface.
+    profile = resolve(  # pylint: disable=not-callable
+        model,
+        data.get(CONF_SUBTYPE) or 0,
+        sn8,
+    )
+    return getattr(profile, "name", None), getattr(profile, "device_type", None)
+
+
+def x44_entity_type(data: Mapping[str, Any]) -> int | None:
+    """Select the existing HA entity table for a panel.
+
+    Returns
+    -------
+    The supported device type, or None if HA has no mapping for this model.
+
+    """
+    name, target = x44_model_info(data)
+    if isinstance(target, int):
+        return target if target in MIDEA_DEVICES else None
+    # The existing 0x44 entity table describes only this native screen.
+    return DeviceType.X44 if name == "ZKP-3INCH01" else None
 
 
 def _close_device(device: MideaDevice) -> None:
@@ -132,7 +174,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:  # ruff:
     True if entry is configured.
 
     """
-    hass.data.setdefault(DOMAIN, {})
+    _device_store(hass)
     attributes = []
     for device_entities in MIDEA_DEVICES.values():
         for attribute_name, attribute in cast(
@@ -243,6 +285,8 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
     device_type = config_entry.data.get(CONF_TYPE)
     if device_type == CONF_ACCOUNT:
         return True
+    if device_type == DeviceType.X44 and x44_entity_type(config_entry.data) is None:
+        return True
     name = config_entry.data.get(CONF_NAME)
     device_id: int = config_entry.data[CONF_DEVICE_ID]
     if name is None:
@@ -256,8 +300,8 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
         ip_address = config_entry.data.get(CONF_IP_ADDRESS)
     refresh_interval = config_entry.options.get(CONF_REFRESH_INTERVAL)
     port: int = config_entry.data[CONF_PORT]
-    model: str = config_entry.data[CONF_MODEL]
-    subtype = config_entry.data.get(CONF_SUBTYPE, 0)
+    model: str = config_entry.data.get(CONF_MODEL) or ""
+    subtype = config_entry.data.get(CONF_SUBTYPE) or 0
     protocol: ProtocolVersion = ProtocolVersion(config_entry.data[CONF_PROTOCOL])
     customize: str = config_entry.options.get(CONF_CUSTOMIZE, "")
     mac: str | None = config_entry.data.get(CONF_MAC)
@@ -345,6 +389,9 @@ async def async_unload_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> 
     device_type = config_entry.data.get(CONF_TYPE)
     if device_type == CONF_ACCOUNT:
         return True
+    device_id = config_entry.data.get(CONF_DEVICE_ID)
+    if device_type == DeviceType.X44 and device_id not in _device_store(hass):
+        return True
     # Unload the platforms first; only tear the device down if that succeeded,
     # and report the real result so a failed platform unload isn't masked.
     # bool() keeps mypy happy: async_unload_platforms is typed to return Any.
@@ -354,12 +401,10 @@ async def async_unload_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> 
             ALL_PLATFORM,
         ),
     )
-    if unload_ok:
-        device_id = config_entry.data.get(CONF_DEVICE_ID)
-        if device_id is not None:
-            dm = _device_store(hass).pop(device_id, None)
-            if dm is not None:
-                _close_device(dm)
+    if unload_ok and device_id is not None:
+        dm = _device_store(hass).pop(device_id, None)
+        if dm is not None:
+            _close_device(dm)
     return unload_ok
 
 

@@ -64,6 +64,7 @@ if TYPE_CHECKING:
 
 from homeassistant.config_entries import ConfigFlowResult  # pylint: disable=E0611
 
+from . import x44_entity_type, x44_model_info
 from .const import (
     CONF_ACCOUNT,
     CONF_CLOUD_NAME,
@@ -232,6 +233,24 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                 or storage_device.get(CONF_KEY) is None
             )
         )
+
+    def _default_device_name(self, device: dict[str, Any]) -> str | None:
+        """Choose the model name used in discovery and as the form default.
+
+        Returns
+        -------
+        The panel's model-specific name or the registered device type name.
+
+        """
+        device_type = device.get(CONF_TYPE)
+        name = self.supports.get(device_type)
+        if device_type == DeviceType.X44:
+            model, _ = x44_model_info(device)
+            return {"KJR-90S": "KJR 90S", "ZKP-3INCH01": "ZKP 3 Inch"}.get(
+                model or "",
+                name,
+            )
+        return name
 
     def _already_configured(self, device_id: int | str, ip_address: str) -> bool:
         """Check device from json with device_id or ip address.
@@ -416,7 +435,12 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
             green = "<font color=gree>YES</font>"
             red = "<font color=red>NO</font>"
             for device_id, device in all_devices.items():
-                supported = device.get(CONF_TYPE) in self.supports
+                device_type = device[CONF_TYPE]
+                type_label = f"{device_type:02X}"
+                supported = device_type in self.supports
+                if device_type == DeviceType.X44:
+                    supported = x44_entity_type(device) is not None
+                    type_label = f"{type_label} ({self._default_device_name(device)})"
                 # TLS devices (udp_version >= 4) encrypt their SN on the LAN,
                 # so discover() returns an empty sn and flags sn_encrypted.
                 # Show a hint instead of a blank cell so the user understands
@@ -437,7 +461,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                     else device.get("support_reason") or "not yet supported"
                 )
                 table += (
-                    f"\n{device_id}|{f'{device.get(CONF_TYPE):02X}'}|"
+                    f"\n{device_id}|{type_label}|"
                     f"{device.get(CONF_IP_ADDRESS)}|"
                     f"{sn}|"
                     f"{green if supported else red}|"
@@ -494,11 +518,9 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                     str(device_id),
                     device[CONF_IP_ADDRESS],
                 ):
-                    # fmt: off
                     self.available_device[device_id] = (
-                        f"{device_id} ({self.supports.get(device.get(CONF_TYPE))})"
+                        f"{device_id} ({self._default_device_name(device)})"
                     )
-                    # fmt: on
             if len(self.available_device) > 0:
                 return await self.async_step_auto()
             return await self.async_step_discovery(error="no_devices")
@@ -931,19 +953,15 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
             return await self.async_step_manually(
                 error="Device auth failed with input config",
             )
+        name = self.found_device.get(CONF_NAME) or self._default_device_name(
+            self.found_device,
+        )
         protocol = self.found_device.get(CONF_PROTOCOL)
         return self.async_show_form(
             step_id="manually",
             data_schema=vol.Schema(
                 {
-                    vol.Required(
-                        CONF_NAME,
-                        default=(
-                            self.found_device.get(CONF_NAME)
-                            if self.found_device.get(CONF_NAME)
-                            else self.supports.get(self.found_device.get(CONF_TYPE))
-                        ),
-                    ): str,
+                    vol.Required(CONF_NAME, default=name): str,
                     vol.Required(
                         CONF_DEVICE_ID,
                         default=self.found_device.get(CONF_DEVICE_ID),
@@ -1033,6 +1051,8 @@ class MideaLanOptionsFlowHandler(OptionsFlow):
         self._device_type = config_entry.data.get(CONF_TYPE)
         if self._device_type is None:
             self._device_type = 0xAC
+        elif self._device_type == DeviceType.X44:
+            self._device_type = x44_entity_type(config_entry.data)
         # Stale keys (attributes no longer in MIDEA_DEVICES) are filtered out
         # downstream in async_step_init, where the multi-select defaults are
         # computed as `set(sensors) & set(options)` / `set(switches) & ...` —
@@ -1068,11 +1088,13 @@ class MideaLanOptionsFlowHandler(OptionsFlow):
         ) | set(self._config_entry.options.get(CONF_SWITCHES, []))
         for attribute, attribute_config in cast(
             "dict",
-            MIDEA_DEVICES[cast("int", self._device_type)]["entities"],
+            MIDEA_DEVICES[cast("int", self._device_type)]["entities"]
+            if self._device_type is not None
+            else {},
         ).items():
             if not supports_device(
                 self._config_entry.data.get(CONF_MODEL),
-                self._config_entry.data.get(CONF_SUBTYPE, 0),
+                self._config_entry.data.get(CONF_SUBTYPE) or 0,
                 attribute_config,
             ):
                 continue
