@@ -4510,6 +4510,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "translation_key": "defrosting",
                 "name": "Defrosting",
                 "icon": "mdi:snowflake-melt",
+                "device_class": BinarySensorDeviceClass.RUNNING,
                 "required_attribute": ACAttributes.defrosting,
                 "available_value_attribute": ACAttributes.defrosting,
             },

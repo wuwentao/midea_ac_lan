@@ -4,6 +4,7 @@ from unittest.mock import Mock
 
 import pytest
 import voluptuous as vol
+from homeassistant.components.binary_sensor import BinarySensorDeviceClass
 from homeassistant.const import (
     CONF_SENSORS,
     STATE_OFF,
@@ -75,6 +76,7 @@ async def test_selected_defrost_state_and_reconnection(
     registry_entry = er.async_get(hass).async_get(ENTITY_ID)
     assert registry_entry is not None
     assert registry_entry.unique_id == f"{DOMAIN}.{TEST_DEVICE_ID}_{DEFROST}"
+    assert registry_entry.original_device_class == BinarySensorDeviceClass.RUNNING
     assert hass.states.get(ENTITY_ID).state == STATE_UNAVAILABLE
 
     result = await hass.config_entries.options.async_init(config_entry.entry_id)
