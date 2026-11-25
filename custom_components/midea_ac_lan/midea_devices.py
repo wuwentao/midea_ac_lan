@@ -157,6 +157,7 @@ FRESH_AIR_EXHAUST = "fresh_air_exhaust"
 FRESH_AIR_EXHAUST_MODE = "fresh_air_exhaust_mode"
 FRESH_AIR_EXHAUST_POWER = "fresh_air_exhaust_power"
 FRESH_AIR_EXHAUST_SPEED = "fresh_air_exhaust_speed"
+AC_UNSUPPORTED_DISPLAY_DEVICES = [("00000Q1B", 44204)]
 ED_TEA_BAR_SUBTYPES = [395]
 ED_TEA_BAR_MODELS = ["63000622"]
 ED_TEA_BAR_DEVICES = [(ED_TEA_BAR_MODELS[0], ED_TEA_BAR_SUBTYPES[0])]
@@ -4229,12 +4230,14 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             },
             ACAttributes.screen_display: {
                 "type": Platform.SWITCH,
+                "excluded_devices": AC_UNSUPPORTED_DISPLAY_DEVICES,
                 "translation_key": "screen_display",
                 "name": "Screen Display",
                 "icon": "mdi:television-ambient-light",
             },
             ACAttributes.screen_display_alternate: {
                 "type": Platform.SWITCH,
+                "excluded_devices": AC_UNSUPPORTED_DISPLAY_DEVICES,
                 "translation_key": "screen_display_alternate",
                 "name": "Screen Display Alternate",
                 "icon": "mdi:television-ambient-light",

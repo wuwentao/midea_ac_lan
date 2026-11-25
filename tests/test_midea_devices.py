@@ -9,8 +9,10 @@ import homeassistant.const as ha_const
 import pytest
 from homeassistant.const import MAJOR_VERSION, MINOR_VERSION, Platform
 from midealan.const import DeviceType
+from midealan.devices.ac import DeviceAttributes as ACAttributes
 from midealan.devices.x44 import DeviceAttributes as X44Attributes
 
+from custom_components.midea_ac_lan.const import supports_device
 from custom_components.midea_ac_lan.midea_devices import MIDEA_DEVICES
 
 from .helpers import load_integration_module
@@ -18,6 +20,28 @@ from .helpers import load_integration_module
 TRANSLATIONS_DIR = (
     Path(__file__).parent.parent / "custom_components" / "midea_ac_lan" / "translations"
 )
+
+
+@pytest.mark.parametrize(
+    "attribute",
+    [
+        ACAttributes.screen_display,
+        ACAttributes.screen_display_alternate,
+    ],
+)
+def test_q1b_44204_excludes_unsupported_display_switches(
+    attribute: ACAttributes,
+) -> None:
+    """Hide display controls that Q1B subtype 44204 cannot execute."""
+    entities = cast(
+        "dict[ACAttributes, dict[str, object]]",
+        MIDEA_DEVICES[DeviceType.AC]["entities"],
+    )
+    config = entities[attribute]
+
+    assert not supports_device("00000Q1B", 44204, config)
+    assert supports_device("00000Q1B", 1, config)
+    assert supports_device("00000Q13", 0, config)
 
 
 def test_x13_entity_names_exist_in_all_translations() -> None:
