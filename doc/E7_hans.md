@@ -8,7 +8,7 @@
 - 支持预约与定时设置
 - 上报运行时间、剩余时间与工作阶段
 
-`function_no` 的可设置范围取决于设备子类型：子类型 6 为 0–65535；子类型
+`function_num` 的可设置范围取决于设备子类型：子类型 6 为 0–65535；子类型
 8、9、10 为 0–4294967295。
 
 ## 自定义
@@ -26,7 +26,7 @@
 | 实体ID                               | 类型   | 描述     |
 | ------------------------------------ | ------ | -------- |
 | number.{DEVICEID}\_work_status       | number | 工作状态 |
-| number.{DEVICEID}\_function_no       | number | 功能编号 |
+| number.{DEVICEID}\_function_num      | number | 功能编号 |
 | number.{DEVICEID}\_fire_level        | number | 火力档位 |
 | number.{DEVICEID}\_time_reserve_hr   | number | 预约小时 |
 | number.{DEVICEID}\_time_reserve_min  | number | 预约分钟 |
@@ -50,11 +50,11 @@
 
 设置设备属性。服务数据:
 
-| 名称      | 描述                                                                                                                                               |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| device_id | 设备的 Appliance code (设备 ID)                                                                                                                    |
-| attribute | "work_status"<br />"function_no"<br />"fire_level"<br />"time_reserve_hr"<br />"time_reserve_min"<br />"definite_time_hr"<br />"definite_time_min" |
-| value     | 位于实体范围内的整数                                                                                                                               |
+| 名称      | 描述                                                                                                                                                |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| device_id | 设备的 Appliance code (设备 ID)                                                                                                                     |
+| attribute | "work_status"<br />"function_num"<br />"fire_level"<br />"time_reserve_hr"<br />"time_reserve_min"<br />"definite_time_hr"<br />"definite_time_min" |
+| value     | 位于实体范围内的整数                                                                                                                                |
 
 示例
 

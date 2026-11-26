@@ -59,6 +59,7 @@ from .midea_devices import MIDEA_DEVICES
 _LOGGER = logging.getLogger(__name__)
 
 _ATTRIBUTE_ALIASES: dict[int, dict[str, str]] = {
+    DeviceType.E7: {"function_no": "function_num"},
     DeviceType.EB: {"function_no": "function_num"},
 }
 
@@ -419,21 +420,21 @@ async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry) ->
         config_entry.version == entry_version_2
         and config_entry.minor_version == entry_minor_version_2
     ):
-        _migrate_eb_function_num(hass, config_entry)
+        _migrate_function_num(hass, config_entry)
 
     return True
 
 
-def _migrate_eb_function_num(
+def _migrate_function_num(
     hass: HomeAssistant,
     config_entry: ConfigEntry,
 ) -> None:
-    """Migrate the released EB function_no selection and entity identity."""
+    """Migrate the released E7/EB function_no selection and entity identity."""
     legacy_attribute = "function_no"
     current_attribute = "function_num"
     options = dict(config_entry.options)
 
-    if config_entry.data.get(CONF_TYPE) == DeviceType.EB:
+    if config_entry.data.get(CONF_TYPE) in _ATTRIBUTE_ALIASES:
         selected_controls = options.get(CONF_SWITCHES)
         if (
             isinstance(selected_controls, list)

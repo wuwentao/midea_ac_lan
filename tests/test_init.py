@@ -429,11 +429,14 @@ async def test_async_migrate_entry_versions() -> None:
     hass.config_entries.async_update_entry.assert_not_called()
 
 
-async def test_migrate_eb_function_num_selection_and_entity() -> None:
-    """Preserve the released EB option and entity while renaming its attribute."""
+@pytest.mark.parametrize("device_type", [DeviceType.E7, DeviceType.EB])
+async def test_migrate_function_num_selection_and_entity(
+    device_type: DeviceType,
+) -> None:
+    """Preserve released cooking-device options and entities during the rename."""
     hass = Mock()
     entry = config_entry(
-        data=entry_data(**{CONF_TYPE: DeviceType.EB}),
+        data=entry_data(**{CONF_TYPE: device_type}),
         options={CONF_SWITCHES: ["function_no", "work_status"]},
     )
     entry.minor_version = 2
@@ -457,8 +460,8 @@ async def test_migrate_eb_function_num_selection_and_entity() -> None:
     )
 
 
-async def test_migrate_eb_function_num_legacy_entity_id() -> None:
-    """Migrate an EB entity that predates unique-id registry lookup."""
+async def test_migrate_function_num_legacy_entity_id() -> None:
+    """Migrate a cooking entity that predates unique-id registry lookup."""
     hass = Mock()
     entry = config_entry(data=entry_data(**{CONF_TYPE: DeviceType.EB}))
     entry.minor_version = 2
@@ -479,10 +482,10 @@ async def test_migrate_eb_function_num_legacy_entity_id() -> None:
 
 
 @pytest.mark.parametrize("device_id", [None, 42])
-async def test_migrate_eb_function_num_without_legacy_entity(
+async def test_migrate_function_num_without_legacy_entity(
     device_id: int | None,
 ) -> None:
-    """Complete migration when no prior EB entity registry entry exists."""
+    """Complete migration when no prior cooking entity registry entry exists."""
     hass = Mock()
     entry = config_entry(
         data=entry_data(
