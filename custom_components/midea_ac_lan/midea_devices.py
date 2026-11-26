@@ -7802,7 +7802,6 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             "refrigeracao_rapida": {
                 "type": Platform.SWITCH,
                 "attribute": "storage_mode",
-                "unique_id_attribute": "storage_mode",
                 "translation_key": "storage_mode",
                 "name": "Refrigeração Rápida",
                 "icon": "mdi:snowflake",
@@ -7813,7 +7812,6 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             "congelamento_rapido": {
                 "type": Platform.SWITCH,
                 "attribute": "freezing_mode",
-                "unique_id_attribute": "freezing_mode",
                 "translation_key": "freezing_mode",
                 "name": "Congelamento Rápido",
                 "icon": "mdi:snowflake-alert",
@@ -7824,7 +7822,6 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
             "modo_ferias": {
                 "type": Platform.SWITCH,
                 "attribute": "holiday_mode",
-                "unique_id_attribute": "holiday_mode",
                 "translation_key": "holiday_on",
                 "name": "Modo Férias",
                 "icon": "mdi:palm-tree",

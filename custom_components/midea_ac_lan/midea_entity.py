@@ -38,8 +38,7 @@ class MideaEntity(Entity):
             "state_attribute",
             self._attribute_key,
         )
-        unique_id_key = self._config.get("unique_id_attribute", entity_key)
-        self._unique_id = f"{DOMAIN}.{self._device.device_id}_{unique_id_key}"
+        self._unique_id = f"{DOMAIN}.{self._device.device_id}_{entity_key}"
         # Build entity_id with the correct platform domain (sensor.*, switch.*, …)
         # instead of the integration domain. Keeps the legacy "<device_id>_<key>"
         # object_id so existing entity_ids are unchanged, while fixing the HA

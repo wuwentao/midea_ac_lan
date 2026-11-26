@@ -100,35 +100,6 @@ def test_remove_unsupported_entities() -> None:
     ]
 
 
-def test_remove_unsupported_entities_uses_configured_unique_id_suffix() -> None:
-    """Cleanup uses the same unique-ID suffix as entity creation."""
-    device = Mock(spec=MideaDevice)
-    device.device_type = 1
-    device.device_id = 42
-    device.model = "MODEL"
-    device.subtype = 1
-    registry = Mock()
-    registry.async_get_entity_id.return_value = "switch.42_refrigeracao_rapida"
-    config = {
-        "refrigeracao_rapida": {
-            "type": Platform.SWITCH,
-            "unique_id_attribute": "storage_mode",
-            "models": ["OTHER"],
-        },
-    }
-    with (
-        patch.object(midea_ac_lan, "MIDEA_DEVICES", {1: {"entities": config}}),
-        patch("custom_components.midea_ac_lan.er.async_get", return_value=registry),
-    ):
-        midea_ac_lan._remove_unsupported_entities(Mock(), device)
-    registry.async_get_entity_id.assert_called_once_with(
-        "switch",
-        DOMAIN,
-        f"{DOMAIN}.42_storage_mode",
-    )
-    registry.async_remove.assert_called_once_with("switch.42_refrigeracao_rapida")
-
-
 async def test_update_listener_reloads_entry() -> None:
     """Reload the changed config entry."""
     hass = Mock()
