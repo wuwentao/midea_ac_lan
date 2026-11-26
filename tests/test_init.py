@@ -44,15 +44,16 @@ class Attribute(StrEnum):
     POWER = "power"
 
 
-def test_close_device_success_and_expected_errors() -> None:
+async def test_close_device_success_and_expected_errors() -> None:
     """Close normally and absorb connection cleanup failures."""
     device = Mock()
-    midea_ac_lan._close_device(device)
-    device.close.assert_called_once_with()
+    device.close = AsyncMock()
+    await midea_ac_lan._close_device(device)
+    device.close.assert_awaited_once_with()
     for error in (OSError("socket"), ConnectionError("closed"), AttributeError("old")):
         device.close.reset_mock(side_effect=True)
         device.close.side_effect = error
-        midea_ac_lan._close_device(device)
+        await midea_ac_lan._close_device(device)
 
 
 def test_device_store_initializes_nested_mapping() -> None:
@@ -221,6 +222,10 @@ def config_entry(
 
 def setup_hass(device: Mock | None) -> tuple[Mock, Mock, Mock]:
     """Build Home Assistant lifecycle mocks and captured listener removal."""
+    if device is not None:
+        # open()/close() became coroutines in the asyncio transport migration.
+        device.open = AsyncMock()
+        device.close = AsyncMock()
     hass = Mock()
     hass.data = {}
     hass.async_add_import_executor_job = AsyncMock(return_value=device)
@@ -289,7 +294,7 @@ async def test_async_setup_entry_success_and_stop_cleanup() -> None:
         assert await midea_ac_lan.async_setup_entry(hass, entry)
 
     device.set_refresh_interval.assert_called_once_with(15)
-    device.open.assert_called_once_with()
+    device.open.assert_awaited_once_with()
     assert hass.data[DOMAIN][DEVICES][42] is device
     config_entries.async_forward_entry_setups.assert_awaited_once_with(
         entry,
@@ -300,10 +305,9 @@ async def test_async_setup_entry_success_and_stop_cleanup() -> None:
     assert hass.bus.async_listen_once.call_args.args[0] == EVENT_HOMEASSISTANT_STOP
     stop_callback = hass.bus.async_listen_once.call_args.args[1]
     await stop_callback(Mock())
-    hass.async_add_executor_job.assert_awaited_once_with(
-        midea_ac_lan._close_device,
-        device,
-    )
+    # _async_close_on_stop awaits _close_device(device) directly, which awaits
+    # the now-coroutine device.close() instead of offloading to an executor.
+    device.close.assert_awaited_once_with()
     assert entry.async_on_unload.call_args_list == [
         call(remove_listener),
         call(entry.add_update_listener.return_value),
@@ -330,10 +334,8 @@ async def test_async_setup_entry_forward_failure_cleanup(error: BaseException) -
         await midea_ac_lan.async_setup_entry(hass, entry)
     remove_listener.assert_called_once_with()
     assert 42 not in hass.data[DOMAIN][DEVICES]
-    hass.async_add_executor_job.assert_awaited_once_with(
-        midea_ac_lan._close_device,
-        device,
-    )
+    # Forward-failure cleanup awaits _close_device(device) directly now.
+    device.close.assert_awaited_once_with()
 
 
 @pytest.mark.parametrize(

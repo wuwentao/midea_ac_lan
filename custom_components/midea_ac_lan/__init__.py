@@ -57,10 +57,10 @@ from .midea_devices import MIDEA_DEVICES
 _LOGGER = logging.getLogger(__name__)
 
 
-def _close_device(device: MideaDevice) -> None:
+async def _close_device(device: MideaDevice) -> None:
     """Close a Midea device connection without failing unload/setup cleanup."""
     try:
-        device.close()
+        await device.close()
     except (OSError, ConnectionError, AttributeError) as e:
         _LOGGER.warning("Failed to close Midea socket cleanly: %s", e)
 
@@ -291,17 +291,17 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
     if device:
         if refresh_interval is not None:
             device.set_refresh_interval(refresh_interval)
-        device.open()
+        await device.open()
         _device_store(hass)[device_id] = device
 
         async def _async_close_on_stop(_event: Event) -> None:
-            """Stop the device thread so it can't hold up Home Assistant's exit."""
-            # close() waits for the socket lock, which connect() holds for the
-            # whole connection attempt, so keep it off the event loop.
-            await hass.async_add_executor_job(_close_device, device)
+            """Stop the device service task so it can't delay HA's exit."""
+            # close() cancels the supervisor task and releases the stream on the
+            # event loop it runs on, so await it directly.
+            await _close_device(device)
 
         # Home Assistant does not unload config entries on shutdown, so without
-        # this the non-daemon device thread keeps running (e.g. sleeping up to
+        # this the device service task keeps running (e.g. sleeping up to
         # 600 s between reconnect attempts) and delays the process exit.
         # Registered before the platform forward so a stop during setup is covered.
         remove_stop_listener = hass.bus.async_listen_once(
@@ -321,7 +321,7 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
             # avoid leaking it (and the closed device) on the EventBus.
             remove_stop_listener()
             _device_store(hass).pop(device_id, None)
-            await hass.async_add_executor_job(_close_device, device)
+            await _close_device(device)
             raise
         # Keep the stop listener until the entry is unloaded or reloaded.
         config_entry.async_on_unload(remove_stop_listener)
@@ -359,7 +359,7 @@ async def async_unload_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> 
         if device_id is not None:
             dm = _device_store(hass).pop(device_id, None)
             if dm is not None:
-                _close_device(dm)
+                await _close_device(dm)
     return unload_ok
 
 
