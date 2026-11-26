@@ -31,6 +31,19 @@ No default entity.
 | sensor.{DEVICEID}\_right_flex_zone_setting_temp      | sensor        | Right Flex-zone Setting Temperature |
 | sensor.{DEVICEID}\_humidity                          | sensor        | Humidity                            |
 | sensor.{DEVICEID}\_variable_mode                     | sensor        | Variable Mode                       |
+| switch.{DEVICEID}\_refrigeracao_rapida               | switch        | Fast Cool                           |
+| switch.{DEVICEID}\_congelamento_rapido               | switch        | Fast Freeze                         |
+| switch.{DEVICEID}\_modo_ferias                       | switch        | Holiday Mode                        |
+
+### 310Z999Z refrigerator modes
+
+For model `310Z999Z`, subtype `56`, enable the extra Fast Cool, Fast Freeze,
+and Holiday Mode switches to control the corresponding appliance modes. These
+switches are deliberately restricted to this hardware-verified model and
+subtype; other CA refrigerators retain their existing entities and behavior.
+
+The entity IDs use the existing configuration keys shown in the table, so this
+feature does not change unique IDs or entity IDs for existing users or devices.
 
 ### 310A2111 flex-zone mode
 
