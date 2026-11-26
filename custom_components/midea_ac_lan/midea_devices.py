@@ -10367,10 +10367,10 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
     0xEB: {
         "name": "Warming Cooking Appliance",
         "entities": {
-            EBAttributes.function_no: {
+            EBAttributes.function_num: {
                 "type": Platform.NUMBER,
-                "translation_key": "function_no",
-                "name": "Function No",
+                "translation_key": "function_num",
+                "name": "Function Number",
                 "icon": "mdi:numeric",
                 "min": 0,
                 "max": 65535,
