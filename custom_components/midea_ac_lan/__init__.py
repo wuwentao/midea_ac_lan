@@ -399,11 +399,13 @@ async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry) ->
 
     # 2.1 -> 2.2: backfill mac address and serial number for existing devices
     entry_version_2 = 2
+    migration_minor_version = config_entry.minor_version
     if config_entry.version == entry_version_2 and config_entry.minor_version == 1:
         _LOGGER.debug("Migrating configuration from version 2.1")
 
         if await _async_backfill_mac_and_sn(hass, config_entry):
             hass.config_entries.async_update_entry(config_entry, minor_version=2)
+            migration_minor_version = 2
 
             _LOGGER.debug("Migration to configuration version 2.2 successful")
         else:
@@ -412,15 +414,19 @@ async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry) ->
                 " mac/serial number migration will be retried on next start",
                 config_entry.data.get(CONF_DEVICE_ID),
             )
+            # The attribute rename is independent and idempotent. Apply it now,
+            # but retain 2.1 so identity discovery is retried next startup.
+            _migrate_function_num(hass, config_entry, advance_version=False)
+            return True
 
     # 2.2 -> 2.3: rename the EB function number attribute without losing an
     # optional selection or orphaning its existing entity registry entry.
     entry_minor_version_2 = 2
     if (
         config_entry.version == entry_version_2
-        and config_entry.minor_version == entry_minor_version_2
+        and migration_minor_version == entry_minor_version_2
     ):
-        _migrate_function_num(hass, config_entry)
+        _migrate_function_num(hass, config_entry, advance_version=True)
 
     return True
 
@@ -428,6 +434,8 @@ async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry) ->
 def _migrate_function_num(
     hass: HomeAssistant,
     config_entry: ConfigEntry,
+    *,
+    advance_version: bool,
 ) -> None:
     """Migrate the released E7/EB function_no selection and entity identity."""
     legacy_attribute = "function_no"
@@ -456,7 +464,14 @@ def _migrate_function_num(
             )
             if entity_id is None:
                 legacy_entity_id = f"{Platform.NUMBER}.{device_id}_{legacy_attribute}"
-                if registry.async_get(legacy_entity_id) is not None:
+                legacy_entry = registry.async_get(legacy_entity_id)
+                if (
+                    legacy_entry is not None
+                    and legacy_entry.domain == Platform.NUMBER
+                    and legacy_entry.platform == DOMAIN
+                    and legacy_entry.config_entry_id == config_entry.entry_id
+                    and legacy_entry.unique_id == legacy_unique_id
+                ):
                     entity_id = legacy_entity_id
             if entity_id is not None:
                 registry.async_update_entity(
@@ -464,11 +479,13 @@ def _migrate_function_num(
                     new_unique_id=f"{DOMAIN}.{device_id}_{current_attribute}",
                 )
 
-    hass.config_entries.async_update_entry(
-        config_entry,
-        options=options,
-        minor_version=3,
-    )
+    update: dict[str, Any] = {}
+    if options != config_entry.options:
+        update["options"] = options
+    if advance_version:
+        update["minor_version"] = 3
+    if update:
+        hass.config_entries.async_update_entry(config_entry, **update)
 
 
 async def _async_backfill_mac_and_sn(
