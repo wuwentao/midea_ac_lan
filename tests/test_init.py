@@ -13,6 +13,7 @@ from homeassistant.const import (
     CONF_NAME,
     CONF_PORT,
     CONF_PROTOCOL,
+    CONF_SWITCHES,
     CONF_TOKEN,
     CONF_TYPE,
     EVENT_HOMEASSISTANT_STOP,
@@ -127,10 +128,18 @@ async def test_async_setup_registers_and_runs_services(
         },
     }
     monkeypatch.setattr(midea_ac_lan, "MIDEA_DEVICES", registry)
+    monkeypatch.setattr(
+        midea_ac_lan,
+        "_ATTRIBUTE_ALIASES",
+        {1: {"legacy_mapped": "mapped"}},
+    )
     assert await midea_ac_lan.async_setup(hass, {})
 
     assert hass.services.async_register.call_count == 2
     set_attribute = hass.services.async_register.call_args_list[0].args[2]
+    set_attribute_schema = hass.services.async_register.call_args_list[0].kwargs[
+        "schema"
+    ]
     send_command = hass.services.async_register.call_args_list[1].args[2]
     device = Mock()
     device.device_type = 1
@@ -140,6 +149,12 @@ async def test_async_setup_registers_and_runs_services(
         SimpleNamespace(data={"device_id": 7, "attribute": "mapped", "value": 3}),
     )
     device.set_attribute.assert_called_once_with(attr="target", value=3)
+    device.set_attribute.reset_mock()
+    legacy_service_data = set_attribute_schema(
+        {"device_id": 7, "attribute": "legacy_mapped", "value": 4},
+    )
+    set_attribute(SimpleNamespace(data=legacy_service_data))
+    device.set_attribute.assert_called_once_with(attr="target", value=4)
     device.set_attribute.reset_mock()
     set_attribute(
         SimpleNamespace(data={"device_id": 7, "attribute": "sensor", "value": 3}),
@@ -412,6 +427,105 @@ async def test_async_migrate_entry_versions() -> None:
     ):
         assert await midea_ac_lan.async_migrate_entry(hass, entry)
     hass.config_entries.async_update_entry.assert_not_called()
+
+
+async def test_migrate_eb_function_num_selection_and_entity() -> None:
+    """Preserve the released EB option and entity while renaming its attribute."""
+    hass = Mock()
+    entry = config_entry(
+        data=entry_data(**{CONF_TYPE: DeviceType.EB}),
+        options={CONF_SWITCHES: ["function_no", "work_status"]},
+    )
+    entry.minor_version = 2
+    registry = Mock()
+    registry.async_get_entity_id.return_value = "number.42_function_no"
+
+    with patch(
+        "custom_components.midea_ac_lan.er.async_get",
+        return_value=registry,
+    ):
+        assert await midea_ac_lan.async_migrate_entry(hass, entry)
+
+    registry.async_update_entity.assert_called_once_with(
+        "number.42_function_no",
+        new_unique_id=f"{DOMAIN}.42_function_num",
+    )
+    hass.config_entries.async_update_entry.assert_called_once_with(
+        entry,
+        options={CONF_SWITCHES: ["function_num", "work_status"]},
+        minor_version=3,
+    )
+
+
+async def test_migrate_eb_function_num_legacy_entity_id() -> None:
+    """Migrate an EB entity that predates unique-id registry lookup."""
+    hass = Mock()
+    entry = config_entry(data=entry_data(**{CONF_TYPE: DeviceType.EB}))
+    entry.minor_version = 2
+    registry = Mock()
+    registry.async_get_entity_id.return_value = None
+    registry.async_get.return_value = Mock()
+
+    with patch(
+        "custom_components.midea_ac_lan.er.async_get",
+        return_value=registry,
+    ):
+        assert await midea_ac_lan.async_migrate_entry(hass, entry)
+
+    registry.async_update_entity.assert_called_once_with(
+        "number.42_function_no",
+        new_unique_id=f"{DOMAIN}.42_function_num",
+    )
+
+
+@pytest.mark.parametrize("device_id", [None, 42])
+async def test_migrate_eb_function_num_without_legacy_entity(
+    device_id: int | None,
+) -> None:
+    """Complete migration when no prior EB entity registry entry exists."""
+    hass = Mock()
+    entry = config_entry(
+        data=entry_data(
+            **{CONF_TYPE: DeviceType.EB, CONF_DEVICE_ID: device_id},
+        ),
+    )
+    entry.minor_version = 2
+    registry = Mock()
+    registry.async_get_entity_id.return_value = None
+    registry.async_get.return_value = None
+
+    with patch(
+        "custom_components.midea_ac_lan.er.async_get",
+        return_value=registry,
+    ):
+        assert await midea_ac_lan.async_migrate_entry(hass, entry)
+
+    registry.async_update_entity.assert_not_called()
+    hass.config_entries.async_update_entry.assert_called_once_with(
+        entry,
+        options={},
+        minor_version=3,
+    )
+
+
+async def test_migrate_non_eb_entry_to_minor_version_three() -> None:
+    """Advance other device entries without applying EB-specific migration."""
+    hass = Mock()
+    entry = config_entry(
+        data=entry_data(**{CONF_TYPE: DeviceType.AC}),
+        options={CONF_SWITCHES: ["function_no"]},
+    )
+    entry.minor_version = 2
+
+    with patch("custom_components.midea_ac_lan.er.async_get") as async_get_registry:
+        assert await midea_ac_lan.async_migrate_entry(hass, entry)
+
+    async_get_registry.assert_not_called()
+    hass.config_entries.async_update_entry.assert_called_once_with(
+        entry,
+        options={CONF_SWITCHES: ["function_no"]},
+        minor_version=3,
+    )
 
 
 @pytest.mark.parametrize(
