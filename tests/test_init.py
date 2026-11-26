@@ -477,6 +477,66 @@ async def test_function_num_migration_survives_backfill_retry() -> None:
     assert entry.minor_version == 1
 
 
+async def test_function_num_chained_migration_is_stateful_and_idempotent() -> None:
+    """Apply the full 2.1-to-2.3 migration and keep the existing entity ID."""
+    hass = Mock()
+    entry = config_entry(
+        data=entry_data(**{CONF_TYPE: DeviceType.E7}),
+        options={CONF_SWITCHES: ["function_no", "work_status"]},
+    )
+    entry.minor_version = 1
+    legacy_unique_id = f"{DOMAIN}.42_function_no"
+    current_unique_id = f"{DOMAIN}.42_function_num"
+    existing_entity_id = "number.42_function_no"
+    entities = {legacy_unique_id: existing_entity_id}
+
+    def update_entry(updated_entry: Mock, **changes: object) -> None:
+        for key, value in changes.items():
+            setattr(updated_entry, key, value)
+
+    def get_entity_id(_domain: Platform, _platform: str, unique_id: str) -> str | None:
+        return entities.get(unique_id)
+
+    def update_entity(entity_id: str, *, new_unique_id: str) -> None:
+        assert entity_id == existing_entity_id
+        del entities[legacy_unique_id]
+        entities[new_unique_id] = entity_id
+
+    hass.config_entries.async_update_entry.side_effect = update_entry
+    registry = Mock()
+    registry.async_get_entity_id.side_effect = get_entity_id
+    registry.async_update_entity.side_effect = update_entity
+
+    with (
+        patch(
+            "custom_components.midea_ac_lan._async_backfill_mac_and_sn",
+            new_callable=AsyncMock,
+            return_value=True,
+        ) as backfill,
+        patch(
+            "custom_components.midea_ac_lan.er.async_get",
+            return_value=registry,
+        ),
+    ):
+        assert await midea_ac_lan.async_migrate_entry(hass, entry)
+        assert entry.version == 2
+        assert entry.minor_version == 3
+        assert entry.options == {
+            CONF_SWITCHES: ["function_num", "work_status"],
+        }
+        assert entities == {current_unique_id: existing_entity_id}
+
+        hass.config_entries.async_update_entry.reset_mock()
+        registry.reset_mock()
+        backfill.reset_mock()
+        assert await midea_ac_lan.async_migrate_entry(hass, entry)
+
+    backfill.assert_not_awaited()
+    registry.async_update_entity.assert_not_called()
+    hass.config_entries.async_update_entry.assert_not_called()
+    assert entities == {current_unique_id: existing_entity_id}
+
+
 @pytest.mark.parametrize("device_type", [DeviceType.E7, DeviceType.EB])
 async def test_migrate_function_num_selection_and_entity(
     device_type: DeviceType,
