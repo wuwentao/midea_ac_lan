@@ -595,7 +595,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                 subtype=0,
                 attributes={},
             )
-            if await self.hass.async_add_executor_job(self._try_connect_device, dm):
+            if await self._try_connect_device(dm):
                 return value
             # return debug log with failed key
             _LOGGER.debug(
@@ -608,11 +608,11 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
         return {"error": "connect_error"}
 
     @staticmethod
-    def _try_connect_device(dm: MideaDevice) -> bool:
+    async def _try_connect_device(dm: MideaDevice) -> bool:
         """Connect to a device, closing the socket afterwards.
 
-        Runs the blocking socket I/O in an executor so it never blocks the
-        event loop. V3 authentication is handled inside midea-lan's connect().
+        connect() runs the socket I/O as coroutines on the event loop. V3
+        authentication is handled inside midea-lan's connect().
 
         Returns
         -------
@@ -620,7 +620,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
 
         """
         try:
-            return dm.connect()
+            return await dm.connect()
         finally:
             dm.close_socket()
 
@@ -892,10 +892,7 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                 subtype=0,
                 attributes={},
             )
-            if await self.hass.async_add_executor_job(
-                self._try_connect_device,
-                dm,
-            ):
+            if await self._try_connect_device(dm):
                 data = {
                     CONF_NAME: user_input[CONF_NAME],
                     CONF_DEVICE_ID: user_input[CONF_DEVICE_ID],
