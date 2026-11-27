@@ -1364,6 +1364,15 @@
           "full": "Full"
         }
       },
+      "auxiliary_fan_mode": {
+        "name": "Auxiliary Fan Speed",
+        "state": {
+          "low": "Low",
+          "medium": "Medium",
+          "high": "High",
+          "full": "Full"
+        }
+      },
       "mode": {
         "name": "Mode",
         "state": {
@@ -4652,6 +4661,12 @@
       },
       "humidify": {
         "name": "Humidify"
+      },
+      "purify": {
+        "name": "Purify"
+      },
+      "fresh_air": {
+        "name": "Fresh Air"
       },
       "waterions": {
         "name": "Water Ions"
