@@ -1090,7 +1090,8 @@ class MideaLanOptionsFlowHandler(OptionsFlow):
                 },
             )
         # Optional cloud sensors use the user's own Midea account, not the
-        # local device token/key. The E1 filter report uses Meiju only.
+        # local device token/key. E1CloudClient accepts any registered cloud
+        # that provides the signed proxy used by the filter query.
         if self._device_type == DeviceType.E3 or "filter_wash_time" in sensors:
             data_schema = data_schema.extend(
                 {
@@ -1104,11 +1105,6 @@ class MideaLanOptionsFlowHandler(OptionsFlow):
                     ): TextSelector(
                         TextSelectorConfig(type=TextSelectorType.PASSWORD),
                     ),
-                },
-            )
-        if self._device_type == DeviceType.E3:
-            data_schema = data_schema.extend(
-                {
                     vol.Optional(
                         CONF_SERVER,
                         default=self._config_entry.options.get(

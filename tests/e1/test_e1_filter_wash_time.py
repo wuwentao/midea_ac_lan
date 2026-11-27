@@ -1,6 +1,5 @@
 """Exercise the optional cloud filter sensor through Home Assistant."""
 
-from asyncio import Event
 from collections.abc import Generator
 from datetime import timedelta
 from unittest.mock import AsyncMock, Mock, patch
@@ -24,6 +23,7 @@ from custom_components.midea_ac_lan.const import (
     CONF_MODEL,
     CONF_SERVER,
     CONF_SUBTYPE,
+    DEFAULT_CLOUD,
 )
 from tests.conftest import TEST_DEVICE_ID, setup_integration
 from tests.ha import MockConfigEntry, async_fire_time_changed
@@ -64,28 +64,16 @@ def filter_appliance(
 
 
 @pytest.mark.usefixtures("filter_appliance")
-async def test_filter_sensor_opt_in_and_cloud_session_renewal(
+async def test_filter_sensor_opt_in_and_configured_cloud(
     hass: HomeAssistant,
     config_entry: MockConfigEntry,
     mock_device: Mock,
 ) -> None:
-    """Load locally, retry after token expiry, and later observe a cloud reset."""
-    ready = Event()
-    readings = iter([817, 0])
-
-    async def read_cloud(_appliance_id: int) -> int:
-        await ready.wait()
-        if cloud.login.await_count == 1:
-            raise CloudAuthError("expired")
-        return next(readings)
-
-    cloud = Mock(
-        login=AsyncMock(return_value=True),
-        get_e1_filter_wash_time=AsyncMock(side_effect=read_cloud),
-    )
+    """Pass the selected cloud to the library client and follow its report."""
+    client = Mock(async_get_report=AsyncMock(return_value=817))
     with patch(
-        "custom_components.midea_ac_lan.cloud.get_midea_cloud",
-        return_value=cloud,
+        "custom_components.midea_ac_lan.cloud.E1CloudClient",
+        return_value=client,
     ) as factory:
         await setup_integration(hass, config_entry)
         assert hass.states.get(ENTITY_ID) is None
@@ -93,40 +81,66 @@ async def test_filter_sensor_opt_in_and_cloud_session_renewal(
 
         form = await hass.config_entries.options.async_init(config_entry.entry_id)
         assert form["type"] is FlowResultType.FORM
-        assert CONF_SERVER not in {str(key) for key in form["data_schema"].schema}
+        assert CONF_SERVER in {str(key) for key in form["data_schema"].schema}
         result = await hass.config_entries.options.async_configure(
             form["flow_id"],
-            {CONF_SENSORS: [KEY, "temperature"], **CLOUD_OPTIONS},
+            {
+                CONF_SENSORS: [KEY, "temperature"],
+                CONF_SERVER: "SmartHome",
+                **CLOUD_OPTIONS,
+            },
         )
         assert result["type"] is FlowResultType.CREATE_ENTRY
-        assert CONF_SERVER not in result["data"]
-        await hass.async_block_till_done()
+        assert result["data"][CONF_SERVER] == "SmartHome"
+        await hass.async_block_till_done(wait_background_tasks=True)
         # The optional cloud login must not gate the local entities.
         temperature = hass.states.get(f"sensor.{TEST_DEVICE_ID}_temperature")
         assert temperature is not None
         assert float(temperature.state) == pytest.approx(27.0)
-        assert hass.states.get(ENTITY_ID).state == STATE_UNAVAILABLE
 
-        ready.set()
-        await hass.async_block_till_done(wait_background_tasks=True)
         state = hass.states.get(ENTITY_ID)
         assert state is not None
         assert float(state.state) == pytest.approx(817)
 
+        client.async_get_report.return_value = 0
         async_fire_time_changed(hass, utcnow() + timedelta(hours=1, minutes=1))
         await hass.async_block_till_done(wait_background_tasks=True)
 
+    args = factory.call_args.args
+    assert args[0] == "SmartHome"
+    assert args[2] == CLOUD_OPTIONS[CONF_ACCOUNT]
+    assert args[3] == CLOUD_OPTIONS[CONF_PASSWORD]
     state = hass.states.get(ENTITY_ID)
     assert state is not None
     assert float(state.state) == pytest.approx(0)
-    assert cloud.login.await_count == 2
-    assert cloud.get_e1_filter_wash_time.await_count == 3
     mock_device.set_attribute.assert_not_called()
+
+
+@pytest.mark.usefixtures("filter_appliance")
+async def test_filter_sensor_defaults_to_the_default_cloud(
+    hass: HomeAssistant,
+    config_entry: MockConfigEntry,
+) -> None:
+    """Fall back to DEFAULT_CLOUD when no server is stored in the options."""
+    client = Mock(async_get_report=AsyncMock(return_value=12))
+    with patch(
+        "custom_components.midea_ac_lan.cloud.E1CloudClient",
+        return_value=client,
+    ) as factory:
+        hass.config_entries.async_update_entry(
+            config_entry,
+            options={CONF_SENSORS: [KEY], **CLOUD_OPTIONS},
+        )
+        await setup_integration(hass, config_entry)
+        await hass.async_block_till_done(wait_background_tasks=True)
+
+    assert factory.call_args.args[0] == DEFAULT_CLOUD
+    assert float(hass.states.get(ENTITY_ID).state) == pytest.approx(12)
 
 
 @pytest.mark.parametrize(
     "failure",
-    ["unconfigured", "old_library", "login", "denied", "offline", "missing"],
+    ["unconfigured", "unsupported_cloud", "denied", "offline", "missing"],
 )
 @pytest.mark.usefixtures("filter_appliance")
 async def test_filter_sensor_never_reports_zero_for_missing_cloud_data(
@@ -135,39 +149,41 @@ async def test_filter_sensor_never_reports_zero_for_missing_cloud_data(
     failure: str,
 ) -> None:
     """Keep local sensors working when cloud data or credentials are missing."""
-    cloud = Mock(login=AsyncMock(return_value=failure != "login"))
-    if failure == "old_library":
-        del cloud.get_e1_filter_wash_time
-    else:
-        query_error = {
-            "offline": CloudError("service offline"),
-            "denied": CloudAuthError("access denied"),
-        }.get(failure)
-        cloud.get_e1_filter_wash_time = AsyncMock(
-            side_effect=query_error,
-            return_value=None,
-        )
     options: dict = {CONF_SENSORS: [KEY, "temperature"]}
     if failure != "unconfigured":
         options.update(CLOUD_OPTIONS)
     hass.config_entries.async_update_entry(config_entry, options=options)
+
+    client = Mock()
+    client.async_get_report = AsyncMock(
+        side_effect={
+            "denied": CloudAuthError("access denied"),
+            "offline": CloudError("service offline"),
+        }.get(failure),
+        return_value=None,
+    )
+    factory_error = (
+        CloudError("Cloud does not support E1 reports")
+        if failure == "unsupported_cloud"
+        else None
+    )
     with patch(
-        "custom_components.midea_ac_lan.cloud.get_midea_cloud",
-        return_value=cloud,
-    ):
+        "custom_components.midea_ac_lan.cloud.E1CloudClient",
+        return_value=client,
+        side_effect=factory_error,
+    ) as factory:
         await setup_integration(hass, config_entry)
+        await hass.async_block_till_done(wait_background_tasks=True)
 
     state = hass.states.get(ENTITY_ID)
     if failure == "unconfigured":
         assert state is None
-        cloud.login.assert_not_awaited()
+        factory.assert_not_called()
+    elif failure == "unsupported_cloud":
+        assert state is None
     else:
         assert state is not None
         assert state.state == STATE_UNAVAILABLE
-        if failure == "old_library":
-            cloud.login.assert_not_awaited()
-        if failure == "denied":
-            assert cloud.get_e1_filter_wash_time.await_count == 2
     temperature = hass.states.get(f"sensor.{TEST_DEVICE_ID}_temperature")
     assert temperature is not None
     assert float(temperature.state) == pytest.approx(27.0)
