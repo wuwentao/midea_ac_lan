@@ -83,6 +83,7 @@ from midealan.devices.eb import DeviceAttributes as EBAttributes
 from midealan.devices.ec import DeviceAttributes as ECAttributes
 from midealan.devices.ed import DeviceAttributes as EDAttributes
 from midealan.devices.ef import DeviceAttributes as EFAttributes
+from midealan.devices.ef import message as ef_message
 from midealan.devices.f1 import DeviceAttributes as F1Attributes
 from midealan.devices.f1 import message as f1_message
 from midealan.devices.fa import DeviceAttributes as FAAttributes
@@ -11308,6 +11309,50 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "max": 255,
                 "step": 1,
                 "icon": "mdi:numeric",
+            },
+            EFAttributes.time_reserve_hr: {
+                "type": Platform.NUMBER,
+                "translation_key": "time_reserve_hr",
+                "name": "Reserve Hours",
+                "icon": "mdi:timer",
+                "unit": UnitOfTime.HOURS,
+                "min": ef_message.TIME_HR_LOW,
+                "max": ef_message.TIME_HR_HIGH,
+                "step": 1,
+                "optimistic": True,
+            },
+            EFAttributes.time_reserve_min: {
+                "type": Platform.NUMBER,
+                "translation_key": "time_reserve_min",
+                "name": "Reserve Minutes",
+                "icon": "mdi:timer",
+                "unit": UnitOfTime.MINUTES,
+                "min": ef_message.TIME_MIN_LOW,
+                "max": ef_message.TIME_MIN_HIGH,
+                "step": 1,
+                "optimistic": True,
+            },
+            EFAttributes.time_warm_hr: {
+                "type": Platform.NUMBER,
+                "translation_key": "time_warm_hr",
+                "name": "Keep Warm Hours",
+                "icon": "mdi:timer",
+                "unit": UnitOfTime.HOURS,
+                "min": ef_message.TIME_HR_LOW,
+                "max": ef_message.TIME_HR_HIGH,
+                "step": 1,
+                "optimistic": True,
+            },
+            EFAttributes.time_warm_min: {
+                "type": Platform.NUMBER,
+                "translation_key": "time_warm_min",
+                "name": "Keep Warm Minutes",
+                "icon": "mdi:timer",
+                "unit": UnitOfTime.MINUTES,
+                "min": ef_message.TIME_MIN_LOW,
+                "max": ef_message.TIME_MIN_HIGH,
+                "step": 1,
+                "optimistic": True,
             },
             EFAttributes.response_type: {
                 "type": Platform.SENSOR,
