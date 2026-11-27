@@ -9,8 +9,10 @@ import homeassistant.const as ha_const
 import pytest
 from homeassistant.const import MAJOR_VERSION, MINOR_VERSION, Platform
 from midealan.const import DeviceType
+from midealan.devices.ac import DeviceAttributes as ACAttributes
 from midealan.devices.x44 import DeviceAttributes as X44Attributes
 
+from custom_components.midea_ac_lan.const import supports_device
 from custom_components.midea_ac_lan.midea_devices import MIDEA_DEVICES
 
 from .helpers import load_integration_module
@@ -175,3 +177,19 @@ def test_opposite_version_concentration_units(
 
     assert module.CONCENTRATION_MICROGRAMS_PER_CUBIC_METER == "μg/m³"
     assert module.CONCENTRATION_PARTS_PER_MILLION == "ppm"
+
+
+def test_ac_00000q13_excludes_display_switches() -> None:
+    """Model 00000Q13 subtype 0 drops 0x41 display toggles, so hide both switches."""
+    entities = cast(
+        "dict[ACAttributes, dict[str, object]]",
+        MIDEA_DEVICES[DeviceType.AC]["entities"],
+    )
+    for attr in (
+        ACAttributes.screen_display,
+        ACAttributes.screen_display_alternate,
+    ):
+        config = entities[attr]
+        assert not supports_device("00000Q13", 0, config)
+        assert supports_device("00000Q13", 1, config)
+        assert supports_device("00000Q1B", 0, config)
