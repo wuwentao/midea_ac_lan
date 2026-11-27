@@ -28,7 +28,7 @@ def test_eb_registry_matches_library_attributes() -> None:
 
     expected_platforms = {
         Platform.NUMBER: {
-            DeviceAttributes.function_no,
+            DeviceAttributes.function_num,
             DeviceAttributes.work_status,
             DeviceAttributes.fire_level,
             DeviceAttributes.time_reserve_hr,

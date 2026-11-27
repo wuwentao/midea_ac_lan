@@ -63,6 +63,9 @@
   },
   "entity": {
     "binary_sensor": {
+      "defrosting": {
+        "name": "Odmrazovanie"
+      },
       "door_auto_open": {
         "name": "Automatické otváranie dverí (posledný program)"
       },
@@ -994,7 +997,7 @@
       "work_status": {
         "name": "Stav prevádzky"
       },
-      "function_no": {
+      "function_num": {
         "name": "Číslo funkcie"
       },
       "fire_level": {

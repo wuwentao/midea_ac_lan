@@ -294,10 +294,12 @@ cd midea_ac_lan
 
 ### 10.1 新增裝置
 
-想在本整合中支援一種新的美的家電類型嗎？完整流程的文件，以 `0xD9` 洗烘一體機（[PR #1086](https://github.com/wuwentao/midea_ac_lan/pull/1086)）為主要範例，並以 `0x9B` 烤箱（[PR #1096](https://github.com/wuwentao/midea_ac_lan/pull/1096)）作為第二個、規模更大的範例，涵蓋：將 `midea-lan` 相依套件指向你的函式庫作業以便本機測試、在 `midea_devices.py` 註冊裝置、選擇每個屬性的平台／`device_class`／`unit`／`translation_key`、新增翻譯檔、撰寫裝置文件，以及開啟 PR：
+想在本整合中支援一種新的美的家電類型嗎？完整流程的文件，以 `0xD9` 洗烘一體機（[PR #1086](https://github.com/wuwentao/midea_ac_lan/pull/1086)）為主要範例，並以 `0x9B` 烤箱（[PR #1096](https://github.com/wuwentao/midea_ac_lan/pull/1096)）作為第二個、規模更大的範例，涵蓋：將 `midea-lan` 相依套件指向你的函式庫作業以便開發與執行 CI、在 `midea_devices.py` 註冊裝置、選擇每個屬性的平台／`device_class`／`unit`／`translation_key`、新增翻譯檔、撰寫裝置文件，以及開啟 PR：
 
 - [Adding a New Device to the midea_ac_lan Integration](doc/adding-a-new-device.md)
 - [为 midea_ac_lan 集成新增一款设备（中文）](doc/adding-a-new-device.zh-Hans.md)
+
+配套函式庫改動尚未發布時，整合 manifest 是 `midea-lan` 唯一執行階段相依來源，CI 與本機初始化都從 `manifest.json` 安裝；`pyproject.toml` 和 `uv.lock` 僅管理開發/測試相依套件。當 `midea-lan` lib PR 尚未合併時，對應的 `midea_ac_lan` 整合 PR 可暫時將 manifest 中的 `midea-lan` 指向你的函式庫 fork／分支，以便立即驗證功能與 CI。lib PR 合併後，將整合 manifest 切換至 `wuwentao/midea-lan@main`（也可一開始就指向上游 `main`）。整合 PR 合併前，manifest 必須是上游 `main` 或正式發布版本，不能保留貢獻者fork分支。lib PR 合併後不會立即發布庫版本，集成 PR 可繼續基於上游 `main` 驗證。維護者會依據已合併的 PR 定期發布整合版本：產生 changelog，將 manifest 中的 `midea-lan` 更新為包含所需改動的正式發布版本，並發布 `midea_ac_lan` release。
 
 函式庫端的配套指南位於 `midea-lan` 儲存庫：[Adding a New Device Type](https://github.com/wuwentao/midea-lan/blob/main/docs/adding-a-new-device.md)。
 

@@ -63,6 +63,9 @@
   },
   "entity": {
     "binary_sensor": {
+      "defrosting": {
+        "name": "Abtauen"
+      },
       "door_auto_open": {
         "name": "Automatische Türöffnung (letztes Programm)"
       },
@@ -994,7 +997,7 @@
       "work_status": {
         "name": "Betriebsstatus"
       },
-      "function_no": {
+      "function_num": {
         "name": "Funktionsnummer"
       },
       "fire_level": {

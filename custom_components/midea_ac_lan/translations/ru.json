@@ -63,6 +63,9 @@
   },
   "entity": {
     "binary_sensor": {
+      "defrosting": {
+        "name": "Оттаивание"
+      },
       "door_auto_open": {
         "name": "Автооткрывание двери (последняя программа)"
       },
@@ -994,7 +997,7 @@
       "work_status": {
         "name": "Рабочий статус"
       },
-      "function_no": {
+      "function_num": {
         "name": "Номер функции"
       },
       "fire_level": {

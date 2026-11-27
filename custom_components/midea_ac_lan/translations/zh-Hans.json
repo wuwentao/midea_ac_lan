@@ -63,6 +63,9 @@
   },
   "entity": {
     "binary_sensor": {
+      "defrosting": {
+        "name": "除霜"
+      },
       "door_auto_open": {
         "name": "自动开门（上一程序）"
       },
@@ -1010,7 +1013,7 @@
       "work_status": {
         "name": "工作状态"
       },
-      "function_no": {
+      "function_num": {
         "name": "功能编号"
       },
       "fire_level": {

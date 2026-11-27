@@ -25,9 +25,11 @@ from homeassistant.const import (
     CONF_NAME,
     CONF_PORT,
     CONF_PROTOCOL,
+    CONF_SWITCHES,
     CONF_TOKEN,
     CONF_TYPE,
     EVENT_HOMEASSISTANT_STOP,
+    Platform,
 )
 from homeassistant.core import Event, HomeAssistant
 from homeassistant.helpers.typing import ConfigType
@@ -56,11 +58,16 @@ from .midea_devices import MIDEA_DEVICES
 
 _LOGGER = logging.getLogger(__name__)
 
+_ATTRIBUTE_ALIASES: dict[int, dict[str, str]] = {
+    DeviceType.E7: {"function_no": "function_num"},
+    DeviceType.EB: {"function_no": "function_num"},
+}
 
-def _close_device(device: MideaDevice) -> None:
+
+async def _close_device(device: MideaDevice) -> None:
     """Close a Midea device connection without failing unload/setup cleanup."""
     try:
-        device.close()
+        await device.close()
     except (OSError, ConnectionError, AttributeError) as e:
         _LOGGER.warning("Failed to close Midea socket cleanly: %s", e)
 
@@ -149,14 +156,22 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:  # ruff:
                 and attribute_key not in attributes
             ):
                 attributes.append(attribute_key)
+    for aliases in _ATTRIBUTE_ALIASES.values():
+        for legacy_attribute in aliases:
+            if legacy_attribute not in attributes:
+                attributes.append(legacy_attribute)
 
     def service_set_attribute(service: Any) -> None:  # ruff:ignore[any-type]
         """Set service attribute func."""
         device_id: int = service.data["device_id"]
-        attr = service.data["attribute"]
+        requested_attr = service.data["attribute"]
         value = service.data["value"]
         dev: MideaDevice = hass.data[DOMAIN][DEVICES].get(device_id)
         if dev:
+            attr = _ATTRIBUTE_ALIASES.get(dev.device_type, {}).get(
+                requested_attr,
+                requested_attr,
+            )
             if attr == "fan_speed" and value == "auto":
                 value = 102
             item = None
@@ -174,7 +189,7 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:  # ruff:
                 _LOGGER.error(
                     "Appliance [%s] has no attribute %s or value is invalid",
                     device_id,
-                    attr,
+                    requested_attr,
                 )
 
     def service_send_command(service: Any) -> None:  # ruff:ignore[any-type]
@@ -291,17 +306,17 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
     if device:
         if refresh_interval is not None:
             device.set_refresh_interval(refresh_interval)
-        device.open()
+        await device.open()
         _device_store(hass)[device_id] = device
 
         async def _async_close_on_stop(_event: Event) -> None:
-            """Stop the device thread so it can't hold up Home Assistant's exit."""
-            # close() waits for the socket lock, which connect() holds for the
-            # whole connection attempt, so keep it off the event loop.
-            await hass.async_add_executor_job(_close_device, device)
+            """Stop the device service task so it can't delay HA's exit."""
+            # close() cancels the supervisor task and releases the stream on the
+            # event loop it runs on, so await it directly.
+            await _close_device(device)
 
         # Home Assistant does not unload config entries on shutdown, so without
-        # this the non-daemon device thread keeps running (e.g. sleeping up to
+        # this the device service task keeps running (e.g. sleeping up to
         # 600 s between reconnect attempts) and delays the process exit.
         # Registered before the platform forward so a stop during setup is covered.
         remove_stop_listener = hass.bus.async_listen_once(
@@ -321,7 +336,7 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
             # avoid leaking it (and the closed device) on the EventBus.
             remove_stop_listener()
             _device_store(hass).pop(device_id, None)
-            await hass.async_add_executor_job(_close_device, device)
+            await _close_device(device)
             raise
         # Keep the stop listener until the entry is unloaded or reloaded.
         config_entry.async_on_unload(remove_stop_listener)
@@ -359,7 +374,7 @@ async def async_unload_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> 
         if device_id is not None:
             dm = _device_store(hass).pop(device_id, None)
             if dm is not None:
-                _close_device(dm)
+                await _close_device(dm)
     return unload_ok
 
 
@@ -384,11 +399,13 @@ async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry) ->
 
     # 2.1 -> 2.2: backfill mac address and serial number for existing devices
     entry_version_2 = 2
+    migration_minor_version = config_entry.minor_version
     if config_entry.version == entry_version_2 and config_entry.minor_version == 1:
         _LOGGER.debug("Migrating configuration from version 2.1")
 
         if await _async_backfill_mac_and_sn(hass, config_entry):
             hass.config_entries.async_update_entry(config_entry, minor_version=2)
+            migration_minor_version = 2
 
             _LOGGER.debug("Migration to configuration version 2.2 successful")
         else:
@@ -397,8 +414,78 @@ async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry) ->
                 " mac/serial number migration will be retried on next start",
                 config_entry.data.get(CONF_DEVICE_ID),
             )
+            # The attribute rename is independent and idempotent. Apply it now,
+            # but retain 2.1 so identity discovery is retried next startup.
+            _migrate_function_num(hass, config_entry, advance_version=False)
+            return True
+
+    # 2.2 -> 2.3: rename the E7/EB function number attribute without losing an
+    # optional selection or orphaning its existing entity registry entry.
+    entry_minor_version_2 = 2
+    if (
+        config_entry.version == entry_version_2
+        and migration_minor_version == entry_minor_version_2
+    ):
+        _migrate_function_num(hass, config_entry, advance_version=True)
 
     return True
+
+
+def _migrate_function_num(
+    hass: HomeAssistant,
+    config_entry: ConfigEntry,
+    *,
+    advance_version: bool,
+) -> None:
+    """Migrate the released E7/EB function_no selection and entity identity."""
+    legacy_attribute = "function_no"
+    current_attribute = "function_num"
+    options = dict(config_entry.options)
+
+    if config_entry.data.get(CONF_TYPE) in _ATTRIBUTE_ALIASES:
+        selected_controls = options.get(CONF_SWITCHES)
+        if (
+            isinstance(selected_controls, list)
+            and legacy_attribute in selected_controls
+        ):
+            options[CONF_SWITCHES] = [
+                current_attribute if item == legacy_attribute else item
+                for item in selected_controls
+            ]
+
+        device_id = config_entry.data.get(CONF_DEVICE_ID)
+        if device_id is not None:
+            registry = er.async_get(hass)
+            legacy_unique_id = f"{DOMAIN}.{device_id}_{legacy_attribute}"
+            entity_id = registry.async_get_entity_id(
+                Platform.NUMBER,
+                DOMAIN,
+                legacy_unique_id,
+            )
+            if entity_id is None:
+                legacy_entity_id = f"{Platform.NUMBER}.{device_id}_{legacy_attribute}"
+                legacy_entry = registry.async_get(legacy_entity_id)
+                if (
+                    legacy_entry is not None
+                    and legacy_entry.domain == Platform.NUMBER
+                    and legacy_entry.platform == DOMAIN
+                    and legacy_entry.config_entry_id == config_entry.entry_id
+                    and legacy_entry.unique_id == legacy_unique_id
+                ):
+                    entity_id = legacy_entity_id
+            if entity_id is not None:
+                registry.async_update_entity(
+                    entity_id,
+                    new_unique_id=f"{DOMAIN}.{device_id}_{current_attribute}",
+                )
+
+    update: dict[str, Any] = {}
+    if options != config_entry.options:
+        update["options"] = options
+    if advance_version:
+        update["minor_version"] = 3
+    if update:
+        hass.config_entries.async_update_entry(config_entry, **update)
 
 
 async def _async_backfill_mac_and_sn(

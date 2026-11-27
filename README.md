@@ -298,10 +298,12 @@ See [CONTRIBUTING](.github/CONTRIBUTING.md) for full setup, running Home Assista
 
 ### 10.1 Adding a new device
 
-Want to expose a new Midea appliance type in this integration? The end-to-end recipe — pointing the `midea-lan` dependency at your library work for local testing, registering the device in `midea_devices.py`, choosing each attribute's platform / `device_class` / `unit` / `translation_key`, adding the translation files, writing the device docs, and opening a PR — is documented, using the `0xD9` washer/dryer combo ([PR #1086](https://github.com/wuwentao/midea_ac_lan/pull/1086)) as the running example and the `0x9B` oven ([PR #1096](https://github.com/wuwentao/midea_ac_lan/pull/1096)) as a second, larger example:
+Want to expose a new Midea appliance type in this integration? The end-to-end recipe — pointing the `midea-lan` dependency at your library work for development and CI, registering the device in `midea_devices.py`, choosing each attribute's platform / `device_class` / `unit` / `translation_key`, adding the translation files, writing the device docs, and opening a PR — is documented, using the `0xD9` washer/dryer combo ([PR #1086](https://github.com/wuwentao/midea_ac_lan/pull/1086)) as the running example and the `0x9B` oven ([PR #1096](https://github.com/wuwentao/midea_ac_lan/pull/1096)) as a second, larger example:
 
 - [Adding a New Device to the midea_ac_lan Integration](doc/adding-a-new-device.md)
 - [为 midea_ac_lan 集成新增一款设备（中文）](doc/adding-a-new-device.zh-Hans.md)
+
+For paired unreleased work, the integration manifest is the sole source of the `midea-lan` runtime requirement; CI and local setup install from `manifest.json`. `pyproject.toml` and `uv.lock` contain development/test dependencies only. While the `midea-lan` lib PR is unmerged, its corresponding `midea_ac_lan` integration PR may temporarily point the `midea-lan` requirement in its manifest at your library fork/branch so the feature and CI can be verified immediately. Once the lib PR merges, switch the integration manifest to `wuwentao/midea-lan@main` (or use upstream `main` from the start). Before the integration PR merges, its manifest must use upstream `main` or a released version; it must not retain a contributor fork/branch. Maintainers periodically publish an integration release based on merged PRs: they generate the changelog, update the manifest to a released library version containing the merged changes, and publish the `midea_ac_lan` release.
 
 The companion guide for the protocol library side lives in the `midea-lan` repo: [Adding a New Device Type](https://github.com/wuwentao/midea-lan/blob/main/docs/adding-a-new-device.md).
 

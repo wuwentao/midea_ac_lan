@@ -11,7 +11,7 @@
 - 支持倒计时定时
 - 上报运行 / 剩余时间与工作阶段
 
-可写范围与 `midea-lan` 保持一致：`function_no` 为 0–65535，
+可写范围与 `midea-lan` 保持一致：`function_num` 为 0–65535，
 `work_status` 为 0–255，`fire_level` 为 0–21，定时小时为 0–23，
 定时分钟为 0–59。
 
@@ -35,7 +35,7 @@
 
 | 实体ID                               | 类型   | 描述     |
 | ------------------------------------ | ------ | -------- |
-| number.{DEVICEID}\_function_no       | number | 功能编号 |
+| number.{DEVICEID}\_function_num      | number | 功能编号 |
 | number.{DEVICEID}\_work_status       | number | 工作状态 |
 | number.{DEVICEID}\_fire_level        | number | 火力档位 |
 | number.{DEVICEID}\_time_reserve_hr   | number | 预约小时 |
@@ -57,11 +57,11 @@
 
 设置设备属性。服务数据:
 
-| 名称      | 描述                                                                                                                                               |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| device_id | 设备的 Appliance code (设备 ID)                                                                                                                    |
-| attribute | "function_no"<br />"work_status"<br />"fire_level"<br />"time_reserve_hr"<br />"time_reserve_min"<br />"definite_time_hr"<br />"definite_time_min" |
-| value     | 属性范围内的整数                                                                                                                                   |
+| 名称      | 描述                                                                                                                                                |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| device_id | 设备的 Appliance code (设备 ID)                                                                                                                     |
+| attribute | "function_num"<br />"work_status"<br />"fire_level"<br />"time_reserve_hr"<br />"time_reserve_min"<br />"definite_time_hr"<br />"definite_time_min" |
+| value     | 属性范围内的整数                                                                                                                                    |
 
 示例
 

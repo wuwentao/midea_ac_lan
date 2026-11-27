@@ -63,6 +63,9 @@
   },
   "entity": {
     "binary_sensor": {
+      "defrosting": {
+        "name": "Defrosting"
+      },
       "door_auto_open": {
         "name": "Last Program Door Auto-Open"
       },
@@ -1010,8 +1013,8 @@
       "work_status": {
         "name": "Work Status"
       },
-      "function_no": {
-        "name": "Function No"
+      "function_num": {
+        "name": "Function Number"
       },
       "fire_level": {
         "name": "Fire Level"

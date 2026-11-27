@@ -11,7 +11,7 @@ Steam / warming cooking appliance (device type 0xEB).
 - Supports Countdown timer
 - Reports running / remaining time and work stage
 
-The writable ranges match `midea-lan`: `function_no` is 0–65535,
+The writable ranges match `midea-lan`: `function_num` is 0–65535,
 `work_status` is 0–255, `fire_level` is 0–21, timer hours are 0–23,
 and timer minutes are 0–59.
 
@@ -35,7 +35,7 @@ The table below lists both number controls (writable) and sensors (read-only).
 
 | EntityID                             | Class  | Description       |
 | ------------------------------------ | ------ | ----------------- |
-| number.{DEVICEID}\_function_no       | number | Function number   |
+| number.{DEVICEID}\_function_num      | number | Function number   |
 | number.{DEVICEID}\_work_status       | number | Work status       |
 | number.{DEVICEID}\_fire_level        | number | Fire level        |
 | number.{DEVICEID}\_time_reserve_hr   | number | Reserve hours     |
@@ -57,11 +57,11 @@ The table below lists both number controls (writable) and sensors (read-only).
 
 Set the attribute of appliance. Service data:
 
-| Name      | Description                                                                                                                                        |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| device_id | The Appliance code (Device ID) of appliance                                                                                                        |
-| attribute | "function_no"<br />"work_status"<br />"fire_level"<br />"time_reserve_hr"<br />"time_reserve_min"<br />"definite_time_hr"<br />"definite_time_min" |
-| value     | an integer within the attribute's range                                                                                                            |
+| Name      | Description                                                                                                                                         |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| device_id | The Appliance code (Device ID) of appliance                                                                                                         |
+| attribute | "function_num"<br />"work_status"<br />"fire_level"<br />"time_reserve_hr"<br />"time_reserve_min"<br />"definite_time_hr"<br />"definite_time_min" |
+| value     | an integer within the attribute's range                                                                                                             |
 
 Example
 

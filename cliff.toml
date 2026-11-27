@@ -27,7 +27,8 @@ body = """
     - {% if commit.scope %}**{{ commit.scope }}:** {% endif %}\
         {{ commit.message | upper_first | trim }}\
         {% if commit.breaking %} [**BREAKING**]{% endif %}\
-        {% if commit.links | length > 0 %} ({% for link in commit.links %}[#{{ link.text }}]({{ link.href }}){% if not loop.last %}, {% endif %}{% endfor %}){% endif %} \
+        {% if commit.links | length > 0 %} ({% for link in commit.links %}[#{{ link.text }}]({{ link.href }}){% if not loop.last %}, {% endif %}{% endfor %}){% endif %}\
+        {% if commit.remote.pr_author %} by [@{{ commit.remote.pr_author }}](https://github.com/{{ commit.remote.pr_author }}){% endif %} \
         ([{{ commit.id | truncate(length=7, end="") }}](https://github.com/wuwentao/midea_ac_lan/commit/{{ commit.id }}))
     {% endfor -%}
 {% endfor -%}

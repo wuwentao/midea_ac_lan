@@ -29,6 +29,10 @@
 | number.{DEVICEID}\_temperature_setting | number | 设置温度 |
 | number.{DEVICEID}\_cmd_code            | number | 命令码   |
 | number.{DEVICEID}\_cmd_id              | number | 命令 ID  |
+| number.{DEVICEID}\_time_reserve_hr     | number | 预约小时 |
+| number.{DEVICEID}\_time_reserve_min    | number | 预约分钟 |
+| number.{DEVICEID}\_time_warm_hr        | number | 保温小时 |
+| number.{DEVICEID}\_time_warm_min       | number | 保温分钟 |
 | sensor.{DEVICEID}\_response_type       | sensor | 响应     |
 | sensor.{DEVICEID}\_work_status         | sensor | 工作状态 |
 | sensor.{DEVICEID}\_work_step           | sensor | 工作步骤 |
@@ -47,11 +51,11 @@
 
 设置设备属性。服务数据:
 
-| 名称      | 描述                                                                                                                                                        |
-| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| device_id | 设备的 Appliance code (设备 ID)                                                                                                                             |
-| attribute | "reserve"<br />"warm"<br />"drink_style"<br />"temperature_setting"<br />"cmd_code"<br />"cmd_id"                                                           |
-| value     | reserve/warm 为 true/false; drink_style 为 "hot_drink"/"warm_drink"; 数值属性为范围内的整数: temperature_setting (0-98)、cmd_code (0-65535)、cmd_id (0-255) |
+| 名称      | 描述                                                                                                                                                                                          |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| device_id | 设备的 Appliance code (设备 ID)                                                                                                                                                               |
+| attribute | "reserve"<br />"warm"<br />"drink_style"<br />"temperature_setting"<br />"cmd_code"<br />"cmd_id"<br />"time_reserve_hr"<br />"time_reserve_min"<br />"time_warm_hr"<br />"time_warm_min"     |
+| value     | reserve/warm 为 true/false; drink_style 为 "hot_drink"/"warm_drink"; 数值属性为范围内的整数: temperature_setting (0-98)、cmd_code (0-65535)、cmd_id (0-255)、定时小时 (0-23)、定时分钟 (0-59) |
 
 示例
 

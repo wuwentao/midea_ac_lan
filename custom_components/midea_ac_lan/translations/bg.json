@@ -63,6 +63,9 @@
   },
   "entity": {
     "binary_sensor": {
+      "defrosting": {
+        "name": "Размразяване"
+      },
       "door_auto_open": {
         "name": "Последна програма: автоматично отваряне на вратата"
       },
@@ -1010,7 +1013,7 @@
       "work_status": {
         "name": "Работен статус"
       },
-      "function_no": {
+      "function_num": {
         "name": "Номер на функция"
       },
       "fire_level": {

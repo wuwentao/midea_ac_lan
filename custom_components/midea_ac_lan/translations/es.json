@@ -63,6 +63,9 @@
   },
   "entity": {
     "binary_sensor": {
+      "defrosting": {
+        "name": "Desescarche"
+      },
       "door_auto_open": {
         "name": "Apertura automática de puerta (último programa)"
       },
@@ -994,7 +997,7 @@
       "work_status": {
         "name": "Estado de funcionamiento"
       },
-      "function_no": {
+      "function_num": {
         "name": "Número de función"
       },
       "fire_level": {

@@ -63,6 +63,9 @@
   },
   "entity": {
     "binary_sensor": {
+      "defrosting": {
+        "name": "Leolvasztás"
+      },
       "door_auto_open": {
         "name": "Automatikus ajtónyitás (utolsó program)"
       },
@@ -994,7 +997,7 @@
       "work_status": {
         "name": "Működési állapot"
       },
-      "function_no": {
+      "function_num": {
         "name": "Funkció száma"
       },
       "fire_level": {

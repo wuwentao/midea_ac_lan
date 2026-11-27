@@ -63,6 +63,9 @@
   },
   "entity": {
     "binary_sensor": {
+      "defrosting": {
+        "name": "Розморожування"
+      },
       "door_auto_open": {
         "name": "Автовідкривання дверцят останньої програми"
       },
@@ -1010,7 +1013,7 @@
       "work_status": {
         "name": "Робочий стан"
       },
-      "function_no": {
+      "function_num": {
         "name": "Номер функції"
       },
       "fire_level": {

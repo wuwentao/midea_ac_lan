@@ -295,10 +295,12 @@ cd midea_ac_lan
 
 ### 10.1 新增设备支持
 
-想在本集成中暴露一款新的美的设备类型？从把 `midea-lan` 依赖指向你的库改动以便本地测试、在 `midea_devices.py` 中注册设备、为每个属性选择 platform / `device_class` / `unit` / `translation_key`、添加翻译文件、编写设备文档，到提交 PR 的完整流程都有文档说明，并以 `0xD9` 洗烘一体机（[PR #1086](https://github.com/wuwentao/midea_ac_lan/pull/1086)）作为贯穿示例，另以 `0x9B` 烤箱（[PR #1096](https://github.com/wuwentao/midea_ac_lan/pull/1096)）作为第二个、更大的范例：
+想在本集成中暴露一款新的美的设备类型？从把 `midea-lan` 依赖指向你的库改动以便开发和运行 CI、在 `midea_devices.py` 中注册设备、为每个属性选择 platform / `device_class` / `unit` / `translation_key`、添加翻译文件、编写设备文档，到提交 PR 的完整流程都有文档说明，并以 `0xD9` 洗烘一体机（[PR #1086](https://github.com/wuwentao/midea_ac_lan/pull/1086)）作为贯穿示例，另以 `0x9B` 烤箱（[PR #1096](https://github.com/wuwentao/midea_ac_lan/pull/1096)）作为第二个、更大的范例：
 
 - [为 midea_ac_lan 集成新增一款设备（中文）](doc/adding-a-new-device.zh-Hans.md)
 - [Adding a New Device to the midea_ac_lan Integration（English）](doc/adding-a-new-device.md)
+
+配套改动尚未发布时，集成 manifest 是 `midea-lan` 唯一运行时依赖来源，CI 和本地初始化都从 `manifest.json` 安装；`pyproject.toml` 和 `uv.lock` 只管理开发/测试依赖。当前 `midea-lan` lib PR 尚未合并时，对应的 `midea_ac_lan` 集成 PR 可以临时把 manifest 中的 `midea-lan` 指向你的库 fork/分支，以便立即验证功能和 CI。lib PR 合并后，将集成 manifest 切换到 `wuwentao/midea-lan@main`（也可以从一开始就指向上游 `main`）。集成 PR 合并前，manifest 必须是上游 `main` 或正式发布版本，不能保留贡献者fork分支。lib PR 合并后不会立即发布库版本，集成 PR 可继续基于上游 `main` 验证。维护者会根据已合并的 PR 定期发布集成版本：生成 changelog，将 manifest 中的 `midea-lan` 更新为包含合并后改动的正式发布版本，并发布 `midea_ac_lan` release。
 
 协议库侧的配套指南位于 `midea-lan` 仓库：[新增设备类型支持指南](https://github.com/wuwentao/midea-lan/blob/main/docs/adding-a-new-device.zh-Hans.md)。
 

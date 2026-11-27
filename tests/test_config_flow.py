@@ -78,7 +78,12 @@ async def test_flow_manager_creates_manual_entry(hass: HomeAssistant) -> None:
             "custom_components.midea_ac_lan.config_flow.discover",
             return_value={DEVICE_ID: discovered_device()},
         ),
-        patch.object(MideaLanConfigFlow, "_try_connect_device", return_value=True),
+        patch.object(
+            MideaLanConfigFlow,
+            "_try_connect_device",
+            new_callable=AsyncMock,
+            return_value=True,
+        ),
         patch.object(MideaLanConfigFlow, "_save_device_config"),
     ):
         result = await hass.config_entries.flow.async_configure(
@@ -427,6 +432,46 @@ async def test_discovery_executes_executor_callable() -> None:
     discover_mock.assert_called_once_with(list(flow.supports), ip_address=None)
 
 
+def test_mask_account() -> None:
+    """Partially mask accounts in login logs, keeping them recognizable."""
+    # Email: keep the local-part prefix and the whole domain, hide the rest.
+    masked = config_flow._mask_account("semihal.devs@gmail.com")
+    assert masked == "sem*********@gmail.com"
+    assert "semihal.devs" not in masked
+    # Plain username (no "@"): keep the prefix, mask the tail.
+    assert config_flow._mask_account("myplainusername") == "myp************"
+    # Short values still mask at least the last char of the local part, so no
+    # nonempty account is ever logged in full.
+    assert config_flow._mask_account("joe@x.com") == "jo*@x.com"
+    assert config_flow._mask_account("abcde") == "abc**"
+    assert config_flow._mask_account("a@y.com") == "*@y.com"
+    assert config_flow._mask_account("a") == "*"
+    # No local part (starts with "@"): mask the whole value, never log in full.
+    assert config_flow._mask_account("@example.com") == "*" * len("@example.com")
+    # A literal "*" in the local part would make the masked tail equal the
+    # input; fall back to masking the whole value so nothing leaks.
+    assert config_flow._mask_account("a*@example.com") == "*" * len("a*@example.com")
+    # A quoted local part containing "@" is split on the last "@", so the
+    # embedded address stays in the masked local part and does not leak.
+    assert config_flow._mask_account('"a@b"@example.com') == '"a@**@example.com'
+    assert "a@b" not in config_flow._mask_account('"a@b"@example.com')
+    # Every nonempty account that carries real (non-"*") characters keeps at
+    # least one of them hidden; the input never survives verbatim.
+    for account in (
+        "semihal.devs@gmail.com",
+        "joe@x.com",
+        "abcde",
+        "a",
+        "@example.com",
+        "a*@example.com",
+        '"a@b"@example.com',
+    ):
+        assert account not in config_flow._mask_account(account)
+    # Falsy input is rendered without raising.
+    assert config_flow._mask_account("") == ""
+    assert config_flow._mask_account(None) == "None"
+
+
 async def test_cloud_login_helper() -> None:
     """Initialize/reuse cloud clients and return their login result."""
     flow = make_flow()
@@ -473,7 +518,9 @@ async def test_cloud_key_helper() -> None:
         },
     )
     flow.cloud = cloud
-    flow.hass.async_add_executor_job.side_effect = [False, True]
+    # connect() is now awaited directly via _try_connect_device instead of being
+    # offloaded to the executor, so drive the per-key connect result here.
+    flow._try_connect_device = AsyncMock(side_effect=[False, True])
     with patch.object(
         config_flow.MideaCloud,
         "get_default_keys",
@@ -485,29 +532,31 @@ async def test_cloud_key_helper() -> None:
             "key": "33",
         }
 
-        flow.hass.async_add_executor_job.side_effect = [True]
+        flow._try_connect_device = AsyncMock(side_effect=[True])
         assert await flow._check_key_from_cloud(
             DEVICE_ID,
             default_key=False,
         ) == {"token": "22", "key": "33"}
 
-        flow.hass.async_add_executor_job.side_effect = [False]
+        flow._try_connect_device = AsyncMock(side_effect=[False])
         assert await flow._check_key_from_cloud(
             DEVICE_ID,
             default_key=False,
         ) == {"error": "connect_error"}
 
 
-def test_try_connect_device() -> None:
+async def test_try_connect_device() -> None:
     """Always close the socket after successful and failed connection attempts."""
     device = Mock()
-    device.connect.return_value = True
-    assert MideaLanConfigFlow._try_connect_device(device)
+    # connect() is a coroutine after the asyncio transport migration; close_socket
+    # stays synchronous and must run in the finally block for both outcomes.
+    device.connect = AsyncMock(return_value=True)
+    assert await MideaLanConfigFlow._try_connect_device(device)
     device.close_socket.assert_called_once_with()
     device.reset_mock()
-    device.connect.side_effect = OSError("offline")
+    device.connect = AsyncMock(side_effect=OSError("offline"))
     with pytest.raises(OSError, match="offline"):
-        MideaLanConfigFlow._try_connect_device(device)
+        await MideaLanConfigFlow._try_connect_device(device)
     device.close_socket.assert_called_once_with()
 
 
@@ -696,8 +745,11 @@ async def test_manual_form_and_validation_errors() -> None:
     flow.devices = {}
     flow.hass.async_add_executor_job.side_effect = [
         {DEVICE_ID: discovered_device()},
-        False,
     ]
+    # connect() is awaited directly now (not via the executor), so the failed
+    # auth result must come from _try_connect_device. Without this stub the real
+    # coroutine would open a socket, which HA's test harness blocks.
+    flow._try_connect_device = AsyncMock(return_value=False)
     assert (await flow.async_step_manually(valid.copy()))["errors"] == {
         "base": "Device auth failed with input config",
     }
@@ -752,7 +804,9 @@ async def test_manual_connection_success_and_failure() -> None:
     }
     flow._check_cloud_login = AsyncMock(return_value=True)
     flow._check_key_from_cloud = AsyncMock(return_value={"token": "00", "key": "11"})
-    flow.hass.async_add_executor_job.side_effect = [True, None]
+    # connect() is awaited via _try_connect_device now; only the config save still
+    # runs through the executor.
+    flow._try_connect_device = AsyncMock(return_value=True)
     result = await flow.async_step_manually(
         manual_input(protocol=ProtocolVersion.V3),
     )
@@ -767,7 +821,7 @@ async def test_manual_connection_success_and_failure() -> None:
 
     flow = make_flow()
     flow.devices = {DEVICE_ID: discovered_device()}
-    flow.hass.async_add_executor_job.return_value = False
+    flow._try_connect_device = AsyncMock(return_value=False)
     result = await flow.async_step_manually(manual_input())
     assert result["errors"] == {"base": "Device auth failed with input config"}
 
@@ -777,7 +831,8 @@ async def test_manual_cloud_name_fallback() -> None:
     flow = make_flow()
     flow.devices = {DEVICE_ID: discovered_device()}
     flow.hass.data = {DOMAIN: {"login_data": {CONF_SERVER: "custom"}}}
-    flow.hass.async_add_executor_job.side_effect = [True, None]
+    # Connect succeeds via the awaited coroutine; the save still uses the executor.
+    flow._try_connect_device = AsyncMock(return_value=True)
     result = await flow.async_step_manually(manual_input())
     assert result["data"][CONF_CLOUD_NAME] == "custom"
 

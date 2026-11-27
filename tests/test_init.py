@@ -13,6 +13,7 @@ from homeassistant.const import (
     CONF_NAME,
     CONF_PORT,
     CONF_PROTOCOL,
+    CONF_SWITCHES,
     CONF_TOKEN,
     CONF_TYPE,
     EVENT_HOMEASSISTANT_STOP,
@@ -44,15 +45,16 @@ class Attribute(StrEnum):
     POWER = "power"
 
 
-def test_close_device_success_and_expected_errors() -> None:
+async def test_close_device_success_and_expected_errors() -> None:
     """Close normally and absorb connection cleanup failures."""
     device = Mock()
-    midea_ac_lan._close_device(device)
-    device.close.assert_called_once_with()
+    device.close = AsyncMock()
+    await midea_ac_lan._close_device(device)
+    device.close.assert_awaited_once_with()
     for error in (OSError("socket"), ConnectionError("closed"), AttributeError("old")):
         device.close.reset_mock(side_effect=True)
         device.close.side_effect = error
-        midea_ac_lan._close_device(device)
+        await midea_ac_lan._close_device(device)
 
 
 def test_device_store_initializes_nested_mapping() -> None:
@@ -127,10 +129,18 @@ async def test_async_setup_registers_and_runs_services(
         },
     }
     monkeypatch.setattr(midea_ac_lan, "MIDEA_DEVICES", registry)
+    monkeypatch.setattr(
+        midea_ac_lan,
+        "_ATTRIBUTE_ALIASES",
+        {1: {"legacy_mapped": "mapped"}},
+    )
     assert await midea_ac_lan.async_setup(hass, {})
 
     assert hass.services.async_register.call_count == 2
     set_attribute = hass.services.async_register.call_args_list[0].args[2]
+    set_attribute_schema = hass.services.async_register.call_args_list[0].kwargs[
+        "schema"
+    ]
     send_command = hass.services.async_register.call_args_list[1].args[2]
     device = Mock()
     device.device_type = 1
@@ -140,6 +150,12 @@ async def test_async_setup_registers_and_runs_services(
         SimpleNamespace(data={"device_id": 7, "attribute": "mapped", "value": 3}),
     )
     device.set_attribute.assert_called_once_with(attr="target", value=3)
+    device.set_attribute.reset_mock()
+    legacy_service_data = set_attribute_schema(
+        {"device_id": 7, "attribute": "legacy_mapped", "value": 4},
+    )
+    set_attribute(SimpleNamespace(data=legacy_service_data))
+    device.set_attribute.assert_called_once_with(attr="target", value=4)
     device.set_attribute.reset_mock()
     set_attribute(
         SimpleNamespace(data={"device_id": 7, "attribute": "sensor", "value": 3}),
@@ -221,6 +237,10 @@ def config_entry(
 
 def setup_hass(device: Mock | None) -> tuple[Mock, Mock, Mock]:
     """Build Home Assistant lifecycle mocks and captured listener removal."""
+    if device is not None:
+        # open()/close() became coroutines in the asyncio transport migration.
+        device.open = AsyncMock()
+        device.close = AsyncMock()
     hass = Mock()
     hass.data = {}
     hass.async_add_import_executor_job = AsyncMock(return_value=device)
@@ -289,7 +309,7 @@ async def test_async_setup_entry_success_and_stop_cleanup() -> None:
         assert await midea_ac_lan.async_setup_entry(hass, entry)
 
     device.set_refresh_interval.assert_called_once_with(15)
-    device.open.assert_called_once_with()
+    device.open.assert_awaited_once_with()
     assert hass.data[DOMAIN][DEVICES][42] is device
     config_entries.async_forward_entry_setups.assert_awaited_once_with(
         entry,
@@ -300,10 +320,9 @@ async def test_async_setup_entry_success_and_stop_cleanup() -> None:
     assert hass.bus.async_listen_once.call_args.args[0] == EVENT_HOMEASSISTANT_STOP
     stop_callback = hass.bus.async_listen_once.call_args.args[1]
     await stop_callback(Mock())
-    hass.async_add_executor_job.assert_awaited_once_with(
-        midea_ac_lan._close_device,
-        device,
-    )
+    # _async_close_on_stop awaits _close_device(device) directly, which awaits
+    # the now-coroutine device.close() instead of offloading to an executor.
+    device.close.assert_awaited_once_with()
     assert entry.async_on_unload.call_args_list == [
         call(remove_listener),
         call(entry.add_update_listener.return_value),
@@ -330,10 +349,8 @@ async def test_async_setup_entry_forward_failure_cleanup(error: BaseException) -
         await midea_ac_lan.async_setup_entry(hass, entry)
     remove_listener.assert_called_once_with()
     assert 42 not in hass.data[DOMAIN][DEVICES]
-    hass.async_add_executor_job.assert_awaited_once_with(
-        midea_ac_lan._close_device,
-        device,
-    )
+    # Forward-failure cleanup awaits _close_device(device) directly now.
+    device.close.assert_awaited_once_with()
 
 
 @pytest.mark.parametrize(
@@ -399,10 +416,10 @@ async def test_async_migrate_entry_versions() -> None:
         return_value=True,
     ):
         assert await midea_ac_lan.async_migrate_entry(hass, entry)
-    hass.config_entries.async_update_entry.assert_called_once_with(
-        entry,
-        minor_version=2,
-    )
+    assert hass.config_entries.async_update_entry.call_args_list == [
+        call(entry, minor_version=2),
+        call(entry, minor_version=3),
+    ]
 
     hass.reset_mock()
     with patch(
@@ -412,6 +429,256 @@ async def test_async_migrate_entry_versions() -> None:
     ):
         assert await midea_ac_lan.async_migrate_entry(hass, entry)
     hass.config_entries.async_update_entry.assert_not_called()
+
+
+async def test_function_num_migration_survives_backfill_retry() -> None:
+    """Rename cooking controls while retaining 2.1 identity retry state."""
+    hass = Mock()
+    entry = config_entry(
+        data=entry_data(**{CONF_TYPE: DeviceType.EB}),
+        options={CONF_SWITCHES: ["function_no", "work_status"]},
+    )
+    entry.minor_version = 1
+    registry = Mock()
+    registry.async_get_entity_id.return_value = "number.42_function_no"
+
+    with (
+        patch(
+            "custom_components.midea_ac_lan._async_backfill_mac_and_sn",
+            new_callable=AsyncMock,
+            return_value=False,
+        ) as backfill,
+        patch(
+            "custom_components.midea_ac_lan.er.async_get",
+            return_value=registry,
+        ),
+    ):
+        assert await midea_ac_lan.async_migrate_entry(hass, entry)
+        backfill.assert_awaited_once_with(hass, entry)
+
+        registry.async_update_entity.assert_called_once_with(
+            "number.42_function_no",
+            new_unique_id=f"{DOMAIN}.42_function_num",
+        )
+        hass.config_entries.async_update_entry.assert_called_once_with(
+            entry,
+            options={CONF_SWITCHES: ["function_num", "work_status"]},
+        )
+        assert entry.minor_version == 1
+
+        entry.options = {CONF_SWITCHES: ["function_num", "work_status"]}
+        hass.reset_mock()
+        registry.reset_mock()
+        registry.async_get_entity_id.return_value = None
+        registry.async_get.return_value = None
+        assert await midea_ac_lan.async_migrate_entry(hass, entry)
+
+    assert backfill.await_count == 2
+    registry.async_update_entity.assert_not_called()
+    hass.config_entries.async_update_entry.assert_not_called()
+    assert entry.minor_version == 1
+
+
+async def test_function_num_chained_migration_is_stateful_and_idempotent() -> None:
+    """Apply the full 2.1-to-2.3 migration and keep the existing entity ID."""
+    hass = Mock()
+    entry = config_entry(
+        data=entry_data(**{CONF_TYPE: DeviceType.E7}),
+        options={CONF_SWITCHES: ["function_no", "work_status"]},
+    )
+    entry.minor_version = 1
+    legacy_unique_id = f"{DOMAIN}.42_function_no"
+    current_unique_id = f"{DOMAIN}.42_function_num"
+    existing_entity_id = "number.42_function_no"
+    entities = {legacy_unique_id: existing_entity_id}
+
+    def update_entry(updated_entry: Mock, **changes: object) -> None:
+        for key, value in changes.items():
+            setattr(updated_entry, key, value)
+
+    def get_entity_id(_domain: Platform, _platform: str, unique_id: str) -> str | None:
+        return entities.get(unique_id)
+
+    def update_entity(entity_id: str, *, new_unique_id: str) -> None:
+        assert entity_id == existing_entity_id
+        del entities[legacy_unique_id]
+        entities[new_unique_id] = entity_id
+
+    hass.config_entries.async_update_entry.side_effect = update_entry
+    registry = Mock()
+    registry.async_get_entity_id.side_effect = get_entity_id
+    registry.async_update_entity.side_effect = update_entity
+
+    with (
+        patch(
+            "custom_components.midea_ac_lan._async_backfill_mac_and_sn",
+            new_callable=AsyncMock,
+            return_value=True,
+        ) as backfill,
+        patch(
+            "custom_components.midea_ac_lan.er.async_get",
+            return_value=registry,
+        ),
+    ):
+        assert await midea_ac_lan.async_migrate_entry(hass, entry)
+        assert entry.version == 2
+        assert entry.minor_version == 3
+        assert entry.options == {
+            CONF_SWITCHES: ["function_num", "work_status"],
+        }
+        assert entities == {current_unique_id: existing_entity_id}
+
+        hass.config_entries.async_update_entry.reset_mock()
+        registry.reset_mock()
+        backfill.reset_mock()
+        assert await midea_ac_lan.async_migrate_entry(hass, entry)
+
+    backfill.assert_not_awaited()
+    registry.async_update_entity.assert_not_called()
+    hass.config_entries.async_update_entry.assert_not_called()
+    assert entities == {current_unique_id: existing_entity_id}
+
+
+@pytest.mark.parametrize("device_type", [DeviceType.E7, DeviceType.EB])
+async def test_migrate_function_num_selection_and_entity(
+    device_type: DeviceType,
+) -> None:
+    """Preserve released cooking-device options and entities during the rename."""
+    hass = Mock()
+    entry = config_entry(
+        data=entry_data(**{CONF_TYPE: device_type}),
+        options={CONF_SWITCHES: ["function_no", "work_status"]},
+    )
+    entry.minor_version = 2
+    registry = Mock()
+    registry.async_get_entity_id.return_value = "number.42_function_no"
+
+    with patch(
+        "custom_components.midea_ac_lan.er.async_get",
+        return_value=registry,
+    ):
+        assert await midea_ac_lan.async_migrate_entry(hass, entry)
+
+    registry.async_update_entity.assert_called_once_with(
+        "number.42_function_no",
+        new_unique_id=f"{DOMAIN}.42_function_num",
+    )
+    hass.config_entries.async_update_entry.assert_called_once_with(
+        entry,
+        options={CONF_SWITCHES: ["function_num", "work_status"]},
+        minor_version=3,
+    )
+
+
+async def test_migrate_function_num_legacy_entity_id() -> None:
+    """Migrate a cooking entity that predates unique-id registry lookup."""
+    hass = Mock()
+    entry = config_entry(data=entry_data(**{CONF_TYPE: DeviceType.EB}))
+    entry.minor_version = 2
+    registry = Mock()
+    registry.async_get_entity_id.return_value = None
+    legacy_entry = Mock()
+    legacy_entry.domain = Platform.NUMBER
+    legacy_entry.platform = DOMAIN
+    legacy_entry.config_entry_id = entry.entry_id
+    legacy_entry.unique_id = f"{DOMAIN}.42_function_no"
+    registry.async_get.return_value = legacy_entry
+
+    with patch(
+        "custom_components.midea_ac_lan.er.async_get",
+        return_value=registry,
+    ):
+        assert await midea_ac_lan.async_migrate_entry(hass, entry)
+
+    registry.async_update_entity.assert_called_once_with(
+        "number.42_function_no",
+        new_unique_id=f"{DOMAIN}.42_function_num",
+    )
+
+
+@pytest.mark.parametrize(
+    ("domain", "platform", "config_entry_id", "unique_id"),
+    [
+        (Platform.SENSOR, DOMAIN, "entry", f"{DOMAIN}.42_function_no"),
+        (Platform.NUMBER, "other_domain", "entry", f"{DOMAIN}.42_function_no"),
+        (Platform.NUMBER, DOMAIN, "other_entry", f"{DOMAIN}.42_function_no"),
+        (Platform.NUMBER, DOMAIN, "entry", f"{DOMAIN}.42_function_num"),
+    ],
+)
+async def test_migrate_function_num_rejects_unowned_legacy_entity_id(
+    domain: Platform,
+    platform: str,
+    config_entry_id: str,
+    unique_id: str,
+) -> None:
+    """Do not rewrite an entity-ID fallback that is not the legacy entity."""
+    hass = Mock()
+    entry = config_entry(data=entry_data(**{CONF_TYPE: DeviceType.EB}))
+    entry.minor_version = 2
+    registry = Mock()
+    registry.async_get_entity_id.return_value = None
+    legacy_entry = Mock()
+    legacy_entry.domain = domain
+    legacy_entry.platform = platform
+    legacy_entry.config_entry_id = config_entry_id
+    legacy_entry.unique_id = unique_id
+    registry.async_get.return_value = legacy_entry
+
+    with patch(
+        "custom_components.midea_ac_lan.er.async_get",
+        return_value=registry,
+    ):
+        assert await midea_ac_lan.async_migrate_entry(hass, entry)
+
+    registry.async_update_entity.assert_not_called()
+
+
+@pytest.mark.parametrize("device_id", [None, 42])
+async def test_migrate_function_num_without_legacy_entity(
+    device_id: int | None,
+) -> None:
+    """Complete migration when no prior cooking entity registry entry exists."""
+    hass = Mock()
+    entry = config_entry(
+        data=entry_data(
+            **{CONF_TYPE: DeviceType.EB, CONF_DEVICE_ID: device_id},
+        ),
+    )
+    entry.minor_version = 2
+    registry = Mock()
+    registry.async_get_entity_id.return_value = None
+    registry.async_get.return_value = None
+
+    with patch(
+        "custom_components.midea_ac_lan.er.async_get",
+        return_value=registry,
+    ):
+        assert await midea_ac_lan.async_migrate_entry(hass, entry)
+
+    registry.async_update_entity.assert_not_called()
+    hass.config_entries.async_update_entry.assert_called_once_with(
+        entry,
+        minor_version=3,
+    )
+
+
+async def test_migrate_non_cooking_entry_to_minor_version_three() -> None:
+    """Advance other device entries without applying cooking-device migration."""
+    hass = Mock()
+    entry = config_entry(
+        data=entry_data(**{CONF_TYPE: DeviceType.AC}),
+        options={CONF_SWITCHES: ["function_no"]},
+    )
+    entry.minor_version = 2
+
+    with patch("custom_components.midea_ac_lan.er.async_get") as async_get_registry:
+        assert await midea_ac_lan.async_migrate_entry(hass, entry)
+
+    async_get_registry.assert_not_called()
+    hass.config_entries.async_update_entry.assert_called_once_with(
+        entry,
+        minor_version=3,
+    )
 
 
 @pytest.mark.parametrize(

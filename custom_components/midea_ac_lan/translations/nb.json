@@ -63,6 +63,9 @@
   },
   "entity": {
     "binary_sensor": {
+      "defrosting": {
+        "name": "Avriming"
+      },
       "door_auto_open": {
         "name": "Automatisk døråpning for siste program"
       },
@@ -1010,7 +1013,7 @@
       "work_status": {
         "name": "Driftsstatus"
       },
-      "function_no": {
+      "function_num": {
         "name": "Funksjonsnummer"
       },
       "fire_level": {
