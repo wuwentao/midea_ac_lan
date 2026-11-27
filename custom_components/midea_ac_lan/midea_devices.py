@@ -9740,6 +9740,12 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Sterilization",
                 "icon": "mdi:bacteria",
             },
+            E2Attributes.eplus: {
+                "type": Platform.SWITCH,
+                "translation_key": "eplus",
+                "name": "Capacity Plus",
+                "icon": "mdi:water-plus",
+            },
             E2Attributes.memory: {
                 "type": Platform.SWITCH,
                 "translation_key": "memory",

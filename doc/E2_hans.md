@@ -3,7 +3,7 @@
 ## 特性
 
 - 支持温度设定
-- 支持杀菌(sterilization)和 Memo U(记忆模式)开关
+- 支持杀菌(sterilization)、增容(E+)和 Memo U(记忆模式)开关
 
 ## 自定义
 
@@ -59,6 +59,7 @@
 | sensor.{DEVICEID}\_current_temperature    | sensor        | Current Temperature | 当前温度 |
 | sensor.{DEVICEID}\_top_temp               | sensor        | Top Temperature     | 顶部温度 |
 | switch.{DEVICEID}\_auto_cut_out           | switch        | Auto Cut-out        | 出水断电 |
+| switch.{DEVICEID}\_eplus                  | switch        | Capacity Plus       | 增容     |
 | switch.{DEVICEID}\_memory                 | switch        | Memo U              | 记忆模式 |
 | switch.{DEVICEID}\_power                  | switch        | Power               | 电源开关 |
 | switch.{DEVICEID}\_sterilization          | switch        | Sterilization       | 杀菌     |
@@ -73,11 +74,11 @@
 
 设置设备属性, 服务数据:
 
-| 名称      | 描述                                                                         |
-| --------- | ---------------------------------------------------------------------------- |
-| device_id | 设备的编号(Device ID)                                                        |
-| attribute | "auto_cut_out"<br />"power"<br />"variable_heating"<br/>"whole_tank_heating" |
-| value     | true 或 false                                                                |
+| 名称      | 描述                                                                                                                         |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| device_id | 设备的编号(Device ID)                                                                                                        |
+| attribute | "auto_cut_out"<br />"eplus"<br />"memory"<br />"power"<br />"sterilization"<br />"variable_heating"<br/>"whole_tank_heating" |
+| value     | true 或 false                                                                                                                |
 
 示例
 
