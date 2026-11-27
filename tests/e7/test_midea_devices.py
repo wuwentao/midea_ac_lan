@@ -29,7 +29,7 @@ def test_e7_registry_matches_library_attributes() -> None:
     expected_platforms = {
         Platform.NUMBER: {
             DeviceAttributes.work_status,
-            DeviceAttributes.function_no,
+            DeviceAttributes.function_num,
             DeviceAttributes.fire_level,
             DeviceAttributes.time_reserve_hr,
             DeviceAttributes.time_reserve_min,
@@ -52,9 +52,9 @@ def test_e7_registry_matches_library_attributes() -> None:
             if config["type"] is platform
         } == expected_attributes
 
-    function_no = entities[DeviceAttributes.function_no]
-    assert function_no["max"] == 0xFFFFFFFF
-    assert function_no["max_by_subtype"] == {6: 0xFFFF}
+    function_num = entities[DeviceAttributes.function_num]
+    assert function_num["max"] == 0xFFFFFFFF
+    assert function_num["max_by_subtype"] == {6: 0xFFFF}
 
 
 def test_e7_translations_cover_every_locale() -> None:
