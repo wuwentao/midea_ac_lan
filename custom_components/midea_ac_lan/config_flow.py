@@ -175,7 +175,10 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
         self.preset_password: str = bytes.fromhex(
             format((PRESET_ACCOUNT_DATA[0] ^ PRESET_ACCOUNT_DATA[2]), "X"),
         ).decode("utf-8", errors="ignore")
-        self.preset_cloud_name: str = DEFAULT_CLOUD
+        # Keep the preset login on SmartHome explicitly. Unlike the legacy
+        # NetHome Plus backend, SmartHome supports regional routing and the
+        # current token API; this must not depend on SUPPORTED_CLOUDS ordering.
+        self.preset_cloud_name = "SmartHome"
 
     def _added_with_cloud_name(self) -> str | None:
         """Return the cloud account/service the device is being added with.
@@ -343,9 +346,9 @@ class MideaLanConfigFlow(ConfigFlow, domain=DOMAIN):  # type: ignore[call-arg]
                 self.hass.data[DOMAIN] = {}
             # check skip login option
             if user_input[CONF_SERVER] == next(iter(default_keys)):
-                # use preset account and DEFAULT_CLOUD cloud
+                # use the preset account and its explicit SmartHome cloud
                 _LOGGER.debug("skip login matched, cloud_servers: %s", cloud_servers)
-                cloud_server = DEFAULT_CLOUD
+                cloud_server = self.preset_cloud_name
                 account = self.preset_account
                 password = self.preset_password
                 # set a login_mode flag

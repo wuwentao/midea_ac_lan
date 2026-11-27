@@ -149,11 +149,12 @@ def test_init_and_cloud_name() -> None:
     flow = make_flow()
     assert flow.supports
     assert list(flow.supports.values()) == sorted(flow.supports.values())
-    assert flow._added_with_cloud_name() == DEFAULT_CLOUD
+    assert flow.preset_cloud_name == "SmartHome"
+    assert flow._added_with_cloud_name() == "SmartHome"
     flow.hass.data = {DOMAIN: {"login_data": {CONF_SERVER: "custom"}}}
     assert flow._added_with_cloud_name() == "custom"
     flow.hass.data[DOMAIN]["login_data"][CONF_SERVER] = ""
-    assert flow._added_with_cloud_name() == DEFAULT_CLOUD
+    assert flow._added_with_cloud_name() == "SmartHome"
 
 
 def test_save_and_load_device_config(tmp_path: Path) -> None:
@@ -297,13 +298,13 @@ async def test_login_form_and_input_paths() -> None:
         )
         assert result == "auto"
         flow._check_cloud_login.assert_awaited_once_with(
-            cloud_name=DEFAULT_CLOUD,
+            cloud_name="SmartHome",
             account=flow.preset_account,
             password=flow.preset_password,
             force_login=True,
         )
         assert flow.hass.data[DOMAIN]["login_mode"] == "preset"
-        assert flow.hass.data[DOMAIN]["login_data"][CONF_SERVER] == DEFAULT_CLOUD
+        assert flow.hass.data[DOMAIN]["login_data"][CONF_SERVER] == "SmartHome"
 
         flow.hass.data = {}
         flow._check_cloud_login.reset_mock()
