@@ -29,6 +29,10 @@ No default entity
 | number.{DEVICEID}\_temperature_setting | number | Set Temperature     |
 | number.{DEVICEID}\_cmd_code            | number | Command Code        |
 | number.{DEVICEID}\_cmd_id              | number | Command ID          |
+| number.{DEVICEID}\_time_reserve_hr     | number | Reserve Hours       |
+| number.{DEVICEID}\_time_reserve_min    | number | Reserve Minutes     |
+| number.{DEVICEID}\_time_warm_hr        | number | Keep Warm Hours     |
+| number.{DEVICEID}\_time_warm_min       | number | Keep Warm Minutes   |
 | sensor.{DEVICEID}\_response_type       | sensor | Response            |
 | sensor.{DEVICEID}\_work_status         | sensor | Work Status         |
 | sensor.{DEVICEID}\_work_step           | sensor | Work Step           |
@@ -47,11 +51,11 @@ No default entity
 
 Set the attribute of appliance. Service data:
 
-| Name      | Description                                                                                                                                                                               |
-| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| device_id | The Appliance code (Device ID) of appliance                                                                                                                                               |
-| attribute | "reserve"<br />"warm"<br />"drink_style"<br />"temperature_setting"<br />"cmd_code"<br />"cmd_id"                                                                                         |
-| value     | true/false for reserve/warm; "hot_drink"/"warm_drink" for drink_style; an integer within range for the numeric attributes: temperature_setting (0-98), cmd_code (0-65535), cmd_id (0-255) |
+| Name      | Description                                                                                                                                                                                                                         |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| device_id | The Appliance code (Device ID) of appliance                                                                                                                                                                                         |
+| attribute | "reserve"<br />"warm"<br />"drink_style"<br />"temperature_setting"<br />"cmd_code"<br />"cmd_id"<br />"time_reserve_hr"<br />"time_reserve_min"<br />"time_warm_hr"<br />"time_warm_min"                                           |
+| value     | true/false for reserve/warm; "hot_drink"/"warm_drink" for drink_style; an integer within range for the numeric attributes: temperature_setting (0-98), cmd_code (0-65535), cmd_id (0-255), timer hours (0-23), timer minutes (0-59) |
 
 Example
 

@@ -17,7 +17,7 @@ REPOSITORY_ROOT = Path(__file__).parents[2]
 TRANSLATIONS_DIR = (
     REPOSITORY_ROOT / "custom_components" / "midea_ac_lan" / "translations"
 )
-DEFERRED_TIMER_CONTROLS = {
+TIMER_CONTROLS = {
     DeviceAttributes.time_reserve_hr,
     DeviceAttributes.time_reserve_min,
     DeviceAttributes.time_warm_hr,
@@ -33,11 +33,11 @@ def ef_entities() -> dict[DeviceAttributes, dict[str, Any]]:
     )
 
 
-def test_ef_registry_matches_released_library() -> None:
-    """Expose every reliable attribute available in midea-lan 2026.11.0."""
+def test_ef_registry_matches_library() -> None:
+    """Expose every attribute available in the current midea-lan package."""
     entities = ef_entities()
 
-    assert set(entities) == set(DeviceAttributes) - DEFERRED_TIMER_CONTROLS
+    assert set(entities) == set(DeviceAttributes)
     expected_platforms = {
         Platform.SWITCH: {
             DeviceAttributes.reserve,
@@ -48,6 +48,7 @@ def test_ef_registry_matches_released_library() -> None:
             DeviceAttributes.cmd_code,
             DeviceAttributes.cmd_id,
             DeviceAttributes.temperature_setting,
+            *TIMER_CONTROLS,
         },
         Platform.SENSOR: {
             DeviceAttributes.work_status,
@@ -80,7 +81,7 @@ def test_ef_registry_matches_released_library() -> None:
 
 
 def test_ef_number_controls_match_library_ranges() -> None:
-    """Keep HA number limits synchronized with midea-lan 2026.11.0."""
+    """Keep HA number limits synchronized with the current midea-lan package."""
     entities = ef_entities()
     expected = {
         DeviceAttributes.cmd_code: (
@@ -98,6 +99,26 @@ def test_ef_number_controls_match_library_ranges() -> None:
             ef_message.TEMPERATURE_HIGH,
             UnitOfTemperature.CELSIUS,
         ),
+        DeviceAttributes.time_reserve_hr: (
+            ef_message.TIME_HR_LOW,
+            ef_message.TIME_HR_HIGH,
+            UnitOfTime.HOURS,
+        ),
+        DeviceAttributes.time_reserve_min: (
+            ef_message.TIME_MIN_LOW,
+            ef_message.TIME_MIN_HIGH,
+            UnitOfTime.MINUTES,
+        ),
+        DeviceAttributes.time_warm_hr: (
+            ef_message.TIME_HR_LOW,
+            ef_message.TIME_HR_HIGH,
+            UnitOfTime.HOURS,
+        ),
+        DeviceAttributes.time_warm_min: (
+            ef_message.TIME_MIN_LOW,
+            ef_message.TIME_MIN_HIGH,
+            UnitOfTime.MINUTES,
+        ),
     }
 
     for attribute, (minimum, maximum, unit) in expected.items():
@@ -113,6 +134,9 @@ def test_ef_number_controls_match_library_ranges() -> None:
     assert (
         entities[DeviceAttributes.temperature_setting]["device_class"]
         is NumberDeviceClass.TEMPERATURE
+    )
+    assert all(
+        entities[attribute]["optimistic"] is True for attribute in TIMER_CONTROLS
     )
 
 
@@ -201,10 +225,8 @@ def test_ef_documentation_uses_real_entity_ids() -> None:
     for document in ("doc/EF.md", "doc/EF_hans.md"):
         content = (REPOSITORY_ROOT / document).read_text(encoding="utf-8")
         assert "\\_ef_" not in content
-        for attribute in set(DeviceAttributes) - DEFERRED_TIMER_CONTROLS:
+        for attribute in DeviceAttributes:
             assert f"\\_{attribute.value}" in content
-        for attribute in DEFERRED_TIMER_CONTROLS:
-            assert f"\\_{attribute.value}" not in content
 
     expected_rows = {
         "README.md": "| EF   | Beverage Maker",
