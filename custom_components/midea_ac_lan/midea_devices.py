@@ -7807,7 +7807,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "icon": "mdi:snowflake",
                 "models": ["310Z999Z"],
                 "subtypes": [56],
-                "default": True,
+                "default": False,
             },
             "congelamento_rapido": {
                 "type": Platform.SWITCH,
@@ -7817,7 +7817,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "icon": "mdi:snowflake-alert",
                 "models": ["310Z999Z"],
                 "subtypes": [56],
-                "default": True,
+                "default": False,
             },
             "modo_ferias": {
                 "type": Platform.SWITCH,
@@ -7827,7 +7827,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "icon": "mdi:palm-tree",
                 "models": ["310Z999Z"],
                 "subtypes": [56],
-                "default": True,
+                "default": False,
             },
         },
     },

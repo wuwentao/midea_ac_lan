@@ -29,6 +29,7 @@ def test_ca_mode_switch_translations_exist_in_all_locales() -> None:
         config = entities[entity_key]
         assert config["attribute"] == attribute
         assert entities[entity_key]["translation_key"] == translation_key
+        assert config["default"] is False
         assert supports_device("310Z999Z", 56, config)
         assert not supports_device("OTHER", 56, config)
         assert not supports_device("310Z999Z", 57, config)
