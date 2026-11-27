@@ -419,7 +419,7 @@ async def async_migrate_entry(hass: HomeAssistant, config_entry: ConfigEntry) ->
             _migrate_function_num(hass, config_entry, advance_version=False)
             return True
 
-    # 2.2 -> 2.3: rename the EB function number attribute without losing an
+    # 2.2 -> 2.3: rename the E7/EB function number attribute without losing an
     # optional selection or orphaning its existing entity registry entry.
     entry_minor_version_2 = 2
     if (

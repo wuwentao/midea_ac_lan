@@ -662,8 +662,8 @@ async def test_migrate_function_num_without_legacy_entity(
     )
 
 
-async def test_migrate_non_eb_entry_to_minor_version_three() -> None:
-    """Advance other device entries without applying EB-specific migration."""
+async def test_migrate_non_cooking_entry_to_minor_version_three() -> None:
+    """Advance other device entries without applying cooking-device migration."""
     hass = Mock()
     entry = config_entry(
         data=entry_data(**{CONF_TYPE: DeviceType.AC}),
