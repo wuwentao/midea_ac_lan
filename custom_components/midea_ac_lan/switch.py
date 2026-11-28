@@ -11,7 +11,7 @@ from midealan.device import DeviceType, MideaDevice
 from midealan.devices.ed import DeviceAttributes as EDAttributes
 from midealan.devices.ed import MideaEDDevice
 
-from .const import DEVICES, DOMAIN, supports_device
+from .const import DEVICES, DOMAIN, normalize_entity_options, supports_device
 from .midea_devices import MIDEA_DEVICES
 from .midea_entity import MideaEntity
 
@@ -24,12 +24,16 @@ async def async_setup_entry(
     """Set up switches for device."""
     device_id = config_entry.data.get(CONF_DEVICE_ID)
     device = hass.data[DOMAIN][DEVICES].get(device_id)
-    extra_switches = config_entry.options.get(CONF_SWITCHES, [])
-    switches = []
-    for entity_key, config in cast(
+    entity_configs = cast(
         "dict",
         MIDEA_DEVICES[device.device_type]["entities"],
-    ).items():
+    )
+    extra_switches = normalize_entity_options(
+        set(config_entry.options.get(CONF_SWITCHES, [])),
+        entity_configs,
+    )
+    switches = []
+    for entity_key, config in entity_configs.items():
         if (
             config["type"] != Platform.SWITCH
             or not supports_device(device.model, device.subtype, config)

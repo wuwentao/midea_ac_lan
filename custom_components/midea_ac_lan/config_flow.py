@@ -81,6 +81,7 @@ from .const import (
     DOMAIN,
     EXTRA_CONTROL,
     EXTRA_SENSOR,
+    normalize_entity_options,
     supports_device,
 )
 from .midea_devices import MIDEA_DEVICES
@@ -1060,9 +1061,15 @@ class MideaLanOptionsFlowHandler(OptionsFlow):
             if device_id is not None
             else None
         )
-        selected_attributes = set(
-            self._config_entry.options.get(CONF_SENSORS, []),
-        ) | set(self._config_entry.options.get(CONF_SWITCHES, []))
+        entity_configs = cast(
+            "dict",
+            MIDEA_DEVICES[cast("int", self._device_type)]["entities"],
+        )
+        selected_attributes = normalize_entity_options(
+            set(self._config_entry.options.get(CONF_SENSORS, []))
+            | set(self._config_entry.options.get(CONF_SWITCHES, [])),
+            entity_configs,
+        )
         for attribute, attribute_config in cast(
             "dict",
             MIDEA_DEVICES[cast("int", self._device_type)]["entities"],
@@ -1101,8 +1108,7 @@ class MideaLanOptionsFlowHandler(OptionsFlow):
             set(sensors.keys()) & set(self._config_entry.options.get(CONF_SENSORS, [])),
         )
         extra_switches = list(
-            set(switches.keys())
-            & set(self._config_entry.options.get(CONF_SWITCHES, [])),
+            set(switches.keys()) & selected_attributes,
         )
         customize = self._config_entry.options.get(CONF_CUSTOMIZE, "")
         data_schema = vol.Schema(

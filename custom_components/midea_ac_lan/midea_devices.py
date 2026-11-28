@@ -7799,7 +7799,7 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                     "zero": "zero",
                 },
             },
-            "refrigeracao_rapida": {
+            "storage_mode": {
                 "type": Platform.SWITCH,
                 "attribute": "storage_mode",
                 "translation_key": "storage_mode",
@@ -7808,8 +7808,9 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "models": ["310Z999Z"],
                 "subtypes": [56],
                 "default": False,
+                "option_aliases": ["refrigeracao_rapida"],
             },
-            "congelamento_rapido": {
+            "freezing_mode": {
                 "type": Platform.SWITCH,
                 "attribute": "freezing_mode",
                 "translation_key": "freezing_mode",
@@ -7818,16 +7819,17 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "models": ["310Z999Z"],
                 "subtypes": [56],
                 "default": False,
+                "option_aliases": ["congelamento_rapido"],
             },
-            "modo_ferias": {
+            "holiday_mode": {
                 "type": Platform.SWITCH,
                 "attribute": "holiday_mode",
-                "translation_key": "holiday_on",
                 "name": "Modo Férias",
                 "icon": "mdi:palm-tree",
                 "models": ["310Z999Z"],
                 "subtypes": [56],
                 "default": False,
+                "option_aliases": ["modo_ferias"],
             },
         },
     },
