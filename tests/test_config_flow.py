@@ -2,6 +2,7 @@
 
 # mypy: disable-error-code="method-assign"
 
+import asyncio
 from pathlib import Path
 from types import SimpleNamespace
 from unittest.mock import AsyncMock, Mock, patch
@@ -961,3 +962,41 @@ async def test_options_flow_without_optional_groups(
     handler.hass = SimpleNamespace(data={})
     result = await handler.async_step_init()
     assert result["step_id"] == "init"
+
+
+def test_ca_options_flow_migrates_legacy_mode_switch_selections() -> None:
+    """Keep the three old opt-ins selected under their canonical entity keys."""
+    entry = SimpleNamespace(
+        data={
+            CONF_TYPE: DeviceType.CA,
+            CONF_DEVICE_ID: DEVICE_ID,
+            CONF_MODEL: "310Z999Z",
+            CONF_SUBTYPE: 56,
+            CONF_IP_ADDRESS: "192.0.2.1",
+        },
+        options={
+            CONF_IP_ADDRESS: "192.0.2.9",
+            CONF_REFRESH_INTERVAL: 15,
+            CONF_SENSORS: ["refrigerator_actual_temp"],
+            CONF_SWITCHES: [
+                "refrigeracao_rapida",
+                "congelamento_rapido",
+                "modo_ferias",
+            ],
+            CONF_CUSTOMIZE: "{}",
+        },
+    )
+    handler = MideaLanOptionsFlowHandler(entry)
+    handler.hass = SimpleNamespace(data={})
+
+    result = asyncio.run(handler.async_step_init())
+    schema = result["data_schema"].schema
+    switch_field = next(field for field in schema if field.schema == CONF_SWITCHES)
+    sensor_field = next(field for field in schema if field.schema == CONF_SENSORS)
+
+    assert set(switch_field.default()) == {
+        "storage_mode",
+        "freezing_mode",
+        "holiday_mode",
+    }
+    assert sensor_field.default() == ["refrigerator_actual_temp"]

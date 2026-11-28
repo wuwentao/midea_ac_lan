@@ -31,6 +31,18 @@
 | sensor.{DEVICEID}\_right_flex_zone_setting_temp      | sensor        | Right Flex-zone Setting Temperature | 右变温区设置温度 |
 | sensor.{DEVICEID}\_humidity                          | sensor        | Humidity                            | 湿度             |
 | sensor.{DEVICEID}\_variable_mode                     | sensor        | Variable Mode                       | 变温区模式       |
+| switch.{DEVICEID}\_refrigeracao_rapida               | switch        | Fast Cool                           | 快速冷藏         |
+| switch.{DEVICEID}\_congelamento_rapido               | switch        | Fast Freeze                         | 快速冷冻         |
+| switch.{DEVICEID}\_modo_ferias                       | switch        | Holiday Mode                        | 假日模式         |
+
+### 310Z999Z 冰箱模式
+
+型号 `310Z999Z`、subtype `56` 可在额外开关选项中启用“快速冷藏”、
+“快速冷冻”和“假日模式”，以控制设备对应模式。这些开关仅对已完成硬件验证的
+型号和 subtype 开放；其他 CA 冰箱保留现有实体和行为。
+
+实体 ID 使用表中现有的配置键，因此本功能不会更改现有用户或设备的 unique ID
+及 entity ID。
 
 ### 310A2111 变温区模式
 

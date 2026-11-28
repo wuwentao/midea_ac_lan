@@ -95,6 +95,25 @@ def supports_device(
     )
 
 
+def normalize_entity_options(
+    selected_options: set[str],
+    entities: dict[Any, Any],
+) -> set[str]:
+    """Add canonical keys corresponding to configured legacy option aliases.
+
+    Returns
+    -------
+    A copy of the selected keys, including canonical aliases where applicable.
+
+    """
+    normalized = set(selected_options)
+    for entity_key, config in entities.items():
+        aliases = cast("list[str]", config.get("option_aliases", []))
+        if any(alias in selected_options for alias in aliases):
+            normalized.add(str(entity_key))
+    return normalized
+
+
 class FanSpeed(IntEnum):
     """FanSpeed reference values."""
 
