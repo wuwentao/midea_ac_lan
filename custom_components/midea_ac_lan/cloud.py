@@ -188,3 +188,30 @@ def create_filter_wash_time_coordinator(
     )
     coordinator.prime_in_background = True
     return coordinator
+
+
+def create_cloud_report_coordinator(
+    hass: HomeAssistant,
+    config_entry: ConfigEntry,
+    device_id: str | int,
+    device_name: str,
+    report: str,
+) -> MideaCloudCoordinator[E3DayReport] | MideaCloudCoordinator[int] | None:
+    """Create the coordinator for a cloud report kind.
+
+    Device-specific report clients and their startup policy stay in this
+    module, so generic platform files only ask for a report by name.
+
+    Returns
+    -------
+    MideaCloudCoordinator | None
+        The coordinator, or None when the report needs an account and none is
+        stored in the options.
+
+    """
+    factory = (
+        create_filter_wash_time_coordinator
+        if report == "filter_wash_time"
+        else create_cloud_coordinator
+    )
+    return factory(hass, config_entry, device_id, device_name)

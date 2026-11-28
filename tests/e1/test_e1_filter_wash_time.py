@@ -102,14 +102,18 @@ async def test_filter_sensor_opt_in_and_configured_cloud(
         assert result["data"][CONF_SERVER] == "SmartHome"
         await hass.async_block_till_done()
 
-        # The LAN entity is created while the cloud request is still pending.
-        temperature = hass.states.get(f"sensor.{TEST_DEVICE_ID}_temperature")
-        assert temperature is not None
-        assert float(temperature.state) == pytest.approx(27.0)
-        assert hass.states.get(ENTITY_ID).state == STATE_UNAVAILABLE
+        try:
+            # The LAN entity is created while the cloud request is pending.
+            temperature = hass.states.get(f"sensor.{TEST_DEVICE_ID}_temperature")
+            assert temperature is not None
+            assert float(temperature.state) == pytest.approx(27.0)
+            assert hass.states.get(ENTITY_ID).state == STATE_UNAVAILABLE
+        finally:
+            # Release the pending report even when an assertion above fails,
+            # then drain the background task so it cannot leak into the loop.
+            ready.set()
+            await hass.async_block_till_done(wait_background_tasks=True)
 
-        ready.set()
-        await hass.async_block_till_done(wait_background_tasks=True)
         state = hass.states.get(ENTITY_ID)
         assert state is not None
         assert float(state.state) == pytest.approx(817)

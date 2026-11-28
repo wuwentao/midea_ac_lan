@@ -23,11 +23,7 @@ from midealan.device import MideaDevice
 from midealan.devices.e1 import MideaE1Device
 from midealan.devices.e3.cloud import E3DayReport
 
-from .cloud import (
-    MideaCloudCoordinator,
-    create_cloud_coordinator,
-    create_filter_wash_time_coordinator,
-)
+from .cloud import MideaCloudCoordinator, create_cloud_report_coordinator
 from .const import DEVICES, DOMAIN, supports_device
 from .midea_devices import MIDEA_DEVICES
 from .midea_entity import MideaEntity
@@ -69,12 +65,13 @@ async def async_setup_entry(
             continue
         if config.get("cloud_report") is not None:
             if cloud_coordinator is None and not cloud_unconfigured:
-                factory = (
-                    create_filter_wash_time_coordinator
-                    if config["cloud_report"] == "filter_wash_time"
-                    else create_cloud_coordinator
+                cloud_coordinator = create_cloud_report_coordinator(
+                    hass,
+                    config_entry,
+                    device_id,
+                    device.name,
+                    config["cloud_report"],
                 )
-                cloud_coordinator = factory(hass, config_entry, device_id, device.name)
                 if cloud_coordinator is None:
                     cloud_unconfigured = True
                     _LOGGER.warning(
