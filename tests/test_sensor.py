@@ -88,6 +88,7 @@ async def test_async_setup_entry_builds_all_sensor_types(
     hass, entry, add_entities = setup_context(device, sensors=["plain"])
     coordinator = Mock()
     coordinator.async_refresh = AsyncMock()
+    coordinator.prime_in_background = False
     with patch(
         "custom_components.midea_ac_lan.sensor.create_cloud_coordinator",
         return_value=coordinator,

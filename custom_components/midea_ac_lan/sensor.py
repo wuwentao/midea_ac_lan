@@ -19,7 +19,7 @@ from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.event import async_track_time_interval
 from homeassistant.helpers.restore_state import RestoreEntity
 from homeassistant.helpers.typing import StateType
-from midealan.device import DeviceType, MideaDevice
+from midealan.device import MideaDevice
 from midealan.devices.e1 import MideaE1Device
 from midealan.devices.e3.cloud import E3DayReport
 
@@ -104,12 +104,11 @@ async def async_setup_entry(
             sensor = MideaSensor(device, entity_key)
             sensors.append(sensor)
     if cloud_coordinator is not None:
-        if device.device_type == DeviceType.E1:
-            # Never delay dishwasher LAN entities on an optional cloud login.
+        if cloud_coordinator.prime_in_background:
             config_entry.async_create_background_task(
                 hass,
                 cloud_coordinator.async_refresh(),
-                "midea_ac_lan first filter wash time refresh",
+                "midea_ac_lan first cloud report refresh",
             )
         else:
             await cloud_coordinator.async_refresh()

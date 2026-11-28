@@ -1,5 +1,6 @@
 """Exercise the optional cloud filter sensor through Home Assistant."""
 
+from asyncio import Event
 from collections.abc import Generator
 from datetime import timedelta
 from unittest.mock import AsyncMock, Mock, patch
@@ -70,7 +71,14 @@ async def test_filter_sensor_opt_in_and_configured_cloud(
     mock_device: Mock,
 ) -> None:
     """Pass the selected cloud to the library client and follow its report."""
-    client = Mock(async_get_report=AsyncMock(return_value=817))
+    ready = Event()
+    readings = iter([817, 0])
+
+    async def read_cloud(_appliance_id: int) -> int:
+        await ready.wait()
+        return next(readings)
+
+    client = Mock(async_get_report=AsyncMock(side_effect=read_cloud))
     with patch(
         "custom_components.midea_ac_lan.cloud.E1CloudClient",
         return_value=client,
@@ -92,17 +100,20 @@ async def test_filter_sensor_opt_in_and_configured_cloud(
         )
         assert result["type"] is FlowResultType.CREATE_ENTRY
         assert result["data"][CONF_SERVER] == "SmartHome"
-        await hass.async_block_till_done(wait_background_tasks=True)
-        # The optional cloud login must not gate the local entities.
+        await hass.async_block_till_done()
+
+        # The LAN entity is created while the cloud request is still pending.
         temperature = hass.states.get(f"sensor.{TEST_DEVICE_ID}_temperature")
         assert temperature is not None
         assert float(temperature.state) == pytest.approx(27.0)
+        assert hass.states.get(ENTITY_ID).state == STATE_UNAVAILABLE
 
+        ready.set()
+        await hass.async_block_till_done(wait_background_tasks=True)
         state = hass.states.get(ENTITY_ID)
         assert state is not None
         assert float(state.state) == pytest.approx(817)
 
-        client.async_get_report.return_value = 0
         async_fire_time_changed(hass, utcnow() + timedelta(hours=1, minutes=1))
         await hass.async_block_till_done(wait_background_tasks=True)
 
@@ -113,6 +124,10 @@ async def test_filter_sensor_opt_in_and_configured_cloud(
     state = hass.states.get(ENTITY_ID)
     assert state is not None
     assert float(state.state) == pytest.approx(0)
+    assert [call.args[0] for call in client.async_get_report.await_args_list] == [
+        int(TEST_DEVICE_ID),
+        int(TEST_DEVICE_ID),
+    ]
     mock_device.set_attribute.assert_not_called()
 
 
@@ -135,6 +150,7 @@ async def test_filter_sensor_defaults_to_the_default_cloud(
         await hass.async_block_till_done(wait_background_tasks=True)
 
     assert factory.call_args.args[0] == DEFAULT_CLOUD
+    assert client.async_get_report.await_args.args == (int(TEST_DEVICE_ID),)
     assert float(hass.states.get(ENTITY_ID).state) == pytest.approx(12)
 
 

@@ -41,6 +41,10 @@ if TYPE_CHECKING:
 class MideaCloudCoordinator[ReportT](DataUpdateCoordinator[ReportT | None]):
     """Fetch an appliance report independently of its LAN connection."""
 
+    # E1's optional cloud login must not delay LAN entity setup, so its first
+    # refresh runs as a background task instead of during platform setup.
+    prime_in_background: bool = False
+
     def __init__(  # ruff: ignore[too-many-arguments]
         self,
         hass: HomeAssistant,
@@ -174,7 +178,7 @@ def create_filter_wash_time_coordinator(
             ex,
         )
         return None
-    return MideaCloudCoordinator(
+    coordinator = MideaCloudCoordinator(
         hass,
         client,
         config_entry,
@@ -182,3 +186,5 @@ def create_filter_wash_time_coordinator(
         device_name,
         update_interval=FILTER_UPDATE_INTERVAL,
     )
+    coordinator.prime_in_background = True
+    return coordinator
