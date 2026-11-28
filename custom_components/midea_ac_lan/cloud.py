@@ -1,11 +1,9 @@
-"""Midea cloud coordinator.
-
-Currently fetches the E3 usage report; keep this module cloud-generic so more
-cloud-backed features can share it without adding another file.
-"""
+"""Coordinators for optional Midea cloud sensors."""
 
 import logging
+from dataclasses import fields
 from datetime import timedelta
+from typing import TYPE_CHECKING
 
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_PASSWORD, MAJOR_VERSION, MINOR_VERSION
@@ -15,6 +13,7 @@ from homeassistant.helpers.update_coordinator import (
     DataUpdateCoordinator,
     UpdateFailed,
 )
+from midealan.devices.e1.cloud import E1CloudClient
 from midealan.devices.e3.cloud import E3CloudClient, E3DayReport
 from midealan.exceptions import CloudError
 
@@ -26,23 +25,41 @@ _LOGGER = logging.getLogger(__name__)
 # picks a new one up shortly after it is published without stressing the
 # gateway.
 CLOUD_UPDATE_INTERVAL = timedelta(hours=6)
+FILTER_UPDATE_INTERVAL = timedelta(hours=1)
 
 
-class MideaCloudCoordinator(DataUpdateCoordinator[E3DayReport | None]):
-    """Fetch the Midea cloud usage report of an appliance."""
+if TYPE_CHECKING:
+    from typing import Protocol
 
-    def __init__(
+    class CloudReportClient[ReportT](Protocol):
+        """Read an appliance-specific report using a cloud account."""
+
+        async def async_get_report(self, appliance_id: int) -> ReportT | None:
+            """Return the report or None if the server has no data."""
+            ...
+
+
+class MideaCloudCoordinator[ReportT](DataUpdateCoordinator[ReportT | None]):
+    """Fetch an appliance report independently of its LAN connection."""
+
+    # E1's optional cloud login must not delay LAN entity setup, so its first
+    # refresh runs as a background task instead of during platform setup.
+    prime_in_background: bool = False
+
+    def __init__(  # ruff: ignore[too-many-arguments]
         self,
         hass: HomeAssistant,
-        client: E3CloudClient,
+        client: "CloudReportClient[ReportT]",
         config_entry: ConfigEntry,
         appliance_id: int,
         device_name: str,
+        *,
+        update_interval: timedelta = CLOUD_UPDATE_INTERVAL,
     ) -> None:
         """Initialize the cloud usage coordinator."""
         coordinator_args = {
             "name": f"{device_name} cloud usage report",
-            "update_interval": CLOUD_UPDATE_INTERVAL,
+            "update_interval": update_interval,
             "always_update": False,
         }
         if (MAJOR_VERSION, MINOR_VERSION) >= (2024, 12):
@@ -57,12 +74,12 @@ class MideaCloudCoordinator(DataUpdateCoordinator[E3DayReport | None]):
         self._client = client
         self.appliance_id = appliance_id
 
-    async def _async_update_data(self) -> E3DayReport | None:
+    async def _async_update_data(self) -> ReportT | None:
         """Fetch and parse the usage report of the appliance.
 
         Returns
         -------
-        E3DayReport | None
+        ReportT | None
             The parsed report, or None when the cloud holds no report for the
             appliance yet.
 
@@ -83,7 +100,7 @@ def create_cloud_coordinator(
     config_entry: ConfigEntry,
     device_id: str | int,
     device_name: str,
-) -> MideaCloudCoordinator | None:
+) -> MideaCloudCoordinator[E3DayReport] | None:
     """Create the cloud coordinator from the entry options.
 
     Returns
@@ -125,3 +142,100 @@ def create_cloud_coordinator(
         int(device_id),
         device_name,
     )
+
+
+def create_filter_wash_time_coordinator(
+    hass: HomeAssistant,
+    config_entry: ConfigEntry,
+    device_id: str | int,
+    device_name: str,
+) -> MideaCloudCoordinator[int] | None:
+    """Create the opt-in filter coordinator when a personal account is set.
+
+    Returns
+    -------
+    MideaCloudCoordinator[int] | None
+        The coordinator, or None if the user has not entered both credentials
+        or the configured cloud cannot provide signed proxy requests.
+
+    """
+    options = config_entry.options
+    account = options.get(CONF_ACCOUNT)
+    password = options.get(CONF_PASSWORD)
+    server = options.get(CONF_SERVER) or DEFAULT_CLOUD
+    if not account or not password:
+        return None
+    try:
+        client = E1CloudClient(
+            server,
+            async_get_clientsession(hass),
+            str(account),
+            str(password),
+        )
+    except CloudError as ex:
+        _LOGGER.warning(
+            "Unsupported Midea cloud server %s for filter wash time: %s",
+            server,
+            ex,
+        )
+        return None
+    coordinator = MideaCloudCoordinator(
+        hass,
+        client,
+        config_entry,
+        int(device_id),
+        device_name,
+        update_interval=FILTER_UPDATE_INTERVAL,
+    )
+    coordinator.prime_in_background = True
+    return coordinator
+
+
+# E1 report names that need their own client and startup policy.
+_E1_REPORT_FIELDS = frozenset({"filter_wash_time"})
+
+# E3 report names are the value fields of the parsed report: any scalar
+# Home Assistant can render as a sensor state, optionally None. Metadata
+# such as report_date stays out; reuse the dataclass instead of repeating
+# the strings here.
+_E3_REPORT_FIELDS = frozenset(
+    field.name
+    for field in fields(E3DayReport)
+    if field.type in (float, int, str, float | None, int | None, str | None)
+)
+
+_REPORT_FACTORIES = {
+    **dict.fromkeys(_E1_REPORT_FIELDS, create_filter_wash_time_coordinator),
+    **dict.fromkeys(_E3_REPORT_FIELDS, create_cloud_coordinator),
+}
+
+
+def create_cloud_report_coordinator(
+    hass: HomeAssistant,
+    config_entry: ConfigEntry,
+    device_id: str | int,
+    device_name: str,
+    report: str,
+) -> MideaCloudCoordinator[E3DayReport] | MideaCloudCoordinator[int] | None:
+    """Create the coordinator for a cloud report kind.
+
+    Device-specific report clients and their startup policy stay in this
+    module, so generic platform files only ask for a report by name.
+
+    Returns
+    -------
+    MideaCloudCoordinator | None
+        The coordinator, or None when the report needs an account and none is
+        stored in the options.
+
+    Raises
+    ------
+    ValueError
+        If ``report`` is not an E1 or E3 cloud report field.
+
+    """
+    factory = _REPORT_FACTORIES.get(report)
+    if factory is None:
+        msg = f"Unknown Midea cloud report: {report}"
+        raise ValueError(msg)
+    return factory(hass, config_entry, device_id, device_name)

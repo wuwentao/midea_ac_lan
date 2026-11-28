@@ -8,15 +8,18 @@ from homeassistant.const import CONF_PASSWORD
 from homeassistant.helpers.update_coordinator import UpdateFailed
 from midealan.exceptions import CloudError
 
+from custom_components.midea_ac_lan import cloud as cloud_module
 from custom_components.midea_ac_lan.cloud import (
     MideaCloudCoordinator,
     create_cloud_coordinator,
+    create_cloud_report_coordinator,
 )
 from custom_components.midea_ac_lan.const import (
     CONF_ACCOUNT,
     CONF_SERVER,
     DEFAULT_CLOUD,
 )
+from custom_components.midea_ac_lan.midea_devices import MIDEA_DEVICES
 
 
 async def test_coordinator_update_success_and_error() -> None:
@@ -139,3 +142,25 @@ def test_create_coordinator_rejects_unsupported_server() -> None:
         ),
     ):
         assert create_cloud_coordinator(Mock(), entry, 1, "Device") is None
+
+
+def test_create_cloud_report_coordinator_rejects_unknown_kind() -> None:
+    """Fail fast on a malformed device-registry report value."""
+    entry = SimpleNamespace(
+        options={CONF_ACCOUNT: "user", CONF_PASSWORD: "secret"},
+    )
+    with pytest.raises(ValueError, match="typo"):
+        create_cloud_report_coordinator(Mock(), entry, 1, "Device", "typo")
+
+
+def test_every_device_cloud_report_has_a_factory() -> None:
+    """Keep the factory map in sync with the device registry values."""
+    reports = {
+        str(config["cloud_report"])
+        for device in MIDEA_DEVICES.values()
+        for config in device["entities"].values()
+        if config.get("cloud_report") is not None
+    }
+    assert reports
+    assert "report_date" not in cloud_module._REPORT_FACTORIES
+    assert reports <= set(cloud_module._REPORT_FACTORIES)

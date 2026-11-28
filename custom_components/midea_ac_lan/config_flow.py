@@ -1129,12 +1129,10 @@ class MideaLanOptionsFlowHandler(OptionsFlow):
                     ): cv.multi_select(switches),
                 },
             )
-        # E3 gas water heaters report water/gas usage only through the
-        # Midea cloud day report; the optional usage statistics sensors
-        # (see cloud.py) need the user's own Midea app account. The cloud
-        # server list is shared with the login flow (SUPPORTED_CLOUDS) and
-        # defaults to DEFAULT_CLOUD, which is report-capable.
-        if self._device_type == DeviceType.E3:
+        # Optional cloud sensors use the user's own Midea account, not the
+        # local device token/key. E1CloudClient accepts any registered cloud
+        # that provides the signed proxy used by the filter query.
+        if self._device_type == DeviceType.E3 or "filter_wash_time" in sensors:
             data_schema = data_schema.extend(
                 {
                     vol.Optional(

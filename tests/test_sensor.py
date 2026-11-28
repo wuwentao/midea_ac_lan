@@ -88,8 +88,9 @@ async def test_async_setup_entry_builds_all_sensor_types(
     hass, entry, add_entities = setup_context(device, sensors=["plain"])
     coordinator = Mock()
     coordinator.async_refresh = AsyncMock()
+    coordinator.prime_in_background = False
     with patch(
-        "custom_components.midea_ac_lan.sensor.create_cloud_coordinator",
+        "custom_components.midea_ac_lan.sensor.create_cloud_report_coordinator",
         return_value=coordinator,
     ) as create:
         await async_setup_entry(hass, entry, add_entities)
@@ -106,7 +107,9 @@ async def test_async_setup_entry_builds_all_sensor_types(
     ]
     assert added[0]._coordinator is coordinator
     assert added[1]._coordinator is coordinator
-    create.assert_called_once_with(hass, entry, device.device_id, device.name)
+    create.assert_called_once_with(
+        hass, entry, device.device_id, device.name, "energy"
+    )
     coordinator.async_refresh.assert_awaited_once_with()
 
 
@@ -132,11 +135,13 @@ async def test_async_setup_entry_skips_unconfigured_cloud_once(
     device, _ = device_factory()
     hass, entry, add_entities = setup_context(device)
     with patch(
-        "custom_components.midea_ac_lan.sensor.create_cloud_coordinator",
+        "custom_components.midea_ac_lan.sensor.create_cloud_report_coordinator",
         return_value=None,
     ) as create:
         await async_setup_entry(hass, entry, add_entities)
-    create.assert_called_once_with(hass, entry, device.device_id, device.name)
+    create.assert_called_once_with(
+        hass, entry, device.device_id, device.name, "energy"
+    )
     add_entities.assert_called_once_with([])
 
 

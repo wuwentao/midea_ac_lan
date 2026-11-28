@@ -9329,6 +9329,32 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "name": "Storage",
                 "icon": "mdi:repeat-variant",
             },
+            # The library only declares these controls for verified models.
+            "dry_setting": {
+                "type": Platform.SWITCH,
+                "translation_key": "dry_setting",
+                # Only 7600644C's app names this switch "Disinfect and Dry"; the
+                # other verified models expose the same vendor field as a plain
+                # drying switch.
+                "translation_key_by_model": {"7600644C": "dry_setting_7600644c"},
+                "name": "Drying Switch",
+                "icon": "mdi:hair-dryer",
+                "required_attribute": "dry_setting",
+                "available_value_attribute": "dry_setting",
+            },
+            "storage_set_time": {
+                "type": Platform.NUMBER,
+                "translation_key": "storage_set_time",
+                "name": "Storage Duration",
+                "icon": "mdi:timer-outline",
+                "device_class": NumberDeviceClass.DURATION,
+                "unit": UnitOfTime.HOURS,
+                "min": 0,
+                "max": 72,
+                "step": 1,
+                "required_attribute": "storage_set_time",
+                "available_value_attribute": "storage_set_time",
+            },
             "start": {
                 "type": Platform.BUTTON,
                 "translation_key": "start",
@@ -9585,6 +9611,15 @@ MIDEA_DEVICES: dict[int, dict[str, dict[str, Any] | str]] = {
                 "icon": "mdi:timer-outline",
                 "unit": UnitOfTime.MINUTES,
                 "state_class": SensorStateClass.MEASUREMENT,
+            },
+            "filter_wash_time": {
+                "type": Platform.SENSOR,
+                "translation_key": "filter_wash_time",
+                "name": "Filter Wash Time Since Cleaning",
+                "icon": "mdi:filter-outline",
+                "device_class": SensorDeviceClass.DURATION,
+                "unit": UnitOfTime.MINUTES,
+                "cloud_report": "filter_wash_time",
             },
             E1Attributes.clean_left_hour: {
                 "type": Platform.SENSOR,

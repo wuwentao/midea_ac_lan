@@ -62,6 +62,7 @@
 | sensor.{DEVICEID}\_bright                | sensor        | Bright Level                | 亮碟剂档位                                    |
 | sensor.{DEVICEID}\_wrong_operation       | sensor        | Wrong Operation             | 误操作 (诊断)                                 |
 | sensor.{DEVICEID}\_dry_set_min           | sensor        | Dry Set Time                | 烘干设定时间 (分钟)                           |
+| sensor.{DEVICEID}\_filter_wash_time      | sensor        | 滤网累计洗涤时长              | 清洁复位后的累计洗涤分钟数 (云端只读查询，默认不启用) |
 | sensor.{DEVICEID}\_clean_left_hour       | sensor        | Clean Remaining             | 剩余清洁时间 (小时)                           |
 | sensor.{DEVICEID}\_kitchenware_left_hour | sensor        | Kitchenware Remaining       | 剩余餐具时间 (小时)                           |
 | sensor.{DEVICEID}\_device_version        | sensor        | Device Version              | 设备版本 (诊断)                               |
@@ -81,6 +82,24 @@
 | lock.{DEVICEID}\_child_lock              | lock          | Child Lock                  | 童锁                                          |
 | switch.{DEVICEID}\_power                 | switch        | Power                       | 电源开关                                      |
 | switch.{DEVICEID}\_storage               | switch        | Storage                     | 保管开关                                      |
+| switch.{DEVICEID}\_dry_setting           | switch        | Drying Switch               | 下次洗涤后的烘干开关 (型号 `7600644C`、`7600002B`、`760001EC`、`760RX20S`) |
+| number.{DEVICEID}\_storage_set_time      | number        | Storage Duration            | 保管时长, 0–72 小时 (同上四个型号)            |
+
+洗碗机上报状态后，在集成的扩展控制中勾选 **烘干开关** 和 **保管时长**。
+`7600644C` 的 App 把该开关称为 **消毒烘干**，因此该型号显示这一名称；
+其他已验证型号显示 **烘干开关**。**烘干中** 仍表示设备正在烘干。
+**保管时长** 显示设备设定的时长，不是保管剩余时间；调整它不会打开 **保管开关**。
+
+这两个控制只对厂商 Lua 中确有相同命令的型号声明：`7600644C`（子类型 `3`，
+已实机验证）以及 `7600002B`、`760001EC`、`760RX20S`（仅按各自型号 Lua 核对，
+尚未实机验证）。其他型号（包括 `76000228`、`7600024L`）不会创建设两个实体。
+
+**滤网累计洗涤时长** 默认不启用，所有 E1 洗碗机均可选。
+如需使用，请在集成选项中勾选该传感器，并配置自己已绑定这台洗碗机的美的美居账号。
+传感器通过 HTTPS 只读查询美的美居云端，不从局域网读取。数值单位为分钟，
+累计洗涤时间，不含烘干及保管。清洗滤网后，在 App 中执行清洁复位会使该数值下降。
+该云端查询目前仅在 `7600644C` 的 App 插件中确认；其他型号若云端返回缺失或非法值，
+传感器保持不可用。
 
 ## 服务
 
@@ -103,6 +122,8 @@
 | child_lock                 | true 或 false                            |
 | power                      | true 或 false                            |
 | storage                    | true 或 false                            |
+| dry_setting                | true 或 false (型号 `7600644C`、`7600002B`、`760001EC`、`760RX20S`) |
+| storage_set_time            | 0 至 72 整数小时 (同上四个型号)          |
 | mode_select                | 程序名, 如 `eco_wash`; 立即启动          |
 | program                    | 程序名, 如 `eco_wash` (不会启动)         |
 | delay_minutes              | 1 至 1440                                |
