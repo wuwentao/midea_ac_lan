@@ -1,6 +1,7 @@
 """Coordinators for optional Midea cloud sensors."""
 
 import logging
+from dataclasses import fields
 from datetime import timedelta
 from typing import TYPE_CHECKING
 
@@ -190,6 +191,25 @@ def create_filter_wash_time_coordinator(
     return coordinator
 
 
+# E1 report names that need their own client and startup policy.
+_E1_REPORT_FIELDS = frozenset({"filter_wash_time"})
+
+# E3 report names are the value fields of the parsed report: any scalar
+# Home Assistant can render as a sensor state, optionally None. Metadata
+# such as report_date stays out; reuse the dataclass instead of repeating
+# the strings here.
+_E3_REPORT_FIELDS = frozenset(
+    field.name
+    for field in fields(E3DayReport)
+    if field.type in (float, int, str, float | None, int | None, str | None)
+)
+
+_REPORT_FACTORIES = {
+    **dict.fromkeys(_E1_REPORT_FIELDS, create_filter_wash_time_coordinator),
+    **dict.fromkeys(_E3_REPORT_FIELDS, create_cloud_coordinator),
+}
+
+
 def create_cloud_report_coordinator(
     hass: HomeAssistant,
     config_entry: ConfigEntry,
@@ -208,10 +228,14 @@ def create_cloud_report_coordinator(
         The coordinator, or None when the report needs an account and none is
         stored in the options.
 
+    Raises
+    ------
+    ValueError
+        If ``report`` is not an E1 or E3 cloud report field.
+
     """
-    factory = (
-        create_filter_wash_time_coordinator
-        if report == "filter_wash_time"
-        else create_cloud_coordinator
-    )
+    factory = _REPORT_FACTORIES.get(report)
+    if factory is None:
+        msg = f"Unknown Midea cloud report: {report}"
+        raise ValueError(msg)
     return factory(hass, config_entry, device_id, device_name)
